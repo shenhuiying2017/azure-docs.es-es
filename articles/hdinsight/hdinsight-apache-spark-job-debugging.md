@@ -1,5 +1,5 @@
 ---
-title: "Depuración de trabajos que se ejecutan en un clúster de Apache Spark en Azure HDInsight | Microsoft Docs"
+title: "Depuración de trabajos de Apache Spark que se ejecutan en Azure HDInsight | Microsoft Docs"
 description: "Usar la interfaz de usuario de YARN, la de Spark y el servidor de historial de Spark para realizar un seguimiento y depurar trabajos que se ejecutan en un clúster de Spark en HDInsight de Azure"
 services: hdinsight
 documentationcenter: 
@@ -17,16 +17,16 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: d6d7c0d112778172633fa068a119ba075c0fd900
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: df647b77f5f826b7f852bea981bc92089852b35a
 ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="track-and-debug-jobs-running-on-apache-spark-cluster-in-hdinsight"></a>Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight
+# <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depuración de trabajos de Apache Spark que se ejecutan en Azure HDInsight
 
-En este artículo aprenderá a realizar un seguimiento y a depurar los trabajos de Spark mediante la interfaz de usuario de YARN, la de Spark y el servidor de historial de Spark. En este artículo, se iniciará un trabajo de Spark mediante un cuaderno disponible con el clúster de Spark, **Aprendizaje automático: análisis predictivo en datos de inspección de alimentos con MLLib**. Puede utilizar los pasos siguientes para realizar el seguimiento de una aplicación que haya enviado mediante cualquier otro enfoque, por ejemplo, **spark-submit**.
+En este artículo aprenderá a realizar un seguimiento y a depurar los trabajos de Spark que se ejecutan en clústeres de HDInsight mediante la interfaz de usuario de YARN, la de Spark y el servidor de historial de Spark. En este artículo, se iniciará un trabajo de Spark mediante un cuaderno disponible con el clúster de Spark, **Aprendizaje automático: análisis predictivo en datos de inspección de alimentos con MLLib**. Puede utilizar los pasos siguientes para realizar el seguimiento de una aplicación que haya enviado mediante cualquier otro enfoque, por ejemplo, **spark-submit**.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Debe tener lo siguiente:
@@ -120,7 +120,7 @@ Cuando se completa un trabajo, se conserva la información sobre este en el serv
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
+* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)

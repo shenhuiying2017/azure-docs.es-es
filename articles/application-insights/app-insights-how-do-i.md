@@ -3,7 +3,7 @@ title: Procedimientos en Azure Application Insights | Microsoft Docs
 description: P+F en Application Insights.
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: d7795a494fbe8d3a850d7d8805cf059a86965a64
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 2e2b59c89fdc91437f148d062e312204be994350
 ms.contentlocale: es-es
-ms.lasthandoff: 04/05/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -82,55 +82,11 @@ Algunos puntos que se deben tener en cuenta:
 * [Creación de nuevos recursos](app-insights-powershell-script-create-resource.md)
 * [Creación de nuevas alertas](app-insights-alerts.md#automation)
 
-## <a name="application-versions-and-stamps"></a>Marcas de tiempo y versiones de aplicación
-### <a name="separate-the-results-from-dev-test-and-prod"></a>Separación de los resultados de desarrollo, prueba y producción
-* Para distintos entornos, configurar diferentes claves
-* Para las distintas marcas de tiempo (desarrollo, prueba, producción), etiquete la telemetría con distintos valores de propiedad.
+## <a name="separate-telemetry-from-different-versions"></a>Telemetría independiente de diferentes versiones
 
-[Más información](app-insights-separate-resources.md)
-
-### <a name="filter-on-build-number"></a>Filtrado por número de compilación
-Cuando se publica una nueva versión de la aplicación, querrá poder separar la telemetría en las diferentes versiones.
-
-Puede establecer la propiedad de versión de la aplicación para filtrar los resultados de la [búsqueda](app-insights-diagnostic-search.md) y del [explorador de métricas](app-insights-metrics-explorer.md).
-
-![](./media/app-insights-how-do-i/050-filter.png)
-
-Hay diferentes métodos de establecer la propiedad de versión de la aplicación.
-
-* Establezca directamente:
-
-    `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Ajuste esa línea en un [inicializador de telemetría](app-insights-api-custom-events-metrics.md#defaults) para asegurarse de que todas las instancias de TelemetryClient se establecen de forma coherente.
-* [ASP.NET] Establezca la versión en `BuildInfo.config`. El módulo web recogerá la versión del nodo BuildLabel. Incluya este archivo en el proyecto y recuerde que establecer la propiedad Copiar siempre en el Explorador de soluciones.
-
-    ```XML
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
-      <ProjectName>AppVersionExpt</ProjectName>
-      <Build type="MSBuild">
-        <MSBuild>
-          <BuildLabel kind="label">1.0.0.2</BuildLabel>
-        </MSBuild>
-      </Build>
-    </DeploymentEvent>
-
-    ```
-* [ASP.NET] Genere BuildInfo.config automáticamente en MSBuild. Para ello, agregue unas líneas a su archivo .csproj:
-
-    ```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
-    ```
-
-    Esto genera un archivo denominado *suNombreProyecto*.BuildInfo.config. El proceso de publicación cambia su nombre a BuildInfo.config.
-
-    La etiqueta de compilación contiene un marcador de posición (AutoGen_...) al compilar con Visual Studio. Pero cuando se crea con MSBuild, se rellena con el número de versión correcto.
-
-    Para permitir que MSBuild genere números de versión, establezca la versión como `1.0.*` en AssemblyReference.cs.
+* Varios roles en una aplicación: usar un único recurso de Application Insights y filtrar por cloud_NombreDelRol. [Más información](app-insights-monitor-multi-role-apps.md)
+* Separación de versiones de desarrollo, prueba y publicación: utilizar diferentes recursos de Application Insights. Tome las claves de instrumentación de web.config. [Más información](app-insights-separate-resources.md)
+* Generación de informes de versiones de compilación: agregar una propiedad usando un inicializador de telemetría. [Más información](app-insights-separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Supervisar servidores back-end y aplicaciones de escritorio
 [Use el módulo de SDK de Windows Server](app-insights-windows-desktop.md).

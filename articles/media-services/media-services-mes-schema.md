@@ -12,19 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 05/12/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: a526610f5b09ce73a9c192ec45ae8aafab001401
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: b35390c6eb912db966648bff4efb59cece2837b3
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema de Media Encoder Standard
 En este tema se describen algunos de los elementos y tipos del esquema XML en los que se basan los [valores preestablecidos de Media Encoder Standard](media-services-mes-presets-overview.md). En el tema se proporciona una explicación de los elementos y sus valores válidos. El esquema completo se publicará en una fecha posterior.  
 
-## <a name="a-namepreseta-preset-root-element"></a><a name="Preset"></a> Preset (elemento raíz)
+## <a name="Preset"></a> Preset (elemento raíz)
 Define un valor preestablecido de codificación.  
 
 ### <a name="elements"></a>Elementos
@@ -38,7 +39,7 @@ Define un valor preestablecido de codificación.
 | --- | --- | --- |
 | **Versión**<br/><br/> Obligatorio |**xs:decimal** |La versión del valor preestablecido. Se aplican las restricciones siguientes: xs:fractionDigits value="1" y xs:minInclusive value="1". Por ejemplo, **version="1.0"**. |
 
-## <a name="a-nameencodinga-encoding"></a><a name="Encoding"></a> Encoding
+## <a name="Encoding"></a> Encoding
 Contiene una secuencia de los elementos siguientes.  
 
 ### <a name="elements"></a>Elementos
@@ -50,7 +51,7 @@ Contiene una secuencia de los elementos siguientes.
 | **PngImage** |[PngImage](media-services-mes-schema.md#PngImage) |Configuración de la imagen Png. |
 | **JpgImage** |[JpgImage](media-services-mes-schema.md#JpgImage) |Configuración de la imagen Jpg. |
 
-## <a name="a-nameh264videoa-h264video"></a><a name="H264Video"></a> H264Video
+## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>Elementos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
@@ -61,13 +62,13 @@ Contiene una secuencia de los elementos siguientes.
 | **SyncMode**<br/><br/> minOccurs="0" | |La característica se expondrá en versiones futuras. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Colección de capas de vídeo de salida. |
 
-## <a name="a-nameh264layersa-h264layers"></a><a name="H264Layers"></a> H264Layers
+## <a name="H264Layers"></a> H264Layers
 ### <a name="elements"></a>Elementos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |Una colección de capas H264. |
 
-## <a name="a-nameh264layera-h264layer"></a><a name="H264Layer"></a> H264Layer
+## <a name="H264Layer"></a> H264Layer
 > [!NOTE]
 > Los límites de vídeo se basan en los valores descritos en la tabla de [niveles de H264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels).  
 > 
@@ -86,11 +87,11 @@ Contiene una secuencia de los elementos siguientes.
 | **BFrames**<br/><br/> minOccurs="0" |**xs:int** |Número de fotogramas B entre fotogramas de referencia. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Número de fotogramas de referencia en un GOP. |
 | **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs:string** |Puede ser uno de los siguientes valores: **Cabac** y **Cavlc**. |
-| **FrameRate**<br/><br/> minOccurs="0" |número racional |Determina la velocidad de fotogramas del vídeo de salida. Use el valor predeterminado "0/1" para permitir que el codificador use la misma velocidad de fotogramas que el vídeo de entrada. Se espera que los valores permitidos sean velocidades de fotogramas de vídeo habituales, como se muestra a continuación. No obstante, se admite cualquier número racional válido. Por ejemplo, 1/1 sería 1 fps y es válido.<br/><br/> - 12/1  (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23,976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29,97 fps) |
+| **FrameRate**<br/><br/> minOccurs="0" |número racional |Determina la velocidad de fotogramas del vídeo de salida. Use el valor predeterminado "0/1" para permitir que el codificador use la misma velocidad de fotogramas que el vídeo de entrada. Se espera que los valores permitidos sean velocidades de fotogramas de vídeo habituales, como se muestra a continuación. No obstante, se admite cualquier número racional válido. Por ejemplo, 1/1 sería 1 fps y es válido.<br/><br/> - 12/1  (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24000/1001 (23,976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30000/1001 (29,97 fps) <br/> <br/>**NOTA** Si está creando un valor preestablecido personalizado para la codificación de velocidad de bits múltiple, todas las capas del valor preestablecido **deben** tener el mismo valor en FrameRate.|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs:boolean** |Copia de Azure Media Encoder. |
 | **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Determina en cuántos segmentos se divide un fotograma. Se recomienda usar el valor predeterminado. |
 
-## <a name="a-nameaacaudioa-aacaudio"></a><a name="AACAudio"></a> AACAudio
+## <a name="AACAudio"></a> AACAudio
  Contiene una secuencia de los elementos y grupos siguientes.  
 
  Para más información acerca de AAC, consulte [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
@@ -110,7 +111,7 @@ Contiene una secuencia de los elementos siguientes.
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Consulte la descripción de [AudioGroup](media-services-mes-schema.md#AudioGroup) para saber el número adecuado de canales, la velocidad de muestreo y la velocidad de bits que se pueden establecer para cada perfil. |
 
-## <a name="a-nameaudiogroupa-audiogroup"></a><a name="AudioGroup"></a> AudioGroup
+## <a name="AudioGroup"></a> AudioGroup
 Para detalles sobre qué valores son válidos para cada perfil, consulte la tabla "Detalles de códec de audio" más adelante.  
 
 ### <a name="elements"></a>Elementos
@@ -128,14 +129,14 @@ Códec de audio|Detalles
 **HEAACV2**|2.<br/><br/> - 22050: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 24000: 8 &lt;= velocidad de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= velocidad de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= velocidad de bits &lt;= 64<br/><br/> - 88200: 64 &lt;= velocidad de bits &lt;= 64  
   
 
-## <a name="a-nameclipa-clip"></a><a name="Clip"></a> Clip
+## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>Atributos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |Especifica la hora de inicio de una presentación. El valor de StartTime debe coincidir con las marcas de tiempo absoluto de la entrada de vídeo. Por ejemplo, si el primer fotograma del vídeo de entrada tiene la marca de tiempo 12:00:10.000, StartTime debe ser al menos 12:00:10.000 o un valor superior. |
 | **Duration** |**xs:duration** |Especifica la duración de una presentación (por ejemplo, la aparición de una superposición en el vídeo). |
 
-## <a name="a-nameoutputa-output"></a><a name="Output"></a> Output
+## <a name="Output"></a> Output
 ### <a name="attributes"></a>Atributos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
@@ -153,7 +154,7 @@ Códec de audio|Detalles
 | **{Extension}** |Hereda de la propiedad "Type" del archivo de salida. El nombre del archivo de salida tendrá una de estas extensiones: "mp4", "ts", "jpg", "png" o "bmp". |
 | **{Index}** |Obligatorio para una miniatura. Solo debe estar presente una vez. |
 
-## <a name="a-namevideoa-video-complex-type-inherits-from-codec"></a><a name="Video"></a> Video (tipo complejo que hereda de Codec)
+## <a name="Video"></a> Video (tipo complejo que hereda de Codec)
 ### <a name="attributes"></a>Atributos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
@@ -162,7 +163,7 @@ Códec de audio|Detalles
 | **Range** |**xs:string** | |
 | **PreserveResolutionAfterRotation** |**xs:boolean** |Para una explicación detallada, consulte la sección siguiente, [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation). |
 
-### <a name="a-namepreserveresolutionafterrotationa-preserveresolutionafterrotation"></a><a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
+### <a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
 Se recomienda usar la marca PreserveResolutionAfterRotation en combinación con valores de resolución expresados en términos porcentuales (Width=”100 %”, Height = “100 %”).  
 
 De forma predeterminada, la configuración de resolución de codificación (Width, Height) en los valores preestablecidos de Media Encoder Standard (MES) va dirigida a vídeos con rotación de 0 grados. Por ejemplo, si el vídeo de entrada es 1280 × 720 con una rotación de cero grados, los valores preestablecidos garantizan que la salida tenga la misma resolución. Vea la ilustración siguiente.  
@@ -177,7 +178,7 @@ Si el anterior comportamiento no es el deseado, puede usar la marca PreserveReso
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 
-## <a name="a-nameformatgroupa-formatgroup-group"></a><a name="FormatGroup"></a> FormatGroup (grupo)
+## <a name="FormatGroup"></a> FormatGroup (grupo)
 ### <a name="elements"></a>Elementos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
@@ -185,7 +186,7 @@ Si el anterior comportamiento no es el deseado, puede usar la marca PreserveReso
 | **PngFormat** |**PngFormat** | |
 | **JpgFormat** |**JpgFormat** | |
 
-## <a name="a-namebmplayera-bmplayer"></a><a name="BmpLayer"></a> BmpLayer
+## <a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>Elemento
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
@@ -197,7 +198,7 @@ Si el anterior comportamiento no es el deseado, puede usar la marca PreserveReso
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
-## <a name="a-namepnglayera-pnglayer"></a><a name="PngLayer"></a> PngLayer
+## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>Elemento
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
@@ -209,7 +210,7 @@ Si el anterior comportamiento no es el deseado, puede usar la marca PreserveReso
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
-## <a name="a-namejpglayera-jpglayer"></a><a name="JpgLayer"></a> JpgLayer
+## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Elemento
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
@@ -222,37 +223,37 @@ Si el anterior comportamiento no es el deseado, puede usar la marca PreserveReso
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
-## <a name="a-namepnglayersa-pnglayers"></a><a name="PngLayers"></a> PngLayers
+## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>Elementos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
-## <a name="a-namebmplayersa-bmplayers"></a><a name="BmpLayers"></a> BmpLayers
+## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Elementos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
-## <a name="a-namejpglayersa-jpglayers"></a><a name="JpgLayers"></a> JpgLayers
+## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Elementos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
-## <a name="a-namebmpimagea-bmpimage-complex-type-inherits-from-video"></a><a name="BmpImage"></a> BmpImage (tipo complejo que hereda de Video)
+## <a name="BmpImage"></a> BmpImage (tipo complejo que hereda de Video)
 ### <a name="elements"></a>Elementos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Capas Png |
 
-## <a name="a-namejpgimagea-jpgimage-complex-type-inherits-from-video"></a><a name="JpgImage"></a> JpgImage (tipo complejo que hereda de Video)
+## <a name="JpgImage"></a> JpgImage (tipo complejo que hereda de Video)
 ### <a name="elements"></a>Elementos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Capas Png |
 
-## <a name="a-namepngimagea-pngimage-complex-type-inherits-from-video"></a><a name="PngImage"></a> PngImage (tipo complejo que hereda de Video)
+## <a name="PngImage"></a> PngImage (tipo complejo que hereda de Video)
 ### <a name="elements"></a>Elementos
 | Nombre | Tipo | Descripción |
 | --- | --- | --- |

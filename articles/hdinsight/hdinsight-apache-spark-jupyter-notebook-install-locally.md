@@ -1,6 +1,6 @@
 ---
-title: "Instalación de cuadernos de Jupyter localmente y conexión a un clúster de Azure HDInsight Spark | Microsoft Docs"
-description: "Descubra cómo instalar un cuaderno de Jupyter Notebook en el equipo de forma local y cómo conectarse a un clúster de Apache Spark en HDInsight de Azure."
+title: "Instalación de cuadernos de Jupyter Notebook localmente y conexión a un clúster Spark de Azure HDInsight | Microsoft Docs"
+description: "Descubra cómo instalar un cuaderno de Jupyter Notebook en el equipo de forma local y cómo conectarse a un clúster de Apache Spark en Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 689bcb86a5eb4476cb62516f623cd23702cd6bc9
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: c2949fbda0503c779b117aebb14d4d7b76bae426
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight"></a>Instalación de un cuaderno de Jupyter en el equipo y conexión al clúster de Apache Spark en HDInsight Linux
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight Linux
 
 En este artículo obtendrá información sobre cómo instalar un cuaderno de Jupyter Notebook con PySpark personalizado (para Python) y los kernels de Spark (para Scala) con la Sparkmagic, y conecte el cuaderno a un clúster de HDInsight. Puede haber varias razones para instalar Jupyter en el equipo local y también algunos desafíos. Para obtener más información sobre esto, consulte la sección [¿Por qué debo instalar Jupyter en mi equipo?](#why-should-i-install-jupyter-on-my-computer) al final de este artículo.
 
@@ -61,7 +61,7 @@ Para instrucciones sobre cómo instalar los kernels de PySpark y Spark, además 
 
 * Para los clústeres 3.5 y 3.6, instale sparkmagic 0.11.2 ejecutando `pip install sparkmagic==0.11.2`.
 
-## <a name="configure-spark-magic-to-access-the-hdinsight-spark-cluster"></a>Configuración de Sparkmagic para acceder al clúster de Spark en HDInsight
+## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Configuración de Sparkmagic para acceder al clúster de Spark en HDInsight
 
 En esta sección, configurará el conjunto de Sparkmagic que instaló anteriormente para conectarse a un clúster de Apache Spark que debe haber creado ya en HDInsight de Azure.
 
@@ -119,7 +119,7 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
 
     a. Cree un nuevo notebook. En la esquina de la derecha, haga clic en **New**(Nuevo). Debería ver el kernel **Python2** predeterminado y los dos nuevos kernels que instaló, **PySpark** y **Spark**. Haga clic en **PySpark**.
 
-    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Crear un nuevo cuaderno de Jupyter")
+    ![Kernels de cuadernos de Jupyter Notebook](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels de cuadernos de Jupyter Notebook")
 
     b. Ejecute el siguiente fragmento de código.
 

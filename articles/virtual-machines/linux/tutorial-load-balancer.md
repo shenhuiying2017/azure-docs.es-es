@@ -13,20 +13,29 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 5ff735100132e8571871b41ac2309334662adb7f
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 079289f385266293ecfce7cd02b1673a774afbbe
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Equilibrio de la carga de máquinas virtuales Linux en Azure para crear una aplicación de alta disponibilidad
-En este tutorial, aprenderá sobre los distintos componentes de Azure Load Balancer que distribuyen el tráfico y proporcionan una alta disponibilidad. Para ver el equilibrador de carga en acción, compilará una aplicación Node.js que se ejecuta en tres máquinas virtuales (VM) Linux.
+El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribuir las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, aprenderá sobre los distintos componentes de Azure Load Balancer que distribuyen el tráfico y proporcionan una alta disponibilidad. Aprenderá a:
 
-Se pueden completar los pasos de este tutorial con la versión más reciente de la [CLI de Azure 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Creación de un equilibrador de carga de Azure
+> * Creación del sondeo de estado de un equilibrador de carga
+> * Crear reglas de tráfico del equilibrador de carga
+> * Usar cloud-init para crear una aplicación básica de Node.js
+> * Crear máquinas virtuales y conectarlas a un equilibrador de carga
+> * Ver un equilibrador de carga en acción
+> * Agregar y quitar las máquinas virtuales de un equilibrador de carga
+
+Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="azure-load-balancer-overview"></a>Información general sobre Azure Load Balancer
@@ -42,18 +51,18 @@ Si siguió el tutorial anterior para [crear un conjunto de escalado de máquinas
 
 
 ## <a name="create-azure-load-balancer"></a>Creación del equilibrador de carga de Azure
-En esta sección se detalla cómo se puede crear y configurar cada componente del equilibrador de carga. Antes de poder crear el equilibrador de carga, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myRGLoadBalancer* en la ubicación *westus*:
+En esta sección se detalla cómo se puede crear y configurar cada componente del equilibrador de carga. Antes de poder crear el equilibrador de carga, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupLoadBalancer* en la ubicación *eastus*:
 
 ```azurecli
-az group create --name myRGLoadBalancer --location westus
+az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
-Para obtener acceso a la aplicación en Internet, necesita una dirección IP pública para el equilibrador de carga. Cree una dirección IP pública con [az network public-ip create](/cli/azure/public-ip#create). En el ejemplo siguiente se crea una dirección IP pública denominada *myPublicIP* en el grupo de recursos *myRGLoadBalancer*:
+Para obtener acceso a la aplicación en Internet, necesita una dirección IP pública para el equilibrador de carga. Cree una dirección IP pública con [az network public-ip create](/cli/azure/public-ip#create). En el ejemplo siguiente se crea una dirección IP pública denominada *myPublicIP* en el grupo de recursos *myResourceGroupLoadBalancer*:
 
 ```azurecli
 az network public-ip create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP
 ```
 
@@ -62,7 +71,7 @@ Cree un equilibrador de carga con [az network lb create](/cli/azure/network/lb#c
 
 ```azurecli
 az network lb create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myLoadBalancer \
     --frontend-ip-name myFrontEndPool \
     --backend-pool-name myBackEndPool \
@@ -78,7 +87,7 @@ Para crear un sondeo de estado TCP, debe usar el comando [az network lb probe cr
 
 ```azurecli
 az network lb probe create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
@@ -92,7 +101,7 @@ Cree una regla de equilibrador de carga con [az network lb rule create](/cli/azu
 
 ```azurecli
 az network lb rule create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
     --name myLoadBalancerRule \
     --protocol tcp \
@@ -112,7 +121,7 @@ Cree la red virtual con el comando [az network vnet create](/cli/azure/vnet#crea
 
 ```azurecli
 az network vnet create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myVnet \
     --subnet-name mySubnet
 ```
@@ -121,7 +130,7 @@ Para agregar un grupo de seguridad de red, use el comando [az network nsg create
 
 ```azurecli
 az network nsg create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myNetworkSecurityGroup
 ```
 
@@ -129,7 +138,7 @@ Cree una regla de grupo de seguridad de red con el comando [az network nsg rule 
 
 ```azurecli
 az network nsg rule create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nsg-name myNetworkSecurityGroup \
     --name myNetworkSecurityGroupRule \
     --priority 1001 \
@@ -142,7 +151,7 @@ Las NIC virtuales se crean con el comando [az network nic create](/cli/azure/net
 ```bash
 for i in `seq 1 3`; do
     az network nic create \
-        --resource-group myRGLoadBalancer \
+        --resource-group myResourceGroupLoadBalancer \
         --name myNic$i \
         --vnet-name myVnet \
         --subnet mySubnet \
@@ -206,7 +215,7 @@ Cree el conjunto de disponibilidad con [az vm availability-set create](/cli/azur
 
 ```azurecli
 az vm availability-set create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myAvailabilitySet \
     --platform-fault-domain-count 3 \
     --platform-update-domain-count 2
@@ -217,7 +226,7 @@ Ahora puede crear las máquinas virtuales con el comando [az vm create](/cli/azu
 ```bash
 for i in `seq 1 3`; do
     az vm create \
-        --resource-group myRGLoadBalancer \
+        --resource-group myResourceGroupLoadBalancer \
         --name myVM$i \
         --availability-set myAvailabilitySet \
         --nics myNic$i \
@@ -237,7 +246,7 @@ Obtenga la dirección IP pública del equilibrador de carga con [az network publ
 
 ```azurecli
 az network public-ip show \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
@@ -258,7 +267,7 @@ Puede quitar una máquina virtual del grupo de direcciones de back-end con el co
 
 ```azurecli
 az network nic ip-config address-pool remove \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
     --ip-config-name ipConfig1 \
     --lb-name myLoadBalancer \
@@ -272,7 +281,7 @@ Después de realizar el mantenimiento en una máquina virtual, o si necesita exp
 
 ```azurecli
 az network nic ip-config address-pool add \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
     --ip-config-name ipConfig1 \
     --lb-name myLoadBalancer \
@@ -281,7 +290,19 @@ az network nic ip-config address-pool add \
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, aprendió sobre la creación de un equilibrador de carga para las máquinas virtuales. Prosiga con el siguiente tutorial para aprender más sobre los componentes de red virtual de Azure.
+En este tutorial, ha creado un equilibrador de carga y conectó máquinas virtuales a él. Ha aprendido a:
 
-[Administración de redes de máquinas virtuales](tutorial-virtual-network.md)
+> [!div class="checklist"]
+> * Creación de un equilibrador de carga de Azure
+> * Creación del sondeo de estado de un equilibrador de carga
+> * Crear reglas de tráfico del equilibrador de carga
+> * Usar cloud-init para crear una aplicación básica de Node.js
+> * Crear máquinas virtuales y conectarlas a un equilibrador de carga
+> * Ver un equilibrador de carga en acción
+> * Agregar y quitar las máquinas virtuales de un equilibrador de carga
+
+Prosiga con el siguiente tutorial para aprender más sobre los componentes de red virtual de Azure.
+
+> [!div class="nextstepaction"]
+> [Administración de máquinas y redes virtuales](tutorial-virtual-network.md)
 

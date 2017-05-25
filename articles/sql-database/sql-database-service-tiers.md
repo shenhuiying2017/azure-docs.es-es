@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 04/26/2017
+wms.date: 05/14/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 3300c4e79ddc6c8e04c3b4d80b3ee07bd6aeea9d
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1811c325e240a6688b09f7260b33fbe19d022cea
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -59,7 +59,7 @@ En primer lugar, decida si desea ejecutar una base de datos única con una canti
 ||||||
 
 > [!IMPORTANT]
-> Las opciones de almacenamiento adicional se encuentran actualmente disponibles en las siguientes regiones: Este de EE. UU. 2, Oeste de EE. UU., Europa Occidental, Asia Suroriental, Japón Oriental, Este de Australia, Canadá Central y Canadá Oriental. Consulte las [limitaciones actuales de 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Las opciones de almacenamiento adicional se encuentran actualmente disponibles en las siguientes regiones: Este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU., Europa Occidental, Alemania Central, Asia Suroriental, Japón Oriental, Este de Australia, Canadá Central y Canadá Oriental. Consulte las [limitaciones actuales de 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
 Cuando haya determinado el nivel de servicio mínimo, estará listo para determinar el nivel de rendimiento de la base de datos (el número de DTU). Con frecuencia, los niveles de rendimiento S2 y S3 estándar son un buen punto de partida. Para las bases de datos con los requisitos de CPU o E/S altos, los niveles de rendimiento Premium son el punto de partida adecuado. El nivel Premium ofrece más CPU y comienza en 10 veces más E/S que el nivel de rendimiento estándar más alto.
@@ -96,7 +96,7 @@ La duración de todo el proceso de escalado vertical depende del nivel de servic
 
 Los grupos permiten que las bases de datos compartan y consuman recursos de eDTU sin necesidad de asignar un nivel de rendimiento específico a cada una. Por ejemplo, una base de datos única de un grupo Estándar puede usar desde 0 eDTU al número máximo de eDTU de base de datos que estableció al configurar el grupo. Los grupos permiten que varias bases de datos con diferentes cargas de trabajo usen de forma eficaz los recursos de eDTU disponibles para todo el grupo. Consulte el artículo sobre las [consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool.md) para más información.
 
-En las tablas siguientes se describen los límites de recursos de los grupos elásticos.  Tenga en cuenta que los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que para las bases de datos únicas fuera de los grupos basados en DTU y el nivel de servicio.  Por ejemplo, el número máximo de trabajadores simultáneos de una base de datos S2 es de 120 trabajadores.  Por lo tanto, el número máximo de trabajadores simultáneos de una base de datos de un grupo estándar también es de 120 trabajadores si el número máximo de DTU por base de datos del grupo es de 50 DTU (que es equivalente a S2).
+En las tablas siguientes se describen los límites de recursos de los grupos elásticos.  Los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que para las bases de datos únicas fuera de los grupos basados en DTU y el nivel de servicio.  Por ejemplo, el número máximo de trabajadores simultáneos de una base de datos S2 es de 120 trabajadores.  Por lo tanto, el número máximo de trabajadores simultáneos de una base de datos de un grupo estándar también es de 120 trabajadores si el número máximo de DTU por base de datos del grupo es de 50 DTU (que es equivalente a S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -130,18 +130,18 @@ ALTER DATABASE <myDatabaseName>
    MODIFY (MAXSIZE = 4096 GB);
 ```
 
-La actualización de una base de datos P11 o P15 existente solo puede realizarse mediante un inicio de sesión de entidad de seguridad de nivel de servidor o por los miembros del rol de base de datos dbmanager. Si se ha ejecutado en una región admitida, la configuración se actualizará inmediatamente. Esto se puede comprobar mediante [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) o inspeccionando el tamaño de la base de datos en el portal de Azure. La base de datos permanecerá en línea durante el proceso de actualización. Sin embargo, no podrá utilizar los 4 TB completos de almacenamiento hasta que se hayan actualizado los archivos de base de datos reales con el nuevo tamaño máximo. El período de tiempo necesario depende del tamaño de la base de datos que se va a actualizar.  
+La actualización de una base de datos P11 o P15 existente solo puede realizarse mediante un inicio de sesión de entidad de seguridad de nivel de servidor o por los miembros del rol de base de datos dbmanager. Si se ha ejecutado en una región admitida, la configuración se actualizará inmediatamente. Esto se puede comprobar mediante [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) o inspeccionando el tamaño de la base de datos en el portal de Azure. La base de datos permanecerá en línea durante el proceso de actualización. Sin embargo, no podrá utilizar los 4 TB completos de almacenamiento hasta que se hayan actualizado los archivos de base de datos reales con el nuevo tamaño máximo. El período de tiempo necesario depende del tamaño de la base de datos que se va a actualizar.  
 
 ### <a name="error-messages"></a>mensajes de error
-Al crear o actualizar una base de datos P11/P15 en una región no compatible, la operación de creación o actualización dará error con el siguiente mensaje de error: **P11 and P15 database with up to 4TB of storage are available in US East 2, West US, South East Asia, West Europe, Canada East, Canada Central, Japan East, and Australia East** (Las bases de datos P11 y P15 con hasta 4 TB de almacenamiento están disponibles en las regiones de Este de EE. UU. - 2, Oeste de EE. UU., Asia Suroriental, Europa Occidental, Canadá Oriental, Canadá central, Este de Japón y Este de Australia).
+Al crear o actualizar una base de datos P11/P15 en una región no compatible, la operación de creación o actualización dará error con el siguiente mensaje de error: **P11 and P15 database with up to 4TB of storage are available in US East 2, West US, South East Asia, West Europe, Canada East, Canada Central, Japan East, and Australia East** (Las bases de datos P11 y P15 con hasta 4 TB de almacenamiento están disponibles en las regiones de Este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU., Europa Occidental, Alemania Central, Asia Suroriental, Japón Oriental, Este de Australia, Canadá Central y Canadá Oriental).
 
 ## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitaciones actuales de las bases de datos P11 y P15 con un tamaño máximo de 4 TB
 
-- Al crear o actualizar una base de datos P11 o P15, solo puede optar entre un tamaño máximo de 1 TB y 4 TB. Actualmente no se admiten tamaños de almacenamiento intermedios.
+- Al crear o actualizar una base de datos P11 o P15, solo puede optar entre un tamaño máximo de 1 TB y 4 TB. Actualmente no se admiten tamaños de almacenamiento intermedios.
 - El tamaño máximo de base de datos de 4 TB no se puede cambiar a 1 TB aunque el almacenamiento real usado esté por debajo de 1 TB. Por tanto, no puede degradar una base de datos P11-4TB/P15-4TB a una base de datos P11-1TB/P15-1TB o de un nivel de rendimiento inferior (por ejemplo, a P1-P6) hasta que proporcionemos opciones de almacenamiento adicionales para el resto de los niveles de rendimiento. Esta restricción también se aplica a los escenarios de copia y restauración, lo que incluye la restauración a un momento dado, la restauración geográfica, la retención de copias de seguridad a largo plazo y la copia de base de datos. Una vez que una base de datos está configurada con la opción de 4 TB, todas las operaciones de restauración de esta base de datos deben ejecutarse en una P11/P15 con un tamaño máximo de 4 TB.
 - En escenarios de replicación geográfica activa:
-   - Configuración de una relación de replicación geográfica: si la base de datos principal es P11 o P15, la secundaria (una o varias) también debe P11 o P15; aquellas con un nivel de rendimiento inferior se rechazarán como secundarias, puesto que no tienen capacidad para admitir 4 TB.
-   - Actualización de la base de datos principal en una relación de replicación geográfica: al cambiar el tamaño máximo a 4 TB en una base de datos principal, se desencadenará el mismo cambio en la base de datos secundaria. Ambas actualizaciones deben realizarse correctamente para que el cambio en la principal surta efecto. Se aplican limitaciones por región para la opción de 4TB (consulte anteriormente). Si la base de datos secundaria está en una región que no admite 4 TB, no se actualizará la principal.
+   - Configuración de una relación de replicación geográfica: si la base de datos principal es P11 o P15, la secundaria (una o varias) también debe P11 o P15; aquellas con un nivel de rendimiento inferior se rechazarán como secundarias, puesto que no tienen capacidad para admitir 4 TB.
+   - Actualización de la base de datos principal en una relación de replicación geográfica: al cambiar el tamaño máximo a 4 TB en una base de datos principal, se desencadenará el mismo cambio en la base de datos secundaria. Ambas actualizaciones deben realizarse correctamente para que el cambio en la principal surta efecto. Se aplican limitaciones por región para la opción de 4TB (consulte anteriormente). Si la base de datos secundaria está en una región que no admite 4 TB, no se actualizará la principal.
 - No se admite el uso del servicio Import/Export para cargar bases de datos P11-4TB/P15-4TB. Use SqlPackage.exe para [importar](sql-database-import.md) y [exportar](sql-database-export.md) datos.
 
 ## <a name="next-steps"></a>Pasos siguientes

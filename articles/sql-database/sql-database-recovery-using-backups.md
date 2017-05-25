@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/10/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 295de55b311efe078fc9512ee886abc7a9ca6118
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1d0167744e3068f6b52ae71f3433a383d607d07e
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -94,10 +94,10 @@ La funcionalidad de restauración geográfica proporciona la opción de recupera
 
 ![Restauración geográfica](./media/sql-database-geo-restore/geo-restore-2.png)
 
-Para obtener información detallada sobre cómo usar la restauración geográfica a fin de recuperarse de una interrupción, consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](sql-database-disaster-recovery.md)
+Para obtener información detallada sobre cómo usar la restauración geográfica a fin de recuperarse de una interrupción, consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> La recuperación de copias de seguridad es la más básica de las soluciones de recuperación ante desastres disponibles en SQL Database con el RPO y el tiempo de recuperación estimado (ERT) más largos. En las bases de datos básicas con un tamaño máximo de 2 GB, la funcionalidad de restauración geográfica proporciona una solución de recuperación ante desastres razonable con un ERT de 12 horas. En bases de datos Standard o Premium más grandes, si se desean tiempos de recuperación más cortos o reducir la probabilidad de pérdida de datos, sería conveniente considerar la posibilidad de usar la replicación geográfica activa. La replicación geográfica activa ofrece RPO y ERT mucho menores, ya que solo es necesario iniciar una conmutación por error en un elemento secundario replicado continuamente. Para más información, consulte [Información general: Replicación geográfica activa para Base de datos SQL de Azure](sql-database-geo-replication-overview.md).
+> La recuperación de copias de seguridad es la más básica de las soluciones de recuperación ante desastres disponibles en SQL Database con el RPO y el tiempo de recuperación estimado (ERT) más largos. Para las soluciones que emplean bases de datos Básico, la restauración geográfica suele ser una solución de recuperación ante desastres razonable con un ERT de 12 horas. En lo que respecta a las soluciones que utilizan bases de datos Estándar o Premium más grandes que precisan tiempos de recuperación más cortos, sería conveniente considerar la posibilidad de usar la [replicación geográfica activa](sql-database-geo-replication-overview.md). La replicación geográfica activa ofrece RPO y ERT mucho menores, ya que solo es necesario iniciar una conmutación por error en un elemento secundario replicado continuamente. Para obtener más información sobre las opciones de continuidad empresarial, vea [este artículo](sql-database-business-continuity.md).
 > 
 
 ### <a name="azure-portal"></a>Portal de Azure

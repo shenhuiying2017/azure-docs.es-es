@@ -1,6 +1,6 @@
 ---
-title: Uso de paquetes personalizados de Maven con cuadernos de Jupyter en Spark en Azure | Microsoft Docs
-description: "Dispone de instrucciones detalladas sobre cómo configurar los cuadernos de Jupyter Notebook con los clústeres de HDInsight Spark para utilizar paquetes de Spark externos."
+title: Uso de paquetes personalizados de Maven con cuadernos de Jupyter Notebook en Spark en Azure HDInsight | Microsoft Docs
+description: "Instrucciones detalladas sobre cómo configurar cuadernos de Jupyter Notebook disponibles con clústeres de HDInsight Spark para usar paquetes personalizados de Maven."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: db2e8391bcae98b2ef0fb93fb4e4e98a287b4846
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: fed11346e43d460b2def53cd1c0addfe0557d480
 ms.contentlocale: es-es
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -42,7 +42,6 @@ En este artículo, aprenderá a utilizar el paquete [spark csv](http://search.ma
 ## <a name="prerequisites"></a>Requisitos previos
 Debe tener lo siguiente:
 
-* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Uso de paquetes externos con cuadernos de Jupyter Notebook
@@ -59,11 +58,11 @@ Debe tener lo siguiente:
 
 3. Cree un nuevo notebook. Haga clic en **Nuevo** y luego en **Spark**.
    
-    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
+    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "Crear un nuevo cuaderno de Jupyter")
 
 4. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Haga clic en el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
    
-    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
+    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "Proporcionar un nombre para el cuaderno")
 
 5. Utilizará la instrucción mágica `%%configure` para configurar el cuaderno para usar un paquete externo. En los cuadernos que utilizan paquetes externos, asegúrese de invocar la instrucción mágica `%%configure` en la primera celda de código. Esto garantiza que el kernel se configure para utilizar el paquete antes de iniciar la sesión.
 

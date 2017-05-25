@@ -12,12 +12,12 @@ ms.custom: connection security
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/15/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 079e4234c7969b267e7e3a3a518cae570da77dfe
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: dd8b3d5b26f4a903f403e5c7e9dba645a14b3231
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configuración de la conectividad SSL en Azure Database for PostgreSQL
@@ -28,19 +28,19 @@ De forma predeterminada, el servicio de base de datos de PostgreSQL está config
 ## <a name="enforcing-ssl-connections"></a>Establecimiento de conexiones SSL
 Para todos los servidores de Azure Database for PostgreSQL aprovisionados en Azure Portal o con la CLI de Azure, el establecimiento de conexiones SSL está habilitado de forma predeterminada. 
 
-Del mismo modo, las cadenas de conexión que están predefinidas en la configuración de "Cadenas de conexión" del servidor en Azure Portal incluyen los parámetros necesarios para que los lenguajes comunes se conecten al servidor de base de datos mediante SSL. El parámetro SSL varía según el conector; por ejemplo "ssl=true", "sslmode=require", "sslmode=required" y otras variaciones.
+Del mismo modo, las cadenas de conexión que están predefinidas en la configuración de "Cadenas de conexión" del servidor en Azure Portal incluyen los parámetros necesarios para que los lenguajes comunes se conecten al servidor de base de datos mediante SSL. El parámetro SSL varía según el conector, por ejemplo, "ssl = true" o "sslmode = require" o "sslmode = required" y otras variaciones.
 
 ## <a name="configure-enforcement-of-ssl"></a>Configuración del establecimiento de SSL
 Si lo desea, puede deshabilitar el establecimiento de la conectividad SSL. Microsoft Azure recomienda habilitar siempre la opción de configuración **Enforce SSL connection** (Establecer conexión SSL) para mayor seguridad.
 
-#### <a name="using-the-azure-portal"></a>Uso del portal de Azure
+### <a name="using-the-azure-portal"></a>Uso del portal de Azure
 Visite el servidor de Azure Database for PostgreSQL y haga clic en **Seguridad de conexión**. Use el botón de alternancia para habilitar o deshabilitar la opción de configuración **Enforce SSL connection** (Establecer conexión SSL). A continuación, haga clic en **Guardar**. 
 
 ![Seguridad de conexión - Deshabilitar el establecimiento de SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
 
 Puede confirmar la configuración; para ello, consulte la página de **información general** para ver el indicador de **estado de establecimiento de SSL**.
 
-#### <a name="using-azure-cli"></a>Uso de la CLI de Azure
+### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 Puede habilitar o deshabilitar el parámetro **ssl-enforcement** con los valores `Enabled` o `Disabled` respectivamente en la CLI de Azure.
 
 ```azurecli
@@ -67,11 +67,11 @@ Abra una sesión de terminal e instale OpenSSL.
 ```bash
 wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
 ``` 
-Extraiga los archivos del paquete de descarga.
+Extraiga los archivos del paquete descargado.
 ```bash
 tar -xvzf openssl-1.1.0e.tar.gz
 ```
-Escriba el directorio donde se han extraído los archivos. La opción predeterminada debe ser la siguiente.
+Vaya al directorio donde se extrajeron los archivos. La opción predeterminada debe ser la siguiente.
 
 ```bash
 cd openssl-1.1.0e
@@ -86,7 +86,7 @@ Ahora que OpenSSL está configurado correctamente, debe compilarlo para converti
 ```bash
 make
 ```
-Una vez completada la compilación, está listo para instalar OpenSSL como un ejecutable mediante la ejecución del comando siguiente:
+Una vez completada la compilación, está listo para instalar OpenSSL como un ejecutable con el comando siguiente:
 ```bash
 make install
 ```
@@ -102,8 +102,8 @@ OpenSSL 1.1.0e 7 Apr 2014
 
 #### <a name="for-windows"></a>Para Windows
 La instalación de OpenSSL en un PC Windows puede realizarse de las siguientes formas:
-1. **(Recomendado)**  Mediante la funcionalidad integrada de Bash para Windows en Windows 10 y versiones posteriores, OpenSSL está instalado de forma predeterminada. Puede consultar instrucciones sobre cómo habilitar la funcionalidad de Bash para Windows en Windows 10 [aquí](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
-2. Mediante la descarga de una aplicación Win32/64 proporcionada por la comunidad. Aunque OpenSSL Software Foundation no proporciona ni respalda ningún instalador específico de Windows, sí se proporciona una lista de los instaladores disponibles [aquí](https://wiki.openssl.org/index.php/Binaries).
+1. **(Recomendado)**  OpenSSL se instala de forma predeterminada con la funcionalidad de Bash para Windows integrada en Windows 10 y versiones posteriores. Encontrará instrucciones sobre cómo habilitar la funcionalidad de Bash para Windows en Windows 10 [aquí](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
+2. Mediante la descarga de una aplicación de Win32/64 proporcionada por la comunidad. Aunque OpenSSL Software Foundation no proporciona ni respalda ningún instalador específico de Windows, sí se proporciona una lista de los instaladores disponibles [aquí](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Descodificación del archivo de certificado
 El archivo descargado de la entidad de certificación raíz está en formato cifrado. Utilice OpenSSL para descodificar el archivo de certificado. Para ello, ejecute este comando de OpenSSL:
@@ -115,8 +115,12 @@ OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -text -out root.crt
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Conexión a Azure Database for PostgreSQL con la autenticación de certificados SSL
 Ahora que ha descodificado correctamente el certificado, ya puede conectarse al servidor de bases de datos de forma segura mediante SSL. Para permitir la verificación del certificado del servidor, el certificado debe estar en el archivo ~/.postgresql/root.crt del directorio principal del usuario. (En Microsoft Windows el archivo se denomina %APPDATA%\postgresql\root.crt). A continuación se proporcionan instrucciones para conectarse a Azure Database for PostgreSQL.
 
+> [!NOTE]
+> Actualmente, hay un problema conocido si usa "sslmode=verify-full" en la conexión al servicio, ya que se producirá un error de la conexión con el siguiente error: _El certificado de servidor para "&lt;region&gt;.control.database.windows.net" (y otros 7 nombres) no coincide con el nombre de host "&lt;NombreDelServidor&gt;.postgres.database.azure.com"._
+> Si se requiere "sslmode=verify-full", use la convención de nomenclatura de servidor  **&lt;NombreDelServidor&gt;.database.windows.net** como el nombre de host de la cadena de conexión. Tenemos previsto quitar esta limitación en el futuro. Las conexiones que usan otros [modos SSL](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) deben seguir utilizando la convención de nomenclatura de host preferida **&lt;NombreDelServidor&gt;.postgres.database.azure.com**.
+
 #### <a name="using-psql-command-line-utility"></a>Con la utilidad de línea de comandos psql
-Los ejemplos siguientes muestran cómo conectarse correctamente al servidor PostgreSQL a través de la interfaz de la línea de comandos de pgsql y mediante la utilidad de línea de comandos psql, con el archivo `root.crt` creado y la opción `sslmode=verify-ca`.
+En el ejemplo siguiente se muestra cómo conectarse correctamente a su servidor de PostgreSQL mediante la utilidad de línea de comandos psql. Use el archivo `root.crt` creado y las opciones `sslmode=verify-ca` o `sslmode=verify-full`.
 
 Mediante la interfaz de la línea de comandos de PostgreSQL, ejecute el siguiente comando:
 ```bash
@@ -136,9 +140,10 @@ postgres=>
 ```
 
 #### <a name="using-pgadmin-gui-tool"></a>Con la herramienta de GUI pgAdmin
-Para configurar pgAdmin 4 para conectarse de forma segura a través de SSL, es necesario establecer `SSL mode = Verify-CA` como sigue:
+Para configurar pgAdmin 4 para conectarse de forma segura a través de SSL, es necesario establecer `SSL mode = Verify-CA` o `SSL mode = Verify-Full` como sigue:
 
 ![Captura de pantalla del modo de conexión SSL requerido para pgAdmin](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Revise las distintas opciones de conectividad de aplicaciones en [Bibliotecas de conexiones de Azure Database for PostgreSQL](concepts-connection-libraries.md).
+

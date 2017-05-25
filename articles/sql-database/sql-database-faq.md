@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 0b53eb34293078ad2ce334583fee88a8c5ac5ccf
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 6ed02ead07c50b9a49e8868756b6f957d7b49b99
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---

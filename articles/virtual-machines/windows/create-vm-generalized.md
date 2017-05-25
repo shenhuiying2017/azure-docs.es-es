@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5cad7bf8030bd60c6adc5fb0c9ad39a2d703face
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 537f9878a22a90a55f30b0b4cee766017e753f37
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -173,6 +174,6 @@ Cuando finalice, debería ver la máquina virtual recién creada en el [Azure Po
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para administrar la nueva máquina virtual de Azure PowerShell, consulte [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para administrar máquinas virtuales con Azure PowerShell, consulte [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Creación de aplicaciones de Scala Maven para su ejecución en clústeres de Azure Spark | Microsoft Docs"
+title: "Creación de aplicaciones de Scala para su ejecución en clústeres Spark de Azure HDInsight | Microsoft Docs"
 description: "Obtenga información sobre cómo crear una aplicación independiente de Spark mediante Maven para su ejecución en clústeres de HDInsight Spark."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c435e8ec21b568afcadaa1af95964753d36d0ccb
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 3cc921bdd6c9b374bda7bbfc3781f7a1327ae438
 ms.contentlocale: es-es
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---

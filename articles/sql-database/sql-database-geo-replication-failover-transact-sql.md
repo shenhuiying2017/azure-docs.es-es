@@ -15,26 +15,28 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 6d5ee44b57ce3e60b72ff2a2d182f2b8a39ecf81
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 6ea2cfcf41900ecbf4d254cc4a195848144a0fa0
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con Transact-SQL
 
-En este artículo se muestra cómo iniciar la conmutación por error a una Base de datos SQL secundaria con Transact-SQL. Para configurar la replicación geográfica, consulte [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](sql-database-geo-replication-transact-sql.md).
+En este artículo se muestra cómo iniciar la conmutación por error a una Base de datos SQL secundaria con Transact-SQL. Para configurar la replicación geográfica, consulte el artículo de [configuración de replicación geográfica para Azure SQL Database con Azure Portal](sql-database-geo-replication-transact-sql.md).
 
 Para iniciar la conmutación por error, necesitará lo siguiente:
 
-* Un inicio de sesión que es DBManager en la base de datos principal (tiene db_ownership de la base de datos local que va a replicar geográficamente) y que es DBManager en los servidores asociados en los que se configurará la replicación geográfica.
-* SQL Server Management Studio (SSMS)
+* Un inicio de sesión que sea DBManager en el servidor principal
+* Tener la propiedad db_ownership de la base de datos local que se va a replicar geográficamente
+* Tener DBManager en los servidores del asociado en los que va a configurar la replicación geográfica
+* La versión más reciente de SQL Server Management Studio (SSMS).
 
 > [!IMPORTANT]
 > Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
+>  
 
 ## <a name="initiate-a-planned-failover-promoting-a-secondary-database-to-become-the-new-primary"></a>Inicio de una conmutación por error planeada que promueve una base de datos secundaria a la nueva principal
 Puede usar la instrucción **ALTER DATABASE** para promover una base de datos secundaria para que sea la nueva base de datos principal de forma planeada; de ese modo, se degrada la base de datos principal ya existente y se convierte en secundaria. Esta instrucción se ejecuta en la base de datos maestra en el servidor lógico de Base de datos SQL Azure en el que reside la base de datos secundaria con replicación geográfica que se está promocionando. Esta funcionalidad está diseñada para la conmutación por error planeada, por ejemplo, durante las exploraciones de DR, y requiere que esté disponible la base de datos principal.
@@ -85,10 +87,10 @@ Use los pasos siguientes para iniciar una conmutación por error no planeada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Después de la conmutación por error, asegúrese de que los requisitos de autenticación para el servidor y la base de datos se configuran en el nuevo elemento principal. Para obtener más información, consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
-* Para obtener información sobre cómo llevar a cabo tareas de recuperación después de desastres mediante la replicación geográfica activa, incluidos los pasos previos y posteriores, consulte [Obtención de detalles de la recuperación ante desastres](sql-database-disaster-recovery.md)
+* Para obtener información sobre cómo llevar a cabo tareas de recuperación después de desastres mediante la replicación geográfica activa, incluidos los pasos previos y posteriores a la recuperación, consulte [Recuperación ante desastres](sql-database-disaster-recovery.md)
 * Para ver una entrada de blog de Sasha Nosov sobre la replicación geográfica activa, consulte [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 * Para obtener información sobre cómo diseñar aplicaciones en la nube para usar la replicación geográfica activa, consulte [Diseño de una aplicación para la recuperación ante desastres en la nube mediante replicación geográfica activa en Base de datos SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * Para saber cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para grupos elásticos](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-* Para ver una descripción general de la continuidad empresarial, consulte [Introducción a la continuidad empresarial con Base de datos SQL de Azure](sql-database-business-continuity.md)
+* Para ver una descripción general de la continuidad empresarial, consulte el artículo de [introducción a la continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md).
 
 

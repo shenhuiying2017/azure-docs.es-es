@@ -13,30 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 7a6f255c64a584e29801aacb40c79462751fe535
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: e22fa4ed45ffaed1a05292e9b86d5cebc0079117
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Creación y administración de máquinas virtuales Linux con la CLI de Azure
 
-En este tutorial se tratan elementos básicos de la creación de máquinas virtuales de Azure, como la selección de su tamaño, la selección de una imagen de máquina virtual y la implementación de una máquina virtual. También se cubren las operaciones básicas de administración como la administración del estado, la eliminación y el cambio del tamaño de una máquina virtual.
+Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se tratan elementos básicos de la implementación de máquinas virtuales de Azure, como la selección de su tamaño, la selección de una imagen de máquina virtual y la implementación de una máquina virtual. Aprenderá a:
 
-Se pueden completar los pasos de este tutorial con la versión más reciente de la [CLI de Azure 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Crear y conectar elementos a una máquina virtual
+> * Seleccionar y usar imágenes de máquina virtual
+> * Ver y usar tamaños de máquina virtual específicos
+> * Cambiar el tamaño de una máquina virtual
+> * Ver y entender el estado de las máquinas virtuales
+
+Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). También puede usar [Cloud Shell](/azure/cloud-shell/quickstart) desde el explorador.
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
 Cree un grupo de recursos con el comando [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
-Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se debe crear un grupo de recursos antes de una máquina virtual. En este ejemplo, se crea un grupo de recursos denominado *myResourceGroupVM* en la región *westus*. 
+Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se debe crear un grupo de recursos antes de una máquina virtual. En este ejemplo, se crea un grupo de recursos denominado *myResourceGroupVM* en la región *eastus*. 
 
 ```azurecli
-az group create --name myResourceGroupVM --location westus
+az group create --name myResourceGroupVM --location eastus
 ```
 
 Se especifica el grupo de recursos al crear o modificar una máquina virtual, como se ve a lo largo de este tutorial.
@@ -57,7 +64,7 @@ Una vez creada la máquina virtual, la CLI de Azure ofrece como salida informaci
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westus",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -156,7 +163,7 @@ En la tabla siguiente se clasifican los tamaños en casos de uso.
 Para ver una lista de tamaños de máquina virtual disponibles en una región determinada, use el comando [az vm list-sizes](/cli/azure/vm#list-sizes). 
 
 ```azurecli
-az vm list-sizes --location westus --output table
+az vm list-sizes --location eastus --output table
 ```
 
 Salida parcial:
@@ -297,6 +304,17 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido conceptos básicos sobre la creación y administración de máquinas virtuales. Prosiga con el siguiente tutorial para aprender sobre los discos de máquina virtual.  
+En este tutorial, ha aprendido conceptos básicos sobre la creación y administración de máquinas virtuales. Por ejemplo:
 
-[Creación y administración de discos de máquinas virtuales](./tutorial-manage-disks.md)
+> [!div class="checklist"]
+> * Crear y conectar elementos a una máquina virtual
+> * Seleccionar y usar imágenes de máquina virtual
+> * Ver y usar tamaños de máquina virtual específicos
+> * Cambiar el tamaño de una máquina virtual
+> * Ver y entender el estado de las máquinas virtuales
+
+Prosiga con el siguiente tutorial para aprender sobre los discos de máquina virtual.  
+
+> [!div class="nextstepaction"]
+> [Creación y administración de discos de máquinas virtuales](./tutorial-manage-disks.md)
+

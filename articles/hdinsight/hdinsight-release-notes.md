@@ -1,6 +1,6 @@
 ---
 title: "Notas de la versión para los componentes de Hadoop en Azure HDInsight | Microsoft Docs"
-description: "Últimas notas de la versión y versiones de los componentes de Hadoop para HDInsight de Azure. Obtenga sugerencias de desarrollo y detalles de Hadoop, Apache Storm y HBase."
+description: "Últimas notas de la versión y versiones de los componentes de Hadoop para HDInsight de Azure. Obtenga sugerencias de desarrollo y detalles sobre Spark, R Server, Hive, etc."
 services: hdinsight
 documentationcenter: 
 editor: cgronlun
@@ -9,30 +9,31 @@ author: nitinme
 tags: azure-portal
 ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: e9bcb0cb33eefc743ed220cb2a874f9ae11b5fe7
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 782cab231e1b152c720abebff1fc76ae0559d12a
+ms.contentlocale: es-es
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de la versión de los componentes de Hadoop en HDInsight de Azure
 
-Este artículo proporciona información sobre las **últimas** actualizaciones de versión de Azure HDInsight. Para más información sobre versiones anteriores, consulte el [archivo de notas de versiones de HDInsight](hdinsight-release-notes-archive.md).
+Este artículo proporciona información sobre las **últimas** actualizaciones de versión de Azure HDInsight. Para más información sobre versiones anteriores, vea [Notas de la versión (en archivo) de los componentes de Hadoop en Azure HDInsight](hdinsight-release-notes-archive.md).
 
 > [!IMPORTANT]
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para obtener más información, consulte el [artículo de control de versiones de HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="04062017---general-availability-of-hdinsight-36"></a>06/04/2017: Disponibilidad general de HDInsight 3.6
 
-* En este lanzamiento, Azure HDInsight presenta la versión 3.6, que se basa en HDP 2.6. Las notas de la versión HDP 2.6 están disponibles [aquí](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) y se puede encontrar más información sobre las versiones de HDInsight [aquí](hdinsight-component-versioning.md). HDInsight 3.6 está disponible para las cargas de trabajo siguientes.
+* En este lanzamiento, Azure HDInsight presenta la versión 3.6, que se basa en HDP 2.6. Las notas de la versión HDP 2.6 están disponibles [aquí](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) y se puede encontrar más información sobre las versiones de HDInsight [aquí](hdinsight-component-versioning.md). HDInsight 3.6 está disponible para las siguientes cargas de trabajo:
 
     * Hadoop v2.7.3
     * HBase v1.1.2
@@ -40,7 +41,7 @@ Este artículo proporciona información sobre las **últimas** actualizaciones d
     * Spark v2.1.0
     * Interactive Hive v2.1.0
 
-* **Compatibilidad con Hive View 2.0**. Esta permite mejorar la experiencia del usuario de Interactive Hive. Para más información, consulte la [documentación de Hortonworks](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
+* **Compatibilidad con Hive View 2.0**. Esta permite mejorar la experiencia del usuario de Interactive Hive. Para más información, vea la [documentación de Hortonworks](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
 
 * **Mejoras de rendimiento con Hive LLAP**. Consulte la [documentación de Hortonworks](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/) para obtener más detalles.
 
@@ -58,7 +59,7 @@ Este artículo proporciona información sobre las **últimas** actualizaciones d
 
         HADOOP_CLASSPATH=$(hbase mapredcp):/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
 
-    En su lugar se debe utilizar la siguiente sintaxis.
+    Use esta sintaxis en su lugar:
 
         HADOOP_CLASSPATH=/path/to/hbase-protocol.jar:/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
 
@@ -76,7 +77,7 @@ Spark 2.0.1 ahora está disponible en los clústeres Spark (HDInsight versión 3
 
 ## <a name="11162016---release-of-r-server-90-on-hdinsight-35-spark-20"></a>16/11/2016 : lanzamiento de R Server 9.0 en HDInsight 3.5 (Spark 2.0)
 *    Los clústeres de R Server incluyen ahora la opción de dos versiones: R Server 9.0 en HDI 3.5 (Spark 2.0) y R Server 8.0 en HDI 3.4 (Spark 1.6).
-*    R Server 9.0 en HDI 3.5 (Spark 2.0) se basa en R 3.3.2 e incluye nuevas funciones de orígenes de datos ScaleR llamadas RxHiveData y RxParquetData para la carga de datos de Hive y Parquet directamente en DataFrames de Spark para el análisis por ScaleR. Para más información, consulte la Ayuda en pantalla sobre estas funciones en R mediante el uso de los comandos ?RxHiveData y ?RxParquetData.
+*    R Server 9.0 en HDI 3.5 (Spark 2.0) se basa en R 3.3.2 e incluye nuevas funciones de orígenes de datos ScaleR llamadas RxHiveData y RxParquetData para la carga de datos de Hive y Parquet directamente en DataFrames de Spark para el análisis por ScaleR. Para más información, consulte la Ayuda en pantalla sobre estas funciones en R por medio de los comandos **?RxHiveData** y **?RxParquetData**.
 *    La edición de la comunidad de RStudio Server se instala ahora de forma predeterminada (con una opción de cancelación) en la hoja de configuración del clúster como parte del flujo de aprovisionamiento.
 
 ## <a name="11092016---release-of-spark-20-on-hdinsight"></a>09/11/2016: lanzamiento de Spark 2.0 en HDInsight
@@ -86,7 +87,7 @@ Spark 2.0.1 ahora está disponible en los clústeres Spark (HDInsight versión 3
 * El URI para el acceso al nodo perimetral ha cambiado a **clustername**-ed-ssh.azurehdinsight.net
 * Se ha optimizado R Server en el aprovisionamiento de clústeres de HDInsight.
 * R Server en HDInsight ahora está disponible como un tipo de clúster R Server regular de HDInsight y ya no se instala como una aplicación independiente de HDInsight. El nodo perimetral y los archivos binarios de R Server ahora se suministran como parte de la implementación del clúster de R Server. Esto mejora la velocidad y la confiabilidad del aprovisionamiento. El modelo de precios para R Server se actualiza en consecuencia.
-* El precio del tipo de clúster de R Server ahora se basa en el precio del nivel estándar más el suplemento de R Server. Ahora el nivel Premium se reservará para las características Premium disponibles en diferentes tipos de clúster y no se usarán para el tipo de clúster de R Server. Este cambio no afecta al precio efectivo de R Server, solo cambia cómo se presentan los cargos en la factura. Todos los clústeres de R Server existentes seguirán funcionando y las plantillas de ARM siendo válidas hasta que se notifique el abandono de su uso. **Sin embargo, se recomienda actualizar las implementaciones mediante scripts para usar la nueva plantilla de ARM.**
+* El precio del tipo de clúster de R Server ahora se basa en el precio del nivel estándar más el suplemento de R Server. Ahora el nivel Premium se reserva para las características Premium disponibles en diferentes tipos de clúster y no se usa para el tipo de clúster de R Server. Este cambio no afecta al precio efectivo de R Server, únicamente cambia el modo en que los cargos aparecen reflejados en la factura. Todos los clústeres de R Server existentes seguirán funcionando y las plantillas de Resource Manager siguen siendo válidas hasta que se notifique el abandono de su uso. **En cambio, se recomienda actualizar las implementaciones con scripts de forma que usen la nueva plantilla de Resource Manager.**
 
 ## <a name="08302016---release-of-r-server-on-hdinsight"></a>30/08/2016: lanzamiento de R Server en HDInsight
 Los números de versión completos de los clústeres de HDInsight basados en Linux implementados con esta versión son:

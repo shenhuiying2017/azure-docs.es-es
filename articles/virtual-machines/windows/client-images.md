@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b53bd4d9db9c1ca030a770e56427f35204b90ab3
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: fbc5cc4a332877451867ca434db40d67ee623a0f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -44,15 +45,17 @@ La tabla siguiente muestra los detalles de los id. de oferta idóneos para imple
 | [Desarrollo/pruebas - Enterprise](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Compruebe la suscripción a Azure
-Si no conoce el id. de su oferta, puede obtenerlo en el Portal de Azure o en el portal de la cuenta.
+Si no conoce el identificador de su oferta, puede obtenerlo en Azure Portal de una de estas dos formas:  
 
-El id. de la oferta de suscripción aparece en la hoja "Suscripciones" del Portal de Azure:
+- En la hoja "Suscripciones":
 
-![Detalles del id. de oferta desde el Portal de Azure](./media/client-images/offer_id_azure_portal.png) 
+  ![Detalles del id. de oferta desde el Portal de Azure](./media/client-images/offer-id-azure-portal.png) 
+
+- O bien, haga clic en **Facturación** y, a continuación, haga clic en el identificador de suscripción. El identificador de oferta aparece en la hoja de facturación.
 
 También puede ver el id. de la oferta en la pestaña ["Suscripciones"](http://account.windowsazure.com/Subscriptions) del portal de la cuenta de Azure:
 
-![Detalles del id. de oferta desde el portal de la cuenta de Azure](./media/client-images/offer_id_azure_account_portal.png) 
+![Detalles del id. de oferta desde el portal de la cuenta de Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora puede implementar las máquinas virtuales con [PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), [plantillas de Resource Manager](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).

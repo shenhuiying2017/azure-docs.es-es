@@ -1,6 +1,6 @@
 ---
 title: "Maniobras de recuperación ante desastres de SQL Database | Microsoft Docs"
-description: "Obtenga instrucciones e información sobre prácticas recomendadas acerca del uso de la base de datos SQL de Azure para la realización de tareas de obtención de detalles de la recuperación ante desastres. Dichas tareas le ayudarán a mantener la capacidad de recuperación ante errores y fallos de las aplicaciones de negocio críticas."
+description: "Obtenga instrucciones e información sobre prácticas recomendadas del uso de Azure SQL Database para la realización de tareas de obtención de detalles de la recuperación ante desastres. Dichas tareas lo ayudarán a mantener la capacidad de recuperación ante errores y errores de las aplicaciones de negocio críticas."
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 821be267a109bdcb1a1d22107f0ab4c469e6d6aa
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1b1d65a41a794a566287dcffe3581ac58e2a965f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -63,6 +64,6 @@ Para simular una interrupción puede deshabilitar la aplicación web o la máqui
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener información sobre los escenarios de continuidad empresarial, consulte el artículo sobre [escenarios de continuidad](sql-database-business-continuity.md)
 * Para obtener información sobre las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md)
-* Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte cómo [restaurar una base de datos a partir de las copias de seguridad iniciadas por el servicio](sql-database-recovery-using-backups.md)
+* Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
 * Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md)  
 

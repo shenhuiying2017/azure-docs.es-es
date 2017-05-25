@@ -1,6 +1,6 @@
 ---
-title: "Notas de la versión archivadas para los componentes de Hadoop en Azure HDInsight | Microsoft Docs"
-description: "Notas de la versión y versiones archivadas de los componentes de Hadoop para Azure HDInsight."
+title: "Notas de la versión archivadas - Componentes de Hadoop en Azure HDInsight | Microsoft Docs"
+description: "Notas de la versión archivadas de las versiones anteriores de los componentes de Hadoop para Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 editor: cgronlun
@@ -8,7 +8,7 @@ manager: jhubbard
 author: nitinme
 tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 4/06/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5e1538ae0d4b1270040bd593cae66c1dd1046201
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 7d8b691905c07b11543505ed1961d908ff4de654
+ms.contentlocale: es-es
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -61,7 +62,7 @@ Esta versión contiene las siguientes actualizaciones.
 
 | Título | Description | Área afectada (por ejemplo, servicio, componente o SDK) | Tipo de clúster (por ejemplo, Spark, Hadoop, HBase o Storm) | JIRA (si es aplicable) |
 | --- | --- | --- | --- | --- |
-| Cambios en los clústeres de HDInsight 3.4 |Se ha cambiado el valor predeterminado de las siguientes configuraciones de Hive para mejorar el rendimiento:  <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul> |Servicio |Todo |N/D |
+| Cambios en los clústeres de HDInsight 3.4 |Se han cambiado los valores predeterminados de las siguientes configuraciones de Hive para mejorar el rendimiento: <ul><li>`hive.vectorized.execution.reduce.enabled=true`</li><li>`hive.tez.min.partition.factor=1f`</li><li>`hive.tez.max.partition.factor=3f`</li><li>`tez.shuffle-vertex-manager.min-src-fraction=0.9`</li><li>`tez.shuffle-vertex-manager.max-src-fraction=0.95`</li><li>`tez.runtime.shuffle.connect.timeout= 30000`</li></ul> |Servicio |Todo |N/D |
 | Las siguientes correcciones están incluidas en esta versión: |HIVE-13632, HIVE-12897,HIVE-12907,HIVE-12908,HIVE-12988,HIVE-13510,HIVE-13572,HIVE-13716,HIVE-13726,HIVE-12505,HIVE-13632,HIVE-13661,HIVE-13705,HIVE-13743,HIVE-13810,HIVE-13857,HIVE-13902,HIVE-13911,HIVE-13933 |Servicio |Todo |N/D |
 
 ## <a name="notes-for-07142016-release-of-hdinsight"></a>Notas de la versión del 14/07/2016 de HDInsight
@@ -434,7 +435,7 @@ Esta versión contiene las siguientes actualizaciones.
 </tr>
 <tr>
 <td>Problema de orden aleatorio intermitente de MapReduce para HDInsight 3.2</td>
-<td>Corrección para una condición de carrera poco frecuente e intermitente en orden aleatorio de MapReduce en grandes clústeres que provocan errores de tareas ocasionales. Consulte <a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a> para más información.</td>
+<td>Corrección de una condición de carrera poco frecuente e intermitente en orden aleatorio de MapReduce en clústeres grandes que provocaban errores de tareas ocasionales. Consulte <a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a> para más información.</td>
 <td>Núcleo de Hadoop</td>
 <td>Todo</td>
 <td><a href="https://issues.apache.org/jira/browse/MAPREDUCE-6361" target="_blank">MAPREDUCE-6361</a></td>
@@ -571,7 +572,7 @@ Esta versión contiene las siguientes actualizaciones.
 </tr>
 <tr>
 <td>Soporte de EventHub de SCP.NET</td>
-<td>Los paquetes de clúster actualizados para Storm en HDInsight aportan nuevas características a SCP.NET. Ahora tendrá acceso a las nuevas API en el generador de topologías para que le resulte más fácil utilizar EventHubSpout o los spouts de Java. Debe actualizar el SDK de cliente de SCP.NET para trabajar con los nuevos clústeres tal como se han actualizado los contratos. Para obtener detalles sobre las nuevas API, el uso y notas de la versión (incluidas las correcciones de errores), consulte el archivo Léame que se incluye en el paquete NuGet de SCP.NET.</td>
+<td>Los paquetes de clúster actualizados para Storm en HDInsight aportan nuevas características a SCP.NET. Ahora tendrá acceso a las nuevas API en el generador de topologías para que le resulte más fácil utilizar EventHubSpout o los spouts de Java. Debe actualizar el SDK de cliente de SCP.NET para trabajar con los nuevos clústeres tal como se han actualizado los contratos. Para obtener detalles sobre las nuevas API, el uso y notas de la versión (incluidas las correcciones de errores), vea el archivo Léame que se incluye en el paquete NuGet de SCP.NET.</td>
 <td>Herramientas de VS</td>
 <td>Clústeres de Storm en HDInsight 3.2</td>
 <td>N/D</td>
@@ -871,8 +872,8 @@ Esta versión contiene las siguientes actualizaciones.
 <td>Hadoop</td>
 <td>N/D</td>
 </tr>
-<td>Conector de Hadoop para DocumentDB</td>
-<td>Con el conector de Hadoop para DocumentDB, puede realizar agregaciones complejas, análisis y manipulaciones sobre los documentos JSON sin esquemas almacenados en todas las colecciones de DocumentDB o a través de las cuentas de base de datos. Para obtener más información y un tutorial, vea Ejecutar trabajos de Hadoop con DocumentDB y HDInsight.</td>
+<td>Conector de Hadoop de Azure Cosmos DB</td>
+<td>Con el conector de Hadoop de Azure Cosmos DB, puede realizar agregaciones complejas, análisis y manipulaciones sobre los documentos JSON sin esquemas almacenados en todas las colecciones de Azure Cosmos DB o a través de las cuentas de base de datos. Para obtener información y un tutorial, vea el tema sobre cómo ejecutar trabajos de Hadoop con Azure Cosmos DB y HDInsight.</td>
 <td>Servicio</td>
 <td>Hadoop</td>
 <td>N/D</td>
@@ -1101,7 +1102,7 @@ Los números de versión completos de los clústeres de HDInsight implementados 
 * HDInsight 2.1.9.382.1169709 (sin cambios desde el 14/11/2014)
 * HDInsight 3.0.5.382.1169709 (sin cambios desde el 11/14/2014)
 * HDInsight 3.1.1.382.1169709 (sin cambios desde el 14/11/2014)
-* HDINsight SDK 1.4.0
+* HDInsight SDK 1.4.0
 
 Esta versión contiene las siguientes actualizaciones de componentes.
 
@@ -1249,7 +1250,7 @@ Para obtener más información sobre la configuración de memoria que usan YARN 
 Respecto al mensaje de error de Azure PowerShell y el SDK de HDInsight: "*El clúster no está configurado para el acceso a servicios HTTP*":
 
 * Este error es un [problema de compatibilidad](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight) conocido que puede deberse a una diferencia entre la versión del SDK de HDInsight o de Azure PowerShell y la versión del clúster. Los clústeres creados a partir del 15/8 cuentan con nueva funcionalidad de aprovisionamiento en redes virtuales. Pero las versiones anteriores del SDK de HDInsight o de Azure PowerShell no interpretan correctamente esta funcionalidad. El resultado es un error en algunas operaciones de envío. Si usa las API del SDK de HDInsight o cmdlets de Azure PowerShell (**Use-AzureRmHDInsightCluster** o **Invoke-AzureRmHDInsightHiveJob**), para enviar trabajos, esas operaciones pueden generar el mensaje de error " *El clúster <clustername> no está configurado para el acceso a servicios HTTP*". O bien, (en función de la operación), puede recibir otros mensajes de error, como "*No se puede conectar al clúster*".
-* Estos problemas de compatibilidad se han resuelto en las últimas versiones del SDK de HDInsight y Azure PowerShell. Se recomienda actualizar el SDK de HDInsight a la versión 1.3.1.6 o posterior y Azure PowerShell Tools a la versión 0.8.8 o posterior. Puede obtener acceso al último SDK de HDInsight desde [Nuget](http://nuget.codeplex.com/wikipage?title=Getting%20Started) y a Azure PowerShell Tools en [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
+* Estos problemas de compatibilidad se han resuelto en las últimas versiones del SDK de HDInsight y Azure PowerShell. Se recomienda actualizar el SDK de HDInsight a la versión 1.3.1.6 o posterior y Azure PowerShell Tools a la versión 0.8.8 o posterior. Puede obtener acceso al último SDK de HDInsight desde [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started) y a Azure PowerShell Tools en [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="notes-for-9122014-release-of-hdinsight-31"></a>Notas de la versión del 12/09/2014 de HDinsight 3.1
 * Esta versión se basa en Hortonworks Data Platform (HDP) 2.1.5. Para ver una lista de los errores corregidos en esta versión, consulte la página [Fixed in this Release](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) en el sitio de Hortonworks.
@@ -1300,7 +1301,7 @@ Esta versión contiene varias mejoras del servicio HDInsight:
 Con HBase, puede compilar diversas cargas de trabajo en tiempo real en HDInsight, desde sitios web interactivos que trabajan con grandes conjuntos de datos hasta servicios que almacenan datos de sensores y telemetría de millones de extremos. El paso siguiente sería analizar los datos de estas cargas de trabajo con trabajos de Hadoop y esto es posible en HDInsight a través de Azure PowerShell y el panel de clúster de Hive.
 
 ### <a name="apache-mahout-preinstalled-on-hdinsight-31"></a>Apache Mahout preinstalado en HDInsight 3.1
- [Mahout](http://hortonworks.com/hadoop/mahout/) está preinstalado en los clústeres de Hadoop para HDInsight 3.1, por lo que puede ejecutar trabajos de Mahout sin necesidad de configuración de clúster adicional. Por ejemplo, puede iniciar una sesión remota en un clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP) y, sin necesidad de pasos adicionales, ejecutar el comando Hello World de Mahout:
+ [Mahout](http://hortonworks.com/hadoop/mahout/) está preinstalado en los clústeres de Hadoop para HDInsight 3.1, por lo que puede ejecutar trabajos de Mahout sin necesidad de configuración de clúster adicional. Por ejemplo, puede iniciar una sesión remota en un clúster de Hadoop a través del Protocolo de escritorio remoto (RDP) y, sin necesidad de más pasos, ejecutar el comando Hello World de Mahout:
 
         mahout org.apache.mahout.classifier.df.tools.Describe -p /user/hdp/glass.data -f /user/hdp/glass.info -d I 9 N L
 
@@ -1310,7 +1311,7 @@ Para obtener una descripción completa de este procedimiento, vea la documentaci
 
 ### <a name="hive-queries-can-use-tez-in-hdinsight-31"></a>Las consultas de Hive pueden usar Tez en HDInsight 3.1
 Hive 0.13 se encuentra disponible en HDInsight 3.1 y es capaz de ejecutar consultas mediante Tez, que se pueden aprovechar para conseguir mejoras sustanciales del rendimiento.
-Tez no está habilitado de forma predeterminada para consultas de Hive. Para usarlo, debe suscribirse. Puede habilitar Tez ejecutando el siguiente fragmento de código:
+Tez no está habilitado de forma predeterminada en las consultas de Hive. Para usarlo, debe suscribirse. Puede habilitar Tez ejecutando el siguiente fragmento de código:
 
         set hive.execution.engine=tez;
         select sc_status, count(*), histogram_numeric(sc_bytes,5) from website_logs_orc_local group by sc_status;
@@ -1332,7 +1333,7 @@ Una base de datos personalizada de la tienda de metadatos Oozie implementada con
 Las tiendas de metadatos Oozie se asocian a clústeres específicos y no se pueden compartir entre clústeres.
 
 ### <a name="breaking-changes"></a>Cambios drásticos
-**Sintaxis de prefijo**: la única sintaxis compatible con los clústeres de HDInsight 3.1 y 3.0 es "wasb://". La antigua sintaxis "asv://" es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.1 o 3.0. Es decir, que los trabajos enviados a un clúster de HDInsight cuya versión sea 3.1 o 3.0 y que usen explícitamente la sintaxis "asv://" tendrán errores. Debería usarse la sintaxis wasb:// en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight 3.1 o 3.0 que se hayan creado con una tienda de metadatos existente que contenga referencias explícitas a recursos con la sintaxis "asv://" tendrán errores. Estas tiendas de metadatos tendrán que volver a crearse usando la sintaxis wasb:// para recursos de dirección.
+**Sintaxis de prefijo**: la única sintaxis compatible con los clústeres de HDInsight 3.1 y 3.0 es "wasb://". La antigua sintaxis "asv://" es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.1 o 3.0. Es decir, que los trabajos enviados a un clúster de HDInsight cuya versión sea 3.1 o 3.0 y que usen explícitamente la sintaxis "asv://" generarán errores. Debería usarse la sintaxis wasb:// en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight 3.1 o 3.0 que se hayan creado con una tienda de metadatos existente que contenga referencias explícitas a recursos con la sintaxis "asv://" tendrán errores. Estas tiendas de metadatos tendrán que volver a crearse usando la sintaxis wasb:// para recursos de dirección.
 
 **Puertos**: los puertos usados por el servicio HDInsight han cambiado. Los números de puerto que se estuvieron usando estaban dentro del intervalo de puertos transitorio del sistema operativo Windows. Los puertos se asignan automáticamente desde un intervalo transitorio predefinido en comunicaciones basadas en protocolo de Internet de corta duración. El nuevo conjunto de números de puerto de servicio de Hortonworks Data Platform (HDP) permitidos están fuera de este intervalo para evitar conflictos que podrían surgir con los puertos que usan los servicios que se ejecutan en el nodo principal. Los nuevos números de puerto no deben provocar ningún cambio brusco. Los números usados son los siguientes:
 
@@ -1462,7 +1463,7 @@ Se han realizado los siguientes cambios de versión entre HDInsight 2.x (HDP1.x)
 * 0.8.0.RELEASE']
 
 ### <a name="drivers"></a>Controladores
-El controlador Java Database Connnectivity (JDBC) para SQL Server se usa de forma interna mediante HDInsight y no se usa para realizar operaciones externas. Si desea conectarse a HDInsight mediante Conectividad abierta de bases de datos (ODBC), utilice Microsoft Hive ODBC Driver. Para obtener más información, consulte [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
+HDInsight usa el controlador Java Database Connectivity (JDBC) de SQL Server de manera interna y no se usa para realizar operaciones externas. Si desea conectarse a HDInsight mediante Conectividad abierta de bases de datos (ODBC), utilice Microsoft Hive ODBC Driver. Para obtener más información, consulte [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 ### <a name="bug-fixes"></a>Corrección de errores
 Con esta versión, hemos actualizado las siguientes versiones de HDInsight con varias correcciones de errores:

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: erihur;genli
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6db1fedad08ee33f3468fb98f59071a1521921db
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: b5268239fb4c50e6bdea77323267a42e267268db
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -140,7 +141,9 @@ La sección de uso diario del archivo muestra los detalles de uso que afectan a 
 Para más información, consulte [Introducción a la administración de costes y facturación de Azure](billing-getting-started.md).
 
 ## <a name="how-do-i-make-a-payment"></a>¿Cómo se puede realizar un pago?
-Si ha configurado una tarjeta de crédito o de débito como forma de pago, el pago se realizará automáticamente. Si usa un [método de pago con factura](https://azure.microsoft.com/pricing/invoicing/), envíe el pago a la ubicación indicada en la parte inferior de la factura. Para obtener ayuda, [póngase en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Si ha configurado una tarjeta de crédito o de débito como forma de pago, el pago se realizará automáticamente. En el extracto de la tarjeta de crédito, el elemento de línea diría **MSFT Azure**.
+
+Si usa un [método de pago con factura](https://azure.microsoft.com/pricing/invoicing/), envíe el pago a la ubicación indicada en la parte inferior de la factura. Para obtener ayuda, [póngase en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>¿Cómo puedo comprobar el estado de un pago realizado con tarjeta de crédito?
 [Cree una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar el estado de su pago. 

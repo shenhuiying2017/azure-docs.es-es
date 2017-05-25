@@ -17,16 +17,16 @@ ms.workload: data-management
 ms.date: 04/21/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 364038c11f13bcb72b259618b1d7d433f48a33c1
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: b1b67a83a25159414a80382030903d300aad71f7
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Diseño de servicios de alta disponibilidad con Azure SQL Database
 
-Al crear e implementar servicios de alta disponibilidad en Azure SQL Database debe usar [grupos de conmutación por error y replicación geográfica activa](sql-database-geo-replication-overview.md). Ofrece resistencia a errores regionales e interrupciones graves y permite la recuperación rápida mediante la conmutación por error a las bases de datos secundarias. Este artículo se centra en los patrones comunes de aplicaciones y trata las ventajas e inconvenientes de cada opción en función de los requisitos de implementación de las aplicaciones, el Acuerdo de Nivel de Servicio objetivo, la latencia de tráfico y los costos. Para saber cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Al compilar e implementar servicios de alta disponibilidad en Azure SQL Database, use los [grupos de conmutación por error y la replicación geográfica activa](sql-database-geo-replication-overview.md) para proporcionar resistencia frente a errores regionales e interrupciones graves, así como para habilitar la recuperación rápida en las bases de datos secundarias. Este artículo se centra en los patrones comunes de aplicaciones y trata las ventajas e inconvenientes de cada opción en función de los requisitos de implementación de las aplicaciones, el Acuerdo de Nivel de Servicio objetivo, la latencia de tráfico y los costos. Para saber cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## <a name="design-pattern-1-active-passive-deployment-for-cloud-disaster-recovery-with-a-co-located-database"></a>Patrón de diseño 1: implementación activa-pasiva para la recuperación ante desastres en la nube con una base de datos colocada
 Esta opción es mejor para las aplicaciones con las siguientes características:
@@ -43,9 +43,9 @@ En este caso, la topología de implementación de la aplicación está optimizad
 
 El diagrama siguiente muestra esta configuración antes de una interrupción.
 
-![Configuración de replicación geográfica de Base de datos SQL. Recuperación ante desastres en la nube.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
+![Configuración de replicación geográfica de SQL Database. Recuperación ante desastres en la nube.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
 
-Después de una interrupción en la región primaria, el servicio SQL Database detectará que no se puede acceder a la base de datos principal y desencadenará una conmutación por error a la base de datos secundaria en función de los parámetros de la directiva de conmutación por error automática. Dependiendo de su Acuerdo de Nivel de Servicio de aplicación, puede optar por configurar un período de gracia entre la detección de la interrupción y la propia conmutación por error. Al configurar un período de gracia se reduce el riesgo de pérdida de datos a los casos donde la interrupción es grave y la disponibilidad en la región no se puede restaurar rápidamente. Si el administrador de tráfico inicia la conmutación por error del punto de conexión antes de que el grupo de conmutación por error active la conmutación por error de la base de datos, la aplicación web no podrá volverse a conectarse a la base de datos. El intento de la aplicación para volverse a conectar se realiza de forma correcta automáticamente tan pronto como la conmutación por error de la base de datos se complete. 
+Después de una interrupción en la región primaria, el servicio SQL Database detectará que no se puede acceder a la base de datos principal y desencadenará una conmutación por error a la base de datos secundaria en función de los parámetros de la directiva de conmutación por error automática. Dependiendo de su Acuerdo de Nivel de Servicio de aplicación, puede optar por configurar un período de gracia entre la detección de la interrupción y la propia conmutación por error. Al configurar un período de gracia se reduce el riesgo de pérdida de datos a los casos donde la interrupción es grave y la disponibilidad en la región no se puede restaurar rápidamente. Si el administrador de tráfico inicia la conmutación por error del punto de conexión antes de que el grupo de conmutación por error active la conmutación por error de la base de datos, la aplicación web no podrá volverse a conectarse a la base de datos. El intento de la aplicación para volverse a conectar se realiza de forma correcta automáticamente en cuanto la conmutación por error de la base de datos se complete. 
 
 > [!NOTE]
 > Para lograr una conmutación por error de la aplicación y las bases de datos totalmente coordinada, debe diseñar su propio método de supervisión y usar la conmutación por error manual de los puntos de conexión de la aplicación web y las bases de datos.
@@ -58,7 +58,7 @@ Una vez completada la conmutación por error de la base de datos y los puntos de
 Si se produce una interrupción en la región secundaria, se suspende el vínculo de replicación entre la base de datos principal y la secundaria pero la conmutación por error no se desencadena porque la base de datos principal no se ve afectada. En este caso, la disponibilidad de la aplicación no cambia, pero la aplicación funciona expuesta y, por tanto, con un riesgo más alto en caso de que ambas regiones tengan un error en cadena.
 
 > [!NOTE]
->Solo se recomienda las configuraciones de implementación con una sola región de recuperación ante desastres. Esto es porque la mayoría de las ubicaciones geográficas de Azure tienen dos regiones. Estas configuraciones no protegerán la aplicación de un error grave de ambas regiones. En el caso poco probable de que este error se produjese, podría recuperar sus bases de datos en una tercera región mediante una [operación de restauración geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Solo se recomienda las configuraciones de implementación con una sola región de recuperación ante desastres. Esto es porque la mayoría de las ubicaciones geográficas de Azure tienen dos regiones. Estas configuraciones no protegerán la aplicación de un error grave de ambas regiones. En el caso poco probable de que este error se produjese, podría recuperar sus bases de datos en una tercera región mediante una [operación de restauración geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
 Una vez que se reduce la interrupción, la base de datos secundaria se volverá a sincronizar automáticamente con la principal. Durante la sincronización, el rendimiento de la principal podría verse afectado ligeramente dependiendo de la cantidad de datos que haya que sincronizar. El siguiente diagrama ilustra una interrupción en la región secundaria.

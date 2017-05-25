@@ -12,12 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/02/2017
 ms.author: antisch
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 4d37dfc6c7110aa32788bbd3c3f81cd84a1426d2
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 698978fd717091c49a1375e222f46f4325431223
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -25,7 +26,9 @@ ms.lasthandoff: 03/24/2017
 
 Este script crea una cuenta de Azure Batch y muestra cómo se pueden consultar y actualizar las distintas propiedades de la cuenta.
 
-Si es necesario, instale la CLI de Azure con las instrucciones que se encuentran en la [guía de instalación de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)y luego ejecute `az login` para iniciar sesión en Azure.
+## <a name="prerequisites"></a>Requisitos previos
+
+Instale la CLI de Azure con las instrucciones que se encuentran en la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) si aún no lo ha hecho.
 
 ## <a name="batch-account-sample-script"></a>Script de ejemplo de la cuenta de Batch
 

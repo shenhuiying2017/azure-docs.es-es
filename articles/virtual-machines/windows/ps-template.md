@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: acb8dda8819099595893f2ea65b23e76223507bd
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 67b023ccd761bc08b96c9ebda907c6451bfbe52f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -101,6 +102,6 @@ Puede ver algo parecido a este ejemplo:
 
 - Si se produjeron problemas durante la implementación, el paso siguiente sería consultar [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 - Obtenga información sobre cómo usar PowerShell de Azure para crear una máquina virtual en [Crear una máquina virtual de Windows con Resource Manager y PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Aprenda a administrar la máquina virtual que ha creado. Para ello, consulte [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Aprenda a administrar la máquina virtual que ha creado repasando el tema [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

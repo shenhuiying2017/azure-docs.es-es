@@ -1,6 +1,7 @@
 ---
-title: "Uso de diferentes kernels con cuadernos de Jupyter Notebook en clústeres de Azure HDInsight Spark | Microsoft Docs"
-description: "Obtenga información acerca de los kernels de PySpark, PySpark3 y Spark que puede usar con el cuaderno de Jupyter Notebook disponible con clústeres de Spark en HDInsight Linux."
+title: "Kernels para Jupyter Notebook en clústeres Spark en Azure HDInsight | Microsoft Docs"
+description: "Obtenga información sobre los kernels de PySpark, PySpark3 y Spark que puede usar con el cuaderno de Jupyter Notebook disponible con clústeres Spark en Azure HDInsight."
+keywords: Jupyter Notebook en Spark, Spark en Jupyter
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,24 +10,24 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/15/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 096fbc1d30e8c9df0c9008525e0fac3fd6e449cf
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: c5813341f0d70a3c04e915d243d2a9717cad1fc9
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="jupyter-notebooks-kernels-with-apache-spark-clusters-in-hdinsight"></a>Kernels para cuadernos de Jupyter con clústeres de Apache Spark en HDInsight 
+# <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels para Jupyter Notebook en clústeres Spark en Azure HDInsight 
 
-Los clústeres de HDInsight Spark proporcionan kernels que se pueden utilizar con el cuaderno de Jupyter Notebook para probar las aplicaciones de Spark. Un kernel es un programa que ejecuta e interpreta el código. Los dos kernels son:
+Los clústeres de HDInsight Spark proporcionan kernels que se pueden utilizar con el cuaderno de Jupyter Notebook en Spark para probar las aplicaciones. Un kernel es un programa que ejecuta e interpreta el código. Estos son los tres kernels:
 
 - **PySpark** (para aplicaciones escritas en Python2)
 - **PySpark3** (para aplicaciones escritas en Python3)
@@ -38,18 +39,18 @@ En este artículo, aprenderá a usar estos kernels y las ventajas de utilizarlos
 
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="create-a-jupyter-notebook"></a>Creación de un cuaderno de Jupyter
+## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Creación de un cuaderno de Jupyter Notebook en clústeres Spark de HDInsight
 
 1. En [Azure Portal](https://portal.azure.com/), abra el clúster.  Consulte [Enumeración y visualización de clústeres](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) para obtener instrucciones. El clúster se abre en una nueva hoja del portal.
 
 2. Desde la sección **Vínculos rápidos**, haga clic en **Paneles de clúster** para abrir la hoja **Paneles de clúster**.  Si no ve la sección **Vínculos rápidos**, haga clic en **Introducción** en el menú izquierdo de la hoja.
 
-    ![Paneles de clúster](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "Paneles de clúster") 
+    ![Jupyter Notebook en Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-jupyter-notebook-on-spark.png "Jupyter Notebook en Spark") 
 
 3. Haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
    
    > [!NOTE]
-   > También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace **CLUSTERNAME** por el nombre del clúster:
+   > También puede comunicarse con el cuaderno de Jupyter Notebook del clúster Spark si abre la siguiente dirección URL en el explorador. Reemplace **CLUSTERNAME** por el nombre del clúster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
@@ -57,13 +58,13 @@ En este artículo, aprenderá a usar estos kernels y las ventajas de utilizarlos
 
 3. Haga clic en **Nuevo** y, después, haga clic en **Pyspark** **PySpark3** o **Spark** para crear un cuaderno. Utilice el kernel de Spark para las aplicaciones de Scala, kernel PySpark para aplicaciones de Python2 y kernel PySpark para3 aplicaciones de Python3.
    
-    ![Creación de un cuaderno de Jupyter Notebook](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Creación de un cuaderno de Jupyter Notebook") 
+    ![Kernels de Jupyter Notebook en Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels de Jupyter Notebook en Spark") 
 
 4. Se abre un cuaderno con el kernel que seleccionó.
 
-## <a name="benefits-of-using-these-kernels"></a>Ventajas de utilizar estos kernels
+## <a name="benefits-of-using-the-kernels"></a>Ventajas de utilizar los kernels
 
-Utilizar los nuevos kernels aporta un par de beneficios.
+Estas son algunas ventajas de usar los kernels nuevo con el cuaderno de Jupyter Notebook en clústeres Spark de HDInsight.
 
 - **Contextos preestablecidos**. Gracias a los kernels de **PySpark**, **PySpark3** o **Spark**, no necesita establecer de forma explícita los contextos de Spark o Hive para poder empezar a trabajar con las aplicaciones, ya que están disponibles de forma predeterminada. Estos contextos son:
    
@@ -149,7 +150,7 @@ En caso de que haya problemas para acceder a la cuenta de almacenamiento del cl�
 
 ## <a name="supported-browser"></a>Explorador compatible
 
-Los cuadernos de Jupyter que se ejecutan en clústeres de HDInsight Spark solo son compatibles con Google Chrome.
+Los cuadernos de Jupyter Notebook que se ejecutan en clústeres Spark de HDInsight solo son compatibles con Google Chrome.
 
 ## <a name="feedback"></a>Comentarios
 El nuevo kernel está en la fase de evolución y se desarrollará con el tiempo. También podría significar que las API podrían cambiar a medida que estos kernels maduran. Agradecemos cualquier comentario que tenga al utilizar estos nuevos kernels. Esto resulta muy útil para dar forma a la versión final de estos kernels. Puede dejar sus comentarios la sección **Comentarios** al final de este artículo.

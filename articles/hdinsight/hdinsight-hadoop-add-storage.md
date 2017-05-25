@@ -12,13 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 05/15/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 0bd6fce848c6d174eb519f8ef8a14f9ead5fa5ce
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 1199840da725afdae3ee69a26db9ceedb2ab37e3
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -79,15 +80,27 @@ Cuando vea el clúster de HDInsight en Azure Portal, si selecciona la entrada __
 
 Esto se debe a que el script solo modifica la configuración de core-site.xml del clúster. Esta información no se usa al recuperar la información del clúster mediante las API de administración de Azure.
 
-Para ver información de la cuenta de almacenamiento agregada al clúster mediante este script, use la API de REST de Ambari. El comando siguiente muestra cómo usar [cURL (http://curl.haxx.se/)](http://curl.haxx.se/) y [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para recuperar y analizar datos JSON desde Ambari:
+Para ver información de la cuenta de almacenamiento agregada al clúster mediante este script, use la API de REST de Ambari. Use los siguientes comandos para recuperar esta información para su clúster:
 
-> [!div class="tabbedCodeSnippets" data-resources="OutlookServices.Calendar"]
-> ```PowerShell
-> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["""fs.azure.account.key.STORAGEACCOUNT.blob.core.windows.net"""] | select(. != null)'
-> ```
-> ```Bash
-> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.STORAGEACCOUNT.blob.core.windows.net"] | select(. != null)'
-> ```
+```PowerShell
+$creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
+    -Credential $creds
+$respObj = ConvertFrom-Json $resp.Content
+$respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
+```
+
+> [!NOTE]
+> Establezca `$clusterName` en el nombre del clúster de HDInsight. Establezca `$storageAccountName` en el nombre de la cuenta de almacenamiento. Cuando se le solicite, escriba el nombre de usuario y la contraseña de administrador del clúster.
+
+```Bash
+curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
+```
+
+> [!NOTE]
+> Establezca `$PASSWORD` en la contraseña de cuenta de inicio de sesión del clúster. Establezca `$CLUSTERNAME` en el nombre del clúster de HDInsight. Establezca `$STORAGEACCOUNTNAME` en el nombre de la cuenta de almacenamiento.
+>
+> El comando siguiente muestra cómo usar [curl (http://curl.haxx.se/)](http://curl.haxx.se/) y [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para recuperar y analizar datos JSON.
 
 Cuando use este comando, reemplace __CLUSTERNAME__ por el nombre del clúster de HDInsight. Reemplace __PASSWORD__ por la contraseña de inicio de sesión HTTP del clúster. Reemplace __STORAGEACCOUNT__ por el nombre de la cuenta de almacenamiento agregada mediante la acción de script. La información que devuelve este comando es similar al siguiente texto:
 
@@ -124,9 +137,15 @@ Para solucionar este problema, debe quitar la entrada existente para la cuenta d
 
 Si la cuenta de almacenamiento está en una región distinta a la del clúster de HDInsight, puede que experimente un rendimiento deficiente. Al acceder a los datos en una región diferente, el tráfico de red se envía fuera del centro de datos regional de Azure y en la red pública de Internet, lo que puede producir latencia.
 
+> [!WARNING]
+> No se admite el uso de una cuenta de almacenamiento en una región diferente a la del clúster de HDInsight.
+
 ### <a name="additional-charges"></a>Cargos adicionales
 
 Si la cuenta de almacenamiento se encuentra en una región distinta a la del clúster de HDInsight, puede que observe cargos de salida adicionales en su facturación de Azure. Se aplica un cargo de salida cuando los datos salen de un centro de datos regional, incluso si el tráfico va destinado a otro centro de datos de Azure en una región distinta.
+
+> [!WARNING]
+> No se admite el uso de una cuenta de almacenamiento en una región diferente a la del clúster de HDInsight.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

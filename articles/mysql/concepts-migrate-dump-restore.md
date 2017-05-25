@@ -11,12 +11,12 @@ ms.service: mysql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 05/17/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c09a6fa947d235189ab0137b074b6d7d9c925827
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c0029e025cf6d0af478d1f21dc6acc7860905a81
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -29,7 +29,7 @@ En este artículo se explican dos formas habituales de hacer una copia de seguri
 Para seguir esta guía de procedimientos, necesita lo siguiente:
 - Conocer la [creación de una base de datos de Azure para el servidor MySQL: Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - Disponer de la utilidad de línea de comandos [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) instalada en un equipo
-- [Descargar MySQL Workbench](https://dev.mysql.com/downloads/workbench/), Toad, Navicat o cualquier herramienta de MySQL de terceros
+- MySQL Workbench [Descargar MySQL Workbench](https://dev.mysql.com/downloads/workbench/), Toad, Navicat o cualquier herramienta de MySQL de terceros
 
 ## <a name="use-common-tools"></a>Uso de herramientas comunes
 Use herramientas comunes como MySQL Workbench, mysqldump, Toad o Navicat para conectarse y restaurar datos de forma remota en Azure Database for MySQL. Use estas herramientas en el equipo cliente con una conexión a Internet para conectarse a Azure Database for MySQL. Use una conexión cifrada SSL para aprovechar los procedimientos recomendados de seguridad; vea también la información sobre [conectividad SSL en Azure Database for MySQL](concepts-ssl-connection-security.md). No es necesario mover los archivos de volcado a ninguna ubicación en la nube especial al migrar a Azure Database for MySQL. 
@@ -66,9 +66,6 @@ Para hacer una copia de seguridad de todas las bases del servidor a la vez, use 
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
-## <a name="upload-files"></a>Carga de archivos
-Con WinSCP puede cargar y administrar fácilmente la importación o el volcado de sus archivos actuales del entorno MySQL (sean o no de Azure) en su entorno local a través del protocolo SFTP o FTPS con fines de exportación.
-
 ## <a name="create-a-database-on-the-target-azure-mysql-server"></a>Creación de una base de datos en el servidor de MySQL de Azure de destino
 Debe crear una base de datos vacía en el servidor de Azure Database for MySQL de destino en el que desea a migrar los datos con MySQL Workbench, Toad, Navicat o cualquier herramienta de terceros para MySQL. La base de datos puede tener el mismo nombre que la base de datos que contiene los datos volcados, o puede crear una base de datos con un nombre diferente.
 
@@ -77,7 +74,7 @@ Debe crear una base de datos vacía en el servidor de Azure Database for MySQL d
 ![Cadena de conexión de MySQL Workbench](./media/concepts-migrate-import-export/p4.png)
 
 
-## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>Restauración de la Base de datos MySQL mediante la línea de comandos o MySQL Workbench
+## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>Restauración de la base de datos MySQL mediante la línea de comandos o MySQL Workbench
 Una vez que haya creado la base de datos de destino, puede usar el comando mysql o MySQL Workbench para restaurar los datos en la base de datos específica recién creada desde el archivo de volcado.
 ```bash
 mysql -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]

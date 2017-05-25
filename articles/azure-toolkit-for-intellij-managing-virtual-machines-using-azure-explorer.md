@@ -1,5 +1,5 @@
 ---
-title: "Administración de máquinas virtuales mediante Azure Explorer para IntelliJ | Microsoft Docs"
+title: "Administración de máquinas virtuales con Azure Explorer para IntelliJ | Microsoft Docs"
 description: "Aprenda a administrar las máquinas virtuales de Azure mediante Azure Explorer para IntelliJ."
 services: 
 documentationcenter: java
@@ -14,129 +14,151 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 0452267fa11bb09ccebd0bc9032ac269d79451d5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 9197580407b3509fbf9a842e1fee1e6348478c34
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 
 ---
 
-# <a name="managing-virtual-machines-using-the-azure-explorer-for-intellij"></a>Administración de máquinas virtuales mediante Azure Explorer para IntelliJ
+# <a name="manage-virtual-machines-by-using-the-azure-explorer-for-intellij"></a>Administración de máquinas virtuales mediante Azure Explorer para IntelliJ
 
-Azure Explorer, que forma parte del kit de herramientas de Azure para IntelliJ, proporciona a los desarrolladores de Java una solución fácil de usar para la administración de máquinas virtuales en su cuenta de Azure desde el IDE de IntelliJ.
+Azure Explorer, que forma parte del kit de herramientas de Azure para IntelliJ, proporciona a los desarrolladores de Java una solución fácil de usar para la administración de máquinas virtuales en su cuenta de Azure desde el entorno de desarrollo integrado de IntelliJ (IDE).
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
 [!INCLUDE [azure-toolkit-for-intellij-show-azure-explorer](../includes/azure-toolkit-for-intellij-show-azure-explorer.md)]
 
-## <a name="creating-a-virtual-machine-in-intellij"></a>Creación de una máquina virtual en IntelliJ
+## <a name="create-a-virtual-machine-in-intellij"></a>Creación de una máquina virtual en IntelliJ
 
-Los siguientes pasos le guían en la creación de una cuenta de almacenamiento mediante Azure Explorer.
+Para crear una máquina virtual con Azure Explorer, haga lo siguiente: 
 
 1. Inicie sesión en su cuenta de Azure siguiendo los pasos del artículo [Instrucciones de inicio de sesión del kit de herramientas de Azure para IntelliJ].
 
-1. En la ventana de la herramienta **Azure Explorer**, expanda el nodo **Azure**, haga clic con el botón derecho en **Virtual Machines** y luego haga clic en **Crear VM**.
-   ![Menú Crear VM][CR01]
+2. En la vista **Azure Explorer**, expanda el nodo **Azure**, haga clic con el botón derecho en **Virtual Machines** y, luego, en **Crear máquina virtual**. 
 
-1. Cuando aparezca el asistente para **Crear nueva máquina virtual**, elija su suscripción y luego haga clic en **Siguiente**.
-   ![Asistente para Crear nueva máquina virtual][CR02]
+   ![El comando Crear máquina virtual][CR01]  
+    El Asistente **para crear nueva máquina virtual** se abrirá.
 
-1. En la siguiente pantalla del asistente, especifique las opciones que se muestran a continuación y, después, haga clic en **Siguiente**: ![Asistente para Crear nueva máquina virtual][CR03]
+3. En la ventana **Elegir una suscripción**, seleccione su suscripción y, luego, haga clic en **Siguiente**. 
 
-   a. **Ubicación**: especifica la ubicación donde se creará la máquina virtual, por ejemplo "westus".
+   ![Ventana Elegir una suscripción][CR02]
 
-   b. **Imagen recomendada**: especifica que elija una imagen de una lista abreviada de imágenes usadas con frecuencia.
+4. En la ventana **Seleccionar una imagen de máquina virtual**, escriba la siguiente información:
 
-   c. **Imagen personalizada**: especifica que se elija una imagen personalizada, para la que deberá especificar las opciones siguientes:
+   * **Ubicación**: especifica la ubicación donde se creará la máquina virtual (por ejemplo, *oeste de EE. UU.*). 
 
-      * **Publicador**: especifica el publicador que creó la imagen que se usará para crear la máquina virtual; por ejemplo, "Microsoft".
+   * **Imagen recomendada**: especifica que elegirá una imagen de una lista abreviada de imágenes usadas con frecuencia.
 
-      * **Oferta**: especifica la oferta de máquina virtual que quiere usar del publicador seleccionado; por ejemplo, "JDK".
+   * **Imagen personalizada**: especifica que elegirá una imagen personalizada proporcionando la siguiente información:
 
-      * **SKU**: especifica la *referencia de almacén (SKU)* que quiere usar de la oferta seleccionada; por ejemplo, "JDK_8".
+      * **Publicador**: especifica el publicador que creó la imagen que se usará para crear la máquina virtual (por ejemplo, *Microsoft*).
+
+      * **Oferta**: especifica la oferta de máquina virtual que quiere usar del publicador seleccionado (por ejemplo, *JDK*).
+
+      * **SKU**: especifica la referencia de almacén (SKU) que quiere usar de la oferta seleccionada (por ejemplo, *JDK_8*).
 
       * **N.º de versión**: especifica la versión que quiere usar de la SKU seleccionada.
 
-1. En la siguiente pantalla del asistente, especifique las opciones que se muestran a continuación y, después, haga clic en **Siguiente**: ![Asistente para Crear nueva máquina virtual][CR04]
+   ![La ventana Seleccionar una imagen de máquina virtual][CR03]
 
-   a. **Nombre de máquina virtual**: especifica el nombre de la nueva máquina virtual, que debe comenzar con una letra y contener solo letras, números y guiones.
+5. Haga clic en **Siguiente**. 
 
-   b. **Tamaño**: especifica el número de núcleos y la memoria que se asignará para la máquina virtual.
+6. En la pantalla **Configuración básica de máquina virtual**, escriba la siguiente información:
 
-   c. **Nombre de usuario**: especifica la cuenta de administrador que se creará para administrar la máquina virtual.
+   * **Nombre de máquina virtual**: especifica el nombre de la nueva máquina virtual, que debe comenzar con una letra y contener solo letras, números y guiones.
 
-   d. **Contraseña** y **Confirmar**: especifica la contraseña de la cuenta de administrador.
+   * **Tamaño**: especifica el número de núcleos y la memoria que se asignará para la máquina virtual.
 
-1. En la última pantalla del asistente, especifique las opciones siguientes y luego haga clic en **Finalizar**: ![Asistente para Crear máquina virtual nueva][CR07]
+   * **Nombre de usuario**: especifica la cuenta de administrador que se creará para administrar la máquina virtual.
 
-   a. **Grupo de recursos**: especifica el grupo de recursos para la máquina virtual; debe elegir una de las siguientes opciones:
+   * **Contraseña** y **Confirmar**: especifica la contraseña de la cuenta de administrador.
+
+   ![La ventana Configuración básica de máquina virtual][CR04]
+
+7. Haga clic en **Siguiente**. 
+
+8. En la ventana **Recursos asociados**, escriba la siguiente información:
+
+   * **Grupo de recursos**: especifica el grupo de recursos para su máquina virtual. Seleccione una de las siguientes opciones:
       * **Crear nuevo**: especifica que quiere crear un nuevo grupo de recursos.
-      * **Usar existente**: especifica que se va a elegir de una lista de grupos de recursos asociados a la cuenta de Azure.
+      * **Usar existente**: especifica que se quiere elegir de una lista de grupos de recursos asociados a la cuenta de Azure.
 
-   b. **Cuenta de almacenamiento**: especifica la cuenta de almacenamiento que se usará para almacenar la máquina virtual; puede elegir una cuenta de almacenamiento existente o crear una nueva cuenta. Si elige **&lt;&lt;Crear nuevo&gt;&gt;**, se mostrará el cuadro de diálogo siguiente:
+       ![La ventana Recursos asociados][CR07]
 
-      ![Cuadro de diálogo Crear nueva cuenta de almacenamiento][CR05]
+   * **Cuenta de almacenamiento**: especifica la cuenta de almacenamiento que se usará para almacenar la máquina virtual. Puede usar una cuenta de almacenamiento o crear una. Si elige **Crear nuevo**, se mostrará el cuadro de diálogo siguiente:
 
-   c. **Red virtual** y **subred**: especifica la red virtual y la subred a las que se conectará la máquina virtual; puede elegir una red y una subred existentes a fin de usarlas para la máquina virtual, o bien crear una red y una subred nuevas. Si elige **&lt;&lt;Crear nuevo&gt;&gt;**, se mostrará el cuadro de diálogo siguiente:
+      ![El cuadro de diálogo Crear cuenta de almacenamiento][CR05]
 
-      ![Cuadro de diálogo Crear una nueva red virtual][CR06]
+   * **Red virtual** y **subred**: especifica la red virtual y subred que se conectará la máquina virtual. Puede usar una red y subred existentes, o puede crear una nueva red y subred. Si selecciona **Crear nuevo**, se mostrará el cuadro de diálogo siguiente:
 
-   d. **Dirección IP pública**: especifica una dirección IP orientada hacia el exterior para la máquina virtual; puede decidir crear una nueva dirección IP o elegir **(Ninguno)** si la máquina virtual va a carecer de dirección IP pública.
+      ![Cuadro de diálogo Crear red virtual][CR06]
 
-   e. **Grupo de seguridad de red**: especifica un firewall de redes opcional que usará la máquina virtual; puede elegir un firewall existente o **(Ninguno)** si la máquina virtual no va a utilizar un firewall de red.
+   * **Dirección IP pública**: especifica una dirección IP externa para la máquina virtual. Puede crear una dirección IP o, si la máquina virtual no tiene una dirección IP pública, puede seleccionar **(Ninguno)**. 
 
-   f. **Conjunto de disponibilidad**: especifica un conjunto de disponibilidad opcional al que puede pertenecer la máquina virtual; puede elegir un conjunto de disponibilidad existente, crear uno nuevo, o bien seleccionar **(Ninguno)** si la máquina virtual no va a pertenecer a ningún conjunto de disponibilidad.
+   * **Grupo de seguridad de red**: especifica un firewall de red opcional para la máquina virtual. Puede seleccionar un firewall o, si la máquina virtual no utiliza un firewall, puede seleccionar **(Ninguno)**. 
 
-1. Cuando haya completado los pasos anteriores, se mostrará la nueva máquina virtual en la ventana de herramientas de Azure Explorer.
-   ![Nueva máquina virtual][CR08]
+   * **Conjunto de disponibilidad**: especifica un conjunto de disponibilidad opcional al que puede pertenecer su máquina virtual. Puede seleccionar un conjunto de disponibilidad, crear uno o, si la máquina virtual no pertenece a un conjunto de disponibilidad, seleccionar **(Ninguno)**.
 
-## <a name="restarting-a-virtual-machine-in-intellij"></a>Reinicio de una máquina virtual en IntelliJ
+9. Haga clic en **Finalizar**  
+    La nueva máquina virtual aparece en la ventana de la herramienta Azure Explorer. 
+
+   ![Nueva máquina virtual en la vista de Azure Explorer][CR08]
+
+## <a name="restart-a-virtual-machine-in-intellij"></a>Reinicio de una máquina virtual en IntelliJ
 
 Para reiniciar una máquina virtual mediante Azure Explorer en IntelliJ, siga estos pasos:
 
-1. En la ventana de la herramienta **Azure Explorer**, haga clic con el botón derecho en la máquina virtual y elija **Reiniciar**.
-   ![Reinicio de una máquina Virtual][RE01]
+1. En la vista **Azure Explorer**, haga clic con el botón derecho en la máquina virtual y elija **Reiniciar**.
 
-1. Haga clic en **Sí** cuando se le solicite que reinicie la máquina virtual.
-   ![Reinicio de una máquina virtual][RE02]
+   ![El comando de reinicio de máquina virtual][RE01]
 
-## <a name="shutting-down-a-virtual-machine-in-intellij"></a>Apagado de una máquina virtual en IntelliJ
+2. En la ventana confirmación, haga clic en **Sí**. 
 
-Para apagar una máquina virtual en funcionamiento mediante Azure Explorer en IntelliJ, siga estos pasos:
+   ![La ventana de confirmación de reinicio de máquina virtual][RE02]
 
-1. En la ventana de la herramienta **Azure Explorer**, haga clic con el botón derecho en la máquina virtual y elija **Apagar**.
-   ![Apagado de una máquina virtual][SH01]
+## <a name="shut-down-a-virtual-machine-in-intellij"></a>Apagado de una máquina virtual en IntelliJ
 
-1. Haga clic en **Sí** cuando se le solicite que apague la máquina virtual.
-   ![Apagado de una máquina virtual][SH02]
+Para apagar una máquina virtual en funcionamiento con Azure Explorer en IntelliJ, siga estos pasos:
 
-## <a name="deleting-a-virtual-machine-in-intellij"></a>Eliminación de una máquina virtual en IntelliJ
+1. En la vista **Azure Explorer**, haga clic con el botón derecho en la máquina virtual y elija **Apagar**.
 
-Para eliminar una máquina virtual mediante Azure Explorer en IntelliJ, siga estos pasos:
+   ![El comando de apagado de máquina virtual][SH01]
 
-1. En la ventana de la herramienta **Azure Explorer**, haga clic con el botón derecho en la máquina virtual y elija **Eliminar**.
-   ![Eliminación de una máquina virtual][DE01]
+2. En la ventana confirmación, haga clic en **Sí**. 
 
-1. Haga clic en **Sí** cuando se le solicite que elimine la máquina virtual.
-   ![Eliminación de una máquina virtual][DE02]
+   ![La ventana de confirmación de apagado de máquina virtual][SH02]
 
-## <a name="see-also"></a>Otras referencias
-Para más información sobre los tamaños y los precios de máquinas virtuales de Azure, consulte los siguientes vínculos:
+## <a name="delete-a-virtual-machine-in-intellij"></a>Eliminación de una máquina virtual en IntelliJ
 
-* Tamaños de máquina virtual de Azure
-   * [Tamaños de las máquinas virtuales Windows en Azure]
-   * [Tamaños de las máquinas virtuales Linux en Azure]
-* Precios de máquina virtual de Azure
-   * [Precios de máquinas virtuales Windows]
-   * [Precios de máquinas virtuales Linux]
+Para eliminar una máquina virtual con Azure Explorer en IntelliJ, siga estos pasos:
 
-Para más información acerca de los kits de herramientas de Azure para los IDE de Java, vea los siguientes vínculos:
+1. En la vista **Azure Explorer**, haga clic con el botón derecho en la máquina virtual y elija **Eliminar**.
+
+   ![El comando de eliminación de máquina virtual][DE01]
+
+2. En la ventana confirmación, haga clic en **Sí**. 
+
+   ![La ventana de confirmación de eliminación de máquina virtual][DE02]
+
+## <a name="next-steps"></a>Pasos siguientes
+Para obtener más información sobre los tamaños y los precios de máquinas virtuales de Azure, consulte los siguientes vínculos:
+
+* Tamaños de máquinas virtuales de Azure
+  * [Tamaños de las máquinas virtuales Windows en Azure]
+  * [Tamaños de las máquinas virtuales Linux en Azure]
+* Precios de máquinas virtuales de Azure
+  * [Precios de máquinas virtuales Windows]
+  * [Precios de máquinas virtuales Linux]
+
+Para obtener más información sobre los kits de herramientas de Azure para los IDE de Java, consulte los siguientes vínculos:
 
 * [Kit de herramientas de Azure para Eclipse]
   * [Novedades del kit de herramientas de Azure para Eclipse]
   * [Instalación del Kit de herramientas de Azure para Eclipse]
-  * [Sign In Instructions for the Azure Toolkit for Eclipse] (Instrucciones de inicio de sesión del kit de herramientas de Azure para Eclipse)
+  * [Instrucciones de inicio de sesión del kit de herramientas de Azure para Eclipse]
   * [Creación de una aplicación web Hello World para Azure en Eclipse]
 * [Kit de herramientas de Azure para IntelliJ]
   * [Novedades del kit de herramientas de Azure para IntelliJ]
@@ -144,7 +166,7 @@ Para más información acerca de los kits de herramientas de Azure para los IDE 
   * [Instrucciones de inicio de sesión del kit de herramientas de Azure para IntelliJ]
   * [Creación de una aplicación web Hello World para Azure en IntelliJ]
 
-Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure] y [Java Tools for Visual Studio Team Services] (Herramientas de Java para Visual Studio Team Services).
+Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure] y la página de [herramientas de Java para Visual Studio Team Services].
 
 <!-- URL List -->
 
@@ -154,18 +176,19 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Creación de una aplicación web Hello World para Azure en IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Instalación del Kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Instalación del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md (Instrucciones de inicio de sesión del kit de herramientas de Azure para Eclipse)
+[Instrucciones de inicio de sesión del kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
 [Instrucciones de inicio de sesión del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Novedades del kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Novedades del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Centro para desarrolladores de Java de Azure]: https://azure.microsoft.com/develop/java/
-[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
+[herramientas de Java para Visual Studio Team Services]: https://java.visualstudio.com/
 
 [Tamaños de las máquinas virtuales Windows en Azure]: /azure/virtual-machines/virtual-machines-windows-sizes
 [Tamaños de las máquinas virtuales Linux en Azure]: /azure/virtual-machines/virtual-machines-linux-sizes
 [Precios de máquinas virtuales Windows]: /pricing/details/virtual-machines/windows/
 [Precios de máquinas virtuales Linux]: /pricing/details/virtual-machines/linux/
+
 
 <!-- IMG List -->
 

@@ -13,21 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 84ce4b288c23c7005ac92f18ee26af70479deb8d
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 4453876c126289f922d6d08d321707e1d10004e3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Administración de discos de Azure con la CLI de Azure
 
-En este tutorial se tratan los diferentes tipos de discos de máquina virtual, cómo seleccionar una configuración de disco y cómo crear y conectar discos a máquinas virtuales de Azure. En este tutorial también se incluye la captura de instantáneas de disco. 
+Las máquinas virtuales de Azure usan discos para almacenar el sistema operativo, las aplicaciones y los datos de máquinas virtuales. Al crear una máquina virtual es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. Este tutorial trata la implementación y administración de discos de máquina virtual. Aprenderá sobre los siguientes temas:
 
-Se pueden completar los pasos de este tutorial con la versión más reciente de la [CLI de Azure 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Discos del SO y temporales
+> * Discos de datos
+> * Discos Estándar y Premium
+> * Rendimiento de disco
+> * Conectar y preparar los discos de datos
+> * Cambiar el tamaño de los discos
+> * Instantáneas de disco
+
+Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). También puede usar [Cloud Shell](/azure/cloud-shell/quickstart) desde el explorador.
 
 ## <a name="default-azure-disks"></a>Discos de Azure predeterminados
 
@@ -39,7 +48,7 @@ Cuando se crea una máquina virtual de Azure, se conectan dos discos automática
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
 
-| Tipo | Tamaño de VM | Tamaño máximo de disco temporal |
+| Tipo | Tamaño de VM | Tamaño máximo de disco temporal (GB) |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A y D | 800 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 800 |
@@ -274,6 +283,19 @@ az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido acerca de los discos de máquina virtual. Siga con el siguiente tutorial para aprender sobre la automatización de la configuración de la máquina virtual.
+En este tutorial, ha aprendido sobre temas relacionados con los discos de máquina virtual; por ejemplo:
 
-[Automatización de la configuración de máquinas virtuales](./tutorial-automate-vm-deployment.md)
+> [!div class="checklist"]
+> * Discos del SO y temporales
+> * Discos de datos
+> * Discos Estándar y Premium
+> * Rendimiento de disco
+> * Conectar y preparar los discos de datos
+> * Cambiar el tamaño de los discos
+> * Instantáneas de disco
+
+Siga con el siguiente tutorial para aprender sobre la automatización de la configuración de la máquina virtual.
+
+> [!div class="nextstepaction"]
+> [Automatización de la configuración de máquinas virtuales](./tutorial-automate-vm-deployment.md)
+

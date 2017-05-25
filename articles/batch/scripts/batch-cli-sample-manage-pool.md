@@ -12,12 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/02/2017
 ms.author: antisch
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7cec2a8c66868c601c38dc2dea61dda38d3cd3b2
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 2556b02459886390b803407c5cb828687229a44e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -25,14 +26,16 @@ ms.lasthandoff: 03/24/2017
 
 Estos scripts muestran algunas de las herramientas disponibles en la CLI de Azure para crear y administrar grupos de nodos de ejecución en el servicio de Azure Batch.
 
-En la ejecución de estos scripts se da por supuesto que ya se configuró una cuenta de Batch y una aplicación. Para más información, consulte los [scripts de ejemplo](../batch-cli-samples.md) que tratan sobre cada uno de estos temas.
-
 > [!NOTE]
 > Los comandos de este ejemplo crean máquinas virtuales de Azure. La ejecución de máquinas virtuales acumulará cargos en su cuenta. Para minimizarlos, elimine las máquinas virtuales cuando termine de ejecutar el ejemplo. Consulte el artículo sobre cómo [limpiar los grupos](#clean-up-pools).
 
-Si es necesario, instale la CLI de Azure con las instrucciones que se encuentran en la [guía de instalación de CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)y luego ejecute `az login` para iniciar sesión en Azure.
+Los grupos de Batch se pueden configurar de dos formas, ya sea con una configuración de Cloud Services (solo Windows) o una configuración de Virtual Machine (Windows y Linux). Los scripts de ejemplo siguientes muestran cómo crear grupos con ambas configuraciones.
 
-Los grupos de Batch se pueden configurar de dos formas, ya sea con una configuración de Cloud Services (solo Windows) o una configuración de Virtual Machine (Windows y Linux).
+## <a name="prerequisites"></a>Requisitos previos
+
+- Instale la CLI de Azure con las instrucciones que se encuentran en la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) si aún no lo ha hecho.
+- Cree una cuenta de Batch si aún no tiene una. Consulte [Creación de una cuenta de Batch con la CLI de Azure](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account) para ver un script de ejemplo que crea una cuenta.
+- Configure una aplicación para que se ejecute desde una tarea de inicio si aún no lo ha hecho. Consulte [Adición de aplicaciones a Azure Batch con la CLI de Azure](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-add-application) para ver un script de ejemplo que crea una aplicación y carga un paquete de aplicación en Azure.
 
 ## <a name="pool-with-cloud-service-configuration-sample-script"></a>Grupo con script de ejemplo de configuración de Cloud Services
 

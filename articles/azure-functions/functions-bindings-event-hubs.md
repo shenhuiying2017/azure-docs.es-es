@@ -16,9 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/02/2016
 ms.author: wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: c8e9f9709d13295c9414e525f1f60abf0d0accb7
-ms.openlocfilehash: 0bfbfd3828aacdee0b6630ced034f2c1e0451abd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 04a8563a0035992cfa4b7d25a4edc14e1db80e44
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -50,7 +52,7 @@ El desencadenador de un centro de eventos para una función usa el siguiente obj
 }
 ```
 
-`consumerGroup` es una propiedad opcional que se utiliza para establecer el [grupo de consumidores](../event-hubs/event-hubs-what-is-event-hubs.md#event-consumers) utilizado para suscribirse a eventos en el concentrador. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`.  
+`consumerGroup` es una propiedad opcional que se utiliza para establecer el [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) utilizado para suscribirse a eventos en el concentrador. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`.  
 `connection` debe ser el nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres del centro de eventos.
 Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.
 
@@ -233,9 +235,4 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
