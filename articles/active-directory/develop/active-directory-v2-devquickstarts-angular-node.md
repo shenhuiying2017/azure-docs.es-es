@@ -14,9 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
 ms.openlocfilehash: 3f2e856b71a42fe677d92c9c020236b8f0da9c1e
+ms.contentlocale: es-es
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -245,10 +248,5 @@ Para obtener más información sobre el punto de conexión v2.0, regrese a nuest
 
 ## <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

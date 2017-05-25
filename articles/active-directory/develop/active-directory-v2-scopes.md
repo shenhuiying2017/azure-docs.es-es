@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
 ms.openlocfilehash: e00ceb8dd87e00bbdd05146e107c72e6182eb474
+ms.contentlocale: es-es
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -201,9 +204,4 @@ Content-Type: application/json
 Puede usar el token de acceso resultante en las solicitudes HTTP al recurso. Dicho token indica al recurso de forma confiable que la aplicación tiene el permiso apropiado para realizar una tarea específica.  
 
 Para más información sobre el protocolo OAuth 2.0 y cómo obtener tokens de acceso, consulte la [referencia de protocolo del punto de conexión v2.0](active-directory-v2-protocols.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
