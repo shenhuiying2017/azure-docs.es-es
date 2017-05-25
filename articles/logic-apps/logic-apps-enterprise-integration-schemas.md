@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
-ms.author: estfan
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7884032fd4b5a72ca7e2f2dc2830b0a7c2220e94
 ms.openlocfilehash: 5d8ddd4449d3b160dbca7496c801e75dcf4a44e5
+ms.contentlocale: es-es
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -58,11 +60,11 @@ Estos pasos difieren en función del nivel de acceso del contenedor de blob: **P
 
 **Para determinar este nivel de acceso**
 
-1.  Abra el **Explorador de Azure Storage**. 
+1.    Abra el **Explorador de Azure Storage**. 
 
-2.  En **Contenedores de blob**, seleccione el contenedor de blob que desee. 
+2.    En **Contenedores de blob**, seleccione el contenedor de blob que desee. 
 
-3.  Seleccione **Seguridad**, **Nivel de acceso**.
+3.    Seleccione **Seguridad**, **Nivel de acceso**.
 
 Si el nivel de acceso de seguridad de blob es **Público**, siga estos pasos.
 
@@ -132,10 +134,5 @@ Azure muestra un mensaje que indica que el esquema se ha cargado correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack").  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

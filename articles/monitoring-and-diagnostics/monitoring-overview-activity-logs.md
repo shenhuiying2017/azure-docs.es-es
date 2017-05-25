@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
 ms.openlocfilehash: c123b76b0e4c95cfebcc79063fb1c3a27efc8646
+ms.contentlocale: es-es
 ms.lasthandoff: 03/31/2017
 
 
@@ -39,7 +40,9 @@ Puede recuperar los eventos del registro de actividad mediante Azure Portal, la 
 >
 
 Vea el vídeo siguiente sobre la introducción del registro de actividad.
-[!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> 
+>
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Qué se puede hacer con el registro de actividad
 Estas son algunas de las cosas que puede hacer con el registro de actividad:

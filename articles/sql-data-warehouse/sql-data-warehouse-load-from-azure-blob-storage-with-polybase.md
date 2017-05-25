@@ -15,9 +15,10 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
 ms.openlocfilehash: 348605fed8101cf83cbcfb559c71f34407692f7a
+ms.contentlocale: es-es
 ms.lasthandoff: 01/24/2017
 
 
@@ -230,7 +231,7 @@ GO
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Carga de los datos en nuevas tablas
 Para cargar datos de Azure Blob Storage y guardarlos en una tabla dentro de su base de datos, use la instrucción [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Al realizarse la carga con CTAS, se aprovechan las tablas externas fuertemente tipadas que acaba de crear. Para cargar los datos en nuevas tablas, use una instrucción [CTAS][CTAS] por tabla. 
-
+ 
 CTAS crea una nueva tabla y la rellena con los resultados de una instrucción SELECT. CTAS define la nueva tabla para tener las mismas columnas y tipos de datos que los resultados de la instrucción SELECT. Si selecciona todas las columnas de una tabla externa, la nueva tabla será una réplica de las columnas y los tipos de datos de la tabla externa.
 
 En este ejemplo, creamos la tabla de dimensiones y la de hechos como tablas hash distribuidas. 
@@ -262,7 +263,7 @@ SELECT
     s.request_id,
     r.status,
     count(distinct input_name) as nbr_files, 
-    sum(s.bytes_processed)/1024/1024 as gb_processed
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
 FROM
     sys.dm_pdw_exec_requests r
     inner join sys.dm_pdw_dms_external_work s

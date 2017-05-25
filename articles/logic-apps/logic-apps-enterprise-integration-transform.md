@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9369b90471ee775664b942b21ceb450b8852eafd
 ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
+ms.contentlocale: es-es
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -71,10 +73,5 @@ Ahora puede probar la transformación realizando una solicitud al punto de conex
 ## <a name="learn-more"></a>Más información
 * [Más información sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  
 * [Más información sobre las asignaciones](../logic-apps/logic-apps-enterprise-integration-maps.md "Información sobre las asignaciones de Enterprise Integration")  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

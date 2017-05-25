@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
 ms.openlocfilehash: b6627ed7e3b08e0a94dec229d735114b3ed1b9df
+ms.contentlocale: es-es
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -74,10 +76,5 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados desde soluciones y orígenes de datos.  
 * Use [Campos personalizados](log-analytics-custom-fields.md) para redistribuir los registros de eventos en campos individuales.
 * Configure la [recopilación de contadores de rendimiento](log-analytics-data-sources-performance-counters.md) desde los agentes de Windows.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
