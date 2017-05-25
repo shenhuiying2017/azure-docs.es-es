@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 8485fd9350672dd0f41e2d5dada57a1940c43f16
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6c8df6b9804d082c8044cdb2420cc5ea42b9774f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -123,6 +124,16 @@ Seleccione el tipo de diagrama que desea:
 Si tiene varias columnas de los tipos correctos, puede elegir los ejes X e Y, así como una columna de dimensiones para dividir los resultados.
 
 De manera predeterminada, los resultados se muestran en un principio en forma de tabla y el diagrama se selecciona manualmente. Sin embargo, para seleccionar un diagrama se puede usar la [directiva render](app-insights-analytics-reference.md#render-directive) al final de una consulta.
+
+### <a name="analytics-diagnostics"></a>Analytics Diagnostics
+
+
+En un gráfico de tiempo, si se produce un pico o salto repentino en los datos, es posible que vea un punto en la línea resaltado. Esto indica que Analytics Diagnostics ha identificado una combinación de propiedades que filtran los cambios repentinos. Haga clic en el punto para obtener más detalles del filtro y para ver la versión filtrada. Esto puede ayudar a identificar lo que ha causado el cambio. 
+
+[Más información sobre Analytics Diagnostics](app-insights-analytics-diagnostics.md)
+
+
+![Analytics Diagnostics](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Anclar al panel
 Puede anclar un diagrama o una tabla a uno de sus [paneles compartidos](app-insights-dashboards.md) ; simplemente haga clic en la chincheta. (Es posible que necesite [actualizar el paquete de precios de la aplicación](app-insights-pricing.md) para activar esta característica). 
