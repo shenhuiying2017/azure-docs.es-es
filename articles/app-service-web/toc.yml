@@ -141,9 +141,9 @@
     href: web-sites-deploy.md
     items:
     - name: Implementación a través de FTP
-      href: app-service-deploy-content-sync.md
+      href: app-service-deploy-ftp.md
     - name: Implementación a través de la sincronización en la nube
-      href: web-sites-deploy.md
+      href: app-service-deploy-content-sync.md
     - name: Implementación continuada
       href: app-service-continuous-deployment.md
     - name: Implementación en entorno de ensayo

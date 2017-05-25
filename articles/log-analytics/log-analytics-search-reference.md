@@ -3,7 +3,7 @@ title: "Referencia sobre búsqueda de registros de Azure Log Analytics | Microso
 description: "En la referencia sobre búsqueda de registros de Log Analytics, se describe el lenguaje de consulta y se proporcionan las opciones generales de sintaxis de consulta que puede usar al buscar datos y filtrar expresiones para ayudar a limitar la búsqueda."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
-ms.author: banders
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
@@ -613,7 +613,7 @@ En este ejemplo se devuelve un evento (el último evento) por EventID.
 
 ### <a name="join"></a>Unión
 Combina los resultados de dos consultas para formar un único conjunto de resultados.  Admite varios tipos de combinación que se describen en la tabla siguiente.
-  
+
 | Tipo de combinación | Descripción |
 |:--|:--|
 | interna | Devuelve solo aquellos registros con un valor coincidente en ambas consultas. |
