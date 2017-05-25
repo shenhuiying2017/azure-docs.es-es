@@ -6,7 +6,7 @@ Desde su lanzamiento, la extensión de scripts personalizados se ha usado amplia
 Las plantillas de Azure Resource Manager le permiten especificar mediante declaración la infraestructura IaaS de Azure en el lenguaje JSON definiendo las dependencias entre recursos. Para obtener información más detallada de las plantillas del Administrador de recursos de Azure, consulte los siguientes artículos:
 
 * [Información general del grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md)
-* [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](../articles/virtual-machines/windows/ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](../articles/virtual-machines/windows/ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="prerequisites"></a>Requisitos previos
 1. Descargue [aquí](https://azure.microsoft.com/downloads/) las herramientas de la línea de comandos de Azure para su sistema operativo.
