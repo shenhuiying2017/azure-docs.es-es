@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: Conceptos
   items:
-  - name: Planes de hospedaje
+  - name: Planes de consumo y plan de App Service
     href: functions-scale.md
   - name: Desencadenadores y enlaces
     href: functions-triggers-bindings.md
+  - name: Idiomas
+    items:
+    - name: 'Conceptos de las funciones de C#'
+      href: functions-reference-csharp.md
+    - name: 'Conceptos de las funciones de F#'
+      href: functions-reference-fsharp.md
+    - name: Conceptos de las funciones de JavaScript
+      href: functions-reference-node.md    
 - name: Guías de procedimientos
   items:
+  - name: Guía del desarrollador
+    href: functions-reference.md
   - name: Prueba de las funciones de Azure
     href: functions-test-a-function.md
   - name: Desarrollo y depuración locales
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: Instalación del sistema en tiempo de ejecución de Functions
     href: functions-runtime-install.md
+  - name: Conectarse a Base de datos SQL
+    href: functions-scenario-database-table-cleanup.md
+  - name: Creación de una definición de OpenAPI 2.0
+    href: functions-api-definition-getting-started.md     
+  - name: Procedimientos recomendados para Azure Functions
+    href: functions-best-practices.md     
 - name: Referencia
   items:
-  - name: Desarrollo de aplicaciones de función
-    href: functions-reference.md
-    items:
-    - name: Abra la API 2.0
-      href: functions-api-definition.md
-  - name: Procedimientos recomendados para Azure Functions
-    href: functions-best-practices.md
   - name: Enlaces
     items:
     - name: Enlaces de Cosmos DB
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Enlace de salida de Twilio
       href: functions-bindings-twilio.md
-  - name: Marcos de trabajo
-    items:
-    - name: 'C#'
-      href: functions-reference-csharp.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+  - name: Referencia de OpenAPI
+    href: functions-api-definition.md     
 - name: Recursos
   items:
   - name: Precios

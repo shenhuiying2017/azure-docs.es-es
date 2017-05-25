@@ -39,11 +39,11 @@
       href: concepts-server-logs.md
   - name: Recursos
     items:
-    - name: Niveles de servicio
+    - name: Planes de tarifa
       href: concepts-service-tiers.md
-    - name: Unidades de proceso y unidades de almacenamiento
+    - name: Unidades de proceso
       href: concepts-compute-unit-and-storage.md
-    - name: Límites
+    - name: límites
       href: concepts-limits.md
   - name: Seguridad y acceso a datos
     items:

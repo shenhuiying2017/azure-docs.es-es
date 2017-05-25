@@ -10,7 +10,6 @@
 ## [Implementación del clúster: Portal](container-service-deployment.md)
 ## [Implementación del clúster: CLI de Azure](container-service-create-acs-cluster-cli.md)
 ## [Integración y entrega continuas con Kubernetes y Jenkins](container-service-kubernetes-jenkins.md)
-## [Integración y entrega continuas con DC/OS y VSTS](container-service-setup-ci-cd.md)
 ## [Integración y entrega continuas con Docker Swarm y VSTS](container-service-docker-swarm-setup-ci-cd.md)
 
 # Conceptos
@@ -44,6 +43,7 @@
 #### [Supervisión con OMS](container-service-kubernetes-oms.md)
 #### [Supervisión con Datadog](container-service-kubernetes-datadog.md)
 #### [Supervisión con Sysdig](container-service-kubernetes-sysdig.md)
+#### [Supervisión con CoScale](container-service-kubernetes-coscale.md)
 ## Administración con Docker Swarm
 ### [Docker y Docker Compose](container-service-docker-swarm.md)
 
