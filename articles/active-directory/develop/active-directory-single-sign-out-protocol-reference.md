@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
 ms.openlocfilehash: 7be96ed59a148f7c622551eaa66279a94e2c83f1
+ms.contentlocale: es-es
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -72,8 +75,3 @@ Para evaluar el valor del elemento `Issuer` , utilice el valor del identificador
 
 ### <a name="status"></a>Estado
 Azure AD usa el elemento `StatusCode` en `Status` para indicar que el cierre de sesión ha sido satisfactorio o que se ha producido algún error. Cuando se produce un error en el intento de cierre de sesión, el elemento `StatusCode` también puede contener mensajes de error personalizados.
-
-
-<!--HONumber=Feb17_HO2-->
-
-
