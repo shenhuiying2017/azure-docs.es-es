@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 03/062/2016
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 64babace9ec5aa61acb396edf86f889e96a52c71
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c9376b95e4686f804d34f648e15cfcc0f2847718
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -73,7 +73,7 @@ Después de crear e inicializar la base de datos secundaria, los datos comienzan
 
 La base de datos secundaria se puede cambiar para convertirse en la principal.  
 
-1. En el [Azure Portal](http://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
+1. En [Azure Portal](http://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
 2. En la hoja SQL Database, seleccione **All settings** (Toda la configuración)  > **Replicación geográfica**.
 3. En la lista **SECUNDARIAS**, seleccione la base de datos que quiere convertir en la nueva base de datos principal y haga clic en **Conmutación por error**.
    
@@ -101,7 +101,7 @@ Esta operación termina de forma permanente la replicación en la base de datos 
 5. Se abrirá una ventana de confirmación. Haga clic en **Sí** para quitar la base de datos de la asociación de replicación geográfica. (Establezca el valor en una base de datos de lectura y escritura que no forme parte de ninguna replicación).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Si quiere conocer más detalles sobre la replicación geográfica activa, consulte [este artículo](sql-database-geo-replication-overview.md).
+* Para obtener más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 * Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Recuperación ante desastres de SQL Database | Microsoft Docs"
-description: "Obtenga información acerca de cómo recuperar una base de datos tras un error o una interrupción de un centro de datos regional con las funcionalidades de replicación geográfica activa y restauración geográfica de Base de datos SQL de Azure."
+description: "Obtenga información sobre cómo recuperar una base de datos tras un error o una interrupción de un centro de datos regional con las funcionalidades de replicación geográfica activa y restauración geográfica de Azure SQL Database."
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: dab476db32b2274049140144847fba24b55856b0
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 8f1f22d1609dc34369a131e79eb2a1c0be9fe552
 ms.contentlocale: es-es
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -56,16 +56,16 @@ Use la opción [Get Recoverable Database](https://msdn.microsoft.com/library/dn8
 ## <a name="wait-for-service-recovery"></a>Espera para la recuperación del servicio
 Los equipos de Azure trabajan diligentemente para restaurar la disponibilidad del servicio lo antes posible, pero dependiendo de la causa principal pueden tardar horas, o incluso días.  Si la aplicación puede tolerar un tiempo de inactividad considerable, puede esperar hasta que se complete la recuperación. En este caso, no se requieren acciones por su parte. El estado actual del servicio se puede ver en el [panel de estado de los servicios de Azure](https://azure.microsoft.com/status/). Después de la recuperación de la región se restaurará la disponibilidad de su aplicación.
 
-## <a name="failover-to-geo-replicated-secondary-database"></a>Conmutación por error de la base de datos secundaria de replicación geográfica
+## <a name="fail-over-to-geo-replicated-secondary-database"></a>Conmutación por error de la base de datos secundaria de replicación geográfica
 Si el tiempo de inactividad de la aplicación puede dar lugar a responsabilidades civiles, debería utilizar bases de datos con replicación geográfica en la aplicación. Esto permitirá que la aplicación restaure rápidamente la disponibilidad en una región diferente en caso de interrupción. Obtenga información sobre cómo [configurar la replicación geográfica](sql-database-geo-replication-portal.md).
 
 Para restaurar la disponibilidad de las bases de datos, es preciso iniciar la conmutación por error en la secundaria con replicación geográfica mediante uno de los métodos admitidos.
 
 Utilice una de las siguientes guías para realizar la conmutación por error en una base de datos secundaria con replicación geográfica:
 
-* [Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-portal.md)
-* [Configuración de la replicación geográfica para Base de datos SQL de Azure con PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-* [Configuración de la replicación geográfica para una base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-transact-sql.md)
+* [Configuración de replicación geográfica con Azure Portal](sql-database-geo-replication-portal.md)
+* [Configuración de la replicación geográfica con PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+* [Conmutación por error a una base de datos secundaria con replicación geográfica mediante Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 ## <a name="recover-using-geo-restore"></a>Recuperación mediante la restauración geográfica
 Si el tiempo de inactividad de la aplicación no da lugar a responsabilidades civiles, puede usar la [restauración geográfica](sql-database-recovery-using-backups.md) como método para recuperar las bases de datos de la aplicación. Dicho método crea una copia de la base de datos a partir de la última copia de seguridad con redundancia geográfica.

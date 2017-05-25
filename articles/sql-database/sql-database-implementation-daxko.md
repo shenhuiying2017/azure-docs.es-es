@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
-ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
-ms.lasthandoff: 02/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 61d62cde5311c8e447acf8890e0a32339585bb42
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -68,7 +69,7 @@ Varias características de Azure han ayudado a CSI Software a pasar de centrarse
 En estos momentos, CSI Software proporciona unas 550 bases de datos a los clientes. Antes de los grupos elásticos, era difícil administrar ese número tan elevado de bases de datos dentro de una estructura de niveles. Los administradores de operaciones tenían que asignar niveles de rendimiento según las necesidades de ráfagas de los clientes, lo que exigía una importante sobrecarga de recursos de TI. Gracias a los grupos elásticos, los administradores pueden asignar inquilinos a un grupo estándar o Premium, según corresponda y, después, transferir los clientes en función del tamaño y las necesidades. Los clientes percibieron los efectos de los grupos elásticos casi de inmediato; antes de implantarlos, los clientes se encontraban con tiempos de espera y otros problemas durante los periodos de uso de ráfagas. Con los grupos de bases de datos elásticas, pueden utilizar ráfagas de actividad según necesiten; además, pueden usar SpectrumNG sin problemas.
 
 ## <a name="azure-active-geo-replication-accelerates-reporting"></a>La replicación geográfica activa de Azure acelera la generación de informes
-Varios clientes de CSI Software también están aprovechando las ventajas de la replicación geográfica activa de Azure. Esta característica permite configurar hasta cuatro bases de datos secundarias legibles en las mismas regiones de los centros de datos o en otras. CSI Software utiliza la replicación geográfica activa de dos maneras: en primer lugar, las bases de datos secundarias están disponibles en caso de que se produzca una interrupción en el centro de datos o no pueda conectarse con la base de datos principal; en segundo lugar, las bases de datos secundarias son legibles y pueden usarse para descargar cargas de trabajo de solo lectura, por ejemplo, tareas de generación de informes. Algunos clientes de CSI Software utilizan esta ventaja para acelerar los flujos de trabajo de generación de informes.
+Varios clientes de CSI Software también están aprovechando las ventajas de la replicación geográfica activa de Azure. Esta característica permite replicar geográficamente hasta cuatro bases de datos secundarias legibles en las mismas regiones de los centros de datos o en otras. CSI Software utiliza la replicación geográfica activa de dos maneras: en primer lugar, las bases de datos secundarias están disponibles en caso de que se produzca una interrupción en el centro de datos o no pueda conectarse con la base de datos principal; en segundo lugar, las bases de datos secundarias son legibles y pueden usarse para descargar cargas de trabajo de solo lectura, por ejemplo, tareas de generación de informes. Algunos clientes de CSI Software utilizan esta ventaja para acelerar los flujos de trabajo de generación de informes.
 
 ## <a name="csi-software-application-logic-and-architecture"></a>Arquitectura y lógica de aplicación de CSI Software
 SpectrumNG utiliza roles web. Como la aplicación es multiempresa, se utiliza un servicio WCF para atender la solicitud de conexión inicial de los clientes. Tal y como indica Molina: "La solicitud identifica a cada cliente, lo que, posteriormente, nos permite crear una cadena de conexión a sus bases de datos para realizar todo lo que debemos hacer".
@@ -91,7 +92,7 @@ Azure SQL Database no solamente es una ventaja para los clientes de SpectrumNG, 
 * Para obtener más información sobre los grupos elásticos de Azure, consulte [este artículo](sql-database-elastic-pool.md).
 * Si necesita obtener más detalles sobre las herramientas para bases de datos y el escalado elástico, lea [este artículo](sql-database-elastic-scale-get-started.md).
 * Para obtener más información cómo migrar una base de datos de SQL Server, vea [Migración de una base de datos de SQL Server a una Base de datos SQL en la nube](sql-database-cloud-migrate.md).
-* Si quiere conocer más detalles sobre la replicación geográfica activa, revise [este artículo](sql-database-geo-replication-overview.md).
+* Para obtener más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 * Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute).    
 * Si necesita más información sobre Azure Service Bus, lea [este artículo](https://azure.microsoft.com/services/service-bus/).
 * Si quiere saber más sobre el escalado automático, revise [este artículo](../cloud-services/cloud-services-how-to-scale.md).

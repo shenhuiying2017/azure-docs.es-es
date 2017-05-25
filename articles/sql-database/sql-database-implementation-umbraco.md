@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 774d5ac6f3d5d9d97120ab895157677e4a92bb05
-ms.lasthandoff: 01/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c22cb3a5436daf0296451f1f05a52d315ebc0416
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---

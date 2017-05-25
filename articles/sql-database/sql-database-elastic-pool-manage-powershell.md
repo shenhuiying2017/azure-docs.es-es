@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 04/10/2017
+wms.date: 05/14/2017
 ms.author: srinia
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: b84185d0f224352e7cf5449068bee359914bd4ed
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 907e15da90bcd82358a462f7d8a7d2ba4a34f371
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 05/16/2017
 
 ---
 
@@ -88,7 +87,7 @@ Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName �
 Use el cmdlet [Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool) para establecer el parámetro _-StorageMB_. Especifique el límite de almacenamiento en MB (por ejemplo, 2097152 establece el límite de almacenamiento en 2 TB). Consulte los posibles valores en el artículo sobre [límites de almacenamiento y de eDTU](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 > [!IMPORTANT]
-> El almacenamiento de datos máximo predeterminado por grupo en el caso de los grupos Premium con 1500 eDTU, o más, es 750 GB. Para obtener el mayor valor de _tamaño de almacenamiento de datos máximo por grupo_, se debe establecer explícitamente el límite de almacenamiento. Los grupos Premium con más de 750 GB de almacenamiento se encuentran actualmente en versión preliminar pública en las siguientes regiones: este de EE. UU. 2, oeste de EE. UU., Europa Occidental, Sudeste Asiático, Japón Oriental, Este de Australia, centro de Canadá y Este de Canadá.
+> El almacenamiento de datos máximo predeterminado por grupo en el caso de los grupos Premium con 1500 eDTU, o más, es 750 GB. Para obtener el mayor valor de _tamaño de almacenamiento de datos máximo por grupo_, se debe establecer explícitamente el límite de almacenamiento. Los grupos Premium con más de 750 GB de almacenamiento se encuentran actualmente en versión preliminar pública en las siguientes regiones: Este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU., Europa Occidental, Centro de Alemania, Asia Suroriental, Japón Oriental, Este de Australia, centro de Canadá y Este de Canadá.
 
 ```PowerShell
 Set-AzureRmSqlElasticPool -ServerName "server1" -ElasticPoolName “elasticpool1” -StorageMB 2097152

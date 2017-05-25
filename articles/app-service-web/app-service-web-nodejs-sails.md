@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: ff5deaa15d1f78df249e9e89b1f0ffc82076fee1
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 62f674945745eb019c92173798b6eef43337c9f3
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -46,7 +47,7 @@ Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 * [Node.js](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Versión preliminar de la CLI de Azure 2.0](/cli/azure/install-az-cli2)
+* [CLI de Azure 2.0](/cli/azure/install-az-cli2)
 * Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
@@ -117,13 +118,13 @@ A continuación, cree el recurso de App Service en Azure e implemente en él la 
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) con un nombre. Para este tutorial de PHP, no necesita realmente saber qué es.
+3. Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) con un nombre. Para este tutorial de node.js, no es preciso saber qué es.
 
         az group create --location "<location>" --name my-sailsjs-app-group
 
     Para ver los posibles valores que puede usar para `<location>`, use el comando de la CLI `az appservice list-locations`.
 
-3. Cree "GRATIS" un [plan de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) con un nombre. Para este tutorial de PHP, sepa que no se le cobrará por las aplicaciones web de este plan.
+3. Cree "GRATIS" un [plan de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) con un nombre. Para este tutorial de node.js, solo es preciso saber que en este plan no se cobrarán las aplicaciones web.
 
         az appservice plan create --name my-sailsjs-appservice-plan --resource-group my-sailsjs-app-group --sku FREE
 
@@ -183,11 +184,11 @@ Si la aplicación se ha iniciado correctamente, el registro stdout debería most
 Puede controlar la granularidad de los registros de stdout en el archivo [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) .
 
 ## <a name="connect-to-a-database-in-azure"></a>Conexión a una base de datos de Azure
-Para conectarse a una base de datos de Azure, debe crear una base de datos de su elección en Azure, como Azure SQL Database, MySQL, MongoDB, Azure Redis Cache, etc., y usar el [adaptador de almacén de datos](https://github.com/balderdashy/sails#compatibility) correspondiente para conectarse a ella. Los pasos de esta sección le muestran cómo conectarse a MongoDB mediante una base de datos de [Azure DocumentDB](../documentdb/documentdb-protocol-mongodb.md), que puede admitir conexiones de cliente de MongoDB.
+Para conectarse a una base de datos de Azure, debe crear una base de datos de su elección en Azure, como Azure SQL Database, MySQL, MongoDB, Azure Redis Cache, etc., y usar el [adaptador de almacén de datos](https://github.com/balderdashy/sails#compatibility) correspondiente para conectarse a ella. En los pasos de esta sección, se indica cómo conectarse a MongoDB mediante una base de datos [Azure Cosmos DB](../documentdb/documentdb-protocol-mongodb.md), que puede admitir conexiones de cliente de MongoDB.
 
-1. [Cree una cuenta de DocumentDB que sea compartible con el protocolo MongoDB](../documentdb/documentdb-create-mongodb-account.md).
-2. [Cree una colección y una base de datos de DocumentDB](../documentdb/documentdb-create-collection.md). El nombre de la colección es irrelevante, pero necesita el nombre de la base de datos al conectase desde Sails.js.
-3. [Busque la información de conexión para la base de datos de DocumentDB](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+1. [Cree una cuenta de Cosmos DB que admita el protocolo de MongoDB](../documentdb/documentdb-create-mongodb-account.md).
+2. [Cree una colección y una base de datos Cosmos DB](../documentdb/documentdb-create-collection.md). El nombre de la colección es irrelevante, pero necesita el nombre de la base de datos al conectase desde Sails.js.
+3. [Busque la información de conexión para la base de datos Cosmos DB](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. Desde el terminal de línea de comandos, instale el adaptador de MongoDB:
 
         npm install sails-mongo --save
@@ -205,11 +206,11 @@ Para conectarse a una base de datos de Azure, debe crear una base de datos de su
         },
 
     > [!NOTE] 
-    > La opción `ssl: true` es importante porque [Azure DocumentDB la requiere](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+    > La opción `ssl: true` es importante porque [Cosmos DB la necesita](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
     >
     >
 
-4. Para cada variable de entorno (`process.env.*`), debe establecerlo en App Service. Para ello, ejecute los comandos siguientes desde su terminal: Utilice la información de conexión para la base de datos de DocumentDB.
+4. Para cada variable de entorno (`process.env.*`), debe establecerlo en App Service. Para ello, ejecute los comandos siguientes desde su terminal: Use la información de conexión para la base de datos Cosmos DB.
 
         az appservice web config appsettings update --settings dbuser="<database user>" --name <app_name> --resource-group my-sailsjs-app-group
         az appservice web config appsettings update --settings dbpassword="<database password>" --name <app_name> --resource-group my-sailsjs-app-group
@@ -230,7 +231,7 @@ Para conectarse a una base de datos de Azure, debe crear una base de datos de su
             },
         },
 
-    Esta configuración invalida la configuración del archivo config/connections.js para el entorno local. El archivo .gitignore predeterminado del proyecto excluirá este archivo, por lo que no se almacenará en Git. Ahora, ya puede conectarse a la base de datos de DocumentDB (MongoDB) desde su aplicación web de Azure y su entorno de desarrollo local.
+    Esta configuración invalida la configuración del archivo config/connections.js para el entorno local. El archivo .gitignore predeterminado del proyecto excluirá este archivo, por lo que no se almacenará en Git. Ahora, ya puede conectarse a la base de datos Cosmos DB (MongoDB) desde la aplicación web de Azure y el entorno de desarrollo local.
 6. Abra config/env/production.js para configurar el entorno de producción y agregue el siguiente objeto `models` :
 
         models: {
@@ -270,7 +271,7 @@ Para conectarse a una base de datos de Azure, debe crear una base de datos de su
 
          http://<appname>.azurewebsites.net/mywidget/create
 
-     Si la API devuelve otra entrada nueva, significa que la aplicación web de Azure está hablando con la base de datos de DocumentDB (MongoDB).
+     Si la API devuelve otra entrada nueva, significa que la aplicación web de Azure está comunicándose con la base de datos Cosmos DB (MongoDB).
 
 ## <a name="more-resources"></a>Más recursos
 * [Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure](app-service-web-get-started-nodejs.md)

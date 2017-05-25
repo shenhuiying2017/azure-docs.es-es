@@ -1,25 +1,27 @@
 ---
-title: "Características de alta disponibilidad de HDInsight (Hadoop) | Microsoft Docs"
-description: "Obtenga información acerca de cómo los clústeres de HDInsight basados en Linux mejoran la confiabilidad y la disponibilidad mediante el uso de un nodo principal adicional. Obtenga información sobre cómo esto afecta a los servicios de Hadoop como Ambari y Hive, y cómo conectarse individualmente a cada nodo principal mediante SSH."
+title: Alta disponibilidad de Hadoop - Azure HDInsight | Microsoft Docs
+description: "Obtenga información sobre cómo los clústeres de HDInsight mejoran la confiabilidad y la disponibilidad gracias al uso de un nodo principal extra. Obtenga información sobre cómo esto afecta a los servicios de Hadoop como Ambari y Hive, y cómo conectarse individualmente a cada nodo principal mediante SSH."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
 documentationcenter: 
 tags: azure-portal
+keywords: hadoop alta disponibilidad
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6e001d497dba1e3cc0a987fd0950854fe2564d2c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 8e2c1ccb003adafeaf315b23171f49d5b3f50cdb
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -27,12 +29,12 @@ ms.lasthandoff: 04/27/2017
 
 Los clústeres de HDInsight proporcionan dos nodos principales para aumentar la disponibilidad y la confiabilidad de los servicios y trabajos de Hadoop en ejecución.
 
-Hadoop logra una alta disponibilidad y confiabilidad mediante la retención de copias de los datos y servicios en varios nodos de un clúster. Sin embargo, las distribuciones estándar de Hadoop suelen tener un único nodo principal. Cualquier interrupción de ese nodo principal puede causar que el clúster deje de funcionar. No plantea ningún problema con HDInsight.
+Hadoop logra una alta disponibilidad y confiabilidad al replicar datos y servicios en varios nodos de un clúster. Sin embargo, las distribuciones estándar de Hadoop suelen tener un único nodo principal. Cualquier interrupción de ese nodo principal puede causar que el clúster deje de funcionar. HDInsight proporciona dos nodos principales para mejorar la disponibilidad y la confiabilidad de Hadoop.
 
 > [!IMPORTANT]
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-## <a name="understanding-the-nodes"></a>Descripción de los nodos
+## <a name="availability-and-reliability-of-nodes"></a>Disponibilidad y confiabilidad de los nodos
 
 Los nodos de un clúster de HDInsight se implementan mediante Máquinas virtuales de Azure. Si se produce un error en un nodo, se desconecta y se crea un nuevo nodo para reemplazar el nodo con error. Mientras el nodo está sin conexión, se utiliza otro nodo del mismo tipo hasta que se vuelve a conectar el nuevo nodo.
 
@@ -43,7 +45,7 @@ En las secciones siguientes se describen los tipos de nodo individuales usados c
 
 ### <a name="head-nodes"></a>Nodos principales
 
-Ambos nodos principales están activos y en ejecución dentro del clúster de HDInsight al mismo tiempo. Algunos servicios, como HDFS o YARN, solo están “activos” en un nodo principal en un determinado momento. Otros servicios como HiveServer2 o MetaStore de Hive están activos en ambos nodos principales al mismo tiempo.
+HDInsight proporciona dos nodos principales para garantizar una alta disponibilidad de los servicios de Hadoop. Ambos nodos principales están activos y en ejecución dentro del clúster de HDInsight al mismo tiempo. Algunos servicios, como HDFS o YARN, solo están “activos” en un nodo principal en un determinado momento. Otros servicios como HiveServer2 o MetaStore de Hive están activos en ambos nodos principales al mismo tiempo.
 
 Los nodos principales y otros nodos de HDInsight tienen un valor numérico como parte del nombre de host del nodo. Por ejemplo, `hn0-CLUSTERNAME` o `hn4-CLUSTERNAME`.
 
@@ -52,11 +54,11 @@ Los nodos principales y otros nodos de HDInsight tienen un valor numérico como 
 
 ### <a name="nimbus-nodes"></a>Nodos Nimbus
 
-Para los clústeres de Storm, los nodos Nimbus proporcionan una funcionalidad similar a la de JobTracker de Hadoop al distribuir y supervisar el procesamiento a través de nodos de trabajo. HDInsight proporciona dos nodos Nimbus para el tipo de clúster de Storm.
+Los nodos Nimbus están disponibles con los clústeres de Storm. Los nodos Nimbus proporcionan una funcionalidad similar a la de JobTracker de Hadoop al distribuir y supervisar el procesamiento a través de nodos de trabajo. HDInsight proporciona dos nodos Nimbus de clústeres de Storm.
 
 ### <a name="zookeeper-nodes"></a>Nodos Zookeeper
 
-Los nodos [ZooKeeper](http://zookeeper.apache.org/) se usan para la elección del líder de los servicios principales en los nodos principales y para asegurarse de que los servicios, los nodos de datos (trabajo) y las puertas de enlace saben en qué nodo principal está activo un servicio principal. De forma predeterminada, HDInsight proporciona tres nodos ZooKeeper.
+Los nodos [ZooKeeper](http://zookeeper.apache.org/) sirven para seleccionar el líder de los servicios principales en los nodos principales. También sirven para garantizar que los servicios, los nodos de datos (trabajo) y las puertas de enlace saben en qué nodo principal está activo un servicio principal. De forma predeterminada, HDInsight proporciona tres nodos ZooKeeper.
 
 ### <a name="worker-nodes"></a>Nodos de trabajo
 
@@ -64,7 +66,7 @@ Los nodos de trabajo realizan el análisis de los datos reales cuando se envía 
 
 ### <a name="edge-node"></a>Nodo perimetral
 
-El nodo perimetral no participa activamente en el análisis de datos dentro del clúster, pero se usa por desarrolladores o científicos de datos al trabajar con Hadoop. El nodo perimetral se encuentra en la misma Red virtual de Azure como los demás nodos del clúster y puede acceder directamente a todos los demás nodos. Como no participa en el análisis de datos para el clúster, se puede utilizar sin ninguna preocupación de llevar los recursos fuera los trabajos de análisis o servicios críticos de Hadoop.
+El nodo perimetral no participa activamente en el análisis de datos dentro del clúster, sino que lo usan desarrolladores o científicos de datos al trabajar con Hadoop. El nodo perimetral se encuentra en la misma Red virtual de Azure como los demás nodos del clúster y puede acceder directamente a todos los demás nodos. El nodo perimetral se puede usar sin tener que quitar recursos a los trabajos de análisis o servicios críticos de Hadoop.
 
 Actualmente, el servidor de R en HDInsight es el único tipo de clúster que proporciona un nodo perimetral de forma predeterminada. Para el servidor de R en HDInsight, se usa el nodo perimetral para probar el código de R localmente en el nodo antes de enviarlo al clúster para su procesamiento distribuido.
 
@@ -134,15 +136,15 @@ Para más información sobre el uso de Ambari, vea [Supervisión y administraci�
 
 ### <a name="ambari-rest-api"></a>API de REST de Ambari
 
-La API de REST de Ambari está disponible en Internet, y la puerta de enlace pública controla las solicitudes de enrutamiento para el nodo principal que hospeda actualmente la API de REST.
+La API de REST de Ambari está disponible en Internet. La puerta de enlace pública de HDInsight controla las solicitudes de enrutamiento dirigidas al nodo principal que hospeda actualmente la API de REST.
 
 Puede usar el siguiente comando para comprobar el estado de un servicio a través de la API de REST de Ambari:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
-* Reemplace **CONTRASEÑA** por la contraseña de la cuenta del usuario (admin) HTTP.
+* Reemplace **PASSWORD** por la contraseña de la cuenta del usuario (admin) HTTP.
 * Reemplace **CLUSTERNAME** por el nombre del clúster.
-* Reemplace **SERVICENAME** por el nombre del servicio para comprobar el estado de
+* Reemplace **SERVICENAME** por el nombre del servicio cuyo estado quiere conocer.
 
 Por ejemplo, para comprobar el estado del servicio **HDFS** en un clúster denominado **mycluster**, con la contraseña **password**, debería usar el comando siguiente:
 
@@ -191,7 +193,7 @@ Cada nodo principal puede tener entradas de registro único, por lo que debe com
 
 También se puede conectar con el nodo principal mediante el protocolo SSH File Transfer Protocol o el protocolo seguro de transferencia de archivos (SFTP) y descargar los archivos de registro directamente.
 
-De igual forma a utilizar un cliente SSH, al conectarse al clúster debe proporcionar el nombre de cuenta de usuario SSH y la dirección SSH del clúster. Por ejemplo: `sftp username@mycluster-ssh.azurehdinsight.net`. Debe proporcionar la contraseña de la cuenta cuando se le solicite, o bien proporcionar una clave pública mediante el parámetro `-i`.
+De igual forma a utilizar un cliente SSH, al conectarse al clúster debe proporcionar el nombre de cuenta de usuario SSH y la dirección SSH del clúster. Por ejemplo: `sftp username@mycluster-ssh.azurehdinsight.net`. Especifique la contraseña de la cuenta cuando se le solicite o proporcione una clave pública con el parámetro `-i`.
 
 Una vez conectado, se le presentará un símbolo del sistema `sftp>` . Desde este símbolo del sistema, puede cambiar los directorios, cargar y descargar archivos. Por ejemplo, los siguientes comandos cambian los directorios al directorio **/var/log/hadoop/hdfs** y después descargan todos los archivos en el directorio.
 
@@ -206,7 +208,7 @@ Para ver una lista de comandos disponibles, escriba `help` en el símbolo del si
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]
-> Para acceder a archivos de registro mediante Ambari, debe usar un túnel SSH. La interfaz web de los servicios individuales no se exponen públicamente en Internet. Para más información sobre cómo usar un túnel SSH, consulte [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
+> Para acceder a archivos de registro mediante Ambari, debe usar un túnel SSH. Las interfaces web de los servicios individuales no se exponen públicamente en Internet. Para más información sobre cómo usar el túnel SSH, vea el documento [Uso de la tunelación SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
 En la interfaz de usuario web de Ambari, seleccione el servicio para el que desea consultar los registros (por ejemplo, YARN). Después, utilice **Vínculos rápidos** para seleccionar de qué nodo principal desea consultar los registros.
 
@@ -214,9 +216,9 @@ En la interfaz de usuario web de Ambari, seleccione el servicio para el que dese
 
 ## <a name="how-to-configure-the-node-size"></a>Configuración del tamaño del nodo
 
-El tamaño de un nodo solo se puede seleccionar durante la creación del clúster. Puede encontrar una lista de los diferentes tamaños de máquina virtual disponibles para HDInsight, incluido el núcleo, la memoria y el almacenamiento local para cada uno, en la [página de precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+El tamaño de un nodo solo se puede seleccionar durante la creación del clúster. Puede encontrar una lista de los diferentes tamaños de máquina virtual disponibles para HDInsight en la [página de precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Al crear un nuevo clúster, puede especificar el tamaño de los nodos. A continuación se ofrece información sobre cómo especificar el tamaño mediante [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell] y la [CLI de Azure][azure-cli]:
+Al crear un clúster, puede especificar el tamaño de los nodos. A continuación se ofrece información sobre cómo especificar el tamaño mediante [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell] y la [CLI de Azure][azure-cli]:
 
 * **Azure Portal**: al crear un clúster, puede establecer el tamaño de los nodos que usa el clúster:
 

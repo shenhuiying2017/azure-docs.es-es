@@ -1,6 +1,6 @@
 ---
-title: "Creación de Azure HDInsight (Hadoop) mediante cURL y REST | Microsoft Docs"
-description: "Aprenda a crear clústeres de HDInsight mediante cURL, plantillas de Azure Resource Manager y la API de REST de Azure. Puede especificar el tipo de clúster (Hadoop, HBase o Storm) o usar scripts para instalar componentes personalizados."
+title: "Creación de un clúster de HDInsight (Hadoop) mediante la API de REST de Azure | Microsoft Docs"
+description: "Aprenda a crear clústeres de HDInsight enviando plantillas de Azure Resource Manager a la API de REST de Azure."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/17/2017
+ms.date: 05/17/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 05f2ce6d6f170e16985c3ed3523d4e41173e21e0
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 997c8623b9bc99074723f77237fbbbdba031d577
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="create-hdinsight-clusters-using-curl-and-the-azure-rest-api"></a>Creación de clústeres de HDInsight mediante cURL y la API de REST de Azure
+# <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Hadoop mediante la API de REST de Azure
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -33,32 +33,16 @@ Aprenda a crear un clúster de HDInsight mediante una plantilla de Azure Resourc
 La API de REST de Azure permite realizar operaciones de administración en servicios hospedados en la plataforma Azure, incluida la creación de recursos como, por ejemplo, clústeres de HDInsight.
 
 > [!IMPORTANT]
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para obtener más información, consulte la sección sobre la [puesta en desuso de HDInsight 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-## <a name="prerequisites"></a>Requisitos previos
-
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
-
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
-* **CLI de Azure 2.0 (versión preliminar)**. La CLI de Azure se usa para crear una entidad de servicio, que luego se emplea para generar tokens de autenticación para solicitudes a la API de REST de Azure. Para obtener más información sobre la versión preliminar de la CLI de Azure 2.0, consulte [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (Introducción a la CLI de Azure 2.0).
-
-* **cURL**. Esta utilidad está disponible a través del sistema de administración de paquetes, o se puede descargar desde [http://curl.haxx.se/](http://curl.haxx.se/).
-
-  > [!NOTE]
-  > Si usa PowerShell para ejecutar los comandos de este documento, debe quitar primero el alias `curl` que crea de forma predeterminada. Este alias usa Invoke-WebRequest en lugar de cURL. Si no quita este alias, puede que reciba errores con algunos de los comandos usados en este documento.
-  >
-  > Para quitar este alias, use el comando siguiente desde el símbolo del sistema de PowerShell:
-  >
-  > `Remove-item alias:curl`
-  >
-  > Una vez quitado el alias, debe poder usar la versión de cURL que instaló en el sistema.
+> [!NOTE]
+> Los pasos descritos en este documento usan la utilidad [curl (https://curl.haxx.se/)](https://curl.haxx.se/) para comunicarse con la API de REST de Azure.
 
 ## <a name="create-a-template"></a>Creación de una plantilla
 
 Las plantillas de Azure Resource Manager son documentos JSON que describen un **grupo de recursos** y todos los recursos incluidos (por ejemplo, HDInsight). Este enfoque basado en la plantilla le permite definir todos los recursos que necesita para HDInsight en una plantilla.
 
-Lo siguiente es una combinación de los archivos de plantilla y de parámetros de [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), que crea un clúster basado en Linux, con una contraseña para proteger la cuenta de usuario de SSH.
+El siguiente documento JSON es una combinación de los archivos de plantilla y de parámetros de [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), que crea un clúster basado en Linux, con una contraseña para proteger la cuenta de usuario de SSH.
 
    ```json
    {
@@ -67,22 +51,6 @@ Lo siguiente es una combinación de los archivos de plantilla y de parámetros d
                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                "contentVersion": "1.0.0.0",
                "parameters": {
-                   "location": {
-                       "type": "string",
-                       "allowedValues": ["Central US",
-                       "East Asia",
-                       "East US",
-                       "Japan East",
-                       "Japan West",
-                       "North Europe",
-                       "South Central US",
-                       "Southeast Asia",
-                       "West Europe",
-                       "West US"],
-                       "metadata": {
-                           "description": "The location where all azure resources are deployed."
-                       }
-                   },
                    "clusterType": {
                        "type": "string",
                        "allowedValues": ["hadoop",
@@ -144,7 +112,7 @@ Lo siguiente es una combinación de los archivos de plantilla y de parámetros d
                "resources": [{
                    "name": "[parameters('clusterStorageAccountName')]",
                    "type": "Microsoft.Storage/storageAccounts",
-                   "location": "[parameters('location')]",
+                   "location": "[resourceGroup().location]",
                    "apiVersion": "[variables('defaultApiVersion')]",
                    "dependsOn": [],
                    "tags": {
@@ -157,7 +125,7 @@ Lo siguiente es una combinación de los archivos de plantilla y de parámetros d
                {
                    "name": "[parameters('clusterName')]",
                    "type": "Microsoft.HDInsight/clusters",
-                   "location": "[parameters('location')]",
+                   "location": "[resourceGroup().location]",
                    "apiVersion": "[variables('clusterApiVersion')]",
                    "dependsOn": ["[concat('Microsoft.Storage/storageAccounts/',parameters('clusterStorageAccountName'))]"],
                    "tags": {
@@ -223,9 +191,6 @@ Lo siguiente es una combinación de los archivos de plantilla y de parámetros d
            },
            "mode": "incremental",
            "Parameters": {
-               "location": {
-                   "value": "North Europe"
-               },
                "clusterName": {
                    "value": "newclustername"
                },
@@ -307,45 +272,47 @@ Siga los pasos documentados en [Get started with Azure CLI 2.0](https://docs.mic
 
 Use el siguiente comando para recuperar un token de autenticación:
 
-    curl -X "POST" "https://login.microsoftonline.com/TenantID/oauth2/token" \
-    -H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    --data-urlencode "client_id=AppID" \
-    --data-urlencode "grant_type=client_credentials" \
-    --data-urlencode "client_secret=password" \
-    --data-urlencode "resource=https://management.azure.com/"
+```bash
+curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
+-H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
+-H "Content-Type: application/x-www-form-urlencoded" \
+--data-urlencode "client_id=$APPID" \
+--data-urlencode "grant_type=client_credentials" \
+--data-urlencode "client_secret=$PASSWORD" \
+--data-urlencode "resource=https://management.azure.com/"
+```
 
-    Replace **TenantID**, **AppID**, and **password** with the values obtained or used previously.
+Establezca `$TENANTID`, `$APPID` y `$PASSWORD` en los valores obtenidos o usados anteriormente.
 
-    If this request is successful, you receive a 200 series response and the response body contains a JSON document.
+Si esta solicitud se realiza correctamente, recibirá una respuesta 200 serie y el cuerpo de respuesta contendrá un documento JSON.
 
-    The JSON document returned by this request contains an element named **access_token**. The value of **access_token** is used to authentication requests to the REST API.
+El documento JSON que devuelve esta solicitud contiene un elemento denominado "**access_token**". El valor de **access_token** se utiliza para las solicitudes de autenticación a la API de REST.
 
-   ```json
-   {
-       "token_type":"Bearer",
-       "expires_in":"3599",
-       "expires_on":"1463409994",
-       "not_before":"1463406094",
-       "resource":"https://management.azure.com/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWoNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI2Ny8iLCJpYXQiOjE0NjM0MDYwOTQsIm5iZiI6MTQ2MzQwNjA5NCwiZXhwIjoxNDYzNDA5OTk5LCJhcHBpZCI6IjBlYzcyMzM0LTZkMDMtNDhmYi04OWU1LTU2NTJiODBiZDliYiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJvaWQiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJzdWIiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ2ZXIiOiIxLjAifQ.nJVERbeDHLGHn7ZsbVGBJyHOu2PYhG5dji6F63gu8XN2Cvol3J1HO1uB4H3nCSt9DTu_jMHqAur_NNyobgNM21GojbEZAvd0I9NY0UDumBEvDZfMKneqp7a_cgAU7IYRcTPneSxbD6wo-8gIgfN9KDql98b0uEzixIVIWra2Q1bUUYETYqyaJNdS4RUmlJKNNpENllAyHQLv7hXnap1IuzP-f5CNIbbj9UgXxLiOtW5JhUAwWLZ3-WMhNRpUO2SIB7W7tQ0AbjXw3aUYr7el066J51z5tC1AK9UC-mD_fO_HUP6ZmPzu5gLA6DxkIIYP3grPnRVoUDltHQvwgONDOw"
-   }
-   ```
+```json
+{
+    "token_type":"Bearer",
+    "expires_in":"3599",
+    "expires_on":"1463409994",
+    "not_before":"1463406094",
+    "resource":"https://management.azure.com/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWoNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tLyIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI2Ny8iLCJpYXQiOjE0NjM0MDYwOTQsIm5iZiI6MTQ2MzQwNjA5NCwiZXhwIjoxNDYzNDA5OTk5LCJhcHBpZCI6IjBlYzcyMzM0LTZkMDMtNDhmYi04OWU1LTU2NTJiODBiZDliYiIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJvaWQiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJzdWIiOiJlNjgxZTZiMi1mZThkLTRkZGUtYjZiMS0xNjAyZDQyNWQzOWYiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ2ZXIiOiIxLjAifQ.nJVERbeDHLGHn7ZsbVGBJyHOu2PYhG5dji6F63gu8XN2Cvol3J1HO1uB4H3nCSt9DTu_jMHqAur_NNyobgNM21GojbEZAvd0I9NY0UDumBEvDZfMKneqp7a_cgAU7IYRcTPneSxbD6wo-8gIgfN9KDql98b0uEzixIVIWra2Q1bUUYETYqyaJNdS4RUmlJKNNpENllAyHQLv7hXnap1IuzP-f5CNIbbj9UgXxLiOtW5JhUAwWLZ3-WMhNRpUO2SIB7W7tQ0AbjXw3aUYr7el066J51z5tC1AK9UC-mD_fO_HUP6ZmPzu5gLA6DxkIIYP3grPnRVoUDltHQvwgONDOw"
+}
+```
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Use lo siguiente para crear un grupo de recursos.
 
-* Reemplace **SubscriptionID** por el identificador de la suscripción que recibió al crear la entidad de servicio.
-* Reemplace **AccessToken** por el token de acceso que recibió en el paso anterior.
-* Reemplace **DataCenterLocation** por el centro de datos en el que desea crear el grupo de recursos y los recursos. Por ejemplo, "Centro-Sur de EE.UU.".
-* Reemplace **ResourceGroupName** por el nombre que desea usar para este grupo:
+* Establezca `$SUBSCRIPTIONID` en el identificador de la suscripción que recibió al crear la entidad de servicio.
+* Establezca `$ACCESSTOKEN` en el token de acceso que recibió en el paso anterior.
+* Reemplace `DATACENTERLOCATION` por el centro de datos en el que desea crear el grupo de recursos y los recursos. Por ejemplo, "Centro-Sur de EE.UU.".
+* Establezca `$RESOURCEGROUPNAME` con el nombre que se va a usar para este grupo:
 
 ```bash
-curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
-    -H "Authorization: Bearer AccessToken" \
+curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME?api-version=2015-01-01" \
+    -H "Authorization: Bearer $ACCESSTOKEN" \
     -H "Content-Type: application/json" \
     -d $'{
-"location": "DataCenterLocation"
+"location": "DATACENTERLOCATION"
 }'
 ```
 
@@ -355,19 +322,17 @@ Si esta solicitud se realiza correctamente, recibirá una respuesta 200 series y
 
 Ejecute el siguiente comando para implementar la plantilla en el grupo de recursos.
 
-* Reemplace **SubscriptionID** y **AccessToken** por los valores usados anteriormente.
-* Reemplace **ResourceGroupName** por el nombre del grupo de recursos que creó en la sección anterior.
-* Reemplace **DeploymentName** por el nombre que desea usar para esta implementación.
+* Establezca `$DEPLOYMENTNAME` en el nombre que desea usar para esta implementación.
 
 ```bash
-curl -X "PUT" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
--H "Authorization: Bearer AccessToken" \
+curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
+-H "Authorization: Bearer $ACCESSTOKEN" \
 -H "Content-Type: application/json" \
 -d "{set your body string to the template and parameters}"
 ```
 
 > [!NOTE]
-> Si guarda la plantilla en un archivo, puede usar el comando siguiente en lugar de `-d "{ template and parameters}"`:
+> Si guardó la plantilla en un archivo, puede usar el comando siguiente en lugar de `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
@@ -380,16 +345,13 @@ Si esta solicitud se realiza correctamente, recibirá una respuesta 200 series y
 
 Utilice el comando siguiente para comprobar el estado de la implementación:
 
-* Reemplace **SubscriptionID** y **AccessToken** por los valores usados anteriormente.
-* Reemplace **ResourceGroupName** por el nombre del grupo de recursos que creó en la sección anterior.
-
 ```bash
-curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
--H "Authorization: Bearer AccessToken" \
+curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
+-H "Authorization: Bearer $ACCESSTOKEN" \
 -H "Content-Type: application/json"
 ```
 
-Este comando devuelve un documento JSON que incluye información sobre la operación de implementación. El elemento `"provisioningState"` contiene el estado de la implementación. Si contiene un valor de `"Succeeded"`, la implementación se ha completado correctamente.
+Este comando devuelve un documento JSON que incluye información sobre la operación de implementación. El elemento `"provisioningState"` contiene el estado de la implementación. Si contiene un valor de `"Succeeded"`, significa que la implementación se ha completado correctamente.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 

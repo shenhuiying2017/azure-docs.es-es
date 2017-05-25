@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b9cb2e6c15cbe217c57ddfe2910e8017bd61a67a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 198a8421636945bdf60c4ed519d065617a7fc287
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -58,7 +58,7 @@ Tenga en cuenta lo siguiente:
 * Para `path`, consulte [Patrones de nombre](#pattern) para averiguar cómo dar formato a los patrones de nombre de los blobs.
 * `connection` debe contener el nombre de una configuración de aplicación que contiene una cadena de conexión de almacenamiento. En Azure Portal, el editor estándar de la pestaña **Integrar** permite modificar esta configuración de aplicación cuando crea una cuenta de Azure Storage o selecciona una ya existente. Para crear manualmente esta configuración de aplicación, vea cómo [configurar manualmente esta configuración de aplicación](functions-how-to-use-azure-function-app-settings.md). 
 
-Cuando se ejecuta en un plan de consumo, si una aplicación de función se ha vuelto inactiva, los nuevos blobs podrían tardar en procesarse hasta 10 minutos al día. Una vez que se ejecuta la aplicación de función, los blobs se procesan más rápidamente. Para evitar este retraso inicial, use un plan de App Service normal con AlwaysOn habilitado o utilice otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob. 
+Cuando se ejecuta en un plan de consumo, si una instancia de Function App pasa a estar inactiva, los nuevos blobs pueden tardar en procesarse hasta 10 minutos. Una vez que Function App se ejecuta, los blobs se procesan más rápidamente. Para evitar este retraso inicial, use un plan de App Service normal con AlwaysOn habilitado o utilice otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob. 
 
 Además, consulte uno de los subtítulos siguientes para obtener más información:
 

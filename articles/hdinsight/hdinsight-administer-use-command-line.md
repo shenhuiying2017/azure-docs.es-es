@@ -1,6 +1,6 @@
 ---
 title: "Administración de clústeres de Hadoop mediante la CLI de Azure | Microsoft Docs"
-description: "Cómo usar la CLI de Azure para administrar clústeres de Hadoop en HDInsight"
+description: "Aprenda a usar la interfaz de la línea de comandos de Azure para administrar clústeres de Hadoop en Azure HDInsight. La CLI de Azure funciona en Windows, Mac y Linux."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -9,17 +9,18 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e70e24951481c33525a852479c9c9647a45e71ac
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c8067e582dd7e20b4ca35771123303de6c4a4ef6
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -50,8 +51,8 @@ Para obtener ayuda, use el modificador **-h** .  Por ejemplo:
 
     azure hdinsight cluster create -h
 
-## <a name="create-clusters"></a>Creación de clústeres
-Consulte [Creación de clústeres basados en Linux en HDInsight con la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+## <a name="create-clusters-with-the-cli"></a>Creación de clústeres con la CLI
+Consulte [Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="list-and-show-cluster-details"></a>Enumeración y visualización de los detalles del clúster
 Use los comandos siguientes para enumerar y mostrar los detalles del clúster:
@@ -59,7 +60,7 @@ Use los comandos siguientes para enumerar y mostrar los detalles del clúster:
     azure hdinsight cluster list
     azure hdinsight cluster show <Cluster Name>
 
-![HDI.CLIListCluster][image-cli-clusterlisting]
+![Vista de línea de comandos de la lista de clústeres][image-cli-clusterlisting]
 
 ## <a name="delete-clusters"></a>Eliminación de clústeres
 Use el comando siguiente para eliminar un clúster:
@@ -107,5 +108,5 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Enumeración y visualización de clústeres"
+[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "Enumeración y visualización de clústeres"
 

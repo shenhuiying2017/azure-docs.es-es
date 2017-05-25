@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 9093bf30a67fd762b237faa61071137fd83d048f
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 540cd10066e055e2dc132445b9adba5a4112d63a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 
@@ -35,11 +35,14 @@ Al principio, Azure Cloud Shell solicita su suscripción para crear una cuenta d
 Este recurso compartido de archivos se montará como `clouddrive` en el directorio $Home. Este recurso compartido de archivos también se usa para almacenar una imagen de 5 GB creada para usted que se actualiza automáticamente y hace persistente el directorio $Home. Se trata de una acción única y se monta automáticamente para sesiones posteriores.
 
 ### <a name="cloud-shell-persists-files-with-both-methods-below"></a>Cloud Shell hace persistentes los archivos con los dos métodos mostrados a continuación:
-1. Cree una imagen de disco del directorio $Home para hacer persistentes los archivos de $Home. Esta imagen de disco se guarda en su recurso compartido de archivos especificado como `<User>.img` en `fileshare.storage.windows.net/fileshare/.cloudconsole/<User>.img`
+1. Cree una imagen de disco del directorio $Home para hacer persistentes los archivos de $Home. Esta imagen de disco se guarda en su recurso compartido de archivos especificado como `acc_<User>.img` en `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`
 
 2. Monte el recurso compartido de archivos especificado como `clouddrive` en el directorio $Home para la interacción directa del recurso compartido de archivos. 
 `/Home/<User>/clouddrive` se asigna a `fileshare.storage.windows.net/fileshare`.
  
+> [!Note]
+> Todos los archivos en el directorio $Home, como las claves de SSH, se conservan en la imagen de disco de usuario almacenada en el recurso compartido de archivos montado. Ponga en práctica los procedimientos recomendados correspondientes para conservar la información en el directorio $Home y en el recurso compartido de archivos montado.
+
 ## <a name="using-clouddrive"></a>Uso de clouddrive
 Cloud Shell permite a los usuarios ejecutar un comando llamado `clouddrive` que permite actualizar manualmente el recurso compartido de archivos montado en Cloud Shell.
 ![](media/clouddrive-h.png)
@@ -110,26 +113,23 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-## <a name="upload-or-download-local-files"></a>Carga o descarga de archivos locales
-Use Azure Portal para administrar la transferencia de archivos locales al recurso compartido de archivos o desde este.
-La actualización de archivos en Cloud Shell se refleja en la GUI de File Storage al actualizarse las hojas.
+## <a name="transfer-local-files-to-cloud-shell"></a>Transferir archivos locales a Cloud Shell
+El directorio `clouddrive` se sincroniza con la hoja de almacenamiento de Azure Portal. Use esto para transferir archivos locales a o desde el recurso compartido de archivos. La actualización de archivos en Cloud Shell se refleja en la GUI de File Storage al actualizarse las hojas.
 
-1. Vaya al recurso compartido de archivos montado ![](media/touch-txt-storage.png)
+### <a name="download-files"></a>Descarga de archivos
+![](media/download.gif)
+1. Vaya al recurso compartido de archivos montado.
 2. Seleccione el archivo de destino en el portal
-3. Haga clic en "Descargar" ![](media/download-storage.png)
+3. Seleccione "Descargar".
 
-Si tiene que descargar un archivo que existe fuera de `clouddrive`:
-1. Copie el archivo en `/<User>/clouddrive` <br>
-2. Siga los [pasos anteriores](#upload-or-download-local-files) <br>
+### <a name="upload-files"></a>Carga de archivos
+![](media/upload.gif)
+1. Vaya al recurso compartido de archivos montado.
+2. Seleccione "Cargar".
+3. Seleccione el archivo que quiera cargar.
+4. Confirme la carga.
 
-## <a name="cloud-shell-tagging"></a>Etiquetado de Cloud Shell
-Cloud Shell agrega una "etiqueta" a las cuentas de almacenamiento montadas mediante el formato: <br>
-
-| Clave | Valor |
-|:-------------:|:-------------:|
-|cloud-console-files-for-user@domain.com|fileshareName|
-
-Use estas etiquetas para ver qué usuarios se asignan a determinados recursos compartidos de archivos y dónde pueden encontrarse determinadas imágenes de $Home.
+Ahora debería ver el archivo accesible en el directorio clouddrive de Cloud Shell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Guía de inicio rápido de Cloud Shell](quickstart.md) 

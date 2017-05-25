@@ -13,21 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6be49be9e4321075aa76b3abcf4695d0e7b45f6e
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 972c6f60c8963cad6f92b228e795a5027b838f00
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Linux
-En este tutorial, aprenderá cómo los conjuntos de escalado de máquinas virtuales de Azure le permiten escalar rápidamente el número de máquinas virtuales (VM) ejecutando la aplicación. El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente, o definir reglas de escalado automático basado en el uso de la CPU, la demanda de memoria o el tráfico de red. Para ver un conjunto de escalado de máquinas virtuales en acción, compile una aplicación de Node.js que se ejecute en varias máquinas virtuales Linux.
+El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente, o definir reglas de escalado automático basado en el uso de la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure. Aprenderá a:
 
-Se pueden completar los pasos de este tutorial con la versión más reciente de la [CLI de Azure 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Usar cloud-init para crear una aplicación para escalar
+> * Crear un conjunto de escalado de máquinas virtuales
+> * Aumentar o disminuir el número de instancias en un conjunto de escalado
+> * Ver la información de conexión de las instancias del conjunto de escalado
+> * Usar discos de datos con conjuntos de escalado
 
+Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). También puede usar [Cloud Shell](/azure/cloud-shell/quickstart) desde el explorador.
 
 ## <a name="scale-set-overview"></a>Introducción al conjunto de escalado
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Los conjuntos de escalado usan los mismos componentes que ha aprendido en el tutorial anterior sobre [Creación de máquinas virtuales de alta disponibilidad](tutorial-availability-sets.md). Las máquinas virtuales de un conjunto de escalado se crean en un conjunto de disponibilidad y se distribuyen entre los dominios de error lógico y de actualización.
@@ -86,10 +92,10 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
-Antes de poder crear un conjunto de escalado, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupScaleSet* en la ubicación *westus*:
+Antes de poder crear un conjunto de escalado, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupScaleSet* en la ubicación *eastus*:
 
 ```azurecli
-az group create --name myResourceGroupScaleSet --location westus
+az group create --name myResourceGroupScaleSet --location eastus
 ```
 
 Ahora, cree un conjunto de escalado de máquinas virtuales con [az vmss create](/cli/azure/vmss#create). En el ejemplo siguiente se crea un conjunto de escalado denominado *myScaleSet*, se usa el archivo cloud-init para personalizar la máquina virtual y se generan claves SSH si estas no existen aún:
@@ -161,8 +167,8 @@ La salida es similar a la del ejemplo siguiente:
 ```azurecli
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
 ------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
-           1  True                  westus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
-           3  True                  westus      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
+           1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
+           3  True                  eastus      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
 ```
 
 
@@ -241,7 +247,16 @@ az vmss disk detach `
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, aprendió a crear un conjunto de escalado de máquinas virtuales. Pase al siguiente tutorial para obtener más información sobre el concepto de equilibrio de carga de las máquinas virtuales.
+En este tutorial, ha creado un conjunto de escalado de máquinas virtuales. Ha aprendido a:
 
-[Load balance virtual machines](tutorial-load-balancer.md) (Equilibrio de carga de máquinas virtuales)
+> [!div class="checklist"]
+> * Usar cloud-init para crear una aplicación para escalar
+> * Crear un conjunto de escalado de máquinas virtuales
+> * Aumentar o disminuir el número de instancias en un conjunto de escalado
+> * Ver la información de conexión de las instancias del conjunto de escalado
+> * Usar discos de datos con conjuntos de escalado
 
+Pase al siguiente tutorial para obtener más información sobre el concepto de equilibrio de carga de las máquinas virtuales.
+
+> [!div class="nextstepaction"]
+> [Load balance virtual machines](tutorial-load-balancer.md) (Equilibrio de carga de máquinas virtuales)

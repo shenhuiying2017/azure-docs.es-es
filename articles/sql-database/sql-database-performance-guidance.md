@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 04/19/2017
+wms.date: 05/14/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: a022e7fc34cac85cb26cc6ca86a6941b1ccbfb95
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 3663b9005c68fd95158a81b54767a234ad5f37c4
 ms.contentlocale: es-es
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -59,7 +59,7 @@ Cada nivel de servicio y nivel de rendimiento están asociados a distintos lími
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> Los clientes que usan los niveles de rendimiento P11 y P15 pueden usar hasta 4 TB de almacenamiento incluido sin cargo adicional. Esta opción de 4 TB se encuentra actualmente disponible en las siguientes regiones: Este de EE. UU. - 2, Oeste de EE. UU., Europa occidental, Sudeste asiático, Este de Japón, Este de Australia, Canadá Central y Canadá Oriental.
+> Los clientes que usan los niveles de rendimiento P11 y P15 pueden usar hasta 4 TB de almacenamiento incluido sin cargo adicional. Esta opción de 4 TB se encuentra actualmente disponibles en las siguientes regiones: Este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU., Europa Occidental, Alemania Central, Asia Suroriental, Japón Oriental, Este de Australia, Canadá Central y Canadá Oriental.
 >
 
 ### <a name="maximum-in-memory-oltp-storage"></a>Almacenamiento máximo OLTP en memoria

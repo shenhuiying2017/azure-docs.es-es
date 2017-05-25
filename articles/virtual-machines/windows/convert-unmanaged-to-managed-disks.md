@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6530da96cd6e6ccd90714a9d3c9f00f88afe853e
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: b3a2bf688f1837a17312ec4bb5ca6b87209076cd
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/03/2017
 Si tiene máquinas virtuales en Azure que usan discos no administrados en las cuentas de almacenamiento y desea que esas máquinas virtuales puedan beneficiarse de las ventajas de los [discos administrados](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), puede convertir las máquinas virtuales. El proceso convierte el disco de sistema operativo y los discos de datos conectados para que dejen de usar discos no administrados en una cuenta de almacenamiento y usen discos administrados. Las máquinas virtuales se apagan y se desasignan; después, puede usar Powershell para convertir la máquina virtual para que use discos administrados. Después de la conversión, reinicie la máquina virtual para que use discos administrados.
 
 Antes de comenzar, asegúrese de revisar la información de [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) (Planeación de la migración a Managed Disks).
-Pruebe el proceso de migración con la migración de una máquina virtual de prueba antes de realizar la migración en producción, porque este proceso no es reversible.
+Pruebe el proceso de migración con la migración de una máquina virtual de prueba antes de realizar la migración en producción, porque este proceso no es reversible. La administración de la máquina virtual se bloquea durante la migración, por lo que no se puede iniciar, detener o eliminar hasta que se complete.
 
 
 > [!IMPORTANT] 

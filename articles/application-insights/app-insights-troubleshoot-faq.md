@@ -3,7 +3,7 @@ title: "Preguntas más frecuentes sobre Azure Application Insights | Microsoft D
 description: "Preguntas más frecuentes sobre Application Insights."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 191d9e1197c3526d2f72b972b7fada76dee84447
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 8a6a8027b93d0d5b353c41c103d2c9ad5faa70c1
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -103,7 +104,7 @@ Una aplicación de escritorio que puede usar en el servidor web de IIS para ayud
 De las aplicaciones web de servidor:
 
 * Solicitudes HTTP
-* [Dependencias](app-insights-asp-net-dependencies.md). Llamadas a: bases de datos SQL; llamadas HTTP a servicios externos; Azure DocumentDB, tabla, almacenamiento de blobs y colas. 
+* [Dependencias](app-insights-asp-net-dependencies.md). Llamadas a: bases de datos SQL; llamadas HTTP a servicios externos; Cosmos DB de Azure, tabla, almacenamiento de blobs y colas. 
 * [Excepciones](app-insights-asp-net-exceptions.md) y seguimientos de pila.
 * [Contadores de rendimiento](app-insights-performance-counters.md): si usa el [Monitor de estado](app-insights-monitor-performance-live-website-now.md), la supervisión de Azure (app-insights-azure-web-apps.md) o el [escritor de collectd de Application Insights](app-insights-java-collectd.md).
 * [Eventos y métricas personalizados](app-insights-api-custom-events-metrics.md) que puede crear mediante código.
@@ -171,6 +172,8 @@ Podría:
 Los datos POST no se registran automáticamente, pero se puede usar una llamada TrackTrace: incluya los datos en el parámetro de mensaje. Este tiene un límite de tamaño superior al de las propiedades de cadena, aunque no se puede filtrar por él.
 
 ## <a name="should-i-use-single-or-multiple-application-insights-resources"></a>¿Debo usar uno o varios recursos de Application Insights?
+
+Utilice un único recurso para todos los componentes o funciones en un sistema de negocio individual. Use recursos independientes para las versiones de desarrollo, prueba y lanzamiento, y para aplicaciones independientes.
 
 * [Consulte la explicación aquí](app-insights-separate-resources.md).
 * [Ejemplo: servicio en la nube con roles web y de trabajo](app-insights-cloudservices.md)

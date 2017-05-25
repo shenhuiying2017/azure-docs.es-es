@@ -47,7 +47,7 @@
 ## [Personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md)
 ### [Herramienta de ayudante para la personalización](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Personalización de lenguaje](active-directory-b2c-reference-language-customization.md)
-## [Uso de la API de informes](active-directory-b2c-refererence-usage-reporting-api.md)
+## [Uso de la API de informes](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Configuración del restablecimiento de contraseña de autoservicio](active-directory-b2c-reference-sspr.md)
 
 # Marco de experiencia de identidad
@@ -59,8 +59,8 @@
 ### Configuración de proveedores de SAML
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integración de API de RESTful
-#### [Obtención de notificaciones adicionales](active-directory-b2c-rest-api-step-custom.md)
 #### [Validación de entradas de usuario](active-directory-b2c-rest-api-validation-custom.md)
+#### [Obtención de notificaciones adicionales](active-directory-b2c-rest-api-step-custom.md)
 ### Personalización del inicio de sesión
 #### [Configuración de entrada de usuario](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Personalización de la interfaz de usuario](active-directory-b2c-ui-customization-custom.md)
@@ -79,7 +79,6 @@
 ## [Disponibilidad de región y residencia de datos](active-directory-b2c-reference-tenant-type.md)
 ## [Habilitación de facturación](active-directory-b2c-how-to-enable-billing.md)
 ## [Administración de amenazas](active-directory-b2c-reference-threat-management.md)
-## [Limitaciones y restricciones](active-directory-b2c-limitations.md)
 ## [Problemas para crear un directorio](active-directory-b2c-support-create-directory.md)
 
 # Temas relacionados

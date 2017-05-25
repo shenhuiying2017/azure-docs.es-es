@@ -1,6 +1,6 @@
 ---
-title: "Topologías de Apache Storm con Visual Studio y C# | Microsoft Docs"
-description: "Aprenda a crear topologías de Storm en C# mediante la creación de una topología de recuento de palabras simple en Visual Studio mediante las herramientas de HDInsight para Visual Studio."
+title: "Topologías de Apache Storm con Visual Studio y C# - Azure | Microsoft Docs"
+description: "Aprenda a crear topologías de Storm en C# al crear una sencilla topología de recuento de palabras en Visual Studio con las herramientas de Hadoop para Visual Studio."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,16 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: cc6b16b559c4d1eafc570d0361c710487021f175
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 7b267ba427da276f53326c9068417521c8976e63
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="develop-c-topologies-for-apache-storm-on-hdinsight-using-hadoop-tools-for-visual-studio"></a>Desarrollo de topologías de C# para Apache Storm en HDInsight con herramientas de Hadoop para Visual Studio
 
-Aprenda a crear una topología de Storm de C# mediante las herramientas de HDInsight para Visual Studio. Este documento le guía a través del proceso de creación de un proyecto de Storm en Visual Studio, probarlo localmente e implementarlo en un clúster de Apache Storm en HDInsight.
+Aprenda a crear una topología de Storm de C# con Herramientas de Data Lake (Hadoop) para Visual Studio. Este documento le guía a través del proceso de creación de un proyecto de Storm en Visual Studio, probarlo localmente e implementarlo en un clúster de Apache Storm en HDInsight.
 
 También aprenderá a crear topologías híbridas que usan componentes de C# y Java.
 
@@ -53,10 +54,10 @@ También aprenderá a crear topologías híbridas que usan componentes de C# y J
 
 * Azure SDK 2.9.5 o posterior
 
-* Herramientas de HDInsight para Visual Studio: consulte [Introducción al uso de las herramientas de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para instalar y configurar las herramientas de HDInsight para Visual Studio.
+* Herramientas de Data Lake para Visual Studio: para instalarlo y configurarlo, vea [Conectarse a Azure HDInsight y ejecutar consultas de Hive con Herramientas de Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
   > [!NOTE]
-  > No se admite el uso de las herramientas de HDInsight para Visual Studio en Visual Studio Express
+  > Herramientas de Data Lake para Visual Studio no se puede usar en Visual Studio Express.
 
 * Clúster Apache Storm en HDInsight: vea [Introducción a Apache Storm en HDInsight](hdinsight-apache-storm-tutorial-get-started.md) para conocer los pasos para crear un clúster.
 
@@ -65,14 +66,14 @@ También aprenderá a crear topologías híbridas que usan componentes de C# y J
 
 ## <a name="templates"></a>Plantillas
 
-Las herramientas de HDInsight para Visual Studio proporcionan las siguientes plantillas:
+Herramientas de Data Lake para Visual Studio proporciona las siguientes plantillas:
 
 | Tipo de proyecto | Muestra |
 | --- | --- |
 | Storm Application |Un proyecto vacío de topología de Storm |
 | Storm Azure SQL Writer Sample |Cómo escribir en Base de datos SQL de Azure |
-| Storm DocumentDB Reader Sample |Cómo leer de DocumentDB de Azure |
-| Storm DocumentDB Writer Sample |Cómo escribir en DocumentDB de Azure |
+| Storm Azure Cosmos DB Reader Sample |Cómo leer desde Azure Cosmos DB |
+| Storm Azure Cosmos DB Writer Sample |Cómo escribir en Azure Cosmos DB |
 | Storm EventHub Reader Sample |Cómo leer en los centros de eventos de Azure |
 | Storm EventHub Writer Sample |Cómo escribir en los centros de eventos de Azure |
 | Storm HBase Reader Sample |Cómo leer de HBase en clústeres de HDInsight |
@@ -95,7 +96,7 @@ Para conocer una topología de ejemplo que utiliza este componente y funciona co
 
 ## <a name="create-a-c-topology"></a>Creación de una topología de C#
 
-1. Si todavía no tiene instalada la versión más reciente de las herramientas de HDInsight para Visual Studio, consulte [Introducción al uso de las herramientas de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. Si todavía no tiene instalada la versión más reciente de Herramientas de Data Lake para Visual Studio, vea [Conectarse a Azure HDInsight y ejecutar consultas de Hive con Herramientas de Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2. Abra Visual Studio, seleccione **Archivo** > **Nuevo** y luego **Proyecto**.
 
@@ -386,7 +387,7 @@ Dedique un momento a leer los comentarios para entender lo que hace este código
    > [!NOTE]
    > Si se le solicita, introduzca las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
 
-2. Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Storm Cluster** (Clúster de Storm y seleccione **Submit** (Enviar). Puede supervisar si el envío es correcto mediante la ventana **Salida** .
+2. Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Storm Cluster**  (Clúster de Storm y seleccione **Submit** (Enviar). Puede supervisar si el envío es correcto mediante la ventana **Salida** .
 
 3. Cuando la topología se envíe correctamente, debe aparecer **topologías de Storm** del clúster. Seleccione la topología **WordCount** en la lista para consultar la información acerca de la topología en ejecución.
 
@@ -420,9 +421,9 @@ Las topologías transaccionales implementan lo siguiente para que admitan la rep
 
 Como se muestra en el proyecto **Muestra de Storm** , se puede establecer si un componente es transaccional en tiempo de ejecución, según la configuración.
 
-## <a name="hybrid-topology"></a>Topologías híbridas
+## <a name="hybrid-topology-with-c-and-java"></a>Topología híbrida con C# y Java
 
-Las herramientas de HDInsight para Visual Studio también pueden utilizarse para crear topologías híbridas, donde algunos componentes son de C# y otros son de Java.
+Herramientas de Data Lake para Visual Studio también se puede usar para crear topologías híbridas, donde algunos componentes son de C# y otros, de Java.
 
 Para ver una topología híbrida de ejemplo, cree un proyecto y seleccione **Muestra híbrida de Storm**. Este tipo de ejemplo ilustra los conceptos siguientes:
 
@@ -514,7 +515,7 @@ Las versiones recientes de SCP.NET admiten la actualización de paquetes a trav�
 > 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**.
 > 2. Mediante el campo **Búsqueda**, busque **Microsoft.SCP.Net.SDK** y agréguelo al proyecto.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting-common-issues-with-topologies"></a>Solución de problemas comunes en las topologías
 
 ### <a name="null-pointer-exceptions"></a>Excepciones de puntero nulo
 

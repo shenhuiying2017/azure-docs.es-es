@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f04ac382521c7268d0eb03d1b3bfc78ee0b07d40
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6918b206c637e1e0ad99b472c6a45a4fc343dc6d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -130,7 +131,7 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "West
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Adición de una NIC a una máquina virtual existente
 
-Ahora es posible agregar una NIC a una máquina virtual existente. Para usar esta característica, primero debe cancelar la asignación de la máquina virtual mediante el cmdlet Stop-AzureRmVM.
+Ahora es posible agregar una NIC a una máquina virtual existente. Para usar esta característica, primero debe cancelar la asignación de la máquina virtual con el siguiente cmdlet Stop-AzureRmVM.
 
 ```powershell
 Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -142,7 +143,7 @@ A continuación, obtenga la configuración existente de la máquina virtual medi
 $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
 ```
 
-Puede crear una nueva NIC en la **misma red virtual que la máquina virtual** tal como se muestra al principio de este artículo o adjuntar una NIC existente. Supondremos que está adjuntando una NIC existente `MyNic3` en la red virtual. 
+Puede crear una nueva NIC en la **misma red virtual que la máquina virtual** tal como se muestra al principio de este artículo o adjuntar una NIC existente. Damos por hecho que está adjuntando una NIC existente `MyNic3` en la red virtual. 
 
 ```powershell
 $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
@@ -168,7 +169,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Eliminación de una NIC de una máquina virtual existente
 
-Una NIC también pueden quitarse de una máquina virtual. Para usar esta característica, primero debe cancelar la asignación de la máquina virtual mediante el cmdlet Stop-AzureRmVM.
+Una NIC también pueden quitarse de una máquina virtual. Para usar esta característica, primero debe cancelar la asignación de la máquina virtual con el siguiente cmdlet Stop-AzureRmVM.
 
 ```powershell
 Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -184,8 +185,8 @@ Vea ahora todas las NIC en la máquina virtual y copie el nombre de la que desea
 
 ```powershell
 $vm.NetworkProfile.NetworkInterfaces
-
-Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup"
+Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup" | `
+    Update-AzureRmVm -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Creación de varias NIC con plantillas de Resource Manager

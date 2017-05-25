@@ -1,5 +1,5 @@
 ---
-title: "Restauración de una base de datos de inquilino único (aplicación SaaS de ejemplo con Azure SQL Database) | Microsoft Docs"
+title: "Restauración de una base de datos SQL de Azure en una aplicación multiinquilino | Microsoft Docs"
 description: "Obtenga información sobre cómo restaurar una base de datos SQL Database de inquilino único después de la eliminación accidental de datos"
 keywords: tutorial de base de datos sql
 services: sql-database
@@ -17,10 +17,10 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: billgib;sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: aa5759645713c5e5bc4c4f1d2b10f032efc7eae2
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 8567061a98ec5a0619a8e10cb44501dd88d8166c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -44,7 +44,7 @@ En este tutorial, conocerá dos patrones de recuperación de datos:
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
-* La aplicación WTP está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [Implementación y exploración de la aplicación SaaS WTP](sql-database-saas-tutorial.md)
+* La aplicación WTP está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [Implementación y exploración de la aplicación SaaS WTP](sql-database-saas-tutorial.md).
 * Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-saas-tenant-restore-pattern"></a>Introducción al patrón de restauración de inquilino de SaaS

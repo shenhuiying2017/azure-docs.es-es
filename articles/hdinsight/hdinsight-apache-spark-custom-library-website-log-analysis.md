@@ -1,6 +1,6 @@
 ---
 title: "Uso de bibliotecas de Python para analizar registros de sitios web en el clúster de Azure Spark | Microsoft Docs"
-description: "Uso de bibliotecas personalizadas con un clúster de HDInsight Spark para analizar registros de sitios web"
+description: "Uso de bibliotecas Python personalizadas con un clúster Spark de HDInsight para analizar registros de sitios web"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3f5b7409c5245ee975b0208f812668a0c35ff1c3
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: d55005ecea7ba6b31c638af3d26c44932e3d12bc
 ms.contentlocale: es-es
-ms.lasthandoff: 03/18/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="analyze-website-logs-using-a-custom-library-with-apache-spark-cluster-on-hdinsight"></a>Análisis de registros de sitios web mediante una biblioteca personalizada con un clúster Apache Spark en HDInsight
+# <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Análisis de registros de sitios web mediante una biblioteca Python personalizada con un clúster Apache Spark en HDInsight
 
 En este cuaderno se muestra cómo analizar los datos de registro mediante una biblioteca personalizada con Spark en HDInsight. La biblioteca personalizada que usamos es una biblioteca de Python llamada **iislogparser.py**.
 
@@ -57,10 +57,10 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
    >
 3. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
 
-    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
+    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Crear un nuevo cuaderno de Jupyter")
 4. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Haga clic en el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
 
-    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
+    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Proporcionar un nombre para el cuaderno")
 5. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos que son necesarios para este escenario. Pegue el siguiente fragmento de código en una celda vacía y presione **MAYÚS + ENTRAR**.
 
         from pyspark.sql import Row
@@ -188,7 +188,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
    Debe ver algo parecido a lo siguiente:
 
-   ![Salida de la consulta SQL](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "Salida de la consulta SQL")
+   ![Salida de la consulta SQL](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Salida de la consulta SQL")
 
    Para obtener más información sobre la instrucción mágica `%%sql`, vea [Parámetros compatibles con la instrucción mágica %%sql](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 7. Ahora puede usar Matplotlib, una biblioteca que se usa para construir la visualización de datos, para crear un gráfico. Dado que el gráfico se debe crear a partir de la trama de datos **averagetime** persistente localmente, el fragmento de código debe comenzar con la función mágica `%%local`. Esto garantiza que el código se ejecuta localmente en el servidor de Jupyter.
@@ -203,7 +203,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
    Debe ver algo parecido a lo siguiente:
 
-   ![Salida de Matplotlib](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Salida de Matplotlib")
+   ![Salida de Matplotlib](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Salida de Matplotlib")
 8. Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
 
 ## <a name="seealso"></a>Otras referencias

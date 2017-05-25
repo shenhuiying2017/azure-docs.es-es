@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b011f51e7b5aa921c43c906fb36fa3020a2dc7e6
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 907e5b80aeeee4ab2eb0466490ba9ef9b0348144
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -461,5 +461,5 @@ No pasa nada por usar la misma plantilla para crear o actualizar recursos existe
 
 - Cree su propia plantilla con las [Creación de plantillas de Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Implemente la plantilla que creó mediante [Creación de una máquina virtual Windows con una plantilla de Resource Manager](ps-template.md).
-- Aprenda a administrar la máquina virtual que ha creado consultando [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](ps-manage.md).
+- Aprenda a administrar la máquina virtual que ha creado repasando el tema [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

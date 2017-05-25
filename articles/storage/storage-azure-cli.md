@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 05/15/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 5b77598e76de3508d90b35ce5a1f2ee338aca0c8
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 90b67cf3d136882d59ed7fe4210f93fb694e96a6
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -48,7 +49,7 @@ Descargue e instale la CLI de Azure 2.0 siguiendo las instrucciones que encontra
 
 ## <a name="working-with-the-cli"></a>Trabajo con la CLI
 
-Cuando haya instalado la CLI, puede usar el comando `az` desde su interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema) para obtener acceso a los comandos de la CLI de Azure. Escriba el comando `az`, tras lo cual debería ver un resultado parecido al siguiente:
+Cuando haya instalado la CLI, puede usar el comando `az` desde su interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema) para obtener acceso a los comandos de la CLI de Azure. Escriba el comando `az` para ver una lista completa de los comandos base (se truncó el resultado del ejemplo siguiente):
 
 ```
      /\
@@ -62,38 +63,15 @@ Welcome to the cool new Azure CLI!
 
 Here are the base commands:
 
-    account   : Commands to manage subscriptions.
-    acr       : Commands to manage Azure container registries.
-    acs       : Commands to manage Azure container services.
-    ad        : Synchronize on-premises directories and manage Azure Active Directory (AAD)
-                resources.
-    appservice: Commands to manage your Azure web apps and App Service plans.
-    cloud     : Manage the Azure clouds registered.
-    component : Commands to manage and update Azure CLI 2.0 components.
-    configure : Configure Azure CLI 2.0 or view your configuration. The command is
-                interactive, so just type `az configure` and respond to the prompts.
-    container : Set up automated builds and deployments for multi-container Docker applications.
-    disk      : Commands to manage 'Managed Disks'.
-    feature   : Commands to manage resource provider features, such as previews.
-    feedback  : Loving or hating the CLI?  Let us know!
-    group     : Commands to manage resource groups.
-    image     : Commands to manage custom virtual machine images based on managed disks/snapshots.
-    lock
-    login     : Log in to access Azure subscriptions.
-    logout    : Log out to remove access to Azure subscriptions.
-    network   : Manages Network resources.
-    policy    : Commands to manage resource policies.
-    provider  : Manage resource providers.
-    resource  : Generic commands to manage Azure resources.
-    role      : Use role assignments to manage access to your Azure resources.
-    snapshot  : Commands to manage snapshots.
-    storage   : Durable, highly available, and massively scalable cloud storage.
-    tag       : Manage resource tags.
-    vm        : Provision Linux and Windows virtual machines in minutes.
-    vmss      : Create highly available, auto-scalable Linux or Windows virtual machines.
+    account          : Manage subscriptions.
+    acr              : Manage Azure container registries.
+    acs              : Manage Azure Container Services.
+    ad               : Synchronize on-premises directories and manage Azure Active Directory
+                       resources.
+    ...
 ```
 
-En la interfaz de la línea de comandos, ejecute el comando `az storage -h` para ver una lista de comandos del grupo `storage` y sus subgrupos. Las descripciones de los subgrupos proporcionan información general de la función que proporciona la CLI de Azure para trabajar con sus recursos de almacenamiento.
+En la interfaz de la línea de comandos, ejecute el comando `az storage --help` para ver una lista de comandos de los subgrupos de `storage`. Las descripciones de los subgrupos proporcionan información general de la función que proporciona la CLI de Azure para trabajar con sus recursos de almacenamiento.
 
 ```
 Group
@@ -103,14 +81,14 @@ Subgroups:
     account  : Manage storage accounts.
     blob     : Object storage for unstructured data.
     container: Manage blob storage containers.
-    cors     : Manage Storage service Cross-Orgin Resource Sharing (CORS).
+    cors     : Manage Storage service Cross-Origin Resource Sharing (CORS).
     directory: Manage file storage directories.
     entity   : Manage table storage entities.
     file     : File shares that use the standard SMB 3.0 protocol.
     logging  : Manage Storage service logging information.
     message  : Manage queue storage messages.
     metrics  : Manage Storage service metrics.
-    queue    : Effectively scale apps according to traffic using queues.
+    queue    : Use queues to effectively scale applications according to traffic.
     share    : Manage file shares.
     table    : NoSQL key-value storage using semi-structured datasets.
 ```
@@ -141,16 +119,16 @@ export file_to_upload=<file_to_upload>
 export destination_file=<destination_file>
 
 echo "Creating the container..."
-az storage container create -n $container_name
+az storage container create --name $container_name
 
 echo "Uploading the file..."
-az storage blob upload -f $file_to_upload -c $container_name -n $blob_name
+az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
 
 echo "Listing the blobs..."
-az storage blob list -c $container_name
+az storage blob list --container-name $container_name --output table
 
 echo "Downloading the file..."
-az storage blob download -c $container_name -n $blob_name -f $destination_file
+az storage blob download --container-name $container_name --name $blob_name --file $destination_file --output table
 
 echo "Done"
 ```
@@ -178,18 +156,19 @@ Debería ver un resultado similar al siguiente, y el **\<archivo_destino\>** que
 
 ```
 Creating the container...
-Success
----------
-True
-Uploading the file...                                           Percent complete: %100.0
+{
+  "created": true
+}
+Uploading the file...
+Percent complete: %100.0
 Listing the blobs...
-Name           Blob Type      Length  Content Type              Last Modified
--------------  -----------  --------  ------------------------  -------------------------
-test_blob.txt  BlockBlob         771  application/octet-stream  2016-12-21T15:35:30+00:00
+Name       Blob Type      Length  Content Type              Last Modified
+---------  -----------  --------  ------------------------  -------------------------
+README.md  BlockBlob        6700  application/octet-stream  2017-05-12T20:54:59+00:00
 Downloading the file...
 Name
--------------
-test_blob.txt
+---------
+README.md
 Done
 ```
 
@@ -203,12 +182,16 @@ Done
 Para usar Azure Storage, necesita una cuenta de almacenamiento. Puede crear una nueva cuenta de Azure Storage después de configurar el equipo para que pueda [conectarse a su suscripción](#connect-to-your-azure-subscription).
 
 ```azurecli
-az storage account create -l <location> -n <account_name> -g <resource_group> --sku <account_sku>
+az storage account create \
+    --location <location> \
+    --name <account_name> \
+    --resource-group <resource_group> \
+    --sku <account_sku>
 ```
 
-* `-l` [Requerido]: Ubicación. Por ejemplo, "Oeste de EE. UU.".
-* `-n` [Requerido]: Nombre de la cuenta de almacenamiento. Debe tener entre 3 y 24 caracteres y usar solo caracteres alfanuméricos en minúsculas.
-* `-g`[Required]: Nombre del grupo de recursos.
+* `--location` [Requerido]: Ubicación. Por ejemplo, "Oeste de EE. UU.".
+* `--name` [Requerido]: Nombre de la cuenta de almacenamiento. Debe tener entre 3 y 24 caracteres y usar solo caracteres alfanuméricos en minúsculas.
+* `--resource-group`[Required]: Nombre del grupo de recursos.
 * `--sku` [Requerido]: SKU de la cuenta de almacenamiento. Valores permitidos:
   * `Premium_LRS`
   * `Standard_GRS`
@@ -227,13 +210,15 @@ export AZURE_STORAGE_ACCESS_KEY=<key>
 Otra forma de establecer una cuenta de almacenamiento predeterminada es mediante una cadena de conexión. En primer lugar, obtenga la cadena de conexión con el comando `show-connection-string`:
 
 ```azurecli
-az storage account show-connection-string -n <account_name> -g <resource_group>
+az storage account show-connection-string \
+    --name <account_name> \
+    --resource-group <resource_group>
 ```
 
 Después copie el resultado de la cadena de conexión y establezca la variable de entorno `AZURE_STORAGE_CONNECTION_STRING` (tal vez tenga que incluir la cadena de conexión entre comillas):
 
 ```azurecli
-export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
+export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
@@ -247,7 +232,7 @@ El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantid
 Todos los blobs del almacenamiento de Azure han de estar en un contenedor. Puede crear un contenedor con el comando `az storage container create`:
 
 ```azurecli
-az storage container create -n <container_name>
+az storage container create --name <container_name>
 ```
 
 Puede establecer uno de los tres niveles de acceso de lectura para un nuevo contenedor especificando el argumento  opcional `--public-access`:
@@ -262,7 +247,10 @@ Para obtener más información, consulte [Administración del acceso de lectura 
 Azure Blob Storage admite blobs de bloque, anexados y en páginas. Puede cargar blobs en un contenedor con el comando `blob upload`:
 
 ```azurecli
-az storage blob upload -f <local_file_path> -c <container_name> -n <blob_name>
+az storage blob upload \
+    --file <local_file_path> \
+    --container-name <container_name> \
+    --name <blob_name>
 ```
 
  De manera predeterminada, el comando `blob upload` carga archivos *.vhd blobs en páginas o blobs en bloques en caso contrario. Para especificar otro tipo al cargar un blob, puede usar el argumento `--type`; los valores permitidos son `append`, `block` y `page`.
@@ -273,7 +261,10 @@ az storage blob upload -f <local_file_path> -c <container_name> -n <blob_name>
 En el siguiente ejemplo se muestra cómo descargar blobs de un contenedor:
 
 ```azurecli
-az storage blob download -c mycontainer -n myblob.png -f ~/mydownloadedblob.png
+az storage blob download \
+    --container-name mycontainer \
+    --name myblob.png \
+    --file ~/mydownloadedblob.png
 ```
 
 ### <a name="copy-blobs"></a>Copia de blobs
@@ -282,20 +273,35 @@ Los blobs se pueden copiar dentro de las cuentas de almacenamiento y regiones, o
 En el siguiente ejemplo se muestra cómo copiar blobs de una cuenta de almacenamiento a otra. Primero se crea un contenedor en otra cuenta, especificando que los blobs que contiene son de acceso público y anónimo. Después cargamos un archivo en el contenedor y, por último, copiamos el blob del contenedor en el contenedor **micontenedor** de la cuenta actual.
 
 ```azurecli
-az storage container create -n mycontainer2 --account-name <accountName2> --account-key <accountKey2> --public-access blob
+# Create container in second account
+az storage container create \
+    --account-name <accountName2> \
+    --account-key <accountKey2> \
+    --name mycontainer2 \
+    --public-access blob
 
-az storage blob upload -f ~/Images/HelloWorld.png -c mycontainer2 -n myBlockBlob2 --account-name <accountName2> --account-key <accountKey2>
+# Upload blob to container in second account
+az storage blob upload \
+    --account-name <accountName2> \
+    --account-key <accountKey2> \
+    --file ~/Images/HelloWorld.png \
+    --container-name mycontainer2 \
+    --name myBlockBlob2
 
-az storage blob copy start -u https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 -b myBlobBlob -c mycontainer
+# Copy blob from second account to current account
+az storage blob copy start \
+    --source-uri https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 \
+    --destination-blob myBlobBlob \
+    --destination-container mycontainer
 ```
 
-La dirección URL del blob de origen (especificada mediante `-u`) debe ser de acceso público o incluir un token de firma de acceso compartido (SAS).
+La dirección URL del blob de origen (especificada mediante `--source-uri`) debe ser de acceso público o incluir un token de firma de acceso compartido (SAS).
 
 ### <a name="delete-a-blob"></a>Eliminar un blob
 Para eliminar un blob, use el comando `blob delete`:
 
 ```azurecli
-az storage blob delete -c <container_name> -n <blob_name>
+az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Creación y administración de recursos compartidos de archivos
@@ -305,17 +311,17 @@ El almacenamiento de archivos de Azure ofrece almacenamiento compartido para apl
 Un recurso compartido de archivos de Azure es un recurso compartido de archivos de SMB en Azure. Todos los directorios y archivos se deben crear en un recurso compartido de archivos. Una cuenta puede contener un número ilimitado de recursos compartidos y un recurso compartido puede almacenar un número ilimitado de archivos, hasta los límites de capacidad de la cuenta de almacenamiento. En el siguiente ejemplo se crea un recurso compartido de archivos denominado **myshare**.
 
 ```azurecli
-az storage share create -n myshare
+az storage share create --name myshare
 ```
 
 ### <a name="create-a-directory"></a>Creación de directorios
-Un directorio proporciona una estructura jerárquica opcional para los recursos compartidos de archivos de Azure. En el ejemplo siguiente se crea el directorio **myDir** en el recurso compartido de archivos.
+Un directorio proporciona una estructura jerárquica para los recursos compartidos de archivos de Azure. En el ejemplo siguiente se crea el directorio **myDir** en el recurso compartido de archivos.
 
 ```azurecli
-az storage directory create -n myDir -s myshare
+az storage directory create --name myDir --share-name myshare
 ```
 
-Tenga en cuenta que la ruta de acceso al directorio puede incluir varios niveles, *p. ej.*, **a/b**. Pero debe asegurarse de que existen todos los directorios principales. Por ejemplo, para la ruta de acceso **a/b**, primero se debe crear el directorio **a** y luego el directorio **b**.
+La ruta de acceso al directorio puede incluir varios niveles, por ejemplo, **dir1/dir2**. Pero debe asegurarse de que existen todos los directorios principales antes de crear un subdirectorio. Por ejemplo, para la ruta de acceso **dir1/dir2**, primero se debe crear el directorio **dir1** y luego el directorio **dir2**.
 
 ### <a name="upload-a-local-file-to-a-share"></a>Carga de un archivo local a un recurso compartido
 El siguiente ejemplo carga un archivo de **~/temp/samplefile.txt** en el raíz del recurso compartido de archivos **recurso**. El argumento `--source` especifica el archivo local existente para cargar.
@@ -337,13 +343,13 @@ Puede enumerar archivos y directorios en un recurso compartido mediante el coman
 
 ```azurecli
 # List the files in the root of a share
-az storage file list -s myshare
+az storage file list --share-name myshare --output table
 
 # List the files in a directory within a share
-az storage file list -s myshare/myDir
+az storage file list --share-name myshare/myDir --output table
 
 # List the files in a path within a share
-az storage file list -s myshare -p myDir/mySubDir/MySubDir2
+az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --output table
 ```
 
 ### <a name="copy-files"></a>Copiar archivos        

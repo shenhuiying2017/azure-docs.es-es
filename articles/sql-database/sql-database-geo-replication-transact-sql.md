@@ -1,6 +1,6 @@
 ---
 title: "Configuración de la replicación geográfica para Azure SQL Database con Transact-SQL | Microsoft Docs"
-description: "Configuración de la replicación geográfica para Base de datos SQL de Azure con Transact-SQL"
+description: "Configuración de la replicación geográfica para Azure SQL Database con Transact-SQL"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1005f776ae85a7fc878315225c45f2270887771f
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: dad35a2b3beb2b07d5b12afb8a04ba48f8b8ef7e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -30,17 +30,19 @@ En este artículo se muestra cómo configurar la replicación geográfica activa
 Para iniciar la conmutación por error mediante Transact-SQL, consulte [Inicio de una conmutación por error planeada o no planeada para Base de datos SQL de Azure con Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 > [!NOTE]
-> Cuando usa la replicación geográfica activa (secundarias legibles) para la recuperación ante desastres, debe configurar un grupo de conmutación por error para todas las bases de datos dentro de una aplicación a fin de habilitar la conmutación por error automática y transparente. Esta característica se encuentra en su versión preliminar. Para más información, consulte [Grupos de conmutación por error automática y replicación geográfica](sql-database-geo-replication-overview.md).
+> Cuando usa la replicación geográfica activa (secundarias legibles) para la recuperación ante desastres, debe configurar un grupo de conmutación por error para todas las bases de datos dentro de una aplicación a fin de habilitar la conmutación por error automática y transparente. Esta característica se encuentra en su versión preliminar. Para obtener más información, consulte [Grupos de conmutación por error automática y replicación geográfica](sql-database-geo-replication-overview.md).
 > 
 > 
 
 Para configurar la replicación geográfica activa mediante Transact-SQL, necesitará lo siguiente:
 
-* Una suscripción de Azure.
+* Una suscripción de Azure
 * Un servidor lógico de Azure SQL Database <MyLocalServer> y una base de datos SQL <MyDB>: la base de datos principal que quiere replicar.
-* Uno o varios servidores lógicos de Base de datos SQL de Azure <MySecondaryServer(n)>: servidores lógicos que serán los servidores asociados en los que se crearán bases de datos secundarias.
-* Un inicio de sesión que es DBManager en la base de datos principal (tiene db_ownership de la base de datos local que va a replicar geográficamente) y que es DBManager en los servidores asociados en los que se configurará la replicación geográfica.
-* SQL Server Management Studio (SSMS)
+* Uno o varios servidores lógicos de Azure SQL Database <MySecondaryServer(n)>: servidores lógicos que serán los servidores asociados en los que se crearán bases de datos secundarias.
+* Un inicio de sesión que sea DBManager en el servidor principal
+* Tener la propiedad db_ownership de la base de datos local que se va a replicar geográficamente
+* Tener DBManager en los servidores del asociado en los que va a configurar la replicación geográfica
+* La versión más reciente de SQL Server Management Studio (SSMS)
 
 > [!IMPORTANT]
 > Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -115,7 +117,7 @@ Use los pasos siguientes para supervisar una asociación de replicación geográ
 9. Haga clic en **Ejecutar** para ejecutar la consulta.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md)
+* Para obtener más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md)
 * Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md)
 
 

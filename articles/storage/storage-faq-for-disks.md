@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 284b239860481cf76f647d78f6a7b5e2b7cf9a3b
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: af7d5b03e1490ed8d90021980f14c47281e8a655
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -79,6 +80,7 @@ No, las máquinas virtuales de un conjunto de disponibilidad deben utilizar úni
 
 No actualmente, pero lo será en el futuro.
 
+
 **¿Puedo crear un disco administrado vacío?**
 
 Sí, puede crear un disco vacío. Un disco administrado se puede crear de forma independiente de una máquina virtual, es decir, sin conectarlo a una máquina virtual.
@@ -126,6 +128,10 @@ No. En la actualidad no se admite esta característica.
 
 **¿Puedo cambiar la propiedad de nombre de equipo cuando se usa un disco del sistema operativo especializado (sin preparar con Sysprep ni generalizado) para aprovisionar una máquina virtual?** No. No se puede actualizar la propiedad de nombre de equipo. La nueva máquina virtual lo heredará de la máquina virtual principal que se usó para crear el disco del sistema operativo. 
 
+**¿Dónde puedo encontrar plantillas de Azure Resource Manager de ejemplo para crear máquinas virtuales con discos administrados**
+* https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md
+* https://github.com/chagarw/MDPP
+
 ## <a name="managed-disks-and-port-8443"></a>Managed Disks y puerto 8443
 
 **¿Por qué los clientes tienen que desbloquear el tráfico saliente en el puerto 8443 para VM con Azure Managed Disks?**
@@ -144,7 +150,7 @@ La implementación no se verá afectada.
 
 La extensión no se implementará correctamente. El estado de la extensión se desconocerá. 
 
-**¿Qué ocurre si se usa una plantilla de ARM para aprovisionar varias VM con el puerto 8443 bloqueado, una VM con extensiones y una segunda VM dependiente de la primera VM?**
+**¿Qué ocurre si se usa una plantilla de Azure Resource Manager para aprovisionar varias VM con el puerto 8443 bloqueado, una VM con extensiones y una segunda máquina virtual dependiente de la primera VM?**
 
 La primera VM se mostrará como una implementación con error porque las extensiones no se implementaron correctamente. La segunda VM no se implementará. 
 

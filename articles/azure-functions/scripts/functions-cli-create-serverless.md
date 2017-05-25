@@ -10,42 +10,41 @@ tags: azure-service-management
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.service: functions
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 04/11/2017
 ms.author: cfowler
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a951b11689de3abc93e9933221ecf76ce44a7a6e
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: a9ab21a4eb6839006c4a7eca2037308646180010
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
 # <a name="create-a-function-app-for-serverless-execution"></a>Creación de una instancia de Function App para la ejecución sin servidor
 
-Este script de ejemplo crea una instancia de Azure Function App, que es un contenedor para las funciones. La instancia de Function App se creará usando el plan de consumo, que es ideal para las cargas de trabajo sin servidor controladas por eventos.
+Este script de ejemplo crea una instancia de Azure Function App, que es un contenedor para las funciones. La instancia de Function App se creará usando el [plan de consumo](../functions-scale.md#consumption-plan), que es ideal para las cargas de trabajo sin servidor controladas por eventos.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-Creación de una aplicación de ejemplo
+Este script crea una aplicación de Azure Function App con el [plan de consumo](../functions-scale.md#consumption-plan).
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Creación de una función de Azure en un plan de consumo")]
-
-## <a name="clean-up-deployment"></a>Limpieza de la implementación
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la aplicación de App Service y todos los recursos relacionados.
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Creación de una función de Azure en un plan de consumo")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Explicación del script
-Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
+
+Cada comando de la tabla crea un vínculo a documentación específica del comando. Este script usa los siguientes comandos:
 
 | Comando | Notas |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az storage account create](/cli/azure/storage/account#create) | Crea una cuenta de Azure Storage. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Crea una función de Azure. |
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -53,3 +52,4 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Encontrará más ejemplos de scripts de CLI para Azure Functions en la [documentación de Azure Functions](../functions-cli-samples.md).
+

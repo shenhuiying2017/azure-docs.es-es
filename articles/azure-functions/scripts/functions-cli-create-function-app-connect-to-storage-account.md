@@ -1,6 +1,6 @@
 ---
-title: "Creación de una función de Azure que se conecta a una instancia de Azure DocumentDB | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: creación de una función de Azure que se conecta a una instancia de Azure DocumentDB"
+title: "Creación de una función de Azure que se conecta a una instancia de Azure Storage | Microsoft Docs"
+description: "Ejemplo de script de la CLI de Azure: creación de una función de Azure que se conecta a una instancia de Azure Storage"
 services: functions
 documentationcenter: functions
 author: rachelappel
@@ -10,30 +10,29 @@ tags: functions
 ms.assetid: 
 ms.service: functions
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a34793b6b16cce4031e9e871d8e3b143180593ae
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3925c1a3d2c5a9fc3a82e8823dbdeffabeb38a3a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 ---
-
 # <a name="integrate-function-app-into-azure-storage-account"></a>Integración de Function App en una cuenta de almacenamiento de Azure
 
-Este script de ejemplo crea una instancia de Function App y una cuenta de almacenamiento con recursos relacionados. 
+Este script de ejemplo crea una instancia de Function App y una cuenta de almacenamiento.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## <a name="sample-script"></a>Script de ejemplo 
+## <a name="sample-script"></a>Script de ejemplo
 
-Creación de una aplicación de ejemplo
+Este ejemplo crea una aplicación de Azure Function App y agrega la cadena de conexión de almacenamiento a una configuración de aplicación.
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integración de Function App en una cuenta de almacenamiento de Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integración de Function App en una cuenta de almacenamiento de Azure")]
 
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
@@ -59,3 +58,4 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Encontrará más ejemplos de scripts de CLI para Azure Functions en la [documentación de Azure Functions](../functions-cli-samples.md).
+

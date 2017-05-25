@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 04/19/2017
+wms.date: 05/14/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 90f2ea599dd97780d7ec43f09ab1b1497d6e87f5
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: a7887839b7a3672e824ed6662f6ba5dc4e318fab
 ms.contentlocale: es-es
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -53,7 +53,7 @@ Para una base de datos única, los límites de una base de datos se definen medi
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> Los clientes que usan los niveles de rendimiento P11 y P15 pueden usar hasta 4 TB de almacenamiento incluido sin cargo adicional. Esta opción de 4 TB se encuentra actualmente disponible en las siguientes regiones: Este de EE. UU. - 2, Oeste de EE. UU., Europa occidental, Sudeste asiático, Este de Japón, Este de Australia, Canadá Central y Canadá Oriental.
+> Los clientes que usan los niveles de rendimiento P11 y P15 pueden usar hasta 4 TB de almacenamiento incluido sin cargo adicional. Esta opción de 4 TB se encuentra actualmente disponibles en las siguientes regiones: Este de EE. UU. 2, oeste de EE. UU., Virginia Gob. EE. UU., Europa Occidental, Alemania Central, Asia Suroriental, Japón Oriental, Este de Australia, Canadá Central y Canadá Oriental.
 >
 
 ### <a name="elastic-pools"></a>Grupos elásticos

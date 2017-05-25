@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 47627bc6df93db1d92aa29350fe6e48039dc6f1b
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 63f1c468b5f8f4b0bb298cb67adea8c01b065427
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Introducción a Azure Cloud Shell (versión preliminar)
@@ -39,19 +39,22 @@ Cloud Shell viene preinstalado con conocidas populares herramientas de línea de
 Cloud Shell autentica de forma segura y automática en cada sesión para obtener acceso inmediato a los recursos a través de la CLI de Azure 2.0.
 
 ### <a name="connect-your-azure-file-storage"></a>Conexión a Azure File Storage
-Las máquinas de Cloud Shell son temporales y, como resultado, requieren un recurso compartido de archivos de Azure que se va a montar para conservar el directorio $Home.
+Las máquinas de Cloud Shell son temporales y, como resultado, requieren que un recurso compartido de archivos de Azure se monte como `clouddrive` para conservar el directorio $Home.
 Al iniciarse por primera vez, Cloud Shell le indica que va a crear un grupo de recursos, una cuenta de almacenamiento y un recurso compartido de archivos en su nombre. Esto es un paso único y se adjuntará automáticamente en todas las sesiones. 
 
 ![](media/storage-prompt.png)
 
-Se crea una cuenta de almacenamiento LRS en su nombre con un recurso compartido de archivos de Azure que contiene una imagen de disco de 5 GB de forma predeterminada.
-Esta imagen de disco se utiliza para sincronizar y persistir su directorio $Home. Se aplican costos por almacenamiento normal.
+Se crea una cuenta de almacenamiento LRS en su nombre con un recurso compartido de archivos de Azure que contiene una imagen de disco de 5 GB de forma predeterminada. El recurso compartido de archivos se monta como `clouddrive` para hacer posible la interacción del recurso compartido de archivos con la imagen de disco que se va a usar para sincronizar y hacer persistente el directorio $Home. Se aplican costos por almacenamiento normal.
+
 Se crearán tres recursos en su nombre:
 1. Grupo de recursos llamado: `cloud-shell-storage-<region>`
 2. Cuenta de almacenamiento llamada: `cs-uniqueGuid`
 3. Recurso compartido de archivos llamado: `cs-<user>-<domain>-com-uniqueGuid`
 
-[Explorar más sobre cómo Cloud Shell conserva los archivos] (persisting-shell-storage.md).
+> [!Note]
+> Todos los archivos en el directorio $Home, como las claves de SSH, se conservan en la imagen de disco de usuario almacenada en el recurso compartido de archivos montado. Ponga en práctica los procedimientos recomendados para guardar archivos en el directorio $Home y en el recurso compartido de archivos montado.
+
+Obtenga más información sobre el almacenamiento de Cloud Shell, la actualización de recursos compartidos de archivos y la carga/descarga de archivos. (persisting-shell-storage.md).
 
 ## <a name="concepts"></a>Conceptos
 * Cloud Shell se ejecuta en un equipo temporal proporcionado en cada sesión y por usuario

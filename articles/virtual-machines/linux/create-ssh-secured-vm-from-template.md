@@ -1,84 +1,70 @@
 ---
-title: "Creación de una máquina virtual Linux mediante una plantilla de Azure | Microsoft Docs"
-description: "Creación de una máquina virtual de Linux en Azure mediante una plantilla de Azure Resource Manager."
+title: "Creación de una máquina virtual Linux en Azure a partir de una plantilla | Microsoft Docs"
+description: "En este artículo se describe cómo utilizar la CLI de Azure 2.0 para crear una máquina virtual Linux a partir de una plantilla de Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: iainfoulds
 manager: timlt
 editor: 
-tags: azure-service-management,azure-resource-manager
+tags: azure-resource-manager
 ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.topic: hero-article
-ms.date: 10/24/2016
-ms.author: v-livech
+ms.topic: article
+ms.date: 05/12/2017
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: c268d87faf45d3ea02154b46903a73478a2a1f2f
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 908a8a0c82b2d21fb25c9b33dbd714570d1ac272
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="how-to-create-a-linux-vm-using-an-azure-resource-manager-template"></a>Creación de una máquina virtual Linux mediante una plantilla de Azure Resource Manager
-En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux en Azure mediante una plantilla de Azure.  Este artículo requiere:
+# <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Procedimiento para crear una máquina virtual Linux con plantillas de Azure Resource Manager
+En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux con plantillas de Azure Resource Manager y la CLI de Azure 2.0. También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](create-ssh-secured-vm-from-template-nodejs.md).
 
-* una cuenta de Azure ([obtenga aquí una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/));
-* la [CLI de Azure](../../cli-install-nodejs.md) en la que se inició sesión con `azure login`;
-* la CLI de Azure *debe estar en* el modo Azure Resource Manager `azure config mode arm`.
 
-También puede implementar rápidamente una plantilla de máquina virtual Linux mediante [Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="templates-overview"></a>Introducción a las plantillas
+Las plantillas de Azure Resource Manager son archivos JSON que definen la infraestructura y la configuración de la solución de Azure. Mediante una plantilla, puede implementar la solución repetidamente a lo largo del ciclo de vida y tener la seguridad de que los recursos se implementan de forma coherente. Para obtener más información sobre el formato de la plantilla y cómo se crea, consulte [Creación de la primera plantilla de Azure Resource Manager](../../azure-resource-manager/resource-manager-create-first-template.md). Para ver la sintaxis JSON para los tipos de recursos, consulte [Define resources in Azure Resource Manager templates](/azure/templates/) (Definición de recursos en plantillas de Azure Resource Manager).
 
-## <a name="quick-command-summary"></a>Resumen rápido de comandos
-```azurecli
-azure group create \
-    -n myResourceGroup \
-    -l westus \
-    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
-```
 
-## <a name="detailed-walkthrough"></a>Tutorial detallado
-Las plantillas permiten crear máquinas virtuales en Azure con la configuración que desea personalizar durante el inicio, por ejemplo, nombres de usuario y nombres de host. En este artículo, hemos iniciado una plantilla de Azure mediante una máquina virtual de Ubuntu junto con un grupo de seguridad de red (NSG) con el puerto 22 abierto para SSH.
-
-Las plantillas de Azure Resource Manager son archivos JSON que se pueden usar para tareas sencillas y excepcionales, como iniciar una máquina virtual de Ubuntu, como lo hizo en este artículo.  Las plantillas de Azure también se pueden utilizar para crear configuraciones de Azure complejas de entornos completos como una pila de implementación de prueba, desarrollo o producción.
-
-## <a name="create-the-linux-vm"></a>Creación de la máquina virtual de Linux
-El ejemplo de código siguiente muestra cómo llamar a `azure group create` para crear un grupo de recursos e implementar una máquina virtual Linux protegida por SSH al mismo tiempo mediante [esta plantilla de Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). En el ejemplo, recuerde que debe usar nombres que sean únicos en su entorno. En este ejemplo se usa `myResourceGroup` como nombre del grupo de recursos, y `myVM` como nombre de la máquina virtual.
+## <a name="create-resource-group"></a>Creación de un grupo de recursos
+Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se debe crear un grupo de recursos antes de una máquina virtual. En el ejemplo siguiente, se crea un grupo de recursos denominado "*myResourceGroup*" en la ubicación *eastus*:
 
 ```azurecli
-azure group create \
-    --name myResourceGroup \
-    --location westus \
-    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+az group create --name myResourceGroup --location eastus
 ```
 
-La salida debe tener un aspecto similar al siguiente bloque de salida:
+## <a name="create-virtual-machine"></a>Create virtual machine
+En el ejemplo siguiente se crea una máquina virtual a partir de [esta plantilla de Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) con [az group deployment create](/cli/azure/group/deployment#create). Proporcione el valor de su propia clave pública SSH, como el contenido de *~/.ssh/id_rsa.pub*. Si necesita crear un par de claves SSH, consulte el artículo sobre cómo [crear y usar un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](mac-create-ssh-keys.md).
 
 ```azurecli
-info:    Executing command group create
-+ Getting resource group myResourceGroup
-+ Creating resource group myResourceGroup
-info:    Created resource group myResourceGroup
-info:    Supply values for the following parameters
-sshKeyData: ssh-rsa AAAAB3Nza<..ssh public key text..>VQgwjNjQ== myAdminUser@myVM
-+ Initializing template configurations and parameters
-+ Creating a deployment
-info:    Created template deployment "azuredeploy"
-data:    Id:                  /subscriptions/<..subid text..>/resourceGroups/myResourceGroup
-data:    Name:                myResourceGroup
-data:    Location:            westus
-data:    Provisioning State:  Succeeded
-data:    Tags: null
-data:
-info:    group create command OK
+az group deployment create --resource-group myResourceGroup \
+  --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
+  --parameters '{"sshKeyData": {"value": "ssh-rsa AAAAB3N{snip}B9eIgoZ"}}'
 ```
 
-Ese ejemplo implementó una máquina virtual mediante el parámetro `--template-uri` .  Puede también descargar o crear una plantilla localmente y pasar la plantilla con el parámetro `--template-file` , indicando la ruta de acceso al archivo de plantilla como argumento. La CLI de Azure le pide que especifique los parámetros requeridos por la plantilla.
+En este ejemplo, especificó una plantilla almacenada en GitHub. También puede descargar o crear una plantilla y especificar la ruta de acceso local con el mismo parámetro `--template-file`.
+
+Para acceder mediante SSH a la máquina virtual, obtenga la dirección IP pública con [az network public-ip show](/cli/azure/network/public-ip#show):
+
+```azurecli
+az network public-ip show \
+    --resource-group myResourceGroup \
+    --name sshPublicIP \
+    --query [ipAddress] \
+    --output tsv
+```
+
+Después, puede acceder mediante SSH a la máquina virtual de la forma habitual:
+
+```bash
+ssh azureuser@<ipAddress>
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Busque en la [galería de plantillas](https://azure.microsoft.com/documentation/templates/) para ver qué entornos de aplicación implementará después.
-
-
+En este ejemplo, creó una máquina virtual Linux básica. Para obtener más plantillas de Resource Manager que incluyen marcos de aplicaciones o crear entornos más complejos, examine la [Galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
