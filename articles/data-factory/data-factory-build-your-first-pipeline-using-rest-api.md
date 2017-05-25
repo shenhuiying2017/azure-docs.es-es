@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 19fe97eb41be3222a846f86b2a390bf86157884f
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: b64621bb5bc5d3c3e968b8b077bf132ebb1f6838
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -102,7 +103,6 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "version": "3.2",
             "clusterSize": 1,
             "timeToLive": "00:30:00",
             "linkedServiceName": "AzureStorageLinkedService"
@@ -115,7 +115,6 @@ En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se us
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| Versión |Especifica que la versión de HDInsight creada sea la 3.2. |
 | ClusterSize |Tamaño del clúster de HDInsight. |
 | TimeToLive |Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine. |
 | linkedServiceName |Especifica la cuenta de almacenamiento que se usa para almacenar los registros que genera HDInsight. |

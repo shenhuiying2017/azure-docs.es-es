@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 0a84e69f33ae30040c2365e6a5180e17e8df7539
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -74,7 +75,7 @@ Para conocer los conceptos de Servicios multimedia de Azure, consulte [Conceptos
 
 Para una serie de procedimientos en que se presentan todos los componentes principales de Servicios multimedia de Azure, consulte los [tutoriales paso a paso de Servicios multimedia de Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Esta serie tiene una excelente introducción de conceptos y utiliza la herramienta AMSE para demostrar las tareas AMS. Tenga en cuenta que la herramienta AMSE es una herramienta de Windows. Esta herramienta admite la mayoría de las tareas que puede lograr mediante programación con el [SDK de AMS para .NET](https://github.com/Azure/azure-sdk-for-media-services), el [Azure SDK para Java](https://github.com/Azure/azure-sdk-for-java) o el [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php).
 
-## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Entrega de contenido multimedia a petición con Servicios multimedia de Azure: escenarios y tareas comunes
+## <a id="vod_scenarios"></a>Entrega de contenido multimedia a petición con Servicios multimedia de Azure: escenarios y tareas comunes
 En esta sección se describe escenarios comunes y se proporcionan vínculos a temas relevantes. En el diagrama siguiente se muestran las partes principales de la plataforma de Servicios multimedia que intervienen en la entrega de contenido a petición.
 
 ![Flujo de trabajo de VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
@@ -126,7 +127,7 @@ Análisis multimedia es una colección de componentes de voz y visión que facil
     Si utiliza un localizador SAS, el contenido se descarga desde el almacenamiento de blobs de Azure. En este caso, no necesita tener puntos de conexión de streaming en estado iniciado.
 4. Descargue contenido de forma progresiva.
 
-## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Entrega de eventos de streaming en vivo con Servicios multimedia de Azure
+## <a id="live_scenarios"></a>Entrega de eventos de streaming en vivo con Servicios multimedia de Azure
 Cuando se trabaja con streaming en vivo, normalmente participan los siguientes componentes:
 
 * Una cámara que se usa para difundir un evento.
@@ -185,8 +186,7 @@ Servicios multimedia admite la integración con CDN de Azure. Para obtener infor
 Puede escalar **Media Services** mediante la especificación del número de **unidades reservadas de streaming** y **unidades reservadas de codificación** con las que desea aprovisionar la cuenta.
 
 También puede escalar la cuenta de Servicios multimedia agregándole cuentas de almacenamiento. Cada cuenta de almacenamiento está limitada a 500 TB. Para ampliar el almacenamiento más allá del límite predeterminado, puede asociar varias cuentas de almacenamiento a una sola cuenta de Servicios multimedia.
-Los clientes de Media Services eligen un punto de conexión de streaming **estándar** o uno o varios puntos de conexión de streaming **premium**, según sus necesidades. El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. Incluye las mismas características que las unidades de streaming premium.
-El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. Si tiene una carga de trabajo avanzada o sus requisitos de capacidad de streaming no se ajusta a los objetivos de rendimiento del punto de conexión de streaming estándar o desea controlar la capacidad del servicio de StreamingEndpoint para administrar las crecientes necesidades de ancho de banda mediante el ajuste de unidades de escalado (también conocido como unidades de streaming premium), se recomienda asignar unidades de escalado.
+Los clientes de Media Services eligen un punto de conexión de streaming **estándar** o uno o varios puntos de conexión de streaming **premium**, según sus necesidades. El punto de conexión de streaming estándar es adecuado para la mayoría de las cargas de trabajo de streaming. Incluye las mismas características que las unidades de streaming premium. Si tiene una carga de trabajo avanzada o sus requisitos de capacidad de streaming no se ajusta a los objetivos de rendimiento del punto de conexión de streaming estándar o desea controlar la capacidad del servicio de StreamingEndpoint para administrar las crecientes necesidades de ancho de banda mediante el ajuste de unidades de escalado (también conocido como unidades de streaming premium), se recomienda asignar unidades de escalado.
 
 [Este](media-services-portal-scale-streaming-endpoints.md) tema contiene vínculos a temas relevantes.
 
