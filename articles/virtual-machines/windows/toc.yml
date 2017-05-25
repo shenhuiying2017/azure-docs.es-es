@@ -55,7 +55,8 @@
     href: network-overview.md
   - name: Conjuntos de escalas de máquina virtual
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Servicio de metadatos de instancia 
+  - name: Servicio de metadatos de instancia
+ 
     href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Contenedores
     href: containers.md
@@ -180,10 +181,7 @@
       href: prepare-for-upload-vhd-image.md
     - name: Creación de una imagen de disco administrado
       href: capture-image-resource.md
-    - name: >-
-        Creación de una máquina virtual a partir de una imagen de disco administrado
-        generalizada
-
+    - name: Creación de una máquina virtual a partir de una imagen de disco administrado generalizada
       href: create-vm-generalized-managed.md
   - name: Administración del almacenamiento de máquinas virtuales
     items:
@@ -324,10 +322,7 @@
       href: ./sql/virtual-machines-windows-sql-server-iaas-overview.md
     - name: SharePoint
       href: sharepoint-farm.md
-    - name: >-
-        Configuración de una aplicación de LOB basada en web en una nube híbrida para
-        pruebas
-
+    - name: Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas
       href: ps-hybrid-cloud-test-env-lob.md
     - name: Configuración de un entorno de nube híbrida simulado para pruebas
       href: ps-hybrid-cloud-test-env-sim.md
@@ -346,15 +341,9 @@
       items:
       - name: Migración de Amazon Web Services (AWS) a Azure
         href: aws-to-azure.md
-    - name: >-
-        Carga y creación de máquinas virtuales desde un disco duro virtual
-        generalizado
-
+    - name: Carga y creación de máquinas virtuales desde un disco duro virtual generalizado
       href: upload-generalized-managed.md
-    - name: >-
-        Carga y creación de máquinas virtuales desde un disco duro virtual
-        especializado
-
+    - name: Carga y creación de máquinas virtuales desde un disco duro virtual especializado
       href: upload-specialized.md
     - name: Migración del modelo clásico a Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
@@ -382,6 +371,9 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Restablecer contraseña de RDP
       href: reset-rdp.md
+    - name: Diagnósticos de arranque
+ 
+      href: boot-diagnostics.md
     - name: Creación de una máquina virtual
       href: troubleshoot-deployment-new-vm.md
     - name: Reinicio o cambio de tamaño de una máquina virtual
@@ -392,6 +384,8 @@
       href: allocation-failure.md
     - name: Reimplementación de una máquina virtual
       href: redeploy-to-new-node.md
+    - name: Mensajes comunes de error
+      href: error-messages.md
     - name: Conexión de un disco duro virtual para solucionar problemas de máquina virtual
       items:
       - name: Azure PowerShell

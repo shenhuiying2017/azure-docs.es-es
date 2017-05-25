@@ -44,6 +44,7 @@
 
 ## Administrar
 ### [Registros](notification-hubs-push-notification-registration-management.md)
+### [Autenticación basada en tokens de APNs](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [Protección](notification-hubs-push-notification-security.md)
 ### Inserción segura

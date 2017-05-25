@@ -1,7 +1,7 @@
 # Información general
 ## [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 ## [Elección de la edición](active-directory-editions.md)
-## [Acerca de la administración de identidades de Azure](fundamentals-identity.md)
+## [Acerca de la administración de identidades de Azure](identity-fundamentals.md)
 ## [Información acerca de las soluciones de identidades de Azure](understand-azure-identity-solutions.md)
 ## [Vista previa de la experiencia de Azure Portal](active-directory-preview-explainer.md)
 
@@ -90,7 +90,7 @@
 ### Solución de problemas
 #### [Datos de auditoría que faltan](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Datos que faltan en las descargas](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    Acceso mediante programación
+###    [Acceso mediante programación](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Referencia de auditoría](active-directory-reporting-api-audit-reference.md)
 #### [Referencia de inicio de sesión](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Requisitos previos](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -115,7 +115,7 @@
 ##### [Orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Inicios de sesión anómalos](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Administrar contraseñas](active-directory-passwords.md)
+## [Administrar contraseñas](active-directory-passwords-overview.md)
 ### Documentos de usuario
 #### [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)
 #### [Procedimientos recomendados sobre las contraseñas](active-directory-secure-passwords.md)
@@ -298,6 +298,7 @@
 ##### [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
+#### [Elevación de acceso de administrador de inquilinos](role-based-access-control-tenant-admin-access.md)
 #### [Solución de problemas](role-based-access-control-troubleshooting.md)
 #### [Operaciones del proveedor de recursos](role-based-access-control-resource-provider-operations.md)
 ### [Configuración de la vigencia de los tokens](active-directory-configurable-token-lifetimes.md)

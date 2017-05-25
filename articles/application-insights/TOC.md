@@ -35,7 +35,7 @@
 ### [Diagnósticos detallados para servicios y aplicaciones web](app-insights-devops.md)
 ### [Supervisión del rendimiento de aplicaciones web](app-insights-web-monitor-performance.md)
 ### [Separación de desarrollo, prueba y producción](app-insights-separate-resources.md)
-### [Supervisión de aplicaciones con varios roles](app-insights-monitor-multi-role-apps.md)
+### [Supervisión de aplicaciones con varios componentes](app-insights-monitor-multi-role-apps.md)
 ### [¿Cómo ... en Application Insights?](app-insights-how-do-i.md)
 
 
@@ -139,7 +139,7 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST](https://dev.applicationinsights.io/)
+## [API de acceso a datos](https://dev.applicationinsights.io/)
 ## [Modelo de datos](application-insights-data-model.md)
 ### [Solicitud](application-insights-data-model-request-telemetry.md)
 ### [Dependencia](application-insights-data-model-dependency-telemetry.md)
@@ -147,6 +147,7 @@
 ### [Seguimiento](application-insights-data-model-trace-telemetry.md)
 ### [Evento](application-insights-data-model-event-telemetry.md)
 ### [Métrica](application-insights-data-model-metric-telemetry.md)
+### [Contexto](application-insights-data-model-context.md)
 ## [Correlación de telemetría](application-insights-correlation.md)
 
 # Recursos
