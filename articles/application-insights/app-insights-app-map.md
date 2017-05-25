@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 37b85ba4987f8f29e4e825a17f0a892ddabf9599
-ms.lasthandoff: 04/12/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e76a31a8eaa249ab064d180bfd7ed158ef32c85a
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -86,19 +87,35 @@ Para guardar los filtros aplicados, ancle la vista filtrada a un [panel](app-ins
 
 ![Anclar al panel](./media/app-insights-app-map/12.png)
 
+## <a name="error-pane"></a>Panel de errores
+Al hacer clic en un nodo del mapa, se muestra un panel de error se muestra en el lado derecho con un resumen de los errores de ese nodo. Los errores se agrupan en primer lugar por identificador de operación y, luego, por identificador de problema.
+
+![Panel de errores](./media/app-insights-app-map/error-pane.png)
+
+Al hacer clic en un error, se le redirige a la instancia más reciente de ese error.
+
+## <a name="resource-health"></a>Estado de los recursos
+En algunos tipos de recursos, se muestra el estado en la parte superior del panel de errores. Por ejemplo, al hacer clic en un nodo de SQL se mostrará el estado de la base de datos y las alertas activadas.
+
+![Estado de los recursos](./media/app-insights-app-map/resource-health.png)
+
+Puede hacer clic en el nombre del recurso para ver las métricas de información general estándar de ese recurso.
+
 ## <a name="end-to-end-system-app-maps"></a>Mapas de la aplicación del sistema completo
+
+*Se requiere la versión 2.3 o posterior del SDK*
 
 Si la aplicación tiene varios componentes, por ejemplo, un servicio back-end además de la aplicación web, puede mostrarlos todos en un mapa de la aplicación integrado.
 
 ![Establecer filtros](./media/app-insights-app-map/multi-component-app-map.png)
 
-El mapa de la aplicación busca nodos de servidor mediante la búsqueda en todos los recursos de Application Insights en el grupo de recursos actual. Asimismo, detecta nodos de servidor siguiendo las llamadas de dependencia cuyo seguimiento realizan los recursos de Application Insights en el grupo de recursos actual.
+El mapa de aplicación busca los nodos de servidor siguiendo las llamadas de una dependencia HTTP entre los servidores con el SDK de Application Insights instalado. Se da por hecho que cada recurso de Application Insights contiene un servidor.
 
+### <a name="multi-role-app-map-preview"></a>Mapa de aplicación de varios roles (versión preliminar)
 
-### <a name="setting-up"></a>Instalación
+La característica de mapa de aplicación de varios roles en versión preliminar permite usar el mapa de aplicación con varios servidores que envían datos al mismo recurso o la misma clave de instrumentación de Application Insights. Los servidores del mapa están segmentados por la propiedad cloud_nombreDelRol en elementos de telemetría. Establezca el *mapa de aplicación de varios roles* en *Activado* en la hoja de versiones preliminares para habilitar esta configuración.
 
-> [!NOTE] 
-> El mapa de la aplicación del sistema completo está en versión preliminar. Deberá instrumentar los componentes con una versión especial del SDK y tendrá que utilizar una dirección URL especial para ver el mapa de la aplicación. [Obtenga información acerca de cómo configurar mapas de aplicación del sistema completo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
+Este enfoque puede ser útil en una aplicación de microservicios o en otros escenarios en los que desea correlacionar eventos de varios servidores de un único recurso de Application Insights.
 
 ## <a name="video"></a>Vídeo
 

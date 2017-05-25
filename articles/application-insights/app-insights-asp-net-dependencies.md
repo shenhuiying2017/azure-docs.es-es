@@ -3,7 +3,7 @@ title: Seguimiento de dependencia en Azure Application Insights | Microsoft Docs
 description: "Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
-ms.lasthandoff: 03/16/2017
+ms.date: 05/04/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c31abf49a05f7911d4ec82db59efa2724ab7b49b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -31,7 +32,7 @@ El monitor de dependencia listo para su uso sin configuraciones adicionales actu
   * Bases de datos SQL
   * Servicios WFC y web de ASP.NET que usan enlaces basados en HTTP
   * Llamadas HTTP locales o remotas
-  * DocumentDb, tabla, almacenamiento de blobs y cola de Azure
+  * Cosmos DB, tabla, almacenamiento de blobs y colas de Azure
 * Páginas web
   * Llamadas AJAX
 
@@ -119,9 +120,9 @@ En otro caso, no hay ninguna llamada de dependencia especialmente larga. Sin emb
 
 Parece haber un intervalo de gran duración después de la primera llamada de dependencia, por lo que debemos examinar el código para ver el motivo.
 
-### <a name="profiling-your-live-site"></a>Generación de perfiles del sitio activo
+### <a name="profile-your-live-site"></a>Generación de un perfil del sitio activo
 
-¿Quiere saber en qué se invierte el tiempo? El generador de perfiles de Application Insights realizará un seguimiento de las llamadas HTTP a los sitios activos y mostrará qué funciones del código tardan más tiempo en ejecutarse. Esta herramienta está actualmente en fase de versión preliminar limitada: puede [registrarse aquí para probarlo](https://aka.ms/AIProfilerPreview).
+¿Quiere saber en qué se invierte el tiempo? El generador de perfiles de [Application Insights](app-insights-profiler.md) realizará un seguimiento de las llamadas HTTP a los sitios activos y mostrará qué funciones del código tardan más tiempo en ejecutarse.
 
 ## <a name="failed-requests"></a>Error en las solicitudes
 Las solicitudes con error también podrían estar asociadas a llamadas a dependencias con errores. Una vez más, podemos clic para realizar un seguimiento del problema.
