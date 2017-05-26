@@ -11,12 +11,12 @@ Puede usar el servicio Tabla para almacenar grandes conjuntos de datos estructur
 ## <a name="table-service-concepts"></a>Conceptos del servicio Tabla
 El servicio Tabla contiene los siguientes componentes:
 
-![Table1][Table1]
+![Diagrama de componentes de Table service][Table1]
 
 * **Formato de dirección URL:** el código trata las tablas en una cuenta con este formato de dirección:   
   http://`<storage account>`.table.core.windows.net/`<table>`  
   
-  Puede desviar las tablas de Azure directamente mediante esta dirección con el protocolo OData. Para obtener más información, consulte [OData.org][OData.org]
+  Puede desviar las tablas de Azure directamente mediante esta dirección con el protocolo OData. Para más información, consulte [OData.org][OData.org]
 * **Cuenta de almacenamiento:** todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../articles/storage/storage-scalability-targets.md) para obtener información sobre la capacidad de la cuenta de almacenamiento.
 * **Tabla**: una tabla es una colección de entidades. Las tablas no exigen un esquema sobre entidades, lo que significa que una única tabla puede contener entidades que dispongan de diferentes conjuntos de propiedades. El número de tablas que una cuenta de almacenamiento puede contener se encuentra restringido solo por el límite de capacidad de la cuenta de almacenamiento.
 * **Entidad**: una entidad es un conjunto de propiedades, similar a una fila de base de datos. Una entidad puede tener un tamaño de hasta 1 MB.

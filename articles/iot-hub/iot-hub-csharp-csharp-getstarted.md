@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 33ddab887ade0d788129367eec4db7e70f35e0b9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 68d409c7c7ce14c988d8335f6ed54e9be69bcba7
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -243,7 +244,7 @@ Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, co
 
 * [Conexión del dispositivo][lnk-connect-device]
 * [Introducción a la administración de dispositivos][lnk-device-management]
-* [Introducción al SDK de puerta de enlace de IoT][lnk-gateway-SDK]
+* [Introducción a IoT Edge][lnk-gateway-SDK]
 
 Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositivo a la nube a escala, consulte [Tutorial: procesamiento de mensajes de dispositivo a la nube][lnk-process-d2c-tutorial].
 

@@ -1,4 +1,10 @@
-Algunas respuestas de Bing incluyen direcciones URL de las imágenes en miniatura servidas por Bing. Puede cambiar el tamaño y recortar las imágenes en miniatura. Para cambiar el tamaño de una imagen, incluya los parámetros de consulta w (ancho) y h (alto) en la dirección URL de la miniatura. Especifique el ancho y alto en píxeles. Por ejemplo:  
+Algunas respuestas de Bing incluyen direcciones URL de las imágenes en miniatura servidas por Bing. Puede cambiar el tamaño y recortar las imágenes en miniatura. 
+
+> [!NOTE]
+> Asegúrese de que el tamaño y el recorte de la miniatura proporciona un escenario de búsqueda y respeta los derechos de terceros, según lo especificado en los [requisitos de visualización y uso de Search API](/useanddisplayrequirements.md).
+
+
+Para cambiar el tamaño de una imagen, incluya los parámetros de consulta w (ancho) y h (alto) en la dirección URL de la miniatura. Especifique el ancho y alto en píxeles. Por ejemplo:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   

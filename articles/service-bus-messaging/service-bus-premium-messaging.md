@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/28/2017
 ms.author: darosa;sethm;jotaub
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 72e4c59e1282d97cfc5aa5f55861c6f70d419ce8
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: a916f643c7e6727d6053865d1c0bd2f683a53b3f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -48,11 +48,17 @@ En las secciones siguientes se describen algunas diferencias existentes entre lo
 
 ### <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
-Los temas y colas con particiones se admiten en la mensajería Premium; de hecho, estas entidades siempre tienen particiones (y no se pueden deshabilitar). Sin embargo, las colas y los temas con particiones Premium no funcionan de la misma forma que en los niveles Estándar y Básico de la mensajería de Service Bus. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Como consecuencia, las particiones no son necesarias para mejorar el rendimiento. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener dos particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. Para más información sobre las particiones, consulte [Temas y colas con particiones](service-bus-partitioning.md).
+Los temas y colas con particiones se admiten en la mensajería Premium; de hecho, estas entidades siempre tienen particiones (y no se pueden deshabilitar). Sin embargo, las colas y los temas con particiones Premium no funcionan de la misma forma que en los niveles Estándar y Básico de la mensajería de Service Bus. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Como consecuencia, las particiones no son necesarias para mejorar el rendimiento. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener dos particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. 
+
+Con la mensajería premium, cuando se especifica el tamaño de una entidad con [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), dicho tamaño se divide por igual entre las dos particiones, a diferencia de las [entidades con particiones estándar](service-bus-partitioning.md#standard), en las que el tamaño total es 16 veces el tamaño especificado. 
+
+Para más información sobre las particiones, consulte [Temas y colas con particiones](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades exprés
 
-Dado que la mensajería Premium se ejecuta en un entorno de tiempo de ejecución completamente aislado, no se admiten entidades rápidas en los espacios de nombres Premium. Para más información sobre la característica exprés, consulte la propiedad [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+Dado que la mensajería premium se ejecuta en un entorno de tiempo de ejecución completamente aislado, no se admiten entidades rápidas en los espacios de nombres Premium. Para más información sobre la característica exprés, consulte la propiedad [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+
+Si tiene código en ejecución en mensajería estándar y desea migrarlo al nivel Premium, asegúrese de que la propiedad [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) esté establecida en **false** (valor predeterminado).
 
 ## <a name="get-started-with-premium-messaging"></a>Introducción a la Mensajería premium
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 42f77fbea2ac9572940e8c428999c79d6b4b6e23
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -39,7 +40,7 @@ En la actualidad, grandes cantidades de datos se transmiten a alta velocidad por
 * **Bajo costo** : como servicio en la nube, Análisis de transmisiones está optimizado para que los usuarios pongan en marcha y mantengan sus soluciones de análisis en tiempo real a un costo ínfimo. El servicio se creó para que pague según lo usa, basándose en el uso de la unidad de streaming y la cantidad de datos procesados por el sistema. El uso se calcula en función del volumen de eventos procesados y la cantidad de potencia de proceso aprovisionada dentro del clúster, para gestionar los respectivos trabajos de análisis de streaming.  
 * **Datos de referencia** : Análisis de transmisiones ofrece a los usuarios la posibilidad de especificar y usar datos de referencia. Podrían tratarse de datos históricos o simplemente de datos que no son de streaming que cambian con menos frecuencia con el tiempo. El sistema simplifica el uso de datos de referencia para que se consideren como cualquier otro streaming de eventos entrante que se une a otras operaciones de streaming de eventos ingeridos en tiempo real para realizar transformaciones.  
 * **Funciones definidas por el usuario:** Análisis de transmisiones tiene integración con Aprendizaje automático de Azure para definir las llamadas de funciones en el servicio Aprendizaje automático como parte de una consulta de Análisis de transmisiones. Esto amplía las funcionalidades de Análisis de transmisiones para sacar provecho de las soluciones existentes de Aprendizaje automático de Azure. Para obtener mayor información al respecto, consulte el [tutorial de integración de Aprendizaje automático](stream-analytics-machine-learning-integration-tutorial.md).
-* **Conectividad** : Análisis de transmisiones se conecta con Centros de eventos de Azure y con Centros de IoT de Azure de forma directa para la ingesta de transmisiones y con el servicio BLOB de Azure para los datos históricos. Los resultados se pueden escribir desde Análisis de transmisiones en tablas o blobs de Almacenamiento de Azure, Base de datos SQL de Azure, Azure Data Lake Store, DocumentDB, Centros de eventos, temas o colas de Bus de servicio de Azure y Power BI, donde se podrán visualizar, los podrán procesar los flujos de trabajo, se podrán usar en el análisis por lotes a través de [HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) o se podrán volver a procesar como una serie de eventos. Cuando se usan los Centros de eventos, es posible integrar varios Análisis de transmisiones con otros orígenes de datos y motores de procesamiento sin perder el carácter de streaming de los cálculos.  
+* **Conectividad** : Análisis de transmisiones se conecta con Centros de eventos de Azure y con Centros de IoT de Azure de forma directa para la ingesta de transmisiones y con el servicio BLOB de Azure para los datos históricos. Los resultados se pueden escribir desde Stream Analytics en Azure Storage Blobs o Tables, Azure SQL DB, Azure Data Lake Stores, DocumentDB, Azure Cosmos DB, Event Hubs, temas o colas de Azure Service Bus y Power BI, donde se podrán visualizar, los podrán procesar los flujos de trabajo, se podrán usar en el análisis por lotes a través de [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) o se podrán volver a procesar como una serie de eventos. Cuando se usan los Centros de eventos, es posible integrar varios Análisis de transmisiones con otros orígenes de datos y motores de procesamiento sin perder el carácter de streaming de los cálculos.  
 
 ## <a name="get-help"></a>Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)

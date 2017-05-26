@@ -56,7 +56,7 @@ Para usar un `escapeChar` en lugar de `quoteChar`, reemplace la línea con `quot
 * Va a copiar de un archivo de texto y quiere omitir unas cuantas líneas al comienzo que no contienen datos ni información de encabezado. Especifique `skipLineCount` para indicar el número de líneas que se omitirá. Si el resto del archivo contiene una línea de encabezado, también puede especificar `firstRowAsHeader`. Si se especifican `skipLineCount` y `firstRowAsHeader`, las líneas se omiten primero y luego la información del encabezado se lee del archivo de entrada.
 
 ### <a name="specifying-jsonformat"></a>Especificación de JsonFormat
-Para **importar y exportar archivos JSON tal como están hacia o desde DocumentDB**, consulte la sección sobre la [importación y exportación de documentos JSON](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) en el conector de DocumentDB para más información.
+Para **importar y exportar archivos JSON tal como están hacia o desde Azure Cosmos DB**, consulte la sección sobre la [importación y exportación de documentos JSON](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) en el conector de Azure Cosmos DB para más información.
 
 Si desea analizar los archivos JSON o escribir los datos en formato JSON, establezca la propiedad `format` `type` en **TextFormat**. También puede especificar las siguientes propiedades **opcionales** en la sección `format`. Consulte la sección [Ejemplo de JsonFormat](#jsonformat-example) sobre cómo realizar la configuración.
 

@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 309a36b1aa5db95a287b7a6b21449f9d61880cf4
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -47,7 +48,7 @@ Normalmente, las soluciones preconfiguradas usan los siguientes servicios:
 
 * El componente esencial del Conjunto de aplicaciones de IoT de Azure es el servicio [Azure IoT Hub][lnk-iot-hub]. Este servicio ofrece las capacidades de mensajería de dispositivo a la nube y de la nube al dispositivo y actúa como la puerta de enlace para la nube y los demás servicios del Conjunto de aplicaciones de IoT clave. El servicio le permite recibir mensajes de los dispositivos, a escala, y enviar comandos a los dispositivos. El servicio también le permite [administrar los dispositivos][lnk-device-management]. Por ejemplo, puede configurar, reiniciar o realizar un restablecimiento de fábrica de uno o varios dispositivos conectados al centro.
 * [Azure Stream Analytics][lnk-asa] ofrece análisis de datos en movimiento. El Conjunto de aplicaciones de IoT usa este servicio para procesar la telemetría entrante, realizar la agregación y detectar eventos. Las soluciones preconfiguradas también usan el análisis de transmisiones para procesar los mensajes informativos que contienen datos como los metadatos y las respuestas de comandos de dispositivos. Las soluciones usan Análisis de transmisiones para procesar los mensajes de los dispositivos y entregarlos a otros servicios.
-* [Azure Storage][lnk-azure-storage] y [Azure DocumentDB][lnk-document-db] ofrecen las funcionalidades de almacenamiento de datos. Las soluciones preconfiguradas usan el almacenamiento de blobs para almacenar la telemetría y que esté disponible para análisis. Las soluciones usan DocumentDB para almacenar los metadatos de dispositivo y habilitar la funcionalidad de administración de dispositivos de las soluciones.
+* [Azure Storage][lnk-azure-storage] y [Azure Cosmos DB][lnk-document-db] ofrecen las funcionalidades de almacenamiento de datos. Las soluciones preconfiguradas usan el almacenamiento de blobs para almacenar la telemetría y que esté disponible para análisis. Las soluciones usan Cosmos DB para almacenar los metadatos de dispositivo y habilitar la funcionalidad de administración de dispositivos de las soluciones.
 * [Azure Web Apps][lnk-web-apps] y [Microsoft Power BI][lnk-power-bi] ofrecen las funcionalidades de visualización de datos. La flexibilidad de Power BI le permite compilar rápidamente sus propios paneles interactivos que usan los datos del conjunto de aplicaciones de IoT.
 
 Para información general de la arquitectura de una solución de IoT típica, consulte [Microsoft Azure e Internet de las cosas (IoT)][iot-suite-what-is-azure-iot].
