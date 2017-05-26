@@ -30,6 +30,10 @@ Este script de ejemplo de la CLI crea dos grupos elásticos, traslada una base d
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>Script de ejemplo
 
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh "Traslado de una base de datos de un grupo a otro")]
