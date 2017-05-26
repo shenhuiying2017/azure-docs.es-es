@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: garye;krishnan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: 62917bfb2124a2b8beb57e0ee38be93e8ca1c655
+ms.contentlocale: es-es
 ms.lasthandoff: 01/31/2017
 
 
