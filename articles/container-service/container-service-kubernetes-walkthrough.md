@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 05/08/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 5c529ae41b42d276d37e6103305e33ed04694e18
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2ec155129374c03ba7e0ecaa5d2bf29a1d3111aa
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -29,21 +30,31 @@ ms.lasthandoff: 04/07/2017
 
 En este tutorial se muestra cómo utilizar los comandos de CLI de Azure 2.0 para crear un clúster de Kubernetes en Azure Container Service. Puede usar la herramienta de línea de comandos `kubectl` para empezar a trabajar con contenedores en el clúster.
 
-La siguiente imagen muestra la arquitectura de un clúster de Container Service con un maestro y dos agentes. El maestro ofrece servicio a la API de REST de Kubernetes. Los nodos de agente se agrupan en un conjunto de disponibilidad de Azure y ejecutan los contenedores. Todas las máquinas virtuales están en la misma red privada virtual y son totalmente accesibles entre sí.
+La siguiente imagen muestra la arquitectura de un clúster de Container Service con un maestro y dos agentes Linux. El maestro ofrece servicio a la API de REST de Kubernetes. Los nodos de agente se agrupan en un conjunto de disponibilidad de Azure y ejecutan los contenedores. Todas las máquinas virtuales están en la misma red privada virtual y son totalmente accesibles entre sí.
 
 ![Imagen del clúster de Kubernetes en Azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
-## <a name="prerequisites"></a>Requisitos previos
-En este tutorial se supone que ha instalado y configurado la [CLI de Azure 2.0](/cli/azure/install-az-cli2). 
+Para más información de contexto, consulte la [introducción a Azure Container Service](container-service-intro.md) y la [documentación de Kubernetes](https://kubernetes.io/docs/home/).
 
-En los ejemplos de comandos se supone que ejecuta la CLI de Azure en un shell de bash, común en Linux y macOS. Si ejecuta la CLI de Azure en un cliente de Windows, parte de la sintaxis de scripting y los archivos puede variar, en función del shell de comandos. 
+## <a name="prerequisites"></a>Requisitos previos
+Para crear un clúster de Azure Container Service mediante la CLI de Azure 2.0, debe:
+* tener una cuenta de Azure ([obtenga aquí una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/))
+* tener instalada y configurada la [CLI de Azure 2.0](/cli/azure/install-az-cli2)
+
+Además, necesita (o puede utilizar la CLI de Azure para generar automáticamente durante la implementación del clúster):
+
+* **Clave pública SSH de RSA**: si desea crear claves RSA de Shell seguro (SSH) por adelantado, consulte la guía de [macOS y Linux](../virtual-machines/linux/mac-create-ssh-keys.md) o de [Windows](../virtual-machines/linux/ssh-from-windows.md). 
+
+* **Identificador y secreto de cliente de la entidad de servicio**: para ver los pasos para crear una entidad de servicio de Azure Active Directory e información adicional, consulte [Acerca de la entidad de servicio para un clúster de Kubernetes](container-service-kubernetes-service-principal.md).
+
+ El ejemplo de comando en este artículo genera automáticamente las claves SSH y la entidad de servicio.
 
 ## <a name="create-your-kubernetes-cluster"></a>Creación del clúster de Kubernetes
 
-A continuación se indican los comandos de shell usados por la CLI de Azure 2.0 para crear el clúster. 
+A continuación se indican los comandos de shell de Bash usados por la CLI de Azure 2.0 para crear el clúster. 
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
-Para crear el clúster, primero debe crear un grupo de recursos en una ubicación específica. Ejecute comandos similares al siguiente:
+Para crear el clúster, debe crear primero un grupo de recursos en una ubicación donde Azure Container Service esté [disponible](https://azure.microsoft.com/regions/services/). Ejecute comandos similares al siguiente:
 
 ```azurecli
 RESOURCE_GROUP=my-resource-group
@@ -52,9 +63,11 @@ az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### <a name="create-a-cluster"></a>Crear un clúster
-Cuando tenga un grupo de recursos, puede crear un clúster en él. En el ejemplo siguiente se usa la opción `--generate-ssh-keys`, que genera los SSH archivos de claves públicas y privadas necesarios para la implementación si aún no existen en el directorio `~/.ssh/` predeterminado. 
+Cree un clúster de Kubernetes en el grupo de recursos mediante el comando `az acs create` con `--orchestrator-type=kubernetes`. Para conocer la sintaxis del comando, consulte la `az acs create` [ayuda](/cli/azure/acs#create).
 
-Este comando también genera automáticamente la [entidad de servicio de Azure Active Directory](container-service-kubernetes-service-principal.md) usada por un clúster de Kubernetes en Azure.
+Esta versión del comando genera automáticamente las claves RSA de SSH y la entidad de servicio para el clúster de Kubernetes.
+
+
 
 ```azurecli
 DNS_PREFIX=some-unique-value
@@ -62,23 +75,29 @@ CLUSTER_NAME=any-acs-cluster-name
 az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --generate-ssh-keys
 ```
 
-
 Tras varios minutos, el comando se completa y debe tener un clúster de Kubernetes en funcionamiento.
+
+> [!IMPORTANT]
+> Si su cuenta no tiene permisos para crear la entidad de servicio de Azure AD, el comando genera un error similar a `Insufficient privileges to complete the operation.`. Para más información, consulte [Acerca de la entidad de servicio para un clúster de Kubernetes](container-service-kubernetes-service-principal.md).
+> 
+
+
 
 ### <a name="connect-to-the-cluster"></a>Conexión al clúster
 
 Para conectarse al clúster de Kubernetes desde el equipo cliente se utiliza [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), el cliente de línea de comandos de Kubernetes. 
 
-Si aún no tiene instalado `kubectl`, puede instalarlo con:
+Si aún no tiene instalado `kubectl`, puede instalarlo con `az acs kubernetes install-cli`. (También puede descargarlo desde el [sitio de Kubernetes](https://kubernetes.io/docs/tasks/kubectl/install/)).
 
 ```azurecli
 sudo az acs kubernetes install-cli
 ```
+
 > [!TIP]
 > De forma predeterminada, este comando instala el archivo binario `kubectl` en `/usr/local/bin/kubectl` en un sistema Linux o macOS, o bien en `C:\Program Files (x86)\kubectl.exe` en Windows. Para especificar otra ruta de instalación, use el parámetro `--install-location`.
 >
-
-Una vez instalado `kubectl`, asegúrese de que su directorio está en la ruta del sistema o agréguela a la ruta. 
+> Una vez instalado `kubectl`, asegúrese de que su directorio está en la ruta del sistema o agréguela a la ruta. 
+>
 
 
 A continuación, ejecute el siguiente comando para descargar la configuración del clúster de Kubernetes maestro en el archivo `~/.kube/config`:
@@ -104,8 +123,8 @@ Después de completar este tutorial sabrá:
 * Usar `kubectl exec` para ejecutar comandos en un contenedor 
 * Acceder al panel de Kubernetes
 
-### <a name="start-a-simple-container"></a>Iniciar un contenedor simple
-Puede ejecutar un contenedor simple (en este caso el servidor web de Nginx) mediante la ejecución de:
+### <a name="start-a-container"></a>Inicio de un contenedor
+Puede ejecutar un contenedor (en este caso el servidor web de Nginx) mediante la ejecución de:
 
 ```bash
 kubectl run nginx --image nginx
@@ -147,7 +166,7 @@ Para ver la interfaz web Kubernetes, puede usar:
 ```bash
 kubectl proxy
 ```
-Este comando ejecuta un proxy autenticado simple en localhost, que puede usar para ver la interfaz de usuario web de Kubernetes que se ejecuta en [http://localhost:8001/ui](http://localhost:8001/ui). Para más información, consulte [Uso de la interfaz de usuario web de Kubernetes con Azure Container Service](container-service-kubernetes-ui.md).
+Este comando ejecuta un proxy autenticado en localhost, que puede usar para ver la interfaz de usuario web de Kubernetes que se ejecuta en [http://localhost:8001/ui](http://localhost:8001/ui). Para más información, consulte [Uso de la interfaz de usuario web de Kubernetes con Azure Container Service](container-service-kubernetes-ui.md).
 
 ![Imagen del panel de Kubernetes](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -159,7 +178,7 @@ Kubernetes permite ejecutar comandos en un contenedor de Docker remoto que se ej
 kubectl get pods
 ```
 
-Mediante el nombre de pod, puede ejecutar un comando remoto en el pod.  Por ejemplo:
+Mediante el nombre de pod, puede ejecutar un comando remoto en el pod. Por ejemplo:
 
 ```bash
 kubectl exec <pod name> date

@@ -4,7 +4,7 @@
 
 Direcciones URL para Azure Government Cloud:
 
-- \*\.ugv.hypervrecoverymanager.windowsazure.us
-- \*\.ugv.backup.windowsazure.us
-- \*\.ugi.hypervrecoverymanager.windowsazure.us
-- \*\.ugi.backup.windowsazure.us
+- .ugv.hypervrecoverymanager.windowsazure.us
+- .ugv.backup.windowsazure.us
+- .ugi.hypervrecoverymanager.windowsazure.us
+- .ugi.backup.windowsazure.us

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -199,7 +200,7 @@ Ahora tiene un índice de búsqueda listo para su consulta. **Explorador de bús
 
   Para ver los componentes individuales, haga clic en los iconos **Índice**, **Indexador** u **Orígenes de datos** en el panel para mostrar una lista de objetos existentes. Para más información sobre las modificaciones del índice que no requieren generarlo de nuevo, consulte [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index) (Actualización del índice [API de REST de Azure Search]).
 
-+ Pruebe las herramientas y los pasos con otros orígenes de datos. El conjunto de datos de ejemplo, `realestate-us-sample`, procede de una instancia de Azure SQL Database que Azure Search puede rastrear. Además de Azure SQL Database, Azure Search puede rastrear e inferir un índice a partir de estructuras de datos planas en Azure Table Storage, Blob Storage, SQL Server en una máquina virtual de Azure y DocumentDB. Todos estos orígenes de datos se admiten en el asistente. En el código, puede rellenar un índice fácilmente con un *indexador*.
++ Pruebe las herramientas y los pasos con otros orígenes de datos. El conjunto de datos de ejemplo, `realestate-us-sample`, procede de una instancia de Azure SQL Database que Azure Search puede rastrear. Además de Azure SQL Database, Azure Search puede rastrear e inferir un índice a partir de estructuras de datos planas en Azure Table Storage, Blob Storage, SQL Server en una máquina virtual de Azure y Azure Cosmos DB. Todos estos orígenes de datos se admiten en el asistente. En el código, puede rellenar un índice fácilmente con un *indexador*.
 
 + Todos los demás orígenes de datos sin indexador se admiten mediante un modelo de inserción, donde el código inserta conjuntos de filas nuevos y modificados de JSON en el índice. Para más información, consulte [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Agregar, actualizar o eliminar documentos en Azure Search).
 
