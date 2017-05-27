@@ -20,7 +20,6 @@
     La suscripción|*Su suscripción*|Suscripción de Azure que quiere usar para la cuenta de Azure Cosmos DB. 
     Grupo de recursos|*Mismo valor que el identificador*|Nombre del nuevo grupo de recursos para la cuenta. Para simplificar, puede usar el mismo nombre del identificador. 
     Ubicación|*Región más cercana a los usuarios*|Ubicación geográfica en la que se va a hospedar la cuenta de Azure Cosmos DB. Elija la ubicación más cercana a los usuarios para proporcionarles el acceso más rápido a los datos.
-    Plan de App Service para API Graph|Crear nuevo: predeterminado S1|Seleccione el recurso de proceso para ejecutar consultas de Gremlin Graph.
 
 4. Haga clic en **Crear** para crear la cuenta.
 5. En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.

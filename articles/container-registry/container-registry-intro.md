@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 25301f1bbacdf2f1e3d04ed3470eafd31098ea32
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: 5a5085416bff96c37fcde8a25deffe7dbd8f70d6
+ms.contentlocale: es-es
+ms.lasthandoff: 05/20/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introducción a los registros de contenedores privados de Docker
@@ -69,6 +70,6 @@ Los desarrolladores también pueden insertar en un registro de contenedor como p
 * [Creación de un registro de contenedor mediante Azure Portal](container-registry-get-started-portal.md)
 * [Creación de un registro de contenedor con la CLI de Azure](container-registry-get-started-azure-cli.md)
 * [Insertar la primera imagen mediante la CLI de Docker](container-registry-get-started-docker-cli.md)
-* Para crear una integración continua y un flujo de trabajo de implementación mediante Visual Studio Team Services, Azure Container Service y Azure Container Registry, consulte [este tutorial](../container-service/container-service-setup-ci-cd.md).
+* Para crear una integración continua y un flujo de trabajo de implementación mediante Visual Studio Team Services, Azure Container Service y Azure Container Registry, consulte [este tutorial](../container-service/container-service-docker-swarm-setup-ci-cd.md).
 * Si desea configurar su propio Docker Registry privado en Azure (sin un punto de conexión público), consulte [Implementación de su propio Docker Registry privado en Azure](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 

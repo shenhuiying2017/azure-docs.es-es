@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: df34052acc401fb5bb1e3f808c649c0ea0bcf33c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -110,15 +110,7 @@ az group create --name myResourceGroup --location westeurope
 
 Cree un plan de App Service con el comando [az appservice plan create](/cli/azure/appservice/plan#create).
 
-> [!NOTE]
-> Un plan de App Service representa la colección de recursos físicos que se utiliza para hospedar las aplicaciones. Todas las aplicaciones asignadas a un plan de App Service comparten los recursos definidos por él, lo que permite ahorrar costos al hospedar varias aplicaciones.
->
-> Los planes de App Service definen lo siguiente:
-> * Región (Europa del Norte, este de EE. UU., Sudeste Asiático)
-> * Tamaño de la instancia (pequeño, mediano, grande)
-> * Recuento de escala (una, dos, tres instancias, etc.)
-> * SKU (Gratis, Compartido, Básico, Estándar y Premium)
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 En el siguiente ejemplo se crea un plan de App Service denominado `quickStartPlan` con el plan de tarifa **Gratis**.
 

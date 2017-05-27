@@ -40,7 +40,7 @@ ACU: 210-250
 ## <a name="ds-series"></a>Serie DS*
 | Tamaño | Núcleos de CPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de disco en caché y local máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Ancho de banda de red/NIC máx. |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3,5 |7 |2 |4000 / 32 (43) |3200 / 32 |2 ^ / moderado |
+| Standard_DS1 |1 |3,5 |7 |2 |4000 / 32 (43) |3200 / 32 |2 / moderado |
 | Standard_DS2 |2 |7 |14 |4 |8000 / 64 (86) |6400 / 64 |2 / alto |
 | Standard_DS3 |4 |14 |28 |8 |16 000 / 128 (172) |12 800 / 128 |4 / alto |
 | Standard_DS4 |8 |28 |56 |16 |32 000 / 256 (344) |25 600 / 256 |8 / alto |
