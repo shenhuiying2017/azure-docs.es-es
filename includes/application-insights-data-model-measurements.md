@@ -6,12 +6,12 @@ Colección de medidas personalizadas. Use esta colección para notificar la medi
 Puede consultar las [medidas personalizadas](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) en el análisis de aplicaciones:
 
 ```
-customEvents 
-| where customMeasurements != "" 
+customEvents
+| where customMeasurements != ""
 | summarize avg(todouble(customMeasurements["Completion Time"]) * itemCount)
 ```
 
  > [!NOTE]
- > Las medidas personalizadas están asociadas al elemento de telemetría al que pertenecen. Están sujetas a muestreo con el elemento de telemetría que contiene esas mediciones. Para realizar el seguimiento de una medida que tiene un valor independiente de otros tipos de telemetría, use la [telemetría de métricas](../articles/application-insights/app-insights-api-custom-events-metrics.md#send-metrics).
+ > Las medidas personalizadas están asociadas al elemento de telemetría al que pertenecen. Están sujetas a muestreo con el elemento de telemetría que contiene esas mediciones. Para realizar el seguimiento de una medida que tiene un valor independiente de otros tipos de telemetría, use la [telemetría de métricas](../articles/application-insights/app-insights-api-custom-events-metrics.md).
 
 Longitud máxima de la clave: 150

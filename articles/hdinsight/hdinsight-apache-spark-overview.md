@@ -18,10 +18,10 @@ ms.topic: get-started-article
 ms.date: 05/12/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 020cb0193e48b49524318df6e29c7613753a3863
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: 4dc9729f036c0c497dfd53342aa92c983126e7d1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 05/20/2017
 
 
 ---
@@ -30,8 +30,6 @@ ms.lasthandoff: 05/15/2017
 En este artículo se proporciona una introducción a Spark en HDInsight. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data. Un clúster de Spark en HDInsight es compatible con Azure Storage (WASB), así como con Azure Data Lake Store, por lo que los datos existentes almacenados en Azure pueden procesarse fácilmente por medio de un clúster de Spark.
 
 Cuando crea un clúster de Spark en HDInsight, aprovisiona recursos de proceso de Azure con Spark instalado y configurado. Solamente se tardan unos diez minutos en crear un clúster Spark en HDInsight. Los datos que se van a procesar se almacenan en Azure Storage o Azure Data Lake Store. Consulte [Uso de Azure Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md).
-
-![¿Qué es Apache Spark en HDInsight?](./media/hdinsight-apache-spark-overview/hdinsight-introduction-to-spark.png "Introducción a Spark en HDInsight")
 
 **Para crear un clúster de Spark en HDInsight**, consulte el [inicio rápido sobre cómo crear un clúster de Spark en HDInsight y ejecutar consultas interactivas mediante Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 

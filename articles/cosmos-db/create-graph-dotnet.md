@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 07a13c3e9e2baefe0be7ed417ba105dd23a3708d
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 597b12b98edb07e453fc3cd5a0884c584a5bfd14
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -43,18 +43,6 @@ Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la vers
 
 [!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
 
-## <a name="add-sample-data"></a>Agregar datos de ejemplo
-
-Ahora puede agregar datos al gráfico mediante el Explorador de datos.
-
-1. En el Explorador de datos, expanda **sample-database**, **sample-graph**, haga clic en **Gráfico** y, después, haga clic en **New Vertex** (Nuevo vértice) y **New Edge** (Nuevo borde) para agregar elementos a su gráfico. En el Explorador de datos también puede escalar el rendimiento y agregar procedimientos almacenados, funciones definidas por el usuario y desencadenadores a su contenedor.
-
-    ![Agregar vértices y bordes a un gráfico en el Explorador de datos](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. Una vez que haya agregado algunos elementos, haga clic en el botón **Aplicar filtro**, o bien haga clic con el botón derecho en **Gráfico** y haga clic en **New Graph Query** (Nueva consulta de gráfico) para ver el gráfico visual de los datos. Puede cambiar el tipo de etiquetas y de estilos que se aplican a los datos. Para ello, haga clic en el botón **Estilo** y cambie la configuración. A continuación puede ver un gráfico de ejemplo en el Explorador de datos. Todas las etiquetas, colores y datos que se muestran se pueden modificar.
-
-    ![Explorador de gráficos visuales en el Explorador de datos en Azure Portal](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
-
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
 Ahora vamos a clonar una aplicación de API Graph desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
@@ -69,7 +57,7 @@ Ahora vamos a clonar una aplicación de API Graph desde GitHub, establecer la ca
 
 3. Después, abra el archivo de solución en Visual Studio. 
 
-## <a name="review-the-code"></a>Revisar el código
+## <a name="review-the-code"></a>Revisión del código
 
 Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo Program.cs y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
 
@@ -160,12 +148,12 @@ Ahora puede volver al Explorador de datos en Azure Portal para examinar y consul
 
 Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal: 
 
-1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que ha creado. 
+1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB, crear un gráfico mediante el Explorador de datos y ejecutar una aplicación. Ahora puede crear consultas más complejas e implementar con Gremlin una lógica de recorrido del gráfico eficaz. 
+En esta guía de inicio rápido, ha obtenido información sobre cómo crear una cuenta de Azure Cosmos DB, crear un gráfico mediante el Explorador de datos y ejecutar una aplicación. Ahora puede crear consultas más complejas e implementar con Gremlin una lógica de recorrido del gráfico eficaz. 
 
 > [!div class="nextstepaction"]
 > [Consulta mediante Gremlin](tutorial-query-graph.md)

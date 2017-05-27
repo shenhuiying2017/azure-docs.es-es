@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: dd53cbc0ec10700ebcd47f9d2f9d6cc358f68569
-ms.lasthandoff: 05/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: c45695129c1795b44b933a6d60e2f21a98542f7d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -105,7 +106,7 @@ Su cuenta de Azure ahora está autorizada para realizar operaciones en este Alma
 >
 
 ## <a id="add"></a>Adición de una clave o un secreto al Almacén de claves
-Si desea que Azure Key Vault cree automáticamente una clave protegida mediante software, utilice el cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) y escriba lo siguiente:
+Si desea que Azure Key Vault cree automáticamente una clave protegida mediante software, utilice el cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) y escriba lo siguiente:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 

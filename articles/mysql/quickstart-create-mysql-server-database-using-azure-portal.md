@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 25bfd2c6c25ddb8747dec58fdc68f904f81127fa
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 85bb0396809297f0efb7323bef081055f17ede62
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 ---
 
@@ -29,8 +29,6 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 Abra el explorador web y vaya a [Microsoft Azure Portal](https://portal.azure.com/). Introduzca sus credenciales para iniciar sesión en el portal. La vista predeterminada es el panel del servicio.
 
-![Azure Portal: inicio de sesión y panel](./media/quickstart-create-mysql-server-database-using-azure-portal/1_portal-login.png)
-
 ## <a name="create-azure-database-for-mysql-server"></a>Creación de un servidor de Azure Database for MySQL
 
 1. Vaya a **Bases de datos** > **MySQL**. Si no encuentra el servidor de Azure Database for MySQL en la categoría **Bases de datos**, haga clic en **Ver todo** para mostrar todos los servicios de base de datos disponibles. También puede escribir **MySQL** en el cuadro de búsqueda para encontrar el servicio rápidamente.
@@ -42,9 +40,9 @@ En nuestro ejemplo, rellene la página de Azure Database for MySQL con la siguie
 | **Campo del formulario** | **Descripción del campo** |
 |----------------|-----------------------|
 | *Nombre del servidor* | mysqlserver4demo (el nombre del servidor es único a nivel global) |
-| *Suscripción* | MySQLaaS (selecciónela de la lista desplegable) |
+| *Suscripción* | MySQLaaS (seleccione en la lista desplegable) |
 | *Grupos de recursos* | myresource (cree un grupo de recursos o use uno existente) |
-| *Inicio de sesión del administrador del servidor* | myadmin (dele un nombre a la cuenta de administrador) |
+| *Inicio de sesión del administrador del servidor* | myadmin (dé un nombre a la cuenta de administrador) |
 | *Password* | indique la contraseña de la cuenta de administrador |
 | *Confirmar contraseña* | confirme la contraseña de la cuenta de administrador |
 | *Ubicación* | Europa del Norte (seleccione **Europa del Norte** o **Oeste de EE. UU.**) |
@@ -93,17 +91,17 @@ En un servidor MySQL puede crear varias bases de datos. No hay límite para el n
 > Para otros comandos, consulte el [capítulo 4.5.1 del Manual de referencia de MySQL 5.6](https://dev.mysql.com/doc/refman/5.6/en/mysql.html).
 
 ## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>Conexión al servidor con la herramienta MySQL Workbench de la GUI
-1.    Lance la aplicación MySQL Workbench en el equipo cliente. Puede descargar e instalar MySQL Workbench desde [aquí](https://dev.mysql.com/downloads/workbench/).
+1.    Inicie la aplicación MySQL Workbench en el equipo cliente. Puede descargar e instalar MySQL Workbench desde [aquí](https://dev.mysql.com/downloads/workbench/).
 
 2.    En el cuadro de diálogo **Setup New Connection** (Establecer nueva conexión), escriba la siguiente información en la pestaña **Parámetros**:
 
 | **Parámetros** | **Descripción** |
 |----------------|-----------------|
 |    *Nombre de la conexión* | especifique un nombre para esta conexión (puede ser cualquier cosa) |
-| *Connection Method* (Método de conexión) | elija Estándar (TCP/IP) |
-| *Nombre de host* | mycliserver.database.windows.net (el NOMBRE DEL SERVIDOR que anotó antes) |
+| *Método de conexión* | elija Estándar (TCP/IP) |
+| *Nombre de host* | mycliserver.database.windows.net (el NOMBRE DEL SERVIDOR que ha anotado antes) |
 | *Puerto* | 3306 |
-| *Nombre de usuario* | myadmin@mycliserver(EL INICIO DE SESIÓN DEL ADMINISTRADOR DEL SERVIDOR que anotó antes) |
+| *Nombre de usuario* | myadmin@mycliserver (El INICIO DE SESIÓN DEL ADMINISTRADOR DEL SERVIDOR que ha anotado antes) |
 | *Password* | puede almacenar la contraseña de la cuenta de administrador en el almacén |
 
 ![Configuración de una conexión nueva](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
