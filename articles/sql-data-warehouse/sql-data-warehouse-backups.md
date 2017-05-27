@@ -3,7 +3,7 @@ title: "Copias de seguridad de Azure SQL Data Warehouse: instantáneas, redundan
 description: "Aprenda sobre las copias de seguridad de base de datos integradas de SQL Data Warehouse que permiten restaurar una instancia de Azure SQL Data Warehouse a un punto de restauración o una región geográfica distinta."
 services: sql-data-warehouse
 documentationcenter: 
-author: lakshmi1812
+author: Lakshmi1812
 manager: jhubbard
 editor: 
 ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
@@ -15,9 +15,10 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
 ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
+ms.contentlocale: es-es
 ms.lasthandoff: 01/24/2017
 
 

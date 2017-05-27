@@ -428,7 +428,7 @@ En esta sección, se supone que ya obtuvo un archivo ISO en el sitio web de Red 
 
     Edite `/etc/dracut.conf` y agregue contenido:
 
-        add_drivers+="�hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     Recompile initramfs:
 

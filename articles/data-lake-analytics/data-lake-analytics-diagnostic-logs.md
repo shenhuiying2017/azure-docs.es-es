@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
 ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
+ms.contentlocale: es-es
 ms.lasthandoff: 02/11/2017
 
 
@@ -57,9 +58,9 @@ Las organizaciones pueden habilitar el registro de diagnósticos para su cuenta 
 
      * Seleccione __Archive to a storage account__ (Archivar en cuenta de almacenamiento) para almacenar los registros en una cuenta de almacenamiento de Azure. Utilice esta opción si desea archivar los datos. Si selecciona esta opción, debe proporcionar una cuenta de almacenamiento de Azure para guardar los registros.
 
-     * Seleccione la opción **Stream to an event hub** (Transmitir a un centro de eventos) para transmitir los datos de registro a un Centro de eventos de Azure. Use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
+     * Seleccione la opción **Transmitir a un centro de eventos** para transmitir los datos de registro a un Centro de eventos de Azure. Use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
 
-     * Seleccione __Send to Log Analytics__ (Enviar a Log Analytics) para enviar los datos al servicio Log Analytics. Utilice esto si desea usar Log Analytics para recopilar y analizar registros.
+     * Seleccione __Enviar a Log Analytics__ para enviar los datos al servicio Log Analytics. Utilice esto si desea usar Log Analytics para recopilar y analizar registros.
    * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.
 
    * Especifique el número de días durante los que deben conservarse los datos.
@@ -67,7 +68,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos para su cuenta 
    * Haga clic en **Guardar**.
 
         > [!NOTE]
-        > Debe seleccionar __Archive to a storage account__ (Archivar en cuenta de almacenamiento), __Stream to an Event Hub__ (Transmitir a un centro de eventos) o __Send to Log Analytics__ (Enviar a Log Analytics) antes de usar el botón __Guardar__.
+        > Debe seleccionar __Archivar en una cuenta de almacenamiento__, __Transmitir a un centro de eventos__ o __Enviar a Log Analytics__ antes de usar el botón __Guardar__.
 
 Una vez habilitada la configuración de diagnóstico, puede volver a la hoja __Registros de diagnósticos__ para ver los registros.
 

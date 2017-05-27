@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
 ms.openlocfilehash: c4053ded725ad7ab2acc6d5d54e8343ffb961408
+ms.contentlocale: es-es
 ms.lasthandoff: 02/28/2017
 
 
@@ -62,7 +63,7 @@ En este fragmento código de la API de [.NET para Batch][api_net], se muestra un
 CloudPool pool =
     batchClient.PoolOperations.CreatePool(
         poolId: "mypool",
-        targetDedicated: 4
+        targetDedicatedComputeNodes: 4
         virtualMachineSize: "large",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
@@ -83,7 +84,7 @@ En este fragmento de la API de [REST de Batch][api_rest], se muestra una solicit
     "osFamily":"4",
     "targetOSVersion":"*",
   }
-  "targetDedicated":2,
+  "targetDedicatedComputeNodes":2,
   "maxTasksPerNode":4,
   "enableInterNodeCommunication":true,
 }

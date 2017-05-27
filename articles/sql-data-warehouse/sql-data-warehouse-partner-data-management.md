@@ -3,7 +3,7 @@ title: "Asociados de administración de datos de SQL Data Warehouse | Microsoft 
 description: "Lista de los asociados de administración de datos externos con soluciones compatibles con Almacenamiento de datos SQL."
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: c3d96b41-f049-49e8-af32-408f4a893477
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: partners
 ms.date: 12/27/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
+ms.author: kevin;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 70bc2363172199455785e90753560cc2281432b1
 ms.openlocfilehash: eeb858514af80d1e6074b7c86ead5955f0d22ad2
+ms.contentlocale: es-es
 ms.lasthandoff: 01/05/2017
 
 
