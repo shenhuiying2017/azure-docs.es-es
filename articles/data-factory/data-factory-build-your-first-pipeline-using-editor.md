@@ -1,26 +1,10 @@
 ---
-title: "Compilación de la primera instancia de Data Factory (Azure Portal) | Microsoft Docs"
-description: "En este tutorial, se crea una canalización de Data Factory de Azure de ejemplo con el Editor de Data Factory en el Portal de Azure."
-services: data-factory
-documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
-ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
-ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 04/17/2017
-ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: c9f2e3beafd19e0d4d62e409a80da336be17b90b
-ms.lasthandoff: 02/03/2017
+title: Compilación de la primera instancia de Azure Data Factory (Azure Portal) | Microsoft Docs description: En este tutorial, va a crear una canalización de Azure Data Factory de ejemplo mediante Data Factory Editor en Azure Portal.
+services: data-factory documentationcenter: '' author: spelluru manager: jhubbard editor: monicar
 
+ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d ms.service: data-factory ms.workload: data-services ms.tgt_pltfrm: na ms.devlang: na ms.topic: hero-article ms.date: 04/17/2017 ms.author: spelluru
 
----
+---3
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Tutorial: Compilación de la primera instancia de Azure Data Factory con Azure Portal
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-build-your-first-pipeline.md)
@@ -36,7 +20,7 @@ En este artículo, aprenderá a usar el [Portal de Azure](https://portal.azure.c
 > [!NOTE]
 > En este tutorial, la canalización de datos transforma los datos de entrada para generar datos de salida. No copia los datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Copia de datos de Blob Storage en SQL Database mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> Puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md). 
+> Este tutorial usa solo una actividad de tipo copia, pero cualquier canalización puede tener más de una actividad. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="prerequisites"></a>Requisitos previos
 1. Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los **requisitos previos** .
@@ -61,13 +45,15 @@ Una factoría de datos puede tener una o más canalizaciones. Una canalización 
    >
 4. Seleccione la **suscripción de Azure** donde desea crear la factoría de datos.
 5. Seleccione un **grupo de recursos** existente o cree uno nuevo. Para este tutorial, cree un grupo de recursos denominado: **ADFGetStartedRG**.
-6. Haga clic en **Crear** en la hoja **Nueva fábrica de datos**.
+6. Seleccione la **ubicación** de Data Factory. La lista desplegable solo muestra las regiones que admite el servicio Data Factory.
+7. Seleccione **Anclar al panel**. 
+8. Haga clic en **Crear** en la hoja **Nueva fábrica de datos**.
 
    > [!IMPORTANT]
    > Para crear instancias de Data Factory, es preciso ser miembro del rol [Colaborador de Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) en el nivel de grupo de recursos o suscripción.
    >
    >
-7. Se ve que la factoría de datos se crea en el **Panel de inicio** del Portal de Azure de la manera siguiente:   
+7. En el panel, verá el icono siguiente con el estado: Implementando entidad de factoría de datos.    
 
    ![Creación de estado de la factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 8. ¡Enhorabuena! Ya creó correctamente su primera factoría de datos. Tras crear correctamente la factoría de datos, se ve la página de la factoría de datos, que muestra el contenido de la misma.     
@@ -114,7 +100,6 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "AzureStorageLinkedService"
@@ -127,7 +112,6 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
    | Propiedad | Descripción |
    |:--- |:--- |
-   | Versión |Especifica que la versión de HDInsight creada sea la 3.2. |
    | ClusterSize |Especifica el tamaño del clúster de HDInsight. |
    | TimeToLive |Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine. |
    | linkedServiceName |Especifica la cuenta de almacenamiento que se usa para almacenar los registros que genera HDInsight. |
@@ -184,13 +168,16 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
 
    | Propiedad | Descripción |
    |:--- |:--- |
-   | type |La propiedad type se establece en AzureBlob porque los datos residen en Almacenamiento de blobs de Azure. |
-   | linkedServiceName |Hace referencia al servicio AzureStorageLinkedService que creó anteriormente. |
-   | fileName |Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este caso, se procesa solo el archivo input.log. |
-   | type |Los archivos de registro están en formato de texto, por lo que usaremos TextFormat. |
-   | columnDelimiter |Las columnas de los archivos de registro están delimitadas por coma (,). |
-   | frecuencia/intervalo |La frecuencia está establecida en Mes y el intervalo es 1, lo que significa que los segmentos de entrada estarán disponibles cada mes. |
-   | external |Esta propiedad se establece en true si el servicio Factoría de datos no ha generado los datos de entrada. |
+   | type |La propiedad type se establece en **AzureBlob** porque los datos residen en una instancia de Azure Blob Storage. |
+   | linkedServiceName |Hace referencia al servicio **AzureStorageLinkedService** que creó antes. |
+   | folderPath | Especifica el **contenedor** de blobs y la **carpeta** que contiene los blobs de entrada. | 
+   | fileName |Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este tutorial, se procesa solo el archivo **input.log**. |
+   | type |Los archivos de registro están en formato de texto, por lo que usamos **TextFormat**. |
+   | columnDelimiter |Las columnas de los archivos de registro están delimitadas por el **carácter de coma (`,`)**. |
+   | frecuencia/intervalo |La frecuencia está establecida en **Mes** y el intervalo es **1**, lo que significa que los segmentos de entrada están disponibles cada mes. |
+   | external | Esta propiedad se establece en **true** si esta canalización no ha generado los datos de entrada. En este tutorial, esta canalización no genera el archivo input.log, por lo que establecemos la propiedad en true. |
+
+    Para más información acerca de estas propiedades JSON, consulte el [artículo sobre el conector de blob de Azure](data-factory-azure-blob-connector.md#dataset-properties).
 3. Haga clic en **Implementar** en la barra de comandos para implementar el conjunto de datos recién creado. Debería ver el conjunto de datos en la vista de árbol de la izquierda.
 
 ### <a name="create-output-dataset"></a>Creación del conjunto de datos de salida
@@ -391,4 +378,3 @@ En este artículo, creó una canalización con una actividad de transformación 
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure. |
 | [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md) |En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) |En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. |
-
