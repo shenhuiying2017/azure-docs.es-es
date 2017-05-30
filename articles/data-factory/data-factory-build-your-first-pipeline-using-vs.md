@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 95691b6e59f5e21e7c6cff9f4222bcffade57973
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 9d788bf8e41fe225a4c24a4f5b464e8664f3d677
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -37,6 +37,8 @@ La canalización de este tutorial tiene una actividad: **actividad de HDInsight 
 
 > [!NOTE]
 > Este tutorial no muestra cómo copiar datos mediante Azure Data Factory. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Copia de datos de Blob Storage en SQL Database mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> 
+> pero se puede tener más de una actividad en una canalización. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
 ## <a name="walkthrough-create-and-publish-data-factory-entities"></a>Tutorial: Creación y publicación de entidades de Data Factory
@@ -55,8 +57,8 @@ Estos son los pasos que debe realizar en este tutorial:
 5. Después de publicar, use las hojas de Azure Portal y la aplicación de supervisión y administración para supervisar la canalización. 
   
 ### <a name="prerequisites"></a>Requisitos previos
-1. Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los **requisitos previos** . También puede seleccionar la opción **Información general y requisitos previos** en la lista desplegable de la parte superior para cambiar al artículo. Después de completar los requisitos previos, vuelva a este artículo mediante la selección de la opción **Visual Studio** de la lista desplegable.  
-2. Debe ser **administrador de la suscripción de Azure** para poder publicar entidades de Data Factory desde Visual Studio en Azure Data Factory. 
+1. Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los **requisitos previos** . También puede seleccionar la opción **Información general y requisitos previos** en la lista desplegable de la parte superior para cambiar al artículo. Después de completar los requisitos previos, vuelva a este artículo mediante la selección de la opción **Visual Studio** de la lista desplegable.
+2. Para crear instancias de Data Factory, es preciso ser miembro del rol [Colaborador de Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) en el nivel de grupo de recursos o suscripción.  
 3. Debe tener lo siguiente instalado en el equipo:
    * Visual Studio 2013 o Visual Studio 2015.
    * Descargue el SDK de Azure para Visual Studio 2013 o Visual Studio 2015. Vaya a la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **VS 2013** o **VS 2015** en la sección **.NET**.

@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 5331f9a7b46f1dd31d4aa246ad9d188b5a5afc19
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
-* La aplicación WTP está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [Implementación y exploración de la aplicación SaaS WTP](sql-database-saas-tutorial.md).
+* Se implementa la aplicación SaaS de Wingtip. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de Wingtip](sql-database-saas-tutorial.md).
 * Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * La versión más reciente de SQL Server Management Studio (SSMS) está instalada. [Descarga e instalación de SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -47,7 +47,7 @@ Una de las grandes oportunidades que ofrecen las aplicaciones SaaS es el uso de 
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
 
-Los scripts de Wingtip Tickets y el código fuente de la aplicación están disponibles en el repositorio de github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Los archivos de los scripts se encuentran en la [carpeta Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Descargue la carpeta **Learning Modules** en el equipo local, conservando su estructura de carpetas.
+Los scripts SaaS de Wingtip y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Pasos para descargar los scripts SaaS de Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Implementar una base de datos para resultados de análisis de inquilino
 
@@ -68,14 +68,14 @@ Para realizar este tutorial debe tener una base de datos implementada para captu
 
 Este script crea un trabajo para recuperar información sobre la compra de entradas de todos los inquilinos. Una vez agregada en una misma tabla, puede obtener métricas detalladas enriquecidas sobre los patrones de compra de entradas en los inquilinos.
 
-1. Abra SSMS y conéctese al servidor catalog-\<usuario\>.database.windows.net.
+1. Abra SSMS y conéctese al servidor catalog-&lt;usuario&gt;.database.windows.net.
 1. Abra ...\\Learning Modules\\Operational Analytics\\Tenant Analytics\\*TicketPurchasesfromAllTenants.sql*.
-1. Modifique \<WtpUser\> con el nombre de usuario que empleó al implementar la aplicación WTP en la parte superior del script, **sp\_add\_target\_group\_member** y **sp\_add\_jobstep**.
-1. Haga clic con el botón derecho, seleccione **Conexión** y conéctese al servidor catalog-\<WtpUser\>.database.windows.net, en caso de que todavía no esté conectado.
+1. Cambie &lt;Usuario&gt; por el nombre de usuario que empleó al implementar la aplicación SaaS de Wingtip en la parte superior del script, **sp\_add\_target\_group\_member** y **sp\_add\_jobstep**.
+1. Haga clic con el botón derecho, seleccione **Conexión** y conéctese al servidor catalog-&lt;Usuario&gt;.database.windows.net si todavía no lo está.
 1. Asegúrese de que está conectado a la base de datos **jobaccount** y presione **F5** para ejecutar el script.
 
 * **sp\_add\_target\_group** crea el nombre del grupo de destino *TenantGroup*. Ahora hay que agregar miembros de destino.
-* **sp\_add\_target\_group\_member** agrega un tipo de miembro de destino *servidor*, que considera que todas las bases de datos de ese servidor (tenga en cuenta que se trata del servidor customer1-&lt;WtpUser&gt; que contiene las bases de datos de inquilino) en el momento de la ejecución del trabajo deben incluirse en el trabajo.
+* **sp\_add\_target\_group\_member** agrega un tipo de miembro de destino *servidor*, que considera que todas las bases de datos de ese servidor (tenga en cuenta que se trata del servidor customer1-&lt;Usuario&gt; que contiene las bases de datos de inquilino) en el momento de la ejecución del trabajo deben incluirse en el trabajo.
 * **sp\_add\_job** crea un trabajo programado semanal denominado "Ticket Purchases from all Tenants".
 * **sp\_add\_jobstep** crea el paso del trabajo que contiene el texto del comando T-SQL que recupera toda la información sobre la compra de entradas de todos los inquilinos y copia el conjunto de resultados devuelto en una tabla denominada *AllTicketsPurchasesfromAllTenants*.
 * En las demás vistas del script se muestran los objetos existentes y se supervisa la ejecución de los trabajos. Revise el valor de estado de la columna **Ciclo de vida** para supervisar el estado. El estado Correcto indica que el trabajo ha finalizado correctamente en todas las bases de datos de inquilino y las dos bases de datos adicionales que contienen la tabla de referencia.
@@ -90,8 +90,8 @@ Este script crea un trabajo para recuperar la suma de todas las compras de entra
 
 1. Abra SSMS y conéctese al servidor *catalog-&lt;Usuario&gt;.database.windows.net*.
 1. Abra el archivo …\\Learning Modules\\Provision y Catalog\\Operational Analytics\\Tenant Analytics\\*Results-TicketPurchasesfromAllTenants.sql*.
-1. Modifique &lt;WtpUser&gt; con el nombre de usuario que empleó al implementar la aplicación WTP en el script, en el procedimiento almacenado **sp\_add\_jobstep**.
-1. Haga clic con el botón derecho, seleccione **Conexión** y conéctese al servidor catalog-\<WtpUser\>.database.windows.net, en caso de que todavía no esté conectado.
+1. Cambie &lt;Usuario&gt; por el nombre de usuario que empleó al implementar la aplicación SaaS de Wingtip en el script, en el procedimiento almacenado **sp\_add\_jobstep**.
+1. Haga clic con el botón derecho, seleccione **Conexión** y conéctese al servidor catalog-&lt;Usuario&gt;.database.windows.net si todavía no lo está.
 1. Asegúrese de que está conectado a la base de datos **tenantanalytics** y presione **F5** para ejecutar el script.
 
 La ejecución correcta del script debería producir unos resultados similares a los siguientes:
@@ -119,5 +119,5 @@ En este tutorial, ha aprendido cómo:
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Otros tutoriales basados en la implementación de la aplicación inicial Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Otros [tutoriales basados en la aplicación SaaS de Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Trabajos elásticos](sql-database-elastic-jobs-overview.md)

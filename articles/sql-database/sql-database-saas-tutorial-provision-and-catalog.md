@@ -1,6 +1,6 @@
 ---
 title: "Aprovisionamiento de nuevos inquilinos en una aplicación multiinquilino mediante Azure SQL Database | Microsoft Docs"
-description: "Aprovisionamiento y listado de nuevos inquilinos en la aplicación SaaS de ejemplo Wingtip Tickets (WTP) de SQL Database"
+description: "Aprovisionamiento y catalogación de nuevos inquilinos en la aplicación SaaS de Wingtip"
 keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
+ms.date: 05/24/2017
+ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: aae5d85a18f93b7821a6ef8fc7161dd9a6ebe533
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: cf2fa0950f9f9df833051979b02355236214c4ea
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Aprovisionamiento y registro de nuevos inquilinos en el catálogo
 
-En este tutorial, se aprovisionan nuevos inquilinos en la aplicación SaaS Wingtip Tickets Platform (WTP). Creará inquilinos y bases de datos de inquilinos, y registrará los inquilinos en el catálogo. El *catálogo* es una base de datos que mantiene la asignación entre los diversos inquilinos de aplicaciones SaaS y sus datos. Utilice estos scripts para explorar los patrones de aprovisionamiento y catálogo empleados y cómo se implementa el registro de nuevos inquilinos en el catálogo. El catálogo desempeña un papel importante para dirigir las solicitudes de aplicación a las bases de datos correctas.
+En este tutorial, se aprovisionan nuevos inquilinos en la aplicación SaaS de Wingtip. Creará inquilinos y bases de datos de inquilinos, y registrará los inquilinos en el catálogo. El *catálogo* es una base de datos que mantiene la asignación entre los diversos inquilinos de aplicaciones SaaS y sus datos. Utilice estos scripts para explorar los patrones de aprovisionamiento y catálogo empleados y cómo se implementa el registro de nuevos inquilinos en el catálogo. El catálogo desempeña un papel importante para dirigir las solicitudes de aplicación a las bases de datos correctas.
 
 En este tutorial, aprenderá a:
 
@@ -37,36 +37,36 @@ En este tutorial, aprenderá a:
 > * Acceder a los detalles de cómo aprovisionar nuevos inquilinos y registrarlos en el catálogo.
 
 
-Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
+Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
 
-* La aplicación WTP está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [Implementación y exploración de la aplicación SaaS WTP](sql-database-saas-tutorial.md).
+* Se implementa la aplicación SaaS de Wingtip. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de Wingtip](sql-database-saas-tutorial.md).
 * Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>Introducción al patrón de catálogo de SaaS
 
-En una aplicación SaaS multiinquilino con copia de seguridad en base de datos, es importante saber dónde se almacena la información de cada inquilino. En el patrón de catálogo de SaaS, una base de datos de catálogo se usa para mantener la asignación entre los inquilinos y la ubicación de almacenamiento de sus datos. La aplicación WTP utiliza una arquitectura de base de datos de inquilino único, pero el patrón básico de almacenamiento de la asignación de inquilino a base de datos en un catálogo es aplicable tanto si se usa una base de datos de inquilino único como multiinquilino.
+En una aplicación SaaS multiinquilino con copia de seguridad en base de datos, es importante saber dónde se almacena la información de cada inquilino. En el patrón de catálogo de SaaS, una base de datos de catálogo se usa para mantener la asignación entre los inquilinos y la ubicación de almacenamiento de sus datos. La aplicación SaaS de Wingtip utiliza una arquitectura de base de datos de inquilino único, pero el patrón básico de almacenamiento de la asignación de inquilino a base de datos en un catálogo es aplicable tanto si se usa una base de datos de inquilino único como multiinquilino.
 
-A cada inquilino se le asigna una clave que distingue sus datos en el catálogo. En la aplicación WTP, la clave se forma a partir de un hash del nombre del inquilino. Este patrón permite utilizar la parte del nombre del inquilino de la dirección URL de la aplicación para generar la clave y recuperar una conexión del inquilino específica. Podrían utilizarse otros esquemas de identificación sin afectar al patrón general.
+A cada inquilino se le asigna una clave que distingue sus datos en el catálogo. En la aplicación SaaS de Wingtip, la clave se forma a partir de un hash del nombre del inquilino. Este patrón permite utilizar la parte del nombre del inquilino de la dirección URL de la aplicación para generar la clave y recuperar una conexión del inquilino específica. Podrían utilizarse otros esquemas de identificación sin afectar al patrón general.
 
-El catálogo de la aplicación WTP se implementa mediante la tecnología de administración de particiones en la [biblioteca de cliente de Elastic Database (EDCL)](sql-database-elastic-database-client-library.md). EDCL es responsable de crear y administrar un _catálogo_ con copia de seguridad en base de datos donde se mantiene un _mapa de particiones_. El catálogo contiene la asignación entre las claves (inquilinos) y sus bases de datos (particiones).
+El catálogo de la aplicación se implementa mediante la tecnología de administración de particiones en la [biblioteca de cliente de Elastic Database (EDCL)](sql-database-elastic-database-client-library.md). EDCL es responsable de crear y administrar un _catálogo_ con copia de seguridad en base de datos donde se mantiene un _mapa de particiones_. El catálogo contiene la asignación entre las claves (inquilinos) y sus bases de datos (particiones).
 
 > [!IMPORTANT]
 > Los datos de asignación son accesibles en la base de datos de catálogo, pero *no los edite*. Para editar datos de asignación, utilice únicamente las API de la biblioteca de cliente de Elastic Database. No se admite la manipulación directa de los datos de asignación, que entraña el riesgo de dañar el catálogo.
 
 La aplicación SaaS Wingtip aprovisiona nuevos inquilinos copiando una base de datos *golden*.
 
-## <a name="get-the-wingtip-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip
+## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
 
-Los scripts de Wingtip Tickets y el código fuente de la aplicación están disponibles en el repositorio de github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Los archivos de los scripts se encuentran en la [carpeta Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Descargue la carpeta **Learning Modules** en el equipo local, conservando su estructura de carpetas.
+Los scripts SaaS de Wingtip y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Pasos para descargar los scripts SaaS de Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="provision-a-new-tenant"></a>Aprovisionamiento de un nuevo inquilino
 
-Si ya ha creado un inquilino en el primer tutorial de WTP, puede pasar directamente a la siguiente sección: [Aprovisionamiento de un lote de inquilinos](#provision-a-batch-of-tenants).
+Si ya ha creado un inquilino en el [primer tutorial sobre SaaS de Wingtip](sql-database-saas-tutorial.md), puede pasar directamente a la siguiente sección: [Aprovisionamiento de un lote de inquilinos](#provision-a-batch-of-tenants).
 
 Ejecute el script *Demo-ProvisionAndCatalog* para crear un inquilino rápidamente y registrarlo en el catálogo:
 
 1. Abra **Demo-ProvisionAndCatalog.ps1** en PowerShell ISE y establezca los siguientes valores:
-   * **$TenantName** = el nombre de la nueva ubicación (por ejemplo, *Bushwillow Blues*). 
+   * **$TenantName** = el nombre de la nueva ubicación (por ejemplo, *Bushwillow Blues*).
    * **$VenueType** = uno de los tipos predefinidos de ubicación: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic o soccer.
    * **$DemoScenario** = 1. Deje este valor establecido en _1_ para **aprovisionar un único inquilino**.
 
@@ -79,7 +79,7 @@ Una vez completado el script, se aprovisiona el nuevo inquilino y su aplicación
 
 ## <a name="provision-a-batch-of-tenants"></a>Aprovisionamiento de un lote de inquilinos
 
-Este ejercicio aprovisiona un lote de inquilinos adicionales. Se recomienda hacer este ejercicio antes de completar los demás tutoriales de WTP.
+Este ejercicio aprovisiona un lote de inquilinos adicionales. Se recomienda hacer este ejercicio antes de completar los demás tutoriales sobre SaaS de Wingtip.
 
 1. Abra ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* en *PowerShell ISE* y establezca el siguiente valor:
    * **$DemoScenario** = **3**. Establezca este valor en **3** para **aprovisionar un lote de inquilinos**.
@@ -156,9 +156,9 @@ Entre los patrones de aprovisionamiento que no se describen en este tutorial se 
 
 ## <a name="stopping-wingtip-saas-application-related-billing"></a>Detención de la facturación relacionada con la aplicación SaaS Wingtip
 
-Si no va a continuar con otro tutorial, se recomienda que elimine todos los recursos para suspender la facturación. Elimine el grupo de recursos en el que se implementó la aplicación WTP y todos sus recursos se eliminarán.
+Si no va a continuar con otro tutorial, se recomienda que elimine todos los recursos para suspender la facturación. Elimine el grupo de recursos en el que se implementó la aplicación de Wingtip y se eliminarán todos sus recursos.
 
-* Vaya al grupo de recursos de la aplicación en el portal y elimínelo para detener la toda la facturación relacionada con esta implementación de WTP.
+* Vaya al grupo de recursos de la aplicación en el portal y elimínelo para detener la toda la facturación relacionada con esta implementación de Wingtip.
 
 ## <a name="tips"></a>Sugerencias
 
@@ -180,7 +180,7 @@ En este tutorial, ha aprendido cómo:
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Otros tutoriales basados en la implementación inicial de la aplicación Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Otros [tutoriales basados en la aplicación SaaS de Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Biblioteca de cliente de base de datos elástica](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [Cómo depurar scripts en ISE de Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
 

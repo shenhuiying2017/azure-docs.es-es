@@ -1,4 +1,4 @@
-Puede usar **Get-AzureVNetConnection** para comprobar la conexión de una puerta de enlace de red virtual clásica. 
+Puede comprobar que la conexión se realizó correctamente mediante el cmdlet "Get-AzureVNetConnection".
 
 1. Puede usar el siguiente ejemplo de cmdlet, configurando los valores para que coincidan con los tuyos. Si el nombre de la red virtual contiene espacios, debe estar entre comillas.
 

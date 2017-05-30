@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 0ce6114073b80c1d9bb719654ab8cebc30dfefac
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -153,9 +153,9 @@ Use Site Recovery para proteger las implementaciones de Citrix XenApp y XenDeskt
 * Simplifique la migración a nube mediante el uso de Site Recovery para migrar la implementación de Citrix XenApp y XenDesktop a Azure.
 * Simplifique las pruebas de Citrix XenApp o XenDesktop mediante la creación de una copia de producción a petición para la realización de pruebas y depuraciones.
 * Esta solución solo se puede aplicar a escritorios virtuales del sistema operativo de Windows Server, no a escritorios virtuales cliente, ya que estos aún no se admiten para la concesión de licencias en Azure. 
-Aquí encontrará [más información](https://azure.microsoft.com/en-us/pricing/licensing-faq/) acerca de la concesión de licencias a escritorios de cliente/servidor de Azure.
+Aquí encontrará [más información](https://azure.microsoft.com/pricing/licensing-faq/) acerca de la concesión de licencias a escritorios de cliente/servidor de Azure.
 
-[Más información](https://aka.ms/citrix-xenapp-xendesktop-with-asr) acerca de la protección de las implementaciones de Citrix XenApp y XenDesktop.
+[Más información](site-recovery-citrix-xenapp-and-xendesktop.md) acerca de la protección de las implementaciones de Citrix XenApp y XenDesktop. También puede consultar las [notas del producto de Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr), donde se detallan. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Comprobación de los requisitos previos](site-recovery-prereq.md) 

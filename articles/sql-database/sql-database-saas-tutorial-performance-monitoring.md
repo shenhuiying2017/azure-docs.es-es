@@ -1,6 +1,6 @@
 ---
-title: "Supervisión del rendimiento de una aplicación SaaS de SQL Database | Microsoft Docs"
-description: "Supervisión y administración del rendimiento de la aplicación de ejemplo Wingtip Tickets (WTP) de Azure SQL Database"
+title: "Supervisión del rendimiento de muchas bases de datos SQL de Azure en una aplicación SaaS multiinquilino | Microsoft Docs"
+description: "Supervisión y administración del rendimiento de la aplicación SaaS de Wingtip de ejemplo de Azure SQL Database"
 keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
@@ -17,18 +17,18 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: af9511978718af10c97bee6af3a2835c9d2c1ff4
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 54f29cc816d356e22b425f3824ef89800c017e61
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="monitor-performance-of-the-wtp-sample-saas-application"></a>Supervisión del rendimiento de la aplicación SaaS WTP de ejemplo
+# <a name="monitor-performance-of-the-wingtip-saas-application"></a>Supervisión del rendimiento de la aplicación SaaS de Wingtip
 
 En este tutorial se ponen de manifiesto la supervisión y las características de alerta integradas de SQL Database y los grupos elásticos y se exploran varios escenarios clave de administración del rendimiento que se usan en las aplicaciones SaaS.
 
-La aplicación Wingtip Tickets utiliza un modelo de datos de inquilino único, donde cada lugar (inquilino) tiene su propia base de datos. Al igual que en muchas aplicaciones SaaS, el patrón de carga de trabajo de inquilino previsto es imprevisible y esporádico. En otras palabras, las ventas de entradas pueden producirse en cualquier momento. Para aprovechar las ventajas de este patrón de uso típico de base de datos, las bases de datos de inquilinos se implementan en grupos de bases de datos elásticas. Los grupos elásticos optimizan el costo de las soluciones mediante el uso compartido de los recursos entre distintas bases de datos. Con este tipo de patrón, es importante supervisar la base de datos y el uso de los recursos del grupo para asegurarse de que las cargas están razonablemente repartidas entre los grupos. También debe asegurarse de que las bases de datos individuales tienen los recursos suficientes y de que los grupos no están al límite de [unidades de transacción de bases de datos elásticas](sql-database-what-is-a-dtu.md). En este tutorial se exploran métodos para supervisar y administrar las bases de datos y los grupos, y se explica cómo tomar medidas correctivas en respuesta a las variaciones en la carga de trabajo.
+La aplicación SaaS de Wingtip utiliza un modelo de datos de inquilino único, donde cada lugar (inquilino) tiene su propia base de datos. Al igual que en muchas aplicaciones SaaS, el patrón de carga de trabajo de inquilino previsto es imprevisible y esporádico. En otras palabras, las ventas de entradas pueden producirse en cualquier momento. Para aprovechar las ventajas de este patrón de uso típico de base de datos, las bases de datos de inquilinos se implementan en grupos de bases de datos elásticas. Los grupos elásticos optimizan el costo de las soluciones mediante el uso compartido de los recursos entre distintas bases de datos. Con este tipo de patrón, es importante supervisar la base de datos y el uso de los recursos del grupo para asegurarse de que las cargas están razonablemente repartidas entre los grupos. También debe asegurarse de que las bases de datos individuales tienen los recursos suficientes y de que los grupos no están al límite de [unidades de transacción de bases de datos elásticas](sql-database-what-is-a-dtu.md). En este tutorial se exploran métodos para supervisar y administrar las bases de datos y los grupos, y se explica cómo tomar medidas correctivas en respuesta a las variaciones en la carga de trabajo.
 
 En este tutorial, aprenderá a:
 
@@ -40,9 +40,9 @@ En este tutorial, aprenderá a:
 > * Aprovisionar un segundo grupo elástico para equilibrar la actividad de la base de datos
 
 
-Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
+Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
 
-* La aplicación WTP está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [Implementación y exploración de la aplicación SaaS WTP](sql-database-saas-tutorial.md).
+* Se implementa la aplicación SaaS de Wingtip. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de Wingtip](sql-database-saas-tutorial.md).
 * Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introducción a los patrones de administración del rendimiento de SaaS
@@ -64,9 +64,9 @@ Sigue siendo necesario supervisar los grupos y las bases de datos de estos para 
 
 Para escenarios de gran volumen, puede utilizarse Log Analytics (también conocido como OMS). Se trata de un servicio de Azure independiente que proporciona análisis de los registros de diagnóstico emitidos y de telemetría recopilados en un área de trabajo de Log Analytics, que recopila la telemetría de muchos servicios y sirve para consultar y establecer alertas.
 
-## <a name="get-the-wingtip-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip
+## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
 
-Los scripts de Wingtip Tickets y el código fuente de la aplicación están disponibles en el repositorio de github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Los archivos de los scripts se encuentran en la [carpeta Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Descargue la carpeta **Learning Modules** en el equipo local, conservando su estructura de carpetas.
+Los scripts SaaS de Wingtip y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Pasos para descargar los scripts SaaS de Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="provision-additional-tenants"></a>Aprovisionamiento de inquilinos adicionales
 
@@ -80,7 +80,7 @@ Si ha proporcionado un lote de inquilinos en un tutorial anterior, puede ir dire
 
 El script implementará 17 inquilinos en menos de cinco minutos.
 
-El script *New-TenantBatch* utiliza un conjunto anidado o vinculado de plantillas de [Resource Manager](../azure-resource-manager/index.md) que crean un lote de inquilinos, que, de forma predeterminada, copia la base de datos **baseTenantDb** en el servidor de catálogo para crear las bases de datos de inquilinos y las registra en el catálogo; finalmente, las inicializa con el nombre de inquilino y el tipo de lugar. Esto es coherente con la manera en que la aplicación WTP aprovisiona a un nuevo inquilino. Los cambios realizados en *baseTenantDB* se aplican a los nuevos inquilinos que se aprovisionen a partir de ese momento. Consulte el [tutorial de administración de esquemas](sql-database-saas-tutorial-schema-management.md) para ver cómo realizar cambios de esquema en bases de datos de inquilinos *existentes* (incluida la base de datos *golden*).
+El script *New-TenantBatch* utiliza un conjunto anidado o vinculado de plantillas de [Resource Manager](../azure-resource-manager/index.md) que crean un lote de inquilinos, que, de forma predeterminada, copia la base de datos **baseTenantDb** en el servidor de catálogo para crear las bases de datos de inquilinos y las registra en el catálogo; finalmente, las inicializa con el nombre de inquilino y el tipo de lugar. Esto es coherente con la manera en que la aplicación aprovisiona un nuevo inquilino. Los cambios realizados en *baseTenantDB* se aplican a los nuevos inquilinos que se aprovisionen a partir de ese momento. Consulte el [tutorial de administración de esquemas](sql-database-saas-tutorial-schema-management.md) para ver cómo realizar cambios de esquema en bases de datos de inquilinos *existentes* (incluida la base de datos *golden*).
 
 ## <a name="simulate-different-usage-patterns-by-generating-different-load-types"></a>Simulación de diferentes patrones de uso mediante la generación de tipos de carga distintos
 
@@ -222,7 +222,7 @@ Una vez que desaparezca el exceso de carga de la base de datos de contosoconcert
 
 ## <a name="other-performance-management-patterns"></a>Otros modelos de administración del rendimiento
 
-**Escalado preventivo**. En el ejercicio 6 donde exploramos cómo escalar una base de datos aislada, sabía la base de datos que buscaba. Si la administración de Contoso Concert Hall había informado a WTP de la venta inminente de entradas, la base de datos podía haberse sacado del grupo de manera preventiva. De lo contrario, probablemente se hubiera necesitado una alerta en el grupo o la base de datos permite detectar lo que estaba pasando. No le gustaría que le informaran de esto los otros inquilinos del grupo con quejas sobre el rendimiento. Y si el inquilino puede predecir durante cuánto tiempo necesita recursos adicionales, podrá configurar un runbook de Azure Automation para sacar la base de datos del grupo y volverla a meter según un programa determinado.
+**Escalado preventivo**. En el ejercicio 6 donde exploramos cómo escalar una base de datos aislada, sabía la base de datos que buscaba. Si la administración de Contoso Concert Hall había informado a Wingtip de la venta inminente de entradas, la base de datos podía haberse sacado del grupo de manera preventiva. De lo contrario, probablemente se hubiera necesitado una alerta en el grupo o la base de datos permite detectar lo que estaba pasando. No le gustaría que le informaran de esto los otros inquilinos del grupo con quejas sobre el rendimiento. Y si el inquilino puede predecir durante cuánto tiempo necesita recursos adicionales, podrá configurar un runbook de Azure Automation para sacar la base de datos del grupo y volverla a meter según un programa determinado.
 
 **Autoservicio de escalado de inquilinos**. Como el escalado es una tarea que se llama fácilmente a través de la API de administración, puede crear fácilmente la capacidad de escalar las bases de datos de inquilinos en la aplicación de inquilino y ofrecerla como característica del servicio SaaS. Por ejemplo, puede permitir que los inquilinos se autoadministren el escalado y la reducción vertical y quizá vincularlo directamente a su facturación.
 
@@ -247,7 +247,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Otros tutoriales basados en la implementación inicial de la aplicación Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Otros [tutoriales basados en la implementación de la aplicación SaaS de Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Grupos elásticos de SQL](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md): tutorial de configuración y uso de Log Analytics

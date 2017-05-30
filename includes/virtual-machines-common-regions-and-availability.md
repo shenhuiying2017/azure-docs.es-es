@@ -94,6 +94,13 @@ Un dominio de error es un grupo lógico de hardware subyacente que comparte la f
 #### <a name="managed-disk-fault-domains-and-availability-sets"></a>Conjuntos de disponibilidad y dominios de error de disco administrado
 Para las máquinas virtuales que usen [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), las máquinas virtuales se alinean con los dominios de error de disco administrado cuando se usa un conjunto de disponibilidad administrada. Esta alineación garantiza que todos los discos administrados conectados a una máquina virtual se encuentran en el mismo dominio de error de disco administrado. Solo se pueden crear máquinas virtuales con discos administrados en un conjunto de disponibilidad administrada. El número de dominios de error de disco administrado varía según la región: dos o tres dominios de error de disco administrado por región.
 
+![Dominios de error de disco administrado](./media/virtual-machines-common-manage-availability/md-fd.png)
+
+> [!IMPORTANT]
+> El número de dominios de error para conjuntos de disponibilidad administrados varía según la región, entre dos y tres por región. En la tabla siguiente se muestra el número por región.
+
+[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+
 ### <a name="update-domains"></a>Dominios de actualización
 Un dominio de actualización es un grupo lógico de hardware subyacente que puede someterse a mantenimiento o reiniciarse al mismo tiempo. Cuando se crean máquinas virtuales en un conjunto de disponibilidad, la plataforma de Azure las distribuye automáticamente entre estos dominios de error. Este enfoque garantiza que al menos una instancia de la aplicación sigue ejecutándose cuando se realiza el mantenimiento periódico de la plataforma Azure. Es posible que el orden en que se reinician los dominios de actualización no siga una secuencia durante un mantenimiento planeado, pero se reinician de uno en uno.
 

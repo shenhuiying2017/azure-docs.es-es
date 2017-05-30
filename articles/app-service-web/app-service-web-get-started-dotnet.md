@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 018a46452c13886b9519ed5d2311bc65649c3c69
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -87,27 +87,15 @@ Asigne el nombre **myResourceGroup** al grupo de recursos y haga clic en **Acept
 
 ## <a name="create-an-app-service-plan"></a>Creación de un plan del Servicio de aplicaciones
 
-La aplicación web de Azure también necesita un _plan de App Service_. 
-
-> [!NOTE]
-> Un plan de App Service representa la colección de recursos físicos que se utiliza para hospedar las aplicaciones. Todas las aplicaciones asignadas a un plan de App Service comparten los recursos definidos por él, lo que permite ahorrar costos al hospedar varias aplicaciones. 
->
-> Los planes de App Service definen lo siguiente:
->
-> - Región (Europa del Norte, este de EE. UU., Sudeste Asiático)
-> - Tamaño de la instancia (pequeño, mediano, grande)
-> - Recuento de escala (una, dos, tres instancias, etc.) 
-> - SKU (Gratis, Compartido, Básico, Estándar y Premium)
->
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 Junto a **Plan de App Service**, haga clic en **Nuevo**. 
 
 En el cuadro de diálogo **Configurar el plan de App Service**, configure el nuevo plan de App Service con los valores siguientes:
 
 - **Plan de App Service**: escriba **myAppServicePlan**. 
-- **Ubicación**: elija **Europa occidental**, o cualquier otra región que desee.
-- **Tamaño**: elija **Gratis**, o cualquier otro [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/) que desee.
+- **Ubicación**: elija **Europa occidental** o una región cerca de usted.
+- **Tamaño**: elija **Gratis** u otro [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/).
 
 Haga clic en **Aceptar**.
 

@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: e975c6d8f217bc73948c0c046204b16b1a742bc7
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/20/2017
 
 ---
 
@@ -36,7 +36,7 @@ Las directivas de acceso de administración conceden permisos relacionados con l
 *    La creación y eliminación del entorno, orígenes de eventos, conjuntos de datos de referencia.
 *    Administración de las directivas de acceso a datos.
 
-Las directivas de acceso a datos conceden permisos para emitir consultas de datos, manipular los datos de referencia en el entorno y consultas almacenadas compartidas y perspectivas asociadas con el entorno.
+Las directivas de acceso a datos conceden permisos para emitir consultas de datos, manipular datos de referencia en el entorno y compartir consultas guardadas y perspectivas asociadas con el entorno.
 
 Los dos tipos de directivas permiten una separación clara entre el acceso a la administración del entorno y el acceso a los datos dentro del entorno. Por ejemplo, es posible configurar un entorno de modo que el propietario o creador del entorno no disponga de acceso a los datos. Del mismo modo que se permite a los usuarios y servicios leer los datos del entorno, podrían no tener acceso a la configuración del entorno.
 

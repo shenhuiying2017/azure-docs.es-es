@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 7d582960e615962a3952dd2f58c74ed91e5c450d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 762af7e09342f1bb51352e6c3d104bd4d8944e65
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -120,7 +122,7 @@ En este flujo, la aplicación ejecuta [directivas](active-directory-b2c-referenc
 ![Imagen de las calles de la aplicación nativa](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>Limitaciones actuales
-Azure AD B2C no admite actualmente los siguientes tipos de aplicaciones, pero están en los planes para el futuro. En [Limitaciones y restricciones](active-directory-b2c-limitations.md)se describen limitaciones y restricciones adicionales relacionadas con Azure AD B2C.
+Azure AD B2C no admite actualmente los siguientes tipos de aplicaciones, pero están dentro de los planes futuros. 
 
 ### <a name="daemonsserver-side-apps"></a>Demonios o aplicaciones del lado del servidor
 Las aplicaciones que contienen procesos de larga duración o que funcionan sin la presencia de un usuario también necesitan un modo de acceder a recursos protegidos, como las API web. Estas aplicaciones pueden autenticar y obtener tokens con la identidad de la aplicación (en lugar de una identidad delegada del usuario) y mediante el flujo de credenciales de cliente de OAuth 2.0.
@@ -131,9 +133,4 @@ Actualmente, este flujo no es compatible con Azure AD B2C. Estas aplicaciones pu
 Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD B2C. Este escenario es habitual en los clientes nativos que tienen una API web back-end. Esto llama a un servicio en línea de Microsoft, como la API Azure AD Graph.
 
 Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador JWT de OAuth 2.0, también conocido como flujo "en nombre de".  Sin embargo, el flujo "en nombre de" no está implementado actualmente en Azure AD B2C.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

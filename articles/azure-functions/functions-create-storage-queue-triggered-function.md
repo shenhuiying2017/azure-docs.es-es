@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/25/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: e6cf8797d08609f847e33f88e78fbcd3f3743a08
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 42fabff59577db5feb98e5c03d7a2b6d3d2461c3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -29,15 +29,11 @@ Obtenga información sobre cómo crear una función que se desencadena cuando se
 
 ![Vea el mensaje en los registros.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-Debería tardar menos de cinco minutos en completar todos los pasos de este tema.
-
 ## <a name="prerequisites"></a>Requisitos previos
-
-Antes de ejecutar este ejemplo, debe haber realizado lo siguiente:
 
 - Descargue e instale el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Necesita una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
