@@ -1,4 +1,4 @@
----
+--- 
 title: Complemento de Azure Service Fabric para Eclipse | Microsoft Docs
 description: Empezar a trabajar con el complemento de Service Fabric para Eclipse.
 services: service-fabric
@@ -12,12 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 05/03/2016
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: c50c77b3288bc0a2d9148d04c6fc45aa24882ebb
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -34,7 +35,7 @@ En Eclipse se puede instalar un complemento Service Fabric. El complemento puede
     -   Para buscar actualizaciones de Eclipse Neon e instalarlas, vaya a **Help** > **Check for Updates** (Ayuda > Buscar actualizaciones).
 
 2.  Para instalar el complemento Service Fabric, en Eclipse Neon, vaya a **Help** > **Install New Software** (Ayuda > Instalar software nuevo).
-  1.    En el cuadro de texto **Trabajar con**, escriba: **http://dl.windowsazure.com/eclipse/servicefabric**.
+  1.    En el cuadro **Trabajar con**, escriba **http://dl.microsoft.com/eclipse**.
   2.    Haga clic en **Agregar**.
     ![Complemento Service Fabric para Eclipse Neon][sf-eclipse-plugin-install]
   3.    Seleccione el complemento Service Fabric y, después, haga clic en **Next** (Siguiente).
@@ -43,7 +44,7 @@ En Eclipse se puede instalar un complemento Service Fabric. El complemento puede
 Si el complemento Service Fabric ya está instalado, asegúrese de que tiene la versión más reciente. Para comprobar si hay actualizaciones disponibles, vaya a **Help** > **Installation Details** (Ayuda > Detalles de instalación). En la lista de complementos instalados, seleccione Service Fabric y, después, haga clic en **Update** (Actualizar). Se instalarán las actualizaciones disponibles.
 
 > [!NOTE]
-> Si el proceso de instalación o actualización del complemento Service Fabric se realiza lentamente, es posible que se deba a la configuración de Eclipse. Eclipse recopila metadatos de todos los cambios para actualizar los sitios que están registrados en la instancia de Eclipse. Para acelerar el proceso de búsqueda e instalación de una actualización del complemento Service Fabric, vaya a **Available Software Sites** (Sitios de software disponibles). Desactive las casillas de todos los sitios, excepto del que apunta a la ubicación del complemento Service Fabric (http://dl.windowsazure.com/eclipse/servicefabric).
+> Si el proceso de instalación o actualización del complemento Service Fabric se realiza lentamente, es posible que se deba a la configuración de Eclipse. Eclipse recopila metadatos de todos los cambios para actualizar los sitios que están registrados en la instancia de Eclipse. Para acelerar el proceso de búsqueda e instalación de una actualización del complemento Service Fabric, vaya a **Available Software Sites** (Sitios de software disponibles). Desactive las casillas de todos los sitios, excepto del que apunta a la ubicación del complemento Service Fabric (http://dl.microsoft.com/eclipse/azure/servicefabric).
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Creación de una aplicación de Service Fabric en Eclipse
 
@@ -123,6 +124,12 @@ Para agregar un servicio de Service Fabric a una aplicación de Service Fabric e
 5.  Después de agregar el servicio, la estructura general del proyecto tiene un aspecto similar al siguiente proyecto:
 
     ![Página 4 de Agregar servicio de Service Fabric][add-service/p4]
+
+## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>Edición de las versiones de manifiesto de su aplicación Java de Service Fabric
+
+Para editar las versiones de manifiesto, haga clic con el botón derecho en el proyecto, vaya a **Service Fabric** y seleccione **Editar versiones de manifiesto...**  en el menú desplegable. En el asistente, puede actualizar las versiones del manifiesto de aplicación, el manifiesto de servicio y las versiones de los paquetes de **Code**, **Config** y **Data**.
+
+Si activa la opción **Actualizar automáticamente las versiones de aplicación y servicio** y, a continuación, actualice una versión; las versiones de manifiesto se actualizarán automáticamente. Para ver un ejemplo, primero active la casilla y, después, actualice la versión de **Code** de 0.0.0 a 0.0.1 y haga clic en **Finalizar**; la versión del manifiesto de servicio y la versión del manifiesto de aplicación se actualizarán automáticamente a 0.0.1.
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Actualización de la aplicación Java de Service Fabric
 

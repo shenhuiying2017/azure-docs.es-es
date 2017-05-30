@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 05/15/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f72a3650de5b1d43c992a801ffce1384774594f2
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 3c7f97b72f3813abe2357ae3202eaba285583bb8
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -68,7 +69,7 @@ Cuando un usuario carga una imagen, el front-end que se ejecuta en un rol web al
 
 ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[!INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
+[!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
 ## <a name="download-and-run-the-completed-solution"></a>Descarga y ejecución de la solución completa
 1. Descargue y descomprima la [solución completa](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
@@ -101,7 +102,7 @@ Cuando un usuario carga una imagen, el front-end que se ejecuta en un rol web al
 
 Ha estado ejecutando la aplicación completamente en su equipo local, sin conexión a la nube. El emulador de almacenamiento almacena los datos de cola y de blob en una base de datos LocalDB de SQL Server Express y la aplicación hace lo propio con los datos del anuncio almacenándolos en otra base de datos LocalDB. Entity Framework Code First creó automáticamente la base de datos de anuncios la primera vez que la aplicación web intentó acceder a ella.
 
-En la siguiente sección configurará la solución para usar recursos en la nube de Azure para colas, blobs y la base de datos de aplicación cuando se ejecuta en la nube. Si desea continuar ejecutando localmente pero usa recursos de almacenamiento y de base de datos en la nube, podría hacer eso; simplemente es una cuestión de establecer cadenas de conexión, que tendrá la ocasión de ver cómo hacerlo.
+En la siguiente sección configurará la solución para usar recursos en la nube de Azure para colas, blobs y la base de datos de aplicación cuando se ejecuta en la nube. Podría hacer esto si quisiera seguir trabajando localmente, pero usar recursos de almacenamiento de nube y base de datos. Es simplemente una cuestión de configurar las cadenas de conexión, que ahora verá cómo hacerlo.
 
 ## <a name="deploy-the-application-to-azure"></a>Implementación de la aplicación en Azure
 Llevará a cabo los pasos siguientes para ejecutar la aplicación en la nube:
@@ -116,65 +117,74 @@ Llevará a cabo los pasos siguientes para ejecutar la aplicación en la nube:
 ### <a name="create-an-azure-cloud-service"></a>Crear un servicio en la nube de Azure
 Un servicio en la nube de Azure es el entorno en el que se ejecutará la aplicación.
 
-1. En el explorador, abra el [Portal de Azure clásico](http://manage.windowsazure.com).
-2. Haga clic en **Nuevo > Proceso > Servicio en la nube > Creación rápida**.
-3. En el cuadro de entrada de la dirección URL, especifique un prefijo de la dirección URL.
+1. En el explorador, abra [Azure Portal](https://portal.azure.com).
+2. Haga clic en **Nuevo > Proceso > Servicio en la nube**.
 
-    Esta dirección URL tiene que ser única.  Se mostrará un mensaje de error si el prefijo que elige ya lo está utilizando otra persona.
-4. Elija la región en la que desea implementar la aplicación.
+3. En el cuadro de entrada de nombres DNS, especifique un prefijo de dirección URL para el servicio en la nube.
+
+    Esta dirección URL tiene que ser única.  Se mostrará un mensaje de error si el prefijo que elige ya está en uso.
+4. Especifique un nuevo grupo de recursos para el servicio. Haga clic en **Crear nuevo** y luego escriba un nombre en el cuadro de entrada del grupo de recursos, por ejemplo, CS_contososadsRG.
+
+5. Elija la región en la que desea implementar la aplicación.
 
     Este campo especifica el centro de datos en el que se hospedará el servicio en la nube. Para una aplicación de producción, elegiría la región más cercana a sus clientes. Para este tutorial, elija la región más cercana a usted.
-5. Haga clic en **Crear servicio en la nube**.
+5. Haga clic en **Crear**.
 
-    En la siguiente imagen, se crea un servicio en la nube con la dirección URL contosoads.cloudapp.net.
+    En la siguiente imagen, se crea un servicio en la nube con la dirección URL CSvccontosoads.cloudapp.net.
 
     ![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### <a name="create-an-azure-sql-database"></a>Crear una base de datos SQL de Azure
 Cuando la aplicación se ejecute en la nube, usará una base de datos basada en la nube.
 
-1. En el [Portal de Azure clásico](http://manage.windowsazure.com), haga clic en **Nuevo > Data Services > SQL Database > Creación rápida**.
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Nuevo > Bases de datos > SQL Database**.
 2. En el cuadro **Nombre de base de datos** , escriba *contosoads*.
-3. En la lista desplegable **Servidor**, elija **Nuevo servidor de SQL Database**.
+3. En **Grupo de recursos**, haga clic en **Usar existente** y seleccione el grupo de recursos usado para el servicio en la nube.
+4. En la imagen siguiente, haga clic en **Servidor - Definir la configuración necesaria** y **Crear un servidor nuevo**.
+
+    ![Túnel al servidor de base de datos](./media/cloud-services-dotnet-get-started/newdb.png)
 
     Asimismo, si su suscripción ya tiene un servidor, puede seleccionarlo en la lista desplegable.
-4. Elija la misma información en **Región** que eligió para el servicio en la nube.
+5. En el cuadro **Nombre del servidor**, escriba *csvccontosodbserver*.
+
+6. Complete los campos **Nombre de inicio de sesión** y **Contraseña** con los datos de un administrador.
+
+    Si seleccionó **Crear un servidor nuevo**, no escribirá aquí un nombre y una contraseña existentes. Escribirá un nombre y una contraseña nuevos que definirá ahora para usarlos más adelante cuando acceda a la base de datos. Si seleccionó un servidor creado anteriormente, se le pedirá la contraseña de la cuenta de usuario administrativa que ya creó.
+7. Elija la misma **ubicación** que eligió para el servicio en la nube.
 
     Cuando el servicio en la nube y la base de datos se encuentren en centros de datos diferentes (distintas regiones), la latencia aumentará y se le cobrará el ancho de banda no perteneciente al centro de datos. El ancho de banda del centro de datos es gratuito.
-5. Complete los campos **Nombre de inicio de sesión** y **Contraseña** con los datos de un administrador.
+8. Marque la opción **Permitir que los servicios de Azure accedan al servidor**.
+9. Haga clic en **Seleccionar** para el nuevo servidor.
 
-    Si seleccionó **Nuevo servidor de Base de datos SQL** , no debe escribir un nombre y una contraseña existentes en estos campos, sino definir unos nuevos que volverá a utilizar más adelante para obtener acceso a la base de datos. Si seleccionó un servidor creado anteriormente, se le pedirá la contraseña de la cuenta de usuario administrativa que ya creó.
-6. Haga clic en **Crear base de datos SQL**.
+    ![Nuevo servidor de SQL Database](./media/cloud-services-dotnet-get-started/newdbserver.png)
+10. Haga clic en **Crear**.
 
-    ![New SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)
-7. Una vez que Azure finalice la creación de la base de datos, haga clic en **Bases de datos SQL** en el panel izquierdo del portal y, a continuación, haga clic en el nombre de la nueva base de datos.
-8. Haga clic en la pestaña **Panel** .
-9. Haga clic en **Administrar direcciones IP permitidas**.
-10. En **Servicios permitidos**, cambie **Servicios de Azure** a **Sí**.
-11. Haga clic en **Guardar**.
-
-### <a name="create-an-azure-storage-account"></a>Creación de una cuenta de almacenamiento de Azure
+### <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 Una cuenta de almacenamiento de Azure proporciona recursos para almacenar datos de cola y blob en la nube.
 
-En una aplicación real, normalmente crearía cuentas independientes para los datos de aplicación frente a los datos de registro, y cuentas diferentes para datos de prueba frente a datos de producción. Para este tutorial, usará solamente una cuenta.
+En una aplicación real, normalmente crearía cuentas independientes para los datos de aplicación frente a los datos de registro, y cuentas diferentes para datos de prueba frente a datos de producción. En este tutorial, usará solamente una cuenta.
 
-1. En el [Portal de Azure clásico](http://manage.windowsazure.com), haga clic en **Nuevo > Data Services > Storage > Creación rápida**.
-2. En el cuadro **URL** , escriba un prefijo de dirección URL.
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Nuevo > Almacenamiento > Cuenta de Storage - blob, archivo, tabla, cola**.
+2. En el cuadro **Nombre**, escriba un prefijo de dirección URL.
 
     Este prefijo y el texto que verá debajo de la casilla formarán la dirección URL exclusiva para la cuenta de almacenamiento. Si el prefijo escrito ya lo usa otra persona, tendrá que elegir un prefijo diferente.
-3. Establezca la lista desplegable **Región** en la misma región que eligió para el servicio en la nube.
+3. Establezca **Modelo de implementación** en *Clásica*.
+
+4. Establezca la lista desplegable **Replicación** en **Almacenamiento con redundancia local**.
+
+    Cuando se habilita la replicación geográfica para una cuenta de almacenamiento, el contenido almacenado se replica en un centro de datos secundario para permitir la conmutación por error en caso de que se produzca un desastre importante en la ubicación principal. La replicación geográfica puede suponer costes adicionales. Lo normal es que no quiera pagar por el servicio de replicación geográfica para las cuentas de prueba y desarrollo. Para obtener más información, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md).
+
+5. En **Grupo de recursos**, haga clic en **Usar existente** y seleccione el grupo de recursos usado para el servicio en la nube.
+6. Establezca la lista desplegable **Ubicación** en la misma región que eligió para el servicio en la nube.
 
     Cuando la cuenta de almacenamiento y el servicio en la nube se encuentren en centros de datos diferentes (distintas regiones), la latencia aumentará y se le cobrará el ancho de banda no perteneciente al centro de datos. El ancho de banda del centro de datos es gratuito.
 
     Los grupos de afinidad de Azure proporcionan un mecanismo para minimizar la distancia entre los recursos de un centro de datos, lo que puede reducir la latencia. Este tutorial no usa grupos de afinidad. Para obtener información, consulte [Creación de un grupo de afinidad en Azure](http://msdn.microsoft.com/library/jj156209.aspx).
-4. Establezca la lista desplegable **Replicación** en **Localmente redundante**.
-
-    Cuando se habilita la replicación geográfica para una cuenta de almacenamiento, el contenido almacenado se replica en un centro de datos secundario para habilitar la conmutación por error en caso de que se produzca un desastre importante en la ubicación principal. La replicación geográfica puede suponer costes adicionales. Lo normal es que no quiera pagar por el servicio de replicación geográfica para las cuentas de prueba y desarrollo. Para más información, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md).
-5. Haga clic en **Crear cuenta de almacenamiento**.
+7. Haga clic en **Crear**.
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
 
-    En la imagen, se crea una cuenta de almacenamiento con la dirección URL `contosoads.core.windows.net`.
+    En la imagen, se crea una cuenta de almacenamiento con la dirección URL `csvccontosoads.core.windows.net`.
 
 ### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Configurar la solución para usar la base de datos SQL de Azure cuando se ejecuta en Azure
 El proyecto web y el proyecto de rol de trabajo tienen cada uno su propia cadena de conexión de base de datos y cada uno necesita apuntar a la base de datos SQL de Azure cuando la aplicación se ejecuta en Azure.
@@ -196,14 +206,14 @@ Usará una [transformación Web.config](http://www.asp.net/mvc/tutorials/deploym
     ```
 
     Deje el archivo abierto para editarlo.
-2. En el [Portal de Azure clásico](http://manage.windowsazure.com), haga clic en **Bases de datos SQL** en el panel de la izquierda, haga clic en la base de datos que creó para este tutorial, haga clic en la pestaña **Panel** y, por último, haga clic en **Mostrar cadenas de conexión**.
+2. En [Azure Portal](https://portal.azure.com), haga clic en **SQL Database** en el panel izquierdo, haga clic en la base de datos que creó en este tutorial y luego haga clic en **Mostrar cadenas de conexión**.
 
     ![Mostrar cadenas de conexión](./media/cloud-services-dotnet-get-started/showcs.png)
 
     El portal muestra las cadenas de conexión con un marcador de posición para la contraseña.
 
     ![Cadenas de conexión](./media/cloud-services-dotnet-get-started/connstrings.png)
-3. En el archivo de transformación *Web.Release.config*, elimine `{connectionstring}` y pegue en su lugar la cadena de conexión ADO.NET del Portal de Azure clásico.
+3. En el archivo de transformación *Web.Release.config*, elimine `{connectionstring}` y pegue en su lugar la cadena de conexión ADO.NET de Azure Portal.
 4. En la cadena de conexión que pegó en el archivo de transformación *Web.Release.config*, reemplace `{your_password_here}` por la contraseña creada para la nueva base de datos SQL.
 5. Guarde el archivo .  
 6. Seleccione una copia de la cadena de conexión (sin las comillas circundantes) para usar en los pasos siguientes para configurar el proyecto de rol de trabajo.
@@ -218,7 +228,7 @@ Usará una [transformación Web.config](http://www.asp.net/mvc/tutorials/deploym
 11. Guarde los cambios.  
 
 ### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>Configurar la solución para usar la cuenta de almacenamiento de Azure cuando se ejecuta en Azure
-Las cadenas de conexión de la cuenta de almacenamiento de Azure tanto para el proyecto de rol web como para el proyecto de rol de trabajo, se almacenan en la configuración del entorno en el proyecto de servicio en la nube. Para cada proyecto existe un conjunto independiente de configuraciones para usar cuando la aplicación se ejecuta localmente y cuando se ejecuta la nube. Actualizará la configuración del entorno en la nube tanto para proyectos de rol web como para proyectos de rol de trabajo.
+Las cadenas de conexión de la cuenta de almacenamiento de Azure tanto para el proyecto de rol web como para el proyecto de rol de trabajo, se almacenan en la configuración del entorno en el proyecto de servicio en la nube. Para cada proyecto existe un conjunto independiente de configuraciones para usar cuando la aplicación se ejecuta localmente y cuando se ejecuta en la nube. Actualizará la configuración del entorno en la nube tanto para proyectos de rol web como para proyectos de rol de trabajo.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en **ContosoAdsWeb** debajo de **Roles** en el proyecto **ContosoAdsCloudService** y después haga clic en **Propiedades**.
 
@@ -244,7 +254,7 @@ La configuración del entorno del rol que ha configurado usando la interfaz de u
 * *ServiceConfiguration.Cloud.cscfg* : proporciona valores para cuando la aplicación se ejecuta en la nube.
 * *ServiceConfiguration.Local.cscfg* : proporciona valores para cuando la aplicación se ejecuta localmente.
 
-Por ejemplo, el archivo ServiceDefinition.csdef incluye las siguientes definiciones.
+Por ejemplo, el archivo ServiceDefinition.csdef incluye las siguientes definiciones:
 
 ```xml
 <ConfigurationSettings>
@@ -297,7 +307,7 @@ La opción `<Instances>` especifica el número de máquinas virtuales en las que
 7. Ahora puede probar la aplicación creando, viendo y editando algunos anuncios, tal y como hizo cuando ejecutó la aplicación localmente.
 
 > [!NOTE]
-> Cuando termine la prueba, elimine o detenga el servicio en la nube. Aunque no utilice el servicio en la nube, se acumularán cargos porque se reservan recursos de máquina virtual para él. Y si lo deja ejecutando, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el [Portal de Azure clásico](http://manage.windowsazure.com), vaya a la pestaña **Panel** correspondiente a su servicio en la nube y haga clic en el botón **Eliminar** en la parte inferior de la página. Si lo que desea es evitar temporalmente que otros accedan al sitio, haga clic en **Detener** . En ese caso, los cargos seguirán acumulándose. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
+> Cuando termine la prueba, elimine o detenga el servicio en la nube. Aunque no utilice el servicio en la nube, se acumularán cargos porque se reservan recursos de máquina virtual para él. Y si lo deja ejecutando, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En [Azure Portal](https://portal.azure.com), vaya a la pestaña **Información general** del servicio en la nube y luego haga clic en el botón **Eliminar** en la parte superior de la página. Si lo que desea es evitar temporalmente que otros accedan al sitio, haga clic en **Detener** . En ese caso, los cargos seguirán acumulándose. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
 >
 >
 
@@ -356,7 +366,7 @@ Una vez creada la solución, se asegurará de que el código es único en proyec
     Este ensamblado lo usa el back-end para convertir imágenes en miniaturas.
 
 ### <a name="configure-connection-strings"></a>Configurar cadenas de conexión
-En esta sección configurará Almacenamiento de Azure y cadenas de conexión de SQL para pruebas locales. Las instrucciones de implementación que aparecen anteriormente en el tutorial explican cómo configurar las cadenas de conexión para cuando la aplicación se ejecuta en la nube.
+En esta sección configurará Azure Storage y cadenas de conexión de SQL para pruebas locales. Las instrucciones de implementación que aparecen anteriormente en el tutorial explican cómo configurar las cadenas de conexión para cuando la aplicación se ejecuta en la nube.
 
 1. En el proyecto ContosoAdsWeb, abra el archivo Web.config de la aplicación e inserte el siguiente elemento `connectionStrings` después del elemento `configSections`.
 
@@ -383,14 +393,14 @@ En esta sección configurará Almacenamiento de Azure y cadenas de conexión de 
 
    * Nombre: ContosoAdsDbConnectionString
    * Tipo: String
-   * Valor: pegue la misma cadena de conexión que usó para el proyecto de rol web. (El ejemplo siguiente es para Visual Studio 2013; no olvide cambiar el origen de datos si copia este ejemplo y va a usar Visual Studio 2015 o una versión superior).
+   * Valor: pegue la misma cadena de conexión que usó para el proyecto de rol web. (En el ejemplo siguiente es para Visual Studio 2013. No olvide cambiar el origen de datos si copia este ejemplo y va a usar Visual Studio 2015 o una versión superior).
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
        ```
 
 ### <a name="add-code-files"></a>Agregar archivos de código
-En esta sección copiará archivos de código desde la solución descargada a la nueva solución. En las siguientes secciones se muestran y explican partes clave de este código.
+En esta sección copiará archivos de código de la solución descargada a la nueva solución. En las siguientes secciones se muestran y explican partes clave de este código.
 
 Para agregar archivos a un proyecto o carpeta, haga clic con el botón derecho en dicho proyecto o carpeta y después en **Agregar** - **Elemento existente**. Seleccione los archivos que desee y haga clic en **Agregar**. Si se le pregunta si desea reemplazar los archivos existentes, haga clic en **Sí**.
 
@@ -473,7 +483,7 @@ public class ContosoAdsContext : DbContext
 }
 ```
 
-La clase tiene dos constructores. El primero de ellos lo usa el proyecto web y especifica el nombre de una cadena de conexión que se almacena en el archivo Web.config. El segundo constructor le permite pasar la cadena de conexión real. Esto lo necesita el proyecto del rol de trabajo porque no tiene un archivo Web.config. Anteriormente vio dónde se almacenaba esta cadena de conexión y posteriormente verá cómo el código recupera dicha cadena de conexión cuando crea instancias de la clase DbContext.
+La clase tiene dos constructores. El primero de ellos lo usa el proyecto web y especifica el nombre de una cadena de conexión que se almacena en el archivo Web.config. El segundo constructor le permite pasar la cadena de conexión real usada por el proyecto de rol de trabajo, ya que no tiene un archivo Web.config. Anteriormente vio dónde se almacenaba esta cadena de conexión y posteriormente verá cómo el código recupera dicha cadena de conexión cuando crea instancias de la clase DbContext.
 
 ### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
 El código llamado desde el método `Application_Start` crea un contenedor de blob *images* y una cola *images* si todavía no existen. Esto garantiza que siempre que comience a usar una nueva cuenta de almacenamiento o el emulador de almacenamiento en un nuevo equipo, el contenedor de blobs requerido y la cola se crearán automáticamente.
@@ -524,7 +534,7 @@ El archivo *Views\Home\Index.cshtml* muestra vínculos de categoría en la pági
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 En el archivo *AdController.cs*, el constructor llama al método `InitializeStorage` para crear objetos de biblioteca de cliente de Azure Storage que proporcionan una API para trabajar con blobs y colas.
 
-Después, el código obtiene una referencia al contenedor de blobs *images* tal y como vio antes en *Global.asax.cs*. Mientras hace eso, establece una [directiva de reintentos](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) apropiada para una aplicación web. La directiva de reintentos de retroceso exponencial predeterminada podría bloquear la aplicación web durante más de un minuto en reintentos repetitivos para un error transitorio. La directiva de intentos especificada aquí espera 3 segundos después de cada reintento hasta 3 reintentos.
+Después, el código obtiene una referencia al contenedor de blobs *images* tal y como vio antes en *Global.asax.cs*. Mientras hace eso, establece una [directiva de reintentos](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) apropiada para una aplicación web. La directiva de reintentos de retroceso exponencial predeterminada podría bloquear la aplicación web durante más de un minuto en reintentos repetitivos para un error transitorio. La directiva de reintentos especificada aquí espera tres segundos después de cada reintento hasta tres reintentos.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -728,7 +738,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 Este código lee la base de datos para obtener la dirección URL de la imagen, convierte la imagen en una miniatura, guarda la miniatura en un blob, actualiza la base de datos con la dirección URL del blob de la miniatura y elimina el mensaje de cola.
 
 > [!NOTE]
-> El código del método `ConvertImageToThumbnailJPG` usa clases del espacio de nombres System.Drawing por simplicidad. Sin embargo, las clases de este espacio de nombres se diseñaron para usarse con Windows Forms. No se admiten para usarse en un servicio de Windows o ASP.NET. Para más información acerca de las opciones de procesamiento de imagen, consulte [Dynamic Image Generation](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) (Generación de imagen dinámica) y [Deep Inside Image Resizing](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na) (Cambio de tamaño de imagen profunda).
+> El código del método `ConvertImageToThumbnailJPG` usa clases del espacio de nombres System.Drawing por simplicidad. Sin embargo, las clases de este espacio de nombres se diseñaron para usarse con Windows Forms. No se admiten para usarse en un servicio de Windows o ASP.NET. Para más información acerca de las opciones de procesamiento de imagen, consulte [Dynamic Image Generation](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) (Generación de imagen dinámica) y [Deep Inside Image Resizing](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na) (Profundización en el cambio de tamaño de imágenes).
 >
 >
 

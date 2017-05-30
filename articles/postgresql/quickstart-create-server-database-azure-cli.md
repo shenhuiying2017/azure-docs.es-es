@@ -14,17 +14,17 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fa02abd9176fa17df3b2d7f396988b72c28a473c
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 793d948b25a2b6c408359de03433746a9494e1d1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Crear una base de datos de Azure para PostgreSQL con la CLI de Azure
 
 La base de datos de Azure para PostgreSQL es un servicio administrado que le permite ejecutar, administrar y escalar bases de datos de PostgreSQL de alta disponibilidad en la nube. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido se muestra cómo crear una base de datos de Azure para el servidor PostgreSQL en un [grupo de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) mediante la CLI de Azure.
 
-Para completar esta guía de inicio rápido, asegúrese de que ha instalado la versión más reciente de [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Para completar esta guía de inicio rápido, asegúrese de que ha instalado la versión más reciente de [CLI de Azure 2.0](/cli/azure/install-azure-cli). 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -46,9 +46,9 @@ Cree un [grupo de recursos de Azure](../azure-resource-manager/resource-group-ov
 az group create --name myresourcegroup --location westus
 ```
 
-## <a name="create-an-azure-database-for-postgresql-server"></a>Crear una base de datos de Azure para el servidor PostgreSQL
+## <a name="create-an-azure-database-for-postgresql-server"></a>Creación de un servidor de Azure Database for PostgreSQL
 
-Cree una [base de datos de Azure para el servidor PostgreSQL](overview.md) con el comando **az postgres server create**. Un servidor contiene un conjunto de bases de datos administradas como un grupo. 
+Cree un [servidor de Azure Database for PostgreSQL](overview.md) con el comando [az postgres server create](/cli/azure/postgres/server#create). Un servidor contiene un conjunto de bases de datos administradas como un grupo. 
 
 En el ejemplo siguiente se crea un servidor denominado `mypgserver-20170401` en el grupo de recursos `myresourcegroup` con el inicio de sesión de administrador de servidor `mylogin`. El nombre de un servidor se asigna al nombre DNS y, por tanto, debe ser único a nivel global en Azure. Sustituya `<server_admin_password>` por su propio valor.
 ```azurecli
@@ -58,14 +58,14 @@ az postgres server create --resource-group myresourcegroup --name mypgserver-201
 > [!IMPORTANT]
 > Se requiere el inicio de sesión y la contraseña de administrador de servidor que especifique aquí para iniciar sesión en el servidor y a sus bases de datos más adelante en esta guía de inicio rápido. Recuerde o grabe esta información para su uso posterior.
 
-De forma predeterminada, se crea la base de datos **postgres** en el servidor. La base de datos [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) es una base de datos predeterminada pensada para que la usen los usuarios, las utilidades y aplicaciones de otros fabricantes. 
+De forma predeterminada, la base de datos de **postgres** se crea en el servidor. La base de datos [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) es una base de datos predeterminada pensada para que la usen los usuarios, las utilidades y aplicaciones de otros fabricantes. 
 
 
-## <a name="configure-a-server-level-firewall-rule"></a>Configurar una regla de firewall de nivel de servidor
+## <a name="configure-a-server-level-firewall-rule"></a>Configuración de una regla de firewall de nivel de servidor
 
-Cree una regla de firewall de nivel de servidor de Azure PostgreSQL con el comando **az postgres server firewall-rule create**. Una regla de firewall de nivel de servidor permite que una aplicación externa, como [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) o [PgAdmin](https://www.pgadmin.org/), se conecte al servidor a través del firewall del servicio Azure PostgreSQL. 
+Cree una regla de firewall de nivel de servidor de Azure PostgreSQL con el comando [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create). Una regla de firewall de nivel de servidor permite que una aplicación externa, como [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) o [PgAdmin](https://www.pgadmin.org/), se conecte al servidor a través del firewall del servicio Azure PostgreSQL. 
 
-Puede establecer una regla de firewall que abarque un intervalo de IP para poder conectarse desde la red. En el ejemplo siguiente se usa **az postgres server firewall-rule create** para crear una regla de firewall `AllowAllIps` para un intervalo de direcciones IP. Para abrir todas las direcciones IP, utilice 0.0.0.0 como la dirección IP inicial y 255.255.255.255 como la dirección final.
+Puede establecer una regla de firewall que abarque un intervalo de IP para poder conectarse desde la red. En el ejemplo siguiente se usa [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) para crear una regla de firewall `AllowAllIps` para un intervalo de direcciones IP. Para abrir todas las direcciones IP, utilice 0.0.0.0 como la dirección IP inicial y 255.255.255.255 como la dirección final.
 ```azurecli
 az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
@@ -74,7 +74,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 > El servidor Azure PostgreSQL se comunica a través de puerto 5432. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 5432. Si es así, no podrá conectarse al servidor Azure SQL Database, a menos que el departamento de TI abra el puerto 5432.
 >
 
-## <a name="get-the-connection-information"></a>Obtener la información de conexión
+## <a name="get-the-connection-information"></a>Obtención de la información de conexión
 
 Para conectarse al servidor, debe proporcionar las credenciales de acceso y la información del host.
 ```azurecli
@@ -110,7 +110,7 @@ El resultado está en formato JSON. Tome nota de los valores de **administratorL
 
 Si el equipo cliente tiene PostgreSQL instalado, puede usar una instancia local de [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) para conectarse a un servidor Azure PostgreSQL. Ahora vamos a usar la utilidad de línea de comandos psql para conectarnos al servidor Azure PostgreSQL.
 
-1. Ejecute el comando psql siguiente para conectarse a una base de datos de Azure para el servidor PostgreSQL.
+1. Ejecute el comando psql siguiente para conectarse a un servidor de Azure Database for PostgreSQL
 ```bash
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
@@ -147,7 +147,7 @@ Para conectarse al servidor Azure PostgreSQL mediante la herramienta _pgAdmin_ d
     ![pgAdmin: Crear servidor](./media/quickstart-create-server-database-azure-cli/2-pgadmin-create-server.png)
 5.    Haga clic en **Guardar**.
 6.    En el panel izquierdo del explorador, expanda **Grupos de servidores**. Seleccione su **servidor Azure PostgreSQL**.
-7.  Seleccione el **servidor** al que está conectado y sus **bases de datos**. 
+7.  Elija el **Server** (Servidor) al que se ha conectado y sus **Databases** (Bases de datos). 
 8.    Haga clic con el botón derecho en **Bases de datos** para crear una base de datos.
 9.    Elija el nombre de base de datos **mypgsqldb** y su propietario como valor **mylogin** para el inicio de sesión de administrador de servidor.
 10. Haga clic en **Guardar** para crear una base de datos vacía.
@@ -166,7 +166,7 @@ Elimine el [grupo de recursos de Azure](../azure-resource-manager/resource-group
 az group delete --name myresourcegroup
 ```
 
-Si solo quiere eliminar el servidor recién creado:
+Si solo desea eliminar el servidor recién creado uno, puede ejecutar el comando [az postgres server delete](/cli/azure/postgres/server#delete).
 ```azurecli
 az postgres server delete --resource-group myresourcegroup --name mypgserver-20170401
 ```

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Crear una canalización con la actividad de copia con Azure Portal | Microsoft Docs"
-description: "En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante el Editor de Data Factory en el Portal de Azure."
+title: "Tutorial: Creación de una canalización de Azure Data Factory para copiar datos (Azure Portal) | Microsoft Docs"
+description: "En este tutorial, usará Azure Portal para crear una canalización de Azure Data Factory con una actividad de copia para copiar datos de una instancia de Azure Blob Storage a una instancia de Azure SQL Database."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 46ee5a84219eeab8c0c6384632b52df9e5d6aee2
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f8904f74a011cfea46c05e77596616a2ebb995a0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-azure-portal"></a>Tutorial: Crear una canalización con la actividad de copia mediante Azure Portal
+# <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de Azure Portal para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
@@ -37,9 +37,12 @@ ms.lasthandoff: 05/17/2017
 
 En este artículo, aprenderá a usar [Azure Portal](https://portal.azure.com) para crear una factoría de datos con una canalización que copia datos desde Azure Blob Storage a Azure SQL Database. Si no está familiarizado con Azure Data Factory, lea el artículo [Introducción a Azure Data Factory](data-factory-introduction.md) antes de realizar este tutorial.   
 
-La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. No transforma los datos de entrada para generar datos de salida. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
+En este tutorial, creará una canalización con una actividad en ella: la actividad de copia. La actividad de copia realiza la copia de los datos de un almacén de datos admitido en un almacén de datos receptor. Para obtener una lista de almacenes de datos que se admiten como orígenes y receptores, consulte los [almacenes de datos admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats). La actividad funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Para más información acerca de la actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
-Este tutorial usa solo una actividad de tipo copia, pero se puede tener más de una actividad en una canalización. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
+pero se puede tener más de una actividad en una canalización. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Varias actividades en una canalización](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
+
+> [!NOTE] 
+> La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de realizar este tutorial, complete los requisitos previos que se enumeran en el artículo [Requisitos previos del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -117,7 +120,7 @@ AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de 
 AzureSqlLinkedService vincula la base de datos SQL de Azure con la factoría de datos. Los datos que se copian desde Blob Storage se almacenan en esta base de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó la tabla emp en esta base de datos.  
 
 ### <a name="create-azure-storage-linked-service"></a>Creación de un servicio vinculado de Almacenamiento de Azure
-En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. 
+En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. Especifique el nombre y la clave de la cuenta de almacenamiento de Azure en esta sección.  
 
 1. En la hoja **Factoría de datos**, haga clic en el icono **Crear e implementar**.
    
@@ -138,7 +141,7 @@ En este paso, vinculará su cuenta de Azure Storage con su factoría de datos.
     Para más información sobre las propiedades JSON en la definición de servicio vinculado, vea el artículo [Conector de Azure Blob Storage](data-factory-azure-blob-connector.md#linked-service-properties).
 
 ### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Crear un servicio vinculado para la base de datos SQL de Azure
-En este paso, vinculará su cuenta de Base de datos SQL de Azure con su factoría de datos.
+En este paso, vinculará su cuenta de Base de datos SQL de Azure con su factoría de datos. Especifique el nombre del servidor Azure SQL, nombre de base de datos, nombre de usuario y contraseña del usuario en esta sección. 
 
 1. En **Data Factory Editor**, haga clic en el botón **Nuevo almacén de datos** de la barra de herramientas y seleccione **Azure SQL Database** en el menú desplegable. Verá la plantilla JSON para crear un servicio vinculado SQL de Azure en el panel derecho.
 2. Reemplace `<servername>`, `<databasename>`, `<username>@<servername>` y `<password>` por los nombres del servidor, la base de datos, la cuenta de usuario y la contraseña de SQL Azure. 
@@ -155,7 +158,7 @@ El servicio vinculado Azure Storage especifica la cadena de conexión que el ser
 De forma similar, el servicio vinculado Azure SQL Database especifica la cadena de conexión que el servicio Data Factory utiliza en tiempo de ejecución para conectarse a Azure SQL Database. Además, el conjunto de datos de la tabla SQL de salida (OutputDataset) especifica la tabla de la base de datos en la que se copian los datos de Blob Storage. 
 
 ### <a name="create-input-dataset"></a>Creación de un conjunto de datos de entrada
-En este paso, se crea un conjunto de datos llamado InputDataset, que apunta a un archivo de blobs (emp.txt) en la carpeta raíz de un contenedor de blobs (adftutorial), en la instancia de Azure Storage representada por el servicio vinculado AzureStorageLinkedService. Si no especifica un valor para fileName (o puede omitirlo), los datos de todos los blobs en la carpeta de entrada se copian en el destino. En este tutorial, especifique un valor para fileName.    
+En este paso, se crea un conjunto de datos llamado InputDataset, que apunta a un archivo de blobs (emp.txt) en la carpeta raíz de un contenedor de blobs (adftutorial), en la instancia de Azure Storage representada por el servicio vinculado AzureStorageLinkedService. Si no especifica un valor para fileName (o puede omitirlo), los datos de todos los blobs en la carpeta de entrada se copian en el destino. En este tutorial, especifique un valor para fileName. 
 
 1. En el **Editor** en la instancia de Data Factory, haga clic en **... Más**, luego en **Nuevo conjunto de datos** y, finalmente, en **Azure Blob Storage** en el menú desplegable. 
    
@@ -212,7 +215,7 @@ En este paso, se crea un conjunto de datos llamado InputDataset, que apunta a un
 3. Haga clic en **Implementar** en la barra de herramientas para crear e implementar el conjunto de datos **InputDataset**. Confirme que **InputDataset** aparece en la vista de árbol.
 
 ### <a name="create-output-dataset"></a>Creación del conjunto de datos de salida
-En esta parte del paso se crea un conjunto de datos de salida denominado **OutputDataset**. Este conjunto de datos apunta a una tabla SQL de Azure SQL Database representada por **AzureSqlLinkedService**. 
+El servicio vinculado Azure SQL Database especifica la cadena de conexión que el servicio Data Factory usa en tiempo de ejecución para conectarse a su instancia de Azure SQL Database. El conjunto de datos de la tabla SQL de salida (OutputDataset) que crea en este paso especifica la tabla de la base de datos en la que se copian los datos de Blob Storage.
 
 1. En el **Editor** en la instancia de Data Factory, haga clic en **... Más**, luego en **Nuevo conjunto de datos** y, finalmente, en **Azure SQL** en el menú desplegable. 
 2. Reemplace JSON en el panel derecho por el siguiente fragmento JSON:
@@ -313,13 +316,8 @@ Actualmente, el conjunto de datos de salida es lo que impulsa la programación. 
    
     - En la sección de actividades, solo hay una actividad con **type** establecido en **Copy**. Para más información acerca de la actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md). En las soluciones de Data Factory, también puede usar [actividades de transformación de datos](data-factory-data-transformation-activities.md).
     - La entrada de la actividad está establecida en **InputDataset**, mientras que la salida está establecida en **OutputDataset**. 
-    - En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. Consulte la lista de [almacenes de datos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats) como orígenes y receptores de la actividad de copia. Para más información sobre cómo usar un almacén de datos admitido específico como receptor de origen, haga clic en el vínculo en la tabla.  
-     
-    Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Puede especificar solo la parte de fecha y omitir la parte de hora de la fecha y hora. Por ejemplo, "03-02-2016", que es equivalente a "03-02-2016T00:00:00Z"
-     
-    Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
-     
-    Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
+    - En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. Consulte la lista de [almacenes de datos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats) como orígenes y receptores de la actividad de copia. Para más información sobre cómo usar un almacén de datos admitido específico como receptor de origen, haga clic en el vínculo en la tabla.
+    - Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
      
     En el ejemplo anterior hay 24 segmentos de datos, ya que cada segmento de datos se produce cada hora.
 
@@ -339,21 +337,20 @@ Los pasos siguientes muestran cómo supervisar las canalizaciones de la factorí
 1. Haga clic en el icono **Supervisión y administración** en la página principal de Data Factory.
    
     ![Icono Supervisión y administración](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png) 
-2. Verá la opción **Aplicación de supervisión y administración** en una pestaña aparte. Cambie la **hora de inicio** y la **hora de finalización** para que incluyan las horas de inicio (12-07-2016) y de finalización (13-07-2016) de la canalización y haga clic en **Aplicar**. 
-       
+2. Verá la opción **Aplicación de supervisión y administración** en una pestaña aparte. 
+
     > [!NOTE]
     > Si ve que el explorador web está bloqueado en "Autorizando...", desactive la casilla **Bloquear cookies y datos de sitios de terceros**, o cree una excepción para **login.microsoftonline.com** e intente volver a abrir la aplicación.
 
-    ![Aplicación de supervisión y administración](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png) 
+    ![Aplicación de supervisión y administración](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png)
+3. Cambie la **hora de inicio** y la **hora de finalización** para que incluyan las horas de inicio (11-05-2017) y de finalización (12-05-2017) de la canalización y haga clic en **Aplicar**.       
 3. En la lista, en el panel central, verá las **ventanas de actividad** asociadas con cada hora entre la hora de inicio y de finalización de la canalización. 
 4. Seleccione una ventana en la lista de **ventanas de actividad** para ver información sobre ella. 
     ![Detalles de ventana de actividad](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
 
     En el Explorador de ventanas de actividad, a la derecha, verá que todos los segmentos hasta la hora UTC actual (8:12 PM) están procesados (en color verde). Los segmentos 8-9 PM, 9-10 PM, 10-11 PM, 11 PM-12 AM no están procesados aún.
 
-    Puede hacer clic en una ventana de actividad en la lista, o en esta imagen, para ver los detalles sobre ella. 
-
-    La sección **Intentos** proporciona información acerca de la ejecución de la actividad para el segmento de datos. Si se produjo un error, proporciona detalles sobre el mismo. Por ejemplo, si la carpeta de entrada o el contenedor no existen y se produce un error al procesar el segmento, verá un mensaje de error que indica que el contenedor o la carpeta no existen.
+    La sección **Intentos** del panel derecho proporciona información sobre la actividad ejecutada para el segmento de datos. Si se produjo un error, proporciona detalles sobre el mismo. Por ejemplo, si la carpeta de entrada o el contenedor no existen y se produce un error al procesar el segmento, verá un mensaje de error que indica que el contenedor o la carpeta no existen.
 
     ![Intentos de ejecución de la actividad](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-run-attempts.png) 
 4. Inicie **SQL Server Management Studio**, conéctese a Azure SQL Database y compruebe que las filas se han insertado en la tabla **emp** de la base de datos.
@@ -416,4 +413,4 @@ En este tutorial, ha usado Azure Blob Storage como almacén de datos de origen y
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Para más información acerca de las propiedades o campos que se ven en el Asistente para copia de un almacén de datos, haga clic en el vínculo para el almacén de datos en la tabla.
+Para aprender a copiar datos hacia y desde un almacén de datos, haga clic en el vínculo del almacén de datos en la tabla.

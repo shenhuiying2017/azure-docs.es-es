@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2017
+ms.date: 05/23/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: ff8d911750a551f4a099fcba13841c98881104a9
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -51,7 +51,11 @@ Puede implementar e instalar las actualizaciones de software en equipos que requ
 En la fecha y hora especificadas en la implementación de actualizaciones, los equipos de destino ejecutan la implementación en paralelo.  En primer lugar, se realiza un examen para comprobar si las actualizaciones siguen siendo necesarias y las instala.  Para los equipos cliente WSUS, es importante tener en cuenta que, si no se aprueban las actualizaciones en WSUS, se producirá un error en la implementación de actualizaciones.  Los resultados de las actualizaciones aplicadas se reenvían a OMS para que se procesen y se resuman en los paneles o para la búsqueda de eventos.     
 
 ## <a name="prerequisites"></a>Requisitos previos
-* La solución permite realizar evaluaciones de actualizaciones en Windows Server 2008 y versiones superiores, y las implementaciones de actualización en Windows Server 2012 y versiones superiores.  No se admiten las opciones de instalación de Server Core y Nano Server.
+* La solución permite realizar evaluaciones de las actualizaciones en Windows Server 2008 y versiones posteriores, e implementaciones de actualizaciones en Windows Server 2008 R2 y versiones posteriores.  No se admiten las opciones de instalación de Server Core y Nano Server.
+
+    > [!NOTE]
+    > Para poder implementar las actualizaciones en Windows Server 2008 R2 se necesita .NET Framework 4.5 y WMF 5.0 o versiones posteriores.
+    >  
 * No se admiten los sistemas operativos cliente Windows.  
 * Los agentes de Windows deben estar configurados para comunicarse con un servidor de Windows Server Update Services (WSUS) o tener acceso a Microsoft Update.  
   
