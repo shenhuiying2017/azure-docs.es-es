@@ -27,7 +27,7 @@ ms.lasthandoff: 02/03/2017
 Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas.  En las aplicaciones web ASP.NET puede realizar esto con el OWIN middleware de Microsoft incluido en .NET Framework 4.5.
 
 > [!NOTE]
-> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe utilizar la versión&2;.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
 >
 >
 
