@@ -3,8 +3,8 @@ title: Uso de Azure Blob Storage en iOS | Microsoft Docs
 description: Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure.
 services: storage
 documentationcenter: ios
-author: seguler
-manager: jahogg
+author: michaelhauss
+manager: vamshik
 editor: tysonn
 ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
 ms.service: storage
@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: seguler
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: b6e5d2dce97c2f10d0e440a0bde05d50d8965833
-ms.lasthandoff: 04/06/2017
+ms.date: 05/11/2017
+ms.author: michaelhauss
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: d5c004f3123c203a665fb421f81f4a14cfbeb26c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -34,49 +35,67 @@ En este artículo se muestra cómo realizar algunas tareas comunes con el almace
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Importación de la biblioteca de iOS del Almacenamiento de Azure en una aplicación
-Puede importar la biblioteca de iOS de Almacenamiento de Azure en la aplicación mediante el [CocoaPod de Almacenamiento de Azure](https://cocoapods.org/pods/AZSClient) o importando el archivo de **marco** .
+Puede importar la biblioteca de iOS de Almacenamiento de Azure en la aplicación mediante el [CocoaPod de Almacenamiento de Azure](https://cocoapods.org/pods/AZSClient) o importando el archivo de **marco** . CocoaPod es la manera recomendada ya que facilita la integración de la biblioteca; sin embargo, la importación desde el archivo de plataforma es un método menos intrusivo para su proyecto existente.
+
+Para usar esta biblioteca, necesita lo siguiente:
+- iOS 8+
+- Xcode 7+
 
 ## <a name="cocoapod"></a>CocoaPod
 1. Si aún no lo ha hecho, hecho [instale CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) en el equipo abriendo una ventana de terminal y ejecutando el siguiente comando.
-   
+    
+    ```shell   
     sudo gem install cocoapods
+    ```
 
 2. Después, en el directorio del proyecto (el directorio que contiene el archivo .xcodeproj), cree un archivo llamado "_Podfile_" (sin extensión de archivo). Agregue lo siguiente a _Podfile_ y guarde.
-   
-    pod 'AZSClient'
+
+    ```ruby
+    platform :ios, '8.0'
+
+    target 'TargetName' do
+      pod 'AZSClient'
+    end
+    ```
 
 3. En la ventana terminal, vaya al directorio del proyecto y ejecute el siguiente comando.
-   
+
+    ```shell    
     pod install
+    ```
 
 4. Si el archivo .xcodeproj está abierto en Xcode, ciérrelo. En el directorio del proyecto, abra el archivo de proyecto recién creado que tendrá la extensión .xcworkspace. Este es el archivo en el que trabajará a partir de ahora.
 
 ## <a name="framework"></a>marco
-Para usar la biblioteca de iOS del Almacenamiento de Azure, primero será preciso compilar el archivo de .NET Framework.
+La otra forma de usar la biblioteca es generar la plataforma manualmente:
 
 1. En primer lugar, descargue o clone el [repositorio azure-storage-ios](https://github.com/azure/azure-storage-ios).
-2. Vaya a *azure-storage-ios* -> *Lib* -> *Biblioteca de cliente de Azure Storage* y abra AZSClient.xcodeproj en Xcode.
+2. Vaya a *azure-storage-ios* -> *Lib* -> *Biblioteca de cliente de Azure Storage* y abra `AZSClient.xcodeproj` en Xcode.
 3. En la parte superior izquierda de Xcode, cambie el esquema activo de "Azure Storage Client Library" (Biblioteca de cliente del Almacenamiento de Azure) a "Framework" (Marco).
-4. Compile el proyecto. Esta acción creará un archivo AZSClient.framework en el escritorio.
+4. Compile el proyecto. Se crea un archivo `AZSClient.framework` en el escritorio.
 
 Después puede importar el archivo de marco en la aplicación realizando el siguiente procedimiento:
 
 1. Cree un proyecto nuevo o abra un proyecto existente en Xcode.
-2. Haga clic en el proyecto en el panel de navegación izquierdo y haga clic en la pestaña *General* de la parte superior del editor de proyectos.
-3. En la sección *Linked Frameworks and Libraries* (Bibliotecas y marcos vinculados) sección, haga clic en el botón Agregar (+).
-4. Haga clic en *Add Other...*(Agregar otro). Navegue hasta él y agregué el archivo `AZSClient.framework` recién creado.
-5. En la sección *Linked Frameworks and Libraries* (Bibliotecas y marcos vinculados) sección, vuelva a hacer clic en el botón Agregar (+).
-6. En la lista de bibliotecas ya proporcionada, busque `libxml2.2.dylib` y agréguelo al proyecto.
-7. Haga clic en la pestaña *Build Settings* (Configuración de compilación) en la parte superior del editor de proyecto.
-8. En la sección *Search Paths* (Rutas de acceso de búsqueda), haga doble clic en *Framework Search Paths* (Rutas de acceso de búsqueda de marco) y agregue la ruta de acceso al archivo `AZSClient.framework`.
+2. Arrastre y coloque `AZSClient.framework` en su navegador de proyecto de Xcode.
+3. Seleccione *Copy items if needed* (Copiar elementos si es necesario) y haga clic en *Finish* (Finalizar).
+4. Haga clic en el proyecto en el panel de navegación izquierdo y haga clic en la pestaña *General* de la parte superior del editor de proyectos.
+5. En la sección *Linked Frameworks and Libraries* (Bibliotecas y marcos vinculados) sección, haga clic en el botón Agregar (+).
+6. En la lista de bibliotecas ya proporcionada, busque `libxml2.2.tbd` y agréguelo al proyecto.
 
-## <a name="import-statement"></a>La instrucción import
-Será preciso que incluya la siguiente instrucción import en el archivo en el  desea invocar la API de Almacenamiento de Azure.
-
+## <a name="import-the-library"></a>Importación de la biblioteca 
 ```objc
 // Include the following import statement to use blob APIs.
 #import <AZSClient/AZSClient.h>
 ```
+
+Si usa Swift, deberá crear un encabezado puente e importar <AZSClient/AZSClient.h> aquí:
+
+1. Cree un archivo de encabezado `Bridging-Header.h` y agregue la instrucción "import" anterior.
+2. Vaya a la pestaña *Configuración de compilación* y busque *Objective-C Bridging Header*.
+3. Haga doble clic en el campo de *Objective-C Bridging Header* y agregue la ruta de acceso al archivo de encabezado: `ProjectName/Bridging-Header.h`
+4. Compile el proyecto (⌘ + B) para comprobar que Xcode seleccionó el encabezado puente.
+5. Comience a usar la biblioteca directamente en cualquier archivo Swift, no es necesario para las instrucciones "import".
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
@@ -153,7 +172,7 @@ En el ejemplo siguiente se muestra cómo crear un contenedor con permiso de acce
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>Cargar un blob en un contenedor
-Tal como se mencionó en la sección [Conceptos del servicio BLOB](#blob-service-concepts) , el almacenamiento de blobs ofrece tres tipos de blob: blob en bloques, blob en anexos y blob en páginas. En este momento, la biblioteca de iOS del Almacenamiento de Azure solo admite blobs en bloques. En la mayoría de los casos, se recomienda usar blobs en bloques.
+Tal como se mencionó en la sección [Conceptos del servicio BLOB](#blob-service-concepts) , el almacenamiento de blobs ofrece tres tipos de blob: blob en bloques, blob en anexos y blob en páginas. La biblioteca de iOS de Azure Storage admite los tres tipos de blobs. En la mayoría de los casos, se recomienda usar blobs en bloques.
 
 En el ejemplo siguiente se muestra cómo cargar un blob en bloques de un NSString. Si ya existe un blob con el mismo nombre en el contenedor, se sobrescribirá el contenido de dicho blob.
 
@@ -194,18 +213,18 @@ En el ejemplo siguiente se muestra cómo cargar un blob en bloques de un NSStrin
 }
 ```
 
-Para confirmar que esto funciona, examine el [Explorador de Microsoft Azure Storage](http://storageexplorer.com) y compruebe que el contenedor, *containerpublic*, contiene el blob *sampleblob*. En este ejemplo, se usa un contenedor público, por lo que para comprobar que esto ha funcionado puede ir al URI de los blobs:
+Para confirmar que esto funciona, examine el [Explorador de Microsoft Azure Storage](http://storageexplorer.com) y compruebe que el contenedor, *containerpublic*, contiene el blob *sampleblob*. En este ejemplo, se usa un contenedor público, por lo que para comprobar que esta aplicación ha funcionado puede ir al URI de los blobs:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
-Además de cargar un blob en bloques de un NSString, hay métodos similares para NSData, NSInputStream o un archivo local.
+Además de cargar un blob en bloques desde NSString, hay métodos similares para NSData, NSInputStream o un archivo local.
 
 ## <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 En el ejemplo siguiente se muestra cómo enumerar todos los blobs en un contenedor. Al realizar esta operación, tenga en cuenta los siguientes parámetros:     
 
 * **continuationToken** : el token de continuación representa el lugar en el que debe iniciarse la operación de lista. Si no se proporciona ningún token, los blobs se enumerarán desde el principio. Se puede enumerar cualquier número de blobs, desde cero hasta el máximo configurado. Aunque este método devuelve cero como resultado, si `results.continuationToken` no es nulo, puede haber más blobs en el servicio que no se hayan enumerado.
 * **prefix** : puede especificar el prefijo que se va a usar para la lista de blobs. Solo se enumerarán los blobs que comiencen por dicho prefijo.
-* **useFlatBlobListing** : como se mencionó en la sección [Asignación de nombres y referencia a contenedores y blobs](#naming-and-referencing-containers-and-blobs) , aunque el servicio BLOB es un esquema plano de almacenamiento, puede crear una jerarquía virtual asignando a los blobs el nombre de la información de la ruta de acceso. Sin embargo, actualmente no se admiten listas que no sean planas, pero se admitirán pronto. Por el momento, este valor debe ser **SÍ**.
+* **useFlatBlobListing** : como se mencionó en la sección [Asignación de nombres y referencia a contenedores y blobs](#naming-and-referencing-containers-and-blobs) , aunque el servicio BLOB es un esquema plano de almacenamiento, puede crear una jerarquía virtual asignando a los blobs el nombre de la información de la ruta de acceso. Sin embargo, actualmente no se admiten listas que no sean planas. Esta característica estará disponible próximamente. Por el momento, este valor debe ser **SÍ**.
 * **blobListingDetails** : puede especificar qué elementos desea incluir al enumerar los blobs
   * _AZSBlobListingDetailsNone_: solo muestra los blobs confirmados y no devuelve los metadatos de blob.
   * _AZSBlobListingDetailsSnapshots_: muestra los blobs confirmados y las instantáneas de blob.

@@ -3,7 +3,7 @@ title: "Información acerca las opciones de soporte técnico de Azure Service Fa
 description: "Versiones de clúster de Azure Service Fabric compatibles y vínculos para presentar incidencias de soporte técnico."
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: pkc
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/10/2017
-ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 44e95f78b5fe592713570e53f2469c88202a02aa
-ms.lasthandoff: 03/11/2017
+ms.date: 05/05/2017
+ms.author: pkc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f87aec3698addae135d4c934bb7217d9fae0e571
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -82,8 +83,14 @@ A continuación, aparece una lista con las versiones compatibles de Service Fabr
 | Todas las versiones de clústeres anteriores a 5.3.121 |20 de enero de 2017 |
 | 5.3* |24 de febrero de 2017 |
 | 5.4.* |10 de mayo de 2017     |
-| 5.5.* |Versión actual y, por lo tanto, sin fecha de finalización
+| 5.5.* |10 de julio de 2017    |
+| 5.6.* |Versión actual y, por lo tanto, sin fecha de finalización
 
+<a id="previewversion"></a>
+## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versiones de vista previa de Service Fabric: no admitidas para su uso en producción.
+De vez en cuando, publicamos versiones que tienen características importantes sobre las que deseamos saber su opinión, que se publican como versiones preliminares. Estas versiones preliminares solo se deben usar con fines de prueba. El clúster de producción debe estar ejecutando siempre una versión de Service Fabric compatible y estable. Una versión preliminar siempre comienza con un número de versión principal y secundaria de 255. Por ejemplo, si ve una versión 255.255.5703.949 de Service Fabric, esa versión es solo para su uso en clústeres de prueba y se encuentra en versión preliminar. Estas versiones preliminares también se anuncian en el [blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) y se detallan en las características incluidas.
+
+No hay ninguna opción de soporte técnico de pago para estas versiones preliminares. Use una de las opciones enumeradas en [Notificación de problemas Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) para formular preguntas o proporcionar comentarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

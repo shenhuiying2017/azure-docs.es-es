@@ -1,4 +1,5 @@
 ---
+
 title: "Búsqueda de informes de actividad en Azure Portal | Microsoft Docs"
 description: "Obtenga información sobre cómo buscar informes de actividad de Azure Active Directory en Azure Portal."
 services: active-directory
@@ -12,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2017
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: f2f5ed98df88df69ee300c9da94ad013a631b3b9
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7f6d82d211e9b3d25b0efe62ab8dd32f827b08ef
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -124,8 +126,8 @@ En Azure Portal, puede tener acceso a los informes sobre eventos de riesgo detec
 
 Para más información sobre los informes de seguridad, consulte:
 
-- [Informe de seguridad de usuarios en riesgo en el portal de Azure Active Directory: versión preliminar](active-directory-reporting-security-user-at-risk.md)
-- [Informe de inicios de sesión poco seguros en el portal de Azure Active Directory: versión preliminar](active-directory-reporting-security-risky-sign-ins.md)
+- [Informe de seguridad de usuarios en riesgo en el portal de Azure Active Directory](active-directory-reporting-security-user-at-risk.md)
+- [Informe de inicios de sesión poco seguros del portal de Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 
 ## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Informes de actividad en el Portal de Azure clásico frente a Azure Portal

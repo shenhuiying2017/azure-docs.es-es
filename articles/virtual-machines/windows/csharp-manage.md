@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 509c216b8d284d6f0aac2efbea70d254b9a2016b
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 90708ff93a86f0b0883f069b45ed4e17c9667014
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -34,14 +35,14 @@ Asegúrese de que está instalado Visual Studio y cree una aplicación de consol
 
 1. Si aún no lo ha hecho, instale [Visual Studio](https://www.visualstudio.com/).
 2. En Visual Studio, haga clic en **Archivo** > **Nuevo** > **proyecto**.
-3. En **Plantillas** > **Visual C#**, seleccione **Aplicación de consola**, escriba el nombre y la ubicación del proyecto y, a continuación, haga clic en **Aceptar**.
+3. En **Plantillas** > **Visual C#**, seleccione **Aplicación de consola (.NET Framework)**, escriba el nombre y la ubicación del proyecto y, a continuación, haga clic en **Aceptar**.
 
 ### <a name="install-libraries"></a>Instalación de bibliotecas
 
 Los paquetes de NuGet son la manera más fácil de instalar las bibliotecas que necesita para realizar las tareas en este artículo. Para obtener las bibliotecas que necesita en Visual Studio, siga estos pasos:
 
-1. Haga clic con el botón derecho en el Explorador de soluciones y, a continuación, haga clic en **Administrar paquetes de NuGet** y, luego, en **Examinar**.
-2. Escriba *Microsoft.IdentityModel.Clients.ActiveDirectory* en el cuadro de búsqueda, haga clic en **Instalar**y, luego, siga las instrucciones para instalar el paquete.
+1. Haga clic con el botón derecho en el Explorador de soluciones y, a continuación, haga clic en **Administrar paquetes NuGet para la solución** y, luego, en **Examinar**.
+2. Escriba *Microsoft.IdentityModel.Clients.ActiveDirectory* en el cuadro de búsqueda, seleccione su proyecto y haga clic en **Instalar**. A continuación, siga las instrucciones para instalar el paquete.
 3. En la parte superior de la página, seleccione **Incluir versión preliminar**. Escriba *Microsoft.Azure.Management.Compute* en el cuadro de búsqueda, haga clic en **Instalar** y siga las instrucciones para instalar el paquete.
 
 Ahora está preparado para comenzar a usar las bibliotecas para administrar sus máquinas virtuales.
@@ -50,7 +51,7 @@ Ahora está preparado para comenzar a usar las bibliotecas para administrar sus 
 
 Para interactuar con el Azure Resource Manager, asegúrese de que tiene acceso a una [entidad de servicio de Active Directory](../../resource-group-authenticate-service-principal.md). Desde la entidad de servicio, adquiera un token para autenticar solicitudes a Azure Resource Manager.
 
-1. Abra el archivo Program.cs del proyecto que ha creado y agregue las siguientes instrucciones using en la parte superior del archivo:
+1. Abra el archivo Program.cs del proyecto que ha creado y agregue las siguientes instrucciones using a las instrucciones existentes en la parte superior del archivo:
 
     ```   
     using Microsoft.Azure;
@@ -75,8 +76,8 @@ Para interactuar con el Azure Resource Manager, asegúrese de que tiene acceso a
     ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -88,9 +89,9 @@ Para interactuar con el Azure Resource Manager, asegúrese de que tiene acceso a
 
     Reemplace estos valores:
     
-    - *{client-id}* con el identificador de la aplicación de Azure Active Directory. Puede encontrar este identificador en la hoja Propiedades de la aplicación de AD. Para encontrar la aplicación de AD en Azure Portal, haga clic en **Azure Active Directory** en el menú de recursos y, luego, haga clic en **Registros de aplicación**.
-    - *{client-secret}* con la clave de acceso de la aplicación de AD. Puede encontrar este identificador en la hoja Propiedades de la aplicación de AD.
-    - *{Id. de inquilino}* con el identificador del inquilino de su suscripción. Puede encontrar el identificador del inquilino en la hoja Propiedades de Azure Active Directory en Azure Portal. Se etiqueta como *identificación de directorio*.
+    - *client-id* con el identificador de la aplicación de Azure Active Directory. Puede encontrar este identificador en la hoja Propiedades de la aplicación de AD. Para encontrar la aplicación de AD en Azure Portal, haga clic en **Azure Active Directory** en el menú de recursos y, luego, haga clic en **Registros de aplicación**.
+    - *client-secret* con la clave de acceso de la aplicación de AD. Puede encontrar este identificador en la hoja Propiedades de la aplicación de AD.
+    - *tenant-id* con el identificador de inquilino de la suscripción. Puede encontrar el identificador del inquilino en la hoja Propiedades de Azure Active Directory en Azure Portal. Se etiqueta como *identificación de directorio*.
 
 4. Para llamar al método que agregó anteriormente, agregue este código al método Main en el archivo Program.cs:
    

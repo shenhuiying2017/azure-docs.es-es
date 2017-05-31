@@ -14,20 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: c491e8c8ac994ff5c303499a100f0a5307760f8e
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 02c5b7c8932a08bac4bc9e89bd7df3b3e5c57f94
+ms.contentlocale: es-es
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="move-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Movimiento de datos hacia y desde SQL Data Warehouse mediante Azure Data Factory
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos con Azure SQL Data Warehouse como origen o destino. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).  
 
-Puede copiar datos de cualquier almacén de datos de origen compatible a Azure SQL Data Warehouse o de Azure SQL Data Warehouse a cualquier almacén de datos receptor compatible. Consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
-
 > [!TIP]
 > Para obtener el mejor rendimiento posible, use PolyBase para cargar datos en Azure SQL Data Warehouse. Consulte [Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Factoría de datos de Azure](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información. Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Azure Data Factory).
+
+## <a name="supported-scenarios"></a>Escenarios admitidos
+Puede copiar datos **de Azure SQL Data Warehouse** a los siguientes almacenes de datos:
+
+[!INCLUDE [data-factory-supported-sinks](../../includes/data-factory-supported-sinks.md)]
+
+Puede copiar datos de los siguientes almacenes de datos **a Azure SQL Data Warehouse**:
+
+[!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
+
+> [!TIP]
+> Al copiar datos desde SQL Server o Azure SQL Database en Azure SQL Data Warehouse, si la tabla no se encuentra en el almacén de destino, Data Factory puede crear la tabla automáticamente en SQL Data Warehouse mediante el esquema de la tabla en el almacén de datos de origen. Vea [Creación automática de tablas](#auto-table-creation) para obtener más información.
 
 ## <a name="supported-authentication-type"></a>Tipos de autenticación que se admiten
 El conector de Azure SQL Data Warehouse admite la autenticación básica.
@@ -37,18 +48,16 @@ Puede crear una canalización con una actividad de copia que mueva datos con Azu
 
 La manera más sencilla de crear una canalización que copie datos hacia y desde Almacenamiento de datos SQL es usar el Asistente para copia de datos. Vea [Tutorial: cargar datos en almacenamiento de datos de SQL con factoría de datos](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) para una rápida visita guiada sobre la creación de una canalización mediante el Asistente para copia de datos.
 
-> [!TIP]
-> Al copiar datos desde SQL Server o Azure SQL Database en Azure SQL Data Warehouse, si la tabla no se encuentra en el almacén de destino, Data Factory puede crear la tabla automáticamente en SQL Data Warehouse mediante el esquema de la tabla en el almacén de datos de origen. Vea [Creación automática de tablas](#auto-table-creation) para obtener más información.
-
-También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, la **plantilla de Azure Resource Manager**, la **API de .NET** y la **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
-1. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos.
-2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia.
-3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida.
+1. Crear una **factoría de datos**. Una factoría de datos puede contener una o más canalizaciones. 
+2. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos. Por ejemplo, si va a copiar datos desde una instancia de Azure Blob Storage hacia una instancia de Azure SQL Data Warehouse, creará dos servicios vinculados para vincular la cuenta de Azure Storage y la instancia de Azure SQL Data Warehouse a su factoría de datos. Para información sobre las propiedades de los servicios vinculados que son específicas de Azure SQL Data Warehouse, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties). 
+3. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. En el ejemplo mencionado en el último paso, se crea un conjunto de datos para especificar el contenedor de blobs y la carpeta que contiene los datos de entrada. Además, se crea otro conjunto de datos para especificar la tabla SQL en la instancia de Azure SQL Data Warehouse que contiene los datos copiados del almacenamiento de blobs. Para información sobre las propiedades del conjunto de datos que son específicas de Azure SQL Data Warehouse, consulte la sección [Propiedades del conjunto de datos](#dataset-properties).
+4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo que se ha mencionado anteriormente, se usa BlobSource como origen y SqlSink como receptor para la actividad de copia. De igual forma, si va a copiar desde Azure SQL Data Warehouse hacia Azure Blob Storage, usará SqlSource y BlobSink en la actividad de copia. Para información sobre las propiedades de actividad de copia que son específicas de Azure SQL Data Warehouse, consulte la sección [Propiedades de la actividad de copia](#copy-activity-properties). Para más información sobre cómo usar un almacén de datos como origen o receptor, haga clic en el vínculo de la sección anterior para su almacén de datos.
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Si desea obtener ejemplos con definiciones de JSON para entidades de Data Factory que se utilizan con el fin de copiar datos con Azure SQL Data Warehouse como origen o destino, consulte la sección [Ejemplos de JSON](#json-examples) de este artículo.
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Si desea obtener ejemplos con definiciones de JSON para entidades de Data Factory que se utilizan con el fin de copiar datos con Azure SQL Data Warehouse como origen o destino, consulte la sección [Ejemplos de JSON](#json-examples-for-copying-data-to-and-from-sql-data-warehouse) de este artículo.
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de Azure SQL Data Warehouse:
 
@@ -211,7 +220,7 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
 5. No se usa `columnMapping` en la actividad de copia asociada.
 
 ### <a name="staged-copy-using-polybase"></a>Copias almacenadas provisionalmente con PolyBase
-Si los datos de origen no cumplen los criterios especificados en la sección anterior, puede habilitar la copia de datos a través de un almacenamiento provisional de Azure Blob Storage (no puede ser Premium Storage). En este caso, Azure Data Factory realiza transformaciones automáticamente en los datos para que cumplan con los requisitos de formato de datos de PolyBase, luego usa este para cargar datos en SQL Data Warehouse y, por último, borra los datos temporales de Blog Storage. Consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) para más información sobre cómo funciona en general la copia de datos por medio de un blob de Azure de almacenamiento provisional.
+Si los datos de origen no cumplen los criterios especificados en la sección anterior, puede habilitar la copia de datos a través de un almacenamiento provisional de Azure Blob Storage (no puede ser Premium Storage). En este caso, Azure Data Factory realiza transformaciones automáticamente en los datos para que cumplan con los requisitos de formato de datos de PolyBase, luego usa PolyBase para cargar datos en SQL Data Warehouse y, por último, borra los datos temporales de Blob Storage. Consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) para más información sobre cómo funciona en general la copia de datos por medio de un blob de Azure de almacenamiento provisional.
 
 > [!NOTE]
 > Cuando copie datos de un almacén de datos local a Azure SQL Data Warehouse mediante PolyBase y almacenamiento provisional, si la versión de Data Management Gateway es inferior a 2.4, se necesita JRE (Java Runtime Environment) en la máquina de puerta de enlace que se usa para transformar los datos de origen en un formato correcto. Se recomienda actualizar la puerta de enlace a la versión más reciente para evitar esta dependencia.
@@ -244,7 +253,7 @@ Para usar esta característica, cree un [servicio vinculado de Azure Storage](da
 ```
 
 ## <a name="best-practices-when-using-polybase"></a>Procedimientos recomendados al usar PolyBase
-A continuación se muestra información complementaria de las [Prácticas recomendadas para Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+En las secciones siguientes se proporcionan procedimientos recomendados adicionales a los que se mencionan en [Procedimientos recomendados para Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 ### <a name="required-database-permission"></a>Permiso de base de datos necesario
 El uso de PolyBase requiere que el usuario que se usa para cargar datos en SQL Data Warehouse tenga [permiso "CONTROL"](https://msdn.microsoft.com/library/ms191291.aspx) en la base de datos de destino. Una manera de conseguirlo es agregar ese usuario como miembro del rol "db_owner". Obtenga información sobre cómo hacerlo siguiendo [esta sección](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
@@ -364,12 +373,12 @@ La asignación es igual que la asignación de [tipo de datos de SQL Server para 
 | varchar |String, Char[] |
 | xml |xml |
 
-También puede asignar columnas del conjunto de datos de origen a las del conjunto de datos receptor en la definición de actividad de copia. Para obtener más información, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).
+También puede asignar columnas del conjunto de datos de origen a las del conjunto de datos receptor en la definición de actividad de copia. Para más información, consulte [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Asignación de columnas de conjunto de datos de Azure Data Factory).
 
-## <a name="json-examples"></a>Ejemplos de JSON
+## <a name="json-examples-for-copying-data-to-and-from-sql-data-warehouse"></a>Ejemplos JSON para copiar datos hacia y desde SQL Data Warehouse
 En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En ellos se muestra cómo copiar datos entre Almacenamiento de datos SQL y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.
 
-## <a name="example-copy-data-from-azure-sql-data-warehouse-to-azure-blob"></a>Ejemplo: Copia de datos de Azure SQL Data Warehouse a un blob de Azure
+### <a name="example-copy-data-from-azure-sql-data-warehouse-to-azure-blob"></a>Ejemplo: Copia de datos de Azure SQL Data Warehouse a un blob de Azure
 El ejemplo define las siguientes entidades de Data Factory:
 
 1. Un servicio vinculado de tipo [AzureSqlDW](#linked-service-properties).
@@ -555,7 +564,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 >
 >
 
-## <a name="example-copy-data-from-azure-blob-to-azure-sql-data-warehouse"></a>Ejemplo: Copia de datos de un blob de Azure a Azure SQL Data Warehouse
+### <a name="example-copy-data-from-azure-blob-to-azure-sql-data-warehouse"></a>Ejemplo: Copia de datos de un blob de Azure a Azure SQL Data Warehouse
 El ejemplo define las siguientes entidades de Data Factory:
 
 1. Un servicio vinculado de tipo [AzureSqlDW](#linked-service-properties).

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 3155990d977d8b0849c9e0be92db11ad6567cd6e
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: fd52bd8e14ca9bdcd06fc820e5e03fb5feccc72f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -112,10 +113,10 @@ Haga clic en el icono **Recomendaciones** para obtener una lista de recomendacio
 
 ![Recomendaciones de seguridad en el Centro de seguridad de Azure][5]
 
-### <a name="resource-health"></a>Estado de los recursos
-En el icono **Estado de seguridad de los recursos** se muestra el estado general de la seguridad del entorno por tipo de recurso, incluidas las VM, las aplicaciones web y otros recursos.   
+### <a name="security-state-of-azure-resources"></a>Estado de seguridad de recursos de Azure
+En la sección **Prevención** del panel se muestra la posición de seguridad general del entorno por tipo de recurso, lo que incluye máquinas virtuales, aplicaciones web y otros recursos.   
 
-Seleccione un tipo de recurso en el icono **Estado de seguridad de los recursos** para ver más información, incluida una lista de las posibles vulnerabilidades de seguridad que se hayan identificado. (En el siguiente ejemplo, se selecciona la opción **Compute**).
+Seleccione un tipo de recurso en **Prevención** para ver más información, incluida una lista de las posibles vulnerabilidades de seguridad que se hayan identificado. (En el siguiente ejemplo, se selecciona la opción **Compute**).
 
 ![Icono Estado de los recursos][6]
 

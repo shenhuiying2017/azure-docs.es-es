@@ -12,19 +12,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 05/16/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 70c7e2334336be78d26784815fb988ce1d22eb12
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 25fca1ac29817fc6d72dd5ec5033a2962f3f0be4
+ms.contentlocale: es-es
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Movimiento de los datos entre entornos locales de SQL Server o en IaaS (máquina virtual de Azure) mediante Factoría de datos de Azure
-En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos de una base de datos SQL Server local. Se basa en la información general ofrecida por el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md). 
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos de una base de datos SQL Server local. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md). 
 
-Puede mover datos de cualquier almacén de datos de origen compatible a SQL Server Database o de SQL Server Database a cualquier almacén de datos del receptor admitido. Consulte la tabla [Almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos admitidos como orígenes o receptores por actividad de copia. 
+## <a name="supported-scenarios"></a>Escenarios admitidos
+Puede copiar datos **de una base de datos SQL Server** a los siguientes almacenes de datos:
+
+[!INCLUDE [data-factory-supported-sink](../../includes/data-factory-supported-sinks.md)]
+
+Puede copiar datos de los siguientes almacenes de datos **a una base de datos SQL Server**:
+
+[!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
 ## <a name="supported-sql-server-versions"></a>Versiones admitidas de SQL Server
 Este conector de SQL Server admite la copia de datos hacia y desde las siguientes versiones de la instancia hospedada local o en Azure IaaS mediante autenticación de SQL y autenticación de Windows: SQL Server 2016, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008, SQL Server 2005
@@ -45,11 +53,12 @@ También puede usar las herramientas siguientes para crear una canalización: **
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor: 
 
-1. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos.
-2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
-3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
+1. Crear una **factoría de datos**. Una factoría de datos puede contener una o más canalizaciones. 
+2. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos. Por ejemplo, si va a copiar datos de una base de datos de SQL Server a una instancia de Azure Blob Storage, cree dos servicios vinculados para vincular su base de datos de SQL Server y su cuenta de Azure Storage a su fábrica de datos. Para información sobre las propiedades de los servicios vinculados que son específicas de la base de datos de SQL Server, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties). 
+3. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. En el ejemplo mencionado en el último paso, se crea un conjunto de datos para especificar la tabla SQL en la base de datos SQL Server que contiene los datos de entrada. Además, se crea otro conjunto de datos para especificar el contenedor de blobs y la carpeta que contiene los datos copiados desde la base de datos de SQL Server. Para información sobre las propiedades del conjunto de datos que son específicas de la base de datos de SQL Server, consulte la sección [Propiedades del conjunto de datos](#dataset-properties).
+4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo mencionado anteriormente, se usa SqlSource como origen y BlobSink como receptor para la actividad de copia. De igual forma, si va a copiar de Azure Blob Storage a una base de datos de SQL Server, usará BlobSource y SqlSink en la actividad de copia. Para información sobre las propiedades de actividad de copia que son específicas de la base de datos de SQL Server, consulte la sección [Propiedades de la actividad de copia](#copy-activity-properties). Para más información sobre cómo usar un almacén de datos como origen o receptor, haga clic en el vínculo de la sección anterior para su almacén de datos. 
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver ejemplos con definiciones JSON de entidades de Data Factory que se usan para copiar datos a/desde una base de datos SQL Server local, consulte la sección [Ejemplos de JSON](#json-examples) de este artículo. 
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver ejemplos con definiciones JSON de entidades de Data Factory que se usan para copiar datos a/desde una base de datos SQL Server local, consulte la sección [Ejemplos de JSON](#json-examples-for-copying-data-from-and-to-sql-server) de este artículo. 
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de SQL Server: 
 
@@ -161,7 +170,7 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
 | sqlWriterTableType |Especifique el nombre del tipo de tabla que se usará en el procedimiento almacenado anterior. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. |Un nombre de tipo de tabla. |No |
 
 
-## <a name="json-examples"></a>Ejemplos de JSON
+## <a name="json-examples-for-copying-data-from-and-to-sql-server"></a>Ejemplos JSON para copiar datos desde y hacia SQL Server
 En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En los siguientes ejemplos, se muestra cómo copiar datos entre SQL Server y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.     
 
 ## <a name="example-copy-data-from-sql-server-to-azure-blob"></a>Ejemplo: Copia de datos de SQL Server a Blob de Azure
