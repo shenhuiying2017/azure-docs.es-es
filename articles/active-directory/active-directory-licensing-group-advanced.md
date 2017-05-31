@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2017
+ms.date: 05/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a7240c52e9351a60e3cf577d8112862c7dc8d913
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: d4c509c43ff647f3d9b96ffd136073312a81049b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -115,8 +116,7 @@ Algunos servicios de Microsoft no están disponibles en todas las ubicaciones. A
 En el caso de la asignación de licencias de grupo, cualquier usuario sin una ubicación de uso especificada heredará la ubicación del directorio. Si hay usuarios en distintas ubicaciones, asegúrese de reflejarlo correctamente en los objetos de usuario antes de agregar usuarios a grupos con licencias.
 
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Uso de PowerShell para ver quién tiene licencias directas y heredadas
-
-Durante el período de versión preliminar de una versión determinada de Azure AD, no se puede usar PowerShell para controlar totalmente las asignaciones de licencias de grupo. Sin embargo, se puede usar para detectar información básica sobre el estado de los usuarios y para determinar si las licencias son heredadas de un grupo o asignadas directamente. El siguiente ejemplo de código muestra cómo un administrador puede generar un informe básico sobre las asignaciones de licencias.
+Mientras la asignación de licencias basada en grupos se encuentre en la versión preliminar pública, PowerShell no puede usarse para controlar totalmente las asignaciones de licencias a grupos. Sin embargo, se puede usar para detectar información básica sobre el estado de los usuarios y para determinar si las licencias son heredadas de un grupo o asignadas directamente. El siguiente ejemplo de código muestra cómo un administrador puede generar un informe básico sobre las asignaciones de licencias.
 
 1. Ejecute el cmdlet `connect-msolservice` para autenticarse y conectar con el inquilino.
 

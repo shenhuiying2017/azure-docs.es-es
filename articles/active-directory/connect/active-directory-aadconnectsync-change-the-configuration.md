@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 7c237bfb42fdd2ffdfface1a12ab21c51d2504bb
-ms.openlocfilehash: b327671b12bf6e2ce040ef6e6b0a58a0fead22b4
-ms.lasthandoff: 02/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 4a88cf56eea3dd562d4d5dcc4fe7364ea226a348
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -171,6 +172,244 @@ Puede indicar al motor de sincronización que desea insertar reglas adicionales 
 ![PowerShell después del cambio](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)  
 
 Puede tener muchas reglas de sincronización personalizadas con el mismo valor **PrecedenceBefore** cuando sea necesario.
+
+
+## <a name="enable-synchronization-of-preferreddatalocation"></a>Habilitar la sincronización de PreferredDataLocation
+Azure AD Connect admite la sincronización del atributo **PreferredDataLocation** para objetos **User** en la versión 1.1.524.0 y posteriores. Más concretamente, se introdujeron los cambios siguientes:
+
+* El esquema del tipo de objeto **User** de Conector Azure AD se extiende para incluir el atributo PreferredDataLocation, que es de tipo cadena y tiene un solo valor.
+
+* El esquema del tipo de objeto **Person** del metaverso se extiende para incluir el atributo PreferredDataLocation, que es de tipo cadena y tiene un solo valor.
+
+De forma predeterminada, el atributo PreferredDataLocation no está habilitado para la sincronización porque no hay ningún atributo PreferredDataLocation correspondiente en la instancia local de Active Directory. Debe habilitar manualmente la sincronización.
+
+> [!IMPORTANT]
+> Actualmente, Azure AD permite que el atributo PreferredDataLocation de los objetos User sincronizados y en la nube se configure directamente con Azure AD PowerShell. Una vez habilitada la sincronización del atributo PreferredDataLocation, debe detener el uso de Azure AD PowerShell para configurar el atributo en **objetos User sincronizados** porque Azure AD Connect los reemplazará según los valores de atributo de origen en la instancia local de Active Directory.
+
+> [!IMPORTANT]
+> El 1 de septiembre de 2017, Azure AD ya no permitirá que el atributo PreferredDataLocation de los **objetos User sincronizados** se configure directamente con Azure AD PowerShell. Para configurar el atributo PreferredLocation en objetos User sincronizados, solo debe usar Azure AD Connect.
+
+Antes de habilitar la sincronización del atributo PreferredDataLocation:
+
+ * En primer lugar, debe decidir qué atributo local de Active Directory se usará como atributo de origen. Debe ser de tipo **cadena** y **un solo valor**.
+
+ * Si ha configurado previamente el atributo PreferredDataLocation en objetos User sincronizados existentes de Azure AD con Azure AD PowerShell, deberá **restituir** los valores de atributo a los objetos User correspondientes de la instancia local de Active Directory.
+ 
+    > [!IMPORTANT]
+    > Si no restituye los valores de atributo a los objetos User correspondientes de la instancia local de Active Directory, Azure AD Connect quitará los valores de atributo existentes en Azure AD cuando se habilite la sincronización para el atributo PreferredDataLocation.
+
+ * Se recomienda configurar el atributo de origen en al menos un par de objetos User locales de AD ahora para que puedan usarse para la comprobación más tarde.
+ 
+Los pasos para habilitar la sincronización del atributo PreferredDataLocation se pueden resumir en:
+
+1. Deshabilitar el programador de sincronización y comprobar que no hay ninguna sincronización en curso
+
+2. Agregar el atributo de origen al esquema de Conector AD local
+
+3. Agregar PreferredDataLocation al esquema de Conector Azure AD
+
+4. Crear una regla de sincronización de entrada para enviar el valor del atributo desde la instancia local de Active Directory
+
+5. Crear una regla de sincronización de salida para enviar el valor del atributo a Azure AD
+
+6. Iniciar el ciclo de sincronización completo
+
+7. Habilitar el programador de sincronización
+
+> [!NOTE]
+> El resto de esta sección trata estos pasos detalladamente. Se describen en el contexto de una implementación de Azure AD con topología de bosque único y sin reglas de sincronización personalizadas. Si tiene una topología de varios bosques, reglas de sincronización personalizadas configuradas o un servidor de ensayo, debe ajustar los pasos según corresponda.
+
+### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Paso 1: Deshabilitar el programador de sincronización y comprobar que no hay ninguna sincronización en curso
+Asegúrese de que no realiza ninguna sincronización mientras está actualizando reglas de sincronización para evitar que se exporten cambios no deseados a Azure AD. Para deshabilitar el programador de sincronización integrado:
+
+ 1. Inicie una sesión de PowerShell en el servidor de Azure AD Connect.
+
+ 2. Deshabilite la sincronización programada mediante la ejecución del cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`
+ 
+ 3. Inicie **Synchronization Service Manager**. Para ello, vaya a INICIO → Synchronization Service (Servicio de sincronización).
+ 
+ 4. Vaya a la pestaña **Operations** (Operaciones) y confirme que no hay ninguna operación cuyo estado sea *"in progress"* (En curso).
+
+![Synchronization Service Manager: comprobar que no hay ninguna operación en curso](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
+
+### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Paso 2: Agregar el atributo de origen al esquema de Conector AD local
+No todos los atributos de AD se importan en el espacio de Conector AD local. Para agregar el atributo de origen a la lista de atributos importados:
+
+ 1. Vaya a la pestaña **Connectors** (Conectores) de Synchronization Service Manager.
+ 
+ 2. Haga clic con el botón derecho en **Conector AD local** y seleccione **Propiedades**.
+ 
+ 3. En el cuadro de diálogo emergente, vaya a la pestaña **Seleccionar atributos**.
+ 
+ 4. Asegúrese de que el atributo de origen esté activado en la lista de atributos.
+ 
+ 5. Haga clic en **Aceptar** para guardarlo.
+
+![Agregar el atributo de origen al esquema de Conector AD local](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step2.png)
+
+### <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Paso 3: Agregar PreferredDataLocation al esquema de Conector Azure AD
+De forma predeterminada, el atributo PreferredDataLocation no se importa en el espacio de conexión de Azure AD. Para agregar el atributo PreferredDataLocation a la lista de atributos importados:
+
+ 1. Vaya a la pestaña **Connectors** (Conectores) de Synchronization Service Manager.
+
+ 2. Haga clic con el botón derecho en **Conector Azure AD** y seleccione **Propiedades**.
+
+ 3. En el cuadro de diálogo emergente, vaya a la pestaña **Seleccionar atributos**.
+
+ 4. Asegúrese de que el atributo PreferredDataLocation esté activado en la lista de atributos.
+
+ 5. Haga clic en **Aceptar** para guardarlo.
+
+![Agregar el atributo de origen al esquema de Conector Azure AD](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step3.png)
+
+### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Paso 4: Crear una regla de sincronización de entrada para enviar el valor del atributo desde la instancia local de Active Directory
+La regla de sincronización de entrada permite enviar el valor del atributo desde el atributo de origen de la instancia local de Active Directory al metaverso:
+
+1. Inicie el **editor de reglas de sincronización**. Para ello, vaya a INICIO → Synchronization Rules Editor (Servicio de sincronización).
+
+2. Establezca el filtro de búsqueda **Dirección** como **Entrada**.
+
+3. Haga clic en el botón **Agregar nueva regla** para crear una nueva regla de entrada.
+
+4. En la pestaña **Descripción**, proporcione la configuración siguiente:
+ 
+    | Atributo | Valor | Detalles |
+    | --- | --- | --- |
+    | Nombre | *Proporcione un nombre*. | Por ejemplo, *"In from AD – User PreferredDataLocation"* |
+    | Descripción | *Proporcione una descripción* |  |
+    | Sistema conectado | *Elija Conector AD local* |  |
+    | Tipo de objeto de sistema conectado | **User** |  |
+    | Propiedades de objeto de metaverso | **Person** |  |
+    | Tipo de vínculo | **Join** |  |
+    | Prioridad | *Elija un número entre 1 y 99* | El intervalo de 1 a 99 se reserva para las reglas de sincronización personalizadas. No elija ningún valor que use otra regla de sincronización. |
+
+5. Vaya a la pestaña **Filtro de ámbito** y agregue un **solo grupo de filtro de ámbito con la siguiente cláusula**:
+ 
+    | Atributo | operador | Valor |
+    | --- | --- | --- |
+    | adminDescription | NOTSTARTWITH | Usuario\_ | 
+ 
+    El filtro de ámbito determina a qué objetos de AD locales se aplica esta regla de sincronización de entrada. En este ejemplo, se utiliza el mismo filtro de ámbito que se utiliza como regla de sincronización OOB *"In from AD – User Common"*, lo que impide que la regla de sincronización se aplique a los objetos User creados mediante la característica de escritura diferida para usuarios de Azure AD. Puede que necesite retocar el filtro de ámbito en función de su implementación de Azure AD Connect.
+
+6. Vaya a la pestaña **Transformación** e implemente la siguiente regla de transformación:
+ 
+    | Tipo de flujo | Atributo de destino | Origen | Aplicar una vez | Tipo de combinación |
+    | --- | --- | --- | --- | --- |
+    | Directo | PreferredDataLocation | Elegir el atributo de origen | No activado | Actualizar |
+
+7. Haga clic en **Agregar** para crear la regla de entrada.
+
+![Crear regla de sincronización de entrada](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step4.png)
+
+### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Paso 5: Crear una regla de sincronización de salida para enviar el valor de atributo a Azure AD
+La regla de sincronización de salida permite enviar el valor del atributo desde el metaverso al atributo PreferredDataLocation en Azure AD:
+
+1. Vaya al Editor de **Reglas de sincronización**.
+
+2. Establezca el filtro de búsqueda **Dirección** como **Salida**.
+
+3. Haga clic en el botón **Agregar nueva regla**.
+
+4. En la pestaña **Descripción**, proporcione la configuración siguiente:
+
+    | Atributo | Valor | Detalles |
+    | --- | --- | --- |
+    | Nombre | *Proporcione un nombre*. | Por ejemplo, "Out to AAD – User PreferredDataLocation". |
+    | Descripción | *Proporcione una descripción* |
+    | Sistema conectado | *Seleccione el conector AAD* |
+    | Tipo de objeto de sistema conectado | Usuario ||
+    | Propiedades de objeto de metaverso | **Person** ||
+    | Tipo de vínculo | **Join** ||
+    | Prioridad | *Elija un número entre 1 y 99* | El intervalo de 1 a 99 se reserva para las reglas de sincronización personalizadas. No elija ningún valor que use otra regla de sincronización. |
+
+5. Vaya a la pestaña **Filtro de ámbito** y agregue un **solo grupo de filtro de ámbito con dos cláusulas**:
+ 
+    | Atributo | operador | Valor |
+    | --- | --- | --- |
+    | sourceObjectType | EQUAL | Usuario |
+    | cloudMastered | NOTEQUAL | True |
+
+    El filtro de ámbito determina a qué objetos de Azure AD se aplica esta regla de sincronización de salida. En este ejemplo, se utiliza el mismo filtro de ámbito de la regla de sincronización de OOB "Out to AD – User Identity". Impide que la regla de sincronización se aplique a los objetos User que no se sincronizan desde la instancia local de Active Directory. Puede que necesite retocar el filtro de ámbito en función de su implementación de Azure AD Connect.
+    
+6. Vaya a la pestaña **Transformación** e implemente la siguiente regla de transformación:
+
+    | Tipo de flujo | Atributo de destino | Origen | Aplicar una vez | Tipo de combinación |
+    | --- | --- | --- | --- | --- |
+    | Directo | PreferredDataLocation | PreferredDataLocation | No activado | Actualizar |
+
+7. Haga clic en **Agregar** para crear la regla de salida.
+
+![Crear regla de sincronización de salida](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step5.png)
+
+### <a name="step-6-run-full-synchronization-cycle"></a>Paso 6: Ejecutar el ciclo de sincronización completo
+En general, se requiere el ciclo de sincronización completo porque hemos agregado nuevos atributos a los esquemas de los Conectores Azure AD y AD y hemos introducido reglas de sincronización personalizadas. Se recomienda que compruebe los cambios antes de exportarlos a Azure AD. Puede usar los pasos siguientes para comprobar los cambios mientras sigue los pasos que forman un ciclo de sincronización completo manualmente. 
+
+1. Ejecute el paso **Importación completa** en **on-premises AD Connector** (Conector AD local):
+
+   1. Vaya a la pestaña **Operations** (Operaciones) de Synchronization Service Manager.
+
+   2. Haga clic con el botón derecho en **on-premises AD Connector** (Conector AD local) y seleccione **Ejecutar...**.
+
+   3. En el cuadro de diálogo emergente, seleccione **Importación completa** y haga clic en **Aceptar**.
+    
+   4. Espere a que la operación finalice.
+
+    > [!NOTE]
+    > Puede omitir la importación completa en Conector AD local si el atributo de origen ya está incluido en la lista de atributos importados. En otras palabras, no tuvo que realizar ningún cambio durante el [Paso 2: Agregar el atributo de origen al esquema de Conector AD local](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+
+2. Ejecute el paso **Importación completa** en **Azure AD Connector** (Conector Azure AD):
+
+   1. Haga clic con el botón derecho en **Azure AD Connector** (Conector Azure AD) y seleccione **Ejecutar...**
+
+   2. En el cuadro de diálogo emergente, seleccione **Importación completa** y haga clic en **Aceptar**.
+   
+   3. Espere a que la operación finalice.
+
+3. Compruebe los cambios de la regla de sincronización en un objeto User existente:
+
+El atributo de origen de la instancia local de Active Directory y PreferredDataLocation de Azure AD se han importado en el espacio del conector correspondiente. Antes de continuar con el paso de sincronización completa, se recomienda que realice una **vista previa** de un objeto User existente en el espacio local de Conector AD. El objeto que ha seleccionado debe tener el atributo de origen rellenado. Una **vista previa** correcta con el valor PreferredDataLocation rellenado en el metaverso es un buen indicador de que ha configurado las reglas de sincronización correctamente. Para obtener información acerca de cómo llevar a cabo una **vista previa**, consulte la sección [Comprobar el cambio](#verify-the-change).
+
+4. Realice el paso **Sincronización completa** en **on-premises AD Connector** (Conector AD local):
+
+   1. Haga clic con el botón derecho en **on-premises AD Connector** (Conector AD local) y seleccione **Ejecutar...**.
+  
+   2. En el cuadro de diálogo emergente, seleccione **Sincronización completa** y haga clic en **Aceptar**.
+   
+   3. Espere a que la operación finalice.
+
+5. Compruebe las **exportaciones pendientes** en Azure AD:
+
+   1. Haga clic con el botón derecho en **Azure AD Connector** (Conector Azure AD) y seleccione **Search Connector Space** (Espacio del conector de búsqueda).
+
+   2. En el cuadro de diálogo emergente Search Connector Space (Espacio del conector de búsqueda):
+
+      1. Establezca el **ámbito** en **Pending Export** (Exportación pendiente).
+      
+      2. Active las tres casillas, incluidas **Agregar, Modificar y Eliminar**.
+      
+      3. Haga clic en el botón **Buscar** para obtener la lista de objetos con los cambios que se exportarán. Para examinar los cambios de un determinado objeto, haga doble clic en el objeto.
+      
+      4. Compruebe que los cambios estén previstos.
+
+6. Ejecute el paso **Exportación** en **Azure AD Connector** (Conector Azure AD):
+      
+   1. Haga clic con el botón derecho en **Azure AD Connector** (Conector Azure AD) y seleccione **Ejecutar...**
+   
+   2. En el cuadro de diálogo emergente Run Connector (Ejecutar conector), seleccione el paso **Exportar** y haga clic en **Aceptar**.
+   
+   3. Espere a que la exportación a Azure AD se complete.
+
+> [!NOTE]
+> Puede que observe que los pasos no incluyen los pasos Sincronización completa y Exportación en el Conector de Azure AD. Estos pasos no son necesarios, ya que los valores de atributo solo se envían desde la instancia local de Active Directory a Azure AD.
+
+### <a name="step-7-re-enable-sync-scheduler"></a>Paso 7: Volver a habilitar el programador de sincronización
+Vuelva a habilitar el programador de sincronización integrado:
+
+1. Inicie la sesión de PowerShell.
+
+2. Vuelva a habilitar la sincronización programada mediante la ejecución del cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el modelo de configuración en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).

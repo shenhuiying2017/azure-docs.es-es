@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b77a20274e22827aaa8aa4d354b62d086a19b206
-ms.openlocfilehash: 6fefb9cfa96b0a6b7acfe4d7fcb17cb13ec240a0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 032e584dc5abf59e9e3e8d80673b402f1fbf721b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -28,7 +30,12 @@ Esta página ofrece ejemplos de configuración de enrutamiento e interfaces para
 > 
 > 
 
+## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Configuración de MSS de MTU y TCP en las interfaces de enrutador
+* La MTU de la interfaz de ExpressRoute es 1500, que es la MTU predeterminada típica de una interfaz Ethernet en un enrutador. A menos que el enrutador tenga una MTU diferente de forma predeterminada, no es necesario especificar un valor en la interfaz del enrutador.
+* A diferencia de Azure VPN Gateway, no es necesario especificar el MSS de TCP para un circuito de ExpressRoute.
+
 Los ejemplos de configuración de enrutadores siguientes se aplican a todos los emparejamientos. Si desea más información, vea [Emparejamientos de ExpressRoute](expressroute-circuit-peerings.md) y [Requisitos de NAT de ExpressRoute](expressroute-routing.md).
+
 
 ## <a name="cisco-ios-xe-based-routers"></a>Enrutadores basados en Cisco IOS-XE
 Los ejemplos en esta sección se aplican a cualquier enrutador que ejecute la familia del SO IOS-XE.
@@ -206,10 +213,5 @@ Puede usar asignaciones de ruta y listas de prefijo para filtrar prefijos propag
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

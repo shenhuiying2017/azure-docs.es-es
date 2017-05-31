@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/28/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: aeb0b665b8295bba30d8c6c47cc88e446693c91f
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 64b09448149b7e1efd8b76663a27b6c7ec1eb3c7
 ms.contentlocale: es-es
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/01/2017
 Puede usar Azure IoT Hub y los SDK de dispositivo IoT de Azure para crear soluciones de Internet de las cosas (IoT).
 
 * Azure IoT Hub es un servicio completamente administrado en la nube que conecta, supervisa y administra los dispositivos IoT de forma segura. Use los SDK de dispositivo IoT de Azure para implementar los dispositivos de IoT.
-* Use una puerta de enlace de IoT en escenarios de IoT más complejos donde sea necesario tener en cuenta factores como dispositivos heredados, costos de ancho de banda, directivas de seguridad y privacidad o procesamiento de datos perimetrales. En estos escenarios, se utiliza el SDK de puerta de enlace IoT de Azure para crear un dispositivo de puerta de enlace que conecta dispositivos con su IoT Hub.
+* Use una puerta de enlace de IoT en escenarios de IoT más complejos donde sea necesario tener en cuenta factores como dispositivos heredados, costos de ancho de banda, directivas de seguridad y privacidad o procesamiento de datos perimetrales. En estos escenarios, se usa Azure IoT Edge para implementar una puerta de enlace que conecta dispositivos con IoT Hub.
 
-## <a name="what-do-the-tutorials-cover"></a>¿Qué cubren los tutoriales?
+## <a name="what-the-tutorials-cover"></a>¿Qué cubren los tutoriales?
 
 Estos tutoriales le presentan Azure IoT Hub y los SDK de dispositivo. Los tutoriales cubren escenarios comunes de IoT para demostrar las funcionalidades de IoT Hub. Los tutoriales también muestran cómo combinar IoT Hub con otras herramientas y servicios de Azure para crear soluciones de IoT más eficaces. En los tutoriales, puede usar dispositivos IoT simulados o reales. Además, puede obtener información sobre cómo usar una puerta de enlace para habilitar dispositivos para conectarse a su IoT Hub.
 
@@ -47,7 +47,7 @@ Puede elegir un dispositivo real o simulado para empezar a trabajar.
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
 | Dispositivo simulado                | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd] y [Python][Sim_Pyth]              |
 
-Además, puede usar una puerta de enlace para habilitar dispositivos para conectarse a su IoT Hub.
+Además, puede usar una puerta de enlace de IoT Edge para habilitar dispositivos para conectarse a su IoT Hub.
 
 | Dispositivo de puerta de enlace               | Lenguaje de programación | Plataforma         |
 |------------------------------|----------------------|------------------|
@@ -84,8 +84,8 @@ Cuando se hayan completado estos tutoriales, puede explorar aún más las funcio
 [Sim_Nd]: iot-hub-node-node-getstarted.md
 [Sim_Pyth]: iot-hub-python-getstarted.md
 [NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
-[Sim_Lnx]: iot-hub-linux-gateway-sdk-get-started.md
-[Sim_Win]: iot-hub-windows-gateway-sdk-get-started.md
+[Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
+[Sim_Win]: iot-hub-windows-iot-edge-get-started.md
 [Mg_IoT_Hub_Msg]: iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Dv]: iot-hub-device-management-iothub-explorer.md
 [Sv_IoT_Msg_Stor]: iot-hub-store-data-in-azure-table-storage.md

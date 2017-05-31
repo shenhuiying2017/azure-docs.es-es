@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 864526efd2bc90bdd4beeb4c81173e85eee6f34b
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 44e0d7c920bc32bf3293ca5ab197b6d2332a43f8
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -35,7 +36,6 @@ ms.lasthandoff: 04/27/2017
 > * [Actividad U-SQL de Data Lake Analytics](data-factory-usql-activity.md)
 > * [Actividad personalizada de .NET](data-factory-use-custom-activities.md)
 
-
 Hay dos tipos de actividades que puede usar en una canalización de Data Factory de Azure.
 
 - [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para mover datos entre [almacenes de datos de origen y receptor compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
@@ -51,7 +51,7 @@ En el siguiente tutorial se proporcionan instrucciones paso a paso para crear un
 > - Las actividades personalizadas de .NET se ejecutan solo en clústeres de HDInsight basados en Windows. Una solución alternativa para esta limitación consiste en usar la actividad MapReduce para ejecutar código personalizado de Java en un clúster de HDInsight basado en Linux. Otra opción es usar un grupo de máquinas virtuales de Azure Batch para ejecutar actividades personalizadas en lugar de utilizar un clúster de HDInsight.
 > - No es posible usar una puerta de enlace de administración de datos procedente de una actividad personalizada para acceder a orígenes de datos locales. Actualmente, la [puerta de enlace de administración de datos](data-factory-data-management-gateway.md) solo admite las actividades de copia y de procedimiento almacenado en Data Factory.   
 
-## <a name="walkthrough"></a>Tutorial
+## <a name="walkthrough-create-a-custom-activity"></a>Tutorial: creación de una actividad personalizada
 ### <a name="prerequisites"></a>Requisitos previos
 * Visual Studio 2012/2013/2015
 * Descarga e instalación el [SDK de .NET de Azure][azure-developer-center]
@@ -63,7 +63,7 @@ Para el tutorial, cree una cuenta de Azure Batch con un grupo de máquinas virtu
 
 1. Cree una **cuenta de Lote de Azure** en el [Portal de Azure](http://portal.azure.com). Para obtener instrucciones, consulte el artículo [Creación y administración de una cuenta de Azure Batch][batch-create-account].
 2. Anote el nombre y la clave de la cuenta de Azure Batch el URI y el nombre del grupo. Los necesita para crear un servicio vinculado de Azure Batch.
-    1. En la página de inicio de la cuenta de Azure Batch, verá una **dirección URL** con el siguiente formato: `https://myaccount.westus.batch.azure.com`. En este ejemplo, **myaccount** es el nombre de la cuenta de Azure Batch. El URI que se utiliza en la definición del servicio vinculado es la dirección URL sin el nombre de la cuenta. Por ejemplo: `https://westus.batch.azure.com`.
+    1. En la página de inicio de la cuenta de Azure Batch, verá una **dirección URL** con el siguiente formato: `https://myaccount.westus.batch.azure.com`. En este ejemplo, **myaccount** es el nombre de la cuenta de Azure Batch. El URI que se utiliza en la definición del servicio vinculado es la dirección URL sin el nombre de la cuenta. Por ejemplo: `https://<region>.batch.azure.com`.
     2. Haga clic en **Claves** en el menú de la izquierda y copie la **CLAVE DE ACCESO PRIMARIA**.
     3. Para usar un grupo existente, haga clic en **Grupos** en el menú y anote el **identificador** del grupo. Si no tienes ningún grupo, ve al paso siguiente.     
 2. Cree un **grupo de Lote de Azure**.
@@ -88,7 +88,7 @@ Estos son los dos pasos de alto nivel que se realizan como parte de este tutoria
 1. Cree una actividad personalizada que contenga una lógica de procesamiento o transformación de datos simple.
 2. Cree una instancia de Azure Data Factory con una canalización que use la actividad personalizada.
 
-## <a name="create-a-custom-activity"></a>creación de una actividad personalizada
+### <a name="create-a-custom-activity"></a>creación de una actividad personalizada
 Para crear una actividad personalizada de .NET, cree un proyecto de la **biblioteca de clases .NET** con una clase que implemente la interfaz **IDotNetActivity**. Esta interfaz solo tiene un método, [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) , y su firma es:
 
 ```csharp
@@ -112,10 +112,10 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
 ### <a name="procedure"></a>Procedimiento
 1. Cree un proyecto de **biblioteca de clases .NET** .
    <ol type="a">
-     <li>Inicie <b>Visual Studio 2015</b>, <b>Visual Studio 2013</b> o <b>Visual Studio 2012</b>.</li>
+     <li>Inicie <b>Visual Studio 2017</b>, <b>Visual Studio 2015</b>, <b>Visual Studio 2013</b> o <b>Visual Studio 2012</b>.</li>
      <li>Haga clic en <b>Archivo</b>, seleccione <b>Nuevo</b> y, luego, haga clic en <b>Proyecto</b>.</li>
      <li>Expanda <b>Plantillas</b> y seleccione <b>Visual C#</b>. En este tutorial se usa C#, pero puede usar cualquier lenguaje .NET para desarrollar la actividad personalizada.</li>
-     <li>Seleccione <b>Biblioteca de clases</b> en la lista de tipos de proyecto de la derecha.</li>
+     <li>Seleccione <b>Biblioteca de clases</b> en la lista de tipos de proyecto de la derecha. En VS 2017, elija <b>Biblioteca de clases (.NET Framework)</b> </li>
      <li>Escriba <b>MyDotNetActivity </b> para <b>Nombre</b>.</li>
      <li>Seleccione <b>C:\ADFGetStarted</b> como <b>Ubicación</b>.</li>
      <li>Haga clic en <b>Aceptar</b> para crear el proyecto.</li>
@@ -137,16 +137,27 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
 5. Agregue las siguientes instrucciones **using** al archivo de origen en el proyecto.
 
     ```csharp
-    using System.IO;
-    using System.Globalization;
-    using System.Diagnostics;
-    using System.Linq;
 
-    using Microsoft.Azure.Management.DataFactories.Models;
-    using Microsoft.Azure.Management.DataFactories.Runtime;
+// Comment these lines if using VS 2017
+using System.IO;
+using System.Globalization;
+using System.Diagnostics;
+using System.Linq;
+// --------------------
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Blob;
+// Comment these lines if using <= VS 2015
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+// ---------------------
+
+using Microsoft.Azure.Management.DataFactories.Models;
+using Microsoft.Azure.Management.DataFactories.Runtime;
+
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
     ```
 6. Cambie el nombre del **espacio de nombres** por **MyDotNetActivityNS**.
 
@@ -378,14 +389,13 @@ El método devuelve un diccionario que se puede usar para encadenar actividades 
     > Todos los archivos incluidos en el archivo ZIP de la actividad personalizada deben estar en el **nivel superior** ; no debe haber subcarpetas.
 
     ![Archivos de salida binarios](./media/data-factory-use-custom-activities/Binaries.png)
-14. Cree el contenedor de blobs **customactivitycontainer**, si aún no existe.
+14. Cree el contenedor de blobs **customactivitycontainer**, si aún no existe.    
 15. Cargue MyDotNetActivity.zip como un blob para customactivitycontainer en una instancia de Azure Blob Storage **de uso general** (Blob Storage no en espera o de acceso esporádico) al que AzureStorageLinkedService hace referencia.  
 
-> [!NOTE]
-> Si agrega este proyecto de actividad de .NET a una solución en Visual Studio que contenga un proyecto de Data Factory, y agrega una referencia al proyecto de actividad .NET del proyecto de la aplicación de Data Factory, no tendrá que realizar los últimos dos pasos para crear manualmente el archivo ZIP y cargarlo a la instancia de Azure Blob Storage de uso general. Al publicar las entidades de la factoría de datos con Visual Studio el proceso de publicación realizar automáticamente estos pasos. Consulte los artículos [Compilación de la primera canalización mediante Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) y [Crear datos desde Azure Blob a Azure SQL](data-factory-copy-activity-tutorial-using-visual-studio.md) para aprender a crear y publicar entidades de Data Factory mediante Visual Studio.  
+> [!IMPORTANT]
+> Si agrega este proyecto de actividad de .NET a una solución en Visual Studio que contenga un proyecto de Data Factory, y agrega una referencia al proyecto de actividad .NET del proyecto de la aplicación de Data Factory, no tendrá que realizar los últimos dos pasos para crear manualmente el archivo ZIP y cargarlo a la instancia de Azure Blob Storage de uso general. Al publicar las entidades de la factoría de datos con Visual Studio el proceso de publicación realizar automáticamente estos pasos. Para obtener más información, consulte la sección [Proyecto de Data Factory en Visual Studio](#data-factory-project-in-visual-studio).
 
-
-## <a name="create-a-data-factory"></a>Crear una factoría de datos 
+## <a name="create-a-pipeline-with-custom-activity"></a>Crear una canalización con una actividad personalizada
 Ha creado una actividad personalizada y cargado el archivo zip con datos binarios en un contenedor de blobs en una cuenta de Azure Storage **de uso general**. En esta sección, creará una instancia de Azure Data Factory con una canalización que usa la actividad personalizada.
 
 El conjunto de datos de entrada de la actividad personalizada representa los blobs (archivos) de la carpeta customactivityinput del contenedor adftutorial en Blob Storage. El conjunto de datos de salida de la actividad representa los blobs de salida de la carpeta customactivityinput del contenedor adftutorial en Blob Storage.
@@ -650,7 +660,21 @@ En este paso, crea conjuntos de datos que representan los datos de entrada y sal
 
 Consulte [Supervisión y administración de canalizaciones de la Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md) para obtener información detallada sobre los pasos que hay que seguir para supervisar los conjuntos de datos y las canalizaciones.      
 
-### <a name="data-factory-and-batch-integration"></a>Integración de Data Factory y Lote
+## <a name="data-factory-project-in-visual-studio"></a>Proyecto de Data Factory en Visual Studio  
+Puede crear y publicar entidades de Data Factory usando Visual Studio en lugar de Azure Portal. Para obtener información sobre la creación y publicación de entidades de Data Factory mediante Visual Studio, consulte los artículos [Build your first pipeline using Visual Studio (Compilar la primera canalización mediante Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) y [Copy data from Azure Blob to Azure SQL (Copiar datos de Azure Blob a Azure SQL)](data-factory-copy-activity-tutorial-using-visual-studio.md).
+
+Si crea el proyecto de Data Factory en Visual Studio, realice los siguientes pasos adicionales:
+ 
+1. Agregue el proyecto de Data Factory a la solución de Visual Studio que contiene el proyecto de la actividad personalizada. 
+2. Agregue una referencia al proyecto de la actividad de .NET desde el proyecto de Data Factory. Haga clic con el botón derecho en el proyecto de Data Factory, seleccione **Agregar** y, a continuación, haga clic en **Referencia**. 
+3. En el cuadro de diálogo **Agregar referencia**, seleccione el proyecto **MyDotNetActivity** y, después, haga clic en **Aceptar**.
+4. Compilar y publicar la solución.
+
+    > [!IMPORTANT]
+    > Cuando publica las entidades de Data Factory, se crea un archivo ZIP automáticamente y se carga en el contenedor de blobs: customactivitycontainer. Si no existe el contenedor de blobs, también se crea automáticamente.  
+
+
+## <a name="data-factory-and-batch-integration"></a>Integración de Data Factory y Lote
 El servicio Data Factory crea un trabajo en Azure Batch con el nombre **adf-poolname: job-xxx**. Haga clic en **Trabajos** en el menú izquierdo. 
 
 ![Data Factory de Azure: trabajos por lotes](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
@@ -880,7 +904,7 @@ En el **JSON de la canalización**, utilice el servicio vinculado de HDInsight (
 ```
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>Creación de una actividad personalizada mediante el SDK de .NET
-El código siguiente crea la factoría de datos desde el tutorial de este artículo mediante el SDK de .NET. Puede encontrar más detalles sobre cómo usar el SDK para crear mediante programación las canalizaciones en [este artículo](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+En el tutorial de este artículo, se crea una factoría de datos con una canalización que usa la actividad personalizada mediante Azure Portal. El código siguiente muestra cómo crear la factoría de datos con el SDK de .NET en su lugar. Puede encontrar más detalles sobre cómo usar el SDK para crear mediante programación las canalizaciones en el artículo [crear una canalización con la actividad de copia mediante la API de NET](data-factory-copy-activity-tutorial-using-dotnet-api.md). 
 
 ```csharp
 using System;
@@ -1119,8 +1143,11 @@ namespace DataFactoryAPITestApp
 }
 ```
 
+## <a name="debug-custom-activity-in-visual-studio"></a>Depurar una actividad personalizada en Visual Studio
+El ejemplo de [Azure Data Factory: entorno local](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) en GitHub incluye una herramienta que permite depurar actividades personalizadas de .NET en Visual Studio.  
 
-## <a name="examples"></a>Ejemplos
+
+## <a name="sample-custom-activities-on-github"></a>Actividades personalizadas de ejemplo en GitHub
 | Muestra | Qué hace la actividad personalizada |
 | --- | --- |
 | [Descargador de datos HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Descarga datos de un punto de conexión HTTP a Almacenamiento de blobs de Azure a través de una actividad personalizada de C# en Data Factory. |
@@ -1128,8 +1155,6 @@ namespace DataFactoryAPITestApp
 | [Ejecutar script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Invoca el script de R; para ello, ejecuta RScript.exe en el clúster de HDInsight que ya tiene instalado R. |
 | [Actividad .NET entre AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Utiliza otras versiones de ensamblado que las utilizadas por el iniciador de Data Factory. |
 | [Reproceso de un modelo en Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Reprocesa un modelo en Azure Analysis Services. |
-| [Depura localmente la actividad personalizada](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFCustomActivityRunner) | El ejecutor de la actividad personalizada le permite entrar y depurar las actividades .NET personalizadas de Azure Data Factory (ADF) mediante la información configurada en la canalización. | 
-
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../batch/batch-account-create-portal.md

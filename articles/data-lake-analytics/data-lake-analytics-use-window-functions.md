@@ -3,8 +3,8 @@ title: Uso de funciones de ventana de U-SQL para trabajos de Azure Data Lake Ana
 description: 'Aprenda a usar las funciones de ventana de U-SQL. '
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: a5e14b32-d5eb-4f4b-9258-e257359f9988
 ms.service: data-lake-analytics
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data`
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 5137ccfd2c809fe17cc7fdf06941ebd797288d81
-ms.openlocfilehash: 7afbd2de08b5702371ef7dc8676fcd8d75d5e7fd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 55d19a00198f1943a8196d31399c617397b4e5d2
+ms.contentlocale: es-es
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -25,110 +27,65 @@ Las funciones de ventana se introdujeron en el estándar SQL de ISO/ANSI en 2003
 
 Las funciones de ventana se usan para realizar cálculos dentro de conjuntos de filas denominados *ventanas*. Las ventanas se definen mediante la cláusula OVER. Las funciones de ventana resuelven algunos escenarios clave de manera muy eficaz.
 
-En esta guía de aprendizaje, se usan dos conjuntos de datos de ejemplo para guiarlo por escenarios de ejemplo donde puede aplicar funciones de ventana. Para obtener más información, consulte [Referencia sobre el lenguaje U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
-
 Las funciones de ventana se dividen en las siguientes categorías: 
 
 * [Funciones de agregación de informes](#reporting-aggregation-functions), como SUM o AVG
 * [Funciones de categoría](#ranking-functions), por ejemplo, DENSE_RANK, ROW_NUMBER, NTILE y RANK
 * [Funciones analíticas](#analytic-functions), como distribución acumulativa o percentiles, acceso a los datos de una fila anterior en el mismo conjunto de resultados sin usar una autocombinación
 
-**Requisitos previos:**
-
-* Realice estos dos tutoriales:
-  
-  * [Introducción al uso de Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-  * [Tutorial: Introducción al uso de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-* Cree una cuenta de Análisis de Data Lake como se indica en la [introducción al uso de Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* Cree un proyecto de U-SQL de Visual Studio como se indica en [Tutorial: Introducción al uso de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-
 ## <a name="sample-datasets"></a>Conjuntos de datos de ejemplo
 En este tutorial, se usan dos conjuntos de datos:
 
-* QueryLog 
+### <a name="the-querylog-sample-dataset"></a>El conjunto de datos de ejemplo QueryLog.
   
-    QueryLog representa una lista de lo que se buscó en el motor de búsqueda. Cada registro de consultas incluye:
+QueryLog representa una lista de lo que se buscó en el motor de búsqueda. Cada registro de consultas incluye:
   
-    - Consulta: lo que el usuario estaba buscando.
-    - Latencia: la rapidez con que la consulta llega al usuario en milisegundos.
-    - Vertical: el tipo de contenido en el que está interesado el usuario (vínculos web, imágenes y vídeos).
-  
-    Copie y pegue el script siguiente en el proyecto de U-SQL para construir el conjunto de filas de QueryLog:
-  
-    ```
-    @querylog = 
-        SELECT * FROM ( VALUES
-            ("Banana"  , 300, "Image" ),
-            ("Cherry"  , 300, "Image" ),
-            ("Durian"  , 500, "Image" ),
-            ("Apple"   , 100, "Web"   ),
-            ("Fig"     , 200, "Web"   ),
-            ("Papaya"  , 200, "Web"   ),
-            ("Avocado" , 300, "Web"   ),
-            ("Cherry"  , 400, "Web"   ),
-            ("Durian"  , 500, "Web"   ) )
-        AS T(Query,Latency,Vertical);
-    ```
+* Consulta: lo que el usuario buscaba.
+* Latencia: la rapidez con que la consulta volvió al usuario en milisegundos.
+* Vertical: el tipo de contenido en el que está interesado el usuario (vínculos web, imágenes y vídeos).  
+ 
+```
+@querylog = 
+    SELECT * FROM ( VALUES
+        ("Banana"  , 300, "Image" ),
+        ("Cherry"  , 300, "Image" ),
+        ("Durian"  , 500, "Image" ),
+        ("Apple"   , 100, "Web"   ),
+        ("Fig"     , 200, "Web"   ),
+        ("Papaya"  , 200, "Web"   ),
+        ("Avocado" , 300, "Web"   ),
+        ("Cherry"  , 400, "Web"   ),
+        ("Durian"  , 500, "Web"   ) )
+    AS T(Query,Latency,Vertical);
+```
 
-    En la práctica, normalmente los datos se almacenen en un archivo. Puede obtener acceso a los datos en un archivo delimitado por tabulaciones con el siguiente código: 
+## <a name="the-employees-sample-dataset"></a>El conjunto de datos de ejemplo Employees
   
-    ```
-    @querylog = 
-    EXTRACT 
-        Query    string, 
-        Latency  int, 
-        Vertical string
-    FROM "/Samples/QueryLog.tsv"
-    USING Extractors.Tsv();
-    ```
-* Employees
+El conjunto de datos Employees incluye los campos siguientes:
   
-    El conjunto de datos Employees incluye los campos siguientes:
-  
-        - EmpID - Employee ID.
-        - EmpName  Employee name.
-        - DeptName - Department name. 
-        - DeptID - Deparment ID.
-        - Salary - Employee salary.
-  
-    Copie y pegue el script siguiente en el proyecto de U-SQL para construir el conjunto de filas de Employees:
-  
-        @employees = 
-            SELECT * FROM ( VALUES
-                (1, "Noah",   "Engineering", 100, 10000),
-                (2, "Sophia", "Engineering", 100, 20000),
-                (3, "Liam",   "Engineering", 100, 30000),
-                (4, "Emma",   "HR",          200, 10000),
-                (5, "Jacob",  "HR",          200, 10000),
-                (6, "Olivia", "HR",          200, 10000),
-                (7, "Mason",  "Executive",   300, 50000),
-                (8, "Ava",    "Marketing",   400, 15000),
-                (9, "Ethan",  "Marketing",   400, 10000) )
-            AS T(EmpID, EmpName, DeptName, DeptID, Salary);
-  
-    La instrucción siguiente muestra cómo crear el conjunto de filas mediante la extracción de un archivo de datos.
-  
-        @employees = 
-        EXTRACT 
-            EmpID    int, 
-            EmpName  string, 
-            DeptName string, 
-            DeptID   int, 
-            Salary   int
-        FROM "/Samples/Employees.tsv"
-        USING Extractors.Tsv();
+* EmpID: el id. del empleado
+* EmpName: el nombre del empleado
+* DeptName: el nombre del departamento 
+* DeptID: el id. del departamento
+* Salary: el sueldo del empleado
 
-Cuando pruebe los ejemplos en el tutorial, debe incluir las definiciones de conjuntos de filas. U-SQL requiere que se definan solamente los conjuntos de filas que se usan. Algunos ejemplos solo necesitan un conjunto de filas.
-
-Agregue la siguiente instrucción para que el conjunto de filas de resultados se incluya en un archivo de datos:
-
-    OUTPUT @result TO "/wfresult.csv" 
-        USING Outputters.Csv();
-
- La mayoría de los ejemplos usan la variable llamada **@result** para los resultados.
+```
+@employees = 
+    SELECT * FROM ( VALUES
+        (1, "Noah",   "Engineering", 100, 10000),
+        (2, "Sophia", "Engineering", 100, 20000),
+        (3, "Liam",   "Engineering", 100, 30000),
+        (4, "Emma",   "HR",          200, 10000),
+        (5, "Jacob",  "HR",          200, 10000),
+        (6, "Olivia", "HR",          200, 10000),
+        (7, "Mason",  "Executive",   300, 50000),
+        (8, "Ava",    "Marketing",   400, 15000),
+        (9, "Ethan",  "Marketing",   400, 10000) )
+    AS T(EmpID, EmpName, DeptName, DeptID, Salary);
+```  
 
 ## <a name="compare-window-functions-to-grouping"></a>Comparación de las funciones de ventana con la agrupación
-Las ventanas y la agrupación están relacionadas conceptualmente, pero son diferentes. Resulta útil comprender esta relación.
+Las funciones de ventana y agrupación están relacionadas desde un punto de vista conceptual. Resulta útil comprender esta relación.
 
 ### <a name="use-aggregation-and-grouping"></a>Uso de agregación y agrupación
 En la consulta siguiente, se usa una agregación para calcular el salario total de todos los empleados:
@@ -138,21 +95,12 @@ En la consulta siguiente, se usa una agregación para calcular el salario total 
             SUM(Salary) AS TotalSalary
         FROM @employees;
 
-> [!NOTE]
-> Para obtener instrucciones para probar y comprobar los resultados, consulte [Tutorial: Introducción al uso de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-> 
-> 
-
 El resultado es una sola fila y una sola columna. 165 000 USD es la suma del valor de Salary de toda la tabla. 
 
 | TotalSalary |
 | --- |
 | 165000 |
 
-> [!NOTE]
-> Si desconoce las funciones de ventana, resulta útil recordar los números en los resultados.  
-> 
-> 
 
 La instrucción siguiente usa la cláusula GROUP BY para calcular el salario total para cada departamento:
 
@@ -170,12 +118,12 @@ Los resultados son:
 | Ejecutivo |50000 |
 | Marketing |25000 |
 
-La suma de la columna SalaryByDept es&16500;0 USD, que coincide con la cifra en el último script.
+La suma de la columna SalaryByDept es 165000 USD, que coincide con la cifra en el último script.
 
 En ambos casos, hay menos filas de salida que de entrada:
 
 * Sin GROUP BY, la agregación contrae todas las filas en una sola. 
-* Con GROUP BY, hay N filas de salida, donde N es el número de valores distintos que aparecen en los datos.  En este caso, obtendrá&4; filas en la salida.
+* Con GROUP BY, hay N filas de salida, donde N es el número de valores distintos que aparecen en los datos.  En este caso, obtendrá 4 filas en la salida.
 
 ### <a name="use-a-window-function"></a>Uso de una función de ventana
 La cláusula OVER en el ejemplo siguiente está vacía, por lo que la ventana incluye todas las filas. La suma (SUM) en este ejemplo se aplica a la cláusula OVER a la que precede.
@@ -316,8 +264,6 @@ Los resultados son:
 | 8 |Ava |Marketing |400 |15000 |10000 |
 | 9 |Ethan |Marketing |400 |10000 |10000 |
 
-Para ver el salario más alto de cada departamento, reemplace MIN por MAX y vuelva a ejecutar la consulta.
-
 ## <a name="ranking-functions"></a>Funciones de categoría
 Las funciones de categoría devuelven un valor de categoría (LONG) para cada fila de cada partición definida mediante las cláusulas PARTITION BY y OVER. El orden de categorías se controla con la cláusula ORDER BY en la cláusula OVER.
 
@@ -422,12 +368,15 @@ Los resultados son:
 NTILE toma un parámetro ("numgroups"). Numgroups es una expresión constante int o long positiva que especifica el número de grupos en los que se debe dividir cada partición. 
 
 * Si el número de filas de la partición es divisible por numgroups, los grupos tendrán el mismo tamaño. 
-* Si el número de filas de una partición no es divisible por numgroups, los grupos tendrán dos tamaños que diferirán en un miembro. Los grupos de mayor tamaño preceden a los más pequeños en el orden especificado por la cláusula OVER. 
+* Si el número de filas de una partición no es divisible por numgroups, los grupos tendrán tamaños ligeramente diferentes. Los grupos de mayor tamaño preceden a los más pequeños en el orden especificado por la cláusula OVER. 
 
 Por ejemplo:
 
-* 100 filas se dividen en 4 grupos: [25, 25, 25, 25]
-* 102 filas se dividen en 4 grupos: [26, 26, 25, 25]
+    100 rows divided into 4 groups: 
+    [ 25, 25, 25, 25 ]
+
+    102 rows divided into 4 groups: 
+    [ 26, 26, 25, 25 ]
 
 ### <a name="top-n-records-per-partition-via-rank-denserank-or-rownumber"></a>N registros principales por partición mediante RANK, DENSE_RANK o ROW_NUMBER
 Muchos usuarios desean seleccionar solo n filas SUPERIORES por grupo, algo que no se puede hacer con la cláusula GROUP BY tradicional. 
@@ -549,7 +498,12 @@ Las funciones analíticas se usan para comprender las distribuciones de valores 
 * PERCENTILE_DISC
 
 ### <a name="cumedist"></a>CUME_DIST
-CUME_DIST calcula la posición relativa de un valor especificado en un grupo de valores. Calcula el porcentaje de consultas que tienen una latencia inferior o igual a la latencia de la consulta actual en la misma vertical. CUME_DIST para una fila R, suponiendo que el orden sea ascendente, es el número de filas con valores inferiores o iguales al valor de R, dividido por el número de filas que se evalúan en la partición. CUME_DIST devuelve números en el intervalo 0 < x < = 1.
+
+CUME_DIST calcula la posición relativa de un valor especificado en un grupo de valores. Calcula el porcentaje de consultas que tienen una latencia inferior o igual a la latencia de la consulta actual en la misma vertical. 
+
+CUME_DIST para una fila R, suponiendo que el orden sea ascendente, es el número de filas con valores inferiores o iguales al valor de R, dividido por el número de filas que se evalúan en la partición. 
+
+CUME_DIST devuelve números en el intervalo 0 < x < = 1.
 
 **Sintaxis:**
 
@@ -581,7 +535,7 @@ Los resultados son:
 | Papaya |200 |Web |0,5 |
 | Apple |100 |Web |0.166666666666667 |
 
-Hay seis filas en la partición donde la clave de partición es "Web" (de la cuarta fila en adelante):
+Hay seis filas en la partición donde la clave de partición es "Web"
 
 * Hay seis filas con un valor inferior o igual a 500, por lo que la CUME_DIST es igual a 6/6=1
 * Hay cinco filas con un valor inferior o igual a 400, por lo que la CUME_DIST es igual a 5/6=0,83
@@ -653,16 +607,20 @@ Estas dos funciones calculan un percentil basándose en una distribución contin
 
 **numeric_literal**: el percentil que se va a calcular. El valor debe estar entre 0.0 y 1.0.
 
-WITHIN GROUP ( ORDER BY <identifier> [ ASC | DESC ]): especifica una lista de valores numéricos para ordenarlos y calcular el percentil a partir de ellos. Solamente se permite un identificador de columna. La expresión debe evaluarse como un tipo numérico. No se permiten otros tipos de datos. El criterio de ordenación predeterminado es ascendente.
+    WITHIN GROUP (ORDER BY <identifier> [ ASC | DESC ])
 
-OVER ([ PARTITION BY <identifier,>…[n] ] ): divide el conjunto de filas de entrada en particiones según la clave de partición a la que se aplica la función de percentil. Para obtener más información, consulte la sección de este documento sobre funciones de categoría.
+Especifica una lista de valores numéricos para ordenar y calcular el percentil. Solamente se permite un identificador de columna. La expresión debe evaluarse como un tipo numérico. No se permiten otros tipos de datos. El criterio de ordenación predeterminado es ascendente.
+
+    OVER ([ PARTITION BY <identifier,>…[n] ] )
+
+Divide el conjunto de filas de entrada en particiones según la clave de partición a la que se aplica la función percentil. Para obtener más información, consulte la sección de este documento sobre funciones de categoría.
 Nota: se pasan por alto los valores NULL del conjunto de datos.
 
 **PERCENTILE_CONT**: calcula un percentil basándose en una distribución continua del valor de columna. El resultado se interpola y es posible que no coincida con ninguno de los valores específicos de la columna. 
 
 **PERCENTILE_DISC**: calcula el percentil basándose en una distribución discreta de los valores de columna. El resultado es igual a un valor específico de la columna. Es decir, PERCENTILE_DISC, en contraste con PERCENTILE_CONT, siempre devuelve un valor real (entrada original).
 
-Puede ver cómo funcionan ambas en el ejemplo siguiente, que intenta encontrar la mediana (percentil =&0;,50) para Latency en cada vertical.
+Puede ver cómo funcionan ambas en el ejemplo siguiente, que intenta encontrar la mediana (percentil = 0,50) para Latency en cada vertical.
 
     @result = 
         SELECT 
@@ -696,20 +654,9 @@ Para PERCENTILE_CONT, dado que los valores se pueden interpolar, la mediana para
 PERCENTILE_DISC no interpola valores, por lo que la mediana de Web es 200, que es un valor que se encuentra en las filas de entrada.
 
 ## <a name="see-also"></a>Consulte también
-* [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Introducción a Data Lake Analytics mediante el portal de Azure](data-lake-analytics-get-started-portal.md)
-* [Introducción a Análisis de Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso de tutoriales interactivos de Análisis de Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
-* [Análisis de registros de sitios web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 * [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-* [Administración de Azure Data Lake Analytics con Azure Portal](data-lake-analytics-manage-use-portal.md)
-* [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-manage-use-powershell.md)
-* [Supervisión y solución de problemas de trabajos de Azure Data Lake Analytics con Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

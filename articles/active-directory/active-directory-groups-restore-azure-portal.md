@@ -1,5 +1,6 @@
 ---
-title: "Restauración de un grupo eliminado de Office 365 en la versión preliminar de Azure Active Directory | Microsoft Docs"
+
+title: "Restauración de un grupo eliminado de Office 365 en Azure Active Directory | Microsoft Docs"
 description: "Restauración de un grupo eliminado, visualización de grupos restaurables y eliminación permanente de un grupo en Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,19 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4e2fe22953ff74214c0c20fdf2fabceeda63be35
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 473f3e464324cc2667428485235e3b942c736382
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Restauración de un grupo eliminado de Office 365 en Azure Active Directory
 
-Cuando elimina un grupo de Office 365 en la versión preliminar de Azure Active Directory (Azure AD), el grupo eliminado queda retenido pero no visible durante 30 días a contar de la fecha de eliminación. Esto es así para que el grupo y su contenido se puedan restaurar en caso de ser necesario. Esta funcionalidad está restringida exclusivamente a los grupos de Office 365 en Azure AD. No está disponible para los grupos de seguridad ni los grupos de distribución.
+Cuando se elimina un grupo de Office 365 en Azure Active Directory (Azure AD), el grupo eliminado queda retenido y deja de estar visible durante 30 días a contar desde la fecha de eliminación. Esto es así para que el grupo y su contenido se puedan restaurar en caso de ser necesario. Esta funcionalidad está restringida exclusivamente a los grupos de Office 365 en Azure AD. No está disponible para los grupos de seguridad ni los grupos de distribución.
 
 Los permisos necesarios para restaurar un grupo pueden ser cualquiera de los siguientes:
 
@@ -36,8 +38,7 @@ Usuario | Puede restaurar cualquier grupo eliminado de Office 365 de su propieda
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Visualización de grupos eliminados de Office 365 disponibles para restauración
-Los cmdlets siguientes se pueden usar para ver los grupos eliminados y comprobar que todavía no se purgaron los que le interesan. Los cmdlets forman parte del [módulo de versión preliminar de Azure Active Directory PowerShell v2](https://www.powershellgallery.com/packages/AzureADPreview). Puede encontrar más información sobre este módulo en el artículo sobre la [versión 2 de Azure Active Directory PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
-Tenga en cuenta que los cmdlets de gestión de la eliminación temporal y la recuperación de software se encuentran en su fase de versión preliminar pública, por lo que, en ocasiones, tenemos que aplicarles cambios drásticos. Por este motivo, se desaconseja el uso de estos cmdlets en un entorno de producción.
+Los cmdlets siguientes se pueden usar para ver los grupos eliminados y comprobar que todavía no se purgaron los que le interesan. Estos cmdlets son parte del [módulo de Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/). Puede encontrar más información sobre este módulo en el artículo sobre la [versión 2 de Azure Active Directory PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 1.    Ejecute el cmdlet siguiente para mostrar todos los grupos eliminados de Office 365 existentes en el inquilino que todavía se pueden restaurar.
   ```

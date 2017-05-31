@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: dc2111a34fa0292a21510bbd84089979faf1cb71
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 7aa4c9120d44ff1b3e59a57090ea04e3f8021fc4
+ms.contentlocale: es-es
+ms.lasthandoff: 05/08/2017
 
 ---
 
@@ -34,7 +35,7 @@ Un patrón del método de enrutamiento del tráfico es proporcionar un conjunto 
 2. En la barra de búsqueda del Portal, busque los **perfiles de Traffic Manager** y, luego, haga clic en el nombre del perfil para el que desea configurar el método de enrutamiento.
 3. En la hoja **Perfil de Traffic Manager**, compruebe que existen los servicios en la nube y los sitios web que desea incluir en la configuración.
 4. En la sección **Configuración**, haga clic en **Configuración** y, en la hoja **Configuración**, proceda de la siguiente forma:
-    1. En **Configuración del método de enrutamiento del tráfico**, compruebe que dicho método sea **Conmutación por error**. De no ser así, haga clic en **Conmutación por error** en la lista desplegable.
+    1. En **Configuración del método de enrutamiento del tráfico**, compruebe que dicho método sea **Ponderado**. De no ser así, haga clic en **Ponderado** en la lista desplegable.
     2. Establezca la misma **configuración de supervisión de puntos de conexión** para todos los puntos de conexión dentro de este perfil de esta forma:
         1. Seleccione el **protocolo** adecuado y especifique el número de **puerto**. 
         2. En el tipo de **ruta de acceso**, escriba una barra diagonal */*. Para supervisar los puntos de conexión, debe especificar una ruta de acceso y un nombre de archivo. Una barra diagonal "/" es una entrada válida para la ruta de acceso relativa e implica que el archivo se encuentra en el directorio raíz (valor predeterminado).

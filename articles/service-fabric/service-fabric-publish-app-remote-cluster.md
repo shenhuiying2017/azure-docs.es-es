@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 4ee53679ca6f42f2181e6552fce89c18f289a116
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: c440c520d84fc503ff9e705555449e92555d4721
+ms.contentlocale: es-es
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="publish-an-application-to-a-remote-cluster-by-using-visual-studio"></a>Publicación de una aplicación en un clúster remoto con Visual Studio
+# <a name="deploy-and-remove-applications-using-visual-studio"></a>Implementación y eliminación de aplicaciones con Visual Studio
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -44,18 +45,16 @@ Una carpeta en el proyecto de aplicación de Service Fabric llamada **PublishPro
 * Ruta de acceso a un archivo de parámetros de aplicación
 * Configuración de actualización
 
-De forma predeterminada, la aplicación incluirá dos perfiles de publicación: Local.xml y Cloud.xml. Para agregar más perfiles, copie y pegue uno de los archivos predeterminados.
+De forma predeterminada, la aplicación incluirá tres perfiles de publicación: Local.1Node.xml, Local.5Node.xml y Cloud.xml. Para agregar más perfiles, copie y pegue uno de los archivos predeterminados.
 
 ### <a name="application-parameter-files"></a>Archivos de parámetros de la aplicación
 Una carpeta del proyecto de aplicación de Service Fabric denominada **ApplicationParameters** contiene archivos XML para los valores de los parámetros de manifiesto de aplicación especificados por el usuario. Los archivos de manifiesto de la aplicación pueden tener parámetros para que se puedan usar otros valores para la configuración de implementación. Para más información acerca de la parametrización de aplicaciones, consulte [Administración de los parámetros de la aplicación en varios entornos](service-fabric-manage-multiple-environment-app-configuration.md).
 
 > [!NOTE]
 > Para los servicios de actor, debe compilar el proyecto antes de intentar modificar el archivo en un editor o con el cuadro de diálogo Publicar. Esto se debe a que parte de los archivos de manifiesto se generará durante la compilación.
-> 
-> 
 
-## <a name="to-publish-an-application-by-using-the-publish-service-fabric-application-dialog-box"></a>Publicación de una aplicación desde el cuadro de diálogo Publicar aplicación de Service Fabric
-En los pasos siguientes se muestra cómo publicar una aplicación con el cuadro de diálogo **Publicación de la aplicación de Service Fabric** que proporcionan las herramientas de Service Fabric de Visual Studio.
+## <a name="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box"></a>Para publicar una aplicación mediante el cuadro de diálogo Publicación de la aplicación de Service Fabric, siga estos pasos:
+En los pasos siguientes se muestra cómo publicar una aplicación con el cuadro de diálogo **Publicación de la aplicación de Service Fabric** que proporciona las herramientas de Service Fabric de Visual Studio.
 
 1. En el menú contextual del proyecto de aplicación de Service Fabric, elija **Publicar...** para el cuadro de diálogo **Publicación de la aplicación de Service Fabric**.
    
@@ -78,7 +77,7 @@ En los pasos siguientes se muestra cómo publicar una aplicación con el cuadro 
    
     ![Cuadro de diálogo **Editar parámetros**][2]
 4. Use la casilla **Actualizar la aplicación** para especificar si la acción de publicación es una actualización. Las acciones de publicación de actualización difieren de las acciones de publicación habituales. Consulte [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md) para ver una lista de las diferencias. Para configurar las opciones de actualización, elija el vínculo **Configurar opciones de actualización** . Se muestra el editor de parámetros de actualización. Para más información sobre los parámetros de actualización, consulte [Configuración de la actualización de una aplicación de Service Fabric en Visual Studio](service-fabric-visualstudio-configure-upgrade.md) .
-5. Elija el botón **Versiones de manifiesto...**** para ver el cuadro de diálogo **Edición de versiones**. Debe actualizar la aplicación y las versiones de servicio para que tenga lugar la actualización. Para saber cómo afectan las versiones de la aplicación y del manifiesto de servicio a un proceso de actualización, consulte [Tutorial sobre la actualización de aplicaciones de Service Fabric con Visual Studio](service-fabric-application-upgrade-tutorial.md) .
+5. Elija el botón **Versiones de manifiesto...** para ver el cuadro de diálogo **Edición de versiones**. Debe actualizar la aplicación y las versiones de servicio para que tenga lugar la actualización. Para saber cómo afectan las versiones de la aplicación y del manifiesto de servicio a un proceso de actualización, consulte [Tutorial sobre la actualización de aplicaciones de Service Fabric con Visual Studio](service-fabric-application-upgrade-tutorial.md) .
    
     ![Cuadro de diálogo **Edición de versiones**][3]
    
@@ -91,7 +90,7 @@ En los pasos siguientes se muestra cómo publicar una aplicación con el cuadro 
 6. Cuando haya terminado de especificar todos los valores necesarios, elija el botón **Publicar** para publicar su aplicación en el clúster de Service Fabric seleccionado. La configuración especificada se aplica al proceso de publicación.
 
 ## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>Publicación en un punto de conexión de clúster arbitrario (incluidos los clústeres de Party Cluster)
-En Visual Studio, la publicación se ha optimizado y ahora es posible publicar en clústeres remotos asociados a una suscripción de Azure. Sin embargo, es posible publicar en puntos de conexión arbitrarios (como clústeres de Party Cluster de Service Fabric) editando directamente el archivo XML del perfil de publicación. Como ya se indicó, de manera predeterminada se proporcionan dos perfiles de publicación, **Local.xml** y **Cloud.xml**, pero se pueden crear perfiles adicionales para diferentes entornos. Por ejemplo, se puede crear un perfil para publicar en party clusters, al que se podría denominar **Party.xml**.
+En Visual Studio, la publicación se ha optimizado y ahora es posible publicar en clústeres remotos asociados a una suscripción de Azure. Sin embargo, es posible publicar en puntos de conexión arbitrarios (como clústeres de Party Cluster de Service Fabric) editando directamente el archivo XML del perfil de publicación. Como ya se indicó, de manera predeterminada se proporcionan dos perfiles de publicación: **Local.1Node.xml**, **Local.5Node.xml** y **Cloud.xml**, peor puede crear perfiles adicionales para diferentes entornos. Por ejemplo, se puede crear un perfil para publicar en party clusters, al que se podría denominar **Party.xml**.
 
 Si se va a conectar a un clúster no protegido, lo único que hace falta es el punto de conexión del clúster, como `partycluster1.eastus.cloudapp.azure.com:19000`. En ese caso, el punto de conexión del perfil de publicación sería similar al siguiente:
 

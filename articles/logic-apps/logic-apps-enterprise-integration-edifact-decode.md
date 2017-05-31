@@ -1,6 +1,6 @@
 ---
 title: "Descodificación de mensajes EDIFACT: Azure Logic Apps | Microsoft Docs"
-description: Valide EDI y genere XML para conjuntos de transacciones con el descodificador de mensajes EDIFACT en Enterprise Integration Pack para Azure Logic Apps
+description: Valide EDI y genere confirmaciones con el descodificador de mensajes EDIFACT en Enterprise Integration Pack para Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -13,18 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 176963837f4f3fc8b89e31000ef8722ef3258b11
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 39d9661adc90e6113e2152d844473f9f4caa755a
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
 
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificación de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
 
-Con el conector de descodificación de mensajes EDIFACT, puede validar propiedades EDI y específicas de asociados, generar un documento XML para cada conjunto de transacciones y originar la confirmación de las transacciones procesadas. Para usar este conector, debe agregarlo a un desencadenador existente en la aplicación lógica.
+Con el conector de descodificación de mensajes EDIFACT, puede validar propiedades EDI y específicas de asociados, dividir intercambios en transacciones o conservar intercambios completos y originar la confirmación de las transacciones procesadas. Para usar este conector, debe agregarlo a un desencadenador existente en la aplicación lógica.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -72,12 +73,12 @@ Esto es lo que necesita:
 
 El conector de descodificación EDIFACT lleva a cabo estas tareas: 
 
+* Valida el sobre con el acuerdo entre socios comerciales.
 * Resuelve el acuerdo, para lo que hace coincidir el calificador e identificador del remitente con el calificador e identificador del receptor.
-* Divide varios intercambios de un único mensaje en intercambios independientes.
-* Valida el sobre con el acuerdo de socio comercial.
+* Divide un intercambio en varias transacciones cuando el intercambio tiene más de una transacción que se basa en la configuración de recepción del acuerdo.
 * Desensambla el intercambio.
-* Valida las propiedades de EDI y específicas del partner, lo que incluye
-  * Validación de la estructura del sobre de intercambio.
+* Valida las propiedades de EDI y específicas del asociado, lo que incluye:
+  * Validación de la estructura del sobre de intercambio
   * Validación del esquema del sobre con respecto al esquema de control
   * Validación del esquema de los elementos de datos del conjunto de transacciones con respecto al esquema de mensaje
   * Validación de EDI realizada en los elementos de datos del conjunto de transacciones
@@ -85,15 +86,21 @@ El conector de descodificación EDIFACT lleva a cabo estas tareas:
   * Comprueba el número de control del intercambio con los intercambios recibidos anteriormente. 
   * Comprueba el número de control del grupo en relación con otros números de control de grupo en el intercambio. 
   * Comprueba el número de control del conjunto de transacciones con otros números de control del conjunto de transacciones de dicho grupo.
-* Genera un documento XML para cada conjunto de transacciones.
-* Convierte todo el intercambio a XML. 
-  * Dividir intercambio como conjuntos de transacciones (suspender conjuntos de transacciones en caso de error): analiza todos los conjuntos de transacciones de un intercambio en un documento XML independiente. Si uno o varios conjuntos de transacciones del intercambio no superan la validación, EDIFACT Decode suspende solo esos conjuntos de transacciones. 
-  * Dividir intercambio como conjuntos de transacciones (suspender intercambio en caso de error): analiza todos los conjuntos de transacciones de un intercambio en un documento XML independiente.  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, EDIFACT Decode suspende todo el intercambio.
-  * Conservar intercambio (suspender conjuntos de transacciones en caso de error): crea un documento XML para todo el intercambio por lotes. EDIFACT Decode suspende solo los conjuntos de transacciones que no superan la validación, pero no deja de procesar los restantes conjuntos de transacciones.
-  * Conservar intercambio (suspender intercambio en caso de error): crea un documento XML para todo el intercambio por lotes. Si uno o varios conjuntos de transacciones del intercambio no superan la validación, EDIFACT Decode suspende todo el intercambio. 
+* Divide el intercambio en conjuntos de transacciones o conserva todo el intercambio:
+  * Divide el intercambio como conjuntos de transacciones (suspende conjuntos de transacciones en caso de error): divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
+  La acción X12 Decode solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
+  * Divide el intercambio como conjuntos de transacciones (suspende el intercambio en caso de error): divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
+  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción X12 Decode establece todos los conjuntos de transacciones del intercambio en `badMessages`.
+  * Conserva el intercambio (suspende conjuntos de transacciones en caso de error): conserva el intercambio y procesa todo el intercambio por lotes. 
+  La acción X12 Decode solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
+  * Conserva el intercambio (suspende el intercambio en caso de error): conserva el intercambio y procesa todo el intercambio por lotes. 
+  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción X12 Decode establece todos los conjuntos de transacciones del intercambio en `badMessages`.
 * Genera una confirmación técnica (control) o funcional (si esta opción está configurada).
   * Una confirmación técnica o ACK CONTRL informa de los resultados de una comprobación sintáctica de todo el intercambio recibido.
   * Una confirmación funcional confirma la aceptación o el rechazo de un intercambio recibido o un grupo
+
+## <a name="view-swagger-file"></a>Ver el archivo de Swagger
+Para ver los detalles de Swagger para el conector EDIFACT, consulte [EDIFACT](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") 

@@ -15,10 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: aca0e4cfdcfb3e3ed2e69ad8153b4c965b299806
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cb2d789a53ee2fa16db8d2553086a18043d4976e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 
@@ -161,7 +162,7 @@ Crear una tabla externa es fácil, pero hay algunos matices que deben tratarse.
 La carga de datos con PolyBase está fuertemente tipada. Esto significa que cada fila de los datos que se van a ingerir debe satisfacer la definición de esquema de tabla.
 Si una fila determinada no coincide con la definición de esquema, se rechaza la fila de la carga.
 
-El tipo de rechazo y el valor de rechazo le permiten definir el número de filas o el porcentaje de datos que debe estar presente en la tabla final.
+Las opciones REJECT_TYPE y REJECT_VALUE le permiten definir cuántas filas o qué porcentaje de los datos deben estar presentes en la tabla final.
 Durante la carga, si se alcanza el valor de rechazo, se produce un error en la carga. La causa más común de filas rechazadas es un error de coincidencia de la definición de esquema.
 Por ejemplo, si una columna especifica incorrectamente el esquema de int cuando los datos del archivo son una cadena, cada fila se producirá un error al cargar.
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: d47a28b31569d26a7752fc830989e8050153be46
-ms.lasthandoff: 05/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 2fad3e3fb88d447b377ccfce052035640c1360c3
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -37,8 +38,8 @@ La [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) es u
 ## <a name="azure-iot-device-sdks"></a>SDK de dispositivos IoT de Azure
 Hay _SDK de dispositivos_ disponibles para varios idiomas que permiten crear [aplicaciones para dispositivo](#device-app) que interactúan con un centro de IoT. Los tutoriales de IoT Hub muestran cómo se utilizan estos SDK de dispositivos. Puede encontrar el código fuente y más información sobre los SDK de dispositivos en este [repositorio](https://github.com/Azure/azure-iot-sdks) de GitHub.
 
-## <a name="azure-iot-gateway-sdk"></a>SDK de puerta de enlace IoT de Azure
-Este SDK se usa para escribir aplicaciones que permiten a dispositivos conectados a una puerta de enlace comunicarse con [IoT Hub](#iot-hub). Los tutoriales de puerta de enlace de IoT Hub muestran cómo se utiliza este SDK. Puede encontrar el código fuente y más información sobre el SDK de puerta de enlace de IoT de Azure en este [repositorio](https://github.com/Azure/azure-iot-gateway-sdk) de GitHub.
+## <a name="azure-iot-edge"></a>Azure IoT Edge
+IoT Edge se usa para escribir aplicaciones que permiten a dispositivos conectados a una puerta de enlace comunicarse con [IoT Hub](#iot-hub). Los tutoriales de IoT Hub muestran cómo se usa este servicio. Puede encontrar el código fuente y más información sobre Azure IoT Edge en este [repositorio](https://github.com/Azure/iot-edge) de GitHub.
 
 ## <a name="azure-iot-service-sdks"></a>SDK de servicios IoT de Azure
 Hay _SDK de servicios_ disponibles para varios idiomas que permiten crear [aplicaciones de back-end](#back-end-app) que interactúan con un centro de IoT. Los tutoriales de IoT Hub muestran cómo se utilizan estos SDK de servicios. Puede encontrar el código fuente y más información sobre los SDK de servicios en este [repositorio](https://github.com/Azure/azure-iot-sdks) de GitHub.
@@ -79,7 +80,7 @@ Las cadenas de conexión se usan en el código de aplicación a fin de encapsula
 Puede crear [puntos de conexión](iot-hub-devguide-endpoints.md) personalizados en una instancia de IoT Hub para enviar mensajes que distribuye una [regla de enrutamiento](#routing-rules). Los puntos de conexión personalizados se conectan directamente con una instancia de Event Hubs, una cola de Service Bus o un tema de Service Bus.
 
 ## <a name="custom-gateway"></a>Puerta de enlace personalizada
-Una puerta de enlace habilita la conectividad para dispositivos que no se pueden conectar directamente a [IoT Hub](#iot-hub). Puede usar el [SDK de puerta de enlace de IoT de Azure](#azure-iot-gateway-sdk) a fin de crear puertas de enlace personalizadas que implementan lógica personalizada para controlar mensajes y conversiones de protocolo personalizadas.
+Una puerta de enlace habilita la conectividad para dispositivos que no se pueden conectar directamente a [IoT Hub](#iot-hub). Puede usar [Azure IoT Edge](#azure-iot-gateway-sdk) con el fin de crear puertas de enlace personalizadas que implementan lógica personalizada para controlar mensajes, conversiones de protocolo personalizadas y otros procesos del nodo perimetral.
 
 ## <a name="data-point-message"></a>Mensaje de punto de datos
 Un mensaje de punto de datos es un mensaje [del dispositivo a la nube](#device-to-cloud) que contiene datos de [telemetría](#telemetry), como la velocidad del viento o la temperatura.
@@ -190,7 +191,7 @@ El back-end de solución puede utilizar [trabajos](iot-hub-devguide-jobs.md) par
 La [API de REST de trabajos](https://docs.microsoft.com/rest/api/iothub/jobapi) permite administrar [trabajos](#job) que se ejecutan en IoT Hub.
 
 ## <a name="module"></a>Módulo
-En el [SDK de puerta de enlace de IoT de Azure](iot-hub-linux-gateway-sdk-get-started.md), un [módulo](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) es un componente que realiza una tarea específica. Las tareas pueden incluir ingerir un mensaje desde un dispositivo, transformar o enviar un mensaje a un centro de IoT. Un agente es responsable de reenviar los mensajes entre los módulos. El SDK de puerta de enlace IoT de Azure incluye un conjunto de módulos de ejemplo. También se pueden crear módulos propios personalizados.
+En [Azure IoT Edge](iot-hub-linux-gateway-sdk-get-started.md), un [módulo](iot-hub-linux-gateway-sdk-get-started.md) es un componente que realiza una tarea específica. Las tareas pueden incluir ingerir un mensaje desde un dispositivo, transformar o enviar un mensaje a un centro de IoT. Un agente es responsable de reenviar los mensajes entre los módulos. Azure IoT Edge incluye un conjunto de módulos de ejemplo. También se pueden crear módulos propios personalizados.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) es uno de los protocolos de mensajería que admite [IoT Hub](#iot-hub) para la comunicación con dispositivos. Para obtener más información acerca de los protocolos de mensajería que admite IoT Hub, consulte [Enviar y recibir mensajes con IoT Hub](iot-hub-devguide-messaging.md).

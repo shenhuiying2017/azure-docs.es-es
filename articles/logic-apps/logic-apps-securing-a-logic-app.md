@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 86c293e735f766dbacc7d0b83574f254573d0de8
-ms.openlocfilehash: 3f119409e031ca2b88694a011916f52aa9ef5d36
-ms.lasthandoff: 02/15/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: ac52924d928b293f4b1b58f0c25375f890c51837
+ms.contentlocale: es-es
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -264,7 +265,7 @@ Las aplicaciones lógicas proporcionan integración con varios servicios para of
 
 #### <a name="on-premises-data-gateway"></a>Puerta de enlace de datos local
 
-Muchos de los conectores administrados desde las aplicaciones lógicas proporcionan conectividad segura a sistemas locales, como el sistema de archivos, SQL, SharePoint o DB2, entre otros.  La puerta de enlace usa los canales cifrados a través de Azure Service Bus para la retransmisión de datos locales, y todo el tráfico se origina desde el tráfico saliente seguro del agente de puerta de enlace.  Para más detalles sobre el funcionamiento de la puerta de enlace, consulte [este artículo](logic-apps-gateway-install.md#how-the-gateway-works).
+Muchos de los conectores administrados de las aplicaciones lógicas proporcionan conectividad segura a sistemas locales, como el sistema de archivos, SQL, SharePoint o DB2, entre otros. La puerta de enlace retransmite datos desde orígenes locales en canales cifrados hasta Azure Service Bus. Todo el tráfico se origina como tráfico de salida seguro desde el agente de puerta de enlace. Más información sobre [cómo funciona la puerta de enlace de datos](logic-apps-gateway-install.md#gateway-cloud-service).
 
 #### <a name="azure-api-management"></a>Administración de API de Azure
 

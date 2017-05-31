@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 05/16/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 0637fb4d7c6cb8c3cfd4aab5d06571bd83f59683
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 183cb2ad4f2a80f9a0e1e7a33f1cacae006c0df4
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -113,7 +114,7 @@ De forma predeterminada, Data Factory usa una única DMU para realizar una únic
 Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 1 (predeterminado), 2, 4, 8, 16 y 32. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos.
 
 > [!NOTE]
-> Si necesita más DMU de nube para aumentar el rendimiento, póngase en contacto con el [servicio técnico de Azure](https://azure.microsoft.com/support/). La configuración de 8 o más solo funciona actualmente cuando se **copian varios archivos de Blob Storage, Data Lake Store, Amazon S3 o FTP en la nube a Blob Storage, Data Lake Store o Azure SQL Database**.
+> Si necesita más DMU de nube para aumentar el rendimiento, póngase en contacto con el [servicio técnico de Azure](https://azure.microsoft.com/support/). La configuración de 8 o más solo funciona actualmente cuando se **copian varios archivos de Blob Storage, Data Lake Store, Amazon S3, FTP en la nube o SFTP en la nube a Blob Storage, Data Lake Store o Azure SQL Database**.
 >
 >
 
@@ -307,15 +308,15 @@ Si va a copiar datos de **Blob Storage** a **SQL Data Warehouse**, considere la 
 * Para **bases de datos relacionales locales** como SQL Server y Oracle, que requieren el uso de **Data Management Gateway**, consulte la sección [Consideraciones sobre Data Management Gateway](#considerations-for-data-management-gateway).
 
 ### <a name="nosql-stores"></a>Almacenes NoSQL
-*(Incluye Almacenamiento de tablas y Azure DocumentDB)*
+*(Incluye Table Storage y Azure Cosmos DB)*
 
 * Para **Almacenamiento de tablas**:
   * **Partición**: escribir datos en particiones intercaladas degrada considerablemente el rendimiento. Ordene los datos de origen por la clave de partición para que los datos se inserten de forma eficiente en una partición después de otra o ajuste la lógica para escribir los datos en una sola partición.
-* Para **DocumentDB**:
-  * **Tamaño de lote**: la propiedad **writeBatchSize** indica el número de solicitudes en paralelo al servicio de DocumentDB para crear documentos. Puede esperar un rendimiento mejor si aumenta el valor de **writeBatchSize** porque se envían más solicitudes en paralelo a DocumentDB. Sin embargo, tenga cuidado con las limitaciones cuando escriba en DocumentDB (el mensaje de error es "La tasa de solicitudes es grande"). Son varios los factores que pueden provocar limitaciones, como el tamaño del documento, el número de términos que contiene y la directiva de indexación de la colección de destino. Para lograr un mayor rendimiento de la actividad de copia, considere la posibilidad de usar una colección mejor (por ejemplo, S3).
+* Para **Azure Cosmos DB**:
+  * **Tamaño del lote**: la propiedad **writeBatchSize** establece el número de solicitudes en paralelo al servicio Azure Cosmos DB para crear documentos. Puede esperar un rendimiento mejor si aumenta el valor de **writeBatchSize** porque se envían más solicitudes en paralelo a Azure Cosmos DB. Sin embargo, tenga cuidado con las limitaciones cuando escriba en Azure Cosmos DB (el mensaje de error es "La tasa de solicitudes es grande"). Son varios los factores que pueden provocar limitaciones, como el tamaño del documento, el número de términos que contiene y la directiva de indexación de la colección de destino. Para lograr un mayor rendimiento de la actividad de copia, considere la posibilidad de usar una colección mejor (por ejemplo, S3).
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>Consideraciones sobre serialización y deserialización
-La serialización y deserialización pueden tener lugar cuando el conjunto de datos de entrada o el conjunto de datos de salida es un archivo. Actualmente, la actividad de copia admite los formatos de datos Avro y texto (por ejemplo, CSV y TSV).
+La serialización y deserialización pueden tener lugar cuando el conjunto de datos de entrada o el conjunto de datos de salida es un archivo. Consulte [Formatos de archivo y de compresión admitidos](data-factory-supported-file-and-compression-formats.md) con detalles sobre los formatos de archivo que admite la actividad de copia.
 
 **Comportamiento de copia**:
 
@@ -339,7 +340,7 @@ Cuando el conjunto de datos de entrada o salida es un archivo, puede configurar 
 ## <a name="considerations-for-column-mapping"></a>Consideraciones sobre la asignación de columnas
 La propiedad **columnMappings** se puede establecer en la actividad de copia para asignar todas las columnas de entrada, o un subconjunto de ellas, a las columnas de salida. Después de que el servicio de movimiento de datos lee los datos del origen, debe realizar la asignación de columnas en los datos antes de escribirlos en el receptor. Este procesamiento adicional reduce la capacidad de proceso de la copia.
 
-Si el almacén de datos de origen es consultable, por ejemplo, si es un almacén relacional como Base de datos SQL o SQL Server, o es un almacén NoSQL como Almacenamiento de tablas o DocumentDB, considere la posibilidad de insertar la lógica de filtrado y reordenación de columnas en la propiedad **query** en lugar de usar la asignación de columnas. De esta forma, la proyección se produce mientras el servicio de movimiento de datos lee los datos del almacén de datos de origen, donde es mucho más eficaz.
+Si el almacén de datos de origen es consultable, por ejemplo, si es un almacén relacional, como SQL Database o SQL Server, o es un almacén NoSQL como Table Storage o Azure Cosmos DB, considere la posibilidad de insertar la lógica de filtrado y reordenación de columnas en la propiedad **query**, en lugar de usar la asignación de columnas. De esta forma, la proyección se produce mientras el servicio de movimiento de datos lee los datos del almacén de datos de origen, donde es mucho más eficaz.
 
 ## <a name="considerations-for-data-management-gateway"></a>Consideraciones sobre Data Management Gateway
 Para ver las recomendaciones de configuración de la puerta de enlace, consulte [Consideraciones sobre el uso de Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).
@@ -406,7 +407,7 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 * Azure Storage (que incluyeBlob Storage y Table Storage): [Objetivos de escalabilidad de Azure Storage](../storage/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../storage/storage-performance-checklist.md)
 * Base de datos SQL de Azure: puede [supervisar el rendimiento](../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de unidades de transacción de base de datos (DTU).
 * Almacenamiento de datos SQL de Azure: su capacidad se mide en unidades de almacenamiento de datos (DWU); consulte [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
-* Azure DocumentDB: [Niveles de rendimiento en DocumentDB](../documentdb/documentdb-performance-levels.md)
+* Azure Cosmos DB: [Niveles de rendimiento de Azure Cosmos DB](../documentdb/documentdb-performance-levels.md)
 * Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
 * Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
 

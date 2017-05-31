@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: cff6ef0c1c49110edc53ec82f88d9875439aab8a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: c49f283971b33a4e88573e1d67ba159021fbccb8
+ms.contentlocale: es-es
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -55,21 +57,22 @@ Obtenga información acerca de las [actualizaciones](#updates)más recientes. De
 
 Instale las actualizaciones de la siguiente manera:
 
-1. Descargue el archivo .zip de la [actualización](https://aka.ms/asr-scout-update4). Este archivo .zip contiene los archivos siguientes:
+1. Descargue el archivo .zip de la [actualización](https://aka.ms/asr-scout-update5). Este archivo .zip contiene los archivos siguientes:
 
    * RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
    * CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe
-   * UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe
+   * UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
    * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-   * vCon_Windows_8.0.4.0_GA_Update_4_8921562_16Sep16.exe
+   * vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe
    * UA actualización 4 bits para RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 2. Extraiga los archivos .zip.<br>
 3. **Para el servidor RX**: copie **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** en el servidor RX y extráigalo. En la carpeta extraída, ejecute **/Install**.<br>
 4. **Para el servidor de configuración o servidor de procesos**: copie **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe** en el servidor de configuración y el servidor de procesos. Haga doble clic para ejecutarlo.<br>
-5. **Para el servidor de destino maestro de Windows**: para actualizar el agente unificado, copie **UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe** en el servidor de destino maestro. Haga doble clic en él para ejecutarlo. Tenga en cuenta que el agente unificado también es aplicable en el servidor de origen. Debe instalarlo también en el servidor de origen, como se menciona más adelante en esta lista.<br>
-6. **Para el servidor vContinuum**: copie **vCon_Windows_8.0.4.0_GA_Update_4_8921562_16Sep16.exe** en el servidor vContinuum.  Asegúrese de que ha cerrado el asistente de vContinuum. Haga doble clic en el archivo para ejecutarlo.<br>
+5. **Para el servidor de destino maestro de Windows**: para actualizar el agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** en el servidor de destino maestro. Haga doble clic en él para ejecutarlo. Tenga en cuenta que el agente unificado también es aplicable en el servidor de origen si el origen no se actualiza hasta la actualización 4. Debe instalarlo también en el servidor de origen, como se menciona más adelante en esta lista.<br>
+6. **Para el servidor vContinuum**: copie **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** en el servidor vContinuum.  Asegúrese de que ha cerrado el asistente de vContinuum. Haga doble clic en el archivo para ejecutarlo.<br>
 7. **Para el servidor de destino maestro de Linux**: para actualizar el agente unificado, copie **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** en el servidor de destino maestro y extráigalo. En la carpeta extraída, ejecute **/Install**.<br>
-8. **Para el servidor de origen de Windows**: para actualizar el agente unificado, copie **UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe** en el servidor de origen. Haga doble clic en él para ejecutarlo.<br>
+8. **Para el servidor de origen de Windows**: no es necesario instalar el agente de actualización 5 en el origen si este ya tiene la actualización 4. Si tiene una actualización inferior a la 4, aplique el agente de actualización 5.
+Para actualizar el agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** en el servidor de origen. Haga doble clic en él para ejecutarlo. <br>
 9. **Para el servidor de origen de Linux**: para actualizar el agente unificado, copie la versión correspondiente del archivo del agente unificado en el servidor de Linux y extráigalo. En la carpeta extraída, ejecute **/Install**.  Ejemplo: para el servidor de 64 bits de RHEL 6.7, copie **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** en el servidor y extráigalo. En la carpeta extraída, ejecute **/Install**.
 
 ## <a name="step-4-set-up-replication"></a>Paso 4: Configuración de la replicación
@@ -83,8 +86,40 @@ Instale las actualizaciones de la siguiente manera:
    * [Guía de instalación rápida](https://aka.ms/asr-scout-quick-install-guide)
 
 ## <a name="updates"></a>Actualizaciones
+### <a name="azure-site-recovery-scout-801-update-5"></a>Azure Site Recovery Scout 8.0.1 actualización 5
+La actualización 5 de Scout es una actualización acumulativa. Tiene todas las correcciones de las actualizaciones de la 1 a la 4, así como las nuevas correcciones de errores y mejoras siguientes.
+Las correcciones que se agregan desde ASR Scout actualización 4 y 5 son específicas de los componentes de destino principal y vContinuum. Si todos los servidores de origen, destino principal, servidor de configuración, servidor de procesos y RX ya están en ASR Scout actualización 4, debe aplicar la actualización 5 solo en el servidor de destino principal. 
+
+**Nueva compatibilidad con plataformas**
+* SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
+
+> [!NOTE]
+> **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** de SLES 11 SP4 de 64 bits se incluye con el paquete base de Scout GA **InMage_Scout_Standard_8.0.1 GA.zip**. Descargue el paquete de Scout GA del portal como se mencionó en el [paso 1](#step-1-create-a-vault).
+>
+
+**Mejoras y correcciones de errores**
+
+* Aumentar la confiabilidad de la compatibilidad con clústeres de Windows
+    * Corregido: en ocasiones, algunos de los discos de clúster de MSCS P2V se convierten en RAW después de la recuperación.
+    * Corregido: se produce un error en la recuperación de un clúster de MSCS P2V debido a la falta de coincidencia en el orden del disco.
+    * Corregido: se produce un error en la operación de agregar discos del clúster de MSCS con falta de coincidencia en el tamaño de disco.
+    * Corregido: se produce un error en la comprobación de preparación de la asignación del clúster de MSCS de origen con LUN de RDM en la comprobación del tamaño.
+    * Corregido: se produce un error en la protección del clúster de nodo único debido a un problema de falta de coincidencia de SCSI. 
+    * Corregido: se produce un error al volver a proteger el servidor de clúster de Windows P2V si hay discos del clúster de destino. 
+    
+* Durante la protección de conmutación por recuperación, si el destino principal seleccionado no está en el mismo servidor de ESXi que el de la máquina de origen protegida (durante la protección directa), vContinuum elige el destino principal incorrecto durante la recuperación de la conmutación por recuperación y, posteriormente, se produce un error en la operación de recuperación.
+
+> [!NOTE]
+> 
+> * Las anteriores correcciones de los clústeres P2V solo son aplicables a los clústeres de MSCS físicos que se acaban de proteger con ASR Scout actualización 5. Para hacer uso de las correcciones en un clúster de MSCS P2V ya protegido con actualizaciones más antiguas, debe seguir los pasos de actualización que se mencionan en la sección 12, "Upgrade protected P2V MSCS cluster to Scout Update5" (Actualizar el clúster de MSCS P2V protegido a Scout actualización 5), de las [notas de la versión de ASR Scout](https://aka.ms/asr-scout-release-notes).
+> 
+> * Durante la operación de volver a proteger el clúster de MSCS físico solo se pueden volver a usar los discos de destino existentes si, al volver a protegerlo, está activo el mismo conjunto de discos en cada uno de los nodos del clúster que cuando se protegió inicialmente. En caso contrario, en la sección 12 de las [notas de la versión de ASR Scout](https://aka.ms/asr-scout-release-notes) se indican pasos manuales para trasladar los discos del lado de destino a la ruta de acceso correcta del almacén de datos para volver a usarlos cuando se vuelve a llevar a cabo la protección. Si vuelve a proteger el clúster de MSCS en modo P2V sin seguir los pasos de actualización, se creará un disco en el servidor de ESXi de destino. Debe eliminar manualmente los discos antiguos del almacén de datos.
+> 
+> * Cada vez que el servidor de origen SLES11 o SLES11 con cualquier Service Pack se reinicia correctamente, debe marcar manualmente los pares de replicación de disco **raíz** para volver a sincronizarlos, ya que no se le notificará en la interfaz de usuario de CX. Si no marca el disco raíz para volver a sincronizarlo, pueden producirse problemas de integridad de datos.
+> 
+
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1, actualización 4
-La actualización 4 de Scout es una actualización acumulativa. Tiene todas las correcciones de las actualizaciones de la&1; a la&3;, así como las nuevas correcciones de errores y mejoras siguientes.
+La actualización 4 de Scout es una actualización acumulativa. Tiene todas las correcciones de las actualizaciones de la 1 a la 3, así como las nuevas correcciones de errores y mejoras siguientes.
 
 **Nueva compatibilidad con plataformas**
 
@@ -197,9 +232,4 @@ La actualización 1 incluye las siguientes revisiones de errores y característi
 
 ## <a name="next-steps"></a>Pasos siguientes
 Publique cualquier pregunta en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

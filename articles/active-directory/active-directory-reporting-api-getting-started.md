@@ -1,4 +1,5 @@
 ---
+
 title: "Introducción a la API de generación de informes de Azure AD | Microsoft Docs"
 description: "Introducción a la API de generación informes de Azure Active Directory"
 services: active-directory
@@ -12,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3a8e9c802c265dacd1b8c3688855ce6ec0d90bb1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 414e6b0f23616f8f3d059f250335b0e530729741
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -26,7 +29,7 @@ ms.openlocfilehash: 3a8e9c802c265dacd1b8c3688855ce6ec0d90bb1
 Azure Active Directory proporciona una variedad de informes. Los datos de estos informes pueden ser muy útiles para las aplicaciones, como sistemas SIEM, auditorías y herramientas de inteligencia empresarial. Las API de generación de informes de Azure AD proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. Estas API pueden llamarse desde una variedad de lenguajes de programación y herramientas.
 
 Este artículo proporciona la información que necesita para empezar a trabajar con las API de generación de informes de Azure AD.
-En la sección siguiente, puede encontrar más detalles sobre el uso de las API de auditoría e inicio de sesión. Para el resto de las API, consulte el artículo de [eventos e informes de Azure AD (versión preliminar)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) .
+En la sección siguiente, puede encontrar más detalles sobre el uso de las API de auditoría e inicio de sesión. Para el resto de las API, consulte el artículo de [eventos e informes de Azure AD (versión preliminar)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview).
 
 Para ver preguntas, problemas o comentarios, póngase en contacto con el equipo de [ayuda de informes de AAD](mailto:aadreportinghelp@microsoft.com).
 
@@ -43,10 +46,5 @@ Para ver preguntas, problemas o comentarios, póngase en contacto con el equipo 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Todos los puntos de conexión disponibles de API Graph de Azure se encuentran en la página [https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

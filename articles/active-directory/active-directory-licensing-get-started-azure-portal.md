@@ -1,6 +1,6 @@
 ---
 
-title: "Introducción a la licencia de Azure Active Directory (versión preliminar) | Microsoft Docs"
+title: "Introducción a la licencia de Azure Active Directory | Microsoft Docs"
 description: "Descripción de la licencia de Azure Active Directory, cómo funciona, cómo comenzar y procedimientos recomendados, incluidos Office 365, Microsoft Intune y las ediciones Basic y Premium de Azure Active Directory"
 services: active-directory
 keywords: Licencias de Azure AD
@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 05/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 3bad24f35cf7867f1e02e8470c602a7f6a9ce8fb
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 8e9d6900910f45b5f17600fc5608191871c5ab21
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
-# <a name="license-yourself-and-your-users-in-azure-active-directory-preview"></a>Obtenga una licencia para usted y sus usuarios en la versión preliminar de Azure Active Directory.
+# <a name="license-yourself-and-your-users-in-azure-active-directory"></a>Obtención de una licencia para usted y sus usuarios en Azure Active Directory
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](active-directory-licensing-get-started-azure-portal.md)
@@ -59,7 +60,7 @@ Cada suscripción consta de uno o varios planes de servicio, que representan el 
 
 Cuando obtiene una suscripción, todo lo que tiene que hacer es configurar las opciones de pago. El uso de características de pago de Azure AD requiere la distribución de licencias a las personas adecuadas. Por regla general, se debe asignar una licencia a los usuarios que deban disponer de acceso o que puedan administrarse a través de una característica de pago de Azure AD. Una asignación de licencia es una asignación entre un usuario y un servicio comprado, como Azure AD Premium, Basic o Enterprise Mobility Suite.
 
-Administrar qué usuarios del directorio deben tener una licencia es sencillo. Puede realizarse mediante la asignación de licencias a grupos en Azure Portal o directamente a las personas adecuadas a través del Portal, PowerShell o API. Al asignar licencias a un grupo, se asignará una licencia a todos los miembros del grupo. Si se agregan usuarios o se quitan de un grupo, se asignarán a la licencia adecuada o se quitarán de ella. La asignación de grupo puede utilizar cualquier administración de grupo disponible para usted y que sea coherente con la asignación basada en grupo para las aplicaciones. Con ese enfoque, puede configurar reglas como que todos los usuarios del directorio se asignen automáticamente, garantizar que todas las personas con el puesto adecuado dispongan de licencia o incluso delegar la decisión a otros administradores de la organización. 
+Administrar qué usuarios del directorio deben tener una licencia es sencillo. Puede realizarse mediante la asignación de licencias a grupos en Azure Portal (esta característica se encuentra en versión preliminar pública) o directamente a las personas adecuadas a través del portal, PowerShell o las API. Al asignar licencias a un grupo, se asignará una licencia a todos los miembros del grupo. Si se agregan usuarios o se quitan de un grupo, se asignarán a la licencia adecuada o se quitarán de ella. La asignación de grupo puede utilizar cualquier administración de grupo disponible para usted y que sea coherente con la asignación basada en grupo para las aplicaciones. Con ese enfoque, puede configurar reglas como que todos los usuarios del directorio se asignen automáticamente, garantizar que todas las personas con el puesto adecuado dispongan de licencia o incluso delegar la decisión a otros administradores de la organización. 
 
 Para una explicación detallada de la asignación de licencias a grupos, incluidos los escenarios avanzados y los de licencia de Office 365, consulte [este artículo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal).
 

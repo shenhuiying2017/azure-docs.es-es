@@ -13,9 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/30/2016
 ms.author: jejiang
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 98b04d28d1b905dad19ad6cf608733c6554f01cf
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c49f80f8dcd330d7f46726241e7178351b9cc28f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -32,8 +34,8 @@ La manera más fácil de usar el código personalizado es utilizar las funcional
 Para resolver estos inconvenientes, puede convertir el código subyacente en ensamblados y registrarlos en el catálogo de Data Lake Analytics.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con Visual C++ instalado
-* SDK de Microsoft Azure para .NET versión 2.5 o posterior.  Instálelo usando el instalador de plataforma web.
+* Visual Studio 2017, Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con Visual C ++ Instalado
+* SDK de Microsoft Azure para .NET versión 2.5 o posterior.  Instálelo mediante el instalador de la plataforma web o el instalador de Visual Studio.
 * Una cuenta de Análisis de Data Lake.  [Introducción a Azure Data Lake Analytics mediante Azure Portal](data-lake-analytics-get-started-portal.md).
 * Realice el tutorial [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
 * Conéctese a Azure.
@@ -79,8 +81,3 @@ Consulte [Uso de Azure Data Lake Tools para Visual Studio Code](data-lake-analyt
 * [Uso de Data Lake Tools for Visual Studio para desarrollar aplicaciones de U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso del catálogo de Data Lake Analytics (U-SQL)](data-lake-analytics-use-u-sql-catalog.md)
 * [Uso de Azure Data Lake Tools para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
-
-
-<!--HONumber=Dec16_HO2-->
-
-

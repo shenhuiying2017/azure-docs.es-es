@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2016
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 9443a00232420d58dea52ed01f31a4ef964a1620
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -34,6 +36,7 @@ ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
 | Inicios de sesión desde dispositivos posiblemente infectados |2 horas |4 horas |8 horas |
 | Usuarios con actividad de inicio de sesión anómala |2 horas |4 horas |8 horas |
 | Usuarios con credenciales perdidas |2 horas |4 horas |8 horas |
+| Actividad de inicio de sesión de todos los usuarios |2 horas |4 horas |8 horas |
 | **Informes de aplicación** | | | |
 | Actividad de aprovisionamiento de cuentas |2 horas |4 horas |8 horas |
 | Errores de aprovisionamiento de cuentas |2 horas |4 horas |8 horas |
@@ -52,12 +55,5 @@ ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
 | Uso de RMS |2 horas |4 horas |8 horas |
 | Uso de dispositivos RMS |2 horas |4 horas |8 horas |
 | Uso de aplicaciones habilitadas para RMS |2 horas |4 horas |8 horas |
-| **Informes de vista previa privada** | | | |
-| Actividad de inicio de sesión de todos los usuarios |2 horas |4 horas |8 horas |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

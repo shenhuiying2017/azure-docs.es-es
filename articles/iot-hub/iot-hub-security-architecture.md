@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 9327750b35476fd2a6eca379061a06842daf8d47
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 235733b1480396df86f932f05a74b74247d47b40
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -25,16 +27,11 @@ ms.openlocfilehash: 9327750b35476fd2a6eca379061a06842daf8d47
 ## <a name="see-also"></a>Otras referencias
 Para obtener más información sobre cómo proteger la solución de IoT, consulte [Proteger su implementación de IoT][lnk-security-deployment].
 
-Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
+* [Simular un dispositivo con Azure IoT Edge][lnk-iotedge]
 
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 
