@@ -17,10 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
-ms.openlocfilehash: dd14d137c23fbccb3616b60db8a63e668ae7ea80
-ms.lasthandoff: 01/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 624bdc7877d5048da08897f868272fd8e8f3f7b6
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -38,16 +39,16 @@ En este tutorial, empiece por aprender los conceptos básicos sobre cómo trabaj
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>Lección 1: Configuración de NUC
-![Diagrama integral de la lección&1;](media/iot-hub-gateway-kit-lessons/e2e-lesson1.png)
+![Diagrama integral de la lección 1](media/iot-hub-gateway-kit-lessons/e2e-lesson1.png)
 
-En esta lección, se configura Intel NUC (Next Unit of Computing) en el kit como una puerta de enlace de IoT de Azure, se instala el paquete del SDK de puerta de enlace de IoT de Azure en NUC y se ejecuta una aplicación de ejemplo para comprobar la funcionalidad de la puerta de enlace.
+En esta lección, se configura Intel NUC (Next Unit of Computing) en el kit como una puerta de enlace de IoT de Azure, se instala el paquete de Azure IoT Edge en NUC y se ejecuta una aplicación de ejemplo para comprobar la funcionalidad de la puerta de enlace.
 
 *Tiempo estimado para completar el tutorial: 15 minutos*
 
 Vaya a [Configuración de Intel NUC como puerta de enlace de IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md) (Configuración de Intel NUC como una puerta de enlace de IoT).
 
 ## <a name="lesson-2-create-your-iot-hub"></a>Lección 2: Creación de la instancia de IoT Hub
-![Diagrama integral de la lección&2;](media/iot-hub-gateway-kit-lessons/e2e-lesson2.png)
+![Diagrama integral de la lección 2](media/iot-hub-gateway-kit-lessons/e2e-lesson2.png)
 
 En esta lección, se instalan las herramientas y el software en el equipo host. Debe crear una cuenta gratuita de Azure, aprovisionar la instancia de IoT Hub de Azure y crear el primer dispositivo en IoT Hub.
 
@@ -68,7 +69,7 @@ Cree el grupo de recursos, aprovisione la primera instancia de IoT Hub de Azure 
 Vaya a [Creación de un IoT Hub y registro del dispositivo](iot-hub-gateway-kit-c-lesson2-register-device.md).
 
 ## <a name="lesson-3-receive-messages-from-sensortag-and-read-messages-from-your-iot-hub"></a>Lección 3: Recibir mensajes de SensorTag y leerlos en IoT Hub
-En esta lección, usará scripts para automatizar la configuración y ejecución de una aplicación de ejemplo BLE en la puerta de enlace. Dichas aplicaciones utilizan una colección de módulos para agregar y transformar datos, procesar comandos o realizar una serie de tareas relacionadas. Los módulos se comunican entre sí a través de un agente de mensajes. La aplicación de ejemplo tiene un módulo de BLE y un módulo de IoT Hub. El módulo BLE recibe datos de SensorTag para BLE. El módulo de IoT Hub empaqueta los datos recibidos y los envía al IoT Hub a través del marco de la puerta de enlace proporcionado en el SDK de puerta de enlace de IoT de Azure.
+En esta lección, usará scripts para automatizar la configuración y ejecución de una aplicación de ejemplo BLE en la puerta de enlace. Dichas aplicaciones utilizan una colección de módulos para agregar y transformar datos, procesar comandos o realizar una serie de tareas relacionadas. Los módulos se comunican entre sí a través de un agente de mensajes. La aplicación de ejemplo tiene un módulo de BLE y un módulo de IoT Hub. El módulo BLE recibe datos de SensorTag para BLE. El módulo de IoT Hub empaqueta los datos recibidos y los envía a su IoT Hub a través del marco de la puerta de enlace proporcionado en Azure IoT Edge.
 
 ![Diagrama integral de la lección 3](media/iot-hub-gateway-kit-lessons/e2e-lesson3.png)
 

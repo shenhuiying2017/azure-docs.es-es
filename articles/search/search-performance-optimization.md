@@ -12,12 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/02/2017
+ms.date: 05/01/2017
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 56eeed7634fca840172ab828be5f202d80f3f4fb
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -80,7 +81,7 @@ El objetivo de un conjunto de servicios de búsqueda distribuido geográficament
 Hay dos opciones para mantener los servicios de búsqueda distribuidos sincronizados: usar el [indexador de Azure Search](search-indexer-overview.md) o la API de inserción (también denominada [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/)).  
 
 ### <a name="azure-search-indexers"></a>Indexadores de Búsqueda de Azure
-Si usa el indexador de Búsqueda de Azure, ya está importando los cambios de los datos desde un almacén de datos central, como Azure SQL DB o DocumentDB. Cuando se crea un nuevo servicio de búsqueda, puede crear también un indexador de Búsqueda de Azure para ese servicio que apunte a este mismo almacén de datos. De este modo, siempre que lleguen cambios nuevos al almacén de datos, los distintos indexadores los indexarán.  
+Si usa el indexador de Azure Search, ya está importando los cambios de los datos desde un almacén de datos central, como Azure SQL DB o Azure Cosmos DB. Cuando se crea un nuevo servicio de búsqueda, puede crear también un indexador de Búsqueda de Azure para ese servicio que apunte a este mismo almacén de datos. De este modo, siempre que lleguen cambios nuevos al almacén de datos, los distintos indexadores los indexarán.  
 
 Este es un ejemplo del aspecto que podría tener esa arquitectura.
 

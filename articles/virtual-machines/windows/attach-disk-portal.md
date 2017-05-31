@@ -1,6 +1,6 @@
 ---
-title: "Conexión de un disco de datos a una máquina virtual Windows | Microsoft Docs"
-description: "Cómo conectar un disco de datos nuevo o existente a una máquina virtual Windows en el Portal de Azure con el modelo de implementación del Administrador de recursos."
+title: "Conexión de un disco de datos no administrado a una VM con Windows: Azure | Microsoft Docs"
+description: "Se muestra cómo conectar un disco de datos no administrado nuevo o existente a una máquina virtual con Windows en Azure Portal con el modelo de implementación de Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,70 +13,72 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 05/09/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3a3dce590013187e4136a65a47a10c9532321b1e
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: d02f92a8809efd6f58312af8cb40739299ea28f6
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="how-to-attach-a-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Cómo adjuntar un disco de datos a una máquina virtual Windows en el Portal de Azure
-En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Windows a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual Linux en el Portal de Azure](../linux/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Antes de hacerlo, revise estas sugerencias:
+# <a name="how-to-attach-an-unmanaged-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Conexión de un disco de datos no administrado a una VM con Windows en Azure Portal
 
-* El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para obtener más información, consulte [Tamaños de máquinas virtuales](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Para usar Almacenamiento premium, necesitará una máquina virtual de serie DS o GS. Puede utilizar discos de cuentas de almacenamiento premium y estándar con estas máquinas virtuales. Almacenamiento premium está disponible en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+En este artículo se muestra cómo conectar discos no administrados nuevos y existentes a una máquina virtual con Windows a través Azure Portal. También puede [conectar un disco de datos mediante PowerShell](./attach-disk-ps.md). Antes de hacerlo, revise estas sugerencias:
+
+* El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para obtener más información, consulte [Tamaños de máquinas virtuales](sizes.md).
+* Para usar Premium Storage, necesita una máquina virtual de la serie DS o GS. Puede utilizar discos de cuentas de almacenamiento premium y estándar con estas máquinas virtuales. Almacenamiento premium está disponible en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Para un disco nuevo, no es necesario crearlo en primer lugar porque Azure lo crea cuando lo conecta.
-* Para un disco existente, el archivo .vhd debe estar disponible en una cuenta de almacenamiento de Azure. Puede usar uno que ya esté disponible allí, si no está conectado a otra máquina virtual, o cargar su propio archivo .vhd en la cuenta de almacenamiento.
+
 
 También puede [conectar un disco de datos mediante Powershell](attach-disk-ps.md).
 
 
-
 ## <a name="find-the-virtual-machine"></a>Búsqueda de la máquina virtual
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. En el menú del concentrador, haga clic en **Máquinas virtuales**.
+2. En el menú izquierdo, haga clic en **Virtual Machines**.
 3. Seleccione la máquina virtual en la lista.
-4. En la hoja Virtual Machines, en **Essentials**, haga clic en **Discos**.
+4. En la hoja Virtual Machines, haga clic en **Discos**.
    
-    ![Abrir configuración de disco](./media/attach-disk-portal/find-disk-settings.png)
-
 Continúe siguiendo las instrucciones para conectar un [nuevo disco](#option-1-attach-a-new-disk) o un [disco existente](#option-2-attach-an-existing-disk).
 
 ## <a name="option-1-attach-and-initialize-a-new-disk"></a>Opción 1: adjunte e inicialice un disco nuevo
-1. En la hoja **Discos**, haga clic en **Adjuntar nuevo**.
-2. Revise la configuración predeterminada, actualice según sea necesario y, después, haga clic en **Aceptar**.
+1. En la hoja **Discos**, haga clic en **+ Add data disk** (+ Agregar disco de datos).
+2. En la hoja **Attach managed disk** (Conectar disco administrado), escriba un nombre para el disco en **Nombre** y luego seleccione **Nuevo (disco vacío)** en **Tipo de origen**.
+3. En **Contenedor de almacenamiento**, haga clic en el botón **Examinar** y navegue a la cuenta y el contenedor de almacenamiento en donde quiere almacenar el nuevo VHD. Luego, haga clic en **Seleccionar**. 
+  
+   ![Revisar configuración de disco](./media/attach-disk-portal/attach-empty-unmanaged.png)
    
-   ![Revisar configuración de disco](./media/attach-disk-portal/attach-new.png)
-3. Una vez que Azure crea el disco y lo adjunta a la máquina virtual, el nuevo disco aparece en la configuración de disco de la máquina virtual en el apartado **Discos de datos**.
+3. Cuando haya terminado la configuración del disco de datos, haga clic en **Aceptar**.
+4. De nuevo en la hoja **Discos**, haga clic en **Guardar** para agregar el disco a la configuración de la máquina virtual.
+
 
 ### <a name="initialize-a-new-data-disk"></a>Inicio de un nuevo disco de datos
 
-1. Conexión a una máquina virtual. Para obtener instrucciones, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows Server e inicio de sesión en ella](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-2. Después de iniciar sesión en la máquina virtual, abra el **Administrador del servidor**. En el panel izquierdo, seleccione **Servicios de archivos y almacenamiento**.
-   
-    ![Abrir Administrador de servidores](./media/attach-disk-portal/fileandstorageservices.png)
-3. Expanda el menú y seleccione **Discos**.
-4. En la sección **Discos** aparecen todos los discos. En la mayoría de los casos, habrá un disco 0, un disco 1 y un disco 2. El disco 0 es el disco del sistema operativo, el disco 1 es el disco temporal y el disco 2 es el disco de datos que acaba de conectar a la VM. El nuevo disco de datos mostrará la partición como **Desconocida**. Haga clic con el botón derecho en el disco y seleccione **Inicializar**.
-5. Se le notificará que se borrarán todos los datos cuando se inicializa el disco. Haga clic en **Sí** para confirmar la advertencia e inicializar el disco. Una vez que se complete el proceso, la partición aparecerá como **GPT**. Vuelva a hacer clic con el botón derecho en el disco y seleccione **Nuevo volumen**.
-6. Complete el asistente usando los valores predeterminados que se proporcionan. Cuando haya finalizado el asistente, la sección **Volúmenes** mostrará el nuevo volumen. El disco está ahora conectado y listo para almacenar los datos.
-
-    ![Volumen inicializado correctamente](./media/attach-disk-portal/newvolumecreated.png)
+1. Conexión a una máquina virtual. Para obtener instrucciones, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+1. Haga clic en el menú **Inicio** dentro de la máquina virtual, escriba **diskmgmt.msc** y presione **Entrar**. Se iniciará el complemento Administración de discos.
+2. Administración de discos reconocerá que hay un nuevo disco sin inicializar y se abrirá la ventana Inicializar disco.
+3. Asegúrese de que el nuevo disco está seleccionado y haga clic en **Aceptar** para inicializarlo.
+4. El nuevo disco aparecerá ahora como **sin asignar**. Haga clic con el botón derecho en cualquier lugar del disco y seleccione **Nuevo volumen simple**. Se inicia el **Asistente para nuevo volumen simple**.
+5. Navegue por el asistente, conserve todos los valores predeterminados y, cuando haya terminado, seleccione **Finalizar**.
+6. Cierre Administración de discos.
+7. Se abrirá una ventana emergente necesaria para formatear el nuevo disco para poder usarlo. Haga clic en **Dar formato al disco**.
+8. En el cuadro de diálogo **Formatear disco nuevo**, active las opciones y haga clic en **Iniciar**.
+9. Recibirá una advertencia sobre que al formatear los discos se borrarán todos los datos, haga clic en **Aceptar**.
+10. Una vez completado el formato, haga clic en **Aceptar**.
 
 
 ## <a name="option-2-attach-an-existing-disk"></a>Opción 2: Conectar un disco existente
-1. En la hoja **Discos**, haga clic en **Adjuntar existente**.
-2. En **Adjuntar un disco existente**, haga clic en **Archivo VHD**.
-   
-   ![Conectar disco existente](./media/attach-disk-portal/attach-existing.png)
-3. En **Cuentas de almacenamiento**, seleccione la cuenta y el contenedor que incluyen el archivo .vhd.
-   
-   ![Buscar ubicación de VHD](./media/attach-disk-portal/find-storage-container.png)
-4. Seleccione el archivo .vhd.
-5. En **Adjuntar un disco existente**, el archivo que acaba de seleccionar aparece en **Archivo VHD**. Haga clic en **Aceptar**.
-6. Una vez que Azure adjunta el disco a la máquina virtual,este aparece en la configuración del disco de la máquina virtual en el apartado **Discos de datos**.
+1. En la hoja **Discos**, haga clic en **+ Add data disk** (+ Agregar disco de datos).
+2. En la hoja **Asociar disco no administrado**, seleccione **Blob existente** en **Tipo de origen**.
 
+    ![Revisar configuración de disco](./media/attach-disk-portal/attach-existing-unmanaged.png)
+
+    3. Haga clic en **Examinar** para navegar a la cuenta y el contenedor de almacenamiento donde se encuentra el VHD existente. Haga clic en VHD y luego, en **Seleccionar**.
+4. En la hoja **Asociar disco no administrado**, haga clic en **Aceptar**.
+5. En la hoja **Discos**, haga clic en **Guardar** para agregar el disco a la configuración de la máquina virtual.
+   
 
 
 ## <a name="use-trim-with-standard-storage"></a>Uso de TRIM con el almacenamiento estándar

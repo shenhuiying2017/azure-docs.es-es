@@ -14,17 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/15/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: 0841744b806f3dba38dddee21fb7fe881e07134f
-ms.openlocfilehash: 51c9d9afb6c2ed460abd4c47a6afbc404b97a85e
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 54b8e16504e1170058dd021f7f7e2fba7b99bba7
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conexión de Base de datos SQL de Azure a Búsqueda de Azure con indexadores
 El servicio Búsqueda de Azure es un servicio de búsqueda hospedado en la nube que facilita ofrecer una excelente experiencia de búsqueda. Antes de buscar, deberá rellenar un índice de Búsqueda de Azure con los datos. Si los datos residen en una SQL Database de Azure, el nuevo **indexador de Azure Search para Azure SQL Database** (o **indexador Azure SQL**, para abreviar) puede automatizar el proceso de indexación. Esto significa que tendrá que escribir menos código y tendrá menos infraestructura para mantener.
 
-Este artículo abordará la forma de usar los indexadores, pero también describe las características que solo están disponibles con bases de datos SQL de Azure (por ejemplo, seguimiento de cambios integrado). Azure Search también admite otros orígenes de datos, como Azure DocumentDB, Blob Storage y Table Storage. Si desea consultar soporte técnico para orígenes de datos adicionales, envíe sus comentarios a través del [foro de comentarios de Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
+Este artículo abordará la forma de usar los indexadores, pero también describe las características que solo están disponibles con bases de datos SQL de Azure (por ejemplo, seguimiento de cambios integrado). Azure Search también admite otros orígenes de datos, como Azure Cosmos DB, Blob Storage y Table Storage. Si desea consultar soporte técnico para orígenes de datos adicionales, envíe sus comentarios a través del [foro de comentarios de Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexadores y orígenes de datos
 Puede instalar y configurar un indexador de SQL de Azure mediante:

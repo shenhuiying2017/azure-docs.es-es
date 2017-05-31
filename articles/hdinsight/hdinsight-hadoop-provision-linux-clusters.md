@@ -1,6 +1,7 @@
 ---
 title: "Creación de clústeres de Hadoop, HBase, Kafka, Storm o Spark en Azure HDInsight | Microsoft Docs"
 description: "Aprenda a crear clústeres de Hadoop, HBase, Storm o Spark en Linux para HDInsight con un explorador, la CLI de Azure, Azure PowerShell, REST o un SDK."
+keywords: "configuración de clúster hadoop, configuración de clúster kafka, configuración de clúster spark, configuración de clúster hbase, configuración de clúster storm, qué es clúster en hadoop"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -17,10 +18,10 @@ ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 9fc96db2b832f1e57813bebd2d46e4b78ed04677
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: ed0a5cfc02572d537f4b179ad612ad153a2db1d4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -177,22 +178,35 @@ Puede agregar cuentas de almacenamiento al crear un clúster de HDInsight o desp
 Para más información sobre el uso de una cuenta de Azure Storage secundaria, consulte [Uso de Azure Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obtener más información sobre el uso de almacenamiento de Data Lake secundario, consulte [Creación de clústeres de HDInsight con Data Lake Store con Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
-#### <a name="use-hiveoozie-metastore"></a>Tienda de metadatos Hive/Oozie
+#### <a name="use-hiveoozie-metastore"></a>Hive Metastore
+
 Se recomienda que use un Metastore personalizado si quiere conservar las tablas de Hive después de eliminar el clúster de HDInsight. Podrá adjuntar ese Metastore a otro clúster de HDInsight.
 
 > [!IMPORTANT]
 > Una instancia de Metastore de HDInsight creada para una versión del clúster de HDInsight no se puede compartir entre diferentes versiones del clúster de HDInsight. Para obtener una lista de versiones de HDInsight, consulte [Versiones compatibles de HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
->
->
 
-La tienda de metadatos contiene metadatos de Hive y Oozie, como columnas, esquemas, particiones y tablas de Hive. El Metastore le ayuda a conservar sus metadatos de Hive y Oozie, por lo que no es necesario volver a crear tablas de Hive o trabajos de Oozie al crear un nuevo clúster. De forma predeterminada, Hive utiliza una base de datos SQL de Azure incrustada para almacenar esta información. La base de datos incrustada no puede conservar los metadatos cuando se elimina el clúster. Al crear tablas de Hive en un clúster de HDInsight con una instancia de Hive Metastore configurada, esas tablas se conservan al volver a crear el clúster con la misma instancia de Hive Metastore.
+Metastore contiene metadatos de Hive, como columnas, esquemas, particiones y tablas de Hive. Metastore le ayuda a conservar sus metadatos de Hive, por lo que no es necesario volver a crear tablas de Hive al crear un nuevo clúster. De forma predeterminada, Hive utiliza una base de datos SQL de Azure incrustada para almacenar esta información. La base de datos incrustada no puede conservar los metadatos cuando se elimina el clúster. Al crear tablas de Hive en un clúster de HDInsight con una instancia de Hive Metastore configurada, esas tablas se conservan al volver a crear el clúster con la misma instancia de Hive Metastore.
 
-La configuración de la tienda de metadatos no está disponible para los tipos de clúster de HBase.
+La configuración de Metastore no está disponible para todos los tipos de clúster. Por ejemplo, no está disponible para los clústeres HBase o Kafka.
 
 > [!IMPORTANT]
-> Al crear un Metastore personalizado, no use un nombre de base de datos que contenga guiones. Podría provocar que el proceso de creación del clúster diera error.
->
->
+> Al crear un Metastore personalizado, no use un nombre de base de datos que contenga guiones ni espacios. Podría provocar que el proceso de creación del clúster diera error.
+
+> [!WARNING]
+> No se admite Azure SQL Warehouse para Hive Metastore.
+
+
+#### <a name="oozie-metastore"></a>Oozie Metastore
+
+Para aumentar el rendimiento al usar Oozie, utilice un Metastore personalizado. Un Metastore personalizado también resulta útil si desea tener acceso a datos del trabajo de Oozie después de haber eliminado el clúster. Si no tiene pensado usar Oozie, o bien solo va a utilizarlo de forma intermitente, no es necesario que cree un Metastore personalizado.
+
+> [!IMPORTANT]
+> No puede volver a usar un Oozie Metastore personalizado. Para usar un Oozie Metastore personalizado, debe proporcionar una base de datos Azure SQL Database vacía al crear el clúster HDInsight.
+
+La configuración de Metastore no está disponible para todos los tipos de clúster. Por ejemplo, no está disponible para los clústeres HBase o Kafka.
+
+> [!WARNING]
+> No se admite Azure SQL Warehouse para Oozie Metastore.
 
 ## <a name="install-hdinsight-applications"></a>Install HDInsight applications
 

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/09/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1673e14285456307441c836ba2225556416d4a7b
-ms.openlocfilehash: 4c50968dd66ab351a5ef1b8e06557855870c5d4e
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6bc564cc5121a6b7b7896f1d90177140bee15fbb
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -131,7 +132,7 @@ userPrincipalName es el atributo que los usuarios utilizan al iniciar sesión en
 Se recomienda encarecidamente mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro atributo, por ejemplo, email, como que contiene el identificador de inicio de sesión. Esto se conoce como un "identificador alternativo". El valor del atributo Alternate ID debe seguir el estándar RFC822. Un identificador alternativo puede usarse como solución de inicio de sesión tanto con el SSO de contraseña como con el SSO de federación.
 
 > [!NOTE]
-> El uso de un identificador alternativo no es compatible con todas las cargas de trabajo de Office 365 ni con la autenticación de paso a través. Para obtener más información, consulte [Configuración del identificador de inicio de sesión alternativo](https://technet.microsoft.com/library/dn659436.aspx).
+> El uso de un identificador alternativo no es compatible con todas las cargas de trabajo de Office 365. Para obtener más información, consulte [Configuración del identificador de inicio de sesión alternativo](https://technet.microsoft.com/library/dn659436.aspx).
 >
 >
 

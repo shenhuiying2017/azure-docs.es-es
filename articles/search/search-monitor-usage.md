@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/05/2017
+ms.date: 05/01/2017
 ms.author: betorres
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: ab273c56fe9818ea65979376ec829032f67f04ed
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 16cb5a1e16a59200f0e731622398efcf24c3f777
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -62,11 +63,11 @@ La sección Uso incluye un medidor que indica la parte de los recursos disponibl
 >
 
 ### <a name="using-the-rest-api"></a>Uso de la API de REST
-La API de REST de Azure Search y el SDK para .NET proporcionan acceso mediante programación a las métricas del servicio.  Si está utilizando [indizadores](https://msdn.microsoft.com/library/azure/dn946891.aspx) para cargar un índice desde Azure SQL Database o desde DocumentDB, está disponible una API adicional para obtener las cifras que necesita.
+La API de REST de Azure Search y el SDK para .NET proporcionan acceso mediante programación a las métricas del servicio.  Si está utilizando [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx) para cargar un índice desde Azure SQL Database o desde Azure Cosmos DB, está disponible una API adicional para obtener las cifras que necesita.
 
-* [Obtención de estadísticas de índice](https://msdn.microsoft.com/library/azure/dn798942.aspx)
-* [Recuento de documentos](https://msdn.microsoft.com/library/azure/dn798924.aspx)
-* [Obtención del estado del indizador](https://msdn.microsoft.com/library/azure/dn946884.aspx)
+* [Obtención de estadísticas de índice](/rest/api/searchservice/get-index-statistics)
+* [Recuento de documentos](/rest/api/searchservice/count-documents)
+* [Obtención del estado del indizador](/rest/api/searchservice/get-indexer-status)
 
 ## <a name="how-to-export-logs-and-metrics"></a>Exportación de registros y métricas
 

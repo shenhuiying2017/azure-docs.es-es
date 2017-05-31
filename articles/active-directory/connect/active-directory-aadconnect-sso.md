@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/08/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b3eebdd714b38ffd9432404944829d05ef3c3dc6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2601850f99188445cf63a6a4f185bdc4ebb92c29
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -44,6 +44,12 @@ Si no se cumple alguna de las condiciones anteriores, al usuario se le pedirá q
 
 ![Inicio de sesión único de conexión directa](./media/active-directory-aadconnect-sso/sso1.png)
 
+Las demás funciones del inicio de sesión único (SSO) de conexión directa son las siguientes:
+
+- Si una solicitud de inicio de sesión de Azure AD incluye el parámetro `domain_hint` o `login_hint` (iniciado por una aplicación en el inquilino), SSO de conexión directa la usará y el usuario no tendrá que escribir su nombre de usuario y contraseña.
+- El SSO de conexión directa admite el nombre de usuario que sea el nombre de usuario predeterminado local (normalmente, "userPrincipalName") u otro atributo configurado en Azure AD Connect (conocido como "Id. alternativo").
+- SSO de conexión directa es una característica oportunista, lo que significa que, si por algún motivo genera un error, la experiencia de inicio de sesión del usuario se revierte a su comportamiento habitual; es decir, el usuario deberá escribir su contraseña en la página de inicio de sesión.
+
 ## <a name="whats-available-during-preview"></a>¿Que está disponible en la versión preliminar?
 
 >[!NOTE]
@@ -63,8 +69,6 @@ La compatibilidad con SSO de conexión directa se realiza a través de clientes 
 
 >[!NOTE]
 >En el caso de Windows 10, la recomendación es usar [Azure AD Join](../active-directory-azureadjoin-overview.md) para que la experiencia con Azure AD sea óptima.
-
-Si una solicitud de inicio de sesión de Azure AD incluye el parámetro `domain_hint` o `login_hint` (iniciado por una aplicación en el inquilino), SSO de conexión directa la usará y el usuario no tendrá que escribir su nombre de usuario y contraseña.
 
 ## <a name="how-does-azure-ad-seamless-sso-work"></a>¿Cómo funciona SSO de conexión directa con Azure AD?
 
@@ -103,7 +107,7 @@ Si va a habilitar SSO de conexión directa con sincronización de contraseñas y
 
 - El servidor de Azure AD Connect pueda comunicarse con las direcciones URL de `*.msappproxy.net`.
 - Azure AD Connect (versiones 1.1.484.0 o superiores) puede realizar solicitudes HTTPS a Azure AD a través del puerto 443. Esto solo se utiliza para habilitar la característica, no para los inicios de sesión de usuario reales.
-- Azure AD Connect también puede crear conexiones IP directas con los [intervalos de IP del centro de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Repetimos que esto solo se usa para habilitar la característica.
+- Azure AD Connect también puede crear conexiones IP directas con los [intervalos de IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Repetimos que esto solo se usa para habilitar la característica.
 
 >[!NOTE]
 > Las versiones anteriores de Azure AD Connect (anteriores a la 1.1.484.0) necesitan poder comunicarse con Azure AD a través del puerto 9090.
@@ -120,9 +124,9 @@ Si ya tiene una instalación de Azure AD Connect, utilice la ruta de acceso de l
 
 ![Azure AD Connect: Change user sign-in page (Cambiar página de inicio de sesión del usuario)](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
-Continúe con el Asistente para instalación hasta llegar a la página "Habilitar el inicio de sesión único". Tendrá que especificar las credenciales de administrador de dominio de cada bosque de AD que sincronice con Azure AD (a través de Azure AD Connect) y para cuyos usuarios desee habilitar SSO de conexión directa. Tenga en cuenta que las credenciales de administrador de dominio no se almacenan en Azure AD Connect ni en Azure AD, solo se usan para crear la cuenta del equipo y configurar los SPN de Kerberos como ya se ha descrito.
+Continúe con el asistente hasta llegar a la página "Habilitar el inicio de sesión único". Tendrá que especificar las credenciales de administrador de dominio de cada bosque de AD que sincronice con Azure AD (a través de Azure AD Connect) y para cuyos usuarios desee habilitar SSO de conexión directa. Tenga en cuenta que las credenciales de administrador de dominio no se almacenan en Azure AD Connect ni en Azure AD, solo se usan para crear la cuenta del equipo y configurar los SPN de Kerberos como ya se ha descrito.
 
-En este momento SSO de conexión directa está habilitado en su inquilino. Tenga en cuenta que todavía se deben completar los pasos descritos en la sección siguiente antes de los usuarios puede beneficiarse de esta característica.
+Cuando haya finalizado con el asistente, el SSO de conexión directa estará habilitado en su inquilino. Tenga en cuenta que todavía se deben completar los pasos descritos en la sección siguiente antes de los usuarios puede beneficiarse de esta característica.
 
 ## <a name="rolling-the-feature-out-to-your-users"></a>Implementación de la característica a los usuarios
 
@@ -142,10 +146,10 @@ Dado que las direcciones URL de Azure AD que se usan para SSO de conexión direc
 ![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso6.png)  
 4. Habilite la directiva y escriba los valores/datos siguientes en el cuadro de diálogo. Estas son las direcciones URL de AD Azure a las que se envían los vales de Kerberos.
 
-        Value: https://autologon.microsoftazuread-sso.com  
-        Data: 1  
-        Value: https://aadg.windows.net.nsatc.net  
-        Data: 1  
+        Value: https://autologon.microsoftazuread-sso.com
+        Data: 1
+        Value: https://aadg.windows.net.nsatc.net
+        Data: 1
 5. Haga clic en **Aceptar** y en **Aceptar** de nuevo.
 
 Debería ser parecido a este:
@@ -155,29 +159,26 @@ Debería ser parecido a este:
 >[!NOTE]
 >De forma predeterminada, Chrome usa el mismo conjunto de direcciones URL de sitios de confianza que Internet Explorer. Si tiene una configuración distinta para Chrome, será preciso que la actualice de manera independiente.
 
-## <a name="troubleshooting-seamless-sso"></a>Solución de problemas de SSO de conexión directa
+## <a name="disabling-azure-ad-seamless-sso"></a>Deshabilitación del SSO de conexión directa de Azure AD
 
-Use la siguiente lista de comprobación para la solución de problemas de SSO de conexión directa:
+El SSO de conexión directa de Azure AD puede deshabilitarse a través de Azure AD Connect.
 
-1. Compruebe si la característica de SSO de conexión directa SSO de conexión directa en el inquilino en la herramienta Azure AD Connect. Si no puede habilitar la característica (por ejemplo, debido a que hay un puerto bloqueado), asegúrese de que cumple todos los [requisitos previos](#pre-requisites). Si aún surgen problemas al habilitar la característica, póngase en contacto con el soporte técnico de Microsoft.
-2. Se ha definido que las dos direcciones URL de servicio (https://autologon.microsoftazuread-sso.com y https://aadg.windows.net.nsatc.net) forman parte de la configuración de la zona de intranet.
-3. Asegúrese de que el escritorio corporativo se ha unido al dominio de AD.
-4. Asegúrese de que el usuario ha iniciado sesión en el escritorio con una cuenta de dominio de AD.
-5. Asegúrese de que la cuenta del usuario provenga de un bosque de AD donde esté configurado SSO de conexión directa.
-6. Asegúrese de que el escritorio está conectado a la red corporativa.
-7. Asegúrese de que la hora del escritorio está sincronizada con la de Active Directory y de los controladores de dominio y de que difiere un máximo de 5 minutos de cada una de ellas.
-8. Purgue los vales Kerberos existentes de su escritorio. Para hacerlo, ejecute el comando **klist purge** desde un símbolo del sistema.
-9. Revise los registros de la consola del explorador (en "Herramientas de desarrollo") para ayudar a determinar posibles problemas.
+Ejecute Azure AD Connect, elija "Change user sign-in page" (Cambiar página de inicio de sesión de usuario) y haga clic en "Siguiente". A continuación, desactive la opción "Habilitar el inicio de sesión único". Continúe con el asistente. Cuando haya finalizado con el asistente, el SSO de conexión directa estará deshabilitado en su inquilino. Sin embargo, verá un mensaje en pantalla en el que se anuncia lo siguiente:
 
-### <a name="domain-controller-logs"></a>Registros de controlador de dominio
+"El inicio de sesión único ya está deshabilitado, pero es necesario completar otros pasos manualmente para finalizar el proceso. Más información".
 
-Si se habilita una auditoría correcta en un controlador de dominio, cada vez que un usuario inicia sesión mediante SSO de conexión directa se graba una entrada de seguridad (evento 4769 asociado con la cuenta de equipo **AzureADSSOAcc$**) en el registro de eventos. Para encontrar estos eventos de seguridad, utilice la consulta siguiente:
+Estos son los pasos manuales que necesita:
 
-```
-    <QueryList>
-      <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
-      </Query>
-    </QueryList>
-```
+- Obtención de la lista de bosques de AD en la que se ha habilitado el SSO de conexión directa
+  - En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Se mostrará un cuadro emergente para escribir las credenciales de administrador de su inquilino de Azure AD.
+  - Llame a `Get-AzureADSSOStatus`. Aparecerá la lista de bosques de AD (examine la lista "Dominios") en la que se ha habilitado esta característica.
+- Elimine manualmente la cuenta de equipo AZUREADSSOACCT de cada bosque de AD que encuentre en la lista anterior.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Lea nuestra [guía de solución de problemas](active-directory-aadconnect-troubleshoot-sso.md) para obtener información sobre cómo resolver problemas comunes con SSO de conexión directa de Azure AD.
+
+## <a name="feedback"></a>Comentarios
+
+Sus comentarios son importantes. Si tiene alguna pregunta, utilice la siguiente sección de comentarios. Utilice nuestro [foro de UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) para las nuevas solicitudes de características.
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: cdc50ec4bf98d7924ad5bf97c9a757f0bac01173
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b0b2e8f375fa0b80e4f933515e1e8a689478483e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -74,7 +75,7 @@ Para conocer los límites del número de puntos de conexión que se pueden agreg
 ## <a name="field-gateways"></a>Puertas de enlace de campo
 En una solución de IoT, un *puerta de enlace de campo* se encuentra entre los dispositivos y los puntos de conexión de IoT Hub. Suele encontrarse cerca de los dispositivos. Los dispositivos se comunican directamente con la puerta de enlace de campo mediante un protocolo compatible con los dispositivos. La puerta de enlace de campo se conecta al punto de conexión de IoT Hub con un protocolo que es compatible con IoT Hub. Una puerta de enlace de campo puede ser hardware muy especializado o un equipo de bajo consumo que ejecuta software que lleva a cabo el escenario de extremo a extremo al que va destinada la puerta de enlace.
 
-Puede usar el [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk] para implementar una puerta de enlace de campo. Este SDK ofrece funcionalidad específica, como la posibilidad de multiplexar la comunicación desde varios dispositivos en la misma conexión de IoT Hub.
+Puede usar [Azure IoT Edge][lnk-gateway-sdk] para implementar una puerta de enlace de campo. IoT Edge ofrece funcionalidad específica, como la posibilidad de multiplexar la comunicación desde varios dispositivos en la misma conexión de IoT Hub.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
@@ -83,7 +84,7 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 * [Cuotas y limitación][lnk-devguide-quotas]
 * [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt]
 
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 
 [img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
 [lnk-amqp]: https://www.amqp.org/

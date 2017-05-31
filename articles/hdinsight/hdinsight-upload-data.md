@@ -1,6 +1,7 @@
 ---
 title: Carga de datos para trabajos de Hadoop en HDInsight | Microsoft Docs
 description: "Aprenda a cargar datos en HDInsight y a obtener acceso a ellos para trabajos de Hadoop con la CLI de Azure, el Explorador de almacenamiento de Azure, Azure PowerShell, la línea de comandos de Hadoop o Sqoop."
+keywords: "extracción, transformación y carga de datos de hadoop, obtención de datos en hadoop, carga de datos de hadoop"
 services: hdinsight,storage
 documentationcenter: 
 tags: azure-portal
@@ -9,17 +10,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/12/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0caac0c7ad76df7e7fa657227339d1df8b4a3c77
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 134afd3495c555f85e8838cbe0344a3a48534950
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -187,7 +189,7 @@ Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de al
 
 1. Ejecute el explorador de almacenamiento de Azure. Si es la primera vez que ejecuta el Explorador de almacenamiento, se le pedirá el **nombre de la cuenta de almacenamiento** y la **clave de cuenta de almacenamiento**. Si ya lo ejecutó antes, use el botón **Agregar** para agregar un nombre y una clave de cuenta de almacenamiento nuevos.
 
-    Escriba el nombre y la clave para la cuenta de almacenamiento que usa el clúster de HDinsight y seleccione **GUARDAR Y ABRIR**.
+    Escriba el nombre y la clave para la cuenta de almacenamiento que usa el clúster de HDInsight y seleccione **GUARDAR Y ABRIR**.
 
     ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 2. En la lista de contenedores de la izquierda de la interfaz, haga clic en el nombre del contenedor que esté asociado al clúster de HDInsight. De forma predeterminada, es el nombre del clúster de HDInsight, pero puede ser diferente si especificó un nombre concreto al crear el clúster.

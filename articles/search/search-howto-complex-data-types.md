@@ -13,21 +13,23 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 09/07/2016
+ms.date: 05/01/2017
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a90d7d90a6f3a75e230d32fb02b5ae69909d3c31
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Modelado de tipos de datos complejos en Azure Search
-Los conjuntos de datos externos usados para rellenar un índice de Azure Search a veces incluyen subestructuras jerárquicas o anidadas que no se dividen perfectamente en un conjunto de filas tabular. Algunos ejemplos de estas estructuras son varias ubicaciones y números de teléfono de un solo cliente, varios tamaños y colores de un único SKU, varios autores de un único libro, etc. En términos de modelado, puede que vea referirse a estas estructuras como *tipos de datos complejos*, *tipos de datos compuestos* o *tipos de datos agregados*, por nombrar algunos.
+Los conjuntos de datos externos usados para rellenar un índice de Azure Search a veces incluyen subestructuras jerárquicas o anidadas que no se dividen perfectamente en un conjunto de filas tabular. Algunos ejemplos de estas estructuras son varias ubicaciones y números de teléfono de un solo cliente, varios tamaños y colores de un único SKU, varios autores de un único libro, etc. En términos de modelado, puede que vea referirse a estas estructuras como *tipos de datos complejos*, *tipos de datos compuestos* o *tipos de datos agregados*, por nombrar algunos. **
 
 Los tipos de datos complejos no se admiten de forma nativa en Azure Search, pero existe una solución probada que consiste en seguir un proceso en dos pasos para aplanar la estructura y, a continuación, utilizar un tipo de datos **Collection** para reconstituir la estructura interior. La técnica descrita en este artículo permite buscar, buscar con facetas, filtrar y ordenar el contenido.
 
 ## <a name="example-of-a-complex-data-structure"></a>Ejemplo de una estructura de datos complejos
-Normalmente, los datos en cuestión residen como un conjunto de documentos JSON o XML o como elementos en un almacén de NoSQL, por ejemplo, DocumentDB. Estructuralmente, la dificultad radica en tener varios elementos secundarios que se deben buscar y filtrar.  Como punto de partida para ilustrar la solución alternativa, tome como ejemplo el siguiente documento JSON que enumera un conjunto de contactos:
+Normalmente, los datos en cuestión residen como un conjunto de documentos JSON o XML o como elementos en un almacén de NoSQL, por ejemplo, Azure Cosmos DB. Estructuralmente, la dificultad radica en tener varios elementos secundarios que se deben buscar y filtrar.  Como punto de partida para ilustrar la solución alternativa, tome como ejemplo el siguiente documento JSON que enumera un conjunto de contactos:
 
 ~~~~~
 [
@@ -136,11 +138,6 @@ Esta técnica es útil para diversos escenarios, pero no es aplicable en todos l
 En este [repositorio de GitHub](https://github.com/liamca/AzureSearchComplexTypes)puede ver un ejemplo de cómo indizar un conjunto de datos JSON complejo en Azure Search y realizar diversas consultas sobre este conjunto de datos.
 
 ## <a name="next-step"></a>Paso siguiente
-[Vote a favor de la compatibilidad nativa con tipos de datos complejos](https://feedback.azure.com/forums/263029-azure-search) en la página UserVoice de Azure Search y díganos qué le gustaría que tuviéramos en cuenta para la implementación de la característica. Puede ponerse en contacto conmigo directamente en Twitter en @liamca..
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Vote a favor de la compatibilidad nativa con tipos de datos complejos](https://feedback.azure.com/forums/263029-azure-search) en la página UserVoice de Azure Search y díganos qué le gustaría que tuviéramos en cuenta para la implementación de la característica. Puede ponerse en contacto conmigo directamente en Twitter en @liamca.
 
 

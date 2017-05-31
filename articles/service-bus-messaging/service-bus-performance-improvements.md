@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 05/10/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: a9fd01e533f4ab76a68ec853a645941eff43dbfd
-ms.openlocfilehash: d077099a9fdc50cf78157bcb7f28d1d28583bea1
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: e6a0e480f7748f12f5e566cf4059b5b2c4242c09
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
+
 En este artículo se describe cómo usar la [mensajería de Azure Service Bus](https://azure.microsoft.com/services/service-bus/) para optimizar el rendimiento al intercambiar mensajes asincrónicos. En la primera parte del tema se describen los distintos mecanismos que se ofrecen para ayudar a mejorar el rendimiento. La segunda parte proporciona orientación sobre cómo usar el Bus de servicio de manera que pueda ofrecer el mejor rendimiento en un escenario determinado.
 
 En todo este tema, el término "cliente" hace referencia a cualquier entidad que acceda a Service Bus. Un cliente puede asumir el rol de un remitente o receptor. El término "remitente" se usa para referirse a cualquier cliente de una cola o un tema de Service Bus que envía mensajes a una cola o un tema de Service Bus. El término "receptor" hace referencia a cualquier cliente de una cola o suscripción de Service Bus que recibe mensajes de una cola o suscripción de Service Bus.
@@ -130,7 +132,8 @@ El servidor comprueba la propiedad de período de vida (TTL) de un mensaje en el
 La captura previa no afecta al número de operaciones de mensajería facturables y solo está disponible para el protocolo de cliente del Bus de servicio. El protocolo HTTP no admite la captura previa. La captura previa está disponible para las operaciones de recepción sincrónicas y asincrónicas.
 
 ## <a name="express-queues-and-topics"></a>Colas y temas exprés
-Las entidades exprés permiten escenarios con un alto rendimiento y una latencia reducida. Con las entidades exprés, si se envía un mensaje a una cola o un tema, este no se guarda de inmediato en el almacén de mensajería. En su lugar, se almacena en la memoria caché. Si un mensaje permanece en la cola durante más de unos segundos, se escribe automáticamente en almacenamiento estable, lo que lo protege contra la pérdida debida a una interrupción. La escritura del mensaje en una memoria caché aumenta el rendimiento y reduce la latencia porque no se accede al almacenamiento estable en el momento en que se envía el mensaje. Los mensajes que se consumen en unos segundos no se escriben en el almacén de mensajería. En el ejemplo siguiente se crea un tema exprés.
+
+Las entidades con la opción Rápido habilitan escenarios de latencia reducida y alto rendimiento, y se admiten solo en el plan de mensajería Estándar. Las entidades creadas en [espacios de nombres Premium](service-bus-premium-messaging.md) no admiten la opción Rápido. Con las entidades exprés, si se envía un mensaje a una cola o un tema, este no se guarda de inmediato en el almacén de mensajería. En su lugar, se almacena en la memoria caché. Si un mensaje permanece en la cola durante más de unos segundos, se escribe automáticamente en almacenamiento estable, lo que lo protege contra la pérdida debida a una interrupción. La escritura del mensaje en una memoria caché aumenta el rendimiento y reduce la latencia porque no se accede al almacenamiento estable en el momento en que se envía el mensaje. Los mensajes que se consumen en unos segundos no se escriben en el almacén de mensajería. En el ejemplo siguiente se crea un tema exprés.
 
 ```csharp
 TopicDescription td = new TopicDescription(TopicName);
@@ -141,7 +144,7 @@ namespaceManager.CreateTopic(td);
 Si se envía un mensaje que contiene información importante y que no debe perderse a una entidad exprés, el remitente puede forzar que Service Bus lo conserve inmediatamente en almacenamiento estable si se establece la propiedad [ForcePersistence][ForcePersistence] en **true**.
 
 > [!NOTE]
-> Tenga en cuenta que las entidades exprés no admiten transacciones.
+> Las entidades con la opción Rápido no admiten transacciones.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>Uso de colas o temas con particiones
 De forma interna, Service Bus usa el mismo nodo y almacén de mensajería para procesar y almacenar todos los mensajes de una entidad de mensajería (cola o tema). Por otra parte, una cola o un tema con particiones se distribuyen entre varios nodos y almacenes de mensajería. Las colas y los temas con particiones no solo producen un rendimiento mayor que las colas y los temas normales, sino que también ofrecen una mayor disponibilidad. Para crear una entidad particionada, establezca la propiedad [EnablePartitioning][EnablePartitioning] en **true** como se muestra en el ejemplo siguiente. Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
@@ -252,12 +255,12 @@ Para obtener más información sobre cómo optimizar el rendimiento de Service B
 [MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
 [PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
 [ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
-[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
-[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
-[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
-[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
-[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
-[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
-[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
 

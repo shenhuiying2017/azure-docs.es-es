@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: ff08ea2b6231b2344244b14e44bcfd9acd065508
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1cb65f738bd77179a7ed379e3c1664c5eb232a68
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -30,7 +31,7 @@ Hay tres categorías de SDK para trabajar con IoT Hub:
 
 * Los **SDK de servicios** permiten administrar IoT Hub y, si se desea, enviar mensajes a los dispositivos IoT.
 
-* Los **SDK de puertas de enlace** permiten crear puertas de enlace para habilitar dispositivos que no utilicen uno de los protocolos compatibles, o bien cuando se necesite procesar mensajes en el perímetro.
+* **Azure IoT Edge** permite crear puertas de enlace para habilitar dispositivos que no utilicen uno de los protocolos compatibles, o bien cuando se necesite procesar mensajes en el perímetro.
 
 Los SDK se incluyen para admitir varios lenguajes de programación.
 
@@ -70,11 +71,11 @@ Los siguientes SDK de servicios IoT de Azure están disponibles para su descarga
 > [!NOTE]
 > Consulte los archivos Léame en los repositorios de GitHub para obtener información sobre el uso de administradores de paquetes específicos de la plataforma y el lenguaje para instalar los archivos binarios y dependencias en el equipo de desarrollo.
 
-## <a name="azure-iot-gateway-sdks"></a>SDK de puerta de enlace IoT de Azure
+## <a name="azure-iot-edge"></a>Azure IoT Edge
 
-Este SDK de puerta de enlace IoT de Azure contiene la infraestructura y los módulos necesarios para crear soluciones de puerta de enlace IoT. Puede ampliar este SDK para crear puertas de enlace aptas para cualquier escenario de un extremo a otro.
+Azure IoT Edge contiene la infraestructura y los módulos necesarios para crear soluciones de puerta de enlace IoT. Puede ampliar IoT Edge para crear puertas de enlace aptas para cualquier escenario de un extremo a otro.
 
-Puede descargar el [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk] desde GitHub.
+Puede descargar [Azure IoT Edge][lnk-gateway-sdk] desde GitHub.
 
 ## <a name="online-api-reference-documentation"></a>Documentación de referencia de la API en línea
 
@@ -87,7 +88,7 @@ La siguiente lista contiene vínculos a documentación en línea de referencia d
 * [SDK de servicios IoT de Azure para Java][lnk-java-service-ref]
 * [SDK de dispositivo IoT de Azure para Node.js][lnk-node-ref]
 * [SDK de servicios IoT de Azure para Node.js][lnk-node-service-ref]
-* [SDK de puerta de enlace de IoT de Azure][lnk-gateway-ref]
+* [Azure IoT Edge][lnk-gateway-ref]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -110,7 +111,7 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 [lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device
 [lnk-python-service-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/service
 [lnk-certified]: https://catalog.azureiotsuite.com/
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 
 [lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
 [lnk-c-ref]: https://azure.github.io/azure-iot-sdk-c/index.html
@@ -119,7 +120,7 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
 [lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth
 [lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html
-[lnk-gateway-ref]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
+[lnk-gateway-ref]: http://azure.github.io/iot-edge/api_reference/c/html/
 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md

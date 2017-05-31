@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c29e31f59acac56d6ec522e1e7946238a6e22aa5
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: aaf3e9daca2fb810aa32b1b58acdade6ddfc1744
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -295,26 +296,26 @@ Hay bibliotecas disponibles en Python y en R para acceder a bases de datos.
 En la VM se instalan las siguientes herramientas de Azure:
 
 * **Interfaz de la línea de comandos de Azure**: la CLI de Azure permite crear y administrar recursos de Azure mediante comandos de shell. Para invocar las herramientas de Azure, escriba **azure help**. Para obtener más información, consulte la [página de documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Explorador de almacenamiento de Microsoft Azure**: explorador de Almacenamiento de Microsoft Azure es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Almacenamiento de Azure y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
+* **Explorador de Microsoft Azure Storage**: el explorador de Microsoft Azure Storage es una herramienta gráfica que se usa para examinar los objetos que haya almacenado en la cuenta de Azure Storage y cargar o descargar datos con los blobs de Azure como origen y destino. Puede acceder al Explorador de almacenamiento desde el icono de acceso directo del escritorio. Puede invocarlo desde el símbolo del sistema del shell escribiendo **StorageExplorer**. Tiene que haber iniciado sesión desde un cliente X2Go o tener la configuración de reenvío de X11.
 * **Bibliotecas de Azure**: a continuación, figuran algunas de las bibliotecas preinstaladas.
   
-  * **Python**: las bibliotecas relacionadas con Azure en Python que están instaladas son **azure**, **azureml**, **pydocumentdb** y **pyodbc**. Las tres primeras bibliotecas permiten acceder a los servicios de almacenamiento de Azure, a Aprendizaje automático de Azure y a Azure DocumentDB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a SQL Server, Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure desde Python mediante una interfaz ODBC. Escriba **pip list** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en los entornos de Python 2.7 y 3.5.
+  * **Python**: las bibliotecas relacionadas con Azure en Python que están instaladas son **azure**, **azureml**, **pydocumentdb** y **pyodbc**. Las tres primeras bibliotecas permiten acceder a los servicios de Azure Storage, a Azure Machine Learning y a Azure Cosmos DB (una base de datos NoSQL en Azure). La cuarta biblioteca, pyodbc (junto con el controlador ODBC de Microsoft para SQL Server), permite el acceso a SQL Server, Azure SQL Database y Azure SQL Data Warehouse desde Python mediante una interfaz ODBC. Escriba **pip list** para ver todas las bibliotecas enumeradas. Asegúrese de ejecutar este comando en los entornos de Python 2.7 y 3.5.
   * **R**: las bibliotecas relacionadas con Azure en R que están instaladas son **AzureML** y **RODBC**.
-  * **Java**: la lista de bibliotecas de Java para Azure se puede encontrar en el directorio **/dsvm/sdk/AzureSDKJava** de la máquina virtual. Las bibliotecas principales son las API de administración y almacenamiento de Azure, DocumentDB y los controladores JDBC para SQL Server.  
+  * **Java**: la lista de bibliotecas de Java para Azure se puede encontrar en el directorio **/dsvm/sdk/AzureSDKJava** de la máquina virtual. Las bibliotecas principales son Azure Storage y las API de administración, Azure Cosmos DB y los controladores JDBC para SQL Server.  
 
-Puede acceder al [Portal de Azure](https://portal.azure.com) desde el explorador Firefox instalado previamente. En el Portal de Azure, puede crear, administrar y supervisar los recursos de Azure.
+Puede acceder a [Azure Portal](https://portal.azure.com) desde el explorador Firefox instalado previamente. En Azure Portal, puede crear, administrar y supervisar los recursos de Azure.
 
-### <a name="azure-machine-learning"></a>Aprendizaje automático de Azure
-Aprendizaje automático de Azure es un servicio en la nube totalmente administrado que permite crear, implementar y compartir soluciones de análisis predictivo. Puede crear sus experimentos y modelos desde Estudio de aprendizaje automático de Azure. Puede acceder a él desde un explorador web en la máquina virtual de ciencia de datos si visita la página de [Aprendizaje automático de Microsoft Azure](https://studio.azureml.net).
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+Azure Machine Learning es un servicio en la nube totalmente administrado que permite crear, implementar y compartir soluciones de análisis predictivo. Puede crear sus experimentos y modelos desde Azure Machine Learning Studio. Puede acceder a él desde un explorador web en la máquina virtual de ciencia de datos si visita la página de [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Una vez que inicie sesión en Estudio de aprendizaje automático de Azure, tendrá acceso a un lienzo de experimentación donde puede crear un flujo lógico para los algoritmos de aprendizaje automático. También tiene acceso a Jupyter Notebook hospedado en Aprendizaje automático de Azure, que puede funcionar perfectamente con los experimentos de Estudio de aprendizaje automático de Azure. Haga que los modelos de aprendizaje automático que ha creado estén operativos encapsulándolos en una interfaz de servicio web. De este modo, los clientes pueden escribir en cualquier lenguaje para invocar predicciones a partir de los modelos aprendizaje automático. Para obtener más información, consulte la [documentación sobre Aprendizaje automático](https://azure.microsoft.com/documentation/services/machine-learning/).
+Una vez que inicie sesión en Azure Machine Learning Studio, tendrá acceso a un lienzo de experimentación donde puede crear un flujo lógico para los algoritmos de aprendizaje automático. También tiene acceso a Jupyter Notebook hospedado en Azure Machine Learning, que puede funcionar perfectamente con los experimentos de Azure Machine Learning Studio. Haga que los modelos de aprendizaje automático que ha creado estén operativos encapsulándolos en una interfaz de servicio web. De este modo, los clientes pueden escribir en cualquier lenguaje para invocar predicciones a partir de los modelos aprendizaje automático. Para obtener más información, consulte la [documentación sobre Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-También puede crear los modelos en R o en Python en la máquina virtual y, después, implementarlos en la producción en Aprendizaje automático de Azure. Hemos instalado bibliotecas en R (**AzureML**) y en Python (**azureml**) para habilitar esta funcionalidad.
+También puede crear los modelos en R o en Python en la máquina virtual y, después, implementarlos en la producción en Azure Machine Learning. Hemos instalado bibliotecas en R (**AzureML**) y en Python (**azureml**) para habilitar esta funcionalidad.
 
-Para obtener información sobre cómo implementar modelos en R y en Python en Aprendizaje automático de Azure, consulte la sección [Diez cosas que puede hacer en Data Science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md) (en concreto, la sección Compilación de modelos mediante R y Python, y hacer que estén operativos mediante Aprendizaje automático de Azure).
+Para obtener información sobre cómo implementar modelos en R y en Python en Azure Machine Learning, consulte la sección [Diez cosas que puede hacer en Data Science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md) (en concreto, la sección Compilación de modelos mediante R y Python, y hacer que estén operativos mediante Azure Machine Learning).
 
 > [!NOTE]
-> Estas instrucciones se han escrito para la versión de Windows de la VM de ciencia de datos. Sin embargo, la información proporcionada sobre la implementación de modelos en Aprendizaje automático de Azure es aplicable a la máquina virtual Linux.
+> Estas instrucciones se han escrito para la versión de Windows de la VM de ciencia de datos. Sin embargo, la información proporcionada sobre la implementación de modelos en Azure Machine Learning es aplicable a la máquina virtual Linux.
 > 
 > 
 

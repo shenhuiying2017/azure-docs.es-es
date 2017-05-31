@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: bf4e400e30cc93ca8fa0cc727ada0f1b224b05cb
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 70a598c9a5bf514f62baa0c5275b2e44cd9776b8
 ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -70,7 +70,7 @@ Cloud Services (clásico) se puede usar con otros recursos clásicos. Sin embarg
 ## <a name="databases"></a>Bases de datos
 | Servicio | Administrador de recursos habilitado | API de REST | Formato de plantilla |
 | --- | --- | --- | --- | --- |
-| DocumentDB |Sí |[REST de DocumentDB](/rest/api/documentdbresourceprovider) |[Recursos de DocumentDB](/azure/templates/microsoft.documentdb/databaseaccounts) |
+| Azure Cosmos DB |Sí |[REST de Azure Cosmos DB](/rest/api/documentdbresourceprovider) |[Recursos de Azure Cosmos DB](/azure/templates/microsoft.documentdb/databaseaccounts) |
 | Redis Cache |Sí | [API de REST de Redis Cache](/rest/api/redis) |[Recursos de Redis](/azure/templates/microsoft.cache/redis) |
 | SQL Database |Sí |[REST de Base de datos SQL](/rest/api/sql) |[Recursos de SQL Database](/azure/templates/microsoft.sql/servers) |
 | SQL Data Warehouse |Sí | | |

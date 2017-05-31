@@ -1,6 +1,6 @@
 ---
 title: Uso de las recomendaciones de Azure Security Center para mejorar la seguridad | Microsoft Docs
-description: " Información sobre cómo usar las recomendaciones y directivas de seguridad en Azure Security Center para ayudar a mitigar un ataque de seguridad. "
+description: " Obtenga información sobre cómo usar las recomendaciones y directivas de seguridad en Azure Security Center para ayudar a mitigar un ataque de seguridad. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 313801fc3b845cd30506b1a26918660e77d2a986
-ms.openlocfilehash: 67095e0d8752fb3a2bca692f65e77cde5fd1a966
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 36dd149812a0e8c8ca8ef2bac09c1920ec15d3ba
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -75,7 +77,7 @@ Juan inicia sesión en [Azure Portal](https://azure.microsoft.com/features/azure
 
 1. Juan selecciona el icono de **Recomendaciones** para abrir la hoja **Recomendaciones**.
    ![Selección del icono de Recomendaciones][3]
-2. Juan revisa la lista de recomendaciones. Ve que Security Center ha proporcionado la lista de recomendaciones en orden de prioridad, de la prioridad más alta a la más baja. Decide abordar la primera recomendación de alta prioridad de la lista. En la hoja **Recomendaciones**, selecciona **Instalar Endpoint Protection**.
+2. Juan revisa la lista de recomendaciones. Ve que Security Center ha proporcionado la lista de recomendaciones en orden de prioridad, de la prioridad más alta a la más baja. Decide abordar una recomendación de alta prioridad de la lista. En la hoja **Recomendaciones**, selecciona **Instalar Endpoint Protection**.
 3. Se abre la hoja **Instalar Endpoint Protection** con una lista de máquinas virtuales sin antimalware habilitado. Juan revisa la lista de máquinas virtuales, las selecciona todas y, luego, hace clic en **Instalar en 3 máquinas virtuales**.
    ![Instalar Endpoint Protection][4]
 4. La hoja **Select Endpoint Protection** (Selección de Select Endpoint Protection) se abre y proporciona a Juan dos soluciones antimalware. Juan selecciona la solución **Microsoft Antimalware**.
@@ -114,9 +116,4 @@ Supervisar las recomendaciones de Security Center puede ayudarlo a eliminar vuln
 [5]:./media/security-center-using-recommendations/microsoft-antimalware.png
 [6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
 [7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

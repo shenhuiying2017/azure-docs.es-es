@@ -16,10 +16,10 @@ ms.date: 04/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b600b7d67de24eab5395f085a2a424159b14ff28
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a0a3b7ad7757439b5f73c38e759761f671ca2e17
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Roles integrados para el control de acceso basado en roles de Azure
@@ -55,7 +55,7 @@ Este artículo solo trata los distintos roles que existen actualmente. Sin embar
 | [Colaborador de Factoría de datos](#data-factory-contributor) |Puede crear y administrar factorías de datos y recursos secundarios dentro de ellos. |
 | [Usuario de DevTest Labs](#devtest-labs-user) |Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las máquinas virtuales |
 | [Colaborador de zona DNS](#dns-zone-contributor) |Puede administrar registros y zonas DNS |
-| [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) |Puede administrar cuentas de DocumentDB |
+| [Colaborador de la cuenta de Azure Cosmos DB](#documentdb-account-contributor) |Puede administrar cuentas de Azure Cosmos DB |
 | [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) |Puede administrar cuentas de Sistemas inteligentes |
 | [Lector de supervisión](#monitoring-reader) |Puede leer todos los datos de supervisión |
 | [Colaborador de supervisión](#monitoring-contributor) |Puede leer los datos de supervisión y editar la configuración de supervisión |
@@ -365,8 +365,8 @@ Puede administrar registros y zonas DNS.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/\* |Crear y administrar vales de soporte técnico |
 
-### <a name="documentdb-account-contributor"></a>Colaborador de cuenta de DocumentDB
-Puede administrar cuentas de DocumentDB
+### <a name="azure-cosmos-db-account-contributor"></a>Colaborador de la cuenta de Azure Cosmos DB
+Puede administrar cuentas de Azure Cosmos DB
 
 | **Acciones** |  |
 | --- | --- |

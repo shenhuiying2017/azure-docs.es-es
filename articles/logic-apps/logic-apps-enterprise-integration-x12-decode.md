@@ -1,6 +1,6 @@
 ---
 title: "Descodificación de mensajes X12: Azure Logic Apps | Microsoft Docs"
-description: Valide EDI y genere XML para conjuntos de transacciones con el descodificador de mensajes X12 en Enterprise Integration Pack para Azure Logic Apps
+description: Valide EDI y genere confirmaciones con el descodificador de mensajes X12 en Enterprise Integration Pack para Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 717069dbe211ea9cc04925875e0f28c85ef25ac2
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6408fdf494035b37e0025dd8439e800a80bffb4e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificación de mensajes X12 para Azure Logic Apps con Enterprise Integration Pack
 
-Con el conector de descodificación de mensajes X12, puede validar propiedades EDI y específicas de asociados, generar un documento XML para cada conjunto de transacciones y originar la confirmación de transacciones procesadas. Para usar este conector, debe agregarlo a un desencadenador existente en la aplicación lógica.
+Con el conector de descodificación de mensajes X12, puede validar el sobre con un acuerdo entre socios comerciales, validar propiedades EDI y específicas de asociados, dividir intercambios en conjuntos de transacciones o conservar intercambios completos y originar la confirmación de las transacciones procesadas. Para usar este conector, debe agregarlo a un desencadenador existente en la aplicación lógica.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -72,7 +73,6 @@ Esto es lo que necesita:
 El conector de descodificación X12 lleva a cabo estas tareas:
 
 * Valida el sobre con el acuerdo de socio comercial.
-* Genera un documento XML para cada conjunto de transacciones.
 * Valida propiedades EDI y específicas del asociado.
   * Validación estructural de EDI y validación de esquema extendido
   * Validación de la estructura del sobre de intercambio
@@ -82,15 +82,22 @@ El conector de descodificación X12 lleva a cabo estas tareas:
 * Comprueba que los números de control de intercambio, grupo y conjunto de transacciones no están duplicados.
   * Comprueba el número de control del intercambio en relación con los intercambios recibidos anteriormente.
   * Comprueba el número de control del grupo en relación con otros números de control de grupo en el intercambio.
-  * Comprueba el número de control del conjunto de transacciones en relación con otros números de control del conjunto de transacciones de ese grupo.
-* Convierte todo el intercambio a XML. 
-  * Dividir intercambio como conjuntos de transacciones - suspender conjuntos de transacciones en caso de error: analiza todos los conjuntos de transacciones de un intercambio en un documento XML independiente. Si uno o varios conjuntos de transacciones del intercambio no superan la validación, X12 Decode suspende solo esos conjuntos de transacciones.
-  * Dividir intercambio como conjuntos de transacciones - suspender intercambio en caso de error: analiza todos los conjuntos de transacciones de un intercambio en un documento XML independiente.  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, X12 Decode suspende todo el intercambio.
-  * Conservar intercambio - suspender conjuntos de transacciones en caso de error: crea un documento XML para todo el intercambio por lotes. X12 Decode suspende solo los conjuntos de transacciones que no superan la validación, sin dejar de procesar el resto de conjuntos de transacciones.
-  * Conservar intercambio - suspender intercambio en caso de error: crea un documento XML para todo el intercambio por lotes. Si uno o varios conjuntos de transacciones del intercambio no superan la validación, X12 Decode suspende todo el intercambio. 
+  * Comprueba el número de control del conjunto de transacciones con otros números de control del conjunto de transacciones de dicho grupo.
+* Divide el intercambio en conjuntos de transacciones o conserva todo el intercambio:
+  * Divide el intercambio como conjuntos de transacciones (suspende conjuntos de transacciones en caso de error): divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
+  La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
+  * Divide el intercambio como conjuntos de transacciones (suspende el intercambio en caso de error): divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
+  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`.
+  * Conserva el intercambio (suspende conjuntos de transacciones en caso de error): conserva el intercambio y procesa todo el intercambio por lotes. 
+  La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
+  * Conserva el intercambio (suspende el intercambio en caso de error): conserva el intercambio y procesa todo el intercambio por lotes. 
+  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`. 
 * Genera una confirmación técnica o funcional (si esta opción está configurada).
   * Se genera una confirmación técnica como resultado de la validación del encabezado. La confirmación técnica informa del estado del procesamiento de un encabezado y finalizador de intercambio por parte del receptor de la dirección.
   * Se genera una confirmación funcional como resultado de la validación del cuerpo. La confirmación funcional informa de cada error encontrado al procesar el documento recibido.
+
+## <a name="view-the-swagger"></a>Visualización de Swagger
+Vea los [detalles de Swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Más información sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") 

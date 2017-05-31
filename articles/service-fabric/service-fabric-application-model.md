@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/02/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 87db655d246dad90bf0afbc91ec507b0a86d90eb
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 31bd58f5b64f4b7636e1fe973cf78ac87bb9175f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -185,6 +186,8 @@ En [Implementación y eliminación de aplicaciones][10] se describe cómo usar P
 
 [Configuración de directivas de seguridad para la aplicación][12] describe cómo ejecutar los servicios a través de directivas de seguridad para restringir el acceso.
 
+[Modelos de hospedaje de aplicaciones][13] describe la relación entre las réplicas o las instancias de un servicio implementado y el proceso de host de servicio.
+
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
@@ -194,4 +197,5 @@ En [Implementación y eliminación de aplicaciones][10] se describe cómo usar P
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
+[13]: service-fabric-hosting-model.md
 

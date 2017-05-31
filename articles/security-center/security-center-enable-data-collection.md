@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 05/09/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: b942f934ecb25083d779096dc628e342870edc26
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 360073c0ed75552e62e69ce72b225ba35a2a3e09
 ms.contentlocale: es-es
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -31,19 +31,17 @@ Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure 
 >
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
-1. Seleccione el icono **Recomendaciones** de la hoja **Security Center**.  Se abrirá la hoja **Recomendaciones** .
-   ![Hoja Security Center][1]
-2. En la hoja **Recomendaciones**, seleccione **Habilitar la recopilación de datos de las suscripciones**.  Se abrirá la hoja **Activar recolección de datos**.
+1. En la hoja **Recomendaciones**, seleccione **Habilitar la recopilación de datos de las suscripciones**.  Se abrirá la hoja **Activar recolección de datos**.
    ![Hoja Recomendaciones][2]
-3. En la hoja **Activar recolección de datos** , seleccione la suscripción. Se abre la hoja **Directiva de seguridad** para esa suscripción.
-4. En la hoja **Directiva de seguridad**, seleccione **Activar** en **Recolección de datos** para recopilar registros de forma automática. La activación de la recolección de datos proporcionará la extensión de supervisión en todas las máquinas virtuales actuales y nuevas en la suscripción.
+2. En la hoja **Activar recolección de datos** , seleccione la suscripción. Se abre la hoja **Directiva de seguridad** para esa suscripción.
+3. En la hoja **Directiva de seguridad**, seleccione **Activar** en **Recolección de datos** para recopilar registros de forma automática. La activación de la recolección de datos proporcionará la extensión de supervisión en todas las máquinas virtuales actuales y nuevas en la suscripción.
 
    ![Hoja Directiva de seguridad][3]
 
-5. Seleccione **Guardar**.
-6. Seleccione **Elija una cuenta de almacenamiento por región**. Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Si no elige una cuenta de almacenamiento para cada región, se crea automáticamente una cuenta de almacenamiento y se coloca en el grupo de recursos securitydata. En este ejemplo, elegiremos **newstoracct**. Puede cambiar la cuenta de almacenamiento más adelante, para ello vuelva a la directiva de seguridad de la suscripción y elija otra cuenta de almacenamiento diferente.
+4. Seleccione **Guardar**.
+5. Seleccione **Elija una cuenta de almacenamiento por región**. Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Si no elige una cuenta de almacenamiento para cada región, se crea automáticamente una cuenta de almacenamiento y se coloca en el grupo de recursos securitydata. En este ejemplo, elegiremos **newstoracct**. Puede cambiar la cuenta de almacenamiento más adelante, para ello vuelva a la directiva de seguridad de la suscripción y elija otra cuenta de almacenamiento diferente.
    ![Seleccionar una cuenta de almacenamiento][4]
-7. Seleccione **Aceptar**.
+6. Seleccione **Aceptar**.
 
 > [!NOTE]
 > Se recomienda que antes active la recopilación de datos y elija una cuenta de almacenamiento en el nivel de suscripción. Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero la configuración de la recopilación de datos y la cuenta de almacenamiento tiene lugar solo en el nivel de suscripción.
@@ -72,7 +70,7 @@ Puede deshabilitar la recolección de datos en cualquier momento, esto quitará 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, mostramos cómo implementar la recomendación "Habilitar recopilación de datos" de Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md) : recomendaciones que le ayudan a proteger los recursos de Azure.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): aprenda a supervisar el estado de los recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
@@ -81,7 +79,6 @@ En este documento, mostramos cómo implementar la recomendación "Habilitar reco
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/security-center-blade.png
 [2]: ./media/security-center-enable-data-collection/recommendations.png
 [3]: ./media/security-center-enable-data-collection/data-collection.png
 [4]: ./media/security-center-enable-data-collection/storage-account.png

@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: be14485c9070d7dce5ecbaea778f31f30e13cfa9
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ddb7c2fd9437cb342e68b5a1ad47f9bd06ec476b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -208,7 +209,7 @@ Para poner en práctica diferentes patrones de control de excepciones, puede usa
 ## <a name="azure-diagnostics-and-telemetry"></a>Diagnósticos de Azure y datos de telemetría
 
 Los patrones anteriores son una manera excelente de controlar errores y excepciones dentro de una ejecución, pero también puede identificar y responder a los errores con independencia de la ejecución en sí. 
-[Diagnósticos de Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) ofrece un método sencillo de enviar todos los eventos de flujo de trabajo (incluidos todos los estados de ejecución y acción) a una cuenta de almacenamiento de Azure o a un Centro de eventos de Azure. Para evaluar los estados de ejecución, puede supervisar los registros y las métricas, o publicarlos en la herramienta de supervisión que prefiera. Una posible opción es transmitir todos los eventos mediante el Centro de eventos de Azure a [Análisis de transmisiones](https://azure.microsoft.com/services/stream-analytics/). En Stream Analytics, puede escribir consultas en directo partiendo de anomalías, promedios o errores en los registros de diagnóstico. Con Análisis de transmisiones es fácil enviar resultados a otros orígenes de datos, como colas, temas, SQL, DocumentDB y Power BI.
+[Diagnósticos de Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) ofrece un método sencillo de enviar todos los eventos de flujo de trabajo (incluidos todos los estados de ejecución y acción) a una cuenta de almacenamiento de Azure o a un Centro de eventos de Azure. Para evaluar los estados de ejecución, puede supervisar los registros y las métricas, o publicarlos en la herramienta de supervisión que prefiera. Una posible opción es transmitir todos los eventos mediante el Centro de eventos de Azure a [Análisis de transmisiones](https://azure.microsoft.com/services/stream-analytics/). En Stream Analytics, puede escribir consultas en directo partiendo de anomalías, promedios o errores en los registros de diagnóstico. Con Stream Analytics es fácil enviar resultados a otros orígenes de datos, como colas, temas, SQL, Azure Cosmos DB y Power BI.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

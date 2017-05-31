@@ -1,24 +1,25 @@
 ---
 title: API, SDK y recursos de .NET Core para Azure DocumentDB | Microsoft Docs
 description: "Aprenda todo lo necesario sobre el SDK y la API para .NET Core como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios realizados de una versión a otra del SDK para .NET Core de DocumentDB."
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: d5552615bfa663f4604e29839ecf8f5fc25c328f
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: cb53a57be75f89390312473a2c80923514b295c2
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/21/2017
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -56,6 +57,15 @@ El SDK de .NET Core para DocumentDB .NET Core SDK incluye paridad de caracterís
 
 > [!NOTE] 
 > El SDK de .NET Core para DocumentDB aún no es compatible con aplicaciones de la Plataforma universal de Windows (UWP). Si quiere que el SDK de .NET Core que admita aplicaciones de UWP, envíe un correo electrónico a [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+
+*    Se agregó compatibilidad con la característica Unidad de solicitud por minuto (RU/m).
+*    Se agregó compatibilidad con un nuevo nivel de coherencia denominado ConsistentPrefix.
+*    Se agregó compatibilidad con métricas de consulta para particiones individuales.
+*    Se agregó compatibilidad para limitar el tamaño del token de continuación para las consultas.
+*    Se agregó compatibilidad para un seguimiento más detallado de las solicitudes con error.
+*    Se hicieron algunas mejoras de rendimiento en el SDK.
 
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
@@ -107,6 +117,7 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en los foros de [Stac
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.3.0](#1.3.0) |10 de mayo de 2017 |--- |
 | [1.2.2](#1.2.2) |19 de abril de 2017 |--- |
 | [1.2.1](#1.2.1) |29 de marzo de 2017 |--- |
 | [1.2.0](#1.2.0) |25 de marzo de 2017 |--- |
@@ -117,6 +128,6 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en los foros de [Stac
 | [0.1.0-preview](#0.1.0-preview) |15 de noviembre de 2016 |31 de diciembre de 2016 |
 
 ## <a name="see-also"></a>Otras referencias
-Para más información sobre DocumentDB, vea la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
+Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). 
 
 

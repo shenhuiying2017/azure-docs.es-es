@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: gokuma;weig;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 3b608f341278ceaef9dd112cea38f138be69ee44
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c35d1548262f25e65c391c927919b8acf1411e10
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Diez cosas que puede hacer en Data Science Virtual Machine
-Data Science Virtual Machine (DSVM) es un eficaz entorno de desarrollo de ciencia de datos que le permite realizar diversas tareas de exploración y modelado de datos. El entorno incluye ya en su compilación varias herramientas populares de análisis de datos que le permitirán comenzar rápidamente su análisis con toda facilidad de implementaciones locales, en la nube o híbridas. DSVM trabaja estrechamente con muchos servicios de Azure y puede leer y procesar los datos que ya están almacenados en Azure, en Almacenamiento de datos SQL de Azure, Azure Data Lake, Almacenamiento de Azure o DocumentDB. También puede sacar provecho de otras herramientas de análisis como Aprendizaje automático de Azure y Data Factory de Azure.
+Data Science Virtual Machine (DSVM) es un eficaz entorno de desarrollo de ciencia de datos que le permite realizar diversas tareas de exploración y modelado de datos. El entorno incluye ya en su compilación varias herramientas populares de análisis de datos que le permitirán comenzar rápidamente su análisis con toda facilidad de implementaciones locales, en la nube o híbridas. DSVM trabaja estrechamente con muchos servicios de Azure y puede leer y procesar los datos que ya están almacenados en Azure, en Azure SQL Data Warehouse, Azure Data Lake, Azure Storage o Azure Cosmos DB. También puede sacar provecho de otras herramientas de análisis como Aprendizaje automático de Azure y Data Factory de Azure.
 
 En este artículo le mostraremos cómo utilizar DSVM para realizar diferentes tareas relacionadas con la ciencia de datos e interactuar con otros servicios de Azure. Estas son algunas de las tareas que puede hacer en DSVM:
 
@@ -32,7 +33,7 @@ En este artículo le mostraremos cómo utilizar DSVM para realizar diferentes ta
 4. Administrar los recursos de Azure mediante Azure Portal o PowerShell
 5. Ampliar el espacio de almacenamiento y compartir código o conjuntos de datos de gran escala entre todo el equipo mediante la creación de Almacenamiento de archivos de Azure como una unidad que se puede montar en DSVM
 6. Compartir código con su equipo mediante GitHub y tener acceso a su repositorio utilizando los clientes de Git preinstalados: Git Bash o Git GUI
-7. Obtener acceso a diversos servicios de análisis y datos de Azure, como Almacenamiento de blobs de Azure, Azure Data Lake, Azure HDInsight (Hadoop), Azure DocumentDB, Almacenamiento de datos SQL de Azure y bases de datos
+7. Acceder a diversos servicios de análisis y datos de Azure, como Azure Blob Storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse y bases de datos
 8. Crear informes y paneles con la aplicación Power BI Desktop preinstalada en DSVM e implementarlos en la nube
 9. Escalar dinámicamente DSVM para satisfacer las necesidades del proyecto
 10. Instalar herramientas adicionales en la máquina virtual   
@@ -798,22 +799,22 @@ Almacenamiento de datos SQL Azure es un almacén de datos elástico que funciona
 
 Para aprovisionar un Almacenamiento de datos SQL Azure, siga las instrucciones que se proporcionan en este [artículo](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Una vez que aprovisione el Almacenamiento de datos de SQL Azure, puede usar este [tutorial](machine-learning-data-science-process-sqldw-walkthrough.md) para realizar la carga, exploración y modelado de datos con los del Almacenamiento de datos SQL.
 
-#### <a name="azure-documentdb"></a>DocumentDB de Azure
-Azure DocumentDB es una base de datos NoSQL en la nube. Con él no solo puede trabajar con documentos como JSON, sino que también almacenar y consultar dichos documentos.
+#### <a name="azure-cosmos-db"></a>Azure Cosmos DB
+Azure Cosmos DB es una base de datos NoSQL en la nube. Con él no solo puede trabajar con documentos como JSON, sino que también almacenar y consultar dichos documentos.
 
-Debe realizar los siguientes pasos como requisitos previos para tener acceso a DocumentDB desde DSVM.
+Debe realizar los siguientes pasos como requisitos previos para tener acceso a Azure Cosmos DB desde DSVM.
 
 1. Instale el SDK de Python de DocumentDB (ejecute ```pip install pydocumentdb``` desde el símbolo del sistema).
-2. Cree una cuenta y una base de datos de DocumentDB desde el [Portal de Azure](https://portal.azure.com)
-3. Descargue la "herramienta de migración de DocumentDB" desde [aquí](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) y extráigala en el directorio que prefiera.
-4. Importe los datos de JSON (datos de volcanes) almacenados en un [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) en DocumentDB con los siguientes parámetros de comando para la herramienta de migración (dtui.exe desde el directorio en que instaló la herramienta de migración de DocumentDB). Especifique los parámetros de ubicación de origen y destino de los que se muestran a continuación.
+2. Cree una cuenta de Azure Cosmos DB y una base de datos de Document DB en [Azure Portal](https://portal.azure.com).
+3. Descargue la "herramienta de migración de Azure Cosmos DB" desde [aquí](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) y extráigala en el directorio que prefiera.
+4. Importe los datos de JSON (datos de volcanes) almacenados en un [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) en Cosmos DB con los siguientes parámetros de comando para la herramienta de migración (dtui.exe desde el directorio en que instaló la herramienta de migración de Cosmos DB). Especifique los parámetros de ubicación de origen y destino de los que se muestran a continuación.
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
 Después de importar los datos, puede ir a Jupyter y abrir el cuaderno *DocumentDBSample* , que contiene el código de Python necesario para acceder a DocumentDB y realizar algunas consultas básicas. Para obtener más información sobre DocumentDB, visite la [página de documentación](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Crear informes y paneles con la aplicación Power BI Desktop
-Vamos a visualizar el archivo JSON sobre volcanes que vimos en el ejemplo de DocumentDB anterior en Power BI para obtener información visual sobre los datos. En este [artículo de Power BI](../documentdb/documentdb-powerbi-visualize.md)encontrará una explicación detallada de los pasos que se deben seguir. Los pasos de alto nivel son los siguientes:
+Vamos a visualizar el archivo JSON sobre volcanes que vimos en el ejemplo de Cosmos DB anterior en Power BI para obtener información visual sobre los datos. En este [artículo de Power BI](../documentdb/documentdb-powerbi-visualize.md)encontrará una explicación detallada de los pasos que se deben seguir. Los pasos de alto nivel son los siguientes:
 
 1. Abra Power BI Desktop y presione "Obtenga datos". Especifique la dirección URL como: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. Debería ver los registros JSON importados en forma una lista.

@@ -1,34 +1,35 @@
 ---
-title: 'Herramienta del Portal de Azure DocumentDB: Explorador de scripts | Microsoft Docs'
-description: "Obtenga información sobre el Explorador de scripts de DocumentDB, una herramienta de Azure Portal para administrar los artefactos de programación del lado servidor de DocumentDB, entre los que se incluyen procedimientos almacenados de JavaScript, desencadenadores y funciones definidas por el usuario."
+title: 'Herramienta del portal de Azure Cosmos DB: Explorador de scripts | Microsoft Docs'
+description: "Obtenga información sobre el Explorador de scripts de Azure Cosmos DB, una herramienta de Azure Portal para administrar los artefactos de programación del lado servidor de Azure Cosmos DB, entre los que se incluyen procedimientos almacenados de JavaScript, desencadenadores y funciones definidas por el usuario."
 keywords: editor de javascript
-services: documentdb
+services: cosmosdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 9d0620da-2449-4c17-82a4-24aaa46e9b3e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: kirillg
-translationtype: Human Translation
-ms.sourcegitcommit: 429687c6e5a196a3b489dc4dd79ae886b7ad9c38
-ms.openlocfilehash: ccff673996d53d2b3b2c177bfb6fff01613b7097
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e9c3e92dd1c35ff6893565e61f7e7b940b6ede7e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-documentdb-script-explorer"></a>Creación y ejecución de procedimientos almacenados, desencadenadores y funciones definidas por el usuario mediante el Explorador de scripts de DocumentDB
-En este artículo se ofrece información general sobre el Explorador de scripts de [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) , un editor de JavaScript del Portal de Azure que le permite ver los artefactos de programación del lado servidor de DocumentDB, entre los que se incluyen procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Más información sobre programación del lado servidor de DocumentDB en el artículo [Procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md)
+# <a name="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-azure-cosmos-db-script-explorer"></a>Creación y ejecución de procedimientos almacenados, desencadenadores y funciones definidas por el usuario mediante el Explorador de scripts de Azure Cosmos DB
+En este artículo se ofrece información general sobre el Explorador de scripts de [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), un editor de JavaScript de Azure Portal que le permite ver y ejecutar los artefactos de programación del lado servidor de Cosmos DB, entre los que se incluyen procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Más información sobre programación del lado servidor de Cosmos DB en el artículo [Procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md).
 
 ## <a name="launch-script-explorer"></a>Inicio del Explorador de scripts
-1. En [Azure Portal](https://portal.azure.com), en el panel de navegación izquierdo, haga clic en ![icono de Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+1. En [Azure Portal](https://portal.azure.com), en el panel de navegación izquierdo, haga clic en ![icono de Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 
 
-    Si **NoSQL (DocumentDB)** no se muestra, haga clic en **Más servicios** en la parte inferior y después haga clic en el ![icono de Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
+    Si **Azure Cosmos DB** no se muestra, haga clic en **Más servicios** en la parte inferior y después haga clic en el ![icono de Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**.
 2. En el menú de recursos, haga clic en **Explorador de scripts**.
    
     ![Captura de pantalla del comando del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -47,7 +48,7 @@ En este artículo se ofrece información general sobre el Explorador de scripts 
     ![Captura de pantalla del comando actualizar del Explorador de scripts](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 ## <a name="create-view-and-edit-stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF)
-El Explorador de scripts le permite llevar a cabo con facilidad operaciones de CRUD en artefactos de programación del lado de servidor de DocumentDB.  
+El Explorador de scripts le permite llevar a cabo con facilidad operaciones de CRUD en artefactos de programación del lado servidor de Cosmos DB.  
 
 * Para crear un script, solo tiene que hacer clic en el comando de creación correspondiente del Explorador de scripts, proporcionar un identificador, escribir el contenido del script y hacer clic en **Guardar**.
   
@@ -109,6 +110,5 @@ El Explorador de scripts en el Portal de Azure es simplemente una forma de traba
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre programación del lado servidor de DocumentDB en el artículo [Programación en el servidor de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md) .
 
-La [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/documentdb/) también es un recurso útil para guiarlo durante el proceso que le llevará a familiarizarse con DocumentDB.  
 
 

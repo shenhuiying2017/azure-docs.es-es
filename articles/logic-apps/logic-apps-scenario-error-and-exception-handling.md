@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: b-hoedid
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: b996ed1889ec39de78dcee9bbcb18a5982fc5f7f
-ms.lasthandoff: 04/04/2017
+ms.author: LADocs; b-hoedid
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f68b27e007ad2de9e880f1fe0736d403f74dc80b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -46,12 +47,12 @@ El proyecto tenía dos requisitos principales:
 
 ## <a name="how-we-solved-the-problem"></a>¿Cómo resolvimos el problema?
 
-Elegimos [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") como repositorio para los registros y entradas de error (en DocumentDB se hace referencia a los registros como documentos). Puesto que Azure Logic Apps tiene una plantilla estándar para todas las respuestas, no sería necesario crear un esquema personalizado. Podíamos crear una aplicación de API para **insertar** y **consultar** registros de errores y registros. También podíamos definir un esquema para cada uno de ellos dentro de la aplicación de API.  
+Elegimos [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") como repositorio para los registros y entradas de error (Cosmos DB hace referencia a los registros como documentos). Puesto que Azure Logic Apps tiene una plantilla estándar para todas las respuestas, no sería necesario crear un esquema personalizado. Podíamos crear una aplicación de API para **insertar** y **consultar** registros de errores y registros. También podíamos definir un esquema para cada uno de ellos dentro de la aplicación de API.  
 
-Otro requisito era que se purgaran los registros después de una determinada fecha. DocumentDB presenta una propiedad llamada [período de vida](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "período de vida") (TTL), que nos permitió establecer un valor de **período de vida** para cada registro o colección. Esta capacidad suprimía la necesidad de eliminar manualmente los registros en DocumentDB.
+Otro requisito era que se purgaran los registros después de una determinada fecha. Cosmos DB presenta una propiedad llamada [período de vida](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "período de vida") (TTL), que nos permitió establecer un valor de **período de vida** para cada registro o colección. Esta capacidad suprimía la necesidad de eliminar manualmente los registros en Cosmos DB.
 
 > [!IMPORTANT]
-> Para completar este tutorial, debe crear una base de datos de DocumentDB y dos colecciones (Registro y Errores).
+> Para completar este tutorial, debe crear una base de datos de Cosmos DB y dos colecciones (Registro y Errores).
 
 ## <a name="create-the-logic-app"></a>Creación de la aplicación lógica
 
@@ -258,7 +259,7 @@ Este es el código fuente de la aplicación lógica para crear un registro de er
 }             
 ```
 
-#### <a name="insert-error-into-documentdb--request"></a>Insertar error en DocumentDB: solicitud
+#### <a name="insert-error-into-cosmos-db--request"></a>Insertar error en Cosmos DB: solicitud
 
 ``` json
 
@@ -281,7 +282,7 @@ Este es el código fuente de la aplicación lógica para crear un registro de er
 }
 ```
 
-#### <a name="insert-error-into-documentdb--response"></a>Insertar error en DocumentDB: respuesta
+#### <a name="insert-error-into-cosmos-db--response"></a>Insertar error en Cosmos DB: respuesta
 
 ``` json
 {
@@ -399,16 +400,16 @@ Una vez que obtiene la respuesta, puede pasarla a la aplicación lógica primari
 ```
 
 
-## <a name="documentdb-repository-and-portal"></a>Portal y repositorio de DocumentDB
+## <a name="cosmos-db-repository-and-portal"></a>Portal y repositorio de Cosmos DB
 
-Nuestra solución agregó funcionalidades con [DocumentDB](https://azure.microsoft.com/services/documentdb).
+Nuestra solución agregó funcionalidades con [Cosmos DB](https://azure.microsoft.com/services/documentdb).
 
 ### <a name="error-management-portal"></a>Portal de administración de errores
 
-Para ver los errores, puede crear una aplicación web de MVC que muestre los registros de error de DocumentDB. En la versión actual, se incluyen las operaciones de **lista**, **detalles**, **edición** y **eliminación**.
+Para ver los errores, puede crear una aplicación web de MVC que muestre los registros de error de Cosmos DB. En la versión actual, se incluyen las operaciones de **lista**, **detalles**, **edición** y **eliminación**.
 
 > [!NOTE]
-> Operación de edición: DocumentDB reemplaza todo el documento. Los registros que se muestran en las vistas de **lista** y **detalles** son solo ejemplos. No son registros reales de citas de pacientes.
+> Operación de edición: Cosmos DB reemplaza todo el documento. Los registros que se muestran en las vistas de **lista** y **detalles** son solo ejemplos. No son registros reales de citas de pacientes.
 
 Aquí puede ver ejemplos de nuestros detalles de la aplicación de MVC creados con el enfoque descrito anteriormente.
 
@@ -492,3 +493,4 @@ El código fuente de la aplicación de API de administración de excepciones de 
 * [Ver más ejemplos y escenarios de aplicaciones Logic Apps](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Obtener más información sobre supervisión de Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Creación de plantillas de implementación automatizadas de Logic Apps](../logic-apps/logic-apps-create-deploy-template.md)
+

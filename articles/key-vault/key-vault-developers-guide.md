@@ -8,13 +8,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 04/21/2017
+ms.date: 05/10/2017
 ms.author: bruceper
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 0a319f25149c41fcdde0722ce232b3e229b95d0d
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: b046e95e2167009727f6ea8f3dd237619c61434f
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,6 +28,15 @@ Key Vault le permite acceder de forma segura a información confidencial desde s
 - A partir de la versión de septiembre de 2016 de Key Vault, las aplicaciones ahora pueden usar los [certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-operations) de Key Vault. Para más información, consulte el artículo [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates) (Claves, secretos y certificados).
 
 Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Key Vault?](key-vault-whatis.md)
+
+## <a name="public-preview---may-10-2017"></a>Versión preliminar pública: 10 de mayo de 2017
+
+>[!NOTE]
+>Para esta versión preliminar de Azure Key Vault, la característica de **eliminación temporal** es la única que se encuentra aún en versión preliminar. Azure Key Vault, como un todo, es un servicio de producción completo.
+
+Esta versión preliminar incluye nuestra nueva característica de eliminación temporal, la eliminación recuperable de almacenes y objetos de Key Vault e interfaces actualizadas para desarrolladores: [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) y [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+
+Para obtener más información sobre la nueva característica de eliminación temporal, consulte [la información general sobre la eliminación temporal de Azure Key Vault](key-vault-ovw-soft-delete.md).
 
 ## <a name="videos"></a>Vídeos
 
@@ -109,6 +118,11 @@ En estos artículos se describen otros escenarios y servicios que usan Key Vault
 para ayudarle a controlar y administrar las claves y secretos de cifrado de disco en su suscripción del almacén de claves, al mismo tiempo que garantiza que todos los datos de los discos de las máquinas virtuales se cifran en reposo en Azure Storage.
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) proporciona la opción para el cifrado de datos que se almacenan en la cuenta. Para la administración de claves, Data Lake Store ofrece dos modos de administrar las claves de cifrado maestras (MEK) que son necesarias para descifrar los datos que se almacenan en Data Lake Store. Se puede dejar que Data Lake Store administre las MEK en su lugar o decidir conservar la propiedad de estas mediante su cuenta de Azure Key Vault. Puede especificar el modo de administración de claves durante la creación de una cuenta de Data Lake Store. 
 - [Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) le permite administrar su propia clave de inquilino. Por ejemplo, en lugar de que Microsoft administre su clave de inquilino (la opción predeterminada), puede administrar su propia clave de inquilino para cumplir con las normas específicas que se aplican a su organización. La administración de su propia clave de inquilino también se conoce como "aportar su propia clave", o BYOK.
+
+## <a name="key-vault-overviews-and-concepts"></a>Conceptos y datos globales de Key Vault
+
+- [Espacios de seguridad de Key Vault](key-vault-ovw-security-worlds.md)
+- [Eliminación temporal de Key Vault](key-vault-ovw-soft-delete.md)
 
 ## <a name="social"></a>Redes sociales
 

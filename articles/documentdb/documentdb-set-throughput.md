@@ -1,30 +1,31 @@
 ---
-title: Aprovisionamiento del rendimiento de Azure DocumentDB | Microsoft Docs
-description: "Aprenda cómo establecer el rendimiento aprovisionado para la colección de DocumentDB."
-services: documentdb
+title: Aprovisionamiento del rendimiento de Azure Cosmos DB | Microsoft Docs
+description: "Aprenda cómo establecer el rendimiento aprovisionado para la colección de Azure Cosmos DB."
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: abdf0af8a85db19c68a0d74c0477d798c0fd03fc
-ms.openlocfilehash: 8ff2fc6106438e35b93112a6dc97814ba79b06fc
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5258ba0bc37442c983d91c5dd7435fd5fbefd56f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="set-throughput-for-azure-documentdb-collections"></a>Establecimiento del rendimiento para las colecciones de Azure DocumentDB
+# <a name="set-throughput-for-azure-cosmos-db-collections"></a>Establecimiento del rendimiento para las colecciones de Azure Cosmos DB
 
-Puede establecer el rendimiento para las colecciones de DocumentDB en Azure Portal o mediante los SDK del cliente. 
+Puede establecer el rendimiento para las colecciones de Azure Cosmos DB en Azure Portal o mediante los SDK del cliente. 
 
 En la tabla siguiente se enumeran los rendimientos disponibles para las colecciones:
 
@@ -54,8 +55,8 @@ En la tabla siguiente se enumeran los rendimientos disponibles para las coleccio
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Para establecer el rendimiento mediante Azure Portal
 
 1. Abra [Azure Portal](https://portal.azure.com) en una nueva ventana.
-2. En la barra la izquierda, haga clic en **NoSQL (DocumentDB)** o en **Más servicios**, en la parte inferior, desplácese a **Bases de datos** y seleccione **NoSQL (DocumentDB)**.
-3. Seleccione su cuenta de DocumentDB.
+2. En la barra la izquierda, haga clic en **Azure Cosmos DB** o en **Más servicios**, en la parte inferior, desplácese a **Bases de datos** y, luego, haga clic en **Azure Cosmos DB**.
+3. Seleccione la cuenta de Cosmos DB.
 4. En la ventana nueva, en **colecciones**, haga clic en **Escala**, como se muestra en la captura de pantalla siguiente.
 5. En la nueva ventana, seleccione la colección en la lista desplegable, cambie el valor de **Rendimiento** y haga clic en **Guardar**.
 
@@ -83,9 +84,9 @@ await client.ReplaceOfferAsync(offer);
 
 **¿Se puede configurar el rendimiento a menos de 400 RU/s?**
 
-400 RU/s es el rendimiento mínimo disponible en las recopilaciones de una sola partición de DocumentDB (2500 RU/s es el valor mínimo para las colecciones particionadas). Las unidades de solicitud se establecen en intervalos de 100 RU/s pero el rendimiento no se puede establecer en 100 RU/s o en ningún valor inferior a 400 RU/s. Si está buscando un método rentable para desarrollar y probar DocumentDB, puede usar gratuitamente el [Emulador de DocumentDB](documentdb-nosql-local-emulator.md), que puede implementar localmente sin costo alguno. 
+400 RU/s es el rendimiento mínimo disponible en las recopilaciones de una sola partición de Cosmos DB (2500 RU/s es el valor mínimo para las colecciones particionadas). Las unidades de solicitud se establecen en intervalos de 100 RU/s pero el rendimiento no se puede establecer en 100 RU/s o en ningún valor inferior a 400 RU/s. Si está buscando un método rentable para desarrollar y probar Cosmos DB, puede usar gratuitamente el [Emulador de Azure Cosmos DB](documentdb-nosql-local-emulator.md), que puede implementar localmente sin costo alguno. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender más sobre el aprovisionamiento y cómo pasar a escala planetaria con DocumentDB, consulte [Partición y escalado en Azure DocumentDB](documentdb-partition-data.md).
+Para aprender más sobre el aprovisionamiento y cómo pasar a escala planetaria con Cosmos DB, consulte [Partición y escalado en Cosmos DB](documentdb-partition-data.md).
 

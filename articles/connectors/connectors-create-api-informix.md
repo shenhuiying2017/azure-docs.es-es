@@ -4,7 +4,7 @@ description: "Información general del conector de Informix con parámetros de l
 services: 
 documentationcenter: 
 author: gplarsen
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
@@ -14,10 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
-ms.author: plarsen
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: 614400a8787fdd2081fa8e981c0fc6b6dd794a58
+ms.author: plarsen; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ca7a62338740e39647b39f2221bc5ac7321ba4fd
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -270,145 +272,16 @@ Puede crear una acción de aplicación lógica para quitar una fila en una tabla
     
     ![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
 
-## <a name="technical-details"></a>Detalles técnicos
-## <a name="actions"></a>Acciones
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. El conector de la base de datos Informix incluye las siguientes acciones. 
-
-| Acción | Description |
-| --- | --- |
-| [GetRow](connectors-create-api-informix.md#get-row) |Recupera una sola fila de una tabla Informix. |
-| [GetRows](connectors-create-api-informix.md#get-rows) |Recupera filas de una tabla Informix. |
-| [InsertRow](connectors-create-api-informix.md#insert-row) |Inserta una nueva fila en una tabla Informix. |
-| [DeleteRow](connectors-create-api-informix.md#delete-row) |Elimina una fila de una tabla Informix. |
-| [GetTables](connectors-create-api-informix.md#get-tables) |Recupera tablas de una base de datos Informix. |
-| [UpdateRow](connectors-create-api-informix.md#update-row) |Actualiza una fila existente en una tabla Informix. |
-
-### <a name="action-details"></a>Detalles de la acción
-En esta sección, consulte los detalles específicos acerca de cada acción, incluidas las propiedades de entrada obligatorias u opcionales y cualquier salida correspondiente asociada con el conector.
-
-#### <a name="get-row"></a>Obtener fila
-Recupera una sola fila de una tabla Informix.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table * |Nombre de tabla |Nombre de tabla Informix |
-| id * |Identificador de fila |Identificador único de la fila que se va a recuperar |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Elemento
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Obtener filas
-Recupera filas de una tabla Informix.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de tabla Informix |
-| $skip |Omitir conteo |Número de entradas para omitir (valor predeterminado = 0) |
-| $top |Número máximo de entradas |Número máximo de entradas para recuperar (valor predeterminado = 256) |
-| $filter |Consulta de filtro |Consulta de filtro de ODATA para restringir el número de entradas |
-| $orderby |Ordenar por |Consulta orderBy de ODATA para especificar el orden de las entradas |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-ItemsList
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Insertar fila
-Inserta una nueva fila en una tabla Informix.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de tabla Informix |
-| item* |Fila |Fila que se va a insertar en la tabla especificada en Informix |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Elemento
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Eliminar fila
-Elimina una fila de una tabla Informix.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de tabla Informix |
-| id* |Identificador de fila |Identificador único de la fila que se va a eliminar |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Ninguno.
-
-#### <a name="get-tables"></a>Obtener tablas
-Recupera tablas de una base de datos Informix.  
-
-No hay parámetros para esta llamada. 
-
-##### <a name="output-details"></a>Detalles de salida
-TablesList
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Actualizar fila
-Actualiza una fila existente en una tabla Informix.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de tabla Informix |
-| id* |Identificador de fila |Identificador único de la fila que se va a actualizar |
-| item* |Fila |Fila con valores actualizados |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Elemento
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Respuestas HTTP
-Al realizar llamadas a las distintas acciones, es posible que obtenga determinadas respuestas. En la tabla siguiente se describen las respuestas y sus descripciones:  
-
-| Nombre | Descripción |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |No autorizado |
-| 403 |Prohibido |
-| 404 |No encontrado |
-| 500 |Error interno del servidor. Error desconocido |
-| default |Error en la operación. |
-
 ## <a name="supported-informix-platforms-and-versions"></a>Versiones y plataformas Informix compatibles
 Este conector admite estas versiones de IBM Informix siguientes, cuando se configura para admitir las conexiones de cliente con arquitectura distribuida de bases de datos relacionales (DRDA).
 
 * IBM Informix 12.1
 * IBM Informix 11.7
 
+## <a name="view-the-swagger"></a>Visualización de Swagger
+Vea los [detalles de Swagger](/connectors/informix/). 
+
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: e776d095356e10ef47ca49e2a8b9f97d63fb80be
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: fd691f898e26bea0a304bcf52e5df9ee7db8b818
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -122,19 +123,8 @@ Seleccione esta acción: **Enviar evento**
 
     Ahora ha configurado una acción para enviar eventos desde la aplicación lógica. 
 
-## <a name="technical-details"></a>Detalles técnicos
-
-### <a name="triggers"></a>Desencadenadores
-
-| Desencadenador | Descripción |
-| --- | --- |
-| Cuando los eventos estén disponibles en el Event Hub | Desencadene un flujo de trabajo cuando los eventos estén disponibles en el Event Hub especificado. |
-
-### <a name="actions"></a>Acciones
-
-| Acción | Descripción |
-| --- | --- |
-| Enviar un evento | Envíe un evento al Event Hub especificado. |
+## <a name="view-the-swagger"></a>Visualización de Swagger
+Vea los [detalles de Swagger](/connectors/eventhubs/). 
 
 ## <a name="get-help"></a>Obtener ayuda
 

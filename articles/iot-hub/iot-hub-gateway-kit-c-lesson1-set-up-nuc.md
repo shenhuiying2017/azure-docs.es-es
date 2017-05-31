@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4c6b70d793a7d734f5a29139e1f0b91f0d41e73a
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 475664845a9922c5225ea1fd8e008bcb5582bd67
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/12/2017
 ## <a name="what-you-will-do"></a>Lo que hará
 
 - Configure Intel NUC como puerta de enlace de IoT.
-- Instale el paquete del SDK de puerta de enlace de IoT de Azure en Intel NUC.
+- Instale el paquete de Azure IoT Edge en Intel NUC.
 - Ejecute una aplicación de ejemplo "hola_mundo" en Intel NUC para comprobar la funcionalidad de la puerta de enlace.
 
   > Si tiene problemas, busque soluciones en la [página de solución de problemas](iot-hub-gateway-kit-c-troubleshooting.md).
@@ -89,9 +90,9 @@ Necesitará un teclado y un monitor para obtener la dirección IP del dispositiv
    Resulta más eficaz y productivo operar en Intel NUC desde un equipo host. Necesitará la dirección IP, el nombre de usuario y la contraseña de NUC para conectarse a través de un cliente de SSH. Este es un ejemplo que utiliza un cliente de SSH en Mac OS.
    ![Cliente de SSH que se ejecuta en macOS](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## <a name="install-the-azure-iot-gateway-sdk-package"></a>Instalación del paquete del SDK de puerta de enlace de IoT de Azure
+## <a name="install-the-azure-iot-edge-package"></a>Instalación del paquete de Azure IoT Edge
 
-El paquete del SDK de puerta de enlace de IoT de Azure contiene los archivos binarios compilados previamente del SDK y sus dependencias. Estos archivos binarios forman el SDK de puerta de enlace de IoT de Azure, el SDK de IoT de Azure y las herramientas correspondientes. El paquete también contiene una aplicación de ejemplo "hola_mundo" que se utiliza para validar la funcionalidad de la puerta de enlace. El SDK es la parte principal de la puerta de enlace. 
+El paquete de Azure IoT Edge contiene los archivos binarios compilados previamente de IoT Edge y sus dependencias. Estos archivos binarios forman Azure IoT Edge, el SDK de IoT de Azure y las herramientas correspondientes. El paquete también contiene una aplicación de ejemplo "hola_mundo" que se utiliza para validar la funcionalidad de la puerta de enlace. IoT Edge es la parte principal de la puerta de enlace. 
 
 Para instalar el paquete, siga estos pasos:
 
@@ -133,9 +134,9 @@ Para instalar el paquete, siga estos pasos:
 
    Después de instalar el paquete, Intel NUC está listo para funcionar como puerta de enlace.
 
-## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Ejecución de la aplicación de ejemplo "hola_mundo" del SDK de puerta de enlace de IoT de Azure
+## <a name="run-the-azure-iot-edge-helloworld-sample-application"></a>Ejecución de la aplicación de ejemplo "hola_mundo" de Azure IoT Edge
 
-La siguiente aplicación de ejemplo crea una puerta de enlace desde un archivo `hello_world.json` y utiliza los componentes fundamentales de la arquitectura del SDK de puerta de enlace de IoT de Azure para registrar un mensaje de "Hola mundo" en un archivo (log.txt) cada 5 segundos.
+La siguiente aplicación de ejemplo crea una puerta de enlace desde un archivo `hello_world.json` y utiliza los componentes fundamentales de la arquitectura de Azure IoT Edge para registrar un mensaje de "Hola mundo" en un archivo (log.txt) cada 5 segundos.
 
 Puede ejecutar el ejemplo de "Hola mundo" mediante la ejecución de los siguientes comandos:
 

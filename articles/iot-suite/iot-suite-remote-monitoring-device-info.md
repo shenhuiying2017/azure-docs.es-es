@@ -13,38 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 9e1bcba086a9f70c689a5d7d7713a8ecdc764492
-ms.openlocfilehash: e41f5d5e6c5e1da8763c73978d2be9c7e61b8fff
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 25122729691867533a0489ff09770e096541d6fe
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Metadatos de información de dispositivo en la solución preconfigurada de supervisión remota
+
 La solución preconfigurada de supervisión remota del Conjunto de aplicaciones de IoT de Azure muestra un enfoque para administrar los metadatos de dispositivo. En este artículo se describe el enfoque que adopta esta solución para que comprenda:
 
 * Qué metadatos de dispositivo almacena la solución.
 * Cómo la solución administra los metadatos de dispositivo.
 
 ## <a name="context"></a>Context
+
 La solución preconfigurada de supervisión remota usa [Azure IoT Hub][lnk-iot-hub] para que los dispositivos puedan enviar datos a la nube. La solución almacena información acerca de los dispositivos en tres ubicaciones diferentes:
 
 | La ubicación | Información almacenada | Implementación |
 | -------- | ------------------ | -------------- |
 | Registro de identidad | Identificador de dispositivo, claves de autenticación, estado habilitado | Integrado en IoT Hub |
 | Dispositivos gemelos | Metadatos: propiedades notificadas, propiedades deseadas, etiquetas | Integrado en IoT Hub |
-| DocumentDB | Historial de comandos y métodos | Personalizado para la solución |
+| Cosmos DB | Historial de comandos y métodos | Personalizado para la solución |
 
-IoT Hub incluye un [registro de identidad de dispositivo][lnk-identity-registry] para administrar el acceso a una instancia de IoT Hub y usa [dispositivos gemelos][lnk-device-twin] para administrar los metadatos del dispositivo. También hay un *registro de dispositivo* específico de la solución de supervisión remota que almacena el historial de comandos y métodos. La solución de supervisión remota usa una base de datos de [DocumentDB][lnk-docdb] para implementar un almacén personalizado para el historial de comandos y métodos.
+IoT Hub incluye un [registro de identidad de dispositivo][lnk-identity-registry] para administrar el acceso a una instancia de IoT Hub y usa [dispositivos gemelos][lnk-device-twin] para administrar los metadatos del dispositivo. También hay un *registro de dispositivo* específico de la solución de supervisión remota que almacena el historial de comandos y métodos. La solución de supervisión remota usa una base de datos de [Cosmos DB][lnk-docdb] para implementar un almacén personalizado para el historial de comandos y métodos.
 
 > [!NOTE]
-> La solución preconfigurada de supervisión remota mantiene sincronizado el registro de identidad del dispositivo con la información de la base de datos de DocumentDB. Ambos utilizan el mismo id. de dispositivo para identificar de forma única cada dispositivo conectado a su centro de IoT.
-> 
-> 
+> La solución preconfigurada de supervisión remota mantiene sincronizado el registro de identidad del dispositivo con la información de la base de datos de Cosmos DB. Ambos utilizan el mismo id. de dispositivo para identificar de forma única cada dispositivo conectado a su centro de IoT.
 
 ## <a name="device-metadata"></a>Metadatos del dispositivo
+
 IoT Hub mantiene un [dispositivo gemelo][lnk-device-twin] para cada dispositivo simulado y físico conectado a una solución de supervisión remota. La solución utiliza dispositivos gemelos para administrar los metadatos asociados con los dispositivos. Un dispositivo gemelo es un documento JSON mantenido por IoT Hub. La solución utiliza la API de IoT Hub para interactuar con los dispositivos gemelos.
 
 Un dispositivo gemelo almacena tres tipos de metadatos:
@@ -58,9 +60,9 @@ Las propiedades notificadas de ejemplo de los dispositivos simulados incluyen fa
 > [!NOTE]
 > El código del dispositivo simulado solo usa las propiedades deseadas **Desired.Config.TemperatureMeanValue** y **Desired.Config.TelemetryInterval** para actualizar las propiedades notificadas devueltas a IoT Hub. Todos los demás cambios de propiedades deseadas se omiten.
 
-Un documento JSON de metadatos de información de dispositivo almacenado en la base de datos de DocumentDB del Registro de dispositivos tiene la siguiente estructura:
+Un documento JSON de metadatos de información de dispositivo almacenado en la base de datos de Cosmos DB del Registro de dispositivos tiene la siguiente estructura:
 
-```
+```json
 {
   "DeviceProperties": {
     "DeviceID": "deviceid1",
@@ -79,18 +81,17 @@ Un documento JSON de metadatos de información de dispositivo almacenado en la b
 }
 ```
 
-
 > [!NOTE]
 > La información de dispositivo también puede incluir metadatos para describir la telemetría que envía el dispositivo al Centro de IoT. La solución de supervisión remota utiliza estos metadatos de telemetría para personalizar cómo se muestra en el panel la [telemetría dinámica][lnk-dynamic-telemetry].
-> 
-> 
 
 ## <a name="lifecycle"></a>Ciclo de vida
-Cuando se crea por primera vez un dispositivo en el portal de la solución, esta crea una entrada en la base de datos de DocumentDB para almacenar el historial de comandos y métodos. En este punto, la solución también crea una entrada para el dispositivo en el Registro de identidad del dispositivo que genera las claves que usa el dispositivo para autenticarse en IoT Hub. También crea un dispositivo gemelo.
 
-Cuando un dispositivo se conecta por primera vez a la solución, envía las propiedades notificadas y un mensaje de información de dispositivo. Los valores de las propiedades notificadas se guardan automáticamente en el dispositivo gemelo. Las propiedades notificadas incluyen el fabricante del dispositivo, el número de modelo, el número de serie y una lista de los métodos admitidos. El mensaje de información del dispositivo incluye la lista de los comandos que admite el dispositivo e información sobre los parámetros de comando. Cuando la solución recibe este mensaje, actualiza la información de dispositivo en la base de datos de DocumentDB.
+Cuando se crea por primera vez un dispositivo en el portal de la solución, esta crea una entrada en la base de datos de Cosmos DB para almacenar el historial de comandos y métodos. En este punto, la solución también crea una entrada para el dispositivo en el Registro de identidad del dispositivo que genera las claves que usa el dispositivo para autenticarse en IoT Hub. También crea un dispositivo gemelo.
+
+Cuando un dispositivo se conecta por primera vez a la solución, envía las propiedades notificadas y un mensaje de información de dispositivo. Los valores de las propiedades notificadas se guardan automáticamente en el dispositivo gemelo. Las propiedades notificadas incluyen el fabricante del dispositivo, el número de modelo, el número de serie y una lista de los métodos admitidos. El mensaje de información del dispositivo incluye la lista de los comandos que admite el dispositivo e información sobre los parámetros de comando. Cuando la solución recibe este mensaje, actualiza la información de dispositivo en la base de datos de Cosmos DB.
 
 ### <a name="view-and-edit-device-information-in-the-solution-portal"></a>Visualización y edición de la información de dispositivo en el portal de solución
+
 En la lista de dispositivos del portal de la solución, aparecen, de forma predeterminada, las siguientes propiedades de dispositivo en forma de columnas: **Estado**, **Id. de dispositivo**, **Fabricante**, **Número de modelo**, **Número de serie**, **Firmware**, **Plataforma**, **Procesador** y **RAM instalada**. Puede personalizar las columnas haciendo clic en **Editor de columnas**. Las propiedades **Latitud** y **Longitud** controlan la ubicación en el mapa de Bing incluido en el panel.
 
 ![Editor de columnas en la lista de dispositivos][img-device-list]
@@ -99,19 +100,19 @@ En el panel **Detalles del dispositivo** del portal de la solución, puede edita
 
 ![Panel de detalles del dispositivo][img-device-edit]
 
-Puede usar el portal de solución para quitar un dispositivo de la solución. Cuando se quita un dispositivo, la solución elimina la entrada de dispositivo del registro de identidad y, a continuación, elimina el dispositivo gemelo. La solución también elimina la información relacionada con el dispositivo de la base de datos de DocumentDB. Para poder quitar un dispositivo, debe deshabilitarlo.
+Puede usar el portal de solución para quitar un dispositivo de la solución. Cuando se quita un dispositivo, la solución elimina la entrada de dispositivo del registro de identidad y, a continuación, elimina el dispositivo gemelo. La solución también elimina la información relacionada con el dispositivo de la base de datos de Cosmos DB. Para poder quitar un dispositivo, debe deshabilitarlo.
 
 ![Quitar dispositivo][img-device-remove]
 
 ## <a name="device-information-message-processing"></a>Procesamiento de mensajes de información de dispositivo
-Los mensajes de información de dispositivo enviados por un dispositivo son distintos de los mensajes de telemetría. Los mensajes de información de dispositivo incluyen los comandos a los que un dispositivo puede responder y el historial de comandos. El propio Centro de IoT no conoce los metadatos contenidos en un mensaje de información de dispositivo y procesa el mensaje de la misma manera que cualquier mensaje del dispositivo a la nube. En la solución de supervisión remota, un trabajo de [Azure Stream Analytics][lnk-stream-analytics] (ASA) lee los mensajes de IoT Hub. El trabajo **DeviceInfo** de Stream Analytics filtra los mensajes que contienen **"ObjectType": "DeviceInfo"** y los reenvía a la instancia del host **EventProcessorHost**, que se ejecuta en un trabajo web. La lógica de la instancia de **EventProcessorHost** utiliza el identificador de dispositivo para encontrar el registro de DocumentDB del dispositivo específico y actualizarlo.
+
+Los mensajes de información de dispositivo enviados por un dispositivo son distintos de los mensajes de telemetría. Los mensajes de información de dispositivo incluyen los comandos a los que un dispositivo puede responder y el historial de comandos. El propio Centro de IoT no conoce los metadatos contenidos en un mensaje de información de dispositivo y procesa el mensaje de la misma manera que cualquier mensaje del dispositivo a la nube. En la solución de supervisión remota, un trabajo de [Azure Stream Analytics][lnk-stream-analytics] (ASA) lee los mensajes de IoT Hub. El trabajo **DeviceInfo** de Stream Analytics filtra los mensajes que contienen **"ObjectType": "DeviceInfo"** y los reenvía a la instancia del host **EventProcessorHost**, que se ejecuta en un trabajo web. La lógica de la instancia de **EventProcessorHost** utiliza el identificador de dispositivo para encontrar el registro de Cosmos DB del dispositivo específico y actualizarlo.
 
 > [!NOTE]
 > Un mensaje de información de dispositivo es un mensaje estándar del dispositivo a la nube. La solución distingue entre mensajes de información de dispositivo y mensajes de telemetría mediante consultas ASA.
-> 
-> 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que ya ha terminado de aprender cómo personalizar las soluciones preconfiguradas, puede explorar algunas de las características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
 * [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]

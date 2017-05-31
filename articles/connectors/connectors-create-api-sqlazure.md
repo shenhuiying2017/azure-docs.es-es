@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: ce3a622db8667df8b3f1d1391c2aa0d7e1e012a5
-ms.lasthandoff: 01/20/2017
+ms.author: mandia; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 3c228be32539050123b01c5ccd74547b0d04ed28
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -72,152 +73,8 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
    > 
 5. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
 
-## <a name="technical-details"></a>Detalles técnicos
-## <a name="sql-database-actions"></a>Acciones de la Base de datos SQL
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. El conector de la base de datos SQL incluye las siguientes acciones. 
-
-| Acción | Description |
-| --- | --- |
-| [ExecuteProcedure](connectors-create-api-sqlazure.md#execute-stored-procedure) |Ejecuta un procedimiento almacenado en SQL |
-| [GetRow](connectors-create-api-sqlazure.md#get-row) |Recupera una sola fila de una tabla SQL |
-| [GetRows](connectors-create-api-sqlazure.md#get-rows) |Recupera filas de una tabla SQL |
-| [InsertRow](connectors-create-api-sqlazure.md#insert-row) |Inserta una nueva fila en una tabla SQL |
-| [DeleteRow](connectors-create-api-sqlazure.md#delete-row) |Elimina una fila de una tabla SQL |
-| [GetTables](connectors-create-api-sqlazure.md#get-tables) |Recupera tablas de una base de datos SQL |
-| [UpdateRow](connectors-create-api-sqlazure.md#update-row) |Actualiza una fila existente en una tabla SQL |
-
-### <a name="action-details"></a>Detalles de la acción
-En esta sección, consulte los detalles específicos acerca de cada acción, incluidas las propiedades de entrada obligatorias u opcionales y cualquier salida correspondiente asociada con el conector.
-
-#### <a name="execute-stored-procedure"></a>Ejecutar procedimiento almacenado
-Ejecuta un procedimiento almacenado en SQL.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| procedure * |Nombre del procedimiento |El nombre del procedimiento almacenado que desea ejecutar |
-| parameters * |Parámetros de entrada |Los parámetros son dinámicos y se basan en el procedimiento almacenado que elija. <br/><br/> Por ejemplo, si está utilizando la base de datos de ejemplo Adventure Works, elija el procedimiento almacenado *ufnGetCustomerInformation*. Se mostrará el parámetro de entrada **Id. de cliente**. Escriba "6" o uno de los otros identificadores de cliente. |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-ProcedureResult: lleva el resultado de la ejecución del procedimiento almacenado
-
-| Nombre de propiedad | Tipo de datos | Description |
-| --- | --- | --- |
-| OutputParameters |objeto |Valores del parámetro de salida |
-| ReturnCode |integer |Código de retorno de un procedimiento |
-| ResultSets |objeto |Conjuntos de resultados |
-
-#### <a name="get-row"></a>Obtener fila
-Recupera una sola fila de una tabla SQL.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table * |Nombre de tabla |Nombre de la tabla SQL |
-| id * |Identificador de fila |Identificador único de la fila que se va a recuperar |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Elemento
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Obtener filas
-Recupera filas de una tabla SQL.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de la tabla SQL |
-| $skip |Omitir conteo |Número de entradas para omitir (valor predeterminado = 0) |
-| $top |Número máximo de entradas |Número máximo de entradas para recuperar (valor predeterminado = 256) |
-| $filter |Consulta de filtro |Consulta de filtro de ODATA para restringir el número de entradas |
-| $orderby |Ordenar por |Consulta orderBy de ODATA para especificar el orden de las entradas |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-ItemsList
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Insertar fila
-Inserta una nueva fila en una tabla SQL.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de la tabla SQL |
-| item* |Fila |Fila que se va a insertar en la tabla especificada en SQL |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Elemento
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Eliminar fila
-Elimina una fila de una tabla SQL.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de la tabla SQL |
-| id* |Identificador de fila |Identificador único de la fila que se va a eliminar |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Ninguno.
-
-#### <a name="get-tables"></a>Obtener tablas
-Recupera tablas de una base de datos SQL.  
-
-No hay parámetros para esta llamada. 
-
-##### <a name="output-details"></a>Detalles de salida
-TablesList
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Actualizar fila
-Actualiza una fila existente en una tabla SQL.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de la tabla SQL |
-| id* |Identificador de fila |Identificador único de la fila que se va a actualizar |
-| item* |Fila |Fila con valores actualizados |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Elemento
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Respuestas HTTP
-Al realizar llamadas a las distintas acciones, es posible que obtenga determinadas respuestas. En la tabla siguiente se describen las respuestas y sus descripciones:  
-
-| Nombre | Descripción |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |No autorizado |
-| 403 |Prohibido |
-| 404 |No encontrado |
-| 500 |Error interno del servidor. Error desconocido |
-| default |Error en la operación. |
+## <a name="view-the-swagger"></a>Visualización de Swagger
+Vea los [detalles de Swagger](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).

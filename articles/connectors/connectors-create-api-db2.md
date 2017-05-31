@@ -14,10 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
-ms.author: plarsen
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: bba03cfb21e8eebdbf67152de9c6e2da6f22f5a2
+ms.author: plarsen; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2dc4c912f018f5d71d8c874763f204cf6c2c415b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -270,133 +272,6 @@ Puede definir una acción de aplicación lógica para quitar una fila en una tab
     
     ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
 
-## <a name="technical-details"></a>Detalles técnicos
-## <a name="actions"></a>Acciones
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. El conector de la base de datos DB2 incluye las siguientes acciones. 
-
-| Acción | Description |
-| --- | --- |
-| [GetRow](connectors-create-api-db2.md#get-row) |Recupera una sola fila de una tabla DB2. |
-| [GetRows](connectors-create-api-db2.md#get-rows) |Recupera filas de una tabla DB2. |
-| [InsertRow](connectors-create-api-db2.md#insert-row) |Inserta una nueva fila en una tabla DB2. |
-| [DeleteRow](connectors-create-api-db2.md#delete-row) |Elimina una fila de una tabla DB2. |
-| [GetTables](connectors-create-api-db2.md#get-tables) |Recupera tablas de una base de datos DB2. |
-| [UpdateRow](connectors-create-api-db2.md#update-row) |Actualiza una fila existente en una tabla DB2. |
-
-### <a name="action-details"></a>Detalles de la acción
-En esta sección, consulte los detalles específicos acerca de cada acción, incluidas las propiedades de entrada obligatorias u opcionales y cualquier salida correspondiente asociada con el conector.
-
-#### <a name="get-row"></a>Obtener fila
-Recupera una sola fila de una tabla DB2.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table * |Nombre de tabla |Nombre de la tabla DB2 |
-| id * |Identificador de fila |Identificador único de la fila que se va a recuperar |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Elemento
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Obtener filas
-Recupera filas de una tabla DB2.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de la tabla DB2 |
-| $skip |Omitir conteo |Número de entradas para omitir (valor predeterminado = 0) |
-| $top |Número máximo de entradas |Número máximo de entradas para recuperar (valor predeterminado = 256) |
-| $filter |Consulta de filtro |Consulta de filtro de ODATA para restringir el número de entradas |
-| $orderby |Ordenar por |Consulta orderBy de ODATA para especificar el orden de las entradas |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-ItemsList
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Insertar fila
-Inserta una nueva fila en una tabla DB2.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de la tabla DB2 |
-| item* |Fila |Fila que se va a insertar en la tabla especificada en DB2 |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Elemento
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Eliminar fila
-Elimina una fila de una tabla DB2.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de la tabla DB2 |
-| id* |Identificador de fila |Identificador único de la fila que se va a eliminar |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Ninguno.
-
-#### <a name="get-tables"></a>Obtener tablas
-Recupera tablas de una base de datos DB2.  
-
-No hay parámetros para esta llamada. 
-
-##### <a name="output-details"></a>Detalles de salida
-TablesList
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Actualizar fila
-Actualiza una fila existente en una tabla DB2.  
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| table* |Nombre de tabla |Nombre de la tabla DB2 |
-| id* |Identificador de fila |Identificador único de la fila que se va a actualizar |
-| item* |Fila |Fila con valores actualizados |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Elemento
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Respuestas HTTP
-Al realizar llamadas a las distintas acciones, es posible que obtenga determinadas respuestas. En la tabla siguiente se describen las respuestas y sus descripciones:  
-
-| Nombre | Descripción |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |No autorizado |
-| 403 |Prohibido |
-| 404 |No encontrado |
-| 500 |Error interno del servidor. Error desconocido |
-| default |Error en la operación. |
-
 ## <a name="supported-db2-platforms-and-versions"></a>Versiones y plataformas DB2 compatibles
 Este conector admite las siguientes plataformas y versiones de IBM DB2, así como los productos compatibles de este (por ejemplo, IBM Bluemix dashDB) que admiten las versiones 10 y 11 de SQL Access Manager (SQLAM) de la arquitectura distribuida de bases de datos relacionales (DRDA):
 
@@ -408,12 +283,10 @@ Este conector admite las siguientes plataformas y versiones de IBM DB2, así com
 * IBM DB2 para LUW 11
 * IBM DB2 para LUW 10.5
 
+## <a name="view-the-swagger"></a>Visualización de Swagger
+Vea los [detalles de Swagger](/connectors/db2/). 
+
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

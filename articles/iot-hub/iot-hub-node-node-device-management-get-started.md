@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: ecc6f4a1a8cbb07d9f610e8f6fb5ca66b7532513
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 198a325e02aac97d659d74b090414f7d6f074f14
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -256,7 +257,7 @@ Para continuar con la introducción de IoT Hub y los patrones de administración
 
 Para información sobre cómo ampliar la solución de IoT y programar llamadas de método en varios dispositivos, consulte el tutorial [Programación de trabajos en varios dispositivos][lnk-tutorial-jobs].
 
-Para continuar con la introducción a IoT Hub, consulte [Introducción al SDK de puerta de enlace de IoT de Azure][lnk-gateway-SDK].
+Para continuar con la introducción a IoT Hub, consulte [Introducción a Azure IoT Edge][lnk-gateway-SDK].
 
 <!-- images and links -->
 [img-output]: media/iot-hub-get-started-with-dm/image6.png

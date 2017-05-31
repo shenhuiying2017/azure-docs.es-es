@@ -1,6 +1,6 @@
 ---
-title: "Conversión de datos en la puerta de enlace de IoT con el SDK de puerta de enlace de Azure IoT | Microsoft Docs"
-description: "Use la puerta de enlace de IoT para convertir el formato de los datos del sensor mediante un módulo personalizado del SDK de puerta de enlace de Azure IoT."
+title: "Conversión de datos en la puerta de enlace de IoT con Azure IoT Edge | Microsoft Docs"
+description: "Use la puerta de enlace de IoT para convertir el formato de los datos del sensor mediante un módulo personalizado de Azure IoT Edge."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,21 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d7897f1a7eee5fbb04cf43da0d0156a6b8fb11f6
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7bf9e64db91cb0fec37ff242bea94dbbd0833054
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-gateway-sdk"></a>Usar la puerta de enlace de IoT para la transformación de datos de sensor con el SDK de puerta de enlace de Azure IoT
+# <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>Uso de la puerta de enlace de IoT para la transformación de datos de sensor con Azure IoT Edge
 
 > [!NOTE]
 > Antes de empezar este tutorial, asegúrese de que ha completado las siguientes lecciones en orden:
 > * [Configuración de Intel NUC como una puerta de enlace de IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 > * [Uso de una puerta de enlace de IoT para conectar dispositivos a la nube: SensorTag a Azure IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
-Un objetivo de una puerta de enlace de IoT es procesar los datos recopilados antes de enviarlos a la nube. El SDK de puerta de enlace de Azure IoT introduce módulos que se pueden crear y ensamblar para formar el flujo de trabajo de procesamiento de datos. Un módulo recibe un mensaje, realiza alguna acción en él y, a continuación, lo mueve a otros módulos para su procesamiento.
+Un objetivo de una puerta de enlace de IoT es procesar los datos recopilados antes de enviarlos a la nube. Azure IoT Edge introduce módulos que se pueden crear y ensamblar para formar el flujo de trabajo de procesamiento de datos. Un módulo recibe un mensaje, realiza alguna acción en él y, a continuación, lo mueve a otros módulos para su procesamiento.
 
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
@@ -39,7 +40,7 @@ Aprenderá a crear un módulo para convertir mensajes del formato SensorTag a ot
 
 * Cree un módulo para convertir un mensaje recibido al formato .json.
 * Compile el módulo.
-* Agregue el módulo a la aplicación de ejemplo BLE desde el SDK de puerta de enlace de Azure IoT.
+* Agregue el módulo a la aplicación de ejemplo BLE desde Azure IoT Edge.
 * Ejecute la aplicación de ejemplo.
 
 ## <a name="what-you-need"></a>Lo que necesita
@@ -61,7 +62,7 @@ Aprenderá a crear un módulo para convertir mensajes del formato SensorTag a ot
    git clone https://github.com/Azure-Samples/iot-hub-c-intel-nuc-gateway-customized-module.git
    ```
 
-   Se trata de un módulo nativo del SDK de puerta de enlace de Azure escrito en el lenguaje de programación C. El módulo convierte el formato de los mensajes recibidos en el siguiente:
+   Se trata de un módulo nativo de Azure Edge escrito en el lenguaje de programación C. El módulo convierte el formato de los mensajes recibidos en el siguiente:
 
    ```json
    {"deviceId": "Intel NUC Gateway", "messageId": 0, "temperature": 0.0}
