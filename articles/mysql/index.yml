@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación sobre Base de datos MySQL en Azure
+metadata:
+  document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
+  title: 'Documentación sobre Base de datos MySQL en Azure: tutoriales y referencia de API | Microsoft Docs'
+  description: Base de datos MySQL en Azure es un servicio de base de datos relacional en Microsoft Cloud diseñado para los desarrolladores y basado en el motor de base de datos de código abierto de MySQL.
+  services: mysql
+  author: jasonh
+  manager: jhubbard
+  ms.service: mysql
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/13/2017
+  ms.author: jasonh
+abstract:
+  description: 'Base de datos MySQL en Azure es un servicio de base de datos relacional basado en el motor de código abierto del servidor de MySQL.  Es una base de datos como servicio completamente administrada que ofrece la capacidad de manejar cargas de trabajo críticas con un rendimiento predecible y escalabilidad dinámica. Desarrolle aplicaciones con la Base de datos MySQL en Azure para aprovechar las herramientas y plataformas de código abierto de su elección. Aprenda a usar Base de datos MySQL en Azure con nuestros inicios rápidos, tutoriales y ejemplos.'
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Learn how to create a MySQL database on Azure using:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
+    - image: 
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Learn how to design your database and develop apps:'
+  - type: list
+    style: ordered
+    items:
+    - html: Design a Database&#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Azure portal</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>
+    - html: Create a Web App&#58; <a href="../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json">Wordpress - Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - Azure CLI</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Línea de comandos
+      html: <p><a href="/cli/azure/mysql">Azure CLI</a></p>
