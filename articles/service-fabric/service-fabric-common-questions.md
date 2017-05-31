@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
+ms.date: 05/10/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6c0c6b24f9d669e7ed45e6b2acf2e75390e5e1f4
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 2bfbb3b8f7282ec8ae8abe9597230a3485221ecf
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -44,13 +45,13 @@ En el futuro, mantendremos una directiva de actualización del sistema operativo
 
 Mientras tanto, [suministramos un script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) que el administrador de un clúster puede usar para iniciar manualmente la revisión de cada nodo de una manera segura.
 
-### <a name="can-i-use-large-virtual-scale-sets-in-my-sf-cluster"></a>¿Puedo usar grandes conjuntos de escalado virtual en el clúster SF? 
+### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>¿Puedo usar conjuntos de escalado grandes de máquinas virtuales en el clúster SF? 
 
 **Respuesta corta**: no. 
 
-**Respuesta larga**: aunque los grandes conjuntos de escalado virtual (VMSS) le permiten escalar un VMSS hasta en 1000 instancias de máquina virtual, lo hace mediante el uso de grupos de selección de ubicación (PG). Los dominios de error (FD) y los dominios de actualización (UD) solo son coherentes dentro de un grupo de selección de ubicación. Service Fabric usa los FD y los UD para tomar decisiones de selección de ubicación de las réplicas o instancias del servicio. Puesto que los FD y los UD solo son comparables dentro de un grupo de selección de ubicación SF no puede usarlo. Por ejemplo, si VM1 en PG1 tiene una topología de FD=0 y VM9 en PG2 tiene una topología de FD=4, esto no significa que VM1 y VM2 se encuentren en dos bastidores de hardware diferentes. Por tanto, SF no podrá usar los valores de FD en este caso para tomar decisiones de selección de ubicación.
+**Respuesta larga**: aunque los conjuntos de escalado grandes de máquinas virtuales permiten escalar un conjunto de escalado de máquinas virtuales hasta en 1000 instancias de máquina virtual, lo hace mediante el uso de grupos de selección de ubicación (PG). Los dominios de error (FD) y los dominios de actualización (UD) solo son coherentes dentro de un grupo de selección de ubicación. Service Fabric usa los FD y los UD para tomar decisiones de selección de ubicación de las réplicas o instancias del servicio. Puesto que los FD y los UD solo son comparables dentro de un grupo de selección de ubicación SF no puede usarlo. Por ejemplo, si VM1 en PG1 tiene una topología de FD=0 y VM9 en PG2 tiene una topología de FD=4, esto no significa que VM1 y VM2 se encuentren en dos bastidores de hardware diferentes. Por tanto, SF no podrá usar los valores de FD en este caso para tomar decisiones de selección de ubicación.
 
-Actualmente, hay otros problemas con VMSS grandes como la falta de soporte para el equilibrio de carga del nivel 4. Consulte para obtener [detalles sobre VMSS grandes](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
+Actualmente, hay otros problemas con los conjuntos de escalado grandes de máquinas virtuales, como la falta de soporte del equilibrio de carga del nivel 4. Consulte para obtener [detalles sobre conjuntos de escalado grandes](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
 
 
@@ -76,6 +77,17 @@ En general, no. Service Fabric almacena el estado en discos efímeros locales, l
 
 Si quiere crear clústeres para probar su aplicación antes de implementarla, le recomendamos que cree dinámicamente esos clústeres como parte de su [integración continua/ canalización de implementación continua](service-fabric-set-up-continuous-integration.md).
 
+## <a name="container-support"></a>Compatibilidad con contenedores
+
+### <a name="why-are-my-containers-that-are-deployed-to-sf-are-unable-to-resolve-dns-addresses"></a>¿Por qué son mis contenedores que se implementan en SF los que no pueden resolver direcciones DNS?
+
+Este problema se ha informado en los clústeres de la versión 5.6.204.9494 
+
+**Mitigación**: siga [este documento](service-fabric-dnsservice.md) para habilitar el servicio Service Fabric DNS en el clúster.
+
+**Corregir**: actualizar a una versión del clúster compatible mayor que la 5.6.204.9494, cuando esté disponible. Si el clúster está establecido en actualizaciones automáticas, se actualizará automáticamente a la versión en este problema está corregido.
+
+  
 ## <a name="application-design"></a>Diseño de aplicaciones
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>¿Cuál es la mejor forma de consultar datos entre las particiones de una instancia de Reliable Collection?
@@ -104,7 +116,7 @@ Teniendo en cuenta que cada objeto tiene que almacenarse tres veces (una princip
 
 Tenga en cuenta que en este cálculo también se da por supuesto:
 
-- Que la distribución de datos en todas las particiones es aproximadamente uniforme o que está informando sobre las métricas de carga al administrador de recursos del clúster. De forma predeterminada, Service Fabric equilibra la carga según el número de réplicas. En nuestro ejemplo anterior, se pondrían 10 réplicas principales y 20 réplicas secundarias en cada nodo del clúster. Esto funciona bien para las cargas que se distribuyen uniformemente en todas las particiones. Si carga no es uniforme, tiene que informar sobre la carga para que el administrador de recursos pueda empaquetar juntas las réplicas más pequeñas y permita a las réplicas más grandes consumir más memoria en un nodo individual.
+- Que la distribución de datos en las particiones es aproximadamente uniforme o que informa sobre las métricas de carga en la instancia de Resource Manager del clúster. De forma predeterminada, Service Fabric equilibra la carga según el número de réplicas. En nuestro ejemplo anterior, se pondrían 10 réplicas principales y 20 réplicas secundarias en cada nodo del clúster. Esto funciona bien para las cargas que se distribuyen uniformemente en todas las particiones. Si carga no es uniforme, tiene que informar sobre ella para que Resource Manager pueda empaquetar juntas las réplicas más pequeñas y dejar que las réplicas mayores consuman más memoria en un nodo individual.
 
 - Que el servicio confiable en cuestión es el único que almacena estado en el clúster. Dado que puede implementar varios servicios en un clúster, tiene que prestar atención a los recursos que cada uno de ellos necesita para ejecutar y administrar su estado.
 

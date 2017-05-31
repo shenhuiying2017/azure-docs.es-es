@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 05/11/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 57063b17dd122509cefd1d215cfa2a9234b103bc
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: ac797f879ef306a7d423969ecfadca3a423b4cd5
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/27/2017
 >
 >
 
-Puede eliminar una puerta de enlace de VPN en el modelo de implementación clásica mediante PowerShell. Una vez que elimina la puerta de enlace de red virtual, modifique el archivo de configuración de red para quitar los elementos que ya no usa.
+Este artículo le ayuda a eliminar una puerta de enlace de VPN en el modelo de implementación clásica mediante PowerShell. Una vez que elimina la puerta de enlace de red virtual, modifique el archivo de configuración de red para quitar los elementos que ya no usa.
 
 ##<a name="step-1-connect-to-azure"></a>Paso 1: Conexión con Azure Stack
 
@@ -42,19 +43,9 @@ Descargue e instale la versión más reciente de los cmdlets de PowerShell para 
 
 Abra la consola de PowerShell con privilegios elevados y conéctese a su cuenta. Use el siguiente ejemplo para conectarse:
 
-    Login-AzureRmAccount
-
-Compruebe las suscripciones para la cuenta.
-
-    Get-AzureRmSubscription
-
-Si tiene varias suscripciones, seleccione la que quiera usar.
-
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-
-A continuación, use el cmdlet siguiente para agregar la suscripción de Azure a PowerShell para el modelo de implementación clásica.
-
-    Add-AzureAccount
+```powershell
+Add-AzureAccount
+```
 
 ## <a name="step-2-export-and-view-the-network-configuration-file"></a>Paso 2: Exportación y visualización del archivo de configuración de red
 
@@ -62,9 +53,11 @@ Cree un directorio en el equipo y, a continuación, exporte el archivo de config
 
 En este ejemplo, se exporta el archivo de configuración de red a C:\AzureNet.
 
-     Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+```powershell
+Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+```
 
-Abra el archivo con un editor de texto y consulte el nombre de la red virtual clásica. Cuando crea una red virtual en Azure Portal, el nombre completo que Azure usa no aparece en el portal. Por ejemplo, una red virtual que parece llamarse "ClassicVNet1" en Azure Portal puede que tenga un nombre mucho más largo en el archivo de configuración de la red. El nombre podría ser similar al siguiente: "Group ClassicRG1 ClassicVNet1". Los nombres de las redes virtuales aparecen como **VirtualNetworkSite name =**. Use los nombres que aparecen en el archivo de configuración de red cuando ejecute los cmdlets de PowerShell.
+Abra el archivo con un editor de texto y consulte el nombre de la red virtual clásica. Cuando crea una red virtual en Azure Portal, el nombre completo que Azure usa no aparece en el portal. Por ejemplo, una red virtual que parece llamarse "ClassicVNet1" en Azure Portal puede que tenga un nombre mucho más largo en el archivo de configuración de la red. El nombre podría ser similar al siguiente: "Group ClassicRG1 ClassicVNet1". Los nombres de las redes virtuales aparecen como **"VirtualNetworkSite name ="**. Use los nombres que aparecen en el archivo de configuración de red cuando ejecute los cmdlets de PowerShell.
 
 ## <a name="step-3-delete-the-virtual-network-gateway"></a>Paso 3: Eliminación de la puerta de enlace de red virtual
 
@@ -72,112 +65,134 @@ Cuando elimina una puerta de enlace de red virtual, se desconectan todas las con
 
 Este ejemplo elimina la puerta de enlace de red virtual. Asegúrese de usar el nombre completo de la red virtual como aparece en el archivo de configuración de red.
 
-    Remove-AzureVNetGateway -VNetName "Group ClassicRG1 ClassicVNet1"
+```powershell
+Remove-AzureVNetGateway -VNetName "Group ClassicRG1 ClassicVNet1"
+```
 
 Si es correcto, el resultado mostrará lo siguiente:
 
-    Status : Successful
+```
+Status : Successful
+```
 
 ## <a name="step-4-modify-the-network-configuration-file"></a>Paso 4: Modificación del archivo de configuración de red
 
 Cuando elimina una puerta de enlace de red virtual, el cmdlet no modifica el archivo de configuración de red. Debe modificar el archivo para quitar los elementos que ya no se usan. Las secciones siguientes lo ayudan a modificar el archivo de configuración de red que descargó.
 
-###<a name="local-network-site-references"></a>Referencias de sitio de red local
+### <a name="local-network-site-references"></a>Referencias de sitio de red local
 
 Cuando quite la información de referencia del sitio, haga cambios en la configuración en **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. Quitar una referencia a sitio local hace que Azure elimine un túnel. Según la configuración que creó, puede que no aparezca **LocalNetworkSiteRef**.
 
-    <Gateway>
-       <ConnectionsToLocalNetwork>
-         <LocalNetworkSiteRef name="D1BFC9CB_Site2">
-           <Connection type="IPsec" />
-         </LocalNetworkSiteRef>
-       </ConnectionsToLocalNetwork>
-    </Gateway>
+```
+<Gateway>
+   <ConnectionsToLocalNetwork>
+     <LocalNetworkSiteRef name="D1BFC9CB_Site2">
+       <Connection type="IPsec" />
+     </LocalNetworkSiteRef>
+   </ConnectionsToLocalNetwork>
+ </Gateway>
+```
 
 Ejemplo:
 
-    <Gateway>
-       <ConnectionsToLocalNetwork>
-       </ConnectionsToLocalNetwork>
-     </Gateway>
+```
+<Gateway>
+   <ConnectionsToLocalNetwork>
+   </ConnectionsToLocalNetwork>
+ </Gateway>
+```
 
 ###<a name="local-network-sites"></a>Sitios de red local
 
 Quite los sitios locales que ya no usa. Según la configuración que haya creado, es posible que no aparezca el elemento **LocalNetworkSite** en la lista.
 
-    <LocalNetworkSites>
-      <LocalNetworkSite name="Site1">
-        <AddressSpace>
-          <AddressPrefix>192.168.0.0/16</AddressPrefix>
-        </AddressSpace>
-        <VPNGatewayAddress>5.4.3.2</VPNGatewayAddress>
-      </LocalNetworkSite>
-      <LocalNetworkSite name="Site3">
-        <AddressSpace>
-          <AddressPrefix>192.168.0.0/16</AddressPrefix>
-        </AddressSpace>
-        <VPNGatewayAddress>57.179.18.164</VPNGatewayAddress>
-      </LocalNetworkSite>
-    </LocalNetworkSites>
+```
+<LocalNetworkSites>
+  <LocalNetworkSite name="Site1">
+    <AddressSpace>
+      <AddressPrefix>192.168.0.0/16</AddressPrefix>
+    </AddressSpace>
+    <VPNGatewayAddress>5.4.3.2</VPNGatewayAddress>
+  </LocalNetworkSite>
+  <LocalNetworkSite name="Site3">
+    <AddressSpace>
+      <AddressPrefix>192.168.0.0/16</AddressPrefix>
+    </AddressSpace>
+    <VPNGatewayAddress>57.179.18.164</VPNGatewayAddress>
+  </LocalNetworkSite>
+ </LocalNetworkSites>
+```
 
 En este ejemplo, solo quitamos Site3.
 
-    <LocalNetworkSites>
-        <LocalNetworkSite name="Site1">
-        <AddressSpace>
-          <AddressPrefix>192.168.0.0/16</AddressPrefix>
-        </AddressSpace>
-        <VPNGatewayAddress>5.4.3.2</VPNGatewayAddress>
-      </LocalNetworkSite>
-    </LocalNetworkSites>
+```
+<LocalNetworkSites>
+  <LocalNetworkSite name="Site1">
+    <AddressSpace>
+      <AddressPrefix>192.168.0.0/16</AddressPrefix>
+    </AddressSpace>
+    <VPNGatewayAddress>5.4.3.2</VPNGatewayAddress>
+  </LocalNetworkSite>
+ </LocalNetworkSites>
+```
 
 ### <a name="client-addresspool"></a>Grupo de direcciones de cliente
 
 Si tuviera una conexión P2S a la red virtual, tendría un elemento **VPNClientAddressPool**. Quite los grupos de direcciones de cliente que correspondan a la puerta de enlace de red virtual que eliminó.
 
-    <Gateway>
-       <VPNClientAddressPool>
-         <AddressPrefix>10.1.0.0/24</AddressPrefix>
-       </VPNClientAddressPool>
-       <ConnectionsToLocalNetwork />
-    </Gateway>
+```
+<Gateway>
+    <VPNClientAddressPool>
+      <AddressPrefix>10.1.0.0/24</AddressPrefix>
+    </VPNClientAddressPool>
+  <ConnectionsToLocalNetwork />
+ </Gateway>
+```
 
 Ejemplo:
 
-     <Gateway>
-       <ConnectionsToLocalNetwork />
-     </Gateway>
+```
+<Gateway>
+  <ConnectionsToLocalNetwork />
+ </Gateway>
+```
 
 ### <a name="gatewaysubnet"></a>GatewaySubnet
 
 Elimine el elemento **GatewaySubnet** que corresponde a la red virtual.
 
-    <Subnets>
-       <Subnet name="FrontEnd">
-         <AddressPrefix>10.11.0.0/24</AddressPrefix>
-       </Subnet>
-       <Subnet name="GatewaySubnet">
-         <AddressPrefix>10.11.1.0/29</AddressPrefix>
-       </Subnet>
-     </Subnets>
+```
+<Subnets>
+   <Subnet name="FrontEnd">
+     <AddressPrefix>10.11.0.0/24</AddressPrefix>
+   </Subnet>
+   <Subnet name="GatewaySubnet">
+     <AddressPrefix>10.11.1.0/29</AddressPrefix>
+   </Subnet>
+ </Subnets>
+```
 
 Ejemplo:
 
-    <Subnets>
-       <Subnet name="FrontEnd">
-         <AddressPrefix>10.11.0.0/24</AddressPrefix>
-       </Subnet>
-     </Subnets>
+```
+<Subnets>
+   <Subnet name="FrontEnd">
+     <AddressPrefix>10.11.0.0/24</AddressPrefix>
+   </Subnet>
+ </Subnets>
+```
 
 ## <a name="step-5-upload-the-network-configuration-file"></a>Paso 5: Carga del archivo de configuración de red
 
 Guarde los cambios y cargue el archivo de configuración de red en Azure. Asegúrese de cambiar la ruta de acceso según sea necesario para su entorno.
 
-     Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
+```powershell
+Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
+```
 
 Si lo hace correctamente, el resultado será similar a este ejemplo:
 
-     OperationDescription        OperationId                      OperationStatus                                                
-     --------------------        -----------                      ---------------                                                
-     Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded
-
+```
+OperationDescription        OperationId                      OperationStatus                                                
+--------------------        -----------                      ---------------                                           
+Set-AzureVNetConfig         e0ee6e66-9167-cfa7-a746-7casb9   Succeeded

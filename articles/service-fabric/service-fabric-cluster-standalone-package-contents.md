@@ -11,17 +11,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/15/2017
+ms.date: 5/10/2017
 ms.author: chackdan;maburlik
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: a09ee1955717d7e042c1df3382c4cecd40069e3a
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 54fa2a5ea9bd54add6df68db6ce492299ca94207
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
 
-# <a name="package-contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenido del paquete independiente de Service Fabric para Windows Server
+# <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenido del paquete independiente de Service Fabric para Windows Server
 En el paquete independiente de Service Fabric [descargado](http://go.microsoft.com/fwlink/?LinkId=730690), encontrará los siguientes archivos:
 
 | **Nombre de archivo** | **Descripción breve** |
@@ -37,6 +38,8 @@ En el paquete independiente de Service Fabric [descargado](http://go.microsoft.c
 | EULA_ENU.txt |Términos de licencia para usar el paquete independiente de Windows Server para Microsoft Azure Service Fabric. Puede [descargar una copia de los términos de licencia](http://go.microsoft.com/fwlink/?LinkID=733084) ahora. |
 | Readme.txt |Un vínculo a las notas de la versión e instrucciones de instalación básica. Se trata de un subconjunto de las instrucciones de este documento. |
 | ThirdPartyNotice.rtf |Aviso de software de terceros que está en el paquete. |
+| Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe, que se ejecuta a petición para recopilar y cargar registros de seguimiento en Microsoft para soporte técnico. |
+| Tools\ServiceFabricUpdateService.zip |Herramienta que se usa para habilitar la actualización automática de código en los clústeres que no tienen acceso a Internet. [aquí](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Plantillas** 
 | **Nombre de archivo** | **Descripción breve** |
@@ -49,7 +52,7 @@ En el paquete independiente de Service Fabric [descargado](http://go.microsoft.c
 | ClusterConfig.x509.MultiMachine.json |Archivo de ejemplo de configuración de clúster que contiene toda la configuración de un clúster seguro con varias máquinas (o máquinas virtuales), incluida la información para cada nodo del clúster seguro. El clúster se protege mediante certificados X509. |
 | ClusterConfig.gMSA.Windows.MultiMachine.json |Archivo de ejemplo de configuración de clúster que contiene toda la configuración de un clúster seguro con varias máquinas (o máquinas virtuales), incluida la información para cada nodo del clúster seguro. El clúster se protege mediante [cuentas de servicio administradas de grupo](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx). |
 
-# <a name="cluster-configuration-samples"></a>Ejemplos de configuración del clúster
+## <a name="cluster-configuration-samples"></a>Ejemplos de configuración del clúster
 Las últimas versiones de las plantillas de configuración de clústeres se encuentran en la página de GitHub dedicada a los [ejemplos de configuración de clústeres independientes](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## <a name="related"></a>Temas relacionados

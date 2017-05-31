@@ -16,10 +16,10 @@ ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e391dc0f88bd7e065f968a490b3c1ddb1fa75978
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 312f84fe2aaf3f63fe2b8d818786ef1c570ccfe1
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -52,7 +52,7 @@ Si necesita datos que no son accesibles a través de cualquiera de los orígenes
 ### <a name="log-searches"></a>Búsqueda de registros
 Las [búsquedas de registros](../log-analytics/log-analytics-log-searches.md) se usan para extraer y analizar datos en el repositorio de Log Analytics.  Las utilizan vistas y alertas, y además permiten al usuario realizar análisis ad hoc de los datos en el repositorio.  
 
-Debe definir las consultas que cree que le resultarán útiles para el usuario, incluso si no hay vistas o alertas que las utilicen.  Estas estarán disponibles para los usuarios como búsquedas guardadas en el portal, y también puede incluirlas en un [elemento de visualización Lista de consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) en la vista personalizada.
+Debe definir las consultas que cree que le resultarán útiles para el usuario, incluso si no hay vistas o alertas que las utilicen.  Estas estarán disponibles para los usuarios como búsquedas guardadas en el portal y también se pueden incluir en un [elemento de visualización Lista de consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) en la vista personalizada.
 
 ### <a name="alerts"></a>Alertas
 [Alertas de Log Analytics](../log-analytics/log-analytics-alerts.md) identifican los problemas a través de [búsquedas de registros](#log-searches) con los datos en el repositorio.  Estas alertas o bien envían una notificación al usuario o ejecutan automáticamente una acción en respuesta. Debe identificar las diferentes condiciones de alerta para la aplicación e incluir reglas de alerta correspondientes en el archivo de solución.
