@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
-translationtype: Human Translation
-ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
-ms.openlocfilehash: 587412f02c6bb6bd2c5b1896a890607fa1c058f8
-ms.lasthandoff: 02/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 0c192a9c5e738d92d02fb1a16a80569c9f80d732
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -68,13 +69,13 @@ Se admiten los siguientes tipos de datos en modelos creados con la biblioteca de
 | Tipo | Description |
 | --- | --- |
 | double |número de punto flotante de doble precisión |
-| int |entero de&32; bits |
+| int |entero de 32 bits |
 | float |número de punto flotante de precisión simple |
 | long |entero largo |
-| int8\_t |entero de&8; bits |
-| int16\_t |entero de&16; bits |
-| int32\_t |entero de&32; bits |
-| int64\_t |entero de&64; bits |
+| int8\_t |entero de 8 bits |
+| int16\_t |entero de 16 bits |
+| int32\_t |entero de 32 bits |
+| int64\_t |entero de 64 bits |
 | booleano |boolean |
 | ascii\_char\_ptr |Cadena ASCII |
 | EDM\_DATE\_TIME\_OFFSET |desplazamiento de fecha y hora |
@@ -670,11 +671,11 @@ Con esto también concluye la serie de tres partes sobre cómo desarrollar aplic
 
 Para más información acerca del desarrollo para IoT Hub, consulte los [SDK de IoT Hub][lnk-sdks].
 
-Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
+* [Simular un dispositivo con Azure IoT Edge][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

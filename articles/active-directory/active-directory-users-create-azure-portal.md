@@ -1,5 +1,6 @@
 ---
-title: "Incorporación de nuevos usuarios a la versión preliminar de Azure Active Directory | Microsoft Docs"
+
+title: "Incorporación de nuevos usuarios en Azure Active Directory | Microsoft Docs"
 description: "Explica cómo agregar nuevos usuarios o cambiar la información del usuario en Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,28 +13,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: f0e7890ba4c7ef281558886f8cb8bcc429944f06
-ms.openlocfilehash: 9c0c15c0bf876110fcf9dd01a7930d3b226dfbc4
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 5f1f28b6e0135fbd76fa5f6664f457f259dd9dd4
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="add-new-users-to-azure-active-directory-preview"></a>Incorporación de nuevos usuarios a la versión preliminar de Azure Active Directory
+# <a name="add-new-users-to-azure-active-directory"></a>Adición de nuevos usuarios a Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Portal de Azure](active-directory-users-create-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-create-users.md)
 >
 >
 
-En este artículo se explica cómo agregar nuevos usuarios de su organización en la versión preliminar de Azure Active Directory (Azure AD). [¿Qué hay en la versión preliminar?](active-directory-preview-explainer.md)
+En este artículo se explica cómo agregar nuevos usuarios de su organización en Azure Active Directory (Azure AD). 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
 
-   ![Apertura de Administración de usuarios](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
+   ![Apertura de usuarios y grupos](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
 3. En la hoja **Usuarios y grupos**, seleccione **Todos los grupos** y, luego, **Agregar**.
 
    ![Selección del comando Agregar](./media/active-directory-users-create-azure-portal/create-users-add-command.png)

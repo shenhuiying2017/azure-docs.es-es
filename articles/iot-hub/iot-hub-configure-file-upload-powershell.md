@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 5ae6057dbcbffa5d8496819d015ec060d7ca6cc9
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: deac38afc200a0c68751a061d3fb284f8244225b
 ms.contentlocale: es-es
-ms.lasthandoff: 03/24/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -137,7 +137,7 @@ Siga estos vínculos para más información sobre la administración del Centro 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
+* [Simular un dispositivo con IoT Edge][lnk-iotedge]
 * [Protección total de la solución de IoT][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md
@@ -147,7 +147,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/11/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 942e3b4fbc9a954eae0cc609e800d0fe0b882475
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 1436b39fdb9a66a00903442496cc5203b47c1bcb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -30,7 +30,7 @@ El grupo de recursos es el contenedor de ciclo de vida para la aplicación y su 
 
 ## <a name="example-template"></a>Plantilla de ejemplo
 
-Para usar como destino un recurso diferente, debe usar una plantilla anidada o vinculada durante la implementación. El tipo de recurso `Microsoft.Resources/deployments` proporciona un parámetro `resourceGroup` que le permite especificar un grupo de recursos que sea diferente del usado en la plantilla principal. Todos los grupos de recursos deben existir antes de que se ejecute la implementación. En el ejemplo siguiente se implementan dos cuentas de almacenamiento: una en el grupo de recursos especificado durante la implementación y otra en un grupo de recursos llamado `crossResourceGroupDeployment`:
+Para usar como destino un recurso diferente, debe usar una plantilla anidada o vinculada durante la implementación. El tipo de recurso `Microsoft.Resources/deployments` proporciona un parámetro `resourceGroup`, que permite especificar un grupo de recursos distinto para la implementación anidada. Todos los grupos de recursos deben existir antes de que se ejecute la implementación. En el ejemplo siguiente se implementan dos cuentas de almacenamiento: una en el grupo de recursos especificado durante la implementación y otra en un grupo de recursos llamado `crossResourceGroupDeployment`:
 
 ```json
 {
@@ -123,3 +123,4 @@ Una vez finalizada la implementación, verá dos grupos de recursos. Cada uno co
 * Para entender cómo definir parámetros en la plantilla, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obtener sugerencias para resolver los errores de implementación más comunes, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para más información sobre la implementación de una plantilla que requiere un token de SAS, vea [Implementación de una plantilla privada con el token de SAS](resource-manager-powershell-sas-token.md).
+

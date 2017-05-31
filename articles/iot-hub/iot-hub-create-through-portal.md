@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: ddf69b7256ae9665363ee0f491a6475c69d6d555
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 7a68a2764d17b53164ded5096ddee68ab8c723ed
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -160,7 +160,7 @@ Siga estos vínculos para más información sobre la administración del Centro 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
+* [Simular un dispositivo con IoT Edge][lnk-iotedge]
 * [Protección total de la solución de IoT][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
@@ -178,7 +178,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 

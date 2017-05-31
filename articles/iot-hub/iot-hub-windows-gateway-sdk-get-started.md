@@ -1,6 +1,6 @@
 ---
-title: "Introducción al SDK de puerta de enlace de IoT de Azure (Windows) | Microsoft Docs"
-description: "Cómo crear una puerta de enlace en un equipo Windows y obtener información sobre los conceptos claves en el SDK de puerta de enlace de IoT de Azure como módulos y archivos de configuración de JSON."
+title: "Introducción a Azure IoT Edge (Windows) | Documentos de Microsoft"
+description: "Cómo crear una puerta de enlace de Azure IoT Edge en un equipo Windows y obtener información sobre los conceptos claves de Azure IoT Edge, como los módulos y los archivos de configuración de JSON."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,14 +15,15 @@ ms.workload: na
 ms.date: 03/28/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: f3cc32daac5059e816c885c88f4a7d36b6fc897e
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 2a46a3511d4d286c26aa9ca2e4e619414d82be1d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="explore-the-iot-gateway-sdk-architecture-on-windows"></a>Exploración de la arquitectura del SDK de puerta de enlace de IoT en Windows
+# <a name="explore-azure-iot-edge-architecture-on-windows"></a>Explorar la arquitectura de Azure IoT Edge en Windows
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
@@ -31,12 +32,12 @@ ms.lasthandoff: 03/31/2017
 Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] para poder trabajar con el SDK de Windows.
 
 1. Abra un **símbolo del sistema para desarrolladores de VS2015** o un **símbolo del sistema para desarrolladores de VS2017**.
-1. Vaya a la carpeta raíz en la copia local del repositorio **azure-iot-gateway-sdk** .
-1. Ejecute el script **tools\\build.cmd**. Este script crea un archivo de solución de Visual Studio y compila la solución. Puede encontrar la solución de Visual Studio en la carpeta **build** de su copia local del repositorio **azure-iot-gateway-sdk**. Se pueden pasar parámetros adicionales al script para compilar y ejecutar pruebas unitarias de un extremo a otro. Estos parámetros son **--run-unittests** y **--run-e2e-tests**, respectivamente.
+1. Vaya a la carpeta raíz en la copia local del repositorio **iot-edge**.
+1. Ejecute el script **tools\\build.cmd**. Este script crea un archivo de solución de Visual Studio y compila la solución. Puede encontrar la solución de Visual Studio en la carpeta **build** de su copia local del repositorio **iot-edge**. Se pueden pasar parámetros adicionales al script para compilar y ejecutar pruebas unitarias de un extremo a otro. Estos parámetros son **--run-unittests** y **--run-e2e-tests**, respectivamente.
 
 ## <a name="how-to-run-the-sample"></a>Ejecución del ejemplo
 
-1. El script **build.cmd** crea una carpeta llamada **build** en la copia local del repositorio. Esta carpeta contiene los dos módulos utilizados en este ejemplo.
+1. El script **build.cmd** crea una carpeta llamada **build** en la copia local del repositorio. Esta carpeta contiene los dos módulos de IoT Edge que se usan en este ejemplo.
 
     El script de compilación coloca **logger.dll** en la carpeta **build\\modules\\logger\\Debug** y **hello\_world.dll** en la carpeta **build\\modules\\hello_world\\Debug**. Utilice estas rutas de acceso para los valores de **ruta de acceso del módulo**, tal y como se muestra en el archivo de configuración JSON siguiente.
 1. El proceso de hello\_world\_sample toma la ruta de acceso a un archivo de configuración JSON como argumento de línea de comandos. El siguiente archivo JSON de ejemplo se encuentra en el repositorio de SDK, en **samples\\hello\_world\\src\\hello\_world\_win.json**. Este archivo de configuración funcionará tal y como está, a menos que se modifique el script de compilación para colocar los módulos o los ejecutables de ejemplo en ubicaciones que no sean las predeterminadas.
@@ -77,7 +78,7 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
     }
     ```
 
-1. Vaya a la carpeta raíz de la copia local del repositorio **azure-iot-gateway-sdk**.
+1. Vaya a la carpeta raíz de la copia local del repositorio **iot-edge**.
 
 1. Ejecute el siguiente comando:
 
@@ -86,5 +87,5 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
 
 <!-- Links -->
-[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
+[lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md
 

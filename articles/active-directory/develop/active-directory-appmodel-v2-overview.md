@@ -1,5 +1,5 @@
 ---
-title: "Recursos para el punto de conexión de Azure AD v2.0 | Microsoft Docs"
+title: "Punto de conexión v2.0 de Azure Active Directory | Documentos de Microsoft"
 description: "Introducción a la creación de aplicaciones con inicio de sesión de cuentas de Microsoft y de Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,53 +12,53 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: d3571d3d842ac908200c7e6b437b40d3c370b38d
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 4a9bf4193017313f532b398880a84966367f0b58
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Inicio de sesión de usuarios de cuentas de Microsoft y de Azure AD en una sola aplicación
-Antes, un desarrollador de aplicaciones que deseara admitir cuentas de Microsoft y Azure Active Directory debía realizar la integración con dos sistemas independientes.  Hemos incorporado una nueva versión de API de autenticación que permite el inicio de sesión de los usuarios con ambos tipos de cuentas mediante el sistema de Azure AD.  Este sistema de autenticación convergente se conoce como **punto de conexión v2.0**.  Con el punto de conexión v2.0, una integración sencilla le permite llegar a una audiencia que abarca millones de usuarios con cuentas personales, así como profesionales y educativas.
-
-Las aplicaciones que usan el punto de conexión v2.0 también pueden usar las API de REST de [Microsoft Graph](https://graph.microsoft.io) y [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) con cualquier tipo de cuenta.
-
-<!-- For a quick introduction to the v2.0 endpoint, please view the [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/) video. -->
+Antes, un desarrollador de aplicaciones que deseara admitir cuentas de Microsoft personales y profesionales de Azure Active Directory debía realizar la integración con dos sistemas independientes.  El **punto de conexión v2.0 de Azure AD** incorpora una nueva versión de API de autenticación que le permite iniciar sesión con ambos tipos de cuentas mediante una sencilla integración.  Las aplicaciones que usan el punto de conexión v2.0 también pueden usar las API de REST de [Microsoft Graph](https://graph.microsoft.io) con cualquier tipo de cuenta.
 
 ## <a name="getting-started"></a>Introducción
->[!VIDEO https://channel9.msdn.com/Events/Build/2016/P530/player]
-
-
 Elija su plataforma favorita de la lista siguiente para compilar una aplicación mediante nuestros marcos y bibliotecas de código abierto.  Como alternativa, puede usar la documentación del protocolo OAuth 2.0 y OpenID Connect para enviar y recibir directamente mensajes de protocolo sin usar una biblioteca de autenticación.
 
-<!-- TODO: Finalize this table  -->
+<br />
+
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
 
 ## <a name="whats-new"></a>Novedades
-La información conceptual que aquí se describe será útil para entender qué se puede y no se puede hacer con el punto de conexión v2.0.
+La información que se describe aquí será útil para comprender qué se puede y no se puede hacer con el punto de conexión v2.0.
 
-* Obtenga información sobre los [tipos de aplicaciones que puede compilar con la versión&2;.0 del punto de conexión](active-directory-v2-flows.md).
-* Conozca las [limitaciones y restricciones](active-directory-v2-limitations.md) de la versión&2;.0 del punto de conexión.
-* Hace poco, agregamos compatibilidad para los [ámbitos restringidos a administradores](active-directory-v2-scopes.md) y la [concesión de credenciales de cliente de OAuth2](active-directory-v2-protocols-oauth-client-creds.md).  Le animamos a que pruebe estas características.
+* Obtenga información sobre los [tipos de aplicaciones que puede compilar con la versión 2.0 del punto de conexión](active-directory-v2-flows.md).
+* Conozca las [limitaciones y restricciones](active-directory-v2-limitations.md) de la versión 2.0 del punto de conexión.
+* Eche un vistazo a este vídeo introductorio del punto de conexión v2.0:
+
+>[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
 ## <a name="reference"></a>Referencia
 Estos vínculos le servirán para explorar la plataforma en profundidad:
 
-* Build 2016: [Getting Started with Microsoft Identities: Enterprise Grade Sign In For Your Apps](https://azure.microsoft.com/documentation/videos/build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps/)
-* Obtenga ayuda acerca de Stack Overflow con las etiquetas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) o [adal](http://stackoverflow.com/questions/tagged/adal).
 * [Referencia de protocolos de v2.0](active-directory-v2-protocols.md)
 * [Referencia de los tokens de v2.0](active-directory-v2-tokens.md)
-* [Referencia de la biblioteca de la versión&2;.0](active-directory-v2-libraries.md)
+* [Referencia de la biblioteca de la versión 2.0](active-directory-v2-libraries.md)
 * [Ámbitos y consentimiento en el punto de conexión v2.0](active-directory-v2-scopes.md)
-* [Portal de registro para aplicaciones de Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)
-* [Referencia de API de REST de Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 * [Microsoft Graph](https://graph.microsoft.io)
 
+## <a name="help--support"></a>Ayuda y soporte técnico
+Estos son los mejores lugares para obtener ayuda con el desarrollo en Azure Active Directory.
+
+* [`azure-active-directory` de Stack Overflow y etiquetas `adal`](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)
+* [Comentarios sobre Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)
 
 
-
-<!--HONumber=Jan17_HO4-->
+> [!NOTE]
+> Si solo tiene que iniciar sesión en cuentas profesionales o educativas de Azure Active Directory, debería comenzar con nuestra [Guía del desarrollador de Azure AD](active-directory-developers-guide.md).  El punto de conexión v2.0 está diseñado para que lo usen desarrolladores que deban iniciar sesión explícitamente en cuentas personales de Microsoft.
 
 

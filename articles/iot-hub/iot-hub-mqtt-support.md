@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: kdotchko
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c09caf68b4acf90b5a76d2d715e07fc3a522f18c
-ms.openlocfilehash: 7b9b7e558a95de88dedcb744e2a4b3c18cde35cc
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 94389b06fda751716e1d593a85232ce37dae0b57
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -209,7 +210,7 @@ Para más información acerca de planificación de la implementación del Centro
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
+* [Simular un dispositivo con Azure IoT Edge][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
@@ -229,7 +230,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-messaging]: iot-hub-devguide-messaging.md

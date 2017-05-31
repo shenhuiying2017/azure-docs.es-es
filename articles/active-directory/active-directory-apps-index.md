@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 564dd782834898709f89f85e10627d07b17138ce
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3f6ae31f577eb1bc70a06e183518aadbc6279159
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -138,7 +139,7 @@ Automatice la creación, el mantenimiento y la eliminación de identidades de us
 | Información acerca de su funcionamientos y respuestas a preguntas comunes |[Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md) |
 | Configuración de cómo se asigna información entre Azure AD y una aplicación SaaS |[Personalización de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Escritura de expresiones para asignaciones de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Habilitación del aprovisionamiento automático en todas las aplicaciones que admitan el protocolo SCIM |[Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](active-directory-scim-provisioning.md) |
-| Recepción de notificaciones de errores de aprovisionamiento |[Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md) |
+| Cómo notificar y solucionar problemas de aprovisionamiento de usuarios |[Notificación del aprovisionamiento automático de usuarios](active-directory-saas-provisioning-reporting.md)<br><br>[Aprovisionamiento de notificaciones](active-directory-saas-account-provisioning-notifications.md)<br><br>[Solución de problemas con aprovisionamiento de usuarios](active-directory-application-provisioning-content-map.md) |
 | Limitación de quiénes se aprovisionan en una aplicación en función de los valores de sus atributos |[Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](active-directory-saas-scoping-filters.md) |
 
 El aprovisionamiento automático de usuarios está disponible para todas las ediciones de Azure AD para un máximo de diez aplicaciones por usuario. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) admite un número ilimitado de aplicaciones. Si la organización tiene [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), se pueden [utilizar grupos para administrar los usuarios que se aprovisionan](#managing-access-to-applications).
@@ -168,16 +169,16 @@ Para ayudarle a administrar quién debe tener acceso a cada recurso, Azure Activ
 La administración de acceso a aplicaciones basado en grupos está disponible para [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) y [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). La administración de grupos de autoservicio, la administración de aplicaciones de autoservicio y los grupos dinámicos son características de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="b2b-collaboration-enable-partner-access-to-applications"></a>Colaboración B2B: habilitar el acceso de los asociados a las aplicaciones
-Si su empresa se ha asociado con otras compañías, es probable que necesite administrar el acceso de los asociados a las aplicaciones corporativas. La colaboración B2B de Azure Active Directory proporciona una manera fácil y segura de compartir sus aplicaciones con los asociados. Esta funcionalidad actualmente está en su versión preliminar.
+Si su empresa se ha asociado con otras compañías, es probable que necesite administrar el acceso de los asociados a las aplicaciones corporativas. La colaboración B2B de Azure Active Directory proporciona una manera fácil y segura de compartir sus aplicaciones con los asociados.
 
 | Guía de artículos |  |
 |:---:| --- |
 | Información general sobre las diferentes características de Azure AD que pueden ayudarle a administrar usuarios externos como asociados, clientes, etc. |[Comparación de funcionalidades para administrar identidades externas con Azure Active Directory](active-directory-b2b-compare-external-identities.md) |
-| Una introducción a la vista previa de la colaboración B2B y primeros pasos con ella |[Vista previa de la colaboración B2B de Azure AD: integración sencilla y segura de los asociados de la nube](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Colaboración B2B de Azure Active Directory](active-directory-b2b-collaboration-overview.md) |
-| Un análisis más profundo sobre la colaboración B2B de Azure AD y cómo usarlo |[Vista previa de la colaboración B2B de Azure AD: funcionamiento](active-directory-b2b-how-it-works.md)<br /><br />[Vista previa de la colaboración B2B de Azure AD: limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)<br /><br />[Vista previa de la colaboración B2B de Azure AD: tutorial detallado](active-directory-b2b-detailed-walkthrough.md) |
+| Una introducción a la colaboración B2B y primeros pasos con ella |[Vista previa de la colaboración B2B de Azure AD: integración sencilla y segura de los asociados de la nube](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Colaboración B2B de Azure Active Directory](active-directory-b2b-collaboration-overview.md) |
+| Un análisis más profundo sobre la colaboración B2B de Azure AD y cómo usarlo |[Vista previa de la colaboración B2B de Azure AD: funcionamiento](active-directory-b2b-how-it-works.md)<br /><br />[Limitaciones actuales de la colaboración B2B de Azure AD](active-directory-b2b-current-limitations.md)<br /><br />[Tutorial detallado del uso de la colaboración B2B de Azure AD](active-directory-b2b-detailed-walkthrough.md) |
 | Artículos de referencia con detalles técnicos acerca del funcionamiento de la colaboración B2B de Azure AD |[Vista previa de la colaboración B2B de Azure AD: formato de archivo CSV](active-directory-b2b-references-csv-file-format.md)<br /><br />[Vista previa de la colaboración B2B de Azure AD: cambios en los atributos de objeto de usuario externo](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[Formato de token de usuario externo para usuarios asociados](active-directory-b2b-references-external-user-token-format.md) |
 
-En la actualidad, la vista previa de colaboración B2B está disponible para [todas las ediciones de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+La colaboración B2B está disponible actualmente para [todas las ediciones de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>Panel de acceso: portal para acceder a las aplicaciones y características de autoservicio
 El panel de acceso de Azure AD es el lugar en que los usuarios finales pueden iniciar sus aplicaciones y acceder a las características de autoservicio que les permiten administrar sus aplicaciones y pertenencias a grupos. Además del panel de acceso, en la lista siguiente se incluyen otras opciones para acceder a aplicaciones con SSO habilitado.
