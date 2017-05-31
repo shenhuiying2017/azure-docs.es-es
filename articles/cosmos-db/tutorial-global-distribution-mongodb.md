@@ -1,14 +1,14 @@
 ---
 title: "Tutorial de distribución global de Azure Cosmos DB para la API de MongoDB | Microsoft Docs"
 description: "Obtenga información sobre cómo configurar la distribución global de Azure Cosmos DB con la API de MongoDB."
-services: cosmosdb
+services: cosmos-db
 keywords: "distribución global, MongoDB"
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3cff5f474eac5be48cef1655ac312563c3ff473b
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 119ebb3f4966de08934c7d1fbd139229bda1d060
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -31,9 +31,9 @@ En este artículo se tratan las tareas siguientes:
 
 > [!div class="checklist"]
 > * Configuración de la distribución global con Azure Portal
-> * Configuración de la distribución global con la [API de MongoDB](../documentdb/documentdb-protocol-mongodb.md)
+> * Configuración de la distribución global con la [API de MongoDB](mongodb-introduction.md)
 
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>Comprobación de la configuración regional con la API de MongoDB
 La manera más sencilla de comprobar la configuración global dentro de la API de MongoDB es ejecutar el comando *isMaster()* desde el Shell de Mongo.
@@ -94,7 +94,7 @@ var tag = new Tag("region", "Southeast Asia");
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
 ```
 
-De este modo finaliza este tutorial. Para información sobre cómo administrar la coherencia de la cuenta replicada globalmente, lea [Niveles de coherencia en Azure Cosmos DB](../documentdb/documentdb-consistency-levels.md). Para más información sobre cómo funciona la replicación global de bases de datos en Azure Cosmos DB, consulte [Distribución global de datos con Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+De este modo finaliza este tutorial. Para información sobre cómo administrar la coherencia de la cuenta replicada globalmente, lea [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md). Para más información sobre cómo funciona la replicación global de bases de datos en Azure Cosmos DB, consulte [Distribución global de datos con Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -107,4 +107,4 @@ En este tutorial, ha hecho lo siguiente:
 Ahora puede continuar en el tutorial siguiente para aprender a desarrollar localmente con el emulador local de Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Desarrollo local con el emulador](../documentdb/documentdb-nosql-local-emulator.md)
+> [Desarrollo local con el emulador](local-emulator.md)
