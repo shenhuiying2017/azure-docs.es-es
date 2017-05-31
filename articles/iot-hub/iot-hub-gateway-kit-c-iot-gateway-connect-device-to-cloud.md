@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: e8efc3204512b7213c44a15c25b38287465975df
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2b772afc946f1637cb8d61c198bc9cf18f42e1ba
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -122,7 +123,7 @@ Ha habilitado correctamente la conexión entre la puerta de enlace de IoT y el S
 
 ## <a name="run-a-ble-sample-application-to-send-sensortag-data-to-your-iot-hub"></a>Ejecutar una aplicación de ejemplo BLE para enviar datos del SensorTag a IoT Hub
 
-El SDK de puerta de enlace de Azure IoT proporciona la aplicación de ejemplo Bluetooth Low Energy (BLE). La aplicación de ejemplo recopila datos de la conexión BLE y los envía a IoT Hub. Para ejecutar la aplicación de ejemplo, tiene que:
+Azure IoT Edge proporciona la aplicación de ejemplo Bluetooth Low Energy (BLE). La aplicación de ejemplo recopila datos de la conexión BLE y los envía a IoT Hub. Para ejecutar la aplicación de ejemplo, tiene que:
 
 1. Configurar la aplicación de ejemplo.
 1. Ejecutar la aplicación de ejemplo en la puerta de enlace de IoT.
@@ -170,5 +171,5 @@ El SDK de puerta de enlace de Azure IoT proporciona la aplicación de ejemplo Bl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Use IoT gateway for sensor data transformation with Azure IoT Gateway SDK (Usar la puerta de enlace de IoT para la transformación de datos de sensor con el SDK de puerta de enlace de Azure IoT)](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+[Usar la puerta de enlace de IoT para la transformación de datos de sensor con Azure IoT Edge](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 

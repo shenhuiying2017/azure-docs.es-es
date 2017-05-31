@@ -1,31 +1,40 @@
 ---
-title: "Directivas de indexación de DocumentDB | Microsoft Docs"
-description: "Obtenga información acerca de cómo funciona la indexación en DocumentDB y sobre cómo configurar y cambiar la directiva de indexación. Configurar la directiva de indexación dentro de DocumentDB para una indexación automática y un mayor rendimiento."
-keywords: how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure
-services: documentdb
+title: "Directivas de indexación de Azure Cosmos DB | Microsoft Docs"
+description: "Comprenda cómo funciona la indexación en Azure Cosmos DB. Obtenga información sobre la configuración y cambio de la directiva de indexación para una indexación automática y un mayor rendimiento."
+keywords: "funcionamiento de la indexación, indexación automática, indexación de base de datos"
+services: cosmosdb
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: bd77eaab1dbad95a70b6d08947f11d95220b8947
-ms.openlocfilehash: 818337dfb36ee4c84fa2543f7c54558287ead0e1
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c64c7a058d8635223dadd21eea402d92656599b9
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="documentdb-indexing-policies"></a>Directivas de indexación de DocumentDB
-Aunque muchos clientes prefieren dejar que Azure DocumentDB controle automáticamente todos los aspectos de la indexación, DocumentDB también permite especificar una **directiva de indexación** personalizada para las colecciones durante la creación. Las directivas de indexación en DocumentDB son más flexibles y potentes que los índices secundarios que se ofrecen en otras plataformas de base de datos, ya que le permiten diseñar y personalizar la forma del índice sin sacrificar la flexibilidad del esquema. Para entender cómo funciona la indexación en DocumentDB, debe comprender que, mediante la administración de una directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de consultas del índice.  
+# <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
 
-En este artículo, echamos un vistazo más detenido a las directivas de indexación de DocumentDB, la personalización de la directiva de indexación y las ventajas y desventajas asociadas. 
+De forma predeterminada, todos los datos de Azure Cosmos DB se indexan. Aunque muchos clientes prefieren dejar que Azure Cosmos DB controle automáticamente todos los aspectos de la indexación, Azure Cosmos DB también permite especificar una **directiva de indexación** personalizada para las colecciones durante la creación. Las directivas de indexación en Azure Cosmos DB son más flexibles y potentes que los índices secundarios que se ofrecen en otras plataformas de base de datos, ya que le permiten diseñar y personalizar la forma del índice sin sacrificar la flexibilidad del esquema. Para entender cómo funciona la indexación en Azure Cosmos DB, debe comprender que, mediante la administración de una directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de consultas del índice.  
+
+**¿Cómo se indexan los datos en Azure Cosmos DB para cada modelo de datos?**
+
+|   |API de DocumentDB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;API de Tables&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;API Graph&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      API MongoDB|
+|---|-----------------|--------------|-------------|---------------|
+|Opciones de indexación|Utilice el valor predeterminado e indexe todos los datos. <br><br> O [cree directivas de indexación personalizadas](#CustomizingIndexingPolicy).|
+|Modos de indexación|[Coherente, Diferida o Ninguna](#indexing-modes).|
+
+En este artículo, echamos un vistazo más detenido a las directivas de indexación de Azure Cosmos DB, la personalización de la directiva de indexación y las ventajas y desventajas asociadas. 
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:
 
@@ -36,11 +45,11 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 * ¿Cómo se puede comparar el almacenamiento y el rendimiento de diferentes directivas de indexación?
 
 ## <a id="CustomizingIndexingPolicy"></a> Personalización de la directiva de indexación de una colección
-Los desarrolladores pueden personalizar los equilibrios entre almacenamiento, rendimiento de escritura y consulta y coherencia de las consultas, reemplazando la directiva de indexación predeterminada en una colección de DocumentDB y configurando los aspectos siguientes.
+Los desarrolladores pueden personalizar los equilibrios entre almacenamiento, rendimiento de escritura y consulta y coherencia de las consultas, reemplazando la directiva de indexación predeterminada en una colección de Azure Cosmos DB y configurando los aspectos siguientes.
 
 * **Inclusión y exclusión de documentos y rutas de acceso del índice y al índice**. Los desarrolladores pueden elegir que se incluyan o excluyan determinados documentos en el índice en el momento de insertarlos o reemplazarlos en la colección. Los desarrolladores también pueden elegir incluir o excluir determinadas propiedades JSON, lo que también se conoce como rutas de acceso (incluidos patrones de caracteres comodín) para indexarlas en documentos que se incluyen en un índice.
 * **Configuración de distintos tipos de índice**. Para cada una de las rutas de acceso incluidas, los desarrolladores también pueden especificar el tipo de índice necesario para una colección en función de sus datos y la carga de trabajo de consultas esperada, así como de la "precisión" numérica y de cadena para cada ruta de acceso.
-* **Configuración de modos de actualización del índice**. DocumentDB admite tres modos de indexación que se pueden configurar mediante la directiva de indexación en una colección de DocumentDB: Coherente, Diferida y Ninguna. 
+* **Configuración de modos de actualización del índice**. Azure Cosmos DB admite tres modos de indexación que se pueden configurar mediante la directiva de indexación en una colección de Azure Cosmos DB: Coherente, Diferida y Ninguna. 
 
 En el siguiente fragmento de código de .NET se muestra cómo establecer una directiva de indexación personalizada durante la creación de una colección. A continuación establecemos la directiva con el índice de intervalo para las cadenas y números en la precisión máxima. Esta directiva nos permite ejecutar consultas Order By en cadenas.
 
@@ -55,25 +64,25 @@ En el siguiente fragmento de código de .NET se muestra cómo establecer una dir
 > [!NOTE]
 > El esquema JSON de la directiva de indexación ha cambiado con el lanzamiento de la API de REST versión 2015-06-03 para admitir índices de intervalo en cadenas. El SDK de .NET 1.2.0 y los SDK de Java, Python y Node.js 1.1.0 admiten el nuevo esquema de directiva. Los SDK anteriores usan la API de REST versión 2015-04-08 y admiten el esquema anterior de la directiva de indexación.
 > 
-> De forma predeterminada, DocumentDB indexa todas las propiedades de cadena en los documentos de forma coherente con un índice Hash y las propiedades numéricas con un índice de intervalo.  
+> De forma predeterminada, Azure Cosmos DB indexa todas las propiedades de cadena en los documentos de forma coherente con un índice Hash y las propiedades numéricas con un índice de intervalo.  
 > 
 > 
 
-### <a name="database-indexing-modes"></a>Modos de indexación de bases de datos
-DocumentDB admite tres modos de indexación que se pueden configurar mediante la directiva de indexación en una colección de DocumentDB: Coherente, Diferida y Ninguna.
+### <a id="indexing-modes"></a>Modos de indexación de bases de datos
+Azure Cosmos DB admite tres modos de indexación que se pueden configurar mediante la directiva de indexación en una colección de Azure Cosmos DB: Coherente, Diferida y Ninguna.
 
-**Coherente**: si la directiva de la colección de DocumentDB se designa como "coherente", las consultas realizadas en una colección DocumentDB determinada siguen el mismo nivel de coherencia que se especifique para las lecturas de punto (es decir, alta, de uso vinculado, sesión y eventual). El índice se actualiza de forma sincrónica como parte de la actualización del documento (es decir, inserción, reemplazo, actualización y eliminación de un documento en una colección de DocumentDB).  La indexación coherente admite consultas coherentes a costa de una posible reducción en el rendimiento de escritura. Esta reducción depende de las rutas de acceso únicas que se deben indexar y del "nivel de coherencia". El modo de indexación coherente está diseñado para cargas de trabajo de tipo "escribir rápidamente, consultar inmediatamente".
+**Coherente**: si la directiva de la colección de Azure Cosmos DB se designa como "coherente", las consultas realizadas en una colección Azure Cosmos DB determinada siguen el mismo nivel de coherencia que se especifique para las lecturas de punto (es decir, alta, de uso vinculado, sesión y eventual). El índice se actualiza de forma sincrónica como parte de la actualización del documento (es decir, inserción, reemplazo, actualización y eliminación de un documento en una colección de Azure Cosmos DB).  La indexación coherente admite consultas coherentes a costa de una posible reducción en el rendimiento de escritura. Esta reducción depende de las rutas de acceso únicas que se deben indexar y del "nivel de coherencia". El modo de indexación coherente está diseñado para cargas de trabajo de tipo "escribir rápidamente, consultar inmediatamente".
 
-**Diferida**: para permitir el rendimiento máximo de ingesta de documentos, se puede configurar una colección DocumentDB con coherencia diferida; lo que significa que las consultas terminan siendo coherentes. El índice se actualiza de forma asincrónica cuando una colección DocumentDB está inactiva, es decir, cuando la capacidad de rendimiento de la colección no se usa por completo para atender las solicitudes de usuario. Para cargas de trabajo de tipo "introducir ahora, consultar más adelante" que requieran ingesta de documentos sin obstáculos, es posible que el modo de indexación "diferido" sea el adecuado.
+**Diferida**: para permitir el rendimiento máximo de ingesta de documentos, se puede configurar una colección Azure Cosmos DB con coherencia diferida; lo que significa que las consultas terminan siendo coherentes. El índice se actualiza de forma asincrónica cuando una colección Azure Cosmos DB está inactiva, es decir, cuando la capacidad de rendimiento de la colección no se usa por completo para atender las solicitudes de usuario. Para cargas de trabajo de tipo "introducir ahora, consultar más adelante" que requieran ingesta de documentos sin obstáculos, es posible que el modo de indexación "diferido" sea el adecuado.
 
-**Ninguna**: una colección marcada con el modo de indexación de "Ninguna" no tiene ningún índice asociado. Esto se suele usar si DocumentDB se emplea como almacenamiento de clave-valor y solo se puede acceder a los documentos mediante su propiedad de identificador. 
+**Ninguna**: una colección marcada con el modo de indexación de "Ninguna" no tiene ningún índice asociado. Esto se suele usar si Azure Cosmos DB se emplea como almacenamiento de clave-valor y solo se puede acceder a los documentos mediante su propiedad de identificador. 
 
 > [!NOTE]
 > La configuración de la directiva de indexación con "Ninguna" tiene el efecto secundario de quitar cualquier índice existente. Úsela si los patrones de acceso solo requieren "id" o "vinculación automática".
 > 
 > 
 
-El siguiente programa de ejemplo muestra cómo crear una colección de DocumentDB mediante el SDK de .NET con la indización automática coherente en todas las inserciones de documentos.
+El siguiente programa de ejemplo muestra cómo crear una colección de Azure Cosmos DB mediante el SDK de .NET con la indexación automática coherente en todas las inserciones de documentos.
 
 La siguiente tabla muestra la coherencia de las consultas basadas en el modo de indexación (Coherente y Diferida) que se configure para la colección y el nivel de coherencia especificado para la solicitud de consulta. Esto se aplica a las consultas realizadas con cualquier interfaz: API de REST, SDK o desde procedimientos almacenados y desencadenadores. 
 
@@ -84,7 +93,7 @@ La siguiente tabla muestra la coherencia de las consultas basadas en el modo de 
 |Sesión|Sesión|Ocasional|
 |Ocasional|Ocasional|Ocasional|
 
-DocumentDB devuelve un error para las consultas realizadas en colecciones con el modo de indexación Ninguno. Será posible seguir ejecutando consultas como exámenes a través del encabezado `x-ms-documentdb-enable-scan` explícito en la API de REST o la opción `EnableScanInQuery`  mediante el SDK de .NET. Algunas funciones de consulta, como ORDER BY, no se admiten como exámenes con `EnableScanInQuery`.
+Azure Cosmos DB devuelve un error para las consultas realizadas en colecciones con el modo de indexación Ninguna. Será posible seguir ejecutando consultas como exámenes a través del encabezado `x-ms-documentdb-enable-scan` explícito en la API de REST o la opción `EnableScanInQuery`  mediante el SDK de .NET. Algunas funciones de consulta, como ORDER BY, no se admiten como exámenes con `EnableScanInQuery`.
 
 La siguiente tabla muestra la coherencia de las consultas basadas en el modo de indexación (Coherente, Diferida y Ninguna) cuando se especifica EnableScanInQuery.
 
@@ -95,7 +104,7 @@ La siguiente tabla muestra la coherencia de las consultas basadas en el modo de 
 |Sesión|Sesión|Ocasional|Sesión|
 |Ocasional|Ocasional|Ocasional|Ocasional|
 
-El siguiente ejemplo de código muestra cómo crear una colección de DocumentDB mediante .NET SDK con indexación coherente en todas las inserciones de documentos.
+El siguiente ejemplo de código muestra cómo crear una colección de Azure Cosmos DB mediante el SDK de .NET con indexación coherente en todas las inserciones de documentos.
 
      // Default collection creates a hash index for all string fields and a range index for all numeric    
      // fields. Hash indexes are compact and offer efficient performance for equality queries.
@@ -108,11 +117,11 @@ El siguiente ejemplo de código muestra cómo crear una colección de DocumentDB
 
 
 ### <a name="index-paths"></a>Rutas de acceso del índice
-DocumentDB modela los documentos JSON y el índice en forma de árbol, y permite ajustarse a las directivas para las rutas de acceso dentro del árbol. Puede encontrar más detalles en esta [introducción a la indexación de DocumentDB](documentdb-indexing.md). En los documentos, puede elegir qué rutas de acceso se deben incluir o excluir del índice. Esto puede mejorar el rendimiento de escritura y reducir el almacenamiento necesario para índice en escenarios en los que se conocen de antemano los patrones de consulta.
+Azure Cosmos DB modela los documentos JSON y el índice en forma de árbol, y permite ajustarse a las directivas para las rutas de acceso dentro del árbol. Puede encontrar más detalles en esta [introducción a la indexación de Azure Cosmos DB](documentdb-indexing.md). En los documentos, puede elegir qué rutas de acceso se deben incluir o excluir del índice. Esto puede mejorar el rendimiento de escritura y reducir el almacenamiento necesario para índice en escenarios en los que se conocen de antemano los patrones de consulta.
 
 Las rutas de acceso de índice comienzan con la raíz (/) y suelen terminar con el operador comodín ?, que indica que hay varios valores posibles para el prefijo. Por ejemplo, para atender la consulta SELECT * FROM Families F WHERE F.familyName = "Andersen", debe incluir una ruta de acceso de índice para /familyName/? en la directiva de índice de la colección.
 
-Las rutas de acceso del índice también pueden usar el operador comodín *para especificar el comportamiento de las rutas de acceso de forma recursiva en el prefijo. Por ejemplo, /payload/* puede usarse para excluir de la indexación de todo el contenido de la propiedad payload.
+Las rutas de acceso del índice también pueden usar el operador comodín * para especificar el comportamiento de las rutas de acceso de forma recursiva en el prefijo. Por ejemplo, /payload/* puede usarse para excluir de la indexación a todo el contenido de la propiedad payload.
 
 Estos son los patrones comunes para especificar las rutas de acceso del índice:
 
@@ -162,17 +171,17 @@ Ahora que hemos echado un vistazo a cómo especificar las rutas de acceso, echem
 * Precisión: 1-8 o -1 (precisión máxima) para números, 1-100 (precisión máxima) para cadenas
 
 #### <a name="index-kind"></a>Tipo de índice
-DocumentDB admite los tipos de índice Hash e Intervalo para cada ruta de acceso (que puede configurar para las cadenas, números o ambos).
+Azure Cosmos DB admite los tipos de índice Hash e Intervalo para cada ruta de acceso (que puede configurar para las cadenas, números o ambos).
 
 * **Hash** admite consultas de igualdad y JOIN eficientes. Para la mayoría de los casos de uso, los índices hash no requieren una precisión mayor que el valor predeterminado de 3 bytes. El tipo de datos puede ser Cadena o Número.
 * **Intervalo** admite consultas de igualdad, consultas de intervalo (con >, <, >=, <=, !=) y consultas Order By eficientes. De forma predeterminada, las consultas Order By también requieren una precisión índice máximo (-1). El tipo de datos puede ser Cadena o Número.
 
-DocumentDB también admite la clase de índice Espacial para cada ruta de acceso, que se puede especificar para el tipo de datos Punto, Polígono o LineString. El valor en la ruta especificada debe ser un fragmento de GeoJSON válido como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+Azure Cosmos DB también admite la clase de índice Espacial para cada ruta de acceso, que se puede especificar para el tipo de datos Punto, Polígono o LineString. El valor en la ruta especificada debe ser un fragmento de GeoJSON válido como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 * **Espacial** admite consultas espaciales eficaces (internas y a distancia). El tipo de datos puede ser Punto, Polígono o LineString.
 
 > [!NOTE]
-> DocumentDB admite la indexación automática de puntos, polígonos y LineString.
+> Azure Cosmos DB admite la indexación automática de puntos, polígonos y LineString.
 > 
 > 
 
@@ -208,7 +217,7 @@ En el ejemplo siguiente se muestra cómo aumentar la precisión de los índices 
 
 
 > [!NOTE]
-> DocumentDB devuelve un error cuando una consulta usa Order By, pero no tiene un índice de intervalo en la ruta de acceso consultada con la precisión máxima. 
+> Azure Cosmos DB devuelve un error cuando una consulta usa Order By, pero no tiene un índice de intervalo en la ruta de acceso consultada con la precisión máxima. 
 > 
 > 
 
@@ -216,7 +225,7 @@ De forma similar las rutas de acceso se pueden excluir completamente de la index
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
+    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
@@ -237,23 +246,23 @@ Por ejemplo, en el ejemplo siguiente se muestra cómo incluir un documento expl�
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
 ## <a name="modifying-the-indexing-policy-of-a-collection"></a>Modificación de la directiva de indexación de una colección
-DocumentDB le permite realizar cambios sobre la marcha en la directiva de indexación de una colección. Un cambio en la directiva de indexación en una colección de DocumentDB puede dar lugar a un cambio en la forma del índice, que incluye las rutas de acceso que se pueden indexar, su precisión, así como el modelo de coherencia del propio índice. Por lo tanto, un cambio en la directiva de indexación, requiere efectivamente una transformación del índice original en uno nuevo. 
+Azure Cosmos DB le permite realizar cambios sobre la marcha en la directiva de indexación de una colección. Un cambio en la directiva de indexación en una colección de Azure Cosmos DB puede dar lugar a un cambio en la forma del índice, que incluye las rutas de acceso que se pueden indexar, su precisión, así como el modelo de coherencia del propio índice. Por lo tanto, un cambio en la directiva de indexación, requiere efectivamente una transformación del índice original en uno nuevo. 
 
 **Transformaciones de índice en línea**
 
-![Cómo funciona la indexación: transformaciones de índice en línea de DocumentDB](media/documentdb-indexing-policies/index-transformations.png)
+![Cómo funciona la indexación: transformaciones de índice en línea de Azure Cosmos DB](media/documentdb-indexing-policies/index-transformations.png)
 
 Las transformaciones de índice se realizan en línea, lo que significa que los documentos indexados por la directiva antigua se transforman eficazmente según la nueva directiva **sin afectar a la disponibilidad de escritura ni al rendimiento aprovisionado** de la colección. La coherencia de las operaciones de lectura y escritura realizadas con la interfaz API de REST, SDK o desde procedimientos almacenados y desencadenadores no se ve afectada durante la transformación de índice. Esto significa que no hay ninguna degradación del rendimiento ni tiempo de inactividad en las aplicaciones al realizar un cambio de directiva de indexación.
 
 Sin embargo, durante el tiempo en que la transformación de índice está en curso, las consultas son coherentes finalmente, con independencia de la configuración del modo de indexación (Coherente o Diferida). Esto se aplica a las consultas realizadas con todas las interfaces: API de REST, SDK o desde procedimientos almacenados y desencadenadores. Al igual que con la indexación Diferida, la transformación de índice se realiza asincrónicamente en segundo plano en las réplicas mediante los recursos de reserva disponibles para una réplica determinada. 
 
-Las transformaciones de índice también se llevan a cabo **in-situ** (en el sitio), es decir, DocumentDB no mantiene dos copias del índice e intercambia el índice antiguo con el nuevo. Esto significa que no se requiere ni se usa espacio adicional en disco en las colecciones mientras se realizan transformaciones de índice.
+Las transformaciones de índice también se llevan a cabo **in-situ** (en el sitio), es decir, Azure Cosmos DB no mantiene dos copias del índice e intercambia el índice antiguo con el nuevo. Esto significa que no se requiere ni se usa espacio adicional en disco en las colecciones mientras se realizan transformaciones de índice.
 
-Cuando se cambia la directiva de indexación, la forma en que se aplican los cambios para moverse del índice antiguo al nuevo dependen principalmente de las configuraciones de modo de indexación más que de los demás valores, por ejemplo, rutas de acceso incluidas/excluidas, variantes de índice y precisiones. Si la directiva antigua y la nueva usan indexación coherente, DocumentDB realiza una transformación de índice en línea. No se puede aplicar otro cambio de directiva de indexación con el modo de indexación coherente mientras la transformación está en curso.
+Cuando se cambia la directiva de indexación, la forma en que se aplican los cambios para moverse del índice antiguo al nuevo dependen principalmente de las configuraciones de modo de indexación más que de los demás valores, por ejemplo, rutas de acceso incluidas/excluidas, variantes de índice y precisiones. Si la directiva antigua y la nueva usan indexación coherente, Azure Cosmos DB realiza una transformación de índice en línea. No se puede aplicar otro cambio de directiva de indexación con el modo de indexación coherente mientras la transformación está en curso.
 
 Sin embargo, puede moverse al modo de indexación Diferida o Ninguna mientras una transformación está en curso. 
 
-* Cuando se mueve a Diferida, el cambio de la directiva de indexación tiene efecto inmediato y DocumentDB inicia asincrónicamente la recreación el índice. 
+* Cuando se mueve a Diferida, el cambio de la directiva de indexación tiene efecto inmediato y Azure Cosmos DB inicia asincrónicamente la recreación el índice. 
 * Cuando se mueve a Ninguna, el índice se quita con efecto inmediato. El movimiento a Ninguna resulta útil cuando se quiere cancelar una transformación en curso y empezar de nuevo con una directiva de indexación distinta. 
 
 Si usa el SDK de .NET, puede iniciar un cambio de directiva de indexación con el nuevo método **ReplaceDocumentCollectionAsync** y realizar el seguimiento del progreso porcentual de transformación del índice con la propiedad de respuesta **IndexTransformationProgress** desde una llamada a **ReadDocumentCollectionAsync**. Otros SDK y la API de REST admiten métodos y propiedades equivalentes para realizar cambios de la directiva de indización.
@@ -298,10 +307,10 @@ Puede quitar el índice de una colección moviendo al modo de indexación Ningun
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-¿Cuando realizaría cambios de directiva de indexación en las colecciones de DocumentDB? Los siguientes son los casos de uso más comunes:
+¿Cuando realizaría cambios de directiva de indexación en las colecciones de Azure Cosmos DB? Los siguientes son los casos de uso más comunes:
 
 * Servicio de resultados coherentes durante el funcionamiento normal, pero reversión a la indexación diferida durante importaciones de conjuntos masivos de datos
-* Inicio con nuevas características de indexación en las colecciones de DocumentDB actuales, por ejemplo, consultas geoespaciales que requieren el tipo de índice espacial, o Order By y por rango de cadenas que requieren la variante de índice de intervalo de cadena recién presentada
+* Inicio con nuevas características de indexación en las colecciones de Azure Cosmos DB actuales, por ejemplo, consultas geoespaciales que requieren el tipo de índice espacial, u Order By y por rango de cadenas que requieren la variante de índice de intervalo de cadena recién presentada
 * Selección manual de las propiedades que se van a indexar y cambiarlas con el tiempo
 * Optimización de la precisión de indexación para mejorar el rendimiento de las consultas o reducir el almacenamiento usado
 
@@ -405,7 +414,7 @@ Para ver una comparación práctica, presentamos una directiva de indexación pe
     }
 
 ## <a name="next-steps"></a>Pasos siguientes
-Siga los vínculos que aparecen a continuación para obtener ejemplos de administración de directivas de índice y para obtener más información acerca del lenguaje de consulta de DocumentDB.
+Siga los vínculos que aparecen a continuación para obtener ejemplos de administración de directivas de índice y para obtener más información acerca del lenguaje de consulta de Azure Cosmos DB.
 
 1. [Ejemplos de código de administración de índices de .NET DocumentDB](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Operaciones de recopilación de la API de REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)

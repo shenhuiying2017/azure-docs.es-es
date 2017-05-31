@@ -12,11 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/16/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
-ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6decf3e228bf31f9da4ea2bfa4d0ada0b2ffad61
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -26,7 +28,7 @@ ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
 > * [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API DE REST](role-based-access-control-manage-access-rest.md)
 
-El control de acceso basado en rol (RBAC) del Portal de Azure y la API de Azure Resource Manager le ayudan a administrar el acceso a su suscripción y sus recursos en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
+El control de acceso basado en roles (RBAC) de Azure Portal y la API de Azure Resource Manager le ayudan a administrar el acceso a su suscripción y sus recursos en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
 
 ## <a name="list-all-role-assignments"></a>Lista de todas las asignaciones de roles
 Proporciona una lista todas las asignaciones de roles en el ámbito y los ámbitos secundarios especificados.
@@ -650,9 +652,4 @@ Código de estado: 200
 ## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

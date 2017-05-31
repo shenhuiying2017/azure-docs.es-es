@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: e28c1410145d8da168a73e74251ac037997d1752
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 197df490690754730425231f358fde31d17dcfad
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -45,7 +45,7 @@ Las cargas de trabajo de B2B implican transacciones monetarias como pedidos y fa
 
 4. La continuidad empresarial de la cuenta de integración de Logic Apps está diseñada para admitir protocolos basados en B2B: X12, AS2 y EDIFACT.  Para ver los pasos detallados, seleccione los vínculos correspondientes.
 
-5. Se recomienda implementar todos los recursos de la región primaria también en la región secundaria. Los recursos de la región primaria incluyen Azure SQL Database o Azure DocumentDB, Azure Service Bus/Azure Event Hubs para mensajería, Azure API Management y la característica Logic Apps de Azure App Service.   
+5. Se recomienda implementar todos los recursos de la región primaria también en la región secundaria. Los recursos de la región primaria incluyen Azure SQL Database o Azure Cosmos DB, Azure Service Bus/Azure Event Hubs para mensajería, Azure API Management y la característica Logic Apps de Azure App Service.   
 
 6. Establezca una conexión desde una región primaria a una región secundaria. Para extraer el estado de ejecución de una región primaria, cree una aplicación lógica en una región secundaria. Debe tener un desencadenador y una acción. El desencadenador se debe conectar a la cuenta de integración de una región primaria. La acción se debe conectar a la cuenta de integración de una región secundaria. Según el intervalo de tiempo, el desencadenador sondea la tabla de estado de ejecución de la región primaria y extrae los nuevos registros, si los hubiera. La acción los actualiza en la cuenta de integración de una región secundaria. Este proceso ayuda a obtener el estado incremental en el entorno de tiempo de ejecución de la región primaria a la secundaria.
 

@@ -14,34 +14,44 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: spelluru
 published: true
-translationtype: Human Translation
-ms.sourcegitcommit: db0face48d84680eabd82245bd38bd49b204f9ae
-ms.openlocfilehash: a88b791bad9f71f16700ccc7efdee8ef493478a9
-ms.lasthandoff: 02/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f29bb67ea50c531278e546c9fde88fd53230bc3c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
 Uno de los desafíos de la integración de datos moderna es mover datos sin problemas entre ubicación la local y la nube. Data Factory hace que dicha integración sea perfecta con Data Management Gateway, que es un agente que se puede instalar de forma local para permitir el movimiento de datos híbridos.
 
-En los siguientes artículos se proporciona información detallada sobre Data Management Gateway y cómo utilizarlo: 
+En los siguientes artículos se proporciona información detallada sobre Data Management Gateway y cómo utilizarlo:
 
 *  [Data Management Gateway](data-factory-data-management-gateway.md)
-*  [Movimiento de datos entre una ubicación local y la nube mediante Factoría de datos de Azure](data-factory-move-data-between-onprem-and-cloud.md) 
+*  [Movimiento de datos entre una ubicación local y la nube mediante Factoría de datos de Azure](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## <a name="current-version-2762192"></a>VERSIÓN ACTUAL (2.7.6219.2)
-
-### <a name="whats-new"></a>Novedades
-- Ahora puede autenticarse en Azure Data Lake Store con la entidad de servicio. Anteriormente, solo se admitiría OAuth.
-- Hemos creado un nuevo controlador para leer los datos del almacén de datos local de Oracle en la puerta de enlace.
+## <a name="current-version-2963132"></a>VERSIÓN ACTUAL (2.9.6313.2)
 
 ### <a name="enhancements-"></a>Mejoras-
-- Mejora del rendimiento de lectura de datos del origen de datos de Oracle.
-- Corregido: Problema con la expiración del token de OAuth del origen de OData.
-- Corregido: Problema al leer decimales de Oracle de más de 28 bits.
+-    Puede agregar entradas DNS a la lista blanca de Service Bus en vez de incluir todas las direcciones IP de Azure en la lista blanca del firewall (en caso necesario). Más detalles aquí.
+-    Ahora puede copiar hasta 4,75 TB de datos (tamaño máximo admitido para blob en bloques) en un único blob de bloques, y viceversa. (el límite anterior era 195 GB).
+-    Problema solucionado: memoria agotada al descomprimir varios archivos pequeños durante la actividad de copia.
+-    Problema solucionado: índice fuera de rango al copiar de Document DB a SQL local con característica de idempotencia.
+-    Problema solucionado: script de limpieza SQL no funciona en SQL local desde el Asistente para copiar.
+-    Problema solucionado: nombre de columna con espacio al final no funciona en la actividad de copia.
 
 
 ## <a name="earlier-versions"></a>Versiones anteriores
+
+## <a name="28662833"></a>2.8.66283.3
+### <a name="enhancements-"></a>Mejoras-
+- Problema solucionado: falta de credenciales durante el reinicio de máquina de puerta de enlace.
+- Problema solucionado: registro durante la restauración de puerta de enlace mediante el archivo de copia de seguridad.
+
+
+## <a name="2762401"></a>2.7.6240.1
+### <a name="enhancements-"></a>Mejoras-
+- Problema solucionado: lectura incorrecta de valor NULL decimal desde Oracle como origen.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>Novedades
@@ -63,7 +73,7 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
 ### <a name="whats-new"></a>Novedades
 
-- Ahora puede almacenar localmente las credenciales de origen de datos. Las credenciales se cifran. Las credenciales del origen de datos se pueden recuperar y restaurar usando el archivo de copia de seguridad que se puede exportar desde la puerta de enlace existente, todo de manera local. 
+- Ahora puede almacenar localmente las credenciales de origen de datos. Las credenciales se cifran. Las credenciales del origen de datos se pueden recuperar y restaurar usando el archivo de copia de seguridad que se puede exportar desde la puerta de enlace existente, todo de manera local.
 
 ### <a name="enhancements-"></a>Mejoras-
 
@@ -89,7 +99,7 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
 *  El controlador DB2 se incluye ahora en el paquete de instalación de la puerta de enlace. No es necesario instalarlo por separado. 
 *  El controlador DB2 ahora admite z/OS y DB2 para i (AS / 400) junto con las plataformas ya admitidas (Linux, Unix y Windows). 
-*  Admite el uso de DocumentDB como origen o destino para almacenes de datos locales
+*  Admite el uso de Azure Cosmos DB como origen o destino para almacenes de datos locales
 *  Admite la copia de datos desde/a blobs de almacenamiento en frío y en caliente junto con la cuenta de almacenamiento general ya admitida. 
 *  Le permite conectarse a la instancia local de SQL Server a través de la puerta de enlace con privilegios de inicio de sesión remoto.  
 
@@ -105,7 +115,7 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
     *  Controles reorganizados y simplificados.
 
-    *  Puede copiar datos desde un almacenamiento mediante la [herramienta de vista previa de código abierto](data-factory-copy-data-wizard-tutorial.md). Para obtener más información general sobre esta característica consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) . 
+    *  Puede copiar datos desde un almacenamiento mediante la [herramienta de vista previa de código abierto](data-factory-copy-data-wizard-tutorial.md). Para obtener más información general sobre esta característica consulte [Copias almacenadas provisionalmente](data-factory-copy-activity-performance.md#staged-copy) .
 *  Puede utilizar Data Management Gateway para transferir los datos directamente de la base de datos de SQL Server local a Aprendizaje automático de Azure.
 
 *  Mejoras en el rendimiento
@@ -120,7 +130,7 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
 *  El tamaño máximo del registro de eventos de puerta de enlace ha aumentado de 1 MB a 40 MB.
 
-*  En caso de que se requiera un reinicio durante la actualización automática de la puerta de enlace, se muestra un cuadro de diálogo de advertencia. Puede elegir reiniciar en ese mismo momento o más adelante. 
+*  En caso de que se requiera un reinicio durante la actualización automática de la puerta de enlace, se muestra un cuadro de diálogo de advertencia. Puede elegir reiniciar en ese mismo momento o más adelante.
 
 *  En caso de error en la actualización automática, el instalador de puerta de enlace volverá a intentar esta operación 3 veces al máximo.
 
@@ -226,7 +236,7 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
 ### <a name="1253031"></a>1.2.5303.1
 
-*  Corrección del problema del tiempo de espera para admitir más conexiones de orígenes de datos que requieren mucho tiempo. 
+*  Corrección del problema del tiempo de espera para admitir más conexiones de orígenes de datos que requieren mucho tiempo.
 
 ### <a name="1155268"></a>1.1.5526.8
 

@@ -1,20 +1,21 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: ad15b1695ad4697aebc38ac39723a1dd1647c466
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a6b0cd10c13622bf0d5af5d5871457204de37eb1
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 
 ---
-# <a name="how-to-create-a-database-for-documentdb-using-the-azure-portal"></a>Creación de una base de datos para DocumentDB mediante el Portal de Azure
-Para usar Microsoft Azure DocumentDB, debe tener una [cuenta de DocumentDB](documentdb-create-account.md), una base de datos, una colección y documentos. En Azure Portal, ahora las bases de datos de DocumentDB se crean al mismo tiempo que las colecciones. 
+# <a name="how-to-create-a-database-for-azure-cosmos-db-using-the-azure-portal"></a>Creación de una base de datos para Azure Cosmos DB mediante Azure Portal
+Para usar Microsoft Azure Cosmos DB, debe tener una [cuenta de Azure Cosmos DB](documentdb-create-account.md), una base de datos, una colección y documentos. En Azure Portal, ahora las bases de datos de Azure Cosmos DB se crean al mismo tiempo que las colecciones. 
 
-Para crear una base de datos de DocumentDB y una colección en el portal, consulte [Creación de una colección de DocumentDB mediante Azure Portal](documentdb-create-collection.md).
+Para crear una colección y una base de datos de Azure Cosmos DB en el portal, vea [How to create an Azure Cosmos DB collection using the Azure portal](documentdb-create-collection.md) (Creación de colecciones de Azure Cosmos DB mediante Azure Portal).
 
-## <a name="other-ways-to-create-a-documentdb-database"></a>Creación de una base de datos para DocumentDB mediante el Portal de Azure
+## <a name="other-ways-to-create-an-azure-cosmos-db-database"></a>Otras formas de crear bases de datos de Azure Cosmos DB
 No es necesario que las bases de datos se creen en el Portal, también se pueden crear mediante los [SDK de DocumentDB](documentdb-sdk-dotnet.md) o la [API de REST](https://msdn.microsoft.com/library/mt489072.aspx). Para obtener más información sobre cómo trabajar con bases de datos mediante el SDK. NET, consulte [Ejemplos de base de datos .NET](documentdb-dotnet-samples.md#database-examples). Para obtener más información sobre cómo trabajar con bases de datos mediante el SDK de Node.js, consulte [Ejemplos de base de datos de Node.js](documentdb-nodejs-samples.md#database-examples). 
 
 ## <a name="next-steps"></a>Pasos siguientes

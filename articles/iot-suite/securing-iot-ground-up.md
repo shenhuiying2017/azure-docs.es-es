@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8b453c7fe85a60791867d1c49fc2350e5f51a489
-ms.openlocfilehash: 0e917d1594deefd2b2764b09dc8bea79420c0d37
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ad88c17e0c6bad7cb58c8517a47bbe5fe0fae763
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -86,7 +87,7 @@ El conjunto de aplicaciones de IoT de Azure ayuda a mantener los datos seguros m
 
 Cuando los datos están en la nube, se pueden procesar y almacenar en cualquier flujo de trabajo definido por el usuario. El acceso a cada parte de los datos se controla con Azure Active Directory, dependiendo del servicio de almacenamiento utilizado.
 
-Todas las claves utilizadas por la infraestructura IoT se almacenan en la nube en un almacenamiento seguro, con la posibilidad de sustituirlas en caso de que sea necesario volver a aprovisionarlas. Los datos se pueden almacenar en [DocumentDB](../documentdb/documentdb-introduction.md) o en [bases de datos SQL](../sql-database/sql-database-faq.md), lo que permite la definición del nivel de seguridad deseado. Además, Azure proporciona una manera de supervisar y auditar todo el acceso a los datos para avisarle de cualquier intrusión o acceso no autorizado.
+Todas las claves utilizadas por la infraestructura IoT se almacenan en la nube en un almacenamiento seguro, con la posibilidad de sustituirlas en caso de que sea necesario volver a aprovisionarlas. Los datos se pueden almacenar en [Azure Cosmos DB](../documentdb/documentdb-introduction.md) o en [bases de datos SQL](../sql-database/sql-database-faq.md), lo que permite la definición del nivel de seguridad deseado. Además, Azure proporciona una manera de supervisar y auditar todo el acceso a los datos para avisarle de cualquier intrusión o acceso no autorizado.
 
 ## <a name="conclusion"></a>Conclusión
 Internet de las cosas comienza con sus cosas: las cosas que más importan a las empresas. IoT puede proporciona un valor increíble a las empresas al ayudarles a reducir los costos, aumentar los ingresos y transformar el negocio. El éxito de esta transformación depende en gran medida de la elección del proveedor de servicios y software IoT correcto. Eso significa encontrar un proveedor que no solo comprenda las necesidades y los requisitos de la empresa para hacer posible esta transformación, sino que también proporcione servicios y software en los que la seguridad, la privacidad, la transparencia y el cumplimiento integrados sean las consideraciones de diseño principales. Microsoft posee una amplia experiencia en el desarrollo y la implementación de servicios y software seguros y sigue siendo uno de los líderes en esta nueva era de Internet de las cosas. 
@@ -97,7 +98,7 @@ El conjunto de aplicaciones de IoT de Microsoft Azure incorpora medidas de segur
 Cada solución preconfigurada del conjunto de aplicaciones de IoT de Azure crea instancias de servicios de Azure, como las siguientes:
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): la puerta de enlace que conecta la nube con las “cosas”. Se puede escalar a millones de conexiones por centro y procesar volúmenes masivos de datos gracias a la compatibilidad con la autenticación individual de cada dispositivo, lo que ayuda a proteger la solución.
-* [**Azure DocumentDB**](https://azure.microsoft.com/services/documentdb/): servicio de base de datos completamente indexado y escalable destinado a datos semiestructurados que administra los metadatos de los dispositivos aprovisionados, como los atributos, la configuración y las propiedades de seguridad. DocumentDB ofrece procesamiento de alto rendimiento, indexación de datos independiente del esquema y una completa interfaz de consultas SQL.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/documentdb/): servicio de base de datos completamente indexado y escalable destinado a datos semiestructurados que administra los metadatos de los dispositivos aprovisionados, como los atributos, la configuración y las propiedades de seguridad. Cosmos DB ofrece procesamiento de alto rendimiento, indexación de datos independiente del esquema y una completa interfaz de consultas SQL.
 * [**Análisis de transmisiones de Azure**](https://azure.microsoft.com/services/stream-analytics/)procesamiento de transmisiones en tiempo real en la nube que permite desarrollar e implementar rápidamente una solución de análisis de bajo costo para desvelar datos detallados en tiempo real de dispositivos, sensores, infraestructura y aplicaciones. Los datos de este servicio completamente administrado se pueden escalar a cualquier volumen, sin dejar de obtener alto rendimiento, baja latencia y resistencia.
 * [**Azure App Services**](https://azure.microsoft.com/services/app-service/): plataforma en la nube que sirve para crear sólidas aplicaciones web y móviles desde las que se puede obtener acceso a datos en cualquier lugar, ya sea en la nube o desde la infraestructura local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): la característica Logic Apps de Azure App Service sirve para integrar la solución IoT con la línea existente de sistemas empresariales y para automatizar los procesos de flujo de trabajo. Las aplicaciones lógicas permiten a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Las aplicaciones lógicas ofrecen conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
@@ -124,3 +125,4 @@ Puede informarse sobre la seguridad en IoT Hub en [Control del acceso a IoT Hub]
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
+

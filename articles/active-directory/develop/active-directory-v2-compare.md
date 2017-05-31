@@ -12,11 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
-ms.openlocfilehash: 9f00013c4eb6c32707489d5f78a5e95b7419bcd2
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 16f2acc903aa85cf41d164dfe85b449a06314161
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -25,7 +28,6 @@ Si está familiarizado con Azure Active Directory o ha integrado aplicaciones co
 
 > [!NOTE]
 > No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe utilizar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
->
 >
 
 ## <a name="microsoft-accounts-and-azure-ad-accounts"></a>Cuentas de Microsoft y cuentas de Azure AD
@@ -36,27 +38,25 @@ Por ejemplo, si su aplicación llama a [Microsoft Graph](https://graph.microsoft
 La integración de su aplicación con las cuentas de Azure AD y las cuentas de Microsoft ahora es un proceso sencillo.  Puede usar un conjunto único de extremos, una sola biblioteca y un registro de aplicaciones único para obtener acceso tanto al mundo empresarial como al de los consumidores.  Para obtener más información sobre el punto de conexión v2.0, consulte [la información general](active-directory-appmodel-v2-overview.md).
 
 ## <a name="new-app-registration-portal"></a>Nuevo portal de registro de aplicaciones
-El punto de conexión v2.0 solo se puede registrar en una nueva ubicación: [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  En este portal podrá obtener un id. de aplicación y personalizar la apariencia de la página de inicio de sesión de su aplicación, entre otras cuestiones.  Todo lo que necesita para acceder al portal es una cuenta Microsoft, ya sea personal o profesional/educativa.  
+Para registrar una aplicación que funciona con el punto de conexión v2.0, debe usar un nuevo portal de registro de aplicaciones: [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  En este portal podrá obtener un identificador de aplicación y personalizar la apariencia de la página de inicio de sesión de la aplicación, entre otras cuestiones.  Todo lo que necesita para acceder al portal es una cuenta Microsoft, ya sea personal o profesional/educativa.
 
-Seguiremos agregando más funcionalidades a este portal de registro de aplicaciones con el tiempo.  La intención es que este portal sea la nueva ubicación donde puede ir dirigirse para administrar todo lo relacionado con las aplicaciones de Microsoft.
-
-## <a name="one-app-id-for-all-platforms"></a>Un identificador de aplicación para todas las plataformas
-En el servicio de Azure Active Directory original, es posible que haya registrado varias aplicaciones diferentes para un proyecto único.  Se vio obligado a usar registros de aplicaciones independientes para sus clientes nativos y las aplicaciones web:
+## <a name="one-app-id-for-all-platforms"></a>Un solo identificador de aplicación para todas las plataformas
+Si ha usado Azure Active Directory, es posible que haya registrado varias aplicaciones diferentes para un único proyecto.  Por ejemplo, si creó un sitio web y una aplicación de iOS, debía registrarlas por separado, con dos identificadores de aplicación diferentes. El portal de registro de aplicaciones de Azure AD le obliga a hacer esta distinción durante el registro:
 
 ![Interfaz de usuario de registro de aplicación antigua](../../media/active-directory-v2-flows/old_app_registration.PNG)
 
-Por ejemplo, si creó un sitio web y una aplicación de iOS, debía registrarlas por separado, con dos identificadores de aplicación diferentes.  Si tenía un sitio web y una API web de back-end, puede que haya registrado cada una de ellas como una aplicación independiente en Azure AD.  Si tenía una aplicación de iOS y una aplicación Android, también puede que haya registrado dos aplicaciones diferentes.  
+De manera similar, si tenía un sitio web y una API web de back-end, puede que haya registrado cada uno como una aplicación independiente en Azure AD.  O bien, si tenía una aplicación de iOS y una aplicación Android, puede que también haya registrado dos aplicaciones diferentes.  El registro de cada componente de una aplicación ha provocado algunos comportamientos inesperados para los desarrolladores y sus clientes:
 
-<!-- You may have even registered different apps for each of your build environments - one for dev, one for test, and one for production. -->
+* Cada componente aparecía como una aplicación distinta en el inquilino de Azure Active Directory de cada cliente.
+* Cuando el administrador de un inquilino intentase aplicar una directiva a la aplicación, administrar el acceso a la aplicación o eliminar la aplicación, tendría que hacerlo para cada componente de la aplicación.
+* Cuando los clientes den su consentimiento a una aplicación, cada componente aparecería en la pantalla de consentimiento como una aplicación distinta.
 
-Ahora todo lo que necesita es un registro de aplicación único y un id. de aplicación único para cada uno de los proyectos.  Puede agregar varias "plataformas" a cada proyecto y ofrece los datos adecuados para cada plataforma que agregue.  Por supuesto, puede crear tantas aplicaciones como desee, en función de sus requisitos, pero para la mayoría de los casos solo será necesario un id. de aplicación.
-
-<!-- You can also label a particular platform as "production-ready" when it is ready to be published to the outside world, and use that same Application Id safely in your development environments. -->
+Con el punto de conexión v2.0, ahora puede registrar todos los componentes del proyecto como un único registro de aplicaciones y usar un único identificador de aplicación para todo el proyecto.  Puede agregar varias "plataformas" a cada proyecto y ofrece los datos adecuados para cada plataforma que agregue.  Por supuesto, puede crear tantas aplicaciones como desee, en función de sus requisitos, pero para la mayoría de los casos solo será necesario un id. de aplicación.
 
 Nuestro objetivo es que esto dará lugar a una experiencia de desarrollo y administración de aplicaciones más simplificada y que creará una vista más consolidada de un proyecto único en el que podría trabajar.
 
 ## <a name="scopes-not-resources"></a>Ámbitos, no recursos
-En el servicio original de Azure AD, una aplicación puede comportarse como **recurso**o un destinatario de tokens.  Un recurso puede definir varios **ámbitos** o **oAuth2Permissions** que comprende, lo que permite a las aplicaciones cliente solicitar tokens para ese recurso para un conjunto determinado de ámbitos.  Piense en la API de Azure AD Graph como ejemplo de un recurso:
+En Azure Active Directory, una aplicación puede comportarse como **recurso** o como destinatario de tokens.  Un recurso puede definir varios **ámbitos** o **oAuth2Permissions** que comprende, lo que permite a las aplicaciones cliente solicitar tokens para ese recurso para un conjunto determinado de ámbitos.  Piense en la API de Azure AD Graph como ejemplo de un recurso:
 
 * Identificador de recursos o `AppID URI`: `https://graph.windows.net/`
 * Ámbitos o `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  
@@ -82,7 +82,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 donde el parámetro **scope** indica para qué recursos y permisos está solicitando autorización la aplicación. El recurso deseado sigue estando muy presente en la solicitud; simplemente está incluido en cada uno de los valores del parámetro scope.  El uso del parámetro scope de esta manera permite que el punto de conexión v2.0 respete en mayor medida la especificación de OAuth 2.0 y se alinee más estrechamente con prácticas comunes del sector.  También permite que las aplicaciones realicen [consentimiento incremental](#incremental-and-dynamic-consent), que se describe en la siguiente sección.
 
 ## <a name="incremental-and-dynamic-consent"></a>Consentimiento incremental y dinámico
-Las aplicaciones registradas en el servicio de Azure AD de disponibilidad general tenían que especificar sus permisos de OAuth 2.0 necesarios en el Portal de Azure, en el momento de la creación de las aplicaciones:
+Las aplicaciones registradas anteriormente en Azure AD tenían que especificar sus permisos de OAuth 2.0 necesarios en Azure Portal, en el momento de la creación de las aplicaciones:
 
 ![Interfaz de usuario de registro de permisos](../../media/active-directory-v2-flows/app_reg_permissions.PNG)
 
@@ -107,31 +107,24 @@ Permitir que una aplicación solicite permisos dinámicamente mediante el parám
 
 ## <a name="well-known-scopes"></a>Ámbitos conocidos
 #### <a name="offline-access"></a>Acceso sin conexión
-El punto de conexión v2.0 puede requerir el uso de un nuevo permiso conocido para aplicaciones: el ámbito `offline_access` .  Todas las aplicaciones deberán solicitar este permiso si necesitan tener acceso a los recursos en nombre de un usuario durante un período de tiempo prolongado, incluso cuando es posible que el usuario no haya estado usando la aplicación activamente.  El ámbito `offline_access` le aparecerá al usuario en cuadros de diálogo de consentimiento como "Obtener acceso a los datos sin conexión", que el usuario debe aceptar.  Solicitar el permiso `offline_access` permitirá a su aplicación web recibir refresh_tokens de OAuth 2.0 desde el extremo de v2.0.  Los refresh_tokens son de larga duración y se pueden intercambiar por nuevos access_tokens de OAuth 2.0 durante largos períodos de acceso.  
+Es posible que las aplicaciones que usan el punto de conexión v2.0 requieran el uso de un nuevo permiso conocido en las aplicaciones: el ámbito `offline_access`.  Todas las aplicaciones deberán solicitar este permiso si necesitan tener acceso a los recursos en nombre de un usuario durante un período de tiempo prolongado, incluso cuando es posible que el usuario no haya estado usando la aplicación activamente.  El ámbito `offline_access` le aparecerá al usuario en cuadros de diálogo de consentimiento como "Obtener acceso a los datos sin conexión", que el usuario debe aceptar.  Solicitar el permiso `offline_access` permitirá a su aplicación web recibir refresh_tokens de OAuth 2.0 desde el extremo de v2.0.  Los refresh_tokens son de larga duración y se pueden intercambiar por nuevos access_tokens de OAuth 2.0 durante largos períodos de acceso.  
 
 Si la aplicación no solicita el ámbito `offline_access`, no recibirá tokens de actualización (refresh_tokens).  Esto significa que cuando se canjea un código de autorización (authorization_code) del flujo del código de autorización de OAuth 2.0, solo se recibirá un token de acceso (access_token) desde el punto de conexión `/token`.  Ese token de acceso seguirá siendo válido durante un breve período de tiempo (normalmente una hora), pero finalmente caducará.  En ese momento, la aplicación tendrá que redirigir al usuario de nuevo al extremo de `/authorize` para recuperar un nuevo authorization_code.  Durante esta redirección, es posible o no que el usuario necesite escribir sus credenciales de nuevo o volver a dar el consentimiento a permisos, según el tipo de aplicación.
 
 Para más información acerca de OAuth 2.0, refresh_tokens y access_tokens, consulte la [referencia del protocolo v2.0](active-directory-v2-protocols.md).
 
 #### <a name="openid-profile-and-email"></a>OpenID, perfil y correo electrónico
-En el servicio de Azure Active Directory original, el flujo de inicio de sesión de OpenID Connect más básico proporciona una gran cantidad de información sobre el usuario en el id_token resultante.  Las notificaciones de un id_token pueden incluir el nombre de usuario, el nombre de usuario preferido, la dirección de correo electrónico, el id. de objeto, etc.
+Tradicionalmente, el flujo más básico de inicio de sesión de OpenID Connect en Azure Active Directory ofrecería gran cantidad de información sobre el usuario en el id_token resultante.  Las notificaciones de un id_token pueden incluir el nombre de usuario, el nombre de usuario preferido, la dirección de correo electrónico, el id. de objeto, etc.
 
 Ahora restringimos la información a la que el ámbito `openid` permite acceder a la aplicación.  El ámbito "openid" solo permitirá que el usuario inicie sesión en la aplicación y que esta reciba un identificador específico de aplicación para el usuario.  Si desea obtener información personal identificable (PII) acerca del usuario en la aplicación, esta tendrá que solicitar permisos adicionales al usuario.  Estamos introduciendo dos nuevos ámbitos (`email` y `profile`) que permiten hacerlo.
 
 El ámbito `email` es muy sencillo: permite que la aplicación acceda a la dirección de correo electrónico principal del usuario a través de la notificación `email` en id_token.  El ámbito `profile` ofrece a la aplicación acceso a toda la demás información básica sobre el usuario: su nombre, el nombre de usuario preferido, identificador de objeto y demás.
 
-Esto le permite codificar la aplicación en un modo de divulgación mínima, puede pedir al usuario solo el conjunto de información que la aplicación necesita para hacer su trabajo.  Para obtener más información sobre estos ámbitos, consulte [la referencia de los ámbitos de la versión&2;.0](active-directory-v2-scopes.md).
+Esto le permite codificar la aplicación en un modo de divulgación mínima, puede pedir al usuario solo el conjunto de información que la aplicación necesita para hacer su trabajo.  Para obtener más información sobre estos ámbitos, consulte [la referencia de los ámbitos de la versión 2.0](active-directory-v2-scopes.md).
 
 ## <a name="token-claims"></a>Notificaciones de token
-Las notificaciones en tokens emitidas por el extremo de v2.0 no serán idénticas a los tokens emitidos por los extremos de Azure AD de disponibilidad general; las aplicaciones que migran al nuevo servicio no deben suponer que existirá una notificación concreta en id_tokens o access_tokens.   Los tokens emitidos por el extremo dev2.0 son compatibles con las especificaciones de OAuth 2.0 y OpenID Connect, pero pueden seguir una semántica diferente a la del servicio de Azure AD de disponibilidad general.
-
-Para obtener información sobre las notificaciones específicas emitidas en tokens v2.0, consulte la [referencia del token v2.0](active-directory-v2-tokens.md).
+Las notificaciones en tokens emitidas por el extremo de v2.0 no serán idénticas a los tokens emitidos por los extremos de Azure AD de disponibilidad general; las aplicaciones que migran al nuevo servicio no deben suponer que existirá una notificación concreta en id_tokens o access_tokens. Para obtener información sobre las notificaciones específicas emitidas en tokens v2.0, consulte la [referencia del token v2.0](active-directory-v2-tokens.md).
 
 ## <a name="limitations"></a>Limitaciones
 Es necesario tener en cuenta algunas restricciones cuando se usa el punto v2.0.  Consulte el [documento de limitaciones de v2.0](active-directory-v2-limitations.md) para ver si alguna de estas restricciones se aplica a su escenario concreto.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

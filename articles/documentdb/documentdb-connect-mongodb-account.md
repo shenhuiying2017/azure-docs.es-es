@@ -1,30 +1,31 @@
 ---
-title: "Cadena de conexión de MongoDB para la cuenta de DocumentDB | Microsoft Docs"
-description: "Obtenga información sobre cómo conectar su aplicación de MongoDB a una cuenta de Azure DocumentDB utilizando una cadena de conexión de MongoDB."
+title: "Cadena de conexión de MongoDB para la cuenta de Azure Cosmos DB | Microsoft Docs"
+description: "Aprenda a conectar su aplicación de MongoDB a una cuenta de Azure Cosmos DB mediante una cadena de conexión de MongoDB."
 keywords: "cadena de conexión de mongodb"
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 6d376b9db07a46c467bd772959de3f7acf9c123d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 95fe71c87a3f70174b59cc866d7d399b7e91720c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="connect-an-application-to-documentdb-api-for-mongodb"></a>Conexión de una aplicación a DocumentDB: API de MongoDB
-Obtenga información sobre cómo conectar su aplicación de MongoDB a una cuenta de Azure DocumentDB utilizando una cadena de conexión de MongoDB. Al conectar la aplicación de MongoDB a una base de datos de Azure DocumentDB, puede usar una base de datos de DocumentDB como almacén de datos de la aplicación de MongoDB. 
+# <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar una aplicación de MongoDB a Azure Cosmos DB
+Aprenda a conectar su aplicación de MongoDB a una cuenta de Azure Cosmos DB mediante una cadena de conexión de MongoDB. Al conectar la aplicación de MongoDB a una base de datos de Azure Cosmos DB, puede usar una base de datos de Azure Cosmos DB como almacén de datos de la aplicación de MongoDB. 
 
 En este tutorial se proporcionan dos maneras de recuperar información de la cadena de conexión:
 
@@ -34,11 +35,11 @@ En este tutorial se proporcionan dos maneras de recuperar información de la cad
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure. Si no tiene una cuenta de Azure, cree ahora una [cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
-- Una cuenta de DocumentDB. Para obtener instrucciones, consulte [Creación de una cuenta de DocumentDB con soporte de protocolo para MongoDB mediante Azure Portal](documentdb-create-mongodb-account.md).
+- Una cuenta de Azure Cosmos DB. Para obtener instrucciones, vea [Create an Azure Cosmos DB account for use with MongoDB apps](documentdb-create-mongodb-account.md) (Creación de una cuenta de Azure Cosmos DB para su uso con aplicaciones de MongoDB).
 
 ## <a id="QuickstartConnection"></a>Obtención de la cadena de conexión de MongoDB utilizando el menú de inicio rápido
 1. En un explorador de Internet, inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En la hoja **NoSQL (DocumentDB)**, seleccione la cuenta de DocumentDB: API para MongoDB. 
+2. En la hoja **Azure Cosmos DB**, seleccione la cuenta de MongoDB API. 
 3. En la barra de **navegación izquierda** de la hoja de la cuenta, haga clic en **Inicio rápido**. 
 4. Elija la plataforma (*controlador .NET*, *controlador Node.js*, *MongoDB Shell*, *controlador Java*, *controlador Python*). Si no ve el controlador o la herramienta en la lista, no se preocupe, documentamos constantemente más fragmentos de código de conexión. Comente a continuación lo que le gustaría ver y leer sobre [obtener información de la cadena de conexión de la cuenta](#GetCustomConnection) para aprender a crear su propia conexión.
 5. Copie y pegue el fragmento de código en la aplicación de MongoDB y ya estará listo para empezar.
@@ -47,7 +48,7 @@ En este tutorial se proporcionan dos maneras de recuperar información de la cad
 
 ## <a id="GetCustomConnection"></a> Obtención de la cadena de conexión de MongoDB para personalizar
 1. En un explorador de Internet, inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En la hoja **NoSQL (DocumentDB)**, seleccione la cuenta de DocumentDB: API para MongoDB. 
+2. En la hoja **Azure Cosmos DB**, seleccione la cuenta de MongoDB API. 
 3. En la barra de **navegación izquierda** de la hoja de la cuenta, haga clic en **Cadena de conexión**. 
 4. Se abre la hoja **Información de cadena de conexión** con toda la información necesaria para conectarse a la cuenta con un controlador para MongoDB, incluida una cadena de conexión precreada.
 
@@ -55,22 +56,22 @@ En este tutorial se proporcionan dos maneras de recuperar información de la cad
 
 ## <a name="connection-string-requirements"></a>Requisitos de la cadena de conexión
 > [!Important]
-> DocumentDB tiene estrictos estándares y requisitos de seguridad. Las cuentas de DocumentDB requieren autenticación y comunicación segura a través de **SSL**.
+> Azure Cosmos DB tiene estándares y requisitos de seguridad estrictos. Las cuentas de Azure Cosmos DB requieren autenticación y comunicación segura a través de **SSL**.
 >
 >
 
-Es importante tener en cuenta que DocumentDB admite el formato de identificador URI de cadena de conexión de MongoDB estándar, con un par de requisitos específicos: las cuentas de DocumentDB requieren la autenticación y la comunicación segura mediante SSL.  Por tanto, el formato de la cadena de conexión es:
+Es importante tener en cuenta que Azure Cosmos DB admite el formato estándar de URI de cadena de conexión de MongoDB, con un par de requisitos específicos: las cuentas de Azure Cosmos DB requieren autenticación y comunicación segura mediante SSL.  Por tanto, el formato de la cadena de conexión es:
 
     mongodb://username:password@host:port/[database]?ssl=true
 
 Donde los valores de esta cadena están disponibles en la hoja Cadena de conexión mostrada antes.
 
 * Username (obligatorio)
-  * Nombre de la cuenta de DocumentDB
+  * Nombre de la cuenta de Azure Cosmos DB
 * Password (obligatorio)
-  * Contraseña de la cuenta de DocumentDB
+  * Contraseña de la cuenta de Azure Cosmos DB
 * Host (obligatorio)
-  * FQDN de la cuenta de DocumentDB
+  * FQDN de la cuenta de Azure Cosmos DB
 * Port (obligatorio)
   * 10250
 * Database (opcional)
@@ -82,6 +83,6 @@ Por ejemplo, considere la cuenta que aparece en la hoja Información de cadena d
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información sobre cómo [usar MongoChef](documentdb-mongodb-mongochef.md) con una cuenta de DocumentDB: API para MongoDB.
-* Explore [ejemplos](documentdb-mongodb-samples.md) de DocumentDB: API para MongoDB.
+* Obtenga información sobre cómo [usar MongoChef](documentdb-mongodb-mongochef.md) con una cuenta de Azure Cosmos DB: API para MongoDB.
+* Explore [ejemplos](documentdb-mongodb-samples.md) de Azure Cosmos DB: API para MongoDB.
 

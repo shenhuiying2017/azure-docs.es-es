@@ -3,8 +3,8 @@ title: Aprenda a usar el conector de Twitter en Logic Apps | Microsoft Docs
 description: "Información general del conector de Twitter con parámetros de la API de REST"
 services: 
 documentationcenter: 
-author: msftman
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
@@ -14,10 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
-ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: 13ecb8936484b1c86938a16c7dd6da8000d4ffec
+ms.author: mandia; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7b4e14ff2e7e6575574e9da412d29cc2c228990f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -98,297 +100,11 @@ En el paso siguiente, agregará una acción de Twitter que publicará un tweet u
    ![Imagen de acción de Twitter 3](../../includes/media/connectors-create-api-twitter/action-3.png)   
 7. Guarde el trabajo y envíe un tweet con el hashtag #Seattle para activar el flujo de trabajo.  
 
-## <a name="technical-details"></a>Detalles técnicos
-Estos son los detalles sobre los desencadenadores, las acciones y las respuestas compatibles con esta conexión:
 
-## <a name="twitter-triggers"></a>Desencadenadores de Twitter
-El conector de Twitter tiene el siguiente desencadenador o desencadenadores:  
-
-| Desencadenador | Descripción |
-| --- | --- |
-| [Cuando se publique un nuevo tweet](connectors-create-api-twitter.md#when-a-new-tweet-is-posted) |Esta operación desencadena un flujo al publicar un nuevo tweet que coincide con una consulta de búsqueda determinada. |
-
-## <a name="twitter-actions"></a>Acciones de Twitter
-El conector de Twitter tiene las siguientes acciones:
-
-| Acción | Descripción |
-| --- | --- |
-| [Obtener biografía de usuario](connectors-create-api-twitter.md#get-user-timeline) |Esta operación obtiene una lista de los tweets publicados por un usuario determinado más recientes. |
-| [Obtener escala de tiempo de inicio](connectors-create-api-twitter.md#get-home-timeline) |Esta operación obtiene los tweets y retweets más recientes publicados por mí y mis seguidores. |
-| [Buscar tweets](connectors-create-api-twitter.md#search-tweets) |Esta operación obtiene una lista de tweets relevantes que coinciden con la consulta de búsqueda. |
-| [Obtener seguidores](connectors-create-api-twitter.md#get-followers) |Esta operación obtiene la lista de usuarios que siguen a un usuario determinado. |
-| [Obtener mis seguidores](connectors-create-api-twitter.md#get-my-followers) |Esta operación obtiene la lista de usuarios que me siguen. |
-| [Obtener a quienes se sigue](connectors-create-api-twitter.md#get-following) |La operación obtiene la lista de personas a las que el usuario determinado sigue. |
-| [Obtener a quienes sigo](connectors-create-api-twitter.md#get-my-following) |Esta operación obtiene la lista de usuarios a los que sigo. |
-| [Obtener usuario](connectors-create-api-twitter.md#get-user) |Esta operación obtiene los detalles del perfil para un usuario determinado, como el nombre de usuario, descripción, número de seguidores y mucho más. |
-| [Publicar un tweet](connectors-create-api-twitter.md#post-a-tweet) |Esta operación publica un nuevo tweet. |
-
-## <a name="action-details"></a>Detalles de la acción
-Estos son los detalles de las acciones y desencadenadores de este conector, junto con sus respuestas:
-
-### <a name="get-user-timeline"></a>Obtener biografía de usuario
-Esta operación obtiene una lista de los tweets publicados por un usuario determinado más recientes. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| userName* |Nombre de usuario |Controlador de Twitter para el usuario |
-| maxResults |Número máximo de resultados |Número máximo de tweets que se devuelven |
-
-El símbolo * indica que la propiedad es obligatoria.
-
-#### <a name="output-details"></a>Detalles de salida
-TweetModel: representación de objeto tweet
-
-| Nombre de propiedad | Tipo de datos | Descripción |
-| --- | --- | --- |
-| tweetText |string |Contenido de texto del tweet |
-| TweetId |string |Identificador del tweet |
-| CreatedAt |string |Hora a la que se ha publicado el tweet |
-| RetweetCount |integer |Número total de retweets para el tweet |
-| TweetedBy |string |Nombre del usuario que ha publicado el tweet |
-| MediaUrls |array |Dirección URL de los medios publicados con el tweet |
-| TweetLanguageCode |string |Código de idioma del tweet |
-| TweetInReplyToUserId |string |Id. del usuario del autor del tweet al que responde el tweet actual |
-| Favorited |boolean |Indica si el tweet está marcado como favorito o no |
-| UserMentions |array |Lista de usuarios que se menciona en el tweet |
-| OriginalTweet |not defined |Tweet original desde el que se retwittea el tweet actual |
-| UserDetails |not defined |Detalles del usuario que ha twitteado |
-
-### <a name="get-home-timeline"></a>Obtener escala de tiempo de inicio
-Esta operación obtiene los tweets y retweets más recientes publicados por mí y mis seguidores. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| maxResults |Número máximo de resultados |Número máximo de tweets que se devuelven |
-
-El símbolo * indica que la propiedad es obligatoria.
-
-#### <a name="output-details"></a>Detalles de salida
-TweetModel: representación de objeto tweet
-
-| Nombre de propiedad | Tipo de datos | Descripción |
-| --- | --- | --- |
-| tweetText |string |Contenido de texto del tweet |
-| TweetId |string |Identificador del tweet |
-| CreatedAt |string |Hora a la que se ha publicado el tweet |
-| RetweetCount |integer |Número total de retweets para el tweet |
-| TweetedBy |string |Nombre del usuario que ha publicado el tweet |
-| MediaUrls |array |Dirección URL de los medios publicados con el tweet |
-| TweetLanguageCode |string |Código de idioma del tweet |
-| TweetInReplyToUserId |string |Id. del usuario del autor del tweet al que responde el tweet actual |
-| Favorited |boolean |Indica si el tweet está marcado como favorito o no |
-| UserMentions |array |Lista de usuarios que se menciona en el tweet |
-| OriginalTweet |not defined |Tweet original desde el que se retwittea el tweet actual |
-| UserDetails |not defined |Detalles del usuario que ha twitteado |
-
-### <a name="search-tweets"></a>Buscar tweets
-Esta operación obtiene una lista de tweets relevantes que coinciden con la consulta de búsqueda. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| searchQuery* |Buscar texto |Búsqueda de términos como "happy hour", #haiku, love OR hate |
-| maxResults |Número máximo de resultados |Número máximo de tweets que se devuelven |
-
-El símbolo * indica que la propiedad es obligatoria.
-
-#### <a name="output-details"></a>Detalles de salida
-TweetModel: representación de objeto tweet
-
-| Nombre de propiedad | Tipo de datos | Descripción |
-| --- | --- | --- |
-| tweetText |string |Contenido de texto del tweet |
-| TweetId |string |Identificador del tweet |
-| CreatedAt |string |Hora a la que se ha publicado el tweet |
-| RetweetCount |integer |Número total de retweets para el tweet |
-| TweetedBy |string |Nombre del usuario que ha publicado el tweet |
-| MediaUrls |array |Dirección URL de los medios publicados con el tweet |
-| TweetLanguageCode |string |Código de idioma del tweet |
-| TweetInReplyToUserId |string |Id. del usuario del autor del tweet al que responde el tweet actual |
-| Favorited |boolean |Indica si el tweet está marcado como favorito o no |
-| UserMentions |array |Lista de usuarios que se menciona en el tweet |
-| OriginalTweet |not defined |Tweet original desde el que se retwittea el tweet actual |
-| UserDetails |not defined |Detalles del usuario que ha twitteado |
-
-### <a name="get-followers"></a>Obtener seguidores
-Esta operación obtiene la lista de usuarios que siguen a un usuario determinado. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| userName* |Nombre de usuario |Controlador de Twitter para el usuario |
-| maxResults |Número máximo de resultados |Número máximo de usuarios que se van a devolver |
-
-El símbolo * indica que la propiedad es obligatoria.
-
-#### <a name="output-details"></a>Detalles de salida
-UserDetailsModel: detalles del usuario de Twitter
-
-| Nombre de propiedad | Tipo de datos | Descripción |
-| --- | --- | --- |
-| FullName |string |Nombre del usuario |
-| Ubicación |string |Ubicación del usuario |
-| Id |integer |Identificador del usuario de Twitter |
-| UserName |string |Nombre de pantalla del usuario |
-| FollowersCount |integer |Número de seguidores |
-| Descripción |string |Descripción del usuario |
-| StatusesCount |integer |Número de estados de usuario |
-| FriendsCount |integer |Número de amigos |
-| FavouritesCount |integer |Número de tweets que el usuario tiene como favoritos |
-| ProfileImageUrl |string |Dirección URL de la imagen del perfil |
-
-### <a name="get-my-followers"></a>Obtener mi seguidores
-Esta operación obtiene la lista de usuarios que me siguen. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| maxResults |Número máximo de resultados |Número máximo de usuarios que se va a obtener |
-
-El símbolo * indica que la propiedad es obligatoria.
-
-#### <a name="output-details"></a>Detalles de salida
-UserDetailsModel: detalles del usuario de Twitter
-
-| Nombre de propiedad | Tipo de datos | Descripción |
-| --- | --- | --- |
-| FullName |string |Nombre del usuario |
-| Ubicación |string |Ubicación del usuario |
-| Id |integer |Identificador del usuario de Twitter |
-| UserName |string |Nombre de pantalla del usuario |
-| FollowersCount |integer |Número de seguidores |
-| Descripción |string |Descripción del usuario |
-| StatusesCount |integer |Número de estados de usuario |
-| FriendsCount |integer |Número de amigos |
-| FavouritesCount |integer |Número de tweets que el usuario tiene como favoritos |
-| ProfileImageUrl |string |Dirección URL de la imagen del perfil |
-
-### <a name="get-following"></a>Obtener a quienes se sigue
-La operación obtiene la lista de personas a las que el usuario determinado sigue. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| userName* |Nombre de usuario |Controlador de Twitter para el usuario |
-| maxResults |Número máximo de resultados |Número máximo de usuarios que se van a devolver |
-
-El símbolo * indica que la propiedad es obligatoria.
-
-#### <a name="output-details"></a>Detalles de salida
-UserDetailsModel: detalles del usuario de Twitter
-
-| Nombre de propiedad | Tipo de datos | Descripción |
-| --- | --- | --- |
-| FullName |string |Nombre del usuario |
-| Ubicación |string |Ubicación del usuario |
-| Id |integer |Identificador del usuario de Twitter |
-| UserName |string |Nombre de pantalla del usuario |
-| FollowersCount |integer |Número de seguidores |
-| Descripción |string |Descripción del usuario |
-| StatusesCount |integer |Número de estados de usuario |
-| FriendsCount |integer |Número de amigos |
-| FavouritesCount |integer |Número de tweets que el usuario tiene como favoritos |
-| ProfileImageUrl |string |Dirección URL de la imagen del perfil |
-
-### <a name="get-my-following"></a>Obtener a quienes sigo
-Esta operación obtiene la lista de usuarios a los que sigo. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| maxResults |Número máximo de resultados |Número máximo de usuarios que se van a devolver |
-
-El símbolo * indica que la propiedad es obligatoria.
-
-#### <a name="output-details"></a>Detalles de salida
-UserDetailsModel: detalles del usuario de Twitter
-
-| Nombre de propiedad | Tipo de datos | Descripción |
-| --- | --- | --- |
-| FullName |string |Nombre del usuario |
-| Ubicación |string |Ubicación del usuario |
-| Id |integer |Identificador del usuario de Twitter |
-| UserName |string |Nombre de pantalla del usuario |
-| FollowersCount |integer |Número de seguidores |
-| Descripción |string |Descripción del usuario |
-| StatusesCount |integer |Número de estados de usuario |
-| FriendsCount |integer |Número de amigos |
-| FavouritesCount |integer |Número de tweets que el usuario tiene como favoritos |
-| ProfileImageUrl |string |Dirección URL de la imagen del perfil |
-
-### <a name="get-user"></a>Obtener usuario
-Esta operación obtiene los detalles del perfil para un usuario determinado, como el nombre de usuario, descripción, número de seguidores y mucho más. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| userName* |Nombre de usuario |Controlador de Twitter para el usuario |
-
-El símbolo * indica que la propiedad es obligatoria.
-
-#### <a name="output-details"></a>Detalles de salida
-UserDetailsModel: detalles del usuario de Twitter
-
-| Nombre de propiedad | Tipo de datos | Descripción |
-| --- | --- | --- |
-| FullName |string |Nombre del usuario |
-| Ubicación |string |Ubicación del usuario |
-| Id |integer |Identificador del usuario de Twitter |
-| UserName |string |Nombre de pantalla del usuario |
-| FollowersCount |integer |Número de seguidores |
-| Descripción |string |Descripción del usuario |
-| StatusesCount |integer |Número de estados de usuario |
-| FriendsCount |integer |Número de amigos |
-| FavouritesCount |integer |Número de tweets que el usuario tiene como favoritos |
-| ProfileImageUrl |string |Dirección URL de la imagen del perfil |
-
-### <a name="post-a-tweet"></a>Publicar un tweet
-Esta operación publica un nuevo tweet. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| tweetText |Texto del tweet |Texto que se va a publicar |
-| body |Multimedia |Elementos multimedia que se van a publicar |
-
-El símbolo * indica que la propiedad es obligatoria.
-
-#### <a name="output-details"></a>Detalles de salida
-TweetResponseModel: modelo que representa el tweet publicado
-
-| Nombre de propiedad | Tipo de datos | Descripción |
-| --- | --- | --- |
-| TweetId |string |Identificador del tweet recuperado |
-
-### <a name="when-a-new-tweet-is-posted"></a>Cuando se publique un nuevo tweet
-Esta operación desencadena un flujo al publicar un nuevo tweet que coincide con una consulta de búsqueda determinada. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| searchQuery* |Buscar texto |Búsqueda de términos como "happy hour", #haiku, love OR hate |
-
-El símbolo * indica que la propiedad es obligatoria.
-
-#### <a name="output-details"></a>Detalles de salida
-TriggerBatchResponse[TweetModel]
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| value |array |
-
-## <a name="http-responses"></a>Respuestas HTTP
-Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP: 
-
-| Nombre | Descripción |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |No autorizado |
-| 403 |Prohibido |
-| 404 |No encontrado |
-| 500 |Error interno del servidor. Error desconocido. |
-| default |Error en la operación. |
+## <a name="view-the-swagger"></a>Visualización de Swagger
+Vea los [detalles de Swagger](/connectors/twitterconnector/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

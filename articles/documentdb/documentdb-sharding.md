@@ -1,28 +1,29 @@
 ---
 
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 7023e7e7f5857db345c47c9a3aa00a816e027a96
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2bb9fa3c151b0e36f73ba0c1432529499ee7062b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 
 ---
-# <a name="how-to-partition-data-using-client-side-support-in-documentdb"></a>Cómo realizar una partición en los datos mediante la compatibilidad del lado cliente en DocumentDB
-Azure DocumentDB es compatible con la [creación de particiones automáticas de colecciones](documentdb-partition-data.md). Sin embargo, hay casos donde resulta ventajoso tener un control específico sobre el comportamiento de la creación de particiones. Para reducir la cantidad de código reutilizable necesario en las tareas de creación de particiones, agregamos una función en el SDK de .NET., Node.js y Java que simplifica la compilación de aplicaciones que se escalan horizontalmente en varias colecciones.
+# <a name="how-to-partition-data-using-client-side-support-in-azure-cosmos-db"></a>Creación de una partición en los datos mediante la compatibilidad del lado cliente en Azure Cosmos DB
+Azure Cosmos DB es compatible con la [creación de particiones automáticas de colecciones](documentdb-partition-data.md). Sin embargo, hay casos donde resulta ventajoso tener un control específico sobre el comportamiento de la creación de particiones. Para reducir la cantidad de código reutilizable necesario en las tareas de creación de particiones, agregamos una función en el SDK de .NET., Node.js y Java que simplifica la compilación de aplicaciones que se escalan horizontalmente en varias colecciones.
 
 En este artículo, nos fijaremos en las clases e interfaces del SDK de .NET y en su uso para desarrollar aplicaciones con particiones. Otros SDK como Java, Python y Node.js admiten métodos e interfaces similares para creación de particiones del lado cliente.
 
-## <a name="client-side-partitioning-with-the-documentdb-sdk"></a>Creación de particiones del lado del cliente con el SDK de DocumentDB
-Antes de profundizar más en la creación de particiones, resumamos algunos conceptos básicos de DocumentDB relacionados con ello. Toda cuenta de base de datos de Azure DocumentDB consta de un conjunto de bases de datos, cada una con varias recopilaciones. Cada recopilación puede contener, a su vez, procedimientos almacenados, desencadenadores, UDF, documentos y datos adjuntos relacionados. Las colecciones pueden ser de una única partición o se pueden crear particiones automáticamente y tener las siguientes propiedades:
+## <a name="client-side-partitioning-with-the-sdk"></a>Creación de particiones del lado cliente con el SDK
+Antes de profundizar más en la creación de particiones, resumamos algunos conceptos básicos de Cosmos DB relacionados con ello. Toda cuenta de base de datos de Azure Cosmos DB consta de un conjunto de bases de datos, cada una con varias recopilaciones. Cada recopilación puede contener, a su vez, procedimientos almacenados, desencadenadores, UDF, documentos y datos adjuntos relacionados. Las colecciones pueden ser de una única partición o se pueden crear particiones automáticamente y tener las siguientes propiedades:
 
 * Las colecciones permiten aislar el rendimiento. Por lo tanto, intercalar documentos similares dentro de la misma colección mejora el rendimiento. Por ejemplo, para los datos de series temporales, puede colocar los datos relativos al último mes, que se consultan con frecuencia, dentro de una colección con un mayor rendimiento aprovisionado, mientras que los datos más antiguos se pueden colocar en colecciones con bajo rendimiento aprovisionado.
 * Las transacciones ACID (es decir, los procedimientos almacenados y los desencadenadores) no pueden abarcar una colección. Las transacciones tienen el ámbito de un valor de clave de partición única dentro de una colección.
 * Las colecciones no aplican un esquema, por lo que se pueden utilizar para documentos JSON del mismo tipo o de tipos diferentes.
 
-A partir de la versión [1.5.x de los SDK de Azure DocumentDB](documentdb-sdk-dotnet.md), puede realizar operaciones de documento directamente en una base de datos. Internamente, [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) utiliza el valor de PartitionResolver que ha especificado para la base de datos para enrutar las solicitudes a la colección adecuada.
+A partir de la versión [1.5.x de los SDK de Azure Cosmos DB](documentdb-sdk-dotnet.md), puede realizar operaciones de documento directamente en una base de datos. Internamente, [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) utiliza el valor de PartitionResolver que ha especificado para la base de datos para enrutar las solicitudes a la colección adecuada.
 
 > [!NOTE]
 > La [creación de particiones de lado de servidor](documentdb-partition-data.md) se introdujo en la API de REST 2015-12-16 y la versión 1.6.0+ de los SDK deja de usar el enfoque del solucionador de particiones del lado cliente para casos de uso sencillo. Sin embargo la creación de particiones del lado cliente es más flexible y le permite controlar el aislamiento del rendimiento a través de las claves de partición, controlar el grado de paralelismo mientras se leen los resultados de varias particiones y utilizar enfoques de creación de particiones por rangos y espaciales frente a hash.
@@ -89,7 +90,7 @@ foreach (UserProfile activeUser in query)
 ```
 
 ## <a name="hash-partition-resolver"></a>Resolución de partición por hash
-Con la creación de particiones por hash, las particiones se asignan en función del valor de una función hash, lo que permite distribuir uniformemente las solicitudes y los datos entre una cantidad determinada de particiones. Este enfoque se utiliza normalmente para la creación de particiones de datos producidos o consumidos desde un gran número de clientes distintos, y es útil para almacenar perfiles de usuario, elementos de catálogos y datos de telemetría de IoT ("Internet de las cosas"). La compatibilidad con creación de particiones de lado servidor de DocumentDB también usa creación de particiones por hash dentro de una colección.
+Con la creación de particiones por hash, las particiones se asignan en función del valor de una función hash, lo que permite distribuir uniformemente las solicitudes y los datos entre una cantidad determinada de particiones. Este enfoque se utiliza normalmente para la creación de particiones de datos producidos o consumidos desde un gran número de clientes distintos, y es útil para almacenar perfiles de usuario, elementos de catálogos y datos de telemetría de IoT ("Internet de las cosas"). La compatibilidad con creación de particiones de lado servidor de Cosmos DB también usa creación de particiones por hash dentro de una colección.
 
 **Creación de particiones por hash:**
 ![Diagrama que ilustra cómo la creación de particiones por hash distribuye uniformemente las solicitudes entre las particiones](media/documentdb-sharding/partition-hash.png)
@@ -122,17 +123,17 @@ Eche un vistazo al [proyecto de ejemplos de GitHub para la creación de particio
 * Cómo serializar y deserializar el estado de PartitionResolver como JSON, de manera que se pueda compartir entre procesos y a través de los apagados. Puede conservarlos en archivos de configuración, o incluso en una colección de DocumentDB.
 * Una clase [DocumentClientHashPartitioningManager](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Util/DocumentClientHashPartitioningManager.cs) para agregar y eliminar dinámicamente particiones en una base de datos cuyas particiones se han creado con base en una aplicación coherente de hash. Utiliza internamente un [TransitionHashPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Partitioners/TransitionHashPartitionResolver.cs) para enrutar lecturas y escrituras durante la migración mediante uno de los cuatro modos: leer desde el esquema de creación de particiones antiguo (ReadCurrent), el nuevo (ReadNext), combinar los resultados de ambos (ReadBoth) o no estar disponible durante la migración (None).
 
-Los ejemplos son de código abierto y le animamos a que envíe solicitudes de extracción con las contribuciones que podrían ayudar a otros desarrolladores de DocumentDB. Consulte las [directrices de contribución](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obtener instrucciones acerca de cómo realizar sus aportaciones.  
+Los ejemplos son de código abierto y le animamos a que envíe solicitudes de extracción con las contribuciones que podrían ayudar a otros desarrolladores de Cosmos DB. Consulte las [directrices de contribución](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obtener instrucciones acerca de cómo realizar sus aportaciones.  
 
 > [!NOTE]
-> Las creaciones de colección tienen la velocidad limitada por DocumentDB, por lo que algunos de los métodos de ejemplo que se muestran a continuación pueden tardar unos minutos en completarse.
+> Las creaciones de colección tienen la velocidad limitada por Cosmos DB, por lo que algunos de los métodos de ejemplo que se muestran a continuación pueden tardar unos minutos en completarse.
 > 
 > 
 
 ## <a name="faq"></a>P+F
-**¿Admite DocumentDB la creación de particiones en el lado servidor?**
+**¿Admite Cosmos DB la creación de particiones en el lado servidor?**
 
-Sí, DocumentDB admite [creación de particiones en el lado servidor](documentdb-partition-data.md). En los casos de uso más avanzados, DocumentDB también permite la creación de particiones en el lado de cliente a través de solucionadores de partición del lado de cliente.
+Sí, Cosmos DB admite la [creación de particiones en el lado servidor](documentdb-partition-data.md). En los casos de uso más avanzados, Cosmos DB también permite la creación de particiones en el lado de cliente a través de solucionadores de partición del lado de cliente.
 
 **¿Cuándo debería usar la creación de particiones del lado del cliente o del lado del servidor?**
 En la mayoría de los casos, le recomendamos que use la creación de particiones del lado de servidor, que gestiona las tareas administrativas de creación de particiones de datos y de enrutamiento de solicitudes. Sin embargo, si necesita crear particiones por rangos o tiene un caso de uso especializado para aislar el rendimiento entre valores distintos de claves de partición, entonces sería mejor la creación de particiones del lado de cliente.
@@ -150,8 +151,8 @@ Puede serializar el estado particionador como JSON y almacenarlo en archivos de 
 Puede encadenar PartitionResolvers implementando su propio valor de IPartitionResolver que utilice internamente uno o varios solucionadores existentes. Eche un vistazo a TransitionHashPartitionResolver en el proyecto de ejemplos para ver un caso de este tipo.
 
 ## <a name="references"></a>Referencias
-* [Creación de particiones en el lado servidor en DocumentDB](documentdb-partition-data.md)
-* [Colecciones y niveles de rendimiento de DocumentDB](documentdb-performance-levels.md)
+* [Creación de particiones en el servidor en Cosmos DB](documentdb-partition-data.md)
+* [Colecciones y niveles de rendimiento de Azure Cosmos DB](documentdb-performance-levels.md)
 * [Ejemplos de código de creación de particiones en GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [Documentación del SDK de .NET de DocumentDB en MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net)

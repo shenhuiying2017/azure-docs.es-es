@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
-translationtype: Human Translation
-ms.sourcegitcommit: 8251f44200c11d3efcec04b7ac99857232b2f9ed
-ms.openlocfilehash: 9c5483e73874b0f030f7fd99cad4430b70e378a8
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5ab74442ad5bb084d04cfda5969a54102132884e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.lasthandoff: 02/15/2017
 | Base de datos | <ul><li>[Comprobación de que se emplean cuentas con privilegios mínimos para conectarse al servidor de base de datos](#privileged-server)</li><li>[Implementación de seguridad de nivel de fila (RLS) para impedir que los inquilinos accedan a los datos de los demás](#rls-tenants)</li><li>[El rol sysadmin solo debe tener a los usuarios válidos necesarios](#sysadmin-users)</li></ul> |
 | Puerta de enlace de la nube de IoT | <ul><li>[Conexión a la puerta de enlace de la nube mediante tokens con privilegios mínimos](#cloud-least-privileged)</li></ul> |
 | Centro de eventos de Azure | <ul><li>[Uso de una clave SAS de permisos solo de envío para generar tokens de dispositivo](#sendonly-sas)</li><li>[No usar tokens de acceso que proporcionan acceso directo al centro de eventos](#access-tokens-hub)</li><li>[Conexión al centro de eventos mediante claves SAS que tienen los permisos mínimos necesarios](#sas-minimum-permissions)</li></ul> |
-| Azure DocumentDB | <ul><li>[Uso de tokens de recursos para conectarse a DocumentDB siempre que sea posible](#resource-docdb)</li></ul> |
+| Azure Cosmos DB | <ul><li>[Uso de tokens de recursos para conectarse a Azure Cosmos DB siempre que sea posible](#resource-docdb)</li></ul> |
 | Límites de confianza de Azure | <ul><li>[Habilitación de administración avanzada de acceso a suscripción de Azure mediante RBAC](#grained-rbac)</li></ul> |
 | Límites de confianza de Service Fabric | <ul><li>[Restricción del acceso de cliente a operaciones de clúster mediante RBAC](#cluster-rbac)</li></ul> |
 | Dynamics CRM | <ul><li>[Realización de modelos de seguridad y uso de seguridad de nivel de campo cuando sea necesario](#modeling-field)</li></ul> |
@@ -42,7 +43,7 @@ ms.lasthandoff: 02/15/2017
 | Dispositivo IoT | <ul><li>[Realización de comprobaciones de autorización en el dispositivo si admite varias acciones que requieren distintos niveles de permiso](#device-permission)</li></ul> |
 | Puerta de enlace de campo de IoT | <ul><li>[Realización de comprobaciones de autorización en la puerta de enlace de campo si admite varias acciones que requieren distintos niveles de permiso](#field-permission)</li></ul> |
 
-## <a name="a-idacl-restricted-accessaensure-that-proper-acls-are-configured-to-restrict-unauthorized-access-to-data-on-the-device"></a><a id="acl-restricted-access"></a>Comprobación de que hay configuradas ACL adecuadas para restringir el acceso no autorizado a los datos en el dispositivo
+## <a id="acl-restricted-access"></a>Comprobación de que hay configuradas ACL adecuadas para restringir el acceso no autorizado a los datos en el dispositivo
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -53,7 +54,7 @@ ms.lasthandoff: 02/15/2017
 | Referencias              | N/D  |
 | Pasos | Asegúrese de que hay configuradas ACL adecuadas para restringir el acceso no autorizado a los datos en el dispositivo.|
 
-## <a name="a-idsensitive-directoryaensure-that-sensitive-user-specific-application-content-is-stored-in-user-profile-directory"></a><a id="sensitive-directory"></a>Comprobación de que el contenido de la aplicación confidencial del usuario se almacena en el directorio del perfil de usuario
+## <a id="sensitive-directory"></a>Comprobación de que el contenido de la aplicación confidencial del usuario se almacena en el directorio del perfil de usuario
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -64,7 +65,7 @@ ms.lasthandoff: 02/15/2017
 | Referencias              | N/D  |
 | Pasos | Compruebe que el contenido de la aplicación confidencial del usuario se almacena en el directorio del perfil de usuario. De esta manera, se evita que los diversos usuarios de la máquina tengan acceso a los datos de los demás.|
 
-## <a name="a-iddeployed-privilegesaensure-that-the-deployed-applications-are-run-with-least-privileges"></a><a id="deployed-privileges"></a>Comprobación de que las aplicaciones implementadas se ejecutan con privilegios mínimos
+## <a id="deployed-privileges"></a>Comprobación de que las aplicaciones implementadas se ejecutan con privilegios mínimos
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -75,7 +76,7 @@ ms.lasthandoff: 02/15/2017
 | Referencias              | N/D  |
 | Pasos | Compruebe que la aplicación implementada se ejecuta con privilegios mínimos. |
 
-## <a name="a-idsequential-logicaenforce-sequential-step-order-when-processing-business-logic-flows"></a><a id="sequential-logic"></a>Aplicación de un orden secuencial al procesar flujos de lógica empresarial
+## <a id="sequential-logic"></a>Aplicación de un orden secuencial al procesar flujos de lógica empresarial
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -86,7 +87,7 @@ ms.lasthandoff: 02/15/2017
 | Referencias              | N/D  |
 | Pasos | Si desea comprobar que un usuario auténtico ha completado esta fase, es recomendable que configure la aplicación para que solo procese flujos de lógica empresarial en orden secuencial, en los que se haya empleado en procesar los pasos un tiempo realista para una persona, y que no procese pasos desordenados u omitidos, pasos procesados de otro usuario ni transacciones enviadas demasiado rápido.|
 
-## <a name="a-idrate-enumerationaimplement-rate-limiting-mechanism-to-prevent-enumeration"></a><a id="rate-enumeration"></a>Implementación de un mecanismo de limitación de velocidad para impedir la enumeración
+## <a id="rate-enumeration"></a>Implementación de un mecanismo de limitación de velocidad para impedir la enumeración
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -97,7 +98,7 @@ ms.lasthandoff: 02/15/2017
 | Referencias              | N/D  |
 | Pasos | Asegúrese de que los identificadores sensibles son aleatorios. Implemente el control CAPTCHA en páginas anónimas. Asegúrese de que no se revelen datos específicos por errores y excepciones.|
 
-## <a name="a-idprinciple-least-privilegeaensure-that-proper-authorization-is-in-place-and-principle-of-least-privileges-is-followed"></a><a id="principle-least-privilege"></a>Comprobación de que se aplica la autorización adecuada y se cumple el principio de privilegios mínimos
+## <a id="principle-least-privilege"></a>Comprobación de que se aplica la autorización adecuada y se cumple el principio de privilegios mínimos
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -108,7 +109,7 @@ ms.lasthandoff: 02/15/2017
 | Referencias              | N/D  |
 | Pasos | <p>De acuerdo con este principio, solo se otorga a una cuenta de usuario aquellos privilegios que son fundamentales para el trabajo de ese usuario. Por ejemplo, un usuario de copia de seguridad no necesita instalar software, por lo que solo tiene privilegios para ejecutar aplicaciones de copia de seguridad y otras relacionadas con copias de seguridad. Los demás privilegios, como la instalación de software nuevo, se bloquean. El principio se aplica también a un usuario de PC que normalmente trabaja con una cuenta de usuario normal y que abre una cuenta con privilegios protegida por contraseña (es decir, un superusuario) solo cuando es imprescindible. </p><p>Este principio también puede aplicarse a las aplicaciones web. En lugar de depender en exclusiva de métodos de autenticación basada en rol que utilizan sesiones, preferimos asignar privilegios a usuarios mediante un sistema de autenticación basada en la base de datos. Aún utilizamos sesiones para determinar si el usuario inició sesión correctamente, si bien ahora, en lugar de asignar a ese usuario un rol específico, le asignamos privilegios para comprobar qué acciones puede realizar en el sistema. Además, una gran ventaja de este método es que, siempre que sea necesario asignar menos privilegios a un usuario, los cambios se aplicarán sobre la marcha, ya que la asignación no depende de la sesión que, de lo contrario, debería caducar antes.</p>|
 
-## <a name="a-idlogic-request-parametersabusiness-logic-and-resource-access-authorization-decisions-should-not-be-based-on-incoming-request-parameters"></a><a id="logic-request-parameters"></a>Las decisiones sobre la autorización para acceder a recursos y lógicas empresariales no deben basarse en parámetros de solicitud entrantes
+## <a id="logic-request-parameters"></a>Las decisiones sobre la autorización para acceder a recursos y lógicas empresariales no deben basarse en parámetros de solicitud entrantes
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -127,7 +128,7 @@ WHERE userID=:id < - session var
 ```
 Ahora un posible atacante no podrá manipular ni cambiar el funcionamiento de la aplicación, ya que el identificador para recuperar los datos se administra desde el servidor.
 
-## <a name="a-idenumerable-browsingaensure-that-content-and-resources-are-not-enumerable-or-accessible-via-forceful-browsing"></a><a id="enumerable-browsing"></a>Comprobación de que no es posible enumerar ni acceder al contenido ni los recursos mediante navegación forzada
+## <a id="enumerable-browsing"></a>Comprobación de que no es posible enumerar ni acceder al contenido ni los recursos mediante navegación forzada
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -138,7 +139,7 @@ Ahora un posible atacante no podrá manipular ni cambiar el funcionamiento de la
 | Referencias              | N/D  |
 | Pasos | <p>Los archivos estáticos y de configuración confidenciales no deben almacenarse en webroot. En el caso de contenido que no sea necesario hacer público, se deben aplicar controles de acceso adecuados o eliminar el propio contenido.</p><p>Además, la navegación forzada suele emplearse junto con técnicas de fuerza bruta para recopilar información accediendo a tantas direcciones URL como sea posible para enumerar los directorios y archivos de un servidor. Los atacantes pueden buscar todas las variantes de archivos habituales. Por ejemplo, la búsqueda de un archivo de contraseña podría incluir archivos como contraseña.txt, contraseña.htm, contraseña.dat y otras variantes.</p><p>Para reducir este riesgo, deben aplicarse funciones de detección de ataques por fuerza bruta.</p>|
 
-## <a name="a-idprivileged-serveraensure-that-least-privileged-accounts-are-used-to-connect-to-database-server"></a><a id="privileged-server"></a>Comprobación de que se emplean cuentas con privilegios mínimos para conectarse al servidor de base de datos
+## <a id="privileged-server"></a>Comprobación de que se emplean cuentas con privilegios mínimos para conectarse al servidor de base de datos
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -149,7 +150,7 @@ Ahora un posible atacante no podrá manipular ni cambiar el funcionamiento de la
 | Referencias              | [Jerarquía de permisos de SQL Database](https://msdn.microsoft.com/library/ms191465), [Elementos protegibles de SQL Database](https://msdn.microsoft.com/library/ms190401) |
 | Pasos | Para conectarse a la base de datos deben usarse cuentas con privilegios mínimos. El inicio de sesión de la aplicación debe estar restringido en la base de datos y solo debe ejecutar procedimientos almacenados seleccionados. El inicio de sesión de la aplicación no debe tener acceso directo a tablas. |
 
-## <a name="a-idrls-tenantsaimplement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>Implementación de seguridad de nivel de fila (RLS) para impedir que los inquilinos accedan a los datos de los demás
+## <a id="rls-tenants"></a>Implementación de seguridad de nivel de fila (RLS) para impedir que los inquilinos accedan a los datos de los demás
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -162,7 +163,7 @@ Ahora un posible atacante no podrá manipular ni cambiar el funcionamiento de la
 
 Tenga en cuenta que RLS, al ser una característica de base de datos de serie, solo es aplicable a SQL Server a partir de 2016 y a Azure SQL Database. Si no está implementada la característica RLS de serie, es necesario garantizar que el acceso a los datos se restrinja mediante vistas y procedimientos
 
-## <a name="a-idsysadmin-usersasysadmin-role-should-only-have-valid-necessary-users"></a><a id="sysadmin-users"></a>El rol sysadmin solo debe tener a los usuarios válidos necesarios
+## <a id="sysadmin-users"></a>El rol sysadmin solo debe tener a los usuarios válidos necesarios
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -173,7 +174,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | [Jerarquía de permisos de SQL Database](https://msdn.microsoft.com/library/ms191465), [Elementos protegibles de SQL Database](https://msdn.microsoft.com/library/ms190401) |
 | Pasos | Los miembros del rol del servidor fijo SysAdmin deben estar muy limitados y no deben contener cuentas utilizadas por las aplicaciones.  Revise la lista de los usuarios del rol y quite todas las cuentas innecesarias.|
 
-## <a name="a-idcloud-least-privilegedaconnect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>Conexión a la puerta de enlace de la nube mediante tokens con privilegios mínimos
+## <a id="cloud-least-privileged"></a>Conexión a la puerta de enlace de la nube mediante tokens con privilegios mínimos
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -184,7 +185,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | [Control de acceso de IOT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#Security) |
 | Pasos | Proporcione permisos de privilegios mínimos a varios componentes que se conectan a la puerta de enlace de la nube (IoT Hub). Un ejemplo típico es el de un componente de aprovisionamiento o administración de dispositivos que usa registryread/write, mientras que el procesador de eventos (ASA) usa la directiva Service Connect. Los dispositivos individuales se conectan mediante credenciales de dispositivo.|
 
-## <a name="a-idsendonly-sasause-a-send-only-permissions-sas-key-for-generating-device-tokens"></a><a id="sendonly-sas"></a>Uso de una clave SAS de permisos solo de envío para generar tokens de dispositivo
+## <a id="sendonly-sas"></a>Uso de una clave SAS de permisos solo de envío para generar tokens de dispositivo
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -195,7 +196,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | [Introducción al modelo de autenticación y seguridad de Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | Pasos | Se usa una clave SAS para generar tokens de dispositivo individuales. Utilice una clave SAS de permisos solo de envío al generar el token del dispositivo para un publicador determinado.|
 
-## <a name="a-idaccess-tokens-hubado-not-use-access-tokens-that-provide-direct-access-to-the-event-hub"></a><a id="access-tokens-hub"></a>No usar tokens de acceso que proporcionan acceso directo al centro de eventos
+## <a id="access-tokens-hub"></a>No usar tokens de acceso que proporcionan acceso directo al centro de eventos
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -206,7 +207,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | [Introducción al modelo de autenticación y seguridad de Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | Pasos | No se debe proporcionar un token que concede acceso directo al centro de eventos al dispositivo. El empleo de un token con privilegios mínimos para el dispositivo que proporcione acceso solo a un publicador podría ayudar a identificarlo e incluirlo en una lista negra si resultara ser un dispositivo malintencionado o en peligro.|
 
-## <a name="a-idsas-minimum-permissionsaconnect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Conexión al centro de eventos mediante claves SAS que tienen los permisos mínimos necesarios
+## <a id="sas-minimum-permissions"></a>Conexión al centro de eventos mediante claves SAS que tienen los permisos mínimos necesarios
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -217,7 +218,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | [Introducción al modelo de autenticación y seguridad de Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | Pasos | Proporcione permisos de privilegios mínimos a diversas aplicaciones back-end que se conectan al centro de eventos. Genere claves SAS independientes para cada aplicación back-end y proporciónele a cada una solo los permisos necesarios (enviar, recibir o administrar).|
 
-## <a name="a-idresource-docdbause-resource-tokens-to-connect-to-documentdb-whenever-possible"></a><a id="resource-docdb"></a>Uso de tokens de recursos para conectarse a DocumentDB siempre que sea posible
+## <a id="resource-docdb"></a>Uso de tokens de recursos para conectarse a Cosmos DB siempre que sea posible
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -226,9 +227,9 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Tecnologías aplicables | Genérico |
 | Attributes              | N/D  |
 | Referencias              | N/D  |
-| Pasos | un token de recurso se asocia a un recurso de permiso de DocumentDB y captura la relación entre el usuario de una base de datos y el permiso que este tiene para un recurso de aplicación de DocumentDB específico (por ejemplo, colección o documento). Use siempre un token de recurso para obtener acceso a DocumentDB si la administración de claves maestras y de solo lectura del cliente no es fiable, como en el caso de una aplicación de usuario final (por ejemplo, un cliente móvil o de escritorio). Utilice una clave maestra o claves de solo lectura de aplicaciones back-end que pueden almacenar estas claves de forma segura.|
+| Pasos | Un token de recurso se asocia a un recurso de permiso de Cosmos DB y captura la relación entre el usuario de una base de datos y el permiso que este tiene para un determinado recurso de aplicación de DocumentDB (por ejemplo, colección o documento). Use siempre un token de recurso para acceder a Cosmos DB si la administración de claves maestras y de solo lectura del cliente no es de confianza, como en el caso de una aplicación de usuario final (por ejemplo, un cliente móvil o de escritorio). Use una clave maestra o claves de solo lectura en aplicaciones back-end que pueden almacenar estas claves de forma segura.|
 
-## <a name="a-idgrained-rbacaenable-fine-grained-access-management-to-azure-subscription-using-rbac"></a><a id="grained-rbac"></a>Habilitación de administración avanzada de acceso a suscripción de Azure mediante RBAC
+## <a id="grained-rbac"></a>Habilitación de administración avanzada de acceso a suscripción de Azure mediante RBAC
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -239,7 +240,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
 | Pasos | El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. Con RBAC, puede conceder únicamente el grado de acceso que los usuarios necesiten para realizar sus trabajos.|
 
-## <a name="a-idcluster-rbacarestrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Restricción del acceso de cliente a operaciones de clúster mediante RBAC
+## <a id="cluster-rbac"></a>Restricción del acceso de cliente a operaciones de clúster mediante RBAC
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -250,7 +251,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | [Control de acceso basado en roles para clientes de Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security-roles/) |
 | Pasos | <p>Azure Service Fabric admite dos tipos distintos de control de acceso para los clientes que están conectados a un clúster de Service Fabric: administrador y usuario. El control de acceso permite al administrador de clústeres limitar el acceso a determinadas operaciones de clúster para distintos grupos de usuarios, lo que aumenta la seguridad del clúster.</p><p>Los administradores tienen acceso total a las capacidades de administración (incluidas las capacidades de lectura y escritura). Los usuarios, de forma predeterminada, tienen acceso de solo lectura a las capacidades de administración (por ejemplo, capacidad de consulta) y a la capacidad para resolver las aplicaciones y los servicios.</p><p>Especifique los dos roles de cliente (administrador y cliente) cuando cree el clúster con certificados independientes para cada uno.</p>|
 
-## <a name="a-idmodeling-fieldaperform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Realización de modelos de seguridad y uso de seguridad de nivel de campo cuando sea necesario
+## <a id="modeling-field"></a>Realización de modelos de seguridad y uso de seguridad de nivel de campo cuando sea necesario
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -261,7 +262,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | N/D  |
 | Pasos | Realice modelos de seguridad y use seguridad de nivel de campo cuando sea necesario.|
 
-## <a name="a-idportal-securityaperform-security-modeling-of-portal-accounts-keeping-in-mind-that-the-security-model-for-the-portal-differs-from-the-rest-of-crm"></a><a id="portal-security"></a>Realización de modelos de seguridad de cuentas del portal teniendo en cuenta que el modelo de seguridad para el portal es distinto al resto de CRM
+## <a id="portal-security"></a>Realización de modelos de seguridad de cuentas del portal teniendo en cuenta que el modelo de seguridad para el portal es distinto al resto de CRM
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -272,7 +273,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | N/D  |
 | Pasos | Realice modelos de seguridad de cuentas del portal teniendo en cuenta que el modelo de seguridad para el portal es distinto al resto de CRM.|
 
-## <a name="a-idpermission-entitiesagrant-fine-grained-permission-on-a-range-of-entities-in-azure-table-storage"></a><a id="permission-entities"></a>Concesión de permiso detallado en una serie de entidades de Azure Table Storage
+## <a id="permission-entities"></a>Concesión de permiso detallado en una serie de entidades de Azure Table Storage
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -283,7 +284,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | [Delegación del acceso a objetos en su cuenta de almacenamiento de Azure mediante SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
 | Pasos | En determinados escenarios empresariales, es posible que sea necesario almacenar en Azure Table Storage datos confidenciales para distintas entidades. Por ejemplo, datos confidenciales pertenecientes a distintos países. En tales casos, es posible crear firmas SAS especificando los intervalos de clave de fila y partición, de forma que un usuario pueda acceder a datos específicos de un país determinado.| 
 
-## <a name="a-idrbac-azure-manageraenable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Habilitación de control de acceso basado en roles (RBAC) para una cuenta de almacenamiento de Azure mediante Azure Resource Manager
+## <a id="rbac-azure-manager"></a>Habilitación de control de acceso basado en roles (RBAC) para una cuenta de almacenamiento de Azure mediante Azure Resource Manager
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -294,7 +295,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | [Protección de su cuenta de almacenamiento con el control de acceso basado en roles (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
 | Pasos | <p>Cuando se crea una nueva cuenta de almacenamiento, se selecciona un modelo de implementación clásico o de Azure Resource Manager. El modelo clásico de creación de recursos de Azure únicamente permite acceder a toda la suscripción en su conjunto o bien a nada de ella, y lo mismo ocurre con la cuenta de almacenamiento.</p><p>Con el modelo de Azure Resource Manager (ARM), se coloca la cuenta de almacenamiento en un grupo de recursos y se controla el acceso al plano de la administración de dicha cuenta de almacenamiento específica mediante Azure Active Directory. Por ejemplo, puede proporcionar a usuarios específicos la posibilidad de tener acceso a las claves de la cuenta de almacenamiento, mientras que otros usuarios pueden ver información sobre la cuenta de almacenamiento pero no pueden tener acceso a sus claves.</p>|
 
-## <a name="a-idrooting-detectionaimplement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementación de detección implícita de jailbreak o rooting
+## <a id="rooting-detection"></a>Implementación de detección implícita de jailbreak o rooting
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -305,7 +306,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | Referencias              | N/D  |
 | Pasos | <p>La aplicación debe proteger sus propios datos de configuración y de usuario en caso de rooting o jailbreak del teléfono. El rooting o jailbreak implican un acceso no autorizado, que los usuarios normales no realizarían en su propio teléfono. Por lo tanto, la aplicación debe contar con una lógica de detección implícita al iniciarse, a fin de detectar si el teléfono se ha desbloqueado mediante rooting.</p><p>La lógica de detección puede consistir simplemente en acceder a archivos a los que solo el usuario raíz puede acceder en condiciones normales, como los siguientes:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>Si la aplicación puede acceder a cualquiera de estos archivos, esta se está ejecutando como usuario raíz.</p>|
 
-## <a name="a-idweak-class-wcfaweak-class-reference-in-wcf"></a><a id="weak-class-wcf"></a>Referencia débil de clase en WCF
+## <a id="weak-class-wcf"></a>Referencia débil de clase en WCF
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -342,7 +343,7 @@ El elemento `<behaviorExtensions/>` del archivo de configuración de WCF siguien
 </system.serviceModel>
 ```
 
-## <a name="a-idwcf-authzawcf-implement-authorization-control"></a><a id="wcf-authz"></a>WCF: implementación de control de autorización
+## <a id="wcf-authz"></a>WCF: implementación de control de autorización
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -390,7 +391,7 @@ return result;
 }
 ```
 
-## <a name="a-idauthz-aspnetaimplement-proper-authorization-mechanism-in-aspnet-web-api"></a><a id="authz-aspnet"></a>Implementación del mecanismo de autorización adecuado en ASP.NET Web API
+## <a id="authz-aspnet"></a>Implementación del mecanismo de autorización adecuado en ASP.NET Web API
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -441,7 +442,7 @@ public class CustomController : ApiController
 }
 ```
 
-## <a name="a-iddevice-permissionaperform-authorization-checks-in-the-device-if-it-supports-various-actions-that-require-different-permission-levels"></a><a id="device-permission"></a>Realización de comprobaciones de autorización en el dispositivo si admite varias acciones que requieren distintos niveles de permiso
+## <a id="device-permission"></a>Realización de comprobaciones de autorización en el dispositivo si admite varias acciones que requieren distintos niveles de permiso
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -452,7 +453,7 @@ public class CustomController : ApiController
 | Referencias              | N/D  |
 | Pasos | <p>El dispositivo debe autorizar al llamador para comprobar si el llamador tiene los permisos necesarios para realizar la acción solicitada. Por ejemplo, supongamos que el dispositivo es una cerradura de puerta inteligente que puede supervisarse desde la nube, además de proporcionar funcionalidades como el bloqueo remoto de la puerta.</p><p>La cerradura de puerta inteligente ofrece una funcionalidad de desbloqueo solo cuando alguien se acerca físicamente a la puerta con una tarjeta. En este caso, la implementación del control y el comando remoto debe realizarse de manera que no proporcione ninguna funcionalidad para desbloquear la puerta, ya que la puerta de enlace de la nube no tiene autorización para enviar un comando para desbloquear la puerta.</p>|
 
-## <a name="a-idfield-permissionaperform-authorization-checks-in-the-field-gateway-if-it-supports-various-actions-that-require-different-permission-levels"></a><a id="field-permission"></a>Realización de comprobaciones de autorización en la puerta de enlace de campo si admite varias acciones que requieren distintos niveles de permiso
+## <a id="field-permission"></a>Realización de comprobaciones de autorización en la puerta de enlace de campo si admite varias acciones que requieren distintos niveles de permiso
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -462,3 +463,4 @@ public class CustomController : ApiController
 | Attributes              | N/D  |
 | Referencias              | N/D  |
 | Pasos | La puerta de enlace de campo debe autorizar al llamador para comprobar si el llamador tiene los permisos necesarios para realizar la acción solicitada. Por ejemplo, debe haber diferentes permisos para una interfaz o API de usuario administrador que se usen para configurar una puerta de enlace de campo frente a los dispositivos que se conectan a ella.|
+

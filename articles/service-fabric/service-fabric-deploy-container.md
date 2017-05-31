@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/17/2017
+ms.date: 5/16/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
-ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 17e9f4f81c60d86f804d1d9e6df2014dd4568d75
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="preview-deploy-a-windows-container-to-service-fabric"></a>Vista previa: Implementación de un contenedor de Windows en Service Fabric
+# <a name="deploy-a-windows-container-to-service-fabric"></a>Implementación de un contenedor de Windows en Service Fabric
 > [!div class="op_single_selector"]
 > * [Implementación de un contenedor de Windows](service-fabric-deploy-container.md)
 > * [Implementación de un contenedor de Docker](service-fabric-deploy-container-linux.md)
@@ -29,10 +30,6 @@ ms.lasthandoff: 02/21/2017
 > 
 
 Este artículo le guiará a través del proceso de creación de servicios de contenedor en contenedores de Windows.
-
-> [!NOTE]
-> Esta característica está disponible en versión preliminar para Windows Server 2016.
->  
 
 Service Fabric tiene varias funcionalidades de contenedor que le ayudarán a crear aplicaciones que se componen de microservicios en contenedores. 
 
@@ -83,7 +80,7 @@ Para implementar un clúster con ARM, elija la opción de imagen **Windows Serve
 "vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
 "vmImageVersion": { "defaultValue": "latest","type": "string"     },  
 ```
-También puede usar [esta plantilla de ARM de&5; nodos](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) para crear un clúster. También puede leer [esta entrada del blog de Leok](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) sobre el uso de Service Fabric y contenedores de Windows.
+También puede usar [esta plantilla de ARM de 5 nodos](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) para crear un clúster. También puede leer [esta entrada del blog de Leok](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) sobre el uso de Service Fabric y contenedores de Windows.
 
 <a id="manually"></a>
 

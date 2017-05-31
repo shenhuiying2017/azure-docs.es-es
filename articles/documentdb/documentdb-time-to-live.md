@@ -1,32 +1,34 @@
 ---
-title: "Hacer que caduquen datos en DocumentDB con período de vida | Microsoft Docs"
-description: "Con TTL, Microsoft Azure DocumentDB ofrece la posibilidad de que los documentos se purguen automáticamente del sistema tras un período de tiempo."
-services: documentdb
+title: "Hacer que caduquen datos en Azure Cosmos DB con período de vida | Microsoft Docs"
+description: "Con TTL, Microsoft Azure Cosmos DB ofrece la posibilidad de que los documentos se purguen automáticamente del sistema tras un período de tiempo."
+services: cosmosdb
 documentationcenter: 
 keywords: "período de vida"
 author: arramac
 manager: jhubbard
 editor: 
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 1ad5307054dbd860f9c65db4b82ea5f560a554c8
-ms.openlocfilehash: 14a06dd20547f2910b2321372b27d9f777e54cc7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7a1d4c722fdb926c43b23e333f9fa558ba163b65
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="expire-data-in-documentdb-collections-automatically-with-time-to-live"></a>Hacer que caduquen automáticamente los datos de colecciones de DocumentDB con período de vida
+# <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Hacer que caduquen automáticamente los datos de colecciones de Azure Cosmos DB con período de vida
 Las aplicaciones pueden generar y almacenar enormes cantidades de datos. Algunos de estos datos, como los datos de eventos, los registros y la información de sesión de usuario que se generan automáticamente, solo son útiles durante un tiempo finito. Una vez que los datos se convierten en un excedente para las necesidades de la aplicación, es seguro purgarlos para así reducir sus necesidades de almacenamiento.
 
-Con "periodo de vida", o TTL, Microsoft Azure DocumentDB ofrece la posibilidad de purgar los documentos automáticamente de la base de datos tras un período de tiempo. El período de vida predeterminado se puede establecer en el nivel de colección, y se puede invalidar de forma individual (por documento). Una vez que se establece el TTL, como un valor predeterminado de la colección o en un nivel de documento, DocumentDB quita automáticamente los documentos que existen después de ese período de tiempo, en segundos, desde que se modificaron por última vez.
+Con "período de vida", o TTL, Microsoft Azure Cosmos DB ofrece la posibilidad de purgar los documentos automáticamente de la base de datos tras un período de tiempo. El período de vida predeterminado se puede establecer en el nivel de colección, y se puede invalidar de forma individual (por documento). Una vez que se establece el TTL, como un valor predeterminado de la colección o en un nivel de documento, Cosmos DB quita automáticamente los documentos que existen después de ese período de tiempo, en segundos, desde que se modificaron por última vez.
 
-El período de vida en DocumentDB utiliza un desplazamiento con el que se mide cuándo se modificó por última vez el documento. Para ello, usa el campo `_ts` que existe en todos los documentos. El campo _ts es una marca de tiempo de estilo unix que representa la fecha y la hora. El campo `_ts` se actualiza cada vez que se modifica un documento. 
+El período de vida en Cosmos DB usa un desplazamiento con el que se mide cuándo se modificó por última vez el documento. Para ello, usa el campo `_ts` que existe en todos los documentos. El campo _ts es una marca de tiempo de estilo unix que representa la fecha y la hora. El campo `_ts` se actualiza cada vez que se modifica un documento. 
 
 ## <a name="ttl-behavior"></a>Comportamiento de TTL
 La característica TTL se controla mediante las propiedades de TTL en dos niveles: el nivel de colección y el nivel de documento. Los valores se establecen en segundos y se tratan como una diferencia de `_ts` en que el documento se modificó por última vez.
@@ -52,10 +54,10 @@ La lógica anterior se puede mostrar en la siguiente matriz:
 | TTL = n en documentos |No hay nada que invalidar en el nivel de documento. El sistema no interpreta el TTL de un documento. |El documento con TTL = n caducará después del intervalo n, en segundos. Otros documentos heredarán el intervalo de -1 y no caducarán nunca. |El documento con TTL = n caducará después del intervalo n, en segundos. Otros documentos heredarán el intervalo "n" de la colección. |
 
 ## <a name="configuring-ttl"></a>Configuración de TTL
-De forma predeterminada, el período de vida está deshabilitado en todas las colecciones de DocumentDB y en todos los documentos.
+De forma predeterminada, el período de vida está deshabilitado en todas las colecciones de Cosmos DB y en todos los documentos.
 
 ## <a name="enabling-ttl"></a>Habilitación del TTL
-Para habilitar el TTL en una colección, o en los documentos de una colección, debe establecer la propiedad DefaultTTL de una colección en -1 o un número positivo distinto de cero. Establecer el valor de DefaultTTL en -1 significa que todos los documentos de la colección no caducarán nunca de forma predeterminada, pero el servicio DocumentDB debe supervisar esta colección para ver los documentos que tienen invalidado este valor predeterminado.
+Para habilitar el TTL en una colección, o en los documentos de una colección, debe establecer la propiedad DefaultTTL de una colección en -1 o un número positivo distinto de cero. Establecer el valor de DefaultTTL en -1 significa que todos los documentos de la colección no caducarán nunca de forma predeterminada, pero el servicio Cosmos DB debe supervisar esta colección para ver los documentos que tienen invalidado este valor predeterminado.
 
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
@@ -161,7 +163,7 @@ Los documentos expiran inmediatamente una vez que TTL esté activado, y no será
 
 **¿Afectará el TTL en un documento a los cargos de RU?**
 
-No, no se producirá ningún impacto en los cargos de RU por las eliminaciones de documentos expirados mediante TTL en DocumentDB.
+No, no se producirá ningún impacto en los cargos de RU por las eliminaciones de documentos expirados mediante TTL en Cosmos DB.
 
 **¿La función TTL solo se aplica a documentos enteros o puedo hacer que caduquen valores de propiedad de documento individuales?**
 
@@ -172,11 +174,6 @@ TTL se aplica a todo el documento. Si quiere que solo una parte de un documento 
 Sí. La colección necesita tener el [conjunto de directiva de indexación](documentdb-indexing-policies.md) establecido en diferido o coherente. Si se intenta establecer DefaultTTL en una colección con la indexación definida como ninguna, se producirá un error, puesto que está intentando desactivar la indexación en una colección que tiene un valor de DefaultTTL ya establecido.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre Azure DocumentDB, vea la página de [*documentación*](https://azure.microsoft.com/documentation/services/documentdb/) del servicio.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+Para más información sobre Azure Cosmos DB, consulte la página de [*documentación*](https://azure.microsoft.com/documentation/services/documentdb/) del servicio.
 
 

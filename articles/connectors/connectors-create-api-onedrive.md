@@ -14,11 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
-ms.openlocfilehash: 60c1d307ede5d66f8e92b048581148d6c7112dac
-ms.lasthandoff: 01/20/2017
+ms.author: mandia; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: c5567b2f6fdc9a5708ce611faa372d481d815e7f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -32,11 +33,6 @@ Con OneDrive, puede:
 * Usar acciones para crear o eliminar un archivo, entre otras muchas cosas. Por ejemplo, cuando se reciba un nuevo correo electrónico de Office 365 con datos adjuntos (desencadenador), cree un nuevo archivo en OneDrive (acción).
 
 En este tema se muestra cómo usar el conector de OneDrive en una aplicación lógica, y se enumeran los desencadenadores y las acciones.
-
-> [!NOTE]
-> Esta versión del artículo se aplica a la disponibilidad general de las aplicaciones lógicas. 
-> 
-> 
 
 Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../logic-apps/logic-apps-what-are-logic-apps.md) y [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
@@ -62,8 +58,7 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
    
    > [!NOTE]
    > En este ejemplo, la aplicación lógica se ejecuta cuando un archivo de la carpeta que elija se actualiza. Para ver los resultados de este desencadenador, agregue otra acción que envíe un correo electrónico. Por ejemplo, agregue la acción *Enviar un correo electrónico* de Office 365 Outlook que le envía un correo electrónico cuando se actualiza un archivo. 
-   > 
-   > 
+
 3. Seleccione el botón **Editar** y defina los valores de **Frecuencia** e **Intervalo**. Por ejemplo, si desea que el desencadenador sondee cada 15 minutos, establezca el valor de **Frecuencia** en **Minuto** y el de **Intervalo** en **15**. 
    
     ![](./media/connectors-create-api-onedrive/trigger-properties.png)
@@ -89,313 +84,13 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
    > En este ejemplo, creamos un nuevo archivo en una carpeta de OneDrive. Puede utilizar la salida de otro desencadenador para crear el archivo de OneDrive. Por ejemplo, agregue el desencadenador *Cuando llega un nuevo correo electrónico* de Office 365 Outlook. A continuación, agregue la acción *Crear archivo* de OneDrive, que usa los campos Attachments y Content-Type de una instrucción ForEach para crear el nuevo archivo en OneDrive. 
    > 
    > ![](./media/connectors-create-api-onedrive/foreach-action.png)
-   > 
-   > 
+
 5. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
 
-## <a name="technical-details"></a>Detalles técnicos
-## <a name="triggers"></a>Desencadenadores
-| Desencadenador | Descripción |
-| --- | --- |
-| [Cuando se crea un archivo](connectors-create-api-onedrive.md#when-a-file-is-created) |Esta operación desencadena un flujo al crear un archivo en una carpeta. |
-| [Cuando se modifica un archivo](connectors-create-api-onedrive.md#when-a-file-is-modified) |Esta operación desencadena un flujo al modificar un archivo en una carpeta. |
 
-## <a name="actions"></a>Acciones
-| Acción | Description |
-| --- | --- |
-| [Obtener metadatos de archivo](connectors-create-api-onedrive.md#get-file-metadata) |Esta operación obtiene los metadatos de un archivo. |
-| [Actualizar archivo](connectors-create-api-onedrive.md#update-file) |Esta operación actualiza un archivo. |
-| [Eliminar archivo](connectors-create-api-onedrive.md#delete-file) |Esta operación elimina un archivo. |
-| [Obtener metadatos de archivo mediante la ruta de acceso](connectors-create-api-onedrive.md#get-file-metadata-using-path) |Esta operación obtiene los metadatos de un archivo mediante la ruta de acceso. |
-| [Obtener contenido de archivo mediante la ruta de acceso](connectors-create-api-onedrive.md#get-file-content-using-path) |Esta operación obtiene el contenido de un archivo mediante la ruta de acceso. |
-| [Obtener contenido de archivo](connectors-create-api-onedrive.md#get-file-content) |Esta operación obtiene el contenido de un archivo. |
-| [Crear archivo](connectors-create-api-onedrive.md#create-file) |Esta operación crea un archivo. |
-| [Copiar archivo](connectors-create-api-onedrive.md#copy-file) |Esta operación copia un archivo en OneDrive. |
-| [Enumerar archivos de la carpeta](connectors-create-api-onedrive.md#list-files-in-folder) |Esta operación obtiene la lista de archivos y subcarpetas de una carpeta. |
-| [Enumerar archivos de la carpeta raíz](connectors-create-api-onedrive.md#list-files-in-root-folder) |Esta operación obtiene la lista de archivos y subcarpetas de la carpeta raíz. |
-| [Extraer archivo en la carpeta](connectors-create-api-onedrive.md#extract-archive-to-folder) |Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip). |
+## <a name="view-the-swagger"></a>Visualización de Swagger
 
-### <a name="action-details"></a>Detalles de la acción
-En esta sección, consulte los detalles específicos acerca de cada acción, incluidas las propiedades de entrada obligatorias u opcionales y cualquier salida correspondiente asociada con el conector.
+Consulte los [detalles sobre Swagger](/connectors/onedriveconnector/).
 
-#### <a name="get-file-metadata"></a>Obtener metadatos de archivo
-Esta operación obtiene los metadatos de un archivo. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| id* |Archivo |Seleccionar un archivo |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-BlobMetadata
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| id |cadena |
-| Nombre |cadena |
-| DisplayName |cadena |
-| path |cadena |
-| LastModified |cadena |
-| Tamaño |integer |
-| MediaType |cadena |
-| IsFolder |boolean |
-| ETag |cadena |
-| FileLocator |string |
-
-#### <a name="update-file"></a>Actualizar archivo
-Esta operación actualiza un archivo. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| id* |Archivo |Seleccionar un archivo |
-| body* |Contenido del archivo |Contenido del archivo |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-BlobMetadata
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| id |cadena |
-| Nombre |cadena |
-| DisplayName |cadena |
-| path |cadena |
-| LastModified |cadena |
-| Tamaño |integer |
-| MediaType |cadena |
-| IsFolder |boolean |
-| ETag |cadena |
-| FileLocator |string |
-
-#### <a name="delete-file"></a>Eliminar archivo
-Esta operación elimina un archivo. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| id* |Archivo |Seleccionar un archivo |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Ninguno.
-
-#### <a name="get-file-metadata-using-path"></a>Obtener metadatos de archivo mediante la ruta de acceso
-Esta operación obtiene los metadatos de un archivo mediante la ruta de acceso. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| path* |Ruta de acceso del archivo |Seleccionar un archivo |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-BlobMetadata
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| id |cadena |
-| Nombre |cadena |
-| DisplayName |cadena |
-| path |cadena |
-| LastModified |cadena |
-| Tamaño |integer |
-| MediaType |cadena |
-| IsFolder |boolean |
-| ETag |cadena |
-| FileLocator |string |
-
-#### <a name="get-file-content-using-path"></a>Obtener contenido de archivo mediante la ruta de acceso
-Esta operación obtiene el contenido de un archivo mediante la ruta de acceso. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| path* |Ruta de acceso del archivo |Seleccionar un archivo |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Ninguno.
-
-#### <a name="get-file-content"></a>Obtener contenido de archivo
-Esta operación obtiene el contenido de un archivo. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| id* |Archivo |Seleccionar un archivo |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Ninguno.
-
-#### <a name="create-file"></a>Crear archivo
-Esta operación crea un archivo. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| folderPath* |Ruta de acceso a la carpeta |Seleccionar una carpeta |
-| name* |Nombre de archivo |Nombre del archivo |
-| body* |Contenido del archivo |Contenido del archivo |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-BlobMetadata
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| id |cadena |
-| Nombre |cadena |
-| DisplayName |cadena |
-| path |cadena |
-| LastModified |cadena |
-| Tamaño |integer |
-| MediaType |cadena |
-| IsFolder |boolean |
-| ETag |cadena |
-| FileLocator |string |
-
-#### <a name="copy-file"></a>Copiar archivo
-Esta operación copia un archivo en OneDrive. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| source* |Dirección URL de origen |Dirección URL al archivo de origen |
-| destination* |Ruta de acceso del archivo de destino |Ruta de acceso al archivo de destino, incluido el nombre del archivo de destino |
-| overwrite |¿Sobrescribir? |Sobrescribe el archivo de destino si está establecido en 'true' |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-BlobMetadata
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| id |cadena |
-| Nombre |cadena |
-| DisplayName |cadena |
-| path |cadena |
-| LastModified |cadena |
-| Tamaño |integer |
-| MediaType |cadena |
-| IsFolder |boolean |
-| ETag |cadena |
-| FileLocator |string |
-
-#### <a name="when-a-file-is-created"></a>Cuando se crea un archivo
-Esta operación desencadena un flujo al crear un archivo en una carpeta. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| folderId* |Carpeta |Seleccionar una carpeta |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Ninguno.
-
-#### <a name="when-a-file-is-modified"></a>Cuando se modifica un archivo
-Esta operación desencadena un flujo al modificar un archivo en una carpeta. 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
-| --- | --- | --- |
-| folderId* |Carpeta |Seleccionar una carpeta |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-Ninguno.
-
-#### <a name="list-files-in-folder"></a>Enumerar archivos de la carpeta
-Esta operación obtiene la lista de archivos y subcarpetas de una carpeta.
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| id* |Carpeta |Seleccionar una carpeta |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-BlobMetadata
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| id |cadena |
-| Nombre |cadena |
-| DisplayName |cadena |
-| path |cadena |
-| LastModified |cadena |
-| Tamaño |integer |
-| MediaType |cadena |
-| IsFolder |boolean |
-| ETag |cadena |
-| FileLocator |string |
-
-#### <a name="list-files-in-root-folder"></a>Enumerar archivos de la carpeta raíz
-Esta operación obtiene la lista de archivos y subcarpetas de la carpeta raíz. 
-
-No hay parámetros para esta llamada.
-
-##### <a name="output-details"></a>Detalles de salida
-BlobMetadata
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| id |cadena |
-| Nombre |cadena |
-| DisplayName |cadena |
-| path |cadena |
-| LastModified |cadena |
-| Tamaño |integer |
-| MediaType |cadena |
-| IsFolder |boolean |
-| ETag |cadena |
-| FileLocator |string |
-
-#### <a name="extract-archive-to-folder"></a>Extraer archivo en la carpeta
-Esta operación extrae un archivo de almacenamiento en una carpeta (por ejemplo: .zip). 
-
-| Nombre de propiedad | Display Name (Nombre para mostrar) | Description |
-| --- | --- | --- |
-| source* |Ruta de acceso del archivo de origen |Ruta de acceso al archivo de almacenamiento |
-| destination* |Ruta de acceso a la carpeta de destino |Ruta de acceso para extraer el contenido del archivo |
-| overwrite |¿Sobrescribir? |Sobrescribe los archivos de destino si está establecido en 'true' |
-
-Un asterisco (*) significa que la propiedad es obligatoria.
-
-##### <a name="output-details"></a>Detalles de salida
-BlobMetadata
-
-| Nombre de propiedad | Tipo de datos |
-| --- | --- |
-| id |cadena |
-| Nombre |cadena |
-| DisplayName |cadena |
-| path |cadena |
-| LastModified |cadena |
-| Tamaño |integer |
-| MediaType |cadena |
-| IsFolder |boolean |
-| ETag |cadena |
-| FileLocator |string |
-
-## <a name="http-responses"></a>Respuestas HTTP
-En la tabla siguiente se enumeran y describen las respuestas a las acciones y los desencadenadores:  
-
-| Nombre | Descripción |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |No autorizado |
-| 403 |Prohibido |
-| 404 |No encontrado |
-| 500 |Error interno del servidor. Error desconocido |
-| default |Error en la operación. |
-
-## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
-
-
+## <a name="more-connectors"></a>Más conectores
+Volver a la [lista de API](apis-list.md).

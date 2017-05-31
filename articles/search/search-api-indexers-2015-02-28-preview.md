@@ -12,17 +12,19 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/01/2016
+ms.date: 05/01/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
-ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 356ceb98106d080d8c24dedc3547bee33750156e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2015-02-28-Preview)
 > [!NOTE]
-> En este artículo se describen los indexadores de la versión [2015-02-28-Preview REST API](search-api-2015-02-28-preview.md). Esta versión de la API agrega versiones preliminares del indexador de Almacenamiento de blobs de Azure con la extracción de documentos y del indexador de Almacenamiento de tablas de Azure, además de otras mejoras. La API también admite indexadores generalmente disponibles (GA), incluidos los de Base de datos SQL de Azure, SQL Server en máquinas virtuales de Azure y Azure DocumentDB.
+> En este artículo se describen los indexadores de la versión [2015-02-28-Preview REST API](search-api-2015-02-28-preview.md). Esta versión de la API agrega versiones preliminares del indexador de Almacenamiento de blobs de Azure con la extracción de documentos y del indexador de Almacenamiento de tablas de Azure, además de otras mejoras. La API también admite indexadores generalmente disponibles (GA), incluidos los de Azure SQL Database, SQL Server en VM de Azure y Azure Cosmos DB.
 > 
 > 
 
@@ -41,8 +43,8 @@ Un **origen de datos** especifica los datos que es necesario indexar, las creden
 
 Actualmente se admiten los siguientes orígenes de datos:
 
-* **Azure SQL Database** y **SQL Server en máquinas virtuales de Azure**. Para obtener un tutorial dirigido, consulte [este artículo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
-* **DocumentDB de Azure**. Para obtener un tutorial de destino, consulte [este artículo](search-howto-index-documentdb.md). 
+* **Azure SQL Database** y **SQL Server en máquinas virtuales de Azure**. Para obtener un tutorial de destino, consulte [este artículo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
+* **Azure Cosmos DB**. Para obtener un tutorial de destino, consulte [este artículo](search-howto-index-documentdb.md). 
 * **Almacenamiento de blobs de Azure**, incluidos los siguientes formatos de documento: PDF, Microsoft Office (DOCX/DOC, XLS/XSLX, PPTX/PPT, MSG), HTML, XML, ZIP y archivos de texto sin formato (incluido JSON). Para obtener un tutorial dirigido, consulte [este artículo](search-howto-indexing-azure-blob-storage.md).
 * **Azure Table Storage**. Para obtener un tutorial de destino, consulte [este artículo](search-howto-indexing-azure-tables.md).
 
@@ -123,13 +125,13 @@ La solicitud contiene las siguientes propiedades:
 * `description`: descripción opcional. 
 * `type`: obligatorio. Debe ser uno de los tipos de orígenes de datos compatibles:
   * `azuresql` : base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure
-  * `documentdb` : DocumentDB de Azure
+  * `documentdb` : Azure Cosmos DB
   * `azureblob` : Blob Storage de Azure
   * `azuretable` : Table Storage de Azure
 * `credentials`:
   * La propiedad `connectionString` obligatoria especifica la cadena de conexión del origen de datos. El formato de la cadena de conexión depende del tipo de origen de datos: 
     * Para SQL Azure, esta es la cadena de conexión de SQL Server habitual. Si está usando Azure Portal para recuperar la cadena de conexión, use la opción `ADO.NET connection string` .
-    * Para DocumentDB, la cadena de conexión debe tener el formato siguiente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos los valores son obligatorios. Puede encontrarlos en [Azure Portal](https://portal.azure.com/).  
+    * Para Azure Cosmos DB, la cadena de conexión debe tener el formato siguiente: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Todos los valores son obligatorios. Puede encontrarlos en [Azure Portal](https://portal.azure.com/).  
     * Para Blob Storage y Table Storage de Azure, es la cadena de conexión de la cuenta de almacenamiento. El formato se describe [aquí](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). Se requiere un protocolo para el punto de conexión HTTPS.  
 * `container`, obligatorio: especifica los datos que se van a indexar mediante las propiedades `name` y `query`: 
   * `name`, obligatorio:
@@ -167,7 +169,7 @@ Esta directiva se puede especificar del modo siguiente:
         "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
     } 
 
-Al usar orígenes de datos de DocumentDB, debe usar la propiedad `_ts` proporcionada por DocumentDB. 
+Al usar orígenes de datos de Azure Cosmos DB, debe usar la propiedad `_ts` proporcionada por Azure Cosmos DB. 
 
 Cuando se usan automáticamente los orígenes de datos de Blob de Azure, Búsqueda de Azure usa una directiva de detección de cambio de límite máximo basada en una marca de tiempo modificada por última vez de un blob; no tiene que especificar esta directiva usted mismo.   
 
@@ -411,8 +413,8 @@ Un indexador puede especificar varios parámetros que afectan a su comportamient
 
 * `maxFailedItems` : el número de elementos que es posible que no se indexen antes de que la ejecución de un indexador se considere un fallo. El valor predeterminado es 0. La operación [Obtener el estado del indexador](#GetIndexerStatus) devuelve información acerca de los elementos no indexados. 
 * `maxFailedItemsPerBatch` : el número de elementos que es posible que no se indexen en cada lote antes de que la ejecución de un indexador se considere un fallo. El valor predeterminado es 0.
-* `base64EncodeKeys`: especifica si las claves de documento estarán codificadas en base&64;. Búsqueda de Azure impone restricciones en los caracteres que pueden estar presentes en una clave del documento. Sin embargo, los valores de los datos de origen pueden contener caracteres que no son válidos. Si es necesario indexar estos valores como claves del documento, este indicador puede establecerse en true. El valor predeterminado es `false`.
-* `batchSize`: especifica el número de elementos que se leen desde el origen de datos y se indizan como un único lote para mejorar el rendimiento. El valor predeterminado depende del tipo de origen de datos: es 1000 para Azure SQL y DocumentDB, y 10 para Azure Blob Storage.
+* `base64EncodeKeys`: especifica si las claves de documento estarán codificadas en base 64. Búsqueda de Azure impone restricciones en los caracteres que pueden estar presentes en una clave del documento. Sin embargo, los valores de los datos de origen pueden contener caracteres que no son válidos. Si es necesario indexar estos valores como claves del documento, este indicador puede establecerse en true. El valor predeterminado es `false`.
+* `batchSize`: especifica el número de elementos que se leen desde el origen de datos y se indizan como un único lote para mejorar el rendimiento. El valor predeterminado depende del tipo de origen de datos: es 1000 para Azure SQL y Azure Cosmos DB, y 10 para Azure Blob Storage.
 
 **Asignaciones de campos**
 
@@ -796,9 +798,4 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 <td>No se admite; actualmente Búsqueda de Azure solo admite tipos primitivos y colecciones de cadenas</td>
 </tr>
 </table>
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

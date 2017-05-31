@@ -12,11 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 86055605be6fe264fcb53b26d87a36bcba568a53
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ab08c126b746ad6f8a835585b7e9773a505e8317
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,7 +35,7 @@ El punto de conexión v2.0 de Azure Active Directory (Azure AD) admite la autent
 Cada aplicación que use el punto de conexión v2.0 debe registrarla en el [portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com). El proceso de registro de la aplicación recopila y asigna algunos valores a la aplicación:
 
 * Un **id. de aplicación** que identifica de forma única su aplicación
-* Un **URI de redirección** que puede usarse para dirigir las respuestas de nuevo a la aplicación.
+* Un **URI de redirección** que puede usarse para dirigir las respuestas de nuevo a la aplicación
 * Algunos otros valores específicos de cada escenario.
 
 Para más información, aprenda a [registrar una aplicación](active-directory-v2-app-registration.md).
@@ -92,9 +95,9 @@ Una API web puede recibir tokens de acceso de todos los tipos de aplicaciones, i
 
 ![Flujo de autenticación de API web](../../media/active-directory-v2-flows/convergence_scenarios_webapi.png)
 
-Para más información sobre los códigos de autorización, los tokens de actualización y los pasos detallados para obtener tokens de acceso, consulte el [protocolo OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
-
 Para aprender a proteger una API web con tokens de acceso de OAuth2, consulte los ejemplos de código de API web en nuestra sección de [introducción](active-directory-appmodel-v2-overview.md#getting-started).
+
+En muchos casos, las API web también tienen que realizar solicitudes salientes a otras API web de bajada protegidas por Azure Active Directory.  Para ello, las API web pueden aprovechar las ventajas del flujo **en nombre de** de Azure AD, que permite a la API web intercambiar un token de acceso entrante por otro token de acceso que se usará en las solicitudes salientes.  El flujo "en nombre de" del punto de conexión v2.0 se describe [aquí con mayor detalle](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## <a name="mobile-and-native-apps"></a>Aplicaciones móviles y nativas
 Las aplicaciones instaladas en un dispositivo, como las aplicaciones móviles y de escritorio, suelen necesitar el acceso a servicios back-end o a las API web que almacenan datos y realizan varias funciones en nombre del usuario. Estas aplicaciones pueden agregar el inicio de sesión y la autorización a los servicios back-end mediante el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
@@ -112,7 +115,7 @@ En este flujo, la aplicación recibe tokens directamente del punto de conexión 
 
 Para ver este escenario en acción, pruebe uno de los ejemplos de código de aplicación de una única página en nuestra sección de [introducción](active-directory-appmodel-v2-overview.md#getting-started).
 
-### <a name="daemons-and-server-side-apps"></a>Demonios y aplicaciones de servidor
+## <a name="daemons-and-server-side-apps"></a>Demonios y aplicaciones de servidor
 Las aplicaciones que contienen procesos de larga duración o que funcionan sin la interacción con un usuario también necesitan un modo de acceder a recursos protegidos, como las API web. Estas aplicaciones pueden autenticarse y obtener tokens mediante la identidad de la aplicación, en lugar de una identidad delegada del usuario, con el flujo de credenciales de cliente de OAuth 2.0.
 
 En este flujo, la aplicación interactúa directamente con el punto de conexión `/token` para obtener los puntos de conexión:
@@ -120,18 +123,4 @@ En este flujo, la aplicación interactúa directamente con el punto de conexión
 ![Flujo de autenticación de aplicación de demonio](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
 Para compilar una aplicación demonio, consulte la documentación de credenciales de cliente en nuestra sección de [introducción](active-directory-appmodel-v2-overview.md#getting-started) o pruebe una [aplicación de ejemplo de .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-
-## <a name="current-limitations"></a>Limitaciones actuales
-Actualmente, el punto de conexión v2.0 no admite los tipos de aplicaciones de esta sección, pero está previsto que lo haga en futuros desarrollos. Para conocer limitaciones y restricciones adicionales del punto de conexión v2.0, consulte [¿Debo usar el punto de conexión v2.0?](active-directory-v2-limitations.md).
-
-### <a name="chained-web-apis-on-behalf-of"></a>API web encadenadas (en nombre de)
-Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante el punto de conexión v2.0. Este escenario es común en los clientes nativos que tienen un back-end de API web, que, a su vez, llama a una instancia de servicios de Microsoft Online, como Office 365 o la API Graph.
-
-Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador JSON Web Token (JWT) de OAuth 2.0, también conocido como [flujo "en nombre de"](active-directory-v2-protocols.md). Actualmente el flujo "en nombre de" no está implementado en el punto de conexión v2.0. Para ver cómo funciona este flujo en el servicio Azure AD, disponible con carácter general, consulte el [ejemplo de código "en nombre de" en GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

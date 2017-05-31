@@ -14,12 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 05/09/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 67663af0913a03f2001b4cce6f9f49ee91195026
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: bb58cd7a00bc8eb5eaf2ea5a7a8f7641b0502ed9
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -109,7 +110,7 @@ Agregue el otro servidor SQL Server al clúster.
     >[!WARNING]
    >Si utiliza espacios de almacenamiento y no desactiva la casilla **Add all eligible storage to the cluster** (Agregar todo el almacenamiento apto al clúster), Windows separa los discos virtuales durante el proceso de agrupación en clústeres. Como resultado, no aparecen en el Administrador de discos ni el Explorador hasta que se quiten los espacios de almacenamiento del clúster y se vuelvan a asociar mediante PowerShell. Espacios de almacenamiento agrupa varios discos en grupos de almacenamiento. Para obtener más información, consulte el artículo sobre [espacios de almacenamiento](https://technet.microsoft.com/library/hh831739).
 
-1. Haga clic en **Next**.
+1. Haga clic en **Siguiente**.
 
 1. Haga clic en **Finalizar**
 
@@ -135,7 +136,7 @@ En este ejemplo, el clúster de Windows usa un recurso compartido de archivos pa
 
 1. En **Ruta de acceso a la carpeta**, haga clic en **Examinar** y busque o cree una ruta de acceso para la carpeta compartida. Haga clic en **Siguiente**.
 
-1. En **Nombre, descripción y configuración**, compruebe el nombre del recurso compartido y la ruta de acceso. Haga clic en **Next**.
+1. En **Nombre, descripción y configuración**, compruebe el nombre del recurso compartido y la ruta de acceso. Haga clic en **Siguiente**.
 
 1. En **Permisos de la carpeta compartida**, establezca **Personalizar permisos**. Clic en **Personalizado...**
 
@@ -170,7 +171,7 @@ A continuación, establezca el quórum de clúster.
    >[!TIP]
    >Windows Server 2016 admite un testigo en la nube. Si elige este tipo de testigo, no necesita ningún testigo de recurso compartido de archivos. Para más información, consulte [Implementación de un testigo en la nube para un clúster de conmutación por error](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Este tutorial usa un testigo de recurso compartido de archivos, que es compatible con los sistemas operativos anteriores.
 
-1. En **Configurar un testigo de recurso compartido de archivos**, escriba la ruta de acceso para el recurso compartido que creó. Haga clic en **Next**.
+1. En **Configurar un testigo de recurso compartido de archivos**, escriba la ruta de acceso para el recurso compartido que creó. Haga clic en **Siguiente**.
 
 1. Compruebe la configuración en **Confirmación**. Haga clic en **Siguiente**.
 
@@ -235,9 +236,9 @@ Repeat these steps on the second SQL Server.
 
    Use **Asistente para crear una carpeta compartida** para crear un recurso compartido.
 
-1. En **Ruta de acceso a la carpeta**, haga clic en **Examinar** y busque o cree una ruta de acceso para la carpeta compartida de copia de seguridad de base de datos. Haga clic en **Next**.
+1. En **Ruta de acceso a la carpeta**, haga clic en **Examinar** y busque o cree una ruta de acceso para la carpeta compartida de copia de seguridad de base de datos. Haga clic en **Siguiente**.
 
-1. En **Nombre, descripción y configuración**, compruebe el nombre del recurso compartido y la ruta de acceso. Haga clic en **Next**.
+1. En **Nombre, descripción y configuración**, compruebe el nombre del recurso compartido y la ruta de acceso. Haga clic en **Siguiente**.
 
 1. En **Permisos de la carpeta compartida**, establezca **Personalizar permisos**. Clic en **Personalizado...**
 
@@ -273,7 +274,7 @@ Ahora ya puede configurar un grupo de disponibilidad siguiendo estos pasos:
 
     ![Iniciar el Asistente para nuevo grupo de disponibilidad](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
-2. En la página **Introducción**, haga clic en **Siguiente**. En la página **Especificar nombre de grupo de disponibilidad**, escriba el nombre del grupo de disponibilidad, por ejemplo **AG1**, en **Nombre de grupo de disponibilidad**. Haga clic en **Next**.
+2. En la página **Introducción**, haga clic en **Siguiente**. En la página **Especificar nombre de grupo de disponibilidad**, escriba el nombre del grupo de disponibilidad, por ejemplo **AG1**, en **Nombre de grupo de disponibilidad**. Haga clic en **Siguiente**.
 
     ![Asistente para nuevo grupo de disponibilidad, especificar el nombre del grupo](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
 
@@ -354,7 +355,7 @@ En Azure Virtual Machines, un grupo de disponibilidad de SQL Server necesita un 
    | Configuración | Campo |
    | --- | --- |
    | **Name** |Use un nombre de texto para el equilibrador de carga, por ejemplo **sqlLB**. |
-   | **Esquema** |Interno |
+   | **Tipo** |Interno |
    | **Red virtual** |Use el nombre de la red virtual de Azure. |
    | **Subred** |Utilice el nombre de la subred en la que se encuentra la máquina virtual.  |
    | **Asignación de dirección IP** |Estática |
@@ -381,6 +382,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
    | Configuración | Descripción | Ejemplo
    | --- | --- |---
    | **Name** | Escribir un nombre de texto | SQLLBBE
+   | **Asociado a** | Elegir de la lista | Conjunto de disponibilidad
    | **El conjunto de disponibilidad** | Usar un nombre del conjunto de disponibilidad en el que se encuentren las VM con SQL Server | sqlAvailabilitySet |
    | **Máquinas virtuales** |Los dos nombres de VM con SQL Server de Azure | sqlserver-0, sqlserver-1
 
@@ -390,9 +392,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
 1. Para el conjunto de disponibilidad, elija el conjunto de disponibilidad en el que están los servidores SQL Server.
 
-1. Para máquinas virtuales, incluya ambos servidores SQL Server. No incluya el servidor testigo del recurso compartido de archivos. La selección debe parecerse a la siguiente imagen:
-
-   ![Buscar equilibrador de carga en el grupo de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/88-configurebepool.png)
+1. Para máquinas virtuales, incluya ambos servidores SQL Server. No incluya el servidor testigo del recurso compartido de archivos.
 
 1. Haga clic en **Aceptar** para crear el grupo de back-end.
 
@@ -468,7 +468,7 @@ Para probar la conexión:
 1. Use la utilidad **sqlcmd** para probar la conexión. Por ejemplo, el siguiente script establece una conexión **sqlcmd** con la réplica principal por medio del agente de escucha con autenticación de Windows:
 
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
 
     Si el agente de escucha usa un puerto distinto del predeterminado (1433), especifíquelo en la cadena de conexión. Por ejemplo, el siguiente comando sqlcmd se conecta a un agente de escucha en el puerto 1435:

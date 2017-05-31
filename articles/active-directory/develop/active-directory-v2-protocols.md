@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 02bf4191e60bfe7a49a37eed10f7571e08502150
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b665f45c66b35ab93e19ed1b54a6e215c93dcf57
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -25,9 +28,9 @@ El punto de conexión v2.0 puede usar Azure AD para identidad como servicio con 
 <!-- TODO: Need link to libraries above -->
 
 > [!NOTE]
-> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe utilizar la versión&2;.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
-> 
-> 
+> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+>
+>
 
 ## <a name="the-basics"></a>Conceptos básicos
 En casi todos los flujos de OAuth y OpenID Connect hay cuatro partes implicadas en el intercambio:
@@ -79,12 +82,5 @@ Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los 
 * [Creación de aplicaciones web con OpenID Connect](active-directory-v2-protocols-oidc.md)
 * [Creación de aplicaciones de una sola página con el flujo implícito de OAuth 2.0](active-directory-v2-protocols-implicit.md)
 * [Creación de demonios o procesos del lado servidor con el flujo de credenciales de cliente de OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-* Obtención de tokens en una API web con el flujo "en nombre de" de OAuth 2.0 (próximamente)
-
-<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* [Obtención de tokens en una API web con el flujo "en nombre de" de OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
 

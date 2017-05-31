@@ -1,6 +1,6 @@
 ---
-title: Uso de atributos para crear reglas avanzadas| Microsoft Docs
-description: "Procedimientos para crear reglas avanzadas para un grupo, entre los que se incluyen parámetros y operadores de reglas de expresiones."
+title: "Rellenado dinámico de grupos en función de los atributos de usuario en Azure Active Directory | Microsoft Docs"
+description: "Procedimientos para crear reglas avanzadas para la pertenencia a grupos, con operadores y parámetros de reglas de expresión admitidos."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/14/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: d00375d9bc696b41a074eebe6d205e6907a54c4b
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: b0c8eb46b6c01662f0b53213843f8a7ad295e5aa
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="using-attributes-to-create-advanced-rules"></a>Uso de atributos para crear reglas avanzadas
-El Portal de Azure clásico proporciona la capacidad necesaria para crear reglas avanzadas para habilitar pertenencias dinámicas basadas en atributos más complejas para grupos de Azure Active Directory (Azure AD).  
+# <a name="populate-groups-dynamically-based-on-user-attributes"></a>Rellenado dinámico de grupos en función de los atributos de usuario 
+El Portal de Azure clásico proporciona la capacidad de habilitar pertenencias dinámicas basadas en atributos más complejos para grupos de Azure Active Directory (Azure AD).  
 
 Cuando los atributos de un usuario cambian, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación de los atributos del usuario en cuestión desencadenaría adiciones o retiradas en el grupo. Si un usuario cumple una regla de un grupo, se agrega a este como miembro. Si, por el contrario, deja de cumplir la regla del grupo al que pertenece, se le quita como miembro de este.
 

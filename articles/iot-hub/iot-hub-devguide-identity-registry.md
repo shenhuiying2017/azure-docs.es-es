@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 75a2fa16a7e33cf85746538e120ca90a389b05c5
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 25183c6c3c69f7d4c2872252197e2dc8662fefd4
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -83,7 +84,7 @@ Puede importar identidades de dispositivo de forma masiva a un registro de ident
 
 ## <a name="device-provisioning"></a>Aprovisionamiento de dispositivos
 
-Los datos del dispositivo que almacena una solución de IoT determinada dependen de los requisitos específicos de la solución. Sin embargo, como mínimo, una solución debe almacenar identidades del dispositivo y claves de autenticación. El IoT Hub incluye un registro de identidades que puede almacenar valores para cada dispositivo como identificadores, claves de autenticación y códigos de estado. Una posible solución consiste en usar otros servicios de Azure como Azure Table Storage, Azure Blob Storage o Azure DocumentDB para almacenar datos de dispositivos adicionales.
+Los datos del dispositivo que almacena una solución de IoT determinada dependen de los requisitos específicos de la solución. Sin embargo, como mínimo, una solución debe almacenar identidades del dispositivo y claves de autenticación. El IoT Hub incluye un registro de identidades que puede almacenar valores para cada dispositivo como identificadores, claves de autenticación y códigos de estado. Una posible solución consiste en usar otros servicios de Azure como Table Storage de Azure, Azure Blob Storage o Azure Cosmos DB para almacenar datos de dispositivos adicionales.
 
 *Aprovisionamiento de dispositivos* es el proceso de agregar los datos iniciales del dispositivo a los almacenes de la solución. Para habilitar un nuevo dispositivo y que se conecte al centro, debe agregar un nuevo identificador de dispositivo y claves al registro de identidad de IoT Hub. Como parte del proceso de aprovisionamiento, es posible que tenga que inicializar datos específicos del dispositivo en otros almacenes de la solución.
 
@@ -99,6 +100,50 @@ Una implementación más compleja podría incluir la información de [supervisi�
 
 > [!NOTE]
 > Si una solución de IoT requiere el estado de conexión de los dispositivos únicamente para determinar si enviar mensajes de la nube a los dispositivos y los mensajes no se difunden a grandes conjuntos de dispositivos, un patrón más sencillo pasa por usar un breve tiempo de expiración. Con este patrón se consigue el mismo resultado que con el mantenimiento de un registro del estado de la conexión de los dispositivos con el patrón de latido, a la vez que resulta más eficiente. También es posible hacer que el Centro de IoT le notifique, solicitando acuses de recibo de mensajes, de qué dispositivos pueden recibir mensajes y cuáles no se encuentran conectados o presentan errores.
+
+## <a name="device-lifecycle-notifications"></a>Notificaciones de ciclo de vida de dispositivo
+
+IoT Hub puede notificar la solución de IoT al crearse o eliminarse la identidad de un dispositivo mediante el envío de notificaciones de ciclo de vida de dispositivo. Para ello, la solución de IoT debe crear una ruta y establecer el origen de datos igual a *DeviceLifecycleEvents*. De forma predeterminada, no se envían notificaciones de ciclo de vida, es decir, no existen previamente tales rutas. El mensaje de notificaciones incluye propiedades y el cuerpo.
+
+- Propiedades
+
+Las propiedades del sistema de mensajes tienen como prefijo el símbolo `'$'`.
+
+| Nombre | Valor |
+| --- | --- |
+$content-type | application/json |
+$iothub-enqueuedtime |  Hora de envío de la notificación |
+$iothub-message-source | deviceLifecycleEvents |
+$content-encoding | utf-8 |
+opType | "createDeviceIdentity" o "deleteDeviceIdentity" |
+hubName | Nombre de IoT Hub |
+deviceId | Id. del dispositivo |
+operationTimestamp | Marca de tiempo ISO8601 de operación |
+iothub-message-schema | deviceLifecycleNotification |
+
+- Cuerpo
+
+Esta sección está en formato JSON y representa el dispositivo gemelo de la identidad del dispositivo creada. Por ejemplo,
+``` 
+{
+    "deviceId":"11576-ailn-test-0-67333793211",
+    "etag":"AAAAAAAAAAE=",
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        }
+    }
+}
+```
 
 ## <a name="reference-topics"></a>Temas de referencia:
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 19b03b14dc3b04472cd2ae59d38422edce47ef35
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 59f92f94bcd9e01aeaedf7df01ac194c774e5f8d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 03/15/2017
 | Aplicación web | <ul><li>[Deshabilite el scripting XSLT para todas las transformaciones mediante hojas de estilos no de confianza](#disable-xslt)</li><li>[Compruebe que cada página que pueda incluir contenido controlable por el usuario quede excluida del rastreo de MIME automático](#out-sniffing)</li><li>[Proteja o deshabilite la resolución de entidades XML](#xml-resolution)</li><li>[Las aplicaciones que usan http.sys realizan la comprobación de canonización de URL](#app-verification)</li><li>[Asegúrese de que los controles adecuados estén en vigor al aceptar archivos de usuarios](#controls-users)</li><li>[Asegúrese de que se usen parámetros con seguridad de tipos en la aplicación web para el acceso a datos](#typesafe)</li><li>[Use clases de enlace de modelos distintas o listas de filtros de enlace para evitar la vulnerabilidad de asignación masiva de MVC](#binding-mvc)</li><li>[Codifique la salida web que no sea de confianza antes de representarla](#rendering)</li><li>[Lleve a cabo la validación de entrada y el filtrado para todas las propiedades de modelo de tipo cadena](#typemodel)</li><li>[Se debería aplicar la comprobación de estado a los campos de formulario que acepten todos los caracteres, por ejemplo, editor de texto enriquecido](#richtext)</li><li>[No asigne elementos DOM a receptores que carezcan de codificación integrada](#inbuilt-encode)</li><li>[Valide que todos los redireccionamientos dentro de la aplicación se cierren o se realicen de forma segura](#redirect-safe)</li><li>[Implemente la validación de entrada en todos los parámetros de tipo cadena aceptados por métodos de controlador](#string-method)</li><li>[Establezca el tiempo de espera del límite superior para el procesamiento de expresiones regulares con el fin de impedir ataques DoS causados por expresiones regulares incorrectas](#dos-expression)</li><li>[No use Html.Raw en las vistas Razor](#html-razor)</li></ul> | 
 | Base de datos | <ul><li>[No use consultas dinámicas en procedimientos almacenados](#stored-proc)</li></ul> | 
 | API Web | <ul><li>[Asegúrese de que se lleve a cabo la validación del modelo en métodos de API web](#validation-api)</li><li>[Implemente la validación de entrada en todos los parámetros de tipo cadena aceptados por métodos de API web](#string-api)</li><li>[Asegúrese de que se usen parámetros con seguridad de tipos en la API web para el acceso a datos](#typesafe-api)</li></ul> | 
-| Azure DocumentDB | <ul><li>[Use consultas SQL parametrizadas para DocumentDB](#sql-docdb)</li></ul> | 
+| Azure DocumentDB | <ul><li>[Uso de consultas SQL parametrizadas con Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | WCF | <ul><li>[Validación de entrada de WCF mediante enlaces de esquema](#schema-binding)</li><li>[Validación de entrada de WCF mediante inspectores de parámetros](#parameters)</li></ul> | 
 
 ## <a id="disable-xslt"></a>Deshabilite el scripting XSLT para todas las transformaciones mediante hojas de estilos no de confianza
@@ -654,7 +655,7 @@ myCommand.Fill(userDataset);
 ```
 En el ejemplo de código anterior, el valor de entrada no puede tener más de 11 caracteres. Si los datos no se ajustan al tipo o la longitud definidos en el parámetro, la clase SqlParameter produce una excepción. 
 
-## <a id="sql-docdb"></a>Use consultas SQL parametrizadas para DocumentDB
+## <a id="sql-docdb"></a>Uso de consultas SQL parametrizadas con Cosmos DB
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -662,8 +663,8 @@ En el ejemplo de código anterior, el valor de entrada no puede tener más de 11
 | Fase de SDL               | Compilación |  
 | Tecnologías aplicables | Genérico |
 | Attributes              | N/D  |
-| Referencias              | [Announcing SQL Parameterization in DocumentDB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) (Anuncio de la parametrización de SQL en DocumentDB) |
-| Pasos | Aunque DocumentDB solo admite consultas de solo lectura, todavía es posible inyectar código SQL si las consultas se crean mediante la concatenación con la entrada del usuario. Es posible que un usuario obtenga acceso a datos a los que no debería acceder dentro de la misma colección mediante el diseño de consultas SQL malintencionadas. Use consultas SQL parametrizadas si las consultas se construyen tomando como base la entrada del usuario. |
+| Referencias              | [Announcing SQL Parameterization in Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) (Anuncio de la parametrización de SQL en Cosmos DB) |
+| Pasos | Aunque Cosmos DB únicamente admite consultas de solo lectura, todavía es posible inyectar código SQL si las consultas se crean mediante la concatenación con la entrada del usuario. Es posible que un usuario obtenga acceso a datos a los que no debería acceder dentro de la misma colección mediante el diseño de consultas SQL malintencionadas. Use consultas SQL parametrizadas si las consultas se construyen tomando como base la entrada del usuario. |
 
 ## <a id="schema-binding"></a>Validación de entrada de WCF mediante enlaces de esquema
 

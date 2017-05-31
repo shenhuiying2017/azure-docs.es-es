@@ -1,25 +1,25 @@
 ---
-title: API, SDK y recursos de Python para Azure DocumentDB | Microsoft Docs
+title: API, SDK y recursos de Python para Azure Cosmos DB | Microsoft Docs
 description: "Obtenga toda la información sobre el SDK y la API para Python como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios de una versión a otra del SDK para Python de DocumentDB."
-services: documentdb
+services: cosmosdb
 documentationcenter: python
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: af45d745bccb02ce9fd45320e83284a8b33d99bd
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 3e4ff11a81fd3674a480ad43f4147126ad0167a3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/02/2017
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -52,6 +52,11 @@ ms.lasthandoff: 05/02/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Se agregó compatibilidad con la característica Unidad de solicitud por minuto (RU/m).
+* Se agregó compatibilidad con un nuevo nivel de coherencia denominado ConsistentPrefix.
+
+
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG).
 * Se agregó una opción para deshabilitar la comprobación de SSL cuando se ejecuta en el emulador de DocumentDB.
@@ -71,7 +76,7 @@ ms.lasthandoff: 05/02/2017
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
 * Se ha agregado compatibilidad de la directiva de reintentos con las solicitudes de limitación. (Las solicitudes limitadas reciben una excepción demasiado grande de la tasa de solicitudes, código de error 429). De manera predeterminada, DocumentDB realiza nueve reintentos para cada solicitud cuando aparece el código de error 429, cumpliendo el tiempo de retryAfter en el encabezado de respuesta. Ahora puede establecerse un tiempo del intervalo de reintento fijo como parte de la propiedad RetryOptions del objeto ConnectionPolicy si quiere ignorar el tiempo de retryAfter que ha devuelto el servidor entre los reintentos. DocumentDB espera ahora un máximo de 30 segundos para cada solicitud que se está limitando (independientemente del recuento de reintentos) y devuelve la respuesta con el código de error 429. Este tiempo también puede reemplazarse en la propiedad RetryOptions del objeto ConnectionPolicy.
-* DocumentDB ahora devuelve x-ms-throttle-retry-count y x-ms-throttle-retry-wait-time-ms como los encabezados de respuesta de cada solicitud para denotar el recuento de reintentos de limitación y el tiempo acumulativo que ha esperado la solicitud entre los reintentos.
+* Cosmos DB ahora devuelve x-ms-throttle-retry-count y x-ms-throttle-retry-wait-time-ms como los encabezados de respuesta de cada solicitud para denotar el recuento de reintentos de limitación y el tiempo acumulativo que ha esperado la solicitud entre los reintentos.
 * Se ha quitado la clase RetryPolicy y la propiedad correspondiente (retry_policy) que estaba expuesta en la clase document_client y, en su lugar, se ha introducido una clase RetryOptions que expone la propiedad RetryOptions en la clase ConnectionPolicy que puede usarse para reemplazar algunas de las opciones de reintentos predeterminadas.
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
@@ -112,7 +117,7 @@ Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelac
 
 Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible. 
 
-El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un SDK retirado.
+El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK retirado.
 
 > [!WARNING]
 > Todas las versiones del SDK de Azure DocumentDB para Python anteriores a la versión **1.0.0** se retirarán el **29 de febrero de 2016**. 
@@ -123,6 +128,7 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |10 de mayo de 2017 |--- |
 | [2.1.0](#2.1.0) |1 de mayo de 2017 |--- |
 | [2.0.1](#2.0.1) |30 de octubre de 2016 |--- |
 | [2.0.0](#2.0.0) |29 de septiembre de 2016 |--- |
@@ -147,7 +153,7 @@ El servicio rechazará cualquier solicitud realizada en DocumentDB mediante un S
 ## <a name="faq"></a>P+F
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## <a name="see-also"></a>Otras referencias
-Para más información sobre DocumentDB, consulte la página del servicio [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) . 
+## <a name="see-also"></a>Consulte también
+Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). 
 
 

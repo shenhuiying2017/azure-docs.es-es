@@ -1,6 +1,6 @@
 ---
 title: "Protección de aplicaciones de una página mediante el flujo implícito de Azure AD v2.0 | Microsoft Docs"
-description: "Creación de aplicaciones web mediante la implementación del flujo implícito de la versión&2;.0 de Azure AD para aplicaciones de una sola página."
+description: "Creación de aplicaciones web mediante la implementación del flujo implícito de la versión 2.0 de Azure AD para aplicaciones de una sola página."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 1ea1f54832a13b57caf3d6783e482fad4ba00781
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2ac6f92d027c893316b6e310e4c3103ab0e51785
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos de la versión&2;.0: uso del flujo implícito para las SPA
+# <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos de la versión 2.0: uso del flujo implícito para las SPA
 Con el punto de conexión v2.0, puede iniciar la sesión de los usuarios en sus aplicaciones de una página tanto con cuentas de Microsoft personales como profesionales o educativas.  Las aplicaciones de una sola página y otras aplicaciones JavaScript que se ejecutan principalmente en un explorador, se enfrentan con algunos retos interesantes por lo que se refiere a la autenticación:
 
 * Las características de seguridad de estas aplicaciones son significativamente diferentes de las de las aplicaciones web tradicionales basadas en el servidor.
@@ -102,7 +105,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type |Incluido si `response_type` incluye `token`.  Siempre será `Bearer`. |
 | expires_in |Incluido si `response_type` incluye `token`.  Indica el número de segundos que el token es válido para el almacenamiento en caché. |
 | ámbito |Incluido si `response_type` incluye `token`.  Indica los ámbitos para los que será válido access_token. |
-| ID_token |El id_token que solicitó la aplicación. Puede usar el id_token para comprobar la identidad del usuario y comenzar una sesión con el usuario.  En [Protocolos de la versión&2;.0: OpenID Connect](active-directory-v2-tokens.md), se incluyen más detalles acerca de id_tokens y su contenido. |
+| ID_token |El id_token que solicitó la aplicación. Puede usar el id_token para comprobar la identidad del usuario y comenzar una sesión con el usuario.  En [Protocolos de la versión 2.0: OpenID Connect](active-directory-v2-tokens.md), se incluyen más detalles acerca de id_tokens y su contenido. |
 | state |Si se incluye un parámetro de estado en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debe comprobar que los valores de estado de la solicitud y de la respuesta son idénticos. |
 
 #### <a name="error-response"></a>Respuesta de error
@@ -219,29 +222,13 @@ Si recibe este error en la solicitud de iframe, el usuario debe iniciar sesión 
 Tanto los elementos `id_token` como `access_token` caducan tras un corto período de tiempo, así que su aplicación debe estar preparada para actualizar estos tokens de manera periódica.  Para actualizar cualquier tipo de token, puede realizar la misma solicitud de iframe oculto que antes mediante el parámetro `prompt=none` para controlar el comportamiento de Azure AD.  Si quiere recibir un nuevo `id_token`, asegúrese de usar `response_type=id_token` y `scope=openid`, así como un parámetro `nonce`.
 
 ## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
-Actualmente, el punto de conexión v2.0 no admite el `end_session_endpoint` de OpenIdConnect. Esto significa que la aplicación no puede enviar una solicitud al extremo v2.0 para finalizar una sesión de usuario y borrar las cookies establecidas por el extremo v2.0.
-Para cerrar la sesión de un usuario, la aplicación puede simplemente finalizar su propia sesión con el usuario y dejar la sesión del usuario con el extremo v2.0 intacta.  La próxima vez que el usuario intente iniciar sesión, verá una página de "elegir cuenta", en la que se enumeran sus cuentas con inicio de sesión activo.
-En esa página, el usuario puede elegir cerrar la sesión de cualquier cuenta, finalizando así la sesión con el extremo v2.0.
-
-<!--
-
-When you wish to sign the user out of the  app, it is not sufficient to clear your app's cookies or otherwise end the session with the user.  You must also redirect the user to the v2.0 endpoint for sign out.  If you fail to do so, the user will be able to re-authenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the v2.0 endpoint.
-
-You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
+OpenIdConnect `end_session_endpoint` permite que la aplicación envíe una solicitud al punto de conexión v2.0 para finalizar una sesión de usuario y borrar las cookies establecidas por el punto de conexión v2.0.  Para que un usuario cierre por completo la sesión de una aplicación web, la aplicación debe finalizar su propia sesión con el usuario (normalmente borrando una caché de tokens o eliminando las cookies) y luego redirigir el explorador.
 
 ```
-GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
-post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Parameter | | Description |
-| ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | recommended | The URL which the user should be redirected to after successful logout.  If not included, the user will be shown a generic message by the v2.0 endpoint.  |
-
--->
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-
+| Parámetro |  | Description |
+| --- | --- | --- |
+| tenant |requerido |El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación.  Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos.  Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints). |
+| post_logout_redirect_uri | recomendado | La dirección URL a la que se debe redirigir al usuario después de completar el cierre de sesión. Este valor debe coincidir con uno de los URI de redirección registrados en la aplicación. Si no se incluye, el usuario verá un mensaje genérico del punto de conexión v2.0. |

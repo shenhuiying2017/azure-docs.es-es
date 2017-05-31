@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-=article
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 8b0985ec5b4fec39e9277b81f7bbecc7d50065e1
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 7de37f106e33d425b3b497cec640bac3fa4afa74
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -101,7 +102,7 @@ Debe configurar la asignación de red durante la implementación de Site Recover
   * Una red de Azure como la descrita [anteriormente](#set-up-an-azure-network)
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Haga clic en **Nuevo** > **Supervisión y administración** > **Backup y Site Recovery (OMS)**.
 
     ![Almacén nuevo](./media/site-recovery-vmm-to-azure/new-vault3.png)
@@ -289,6 +290,8 @@ Site Recovery proporciona una herramienta de planeación de capacidad para ayuda
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
+Antes de empezar, asegúrese de que la cuenta de usuario de Azure tiene los [permisos](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) necesarios para habilitar la replicación de una nueva máquina virtual en Azure.
+
 Ahora habilite la replicación como sigue:
 
 1. Haga clic en **Paso 2: Replicar la aplicación** > **Origen**. Después de habilitar la replicación por primera vez, haga clic en **+Replicar** en el almacén para habilitar la replicación de más máquinas.
@@ -309,7 +312,7 @@ Ahora habilite la replicación como sigue:
 7. En **Propiedades** > **Configurar propiedades**, seleccione el sistema operativo para las máquinas virtuales seleccionadas y el disco del sistema operativo.
 
     - Compruebe que el nombre de la máquina virtual de Azure (nombre de destino) cumple los [requisitos de las máquinas virtuales de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).   
-    - De forma predeterminada se seleccionan todos los discos de la máquina virtual para la replicación, pero se pueden borrar todos aquellos que se deseen excluir.
+    - De forma predeterminada, se seleccionan todos los discos de la máquina virtual para la replicación, pero se pueden borrar todos aquellos que se deseen excluir.
 
         - A veces se excluyen discos para reducir el ancho de banda de replicación. Por ejemplo, es posible que no desee replicar discos con datos temporales o datos que se actualizan cada vez que se reinicia un equipo o una aplicación (como pagefile.sys o tempdb de Microsoft SQL Server). Para excluir el disco de la replicación, deselecciónelo.
         - Solo se pueden excluir los discos básicos. Los discos del sistema operativo no se pueden excluir.
@@ -350,7 +353,25 @@ Observe lo siguiente:
      * Si la máquina virtual tiene varios adaptadores de red, todos ellos se conectarán a la misma red.
 
      ![Habilitar replicación](./media/site-recovery-vmm-to-azure/test-failover4.png)
+
 4. En **Discos** puede ver los discos de datos y del sistema operativo en la máquina virtual que se va a replicar.
+
+#### <a name="managed-disks"></a>Discos administrados
+
+En **Proceso y red** > **Propiedades de proceso**, puede establecer la opción "Usar discos administrados" en "Sí" para la máquina virtual si desea conectar discos administrados a la máquina durante la migración a Azure. Los discos administrados simplifican la administración de discos para las máquinas virtuales de Azure IaaS, ya que administra las cuentas de almacenamiento asociadas a los discos de la máquina virtual. [Más información sobre discos administrados](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview).
+
+   - Los discos administrados se crean y conectan a la máquina virtual solo en una conmutación por error de Azure. Al habilitar la protección, los datos de las máquinas locales continuarán la replicación en las cuentas de almacenamiento.
+   Los discos administrados solo se pueden crear para máquinas virtuales implementadas con el modelo de implementación de Resource Manager.  
+
+  > [!NOTE]
+  > La conmutación por recuperación desde Azure al entorno local de Hyper-V no se admite actualmente en máquinas con discos administrados. Establezca "Usar discos administrados" en "Sí" únicamente si piensa migrar esta máquina a Azure.
+
+   - Cuando se establece "Usar discos administrados" en "Sí", solo los conjuntos de disponibilidad del grupo de recursos con "Usar discos administrados" establecido en "Sí" estarán disponibles para la selección. Esto ocurre porque las máquinas virtuales con discos administrados solo pueden formar parte de conjuntos de disponibilidad con la propiedad "Usar discos administrados" establecida en "Sí". Asegúrese de crear conjuntos de disponibilidad con la propiedad "Usar discos administrados" establecida en función de su intención de usar discos administrados en la conmutación por error.  Del mismo modo, cuando se establece "Usar discos administrados" en "No", solo los conjuntos de disponibilidad del grupo de recursos con la propiedad "Usar discos administrados" establecida en "No" estarán disponibles para la selección. [Más información sobre discos administrados y conjuntos de disponibilidad](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > Si la cuenta de almacenamiento utilizada para la replicación ha sido cifrada con el Cifrado del servicio de Storage en algún momento, se producirá un error en la creación de discos administrados durante la conmutación por error. Puede establecer "Usar discos administrados" en "No" y volver a intentar la conmutación por error o deshabilitar la protección de la máquina virtual y protegerla en una cuenta de almacenamiento que no haya tenido habilitado el Cifrado del servicio de Storage en ningún momento.
+  > [Más información sobre el Cifrado del servicio de Storage y los discos administrados](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+
 
 ## <a name="test-the-deployment"></a>Prueba de la implementación
 
@@ -369,7 +390,7 @@ Para probar la implementación, puede ejecutar una conmutación por error de pru
 4. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede hacer un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo de **Conmutación por error de prueba** en **Trabajos de Site Recovery**.
 5. Cuando se complete la conmutación por error, debería ver la máquina de réplica de Azure en Azure Portal > **Virtual Machines**. Debe asegurarse de que la máquina virtual tiene el tamaño adecuado, que se ha conectado a la red correspondiente y que se está ejecutando.
 6. Si se preparó para las conexiones después de la conmutación por error, debe ser capaz de conectarse a la máquina virtual de Azure.
-7. Una vez que haya terminado, haga clic en **Cleanup test failover** (Limpieza de conmutación por error de prueba) en el plan de recuperación. En **Notas**, registre y guarde las observaciones asociadas a la conmutación por error de prueba. Así se eliminarán las máquinas virtuales que se crearon durante la conmutación por error de prueba.
+7. Una vez que haya terminado, haga clic en **Cleanup test failover** (Limpieza de conmutación por error de prueba) en el plan de recuperación. En **Notas** , registre y guarde las observaciones asociadas a la conmutación por error de prueba. Así se eliminarán las máquinas virtuales que se crearon durante la conmutación por error de prueba.
 
 Para más información, consulte el artículo [Conmutación por error de prueba a Azure en Site Recovery](site-recovery-test-failover-to-azure.md).
 
@@ -443,5 +464,5 @@ El valor de registro **UploadThreadsPerVM** controla el número de subprocesos q
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cuando se haya completado la replicación inicial y haya probado la implementación, puede invocar las conmutaciones por error a medida que las necesite. [Aprenda más](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error y cómo ejecutarlos.
+Cuando se haya completado la replicación inicial y haya probado la implementación, puede invocar las conmutaciones por error a medida que las necesite. [Obtenga más información](site-recovery-failover.md) sobre los diferentes tipos de conmutación por error y cómo ejecutarlos.
 

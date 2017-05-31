@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/28/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: ee4c87be43354696c63533d8cbf618b26a2708d3
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: de9453e6764279c481e569542433d095772f304d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,13 +50,34 @@ En este artículo, revisamos las consideraciones de seguridad en los dos escenar
 Azure Data Factory protege las credenciales del almacén de datos al **cifrarlos** con **certificados administrados por Microsoft**. Estos certificados se alternan cada **dos años** (lo cual incluye la renovación del certificado y la migración de las credenciales). Estas credenciales cifradas se almacenan de forma segura en una instancia de **Azure Storage administrada por los servicios de administración de Azure Data Factory**. Para más información acerca de la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Cifrado de datos en tránsito
-Todas las transferencias de datos entre los servicios de movimiento de datos de Data Factory y un almacén de datos en la nube se realizan a través del canal seguro HTTPS o TLS (si el almacén de datos en la nube es compatible con HTTPS o TLS).
+Si el almacén de datos en la nube es compatible con HTTPS o TLS, todas las transferencias de datos entre los servicios de movimiento de datos de Data Factory y un almacén de datos en la nube se realizan a través del canal seguro HTTPS o TLS.
 
 > [!NOTE]
 > Todas las conexiones a **Azure SQL Database** y **Azure SQL Data Warehouse** requieren cifrado (SSL/TLS) siempre que haya datos en tránsito hacia y desde la base de datos. Al crear una canalización con un editor de JSON, agregue la propiedad **encryption** y establézcala en **true** en la **cadena de conexión**. Cuando se usa el [Asistente para copia](data-factory-azure-copy-wizard.md), el asistente establece esta propiedad de forma predeterminada. Para **Azure Storage**, puede usar **HTTPS** en la cadena de conexión.
 
 ### <a name="data-encryption-at-rest"></a>Cifrado de datos en reposo
-Muchos de los almacenes de datos admiten el cifrado de datos en reposo. Se recomienda habilitar el mecanismo de cifrado de datos para estos almacenes. Por ejemplo, puede habilitar el Cifrado de datos transparente (TDE) para Azure SQL Database y Azure SQL Data Warehouse. 
+Algunos almacenes de datos admiten el cifrado de datos en reposo. Se recomienda habilitar el mecanismo de cifrado de datos para estos almacenes. 
+
+#### <a name="azure-sql-data-warehouse"></a>Almacenamiento de datos SQL de Azure
+El Cifrado de datos transparente (TDE) de Azure SQL Data Warehouse ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos en reposo. Este comportamiento es transparente para el cliente. Para más información, consulte [Proteger una base de datos en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+
+#### <a name="azure-sql-database"></a>Base de datos SQL de Azure
+Azure SQL Database admite también el Cifrado de datos transparente (TDE), que ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos sin que haya que efectuar cambios en la aplicación. Este comportamiento es transparente para el cliente. Para más información, consulte [Transparent Data Encryption with Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) (Cifrado de datos transparente con Azure SQL Database). 
+
+#### <a name="azure-data-lake-store"></a>Almacén de Azure Data Lake
+Azure Data Lake Store también ofrece el cifrado de los datos que se almacenan en la cuenta. Cuando se habilita, Data Lake Store cifrará automáticamente los datos antes de la persistencia y los descifrará antes de la recuperación, por lo que resulta un proceso completamente transparente para el cliente que accede a los datos. Para más información, consulte [Seguridad en Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
+
+#### <a name="azure-blob-storage-and-azure-table-storage"></a>Azure Blob Storage y Azure Table Storage
+Azure Blob Storage y Azure Table Storage admiten el cifrado del servicio Storage (SSE), que cifra automáticamente los datos antes de su persistencia en el almacenamiento y los descifra antes de su recuperación. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](../storage/storage-service-encryption.md).
+
+#### <a name="amazon-s3"></a>Amazon S3
+Amazon S3 admite el cifrado de cliente y servidor para datos en reposo. Para más información, consulte [Protección de datos del cliente mediante cifrado](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Actualmente, Data Factory no admite Amazon S3 en Virtual Private Cloud (VPC).
+
+#### <a name="amazon-redshift"></a>Amazon Redshift
+Amazon Redshift admite cifrado de clúster para datos en reposo. Para más información, consulte [Amazon Redshift Database Encryption](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) (Cifrado de base de datos de Amazon Redshift). Actualmente, Data Factory no admite Amazon Redshift en VPC. 
+
+#### <a name="salesforce"></a>Salesforce
+Salesforce admite Shield Platform Encryption, que permite el cifrado de todos los archivos, datos adjuntos y campos personalizados. Para más información, consulte [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) (Descripción del flujo de autenticación OAuth de servidor web).  
 
 ## <a name="hybrid-scenarios-using-data-management-gateway"></a>Escenarios híbridos (con Data Management Gateway)
 Los escenarios híbridos necesitan Data Management Gateway instalado en una red local o virtual (Azure), o en una nube privada virtual (Amazon). La puerta de enlace debe tener acceso a los almacenes de datos locales. Para más información sobre la puerta de enlace, consulte [Data Management Gateway](data-factory-data-management-gateway.md). 
@@ -135,7 +156,7 @@ En la tabla siguiente se proporcionan el **puerto de salida** y los requisitos d
 | `*.azuredatalakestore.net` | 443 | (OPCIONAL) Necesario cuando el destino es Azure Data Lake Store. | 
 
 > [!NOTE] 
-> Puede que tenga que administrar puertos dominios de listas de admitidos a nivel del firewall corporativo, en función de cada origen de datos. La tabla anterior usa solo Azure SQL Database, Azure SQL Data Warehouse y Azure Data Lake Store a modo de ejemplo.   
+> Puede que tenga que administrar puertos dominios de listas de admitidos a nivel del firewall corporativo, en función de cada origen de datos. En esta tabla, Azure SQL Database, Azure SQL Data Warehouse y Azure Data Lake Store solo se usan a modo de ejemplo.   
 
 En la tabla siguiente se proporcionan los requisitos del **puerto de entrada** para el **firewall de Windows**.
 
@@ -153,7 +174,7 @@ Los siguientes almacenes de datos en la nube necesitan una lista de direcciones 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal)
 - [Almacén de Azure Data Lake](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Document DB](../documentdb/documentdb-firewall-support.md)
+- [Azure Cosmos DB](../documentdb/documentdb-firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes

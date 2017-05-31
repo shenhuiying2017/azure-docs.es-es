@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/22/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: e6eaf4e7a3b0aa8241c026f66150d3f6e9d933d0
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: e8774cc290847d48ecdc5dcdac1f2533fdc7d072
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -25,6 +26,9 @@ ms.lasthandoff: 04/21/2017
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Implementación de una puerta de enlace en Windows o Linux para la solución preconfigurada de fábrica conectada
 
 Los pasos que se indican en este artículo muestran cómo implementar una puerta de enlace con Docker en Windows o Linux. La puerta de enlace habilita la conectividad con la solución preconfigurada de fábrica conectada.
+
+> [!NOTE]
+> El software de puerta de enlace que se ejecuta en el contenedor de Docker es [Azure IoT Edge].
 
 ## <a name="windows-deployment"></a>Implementación de Windows
 
@@ -149,4 +153,4 @@ Para más información sobre la arquitectura de la solución preconfigurada de f
 [cliente OPC UA de código abierto]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
 [Instale Docker]: https://www.docker.com/community-edition#/download
 [lnk-walkthrough]: iot-suite-overview.md
-
+[Azure IoT Edge]: https://github.com/Azure/iot-edge

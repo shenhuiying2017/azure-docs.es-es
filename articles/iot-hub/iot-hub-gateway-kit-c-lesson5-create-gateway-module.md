@@ -17,15 +17,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 027597c73d7282ef929363bab904e7d3d423d3d4
-ms.openlocfilehash: db2757015cf8e821cffcfe39bcbd1559c23fc7ed
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5e28422158684c3aaf0ac3fdf5b19c80fbccfb02
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="lesson-5-create-your-first-azure-iot-gateway-module"></a>Lección 5: Creación del primer módulo de puerta de enlace de IoT de Azure
-Aunque el SDK de puerta de enlace permite compilar módulos escritos en Java, .NET o Node.js, este tutorial le guía por los pasos para compilar un módulo en C.
+Aunque Azure IoT Edge permite compilar módulos escritos en Java, .NET o Node.js, este tutorial le guía por los pasos para compilar un módulo en C.
 
 ## <a name="what-you-will-do"></a>Lo que hará
 
@@ -41,7 +42,7 @@ Aunque el SDK de puerta de enlace permite compilar módulos escritos en Java, .N
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-El SDK de puerta de enlace de IoT de Azure que se ha instalado en el equipo host.
+Azure IoT Edge que se ha instalado en el equipo host.
 
 ## <a name="folder-structure"></a>Estructura de carpetas
 
@@ -103,7 +104,7 @@ Para compilar y ejecutar la aplicación `hello_world`, siga estos pasos en el eq
 
 Los pasos siguientes lo guían para crear un módulo y compilarlo en Intel NUC. El módulo imprime los mensajes con una marca de tiempo tras su recepción. En esta sección va a crear el primer módulo de puerta de enlace personalizado.
 
-Cualquier módulo del SDK de puerta de enlace de IoT de Azure debe implementar las siguientes interfaces:
+Cualquier módulo de Azure IoT Edge debe implementar las siguientes interfaces:
 
    ```C
    pfModule_ParseConfigurationFromJson Module_ParseConfigurationFromJson

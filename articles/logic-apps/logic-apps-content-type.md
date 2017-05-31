@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d0d283f21caf53406c51670e75bf2796a175be51
-ms.lasthandoff: 03/25/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 291fb1bb3a8925ccc39d846d23328f028cb826b8
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -54,7 +55,7 @@ El desencadenador de solicitud le permite incorporar un esquema JSON para la car
 
 ### <a name="parse-json-action"></a>Acción "Parse JSON"
 
-La acción `Parse JSON` le permite analizar el contenido JSON en tokens descriptivos para el consumo de las aplicaciones lógicas. Al igual que el desencadenador de solicitud, esta acción le permite especificar o generar un esquema JSON para el contenido que desee analizar. Esta herramienta facilita enormemente el consumo de datos de Service Bus, DocumentDB, etc.
+La acción `Parse JSON` le permite analizar el contenido JSON en tokens descriptivos para el consumo de las aplicaciones lógicas. Al igual que el desencadenador de solicitud, esta acción le permite especificar o generar un esquema JSON para el contenido que desee analizar. Esta herramienta facilita enormemente el consumo de datos de Service Bus, Azure Cosmos DB, etc.
 
 ![Parse JSON](./media/logic-apps-content-type/ParseJSON.png)
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 03/03/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ef4517191084148ff3810226c927ee45a61b2c49
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9f9754aef4f1e933163cd80862c84ba8281def80
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ De forma periódica se publican actualizaciones de **Azure Data Catalog**. No to
 A partir de la semana del 16 de septiembre de 2016, se agregaron las siguientes funcionalidades a Azure Data Catalog:
 
 * Compatibilidad con orígenes de datos de IBM DB2. Ahora los usuarios pueden registrar y detectar tablas y vistas de IBM DB2.
-* Compatibilidad con orígenes de datos de Azure DocumentDB. Los usuarios ahora pueden registrar y detectar recopilaciones y bases de datos de DocumentDB.
+* Compatibilidad con orígenes de datos de Azure Cosmos DB. Los usuarios ahora pueden registrar y detectar colecciones y bases de datos de Cosmos DB.
 * Soporte para personalizar el nombre del catálogo en el portal de Data Catalog. Ahora los administradores de Catalog pueden proporcionar el texto que se muestra en el título del portal como, por ejemplo, el nombre de la organización.
 
 ## <a name="whats-new-for-the-week-of-august-26-2016-release"></a>Novedades de la versión correspondiente a la semana del 26 de agosto de 2016
@@ -244,7 +245,7 @@ A partir de la semana del 18 de septiembre de 2015, se agregaron las siguientes 
 ## <a name="whats-new-for-the-week-of-september-11-2015-release"></a>Novedades de la versión correspondiente a la semana del 11 de septiembre de 2015
 A partir de la semana del 11 de septiembre de 2015, se agregaron las siguientes funcionalidades al Catálogo de datos de Azure:
 
-* Compatibilidad con el registro y la detección de objetos de SQL Server Analysis Services mediante HTTP o HTTPS. Ahora los usuarios pueden conectarse a servidores SSAS mediante una dirección URL (como https://servername/olap/msmdpump.dll) en lugar de un nombre de servidor y pueden usar la autenticación básica y las conexiones anónimas además de la autenticación de Windows. Para obtener más información sobre las conexiones HTTP/HTTPS a SSAS, consulte [Configurar el acceso HTTP a Analysis Services en Internet Information Services (IIS)&8;.0](https://msdn.microsoft.com/library/gg492140.aspx).
+* Compatibilidad con el registro y la detección de objetos de SQL Server Analysis Services mediante HTTP o HTTPS. Ahora los usuarios pueden conectarse a servidores SSAS mediante una dirección URL (como https://servername/olap/msmdpump.dll) en lugar de un nombre de servidor y pueden usar la autenticación básica y las conexiones anónimas además de la autenticación de Windows. Para obtener más información sobre las conexiones HTTP/HTTPS a SSAS, consulte [Configurar el acceso HTTP a Analysis Services en Internet Information Services (IIS) 8.0](https://msdn.microsoft.com/library/gg492140.aspx).
 * Compatibilidad con orígenes de datos de Hive en HDInsight. Los usuarios ahora pueden registrarse y detectar tablas de Hive de Apache Hive de Hadoop en orígenes de datos de HDInsight. Para obtener más información sobre Hive en HDInsight, consulte el [centro de documentación de HDInsight](../hdinsight/hdinsight-use-hive.md).
 * Compatibilidad para el registro y la detección de bases de datos de SQL Server y clústeres de HDFS como contenedores. Al registrar tablas y vistas de Oracle o HDFS, Azure Data Catalog crea una entrada para la base de datos, las tablas y las vistas. La base de datos se puede detectar y anotar mediante el portal de Catálogo de datos de Azure. Los usuarios también pueden buscar y filtrar el contenido de una base de datos o clúster además de buscar y filtrar el contenido del catálogo.
 
