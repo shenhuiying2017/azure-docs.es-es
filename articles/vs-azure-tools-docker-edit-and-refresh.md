@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
-ms.openlocfilehash: 202134cd03bf776c1d646ae24c09a79e14fdc5d3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Depuración de aplicaciones en un contenedor de Docker local
 ## <a name="overview"></a>Información general
-Visual Studio Tools para Docker ofrece una forma coherente de desarrollar y validar una aplicación localmente en un contenedor de Docker de Linux
- sin tener que reiniciar el contenedor cada vez que se realiza un cambio en el código.
+Visual Studio Tools para Docker ofrece una forma coherente de desarrollar y validar una aplicación localmente en un contenedor de Docker de Linux.
+sin tener que reiniciar el contenedor cada vez que se realiza un cambio en el código.
 En este artículo se explica cómo utilizar la característica "Editar y actualizar" para iniciar una aplicación web de ASP.NET Core en un contenedor de Docker local, realizar los cambios necesarios y actualizar el explorador para ver dichos cambios.
 También se muestra cómo establecer puntos de interrupción para la depuración.
 
@@ -33,14 +35,13 @@ También se muestra cómo establecer puntos de interrupción para la depuración
 >
 
 ## <a name="prerequisites"></a>Requisitos previos
-Es necesario instalar las siguientes herramientas.
+Se deben instalar las siguientes herramientas.
 
-* [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
-* Instalar [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+* [Versión más reciente de Visual Studio](https://www.visualstudio.com/downloads/)
 * [SDK de Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 Para ejecutar los contenedores de Docker de forma local, se necesita a un cliente Docker local.
-Puede usar la versión de [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) que requiere que Hyper-V esté deshabilitado, o bien puede usar la [versión beta de Docker para Windows](https://beta.docker.com), que usa Hyper-V y requiere Windows 10.
+Puede usar la versión de [Docker Toolbox](https://www.docker.com/products/docker-toolbox) que requiere que Hyper-V esté deshabilitado, o bien puede usar [Docker para Windows](https://www.docker.com/get-docker), que usa Hyper-V y requiere Windows 10.
 
 Si usa Docker Toolbox, tendrá que [configurar el cliente Docker](vs-azure-tools-docker-setup.md).
 
@@ -111,13 +112,8 @@ Con [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)puede 
 
 ## <a name="presentations"></a>Presentaciones
 * [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
-* [Introduction to ASP.NET Core @ build 2016 - Where You At Demo (Introducción a ASP.NET Core @ compilación 2016)](https://channel9.msdn.com/Events/Build/2016/B810)
+* [Introduction to ASP.NET Core build 2016 - Where You At Demo](https://channel9.msdn.com/Events/Build/2016/B810) (Introducción a ASP.NET Core @ compilación 2016)
 * [Developing .NET apps in containers, Channel 9 (Desarrollo de aplicaciones .NET en contenedores, Channel 9)](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

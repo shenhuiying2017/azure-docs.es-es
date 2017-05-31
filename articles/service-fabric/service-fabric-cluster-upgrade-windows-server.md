@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0c62f84993c83619cd55f9081450deaf0b21c090
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -112,6 +113,10 @@ Siga estos pasos para actualizar el clúster a una versión compatible, si los n
 > Si está ejecutando un clúster que no está conectado a Internet, tendrá que supervisar el blog del equipo de Service Fabric para conocer más información acerca de una nueva versión. El sistema no muestra ninguna advertencia de mantenimiento de clúster para informarle de una nueva versión.  
 >
 >
+
+#### <a name="auto-provisioning-vs-manual-provisioning"></a>Aprovisionamiento automático frente a aprovisionamiento manual
+Para habilitar la descarga y el registro automáticos de la última versión del código, configure el servicio de actualización de Service Fabric. Consulte el archivo Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt del [paquete independiente](service-fabric-cluster-standalone-package-contents.md) para obtener instrucciones.
+Para el proceso manual, siga las instrucciones que se describen a continuación.
 
 Modifique la configuración del clúster para establecer la siguiente propiedad en false antes de iniciar una actualización de la configuración.
 

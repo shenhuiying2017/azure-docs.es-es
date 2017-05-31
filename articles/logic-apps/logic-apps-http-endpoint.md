@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: jehollan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e0bf2edebfda479532a2ce71deff4623179910f3
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 32a5cfdb520c745dbd0fa5c433849bd3783a364e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -275,6 +276,10 @@ A continuación se presenta el aspecto del esquema JSON ahora para la acción **
 #### <a name="q-what-about-url-security"></a>P: ¿¿Qué se puede decir sobre la seguridad de las direcciones URL?
 
 R: Azure genera direcciones URL de devolución de llamada de la aplicación lógica de manera segura con una firma de acceso compartido (SAS). Esta firma pasa como un parámetro de consulta y debe validarse antes de que se pueda activar la aplicación lógica. Azure genera la firma mediante una combinación única de una clave secreta por aplicación lógica, el nombre del desencadenador y la operación que se realiza. Por tanto, a menos que alguien tenga acceso a la clave de aplicación lógica secreta, no se puede generar una firma válida.
+
+   > [!NOTE]
+   > En los sistemas de producción/seguros, se recomienda llamar a la aplicación lógica directamente desde el explorador debido a que se ha incluido una clave de acceso compartido en la dirección URL y a la incapacidad de administrar directivas de contenido seguras debido a que los dominios se comparten entre los clientes de la aplicación lógica.
+
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>P: ¿Puedo configurar más puntos de conexión HTTP?
 

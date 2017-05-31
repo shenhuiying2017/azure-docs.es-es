@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 744563dc54edd5d38d9cb311d5679d744a0235eb
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0168bbc466f80c8603dda46ded56b7524e4e5e91
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="opening-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Apertura de puertos y puntos de conexión para una máquina virtual en Azure mediante PowerShell
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Apertura de puertos y puntos de conexión para una máquina virtual en Azure mediante PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Comandos rápidos
-Para crear reglas de los grupos de seguridad de red y ACL necesitará [que esté instalada la versión más reciente de Azure PowerShell](/powershell/azureps-cmdlets-docs). También puede [llevar a cabo estos pasos con Azure Portal](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para crear reglas de los grupos de seguridad de red y ACL necesitará [que esté instalada la versión más reciente de Azure PowerShell](/powershell/azureps-cmdlets-docs). También puede [llevar a cabo estos pasos con Azure Portal](nsg-quickstart-portal.md).
 
 Inicie sesión en una cuenta de Azure:
 
@@ -33,42 +34,55 @@ Inicie sesión en una cuenta de Azure:
 Login-AzureRmAccount
 ```
 
-En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Nombres de parámetros de ejemplo incluidos `myResourceGroup`, `myNetworkSecurityGroup` y `myVnet`.
+En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluían *myResourceGroup*, *myNetworkSecurityGroup* y *myVnet*.
 
-Cree una regla. En el ejemplo siguiente, se crea una regla denominada `myNetworkSecurityGroupRule` para permitir el tráfico TCP en el puerto 80:
+Creación de una regla con [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). En el siguiente ejemplo crea una regla denominada *myNetworkSecurityGroupRule* para permitir el tráfico *TCP* en el puerto *80*:
 
 ```powershell
-$httprule = New-AzureRmNetworkSecurityRuleConfig -Name "myNetworkSecurityGroupRule" `
-    -Description "Allow HTTP" -Access "Allow" -Protocol "Tcp" -Direction "Inbound" `
-    -Priority "100" -SourceAddressPrefix "Internet" -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange 80
+$httprule = New-AzureRmNetworkSecurityRuleConfig `
+    -Name "myNetworkSecurityGroupRule" `
+    -Description "Allow HTTP" `
+    -Access "Allow" `
+    -Protocol "Tcp" `
+    -Direction "Inbound" `
+    -Priority "100" `
+    -SourceAddressPrefix "Internet" `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 80
 ```
 
-A continuación, cree un grupo de seguridad de red y asigne la regla HTTP que acaba de crear como se indica a continuación. En el ejemplo siguiente, se crea un grupo de seguridad de red denominado `myNetworkSecurityGroup`:
+A continuación, cree un grupo de seguridad de red con [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) y asigne la regla HTTP que acaba de crear como se indica a continuación. En el ejemplo siguiente se crea un grupo de seguridad de red denominado *myNetworkSecurityGroup*:
 
 ```powershell
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
-    -Location "WestUS" -Name "myNetworkSecurityGroup" -SecurityRules $httprule
+$nsg = New-AzureRmNetworkSecurityGroup `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "EastUS" `
+    -Name "myNetworkSecurityGroup" `
+    -SecurityRules $httprule
 ```
 
-Ahora hay que asignar el grupo de seguridad de red a una subred. En el ejemplo siguiente se asigna una red virtual existente denominada `myVnet` a la variable `$vnet`:
+Ahora hay que asignar el grupo de seguridad de red a una subred. En el ejemplo siguiente se asigna una red virtual existente denominada *myVnet* a la variable *$vnet* con [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
+$vnet = Get-AzureRmVirtualNetwork `
+    -ResourceGroupName "myResourceGroup" `
     -Name "myVnet"
 ```
 
-Asocie el grupo de seguridad de red a una subred. En el ejemplo siguiente, se asocia la subred denominada `mySubnet` con un grupo de seguridad de red:
+Asocie el grupo de seguridad de red con la subred con [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig). En el ejemplo siguiente, se asocia la subred denominada *mySubnet* con un grupo de seguridad de red:
 
 ```powershell
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
 
-Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "mySubnet" `
+Set-AzureRmVirtualNetworkSubnetConfig `
+    -VirtualNetwork $vnet `
+    -Name "mySubnet" `
     -AddressPrefix $subnetPrefix.AddressPrefix `
     -NetworkSecurityGroup $nsg
 ```
 
-Por último, actualice la red virtual para que los cambios surtan efecto:
+Por último, actualice la red virtual con [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) para que los cambios surtan efecto:
 
 ```powershell
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet

@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/02/2017
+ms.date: 05/11/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 85a59eddf3c453ee112f279d439c94853b2f62b5
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 5a1ce66e02943caedd52976c5dcb3cf75c23bd49
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="conditional-access-in-azure-active-directory---preview"></a>Acceso condicional en Azure Active Directory: versión preliminar
+# <a name="conditional-access-in-azure-active-directory"></a>Acceso condicional en Azure Active Directory
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](active-directory-conditional-access-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-conditional-access.md)
-
-
-El comportamiento descrito en este tema está actualmente en [versión preliminar](active-directory-preview-explainer.md).
 
 En un mundo Mobile First, Cloud First, Azure Active Directory permite el inicio de sesión único en dispositivos, aplicaciones y servicios desde cualquier parte. Con la proliferación de dispositivos (como BYOD), el trabajo fuera de las redes corporativas y las aplicaciones SaaS de terceros, los profesionales de TI se enfrentan con dos objetivos opuestos:
 
@@ -117,13 +114,17 @@ Al seleccionar aplicaciones de nube, se define el ámbito de las aplicaciones de
 
 - **Cómo**: siempre y cuando el acceso se realice bajo condiciones que pueda controlar, puede que no haya necesidad de imponer controles adicionales sobre cómo los usuarios accederán a las aplicaciones. Sin embargo, las cosas podrían cambiar si el acceso a sus aplicaciones de nube se realiza, por ejemplo, desde redes o dispositivos que no son de confianza. En una declaración de condición, puede definir determinadas condiciones de acceso que tienen requisitos adicionales respecto al modo en que se realiza el acceso a las aplicaciones.
 
-    ![Condiciones](./media/active-directory-conditional-access-azure-portal/01.png)
+    ![Condiciones](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
 ## <a name="conditions"></a>Condiciones
 
 En la implementación actual de Azure Active Directory, puede definir condiciones para las siguientes áreas:
 
+- **Riesgo del inicio de sesión**: El nivel de riesgo del inicio de sesión es un objeto que utiliza Azure Active Directory para rastrear la probabilidad que hay de que el legítimo propietario de una cuenta de usuario no haya realizado un intento de inicio de sesión. En este objeto, la probabilidad (alta, media o baja) se almacena en un formato de atributo denominado [nivel de riesgo de inicio de sesión](active-directory-reporting-risk-events.md#risk-level). El objeto se genera durante un inicio de sesión de un usuario si Azure Active Directory ha detectado riesgos de inicio de sesión. Para más información, consulte la sección sobre los [inicios de sesión peligrosos](active-directory-identityprotection.md#risky-sign-ins).  
+Puede utilizar el nivel calculado de riesgo de inicio de sesión como condición en una directiva de acceso condicional. 
+
+    ![Condiciones](./media/active-directory-conditional-access-azure-portal/22.png)
 
 - **Plataformas de dispositivos**: la plataforma de dispositivos se caracteriza por el sistema operativo que se ejecuta en el dispositivo (Android, iOS, Windows Phone, Windows). Puede definir las plataformas de dispositivos que se incluyen, así como las plataformas de dispositivos que se excluyen de una directiva.  
 Para usar plataformas de dispositivos en la directiva, primero cambie los conmutadores de configuración a **Sí** y, luego, seleccione las plataformas de dispositivos a las que se aplica la directiva (puede ser todas o algunas de ellas). Si selecciona algunas plataformas de dispositivos, la directiva solo afecta a estas plataformas. En este caso, la directiva no afecta a los inicios de sesión en otras plataformas compatibles.
@@ -140,65 +141,6 @@ Puede incluir todas las ubicaciones o todas las direcciones IP de confianza y pu
 La autenticación heredada hace referencia a clientes que usan autenticación básica, como clientes de Office antiguos que no usan autenticación moderna. El acceso condicional no se admite actualmente con la autenticación heredada.
 
     ![Condiciones](./media/active-directory-conditional-access-azure-portal/04.png)
-
-
-## <a name="what-you-should-know"></a>Qué debería saber
-
-### <a name="do-i-need-to-assign-a-user-to-my-policy"></a>¿Es necesario asignar un usuario a la directiva?
-
-Al configurar una directiva de acceso condicional, debe asignarle al menos un grupo. Una directiva de acceso condicional que no tiene usuarios ni grupos asignados nunca se desencadena.
-
-Cuando pretenda asignar varios usuarios y grupos a una directiva, debe comenzar por poco y asignar un solo usuario o grupo y luego probar su configuración. Si la directiva funciona según lo previsto, puede agregarle asignaciones adicionales.  
-
-
-### <a name="how-are-assignments-evaluated"></a>¿Cómo se evalúan las asignaciones?
-
-A todas las asignaciones se les asigna **la operación lógica AND**. Si tiene más de una asignación configurada, se deben satisfacer todas las asignaciones para desencadenar una directiva.  
-
-Si debe configurar una condición de ubicación que se aplica a todas las conexiones realizadas desde fuera de la red de la organización, puede:
-
-- Incluir **todas las ubicaciones**.
-- Excluir **todas las direcciones IP de confianza**.
-
-### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>¿Qué ocurre si tiene directivas configuradas en el Portal de Azure clásico y en Azure Portal?  
-Las dos directivas se aplican mediante Azure Active Directory y el usuario obtiene acceso únicamente cuando se cumplen todos los requisitos.
-
-### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>¿Qué sucede si tiene directivas en el portal de Intune Silverlight y en Azure Portal?
-Las dos directivas se aplican mediante Azure Active Directory y el usuario obtiene acceso únicamente cuando se cumplen todos los requisitos.
-
-### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>¿Qué ocurre si tiene varias directivas configuradas para el mismo usuario?  
-En cada inicio de sesión, Azure Active Directory evalúa todas las directivas y garantiza que se cumplan todos los requisitos antes de conceder acceso al usuario.
-
-
-### <a name="does-conditional-access-work-with-exchange-activesync"></a>¿Funciona el acceso condicional con Exchange ActiveSync?
-
-Sí, se puede usar Exchange ActiveSync en una directiva de acceso condicional.
-
-
-### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>¿Qué sucede si necesito autenticación multifactor o un dispositivo compatible?
-
-Actualmente, se le solicita al usuario la autenticación multifactor con independencia del dispositivo.
-
-
-## <a name="what-you-should-avoid-doing"></a>¿Qué no debería hacer?
-
-El marco de trabajo de acceso condicional le proporciona una flexibilidad de configuración excelente. Sin embargo, una gran flexibilidad también implica revisar cuidadosamente cada directiva de configuración antes de liberarla para evitar resultados no deseados. En este contexto, debe prestar especial atención a las asignaciones que afectan a conjuntos completos, como **todos los usuarios / grupos / aplicaciones en la nube**.
-
-En su entorno, debería evitar las siguientes configuraciones:
-
-
-**Para todos los usuarios, todas las aplicaciones en la nube:**
-
-- **Bloquear acceso**: esta configuración bloquea toda la organización, lo cual no es en absoluto una buena idea.
-
-- **Requerir dispositivo compatible**: para usuarios que aún no han inscrito sus dispositivos, esta directiva bloquea todo el acceso, incluido el acceso al portal Intune. Si es un administrador y no tiene un dispositivo inscrito, esta directiva le impide volver a acceder Azure Portal para cambiar la directiva.
-
-- **Requerir unión a un dominio** : este acceso al bloqueo de directivas también ofrece la posibilidad de bloquear el acceso a todos los usuarios de su organización si aún no tiene un dispositivo unido al dominio.
-
-
-**Para todos los usuarios, todas las aplicaciones en la nube, todas las plataformas de dispositivos:**
-
-- **Bloquear acceso**: esta configuración bloquea toda la organización, lo cual no es en absoluto una buena idea.
 
 
 ## <a name="common-scenarios"></a>Escenarios comunes
@@ -228,3 +170,4 @@ Muchos clientes de Intune usan el acceso condicional para asegurarse de que solo
 
 Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introducción al acceso condicional en Azure Active Directory).
 
+Para más información sobre las cosas que debe saber y lo que se debe evitar hacer al configurar directivas de acceso condicional, consulte 

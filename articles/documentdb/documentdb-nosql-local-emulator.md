@@ -1,28 +1,29 @@
 ---
-title: Desarrollo local con el Emulador de DocumentDB | Documentos de Microsoft
-description: "Con el Emulador de Azure DocumentDB, puede desarrollar y probar su aplicación localmente de forma gratuita, sin necesidad de crear una suscripción a Azure."
-services: documentdb
+title: Desarrollo local con el Emulador de Azure Cosmos DB | Microsoft Docs
+description: "Con el Emulador de Azure Cosmos DB, puede desarrollar y probar su aplicación localmente de forma gratuita, sin necesidad de crear una suscripción a Azure."
+services: cosmosdb
 documentationcenter: 
-keywords: Emulador de DocumentDB
+keywords: Emulador de Azure Cosmos DB
 author: arramac
 manager: jhubbard
 editor: 
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/21/2017
+ms.date: 05/10/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 260208e7c7a08110eb3c885ef86ec4c18ff42fc9
-ms.openlocfilehash: 87486f94bee474b13680e9a90716f09399a95e16
-ms.lasthandoff: 04/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 517819bfa17cb90a6f940200620e90ad352929d2
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="use-the-azure-documentdb-emulator-for-development-and-testing"></a>Uso del Emulador de Azure DocumentDB para desarrollo y pruebas
+# <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Uso del Emulador de Azure Cosmos DB para desarrollo y pruebas de forma local
 
 <table>
 <tr>
@@ -39,16 +40,27 @@ ms.lasthandoff: 04/23/2017
 </tr>
 </table>
   
-El Emulador de Azure DocumentDB proporciona un entorno local que emula el servicio de Azure DocumentDB con fines de desarrollo. Mediante el Emulador de DocumentDB, puede desarrollar y probar su aplicación localmente sin necesidad de crear una suscripción a Azure ni incurrir en gastos. Cuando esté satisfecho con el funcionamiento de la aplicación en el Emulador de DocumentDB, puede cambiar al uso de una cuenta de Azure DocumentDB en la nube.
+El Emulador de Azure Cosmos DB proporciona un entorno local que emula el servicio de Azure Cosmos DB con fines de desarrollo. Mediante el Emulador de Azure Cosmos DB, puede desarrollar y probar su aplicación localmente, sin crear una suscripción de Azure o realizar algún gasto. Cuando esté satisfecho con el funcionamiento de la aplicación en el Emulador, puede cambiar a una cuenta de Azure Cosmos DB en la nube.
 
-Se recomienda que antes de nada vea el siguiente vídeo, donde Kirill Gavrylyuk describe las funciones básicas del Emulador de DocumentDB.
+En este artículo se tratan las tareas siguientes: 
+
+> [!div class="checklist"]
+> * Instalación del Emulador
+> * Ejecución del Emulador en Docker para Windows
+> * Autenticación de solicitudes
+> * Uso del Explorador de datos en el Emulador
+> * Exportación de certificados SSL
+> * Llamada al Emulador desde la línea de comandos
+> * Recopilación de archivos de seguimiento
+
+Antes que nada, se recomienda ver el siguiente vídeo, donde Kirill Gavrylyuk describe las funciones básicas del Emulador de Azure Cosmos DB.
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
 > 
 > 
 
 ## <a name="system-requirements"></a>Requisitos del sistema
-El Emulador de DocumentDB presenta los siguientes requisitos de hardware y software:
+El Emulador de Azure Cosmos DB presenta los siguientes requisitos de hardware y software:
 
 * Requisitos de software
   * Windows Server 2012 R2, Windows Server 2016 o Windows 10
@@ -57,14 +69,14 @@ El Emulador de DocumentDB presenta los siguientes requisitos de hardware y softw
   *    10 GB de espacio disponible en disco duro
 
 ## <a name="installation"></a>Instalación
-Puede descargar e instalar el Emulador de DocumentDB desde el [Centro de descarga de Microsoft](https://aka.ms/documentdb-emulator). 
+Puede descargar e instalar el Emulador de Azure Cosmos DB desde el [Centro de descarga de Microsoft](https://aka.ms/documentdb-emulator). 
 
 > [!NOTE]
-> Para instalar, configurar y ejecutar el Emulador de DocumentDB, debe tener privilegios administrativos en el equipo.
+> Para instalar, configurar y ejecutar el Emulador de Azure Cosmos DB, debe tener privilegios administrativos en el equipo.
 
 ## <a name="running-on-docker-for-windows"></a>Ejecución en Docker para Windows
 
-El emulador de DocumentDB se puede ejecutar en Docker para Windows. El emulador no funciona en Docker para Oracle Linux.
+El Emulador de Azure Cosmos DB se puede ejecutar en Docker para Windows. El emulador no funciona en Docker para Oracle Linux.
 
 Una vez que tenga [Docker para Windows](https://www.docker.com/docker-windows) instalado, puede extraer la imagen del emulador de Docker Hub ejecutando el siguiente comando desde su shell favorito (cmd.exe, PowerShell, etc.).
 
@@ -75,7 +87,7 @@ Para iniciar la imagen, ejecute los siguientes comandos.
 
 ``` 
 md %LOCALAPPDATA%\DocumentDBEmulatorCert 2>nul
-docker run -v %LOCALAPPDATA%\DocumentDBEmulatorCert:c:\DocumentDBEmulator\DocumentDBEmulatorCert -P -t -i mominag/documentdb_emulator
+docker run -v %LOCALAPPDATA%\DocumentDBEmulatorCert:c:\DocumentDBEmulator\DocumentDBEmulatorCert -P -t -i microsoft/azure-documentdb-emulator 
 ```
 
 La respuesta será similar a la siguiente:
@@ -102,71 +114,71 @@ powershell .\importcert.ps1
 ```
 
 ## <a name="checking-for-updates"></a>Búsqueda de actualizaciones
-El Emulador de DocumentDB incluye un explorador de datos de Azure DocumentDB integrado para examinar los datos almacenados en DocumentDB y crear nuevas recopilaciones; además, le permite saber si hay una nueva actualización disponible para su descarga. 
+El Emulador de Azure Cosmos DB incluye un explorador de datos de Azure Cosmos DB integrado para examinar los datos almacenados en Azure Cosmos DB y crear nuevas recopilaciones; además, le permite saber si hay una nueva actualización disponible para su descarga. 
 
 > [!NOTE]
-> No se garantiza que los datos que se crean en una versión del Emulador de DocumentDB estén disponibles cuando se utilice una versión diferente. Si necesita conservar los datos a largo plazo, es recomendable que almacene esos datos en una cuenta de Azure DocumentDB y no en el Emulador de DocumentDB. 
+> No se garantiza que los datos que se crean en una versión del Emulador de Azure Cosmos DB estén disponibles cuando se utilice una versión diferente. Si necesita conservar los datos a largo plazo, es recomendable que almacene esos datos en una cuenta de Azure Cosmos DB y no en el Emulador de Azure Cosmos DB. 
 
 ## <a name="how-the-emulator-works"></a>Funcionamiento del emulador
-El Emulador de DocumentDB proporciona una emulación de alta fidelidad del servicio DocumentDB. Admite una funcionalidad idéntica a la de Azure DocumentDB, incluida la compatibilidad para crear y consultar documentos JSON, aprovisionar y escalar colecciones y ejecutar procedimientos y desencadenadores almacenados. Puede desarrollar y probar aplicaciones mediante el Emulador de DocumentDB e implementarlas en Azure a escala global realizando simplemente un solo cambio de configuración en el punto de conexión de la conexión de DocumentDB.
+El Emulador de Azure Cosmos DB proporciona una emulación de gran fidelidad del servicio Azure Cosmos DB. Admite una funcionalidad idéntica a la de Azure Cosmos DB, incluida la compatibilidad con la creación y la consulta de documentos JSON, el aprovisionamiento y el escalado de colecciones y la ejecución de procedimientos y desencadenadores almacenados. Puede desarrollar y probar aplicaciones mediante el Emulador de Azure Cosmos DB e implementarlas en Azure a escala global realizando simplemente un solo cambio de configuración en el punto de conexión de la conexión de Azure Cosmos DB.
 
-Aunque se crea una emulación local de alta fidelidad del propio servicio DocumentDB, la implementación del Emulador de DocumentDB es diferente de la del servicio. Por ejemplo, el Emulador de DocumentDB utiliza componentes del sistema operativo estándar, como el sistema de archivos local para la persistencia y la pila del protocolo HTTPS para la conectividad. Esto significa que ciertas funcionalidades que se basan en la infraestructura de Azure, como la replicación global, la latencia de milisegundos de un solo dígito para lecturas/escrituras y los niveles de coherencia ajustable, no están disponibles a través del Emulador de DocumentDB.
+Aunque se crea una emulación local de alta fidelidad del propio servicio Azure Cosmos DB, la implementación del Emulador de Azure Cosmos DB es diferente de la del servicio. Por ejemplo, el Emulador de Azure Cosmos DB usa componentes del sistema operativo estándar, como el sistema de archivos local para la persistencia y la pila del protocolo HTTPS para la conectividad. Esto significa que ciertas funcionalidades que se basan en la infraestructura de Azure, como la replicación global, la latencia de milisegundos de un solo dígito para lecturas/escrituras y los niveles de coherencia ajustable, no están disponibles a través del Emulador de Azure Cosmos DB.
 
 
 ## <a name="authenticating-requests"></a>Autenticación de solicitudes
-De la misma manera que con el documento de Azure en la nube, se deben autenticar todas las solicitudes que se realicen en el Emulador de DocumentDB. El Emulador de DocumentDB es compatible con una sola cuenta fija y una clave de autenticación ya conocida para la autenticación de clave maestra. Esta cuenta y clave son las únicas credenciales que se admiten para su uso con el Emulador de DocumentDB. Son las siguientes:
+Al igual que con los documentos de Azure en la nube, se deben autenticar todas las solicitudes que se realicen en el Emulador de Azure Cosmos DB. El Emulador de Azure Cosmos DB es compatible con una sola cuenta fija y una clave de autenticación ya conocida para la autenticación de clave maestra. Esta cuenta y clave son las únicas credenciales que se admiten para su uso con el Emulador de Azure Cosmos DB. Son las siguientes:
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 
 > [!NOTE]
-> La clave maestra admitida por el Emulador de DocumentDB está destinada a su uso exclusivo con el emulador. No puede usar la cuenta y la clave de DocumentDB con el Emulador de DocumentDB. 
+> La clave maestra admitida por el Emulador de Azure Cosmos DB está destinada a su uso exclusivo con el emulador. No puede usar su clave y cuenta de producción de Azure Cosmos DB con el Emulador de Azure Cosmos DB. 
 
-Además, al igual que el servicio Azure DocumentDB, el emulador de DocumentDB admite solo una comunicación segura mediante SSL.
+Además, lo mismo que el servicio Azure Cosmos DB, el Emulador de Azure Cosmos DB solo admite la comunicación segura a través de SSL.
 
 ## <a name="start-and-initialize-the-emulator"></a>Inicio e inicialización del emulador
 
-Para iniciar el Emulador de Azure DocumentDB, seleccione el botón Inicio o pulse la tecla Windows. Comience a escribir **Emulador de DocumentDB** y seleccione el emulador en la lista de aplicaciones. 
+Para iniciar el Emulador de Azure Cosmos DB, seleccione el botón Inicio o presione la tecla Windows. Comience a escribir **Emulador de Azure Cosmos DB** y seleccione el emulador de la lista de aplicaciones. 
 
-![Seleccione el botón Inicio o presione la tecla Windows, comience a escribir **Emulador de DocumentDB** y seleccione el emulador en la lista de aplicaciones.](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-start.png)
+![Seleccione el botón Inicio o presione la tecla Windows, comience a escribir **Emulador de Azure Cosmos DB** y seleccione el emulador en la lista de aplicaciones.](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-start.png)
 
-Cuando se ejecuta el emulador, verá un icono en el área de notificación de la barra de tareas de Windows. El Emulador de DocumentDB se ejecuta de forma predeterminada en el equipo local ("localhost") que escucha en el puerto 8081.
+Cuando se ejecuta el emulador, verá un icono en el área de notificación de la barra de tareas de Windows. El Emulador de Azure Cosmos DB se ejecuta de forma predeterminada en la máquina local ("localhost") que escucha en el puerto 8081.
 
-![Notificación en la barra de tareas del emulador local de DocumentDB](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-taskbar.png)
+![Notificación en la barra de tareas del emulador local de Azure Cosmos DB](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-taskbar.png)
 
-El Emulador de DocumentDB se instala de forma predeterminada en el directorio `C:\Program Files\DocumentDB Emulator`. También puede iniciar y detener el emulador desde la línea de comandos. Vea la [referencia de la herramienta de la línea de comandos](#command-line) para obtener más información.
+El Emulador de Azure Cosmos DB se instala de forma predeterminada en el directorio `C:\Program Files\Azure Cosmos DB Emulator`. También puede iniciar y detener el emulador desde la línea de comandos. Vea la [referencia de la herramienta de la línea de comandos](#command-line) para obtener más información.
 
 ## <a name="start-data-explorer"></a>Inicio del Explorador de datos
 
-Cuando se inicia el emulador de DocumentDB, se abre automáticamente el Explorador de datos de DocumentDB en el explorador. La dirección aparecerá como [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Si cierra el explorador y desea volver a abrirlo más adelante, puede abrir la dirección URL en el explorador web o iniciarlo desde el icono de la bandeja de Windows del Emulador de DocumentDB, tal y como se muestra a continuación.
+Cuando se inicia el Emulador de Azure Cosmos DB, se abre automáticamente el Explorador de datos de Azure Cosmos DB en su explorador. La dirección aparecerá como [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Si cierra el explorador y desea volver a abrirlo más adelante, puede abrir la dirección URL en el explorador o iniciarla desde el icono de la bandeja de Windows del Emulador de Azure Cosmos DB, tal y como se muestra a continuación.
 
-![Iniciador del explorador de datos del emulador local de DocumentDB](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-data-explorer-launcher.png)
+![Iniciador del Explorador de datos del emulador local de Azure Cosmos DB](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-data-explorer-launcher.png)
 
 ## <a name="developing-with-the-emulator"></a>Desarrollo con el emulador
-Una vez que el Emulador de DocumentDB se esté ejecutando en el escritorio, puede usar cualquier [SDK de DocumentDB](documentdb-sdk-dotnet.md) compatible o la [API de REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) para interactuar con el Emulador. El Emulador de DocumentDB también incluye un Explorador de datos integrado que le permite crear colecciones y ver y editar documentos sin escribir ningún código. 
+Cuando tenga el Emulador de Azure Cosmos DB funcionando en su escritorio, puede usar cualquier [SDK de Azure Cosmos DB](documentdb-sdk-dotnet.md) admitido o la [API de REST de Azure Cosmos DB](https://msdn.microsoft.com/library/azure/dn781481.aspx) para interactuar con el Emulador. El Emulador de Azure Cosmos DB también incluye un Explorador de datos integrado que le permite crear colecciones y ver y editar documentos sin escribir ningún código. 
 
-    // Connect to the DocumentDB Emulator running locally
+    // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
         new Uri("https://localhost:8081"), 
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-Si usa la [compatibilidad de protocolo de DocumentDB con MongoDB](documentdb-protocol-mongodb.md), use la siguiente cadena de conexión:
+Si va a utilizar la [compatibilidad del protocolo de Azure Cosmos DB con MongoDB](documentdb-protocol-mongodb.md), use la siguiente cadena de conexión:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
 
-También puede usar herramientas existentes como [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) para conectar con el Emulador de DocumentDB. Además, puede migrar datos entre el Emulador de DocumentDB y el servicio Azure DocumentDB utilizando la [herramienta de migración de datos de DocumentDB](https://github.com/azure/azure-documentdb-datamigrationtool).
+También puede usar herramientas existentes como [Azure Cosmos DB Studio](https://github.com/mingaliu/Azure Cosmos DBStudio) para conectar con el Emulador de Azure Cosmos DB. También puede migrar datos entre el Emulador de Azure Cosmos DB y el servicio Azure Cosmos DB con la [Herramienta de migración de datos de Azure Cosmos DB](https://github.com/azure/azure-documentdb-datamigrationtool).
 
-Con el emulador de DocumentDB, puede crear de forma predeterminada hasta 25 colecciones de partición única o una colección con particiones. Para más información acerca de cómo cambiar este valor, consulte la sección sobre la [configuración del valor de PartitionCount](#set-partitioncount).
+Con el Emulador de Azure Cosmos DB, puede crear de forma predeterminada hasta 25 colecciones de una única partición o una colección con particiones. Para más información acerca de cómo cambiar este valor, consulte la sección sobre la [configuración del valor de PartitionCount](#set-partitioncount).
 
 ## <a name="export-the-ssl-certificate"></a>Exportación del certificado SSL
 
-El sistema en tiempo de ejecución y los lenguajes de .NET utilizan el almacén de certificados de Windows para conectarse de forma segura al emulador local de DocumentDB. Otros lenguajes tienen sus propios métodos de administración y uso de certificados. Java utiliza su propio [almacén de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), mientras que Python utiliza [contenedores de sockets](https://docs.python.org/2/library/ssl.html).
+El sistema en tiempo de ejecución y los lenguajes .NET utilizan el almacén de certificados de Windows para conectarse de forma segura al emulador local de Azure Cosmos DB. Otros lenguajes tienen sus propios métodos de administración y uso de certificados. Java utiliza su propio [almacén de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html), mientras que Python utiliza [contenedores de sockets](https://docs.python.org/2/library/ssl.html).
 
-Si quiere obtener un certificado que se pueda utilizar con los lenguajes y los tiempos de ejecución sin que se integre con el almacén de certificados de Windows, tendrá que realizar la exportación por medio del administrador de certificados de Windows. Para iniciarlo, ejecute certlm.msc o siga las instrucciones paso a paso de [Exportación de certificados del Emulador de DocumentDB](./documentdb-nosql-local-emulator-export-ssl-certificates.md). Una vez que el Administrador de certificados se esté ejecutando, abra los certificados personales, tal y como se muestra a continuación, y exporte el certificado con el nombre descriptivo "DocumentDBEmulatorCertificate" como archivo X.509 codificado en BASE-64 (.cer).
+Si quiere obtener un certificado que se pueda utilizar con los lenguajes y los tiempos de ejecución sin que se integre con el almacén de certificados de Windows, tendrá que realizar la exportación por medio del administrador de certificados de Windows. Para iniciarlo, ejecute certlm.msc o siga las instrucciones paso a paso de [Exportación de los certificados del Emulador de Azure Cosmos DB](./documentdb-nosql-local-emulator-export-ssl-certificates.md). Una vez que el Administrador de certificados se esté ejecutando, abra los certificados personales, tal y como se muestra a continuación, y exporte el certificado con el nombre descriptivo "Azure Cosmos DBEmulatorCertificate" como archivo X.509 codificado en BASE-64 (.cer).
 
-![Certificado SSL de un emulador local de DocumentDB](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-ssl_certificate.png)
+![Certificado SSL del emulador local de Azure Cosmos DB](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-ssl_certificate.png)
 
-El certificado X.509 puede importarse en el almacén de certificados de Java siguiendo las instrucciones de [Incorporación de un certificado al almacén de certificados CA de Java](https://docs.microsoft.com/en-us/azure/java-add-certificate-ca-store). Una vez que el certificado se importa en el almacén de certificados CA, las aplicaciones de Java y MongoDB podrán conectarse al emulador de DocumentDB.
+El certificado X.509 puede importarse en el almacén de certificados de Java siguiendo las instrucciones de [Incorporación de un certificado al almacén de certificados CA de Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Cuando el certificado se haya importado en el almacén de certificados CA, las aplicaciones de Java y MongoDB podrán conectarse al Emulador de Azure Cosmos DB.
 
 Al conectarse al emulador desde los SDK de Node.js y Python, se deshabilita la verificación de SSL.
 
@@ -188,7 +200,7 @@ Para ver la lista de opciones, escriba `DocumentDB.Emulator.exe /?` en el símbo
 </tr>
 <tr>
   <td>[Sin argumentos]</td>
-  <td>Inicia el Emulador de DocumentDB con la configuración predeterminada.</td>
+  <td>Inicia el Emulador de Azure Cosmos DB con la configuración predeterminada.</td>
   <td>DocumentDB.Emulator.exe</td>
   <td></td>
 </tr>
@@ -200,7 +212,7 @@ Para ver la lista de opciones, escriba `DocumentDB.Emulator.exe /?` en el símbo
 </tr>
 <tr>
   <td>Shutdown</td>
-  <td>Apaga el Emulador de DocumentDB.</td>
+  <td>Cierra el Emulador de Azure Cosmos DB.</td>
   <td>DocumentDB.Emulator.exe /Shutdown</td>
   <td></td>
 </tr>
@@ -266,19 +278,19 @@ Para ver la lista de opciones, escriba `DocumentDB.Emulator.exe /?` en el símbo
 </tr>
 </table>
 
-## <a name="differences-between-the-documentdb-emulator-and-azure-documentdb"></a>Diferencias entre el Emulador de DocumentDB y Azure DocumentDB 
-Dado que el Emulador de DocumentDB proporciona un entorno emulado que se ejecuta en una estación de trabajo de desarrollador local, hay algunas diferencias de funcionalidad entre el emulador y una cuenta de Azure DocumentDB en la nube:
+## <a name="differences-between-the-azure-cosmos-db-emulator-and-azure-cosmos-db"></a>Diferencias entre el Emulador de Azure Cosmos DB y Azure Cosmos DB 
+Dado que el Emulador de Azure Cosmos DB proporciona un entorno emulado que se ejecuta en una estación de trabajo de desarrollador local, hay algunas diferencias de funcionalidad entre el emulador y una cuenta de Azure Cosmos DB en la nube:
 
-* El Emulador de DocumentDB es compatible con una sola cuenta fija y una clave maestra ya conocida.  La regeneración de claves no es posible en el Emulador de DocumentDB.
-* El Emulador de DocumentDB no es un servicio escalable y no será compatible con un gran número de colecciones.
-* El Emulador de DocumentDB no simula diferentes [niveles de coherencia de DocumentDB](documentdb-consistency-levels.md).
-* El Emulador de DocumentDB no simula [la replicación en varias regiones](documentdb-distribute-data-globally.md).
-* El Emulador de DocumentDB no es compatible con las invalidaciones de la cuota de servicio que están disponibles en el servicio Azure DocumentDB (por ejemplo, los límites de tamaño del documento, el mayor almacenamiento de colección particionada).
-* Como la copia del Emulador de DocumentDB puede no contener los cambios más recientes del servicio Azure DocumentDB, inicie el [planeador de capacidad de DocumentDB](https://www.documentdb.com/capacityplanner) para calcular con precisión las necesidades de rendimiento de producción (RU) de la aplicación.
+* El Emulador de Azure Cosmos DB es compatible con una sola cuenta fija y una clave maestra ya conocida.  La regeneración de claves no es posible en el Emulador de Azure Cosmos DB.
+* El Emulador de Azure Cosmos DB no es un servicio escalable y no será compatible con un gran número de colecciones.
+* El Emulador de Azure Cosmos DB no simula diferentes [niveles de coherencia de Azure Cosmos DB](documentdb-consistency-levels.md).
+* El Emulador de Azure Cosmos DB no simula [la replicación en varias regiones](documentdb-distribute-data-globally.md).
+* El Emulador de Azure Cosmos DB no es compatible con las invalidaciones de cuotas de servicio que están disponibles en el servicio Azure Cosmos DB (por ejemplo, los límites de tamaño del documento, el mayor almacenamiento de colección con particiones).
+* Como la copia del Emulador de Azure Cosmos DB puede no contener los cambios más recientes del servicio Azure Cosmos DB, inicie el [planeador de capacidad de Azure Cosmos DB](https://www.documentdb.com/capacityplanner) para calcular con precisión las necesidades de rendimiento de producción (RU) de la aplicación.
 
 ## <a id="set-partitioncount"></a>Cambio del número de colecciones
 
-Con el emulador de DocumentDB, puede crear de forma predeterminada hasta 25 colecciones de partición única o una colección con particiones. Al modificar el valor de **PartitionCount**, puede crear hasta 250 colecciones de partición única o 10 colecciones con particiones o cualquier combinación de las dos que no superen las 250 particiones de partición única (donde 1 colección con particiones = 25 colecciones de partición única).
+Con el Emulador de Azure Cosmos DB, puede crear de forma predeterminada hasta 25 colecciones de partición única o una colección con particiones. Al modificar el valor de **PartitionCount**, puede crear hasta 250 colecciones de partición única o 10 colecciones con particiones o cualquier combinación de las dos que no superen las 250 particiones de partición única (donde 1 colección con particiones = 25 colecciones de partición única).
 
 Si intenta crear una colección después de que se haya excedido el recuento de particiones actual, el emulador generará una excepción ServiceUnavailable, con el siguiente mensaje.
 
@@ -288,19 +300,19 @@ Si intenta crear una colección después de que se haya excedido el recuento de 
     Please do not hesitate to email docdbswat@microsoft.com at any time or 
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
-Para cambiar el número de colecciones disponibles en el emulador de DocumentDB, haga lo siguiente:
+Para cambiar el número de colecciones disponibles en el Emulador de Azure Cosmos DB, haga lo siguiente:
 
-1. Elimine todos los datos del emulador de DocumentDB local haciendo clic con el botón derecho en el icono del **Emulador de DocumentDB** de la bandeja del sistema y, luego, haciendo clic en **Reset Data…** (Restablecer datos...).
+1. Elimine todos los datos del emulador local de Azure Cosmos DB; para ello, haga clic con el botón derecho en el icono del **Emulador de Azure Cosmos DB** de la bandeja del sistema y, luego, haga clic en **Reset Data…** (Restablecer datos...).
 2. Elimine todos los datos del emulador en la carpeta C:\Users\user_name\AppData\Local\DocumentDBEmulator.
-3. Salga de todas las instancias abiertas haciendo clic con el botón derecho en el icono del **Emulador de DocumentDB** de la bandeja del sistema y, luego, haciendo clic en **Salir**. Todas las instancias pueden tardar un minuto en salir.
-4. Instale la versión más reciente del [Emulador de DocumentDB](https://aka.ms/documentdb-emulator).
+3. Cierre todas las instancias abiertas; para ello, haga clic con el botón derecho en el icono del **Emulador de Azure Cosmos DB** de la bandeja del sistema y, luego, haga clic en **Salir**. Todas las instancias pueden tardar un minuto en salir.
+4. Instale la versión más reciente del [Emulador de Azure Cosmos DB](https://aka.ms/documentdb-emulator).
 5. Para iniciar el emulador con la marca PartitionCount, establezca un valor <= 250. Por ejemplo: `C:\Program Files\DocumentDB Emulator>DocumentDB.Emulator.exe /PartitionCount=100`.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Use las siguientes sugerencias para solucionar los problemas que puedan surgir con el Emulador de DocumentDB:
+Use las siguientes sugerencias para solucionar los problemas que puedan surgir con el Emulador de Azure Cosmos DB:
 
-- Si el Emulador de DocumentDB se bloquea, recopile los archivos de volcado de memoria de la carpeta c:\Users\user_name\AppData\Local\CrashDumps, comprímalos, adjúntelos a un correo electrónico y envíelo a [ askdocdb@microsoft.com ](mailto:askdocdb@microsoft.com).
+- Si el Emulador de Azure Cosmos DB se bloquea, recopile los archivos de volcado de memoria de la carpeta c:\Users\user_name\AppData\Local\CrashDumps, comprímalos y adjúntelos a un correo electrónico para [askdocdb@microsoft.com ](mailto:askdocdb@microsoft.com).
 
 - Si experimenta bloqueos en DocumentDB.StartupEntryPoint.exe, ejecute el siguiente comando desde un símbolo del sistema de administración:`lodctr /R` 
 
@@ -319,8 +331,21 @@ Para recopilar los seguimientos de depuración, ejecute los siguientes comandos 
 6. Vaya a `%ProgramFiles%\DocumentDB Emulator` y localice el archivo docdbemulator_000001.etl.
 7. Envíe el archivo .etl junto con los pasos para reproducirlo a [ askdocdb@microsoft.com ](mailto:askdocdb@microsoft.com) para la depuración.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener más información acerca de DocumentDB, vea [Introduction to Azure DocumentDB](documentdb-introduction.md) (Introducción a Azure DocumentDB).
-* Para empezar a desarrollar en el Emulador de DocumentDB, descargue uno de los [SDK de DocumentDB admitidos](documentdb-sdk-dotnet.md).
+
+En este tutorial, ha hecho lo siguiente:
+
+> [!div class="checklist"]
+> * Ha instalado el emulador local
+> * Ha ejecutado el Emulador en Docker para Windows
+> * Ha autenticado solicitudes
+> * Ha usado el Explorador de datos en el Emulador
+> * Ha exportado certificados SSL
+> * Ha llamado al Emulador desde la línea de comandos
+> * Ha recopilado archivos de seguimiento
+
+En este tutorial, ha aprendido a usar el emulador local para el desarrollo local gratuito. Ahora puede pasar al siguiente tutorial y aprender a exportar certificados SSL del Emulador. 
+
+> [!div class="nextstepaction"]
+> [Exportación de los certificados del Emulador de Azure Cosmos DB](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 

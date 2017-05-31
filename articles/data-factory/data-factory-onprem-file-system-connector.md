@@ -12,19 +12,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 05/11/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6c26bf3eda7ef15e7a580a31ab7b6624c8a7a826
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: bd38aa5e4dd50b11f52afdc9dfc0f22c8c072f67
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
 # <a name="move-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Movimiento de datos hacia y desde el sistema de archivos local mediante Azure Data Factory
-Puede copiar datos de HDFS en cualquier almacén de datos de receptor admitido. Para ver una lista de almacenes de datos admitidos como receptores por la actividad de copia, consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats). En la actualidad, Factoría de datos solo admite el movimiento de datos desde HDFS local a otros almacenes de datos, pero no el movimiento inverso.
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para copiar datos hacia y desde un sistema de archivos local. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
-En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos hacia un sistema de archivos local y desde él. Puede copiar datos desde un sistema de archivos local a cualquier almacén de datos receptor o desde cualquier almacén de datos de origen compatible. Para ver una lista de almacenes de datos admitidos como receptores por la actividad de copia, consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Se basa en la información general ofrecida por el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md). Consulte los [orígenes y receptores admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para obtener una lista de almacenes de datos que se pueden utilizar como orígenes o receptores con el sistema de archivos local.
+## <a name="supported-scenarios"></a>Escenarios admitidos
+Puede copiar datos **de un sistema de archivos local** a los siguientes almacenes de datos:
+
+[!INCLUDE [data-factory-supported-sink](../../includes/data-factory-supported-sinks.md)]
+
+Puede copiar datos de los siguientes almacenes de datos **a un sistema de archivos local**:
+
+[!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
 > La actividad de copia no elimina el archivo de origen una vez copiado correctamente en el destino. Si necesita eliminar el archivo de origen tras una copia correcta, cree una actividad personalizada para tal fin y úsela en la canalización. 
@@ -43,11 +51,12 @@ También puede usar las herramientas siguientes para crear una canalización: **
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
-1. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos.
-2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia.
-3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida.
+1. Crear una **factoría de datos**. Una factoría de datos puede contener una o más canalizaciones. 
+2. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos. Por ejemplo, si va a copiar datos de una instancia de Azure Blob Storage a un sistema de archivos local, creará dos servicios vinculados para vincular su sistema de archivos local y la cuenta de Azure Storage a su factoría de datos. Para información sobre las propiedades de los servicios vinculados que son específicas de un sistema de archivos local, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties).
+3. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. En el ejemplo mencionado en el último paso, se crea un conjunto de datos para especificar el contenedor de blobs y la carpeta que contiene los datos de entrada. Y se crea otro conjunto de datos para especificar la carpeta y el nombre de archivo (opcional) en el sistema de archivos. Para información sobre las propiedades de los conjuntos de datos que son específicas del sistema de archivos local, consulte [Propiedades del conjunto de datos](#dataset-properties).
+4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo que se ha mencionado anteriormente, se usa BlobSource como origen y FileSystemSink como receptor en la actividad de copia. De igual forma, si va a copiar desde un sistema de archivos local hacia Azure Blob Storage, usará FileSystemSource y BlobSink en la actividad de copia. Para información sobre las propiedades de la actividad de copia que son específicas del sistema de archivos local, consulte la sección [Propiedades de la actividad de copia](#copy-activity-properties). Para más información sobre cómo usar un almacén de datos como origen o como receptor, haga clic en el vínculo de la sección anterior para el almacén de datos.
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ejemplos con definiciones de JSON para entidades de Data Factory que se usan para copiar datos hacia un sistema de archivos y desde este, consulte la sección de [ejemplos de JSON](#json-examples) de este artículo.
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver ejemplos con definiciones de JSON para entidades de Data Factory que se usan para copiar datos hacia un sistema de archivos y desde este, consulte la sección [Ejemplos de JSON](#json-examples-for-copying-data-to-and-from-file-system) de este artículo.
 
 En las secciones siguientes, se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de un sistema de archivos:
 
@@ -112,11 +121,11 @@ La sección typeProperties es diferente para cada tipo de conjunto de datos. Pro
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | folderPath |Especifica la subruta de acceso a la carpeta. Use el carácter de escape "\" para los caracteres especiales de la cadena. Consulte los casos que se exponen en [Ejemplos de definiciones de servicio vinculado y conjunto de datos](#sample-linked-service-and-dataset-definitions) .<br/><br/>Puede combinar esta propiedad con **partitionBy** para que las rutas de acceso de carpeta se basen en las fechas y horas de inicio y finalización del segmento. |Sí |
-| fileName |Especifique el nombre del archivo en **folderPath** si quiere que la tabla haga referencia a un archivo específico de la carpeta. Si no especifica ningún valor para esta propiedad, la tabla apunta a todos los archivos de la carpeta.<br/><br/>Si no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado está en el siguiente formato: <br/><br/>`Data.<Guid>.txt` (Ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
+| fileName |Especifique el nombre del archivo en **folderPath** si quiere que la tabla haga referencia a un archivo específico de la carpeta. Si no especifica ningún valor para esta propiedad, la tabla apunta a todos los archivos de la carpeta.<br/><br/>Cuando **fileName** no se especifica para un conjunto de datos de salida y **preserveHierarchy** no se especifica en el receptor de la actividad, el nombre del archivo generado está en el siguiente formato: <br/><br/>`Data.<Guid>.txt` (Ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
 | fileFilter |Especifique el filtro que se va a usar para seleccionar un subconjunto de archivos de folderPath, en lugar de todos los archivos. <br/><br/>Valores permitidos son: `*` (varios caracteres) y `?` (un único individual).<br/><br/>Ejemplo 1: "fileFilter": "*.log"<br/>Ejemplo 2: "fileFilter": 2014-1-?.txt"<br/><br/>Tenga en cuenta que fileFilter es aplicable a un conjunto de datos de FileShare de entrada. |No |
 | partitionedBy |Puede usar partitionedBy para especificar un valor dinámico de folderPath/fileName para los datos de series temporales. Por ejemplo, folderPath se parametriza por cada hora de datos. |No |
 | formato | Se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. |No |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**, y los niveles que se admiten son: **Optimal** (Óptimo) y **Fastest** (Más rápido). consulte [Formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Los niveles admitidos son **Optimal** y **Fastest**. consulte [Formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 > [!NOTE]
 > No se puede usar fileName y fileFilter a la vez.
@@ -186,10 +195,10 @@ En esta sección se describe el comportamiento resultante de la operación de co
 ## <a name="supported-file-and-compression-formats"></a>Formatos de archivo y de compresión admitidos
 Consulte los detalles en [Formatos de compresión y de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
-## <a name="json-examples"></a>Ejemplos de JSON
+## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>Ejemplos de JSON para copiar datos hacia un sistema de archivos y desde este
 En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos entre el sistema de archivos local y Azure Blob Storage. Sin embargo, puede copiar datos *directamente* desde cualquiera de los orígenes y hasta cualquiera de los receptores enumerados en [orígenes y receptores compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia de Azure Data Factory.
 
-## <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Ejemplo: Copia de datos de un sistema de archivos local a Azure Blob Storage
+### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>Ejemplo: Copia de datos de un sistema de archivos local a Azure Blob Storage
 En este ejemplo se muestra cómo copiar datos desde un sistema de archivos local hasta Azure Blob Storage. El ejemplo consta de las siguientes entidades de Data Factory:
 
 * Un servicio vinculado de tipo [OnPremisesFileServer](#linked-service-properties).
@@ -411,7 +420,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 }
 ```
 
-## <a name="example-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>Ejemplo: Copia de datos desde Azure SQL Database a un sistema de archivos local
+### <a name="example-copy-data-from-azure-sql-database-to-an-on-premises-file-system"></a>Ejemplo: Copia de datos desde Azure SQL Database a un sistema de archivos local
 El ejemplo siguiente muestra:
 
 * Un servicio vinculado de tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md#linked-service-properties).

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/11/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 07916e9c05b06c6998daf54467ee97ba9d9d0a64
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 90c4cd42aa9dcef2cda4ec66e64393bf474b6a60
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -27,14 +27,142 @@ ms.lasthandoff: 04/28/2017
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para copiar datos hacia Azure Blob Storage y desde este servicio. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
 ## <a name="overview"></a>Información general
-Puede copiar datos de cualquier almacén de datos de origen compatible a Azure Blob Storage o de Azure Blob Storage a cualquier almacén de datos del receptor compatible. En la tabla siguiente se proporciona una lista de almacenes de datos que se admiten como orígenes o receptores de la actividad de copia. Por ejemplo, puede mover datos **de** una base de datos SQL Server o una base de datos Azure SQL **a** una instancia de Azure Blob Storage. Y, puede copiar datos **de** Azure Blob Storage **en** una instancia de Azure SQL Data Warehouse o una colección de Azure DocumentDB. 
+Puede copiar datos de cualquier almacén de datos de origen compatible a Azure Blob Storage o de Azure Blob Storage a cualquier almacén de datos del receptor compatible. En la tabla siguiente se proporciona una lista de almacenes de datos que se admiten como orígenes o receptores de la actividad de copia. Por ejemplo, puede mover datos **de** una base de datos SQL Server o una base de datos Azure SQL **a** una instancia de Azure Blob Storage. Y, puede copiar datos **desde** Azure Blob Storage **hacia** una instancia de Azure SQL Data Warehouse o una colección de Azure Cosmos DB. 
 
-[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+## <a name="supported-scenarios"></a>Escenarios admitidos
+Puede copiar datos **desde Azure Blob Storage** hacia los siguientes almacenes de datos:
 
-La actividad de copia es compatible con la copia de datos desde y hacia cuentas de Azure Storage de propósito general y el almacenamiento de blobs en frío y en caliente. La actividad admite **leer desde blobs en bloques, en anexos o en páginas**, pero solo permite **escribir en blobs en bloques**. Azure Premium Storage no es compatible como receptor porque está respaldado por blobs en páginas.
+[!INCLUDE [data-factory-supported-sink](../../includes/data-factory-supported-sinks.md)]
 
-> [!NOTE]
-> La actividad de copia no elimina datos del origen una vez copiados los datos correctamente en el destino. Si necesita eliminar datos de origen tras una copia correcta, cree una [actividad personalizada](data-factory-use-custom-activities.md) para tal fin y úsela en la canalización.
+Puede copiar datos desde los siguientes almacenes de datos **hacia Azure Blob Storage**:
+
+[!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
+ 
+> [!IMPORTANT]
+> La actividad de copia es compatible con la copia de datos desde y hacia cuentas de Azure Storage de propósito general y el almacenamiento de blobs en frío y en caliente. La actividad admite **leer desde blobs en bloques, en anexos o en páginas**, pero solo permite **escribir en blobs en bloques**. Azure Premium Storage no es compatible como receptor porque está respaldado por blobs en páginas.
+> 
+> La actividad de copia no elimina datos del origen una vez copiados los datos correctamente en el destino. Si necesita eliminar datos de origen tras una copia correcta, cree una [actividad personalizada](data-factory-use-custom-activities.md) para tal fin y úsela en la canalización. Para más información, consulte el [ejemplo de eliminación de un blob o una carpeta en GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity). 
+
+## <a name="get-started"></a>Introducción
+Puede crear una canalización con actividad de copia que mueva los datos desde Azure Blob Storage o hacia él mediante el uso de diferentes herramientas o API.
+
+La manera más fácil de crear una canalización es usar el **Asistente para copia**. Este artículo tiene un [tutorial](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) para crear una canalización para copiar datos entre ubicaciones de Azure Blob Storage. Para ver un tutorial sobre la creación de una canalización para copiar datos desde una instancia de Azure Blob Storage hacia una instancia de Azure SQL Database, consulte [Tutorial: crear una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md).
+
+También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
+
+1. Crear una **factoría de datos**. Una factoría de datos puede contener una o más canalizaciones. 
+2. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos. Por ejemplo, si va a copiar datos desde una instancia de Azure Blob Storage hacia una instancia de Azure SQL Database, creará dos servicios vinculados para vincular la cuenta de Azure Storage y la instancia de Azure SQL Database a su factoría de datos. Para información sobre las propiedades de los servicios vinculados que son específicas de Azure Blob Storage, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties). 
+2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. En el ejemplo mencionado en el último paso, se crea un conjunto de datos para especificar el contenedor de blobs y la carpeta que contiene los datos de entrada. Además, se crea otro conjunto de datos para especificar la tabla SQL en la instancia de Azure SQL Database que contiene los datos copiados del almacenamiento de blobs. Para información sobre las propiedades del conjunto de datos que son específicas de Azure Blob Storage, consulte la sección [Propiedades del conjunto de datos](#dataset-properties).
+3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo que se ha mencionado anteriormente, se usa BlobSource como origen y SqlSink como receptor para la actividad de copia. De igual forma, si va a copiar desde Azure SQL Database hacia Azure Blob Storage, se usa SqlSource y BlobSink en la actividad de copia. Para información sobre las propiedades de la actividad de copia que son específicas de Azure Blob Storage, consulte la sección [Propiedades de la actividad de copia](#copy-activity-properties). Para más información sobre cómo usar un almacén de datos como origen o como receptor, haga clic en el vínculo de la sección anterior para el almacén de datos.  
+
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para obtener ejemplos con definiciones de JSON para entidades de Data Factory que se utilizan para copiar datos con Azure Blob Storage como origen y destino, consulte la sección [Ejemplos de JSON](#json-examples-for-copying-data-to-and-from-blob-storage  ) de este artículo.
+
+En las secciones siguientes se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de Azure Blob Storage.
+
+## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
+Hay dos tipos de servicios vinculados que puede usar para vincular una instancia de Azure Storage a una instancia de Azure Data Factory. Se trata del servicio vinculado **AzureStorage** y el servicio vinculado **AzureStorageSas**. El servicio vinculado de Almacenamiento de Azure proporciona a la factoría de datos acceso global al Almacenamiento de Azure. Mientras que el servicio vinculado de SAS (firma de acceso compartido) de Almacenamiento de Azure proporciona a la factoría de datos acceso restringido/controlado por tiempo al Almacenamiento de Azure. No existen otras diferencias entre estos dos servicios vinculados. Elija el servicio vinculado que se adapte a sus necesidades. En las siguientes secciones se ofrecen más detalles sobre estos dos servicios vinculados.
+
+[!INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
+
+## <a name="dataset-properties"></a>Propiedades del conjunto de datos
+Para especificar un conjunto de datos para representar datos de entrada o salida en Azure Blob Storage, establezca la propiedad de tipo del conjunto de datos en **AzureBlob**. Establezca la propiedad **linkedServiceName** del conjunto de datos en el nombre del servicio vinculado Azure Storage o SAS de Azure Storage.  Las propiedades de tipo del conjunto de datos especifican el **contenedor de blobs** y la **carpeta** en Blob Storage.
+
+Para obtener una lista completa de las secciones y propiedades JSON disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
+
+Data factory admite los siguientes valores de tipo basados en .NET compatible con CLS con el fin de proporcionar información de tipos en la sección "structure" del esquema de los orígenes de datos de lectura como un blob de Azure: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset y Timespan. Data Factory realiza automáticamente las conversiones de tipo al mover datos desde un almacén de datos de origen a un almacén de datos de receptor.
+
+La sección **typeProperties** es diferente para cada tipo de conjunto de datos y proporciona información acerca de la ubicación, el formato, etc. de los datos del almacén de datos. La sección typeProperties del conjunto de datos de tipo **AzureBlob** tiene las propiedades siguientes:
+
+| Propiedad | Descripción | Obligatorio |
+| --- | --- | --- |
+| folderPath |Ruta de acceso para el contenedor y la carpeta en el almacenamiento de blobs. Ejemplo: myblobcontainer\myblobfolder\ |Sí |
+| fileName |Nombre del blob. La propiedad fileName es opcional y distingue entre mayúsculas y minúsculas.<br/><br/>Si especifica fileName, la actividad (incluida la copia) funciona en el blob específico.<br/><br/>Cuando no se especifica fileName, la copia incluirá todos los blobs de folderPath para el conjunto de datos de entrada.<br/><br/>Si no se especifica **fileName** para un conjunto de datos de salida y no se especifica **preserveHierarchy** en el receptor de actividad, el nombre del archivo generado tendrá el siguiente formato: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| partitionedBy |partitionedBy es una propiedad opcional. Puede usarla para especificar un folderPath dinámico y un nombre de archivo para datos de series temporales. Por ejemplo, se puede parametrizar folderPath por cada hora de datos. Consulte la sección [Uso de la propiedad partitionedBy](#using-partitionedBy-property) para ver información detallada y ejemplos. |No |
+| formato | Se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. |No |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Los niveles admitidos son **Optimal** y **Fastest**. Para más información, consulte el artículo sobre [formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+
+### <a name="using-partitionedby-property"></a>Uso de la propiedad partitionedBy
+Como ya se ha indicado en la sección anterior, se puede especificar un valor dinámico de folderPath y filename para datos de series temporales con la propiedad **partitionedBy**, [funciones de Data Factory y las variables del sistema](data-factory-functions-variables.md).
+
+Para más información sobre los conjuntos de datos de series temporales, la programación y los segmentos, consulte los artículos [Creación de conjuntos de datos](data-factory-create-datasets.md) y [Programación y ejecución](data-factory-scheduling-and-execution.md).
+
+#### <a name="sample-1"></a>Ejemplo 1
+
+```json
+"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+"partitionedBy":
+[
+    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
+],
+```
+
+En este ejemplo, {Slice} se reemplaza por el valor de la variable del sistema SliceStart de Data Factory en el formato (YYYYMMDDHH) especificado. SliceStart hace referencia a la hora de inicio del segmento. folderPath es diferente para cada segmento. Por ejemplo: wikidatagateway/wikisampledataout/2014100103 o wikidatagateway/wikisampledataout/2014100104
+
+#### <a name="sample-2"></a>Ejemplo 2
+
+```json
+"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy":
+ [
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+],
+```
+
+En este ejemplo, year, month, day y time de SliceStart se extraen en variables independientes que se usan en las propiedades folderPath y fileName.
+
+## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
+Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, conjuntos de datos de entrada y salida, y directivas) están disponibles para todos los tipos de actividades. Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores. Si va a mover datos desde un Azure Blob Storage, establezca el tipo de origen en la actividad de copia en **BlobSource**. De igual forma, si va a mover datos desde un Azure Blob Storage, establezca el tipo de receptor en la actividad de copia en **BlobSink**. Esta sección proporciona una lista de propiedades admitidas por BlobSource y BlobSink.
+
+**BlobSource** admite las siguientes propiedades en la sección **typeProperties**:
+
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
+| --- | --- | --- | --- |
+| recursive |Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. |True (valor predeterminado), False |No |
+
+**BlobSink** admite las siguientes propiedades en la sección **typeProperties**:
+
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
+| --- | --- | --- | --- |
+| copyBehavior |Define el comportamiento de copia cuando el origen es BlobSource o FileSystem. |<b>PreserveHierarchy:</b> conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><br/><b>FlattenHierarchy:</b> todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen un nombre generado automáticamente. <br/><br/><b>MergeFiles:</b> combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente. |No |
+
+**BlobSource** también admite estas dos propiedades para ofrecer compatibilidad con versiones anteriores.
+
+* **treatEmptyAsNull**: especifica si se debe tratar una cadena nula o vacía como un valor nulo.
+* **skipHeaderLineCount** : especifica cuántas líneas deben omitirse. Es aplicable únicamente cuando el conjunto de datos de entrada usa TextFormat.
+
+De forma similar, **BlobSink** admite la siguiente propiedad para ofrecer compatibilidad con versiones anteriores.
+
+* **blobWriterAddHeader**: especifica si se debe agregar un encabezado de definiciones de columna al escribir en un conjunto de datos de salida.
+
+Los conjuntos de datos ahora son compatibles con las siguientes propiedades que implementan la misma funcionalidad: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
+
+En la tabla siguiente se proporciona orientación sobre cómo utilizar las nuevas propiedades de conjunto de datos en lugar de estas propiedades de origen/receptor de blob.
+
+| Propiedad de la actividad de copia | Propiedad de conjunto de datos |
+|:--- |:--- |
+| skipHeaderLineCount en BlobSource |skipLineCount y firstRowAsHeader. Las líneas se omiten en primer lugar y, a continuación, se lee la primera fila como encabezado. |
+| treatEmptyAsNull en BlobSource |treatEmptyAsNull en el conjunto de datos de entrada |
+| blobWriterAddHeader en BlobSink |firstRowAsHeader en el conjunto de datos de salida |
+
+Consulte la sección [Especificación de TextFormat](data-factory-supported-file-and-compression-formats.md#text-format) para obtener información detallada acerca de estas propiedades.    
+
+### <a name="recursive-and-copybehavior-examples"></a>Ejemplos de recursive y copyBehavior
+En esta sección se describe el comportamiento resultante de la operación de copia para diferentes combinaciones de valores recursive y copyBehavior.
+
+| recursive | copyBehavior | Comportamiento resultante |
+| --- | --- | --- |
+| true |preserveHierarchy |Si la carpeta de origen Folder1 tiene esta estructura:  <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la misma estructura que la de origen<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
+| true |flattenHierarchy |Si la carpeta de origen Folder1 tiene esta estructura:  <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la estructura siguiente: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File5 |
+| true |mergeFiles |Si la carpeta de origen Folder1 tiene esta estructura:  <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la estructura siguiente: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;El contenido de File1 + File2 + File3 + File4 + File 5 se combina en un archivo con un nombre de archivo generado automáticamente |
+| false |preserveHierarchy |Si la carpeta de origen Folder1 tiene esta estructura:  <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la estructura siguiente<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/><br/>No se selecciona la subcarpeta Subfolder1, que contiene los archivos File3, File4 y File5. |
+| false |flattenHierarchy |Si la carpeta de origen Folder1 tiene esta estructura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la estructura siguiente<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File2<br/><br/><br/>No se selecciona la subcarpeta Subfolder1, que contiene los archivos File3, File4 y File5. |
+| false |mergeFiles |Si la carpeta de origen Folder1 tiene esta estructura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la estructura siguiente<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;El contenido de File1 + File2 se combina en un archivo con un nombre de archivo generado automáticamente. Nombre de archivo generado automáticamente para File1<br/><br/>No se selecciona la subcarpeta Subfolder1, que contiene los archivos File3, File4 y File5. |
 
 ## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Tutorial: Uso del Asistente para copia para copiar datos a y desde Blob Storage
 Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blob Storage. En este tutorial, los almacenes de datos de origen y destino son de tipo: Azure Blob Storage. La canalización en este tutorial copia datos de una carpeta a otra carpeta en el mismo contenedor de blobs. Este tutorial es sencillo a propósito para mostrar sus valores de configuración o propiedades al usar Blob Storage como origen o receptor. 
@@ -329,127 +457,10 @@ Para más información sobre las propiedades admitidas por BlobSource y BlobSink
 }
 ```
 
-## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
-Hay dos tipos de servicios vinculados que puede usar para vincular una instancia de Azure Storage a una instancia de Azure Data Factory. Se trata del servicio vinculado **AzureStorage** y el servicio vinculado **AzureStorageSas**. El servicio vinculado de Almacenamiento de Azure proporciona a la factoría de datos acceso global al Almacenamiento de Azure. Mientras que el servicio vinculado de SAS (firma de acceso compartido) de Almacenamiento de Azure proporciona a la factoría de datos acceso restringido/controlado por tiempo al Almacenamiento de Azure. No existen otras diferencias entre estos dos servicios vinculados. Elija el servicio vinculado que se adapte a sus necesidades. En las siguientes secciones se ofrecen más detalles sobre estos dos servicios vinculados.
-
-[!INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
-
-## <a name="dataset-properties"></a>Propiedades del conjunto de datos
-Para especificar un conjunto de datos para representar datos de entrada o salida en Azure Blob Storage, establezca la propiedad de tipo del conjunto de datos en **AzureBlob**. Establezca la propiedad **linkedServiceName** del conjunto de datos en el nombre del servicio vinculado Azure Storage o SAS de Azure Storage.  Las propiedades de tipo del conjunto de datos especifican el **contenedor de blobs** y la **carpeta** en Blob Storage.
-
-Para obtener una lista completa de las secciones y propiedades JSON disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
-
-Data factory admite los siguientes valores de tipo basados en .NET compatible con CLS con el fin de proporcionar información de tipos en la sección "structure" del esquema de los orígenes de datos de lectura como un blob de Azure: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset y Timespan. Data Factory realiza automáticamente las conversiones de tipo al mover datos desde un almacén de datos de origen a un almacén de datos de receptor.
-
-La sección **typeProperties** es diferente para cada tipo de conjunto de datos y proporciona información acerca de la ubicación, el formato, etc. de los datos del almacén de datos. La sección typeProperties del conjunto de datos de tipo **AzureBlob** tiene las propiedades siguientes:
-
-| Propiedad | Descripción | Obligatorio |
-| --- | --- | --- |
-| folderPath |Ruta de acceso para el contenedor y la carpeta en el almacenamiento de blobs. Ejemplo: myblobcontainer\myblobfolder\ |Sí |
-| fileName |Nombre del blob. La propiedad fileName es opcional y distingue entre mayúsculas y minúsculas.<br/><br/>Si especifica fileName, la actividad (incluida la copia) funciona en el blob específico.<br/><br/>Cuando no se especifica fileName, la copia incluirá todos los blobs de folderPath para el conjunto de datos de entrada.<br/><br/>Si no se especifica fileName para un conjunto de datos de salida, el nombre del archivo tendría este formato:Data.<Guid>.txt (por ejemplo: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
-| partitionedBy |partitionedBy es una propiedad opcional. Puede usarla para especificar un folderPath dinámico y un nombre de archivo para datos de series temporales. Por ejemplo, se puede parametrizar folderPath por cada hora de datos. Consulte la sección [Uso de la propiedad partitionedBy](#using-partitionedBy-property) para ver información detallada y ejemplos. |No |
-| formato | Se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. |No |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Los niveles admitidos son **Optimal** y **Fastest**. Para más información, consulte el artículo sobre [formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
-
-### <a name="using-partitionedby-property"></a>Uso de la propiedad partitionedBy
-Como ya se ha indicado en la sección anterior, se puede especificar un valor dinámico de folderPath y filename para datos de series temporales con la propiedad **partitionedBy**, [funciones de Data Factory y las variables del sistema](data-factory-functions-variables.md).
-
-Para más información sobre los conjuntos de datos de series temporales, la programación y los segmentos, consulte los artículos [Creación de conjuntos de datos](data-factory-create-datasets.md) y [Programación y ejecución](data-factory-scheduling-and-execution.md).
-
-#### <a name="sample-1"></a>Ejemplo 1
-
-```json
-"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-"partitionedBy":
-[
-    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
-],
-```
-
-En este ejemplo, {Slice} se reemplaza por el valor de la variable del sistema SliceStart de Data Factory en el formato (YYYYMMDDHH) especificado. SliceStart hace referencia a la hora de inicio del segmento. folderPath es diferente para cada segmento. Por ejemplo: wikidatagateway/wikisampledataout/2014100103 o wikidatagateway/wikisampledataout/2014100104
-
-#### <a name="sample-2"></a>Ejemplo 2
-
-```json
-"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-"fileName": "{Hour}.csv",
-"partitionedBy":
- [
-    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-],
-```
-
-En este ejemplo, year, month, day y time de SliceStart se extraen en variables independientes que se usan en las propiedades folderPath y fileName.
-
-## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
-Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, conjuntos de datos de entrada y salida, y directivas) están disponibles para todos los tipos de actividades. Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores. Si va a mover datos desde un Azure Blob Storage, establezca el tipo de origen en la actividad de copia en **BlobSource**. De igual forma, si va a mover datos desde un Azure Blob Storage, establezca el tipo de receptor en la actividad de copia en **BlobSink**. Esta sección proporciona una lista de propiedades admitidas por BlobSource y BlobSink.
-
-**BlobSource** admite las siguientes propiedades en la sección **typeProperties**:
-
-| Propiedad | Descripción | Valores permitidos | Obligatorio |
-| --- | --- | --- | --- |
-| recursive |Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. |True (valor predeterminado), False |No |
-
-**BlobSink** admite las siguientes propiedades en la sección **typeProperties**:
-
-| Propiedad | Descripción | Valores permitidos | Obligatorio |
-| --- | --- | --- | --- |
-| copyBehavior |Define el comportamiento de copia cuando el origen es BlobSource o FileSystem. |<b>PreserveHierarchy:</b> conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><br/><b>FlattenHierarchy:</b> todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen un nombre generado automáticamente. <br/><br/><b>MergeFiles:</b> combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente. |No |
-
-**BlobSource** también admite estas dos propiedades para ofrecer compatibilidad con versiones anteriores.
-
-* **treatEmptyAsNull**: especifica si se debe tratar una cadena nula o vacía como un valor nulo.
-* **skipHeaderLineCount** : especifica cuántas líneas deben omitirse. Es aplicable únicamente cuando el conjunto de datos de entrada usa TextFormat.
-
-De forma similar, **BlobSink** admite la siguiente propiedad para ofrecer compatibilidad con versiones anteriores.
-
-* **blobWriterAddHeader**: especifica si se debe agregar un encabezado de definiciones de columna al escribir en un conjunto de datos de salida.
-
-Los conjuntos de datos ahora son compatibles con las siguientes propiedades que implementan la misma funcionalidad: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
-
-En la tabla siguiente se proporciona orientación sobre cómo utilizar las nuevas propiedades de conjunto de datos en lugar de estas propiedades de origen/receptor de blob.
-
-| Propiedad de la actividad de copia | Propiedad de conjunto de datos |
-|:--- |:--- |
-| skipHeaderLineCount en BlobSource |skipLineCount y firstRowAsHeader. Las líneas se omiten en primer lugar y, a continuación, se lee la primera fila como encabezado. |
-| treatEmptyAsNull en BlobSource |treatEmptyAsNull en el conjunto de datos de entrada |
-| blobWriterAddHeader en BlobSink |firstRowAsHeader en el conjunto de datos de salida |
-
-Consulte la sección [Especificación de TextFormat](data-factory-supported-file-and-compression-formats.md#text-format) para obtener información detallada acerca de estas propiedades.    
-
-### <a name="recursive-and-copybehavior-examples"></a>Ejemplos de recursive y copyBehavior
-En esta sección se describe el comportamiento resultante de la operación de copia para diferentes combinaciones de valores recursive y copyBehavior.
-
-| recursive | copyBehavior | Comportamiento resultante |
-| --- | --- | --- |
-| true |preserveHierarchy |Si la carpeta de origen Folder1 tiene esta estructura:  <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la misma estructura que la de origen<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
-| true |flattenHierarchy |Si la carpeta de origen Folder1 tiene esta estructura:  <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la estructura siguiente: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File5 |
-| true |mergeFiles |Si la carpeta de origen Folder1 tiene esta estructura:  <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la estructura siguiente: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;El contenido de File1 + File2 + File3 + File4 + File 5 se combina en un archivo con un nombre de archivo generado automáticamente |
-| false |preserveHierarchy |Si la carpeta de origen Folder1 tiene esta estructura:  <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la estructura siguiente<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/><br/>No se selecciona la subcarpeta Subfolder1, que contiene los archivos File3, File4 y File5. |
-| false |flattenHierarchy |Si la carpeta de origen Folder1 tiene esta estructura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la estructura siguiente<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File2<br/><br/><br/>No se selecciona la subcarpeta Subfolder1, que contiene los archivos File3, File4 y File5. |
-| false |mergeFiles |Si la carpeta de origen Folder1 tiene esta estructura: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>la carpeta de destino Folder1 se crea con la estructura siguiente<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;El contenido de File1 + File2 se combina en un archivo con un nombre de archivo generado automáticamente. Nombre de archivo generado automáticamente para File1<br/><br/>No se selecciona la subcarpeta Subfolder1, que contiene los archivos File3, File4 y File5. |
-
-## <a name="toolssdks-to-create-a-pipeline"></a>Herramientas y SDK para crear una canalización  
-Puede crear una canalización con actividad de copia que mueva los datos desde Azure Blob Storage o hacia él mediante el uso de diferentes herramientas o API.
-
-En este artículo se proporciona un tutorial para copiar datos de una carpeta a otra del mismo contenedor en el almacén de blobs de Azure. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización para copiar datos de Azure Blob Storage a Azure SQL Server Database. 
-
-También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
-
-Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
-
-1. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos.
-2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia.
-3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida.
-
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  
-
+## <a name="json-examples-for-copying-data-to-and-from-blob-storage"></a>Ejemplos de JSON para copiar datos hacia y desde Blob Storage  
 En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos entre el Almacenamiento de blobs de Azure y la Base de datos SQL de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.
 
-## <a name="json-example-copy-data-from-blob-storage-to-sql-database"></a>Ejemplo de JSON: Copia de datos de Blob Storage a SQL Database
+### <a name="json-example-copy-data-from-blob-storage-to-sql-database"></a>Ejemplo de JSON: Copia de datos de Blob Storage a SQL Database
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md#linked-service-properties).
@@ -597,7 +608,7 @@ La canalización contiene una actividad de copia que está configurada para usar
    }
 }
 ```
-## <a name="json-example-copy-data-from-azure-sql-to-azure-blob"></a>Ejemplo de JSON: Copia de datos de Azure SQL a Azure Blob
+### <a name="json-example-copy-data-from-azure-sql-to-azure-blob"></a>Ejemplo de JSON: Copia de datos de Azure SQL a Azure Blob
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md#linked-service-properties).

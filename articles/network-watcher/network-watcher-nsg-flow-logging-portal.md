@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d716f11818bc0ad6dd9e5f93951b011dd6774c7b
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: b059cfdcf21d8b61589a5edf3bd1832070e564e3
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -35,6 +36,12 @@ Los registros de flujo de grupos de seguridad de red son una característica de 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Create an Azure Network Watcher instance](network-watcher-create.md) (Creación de una instancia de Azure Network Watcher) para crear una instancia de Network Watcher. En este escenario también se da por hecho que existe un grupo de recursos con una máquina virtual válida.
+
+## <a name="register-insights-provider"></a>Registro del proveedor de Insights
+
+Para que el registro del flujo de trabajo funcione correctamente, es preciso registrar el proveedor de **Microsoft.Insights**. Para ello, navegue hasta **Suscripciones** y seleccione la suscripción para la que desea habilitar registros de flujo. En la hoja **Suscripción**, seleccione **Proveedores de recursos**. Navegue por la lista de proveedores y compruebe que el proveedor **microsoft.insights** está registrado. Si no lo está, haga clic en **Registrar**.
+
+![ver proveedores][providers]
 
 ## <a name="enable-flow-logs"></a>Habilitar los registros de flujo
 
@@ -93,4 +100,4 @@ Obtenga información sobre cómo [visualizar los registros de flujo de NSG con P
 [4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
-
+[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png

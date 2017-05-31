@@ -18,7 +18,7 @@ experimental: true
 experimental_id: d51f3cc6-753b-4e
 ms.translationtype: Human Translation
 ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
+ms.openlocfilehash: 67b328cb754e49fe1dea9d57f74dd31793acd93c
 ms.contentlocale: es-es
 ms.lasthandoff: 05/12/2017
 
@@ -65,26 +65,26 @@ Por ejemplo, piense en una máquina virtual clásica denominada **mysqlvm** con 
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Aunque esto permite a los clientes conectarse a través de Internet, esto no implica que cualquier usuario pueda conectarse a SQL Server. Los clientes externos necesitan el nombre de usuario y la contraseña correctos. Para aumentar la seguridad, no use el conocido puerto 1433 para el extremo público de la máquina virtual. Y, si es posible, considere la posibilidad también de agregar una ACL en el extremo para restringir el tráfico solo a los clientes que permita. Para obtener instrucciones sobre el uso de ACL con puntos de conexión, consulte [Administrar la ACL en un punto de conexión](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+Aunque esta cadena de conexión permite a los clientes conectarse a través de Internet, esto no implica que cualquier usuario pueda conectarse a SQL Server. Los clientes externos necesitan el nombre de usuario y la contraseña correctos. Para aumentar la seguridad, no use el conocido puerto 1433 para el extremo público de la máquina virtual. Y, si es posible, considere la posibilidad también de agregar una ACL en el extremo para restringir el tráfico solo a los clientes que permita. Para obtener instrucciones sobre el uso de ACL con puntos de conexión, consulte [Administrar la ACL en un punto de conexión](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
 
 > [!NOTE]
-> Es importante tener en cuenta que cuando se recurre a esta técnica para comunicarse con SQL Server, todos los datos salientes desde el centro de datos de Azure están sujetos a [precios de transferencia de datos salientes](https://azure.microsoft.com/pricing/details/data-transfers/)normales.
+> Cuando se recurre a esta técnica para comunicarse con SQL Server, todos los datos salientes desde el centro de datos de Azure están sujetos a [precios de transferencia de datos salientes](https://azure.microsoft.com/pricing/details/data-transfers/) normales.
 > 
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>Conexión a SQL Server en la misma red virtual
 [La red virtual](../../../virtual-network/virtual-networks-overview.md) permite otros escenarios. Puede conectar las máquinas virtuales en la misma red virtual, aunque esas máquinas virtuales existan en servicios en la nube diferentes. Asimismo, con una [VPN de sitio a sitio](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), puede crear una arquitectura híbrida que conecta las máquinas virtuales con redes y máquinas locales.
 
-Las redes virtuales también permiten unir las máquinas virtuales de Azure a un dominio. Esta es la única forma de usar la autenticación de Windows para SQL Server. Los demás escenarios de conexión requieren la autenticación de SQL con nombres de usuario y contraseñas.
+Las redes virtuales también permiten unir las máquinas virtuales de Azure a un dominio. Unirse a un dominio es la única forma de usar la autenticación de Windows con SQL Server. Los demás escenarios de conexión requieren la autenticación de SQL con nombres de usuario y contraseñas.
 
-Si va a configurar un entorno de dominio y la autenticación de Windows, no es necesario seguir los pasos de este artículo para configurar el punto de conexión público o los inicios de sesión y la autenticación de SQL. En este escenario, puede conectarse a la instancia de SQL Server especificando el nombre de la máquina virtual de SQL Server en la cadena de conexión. En el siguiente ejemplo se da por hecho también que se configuró la autenticación de Windows y que se concedió al usuario acceso a la instancia de SQL Server.
+Si va a configurar un entorno de dominio y la autenticación de Windows, no es necesario configurar el punto de conexión público o los inicios de sesión y la autenticación de SQL. En este escenario, puede conectarse a la instancia de SQL Server especificando el nombre de la máquina virtual de SQL Server en la cadena de conexión. En el siguiente ejemplo se da por hecho también que se configuró la autenticación de Windows y que se concedió al usuario acceso a la instancia de SQL Server.
 
     "Server=mysqlvm;Integrated Security=true"
 
 ## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Pasos para configurar la conectividad de SQL Server en una máquina virtual de Azure
 Los pasos siguientes muestran cómo conectarse a la instancia de SQL Server a través de Internet mediante SQL Server Management Studio (SSMS). Sin embargo, se aplican los mismos pasos para hacer que la máquina virtual de SQL Server sea accesible para sus aplicaciones, tanto locales como de Azure.
 
-Antes de que pueda conectarse a la instancia de SQL Server desde otra máquina virtual o Internet, debe completar las siguientes tareas descritas en las secciones que aparecen a continuación:
+Antes de que pueda conectarse a la instancia de SQL Server desde otra máquina virtual o Internet, debe completar las siguientes tareas:
 
 * [Creación de un extremo TCP para la máquina virtual](#create-a-tcp-endpoint-for-the-virtual-machine)
 * [Apertura de puertos TCP en el firewall de Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: aca6cd69647406d0140d8b0d0cba8e4690b04ae1
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: ce71f8cd842746e6e236f4a2034ba3ee3001586c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -37,33 +38,33 @@ Mapa de servicio crea automáticamente una asignación de referencias comunes de
 Mapa de servicio ayuda a eliminar las suposiciones de aislamiento de problemas mostrando cómo se conectan los sistemas y afectan al resto.  Además de las conexiones con error, la información sobre los clientes conectados ayuda a identificar equilibradores de carga configurados incorrectamente, una carga sorprendente o excesiva en los servicios críticos y clientes no autorizados como equipos de desarrollador que tratan los sistemas de producción.  Los flujos de trabajo integrados con el seguimiento de cambios de OMS también permiten ver si un evento de cambio en un servicio o equipo back-end explica la causa raíz de un incidente.
 
 ### <a name="migration-assurance"></a>Garantía de migración
-Mapa de servicio permite planear, acelerar y validar de forma eficaz las migraciones de Azure garantizando que nada se queda atrás y no hay interrupciones por sorpresa.  Puede detectar todos los sistemas interdependientes que tienen que migrarse juntos, evaluar la capacidad y la configuración del sistema e identificar si un sistema en ejecución sigue ofreciendo servicio a los usuarios o si es un candidato para la retirada en lugar de la migración.  Después de realizar el traslado, puede comprobar la carga del cliente y la identidad para comprobar que se están conectando los sistemas de prueba y los clientes.  Si las definiciones de firewall y planeación de la subred tienen problemas, los errores de conexión en las asignaciones de Mapa de servicio harán referencia a los sistemas que necesitan conectividad.
+Mapa de servicio permite planear, acelerar y validar de forma eficaz las migraciones de Azure garantizando que nada se queda atrás y no hay interrupciones por sorpresa.  Puede detectar todos los sistemas interdependientes que tienen que migrarse juntos, evaluar la capacidad y la configuración del sistema e identificar si un sistema en ejecución sigue ofreciendo servicio a los usuarios o si es un candidato para la retirada en lugar de la migración.  Después de realizar el traslado, puede comprobar la carga del cliente y la identidad para comprobar que se están conectando los sistemas de prueba y los clientes.  Si las definiciones de firewall y planeación de la subred tienen problemas, los errores de conexión en las asignaciones de Service Map harán referencia a los sistemas que necesitan conectividad.
 
 ### <a name="business-continuity"></a>Continuidad del negocio
 Si utiliza Azure Site Recovery y necesita ayuda para definir la secuencia de recuperación para su entorno de aplicaciones, Mapa de servicio puede automáticamente mostrarle cómo los sistemas dependen entre sí para asegurarse de que su plan de recuperación es confiable.  Al elegir un servidor crítico y ver sus clientes, puede identificar los sistemas front-end que deben recuperarse solo después de que ese servidor crítico esté restaurado y esté disponible.  Por el contrario, al examinar las dependencias de back-end de un servidor crítico, puede identificar aquellos sistemas que deben recuperarse antes de restaurar el sistema de foco.
 
 ### <a name="patch-management"></a>Administración de revisiones
-Mapa de servicio mejora el uso de la evaluación de actualizaciones del sistema de OMS mostrando qué otros equipos y servidores dependen del servicio, por lo que informará con antelación antes de que afecte a los sistemas para la revisión.  Esta solución también mejora la administración de revisiones en OMS mostrando si los servicios están disponibles y conectados correctamente después de que se revisen y se reinicien.
+Service Map mejora el uso de la evaluación de actualizaciones del sistema de OMS mostrando qué otros equipos y servidores dependen del servicio, por lo que puede notificarlo por adelantado antes de que afecte a los sistemas para la revisión.  Esta solución también mejora la administración de revisiones en OMS mostrando si los servicios están disponibles y conectados correctamente después de que se revisen y se reinicien.
 
 
 ## <a name="mapping-overview"></a>Información general de asignación
-Los agentes de Mapa de servicio recopilan información sobre todos los procesos de conexión TCP en el servidor donde están instalados, así como detalles sobre las conexiones entrantes y salientes para cada proceso.  Mediante la lista de equipos en el lado izquierdo de la solución Mapa de servicio, se pueden seleccionar máquinas con agentes de Mapa de servicio para visualizar sus dependencias en un intervalo de tiempo seleccionado.  La dependencia de máquina asigna el foco en un equipo concreto y muestra todos los equipos que son clientes directos de TCP o servidores de la máquina.
+Los agentes de Service Map recopilan información acerca de todos los procesos de conexión TCP en el servidor donde están instalados, así como los detalles de las conexiones entrantes y salientes para cada proceso.  Mediante la lista de equipos en el lado izquierdo de la solución Mapa de servicio, se pueden seleccionar máquinas con agentes de Mapa de servicio para visualizar sus dependencias en un intervalo de tiempo seleccionado.  La dependencia de máquina asigna el foco en un equipo concreto y muestra todos los equipos que son clientes directos de TCP o servidores de la máquina.
 
 ![Introducción a Mapa de servicio](media/oms-service-map/service-map-overview.png)
 
 Las máquinas se pueden expandir en la asignación para mostrar los procesos en ejecución con conexiones de red activas durante el intervalo de tiempo seleccionado.  Cuando un equipo remoto con un agente de Mapa de servicio se expande para mostrar los detalles del proceso, se muestran solo los procesos que se comunican con el equipo de foco.  Se indica el número de máquinas de front-end sin agente que se conecta al equipo de foco en el lado izquierdo de los procesos a los que se conectan.  Si la máquina que estamos observando establece una conexión con una máquina de back-end sin un agente, ese servidor de back-end se incluye en un grupo de puertos de servidor, junto con otras conexiones al mismo número de puerto.
 
-De forma predeterminada, las asignaciones de Mapa de servicio muestran los últimos 10 minutos de la información de dependencia.  Con los controles de tiempo en la parte superior izquierda, se pueden consultar las asignaciones para intervalos de tiempo históricos hasta durante una hora, para mostrar cómo se buscan dependencias en el pasado, por ejemplo, durante un incidente o antes de que se produzca un cambio.    Los datos de Mapa de servicio se almacenan durante 30 días en áreas de trabajo pagadas y durante 7 días en áreas de trabajo disponibles.
+De forma predeterminada, las asignaciones de Service Map muestran los 30 últimos minutos de la información de dependencia.  Mediante los controles de tiempo de la parte superior izquierda, se pueden consultar las asignaciones para intervalos de tiempo históricos hasta durante una hora, para mostrar cómo se buscan dependencias en el pasado (por ejemplo, durante un incidente o antes de que se produzca un cambio).    Los datos de Mapa de servicio se almacenan durante 30 días en áreas de trabajo pagadas y durante 7 días en áreas de trabajo disponibles.
 
 ## <a name="status-badges-and-border-coloring"></a>Notificaciones de estado y colores en el borde
-En la parte inferior de cada servidor en el mapa puede haber una lista de notificaciones de estado que expresan información de estado acerca del servidor.  Las notificaciones indican que hay cierta información pertinente para el servidor de una de las integraciones de solución de OMS.  Al hacer clic en una notificación se le conducirá directamente a los detalles del estado en el panel derecho.  Las notificaciones de estado actualmente disponibles incluyen alertas, cambios, seguridad y actualizaciones.
+En la parte inferior de cada servidor en el mapa puede haber una lista de notificaciones de estado que expresan información de estado acerca del servidor.  Las notificaciones indican que hay cierta información pertinente para el servidor de una de las integraciones de solución de OMS.  Al hacer clic en una notificación, pasa directamente a los detalles del estado en el panel derecho.  Las notificaciones de estado actualmente disponibles incluyen alertas, cambios, seguridad y actualizaciones.
 
-Según la gravedad de las notificaciones de estado, los bordes del nodo de la máquina puede ser rojos (Crítico), amarillos (Advertencia) o azules (Informativo).  El color representa el estado más grave de cualquiera de las notificaciones de estado.  Un borde gris indica que un nodo no tiene actualmente indicadores de estado.
+Según la gravedad de las notificaciones de estado, los bordes del nodo de la máquina puede ser rojos (Crítico), amarillos (Advertencia) o azules (Informativo).  El color representa el estado más grave de cualquiera de las notificaciones de estado.  Un borde gris indica que el nodo no tiene actualmente indicadores de estado.
 
 ![Notificaciones de estado](media/oms-service-map/status-badges.png)
 
 ## <a name="role-icons"></a>Iconos de rol
-Ciertos procesos cumplen roles determinados en las máquinas: servidores web, servidores de aplicaciones, base de datos, etc.  El mapa de servicio indicará las casillas de proceso y máquina con iconos de rol para permitir la identificación rápida del rol que desempeña un proceso o un servidor.
+Ciertos procesos cumplen roles determinados en las máquinas: servidores web, servidores de aplicaciones, base de datos, etc.  Service Map marca las casillas de proceso y máquina con iconos de rol, lo que facilita la identificación rápida del rol que desempeña un proceso o un servidor.
 
 | Icono de rol | Descripción |
 |:--|:--|
@@ -81,35 +82,35 @@ Las conexiones erróneas se muestran en las asignaciones de Mapa de servicio par
 
 ![Conexiones con errores](media/oms-service-map/failed-connections.png)
 
-La comprensión de las conexiones con errores pueden ayudar a solucionar problemas, a la validación de la migración, el análisis de seguridad y al entendimiento general de la arquitectura.  A veces las conexiones con errores son inofensivas, pero a menudo indican directamente un problema, como un entorno de conmutación por error que de repente se convierte en inalcanzable,.. .o dos niveles de aplicación que no pueden comunicarse después de una migración a la nube.
+La comprensión de las conexiones con errores pueden ayudar a solucionar problemas, a la validación de la migración, el análisis de seguridad y al entendimiento general de la arquitectura.  A veces las conexiones con errores son inofensivas, pero a menudo indican directamente un problema, como un entorno de conmutación por error que de repente se convierte en inalcanzable, ...o dos niveles de aplicación que no pueden comunicarse después de una migración a la nube.
 
 ## <a name="client-groups"></a>Grupos de clientes
 Los grupos de clientes son cuadros en el mapa que representan los equipos cliente que no tienen agentes de dependencia.  Un único grupo de cliente representa a los clientes para un proceso individual.
 
 ![Grupos de clientes](media/oms-service-map/client-groups.png)
 
-Para ver las direcciones IP de los servidores de un grupo de clientes, seleccione el grupo.  El contenido del grupo se mostrará en el panel de propiedades.
+Para ver las direcciones IP de los servidores de un grupo de clientes, seleccione el grupo.  El contenido del grupo se muestra en el panel de propiedades.
 
 ![Propiedades del grupo de clientes](media/oms-service-map/client-group-properties.png)
 
 ## <a name="server-port-groups"></a>Grupos de puertos de servidor
-Los grupos de puertos de servidor son cuadros que representan los puertos del servidor en servidores que no tienen agentes de dependencia.  El cuadro mostrará el puerto del servidor junto con un recuento del número de servidores con conexiones a dicho puerto.  Expanda el cuadro para ver los servidores y las conexiones individuales.  Si hay un solo servidor en el cuadro, se mostrará el nombre o la dirección IP.
+Los grupos de puertos de servidor son cuadros que representan los puertos del servidor en servidores que no tienen agentes de dependencia.  El cuadro muestra el puerto del servidor, junto con un recuento del número de servidores con conexiones a dicho puerto.  Expanda el cuadro para ver los servidores y las conexiones individuales.  Si hay un solo servidor en el cuadro, se muestra el nombre o la dirección IP.
 
 ![Grupos de puertos de servidor](media/oms-service-map/server-port-groups.png)
 
 ## <a name="context-menu"></a>Menú contextual
-Al hacer clic en los tres puntos de la parte superior derecha de cualquier servidor aparecerá el menú contextual para ese servidor.
+Al hacer clic en los tres puntos de la parte superior derecha de cualquier servidor aparece el menú contextual en ese servidor.
 
 ![Conexiones con errores](media/oms-service-map/context-menu.png)
 
-### <a name="load-server-map"></a>Mapa del servidor de carga
-La opción Load Server Map (Mapa del servidor de carga) le remitirá a un nuevo mapa con el servidor seleccionado como la nueva máquina de foco.
+### <a name="load-server-map"></a>Cargar mapa del servidor
+La opción Cargar mapa del servidor le remite a un nuevo mapa con el servidor seleccionado como la nueva máquina de foco.
 
 ### <a name="showhide-self-links"></a>Mostrar u ocultar autovínculos
-La opción Mostrar autovínculos volverá a dibujar el nodo de servidor junto con los autovínculos, que son las conexiones de TCP que empiezan y terminan en procesos dentro del servidor.  Si se muestran autovínculos, el menú cambia a Hide Self Links (Ocultar autovínculos), lo que permite a los usuarios alternar el dibujo de autovínculos.
+La opción Show Self Links (Mostrar autovínculos) vuelve a dibujar el nodo de servidor junto con los autovínculos, que son las conexiones de TCP que empiezan y terminan en procesos dentro del servidor.  Si se muestran los autovínculos, el menú cambia a Ocultar autovínculos, lo que permite a los usuarios alternar el dibujo de autovínculos.
 
 ## <a name="computer-summary"></a>Resumen del equipo
-El panel de resumen de la máquina incluye información general del sistema operativo de un servidor y el número de dependencias, además de diversos datos de otras soluciones de OMS, como Métricas de rendimiento, Seguimiento de cambios, Seguridad, Actualizaciones, etc.
+El panel de resumen de la máquina incluye información general del sistema operativo de un servidor y el número de dependencias, además de datos de otras soluciones de OMS, como Métricas de rendimiento, Change Tracking, Seguridad, Actualizaciones, etc.
 
 ![Resumen de la máquina](media/oms-service-map/machine-summary.png)
 
@@ -127,7 +128,7 @@ El panel de resumen de procesos proporciona información adicional acerca de la 
 ![Resumen del proceso](media/oms-service-map/process-summary.png)
 
 ## <a name="oms-alerts-integration"></a>Integración de alertas de OMS
-Mapa de servicio se integra con Alertas de OMS para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado.  El servidor mostrará un icono si hay alertas actuales, y el panel de alertas de la máquina enumerará las alertas
+Mapa de servicio se integra con Alertas de OMS para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado.  El servidor muestra un icono si hay alertas actuales, y el panel de alertas de la máquina enumera las alertas
 
 ![Panel de alertas de la máquina](media/oms-service-map/machine-alerts.png)
 
@@ -142,6 +143,17 @@ Tenga en cuenta que para que Mapa de servicio pueda mostrar las alertas pertinen
 Mapa de servicio se integra con Búsqueda de registros para mostrar un recuento de todos los eventos de registro disponibles para el servidor seleccionado durante el intervalo de tiempo elegido.  Puede hacer clic en cualquier fila de la lista de recuentos de eventos para acceder a Búsqueda de registros y ver los eventos de registro individuales.
 
 ![Eventos de registro](media/oms-service-map/log-events.png)
+
+## <a name="oms-service-desk-integration"></a>Integración de la Consola de servicios de OMS
+La integración de Service Map con IT Service Management Connector es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de OMS.  La integración en Service Map se denomina "Consola de servicio".  [Para más información acerca de cómo habilitar y configurar el conector de ITSM.](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)
+
+El panel de la Consola de servicio muestra una lista de todos los eventos de IT Service Management para el servidor seleccionado en el intervalo de tiempo seleccionado.  El servidor muestra un icono si hay elementos actuales y el panel de la Consola de servicio los enumera.
+![Panel de la Consola de servicio](media/oms-service-map/service-desk.png)
+
+Haga clic en "Ver elemento de trabajo" para abrir el elemento en la solución ITSM conectada.
+
+Haga clic en "Mostrar en la búsqueda de registro" para ver los detalles del elemento en Búsqueda de registros.
+
 
 ## <a name="oms-change-tracking-integration"></a>Integración del seguimiento de cambios de OMS
 La integración de Mapa de servicio con Seguimiento de cambios es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de OMS.
@@ -161,18 +173,18 @@ En el panel de rendimiento de la máquina se muestran las métricas de rendimien
 ## <a name="oms-security-integration"></a>Integración de seguridad de OMS
 La integración de Mapa de servicio con Seguridad y auditoría es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de OMS.
 
-En el panel de seguridad de la máquina se muestran datos de la solución Seguridad y auditoría de OMS del servidor seleccionado.  El panel mostrará un resumen de los problemas de seguridad pendientes del servidor durante el intervalo de tiempo seleccionado.  Al hacer clic en cualquiera de los problemas de seguridad, se desglosará en una búsqueda de registros para obtener más información sobre los problemas de seguridad.
+En el panel de seguridad de la máquina se muestran datos de la solución Seguridad y auditoría de OMS del servidor seleccionado.  El panel muestra un resumen de los problemas de seguridad pendientes del servidor durante el intervalo de tiempo seleccionado.  Al hacer clic en cualquiera de los problemas de seguridad, se profundiza en una búsqueda de registros para más información acerca de los problemas de seguridad.
 ![Panel de seguimiento de cambios del equipo](media/oms-service-map/machine-security.png)
 
 
 ## <a name="oms-updates-integration"></a>Integración de actualizaciones de OMS
 La solución Integración de Mapa de servicio con Administración de actualizaciones es automática cuando ambas soluciones están habilitadas y configuradas en el área de trabajo de OMS.
 
-En el panel de actualizaciones de la máquina se muestran datos de la solución Administración de actualizaciones de OMS del servidor seleccionado.  El panel mostrará un resumen de las actualizaciones que faltan en el servidor durante el intervalo de tiempo seleccionado.
+En el panel de actualizaciones de la máquina se muestran datos de la solución Administración de actualizaciones de OMS del servidor seleccionado.  El panel muestra un resumen de las actualizaciones que faltan en el servidor durante el intervalo de tiempo seleccionado.
 ![Panel de seguimiento de cambios del equipo](media/oms-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
-Los datos de inventario de equipos y procesos de Mapa de servicio están disponibles para realizar [búsquedas](../log-analytics/log-analytics-log-searches.md) en Log Analytics.  Esto se puede aplicar a escenarios como la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento ad hoc.
+Los datos de inventario de equipos y procesos de Mapa de servicio están disponibles para realizar [búsquedas](../log-analytics/log-analytics-log-searches.md) en Log Analytics.  Estos datos se pueden aplicar a diversos escenarios, entre los que se incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
 
 Se genera un registro por hora para cada equipo y proceso únicos, además de los registros generados cuando un proceso o equipo se inicia o está integrado en Mapa de servicio.  Estos registros tienen las propiedades de las tablas siguientes.  Los campos y valores de eventos ServiceMapComputer_CL se asignan a los campos del recurso Máquina en la API de ARM ServiceMap.  Los campos y valores de eventos ServiceMapProcess_CL se asignan a los campos del recurso Proceso en la API de ARM ServiceMap.  El campo ResourceName_s coincide con el campo de nombre del recurso de ARM correspondiente. Nota: Como las características de Mapa de servicio crecen, estos campos están sujetos a cambios.
 
@@ -199,7 +211,7 @@ Los registros con un tipo de **ServiceMapComputer_CL** tienen datos de inventari
 | DnsNames_s | Matriz de nombres DNS |
 | OperatingSystemFamily_s | Windows o Linux |
 | OperatingSystemFullName_s | Nombre completo del sistema operativo  |
-| Bitness_s | Valor de bits de la máquina (32 bits) o (64 bits) |
+| Bitness_s | Valor de bits del equipo (32 bits) o (64 bits) |
 | PhysicalMemory_d | Memoria física en MB |
 | Cpus_d | Número de CPU |
 | CpuSpeed_d | Velocidad de la CPU en MHz|
@@ -271,7 +283,7 @@ Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct Com
 
 
 ## <a name="rest-api"></a>API de REST
-Todos los datos de servidores, procesos y dependencias de Mapa de servicio están disponibles a través de la [API de REST de Mapa de servicio](https://docs.microsoft.com/rest/api/servicemap/).
+Todos los datos de servidores, procesos y dependencias de Service Map están disponibles a través de la [API de REST de Service Map](https://docs.microsoft.com/rest/api/servicemap/).
 
 
 ## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
