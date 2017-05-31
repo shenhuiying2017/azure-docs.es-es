@@ -3,7 +3,7 @@ title: "Creación de soluciones integradas con SQL Data Warehouse | Microsoft Do
 description: 'Herramientas y asociados con soluciones que se integran con Almacenamiento de datos SQL. '
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f

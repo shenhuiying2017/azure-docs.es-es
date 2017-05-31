@@ -1,12 +1,12 @@
 ---
 title: "Tutorial de Azure Cosmos DB: Creación, consulta y recorrido en la consola de Gremlin de Apache TinkerPops | Microsoft Docs"
 description: "Un inicio rápido de Azure Cosmos DB para crear vértices, bordes y consultas con la API Graph de Azure Cosmos DB."
-services: cosmosdb
+services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
@@ -41,11 +41,11 @@ También necesita instalar la [consola de Gremlin](http://tinkerpop.apache.org/)
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-graph"></a>Agregar un gráfico
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Conectarse a su App Service
 1. Antes de iniciar la consola de Gremlin, cree o modifique su archivo de configuración *remote-secure.yaml* en su directorio *apache-tinkerpop-gremlin-console-3.2.4/conf*.
@@ -254,7 +254,7 @@ Entrada:
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

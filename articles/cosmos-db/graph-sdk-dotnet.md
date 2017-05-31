@@ -1,13 +1,13 @@
 ---
 title: SDK y recursos de .NET para la API Graph de Azure CosmosDB | Microsoft Docs
 description: "Infórmese acerca de la API Graph de Azure CosmosDB, incluidas las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

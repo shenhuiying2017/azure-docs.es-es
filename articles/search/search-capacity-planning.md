@@ -15,9 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/08/2017
 ms.author: heidist
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
 ms.openlocfilehash: bfed40417d800e86de7ef437c42162b1e1a0d886
+ms.contentlocale: es-es
 ms.lasthandoff: 02/24/2017
 
 ---
@@ -75,7 +76,7 @@ Las recomendaciones generales para alta disponibilidad son:
 
 Los Acuerdos de Nivel de Servicio (SLA) de Azure Search están destinados a las operaciones de consulta y actualizaciones de índices que constan de procesos de incorporación, actualización o eliminación de documentos.
 
-### <a name="index-availability-during-a-rebuild"></a>Disponibilidad de los índices durante un proceso de regeneración###
+### <a name="index-availability-during-a-rebuild"></a>Disponibilidad de los índices durante un proceso de regeneración
 
 La alta disponibilidad para Búsqueda de Azure se refiere a las consultas y actualizaciones de índices que no requieren volver a generar un índice. Si elimina un campo, cambia un tipo de datos o el nombre de un campo, debe volver a generar el índice. Para volver a crear el índice, debe eliminar el índice, volver a crearlo y cargar de nuevo los datos.
 
