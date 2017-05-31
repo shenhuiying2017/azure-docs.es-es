@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 61f09a6f103b9cedaf19f1128a21fa8d5df974a1
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: ff505246bef15d180e3844558d68a425df60c35f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -102,7 +103,7 @@ Ahora que ha seleccionado el punto de restauración, elija una configuración pa
    * Restaurar toda la máquina virtual.
    * Restaurar discos en copia de seguridad.
 
-El Portal proporciona una opción de creación rápida para la máquina virtual restaurada. Si quiere personalizar la configuración de máquina virtual o los nombres de los recursos creados como parte de la selección de una nueva máquina virtual, siga estos pasos. Use PowerShell o el Portal para restaurar los discos de copias de seguridad, y los comandos de PowerShell para asociarlos a las opciones de configuración de máquina virtual. También puede emplear la plantilla que se incluye con los discos de restauración para personalizar la máquina virtual restaurada. Vea [Restauración de máquinas virtuales con configuraciones de red especiales](#restoring-vms-with-special-network-configurations) para obtener más información sobre cómo restaurar la máquina virtual que tiene varios NIC o que se encuentra en el equilibrador de carga. 
+El Portal proporciona una opción de creación rápida para la máquina virtual restaurada. Si quiere personalizar la configuración de máquina virtual o los nombres de los recursos creados como parte de la selección de una nueva máquina virtual, siga estos pasos. Use PowerShell o el Portal para restaurar los discos de copias de seguridad, y los comandos de PowerShell para asociarlos a las opciones de configuración de máquina virtual. También puede emplear la plantilla que se incluye con los discos de restauración para personalizar la máquina virtual restaurada. Vea [Restauración de máquinas virtuales con configuraciones de red especiales](#restoring-vms-with-special-network-configurations) para obtener más información sobre cómo restaurar la máquina virtual que tiene varios NIC o que se encuentra en el equilibrador de carga. Si la máquina virtual Windows usa [licencias de HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), debe restaurar discos y usar PowerShell o plantilla tal como se especifica a continuación para crear la máquina virtual y asegurarse de especificar LicenseType como "Windows_Server" al crear la máquina virtual para hacer uso de las ventajas de HUB en la máquina virtual restaurada. 
  
 ## <a name="create-a-new-vm-from-restore-point"></a>Creación de una nueva máquina virtual desde el punto de restauración
 Si no aún no lo ha hecho, [seleccione un punto de restauración](#restoring-vms-with-special-network-configurations) antes de continuar para crear una máquina virtual desde el punto de restauración. Cuando haya seleccionado el punto de restauración, en la hoja **Restaurar configuración**, escriba o seleccione valores en cada uno de los siguientes campos:
@@ -194,6 +195,7 @@ Después de escribir los valores necesarios, acepte los *términos y condiciones
 * Se instalarán las extensiones presentes durante la configuración de la copia de seguridad, pero no se habilitarán. Vuelva a instalar las extensiones si surge algún problema. 
 * Si la máquina virtual de copia de seguridad tiene una dirección IP estática, tras la restauración, la máquina virtual restaurada tendrá una dirección IP dinámica para evitar conflictos cuando se crea una máquina virtual restaurada. Más información sobre cómo se puede [agregar una dirección IP estática a la máquina virtual restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * La máquina virtual restaurada no tendrá un conjunto de valores de disponibilidad. Se recomienda usar la opción de discos de restauración y [agregar un conjunto de disponibilidad](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) cuando se crea una máquina virtual desde PowerShell o plantillas mediante los discos restaurados. 
+
 
 ## <a name="backup-for-restored-vms"></a>Copia de seguridad de máquinas virtuales restauradas
 Si restauró la máquina virtual en el mismo grupo de recursos con el mismo nombre con el que originalmente se creó una copia de seguridad de ella, la copia de seguridad seguirá en la máquina virtual después de la restauración. Si restauró la máquina virtual en un grupo de recursos distinto o especificó un nombre diferente para la máquina virtual restaurada, esta se trata como una nueva y debe configurar la copia de seguridad para ella.

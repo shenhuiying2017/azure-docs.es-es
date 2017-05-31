@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 9b75d0ede3ec1b291936ee0a53778afe10ba91db
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 9932ac04699f49b7a3ea3dabe4d380fdc4d05ec1
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -591,7 +591,7 @@ Determina si una cadena termina con un valor. La comparación distingue entre ma
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
+| stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
 
 ### <a name="examples"></a>Ejemplos
@@ -693,8 +693,8 @@ Devuelve la primera posición de un valor dentro de una cadena. La comparación 
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
-| stringToFind |Sí |cadena |El valor para buscar. |
+| stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
+| stringToFind |Sí |string |El valor para buscar. |
 
 ### <a name="examples"></a>Ejemplos
 
@@ -939,21 +939,21 @@ Una cadena con al menos el número de caracteres especificados.
 <a id="replace" />
 
 ## <a name="replace"></a>replace
-`replace(originalString, oldCharacter, newCharacter)`
+`replace(originalString, oldString, newString)`
 
-Devuelve una nueva cadena con todas las instancias de un carácter de la cadena especificada sustituidas por otro carácter.
+Devuelve una nueva cadena con todas las instancias de una cadena reemplazadas por otra cadena.
 
 ### <a name="parameters"></a>parameters
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| originalString |Sí |string |Valor que tiene todas las instancias de un carácter sustituido por otro. |
-| oldCharacter |Sí |cadena |El carácter que se va a quitar de la cadena original. |
-| newCharacter |Sí |string |El carácter que se va a agregar en lugar del carácter eliminado. |
+| originalString |Sí |cadena |Valor que tiene todas las instancias de una cadena reemplazadas por otra cadena. |
+| oldString |Sí |cadena |Cadena que se va a quitar de la cadena original. |
+| newString |Sí |cadena |La cadena que se va a agregar en lugar de la cadena eliminada. |
 
 ### <a name="examples"></a>Ejemplos
 
-En el ejemplo siguiente se muestra cómo quitar todos los guiones de la cadena proporcionada por el usuario.
+El ejemplo siguiente muestra cómo quitar todos los guiones de la cadena proporcionada por el usuario y cómo reemplazar parte de la cadena por otra cadena.
 
 ```json
 {
@@ -967,9 +967,13 @@ En el ejemplo siguiente se muestra cómo quitar todos los guiones de la cadena p
     },
     "resources": [],
     "outputs": {
-        "stringOutput": {
+        "firstOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
+        },
+        "secodeOutput": {
+            "type": "string",
+            "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
     }
 }

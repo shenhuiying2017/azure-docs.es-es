@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 3d32ded77382fe852682d63c96a66aacd141fdf6
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -162,7 +162,7 @@ Este documento enumera las operaciones que están disponibles para cada proveedo
 |/service/authorizationServers/write|Crea un nuevo servidor de autorización o actualiza los detalles de un servidor de autorización ya existente|
 |/service/authorizationServers/delete|Quita un servidor de autorización ya existente|
 |/service/reports/bySubscription/read|Obtiene un informe agregado por la suscripción.|
-|/service/reports/byRequest/read|Obtiene los datos de republicación de solicitudes|
+|/service/reports/byRequest/read|Obtiene solicitudes de datos de informes|
 |/service/reports/byOperation/read|Obtiene un informe agregado por las operaciones|
 |/service/reports/byGeo/read|Obtiene un informe agregado por región geográfica|
 |/service/reports/byUser/read|Obtiene un informe agregado por los desarrolladores.|

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 0231c3148d03ffef0a518a68bb79398462da2605
-ms.openlocfilehash: 89721efbb9f05871716ca1b16ad0d54eaf1ffd62
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 0b63228e5b09f5d22fc55818986a0a2eb1204278
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -206,7 +207,7 @@ Puede especificar las directivas de mantenimiento personalizado o revisar la con
 Consulte la [configuración de Service Fabric para el clúster](service-fabric-cluster-fabric-settings.md) para saber qué se puede personalizar y cómo hacerlo.
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>Revisiones de sistema operativo en las máquinas virtuales que componen el clúster
-Esta funcionalidad está prevista para el futuro como una característica automatizada. Actualmente, la aplicación de las revisiones a las máquinas virtuales es responsabilidad suya. Debe hacer esto en una máquina virtual cada vez para no inactivar más de una al mismo tiempo.
+Consulte la [Aplicación de orquestación de revisiones](service-fabric-patch-orchestration-application.md) que se puede implementar en el clúster para instalar revisiones de Windows Update de una manera orquestada, manteniendo los servicios disponibles todo el tiempo. 
 
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Actualizaciones del sistema operativo en las máquinas virtuales que componen el clúster
 Si debe actualizar la imagen de sistema operativo en las máquinas virtuales del clúster, debe hacerlo en una máquina virtual cada vez. Usted es responsable de esta actualización: todavía no se ha automatizado esta tarea.

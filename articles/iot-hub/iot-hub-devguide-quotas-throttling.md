@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: e9171844e2fbac7a4e734be9144b30d1bbd0397f
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: f36ce029acebfccdfa84122a86ea3a642c048b8c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -76,6 +77,12 @@ IoT Hub exige otros límites en sus distintas funcionalidades.
 
 > [!NOTE]
 > Actualmente, el número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 500 000. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/en-us/support/options/).
+
+## <a name="latency"></a>Latency
+IoT Hub se esfuerza por proporcionar una latencia baja para todas las operaciones. Sin embargo, debido a las condiciones de red y a otros factores imprevisibles, no puede garantizar una latencia máxima. Al diseñar una solución, evite realizar suposiciones sobre la latencia máxima de cualquier operación de IoT Hub. Aprovisione IoT Hub en la región de Azure más cercana a los dispositivos y considere la posibilidad de usar Azure IoT Edge para realizar operaciones sensibles a la latencia en el dispositivo o en una puerta de enlace próxima al dispositivo.
+
+Muchas unidades de IoT Hub afectan a la limitación, tal como se ha descrito anteriormente, pero no proporcionan ventajas ni garantías de latencia adicionales.
+En caso de aumentos inesperados de la latencia de operación, póngase en contacto con el [Soporte técnico de Microsoft](https://azure.microsoft.com/en-us/support/options/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Otros temas de referencia en la Guía del desarrollador de IoT Hub son:

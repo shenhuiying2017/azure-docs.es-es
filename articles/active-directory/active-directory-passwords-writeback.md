@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9dc195040d0fa1321dff9ec97d9ca1e4770d325
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: fde08bfc3a73c54ee53b5d8efffd3001894416b3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -74,11 +74,23 @@ Si un usuario federado o con sincronización de hash de contraseña cambia o res
 
     Disponemos de un mensaje específico para muchos de estos casos, a fin de indicar al usuario qué puede hacer para resolver el problema.
 
-## <a name="scenarios-supported-for-password-writeback"></a>Escenarios admitidos para la escritura diferida de contraseñas
+## <a name="configuring-password-writeback"></a>Configuración de la escritura diferida de contraseñas
 
 Se recomienda que use la característica de actualización automática de [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) si desea utilizar la escritura diferida de contraseñas.
 
-Información adicional sobre [ciclo de vida de soporte para DirSync y Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md)
+DirSync y Sincronización de Azure AD ya no son formas compatibles de habilitar la escritura diferida de contraseñas; el artículo sobre la [actualización desde DirSync y Sincronización de Azure AD](connect/active-directory-aadconnect-dirsync-deprecated.md) proporciona más información para ayudar con la transición.
+
+En los pasos siguientes se da por supuesto que ya ha configurado Azure AD Connect en su entorno con la configuración [Rápida](./connect/active-directory-aadconnect-get-started-express.md) o [Personalizada](./connect/active-directory-aadconnect-get-started-custom.md).
+
+1. Para configurar y habilitar la escritura diferida de contraseñas, inicie sesión en su servidor de Azure AD Connect e inicie el asistente para configuración de **Azure AD Connect**.
+2. En la pantalla de bienvenida, haga clic en **Configurar**.
+3. En la pantalla Tareas adicionales, haga clic en **Personalizar las opciones de sincronización** y elija **Siguiente**.
+4. En la pantalla Conectar con Azure AD, escriba una credencial de administrador global y elija **Siguiente**.
+5. En las pantallas Conectar sus directorios y Filtrado de dominios y unidades organizativas, puede elegir **Siguiente**.
+6. En la pantalla Características opcionales, active la casilla junto a **Escritura diferida de contraseñas** y haga clic en **Siguiente**.
+   ![Habilitar la escritura diferida de contraseñas en Azure AD Connect][Writeback]
+7. En la pantalla Listo para configurar, haga clic en **Configurar** y espere a que se complete el proceso.
+8. Cuando aparezca Configuración completa, puede hacer clic en **Salir**.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licencia para la escritura diferida de contraseñas
 
@@ -175,12 +187,12 @@ Los vínculos siguientes proporcionan información adicional sobre el restableci
 * [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD 
 * [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
 * [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
-* [**Implementación**](active-directory-passwords-best-practices.md): planificación e implementación de SSPR para los usuarios con las directrices que aquí se proporcionan
-* [**Personalización**](active-directory-passwords-customize.md): personalización de la experiencia de SSPR para la empresa
+* [**Implementación**](active-directory-passwords-best-practices.md): planee e implemente SSPR en sus usuarios mediante las instrucciones que se encuentran aquí.
+* [**Personalización**](active-directory-passwords-customize.md): personalice el aspecto de la experiencia SSPR para su empresa.
 * [**Directiva**](active-directory-passwords-policy.md): información sobre las directivas de contraseñas de Azure AD y cómo establecerlas
-* [**Informes**](active-directory-passwords-reporting.md): detectan si los usuarios acceden a la funcionalidad de SSPR, cuándo lo hacen y dónde.
-* [**Artículo técnico de profundización**](active-directory-passwords-how-it-works.md): más información para comprender el funcionamiento de la administración de contraseñas
+* [**Informes**](active-directory-passwords-reporting.md): informes para detectar si los usuarios acceden a la funcionalidad de SSPR que especifican el momento y el lugar del acceso
+* [**Profundización técnica**](active-directory-passwords-how-it-works.md): conozca lo que hay detrás para comprender cómo funciona.
 * [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? : respuestas a las preguntas que siempre se ha hecho.
 * [**Solución de problemas**](active-directory-passwords-troubleshoot.md): información para resolver problemas habituales de SSPR
 
-
+[Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Habilitar la escritura diferida de contraseñas en Azure AD Connect"

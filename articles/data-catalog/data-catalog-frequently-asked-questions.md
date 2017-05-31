@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76cc9c79851cc040e6a36c5499a77c0d95948154
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: c91f840077ccd9e55a403533c97a852542f0d326
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -108,7 +110,7 @@ Use el foro del Catálogo de datos de Azure para informar de problemas, comparti
 Estamos trabajando activamente para agregar más orígenes de datos al Catálogo de datos de Azure. Si hay un origen de datos que le gustaría que fuese compatible, sugiéralo (o repita la sugerencia si ya se ha efectuado) en el [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="q-how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>P: ¿Cómo está relacionado el Catálogo de datos de Azure con el Catálogo de datos en Power BI para Office 365?
-El Catálogo de datos de Azure se puede considerar como una evolución del Catálogo de datos. El Catálogo de datos de Azure ofrece opciones similares para la publicación y la detección de orígenes de datos, pero se centra en escenarios más amplios que no dependen de Office 365. Poco después de que el Catálogo de datos de Azure esté disponible de manera general, los dos catálogos se combinarán en un único servicio.
+Azure Data Catalog se puede considerar como una evolución del Catálogo de datos en Power BI. A partir de la primavera del 2017, Azure Data Catalog se usa para habilitar el uso compartido y la detección de consultas en Excel 2016 y Power Query para Excel. Las funcionalidades de Data Catalog en Excel están disponibles para los usuarios con licencias de Power BI Pro.
 
 ## <a name="q-what-permissions-does-a-user-need-to-register-assets-with-azure-data-catalog"></a>P: ¿Qué permisos necesita un usuario registrar activos con el Catálogo de datos de Azure?
 El usuario que ejecuta la Herramienta de registro para el Catálogo de datos de Azure necesita permisos en el origen de datos que le permitan leer los metadatos de este. Si el usuario selecciona también incluir una vista previa, el usuario también deberá tener permisos para leer en los datos desde los objetos que se están registrando.
@@ -127,9 +129,4 @@ R: Para actualizar los metadatos de los recursos de datos que ya están registra
 
 ## <a name="q-my-question-isnt-answered-here--what-should-i-do"></a>P: Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 Diríjase al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

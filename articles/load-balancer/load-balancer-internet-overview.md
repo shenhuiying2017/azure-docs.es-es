@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 2684e09daa3554a5768a96ae18757a669e221efe
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1a0f69e6530f1ab3734e1a44e5be056aacb0fff0
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -29,7 +30,7 @@ Para los servicios en la nube que contienen instancias de roles web o de roles d
 
 El archivo *servicedefinition.csdef* contiene la configuración del punto de conexión y, cuando tenga varias instancias de rol para una implementación de rol web o de trabajo, el equilibrador de carga se configurará para ello. La forma de agregar instancias a su implementación en la nube está cambiando el recuento de instancias en el archivo de configuración de servicio (.csfg).
 
-En la siguiente figura, se muestra un punto de conexión de carga equilibrada para el tráfico web cifrado que se comparte entre tres máquinas virtuales en el puerto TCP público y privado de 80. Estas tres máquinas virtuales se encuentran en un conjunto con equilibrio de carga.
+En la siguiente ilustración, se muestra un punto de conexión de carga equilibrada para el tráfico web que se comparte entre tres máquinas virtuales en el puerto TCP público y privado de 80. Estas tres máquinas virtuales se encuentran en un conjunto con equilibrio de carga.
 
 ![ejemplo de equilibrador de carga público](./media/load-balancer-internet-overview/IC727496.png))
 

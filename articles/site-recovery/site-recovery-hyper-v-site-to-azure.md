@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 2254b06d37b9090e1ca5e4e7db83e35e732e01a3
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 0ef782a7bb7a98da2ec63c91732b3d5ddd959848
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -59,7 +60,7 @@ Siga el artículo para completar estos pasos de implementación:
 
 **Requisito** | **Detalles** |
 --- | --- |
-**Las tablas de Azure** | Obtén información sobre los [requisitos de Azure](site-recovery-prereq.md#azure-requirements)
+**Las tablas de Azure** | Obtenga información sobre los [requisitos de Azure](site-recovery-prereq.md#azure-requirements)
 **Servidores locales** | [Más información](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager) sobre los requisitos de los hosts de Hyper-V locales.
 **Máquinas virtuales de Hyper-V locales** | Las máquinas virtuales que desee replicar deben ejecutar un [sistema operativo compatible](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) y cumplir los [requisitos previos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 **Direcciones URL de Azure** | Los hosts de Hyper-V necesitan tener acceso a estas direcciones URL:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> Si tiene reglas de firewall basadas en direcciones IP, asegúrese de que permitan la comunicación con Azure.<br/></br> Permita los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el puerto HTTPS (443).<br/></br> Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).
@@ -188,7 +189,7 @@ Especifique la cuenta de Azure Storage para la replicación y la red de Azure a 
 
     ![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png)
 
-    
+
 
 
 ## <a name="configure-replication-settings"></a>Configuración de opciones de replicación
@@ -235,6 +236,8 @@ Más información sobre el [control del ancho de banda de red](#network-bandwidt
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
+Antes de empezar, asegúrese de que la cuenta de usuario de Azure tiene los [permisos](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) necesarios para habilitar la replicación de una nueva máquina virtual en Azure.
+
 Habilite la replicación para máquinas virtuales como sigue:          
 
 1. Haga clic en **Replicar la aplicación** > **Origen**. Después de configurar la replicación por primera vez, haga clic en **+Replicar** para habilitar la replicación de más máquinas.
@@ -251,7 +254,7 @@ Habilite la replicación para máquinas virtuales como sigue:
 
    ![Habilitar replicación](./media/site-recovery-hyper-v-site-to-azure/enable-replication11.png)
 
-6. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, haga clic en cada máquina que desea replicar y selecciónela. Solo puede seleccionar aquellas máquinas en las que se pueda habilitar la replicación. y, a continuación, haga clic en **Aceptar**.
+6. En **Máquinas virtuales** > **Seleccionar máquinas virtuales**, haga clic en cada máquina que desea replicar y selecciónela. Solo puede seleccionar aquellas máquinas en las que se pueda habilitar la replicación. A continuación, haga clic en **Aceptar**.
 
     ![Habilitar replicación](./media/site-recovery-hyper-v-site-to-azure/enable-replication5-for-exclude-disk.png)
 
@@ -301,7 +304,21 @@ Es recomendable que compruebe las propiedades de la máquina de origen.
 
 4. En **Discos** puede ver los discos de datos y del sistema operativo en la máquina virtual que se va a replicar.
 
+#### <a name="managed-disks"></a>Discos administrados
 
+En **Proceso y red** > **Propiedades de proceso**, puede establecer la opción "Usar discos administrados" en "Sí" para la máquina virtual si desea conectar discos administrados a la máquina durante la migración a Azure. Los discos administrados simplifican la administración de discos para las máquinas virtuales de Azure IaaS, ya que administra las cuentas de almacenamiento asociadas a los discos de la máquina virtual. [Más información sobre discos administrados](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview).
+
+   - Los discos administrados se crean y conectan a la máquina virtual solo en una conmutación por error de Azure. Al habilitar la protección, los datos de las máquinas locales continuarán la replicación en las cuentas de almacenamiento.
+   Los discos administrados solo se pueden crear para máquinas virtuales implementadas con el modelo de implementación de Resource Manager.
+
+  > [!NOTE]
+  > La conmutación por recuperación desde Azure al entorno local de Hyper-V no se admite actualmente en máquinas con discos administrados. Establezca "Usar discos administrados" en "Sí" únicamente si piensa migrar esta máquina a Azure.
+
+   - Cuando se establece "Usar discos administrados" en "Sí", solo los conjuntos de disponibilidad del grupo de recursos con "Usar discos administrados" establecido en "Sí" estarán disponibles para la selección. Esto ocurre porque las máquinas virtuales con discos administrados solo pueden formar parte de conjuntos de disponibilidad con la propiedad "Usar discos administrados" establecida en "Sí". Asegúrese de crear conjuntos de disponibilidad con la propiedad "Usar discos administrados" establecida en función de su intención de usar discos administrados en la conmutación por error. Del mismo modo, cuando se establece "Usar discos administrados" en "No", solo los conjuntos de disponibilidad del grupo de recursos con la propiedad "Usar discos administrados" establecida en "No" estarán disponibles para la selección. [Más información sobre discos administrados y conjuntos de disponibilidad](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > Si la cuenta de almacenamiento utilizada para la replicación ha sido cifrada con el Cifrado del servicio de Storage en algún momento, se producirá un error en la creación de discos administrados durante la conmutación por error. Puede establecer "Usar discos administrados" en "No" y volver a intentar la conmutación por error o deshabilitar la protección de la máquina virtual y protegerla en una cuenta de almacenamiento que no haya tenido habilitado el Cifrado del servicio de Storage en ningún momento.
+  > [Más información sobre el Cifrado del servicio de Storage y los discos administrados](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
 
 
 ## <a name="test-the-deployment"></a>Prueba de la implementación
@@ -376,7 +393,7 @@ Puede utilizar la [herramienta de planeación de capacidad de Hyper-V](site-reco
 2. En el complemento, haga clic en **Cambiar propiedades**.
 3. En la pestaña **Limitación**, seleccione **Habilitar límite de uso del ancho de banda de Internet para las operaciones de copia de seguridad** y defina los límites durante las horas de trabajo y fuera de las horas de trabajo. Los intervalos válidos van de 512 Kbps a 102 Mbps por segundo.
 
-    ![Limitar ancho de banda](./media/site-recovery-hyper-v-site-to-azure/throttle2.png)
+    ![Limitar el ancho de banda](./media/site-recovery-hyper-v-site-to-azure/throttle2.png)
 
 También puede utilizar el cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) para establecer la limitación. Aquí tiene un ejemplo:
 

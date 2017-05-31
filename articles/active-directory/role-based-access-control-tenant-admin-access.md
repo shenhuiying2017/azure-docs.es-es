@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 05/09/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: b9eb9c7f59d0936364bad788ed3b6635b2453739
-ms.openlocfilehash: 9bcad7aaf7f1bd8c51dbfa88381276a70a4def5c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -24,7 +26,7 @@ ms.openlocfilehash: 9bcad7aaf7f1bd8c51dbfa88381276a70a4def5c
 
 El control de acceso basado en rol ayuda a los administradores de inquilinos a obtener elevaciones temporales de acceso para que puedan conceder permisos superiores a lo normal. Un administrador de inquilinos puede elevarse el permiso así mismo al rol de administrador de acceso de usuario cuando sea necesario. Ese rol otorga al administrador de inquilinos permisos para concederse a sí mismo otros roles en el ámbito "/".
 
-Esta característica es importante porque permite al administrador de inquilinos ver todas las suscripciones que existen en una organización. También permite a las aplicaciones de automatización (por ejemplo, facturación y auditoría) acceder a todas las suscripciones y proporcionar una vista precisa del estado de la organización desde una perspectiva de administración de recursos o de facturación.  
+Esta característica es importante porque permite al administrador de inquilinos ver todas las suscripciones que existen en una organización. También permite a las aplicaciones de automatización (por ejemplo, facturación y auditoría) tener acceso a todas las suscripciones y proporcionar una vista precisa del estado de la organización en la administración de recursos o de facturación.  
 
 ## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>Uso de elevateAccess para ofrecer acceso de inquilino
 
@@ -106,9 +108,4 @@ Cuando se llama a *elevateAccess*, se crea una asignación de roles para usted m
 - Obtener más información sobre la [administración del control de acceso basado en rol con REST](role-based-access-control-manage-access-rest.md)
 
 - [Administrar asignaciones de acceso](role-based-access-control-manage-assignments.md) en Azure Portal
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

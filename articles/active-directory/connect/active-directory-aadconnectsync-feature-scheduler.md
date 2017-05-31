@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/28/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: feb6e388a98cd6e133d010cada97f895140c3f4f
-ms.openlocfilehash: ee9a3b605c5445007f880a37e96c2326dd7c9b89
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: fe7f508ed1c4eb57663f7e252d286719af03dbb1
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -45,7 +46,7 @@ Para ver la configuración actual, vaya a PowerShell y ejecute `Get-ADSyncSchedu
 
 Si al ejecutar este cmdlet, aparece el error **The sync command or cmdlet is not available** (El comando de sincronización o el cmdlet no están disponibles), significa que el módulo de PowerShell no está cargado. Este problema podría suceder si ejecuta Azure AD Connect en un controlador de dominio o en un servidor con niveles de restricción para PowerShell más elevados que la configuración predeterminada. Si ve este error, ejecute `Import-Module ADSync` para que esté disponible el cmdlet.
 
-* **AllowedSyncCycleInterval**. El intervalo de mayor frecuencia con el que Azure AD permite que se produzcan las sincronizaciones. No se puede sincronizar con más frecuencia que esta configuración y mantener la compatibilidad.
+* **AllowedSyncCycleInterval**. El intervalo de tiempo más corto entre ciclos de sincronización permitido por Azure AD. No se puede sincronizar con más frecuencia que esta configuración y mantener la compatibilidad.
 * **CurrentlyEffectiveSyncCycleInterval**. La programación en vigor actualmente. Tiene el mismo valor que CustomizedSyncInterval (si está establecido), si no es más frecuente que AllowedSyncInterval. Si usa una compilación anterior a 1.1.281 y cambia CustomizedSyncCycleInterval, esto surte efecto tras el próximo ciclo de sincronización. A partir de la compilación 1.1.281, el cambio surte efecto inmediatamente.
 * **CustomizedSyncCycleInterval**. Si desea que el programador se ejecute con cualquier otra frecuencia distinta a la del valor predeterminado de 30 minutos, configure este valor. En la imagen anterior, el programador se ha establecido para que se ejecute cada hora. Si establece esta configuración en un valor inferior al de AllowedSyncInterval, se utilizará el último.
 * **NextSyncCyclePolicyType**. Diferencial o inicial. Define si la siguiente ejecución debe procesar solo cambios diferenciales, o bien si debería hacer una importación y sincronización completas. En el último caso también vuelve a procesar las reglas nuevas o modificadas.

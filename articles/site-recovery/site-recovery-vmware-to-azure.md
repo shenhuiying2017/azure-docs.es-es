@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7be3471cd5cd22b5d05aed6e2cb51840a20bb89b
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: b7b7347fef8ea6f6bf643e98bbcc0a6292c083ed
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -224,10 +224,11 @@ El servicio de movilidad se deberá instalar en todas las máquinas virtuales de
 
 Antes de comenzar:
 
+- Su cuenta de usuario de Azure debe tener ciertos [permisos](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) para habilitar la replicación de una nueva máquina virtual en Azure.
 - Cuando agregue o modifique máquinas virtuales, se puede tardar 15 minutos o más en que los cambios surtan efecto y aparezcan en el portal.
 - Puede comprobar la hora de la última detección de máquinas virtuales en **Servidores de configuración** > **Último contacto a las**.
 - Para agregar máquinas virtuales sin esperar a la detección programada, resalte el servidor de configuración (no haga clic en él) y haga clic en **Actualizar**.
-* Si se prepara una máquina virtual para la instalación de inserción, el servidor de procesos instala automáticamente el servicio de movilidad cuando habilita la replicación.
+- Si se prepara una máquina virtual para la instalación de inserción, el servidor de procesos instala automáticamente el servicio de movilidad cuando habilita la replicación.
 
 
 ### <a name="exclude-disks-from-replication"></a>Excluir discos de la replicación
@@ -298,7 +299,20 @@ Se recomienda que compruebe las propiedades de máquina virtual y realice cualqu
      - Por ejemplo, si una máquina de origen tiene dos adaptadores de red y el tamaño de la máquina de destino admite cuatro, el equipo de destino tendrá dos adaptadores. Si el equipo de origen tiene dos adaptadores pero el tamaño de destino compatible solo admite uno, el equipo de destino tendrá solo un adaptador.     
    - Si la máquina virtual tiene varios adaptadores de red, todos ellos se conectarán a la misma red.
    - Si la máquina virtual tiene varios adaptadores de red, el primero de ellos que se muestre en la lista se convertirá en el *predeterminado* en la máquina virtual de Azure.
-5. En **Discos**, se ven el sistema operativo de la máquina virtual y los discos de datos que se van a replicar.
+4. En **Discos**, se ven el sistema operativo de la máquina virtual y los discos de datos que se van a replicar.
+
+#### <a name="managed-disks"></a>Discos administrados
+
+En **Proceso y red** > **Propiedades de proceso**, puede establecer la opción "Usar discos administrados" en "Sí" para la máquina virtual si desea conectar discos administrados a la máquina en conmutación por error a Azure. Los discos administrados simplifican la administración de discos para las máquinas virtuales de Azure IaaS, ya que administra las cuentas de almacenamiento asociadas a los discos de la máquina virtual. [Más información sobre discos administrados](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview).
+
+   - Los discos administrados se crean y conectan a la máquina virtual solo en una conmutación por error de Azure. Al habilitar la protección, los datos de las máquinas locales continuarán la replicación en las cuentas de almacenamiento.  Los discos administrados solo se pueden crear para máquinas virtuales implementadas con el modelo de implementación de Resource Manager.  
+
+   - Cuando se establece "Usar discos administrados" en "Sí", solo los conjuntos de disponibilidad del grupo de recursos con "Usar discos administrados" establecido en "Sí" estarán disponibles para la selección. Esto ocurre porque las máquinas virtuales con discos administrados solo pueden formar parte de conjuntos de disponibilidad con la propiedad "Usar discos administrados" establecida en "Sí". Asegúrese de crear conjuntos de disponibilidad con la propiedad "Usar discos administrados" establecida en función de su intención de usar discos administrados en la conmutación por error.  Del mismo modo, cuando se establece "Usar discos administrados" en "No", solo los conjuntos de disponibilidad del grupo de recursos con la propiedad "Usar discos administrados" establecida en "No" estarán disponibles para la selección. [Más información sobre discos administrados y conjuntos de disponibilidad](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > Si la cuenta de almacenamiento utilizada para la replicación ha sido cifrada con el Cifrado del servicio de Storage en algún momento, se producirá un error en la creación de discos administrados durante la conmutación por error. Puede establecer "Usar discos administrados" en "No" y volver a intentar la conmutación por error o deshabilitar la protección de la máquina virtual y protegerla en una cuenta de almacenamiento que no haya tenido habilitado el Cifrado del servicio de Storage en ningún momento.
+  > [Más información sobre el Cifrado del servicio de Storage y los discos administrados](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+
 
 ## <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba
 

@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f15654f621bafb2617bdb456bbda0233db656be5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -66,9 +67,11 @@ Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de
 
 ### <a name="ns-records"></a>Registros NS
 
-Un conjunto de registros NS se crea automáticamente en el vértice de cada zona (nombre = "@") y se elimina automáticamente cuando se elimina la zona (no se puede eliminar por separado).  Se puede modificar el TTL del conjunto de registros, pero no los registros, que están preconfigurados para hacer referencia a los servidores de nombres de DNS de Azure asignados a la zona.
+El registro NS establecido en el vértice de la zona (nombre "@") se crea automáticamente con cada zona DNS y se elimina de forma automática cuando se elimina la zona (no se puede eliminar por separado).
 
-Puede crear y eliminar otros registros NS dentro de la zona, aparte de en el vértice de zona.  Esto le permite configurar zonas secundarias (vea [Delegación de subdominios en DNS de Azure](dns-domain-delegation.md)).
+Este conjunto de registros contiene los nombres de los servidores de nombres Azure DNS asignados a la zona. Puede agregar más servidores de nombres a este conjunto de registros NS, para admitir dominios de hospedaje conjunto con más de un proveedor DNS. También puede modificar el TTL y los metadatos para este conjunto de registros. Sin embargo, no puede quitar ni modificar los servidores de nombres de Azure DNS rellenados previamente. 
+
+Tenga en cuenta que esto solo se aplica al conjunto de registros NS en el vértice de la zona. Otros conjuntos de registros NS de su zona (como los que se usan para delegar zonas secundarias) se pueden crear, modificar y eliminar sin restricciones.
 
 ### <a name="soa-records"></a>Registros SOA
 

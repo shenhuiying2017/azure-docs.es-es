@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 06/01/2016
 ms.author: BernardoAMunoz
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 570688ae363e223d792bec8e6b13d4ec50412130
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 41522a85cac05304b3ae60c45b48920eefbe8f5c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -61,7 +62,7 @@ Resource Health realiza varias comprobaciones según el [tipo de recurso](resour
 Hay tres estados de mantenimiento distintos:
 1. Disponible: no hay problemas conocidos en la plataforma de Azure que pudieran afectar a este recurso
 2. No disponible: Resource Health detectó problemas que afectan al recurso
-3. Desconocido: Resource Health puede determinar el estado de un recurso porque dejó de recibir información sobre el mismo. 
+3. Desconocido: Resource Health no puede determinar el estado de un recurso porque dejó de recibir información sobre el mismo. 
 
 ## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>¿Qué significa el estado desconocido? ¿Hay problemas con mi recurso?
 El estado de mantenimiento se establece en desconocido cuando Resource Health deja de recibir información sobre un recurso específico. Si bien este estado no es una indicación definitiva del estado del recurso, en casos donde experimenta problemas podría indicar que hay un problema con Azure.

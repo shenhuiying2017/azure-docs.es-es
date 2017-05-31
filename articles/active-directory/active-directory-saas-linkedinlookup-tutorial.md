@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: f343d8dbbd80de1a50b625e949377aa7c48d0cae
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: a4160a89c6a06222a9239d996fcca822e1a50382
 ms.contentlocale: es-es
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -145,13 +145,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | --- | --- |    
     | department| user.department |
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
+   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
 
-       a. Click **Add attribute** to open the attribute details page add the department attribute as shown below-
+   a. Haga clic en **Agregar atributo** para abrir la página de detalles del atributo y agregue el atributo department tal como se muestra a continuación:
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
+   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
    
-       b. Click **Ok** to save the attribute.
+   b. Haga clic en **Aceptar** para guardar el atributo.
 
 10. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
 

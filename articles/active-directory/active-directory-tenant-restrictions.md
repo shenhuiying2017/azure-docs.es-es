@@ -12,17 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/10/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: c579c0866387a5eff17b4dbfe25a6cb7d1d47700
-ms.openlocfilehash: 4adf15e4767344d450b7411733a5d2f09cb9f06b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 7288f8fa173f8018570cd17aa7274f56a4eead41
+ms.contentlocale: es-es
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de Restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
-Las organizaciones grandes que hacen hincapié en la seguridad desean moverse a servicios en la nube como Office 365, pero deben saber que sus usuarios no podrán acceder a recursos no aprobados. Tradicionalmente, las empresas restringen los nombres de dominio o las direcciones IP cuando desean administrar el acceso. Este enfoque no sirve en un mundo donde las aplicaciones SaaS se hospedan en una nube pública, ejecutándose en nombres de dominio compartidos como outlook.office.com y login.microsoftonline.com. El bloqueo de estas direcciones evitaría por completo que los usuarios accedieran a Outlook en la web, en lugar de simplemente limitarlos a identidades y recursos aprobados.
+Las organizaciones grandes que hacen hincapié en la seguridad desean moverse a servicios en la nube como Office 365 pero deben saber que sus usuarios solo podrán acceder a recursos aprobados. Tradicionalmente, las empresas restringen los nombres de dominio o las direcciones IP cuando desean administrar el acceso. Este enfoque no sirve en un mundo donde las aplicaciones SaaS se hospedan en una nube pública, ejecutándose en nombres de dominio compartidos como outlook.office.com y login.microsoftonline.com. El bloqueo de estas direcciones evitaría por completo que los usuarios accedieran a Outlook en la web, en lugar de simplemente limitarlos a identidades y recursos aprobados.
 
 La solución de Azure Active Directory para este desafío es una característica denominada Restricciones de inquilino. Restricciones de inquilino permite a las organizaciones controlar el acceso a aplicaciones en la nube SaaS según el inquilino de Azure AD que usan las aplicaciones para el inicio de sesión único. Por ejemplo, puede que le interese permitir el acceso a aplicaciones de Office 365 de su organización y, al mismo tiempo, impedir el acceso a instancias de otras organizaciones de estas mismas aplicaciones.  
 
@@ -30,7 +32,7 @@ Restricciones de inquilino ofrece a las organizaciones la posibilidad de especif
 
 Este artículo se centra en Restricciones de inquilino para Office 365, pero la característica debe funcionar con cualquier aplicación en la nube SaaS que use protocolos de autenticación moderna con Azure AD para inicio de sesión único. Si usa aplicaciones SaaS con un inquilino de Azure AD diferente al inquilino que usa Office 365, asegúrese de que todos los inquilinos necesarios tienen permiso. Para más información sobre aplicaciones en la nube SaaS, consulte [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/).
 
-## <a name="how-does-it-work"></a>¿Cómo funciona?
+## <a name="how-it-works"></a>Cómo funciona
 
 La solución general consta de los siguientes componentes: 
 
@@ -101,7 +103,7 @@ El administrador del inquilino especificado como el inquilino Restricted-Access-
 
 Al igual que otros informes en Azure Portal, puede usar filtros para especificar el ámbito del informe. Puede filtrar por un usuario, una aplicación, un cliente o un intervalo de tiempo específico.
 
-## <a name="office-365-support-for-tenant-restrictions"></a>Soporte técnico de Office 365 para Restricciones de inquilino
+## <a name="office-365-support"></a>Compatibilidad con Office 365
 
 Las aplicaciones de Office 365 deben cumplir dos criterios para que sean totalmente compatibles con Restricciones de inquilino:
 
@@ -112,7 +114,7 @@ Consulte [Updated Office 365 modern authentication](https://blogs.office.com/201
 
 Actualmente, las aplicaciones de Office 365 basadas en explorador (portal de Office, Yammer, sitios de SharePoint, Outlook en la web, etc.) son compatibles con Restricciones de inquilino. Para clientes gruesos (Outlook, Skype Empresarial, Word, Excel, PowerPoint, etc.), Restricciones de inquilinos solo se puede aplicar cuando se usa autenticación moderna.  
 
-Los clientes de Outlook y Skype Empresarial que admiten autenticación moderna pueden seguir usando protocolos heredados en inquilinos donde la autenticación moderna no está habilitada, evitando eficazmente Restricciones de inquilino. Para Outlook en Windows, los clientes pueden optar por implementar restricciones que impidan a los usuarios finales agregar cuentas de correo no aprobadas a sus perfiles. Por ejemplo, vea el establecimiento de directiva de grupo [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) (Impedir la incorporación de cuentas de Exchange no predeterminadas). Para Outlook en plataformas distintas de Windows y Skype Empresarial en todas las plataformas, se espera disponer de compatibilidad total para Restricciones de inquilino cuando la autenticación moderna se habilite como la opción predeterminada de todo el servicio.
+Los clientes de Outlook y Skype Empresarial que admiten autenticación moderna pueden seguir usando protocolos heredados en inquilinos donde la autenticación moderna no está habilitada, evitando eficazmente Restricciones de inquilino. Para Outlook en Windows, los clientes pueden optar por implementar restricciones que impidan a los usuarios finales agregar cuentas de correo no aprobadas a sus perfiles. Por ejemplo, vea el establecimiento de directiva de grupo [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) (Impedir la incorporación de cuentas de Exchange no predeterminadas). Para Outlook en plataformas distintas de Windows y para Skype Empresarial en todas las plataformas, actualmente no está disponible la compatibilidad total para restricciones de inquilino.
 
 ## <a name="testing"></a>Prueba
 
@@ -122,20 +124,15 @@ Si desea probar la característica Restricciones de inquilino antes de implement
 
 Fiddler es un proxy de depuración web gratis que puede usarse para capturar y modificar el tráfico HTTP/HTTPS, incluida la inserción de encabezados HTTP. Para configurar Fiddler para probar Restricciones de inquilino, realice los pasos siguientes:
 
-1.  [Descargue e instale Fiddler](http://www.telerik.com/fiddler).
-2.  Configure Fiddler para descifrar el tráfico HTTPS siguiendo las indicaciones de la [documentación de la ayuda de Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
-3.  Configure Fiddler para insertar los encabezados *Restrict-Access-To-Tenants* y *Restrict-Access-Context* utilizando reglas personalizadas:
+1.    [Descargue e instale Fiddler](http://www.telerik.com/fiddler).
+2.    Configure Fiddler para descifrar el tráfico HTTPS siguiendo las indicaciones de la [documentación de la ayuda de Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+3.    Configure Fiddler para insertar los encabezados *Restrict-Access-To-Tenants* y *Restrict-Access-Context* utilizando reglas personalizadas:
   1. En la herramienta Fiddler Web Debugger, seleccione el menú **Reglas** y luego **Personalizar reglas...** para abrir el archivo CustomRules.
   2. Agregue las siguientes líneas al principio de la función *OnBeforeRequest*. Reemplace \<tenant domain\> por un dominio registrado con el inquilino, por ejemplo, contoso.onmicrosoft.com. Reemplace \<directory ID\> por el identificador GUID de Azure AD del inquilino.
 
   ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){
-      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
-      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
-  }
+  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
   ```
-  >[!NOTE]
-  > El fragmento de código anterior debe estar todo en una línea. No hay retornos de carro hasta después del corchete de cierre.
 
   Si necesita permitir varios inquilinos, use una coma para separar los nombres de los mismos. Por ejemplo:
 
@@ -151,8 +148,8 @@ Después de configurar Fiddler, podrá capturar el tráfico yendo al menú **Fil
 
 Dependiendo de las funcionalidades de la infraestructura del proxy, es posible que pueda llevar a cabo el lanzamiento de la configuración a los usuarios. Aquí tiene un par de opciones de alto nivel a tener en cuenta:
 
-1.  Usar archivos PAC para dirigir a los usuarios de prueba a una infraestructura del proxy de prueba, mientras que los usuarios convencionales siguen usando la infraestructura del proxy de producción.
-2.  Algunos servidores proxy pueden admitir distintas configuraciones mediante grupos.
+1.    Usar archivos PAC para dirigir a los usuarios de prueba a una infraestructura del proxy de prueba, mientras que los usuarios convencionales siguen usando la infraestructura del proxy de producción.
+2.    Algunos servidores proxy pueden admitir distintas configuraciones mediante grupos.
 
 Consulte la documentación del servidor proxy para obtener detalles específicos.
 
@@ -161,9 +158,4 @@ Consulte la documentación del servidor proxy para obtener detalles específicos
 - Lea [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) (Autenticación moderna actualizada de Office 365)
 
 - Revise [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

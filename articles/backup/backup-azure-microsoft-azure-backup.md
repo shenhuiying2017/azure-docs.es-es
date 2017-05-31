@@ -16,9 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
-ms.openlocfilehash: 1462ee0e247fb5d590a70d23ece5723a065b4140
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: e8838095d621957fe6b4ee50464154617e1c4740
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -68,9 +70,12 @@ Si no desea ejecutar el servidor de base de Azure, puede ejecutar el servidor en
 Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Server. Más información sobre cómo funcionan juntos [DPM y la desduplicación](https://technet.microsoft.com/library/dn891438.aspx) al implementarlos en máquinas virtuales de Hyper-V.
 
 > [!NOTE]
-> No puede instalar el servidor de Copia de seguridad de Azure en una máquina que se ejecute como un controlador de dominio.
->
->
+> Azure Backup Server está diseñado para ejecutarse en un servidor dedicado de objetivo único. No se puede instalar Azure Backup Server en:
+> - Un equipo que se ejecuta como controlador de dominio
+> - Un equipo en el que está instalado el rol del servidor de aplicaciones
+> - Un equipo que sea un grupo de administración de System Center Operations Manager
+> - Un equipo en el que se ejecute Exchange Server
+> - Un equipo que sea un nodo de un clúster
 
 Debe unir el servidor de copia de seguridad de Azure a un dominio. Si piensa mover el servidor a un dominio diferente, se recomienda unir el servidor al nuevo dominio antes de instalar el servidor de copia de seguridad de Azure. *No se permite*mover una máquina servidor de Copia de seguridad de Azure existente a un dominio nuevo después de la implementación.
 
@@ -119,10 +124,10 @@ Para editar la configuración de replicación de almacenamiento:
    * En la lista de recursos, escriba **Servicios de recuperación**.
    * Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Servicios de recuperación**cuando lo vea.
 
-     ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+     ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
-     Aparece la lista de almacenes de Servicios de recuperación.
-   * En la lista de almacenes de Servicios de recuperación, seleccione un almacén.
+     Aparece la lista de almacenes de Recovery Services.
+   * En la lista de almacenes de Recovery Services, seleccione un almacén.
 
      Se abre el panel del almacén seleccionado.
 
@@ -275,9 +280,4 @@ Puede usar estos artículos para mejorar la comprensión sobre la protección de
 * [Copia de seguridad de SQL Server](backup-azure-backup-sql.md)
 * [Copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
 * [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

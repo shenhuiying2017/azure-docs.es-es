@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 27231cef19e7f624c2c09b0aae2ea3d503fb8e3d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 8824568e9e4204a567cc08a10608cf835aa7164b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -188,13 +189,19 @@ El proceso de organización en niveles del almacenamiento se produce como sigue:
 6. Microsoft Azure crea varias réplicas de los datos en su centro de datos y en un centro de datos remoto, lo que garantiza que los datos puedan recuperarse si se produce un desastre. 
 7. Cuando el servidor de archivos solicita datos almacenados en la nube, StorSimple los devuelve sin problemas y almacena una copia en el nivel de SSD del dispositivo StorSimple.
 
+#### <a name="how-storsimple-manages-cloud-data"></a>Cómo administra StorSimple los datos en la nube
+
+StorSimple desduplica los datos del cliente a través de todas las instantáneas y los datos principales (datos escritos por los hosts). Aunque la desduplicación es excelente para la eficacia de almacenamiento, convierte la pregunta "¿Qué hay en la nube?" en complicada. Los datos de nivel principal y los datos de instantánea se superponen entre sí. Un único fragmento de datos en la nube podría ser usado como datos de nivel principal y también varias instantáneas pueden hacer referencia a él. Cada instantánea en la nube garantiza que una copia de todos los datos en un momento del tiempo está bloqueada en la nube hasta que se elimine esa instantánea.
+
+Los datos solo se eliminan de la nube cuando no hay referencias a esos datos. Por ejemplo, si se toma una instantánea en la nube de todos los datos que están en el dispositivo de StorSimple y, a continuación, se eliminan algunos datos principales, se verían los _datos principales_ eliminados inmediatamente. Los _datos en la nube_ que incluyen los datos en niveles y las copias de seguridad, permanecen igual. Esto ocurre porque aún hay una instantánea haciendo referencias a los datos en la nube. Después de eliminar la instantánea en la nube (y cualquier otra instantánea que haga referencia a los mismos datos), se elimina el consumo en la nube. Antes de eliminar datos en la nube, comprobamos que ninguna instantánea hace referencia a esos datos. Este proceso se denomina _recolección de elementos no utilizados_ y es un servicio en segundo plano que se ejecuta en el dispositivo. La eliminación de datos en la nube no es inmediata ya que el servicio de recolección de elementos no utilizados comprueba cualquier otra referencia a esos datos antes de la eliminación. La velocidad de la recolección de elementos no utilizados depende del número total de instantáneas y los datos totales. Normalmente, los datos en la nube se limpian en menos de una semana.
+
+
 ### <a name="thin-provisioning"></a>Aprovisionamiento fino
-El aprovisionamiento fino es una tecnología de virtualización en que el almacenamiento disponible parece superar los recursos físicos. En lugar de reservar almacenamiento suficiente por adelantado, StorSimple utiliza el aprovisionamiento fino para asignar solo el espacio suficiente para cumplir con los requisitos actuales. La naturaleza elástica del almacenamiento en la nube facilita este enfoque porque StorSimple puede aumentar o disminuir el almacenamiento en la nube para satisfacer con las exigencias cambiantes. 
+El aprovisionamiento fino es una tecnología de virtualización en que el almacenamiento disponible parece superar los recursos físicos. En lugar de reservar almacenamiento suficiente por adelantado, StorSimple utiliza el aprovisionamiento fino para asignar solo el espacio suficiente para cumplir con los requisitos actuales. La naturaleza elástica del almacenamiento en la nube facilita este enfoque porque StorSimple puede aumentar o disminuir el almacenamiento en la nube para satisfacer con las exigencias cambiantes.
 
 > [!NOTE]
 > El aprovisionamiento de los volúmenes anclados localmente no puede ser fino. El almacenamiento asignado a un volumen sólo local se aprovisiona totalmente cuando se crea el volumen.
-> 
-> 
+
 
 ### <a name="deduplication-and-compression"></a>Desduplicación y compresión
 Microsoft Azure StorSimple utiliza la desduplicación y la compresión de datos para reducir aún más los requisitos de almacenamiento.
@@ -203,8 +210,7 @@ La desduplicación disminuye la cantidad general de datos almacenados al elimina
 
 > [!NOTE]
 > Los datos de los volúmenes anclados localmente no se desduplican ni comprimen. Sin embargo, las copias de seguridad de volúmenes localmente anclados sí se desduplican y comprimen.
-> 
-> 
+
 
 ## <a name="storsimple-workload-summary"></a>Resumen de la carga de trabajo de StorSimple
 A continuación, presentamos un resumen de las cargas de trabajo de StorSimple.

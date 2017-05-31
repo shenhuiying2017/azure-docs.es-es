@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 58ee6e9cc14b01f10e20dfc3f289bfc6cc386e2a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: d66489b43e983f313028a846d2b7da1534c86b53
+ms.contentlocale: es-es
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -147,7 +148,7 @@ No. No puede especificar un sufijo DNS personalizado para sus redes virtuales.
 Sí. Todas las interfaces de red (NIC) conectadas a una máquina virtual implementada a través del modelo de implementación de Resource Manager deben estar conectadas a una red virtual. Las máquinas virtuales implementadas a través del modelo de implementación clásica también se pueden conectar a una red virtual.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>¿Cuáles son los distintos tipos de direcciones IP que se pueden asignar a máquinas virtuales?
-* **Privada:** se asigna a cada uno de los NIC de todas las máquinas virtuales. Para asignar la dirección se pueden usar el método de asignación estática o el de asignación dinámica. La direcciones IP privadas se asignan del intervalo especificado en la configuración de subred de la red virtual. Los recursos implementados a través del modelo de implementación clásica reciben direcciones IP privadas, aunque no estén conectadas a una red virtual. Las direcciones IP privadas dinámicas permanecen asignadas a un recurso hasta que este se desasigna (máquinas virtuales) o se elimina (máquinas virtuales o ranuras de implementación de un servicio en la nube). Una dirección IP privada estática permanece asignada a un recurso hasta que este se elimina.
+* **Privada:** se asigna a cada uno de los NIC de todas las máquinas virtuales. Para asignar la dirección se puede usar el método estático o el dinámico. La direcciones IP privadas se asignan del intervalo especificado en la configuración de subred de la red virtual. A los recursos implementados a través del modelo de implementación clásica se les asignan direcciones IP privadas, aunque no estén conectadas a una red virtual. Las direcciones IP privadas asignadas con el método dinámico permanecen asignadas a un recurso hasta que este se elimina (máquinas virtuales o ranuras de implementación de un servicio en la nube). Las direcciones IP privadas asignadas con el método dinámico pueden cambiar cuando se reinicia una máquina virtual que se encontrara anteriormente en el estado detenido (desasignada). Las direcciones IP privadas asignadas con el método estático permanecen asignadas a un recurso hasta que este se elimina. Si necesita asegurarse de que la dirección IP privada de un recurso no cambie nunca hasta que se elimine el recurso, asigne una dirección IP privada con el método estático.
 * **Pública:** opcionalmente, se puede asignar a NIC conectadas a máquinas virtuales implementadas a través del modelo de implementación de Azure Resource Manager. La dirección se puede asignar con el método de asignación estática o el de asignación dinámica. Todas las máquinas virtuales y las instancias de rol de Cloud Services implementadas a través del modelo de implementación clásica existen en un servicio en la nube, al que se asigna una dirección IP virtual (VIP) pública y *dinámica*. Si se desea, una dirección IP pública *estática*, que se denomina [dirección IP reservada](virtual-networks-reserved-public-ip.md), puede asignarse como si fuera una VIP. Las direcciones IP públicas se pueden asignar a máquinas virtuales o instancias de rol de Cloud Services individuales implementadas mediante el modelo de implementación clásica. Estas direcciones se denominan direcciones [IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) y se puede asignar dinámicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>¿Puedo reservar una dirección IP interna para una máquina virtual que crearé más adelante?

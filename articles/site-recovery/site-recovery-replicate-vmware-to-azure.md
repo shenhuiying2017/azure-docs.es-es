@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/17/2017
 ms.author: asgang
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 06ac75a40ed1dc97046836388bb7938dabd2b9ac
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: f78a857a795031f6188635091c76431cd5440d1c
+ms.contentlocale: es-es
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -37,8 +38,9 @@ En este artículo se supone que ya ha seguido estos pasos:
 
 ## <a name="enable-replication"></a>Habilitar replicación
 #### <a name="before-you-start"></a>Antes de comenzar
-Si va a replicar máquinas virtuales de VMware, tenga en cuenta lo siguiente:
+Al replicar máquinas virtuales de VMware, tenga en cuenta que:
 
+* Su cuenta de usuario de Azure debe tener ciertos [permisos](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) para habilitar la replicación de una nueva máquina virtual en Azure.
 * Las máquinas virtuales de VMware se detectan cada 15 minutos. Es posible que tarden 15 minutos o más en aparecer en el portal tras la detección. Del mismo modo, la detección podría tardar 15 minutos o más si agrega un servidor vCenter o host vSphere nuevos.
 * Los cambios de entorno en la máquina virtual (como la instalación de herramientas de VMware) pueden tardar 15 minutos o más en actualizarse en el portal.
 * Puede consultar la hora de la detección más reciente de las máquinas virtuales de VMware en el campo **Último contacto a las** correspondiente al servidor vCenter/host de vSphere en la hoja **Servidores de configuración**.
@@ -83,7 +85,7 @@ Si va a replicar máquinas virtuales de VMware, tenga en cuenta lo siguiente:
 
 
 11. En **Configuración de la replicación** > **Establecer configuración de replicación**, compruebe que se haya seleccionado la directiva de replicación correcta. Puede modificar la configuración de la directiva de replicación en **Configuración** > **Directivas de replicación** > nombre de directiva > **Editar configuración**. Los cambios aplicados a una directiva también se aplicarán a las máquinas nuevas y replicadas.
-12. Habilite la **coherencia de múltiples VM** si desea recopilar las máquinas en un grupo de replicación y especifique un nombre para el grupo. A continuación, haga clic en **Aceptar**. Observe lo siguiente:
+12. Habilite la **coherencia de múltiples VM** si desea recopilar las máquinas en un grupo de replicación y especifique un nombre para el grupo. y, a continuación, haga clic en **Aceptar**. Observe lo siguiente:
 
     * Todas las máquinas de un grupo de replicación se replican al mismo tiempo y comparten puntos de recuperación coherentes con los bloqueos y coherentes con la aplicación cuando conmutan por error.
     * Se recomienda que recopile las máquinas virtuales y los servidores físicos juntos para que reflejen las cargas de trabajo. Habilitar la coherencia de múltiples VM puede afectar al rendimiento de la carga de trabajo y solo debe utilizarse si las máquinas ejecutan la misma carga de trabajo y necesita coherencia.
@@ -105,19 +107,20 @@ Es recomendable que compruebe las propiedades de la máquina de origen. Recuerde
 ![Habilitar replicación](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
 
 *Grupo de recursos*
-   
-  * Puede seleccionar un [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) del cual la máquina formará parte de la conmutación por error posterior. Puede cambiar esta configuración en cualquier momento antes de una conmutación por error. 
-  
+
+  * Puede seleccionar un [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) del cual la máquina formará parte de la conmutación por error posterior. Puede cambiar esta configuración en cualquier momento antes de una conmutación por error.
+
 > [!NOTE]
 > Después de la conmutación por error: si se migra la máquina a otro grupo de recursos, la configuración de protección de una máquina se interrumpirá.
- 
+
 *Conjuntos de disponibilidad*
 
-Puede seleccionar un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si su máquina debe formar parte de la conmutación por error posterior. Al seleccionar el conjunto de disponibilidad, tenga en cuenta lo siguiente:
+Puede seleccionar un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) si su máquina debe formar parte de la conmutación por error posterior.
+Al seleccionar el conjunto de disponibilidad, tenga en cuenta lo siguiente:
 
 * Solo se mostrarán los conjuntos de disponibilidad que pertenecen al grupo de recursos especificado.  
-* Las máquinas con distintas redes virtuales no pueden formar parte del mismo conjunto de disponibilidad. 
-* Solo las máquinas virtuales del mismo tamaño pueden formar parte del mismo conjunto de disponibilidad. 
+* Las máquinas con distintas redes virtuales no pueden formar parte del mismo conjunto de disponibilidad.
+* Solo las máquinas virtuales del mismo tamaño pueden formar parte del mismo conjunto de disponibilidad.
 
 *Propiedades de red*
 
