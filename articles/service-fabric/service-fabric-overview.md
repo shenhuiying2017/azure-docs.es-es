@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 0fb4cc7b3c071eeb0bff15f9a57fc7e2106d7ca7
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 81dae4c35fead96af8a8a2823952a0bd7f2e537e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Service Fabric le permite compilar y administrar aplicaciones escalables y confi
 * Puede escalar diferentes partes de la aplicación, según las necesidades de esta.
 * Los equipos de desarrollo pueden ser más ágiles en la implementación de los cambios y, por tanto, dar servicio a los clientes con mayor rapidez y con más frecuencia.
 
-Service Fabric impulsa muchos servicios Microsoft en la actualidad, como Azure SQL Database, Azure DocumentDB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, IoT Hub de Azure, Skype Empresarial y muchos servicios principales de Azure.
+Service Fabric impulsa muchos servicios Microsoft en la actualidad, como Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Skype Empresarial y muchos servicios principales de Azure.
 
 Service Fabric se adapta para crear servicios nativos de la nube que pueden empezar con un tamaño pequeño, según sea necesario, y crecer a gran escala con cientos o miles de máquinas.
 

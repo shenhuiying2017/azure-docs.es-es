@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/24/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 15b6f6c85c5a5accbd31225c277de87346a2e16f
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f47fbe0e9c6cb4d09e6233f6d26211969a5c1f00
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/27/2017
 En este artículo se describe cómo empaquetar una aplicación de Service Fabric y prepararla para su implementación.
 
 ## <a name="package-layout"></a>Diseño del paquete
-El manifiesto de aplicación, los manifiestos de servicio y otros archivos de paquete necesarios deben organizarse en un diseño específico para la implementación en un clúster Service Fabric. Los manifiestos de ejemplo en este artículo deberían organizarse con la siguiente estructura de directorios:
+El manifiesto de aplicación, uno o varios manifiestos de servicio y otros archivos de paquete necesarios deben organizarse en un diseño específico para la implementación en un clúster de Service Fabric. Los manifiestos de ejemplo en este artículo deberían organizarse con la siguiente estructura de directorios:
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -51,10 +52,10 @@ Las carpetas reciben un nombre para coincidir con los atributos **Nombre** de ca
 ## <a name="use-setupentrypoint"></a>Usar SetupEntrypoint
 Los escenarios de uso de **SetupEntryPoint** habituales corresponden a cuando se necesita ejecutar un archivo ejecutable antes de iniciar el servicio o cuando necesita realizar una operación con privilegios elevados. Por ejemplo:
 
-* configuración e inicialización de las variables de entorno que el ejecutable del servicio necesita. Esto no se limita tan solo a los archivos ejecutables escritos a través de los modelos de programación de Service Fabric. Por ejemplo, npm.exe necesita algunas variables de entorno configuradas para implementar una aplicación node.js.
+* configuración e inicialización de las variables de entorno que el ejecutable del servicio necesita. No se limita tan solo a los archivos ejecutables escritos a través de los modelos de programación de Service Fabric. Por ejemplo, npm.exe necesita algunas variables de entorno configuradas para implementar una aplicación node.js.
 * Configuración del control de acceso mediante la instalación de certificados de seguridad.
 
-Para obtener más información sobre cómo configurar **SetupEntryPoint**, vea [Configuración de la directiva para un punto de entrada del programa de instalación del servicio](service-fabric-application-runas-security.md).  
+Para obtener más información sobre cómo configurar **SetupEntryPoint**, vea [Configuración de la directiva para un punto de entrada del programa de instalación del servicio](service-fabric-application-runas-security.md).
 
 ## <a name="configure"></a>Configuración 
 ### <a name="build-a-package-by-using-visual-studio"></a>Crear un paquete mediante Visual Studio
@@ -113,13 +114,13 @@ PS D:\temp>
 
 Si la aplicación tiene [parámetros de aplicación](service-fabric-manage-multiple-environment-app-configuration.md) definidos, puede pasarlos en [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) para realizar una validación adecuada.
 
-Si conoce el clúster donde se implementará la aplicación, se recomienda pasar la cadena de conexión del almacén de imágenes. En este caso, el paquete también se valida con las versiones anteriores de la aplicación que ya se está ejecutando en el clúster. Por ejemplo, la validación puede detectar si ya se implementó un paquete con la misma versión pero distinto contenido.  
+Si conoce el clúster donde se implementará la aplicación, se recomienda pasar el parámetro `ImageStoreConnectionString`. En este caso, el paquete también se valida con las versiones anteriores de la aplicación que ya se está ejecutando en el clúster. Por ejemplo, la validación puede detectar si ya se implementó un paquete con la misma versión pero distinto contenido.  
 
 Una vez que la aplicación se empaqueta correctamente y supera la validación, haga una evaluación según el tamaño y el número de archivos si es necesario comprimir. 
 
 ## <a name="compress-a-package"></a>Compresión de un paquete
 Cuando un paquete es grande o tiene muchos archivos, puede comprimirlo para acelerar la implementación. La compresión reduce el número de archivos y el tamaño del paquete.
-La [carga del paquete de aplicación](service-fabric-deploy-remove-applications.md#upload-the-application-package) puede tardar más que la carga del paquete sin comprimir, pero el [registro](service-fabric-deploy-remove-applications.md#register-the-application-package) y la [anulación del registro del tipo de aplicación](service-fabric-deploy-remove-applications.md#unregister-an-application-type) son más rápidos.
+Si se trata de un paquete de aplicación comprimido, la [carga del paquete de aplicación](service-fabric-deploy-remove-applications.md#upload-the-application-package) puede tardar más en comparación con un paquete sin comprimir, sobre todo, si se tiene en cuenta el tiempo de compresión; sin embargo, el [registro](service-fabric-deploy-remove-applications.md#register-the-application-package) y la [anulación del registro del tipo de aplicación](service-fabric-deploy-remove-applications.md#unregister-an-application-type) se realizan más rápido si el paquete está comprimido.
 
 El mecanismo de implementación es el mismo para los paquetes comprimidos y sin comprimir. Si el paquete se comprime, se almacena como tal en el almacén de imágenes de clúster y se descomprime en el nodo antes de ejecutar la aplicación.
 La compresión reemplaza el paquete de Service Fabric válido por la versión comprimida. La carpeta debe permitir permisos de escritura. La ejecución de la compresión en un paquete ya comprimido no produce ningún cambio. 
@@ -169,7 +170,7 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 ```
 
 Internamente, Service Fabric calcula las sumas de comprobación para los paquetes de aplicación para la validación. Cuando se utilice la compresión, las sumas de comprobación se calculan en las versiones comprimidas de cada paquete.
-Si ha copiado una versión sin comprimir del paquete de aplicación y desea utilizar la compresión para el mismo paquete, debe cambiar la versión de los paquetes `code`, `config` y `data` para evitar la falta de coincidencia en la suma de comprobación. Si los paquetes no han cambiado, en lugar de modificar la versión, puede usar el [aprovisionamiento de diferencias](service-fabric-application-upgrade-advanced.md). Con esta opción, no incluya el paquete sin cambios; solo haga referencia a él desde el manifiesto de servicio.
+Si ha copiado una versión sin comprimir del paquete de aplicación y desea utilizar la compresión para el mismo paquete, debe cambiar la versión de los paquetes `code`, `config` y `data` para evitar la falta de coincidencia en la suma de comprobación. Si los paquetes no han cambiado, en lugar de modificar la versión, puede usar el [aprovisionamiento de diferencias](service-fabric-application-upgrade-advanced.md). Con esta opción, no incluya el paquete sin cambios; en su lugar, haga referencia a él desde el manifiesto de servicio.
 
 De forma similar, si ha cargado una versión comprimida del paquete y desea usar un paquete sin comprimir, debe actualizar las versiones para evitar la falta de coincidencia en la suma de comprobación.
 

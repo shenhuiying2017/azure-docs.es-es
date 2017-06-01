@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 627f9dccb48712fced81f2c6dc694043f7162205
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5b5aa75756d2a7061d531d50a59a2c52dfb75cbe
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -333,7 +334,7 @@ Un trabajo de streaming puede tener varias salidas. Las salidas compatibles son:
             </td>
             <td width="246" valign="top">
                 <p>
-Compatible con muchas de las salidas en una topología; cada salida puede tener una lógica personalizada para el procesamiento de nivel inferior. Esta versión de Storm ya está lista para usar e incluye conectores para PowerBi, los Centros de eventos de Azure, el Almacenamiento de blobs de Azure, Azure DocumentDB, SQL y HBase. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
+Compatible con muchas de las salidas en una topología; cada salida puede tener una lógica personalizada para el procesamiento de nivel inferior. Esta versión de Storm ya está lista para usar e incluye conectores para Power BI, Azure Event Hubs, Azure Blob Store, Azure Cosmos DB, SQL y HBase. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
                 </p>
             </td>
         </tr>
@@ -569,7 +570,7 @@ Datos de referencia disponibles en los blobs de Azure con un tamaño máximo de 
             </td>
             <td width="246" valign="top">
                 <p>
-Sin límites en el tamaño de los datos. Conectores disponibles para HBase, DocumentDB, SQL Server y Azure. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
+Sin límites en el tamaño de los datos. Conectores disponibles para HBase, Azure Cosmos DB, SQL Server y Azure. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
                 </p>
                 <p>
 El código personalizado es el que debe encargarse de actualizar los datos de referencia.

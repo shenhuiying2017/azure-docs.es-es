@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/17/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: e90efe810084939280b392c470e14e76d35aff01
-ms.openlocfilehash: e628143db9ceba5e159022d2eefe3e6dd9f4bf22
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0753be48514bd2087b52fc85d27754c28dbcd58b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -46,7 +47,7 @@ Para más información, consulte el artículo [Modelar una aplicación en Servic
 
 Existen dos tipos de servicios:
 
-* **Sin estado:** los servicios sin estado se usan cuando el estado persistente del servicio se almacena en un servicio de almacenamiento externo como Almacenamiento de Azure, Base de datos SQL de Azure o Azure DocumentDB. Utilice un servicio sin estado en el caso de que el servicio no tenga almacenamiento persistente. Por ejemplo, un servicio de calculadora en el que se pasan valores al servicio, se realizan cálculos con dichos valores y se devuelve un resultado.
+* **Sin estado:** los servicios sin estado se usan cuando el estado persistente del servicio se almacena en un servicio de almacenamiento externo como Azure Storage, Azure SQL Database o Azure Cosmos DB. Utilice un servicio sin estado en el caso de que el servicio no tenga almacenamiento persistente. Por ejemplo, un servicio de calculadora en el que se pasan valores al servicio, se realizan cálculos con dichos valores y se devuelve un resultado.
 * **Con estado:** los servicios con estado se usan se desea que Service Fabric administre el estado del servicio a través de sus modelos de programación Reliable Collections o Reliable Actors. Especifique el número de particiones por las que desea distribuir el estado (a efectos de escalabilidad) al crear un servicio con nombre. Especifique también cuántas veces debe replicarse su estado en todos los nodos (para lograr una mayor confiabilidad). Todos los servicios con nombre tienen una única réplica principal y varias réplicas secundarias. Puede modificar el estado de su servicio con nombre escribiendo en la réplica principal. Tras ello, Service Fabric replica este estado en todas las réplicas secundarias, manteniendo el estado sincronizado. Service Fabric detecta automáticamente cuándo se produce un error de una réplica principal y, como respuesta, promueve una de las réplicas secundarias existentes para que ocupe el puesto de réplica principal. Seguidamente, Service Fabric crea una nueva réplica secundaria.  
 
 **Paquete de servicio**: un directorio del disco que contiene el archivo `ServiceManifest.xml` del tipo de servicio. Este archivo hace referencia al código, a los datos estáticos y a los paquetes de configuración del tipo de servicio. El archivo `ApplicationManifest.xml` del tipo de aplicación hace referencia a los archivos del directorio del paquete de servicio. Por ejemplo, un paquete de servicio puede hacer referencia al código, a los datos estáticos y a los paquetes de configuración que conforman un servicio de base de datos.
