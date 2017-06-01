@@ -100,7 +100,7 @@ En el caso de las máquinas virtuales de Resource Manager, use el siguiente ejem
 
 ```PowerShell
 Login-AzureRMAccount
-Select-AzureSubscription -SubscriptionId "**"
+Select-AzureRMSubscription -SubscriptionId "**"
 
 $workspaceName = "your workspace name"
 $VMresourcegroup = "**"
