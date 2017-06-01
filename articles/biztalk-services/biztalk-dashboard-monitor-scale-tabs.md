@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.contentlocale: es-es
 ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Revise las pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Después de crear su servicio de  BizTalk e implementar su aplicación, puede cambiar algunas de las configuraciones del servicio de  BizTalk y supervisar el rendimiento de la aplicación. 
 
 Al abrir el Portal de Azure clásico, entrará automáticamente en la pestaña **TODOS LOS ELEMENTOS** . Para ver el servicio de BizTalk Services, selecciónelo en la pestaña **TODOS LOS ELEMENTOS** o acceda a la pestaña **BIZTALK SERVICES** y haga clic en el nombre del servicio de BizTalk Services.

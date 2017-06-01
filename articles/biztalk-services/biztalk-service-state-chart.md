@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 331c03cd0819aa4935f9b486ff38f54d23d6a7fd
 ms.openlocfilehash: e3d5f89b1c8525f791e73667d6f7cd6a999ab971
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Qué puede y no puede hacer con el estado del servicio de BizTalk
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 En función del estado real del servicio de BizTalk, habrá operaciones que pueda realizar o no en el servicio de BizTalk.
 
 Por ejemplo, supongamos que aprovisiona un servicio de BizTalk nuevo en el Portal de Azure clásico. Cuando finalice correctamente, el servicio de BizTalk se encuentra en estado `active`. En el estado activo, puede detener, suspender y eliminar el servicio de BizTalk. Si detiene el servicio de BizTalk, y se produce un error en la detención, entonces el servicio de BizTalk se convierte en un estado `StopFailed`. Puede reiniciar el servicio de BizTalk si se encuentra en el estado `StopFailed`. Si intenta realizar una operación no permitida, como la reanudación, se produce el error siguiente:
@@ -56,10 +61,5 @@ Las tablas siguientes incluyen las operaciones o acciones que se pueden realizar
 * [BizTalk Services: limitaciones](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 * [BizTalk Services: nombre del emisor y clave del emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 * [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

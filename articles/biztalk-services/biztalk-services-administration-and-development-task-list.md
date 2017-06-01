@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 1013419f9283c3e81a6a6e8ed56a34d6ee5937ea
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Lista de tareas de administración y desarrollo de los Servicios de BizTalk
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 ## <a name="getting-started"></a>Introducción
 Cuando se trabaja con Servicios de BizTalk de Microsoft Azure, hay varios componentes locales y basados en la nube que hay que tener en cuenta. Para empezar, piense en el siguiente flujo de proceso:  
 
@@ -53,10 +58,5 @@ Cuando se trabaja con Servicios de BizTalk de Microsoft Azure, hay varios compon
 [Obtener información y crear transformaciones y mapas de mensajes](https://msdn.microsoft.com/library/azure/hh689905.aspx)  
 [Uso del servicio del adaptador de BizTalk (BAS)](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
 [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
