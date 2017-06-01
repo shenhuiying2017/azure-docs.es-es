@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 81549c4bc0cabcf46bc7dc66d7e6662d7f787b1e
 ms.openlocfilehash: df6353f84f898a1722e3e985244a90dbd6b22522
+ms.contentlocale: es-es
 ms.lasthandoff: 01/26/2017
 
 
@@ -42,7 +43,7 @@ Obtendrá:
 
 Opciones en las que puede continuar utilizando la instalación rápida:
 
-- Si no desea sincronizar todas las unidades organizativas, puede usar la instalación rápida y, en la última página, anule la selección de **Start the synchronization process...*** (Iniciar el proceso de sincronización). Después, vuelva a ejecutar el Asistente para instalación y cambie las unidades organizativas en [Opciones de configuración](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) y habilite la sincronización programada.
+- Si no desea sincronizar todas las unidades organizativas, puede usar la instalación rápida y, en la última página, anule la selección de **Inicie el proceso de sincronización...***. Después, vuelva a ejecutar el Asistente para instalación y cambie las unidades organizativas en [Opciones de configuración](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) y habilite la sincronización programada.
 - Desea habilitar una de las características de Azure AD Premium, como la Escritura diferida de contraseñas. Utilice primero la instalación rápida para completar la instalación inicial. Después, vuelva a ejecutar el Asistente para instalación y cambie las [opciones de configuración](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personalizado
