@@ -136,7 +136,7 @@ Puede utilizar el nuevo DSN para conectar DocumentADB con cualquier herramienta 
 1. Abra Power BI Desktop.
 2. Haga clic en **Obtener datos**.
 3. En la ventana **Obtener datos**, haga clic en **Otros** | **ODBC** | **Conectar**.
-4. En la ventana **From ODBC** (Desde ODBC), seleccione el nombre del origen de datos que ha creado el nombre y luego haga clic en **Aceptar**. Puede dejar las entradas **Opciones avanzadas** en blanco.
+4. En la ventana **Desde ODBC**, seleccione el nombre del origen de datos que ha creado el nombre y luego haga clic en **Aceptar**. Puede dejar las entradas **Opciones avanzadas** en blanco.
 5. En la ventana **Acceda a un origen de datos a través de un controlador ODBC**, seleccione **Predeterminado o personalizado** y luego haga clic en **Conectar**. No es necesario incluir **Propiedades de la cadena de conexión de credenciales**.
 6. En la ventana **Navegador**, en el panel izquierdo, expanda la base de datos, el esquema y luego seleccione la tabla. El panel de resultados incluye los datos que usan el esquema que ha creado.
 7. Para visualizar los datos en Power BI Desktop, active la casilla junto al nombre de tabla y luego haga clic en **Cargar**.

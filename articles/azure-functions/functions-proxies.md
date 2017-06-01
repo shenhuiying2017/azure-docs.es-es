@@ -22,7 +22,7 @@ ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="work-with-azure-functions-proxies-preview"></a>Uso de Servidores proxy de Azure Functions (versión preliminar)
+# <a name="work-with-azure-functions-proxies-preview"></a>Uso de Azure Functions Proxies (versión preliminar)
 
 > [!NOTE] 
 > Azure Functions Proxies actualmente se encuentra disponible en versión preliminar. La versión preliminar es gratuita, pero se aplica la facturación estándar de Functions a las ejecuciones de proxy. Para más información, consulte los [precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
@@ -32,13 +32,13 @@ En este artículo se explica cómo configurar y usar Azure Functions Proxies. Co
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 
-## <a name="enable"></a>Habilitación de Servidores proxy de Azure Functions
+## <a name="enable"></a>Habilitación de Azure Functions Proxies
 
 Los servidores proxy no están habilitados de forma predeterminada. Puede crear servidores proxy mientras la característica está deshabilitada, o no se ejecutarán. Para habilitar los servidores proxy, haga lo siguiente:
 
 1. Abra [Azure Portal] y vaya a la aplicación de función.
 2. Seleccione **Configuración de Function App**.
-3. Cambie **Habilitar servidores proxy de Azure Functions (versión preliminar)** a **Activado**.
+3. Cambie **Habilitar Azure Functions Proxies (versión preliminar)** a **Activado**.
 
 También puede volver aquí para actualizar el tiempo de ejecución del proxy a medida que haya nuevas características disponibles.
 
@@ -58,7 +58,7 @@ El proxy ahora existe como un nuevo punto de conexión en la Function App. Desde
 
 ## <a name="modify-requests-responses"></a>Modificación de solicitudes y respuestas
 
-Con Servidores proxy de Azure Functions, puede modificar solicitudes y respuestas desde el back-end. Estas transformaciones pueden usar variables, como se define en [Uso de variables].
+Con Azure Functions Proxies, puede modificar solicitudes y respuestas desde el back-end. Estas transformaciones pueden usar variables, como se define en [Uso de variables].
 
 ### <a name="modify-backend-request"></a>Modificación de la solicitud de back-end
 
@@ -143,7 +143,7 @@ Cada proxy tiene un nombre descriptivo, como *proxy1* en el ejemplo anterior. El
 * **responseOverrides**: objeto que define transformaciones a la respuesta del cliente. Consulte [Definición de un objeto responseOverrides].
 
 > [!NOTE] 
-> La propiedad de ruta de Servidores proxy de Azure Functions no respeta la propiedad routePrefix de la configuración del host de Functions. Si desea incluir un prefijo como /api, se debe incluir en la propiedad de ruta.
+> La propiedad de ruta de Azure Functions Proxies no respeta la propiedad routePrefix de la configuración del host de Functions. Si desea incluir un prefijo como /api, se debe incluir en la propiedad de ruta.
 
 ### <a name="requestOverrides"></a>Definición de un objeto requestOverrides
 
@@ -207,7 +207,7 @@ Una configuración de ejemplo puede tener el siguiente aspecto:
 }
 ```
 > [!NOTE] 
-> En este ejemplo, el cuerpo se define directamente, por lo que no se necesita la propiedad `backendUri`. En el ejemplo, se muestra cómo usar Servidores proxy de Azure Functions para simular las API.
+> En este ejemplo, el cuerpo se define directamente, por lo que no se necesita la propiedad `backendUri`. En el ejemplo, se muestra cómo usar Azure Functions Proxies para simular las API.
 
 [Azure Portal]: https://portal.azure.com
 [desencadenadores HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
