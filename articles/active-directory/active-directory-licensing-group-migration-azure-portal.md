@@ -17,9 +17,10 @@ ms.workload: identity
 ms.date: 02/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
 ms.openlocfilehash: d7c5ba12738c4713517743ae8c44e236c5e1a210
+ms.contentlocale: es-es
 ms.lasthandoff: 03/08/2017
 
 
@@ -53,7 +54,7 @@ Lo más importante es tener en cuenta que hay que evitar una situación tal en q
 
   Puede dejar las asignaciones directas originales de los usuarios, pero, en ese caso, cuando el usuario deja los grupos con licencia a los que pertenecen, conserva su licencia original, y posiblemente no es esto lo que desea.
 
-## <a name="an-example"></a>los cmdlets
+## <a name="an-example"></a>Un ejemplo
 
 Tenemos una organización con 1000 usuarios. Todos los usuarios necesitan la licencia de Enterprise Mobility + Security (EMS). 200 usuarios trabajan en el departamento financiero y necesitan licencias para Office 365 Enterprise E3. Existe un script de PowerShell que se ejecuta a nivel local mediante la adición y retirada de licencias de usuarios a medida que se incorporan y que se van. Se va a reemplazar el script con licencias basadas en grupos, de tal forma que Azure AD administre las licencias automáticamente.
 

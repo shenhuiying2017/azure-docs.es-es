@@ -1,6 +1,6 @@
 ---
 title: "Administración del acceso a aplicaciones en la nube mediante la restricción de inquilinos - Azure | Microsoft Docs"
-description: "Uso de Restricciones de inquilinos para administrar los usuarios que pueden acceder a las aplicaciones según su inquilino de Azure AD."
+description: "Uso de Restricciones de inquilino para administrar los usuarios que pueden acceder a las aplicaciones según su inquilino de Azure AD."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -95,7 +95,7 @@ Un usuario de ejemplo se encuentra en la red de Contoso, pero está intentando a
 
 ### <a name="admin-experience"></a>Experiencia del administrador
 
-Mientras la configuración de Restricciones de inquilino se realice en la infraestructura del proxy corporativo, los administradores podrán acceder a los informes de Restricciones de inquilino directamente en Azure Portal. Para ver los informes, vaya a la página de introducción de Azure Active Directory y mire en "Other capabilities" (Otras funcionalidades).
+Mientras la configuración de Restricciones de inquilino se realice en la infraestructura del proxy corporativo, los administradores podrán acceder a los informes de Restricciones de inquilino directamente en Azure Portal. Para ver los informes, vaya a la página de introducción de Azure Active Directory y mire en "Otras funcionalidades".
 
 El administrador del inquilino especificado como el inquilino Restricted-Access-Context puede usar este informe para ver todos los inicios de sesión bloqueados debido a la directiva de Restricciones de inquilino, incluida la identidad que se utiliza y el identificador de directorio de destino.
 
