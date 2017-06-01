@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/18/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2d6ef39ad4678d331eadd2c0bfd6ff93c99da501
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: db9f2174e9928083957f160be8c268fe21cd4169
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -28,7 +28,7 @@ La solución de inicio y detención de máquinas virtuales fuera de las horas de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Los Runbooks funciona con una [cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md).  La cuenta de ejecución es el método de autenticación preferido puesto que emplea autenticación de certificados en lugar de una contraseña que puede caducar o cambiar con frecuencia.  
+- Los Runbooks funciona con una [cuenta de ejecución de Azure](automation-offering-get-started.md#authentication-methods).  La cuenta de ejecución es el método de autenticación preferido puesto que emplea autenticación de certificados en lugar de una contraseña que puede caducar o cambiar con frecuencia.  
 
 - Esta solución solo puede administrar VM que se encuentren en la misma suscripción que la cuenta de Automation.  
 
