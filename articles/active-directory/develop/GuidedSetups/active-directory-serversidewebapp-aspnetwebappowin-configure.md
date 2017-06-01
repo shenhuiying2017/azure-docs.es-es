@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6f50ced708cb79a39e190657e4720c515c09990f
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: ad4160abfef748033eeb84a2f07a37124ce3b4b1
 ms.contentlocale: es-es
 
 
@@ -47,14 +48,14 @@ Ahora tiene que registrar la aplicación en el *Portal de registro de aplicacion
 <add key="Tenant" value="common" />
 <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" /> 
 ```
-9. Reemplace `ClientId` por el identificador de aplicación que acaba de registrar.
-10. Reemplace `redirectUri` por la dirección URL de SSL del proyecto. 
+<!-- Workaround for Docs conversion bug -->
+<ol start="9">
+<li>
+Reemplace `ClientId` por el identificador de aplicación que acaba de registrar.
+</li>
+<li>
+Reemplace `redirectUri` por la dirección URL de SSL del proyecto.
+</li>
+</ol>
 <!-- End Docs -->
-
-> Nota:
-> ### <a name="restricting-users-from-only-one-organization-to-sign-in-to-your-application"></a>Establecimiento de una limitación para que los usuarios de una organización sean los únicos que pueden iniciar sesión en la aplicación
-> De forma predeterminada, las cuentas personales (como outlook.com, live.com u otras), así como las cuentas profesionales y educativas de cualquier empresa u organización que se haya integrado con Azure Active Directory, pueden iniciar sesión en la aplicación. Si quiere que la aplicación solo acepte inicios de sesión de una organización, reemplace el parámetro `Tenant` en `web.config` de `Common` al nombre de inquilino de la organización; por ejemplo, `contoso.onmicrosoft.com`. A continuación, cambie el argumento *ValidateIssuer* de la clase de inicio de OWIN a `true`.
-Para permitir usuarios de solo una lista de organizaciones específicas, establezca `ValidateIssuer` en `true` y use el parámetro `ValidIssuers` para especificar una lista de las organizaciones.
-Otra opción consiste en implementar un método personalizado para validar a los emisores mediante `IssuerValidator parameter`. Para más información sobre `TokenValidationParameters`, consulte [este](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters(v=vs.114).aspx) artículo de MSDN.
-
 
