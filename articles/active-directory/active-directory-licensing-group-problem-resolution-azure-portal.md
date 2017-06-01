@@ -17,9 +17,10 @@ ms.workload: identity
 ms.date: 02/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
 ms.openlocfilehash: 68155ebaa6af36500bfe856c9bcd49f5efb6cbc2
+ms.contentlocale: es-es
 ms.lasthandoff: 03/23/2017
 
 

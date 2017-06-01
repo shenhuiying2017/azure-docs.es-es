@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/06/2017
 ms.author: tarcher
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 11a56418156a46e1fcef7b8d1c6003990000046f
+ms.contentlocale: es-es
 ms.lasthandoff: 03/27/2017
 
 
@@ -41,7 +42,7 @@ Es posible configurar un proyecto de servicio en la nube de Azure dependiendo de
 
 1. Seleccione la opción que desee en **Configuración de servicio** para indicar qué configuración de servicio desea usar al ejecutar o depurar el servicio en la nube de manera local. Para más información sobre cómo modificar una configuración de servicio para un rol, vea [Configuración de los roles para un servicio de Azure con Visual Studio](./vs-azure-tools-configure-roles-for-cloud-service.md).
 
-1. Establezca **Start Azure storage emulator** (Iniciar emulador de almacenamiento de Azure) en **True** para iniciar el emulador de almacenamiento de Azure al ejecutar o depurar el servicio en la nube de manera local.
+1. Establezca **Iniciar emulador de almacenamiento de Azure** en **True** para iniciar el emulador de almacenamiento de Azure al ejecutar o depurar el servicio en la nube de manera local.
 
 1. Establezca **Tratar advertencias como errores** en **True** para asegurarse de que no se puede publicar si hay errores de validación del paquete.
 
