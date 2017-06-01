@@ -1,13 +1,13 @@
 ---
 title: "Introducción a Azure Cosmos DB | Microsoft Docs"
 description: "Información acerca de Azure Cosmos DB. Esta base de datos de varios modelos y distribución global se ha creado con latencia baja, escalabilidad elástica y alta disponibilidad."
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1591a7935b10e22164d26a09c4e923101b517227
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 0736a6f9790b70686c4d936f2af80d5e42b89615
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -29,9 +29,9 @@ Azure Cosmos DB es la base de datos de varios modelos de distribución global de
 
 ![Azure Cosmos DB es el servicio de base de datos de distribución global de Microsoft con escalado elástico horizontal, baja latencia garantizada, cinco modelos de coherencia y SLA integrales garantizados.](./media/introduction/azure-cosmos-db.png)
 
-Azure Cosmos DB contiene un motor de base de datos con escritura optimizada, regulado por recursos, independiente del esquema que admite varios modelos de datos de forma nativa: de valores clave, documentos, gráficos y columnas. También admite muchas API para acceder a datos, como [MongoDB](../documentdb/documentdb-protocol-mongodb.md), [DocumentDB SQL](../documentdb/documentdb-introduction.md), [Gremlin](graph-introduction.md) (versión preliminar), y [Azure Tables](table-introduction.md) (versión preliminar), de forma extensible. 
+Azure Cosmos DB contiene un motor de base de datos con escritura optimizada, regulado por recursos, independiente del esquema que admite varios modelos de datos de forma nativa: de valores clave, documentos, gráficos y columnas. También admite muchas API para acceder a datos, como [MongoDB](mongodb-introduction.md), [DocumentDB SQL](documentdb-introduction.md), [Gremlin](graph-introduction.md) (versión preliminar), y [Azure Tables](table-introduction.md) (versión preliminar), de forma extensible. 
 
-Azure Cosmos DB se lanzó en 2010 para abordar los problemas de desarrollo que aparecen en las aplicaciones a grande escala de Microsoft. Puesto que la creación de aplicaciones de distribución global no es un problema único de Microsoft, hemos puesto el servicio a disponibilidad de todos los desarrolladores de Azure como Azure DocumentDB. Azure Cosmos DB es el siguiente gran salto en la evolución de DocumentDB y ahora lo ponemos a su disposición. Como parte de esta versión de Azure Cosmos DB, los clientes de DocumentDB (con sus datos) se convierten automáticamente en clientes de Azure Cosmos DB. La transición es perfecta y ya tienen acceso a la gama más amplia de funcionalidades nuevas que ofrece Azure Cosmos DB. 
+Azure Cosmos DB se lanzó en 2010 para abordar los problemas de desarrollo que aparecen en las aplicaciones a grande escala de Microsoft. Puesto que la creación de aplicaciones distribuidas globalmente no es un problema exclusivo de Microsoft, hemos puesto el servicio a disponibilidad de todos los desarrolladores de Azure como Azure DocumentDB. Azure Cosmos DB es el siguiente gran salto en la evolución de DocumentDB y ahora lo ponemos a su disposición. Como parte de esta versión de Azure Cosmos DB, los clientes de DocumentDB (con sus datos) se convierten automáticamente en clientes de Azure Cosmos DB. La transición es perfecta y ya tienen acceso a la gama más amplia de funcionalidades nuevas que ofrece Azure Cosmos DB. 
 
 ## <a name="capability-comparison"></a>Comparación de funcionalidades
 
@@ -59,7 +59,7 @@ Como un servicio de base de datos de distribución global, Azure Cosmos DB propo
     * SQL y Gremlin para las consultas. 
 
 * [**Escalado elástico del rendimiento y el almacenamiento a petición en todo el mundo**](#horizontal-scale)
-    * Escale fácilmente el rendimiento por [segundos](../documentdb/documentdb-request-units.md) y [minutos](https://aka.ms/acdbrupm), y cámbielo cuando quiera. 
+    * Escale fácilmente el rendimiento por [segundos](request-units.md) y [minutos](https://aka.ms/acdbrupm), y cámbielo cuando quiera. 
     * Escale el almacenamiento de manera [transparente y automática](partition-data.md) para cumplir los requisitos de tamaño ahora y siempre.
 
 * [**Creación de aplicaciones de alta capacidad de respuesta y de misión crítica**](#low-latency) 
@@ -68,10 +68,10 @@ Como un servicio de base de datos de distribución global, Azure Cosmos DB propo
 * [**Disponibilidad "siempre activa" garantizada**](#high-availability)
     * Disponibilidad del 99,99 % en una única región.
     * Impleméntela en cualquier número de [regiones de Azure](https://azure.microsoft.com/regions) para mayor disponibilidad.
-    * [Simule un error](../documentdb/documentdb-regional-failovers.md) en una o más regiones sin pérdida de datos, garantizada. 
+    * [Simule un error](regional-failover.md) en una o más regiones sin pérdida de datos, garantizada. 
 
 * [**Escritura de aplicaciones de distribución global de la forma correcta**](#consistency)
-    * [Cinco modelos de coherencia](../documentdb/documentdb-consistency-levels.md) ofrecen homogeneidad similar a SQL a la coherencia definitiva similar a NoSQL y en todo lo intermedio. 
+    * [Cinco modelos de coherencia](consistency-levels.md) ofrecen homogeneidad similar a SQL a la coherencia definitiva similar a NoSQL y en todo lo intermedio. 
   
 * [**Garantía de devolución del dinero**](#sla) 
     * Los datos llegarán rápidamente o le devolvemos el dinero. 
@@ -96,19 +96,17 @@ Los contenedores de Azure Cosmos DB se distribuyen en dos dimensiones:
 
 Cuando es necesario escalar el rendimiento y el almacenamiento, Cosmos DB realiza las operaciones de administración de particiones de manera transparente en todas las regiones. Cosmos DB proporciona una sola imagen de sistema de los recursos distribuidos globalmente, independientemente de la escala, la distribución o los errores. 
 
-La distribución global de los recursos en Cosmos DB es [inmediata](../documentdb/documentdb-distribute-data-globally.md). En cualquier momento, con unos pocos clics de botón (o mediante programación con una sola llamada de API), puede asociar a la cuenta de la base de datos cualquier número de regiones geográficas. 
+La distribución global de los recursos en Cosmos DB es [inmediata](distribute-data-globally.md). En cualquier momento, con unos pocos clics de botón (o mediante programación con una sola llamada de API), puede asociar a la cuenta de la base de datos cualquier número de regiones geográficas. 
 
 Cosmos DB garantiza que cada región recién asociada comenzará a procesar las solicitudes de cliente en una hora del percentil 99, independientemente de la cantidad de datos o el número de regiones. Para ello, paraleliza los datos de propagación y copia de todas las particiones de recursos de origen en la región recién asociada. Los clientes también pueden eliminar una región existente o dejar desconectada una región asociada previamente a su cuenta de la base de datos.
 
 <a id="data-models"></a>
 ## <a name="multi-model-multi-api-support"></a>Compatibilidad con varios modelos y varias API
  Azure Cosmos DB admite de forma nativa varios modelos de datos, como de documentos, valores clave, gráficos y familias de columnas. El modelo de contenido principal del motor de la base de datos de Cosmos DB se basa en la secuencia de registro de átomos (ARS). Los átomos constan de un pequeño conjunto de tipos primitivos, como cadenas, booleanos y números. Los registros son estructuras formadas por estos tipos. Las secuencias son matrices que constan de átomos, registros o secuencias. 
-
-![Azure Cosmos DB de varios modelos y varias API](./media/introduction/azure-cosmos-db-multimodel.png) 
  
  El motor de la base de datos puede traducir y proyectar eficazmente modelos de datos diferentes en el modelo de datos basado en ARS. El del modelo de datos central de Cosmos DB es accesible de forma nativa desde los lenguajes de programación escritos dinámicamente y se puede exponer tal cual como JSON. 
  
- El servicio también admite las API de base de datos populares para acceder a los datos y consultarlos. El motor de base de datos de Cosmos DB actualmente admite [DocumentDB SQL](../documentdb/documentdb-introduction.md), [MongoDB](../documentdb/documentdb-protocol-mongodb.md), [Azure Tables](table-introduction.md) (versión preliminar) y [Gremlin](graph-introduction.md) (versión preliminar). Puede seguir creando aplicaciones que utilicen API de OSS populares y obtener todas las ventajas de un servicio de base de datos totalmente probado y administrado de distribución global. 
+ El servicio también admite las API de base de datos populares para acceder a los datos y consultarlos. El motor de base de datos de Cosmos DB actualmente admite [DocumentDB SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), [Azure Tables](table-introduction.md) (versión preliminar) y [Gremlin](graph-introduction.md) (versión preliminar). Puede seguir creando aplicaciones que utilicen API de OSS populares y obtener todas las ventajas de un servicio de base de datos totalmente probado y administrado de distribución global. 
 
 <a id="horizontal-scale"></a>
 ## <a name="horizontal-scaling-of-storage-and-throughput"></a>Escalado horizontal del almacenamiento y el rendimiento
@@ -116,7 +114,7 @@ Todos los datos de un contenedor de Cosmos DB (por ejemplo, una colección de do
  
 ![Azure Cosmos DB Se puede escalar horizontalmente](./media/introduction/azure-cosmos-db-partitioning.png) 
 
-Puede escalar elásticamente el rendimiento de un contenedor de Azure Cosmos DB al aprovisionarlo mediante programación con [unidades de solicitud por segundo (RU/s)](../documentdb/documentdb-request-units.md). Internamente, el servicio administra de forma transparente las particiones de los recursos para ofrecer el rendimiento en un contenedor determinado. Cosmos DB garantiza que el rendimiento esté disponible para su uso en todas las regiones asociadas al contenedor. El nuevo rendimiento es efectivo en cinco segundos a partir del cambio en el valor de rendimiento configurado. 
+Puede escalar elásticamente el rendimiento de un contenedor de Azure Cosmos DB al aprovisionarlo mediante programación con [unidades de solicitud por segundo (RU/s)](request-units.md). Internamente, el servicio administra de forma transparente las particiones de los recursos para ofrecer el rendimiento en un contenedor determinado. Cosmos DB garantiza que el rendimiento esté disponible para su uso en todas las regiones asociadas al contenedor. El nuevo rendimiento es efectivo en cinco segundos a partir del cambio en el valor de rendimiento configurado. 
 
 Puede aprovisionar el rendimiento de un contenedor de Cosmos DB por segundos y [por minutos (RU/m)](request-units-per-minute.md). El rendimiento aprovisionado por minutos se usa para administrar picos inesperados de la carga de trabajo producidos en el nivel por segundos. 
 
@@ -128,7 +126,7 @@ Como parte de sus SLA, Cosmos DB garantiza una baja latencia global en el percen
 ## <a name="transparent-multi-homing-and-9999-high-availability"></a>Hospedaje múltiple transparente y alta disponibilidad al 99,99 %
 Es posible asignar dinámicamente "prioridades" a las regiones asociadas a la cuenta de base de datos Azure Cosmos DB. Las prioridades se usan para dirigir las solicitudes a regiones específicas en caso de errores regionales. En el improbable caso de un desastre regional, Cosmos DB conmuta por error automáticamente en el orden de prioridad establecido.
 
-Para probar la disponibilidad global de la aplicación, puede [desencadenar manualmente la conmutación por error](../documentdb/documentdb-regional-failovers.md) (velocidad limitada a dos operaciones por hora). Cosmos DB garantiza la conservación de todos los datos durante las conmutaciones por error manuales regionales. En caso de que se produzca un desastre regional, Cosmos DB garantiza un límite superior de pérdida de datos durante la conmutación por error automática que inicie el sistema. No es necesario volver a implementar la aplicación después de la conmutación por error regional y Azure Cosmos DB conserva los SLA de disponibilidad. 
+Para probar la disponibilidad global de la aplicación, puede [desencadenar manualmente la conmutación por error](regional-failover.md) (velocidad limitada a dos operaciones por hora). Cosmos DB garantiza la conservación de todos los datos durante las conmutaciones por error manuales regionales. En caso de que se produzca un desastre regional, Cosmos DB garantiza un límite superior de pérdida de datos durante la conmutación por error automática que inicie el sistema. No es necesario volver a implementar la aplicación después de la conmutación por error regional y Azure Cosmos DB conserva los SLA de disponibilidad. 
 
 En este escenario, Cosmos DB le permite interactuar con los recursos mediante puntos de conexión lógicos (independientes de la región) o físicos (específicos de la región). La primera opción garantiza que la aplicación puede hospedarse de forma transparente en varios hosts en caso de conmutación por error. La última proporciona un control específico de la aplicación para redirigir las lecturas y escrituras a regiones concretas. Cosmos DB garantiza el SLA de disponibilidad al 99,99 % para todas las cuentas de base de datos. Las garantías de disponibilidad son independientes de la escala (rendimiento y almacenamiento aprovisionados), el número de regiones o la distancia geográfica entre regiones asociadas a una base de datos determinada. 
 
@@ -136,7 +134,7 @@ En este escenario, Cosmos DB le permite interactuar con los recursos mediante pu
 ## <a name="multiple-well-defined-consistency-models"></a>Varios modelos de coherencia bien definida
 Las bases de datos distribuidas comerciales se dividen en dos categorías: las bases de datos que no ofrecen opciones de coherencia bien definida en absoluto y las que ofrecen dos opciones de programación opuestas (coherencia alta y ocasional). La primera supone una carga de detalles pormenorizados de los protocolos de replicación para los desarrolladores de aplicaciones y espera de ellos difíciles compensaciones entre coherencia, disponibilidad, latencia y rendimiento. La última obliga a elegir uno de los dos extremos. A pesar de la gran cantidad de investigación y propuestas de más de 50 modelos de coherencia, la comunidad de bases de datos distribuidas no ha sido capaz de comercializar otros niveles de coherencia distintos del alto y el final. 
 
-Cosmos DB le permite elegir entre [cinco modelos de coherencia bien definida](../documentdb/documentdb-consistency-levels.md) dentro del espectro de coherencia: alta, de obsolescencia limitada, [de sesión](http://dl.acm.org/citation.cfm?id=383631), de prefijo coherente y final. 
+Cosmos DB le permite elegir entre [cinco modelos de coherencia bien definida](consistency-levels.md) dentro del espectro de coherencia: alta, de obsolescencia limitada, [de sesión](http://dl.acm.org/citation.cfm?id=383631), de prefijo coherente y final. 
 
 ![Azure Cosmos DB ofrece varios modelos de coherencia bien definida (progresivos) entre los que elegir](media/introduction/azure-cosmos-db-consistency-levels.png)
 

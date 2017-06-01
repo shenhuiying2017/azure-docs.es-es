@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB: Compilar una aplicación de consola con Java y la API MongoDB | Microsoft Docs"
 description: "En este tema se presenta un ejemplo de código de Java que se puede usar para conectarse a la API MongoDB de Azure Cosmos DB y realizar consultas."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -16,16 +16,16 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 22bce387c2b33759c1b83247f253c72fb3132739
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 1683afd842294b3b45ae4d0e53bbecdccadc1ed5
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación de consola de la API MongoDB con Java y Azure Portal
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escalado horizontal en Azure Cosmos DB. 
 
 En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Después, compilará e implementará una aplicación de consola compilada en el [controlador Java de MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
@@ -39,13 +39,13 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de d
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
-[!INCLUDE [mongodb-create-dbaccount](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+[!INCLUDE [mongodb-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## <a name="add-a-collection"></a>Agregar una colección
 
 Asígnele un nombre a la base de datos nueva (**db**) y a la nueva colección (**coll**).
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
@@ -61,7 +61,7 @@ Ahora vamos a clonar una aplicación de API MongoDB desde GitHub, establecer la 
 
 3. Después, abra el archivo de solución en Visual Studio. 
 
-## <a name="review-the-code"></a>Revisar el código
+## <a name="review-the-code"></a>Revisión del código
 
 Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `Program.cs` y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
 
@@ -105,21 +105,21 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
     
 ## <a name="run-the-console-app"></a>Ejecutar la aplicación de consola
 
-1. Ejecute `mvn package` en un terminal para instalar los módulos de NPM necesarios.
+1. Ejecute `mvn package` en un terminal para instalar los módulos npm necesarios.
 
 2. Ejecute `mvn exec:java -D exec.mainClass=GetStarted.Program` en un terminal para iniciar la aplicación de Java.
 
-Ahora puede usar [Robomongo](../documentdb/documentdb-mongodb-robomongo.md) / [Studio 3T](../documentdb/documentdb-mongodb-mongochef.md) para consultar, modificar y trabajar con estos nuevos datos.
+Ahora puede usar [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md) para consultar, modificar y trabajar con estos nuevos datos.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal:
 
-1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que ha creado. 
+1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -127,7 +127,7 @@ Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos 
 En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB, crear una colección mediante el Explorador de datos y ejecutar una aplicación de consola. Ahora puede importar datos adicionales en la cuenta de Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar datos de MongoDB en Azure Cosmos DB](../documentdb/documentdb-mongodb-migrate.md)
+> [Importar datos de MongoDB en Azure Cosmos DB](mongodb-migrate.md)
 
 
 

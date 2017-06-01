@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB: Compilar una aplicación web con .NET y la API DocumentDB | Microsoft Docs"
 description: "En este tema se presenta un ejemplo de código de .NET que se puede usar para conectarse a la API DocumentDB de Azure Cosmos DB y realizar consultas."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -16,18 +16,18 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2c05863d8a891f8edf95afa73782e2d498c9bc4e
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 899c710318fee46a93b3f54a68cb9027589f7177
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación web de API DocumentDB con .NET y Azure Portal
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escalado horizontal en Azure Cosmos DB. 
 
-En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Después, compilará e implementará una aplicación de web de lista de tareas pendientes integrada en la [API DocumentDB de .NET](../documentdb/documentdb-sdk-dotnet.md), tal como se muestra en la captura de pantalla siguiente. 
+En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Después, compilará e implementará una aplicación de web de lista de tareas pendientes integrada en la [API DocumentDB de .NET](documentdb-sdk-dotnet.md), tal como se muestra en la captura de pantalla siguiente. 
 
 ![Aplicación de tareas pendientes con datos de ejemplo](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
@@ -37,14 +37,17 @@ Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la vers
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+<a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
+<a id="create-collection"></a>
 ## <a name="add-a-collection"></a>Agregar una colección
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+<a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>Agregar datos de ejemplo
 
 Ahora puede agregar datos a la nueva colección mediante el Explorador de datos.
@@ -70,7 +73,7 @@ Ahora puede agregar datos a la nueva colección mediante el Explorador de datos.
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
-Ahora vamos a clonar una aplicación de API DocumentDB desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
+Ahora vamos a clonar una aplicación de API de DocumentDB desde GitHub, a establecer la cadena de conexión y a ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
 
 1. Abra una ventana de terminal de Git, como Git Bash, y `CD` en un directorio de trabajo.  
 
@@ -82,7 +85,7 @@ Ahora vamos a clonar una aplicación de API DocumentDB desde GitHub, establecer 
 
 3. Después, abra el archivo de solución en Visual Studio. 
 
-## <a name="review-the-code"></a>Revisar el código
+## <a name="review-the-code"></a>Revisión del código
 
 Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo DocumentDBRepository.cs y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
 
@@ -125,7 +128,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     `<add key="authKey" value="FILLME" />`
     
-## <a name="run-the-web-app"></a>Ejecutar la aplicación web
+## <a name="run-the-web-app"></a>Ejecución de la aplicación web
 1. En Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet**. 
 
 2. En el cuadro **Examinar** de NuGet, escriba *DocumentDB*.
@@ -140,15 +143,15 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 Ahora puede volver al Explorador de datos y ver, consultar, modificar y trabajar con estos nuevos datos. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal:
 
-1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que ha creado. 
+1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -156,7 +159,7 @@ Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos 
 En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB, crear una colección mediante el Explorador de datos y ejecutar una aplicación web. Ahora puede importar datos adicionales en la cuenta de Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar datos en Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Importación de datos a Azure Cosmos DB](import-data.md)
 
 
 

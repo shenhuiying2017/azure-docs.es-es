@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB: Compilar una aplicación web con .NET y la API MongoDB | Microsoft Docs"
 description: "En este tema se presenta un ejemplo de código de .NET que se puede usar para conectarse a la API MongoDB de Azure Cosmos DB y realizar consultas."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -16,16 +16,16 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 68dccb429a9214e62daad9c161ffb8ad2a7b9a0b
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: b95afa4dd3cd264ea911c7aa809c7862f9576da8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación web de API MongoDB con .NET y Azure Portal
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escalado horizontal en Azure Cosmos DB. 
 
 En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Después, compilará e implementará una aplicación web de lista de tareas compilada en el [controlador .NET de MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/). 
 
@@ -34,9 +34,10 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de d
 Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+<a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
@@ -52,7 +53,7 @@ Ahora vamos a clonar una aplicación de API MongoDB desde GitHub, establecer la 
 
 3. Después, abra el archivo de solución en Visual Studio. 
 
-## <a name="review-the-code"></a>Revisar el código
+## <a name="review-the-code"></a>Revisión del código
 
 Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo **Dal.cs** del directorio **DAL** y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
 
@@ -108,7 +109,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
     
-## <a name="run-the-web-app"></a>Ejecutar la aplicación web
+## <a name="run-the-web-app"></a>Ejecución de la aplicación web
 
 1. En Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet**. 
 
@@ -122,13 +123,13 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal:
 
-1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que ha creado. 
+1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -136,6 +137,6 @@ Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos 
 En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB y ejecutar una aplicación web con la API para MongoDB. Ahora puede importar datos adicionales en la cuenta de Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar datos en Azure Cosmos DB para la API MongoDB](../documentdb/documentdb-mongodb-migrate.md)
+> [Importar datos en Azure Cosmos DB para la API MongoDB](mongodb-migrate.md)
 
 
