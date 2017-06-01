@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 04/05/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b6c554a21e143e71dcc68e6c36fb25074dc95d5b
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: e75bc8b74f965a0d4509b6967f1cdc7fa32eec56
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -48,7 +48,7 @@ Beeline es un cliente de Hive que se incluye en los nodos principales del clúst
 * Un clúster de Hadoop basado en Linux en HDInsight.
 
   > [!IMPORTANT]
-  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, vea el tema sobre el [desuso de la versión de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * Un cliente de SSH o un cliente de Beeline local. En la mayoría de los pasos descritos en este documento se da por hecho que está usando Beeline desde una sesión de SSH al clúster. Para más información sobre cómo ejecutar Beeline desde fuera del clúster, vea la sección sobre el [uso remoto de Beeline](#remote).
 

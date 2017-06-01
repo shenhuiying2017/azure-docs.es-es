@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 764b54dd7fa6ac8d7b3fadb0745f06cbd3bff689
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 136de1c5599fa3c66f90c32c2f0599b166197928
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -35,7 +36,7 @@ Obtenga información sobre cómo ejecutar trabajos de MapReduce en clústeres de
 | [Escritorio remoto](hdinsight-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 y 3.3) |Uso del comando Hadoop mediante **Escritorio remoto** |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para obtener más información, consulte la sección sobre el [desuso de HDInsight 3.2 y 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a id="whatis"></a>Qué es MapReduce
 
@@ -172,7 +173,7 @@ HDInsight puede ejecutar trabajos de HiveQL mediante varios métodos. Use la tab
 | [Escritorio remoto](hdinsight-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 y 3.3) |Uso del comando Hadoop mediante **Escritorio remoto** |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para obtener más información, consulte la sección sobre el [desuso de HDInsight 3.2 y 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a id="nextsteps"></a>Pasos siguientes
 

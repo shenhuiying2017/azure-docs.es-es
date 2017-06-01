@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 05/25/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 92d591054244ceb01adbfbd8ff027d47b04a6c83
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 02ecc95d97719908a18f615dc3e19af2a563cc73
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -36,7 +36,7 @@ Aprenda a usar Spark en HDInsight para analizar datos de telemetría de Applicat
 * Experiencia en la creación de un clúster de HDInsight basado en Linux. Para obtener más información, consulte el artículo sobre [creación de un clúster de Apache Spark en HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
   > [!IMPORTANT]
-  > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, vea el tema sobre el [desuso de HDInsight 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * Un navegador web.
 
@@ -89,7 +89,9 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
 
 3. En el primer campo (llamado **celda**) de la página, escriba el texto siguiente:
 
-        sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
+   ```python
+   sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
+   ```
 
     Este código configura Spark para que pueda acceder de forma recursiva a la estructura de directorios de los datos de entrada. La telemetría de Application Insights se registra en una estructura de directorios similar a `/{telemetry type}/YYYY-MM-DD/{##}/`.
 
@@ -104,8 +106,10 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
         SparkContext and HiveContext created. Executing user code ...
 5. Se crea una nueva celda debajo de la primera. Escriba el texto siguiente en la nueva celda. Reemplace `CONTAINER` y `STORAGEACCOUNT` por el nombre de la cuenta de Azure Storage y el nombre del contenedor de blobs que contiene datos de Application Insights.
 
-        %%bash
-        hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```python
+   %%bash
+   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```
 
     Use **MAYÚS + INTRO** para ejecutar esta celda. Verá un resultado similar al texto siguiente:
 
@@ -119,13 +123,17 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
 
 6. En la siguiente celda, escriba este código (reemplazando `WASB_PATH` por la ruta de acceso especificada en el paso anterior):
 
-        jsonFiles = sc.textFile('WASB_PATH')
-        jsonData = sqlContext.read.json(jsonFiles)
+   ```python
+   jsonFiles = sc.textFile('WASB_PATH')
+   jsonData = sqlContext.read.json(jsonFiles)
+   ```
 
     Este código crea una trama de datos de los archivos JSON exportados por el proceso de exportación continua. Use **MAYÚS + INTRO** para ejecutar esta celda.
 7. En la celda siguiente, escriba y ejecute lo siguiente para ver el esquema creado por Spark para los archivos JSON:
 
-        jsonData.printSchema()
+   ```python
+   jsonData.printSchema()
+   ```
 
     El esquema de cada tipo de telemetría es diferente. El siguiente ejemplo es el esquema que se genera para las solicitudes web (datos almacenados en el subdirectorio `Requests`):
 
@@ -191,8 +199,11 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
         |    |    |    |-- protocol: string (nullable = true)
 8. Para registrar la trama de datos como una tabla temporal y ejecutar una consulta de los datos, utilice lo siguiente:
 
-        jsonData.registerTempTable("requests")
-        sqlContext.sql("select context.location.city from requests where context.location.city is not null")
+   ```python
+   jsonData.registerTempTable("requests")
+   df = sqlContext.sql("select context.location.city from requests where context.location.city is not null")
+   df.show()
+   ```
 
     Esta consulta devuelve la información de la ciudad de los 20 registros principales donde context.location.city no sea nulo.
 
@@ -219,7 +230,9 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
 2. En la esquina superior derecha de la página de Jupyter, seleccione **Nuevo** y, después, **Scala**. Se abre una nueva pestaña en el explorador con un cuaderno de Jupyter Notebook basado en Scala.
 3. En el primer campo (llamado **celda**) de la página, escriba el texto siguiente:
 
-        sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
+   ```scala
+   sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
+   ```
 
     Este código configura Spark para que pueda acceder de forma recursiva a la estructura de directorios de los datos de entrada. La telemetría de Application Insights se registra en una estructura de directorios similar a `/{telemetry type}/YYYY-MM-DD/{##}/`.
 
@@ -234,8 +247,10 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
         SparkContext and HiveContext created. Executing user code ...
 5. Se crea una nueva celda debajo de la primera. Escriba el texto siguiente en la nueva celda. Reemplace `CONTAINER` y `STORAGEACCOUNT` por el nombre de la cuenta de Azure Storage y el nombre del contenedor de blobs que contiene registros de Application Insights.
 
-        %%bash
-        hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```scala
+   %%bash
+   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```
 
     Use **MAYÚS + INTRO** para ejecutar esta celda. Verá un resultado similar al texto siguiente:
 
@@ -249,13 +264,19 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
 
 6. En la siguiente celda, escriba este código (reemplazando `WASB\_PATH` por la ruta de acceso especificada en el paso anterior):
 
-        jsonFiles = sc.textFile('WASB_PATH')
-        jsonData = sqlContext.read.json(jsonFiles)
+   ```scala
+   var jsonFiles = sc.textFile('WASB_PATH')
+   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+   var jsonData = sqlContext.read.json(jsonFiles)
+   ```
 
     Este código crea una trama de datos de los archivos JSON exportados por el proceso de exportación continua. Use **MAYÚS + INTRO** para ejecutar esta celda.
+
 7. En la celda siguiente, escriba y ejecute lo siguiente para ver el esquema creado por Spark para los archivos JSON:
 
-        jsonData.printSchema
+   ```scala
+   jsonData.printSchema
+   ```
 
     El esquema de cada tipo de telemetría es diferente. El siguiente ejemplo es el esquema que se genera para las solicitudes web (datos almacenados en el subdirectorio `Requests`):
 
@@ -319,10 +340,13 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
         |    |    |    |-- hashTag: string (nullable = true)
         |    |    |    |-- host: string (nullable = true)
         |    |    |    |-- protocol: string (nullable = true)
+
 8. Para registrar la trama de datos como una tabla temporal y ejecutar una consulta de los datos, utilice lo siguiente:
 
-        jsonData.registerTempTable("requests")
-        var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   ```scala
+   jsonData.registerTempTable("requests")
+   var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   ```
 
     Esta consulta devuelve la información de la ciudad de los 20 registros principales donde context.location.city no sea nulo.
 

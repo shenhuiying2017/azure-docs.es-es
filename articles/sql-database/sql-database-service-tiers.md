@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 05/14/2017
+wms.date: 05/31/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1811c325e240a6688b09f7260b33fbe19d022cea
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9ea73d39a8fcee82e749d20accdd3a3c30cba94e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -54,7 +54,7 @@ En primer lugar, decida si desea ejecutar una base de datos única con una canti
 | Tamaño máximo de la base de datos de un grupo elástico | 2 GB | 250 GB | 500 GB | 500 GB |
 | Cantidad máxima de bases de datos por grupo | 500  | 500 | 100 | 100 |
 | DTU máximas de la base de datos única | 5 | 100 | 4000 | 1000 |
-| DTU máximas por base de datos de un grupo elástico | 5 | 100 | 4000 | 1000 |
+| DTU máximas por base de datos de un grupo elástico | 5 | 3000 | 4000 | 1000 |
 | Período de retención de copias de seguridad de base de datos | 7 días | 35 días | 35 días | 35 días |
 ||||||
 
