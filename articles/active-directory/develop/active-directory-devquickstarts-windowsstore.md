@@ -55,7 +55,7 @@ Para permitir que la aplicación obtenga tokens, primero debe registrarla en su 
 6. Después de haber completado el registro, Azure AD asigna la aplicación a un id. de aplicación único. Copie el valor de la pestaña **Aplicación**, ya que lo necesitará más adelante.
 7. En la página **Configuración**, seleccione **Permisos necesarios** y **Agregar**.
 8. Para la aplicación **Azure Active Directory**, seleccione **Microsoft Graph** como la API.
-9. En **Permisos delegados**, agregue el permiso **Access the directory as the signed-in user** (Acceder al directorio como usuario que ha iniciado sesión). Así se permite que la aplicación realice consultas en la API Graph sobre usuarios.
+9. En **Permisos delegados**, agregue el permiso **Acceder al directorio como usuario con sesión iniciada**. Así se permite que la aplicación realice consultas en la API Graph sobre usuarios.
 
 ## <a name="step-2-install-and-configure-adal"></a>Paso 2: Instalación y configuración de ADAL
 Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para permitir que AAL se comunique con Azure AD, proporciónele alguna información sobre el registro de aplicación.
