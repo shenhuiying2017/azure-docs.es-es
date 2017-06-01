@@ -90,11 +90,11 @@ ProxyPassword="Password"
 ## <a name="modifying-proxy-settings-for-configuration-server"></a>Modificación de la configuración de proxy del servidor de configuración
 1. Inicie sesión en el servidor de configuración.
 2. Inicie el archivo cspsconfigtool.exe mediante el acceso directo del escritorio.
-3. Haga clic en la pestaña **Vault Registration** (Registro de almacén).
+3. Haga clic en la pestaña **Registro de almacén**.
 4. Descargue un nuevo archivo de registro de almacén desde el portal y proporciónelo como entrada a la herramienta.
 
   ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
-5. Proporcione los detalles del nuevo servidor proxy y haga clic en el botón **Register** (Registrar).
+5. Proporcione los detalles del nuevo servidor proxy y haga clic en el botón **Registrar**.
 6. Abra una ventana de comandos de administrador de PowerShell.
 7. Ejecute el siguiente comando.
   ```
@@ -110,10 +110,10 @@ ProxyPassword="Password"
 ## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>Volver a registrar un servidor de configuración con el mismo almacén de Recovery Services
   1. Inicie sesión en el servidor de configuración.
   2. Inicie el archivo cspsconfigtool.exe mediante el acceso directo del escritorio.
-  3. Haga clic en la pestaña **Vault Registration** (Registro de almacén).
+  3. Haga clic en la pestaña **Registro de almacén**.
   4. Descargue un nuevo archivo de registro del portal y proporciónelo como entrada a la herramienta.
         ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
-  5. Proporcione los detalles del servidor proxy y haga clic en el botón **Register** (Registrar).  
+  5. Proporcione los detalles del servidor proxy y haga clic en el botón **Registrar**.  
   6. Abra una ventana de comandos de administrador de PowerShell.
   7. Ejecute el siguiente comando.
 
@@ -136,11 +136,11 @@ reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
 net stop dra
 ```
 3. Inicie el archivo cspsconfigtool.exe mediante el acceso directo del escritorio.
-4. Haga clic en la pestaña **Vault Registration** (Registro de almacén).
+4. Haga clic en la pestaña **Registro de almacén**.
 5. Descargue un nuevo archivo de registro del portal y proporciónelo como entrada a la herramienta.
 
     ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
-6. Proporcione los detalles del servidor proxy y haga clic en el botón **Register** (Registrar).  
+6. Proporcione los detalles del servidor proxy y haga clic en el botón **Registrar**.  
 7. Abra una ventana de comandos de administrador de PowerShell.
 8. Ejecute el siguiente comando.
     ```
