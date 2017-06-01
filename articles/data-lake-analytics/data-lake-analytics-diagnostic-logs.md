@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
-ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 71a839d9c076d33c404a56bf0544666dc86eaa4d
 ms.contentlocale: es-es
-ms.lasthandoff: 02/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,14 +31,6 @@ Las organizaciones pueden habilitar el registro de diagnósticos para su cuenta 
 * Una lista de los usuarios que tienen acceso a los datos.
 * Frecuencia con la que se accede a los datos.
 * Cantidad de datos que se almacena en la cuenta.
-
-## <a name="prerequisites"></a>Requisitos previos
-
-* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-
-* **Habilite su suscripción de Azure** para la versión preliminar pública de Data Lake Analytics. Consulte las [instrucciones](data-lake-analytics-get-started-portal.md).
-
-* **Cuenta de Azure Data Lake Analytics**. Siga las instrucciones que se describen en [Introducción a Azure Data Lake Analytics mediante el Portal de Azure](data-lake-analytics-get-started-portal.md).
 
 ## <a name="enable-logging"></a>Habilitación del registro
 

@@ -14,9 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/30/2016
 ms.author: dastrock; vittorib
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 52a4c326c7618b9a31df539c8b0eb0ced44ce609
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: d0602a61b0335ef2bb92e27051c286852bc08d35
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -47,7 +50,7 @@ Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsof
 * Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
 * Agregar la plataforma **Móvil** a la aplicación.
 
-## <a name="install-configure-msal"></a>Instalación y configuración de MSAL
+## <a name="install--configure-msal"></a>Instalación y configuración de MSAL
 Ahora que ya tiene una aplicación registrada en Microsoft, puede instalar MSAL y escribir código relacionado con identidades.  Para que MSAL pueda comunicarse con el punto de conexión v2.0, tiene que proporcionarle información sobre el registro de la aplicación.
 
 * Comience agregando MSAL al proyecto TodoListClient con la Consola del Administrador de paquetes.
@@ -259,10 +262,5 @@ Para obtener recursos adicionales, consulte:
 
 ## <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite [esta página](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de avisos de seguridad.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

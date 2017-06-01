@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: b2b19a6f2ea20c414119e9dfbf84fda92dd93402
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,7 +33,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Conocimientos básicos del proceso de trabajo de Análisis de Data Lake**. Consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md).
 * **Una cuenta de Análisis de Data Lake**. Vea [Introducción a Azure Data Lake Analytics con Azure Portal](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-* **Copiar los datos de ejemplo en la cuenta predeterminada de Almacén de Data Lake**.  Consulte [Preparación de los datos de origen](data-lake-analytics-get-started-portal.md#prepare-source-data)
+* **Copiar los datos de ejemplo en la cuenta predeterminada de Almacén de Data Lake**.  Consulte [Preparación de los datos de origen](data-lake-analytics-get-started-portal.md)
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Envío de un trabajo de Análisis de Data Lake
 Ahora creará un trabajo U-SQL con un nombre de archivo de origen incorrecto.  
@@ -40,7 +42,7 @@ Ahora creará un trabajo U-SQL con un nombre de archivo de origen incorrecto.
 
 1. En el Portal de Azure, haga clic en **Microsoft Azure** en la esquina superior izquierda.
 2. Haga clic en el icono con el nombre de la cuenta de Análisis de Data Lake.  Se ancló aquí cuando se creó la cuenta.
-   Si la cuenta no está anclada ahí, consulte [Apertura de una cuenta de Análisis desde el portal](data-lake-analytics-manage-use-portal.md#access-adla-account).
+   Si la cuenta no está anclada ahí, consulte [Apertura de una cuenta de Análisis desde el portal](data-lake-analytics-manage-use-portal.md#manage-data-sources).
 3. Haga clic en **Nuevo trabajo** en el menú superior.
 4. Escriba el nombre del trabajo y el siguiente script U-SQL:
 
@@ -102,9 +104,4 @@ En la última sección, ha enviado un trabajo y este dio error.
 * [Introducción a Análisis de Azure Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introducción a Análisis de Azure Data Lake y a U-SQL mediante Visual Studio](data-lake-analytics-u-sql-get-started.md)
 * [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/22/2017
 ms.author: kgremban
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: f31625783aa03dd01a73b5e5b39dd899e109b3b9
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: ea928ba4d13970a32123a8ada8575658cecde5d8
 ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -119,7 +119,7 @@ Hay cuatro aspectos que se deben tener en cuenta en el servidor proxy saliente:
 Permita el acceso a los siguientes puntos de conexión para servicio de conector:
 
 * *.msappproxy.net
-* *.servicebus.microsoft.net
+* *.servicebus.windows.net
 
 Para el registro inicial, permita el acceso a los siguientes puntos de conexión:
 

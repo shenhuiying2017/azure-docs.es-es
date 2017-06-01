@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 19d8d860e39139d3003c216659b7203e2482154e
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: b961254274409215d79b5cb2c9ee230a97b42769
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -45,10 +48,5 @@ Cuando habilita la "Compatibilidad con SDK de Live", los secretos de la aplicaci
 Si deshabilita la compatibilidad con SDK de Live, se asegurará de que el secreto de la aplicación solo se escriba en el almacén de datos de Azure AD.  El almacén de datos de Azure AD incorpora las normas empresariales que le que permiten satisfacer ciertas regulaciones, como el cumplimiento de FISMA.  Si habilita la compatibilidad con el SDK de Live, es posible que la aplicación no pueda lograr el cumplimiento con algunas de estos regulaciones.
 
 Si solo piensa usar el punto de conexión v2.0 de Azure AD, puede deshabilitar sin riesgos la compatibilidad del SDK de Live.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

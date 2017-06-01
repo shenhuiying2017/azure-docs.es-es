@@ -15,10 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8429ee543d8cf838765ff9e8624390746474ee0d
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 6bab6cbd84c55e668f2caf9b9f94621eec982203
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -36,10 +37,7 @@ No puede convertir un disco no administrado en un disco administrado si el disco
 - O conecte el VHD copiado con [az vm disk attach](/cli/azure/vm/disk#attach) a una VM en ejecución con discos administrados.
 
 ## <a name="convert-vm-to-azure-managed-disks"></a>Conversión de VM a Azure Managed Disks
-En esta sección se explica cómo convertir las VM de Azure existentes de discos no administrados a discos administrados. Puede utilizar este proceso para realizar conversiones de discos no administrados premium (SDD) a discos administrados premium, o bien de discos no administrados estándar (HDD) a discos administrados estándar.
-
-> [!IMPORTANT]
-> Después de realizar el procedimiento siguiente, hay un blob en bloques único que permanece en el contenedor de VHD predeterminado. El nombre del archivo es "VMName.xxxxxxx.status". No elimine este objeto de estado de mantenimiento restante. En los futuros trabajos se debe abordar este problema.
+En esta sección se explica cómo convertir las VM de Azure existentes de discos no administrados a discos administrados. Puede usar este proceso para realizar conversiones de discos no administrados premium (SDD) a discos administrados premium, o bien de discos no administrados estándar (HDD) a discos administrados estándar.
 
 1. Desasigne la VM con [az vm deallocate](/cli/azure/vm#deallocate). En el ejemplo siguiente se desasigna la VM `myVM` en el grupo de recursos denominado `myResourceGroup`:
 

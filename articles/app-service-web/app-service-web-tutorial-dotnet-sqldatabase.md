@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 6563d1520149ae5ced7e2de80686ef1624ebb651
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3ae3e5d55454a33a35950057667f9648b63bb331
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Compilación de una aplicación ASP.NET en Azure con SQL Database
@@ -111,19 +111,7 @@ Asigne el nombre **myResourceGroup** al grupo de recursos y haga clic en **Acept
 
 ### <a name="create-an-app-service-plan"></a>Creación de un plan del Servicio de aplicaciones
 
-La aplicación web de Azure también necesita un _plan de App Service_. 
-
-> [!NOTE]
-> Un plan de App Service representa la colección de recursos físicos que se utiliza para hospedar las aplicaciones. Todas las aplicaciones asignadas a un plan de App Service comparten los recursos definidos por él, lo que permite ahorrar costos al hospedar varias aplicaciones. 
->
-> Los planes de App Service definen lo siguiente:
->
-> - Región (Europa del Norte, este de EE. UU., Sudeste Asiático)
-> - Tamaño de la instancia (pequeño, mediano, grande)
-> - Recuento de escala (una, dos, tres instancias, etc.) 
-> - SKU (Gratis, Compartido, Básico, Estándar y Premium)
->
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 Junto a **Plan de App Service**, haga clic en **Nuevo**. 
 

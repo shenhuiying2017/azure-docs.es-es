@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 25fec75615d2376f3e566b509536eadd03590c0e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 2a3d63b3829e750b62658d720522ae1abf89cd86
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Compilación de una aplicación web Node.js y MongoDB en Azure
@@ -221,7 +221,7 @@ db: {
 ```
 
 > [!NOTE] 
-> La opción `ssl=true` es importante porque [Cosmos DB necesita SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+> La opción `ssl=true` es importante porque [Cosmos DB necesita SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
@@ -269,16 +269,7 @@ En este paso, implementará la aplicación Node.js conectada a MongoDB en Azure 
 
 Cree un plan de App Service con el comando [az appservice plan create](/cli/azure/appservice/plan#create). 
 
-> [!NOTE] 
-> Un plan de App Service representa la colección de recursos físicos que se utiliza para hospedar las aplicaciones. Todas las aplicaciones asignadas a un plan de App Service comparten los recursos definidos por él, lo que permite ahorrar costos al hospedar varias aplicaciones. 
-> 
-> Los planes de App Service definen lo siguiente: 
-> 
-> * Región (Europa del Norte, este de EE. UU., Sudeste Asiático) 
-> * Tamaño de la instancia (pequeño, mediano, grande) 
-> * Recuento de escala (una, dos, tres instancias, etc.) 
-> * SKU (Gratis, Compartido, Básico, Estándar y Premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 En el siguiente ejemplo, se crea un plan de App Service denominado _miPlanDeAppService_ con el plan de tarifa **Gratis**:
 
