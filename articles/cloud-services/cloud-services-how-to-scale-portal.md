@@ -1,5 +1,5 @@
 ---
-title: "Escalado automático de un servicio en la nube en el portal (clásico) | Microsoft Docs"
+title: "Escalar automáticamente un servicio en la nube en el portal | Microsoft Docs"
 description: "Obtenga información sobre cómo usar el portal para configurar reglas de escalado automático de un rol de trabajo o un rol web de servicio en la nube en Azure."
 services: cloud-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 7891fbd326340ed102f885e84993ef987e044023
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: e746decaea19477e52aba3ce714d8dd10140602e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/23/2017
 
 ---
 
@@ -44,19 +45,16 @@ Debe considerar la siguiente información antes de configurar el escalado para s
 
 * Para permitir una alta disponibilidad de la aplicación, debe asegurarse de que se implemente con dos o más instancias de rol. Para obtener más información, consulte [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
-> [!WARNING]
-> El escalado automático solo funciona con cuentas de Azure Storage clásico. No funciona con cuentas de almacenamiento de Azure Resource Manager.
-
 
 ## <a name="where-scale-is-located"></a>Ubicación de la escala
 Después de seleccionar el servicio en la nube, debe tener visible la hoja del servicio en la nube.
 
 1. En la hoja del servicio en la nube, seleccione el nombre del servicio en la nube en el icono de **Roles e instancias** .   
    **IMPORTANTE**: No se olvide de hacer clic en el rol del servicio en la nube, no en la instancia de rol que está debajo de dicho rol.
-   
+
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Seleccione el icono de **escala** .
-   
+
     ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>Escala automática
@@ -78,25 +76,25 @@ Después de haber configurado el perfil y ñas reglas, seleccione el icono de **
 El perfil establece instancias mínimas y máximas para la escala, además de cuándo está activo el intervalo de escala.
 
 * **Siempre**
-  
+
     Mantenga siempre disponible este rango de instancias.  
-  
+
     ![Servicio en la nube en el que siempre se realiza la operación de escala](./media/cloud-services-how-to-scale-portal/select-always.png)
 * **Periodicidad**
-  
+
     Elija un conjunto de días de la semana para realizar la escala.
-  
+
     ![Escala de servicio en la nube con una programación de periodicidad](./media/cloud-services-how-to-scale-portal/select-recurrence.png)
 * **Fecha fija**
-  
+
     Un intervalo de fechas fijo para escalar el rol.
-  
+
     ![Escala de servicio en la nube con una fecha fija](./media/cloud-services-how-to-scale-portal/select-fixed.png)
 
 Después de haber configurado el perfil, seleccione el botón **Aceptar** situado en la parte inferior de la hoja de perfil.
 
 #### <a name="rule"></a>Regla
-Las reglas se agregan a un perfil y representan una condición que desencadenará la escala. 
+Las reglas se agregan a un perfil y representan una condición que desencadenará la escala.
 
 El desencadenador de reglas se basa en una métrica del servicio en la nube (uso de CPU o actividad del disco o de la red) a la que puede agregar un valor condicional. Además, puede basar la acción desencadenadora en una cola de mensajes o en la métrica de algún otro recurso de Azure asociado a la suscripción.
 
@@ -109,12 +107,11 @@ Vaya a la [configuración de escala](#where-scale-is-located) y establezca el va
 
 ![Configuración de escala de servicios en la nube con el perfil y la regla](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-Con esta configuración se elimina la escala automática del rol y podrá establecer el recuento de instancias directamente. 
+Con esta configuración se elimina la escala automática del rol y podrá establecer el recuento de instancias directamente.
 
 1. La opción de escala (manual o automática).
 2. Un regulador de instancias de rol para definir las instancias en las que se realizará la operación de escala.
 3. Las instancias del rol en las que se realizar la operación de escala.
 
 Después de configurar la configuración de escala, seleccione el icono de **Guardar** situado en la parte superior.
-
 

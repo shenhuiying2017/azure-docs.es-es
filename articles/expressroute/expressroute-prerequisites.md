@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 679b6962633cd734a1b1e339e8422da5b9c4ddfd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 873a3b83bf85c7e2d6d299bd25ebb135c300aacb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -33,8 +33,8 @@ Para conectarse a Microsoft Cloud Services con ExpressRoute, debe comprobar que 
 
 ## <a name="connectivity-provider"></a>Proveedor de conectividad
 
-* Para conectarse a la nube de Microsoft, puede trabajar con un [asociado de conectividad ExpressRoute](expressroute-locations.md#partners) . Se puede configurar una conexión entre la red local y Microsoft de [tres maneras](expressroute-introduction.md). 
-* Aunque el proveedor no sea un asociado de conectividad ExpressRoute, puede conectarse a la nube de Microsoft mediante un [proveedor de intercambio de nube](expressroute-locations.md#c1partners).
+* Para conectarse a la nube de Microsoft, puede trabajar con un [asociado de conectividad ExpressRoute](expressroute-locations.md#partners) . Se puede configurar una conexión entre la red local y Microsoft de [tres maneras](expressroute-introduction.md).
+* Aunque el proveedor no sea un asociado de conectividad ExpressRoute, puede conectarse a la nube de Microsoft mediante un [proveedor de intercambio de nube](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Requisitos de red
 * **Conectividad redundante**: no hay ningún requisito de redundancia en la conectividad física entre usted y su proveedor. Microsoft requiere que se configuren sesiones BGP redundantes entre enrutadores de Microsoft y enrutadores de emparejamiento, aunque solo tenga [una conexión física a un intercambio de nube](expressroute-faqs.md#onep2plink).

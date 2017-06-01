@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/03/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 8d64ede4fd5f442cbfc88a61e2ad8388e0df2a7b
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -97,7 +98,7 @@ Con IIS instalado y el puerto 80 abierto para la máquina virtual, se puede acce
 
 ![Sitio predeterminado de IIS](./media/quick-create-powershell/default-iis-website.png) 
 
-## <a name="delete-virtual-machine"></a>Eliminación de máquinas virtuales
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando ya no los necesite, elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la hoja de la máquina virtual y haga clic en **Eliminar**.
 

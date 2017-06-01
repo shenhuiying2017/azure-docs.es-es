@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB: Compilación de una aplicación web con la autenticación de Xamarin y Facebook | Microsoft Docs"
 description: "En este tema se incluye un ejemplo de código .NET que puede usar para conectarse a Azure Cosmos DB y realizar consultas"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 80aa96973799584118125829f9479fbd14431ac0
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: c8e2e688a7a8b99272c304df37ceff0f9ec52b19
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escalado horizontal en Azure Cosmos DB. 
 
-En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Podrá compilar e implementar una aplicación web de lista de tareas pendientes integrada en el motor de autorizaciones de [API de .NET de DocumentDB](../documentdb/documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/) y Azure Cosmos DB. La aplicación web de lista de tareas pendientes implementa un patrón de datos por usuario que permite a los usuarios iniciar sesión con la autenticación de Facebook y administrar sus propias tareas pendientes.
+En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Podrá compilar e implementar una aplicación web de lista de tareas pendientes integrada en el motor de autorizaciones de [API de .NET de DocumentDB](documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/) y Azure Cosmos DB. La aplicación web de lista de tareas pendientes implementa un patrón de datos por usuario que permite a los usuarios iniciar sesión con la autenticación de Facebook y administrar sus propias tareas pendientes.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,11 +37,11 @@ Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la vers
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-collection"></a>Incorporación de una colección
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
@@ -114,7 +114,7 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -128,5 +128,5 @@ Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos 
 En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB, crear una colección mediante el Explorador de datos y compilar e implementar una aplicación Xamarin. Ahora puede importar datos adicionales en la cuenta de Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importación de datos a Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Importación de datos a Azure Cosmos DB](import-data.md)
 

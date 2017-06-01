@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c3f5a66605b1a7059a7820ddda9463cb4277f055
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4ffbe7e28d8b4c7d421bec477455a94609cd127a
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,9 +28,25 @@ ms.lasthandoff: 04/27/2017
 Se puede crear un recurso de imagen administrado a partir de una VM generalizada que se almacena como un disco administrado o como discos no administrados en una cuenta de almacenamiento. Se puede utilizar la imagen para crear varias VM que usan discos administrados para almacenamiento. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
-Debe tener ya la [VM generalizada](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y detener/desasignar la VM. La generalización de una máquina virtual elimina toda la información personal de la cuenta, entre otras cosas, y prepara la máquina para usarse como imagen.
+## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalización de VM con Windows mediante Sysprep
 
+Entre otras características, Sysprep elimina toda la información personal de la cuenta y prepara, entre otras cosas, la máquina para usarse como imagen. Para obtener más información sobre Sysprep, vea [Uso de Sysprep: Introducción](http://technet.microsoft.com/library/bb457073.aspx).
+
+Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
+> [!IMPORTANT]
+> Si ejecuta Sysprep antes de cargar el VHD en Azure por primera vez, asegúrese de que tiene [preparada la máquina virtual](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de ejecutar Sysprep. 
+> 
+> 
+
+1. Inicie sesión en la máquina virtual de Windows.
+2. Abra una ventana del símbolo del sistema como administrador. Cambie el directorio a **%windir%\system32\sysprep** y, después, ejecute `sysprep.exe`.
+3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está activada.
+4. En **Opciones de apagado**, seleccione **Apagar**.
+5. Haga clic en **Aceptar**.
+   
+    ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. Cuando Sysprep finaliza, apaga la máquina virtual. No reinicie la VM.
 
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Creación de una imagen administrada en el portal 

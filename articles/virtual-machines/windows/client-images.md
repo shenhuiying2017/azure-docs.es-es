@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: fbc5cc4a332877451867ca434db40d67ee623a0f
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 61054d9e118a3c90dec3330004625a25102a08cc
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,10 +28,10 @@ Puede usar Windows 7, Windows 8 o Windows 10 en Azure para escenarios de desarro
 ## <a name="subscription-eligibility"></a>Idoneidad de la suscripción
 Los suscriptores activos de Visual Studio (es decir, las personas que adquirieron una licencia de suscripción de Visual Studio) pueden usar el cliente Windows para desarrollo y pruebas. El cliente Windows se puede usar en su propio hardware y en máquinas virtuales de Azure que se ejecutan en cualquier tipo de suscripción de Azure. El cliente Windows no se puede implementar ni usar en Azure para un uso de producción normal. Tampoco lo pueden usar quienes no son suscriptores activos de Visual Studio.
 
-Para su comodidad, pusimos a su disposición ciertas imágenes de Windows 10 de la galería de Azure dentro de las [ofertas de desarrollo y pruebas a las que puede tener acceso](#eligible-offers). Los suscriptores de Visual Studio dentro de cualquier tipo de oferta también pueden [preparar y crear apropiadamente](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) una imagen de Windows 7, Windows 8 o Windows 10 de 64 bits y, luego, [cargarla en Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). El uso sigue limitado a desarrollo y pruebas por parte de los suscriptores activos de Visual Studio.
+Para su comodidad, pusimos a su disposición ciertas imágenes de Windows 10 de la galería de Azure dentro de las [ofertas de desarrollo y pruebas a las que puede tener acceso](#eligible-offers). Los suscriptores de Visual Studio dentro de cualquier tipo de oferta también pueden [preparar y crear apropiadamente](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) una imagen de Windows 7, Windows 8 o Windows 10 de 64 bits y, luego, [cargarla en Azure](upload-generalized-managed.md). El uso sigue limitado a desarrollo y pruebas por parte de los suscriptores activos de Visual Studio.
 
 ## <a name="eligible-offers"></a>Ofertas a las que se puede tener acceso
-La tabla siguiente muestra los detalles de los id. de oferta idóneos para implementar Windows 10 a través de la galería de Azure. Las imágenes de Windows 10 solo son visibles para las ofertas siguientes. Los suscriptores de Visual Studio que deban ejecutar el cliente Windows en un tipo de oferta distinto necesitan que [prepare y cree apropiadamente](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) una imagen de Windows 7, Windows 8 o Windows 10 de 64 bits y, [luego, la cargue en Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+La tabla siguiente muestra los detalles de los id. de oferta idóneos para implementar Windows 10 a través de la galería de Azure. Las imágenes de Windows 10 solo son visibles para las ofertas siguientes. Los suscriptores de Visual Studio que deban ejecutar el cliente Windows en un tipo de oferta distinto necesitan que [prepare y cree apropiadamente](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) una imagen de Windows 7, Windows 8 o Windows 10 de 64 bits y, [luego, la cargue en Azure](upload-generalized-managed.md).
 
 | Nombre de la oferta | Número de la oferta | Imágenes de cliente disponibles |
 |:--- |:---:|:---:|

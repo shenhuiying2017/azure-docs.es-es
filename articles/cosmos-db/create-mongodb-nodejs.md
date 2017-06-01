@@ -1,13 +1,13 @@
 ---
 title: "Conectar una aplicación MongoDB a Azure Cosmos DB mediante Node.js | Microsoft Docs"
 description: "Obtenga información sobre cómo conectar una aplicación MongoDB de Node.js a Azure Cosmos DB."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0e5657e4d110af095c934431cb6e3bf8824f791d
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: bfdf42ef717c090bffb89e9f276a135c58b1884f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-En esta guía de inicio rápido se muestra cómo se usa una aplicación existente [MongoDB](../documentdb/documentdb-protocol-mongodb.md) escrita en Node.js y cómo se conecta a la base de datos de Azure Cosmos DB, que es compatible con conexiones de cliente de MongoDB. En otras palabras, la aplicación Node.js solo sabe que se está conectando a una base de datos mediante API de MongoDB. Para la aplicación resulta transparente que los datos se almacenan en Azure Cosmos DB.
+En esta guía de inicio rápido se muestra cómo se usa una aplicación existente [MongoDB](mongodb-introduction.md) escrita en Node.js y cómo se conecta a la base de datos de Azure Cosmos DB, que es compatible con conexiones de cliente de MongoDB. En otras palabras, la aplicación Node.js solo sabe que se está conectando a una base de datos mediante API de MongoDB. Para la aplicación resulta transparente que los datos se almacenan en Azure Cosmos DB.
 
 Cuando haya terminado, tendrá una aplicación MEAN (MongoDB, Express, AngularJS y Node.js) que se ejecuta en [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). 
 
@@ -137,7 +137,7 @@ En este paso, conectará la aplicación de ejemplo MEAN.js a la base de datos de
 
 ## <a name="retrieve-the-key"></a>Recuperar la clave
 
-Para conectarse a una base de datos de Azure Cosmos DB, necesita la clave de base de datos. Use el comando [az documentdb list-keys](/cli/azure/documentdb#list-keys) para recuperar la clave principal.
+Para conectarse a una base de datos de Azure Cosmos DB, necesita la clave de base de datos. Use el comando [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) para recuperar la clave principal.
 
 ```azurecli
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -174,7 +174,7 @@ module.exports = {
 ```
 
 > [!NOTE] 
-> La opción `ssl=true` es importante porque [Azure Cosmos DB necesita SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+> La opción `ssl=true` es importante porque [Azure Cosmos DB necesita SSL](connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
@@ -231,7 +231,7 @@ git commit -m "configured MongoDB connection string"
 
 Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal:
 
-1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que ha creado. 
+1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -239,5 +239,5 @@ Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos 
 En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB y a crear una colección de MongoDB mediante el Explorador de datos. Ahora puede migrar los datos de MongoDB a Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Importar datos de MongoDB en Azure Cosmos DB](../documentdb/documentdb-mongodb-migrate.md)
+> [Importar datos de MongoDB en Azure Cosmos DB](mongodb-migrate.md)
 

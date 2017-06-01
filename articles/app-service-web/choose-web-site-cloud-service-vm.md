@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f5e6d100effee99b1a1576c0e21f1a311f8131b
-ms.lasthandoff: 12/08/2016
-
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 17289f6401b36ff6e6a201564aa387f42c712699
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparación de Servicio de aplicaciones de Azure, Máquinas virtuales, Service Fabric y Servicios en la nube
@@ -51,7 +52,7 @@ La siguiente tabla compara las funcionalidades de Servicio de aplicaciones, Serv
 | Soporte integrado de MySQL como servicio |X |X |X | |Servicios en la nube puede integrar MySQL como servicio mediante las ofertas de ClearDB, pero no como parte del flujo de trabajo del Portal de Azure. |
 | Soporte para ASP.NET, ASP clásico, Node.js, PHP, Python |X |X |X |X |Service Fabric admite la creación de un front-end web con [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md), o bien se puede implementar cualquier tipo de aplicación (Node.js, Java, etc.) como un [ejecutable invitado](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Escalado horizontal a varias instancias sin volver a implementar |X |X |X |X |Máquinas virtuales puede escalar horizontalmente hasta varias instancias, pero los servicios que se ejecutan en este servicio se deben escribir para controlar este escalado horizontal. Tiene que configurar un equilibrador de carga para que dirija solicitudes entre las máquinas y crear un Grupo de afinidad para evitar que todas las instancias se reinicien simultáneamente debido a errores de mantenimiento o hardware. |
-| Soporte para SSL |X |X |X |X |En el caso de las aplicaciones web del Servicio de aplicaciones, solo se admite SSL para nombres de dominio personalizados para el modo Básico y Estándar. Para más información sobre el uso de SSL con aplicaciones web, consulte [Configuración de un certificado SSL para un sitio web Azure](web-sites-configure-ssl-certificate.md). |
+| Soporte para SSL |X |X |X |X |En el caso de las aplicaciones web del Servicio de aplicaciones, solo se admite SSL para nombres de dominio personalizados para el modo Básico y Estándar. Para más información sobre el uso de SSL con aplicaciones web, consulte [Configuración de un certificado SSL para un sitio web Azure](app-service-web-tutorial-custom-ssl.md). |
 | Integración de Visual Studio |X |X |X |X | |
 | Depuración remota |X |X |X | | |
 | Código de implementación con TFS |X |X |X |X | |

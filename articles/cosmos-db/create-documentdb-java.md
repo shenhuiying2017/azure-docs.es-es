@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB: Compilar una aplicación con Java y la API DocumentDB | Microsoft Docs"
 description: "En este tema se presenta un ejemplo de código de Java que se puede usar para conectarse a la API DocumentDB de Azure Cosmos DB y realizar consultas."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -16,18 +16,18 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c0ed076521291bac61049c13045553c9f64cd565
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 6ffa6a538139f3d68f9bc79dc61a8fdd4034b71e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación de API DocumentDB con Java y Azure Portal
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escalado horizontal en Azure Cosmos DB. 
 
-En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Después, compilará y ejecutará una aplicación de consola compilada en la [API DocumentDB de Java](../documentdb/documentdb-sdk-java.md).
+En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Después, compilará y ejecutará una aplicación de consola compilada en la [API DocumentDB de Java](documentdb-sdk-java.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,11 +39,11 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de d
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Agregar una colección
+## <a name="add-a-collection"></a>Incorporación de una colección
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
@@ -152,15 +152,15 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 Ahora puede volver al Explorador de datos y ver, consultar, modificar y trabajar con estos nuevos datos. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal:
 
-1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que ha creado. 
+1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -168,7 +168,7 @@ Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos 
 En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB, crear una colección mediante el Explorador de datos y ejecutar una aplicación. Ahora puede importar datos adicionales en la cuenta de Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar datos en Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Importación de datos a Azure Cosmos DB](import-data.md)
 
 
 
