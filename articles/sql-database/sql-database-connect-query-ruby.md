@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 05/24/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 56f1b57798b073622d273b16975981b23a0ad55d
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2d1092af00c1bce3e47d980a512a25eff1f0d9b6
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,10 +28,13 @@ ms.lasthandoff: 05/09/2017
 
 En esta guía de inicio rápido se muestra cómo usar [Ruby](https://Ruby.org) para conectarse a una base de datos de Azure SQL Database y, después, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos de la base de datos desde las plataformas Mac OS y Ubuntu Linux.
 
+## <a name="prerequisites"></a>Requisitos previos
+
 En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de las siguientes guías:
 
 - [Creación de la base de datos: Azure Portal](sql-database-get-started-portal.md)
 - [Creación de la base de datos: CLI](sql-database-get-started-cli.md)
+- [Creación de la base de datos: PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-ruby-and-database-communication-libraries"></a>Instalación de bibliotecas de comunicación de bases de datos y Ruby
 
