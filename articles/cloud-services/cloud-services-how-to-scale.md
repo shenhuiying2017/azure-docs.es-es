@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 488b16623300d80a53a61badee420de106c418b0
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c7fb1c796556baf09a34c4bc6ed71964071d5874
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -42,9 +43,6 @@ Debe considerar la siguiente información antes de configurar el escalado para s
 * Puede escalar los recursos que están vinculados con su servicio en la nube. Para obtener más información acerca de los recursos de vinculación, consulte [Vinculación de un recurso a un servicio en la nube](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
 * Para permitir una alta disponibilidad de la aplicación, debe asegurarse de que se implemente con dos o más instancias de rol. Para obtener más información, consulte [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
-
-> [!WARNING]
-> El escalado automático solo funciona con cuentas de Azure Storage clásico. No funciona con cuentas de almacenamiento de Azure Resource Manager.
 
 ## <a name="schedule-scaling"></a>Programar escalado
 De forma predeterminada, todos los roles no siguen una programación específica. Por lo tanto, cualquier configuración modificada se aplica a cualquier hora y día durante todo el año. Si quiere, puede configurar el escalado automático o manual para uno de los modos siguientes:

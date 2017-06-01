@@ -12,21 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 05/30/2017
 ms.author: lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 90f417768d58c42df9b786b5c50d96970f133548
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ee96a30d10f882da936f554152fab8a9c6897807
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="how-to-use-service-management-from-python"></a>Uso de la administración de servicios con Python
-> [!NOTE]
-> API de administración de servicios se ha sustituido por la nueva API de administración de recursos, actualmente disponible en una versión preliminar.  Consulte la [documentación de administración de recursos de Azure](http://azure-sdk-for-python.readthedocs.org/) para obtener más información acerca del uso de la nueva API de administración de recursos de Python.
-> 
-> 
-
 En esta guía se muestra cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** de [Azure SDK](https://github.com/Azure/azure-sdk-for-python) para Python admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [Portal de Azure clásico][management-portal] (como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos y máquinas virtuales**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
 
 ## <a name="WhatIs"> </a>Qué es la administración de servicios
@@ -45,8 +41,8 @@ Para conectarse al punto de conexión de administración de servicios, necesita 
 
 > [!NOTE]
 > Ahora es posible usar certificados creados con OpenSSL al ejecutar en Windows.  Para ello, se requiere Python 2.7.4 o posterior. Recomendamos que los usuarios usen OpenSSL en lugar de .pfx, ya que la compatibilidad con certificados .pfx probablemente se eliminará en el futuro.
-> 
-> 
+>
+>
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Certificados de administración en Windows/Mac/Linux (OpenSSL)
 Puede usar [OpenSSL](http://www.openssl.org/) para crear el certificado de administración.  Necesitará crear dos certificados, uno para el servidor (un archivo `.cer`) y otro para el cliente (un archivo `.pem`). Para crear el archivo `.pem` , ejecute este comando:
@@ -432,5 +428,4 @@ Para más información, vea el [Centro para desarrolladores de Python](/develop/
 
 
 [cloud service]:/services/cloud-services/
-
 

@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/25/2017
 ms.author: sdanie
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: cbd764b3c6ce912c825aa2756ac6f35c23d047bf
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: eeddc0da23192a0082f2fcddbb0cc5f3e4a72074
 ms.contentlocale: es-es
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -77,8 +77,6 @@ Las siguientes preguntas y respuestas abordan los conceptos básicos y las cuest
 Las preguntas más frecuentes de esta sección abarcan las cuestiones comunes sobre supervisión y solución de problemas. Para más información sobre la supervisión y la solución de problemas de las instancias de Azure Redis Cache, consulte [Supervisión de Azure Redis Cache](cache-how-to-monitor.md) y [Solución de problemas de Azure Redis Cache](cache-how-to-troubleshoot.md).
 
 * [¿Cómo se puede supervisar el estado y el rendimiento de la memoria caché?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
-* [Ha cambiado la configuración de la cuenta de almacenamiento de diagnóstico de la caché, ¿qué ha ocurrido?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
-* [¿Por qué está habilitado el diagnóstico para algunas memorias caché nuevas y no para otras?](#why-are-diagnostics-enabled-for-some-new-caches-but-not-others)
 * [¿Por qué estoy viendo los tiempos de expiración?](#why-am-i-seeing-timeouts)
 * [¿Por qué se desconectó el cliente desde la memoria caché?](#why-was-my-client-disconnected-from-the-cache)
 
@@ -427,12 +425,6 @@ El **menú de recursos** de Redis Cache también contiene varias herramientas pa
 * **Nueva solicitud de soporte** para abrir una solicitud de soporte técnico para su memoria caché.
 
 Estas herramientas permiten supervisar el estado de las instancias de Azure Redis Cache y ayudarle a administrar sus aplicaciones de almacenamiento en caché. Para más información, vea la sección "Configuración de soporte técnico y solución de problemas" de [Configuración de Azure Redis Cache](cache-configure.md).
-
-### <a name="my-cache-diagnostics-storage-account-settings-changed-what-happened"></a>Ha cambiado la configuración de la cuenta de almacenamiento de diagnóstico de la caché, ¿qué ha ocurrido?
-Las cachés de igual región y suscripción comparten la misma configuración de almacenamiento de diagnóstico y, cuando se cambia de configuración (habilitación o deshabilitación de diagnóstico o cambio de cuenta de almacenamiento), esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región. Si ha cambiado la configuración de diagnóstico de la memoria caché, compruebe si ha cambiado la configuración de diagnóstico de otra caché en la misma suscripción y región. Una forma de comprobarlo es ver los registros de auditoría de la caché para un evento `Write DiagnosticSettings` . Para más información sobre el uso de registros de auditoría, consulte [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (Consulta de eventos y registros de auditoría) y [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) (Operaciones de auditoría con Resource Manager). Para obtener más información sobre la supervisión de eventos de Azure Redis Cache, consulte [Operaciones y alertas](cache-how-to-monitor.md#operations-and-alerts).
-
-### <a name="why-are-diagnostics-enabled-for-some-new-caches-but-not-others"></a>¿Por qué está habilitado el diagnóstico para algunas memorias caché nuevas y no para otras?
-Las memorias caché de la misma región y suscripción comparten la misma configuración de almacenamiento de diagnóstico. Si crea una nueva memoria caché en la misma región y suscripción que otra caché que tiene el diagnóstico habilitado, el diagnóstico se habilita en la nueva caché con la misma configuración.
 
 <a name="cache-timeouts"></a>
 
