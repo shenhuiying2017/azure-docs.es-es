@@ -64,7 +64,6 @@
 #### [Portal](resource-group-create-service-principal-portal.md)
 ### [API de autenticación para acceder a las suscripciones](resource-manager-api-authentication.md)
 ### [Bloqueo de recursos](resource-group-lock-resources.md)
-### [Consideraciones sobre la seguridad](best-practices-resource-manager-security.md)
 
 ## Establecimiento de directivas de recursos
 ### [¿Qué son las directivas de recursos?](resource-manager-policy.md)

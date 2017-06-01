@@ -1,9 +1,8 @@
 # Información general
 ## [¿Qué es Data Lake Analytics?](data-lake-analytics-overview.md)
 
-# Introducción
-## [Tutorial interactivo: análisis de registros de sitios web](data-lake-analytics-use-interactive-tutorials.md)
-## [Azure Portal](data-lake-analytics-get-started-portal.md)
+# Primeros pasos
+## [Portal de Azure](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
 ## [SDK de Java](data-lake-analytics-get-started-java-sdk.md)
@@ -27,6 +26,8 @@
 
 ## Creación de soluciones
 ### [Análisis de registros de sitios web](data-lake-analytics-analyze-weblogs.md)
+### [Tutorial interactivo: análisis de registros de sitios web](data-lake-analytics-use-interactive-tutorials.md)
+
 
 ## Administrar
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)
