@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 02/28/2017
 ms.author: jahogg
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 9da543dbebe8f35178233d91492b0aff21f10986
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5ddb234cc97b3113ec865f97195c871b9f2f40d3
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Storage: diseño de tablas escalables y eficientes
-## <a name="overview"></a>Información general
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 Para diseñar tablas escalables y de rendimiento debe tener en cuenta una serie de factores, como el rendimiento, la escalabilidad y el coste. Si anteriormente ha diseñado esquemas de bases de datos relacionales, estas consideraciones le serán familiares, pero aunque hay algunas similitudes entre los modelos relacionales y el modelo de almacenamiento de Azure Table service, también existen muchas diferencias importantes. Normalmente, estas diferencias provocan diseños muy diferentes que pueden parecer no intuitivos o incorrectos a alguien que esté familiarizado con las bases de datos relacionales, pero que sí tienen sentido si va a diseñar un almacén de claves/valores de NoSQL como Azure Table service. Muchas de sus diferencias de diseño reflejarán el hecho de que Table service está diseñado para admitir aplicaciones de escala de nube que pueden contener miles de millones de entidades (filas en terminología de base de datos de relación) de datos o de conjuntos de datos que deben ser compatibles con volúmenes de transacciones muy elevadas: por lo tanto, tendrá que pensar cómo almacenar los datos de forma diferente y comprender cómo funciona Table service. Un almacén de datos NoSQL bien diseñado puede permitir a su solución escalar mucho más (y a un costo más bajo) que una solución que utiliza una base de datos relacional. Esta guía le ayuda con estos temas.  
 
 ## <a name="about-the-azure-table-service"></a>Acerca de Azure Table service
@@ -261,7 +263,7 @@ Muchas aplicaciones tienen requisitos para utilizar datos ordenados en distintos
 
 * [Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores RowKey.  
 * [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores RowKey en particiones en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores RowKey.
-* [Patrón final del registro](#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.  
+* [Patrón final del registro](#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se clasifique en orden de fecha y hora inverso.  
 
 ## <a name="design-for-data-modification"></a>Diseño para la modificación de datos
 Esta sección se centra en las consideraciones de diseño para optimizar las inserciones, actualizaciones y eliminaciones. En algunos casos, deberá evaluar el equilibrio entre los diseños que se optimizan para realizar una consulta en diseños que optimizan la modificación de datos como lo hace usted en los diseños de bases de datos relacionales (aunque las técnicas para administrar las ventajas y desventajas de diseño son diferentes en una base de datos relacional). En la sección [Patrones de diseño de tabla](#table-design-patterns) se describen algunos modelos de diseño detallados para Table service y se destacan algunas de estas ventajas e inconvenientes. En la práctica, encontrará que muchos diseños optimizados para consultar entidades también funcionan bien para la modificación de entidades.  
@@ -296,7 +298,7 @@ En muchos casos, un diseño para los resultados de consultas eficaces en modific
 Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan el equilibrio entre diseños para efectuar consultas eficaces y diseños para la modificación eficaz de datos:  
 
 * [Patrón de clave compuesta](#compound-key-pattern) : utilice valores **RowKey** compuestos para permitir a un cliente buscar datos relacionados con una consulta de punto único.  
-* [Patrón final del registro](#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.  
+* [Patrón final del registro](#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se clasifique en orden de fecha y hora inverso.  
 
 ## <a name="encrypting-table-data"></a>Cifrado de datos de tablas
 La biblioteca de clientes de Azure Storage para .NET admite el cifrado de propiedades de entidades de cadena en operaciones de insertar y reemplazar. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.    

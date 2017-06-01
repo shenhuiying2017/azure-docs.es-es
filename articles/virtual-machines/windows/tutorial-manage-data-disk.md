@@ -13,21 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d68fc54f3fd08b3d7d66a9cd1ddb91c340191468
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: a7511a35a7b186fc424088e7ff5cbc933d325712
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="manage-azure-disks-with-powershell"></a>Administración de discos de Azure con PowerShell
 
-En este tutorial, conocerá los diferentes tipos de discos de máquina virtual, aprenderá a seleccionar una configuración de disco, y sabrá cómo crear y conectar discos a máquinas virtuales de Azure. Este tutorial también explica cómo tomar instantáneas de discos.  
+Las máquinas virtuales de Azure usan discos para almacenar el sistema operativo, las aplicaciones y los datos de máquinas virtuales. Al crear una máquina virtual es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. Este tutorial trata la implementación y administración de discos de máquina virtual. Aprenderá sobre los siguientes temas:
 
-Se pueden completar los pasos de este tutorial con la versión más reciente del módulo [Azure PowerShell](/powershell/azure/overview).
+> [!div class="checklist"]
+> * Discos del SO y temporales
+> * Discos de datos
+> * Discos Estándar y Premium
+> * Rendimiento de disco
+> * Conectar y preparar los discos de datos
+
+Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, vea [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="default-azure-disks"></a>Discos de Azure predeterminados
 
@@ -39,7 +46,7 @@ Cuando se crea una máquina virtual de Azure, se conectan dos discos automática
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
 
-| Tipo | Tamaño de VM | Tamaño máximo de disco temporal |
+| Tipo | Tamaño de VM | Tamaño máximo de disco temporal (GB) |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A y D | 800 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 800 |
@@ -136,7 +143,17 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido acerca de los discos de máquina virtual. Siga con el siguiente tutorial para aprender sobre la automatización de la configuración de la máquina virtual.
+En este tutorial, ha aprendido sobre temas relacionados con los discos de máquina virtual; por ejemplo:
 
-[Automatización de la configuración de máquinas virtuales](./tutorial-automate-vm-deployment.md)
+> [!div class="checklist"]
+> * Discos del SO y temporales
+> * Discos de datos
+> * Discos Estándar y Premium
+> * Rendimiento de disco
+> * Conectar y preparar los discos de datos
+
+Siga con el siguiente tutorial para aprender sobre la automatización de la configuración de la máquina virtual.
+
+> [!div class="nextstepaction"]
+> [Automatización de la configuración de máquinas virtuales](./tutorial-automate-vm-deployment.md)
 

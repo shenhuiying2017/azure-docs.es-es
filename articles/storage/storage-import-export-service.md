@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 132c1cf6b06924b8d23d696ea732856886be975d
-ms.lasthandoff: 05/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1aebecdaacd3525bec07a9359e52d2bc3d1539de
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -76,7 +77,8 @@ Descargue la versión más reciente de [WAImportExport](http://download.microsof
 >
 
 ### <a name="hard-disk-drives"></a>Unidades de disco duro
-El servicio Import/Export solo admite unidades de disco duro internas SSD de 2,5 pulgadas o SATA II o III de 2,5 o 3,5 pulgadas. Puede utilizar unidades de disco duro de hasta 10 TB.
+El servicio Import/Export solo admite SSD de 2,5 pulgadas o HDD internos SATA II o III de 2,5 o 3,5 pulgadas. Un único trabajo de importación/exportacón puede tener un máximo de 10 unidades HDD/SSD, y cada una de ellas puede tener cualquier tamaño. Un volumen grande de unidades puede distribuirse entre varios trabajos, y no hay ningún límite en el número de trabajos que se pueden crear. 
+
 Para los trabajos de importación, solo se procesará el primer volumen de datos de la unidad. El volumen de datos debe tener formato NTFS.
 
 > [!IMPORTANT]
@@ -508,6 +510,14 @@ Consulte [Importar archivos PST o datos de SharePoint a Office 365](https://tech
 
 Consulte [Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](../backup/backup-azure-backup-import-export.md).
 
+**¿Cuántas unidades HDD se pueden incluir como máximo en un envío?
+
+Un envío puede incluir cualquier cantidad de HDD, pero si los discos pertenecen a varios trabajos, se recomienda: a) Etiquetar los discos con los nombres de trabajo correspondientes. b) Actualizar los trabajos con un número de seguimiento que lleve el sufijo -1, -2, etc.
+  
+**¿Qué tamaño máximo de blobs en bloques y blobs en páginas admite la importación/exportación de disco?
+
+El tamaño máximo aproximado de blobs en bloques admitido es de 4,768 TB o 5.000.000 MB.
+El tamaño máximo de blobs en páginas es de 1 TB.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración de la herramienta WAImportExport](storage-import-export-tool-how-to.md)

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/06/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: a2a72da08ccff17407fcdd98783137b091651b47
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 77eb843f83bd2d246dd4943e52c1e8b2ac07a5ab
+ms.contentlocale: es-es
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -129,7 +131,7 @@ Aunque pueda parecer obvio y a menudo se pase por alto, un microservicio debe in
 El estado es diferente de los diagnósticos. El mantenimiento hace referencia a que el microservicio notifica su estado actual para que se puedan llevar a cabo las acciones adecuadas. Un buen ejemplo es colaborar con los mecanismos de actualización e implementación para mantener la disponibilidad. Aunque un servicio puede tener un estado incorrecto debido a un bloqueo de un proceso o al reinicio de la máquina, puede seguir operativo. En este caso, lo menos recomendables es realizar una actualización. El mejor enfoque es investigar primero, o bien dejar tiempo para que el microservicio se recupere. Los eventos de mantenimiento de un microservicio permiten tomar decisiones fundamentadas y, de hecho, ayudan a crear servicios de recuperación automática.
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric como plataforma de microservicios
-Azure Service Fabric surgió cuando Microsoft pasó de ofrecer productos embalados, cuyo estilo era habitualmente monolítico, a ofrecer servicios. La experiencia de crear y operar servicios grandes, como Azure SQL Database y Azure DocumentDB, dio forma a Service Fabric. La plataforma evolucionó con el tiempo a medida que la fueron adoptando cada vez más servicios. Algo importante era que Service Fabric tenía que ejecutarse no solo en Azure, sino también en implementaciones independientes de Windows Server.
+Azure Service Fabric surgió cuando Microsoft pasó de ofrecer productos embalados, cuyo estilo era habitualmente monolítico, a ofrecer servicios. La experiencia de crear y operar servicios grandes, como Azure SQL Database y Azure Cosmos DB, dio forma a Service Fabric. La plataforma evolucionó con el tiempo a medida que la fueron adoptando cada vez más servicios. Algo importante era que Service Fabric tenía que ejecutarse no solo en Azure, sino también en implementaciones independientes de Windows Server.
 
 ***El objetivo de Service Fabric es resolver las complicaciones que conlleva crear y ejecutar un servicio y usar de forma eficiente los recursos de infraestructura para que los equipos puedan resolver problemas de negocios con un enfoque de microservicios.***
 
@@ -153,9 +155,4 @@ El objetivo de Service Fabric es reducir las complejidades que conlleva crear ap
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

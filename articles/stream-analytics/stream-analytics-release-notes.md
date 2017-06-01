@@ -15,10 +15,10 @@ ms.workload: data-services
 ms.date: 05/03/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 05c5476cbfd616ce47d6d93627c6e7dd4d8a0d6f
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6a5ec66172e7920a89ff8c0592224f01f19c9e41
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -85,7 +85,7 @@ Esta versión contiene las siguientes actualizaciones.
 | --- | --- |
 | Vista previa pública de Conjunto de aplicaciones de IoT de Azure |Análisis de transmisiones se incluye en la vista previa pública de Conjunto de aplicaciones de IoT de Azure. |
 | Integración del Portal de Azure |Además de su presencia continua en el Portal de administración de Azure, Análisis de transmisiones ahora se integra en el [Portal de Azure](https://azure.microsoft.com/overview/preview-portal/). Tenga en cuenta que la funcionalidad de Stream Analyticss en el Portal de versión preliminar actualmente es un subconjunto de la funcionalidad ofrecida en el Portal de administración de Azure, sin soporte para pruebas de consultas en el explorador, configuración de salida de Power BI y exploración o creación de nuevos recursos de entrada y salida en suscripciones a las que tiene acceso. |
-| Soporte técnico para la salida de DocumentDB |Ahora se pueden enviar trabajos de Análisis de transmisiones a [DocumentDB](https://azure.microsoft.com/services/documentdb/). |
+| Compatibilidad para salida de Cosmos DB |Ahora se pueden enviar trabajos de Stream Analytics a [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). |
 | Compatibilidad para entrada de Centro de IoT |Los trabajos de Análisis de transmisiones ahora pueden introducir datos de los Centros de IoT. |
 | TIMESTAMP BY para eventos heterogéneos |Ahora puede usar [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) con expresiones para especificar diferentes campos de marca de tiempo para cada caso cuando un único flujo de datos contiene varios tipos de eventos con marcas de tiempo en distintos campos. |
 
