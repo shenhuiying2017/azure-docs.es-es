@@ -130,6 +130,8 @@
     items:
     - name: Introducción a la creación de máquinas virtuales
       href: creation-choices.md
+    - name: Creación de máquinas virtuales a partir de un disco duro virtual especializado
+      href: create-vm-specialized.md
     - name: Creación de una máquina virtual con una plantilla
       href: ps-template.md
     - name: 'Creación de una máquina virtual con C#'
@@ -215,20 +217,6 @@
       href: expand-data-disks.md
     - name: 'Uso de la unidad D: como disco de datos'
       href: change-drive-letter.md
-    - name: Creación de máquinas virtuales con discos no administrados
-      items:
-      - name: Carga de un disco duro virtual
-        href: upload-image.md
-      - name: Creación de una imagen no administrada
-        href: capture-image.md
-      - name: Creación de una máquina virtual a partir de un disco duro virtual generalizado
-        href: create-vm-generalized.md
-      - name: Copia de una máquina virtual
-        href: vhd-copy.md
-      - name: Creación de máquinas virtuales a partir de un disco duro virtual especializado
-        href: create-vm-specialized.md
-      - name: Conexión de un disco de datos no administrado
-        href: attach-disk-portal.md
   - name: Redes de máquinas virtuales
     href: ps-common-network-ref.md
     items:
@@ -341,10 +329,8 @@
       items:
       - name: Migración de Amazon Web Services (AWS) a Azure
         href: aws-to-azure.md
-    - name: Carga y creación de máquinas virtuales desde un disco duro virtual generalizado
-      href: upload-generalized-managed.md
-    - name: Carga y creación de máquinas virtuales desde un disco duro virtual especializado
-      href: upload-specialized.md
+      - name: Carga y creación de máquinas virtuales desde un disco duro virtual generalizado
+        href: upload-generalized-managed.md
     - name: Migración del modelo clásico a Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:

@@ -11,10 +11,12 @@
     href: quickstart-create-server-database-portal.md
   - name: 'Creación de la base de datos: CLI de Azure'
     href: quickstart-create-server-database-azure-cli.md
-- name: Scripts de ejemplo
-  items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
+  - name: Conectar
+    items:
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Python
+      href: connect-python.md
 - name: Tutoriales
   items:
   - name: 1 - Diseño de una base de datos
@@ -55,6 +57,10 @@
     items:
     - name: Bibliotecas de conexiones
       href: concepts-connection-libraries.md
+- name: Muestras
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
 - name: Guías de procedimientos
   items:
   - name: Reglas de firewall

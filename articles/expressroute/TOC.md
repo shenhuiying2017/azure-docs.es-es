@@ -47,7 +47,8 @@
 ### [Obtención de tablas ARP (clásico)](expressroute-troubleshooting-arp-classic.md)
 
 # Referencia
-## [PowerShell](/powershell/module/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [CLI de Azure](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (clásico)](https://msdn.microsoft.com/library/azure/dn606310)
 
