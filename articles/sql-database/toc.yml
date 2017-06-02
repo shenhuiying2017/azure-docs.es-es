@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: 'Creación de la base de datos: PowerShell'
     href: sql-database-get-started-powershell.md
-  - name: Administrar
+  - name: Conexión y consulta
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: Código de VS
       href: sql-database-connect-query-vscode.md
-  - name: Conectar
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -37,7 +35,7 @@
   items:
   - name: 1 - Creación y diseño de nueva base de datos SQL
     href: sql-database-design-first-database.md
-  - name: 2 - Migración de un SQL Server existente
+  - name: 2 - Migración de bases de datos de SQL Server
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - Protección de SQL Database
     href: sql-database-security-tutorial.md
@@ -45,6 +43,8 @@
     href: sql-database-performance-tutorial.md
   - name: 5 - Implementación de una aplicación multiinquilino
     href: sql-database-multi-tenant-application.md
+  - name: '6: Implementación de una base de datos distribuida geográficamente'
+    href: sql-database-implement-geo-distributed-database.md 
   - name: Tutoriales de SaaS de Wingtip
     items:
     - name: Introducción a SaaS de Wingtip
@@ -55,15 +55,15 @@
       href: sql-database-saas-tutorial-provision-and-catalog.md
     - name: Supervisión del rendimiento
       href: sql-database-saas-tutorial-performance-monitoring.md
+    - name: Supervisión con Log Analytics
+      href: sql-database-saas-tutorial-log-analytics.md
     - name: Restauración de un solo inquilino
       href: sql-database-saas-tutorial-restore-single-tenant.md
     - name: Administración de esquemas de inquilino
       href: sql-database-saas-tutorial-schema-management.md
     - name: Ejecución de análisis ad hoc
       href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Supervisión con Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Administración de análisis de inquilino
+    - name: Ejecución de análisis de inquilino
       href: sql-database-saas-tutorial-tenant-analytics.md
 - name: Muestras
   items:
@@ -145,7 +145,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Auditoría
       href: sql-database-auditing.md
-    - name: Auditoría y TDS
+    - name: Auditoría de tablas y TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Detección de amenazas
       href: sql-database-threat-detection.md
@@ -355,6 +355,8 @@
       href: sql-database-xevent-code-event-file.md
     - name: 'Eventos extendidos: Búfer en anillo'
       href: sql-database-xevent-code-ring-buffer.md
+    - name: Registro de diagnósticos
+      href: sql-database-metrics-diag-logging.md
   - name: Administrar
     items:
     - name: Automatización de Azure

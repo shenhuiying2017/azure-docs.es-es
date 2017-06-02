@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Carga de la aplicación existente
         href: web-sites-java-add-app.md
-      - name: Depuración remota de Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Depuración remota de IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: Aplicación Django con MySQL
@@ -162,8 +158,6 @@
       items:
       - name: Comprar dominio
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: Asignación de dominios de terceros
-        href: web-sites-custom-domain-name.md
       - name: Asignación de dominios con Traffic Manager
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Asignación de dominios GoDaddy
@@ -204,10 +198,6 @@
         href: web-sites-authentication-authorization.md
       - name: Aplicación con una base de datos multiinquilino
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Asignación de SSL personalizado
-      items:
-      - name: Configuración de un certificado SSL de terceros
-        href: web-sites-configure-ssl-certificate.md
     - name: Aplicación de HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Configuración de la autenticación mutua TLS
@@ -278,6 +268,16 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Solución de problemas de rendimiento
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: Preguntas más frecuentes
+      items:
+      - name: 'Disponibilidad, rendimiento y preguntas más frecuentes sobre aplicaciones'
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Preguntas más frecuentes sobre la implementación
+        href: app-service-web-deployment-faq.md
+      - name: Preguntas más frecuentes sobre las tecnologías de código abierto
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Preguntas más frecuentes sobre la configuración y administración
+        href: app-service-web-configuration-and-management-faq.md
   - name: Precios
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Información de cuota

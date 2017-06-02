@@ -116,7 +116,7 @@
 ### [Muestreo](app-insights-sampling.md)
 
 ## Administrar
-### [Administración de cuotas y precios](app-insights-pricing.md)
+### [Administración de precios y volumen de datos](app-insights-pricing.md)
 ### [Supervisión del rendimiento de la aplicación con Application Insights para SCOM](app-insights-scom.md)
 
 ## Exportación

@@ -1,6 +1,7 @@
 # Información general
 ## [Información acerca de redes de Azure](networking-overview.md)
 ## Arquitectura
+### [Centros de datos virtuales](networking-virtual-datacenter.md)
 ### [Enrutamiento asimétrico con varias rutas de acceso de red](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Protección de diseños de redes](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Topología en estrella tipo hub-and-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -44,6 +45,7 @@
 ### [Comprobación de los flujos de IP de una máquina virtual](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Scripts de ejemplo
 ### [CLI de Azure](cli-samples.md)
+### [PowerShell](powershell-samples.md)
 ## Tutoriales
 ### [Equilibrio de carga de máquinas virtuales](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conexión de un equipo a una red virtual](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)

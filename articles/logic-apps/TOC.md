@@ -7,6 +7,7 @@
 ## [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](logic-apps-create-a-logic-app.md)
 ## [Plantillas de aplicaciones lógicas](logic-apps-use-logic-app-templates.md)
 ## [Creación de aplicaciones lógicas a partir de plantillas](logic-apps-arm-provision.md)
+## [Traslado de aplicaciones MABS a las aplicaciones lógicas](logic-apps-move-from-mabs.md)
 
 # Procedimientos
 ## Compilación
@@ -80,6 +81,7 @@
 ### [Precios](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Medición de uso](logic-apps-pricing.md)
 
+
 # Sin servidor
 ## Información general
 ### [Sin servidor de Azure](logic-apps-serverless-overview.md)
@@ -128,6 +130,8 @@
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
 ### [X12](logic-apps-enterprise-integration-x12.md)
 ### [Validación XML](logic-apps-enterprise-integration-xml-validation.md)
+
+## [Conectores: detalles completos](https://docs.microsoft.com/connectors/)
 ## Historial de esquemas
 ### [Disponibilidad general](logic-apps-schema-2016-04-01.md)
 ### [Versión preliminar](logic-apps-schema-2015-08-01.md)

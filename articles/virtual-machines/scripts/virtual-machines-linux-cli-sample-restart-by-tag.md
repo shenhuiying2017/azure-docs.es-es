@@ -80,7 +80,7 @@ Este script reinicia todas las máquinas virtuales del grupo de recursos y, lueg
 
 Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar los grupos de recursos, las máquinas virtuales y todos los recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 
