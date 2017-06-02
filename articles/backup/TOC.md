@@ -17,12 +17,22 @@
 ### [Windows Server en el portal clásico](backup-client-automation-classic.md)
 
 ## Servidor de Copia de seguridad de Azure
-### [Preparación de cargas de trabajo del servidor de copia de seguridad de Azure en Azure Portal](backup-azure-microsoft-azure-backup.md)
-### [Preparación de cargas de trabajo del servidor de copia de seguridad de Azure en el portal clásico](backup-azure-microsoft-azure-backup-classic.md)
-### [Uso de Azure Backup Server para hacer copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md)
-### [Uso del servidor de copia de seguridad de Azure para hacer copia de seguridad de Exchange](backup-azure-exchange-mabs.md)
-### [Uso del servidor de copia de seguridad de Azure para hacer copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint-mabs.md)
-### [Uso del servidor de copia de seguridad de Azure para hacer copia de seguridad de SQL](backup-azure-sql-mabs.md)
+### [Matriz de protección de Azure Backup Server](backup-mabs-protection-matrix.md)
+### Instalación o actualización
+#### [Preparación de cargas de trabajo del servidor de copia de seguridad de Azure en Azure Portal](backup-azure-microsoft-azure-backup.md)
+#### [Preparación de cargas de trabajo del servidor de copia de seguridad de Azure en el portal clásico](backup-azure-microsoft-azure-backup-classic.md)
+#### [Adición de almacenamiento a Azure Backup Server](backup-mabs-add-storage.md)
+#### [Actualización de Azure Backup Server a v.2](backup-mabs-upgrade-to-v2.md)
+#### [Instalación desatendida de Azure Backup Server](backup-mabs-unattended-install.md)
+### Protección de cargas de trabajo
+#### [Uso de Azure Backup Server para hacer copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md)
+#### [Uso del servidor de copia de seguridad de Azure para hacer copia de seguridad de Exchange](backup-azure-exchange-mabs.md)
+#### [Uso del servidor de copia de seguridad de Azure para hacer copia de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint-mabs.md)
+#### [Uso del servidor de copia de seguridad de Azure para hacer copia de seguridad de SQL](backup-azure-sql-mabs.md)
+#### [Protección del estado del sistema y reconstrucción completa](backup-mabs-system-state-and-bmr.md)
+### Solución de problemas
+#### [Solución de problemas de Azure Backup Server](backup-azure-mabs-troubleshoot.md)
+
 
 ## Data Protection Manager
 ### [Preparación de cargas de trabajo DPM en Azure Portal](backup-azure-dpm-introduction.md)
@@ -33,19 +43,25 @@
 ### [Uso de DPM para hacer copias de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
 
 ## Máquinas virtuales de Azure
-### [Preparación de máquinas virtuales de Azure](backup-azure-vms-prepare.md)
-### [Preparación de máquinas virtuales implementadas según el modelo de Resource Manager](backup-azure-arm-vms-prepare.md)
-### [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](backup-azure-vms-introduction.md)
-### [Copia de seguridad de máquinas virtuales de Azure en el almacén de copias de seguridad](backup-azure-vms.md)
-### [Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services](backup-azure-arm-vms.md)
-### [Copia de seguridad y restauración de máquinas virtuales cifradas](backup-azure-vms-encryption.md)
-### [Administración y supervisión de copias de seguridad de VM de Azure en el portal clásico](backup-azure-manage-vms-classic.md)
-### [Administración de copias de seguridad de VM de Azure en Azure Portal](backup-azure-manage-vms.md)
-### [Supervisión de alertas para copias de seguridad de VM de Azure en Azure Portal](backup-azure-monitor-vms.md)
-### [Recuperación de archivos de las copias de seguridad de máquinas virtuales de Azure](backup-azure-restore-files-from-vm.md)
-### [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md)
-### [Restauración de máquinas virtuales implementadas según el modelo de Resource Manager en Azure Portal](backup-azure-arm-restore-vms.md)
-### [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup](backup-azure-restore-key-secret.md)
+### Preparación de la VM
+#### [Preparación de máquinas virtuales de Azure](backup-azure-vms-prepare.md)
+#### [Preparación de máquinas virtuales implementadas según el modelo de Resource Manager](backup-azure-arm-vms-prepare.md)
+### Planeamiento del entorno
+#### [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](backup-azure-vms-introduction.md)
+### Copia de seguridad de servidores y cargas de trabajo
+#### [Copia de seguridad de instancias de Azure Virtual Machines en el almacén de Backup](backup-azure-vms.md)
+#### [Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services](backup-azure-arm-vms.md)
+#### [Copia de seguridad de máquinas virtuales cifradas](backup-azure-vms-encryption.md)
+### Administración y supervisión de máquinas virtuales
+#### [Administración y supervisión de copias de seguridad de VM de Azure en el portal clásico](backup-azure-manage-vms-classic.md)
+#### [Administración de copias de seguridad de VM de Azure en Azure Portal](backup-azure-manage-vms.md)
+#### [Supervisión de alertas para copias de seguridad de VM de Azure en Azure Portal](backup-azure-monitor-vms.md)
+### Restauración de datos desde máquinas virtuales
+#### [Recuperación de archivos de las copias de seguridad de máquinas virtuales de Azure](backup-azure-restore-files-from-vm.md)
+#### [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md)
+#### [Restauración de máquinas virtuales implementadas según el modelo de Resource Manager en Azure Portal](backup-azure-arm-restore-vms.md)
+#### [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup](backup-azure-restore-key-secret.md)
+#### [Restauración de máquinas virtuales cifradas](backup-azure-vms-encryption.md)
 
 ## Base de datos SQL de Azure
 ### [Configuración de la retención de copia de seguridad a largo plazo](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
@@ -66,7 +82,6 @@
 ## Solución de problemas
 ### [Problemas de copia de seguridad de máquinas virtuales de Azure en Azure Portal](backup-azure-vms-troubleshoot.md)
 ### [Problemas de copia de seguridad de máquinas virtuales de Azure en el portal clásico](backup-azure-vms-troubleshoot-classic.md)
-### [Servidor de Copia de seguridad de Azure](backup-azure-mabs-troubleshoot.md)
 ### [Se ha producido un error en la copia de seguridad de VM de Azure: no se pudo comunicar con el agente de VM para el estado de la instantánea: la subtarea de la VM de la instantánea agotó el tiempo de espera](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Lentitud en la copia de seguridad de archivos y carpetas en Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 

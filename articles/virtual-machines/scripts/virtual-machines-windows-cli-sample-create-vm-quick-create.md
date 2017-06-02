@@ -39,7 +39,7 @@ Este script crea una máquina virtual de Azure donde se ejecuta Windows Server 2
 
 Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 

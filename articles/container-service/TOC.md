@@ -11,6 +11,7 @@
 ## [Implementación del clúster: CLI de Azure](container-service-create-acs-cluster-cli.md)
 ## [Integración y entrega continuas con Kubernetes y Jenkins](container-service-kubernetes-jenkins.md)
 ## [Integración y entrega continuas con Docker Swarm y VSTS](container-service-docker-swarm-setup-ci-cd.md)
+## [Integración y entrega continuas con el modo de Docker Swarm y VSTS con ACS Engine](container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md)
 
 # Conceptos
 ## [Contenedores seguros](container-service-security.md)

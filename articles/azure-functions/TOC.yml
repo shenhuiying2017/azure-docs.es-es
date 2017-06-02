@@ -69,7 +69,7 @@
     href: functions-how-to-use-azure-function-app-settings.md
   - name: Implementación continua para Azure Functions
     href: functions-continuous-deployment.md
-  - name: Implementación de Functions mediante la infraestructura como código
+  - name: Automatización de la implementación de recursos
     href: functions-infrastructure-as-code.md
   - name: Supervisión de Azure Functions
     href: functions-monitoring.md
@@ -85,35 +85,31 @@
   items:
   - name: Enlaces
     items:
-    - name: Enlaces de Cosmos DB
+    - name: Almacenamiento de blobs
+      href: functions-bindings-storage-blob.md
+    - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Enlaces de centro de eventos
+    - name: Centro de eventos
       href: functions-bindings-event-hubs.md
-    - name: Enlaces HTTP y de webhook
+    - name: Archivo externo
+      href: functions-bindings-external-file.md
+    - name: HTTP y webhooks
       href: functions-bindings-http-webhook.md
-    - name: Enlaces de Mobile Apps
+    - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
-    - name: Enlace de salida del centro de notificaciones
+    - name: Notification Hubs
       href: functions-bindings-notification-hubs.md
-    - name: Desencadenadores y enlaces de Service Bus para colas y temas
+    - name: Queue Storage
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Service Bus
       href: functions-bindings-service-bus.md
-    - name: Enlaces de SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Enlaces de Storage
-      items:
-      - name: Enlaces de blob
-        href: functions-bindings-storage-blob.md
-      - name: Enlaces de cola
-        href: functions-bindings-storage-queue.md
-      - name: Enlaces de tabla
-        href: functions-bindings-storage-table.md
-      - name: Enlaces de archivo externo
-        href: functions-bindings-external-file.md
-    - name: Enlaces de SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Desencadenador de temporizador
+    - name: Almacenamiento de tablas
+      href: functions-bindings-storage-table.md
+    - name: Temporizador
       href: functions-bindings-timer.md
-    - name: Enlace de salida de Twilio
+    - name: Twilio
       href: functions-bindings-twilio.md
   - name: Referencia de OpenAPI
     href: functions-api-definition.md     

@@ -46,7 +46,7 @@ Use este código para ver cómo conectarse a las máquinas virtuales y al conjun
 
 Ejecute el siguiente comando para quitar el grupo de recursos, el conjunto de escalado y las máquinas virtuales, y todos los recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 

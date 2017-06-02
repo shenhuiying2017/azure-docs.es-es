@@ -42,7 +42,7 @@ Este ejemplo de script crea todo lo necesario para ejecutar varias máquinas vir
 
 Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: e2ccb78da419b12a9845d720efb5b0229d4f455b
+ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
 
 
@@ -35,8 +36,6 @@ Es posible que una máquina virtual existente que se creó mediante el portal cl
 Si tiene una suscripción actual de Trend Micro para una solución local, puede usarla para ayudar a proteger sus máquinas virtuales de Azure. Si todavía no es cliente, puede suscribirse para una prueba. Para obtener más información acerca de esta solución, consulte la publicación del blog de Trend Micro [Microsoft Azure VM Agent Extension For Deep Security (Extensión del agente de máquina virtual de Microsoft Azure para Deep Security)](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Instalación del Agente de Deep Security en una máquina virtual nueva
-
-<!-- old portal [Azure classic portal](http://manage.windowsazure.com) -->
 
 [Azure Portal](http://portal.azure.com) le permite instalar la extensión de seguridad de Trend Micro cuando usa una imagen de **Marketplace** para crear la máquina virtual. Si crea una sola máquina virtual, usar el portal es una forma simple para agregar la protección de Trend Micro.
 

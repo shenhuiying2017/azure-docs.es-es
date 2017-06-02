@@ -40,7 +40,7 @@ Este script crea una máquina virtual y, a continuación, usa la extensión de s
 
 Ejecute el siguiente comando para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 
