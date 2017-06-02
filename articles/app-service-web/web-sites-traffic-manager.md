@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e5711e9c9d3ff70b38a4d19aa6be7b037cdb38aa
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 25502e4124442ed1853e3c3d9226107328c29316
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -48,7 +49,7 @@ Cuando utilice el Administrador de tráfico de Azure con Azure, tenga en cuenta 
 * Solo puede especificar un extremo de aplicación web por región en un perfil. Cuando selecciona una aplicación web como un extremo para una región, las aplicaciones web restantes de esa región dejan de estar disponibles para su selección para ese perfil.
 * Los extremos de aplicación web que especifica en un perfil del Administrador de tráfico de Azure aparecerán en la sección **Nombres de dominio** de la página de configuración de la aplicación web del perfil, pero no se configurarán ahí.
 * Después de agregar una aplicación web a un perfil, la **Dirección URL** del sitio del panel de la página del portal de la aplicación web mostrará la dirección URL del dominio personalizado de la aplicación web si ha configurado alguna. De lo contrario, mostrará la dirección URL del perfil del Administrador de tráfico (por ejemplo, `contoso.trafficmgr.com`). Tanto el nombre de dominio directo de la aplicación web como la dirección URL del Administrador de tráfico serán visibles en la página de configuración de la aplicación web en la sección **Nombres de dominio** .
-* Los nombres de dominio personalizado funcionarán tal como se espera, pero además de agregarlos a las aplicaciones web, también deberá configurar la asignación de DNS para que apunte a la dirección URL del Administrador de tráfico. Para información sobre cómo configurar un dominio personalizado para un sitio web de Azure, consulte [Configuración de un nombre de dominio personalizado para un sitio web de Azure](web-sites-custom-domain-name.md).
+* Los nombres de dominio personalizado funcionarán tal como se espera, pero además de agregarlos a las aplicaciones web, también deberá configurar la asignación de DNS para que apunte a la dirección URL del Administrador de tráfico. Para información sobre cómo configurar un dominio personalizado para un sitio web de Azure, consulte [Configuración de un nombre de dominio personalizado para un sitio web de Azure](app-service-web-tutorial-custom-domain.md).
 * Solo podrá agregar aplicaciones web que estén en modo estándar a un perfil del Administrador de tráfico de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes

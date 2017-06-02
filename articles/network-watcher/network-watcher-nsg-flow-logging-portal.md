@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: b059cfdcf21d8b61589a5edf3bd1832070e564e3
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: bbea08798a601989d06774475cb25ee67e99add6
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,8 +28,9 @@ ms.lasthandoff: 05/11/2017
 > [!div class="op_single_selector"]
 > - [Portal de Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [API de REST](network-watcher-nsg-flow-logging-rest.md)
+> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
+> - [API DE REST](network-watcher-nsg-flow-logging-rest.md)
 
 Los registros de flujo de grupos de seguridad de red son una característica de Network Watcher que permite ver información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen/destino, puerto de origen/destino, protocolo), y si se permitió o denegó el tráfico.
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8928581d9636f571008f965185eeb61b414a16e7
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: da9e5f015f93090f4efb00f6c3af07ba2f5503bc
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -252,7 +253,7 @@ Inicie sesión en la instancia de Atlassian Cloud con derechos de administrador 
  
 4. Haga clic en el botón **Crear usuario**, se enviará la invitación de correo electrónico al usuario y después de aceptar la invitación, el usuario estará activo en el sistema. 
 
-### <a name="assig-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Atlassian Cloud.
 

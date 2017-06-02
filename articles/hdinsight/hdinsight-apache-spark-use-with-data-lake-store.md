@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c801dc221d4aaa2c3ed0a7d10c5d58065b26e427
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 24e0372f024e574d049c63f444b5e8f6b0dfd065
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -28,8 +29,6 @@ ms.lasthandoff: 03/22/2017
 En este tutorial usará Jupyter Notebook, disponible con los clústeres de HDInsight Spark, para ejecutar un trabajo que lee datos de una cuenta de Data Lake Store.
 
 ## <a name="prerequisites"></a>Requisitos previos
-
-* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Cuenta de Azure Data Lake Store. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 
@@ -83,7 +82,7 @@ Si ha creado un clúster de HDInsight con Data Lake Store como almacenamiento ad
 
 3. Cree un nuevo notebook. Haga clic en **Nuevo** y, luego, en **PySpark**.
 
-    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.note.jupyter.createnotebook.png "Crear un nuevo cuaderno de Jupyter")
+    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Crear un nuevo cuaderno de Jupyter")
 
 4. Dado que creó un cuaderno con el kernel PySpark, no necesitará crear ningún contexto explícitamente. Los contextos Spark y Hive se crearán automáticamente al ejecutar la primera celda de código. Puede empezar por importar los tipos necesarios para este escenario. Para ello, pegue el siguiente fragmento de código en una celda y presione **MAYÚS + ENTRAR**.
 
@@ -91,7 +90,7 @@ Si ha creado un clúster de HDInsight con Data Lake Store como almacenamiento ad
 
     Cada vez que se ejecuta un trabajo en Jupyter, el título de la ventana del explorador web mostrará el estado **(Busy)** (Ocupado) junto con el título del cuaderno. También verá un círculo sólido junto al texto **PySpark** en la esquina superior derecha. Una vez completado el trabajo, cambiará a un círculo hueco.
 
-     ![Estado de un trabajo de cuaderno de Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.jupyter.job.status.png "Estado de un trabajo de cuaderno de Jupyter")
+     ![Estado de un trabajo de cuaderno de Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Estado de un trabajo de cuaderno de Jupyter")
 
 5. Cargue datos de ejemplo en una tabla temporal mediante el archivo **HVAC.csv** que copió a la cuenta de Azure Data Lake Store. Ahora puede acceder a los datos de la cuenta del Almacén de Data Lake con el siguiente patrón de dirección URL.
 
@@ -131,11 +130,11 @@ Si ha creado un clúster de HDInsight con Data Lake Store como almacenamiento ad
 
 7. Una vez que el trabajo se completa correctamente, se muestra de forma predeterminada el resultado tabular siguiente.
 
-      ![Salida de tabla del resultado de la consulta](./media/hdinsight-apache-spark-use-with-data-lake-store/tabular.output.png "Salida de tabla del resultado de la consulta")
+      ![Salida de tabla del resultado de la consulta](./media/hdinsight-apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "Salida de tabla del resultado de la consulta")
 
      También puede ver la salida en otras visualizaciones. Por ejemplo, un gráfico de área con la misma salida tendría el siguiente aspecto.
 
-     ![Gráfico de área del resultado de la consulta](./media/hdinsight-apache-spark-use-with-data-lake-store/area.output.png "Gráfico de área del resultado de la consulta")
+     ![Gráfico de área del resultado de la consulta](./media/hdinsight-apache-spark-use-with-data-lake-store/jupyter-area-output.png "Gráfico de área del resultado de la consulta")
 
 8. Cuando haya terminado de ejecutar la aplicación, debe cerrar el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apagará y se cerrará el cuaderno.
 

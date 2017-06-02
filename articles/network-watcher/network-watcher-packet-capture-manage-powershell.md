@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ec82b8cc381bc5a30763b9f5d1766ac15d5f1734
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: abd3b3641da80ee835fac85b4bde68594449e451
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -26,10 +27,11 @@ ms.lasthandoff: 04/03/2017
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI](network-watcher-packet-capture-manage-cli.md)
-> - [API de REST](network-watcher-packet-capture-manage-rest.md)
+> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [API de REST de Azure](network-watcher-packet-capture-manage-rest.md)
 
-La captura de paquetes de Network Watcher permite crear sesiones de captura para realizar el seguimiento del tráfico de entrada y salida de una máquina virtual. La sesión de captura cuenta con filtros para asegurarse de capturar solo el tráfico que se desea. La captura de paquetes ayuda a diagnosticar anomalías de la red, tanto de forma activa como reactiva. Otros usos son la recopilación de estadísticas de red, la obtención de información sobre las intrusiones de red y la depuración de las comunicaciones cliente-servidor, entre otros. Esta funcionalidad permite desencadenar capturas de paquetes de forma remota, lo que reduce la carga de tener que ejecutar una captura de paquetes manualmente y en el equipo deseado, y permite ahorrar tiempo.
+La captura de paquetes de Network Watcher permite crear sesiones de captura para realizar el seguimiento del tráfico hacia y desde una máquina virtual. La sesión de captura cuenta con filtros para asegurarse de capturar solo el tráfico que se desea. La captura de paquetes ayuda a diagnosticar anomalías de la red, tanto de forma activa como reactiva. Otros usos son la recopilación de estadísticas de red, la obtención de información sobre las intrusiones de red y la depuración de las comunicaciones cliente-servidor, entre otros. Esta funcionalidad permite desencadenar capturas de paquetes de forma remota, lo que reduce la carga de tener que ejecutar una captura de paquetes manualmente y en el equipo deseado, y permite ahorrar tiempo.
 
 Este artículo le guiará por las diferentes tareas de administración que están actualmente disponibles para la captura de paquetes.
 

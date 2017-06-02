@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 269294f14dd4add5ab038f13b6818db345665c3b
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: ccb2c827aa95ea967d740860ed17e6cc7bd3b392
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/03/2017
 Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.5 mediante la CLI de Azure 1.0.
 
 > [!IMPORTANT]
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte la sección sobre el [desuso de HDInsight 3.2 y 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 
 ## <a name="prerequisites"></a>Requisitos previos

@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 01bf4188c40abb424c654a733c6d626f3bd694ba
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cb85dff7f8bf8a8715aaa9ecd02da59b9108915c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -42,7 +42,7 @@ La integración de Stream Analytics con Cosmos DB permite insertar o actualizar 
 El Análisis de transmisiones utiliza un enfoque Upsert optimista, donde las actualizaciones solo se realizan cuando se produce un error en la inserción debido a un conflicto de identificador de documento. Esta actualización se realiza por el Análisis de transmisiones como una operación PATCH, por lo que permite actualizaciones parciales en el documento; es decir, la adición de nuevas propiedades o la sustitución de una propiedad existente se realiza de forma incremental. Tenga en cuenta que los cambios en los valores de las propiedades de la matriz en el resultado del documento JSON de toda la matriz se sobrescriben; es decir, la matriz no se combina.
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Creación de particiones de datos en Cosmos DB
-Ahora se admiten las [colecciones de documentos con particiones](../documentdb/documentdb-partition-data.md#single-partition-and-partitioned-collections) de Cosmos DB y es el enfoque recomendado para crear particiones de los datos. 
+Ahora se admiten las [colecciones de documentos con particiones](../cosmos-db/partition-data.md) de Cosmos DB y es el enfoque recomendado para crear particiones de los datos. 
 
 Para las colecciones únicas de Cosmos DB, Stream Analytics permite particionar los datos según los patrones de consulta y los requisitos de rendimiento de la aplicación. Cada colección puede contener hasta 10 GB de datos (máximo) y actualmente no hay ninguna manera de escalar verticalmente (o desbordar) una colección. Para escalar horizontalmente, Análisis de transmisiones permite escribir a varias colecciones con un prefijo determinado (consulte los detalles de uso a continuación). Análisis de transmisiones utiliza la estrategia coherente de [resolución de la partición de hash](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) basada en la columna PartitionKey ofrecida por el usuario para crear particiones en sus registros de salida. El número de colecciones con el prefijo especificado en el inicio del trabajo de streaming se utiliza como el recuento de las particiones de salida en las que el trabajo escribe en paralelo (colecciones de Cosmos DB = particiones de salida). En el caso de una sola colección con una indexación diferida que realiza solo operaciones de inserción, se puede esperar en torno a 0,4 MB/s de rendimiento de escritura. El uso de varias colecciones puede permitirle lograr mayor rendimiento y capacidad.
 

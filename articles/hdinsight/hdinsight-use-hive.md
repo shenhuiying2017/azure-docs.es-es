@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 05/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b8c32f6e15d65efc8dc464017027d3cde94b2667
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f974c2714fc600d850baff64fdf65aae178e5068
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -54,7 +54,7 @@ Utilice la siguiente tabla para averiguar cómo usar Hive con HDInsight:
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux o Windows* |Windows |
 
 > [!IMPORTANT]
-> \* Linux es el único sistema operativo que se usa en HDInsight versión 3.4 o posteriores. Para más información, consulte [Puesta en desuso de HDInsight 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> \* Linux es el único sistema operativo que se usa en HDInsight versión 3.4 o posteriores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 >
 > Si está usando un clúster de HDInsight basado en Windows, puede usar la [consola de consulta](hdinsight-hadoop-use-hive-query-console.md) desde el explorador o el [Escritorio remoto](hdinsight-hadoop-use-hive-remote-desktop.md) para ejecutar consultas de Hive.
 
@@ -144,7 +144,7 @@ En el ejemplo anterior, las instrucciones de HiveQL realizan las acciones siguie
 
 * `SELECT`: selecciona el número total de filas donde la columna **t4** contiene el valor **[ERROR]**. Esta instrucción devuelve un valor de **3** porque hay tres filas que contienen este valor.
 
-* `INPUT__FILE__NAME LIKE '%.log'`: Hive intenta aplicar el esquema a todos los archivos en el directorio. En este caso, el directorio contiene archivos que no coinciden con el esquema. Para evitar datos inservibles en los resultados, esta instrucción indica a Hive que solo se deben devolver datos de archivos que terminen en .log.
+* `INPUT__FILE__NAME LIKE '%.log'`: Hive intenta aplicar el esquema a todos los archivos en el directorio. En este caso, el directorio contiene archivos que no coinciden con el esquema. Para evitar que haya datos inservibles en los resultados, esta instrucción indica a Hive que solo se deben devolver datos de archivos que terminen en .log.
 
 > [!NOTE]
 > Las tablas externas se deben utilizar cuando se espera que un origen externo actualice los datos subyacentes. Por ejemplo, un proceso de carga de datos automatizado o una operación de MapReduce.

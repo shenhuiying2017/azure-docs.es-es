@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 05/04/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 290271855ac54af8c99311ff675a08d1e6942d93
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 7576bf607a4bec60011ed0a009462f8cd3e0d598
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -33,32 +34,29 @@ Con este documento aprende a usar la interfaz de usuario web de Ambari con un cl
 
 ## <a id="whatis"></a> ¿Qué es Ambari?
 
-[Apache Ambari](http://ambari.apache.org) simplifica la administración de Hadoop al proporcionar una interfaz de usuario web fácil de usar que se puede utilizar para aprovisionar, administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) simplifica la administración de Hadoop al proporcionar una interfaz de usuario de web fácil de usar. Puede usar Ambari para crear, administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 La interfaz de usuario web de Ambari se proporciona de forma predeterminada con clústeres de HDInsight que usan el sistema operativo Linux.
 
 > [!IMPORTANT]
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). 
 
 ## <a name="connectivity"></a>Conectividad
 
 La interfaz de usuario web de Ambari está disponible en el clúster de HDInsight en HTTPS://CLUSTERNAME.azurehdidnsight.net, donde **CLUSTERNAME** es el nombre del clúster.
 
 > [!IMPORTANT]
-> La conexión a Ambari en HDInsight requiere HTTPS. También debe autenticarse en Ambari mediante el nombre de la cuenta de administrador (el valor predeterminado es **admin**) y la contraseña que proporcionó cuando se creó el clúster.
+> La conexión a Ambari en HDInsight requiere HTTPS. Cuando se le solicite autenticación, use el nombre de la cuenta de administrador y la contraseña que proporcionó cuando se creó el clúster.
 
 ## <a name="ssh-tunnel-proxy"></a>Túnel SSH (proxy)
 
-> [!NOTE]
-> A pesar de que es posible tener acceso directamente a través de Internet a Ambari para su clúster, algunos vínculos de la interfaz de usuario web de Ambari (como JobTracker) no estarán expuestos en Internet. Por lo tanto, recibirá errores de "servidor no encontrado" al intentar tener acceso a estas características, a menos que utilice un túnel de Shell seguro (SSH) para canalizar el tráfico web para el nodo principal del clúster.
-
-Para obtener información sobre cómo crear un túnel SSH para trabajar con Ambari, consulte [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
+A pesar de que es posible tener acceso directamente a través de Internet a Ambari en su clúster, algunos vínculos de la interfaz de usuario web de Ambari (como JobTracker) no estarán expuestos en Internet. Para acceder a estos servicios, debe crear un túnel SSH. Para más información, consulte el documento [Uso de un túnel SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## <a name="ambari-web-ui"></a>Interfaz de usuario web de Ambari
 
-Cuando se conecte a la interfaz de usuario web de Ambari, se le pedirá que se autentique en la página. Use el nombre de usuario y la contraseña de administrador del clúster (valor predeterminado, Admin) que usó durante la creación del clúster.
+Cuando se conecte a la interfaz de usuario web de Ambari, se le pedirá que se autentique en la página. Use el nombre de usuario y la contraseña de administrador del clúster (valor predeterminado, Admin) que utilizó durante la creación del clúster.
 
-Cuando se abra la página, observe la barra que se encuentra en la parte superior. Contiene la siguiente información y controles:
+Cuando se abra la página, observe la barra que se encuentra en la parte superior. Esta barra contiene la siguiente información y controles:
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
@@ -66,7 +64,7 @@ Cuando se abra la página, observe la barra que se encuentra en la parte superio
 
 * **Cluster name # ops** : muestra el número de operaciones de Ambari en curso. Seleccione el nombre del clúster o **# ops** para ver una lista de las operaciones en segundo plano.
 
-* **# alerts** : alertas de advertencia o alertas críticas del clúster, si las hay. Al seleccionar esto se muestra una lista de alertas.
+* **# alerts**: muestra alertas de advertencia o alertas críticas del clúster, si las hay.
 
 * **Dashboard** : muestra el panel.
 
@@ -84,7 +82,7 @@ Cuando se abra la página, observe la barra que se encuentra en la parte superio
 
 ### <a name="alerts"></a>Alertas
 
-Ambari proporciona muchas alertas, que tendrán uno de los siguientes estados:
+La lista siguiente contiene los estados de alerta comunes usados por Ambari:
 
 * **OK (CORRECTO)**
 * **Warning (ADVERTENCIA)**
@@ -97,15 +95,15 @@ Las alertas se organizan en varios grupos predeterminados, que se pueden ver des
 
 ![página de alertas](./media/hdinsight-hadoop-manage-ambari/alerts.png)
 
-Para administrar los grupos, use el menú **Actions** (Acciones) y seleccione **Manage Alert Groups** (Administración de grupos de alertas). Esta acción le permite modificar los grupos existentes o crear grupos nuevos.
+Para administrar los grupos, use el menú **Actions** (Acciones) y seleccione **Manage Alert Groups** (Administración de grupos de alertas).
 
 ![administrar cuadro de diálogo de grupos de alertas](./media/hdinsight-hadoop-manage-ambari/manage-alerts.png)
 
-También puede administrar métodos de alerta y crear notificaciones de alerta a partir del menú **Actions** (Acciones) seleccionando __Manage Alert Notifications__ (Administrar notificaciones de alerta). Esto muestra las notificaciones actuales y le permite crear nuevas notificaciones. Se pueden enviar notificaciones a través de **CORREO ELECTRÓNICO** o **SNMP** cuando se producen combinaciones de alerta/gravedad específicas. Por ejemplo, puede enviar una alerta cuando alguna de las alertas del grupo **YARN Default** (Predeterminado de YARN) está definida en **Critical** (Crítica).
+También puede administrar métodos de alerta y crear notificaciones de alerta a partir del menú **Actions** (Acciones) seleccionando __Manage Alert Notifications__ (Administrar notificaciones de alerta). Se muestran las notificaciones actuales. También puede crear notificaciones desde aquí. Se pueden enviar notificaciones a través de **CORREO ELECTRÓNICO** o **SNMP** cuando se producen combinaciones de alerta/gravedad específicas. Por ejemplo, puede enviar un mensaje de correo electrónico cuando alguna de las alertas del grupo **YARN Default** (Predeterminado de YARN) está definida en **Critical** (Crítica).
 
 ![cuadro de diálogo Crear alerta](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
-Por último, al seleccionar __Manage Alert Settings__ (Administrar configuración de alerta) en el menú __Actions__ (Acciones) podrá probar el número de veces que debe aparecer una alerta antes de enviar una notificación. Esto se puede utilizar para evitar notificaciones para errores transitorios, como cuando hay un error en un servicio en un nodo principal y se reinicia en el otro nodo principal.
+Por último, al seleccionar __Manage Alert Settings__ (Administrar configuración de alerta) en el menú __Actions__ (Acciones) podrá probar el número de veces que debe aparecer una alerta antes de enviar una notificación. Esta opción puede usarse para evitar notificaciones de errores transitorios.
 
 ### <a name="cluster"></a>Clúster
 
@@ -117,13 +115,13 @@ La pestaña **Heatmaps** (Mapas térmicos) muestran las métricas como mapas té
 
 ![panel con mapas térmicos](./media/hdinsight-hadoop-manage-ambari/heatmap.png)
 
-Para obtener información más detallada sobre los nodos dentro del clúster, seleccione **Hosts**y, a continuación, seleccione el nodo específico que le interesa.
+Para más información sobre los nodos del clúster, seleccione **Hosts**. A continuación, seleccione el nodo específico que le interesa.
 
 ![detalles del host](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
 ### <a name="services"></a>Services
 
-La barra lateral **Services** (Servicios) del panel proporciona información rápida del estado de los servicios que se ejecutan en el clúster. Se usan varios iconos para indicar el estado o las acciones que se debieran realizar, como un símbolo de reciclaje de color amarillo si es necesario reciclar un servicio.
+La barra lateral **Services** (Servicios) del panel proporciona información rápida del estado de los servicios que se ejecutan en el clúster. Se usan varios iconos para indicar el estado o las acciones que se deben realizar. Por ejemplo, si es necesario reciclar un servicio, se muestra un símbolo de reciclaje amarillo.
 
 ![barra lateral de servicios](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
 
@@ -146,15 +144,13 @@ Algunos servicios muestran un vínculo **Quick Links** (Vínculos rápidos) en l
 Seleccione cualquiera de estos vínculos para abrir una pestaña nueva del explorador, donde aparecerá la página seleccionada.
 
 > [!NOTE]
-> Al seleccionar un vínculo **Vínculos rápidos** para cualquier servicio se generará un error de "servidor no encontrado", a menos que use un túnel de Capa de sockets seguros (SSL) para autorizar el tráfico web al clúster. Esto es porque las aplicaciones web que se usan para mostrar esta información no se exponen en Internet.
->
-> Para obtener información sobre cómo usar un túnel SSL con HDInsight, consulte [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md)
+> Al seleccionar la entrada **Vínculos rápidos** para un servicio, puede aparecer un error de "servidor no encontrado". Si se produce este error, debe usar un túnel SSH al emplear la entrada **Vínculos rápidos** para este servicio. Para más información, consulte [Uso de la tunelización SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## <a name="management"></a>Administración
 
 ### <a name="ambari-users-groups-and-permissions"></a>Usuarios, grupos y permisos de Ambari
 
-Se puede trabajar con usuarios, grupos y permisos cuando se usa un clúster de HDInsight [unidos a un dominio](hdinsight-domain-joined-introduction.md). Para más información sobre el uso de la interfaz de usuario de administración de Ambari en un clúster unidos a un dominio, consulte [Manage domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Administración de clústeres de HDInsight unidos a dominio).
+Se puede trabajar con usuarios, grupos y permisos cuando se usa un clúster de HDInsight [unido a un dominio](hdinsight-domain-joined-introduction.md). Para más información sobre el uso de la interfaz de usuario de administración de Ambari en un clúster unidos a un dominio, consulte [Manage domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Administración de clústeres de HDInsight unidos a dominio).
 
 > [!WARNING]
 > No cambie la contraseña del guardián Ambari (hdinsightwatchdog) en el clúster de HDInsight basado en Linux. El cambio de la contraseña impide usar acciones de script o realizar operaciones de escalado con el clúster.
@@ -178,7 +174,7 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
 
    * **Restart all components** : detenga e inicie todo los componentes en el host.
 
-   * **Turn on maintenance mode** : suprime las alertas del host. Esta opción debe habilitarse si realiza acciones que generan alertas, como reiniciar un servicio en el que se basan servicios en ejecución.
+   * **Turn on maintenance mode** : suprime las alertas del host. Este modo se debería habilitar si va a realizar acciones que generan alertas. Por ejemplo, detener e iniciar un servicio.
 
    * **Turn off maintenance mode** : devuelve el host a su estado de alerta normal.
 
@@ -216,7 +212,7 @@ A pesar de que el botón **Actions** puede reiniciar todos los servicios, con fr
     ![acción de servicio](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
    > [!NOTE]
-   > Reiniciar algunos servicios mientras el clúster está en ejecución puede generar alertas. Para evitarlo, puede usar el botón **Service Actions** (Acciones de servicio) para habilitar el **modo de mantenimiento** del servicio antes de reiniciar.
+   > Reiniciar algunos servicios mientras el clúster está en ejecución puede generar alertas. Para evitarlo, puede usar el botón **Service Actions** (Acciones de servicio) para habilitar el **modo de mantenimiento** del servicio antes del reinicio.
 
 3. Una vez que se selecciona una acción, la entrada **# op** que aparece en la parte superior de la página aumenta para mostrar que se está produciendo una operación en segundo plano. La lista de operaciones en segundo plano aparecerá si está configurada de ese modo.
 
@@ -241,5 +237,5 @@ Las vistas de Ambari permiten a los desarrolladores conectar elementos de interf
 
 * Vista de Hive: la vista de Hive permite ejecutar consultas de Hive directamente desde el explorador web. Puede guardar consultas, ver resultados, guardar resultados en el almacenamiento del clúster o descargar los resultados en el sistema local. Para más información sobre el uso de vistas de Hive, consulte [Uso de vistas de Hive con HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
-* Vista de Tez: la vista de Tez permite comprender mejor y optimizar los trabajos ya que proporciona información sobre cómo se ejecutan los trabajos de Tez y qué recursos se emplean en el trabajo.
+* Vista Tez: la vista de Tez permite comprender mejor y optimizar los trabajos. Puede ver información sobre cómo se ejecutan los trabajos de Tez y qué recursos se usan.
 

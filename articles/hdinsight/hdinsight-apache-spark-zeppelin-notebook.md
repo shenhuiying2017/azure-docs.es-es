@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: a5494f16e3398be507080dd4fac591144f69d9fc
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: bc1b22b6269dc42add45a63d12c6c733e9d8c6ab
 ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -34,7 +34,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que s
 
 **Requisitos previos:**
 
-* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="launch-a-zeppelin-notebook"></a>Inicio de un cuaderno de Zeppelin Notebook
@@ -48,12 +48,12 @@ Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que s
    > 
 2. Cree un nuevo notebook. En el panel de encabezado, haga clic en **Cuaderno** y luego en **Create New Note** (Crear nota).
    
-    ![Creación de un nuevo cuaderno de Zeppeling](./media/hdinsight-apache-spark-zeppelin-notebook/hdispark.createnewnote.png "Creación de un nuevo cuaderno de Zeppeling")
+    ![Creación de un nuevo cuaderno de Zeppeling](./media/hdinsight-apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Creación de un nuevo cuaderno de Zeppeling")
    
     Especifique un nombre para el cuaderno y haga clic en **Create Note** (Crear nota).
 3. Por otro lado, asegúrese de que en el encabezado del cuaderno aparece el estado conectado. Esto estado se indica mediante un punto verde que se encuentra en la esquina superior derecha.
    
-    ![Estado del cuaderno de Zeppeling](./media/hdinsight-apache-spark-zeppelin-notebook/hdispark.newnote.connected.png "Estado del cuaderno de Zeppeling")
+    ![Estado del cuaderno de Zeppeling](./media/hdinsight-apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Estado del cuaderno de Zeppeling")
 4. Cargue los datos de ejemplo en una tabla temporal. Cuando crea un clúster Spark en HDInsight, el archivo de datos de ejemplo, **hvac.csv**, se copia en la cuenta de almacenamiento asociada en **\HdiSamples\SensorSampleData\hvac**.
    
     En el párrafo vacío que se crea de manera predeterminada en el nuevo cuaderno, pegue el siguiente fragmento.
@@ -82,7 +82,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que s
    
     Presione **MAYÚS+ENTRAR** o haga clic en el botón **Reproducir** del párrafo para ejecutar el fragmento de código. El estado en la esquina derecha del párrafo debería avanzar de READY (Listo), PENDING (Pendiente) o RUNNING (En ejecución) a FINISHED (Finalizado). El resultado se muestra en la parte inferior del mismo párrafo. La captura de pantalla es similar a la siguiente:
    
-    ![Creación de una tabla temporal a partir de datos sin procesar](./media/hdinsight-apache-spark-zeppelin-notebook/hdispark.note.loaddDataintotable.png "Creación de una tabla temporal a partir de datos sin procesar")
+    ![Creación de una tabla temporal a partir de datos sin procesar](./media/hdinsight-apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Creación de una tabla temporal a partir de datos sin procesar")
    
     También puede proporcionar un título para cada párrafo. En la esquina derecha, haga clic en el icono **Configuración** y luego haga clic en **Mostrar título**.
 5. Ahora puede ejecutar instrucciones Spark SQL en la tabla **hvac** . Pegue la siguiente consulta en un nuevo párrafo. La consulta recupera el identificador del edificio y la diferencia entre la temperatura objetivo y la real para cada edificio en una fecha determinada. Presione **MAYÚS + ENTRAR**.
@@ -94,7 +94,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que s
    
     En la captura de pantalla siguiente se muestra el resultado.
    
-    ![Ejecución de una instrucción Spark SQL mediante el cuaderno](./media/hdinsight-apache-spark-zeppelin-notebook/hdispark.note.sparksqlquery1.png "Ejecución de una instrucción Spark SQL mediante el cuaderno")
+    ![Ejecución de una instrucción Spark SQL mediante el cuaderno](./media/hdinsight-apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Ejecución de una instrucción Spark SQL mediante el cuaderno")
    
      Haga clic en las opciones de presentación (resaltadas con el rectángulo) para alternar entre diferentes representaciones del mismo resultado. Haga clic en **Settings** (Configuración) para elegir qué constituye la clave y los valores de la salida. En la captura de pantalla anterior se usa **buildingID** como clave y la media de **temp_diff** como valor.
 6. También puede ejecutar instrucciones Spark SQL usando variables en la consulta. El siguiente fragmento de código muestra cómo definir una variable, **Temp**, en la consulta con los valores posibles con los que quiere hacer la consulta. Cuando ejecuta la consulta por primera vez, se rellena una lista desplegable automáticamente con los valores especificados para la variable.
@@ -104,7 +104,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que s
    
     Pegue este fragmento de código en un nuevo párrafo y presione **MAYÚS + ENTRAR**. En la captura de pantalla siguiente se muestra el resultado.
    
-    ![Ejecución de una instrucción Spark SQL mediante el cuaderno](./media/hdinsight-apache-spark-zeppelin-notebook/hdispark.note.sparksqlquery2.png "Ejecución de una instrucción Spark SQL mediante el cuaderno")
+    ![Ejecución de una instrucción Spark SQL mediante el cuaderno](./media/hdinsight-apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Ejecución de una instrucción Spark SQL mediante el cuaderno")
    
     Para las consultas posteriores, puede seleccionar un nuevo valor en la lista desplegable y después volver a ejecutar la consulta. Haga clic en **Settings** (Configuración) para elegir qué constituye la clave y los valores de la salida. La captura de pantalla anterior usa **buildingID** como clave, la media de **temp_diff** como valor y **targettemp** como grupo.
 7. Reinicie el intérprete de Livy para salir de la aplicación. Para ello, abra la configuración del intérprete haciendo clic en el nombre del usuario conectado que encontrará en la esquina superior derecha y después en **Interpreter** (Intérprete).
@@ -112,7 +112,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que s
     ![Inicio del intérprete](./media/hdinsight-apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Salida de Hive")
 8. Desplácese hasta la configuración del intérprete de Livy y haga clic en **Restart** (Reiniciar).
    
-    ![Reinicio del intérprete de Livy](./media/hdinsight-apache-spark-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Reinicio del intérprete de Zeppeling")
+    ![Reinicio del intérprete de Livy](./media/hdinsight-apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete de Zeppeling")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Uso de paquetes externos con el cuaderno
 Puede configurar el cuaderno de Zeppelin Notebook en un clúster Apache Spark de HDInsight (Linux) si desea usar paquetes externos aportados por la comunidad que no estén incluidos en el clúster. Puede buscar el [repositorio de Maven](http://search.maven.org/) para obtener una lista completa de los paquetes que están disponibles. También puede obtener una lista de paquetes disponibles de otras fuentes. Por ejemplo, dispone de la lista completa de los paquetes externos aportados por la comunidad en [Spark Packages](http://spark-packages.org/)(Paquetes Spark).
@@ -159,7 +159,7 @@ En este caso, debe seguir los pasos que se indican a continuación para poder ej
     ![Inicio del intérprete](./media/hdinsight-apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Salida de Hive")
 2. Desplácese hasta la configuración del intérprete de Livy y haga clic en **Restart** (Reiniciar).
    
-    ![Reinicio del intérprete de Livy](./media/hdinsight-apache-spark-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Reinicio del intérprete de Zeppeling")
+    ![Reinicio del intérprete de Livy](./media/hdinsight-apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete de Zeppeling")
 3. Ejecute una celda de código desde el cuaderno de Zeppelin Notebook existente. Esto creará una nueva sesión de Livy en el clúster de HDInsight.
 
 ## <a name="seealso"></a>Otras referencias
@@ -174,7 +174,7 @@ En este caso, debe seguir los pasos que se indican a continuación para poder ej
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md)
+* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
@@ -194,7 +194,6 @@ En este caso, debe seguir los pasos que se indican a continuación para poder ej
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md 
 
 

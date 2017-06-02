@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fa79ab0ab80481c8969c6fa653e92b10985cab3b
-ms.openlocfilehash: 80ae80d3243b531c7348a709aa4ad6e6ed401980
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: afced52b3ae6f3b7f400364f5ec7d049aa166590
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -25,14 +26,15 @@ ms.lasthandoff: 03/31/2017
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI](network-watcher-security-group-view-cli.md)
-> - [API de REST](network-watcher-security-group-view-rest.md)
+> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [API DE REST](network-watcher-security-group-view-rest.md)
 
 La vista de grupos de seguridad devuelve las reglas de seguridad de red configuradas y vigentes que se aplican a una máquina virtual. Esta funcionalidad resulta útil para auditar y diagnosticar los grupos de seguridad de red y las reglas que están configuradas en una máquina virtual para asegurarse de que el tráfico se está permitiendo o denegando correctamente. En este artículo se muestra cómo recuperar las reglas de seguridad configuradas y vigentes para una máquina virtual mediante la API de REST.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este escenario, llame a la API de REST de Network Watcher para obtener la vista de grupos de seguridad de una máquina virtual. ARMclient se usa para llamar a la API de REST con PowerShell. ARMClient se encuentra en chocolatey en [ARMClient en Chocolatey](https://chocolatey.org/packages/ARMClient).
+En este escenario, llame a la API de REST de Network Watcher para obtener la vista de grupos de seguridad de una máquina virtual. ARMclient se usa para llamar a la API de REST con PowerShell. ARMClient se encuentra en Chocolatey en [ARMClient en Chocolatey](https://chocolatey.org/packages/ARMClient)
 
 En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Create an Azure Network Watcher instance](network-watcher-create.md) (Creación de una instancia de Azure Network Watcher) para crear una instancia de Network Watcher. En este escenario también se da por hecho que existe un grupo de recursos con una máquina virtual válida.
 

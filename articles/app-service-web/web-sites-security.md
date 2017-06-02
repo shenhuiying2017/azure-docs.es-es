@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
-ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3071bf565b14966de2293205026c4524d7b0f0c5
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -56,7 +57,7 @@ Una de las maneras más fáciles de empezar a probar los puntos vulnerables en s
 Si prefiere realizar sus propias pruebas de penetración o desea usar otro conjunto de aplicaciones de análisis u otro proveedor, debe seguir el [proceso de aprobación de pruebas de penetración de Azure](https://security-forms.azure.com/penetration-testing/terms) y obtener aprobación previa para realizar las pruebas de penetración deseadas.
 
 ## <a name="https"></a> Protección de la comunicación con clientes
-Si usa el nombre de dominio **\*.azurewebsites.net** que se crea para su aplicación de App Service, puede usar de inmediato HTTPS, ya que se proporciona un certificado SSL para todos los nombres de dominio **\*.azurewebsites.net**. Si el sitio usa un [nombre de dominio personalizado](web-sites-custom-domain-name.md), puede cargar un certificado SSL para [habilitar HTTPS](web-sites-configure-ssl-certificate.md) para el dominio personalizado.
+Si usa el nombre de dominio **\*.azurewebsites.net** que se crea para su aplicación de App Service, puede usar de inmediato HTTPS, ya que se proporciona un certificado SSL para todos los nombres de dominio **\*.azurewebsites.net**. Si el sitio usa un [nombre de dominio personalizado](app-service-web-tutorial-custom-domain.md), puede cargar un certificado SSL para [habilitar HTTPS](app-service-web-tutorial-custom-ssl.md) para el dominio personalizado.
 
 Si habilita [HTTPS](https://en.wikipedia.org/wiki/HTTPS) , puede contribuir a la protección frente a ataques MITM dirigidos a la comunicación entre la aplicación y sus usuarios.
 
@@ -116,6 +117,6 @@ Para más datos sobre la información de registro para aplicaciones del Servicio
 > 
 
 ## <a name="whats-changed"></a>Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio de Websites a App Service, consulte: [Azure App Service y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 

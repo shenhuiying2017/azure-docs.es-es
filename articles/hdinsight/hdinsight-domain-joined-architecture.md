@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 69378496fb7e4176243d36950e7270809248d2bb
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: d365446b7eafd373b3d1bde2ed0a407f1e917b86
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -78,74 +79,6 @@ Requisitos previos de Azure AD:
     - Permisos para crear objetos de entidad de servicio y objetos de equipo en la unidad organizativa
     - Permisos para crear reglas de proxy de DNS inverso
     - Permisos para unir equipos al dominio de Azure AD
-
-**HDInsight integrado con una instancia de Active Directory local a través de VPN**
-
-Esta arquitectura es similar a HDInsight integrado con Azure AD que se ejecuta en Azure IaaS. La única diferencia es que la instancia de Azure AD es local y la línea de visión de HDInsight a Azure AD es a través de una [conexión VPN desde Azure a una red local](../expressroute/expressroute-introduction.md).
-
-![Topología de clúster de HDInsight de unión a dominio](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_3.png)
-
-> [!NOTE]
-> En esta arquitectura, Azure Data Lake Store no se puede usar con el clúster de HDInsight.
-
-Requisitos previos de Azure AD:
-
-* Se debe crear una [unidad organizativa](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md), en la que se colocan las máquinas virtuales del clúster de HDInsight y las entidades de servicio que usa el clúster.
-* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) debe estar configurado para comunicarse con Azure AD. El certificado que se usa para instalar LDAPS debe ser un certificado real (no uno autofirmado).
-* Deben crearse zonas de DNS inverso en el dominio para el intervalo de direcciones IP de la subred de HDInsight (por ejemplo, 10.2.0.0/24 en la imagen anterior).
-* Se necesita una cuenta de servicio o una cuenta de usuario. Utilice esta cuenta para crear el clúster de HDInsight. Esta cuenta debe tener los siguientes permisos:
-
-    - Permisos para crear objetos de entidad de servicio y objetos de equipo en la unidad organizativa
-    - Permisos para crear reglas de proxy de DNS inverso
-    - Permisos para unir equipos al dominio de Azure AD
-
-**HDInsight integrado con una instancia de Active Directory local sincronizada con Azure AD**
-
-Esta arquitectura es similar a HDInsight integrado con una instancia de Azure AD solo en la nube. La única diferencia es que la instancia de Active Directory local se sincroniza con Azure AD. Configure un controlador de dominio en la nube para que HDInsight se pueda integrar con Azure AD. Esto se logra mediante el uso de [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md). Azure AD DS crea equipos del controlador de dominio en la nube y les proporciona direcciones IP. Crea dos controladores de dominio para lograr alta disponibilidad.
-
-Actualmente, Azure AD DS solo existe en redes virtuales clásicas. Solo se puede acceder a él mediante el Portal de Azure clásico. La red virtual de HDInsight existe en Azure Portal, que es preciso emparejar con la red virtual clásica mediante el emparejamiento entre redes virtuales.
-
-> [!NOTE]
-> El emparejamiento entre una red virtual clásica y una red virtual de Azure Resource Manager requiere que las dos redes virtuales estén en la misma región y en la misma suscripción de Azure.
-
-![Topología de clúster de HDInsight de unión a dominio](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
-
-Requisitos previos de Azure AD:
-
-* Se debe crear una [unidad organizativa](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md), en la que se colocan las máquinas virtuales del clúster de HDInsight y las entidades de servicio que usa el clúster.
-* Al configurar Azure AD DS, se debe configurar [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). El certificado que se usa para instalar LDAPS debe ser un certificado real (no uno autofirmado).
-* Deben crearse zonas de DNS inverso en el dominio para el intervalo de direcciones IP de la subred de HDInsight (por ejemplo, 10.2.0.0/24 en la imagen anterior).
-* Deben sincronizarse [hash de contraseña](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) de Azure AD a Azure AD DS.
-* Se necesita una cuenta de servicio o una cuenta de usuario. Utilice esta cuenta para crear el clúster de HDInsight. Esta cuenta debe tener los siguientes permisos:
-
-    - Permisos para crear objetos de entidad de servicio y objetos de equipo en la unidad organizativa
-    - Permisos para crear reglas de proxy de DNS inverso
-    - Permisos para unir equipos al dominio de Active Directory
-
-**HDInsight integrado con un valor no predeterminado de Azure AD (se recomienda solo para desarrollo y pruebas)**
-
-Esta arquitectura es similar a HDInsight integrado con una instancia de Azure AD solo en la nube. En la mayoría de las empresas, el acceso de administrador a Azure AD está restringido a determinados usuarios. Por consiguiente, cuando se desea realizar una prueba de concepto o probar a crear un clúster unido a un dominio, es posible que sea conveniente crear una instancia de Azure AD en la suscripción, en lugar de esperar a que un administrador configure los requisitos previos en Azure AD. Dado que ha creado esta instancia de Azure AD, tiene permisos totales en Azure AD para configurar Azure AD DS.
-
-Azure AD DS crea equipos del controlador de dominio en la nube y les proporciona direcciones IP. Crea dos controladores de dominio para lograr alta disponibilidad.
-
-Azure AD DS solo existe en las redes virtuales clásicas, por lo que necesita tener acceso al Portal de Azure clásico y debe crear una red virtual clásica para configurar Azure AD DS. La red virtual de HDInsight existe en Azure Portal, que es preciso emparejar con la red virtual clásica mediante el emparejamiento entre redes virtuales.
-
-> [!NOTE]
-> El emparejamiento entre las redes virtuales clásica y de Azure Resource Manager requiere que las dos redes virtuales estén en la misma región y en la misma suscripción de Azure.
-
-![Topología de clúster de HDInsight de unión a dominio](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
-
-Requisitos previos de Azure AD:
-
-* Se debe crear una [unidad organizativa](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md), en la que se colocan las máquinas virtuales del clúster de HDInsight y las entidades de servicio que usa el clúster.
-* Al configurar Azure AD DS, se debe configurar [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). Para configurar LDAPS puede crear un [certificado autofirmado](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). Sin embargo, para usar un certificado autofirmado, debe solicitar una excepción de <a href="mailto:hdipreview@microsoft.com">hdipreview@microsoft.com</a>.
-* Deben crearse zonas de DNS inverso en el dominio para el intervalo de direcciones IP de la subred de HDInsight (por ejemplo, 10.2.0.0/24 en la imagen anterior).
-* Deben sincronizarse [hash de contraseña](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) de Azure AD a Azure AD DS.
-* Se necesita una cuenta de servicio o una cuenta de usuario. Utilice esta cuenta para crear el clúster de HDInsight. Esta cuenta debe tener los siguientes permisos:
-
-    - Permisos para crear objetos de entidad de servicio y objetos de equipo en la unidad organizativa
-    - Permisos para crear reglas de proxy de DNS inverso
-    - Permisos para unir equipos al dominio de Azure Active Directory
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para configurar un clúster de HDInsight unido a un dominio, consulte [Configuración de clústeres de HDInsight unidos a un dominio (versión preliminar)](hdinsight-domain-joined-configure.md).

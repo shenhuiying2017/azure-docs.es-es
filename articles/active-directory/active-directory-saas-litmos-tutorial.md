@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
-ms.openlocfilehash: 84cd0c3eb2753a209d0aebda405f0b98a487140d
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2c967d759806b47862179ecf9e9a89801134192a
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -93,12 +94,12 @@ Para configurar y probar el inicio de sesión único de Azure AD con Litmos, es 
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba en Litmos](#creating-a-halogen-software-test-user)**: para tener un homólogo de Britta Simon en Litmos que esté vinculado a la representación de ella en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
+5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure AD clásico y configurar el inicio de sesión único en la aplicación Litmos.  
 
-Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base&64;.  
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
 
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -149,12 +150,12 @@ Como parte de la configuración, debe personalizar los **atributos de token de S
     
      1. Haga clic en **Enable SAML**(Habilitar SAML).
     
-     2. Cree un archivo **codificado en base&64;** a partir del certificado descargado.  
+     2. Cree un archivo **codificado en base 64** a partir del certificado descargado.  
     >[!TIP]
     >Para más información, vea [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
      >
 
-     3. Abra el certificado codificado en base&64; en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado X.509 de SAML** .
+     3. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado X.509 de SAML** .
     
      4. Haga clic en **Guardar cambios**.
 11. En el Portal de Azure AD clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. 
@@ -174,7 +175,7 @@ Como parte de la configuración, debe personalizar los **atributos de token de S
     | --- | --- |
     | Email |user.mail |
     | Nombre |user.givenname |
-    | Lastname |user.surname |
+    | Apellidos |user.surname |
     
     En cada fila de datos de la tabla anterior, realice los pasos siguientes:
     

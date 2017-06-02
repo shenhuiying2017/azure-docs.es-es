@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 18b98300ee103e3f3118f6db4e1c1a0e169eecad
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 6d3ce00a7d4f9c0cd57fa8815625a1065b03b5b5
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,8 +27,10 @@ ms.lasthandoff: 03/04/2017
 > [!div class="op_single_selector"]
 > - [Portal de Azure](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
-> - [CLI](network-watcher-check-ip-flow-verify-cli.md)
+> - [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
 > - [API de REST de Azure](network-watcher-check-ip-flow-verify-rest.md)
+
 
 La Comprobación del flujo de IP es una característica de Network Watcher que permite comprobar si se permite el tráfico hacia o desde una máquina virtual. Se puede ejecutar la validación para el tráfico entrante o saliente. Este escenario es útil para averiguar si una máquina virtual puede comunicarse con un recurso externo o con un back-end. Comprobación del flujo de IP se puede usar para comprobar si las reglas de grupos de seguridad de red (NSG) se han configurado correctamente y solucionar los problemas de flujos que las reglas de NSG bloquean. Otra razón para usar la Comprobación del flujo de IP es asegurarse de que el NSG está bloqueando correctamente el tráfico que quiere bloquear.
 

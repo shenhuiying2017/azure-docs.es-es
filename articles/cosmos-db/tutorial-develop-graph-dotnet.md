@@ -1,25 +1,25 @@
 ---
 title: 'Azure Cosmos DB: desarrollo con API Graph en .NET | Microsoft Docs'
 description: "Obtenga información sobre cómo desarrollar con la API de DocumentDB de Azure Cosmos DB con .NET"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: arramac
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 64c412fc6b47da73e5430a4db4c007e4cf95aa47
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 94909fd1db426267eb60e5d7f4d753de82ca0377
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: desarrollo con API Graph en .NET
@@ -45,7 +45,7 @@ Gremlin es un lenguaje de programación funcional que admite operaciones de escr
 Asegúrese de que dispone de lo siguiente:
 
 * Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/). 
-    * Como alternativa, puede usar el [Emulador de Azure DocumentDB](../documentdb/documentdb-nosql-local-emulator.md) en este tutorial.
+    * Como alternativa, puede usar el [Emulador de Azure DocumentDB](local-emulator.md) en este tutorial.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-database-account"></a>Creación de una cuenta de base de datos
@@ -55,11 +55,11 @@ Para comenzar, creemos una cuenta de Azure Cosmos DB en Azure Portal.
 > [!TIP]
 > * ¿Ya tiene una cuenta de Azure Cosmos DB? Si es así, vaya a [Configuración de la solución de Visual Studio](#SetupVS)
 > * ¿Ya tenía una cuenta de Azure DocumentDB? Si es así, ahora es una cuenta de Azure Cosmos DB, por lo que puede ir directamente a [Configuración de la solución de Visual Studio](#SetupVS).  
-> * Si usa el Emulador de Azure Cosmos DB, siga los pasos que se indican en [Emulador de Azure Cosmos DB](../documentdb/documentdb-nosql-local-emulator.md) para configurar el emulador y vaya directamente a [Configuración de la solución de Visual Studio](#SetupVS). 
+> * Si usa el Emulador de Azure Cosmos DB, siga los pasos que se indican en [Emulador de Azure Cosmos DB](local-emulator.md) para configurar el emulador y vaya directamente a [Configuración de la solución de Visual Studio](#SetupVS). 
 >
 > 
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a id="SetupVS"></a>Configuración de la solución de Visual Studio
 1. Abra **Visual Studio** en el equipo.
@@ -98,7 +98,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Creación de una base de datos 
 
-Ahora cree una [base de datos](../documentdb/documentdb-resources.md#databases) de Azure Cosmos DB con el método [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) o el método [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) de la clase **DocumentClient** desde el [SDK de .NET de DocumentDB](../documentdb/documentdb-sdk-dotnet.md).  
+Ahora cree una [base de datos](documentdb-resources.md#databases) de Azure Cosmos DB con el método [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) o el método [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) de la clase **DocumentClient** desde el [SDK de .NET de DocumentDB](documentdb-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

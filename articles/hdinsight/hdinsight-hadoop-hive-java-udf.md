@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9691b7ffb9c2bd9dd3f9900a29fb898652d8d7bf
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 229bebe16b619f61f2dd4acb73602b97e64cb294
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -31,7 +32,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
 * Un clúster de HDInsight (Windows o Linux)
 
     > [!IMPORTANT]
-    > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte la sección sobre el [desuso de HDInsight 3.2 y 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+    > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
     La mayoría de los pasos descritos en este documento funciona en ambos tipos de clúster. Sin embargo, los pasos utilizados para cargar la función definida por el usuario compilada al clúster y ejecutarla son específicos de los clústeres basados en Linux. Se proporcionan vínculos a información que puede utilizarse con clústeres basados en Windows.
 

@@ -1,26 +1,26 @@
 ---
 title: 'Azure Cosmos DB: desarrollo con la API de DocumentDB en .NET | Microsoft Docs'
 description: "Obtenga información sobre cómo desarrollar con la API de DocumentDB de Azure Cosmos DB con .NET"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e1148b849fc89f51159abd3b1b910c2df2d9571e
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 485fb2e8ac96e2cdb8e4293b63971af1c1b9baf4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-En este tutorial se muestra cómo crear una cuenta de Azure Cosmos DB con Azure Portal y, luego, crear una colección y base de datos de documentos con una [clave de partición](../documentdb/documentdb-partition-data.md#partition-keys) mediante la [API de .NET de DocumentDB](../documentdb/documentdb-introduction.md). Si define una clave de partición en el momento de crear una colección, la aplicación está preparada para escalar fácilmente a medida que aumentan los datos. 
+En este tutorial se muestra cómo crear una cuenta de Azure Cosmos DB con Azure Portal y, luego, crear una colección y base de datos de documentos con una [clave de partición](documentdb-partition-data.md#partition-keys) mediante la [API de .NET de DocumentDB](documentdb-introduction.md). Si define una clave de partición en el momento de crear una colección, la aplicación está preparada para escalar fácilmente a medida que aumentan los datos. 
 
-En este tutorial se describen las siguientes tareas mediante el uso de la [API de .NET de DocumentDB](../documentdb/documentdb-sdk-dotnet.md):
+En este tutorial se describen las siguientes tareas mediante el uso de la [API de .NET de DocumentDB](documentdb-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Creación de una cuenta de Azure Cosmos DB
@@ -46,7 +46,7 @@ En este tutorial se describen las siguientes tareas mediante el uso de la [API d
 Asegúrese de que dispone de lo siguiente:
 
 * Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/). 
-    * De manera alternativa, puede usar el [emulador de Azure Cosmos DB](../documentdb/documentdb-nosql-local-emulator.md) para este tutorial si quisiera usar un entorno local que emule el servicio de Azure DocumentDB con fines de desarrollo.
+    * De manera alternativa, puede usar el [emulador de Azure Cosmos DB](local-emulator.md) para este tutorial si quisiera usar un entorno local que emule el servicio de Azure DocumentDB con fines de desarrollo.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Creación de una cuenta de Azure Cosmos DB
@@ -56,11 +56,11 @@ Para comenzar, creemos una cuenta de Azure Cosmos DB en Azure Portal.
 > [!TIP]
 > * ¿Ya tiene una cuenta de Azure Cosmos DB? Si es así, vaya a [Configuración de la solución de Visual Studio](#SetupVS)
 > * ¿Ya tenía una cuenta de Azure DocumentDB? Si es así, ahora es una cuenta de Azure Cosmos DB, por lo que puede ir directamente a [Configuración de la solución de Visual Studio](#SetupVS).  
-> * Si usa el Emulador de Azure Cosmos DB, siga los pasos que se indican en [Emulador de Azure Cosmos DB](../documentdb/documentdb-nosql-local-emulator.md) para configurar el emulador y vaya directamente a [Configuración de la solución de Visual Studio](#SetupVS). 
+> * Si usa el Emulador de Azure Cosmos DB, siga los pasos que se indican en [Emulador de Azure Cosmos DB](local-emulator.md) para configurar el emulador y vaya directamente a [Configuración de la solución de Visual Studio](#SetupVS). 
 >
 >
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>Configuración de la solución de Visual Studio
 1. Abra **Visual Studio** en el equipo.
@@ -120,24 +120,24 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Creación de una base de datos
 
-A continuación, cree una [base de datos](../documentdb/documentdb-resources.md#databases) de Azure Cosmos DB con el método [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) o el método [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) de la clase **DocumentClient** desde el [SDK de .NET de DocumentDB](../documentdb/documentdb-sdk-dotnet.md). Una base de datos es un contenedor lógico de almacenamiento de documentos JSON particionado en recopilaciones.
+A continuación, cree una [base de datos](documentdb-resources.md#databases) de Azure Cosmos DB con el método [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) o el método [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) de la clase **DocumentClient** desde el [SDK de .NET de DocumentDB](documentdb-sdk-dotnet.md). Una base de datos es un contenedor lógico de almacenamiento de documentos JSON particionado en recopilaciones.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
 ```
 ## <a name="decide-on-a-partition-key"></a>Decisión sobre una clave de partición 
 
-Las colecciones son contenedores para almacenar documentos. Son recursos lógicos y pueden [abarcar una o varias particiones físicas](partition-data.md). Una [clave de partición](../documentdb/documentdb-partition-data.md) es una propiedad (o ruta de acceso) dentro de los documentos que se usa para distribuir los datos entre los servidores o las particiones. Todos los documentos que tengan la misma clave de partición se almacenan en la misma partición. 
+Las colecciones son contenedores para almacenar documentos. Son recursos lógicos y pueden [abarcar una o varias particiones físicas](partition-data.md). Una [clave de partición](documentdb-partition-data.md) es una propiedad (o ruta de acceso) dentro de los documentos que se usa para distribuir los datos entre los servidores o las particiones. Todos los documentos que tengan la misma clave de partición se almacenan en la misma partición. 
 
 Determinar una clave de partición es una decisión importante de tomar antes de crear una colección. Las claves de partición son una propiedad (o ruta de acceso) dentro de los documentos que puede usar Azure Cosmos DB para distribuir los datos entre los distintos servidores o particiones. Cosmos DB aplica un algoritmo hash al valor de clave de partición y usa el resultado al que se ha aplicado un algoritmo hash para determinar en qué partición se va a almacenar el documento. Todos los documentos que tengan la clave de partición se almacenan en la misma partición y las claves de partición no se pueden modificar una vez que se crea una colección. 
 
 En este tutorial se establecerá la clave de partición en `/deviceId`, para que todos los datos de un único dispositivo se almacenen en una sola partición. Desea elegir una clave de partición con una gran cantidad de valores, cada uno de los cuales se usa casi con la misma frecuencia para garantizar que Cosmos DB puede equilibrar la carga a medida que aumentan los datos para alcanzar el rendimiento total de la colección. 
 
-Para más información sobre la creación de particiones, consulte [Partición y escala en Azure Cosmos DB](../documentdb/documentdb-partition-data.md) 
+Para más información sobre la creación de particiones, consulte [Partición y escala en Azure Cosmos DB](partition-data.md) 
 
 ## <a id="CreateColl"></a>Creación de una colección 
 
-Ahora que conocemos la clave de partición, `/deviceId`, vamos a crear una [colección](../documentdb/documentdb-resources.md#collections) a través del método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) o el método [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) de la clase **DocumentClient**. Una colección es un contenedor de documentos JSON y cualquier lógica de aplicación JavaScript asociada. 
+Ahora que conocemos la clave de partición, `/deviceId`, vamos a crear una [colección](documentdb-resources.md#collections) a través del método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) o el método [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) de la clase **DocumentClient**. Una colección es un contenedor de documentos JSON y cualquier lógica de aplicación JavaScript asociada. 
 
 > [!WARNING]
 > Crear una colección implica precios, debido a que reserva rendimiento para que la aplicación se comunique con Azure Cosmos DB. Para más detalles, visite la [página sobre precios](https://azure.microsoft.com/pricing/details/cosmos-db/)
@@ -159,10 +159,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 2500 });
 ```
 
-Este método realiza una llamada API de REST a Azure Cosmos DB y el servicio aprovisiona una cantidad de particiones según el rendimiento que se solicite. Puede cambiar el rendimiento de una colección a medida que evolucionan las necesidades de rendimiento con el SDK o [Azure Portal](../documentdb/documentdb-set-throughput.md).
+Este método realiza una llamada API de REST a Azure Cosmos DB y el servicio aprovisiona una cantidad de particiones según el rendimiento que se solicite. Puede cambiar el rendimiento de una colección a medida que evolucionan las necesidades de rendimiento con el SDK o [Azure Portal](set-throughput.md).
 
 ## <a id="CreateDoc"></a>Creación de documentos JSON
-Vamos a insertar algunos documentos JSON en Azure Cosmos DB. Un [documento](../documentdb/documentdb-resources.md#documents) puede crearse mediante el método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la clase **DocumentClient**. Los documentos son contenido JSON definido por el usuario (arbitrario). Esta clase de ejemplo contiene una lectura de dispositivo y una llamada a CreateDocumentAsync para insertar una nueva lectura de dispositivo en una colección.
+Vamos a insertar algunos documentos JSON en Azure Cosmos DB. Un [documento](documentdb-resources.md#documents) puede crearse mediante el método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la clase **DocumentClient**. Los documentos son contenido JSON definido por el usuario (arbitrario). Esta clase de ejemplo contiene una lectura de dispositivo y una llamada a CreateDocumentAsync para insertar una nueva lectura de dispositivo en una colección.
 
 ```csharp
 public class DeviceReading
@@ -314,5 +314,5 @@ En este tutorial, ha hecho lo siguiente:
 Ahora puede pasar al tutorial siguiente e importar datos adicionales a su cuenta de Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importación de datos a Azure Cosmos DB](../documentdb/documentdb-import-data.md)
+> [Importación de datos a Azure Cosmos DB](import-data.md)
 

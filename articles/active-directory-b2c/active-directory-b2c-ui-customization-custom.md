@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 215f9baeda7cd0bcf3fd66893919575647849e7d
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 9de6a57671cf65c4aa5d8695d21e0932175b1183
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/22/2017
 
 ---
 # <a name="azure-active-directory-b2c-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: personalización de la interfaz de usuario en una directiva personalizada
@@ -30,14 +30,6 @@ Después de completar este artículo, tendrá una directiva personalizada de reg
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de continuar, debe completar el artículo de [introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).  Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
-
-### <a name="confirming-your-b2c-tenant"></a>Confirmación del inquilino de B2C
-
-Como las directivas personalizadas siguen estando en la versión preliminar privada, confirme que el inquilino de Azure AD B2C está habilitado para la carga de directivas personalizadas:
-
-1. En [Azure Portal](https://portal.azure.com), [cambie al contexto del inquilino de Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) y abra la hoja Azure AD B2C.
-1. Haga clic en **Todas las directivas**.
-1. Asegúrese de que la opción **Cargar directiva** está disponible.  Si el botón aparece deshabilitado, envíe un correo electrónico a AADB2CPreview@microsoft.com.
 
 ## <a name="the-page-ui-customization-feature"></a>La característica de personalización de la interfaz de usuario de la página
 

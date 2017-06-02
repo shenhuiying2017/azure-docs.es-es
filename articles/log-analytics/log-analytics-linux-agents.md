@@ -3,7 +3,7 @@ title: "Conexión de equipos con Linux a Log Analytics | Microsoft Docs"
 description: El uso de Log Analytics permite recopilar y actuar sobre los datos generados en equipos Linux.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: b01b0d3d61168c1eec52f3fd040b829e0c51a878
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 10da54ebce28dfdcd0f793b1c717e738150b72ae
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -70,7 +71,7 @@ Después de instalar al agente de OMS para los paquetes de Linux, se aplican los
 ### <a name="linux-data-collection-details"></a>Detalles de la recopilación de datos de Linux
 La siguiente tabla muestra los métodos de recolección de datos y otros detalles acerca de cómo se recopilan los datos.
 
-| de origen | Agente directo | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| de origen | Agente directo | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
 | Zabbix |![Sí](./media/log-analytics-linux-agents/oms-bullet-green.png) |![No](./media/log-analytics-linux-agents/oms-bullet-red.png) |![No](./media/log-analytics-linux-agents/oms-bullet-red.png) |![No](./media/log-analytics-linux-agents/oms-bullet-red.png) |![No](./media/log-analytics-linux-agents/oms-bullet-red.png) |1 minuto |
 | Nagios |![Sí](./media/log-analytics-linux-agents/oms-bullet-green.png) |![No](./media/log-analytics-linux-agents/oms-bullet-red.png) |![No](./media/log-analytics-linux-agents/oms-bullet-red.png) |![No](./media/log-analytics-linux-agents/oms-bullet-red.png) |![No](./media/log-analytics-linux-agents/oms-bullet-red.png) |a la llegada |
@@ -750,7 +751,7 @@ Revise las siguientes secciones para informarse sobre las limitaciones actuales 
 ### <a name="azure-diagnostics"></a>Diagnóstico de Azure
 Para las máquinas virtuales de Linux que se ejecutan en Azure es posible que se necesiten pasos adicionales para permitir la recopilación de datos por parte de Diagnóstico de Azure y Operations Management Suite. **Versión 2.2** de la extensión de diagnósticos de Linux.
 
-Para más información sobre la instalación y la configuración de la extensión de diagnóstico de Linux, consulte [Uso del comando de la CLI de Azure para habilitar la extensión de diagnóstico de Linux](../virtual-machines/linux/classic/diagnostic-extension.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension).
+Para más información sobre la instalación y la configuración de la extensión de diagnóstico de Linux, consulte [Uso del comando de la CLI de Azure para habilitar la extensión de diagnóstico de Linux](../virtual-machines/linux/classic/diagnostic-extension-v2.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension).
 
 **Actualización de la extensión de diagnósticos de Linux de 2.0 a 2.2 ASM de la CLI de Azure:**
 

@@ -1,14 +1,14 @@
 ---
 title: "¿Cómo realizar consultas con SQL en Azure Cosmos DB? | Microsoft Docs"
 description: Aprenda a realizar consultas con datos de DocumentDB con SQL en Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: tutorial-develop
 ms.devlang: na
 ms.topic: article
@@ -17,17 +17,17 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dd34ff43e78175b0d6a6e38bbd1303070f6549ab
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: a2a562c06c6302b9548e758b4c6754ec13b6001d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: ¿cómo realizar consultas mediante SQL?
 
-La [API de DocumentDB](../documentdb/documentdb-introduction.md) de Azure Cosmos DB admite la consulta de documentos mediante SQL. En este artículo se proporciona un documento de ejemplo y dos consultas SQL de ejemplo y los resultados.
+La [API de DocumentDB](documentdb-introduction.md) de Azure Cosmos DB admite la consulta de documentos mediante SQL. En este artículo se proporciona un documento de ejemplo y dos consultas SQL de ejemplo y los resultados.
 
 En este artículo se tratan las tareas siguientes: 
 
@@ -68,10 +68,10 @@ En las consultas SQL de este artículo se usa el documento de ejemplo siguiente.
 ```
 ## <a name="where-can-i-run-sql-queries"></a>¿Dónde puedo ejecutar consultas SQL?
 
-Puede ejecutar consultas mediante el Explorador de datos en Azure Portal, a través de la [API de REST y los SDK](../documentdb/documentdb-query-collections-query-explorer.md) e incluso el [Query playground](https://www.documentdb.com/sql/demo) (Área de consultas), que ejecuta consultas sobre un conjunto existente de datos de ejemplo.
+Puede ejecutar consultas mediante el Explorador de datos en Azure Portal, a través de la [API de REST y los SDK](documentdb-sdk-dotnet.md) e incluso el [Query playground](https://www.documentdb.com/sql/demo) (Área de consultas), que ejecuta consultas sobre un conjunto existente de datos de ejemplo.
 
 Para obtener más información sobre las consultas SQL, vea:
-* [Consulta SQL y sintaxis SQL](../documentdb/documentdb-sql-query.md)
+* [Consulta SQL y sintaxis SQL](documentdb-sql-query.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -89,23 +89,34 @@ Dado el documento de familia de ejemplo anterior, la consulta SQL siguiente devu
 
 **Resultados**
 
-    [{
-        "id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
-        "creationDate": 1431620472,
-        "isRegistered": true
-    }]
+```json
+{
+  "id": "WakefieldFamily",
+  "parents": [
+      { "familyName": "Wakefield", "givenName": "Robin" },
+      { "familyName": "Miller", "givenName": "Ben" }
+  ],
+  "children": [
+      {
+        "familyName": "Merriam", 
+        "givenName": "Jesse", 
+        "gender": "female", "grade": 1,
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+        ]
+      },
+      { 
+        "familyName": "Miller", 
+         "givenName": "Lisa", 
+         "gender": "female", 
+         "grade": 8 }
+  ],
+  "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+  "creationDate": 1431620462,
+  "isRegistered": false
+}
+```
 
 ## <a name="example-query-2"></a>Consulta 2 de ejemplo
 

@@ -8,18 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: quick start connect, mvc
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 05/07/2017
+ms.topic: hero-article
+ms.date: 05/24/2017
 ms.author: lbosq
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 99c1ce93f30a54fcf0d76b1367c2f9545258c1f9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4d3c3541749870b09aecc9efb63413f7c045e044
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,10 +27,13 @@ ms.lasthandoff: 05/09/2017
 
 Esta guía de inicio rápido muestra cómo conectarse a una base de datos de Azure SQL Database mediante [Node.js](https://nodejs.org/en/)y, posteriormente, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos de la base de datos desde las plataformas Windows, Ubuntu Linux y Mac.
 
-En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de estas guías:
+## <a name="prerequisites"></a>Requisitos previos
+
+En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de las siguientes guías:
 
 - [Creación de la base de datos: Azure Portal](sql-database-get-started-portal.md)
 - [Creación de la base de datos: CLI](sql-database-get-started-cli.md)
+- [Creación de la base de datos: PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-nodejs"></a>Instalación de Node.js 
 

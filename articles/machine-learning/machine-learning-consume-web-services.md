@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/05/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f4f3caed8390ba3a80d6cf1282f4d2751c67ae6b
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 650ac9e8607c7c3b26cc2eebfe78169331800edd
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -150,7 +151,7 @@ De forma similar, en el ejemplo siguiente se muestra la respuesta de API para el
             ],
             "ColumnTypes": [
               "Numeric"
-            ].
+            ],
           "Values": [
             [
               "0"
@@ -159,10 +160,11 @@ De forma similar, en el ejemplo siguiente se muestra la respuesta de API para el
               "1"
             ]
           ]
-        }
-      },
+         }
+       },
       "GlobalParameters": {}
-    }
+     }
+   }
 
 A continuación se muestra el código de ejemplo para la implementación de C#. Para un servicio web clásico, puede encontrar ejemplos de código en la parte inferior de la **página de ayuda de la API** o en la parte inferior de la de **consumo**. Para un servicio web nuevo, puede encontrar ejemplos de código en la parte inferior de la página de **consumo**.
 
