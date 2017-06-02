@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 95ecd8d4ef3dd7a956206e7c3e07c793db0111f7
-ms.openlocfilehash: 9f53c824b6368dc2a6251fd880f1cabefef884b8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 00161e7c6fb4becdb7d8eab266fa27128e50f8ca
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,7 +28,8 @@ ms.lasthandoff: 03/31/2017
 > [!div class="op_single_selector"]
 > - [Portal de Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
-> - [CLI](network-watcher-check-next-hop-cli.md)
+> - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [API de REST de Azure](network-watcher-check-next-hop-rest.md)
 
 Próximo salto es una característica de Network Watcher que permite obtener el tipo del próximo salto y la dirección IP para una máquina virtual especificada. Esta característica es útil para determinar si el tráfico que sale de una máquina virtual atraviesa una puerta de enlace, Internet o redes virtuales para llegar a su destino.
@@ -40,7 +42,7 @@ En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Cre
 
 ## <a name="scenario"></a>Escenario
 
-El escenario descrito en este artículo usa Próximo salto, una característica de Network Watcher, para averiguar el tipo de próximo salto y la dirección IP de un recurso. Para más información sobre Próximo salto, vea [introducción a Próximo salto](network-watcher-next-hop-overview.md).
+El escenario descrito en este artículo usa Next Hop, una característica de Network Watcher, para averiguar el tipo de próximo salto y la dirección IP de un recurso. Para más información sobre Próximo salto, vea [introducción a Próximo salto](network-watcher-next-hop-overview.md).
 
 ## <a name="retrieve-network-watcher"></a>Recuperación de Network Watcher
 
@@ -67,7 +69,7 @@ $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
 Se necesita la dirección IP de una NIC en la máquina virtual; en este ejemplo, se recuperan las NIC de una máquina virtual. Si ya conoce la dirección IP que desea probar en la máquina virtual, puede omitir este paso.
 
 ```powershell
-$Nics = Get-AzureRmNetworkInterface | Where {$_.Id -eq $vm.NetworkInterfaceIDs.ForEach({$_})}
+$Nics = Get-AzureRmNetworkInterface | Where {$_.Id -eq $vm.NetworkProfile.NetworkInterfaces.Id.ForEach({$_})}
 ```
 
 ## <a name="get-next-hop"></a>Obtención del próximo salto

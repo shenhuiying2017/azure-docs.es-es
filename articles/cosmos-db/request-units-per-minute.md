@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB: unidades de solicitud por minuto (RU/m) | Microsoft Docs'
 description: "Obtenga información sobre cómo reducir el costo mediante el uso de unidades de solicitud por minuto."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: arnomicrosoft
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: acomet
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 878b7335fb5e09bc8704f7211cc6293ad6ea4bea
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: ea63b988a72801ae4c288048021a915b20a34794
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -112,7 +112,7 @@ await client.ReplaceOfferAsync(offerV2);
 
 En esta sección, proporcionamos información general de escenarios de buen ajuste para habilitar unidades de solicitud por minuto.
 
-**Entorno de desarrollo y pruebas:** buen ajuste. Durante la fase de desarrollo, si prueba la aplicación con diversas cargas de trabajo, RU/m puede proporcionar la flexibilidad en esta fase. El [emulador](../documentdb/documentdb-nosql-local-emulator.md), por otra parte, es una herramienta gratuita excelente para probar Azure Cosmos DB. Sin embargo, si desea empezar en un entorno en la nube, dispondrá de una gran flexibilidad con RU/m para sus necesidades de rendimiento ad hoc. Pasará más tiempo desarrollando que preocupándose de las necesidades de rendimiento al principio. Recomendamos empezar con el aprovisionamiento de RU/s mínimo y habilitar RU/m.
+**Entorno de desarrollo y pruebas:** buen ajuste. Durante la fase de desarrollo, si prueba la aplicación con diversas cargas de trabajo, RU/m puede proporcionar la flexibilidad en esta fase. El [emulador](local-emulator.md), por otra parte, es una herramienta gratuita excelente para probar Azure Cosmos DB. Sin embargo, si desea empezar en un entorno en la nube, dispondrá de una gran flexibilidad con RU/m para sus necesidades de rendimiento ad hoc. Pasará más tiempo desarrollando que preocupándose de las necesidades de rendimiento al principio. Recomendamos empezar con el aprovisionamiento de RU/s mínimo y habilitar RU/m.
 
 **Necesidades de granularidad de minuto con picos impredecibles:** buen ajuste. Ahorro: 25-75 %. Hemos observado una gran mejora con respecto a RU/m, estando en dicho grupo la mayoría de los escenarios de producción. Si tiene una carga de trabajo de IoT que se ha disparado varias veces en un minuto o consultas que se ejecutan cuando el sistema realiza inserción masiva al mismo tiempo, necesitará capacidad adicional para administrar las necesidades de picos. Recomendamos optimizar sus necesidades de recursos aplicando nuestro enfoque paso a paso a continuación.
 
@@ -175,8 +175,8 @@ var query = client.CreateDocumentQuery<Book>(
 
 En este artículo hemos descrito el funcionamiento de las particiones en Azure Cosmos DB, cómo crear colecciones particionadas y cómo elegir una buena clave de partición para la aplicación.
 
-* Realice pruebas de escala y de rendimiento con Azure Cosmos DB. Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](../documentdb/documentdb-performance-testing.md) para ver ejemplos.
-* Introducción a la codificación con los [SDK](../documentdb/documentdb-sdk-dotnet.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
-* Información sobre el [procesamiento aprovisionado](../documentdb/documentdb-request-units.md) en Azure Cosmos DB 
+* Realice pruebas de escala y de rendimiento con Azure Cosmos DB. Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md) para ver ejemplos.
+* Introducción a la codificación con los [SDK](documentdb-sdk-dotnet.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+* Información sobre el [procesamiento aprovisionado](request-units.md) en Azure Cosmos DB 
 
 

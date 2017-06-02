@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 05/31/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 78b8902927977c3b7dca3bd6e24633858ef8e6e9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 9ab6d3e5e41f155b1404cee8a555078409c09c60
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -33,7 +33,7 @@ Cree un vínculo entre dos plantillas mediante la adición de un recurso de impl
 ```json
 "resources": [ 
   { 
-      "apiVersion": "2015-01-01", 
+      "apiVersion": "2017-05-10", 
       "name": "linkedTemplate", 
       "type": "Microsoft.Resources/deployments", 
       "properties": { 
@@ -53,7 +53,7 @@ Cree un vínculo entre dos plantillas mediante la adición de un recurso de impl
 Al igual que otros tipos de recursos, puede establecer dependencias entre la plantilla vinculada y otros recursos. Por lo tanto, cuando los otros recursos requieren un valor de salida de la plantilla vinculada, puede asegurarse de que la plantilla vinculada se implementa antes que ellos. O bien, cuando la plantilla vinculada se basa en otros recursos, puede asegurarse de que otros recursos se implementan antes que la plantilla vinculada. Puede recuperar un valor de una plantilla vinculada con la sintaxis siguiente:
 
 ```json
-"[reference('linkedTemplate').outputs.exampleProperty]"
+"[reference('linkedTemplate').outputs.exampleProperty.value]"
 ```
 
 El servicio Resource Manager debe tener acceso a la plantilla vinculada. No se puede especificar un archivo local o un archivo que solo está disponible en la red local para la plantilla vinculada. Solo se puede proporcionar un valor de URI que incluya **http** o **https**. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento, como se muestra en el ejemplo siguiente:
@@ -75,7 +75,7 @@ En el ejemplo siguiente se muestra una plantilla principal que se vincula a otra
 },
 "resources": [
     {
-        "apiVersion": "2015-01-01",
+        "apiVersion": "2017-05-10",
         "name": "linkedTemplate",
         "type": "Microsoft.Resources/deployments",
         "properties": {
@@ -101,7 +101,7 @@ El siguiente ejemplo utiliza la propiedad **parametersLink** para vincular a un 
 ```json
 "resources": [ 
   { 
-     "apiVersion": "2015-01-01", 
+     "apiVersion": "2017-05-10", 
      "name": "linkedTemplate", 
      "type": "Microsoft.Resources/deployments", 
      "properties": { 
@@ -142,116 +142,6 @@ También puede usar la función [deployment()](resource-group-template-functions
 }
 ```
 
-## <a name="conditionally-linking-to-templates"></a>Vinculación condicional a plantillas
-Puede vincular diferentes plantillas pasando un valor de parámetro que se utiliza para construir el URI de la plantilla vinculada. Este enfoque funciona bien cuando tiene que especificar durante la implementación qué plantilla vinculada desea usar. Por ejemplo, puede especificar una plantilla para una cuenta de almacenamiento existente y otra plantilla para una cuenta de almacenamiento nueva.
-
-En el ejemplo siguiente se muestra un parámetro para un nombre de cuenta de almacenamiento y otro parámetro que especifica si la cuenta de almacenamiento ya existe o es nueva.
-
-```json
-"parameters": {
-    "storageAccountName": {
-        "type": "String"
-    },
-    "newOrExisting": {
-        "type": "String",
-        "allowedValues": [
-            "new",
-            "existing"
-        ]
-    }
-},
-```
-
-Cree una variable para la plantilla de URI que incluya el valor de parámetro nuevo o existente.
-
-```json
-"variables": {
-    "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
-},
-```
-
-Proporcione ese valor de variable para los recursos de implementación.
-
-```json
-"resources": [
-    {
-        "apiVersion": "2015-01-01",
-        "name": "linkedTemplate",
-        "type": "Microsoft.Resources/deployments",
-        "properties": {
-            "mode": "incremental",
-            "templateLink": {
-                "uri": "[variables('templatelink')]",
-                "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-                "StorageAccountName": {
-                    "value": "[parameters('storageAccountName')]"
-                }
-            }
-        }
-    }
-],
-```
-
-El URI se resuelve en una plantilla denominada **existingStorageAccount.json** o **newStorageAccount.json**. Cree plantillas para esos URI.
-
-En el ejemplo siguiente se muestra la plantilla **existingStorageAccount.json** .
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "String"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
-En el ejemplo siguiente se muestra la plantilla **newStorageAccount.json** . Observe que, al igual que la plantilla de cuenta de almacenamiento existente, el objeto de cuenta de almacenamiento se devuelve en las salidas. La plantilla principal funciona con cualquier plantilla anidada.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('StorageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('StorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
 ## <a name="complete-example"></a>Ejemplo completo
 Las plantillas de ejemplo siguientes muestran una organización simplificada de plantillas vinculadas para ilustrar algunos de los conceptos de este artículo. Se supone que las plantillas se agregaron en el mismo contenedor en una cuenta de almacenamiento con el acceso público desactivado. La plantilla vinculada pasa un valor de vuelta a la plantilla principal en la sección **salidas** .
 
@@ -266,7 +156,7 @@ El archivo **parent.json** consta de lo siguiente:
   },
   "resources": [
     {
-      "apiVersion": "2015-01-01",
+      "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
       "properties": {
@@ -317,8 +207,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri 
 En la CLI de Azure 2.0, se obtiene un token para el contenedor y se implementan las plantillas con el código siguiente:
 
 ```azurecli
-seconds='@'$(( $(date +%s) + 1800 ))
-expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \
     --name storagecontosotemplates \

@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 9da3cf830857211fe414f55e250e222b9d17438b
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 098904d8b5262d8a19d1c10003e0bcaa668ef2dc
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -42,7 +43,7 @@ Puede cargar VHD generalizados o especializados.
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Es posible que tenga instancias EC2 de AWS existentes que quisiera migrar a Azure Managed Disks                                     | [Migración de Amazon Web Services (AWS) a Azure Managed Disks](aws-to-azure.md)                           |
 | Tiene una VM de otra plataforma de virtualización que quisiera usar como imagen para crear varias VM de Azure. | [Carga de un VHD generalizado en Azure y creación de una VM nueva con Managed Disks](upload-generalized-managed.md) |
-| Cuenta con una VM personalizada de forma exclusiva que quisiera recrear en Azure.                                                      | [Carga de un VHD especializado en Azure y creación de una VM nueva con Managed Disks](upload-specialized.md)         |
+| Cuenta con una VM personalizada de forma exclusiva que quisiera recrear en Azure.                                                      | [Carga de un VHD especializado en Azure y creación de una VM nueva con Managed Disks](create-vm-specialized.md)         |
 
 
 ## <a name="overview-of-managed-disks"></a>Información general de Managed Disks

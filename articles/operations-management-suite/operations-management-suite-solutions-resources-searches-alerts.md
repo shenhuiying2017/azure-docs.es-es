@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 35264f1ec5df5a3e171f7631e0d3b46bf9c0b8e7
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -48,21 +49,24 @@ El nombre del área de trabajo es el nombre de cada recurso de Log Analytics.  E
 ## <a name="saved-searches"></a>Búsquedas guardadas
 Incluya [búsquedas guardadas](../log-analytics/log-analytics-log-searches.md) en una solución para permitir a los usuarios consultar los datos recopilados por la solución.  Las búsquedas guardadas aparecerán en **Favoritos** en el portal de OMS y en **Búsquedas guardadas** en Azure Portal.  También es necesaria una búsqueda guardada para cada alerta.   
 
-Los recursos de [búsquedas guardadas de Log Analytics](../log-analytics/log-analytics-log-searches.md) tienen un tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` y presentan la siguiente estructura. 
+Los recursos de [búsquedas guardadas de Log Analytics](../log-analytics/log-analytics-log-searches.md) tienen un tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` y presentan la siguiente estructura.  Aquí se incluyen las variables y los parámetros habituales para que pueda copiar y pegar este fragmento de código en su archivo de solución y cambiar los nombres de parámetro. 
 
     {
-        "name": "<name-of-savedsearch>"
+        "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-        "apiVersion": "<api-version-of-resource>",
-        "dependsOn": []
-        "tags": {},
+        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+        "dependsOn": [
+        ],
+        "tags": { },
         "properties": {
             "etag": "*",
-            "query": "<query-to-run>",
-            "displayName": "<saved-search-display-name>",
-            "category": ""<saved-search-category>"
+            "query": "[variables('SavedSearch').Query]",
+            "displayName": "[variables('SavedSearch').DisplayName]",
+            "category": "[variables('SavedSearch').Category]"
         }
     }
+
+
 
 En la tabla siguiente se describe cada una de las propiedades de una búsqueda guardada. 
 
@@ -90,22 +94,25 @@ Los recursos de búsquedas guardadas se han descrito anteriormente.  Los demás 
 
 ### <a name="schedule-resource"></a>Recurso de programación
 
-Una búsqueda guardada puede tener una o más programaciones y cada programación representa una regla de alerta independiente. La programación define la frecuencia con la que se realiza la búsqueda y el intervalo de tiempo durante el que se recuperan los datos.  Los recursos de programación tienen un tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` y presentan la siguiente estructura. 
+Una búsqueda guardada puede tener una o más programaciones y cada programación representa una regla de alerta independiente. La programación define la frecuencia con la que se realiza la búsqueda y el intervalo de tiempo durante el que se recuperan los datos.  Los recursos de programación tienen un tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` y presentan la siguiente estructura. Aquí se incluyen las variables y los parámetros habituales para que pueda copiar y pegar este fragmento de código en su archivo de solución y cambiar los nombres de parámetro. 
+
 
     {
-      "name": "<name-of-schedule-resource>",
-      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
-      "apiVersion": "<api-version-of-resource>",
-      "dependsOn": [
-        "<name-of-saved-search>"
-      ],
-      "properties": {  
-        "etag": "*",               
-        "interval": <schedule-interval-in-minutes>,
-        "queryTimeSpan": <query-timespan-in-minutes>,
-        "enabled": <schedule-enabled>       
-      }
+        "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name)]",
+        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
+        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+        "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name)]"
+        ],
+        "properties": {
+            "etag": "*",
+            "interval": "[variables('Schedule').Interval]",
+            "queryTimeSpan": "[variables('Schedule').TimeSpan]",
+            "enabled": "[variables('Schedule').Enabled]"
+        }
     }
+
+
 
 En la tabla siguiente se describen las propiedades para los recursos de programación.
 
@@ -127,43 +134,41 @@ Los recursos de acción tienen un tipo de `Microsoft.OperationalInsights/workspa
 
 Cada programación tendrá una acción **Alert**.  Esto define los detalles de la alerta y, opcionalmente, las acciones de notificación y corrección.  Una notificación envía un mensaje de correo electrónico a una o varias direcciones.  Una corrección inicia un runbook en Azure Automation para intentar corregir el problema detectado.
 
-Las acciones de alerta tienen la siguiente estructura.
+Las acciones de alerta tienen la siguiente estructura.  Aquí se incluyen las variables y los parámetros habituales para que pueda copiar y pegar este fragmento de código en su archivo de solución y cambiar los nombres de parámetro. 
+
+
 
     {
-        "name": "<name-of-the-action>",
+        "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-        "apiVersion": "<api-version-of-resource>",
+        "apiVersion": "[variables('LogAnalyticsApiVersion')]",
         "dependsOn": [
-            <name-of-schedule>
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
         ],
         "properties": {
             "etag": "*",
             "type": "Alert",
-            "name": "<display-name-of-alert>",
-            "description": "<description-of-alert>",
-            "severity": "<severity-of-alert>",
+            "name": "[variables('Alert').Name]",
+            "description": "[variables('Alert').Description]",
+            "severity": "[variables('Alert').Severity]",
             "threshold": {
-                "operator": "<threshold-operator>",
-                "value": "<threshold-value>"
+                "operator": "[variables('Alert').Threshold.Operator]",
+                "value": "[variables('Alert').Threshold.Value]",
                 "metricsTrigger": {
-                    "triggerCondition": "<trigger-condition>",
-                    "operator": "<trigger-operator>",
-                    "value": "<trigger-value>"
+                    "triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
+                    "operator": "[variables('Alert').Trigger.Operator]",
+                    "value": "[variables('Alert').Trigger.Value]"
                 },
-            },
-            "throttling": {
-                "durationInMinutes": "<throttling-duration-in-minutes>"
             },
             "emailNotification": {
                 "recipients": [
-                    <mail-recipients>
+                    "[variables('Alert').Recipients]"
                 ],
-                "subject": "<mail-subject>",
-                "attachment": "None"
+                "subject": "[variables('Alert').Subject]"
             },
             "remediation": {
-                "runbookName": "<name-of-runbook>",
-                "webhookUri": "<runbook-uri>"
+                "runbookName": "[variables('Alert').Remedition.RunbookName]",
+                "webhookUri": "[variables('Alert').Remedition.WebhookUri]"
             }
         }
     }
@@ -232,20 +237,19 @@ Las acciones de webhook inician un proceso llamando a una dirección URL y, opci
 Si la alerta llama a un webhook, necesitará un recurso de acción con un tipo de **Webhook**, además del recurso de acción **Alert**.  
 
     {
-        "name": "<name-of-the-action>",
-        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-        "apiVersion": "<api-version-of-resource>",
-        "dependsOn": [
-            <name-of-schedule>
-            <name-of-alert-action>
-        ],
-        "properties": {
-            "etag": "*",
-            "type": "Webhook",
-            "name": "<display-name-of-action>",
-            "severity": "<severity-of-alert>",
-            "customPayload": "<payload-to-send>"
-        }
+      "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Webhook').Name)]",
+      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions/",
+      "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+      "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
+      ],
+      "properties": {
+        "etag": "*",
+        "type": "[variables('Alert').Webhook.Type]",
+        "name": "[variables('Alert').Webhook.Name]",
+        "webhookUri": "[variables('Alert').Webhook.webhookUri]",
+        "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
+      }
     }
 
 En las tablas siguientes se describen las propiedades para los recursos de acción de Webhook.
