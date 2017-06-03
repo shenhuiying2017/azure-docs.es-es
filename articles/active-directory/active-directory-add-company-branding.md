@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/23/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
-ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: c558bd5f2b7fae91483cc2c6724c40442bb65045
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -205,12 +205,12 @@ Algunos elementos personalizables de Azure AD disponen de múltiples casos de us
 
 | Nombre | Description | Restricciones | Recomendaciones |
 | --- | --- | --- | --- |
-| Logotipo del banner |El logotipo del banner se muestra en la página de inicio de sesión y en el panel de acceso. |<p>JPG o PNG</p><p>60 x&280; píxeles</p><p>10 kB</p> |<p>Utilice el logotipo completo de la organización (incluido el pictograma y el logotipo).</p><p>Manténgalo por debajo de 30 píxeles para que no aparezcan barras de desplazamiento en los dispositivos móviles.</p><p>Manténgalo por debajo de 4 kB.</p><p>Utilice un PNG transparente (no debe presuponer que la página de inicio de sesión tiene un fondo blanco).</p> |
-| Logotipo del icono |(no se utiliza actualmente en la página de inicio de sesión). En el futuro, este texto puede utilizarse para reemplazar el pictograma genérico de "cuenta profesional o educativa" en diferentes lugares de la experiencia. |<p>JPG o PNG</p><p>120 x&120; píxeles</p><p>10 kB</p> |<p>Conserve un diseño sencillo (sin texto pequeño), ya que el tamaño de esta imagen puede cambiar hasta en un 50%. |
+| Logotipo del banner |El logotipo del banner se muestra en la página de inicio de sesión y en el panel de acceso. |<p>JPG o PNG</p><p>60x280 píxeles</p><p>10 kB</p> |<p>Utilice el logotipo completo de la organización (incluido el pictograma y el logotipo).</p><p>Manténgalo por debajo de 30 píxeles para que no aparezcan barras de desplazamiento en los dispositivos móviles.</p><p>Manténgalo por debajo de 4 kB.</p><p>Utilice un PNG transparente (no debe presuponer que la página de inicio de sesión tiene un fondo blanco).</p> |
+| Logotipo del icono |(no se utiliza actualmente en la página de inicio de sesión). En el futuro, este texto puede utilizarse para reemplazar el pictograma genérico de "cuenta profesional o educativa" en diferentes lugares de la experiencia. |<p>JPG o PNG</p><p>120x120 píxeles</p><p>10 kB</p> |<p>Conserve un diseño sencillo (sin texto pequeño), ya que el tamaño de esta imagen puede cambiar hasta en un 50%. |
 | </p> | | | |
 | Etiqueta de nombre de usuario de la página de inicio de sesión |(no se utiliza actualmente en la página de inicio de sesión). En el futuro, este texto puede utilizarse para reemplazar la cadena genérica de "cuenta profesional o educativa" en diferentes lugares de la experiencia. Puede establecerlo en algo como "Cuenta Contoso" o "Id. de Contoso". |<p>Texto Unicode, hasta 50 caracteres</p><p>Solo texto sin formato (sin vínculos ni etiquetas HTML)</p> |<p>Elija una etiqueta corta y sencilla.</p><p>Pregunte a los usuarios qué nombre utilizan para hacer referencia a la cuenta de la escuela o del trabajo que les proporciona.</p> |
 | Texto de la página de inicio de sesión |Este texto "reutilizable" aparece debajo del formulario de la página de inicio de sesión y puede utilizarse para comunicar instrucciones adicionales o dónde acudir para obtener ayuda y soporte técnico. |<p>Texto Unicode, hasta 256 caracteres</p><p>Solo texto sin formato (sin vínculos ni etiquetas HTML)</p> |No sobrepase los 250 caracteres (aproximadamente 3 líneas de texto) |
-| Ilustración de la página de inicio de sesión |La ilustración es una imagen grande que se muestra en la página de inicio de sesión a la izquierda del formulario de la página de inicio de sesión. |<p>JPG o PNG</p><p>1420 x&1200;</p><p>500 kB</p> |<p>1420 x&1200; píxeles</p><p>Importante: manténgala lo más pequeña posible, lo ideal es que no sobrepase los 200 KB. Si esta imagen es demasiado grande, afecta al rendimiento de la página de inicio de sesión si la imagen no se almacena en caché</p><p>Esta imagen a menudo se recorta para adaptarse a las diferentes relaciones de la pantalla. Mantenga los elementos visuales principales en la esquina superior izquierda (en la esquina superior derecha para los idiomas que se leen de derecha a izquierda), ya que el cambio de tamaño se produce desde la esquina inferior derecha, hacia la parte superior izquierda, a medida que se reduzca la ventana del explorador.</p> |
+| Ilustración de la página de inicio de sesión |La ilustración es una imagen grande que se muestra en la página de inicio de sesión a la izquierda del formulario de la página de inicio de sesión. |<p>JPG o PNG</p><p>1420x1200</p><p>500 kB</p> |<p>1420x1200 píxeles</p><p>Importante: manténgala lo más pequeña posible, lo ideal es que no sobrepase los 200 KB. Si esta imagen es demasiado grande, afecta al rendimiento de la página de inicio de sesión si la imagen no se almacena en caché</p><p>Esta imagen a menudo se recorta para adaptarse a las diferentes relaciones de la pantalla. Mantenga los elementos visuales principales en la esquina superior izquierda (en la esquina superior derecha para los idiomas que se leen de derecha a izquierda), ya que el cambio de tamaño se produce desde la esquina inferior derecha, hacia la parte superior izquierda, a medida que se reduzca la ventana del explorador.</p> |
 | Color de fondo de la página de inicio de sesión |El color de fondo de la página de inicio de sesión se usa en el área a la izquierda del formulario de la página de inicio de sesión. |Debe ser un color RGB en formato hexadecimal (ejemplo: #FFFFFF) |<p>En las conexiones con poco ancho de banda, puede aparecer el color de fondo en lugar de la ilustración grande.</p><p>Le recomendamos que utilice el color principal del logotipo del banner.</p> |
 
 ## <a name="next-steps"></a>Pasos siguientes
