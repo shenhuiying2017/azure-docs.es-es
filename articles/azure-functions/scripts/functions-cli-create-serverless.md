@@ -30,6 +30,10 @@ Este script de ejemplo crea una instancia de Azure Function App, que es un conte
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>Script de ejemplo
 
 Este script crea una aplicación de Azure Function App con el [plan de consumo](../functions-scale.md#consumption-plan).

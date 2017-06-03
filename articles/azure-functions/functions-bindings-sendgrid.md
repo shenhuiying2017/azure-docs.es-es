@@ -12,9 +12,10 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/16/2017
 ms.author: rachelap
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: 0cd7e7c55e77863c142800cdc11d6ea144c38293
+ms.contentlocale: es-es
 ms.lasthandoff: 03/18/2017
 
 
@@ -98,7 +99,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 ```javascript
 module.exports = function (context, input) {    
     var message = {
-        to: "recipient@contoso.com",
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: "sender@contoso.com",        
         subject: "Azure news",
         content: [{
@@ -119,3 +120,4 @@ Para información sobre otros enlaces y desencadenadores de Azure Functions, con
 - [Procedimientos recomendados de Azure Functions](functions-best-practices.md): se enumeran algunos procedimientos recomendados para crear Azure Functions.
 
 - [Guía para desarrolladores de Azure Functions](functions-reference.md): contiene las referencias del programador para codificar las funciones y definir los desencadenadores y los enlaces.
+

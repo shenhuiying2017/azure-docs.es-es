@@ -11,14 +11,15 @@ ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 04/18/2016
+ms.date: 05/08/2017
 ms.author: ninarn
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 66f7cc63d311b6b5cd223fe0d8a9bf9f636abef1
+ms.contentlocale: es-es
 ms.lasthandoff: 04/20/2017
 
 
@@ -30,7 +31,7 @@ En este tema se muestra cómo crear y administrar [grupos elásticos](sql-databa
 
 Hay dos maneras de crear un grupo elástico. Puede partir de cero si conoce la configuración deseada del grupo, o comenzar con una recomendación del servicio. Base de datos SQL es una base de datos inteligente que recomienda la configuración de grupo elástico más rentable, en función de los datos de telemetría de uso pasados de las bases de datos.
 
-Puede crear varios grupos a un servidor, pero no puede agregar bases de datos de servidores diferentes al mismo grupo. 
+Puede crear varios grupos a un servidor, pero no puede agregar bases de datos de servidores diferentes al mismo grupo.
 
 > [!NOTE]
 > Los grupos elásticos están disponibles con carácter general (GA) en todas las regiones de Azure excepto oeste de la India, donde actualmente se encuentran en versión preliminar.  La disponibilidad general de grupos elásticos en esta región se producirá tan pronto como sea posible.
@@ -158,7 +159,7 @@ Puede editar el gráfico y la hoja de métricas para mostrar otras métricas, co
 
     ![Haga clic en Editar.](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
-    
+
 
 3. y, a continuación, haga clic en **Aceptar**.
 

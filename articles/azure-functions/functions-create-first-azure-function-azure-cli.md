@@ -36,11 +36,13 @@ Antes de ejecutar este ejemplo, debe tener lo siguiente:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
 Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla. 
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -50,7 +52,7 @@ Cree un grupo de recursos con el comando [az group create](/cli/azure/group#crea
 
 En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup`:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de almacenamiento de Azure
@@ -59,7 +61,7 @@ Functions usa una cuenta de Azure Storage para mantener el estado y otra informa
 
 En el siguiente comando, sustituya su propio nombre de la cuenta de almacenamiento único de manera global donde vea el marcador de posición `<storage_name>`. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
 
-```azurecli
+```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
@@ -89,7 +91,7 @@ Debe tener una Function App para hospedar la ejecución de las funciones. La Fun
 
 En el siguiente comando, sustituya su propio nombre de la Function App único donde vea el marcador de posición `<app_name>` y el nombre de la cuenta de almacenamiento para `<storage_name>`. El `<app_name>` se usa como el dominio DNS predeterminado para la Function App y, por ello, el nombre debe ser único en todas las aplicaciones de Azure. 
 
-```azurecli
+```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
 De manera predeterminada, una Function App se crea con el plan de hospedaje Consumo, lo que significa que los recursos se agregan de manera dinámica según sea necesario mediante sus funciones y solo paga cuando las funciones se ejecutan. Para obtener más información, vea [Choose the correct hosting plan](functions-scale.md) (Elegir el plan de hospedaje correcto). 
@@ -120,7 +122,7 @@ Ahora que tiene una Function App, puede implementar el código de función actua
 
 Existen varias maneras de crear el código de función en su nueva Function App. Este tema se conecta a un repositorio de ejemplo de GitHub. Como antes, en el código siguiente reemplace el marcador de posición `<app_name>` por el nombre de la Function App que ha creado. 
 
-```azurecli
+```azurecli-interactive
 az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
 ```
 Después de que se haya establecido el origen de implementación, la CLI de Azure muestra información similar al ejemplo siguiente (se han quitado los valores NULL para tener una mayor legibilidad):
@@ -160,7 +162,7 @@ Si no tiene cURL disponible en su línea de comandos, simplemente escriba la mis
 
 Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos creados mediante esta guía de inicio rápido:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 Cuando se le solicite, escriba `y`.
