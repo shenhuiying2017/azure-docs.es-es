@@ -13,7 +13,7 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 04/09/2017
+ms.date: 06/01/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: Human Translation
@@ -28,6 +28,10 @@ ms.lasthandoff: 05/15/2017
 Este script de ejemplo crea una aplicación de función con recursos relacionados y le asigna `www.<yourdomain>`. Para asignarla a un dominio personalizado, la aplicación de función se debe crear en un plan de App Service y no en un plan de consumo. Azure Functions solo admite la asignación de un dominio personalizado mediante un registro D.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script de ejemplo
 

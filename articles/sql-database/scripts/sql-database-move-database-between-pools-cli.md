@@ -42,7 +42,7 @@ Este script de ejemplo de la CLI crea dos grupos elásticos, traslada una base d
 
 Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
