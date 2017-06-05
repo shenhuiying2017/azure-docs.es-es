@@ -12,7 +12,7 @@
 
 ## Creación de una plantilla
 ### [Más información acerca de las plantillas de conjunto de escalado](virtual-machine-scale-sets-mvss-start.md)
-### [Incorporación de una red virtual](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Uso de una red virtual existente](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [Uso de una imagen personalizada](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Implementación
