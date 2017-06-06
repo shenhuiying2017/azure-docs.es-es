@@ -1,5 +1,6 @@
 ---
-title: "Incorporación o modificación de la información del trabajo de un usuario en la versión preliminar de Azure Active Directory | Microsoft Docs"
+
+title: "Adición o modificación de la información del trabajo de un usuario en Azure Active Directory | Microsoft Docs"
 description: "En este artículo se explica cómo agregar números de teléfono, nombres de departamento y otra información de trabajo de un usuario en Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b344136bdcfba22416933ced9a91ef2a82082d11
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: a7197ed0f08d38bb604641115a424b98ba5b5908
+ms.contentlocale: es-es
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="add-or-change-work-information-for-a-user-in-azure-active-directory-preview"></a>Incorporación o modificación de la información de trabajo de un usuario en la versión preliminar de Azure Active Directory
-En este artículo se explica cómo agregar o cambiar información del trabajo, como números de teléfono o nombres de departamento de un usuario, en la versión preliminar de Azure Active Directory (Azure AD). [¿Qué hay en la versión preliminar?](active-directory-preview-explainer.md) Para más información acerca de cómo agregar nuevos usuarios a su organización, consulte [Incorporación de nuevos usuarios o de usuarios con cuentas Microsoft en Azure Active Directory](active-directory-users-create-external-azure-portal.md).
+# <a name="add-or-change-work-information-for-a-user-in-azure-active-directory"></a>Adición o modificación de la información de trabajo de un usuario en Azure Active Directory
+En este artículo se explica cómo agregar o cambiar información del trabajo, como números de teléfono o nombres de departamento de un usuario, en Azure Active Directory (Azure AD). Para obtener más información sobre cómo agregar nuevos usuarios en su organización, consulte [Incorporación de nuevos usuarios a Azure Active Directory](active-directory-users-create-external-azure-portal.md).
 
 ## <a name="to-change-work-information"></a>Para cambiar la información del trabajo
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
@@ -39,9 +41,9 @@ En este artículo se explica cómo agregar o cambiar información del trabajo, c
 6. Agregue o cambie la información del trabajo. Después, en la barra de comandos, seleccione **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Incorporación de nuevos usuarios a la versión preliminar de Azure Active Directory](active-directory-users-create-azure-portal.md)
-* [Restablecimiento de la contraseña de un usuario en la versión preliminar de Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
-* [Asignación de roles de administrador en la versión preliminar de Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Incorporación o modificación de la información de perfil de un usuario en la versión preliminar de Azure Active Directory](active-directory-users-profile-azure-portal.md)
-* [Eliminación de un usuario de un directorio en la versión preliminar de Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
+* [Adición de nuevos usuarios a Azure Active Directory](active-directory-users-create-azure-portal.md)
+* [Restablecimiento de la contraseña de un usuario en Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
+* [Asignación de un usuario a roles de administrador en Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
+* [Adición o modificación de la información de perfil de un usuario en Azure Active Directory](active-directory-users-profile-azure-portal.md)
+* [Eliminación de un usuario de un directorio en Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
 
