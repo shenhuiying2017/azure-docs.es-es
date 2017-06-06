@@ -12,11 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 02/06/2017
+ms.date: 06/05/2017
 ms.author: ruturajd
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
 ms.openlocfilehash: a898cb9c66a22bb8d19170fdd03d0fc3b4d93000
+ms.contentlocale: es-es
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -188,9 +190,4 @@ Puede conmutar por recuperación a través de una conexión VPN o de Azure Expre
 
 * ExpressRoute se debe configurar en la red virtual de Azure a la que conmutarán por error las máquinas de origen, y en la que se encuentran las máquinas virtuales de Azure después de que tiene lugar este proceso.
 * Los datos se replican en una cuenta de almacenamiento de Azure en un punto de conexión público. Para usar ExpressRoute, debe realizar la configuración entre pares públicos en ExpressRoute con el centro de datos de destino para la replicación de Site Recovery.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

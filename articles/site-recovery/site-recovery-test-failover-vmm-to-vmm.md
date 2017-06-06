@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 06/05/2017
 ms.author: pratshar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b1a5b2879a7b98ec4ad3e8ebbc9e95c0740d89f
 ms.openlocfilehash: 3aaa005319b1ce2a10cd913c63b31860d31b797e
+ms.contentlocale: es-es
 ms.lasthandoff: 02/23/2017
 
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 02/23/2017
 > * [Conmutación por error de pruebas (de VMM a VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
 
 
-En este artículo, se proporcionan información e instrucciones para realizar una conmutación por error de prueba o una exploración de recuperación ante desastres de máquinas virtuales y servidores físicos que están protegidos con Site Recovery, utilizando para ello un sitio local administrado con VMM como sitio de recuperación. 
+En este artículo, se proporcionan información e instrucciones para realizar una conmutación por error de prueba o una exploración de recuperación ante desastres de máquinas virtuales y servidores físicos que están protegidos con Site Recovery, utilizando para ello un sitio local administrado con VMM como sitio de recuperación.
 
 Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -49,7 +50,7 @@ La conmutación por error de prueba se ejecuta para validar la estrategia de rep
 Si las máquinas virtuales implicadas en la conmutación por error de prueba usan DHCP, se debe crear un servidor DHCP de prueba dentro de la red aislada que se crea para la conmutación por error de prueba.
 
 ### <a name="prepare-active-directory"></a>Preparación de Active Directory
-Para ejecutar una conmutación por error de prueba con el fin de probar la aplicación, necesitará una copia del entorno de Active Directory de producción en el entorno de prueba. Examine la sección [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#test-failover-considerations) para obtener más información. 
+Para ejecutar una conmutación por error de prueba con el fin de probar la aplicación, necesitará una copia del entorno de Active Directory de producción en el entorno de prueba. Examine la sección [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#test-failover-considerations) para obtener más información.
 
 ### <a name="prepare-dns"></a>Preparación de DNS
 Prepare un servidor DNS para la conmutación por error de prueba de la forma siguiente:
@@ -76,9 +77,9 @@ En este procedimiento se describe cómo ejecutar una conmutación por error de p
 
 1. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error** > **Test Conmutación por error**.
 1. En la hoja **Conmutación por error de prueba**, especifique cómo se deben conectar las máquinas virtuales a las redes después de la conmutación por error de prueba. Consulte las [opciones de red](#network-options-in-site-recovery) para más información.
-1. Realice el seguimiento del progreso de la conmutación por error en la pestaña **Trabajos** . 
+1. Realice el seguimiento del progreso de la conmutación por error en la pestaña **Trabajos** .
 1. Cuando haya terminado, compruebe que las máquinas virtuales se inician correctamente.
-1. Una vez que haya terminado, haga clic en **Cleanup test failover** (Limpieza de conmutación por error de prueba) en el plan de recuperación. En **Notas** , registre y guarde las observaciones asociadas a la conmutación por error de prueba. Así se eliminarán las máquinas virtuales y las redes que se crearon durante la conmutación por error de prueba. 
+1. Una vez que haya terminado, haga clic en **Cleanup test failover** (Limpieza de conmutación por error de prueba) en el plan de recuperación. En **Notas** , registre y guarde las observaciones asociadas a la conmutación por error de prueba. Así se eliminarán las máquinas virtuales y las redes que se crearon durante la conmutación por error de prueba.
 
 
 ## <a name="network-options-in-site-recovery"></a>Opciones de red en Site Recovery
@@ -97,10 +98,10 @@ Al ejecutar una prueba de conmutación por error se le pedirá que seleccione la
 >
 
 
-## <a name="test-failover-to-a-production-network-on-recovery-site"></a>Conmutación por error de prueba a una red de producción en el sitio de recuperación 
+## <a name="test-failover-to-a-production-network-on-recovery-site"></a>Conmutación por error de prueba a una red de producción en el sitio de recuperación
 Se recomienda que, cuando realice una conmutación por error de prueba, elija una red diferente de la red del sitio de recuperación de producción que proporcionó en la **asignación de red**. Sin embargo, si realmente desea validar la conectividad de un extremo a otro de la red en una máquina virtual a la que se conmuta por error, tenga en cuenta lo siguiente:
 
-1. Asegúrese de que la máquina virtual principal está apagada cuando se realice la conmutación por error de prueba. Si no lo está, habrá dos máquinas virtuales con la misma identidad en ejecución en la misma red y al mismo tiempo, lo que puede tener consecuencias no deseadas. 
+1. Asegúrese de que la máquina virtual principal está apagada cuando se realice la conmutación por error de prueba. Si no lo está, habrá dos máquinas virtuales con la misma identidad en ejecución en la misma red y al mismo tiempo, lo que puede tener consecuencias no deseadas.
 1. Se perderán los cambios realizados en las máquinas virtuales de conmutación por error de prueba al limpiar las máquinas virtuales de conmutación por error de prueba. Estos cambios no se replicarán de nuevo a la máquina virtual principal.
 1. Esta forma de realizar pruebas provoca un tiempo de inactividad de la aplicación de producción. Se deben pedir a los usuarios de la aplicación que no usen la aplicación si la exploración de la recuperación ante desastres está en curso.  
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 06/05/2017
 ms.author: pratshar
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
@@ -59,7 +59,7 @@ En este procedimiento se describe cómo ejecutar una conmutación por error de p
 
 
 > [!TIP]
-> Site Recovery intenta crear máquinas virtuales de prueba en una subred del mismo nombre y con la misma dirección IP que se proporcionó en la opción **Proceso y red** de la máquina virtual. Si no hay disponible una subred del mismo nombre en la red virtual de Azure proporcionada para la conmutación por error de prueba, la máquina virtual de prueba se crea en la primera subred por orden alfabético. Si la dirección IP de destino forma parte de la subred seleccionada, Site Recovery trata de crear la máquina de virtual de conmutación por error de prueba mediante la dirección IP de destino. Si la dirección IP de destino no forma parte de la subred seleccionada, la máquina virtual de conmutación por error de prueba se creará con cualquier dirección IP disponible en la subred seleccionada. 
+> Site Recovery intenta crear máquinas virtuales de prueba en una subred del mismo nombre y con la misma dirección IP que se proporcionó en la opción **Proceso y red** de la máquina virtual. Si no hay disponible una subred del mismo nombre en la red virtual de Azure proporcionada para la conmutación por error de prueba, la máquina virtual de prueba se crea en la primera subred por orden alfabético. Si la dirección IP de destino forma parte de la subred seleccionada, Site Recovery trata de crear la máquina de virtual de conmutación por error de prueba mediante la dirección IP de destino. Si la dirección IP de destino no forma parte de la subred seleccionada, la máquina virtual de conmutación por error de prueba se creará con cualquier dirección IP disponible en la subred seleccionada.
 >
 >
 

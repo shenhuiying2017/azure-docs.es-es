@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 06/05/2017
 ms.author: anoopkv
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
