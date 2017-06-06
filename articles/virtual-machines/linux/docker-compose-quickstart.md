@@ -13,36 +13,36 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/13/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 69c7f3b468e489f53d8ed89b533aeb30c244dd0f
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: ad9759f20135a87356819d5b819eab357b688cdc
+ms.contentlocale: es-es
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en Azure
 Con [Compose](http://github.com/docker/compose), usará un archivo de texto simple para definir una aplicación compuesta de varios contenedores de Docker. Después, puede poner en marcha la aplicación con un solo comando que realiza todos los pasos para implementarla en el entorno definido. Como ejemplo, en este artículo se muestra cómo configurar rápidamente un blog de WordPress con una base de datos SQL MariaDB de back-end en una máquina virtual Ubuntu. También puede utilizar Compose para configurar aplicaciones más complejas.
 
-## <a name="step-1-set-up-a-linux-vm-as-a-docker-host"></a>Paso 1: Configuración de una máquina virtual de Linux como host de Docker
-Puede emplear diversos procedimientos de Azure, así como las imágenes y plantillas de Azure Resource Manager disponibles en Azure Marketplace, para crear una máquina virtual Linux y configurarla como host de Docker. Por ejemplo, consulte [Uso de la extensión de VM de Docker para implementar el entorno](dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para crear rápidamente una máquina virtual Ubuntu con la extensión de máquina virtual de Azure Docker mediante el uso de una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
 
-Cuando utilice la extensión de máquina virtual de Docker, la máquina virtual se configurará automáticamente como un host de Docker. Puede crear una VM y utilizar la extensión de VM de Docker mediante alguna de las siguientes versiones de la CLI:
+## <a name="set-up-a-linux-vm-as-a-docker-host"></a>Configuración de una máquina virtual Linux como host de Docker
+Puede emplear diversos procedimientos de Azure, así como las imágenes y plantillas de Azure Resource Manager disponibles en Azure Marketplace, para crear una máquina virtual Linux y configurarla como host de Docker. Por ejemplo, consulte [Uso de la extensión de VM de Docker para implementar el entorno](dockerextension.md) para crear rápidamente una máquina virtual Ubuntu con la extensión de máquina virtual de Azure Docker mediante el uso de una [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
 
-- [CLI de Azure 2.0](#azure-cli-20): la CLI de última generación para el modelo de implementación de administración de recursos
-- [CLI de Azure 1.0](#azure-cli-10): la CLI para los modelos de implementación clásico y de Resource Manager
+Cuando utilice la extensión de máquina virtual de Docker, la máquina virtual se configurará automáticamente como un host de Docker.
 
-### <a name="azure-cli-20"></a>CLI de Azure 2.0
+
+### <a name="create-docker-host-with-azure-cli-20"></a>Creación de un host de Docker con la CLI de Azure 2.0
 Instale la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/#login).
 
-En primer lugar, cree un grupo de recursos para su entorno de Docker con [az group create](/cli/azure/group#create). En el ejemplo siguiente se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `West US`:
+En primer lugar, cree un grupo de recursos para su entorno de Docker con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westus*:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-A continuación, implemente una VM con [az group deployment create](/cli/azure/group/deployment#create), que incluye la extensión de VM de Docker para Azure de [esta plantilla de Azure Resource Manager en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Proporcione sus propios valores para `newStorageAccountName`, `adminUsername`, `adminPassword` y `dnsNameForPublicIP`:
+A continuación, implemente una VM con [az group deployment create](/cli/azure/group/deployment#create), que incluye la extensión de VM de Docker para Azure de [esta plantilla de Azure Resource Manager en GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Proporcione sus propios valores para *newStorageAccountName*, *adminUsername*, *adminPassword* y *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -53,35 +53,27 @@ az group deployment create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-La implementación tarda unos minutos en finalizar. Una vez finalizada la implementación, [vaya al paso siguiente](#step-2-verify-that-compose-is-installed) para SSH en la VM. 
+La implementación tarda unos minutos en finalizar. Una vez finalizada la implementación, [vaya al paso siguiente](#verify-that-compose-is-installed) para SSH en la VM. 
 
-Opcionalmente, en lugar de devolver el control al símbolo del sistema y permitir que la implementación continúe en segundo plano, agregue la marca `--no-wait` al comando anterior. Este proceso permite realizar otro trabajo en la CLI mientras continúa la implementación durante unos minutos. Puede ver detalles sobre el estado del host de Docker con [az vm show](/cli/azure/vm#show). En el ejemplo siguiente, se comprueba el estado de la VM denominada `myDockerVM` (se trata del nombre predeterminado de la plantilla; no lo cambie) del grupo de recursos denominado `myResourceGroup`:
-
-```azurecli
-az vm show --resource-group myResourceGroup --name myDockerVM \
-  --query [provisioningState] --output tsv
-```
-
-Cuando este comando devuelve `Succeeded`, ha terminado la implementación y puede implementar SSH en la VM en el paso siguiente.
-
-### <a name="azure-cli-10"></a>CLI de Azure 1.0
-Instale la última versión de la [CLI de Azure 1.0](../../cli-install-nodejs.md) e inicie sesión en una cuenta de Azure. Asegúrese de que está usando el modo de Resource Manager para crear la VM (`azure config mode arm`).
-
-El ejemplo siguiente crea un grupo de recursos llamado `myResourceGroup` en la ubicación `West US` e implementa una VM con la extensión de VM de Docker para Azure. Se utiliza una [plantilla de Azure Resource Manager desde GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) para implementar el entorno:
+Opcionalmente, en lugar de devolver el control al símbolo del sistema y permitir que la implementación continúe en segundo plano, agregue la marca `--no-wait` al comando anterior. Este proceso permite realizar otro trabajo en la CLI mientras continúa la implementación durante unos minutos. Puede ver detalles sobre el estado del host de Docker con [az vm show](/cli/azure/vm#show). En el ejemplo siguiente, se comprueba el estado de la máquina virtual denominada *myDockerVM* (se trata del nombre predeterminado de la plantilla; no lo cambie) del grupo de recursos denominado *myResourceGroup*.
 
 ```azurecli
-azure group create --name myResourceGroup --location "West US" \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --query [provisioningState] \
+    --output tsv
 ```
 
-La CLI de Azure regresa al símbolo del sistema tras unos segundos, se sigue creando y configurando el host de Docker. La implementación tarda unos minutos en finalizar. Puede ver detalles sobre el estado del host de Docker con el comando `azure vm show`. En el ejemplo siguiente, se comprueba el estado de la máquina virtual denominada `myDockerVM` (se trata del nombre predeterminado de la plantilla; no lo cambie) del grupo de recursos denominado `myResourceGroup`. Escriba el nombre del grupo de recursos que creó en el paso anterior:
+Cuando este comando devuelve un estado *correcto*, ha terminado la implementación y puede implementar SSH en la máquina virtual en el paso siguiente.
 
-```azurecli
-azure vm show --resource-group myResourceGroup --name myDockerVM
+
+## <a name="verify-that-compose-is-installed"></a>Comprobación de que se ha instalado Compose
+Una vez que haya terminado la implementación, aplique SSH a su nuevo host de Docker mediante el nombre DNS que proporcionó durante la implementación. Puede usar `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` para ver los detalles de la máquina virtual, incluido el nombre DNS.
+
+```bash
+ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
-
-## <a name="step-2-verify-that-compose-is-installed"></a>Paso 2: Comprobación de que se ha instalado Compose
-Una vez que haya terminado la implementación, aplique SSH a su nuevo host de Docker mediante el nombre DNS que proporcionó durante la implementación. Puede usar `azure vm show -g myResourceGroup -n myDockerVM` (CLI de Azure 1.0) o `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (CLI de Azure 2.0) para ver los detalles de la máquina virtual, incluido el nombre DNS.
 
 Para comprobar que Compose esté instalado en la máquina virtual, ejecute el siguiente comando:
 
@@ -89,28 +81,28 @@ Para comprobar que Compose esté instalado en la máquina virtual, ejecute el si
 docker-compose --version
 ```
 
-Verá un resultado similar a `docker-compose 1.6.2, build 4d72027`.
+Verá una salida similar a *docker-compose 1.6.2, build 4d72027*.
 
 > [!TIP]
 > Si utiliza otro método para crear un host de Docker y necesita instalar Compose de forma manual, consulte la [documentación de esta herramienta](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md).
 
 
-## <a name="step-3-create-a-docker-composeyml-configuration-file"></a>Paso 3: Creación de un archivo de configuración docker-compose.yml 
+## <a name="create-a-docker-composeyml-configuration-file"></a>Creación de un archivo de configuración docker-compose.yml
 A continuación, debe crear un archivo `docker-compose.yml` , que es simplemente un archivo de configuración para definir los contenedores de Docker para ejecutar la máquina virtual. El archivo especifica la imagen que se ejecutará en cada contenedor (o podría ser una compilación de un Dockerfile), variables de entorno y dependencias necesarias, puertos y vínculos entre contenedores. Para más información sobre la sintaxis del archivo YML, consulte la [referencia del archivo de Compose](http://docs.docker.com/compose/yml/).
 
-Cree el archivo `docker-compose.yml` como se indica a continuación:
+Cree el archivo *docker-compose.yml* de la manera siguiente:
 
 ```bash
 touch docker-compose.yml
 ```
 
-Use el editor de texto que prefiera para agregar algunos datos al archivo. En el siguiente ejemplo se usa el editor `vi`:
+Use el editor de texto que prefiera para agregar algunos datos al archivo. En el ejemplo siguiente se usa el editor *vi*:
 
 ```bash
 vi docker-compose.yml
 ```
 
-Pegue el siguiente ejemplo en el archivo de texto. Esta configuración usa imágenes del [Registro de DockerHub](https://registry.hub.docker.com/_/wordpress/) para instalar WordPress (el sistema de administración de contenido y blogs de código abierto) y una base de datos SQL MariaDB de back-end vinculada. Escriba su propio `MYSQL_ROOT_PASSWORD`, como se indica a continuación:
+Pegue el siguiente ejemplo en el archivo de texto. Esta configuración usa imágenes del [Registro de DockerHub](https://registry.hub.docker.com/_/wordpress/) para instalar WordPress (el sistema de administración de contenido y blogs de código abierto) y una base de datos SQL MariaDB de back-end vinculada. Escriba su propio *MYSQL_ROOT_PASSWORD* como se indica a continuación:
 
 ```sh
 wordpress:
@@ -126,14 +118,14 @@ db:
     MYSQL_ROOT_PASSWORD: <your password>
 ```
 
-## <a name="step-4-start-the-containers-with-compose"></a>Paso 4: inicio de los contenedores con Compose
-En el mismo directorio que el archivo `docker-compose.yml`, ejecute el comando siguiente (dependiendo de su entorno, quizás tenga que ejecutar `docker-compose` con `sudo`):
+## <a name="start-the-containers-with-compose"></a>inicio de los contenedores con Compose
+En el mismo directorio que el archivo *docker-compose.yml*, ejecute el comando siguiente (dependiendo de su entorno, quizás tenga que ejecutar `docker-compose` mediante `sudo`):
 
 ```bash
 docker-compose up -d
 ```
 
-Este comando inicia los contenedores de Docker especificados en `docker-compose.yml`. Este paso tarda uno o dos minutos en completarse. Verá un resultado similar al del siguiente ejemplo:
+Este comando inicia los contenedores de Docker especificados en *docker-compose.yml*. Este paso tarda uno o dos minutos en completarse. Verá un resultado similar al del siguiente ejemplo:
 
 ```bash
 Creating wordpress_db_1...
@@ -148,16 +140,13 @@ Creating wordpress_wordpress_1...
 Para comprobar que los contenedores están activos, escriba `docker-compose ps`. Debería ver algo parecido a lo siguiente:
 
 ```bash
-Name             Command             State              Ports
--------------------------------------------------------------------------
-wordpress_db_1     /docker-           Up                 3306/tcp
-             entrypoint.sh
-             mysqld
-wordpress_wordpr   /entrypoint.sh     Up                 0.0.0.0:80->80
-ess_1              apache2-for ...                       /tcp
+        Name                       Command               State         Ports
+-----------------------------------------------------------------------------------
+azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
+azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-Ahora puede conectarse a WordPress directamente en la máquina virtual a través del puerto 80. Abra un explorador web y escriba el nombre DNS de la máquina virtual (por ejemplo, `http://myresourcegroup.westus.cloudapp.azure.com`). Ahora debería ver la pantalla de inicio de WordPress, donde se puede completar la instalación e iniciar la aplicación.
+Ahora puede conectarse a WordPress directamente en la máquina virtual a través del puerto 80. Abra un explorador web y escriba el nombre DNS de la máquina virtual (por ejemplo, `http://mypublicdns.westus.cloudapp.azure.com`). Ahora debería ver la pantalla de inicio de WordPress, donde se puede completar la instalación e iniciar la aplicación.
 
 ![Pantalla de inicio de WordPress][wordpress_start]
 
