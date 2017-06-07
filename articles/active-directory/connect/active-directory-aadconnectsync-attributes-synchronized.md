@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: markvi;andkjell
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 9238141fc56abcb618d71e4bfd1eccb77f282c71
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 08df9939eb31c224d62d96a0d034d1cda10ba270
+ms.contentlocale: es-es
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -102,6 +103,7 @@ En este caso, comience con la lista de atributos de este tema e identifique aque
 | msExchAuditOwner |X | | | |
 | msExchBlockedSendersHash |X |X | | |
 | msExchBypassAudit |X | | | |
+| msExchBypassModerationLink | | |X |Disponible en Azure AD Connect versión 1.1.524.0 |
 | msExchCoManagedByLink | | |X | |
 | msExchDelegateListLink |X | | | |
 | msExchELCExpirySuspensionEnd |X | | | |
@@ -430,6 +432,18 @@ Estos atributos se reescriben desde Azure AD en Active Directory local cuando se
 | msExchUCVoiceMailSettings |X | | |Habilitar mensajería unificada (UM) - correo de voz en línea: usado para la integración de Microsoft Lync Server para indicar a Lync Server local que el usuario tiene el correo de voz en los servicios en línea. |
 | msExchUserHoldPolicies |X | | |Retención por juicio: permite que los servicios en la nube determinen qué usuarios están bajo retención por juicio. |
 | proxyAddresses |X |X |X |Solo se inserta la dirección x500 de Exchange Online. |
+
+## <a name="exchange-mail-public-folder"></a>Carpeta pública de correo de Exchange
+Estos atributos se sincronizan desde Active Directory local en Azure AD cuando se elige habilitar la **carpeta pública de correo de Exchange**.
+
+| Nombre del atributo | PublicFolder | Comentario |
+| --- | :---:| --- |
+| DisplayName | X |  |
+| mail | X |  |
+| msExchRecipientTypeDetails | X |  |
+| objectGUID | X |  |
+| proxyAddresses | X |  |
+| targetAddress | X |  |
 
 ## <a name="device-writeback"></a>Escritura diferida de dispositivos
 Los objetos de dispositivo se crean en Active Directory. Pueden ser dispositivos unidos a Azure AD o equipos Windows 10 unidos a un dominio.
