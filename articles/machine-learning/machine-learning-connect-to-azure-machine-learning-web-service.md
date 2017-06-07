@@ -12,11 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 06/02/2017
 ms.author: garye
-translationtype: Human Translation
+ROBOTS: NOINDEX
+redirect_url: /azure/machine-learning/machine-learning-consume-web-services
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
 ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
+ms.contentlocale: es-es
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -76,7 +81,7 @@ Para recuperar la clave de API para un servicio web Machine Learning clásico:
 4. Haga clic en un servicio web.
 5. Haga clic en un extremo. La "CLAVE DE API" está inactiva en la parte inferior derecha.
 
-## <a name="a-idconnectaconnect-to-a-machine-learning-web-service"></a><a id="connect"></a>Conexión a un servicio web Machine Learning
+## <a id="connect"></a>Conexión a un servicio web Machine Learning
 Puede conectarse a un servicio web Machine Learning mediante cualquier lenguaje de programación que admita la respuesta y la solicitud HTTP. Puede ver ejemplos en C#, Python y R desde una página de ayuda de servicio web Machine Learning.
 
 **Ayuda de la API de Machine Learning** Se crea una página de ayuda de API de Machine Learning al implementar un servicio web. Vea [Tutorial de Aprendizaje automático de Azure: Implementación de un servicio web](machine-learning-walkthrough-5-publish-web-service.md).
@@ -123,10 +128,5 @@ Para conectarse a un servicio web Machine Learning, use la biblioteca **urllib2*
 1. Publique el experimento "Ejemplo 1: descargar el conjunto de datos de UCI: conjunto de datos de clase de contenido para adultos 2", que forma parte de la colección de ejemplos de Aprendizaje automático.
 2. Asigne una clave de API con la clave de un servicio web. Vea la sección **Obtener una clave de autorización de Azure Machine Learning** casi al principio de este artículo.
 3. Asigne la URI de servicio a la URI de solicitud.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
