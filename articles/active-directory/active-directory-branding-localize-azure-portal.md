@@ -1,5 +1,5 @@
 ---
-title: "Adición de personalización de marca de empresa a la página de inicio de sesión en la versión preliminar de Azure Active Directory | Microsoft Docs"
+title: "Adición de personalización de marca de empresa específica del lenguaje a la página de inicio de sesión en Azure Active Directory | Microsoft Docs"
 description: "Sepa cómo agregar imágenes y texto de personalización de marca específicos del idioma a una página de inicio de sesión de Azure."
 services: active-directory
 documentationcenter: 
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fece49df6a35f09ee73bb4b9ec4c33a0529a9f59
-ms.lasthandoff: 12/28/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: e1fe8d855386ceec39edbc985538cdf32d78a13b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="add-language-specific-company-branding-to-your-sign-in-page-in-the-azure-active-directory-preview"></a>Adición de personalización de marca de empresa a la página de inicio de sesión en la versión preliminar de Azure Active Directory
-Para evitar confusiones, muchas empresas quieren aplicar un aspecto coherente en todos los sitios web y servicios que administran. La versión preliminar de Azure Active Directory ofrece esta funcionalidad, ya que permite personalizar la apariencia de la página de inicio de sesión con esquemas de color personalizados y el logotipo de la empresa. [¿Qué es la versión preliminar?](active-directory-preview-explainer.md)  Se trata de la página que aparece al iniciar sesión en Office 365 u otras aplicaciones web que estén utilizando Azure AD como proveedor de identidades. Interactuará con esta página para especificar las credenciales.
+# <a name="add-language-specific-company-branding-to-your-sign-in-page-in-the-azure-active-directory"></a>Adición de personalización de marca de empresa específica del lenguaje a la página de inicio de sesión en Azure Active Directory
+Para evitar confusiones, muchas empresas quieren aplicar un aspecto coherente en todos los sitios web y servicios que administran. Azure Active Directory ofrece esta funcionalidad, ya que permite personalizar la apariencia de la página de inicio de sesión con esquemas de color personalizados y el logotipo de la empresa. Se trata de la página que aparece al iniciar sesión en Office 365 u otras aplicaciones web que estén utilizando Azure AD como proveedor de identidades. Interactuará con esta página para especificar las credenciales.
 
 ## <a name="customizing-the-sign-in-page-for-another-language"></a>Personalización de la página de inicio de sesión para otro idioma
 Solo podrá agregar elementos específicos del idioma a la página de inicio de sesión personalizada si ya ha creado una página de inicio de sesión personalizada tal y como se describe en el artículo sobre cómo [agregar personalización de marca de empresa a la página de inicio de sesión](active-directory-branding-custom-signon-azure-portal.md). Puede configurar una página de inicio de sesión por directorio con un conjunto predeterminado de elementos personalizables. Cuando haya configurado el conjunto predeterminado de elementos de página, podrá ajustar más versiones para las diferentes configuraciones regionales. También puede mezclar y hacer coincidir varios elementos. Por ejemplo, podría realizar estas acciones:
