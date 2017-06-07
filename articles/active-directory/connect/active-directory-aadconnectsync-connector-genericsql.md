@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 06/2/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: b7e99f8a4d7bc1cd30c71ce08ad38c13203f8b69
+ms.contentlocale: es-es
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -48,7 +49,7 @@ Desde una perspectiva de alto nivel, las siguientes características son compati
 Antes de usar el conector, asegúrese de que tiene lo siguiente en el servidor de sincronización:
 
 * Microsoft .NET 4.5.2 Framework o posterior
-* Controladores cliente ODBC de&64; bits
+* Controladores cliente ODBC de 64 bits
 
 ### <a name="permissions-in-connected-data-source"></a>Permisos en origen de datos conectado
 Para crear o realizar alguna de las tareas admitidas en el conector de SQL genérico, debe tener:
@@ -121,6 +122,7 @@ Esta página permite configurar el atributo de delimitador y de DN para cada tip
 * No se enumeran los atributos multivalor y booleanos.
 * No se puede usar el mismo atributo para el DN y el delimitador, a menos que **DN es el delimitador** esté seleccionado en la página Conectividad.
 * Si **DN es el delimitador** está seleccionado en la página Conectividad, esta página requiere solo el atributo de DN. Este atributo se utilizará también como el atributo de delimitador.
+
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### <a name="schema-4-define-attribute-type-reference-and-direction"></a>Esquema 4 (Definir tipo de atributo, referencia y dirección)
@@ -130,7 +132,8 @@ Esta página permite configurar el tipo de atributo como entero, binario o un va
 
 * **DataType**: se utiliza para asignar el tipo de atributo a aquellos tipos conocidos por el motor de sincronización. El valor predeterminado es usar el mismo tipo que el detectado en el esquema SQL, pero DateTime y Reference no son fácilmente detectables. Para estos, necesita especificar **DateTime** o **Reference**.
 * **Direction**: puede establecer la dirección del atributo en Import, Export o ImportExport. ImportExport es el valor predeterminado.
-  ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
+
+![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
 Notas:
 
@@ -150,6 +153,12 @@ A partir de la actualización de marzo de 2017, ahora hay una opción para "*". 
 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
+>[!IMPORTANT]
+ A partir de mayo de 2017 el carácter "*" también conocido como **cualquier opción** ha cambiado para admitir los flujos de importación y exportación. Si desea usar esta opción, la tabla o vista multivalor debe tener un atributo que contenga el tipo de objeto.
+
+![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
+
+ </br> Si se selecciona "*" también se debe especificar el nombre de la columna con el tipo de objeto.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
 
 Después de la importación, verá una imagen similar a la que se encuentra a continuación:
 
@@ -162,8 +171,7 @@ La página Parámetros globales se utiliza para configurar la importación difer
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
->[!IMPORTANT]
- "*", que también se conoce como**cualquier opción**, no se puede usar durante las operaciones de exportación o eliminación.
+
 
 El conector de SQL genérico admite los siguientes métodos para la importación diferencial:
 
@@ -239,7 +247,7 @@ Haga lo siguiente:
 ![runstep3](./media/active-directory-aadconnectsync-connector-genericsql/runstep3.png)
 
 * Si tiene una gran cantidad de datos, se recomienda implementar la paginación con los procedimientos almacenados.
-* Para que el procedimiento almacenado admita la paginación, debe proporcionar el índice inicial y el índice final. Consulte: [Tutorial&25;: Efficiently Paging Through Large Amounts of Data](https://msdn.microsoft.com/library/bb445504.aspx).
+* Para que el procedimiento almacenado admita la paginación, debe proporcionar el índice inicial y el índice final. Consulte: [Tutorial 25: Efficiently Paging Through Large Amounts of Data](https://msdn.microsoft.com/library/bb445504.aspx).
 * @StartIndex y @EndIndex se reemplazan en tiempo de ejecución por el valor del tamaño de página correspondiente establecido en la página **Configurar paso**. Por ejemplo, cuando el conector recupera la primera página y el tamaño de página se establece en 500, en esta situación @StartIndex sería 1 y @EndIndex 500. Estos valores aumentan cuando el conector recupera las páginas siguientes y cambia el valor de @StartIndex y de @EndIndex.
 * Para ejecutar el procedimiento almacenado con parámetros, proporcione estos en el formato `[Name]:[Direction]:[Value]` . Escriba cada parámetro en una línea independiente (use Ctrl + Entrar para obtener una nueva línea).
 * El conector SQL genérico también admite la operación de importación desde los servidores vinculados de Microsoft SQL Server. Si la información debe recuperarse de una tabla en un servidor vinculado, es necesario proporcionar la tabla en el formato: `[ServerName].[Database].[Schema].[TableName]`
@@ -299,5 +307,5 @@ Si elige la opción Consulta SQL, la exportación requiere tres consultas difere
 * Atributo seleccionado en el esquema usado como valor de parámetro para la consulta, por ejemplo `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
 ## <a name="troubleshooting"></a>Solución de problemas
-* Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM&2010; R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+* Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
