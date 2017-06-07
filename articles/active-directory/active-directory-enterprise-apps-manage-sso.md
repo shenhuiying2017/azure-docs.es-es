@@ -1,5 +1,5 @@
 ---
-title: "Administración de inicio de sesión único para aplicaciones empresariales en la versión preliminar de Azure Active Directory | Microsoft Docs"
+title: "Administración de inicio de sesión único para aplicaciones empresariales en Azure Active Directory | Microsoft Docs"
 description: "Aprenda a administrar el inicio de sesión único para aplicaciones empresariales con la versión preliminar de Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 05/04/2017
 ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f03079498568f52802b34ce57242a414e648fe3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 118b77064a96585b0d5b951ca56313776021624e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="preview-managing-single-sign-on-for-enterprise-apps-in-the-new-azure-portal"></a>Versión preliminar: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal
+# <a name="managing-single-sign-on-for-enterprise-apps"></a>Administración de inicio de sesión único para aplicaciones empresariales
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-enterprise-apps-manage-sso.md)
+> * [Portal de Azure](active-directory-enterprise-apps-manage-sso.md)
 > * [Portal de Azure clásico](active-directory-sso-integrate-saas-apps.md)
 > 
-> 
 
-En este artículo se describe cómo utilizar [Azure Portal](https://portal.azure.com) para administrar la configuración de inicio de sesión único para aplicaciones, especialmente las que se han agregado desde la [Galería de aplicaciones de Azure Active Directory (Azure AD)](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). La experiencia de administración de Azure AD para el inicio de sesión único está actualmente en versión preliminar pública y en este artículo se describen las nuevas características, así como algunas limitaciones temporales que tienen lugar durante el período de versión preliminar. [¿Qué hay en la versión preliminar?](active-directory-preview-explainer.md)
+En este artículo se describe cómo usar el [portal de Azure](https://portal.azure.com) para administrar la configuración de inicio de sesión único para aplicaciones, especialmente las que se han agregado desde la [Galería de aplicaciones de Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
-## <a name="finding-your-apps-in-the-new-portal"></a>Búsqueda de las aplicaciones en el nuevo portal
-A partir de septiembre de 2016, todas las aplicaciones que se han configurado para un inicio de sesión único en un directorio, por un administrador de directorio mediante la [Galería de aplicaciones de Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) dentro del [Portal de Azure clásico](https://manage.windowsazure.com), ahora se pueden ver y administrar en Azure Portal.
-
-Estas aplicaciones se pueden encontrar en la sección **Aplicaciones empresariales** del nuevo Azure Portal, un vínculo que se puede encontrar en la lista **Más servicios** del [portal](https://portal.azure.com). Las aplicaciones empresariales son aplicaciones que se han implementado y se están utilizando por los usuarios de su organización.
+## <a name="finding-your-apps"></a>Búsqueda de las aplicaciones
+## <a name="finding-your-apps-in-the-portal"></a>Búsqueda de aplicaciones en el portal
+Todas las aplicaciones que se han configurado para el inicio de sesión único en un directorio, por un administrador de directorio mediante la [Galería de aplicaciones de Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), se pueden ver y administrar en el [portal de Azure](https://portal.azure.com). Las aplicaciones pueden encontrarse en la sección **Más servicios** &gt; **Aplicaciones empresariales** del portal. Las aplicaciones empresariales son aplicaciones que se implementan y se usan dentro de su organización.
 
 ![Hoja Aplicaciones empresariales][1]
 
@@ -65,14 +65,10 @@ Aquí es donde se agregan todos los detalles sobre las direcciones URL y el domi
 ### <a name="user-attributes"></a>Atributos de usuario
 Aquí es donde los administradores pueden ver y modificar los atributos que se envían en el token SAML que emite Azure AD a la aplicación cada vez que los usuarios inician sesión.
 
-Para la primera versión preliminar, el único atributo admitido que se puede modificar es el atributo **Identificador de usuario** . El valor de este atributo es el campo de Azure AD que identifica de forma única a cada usuario dentro de la aplicación. Por ejemplo, si la aplicación se ha implementado mediante la "dirección de correo electrónico" como nombre de usuario y un identificador único, el valor se establecería en el campo "user.mail" de Azure AD.
-
-En una versión preliminar posterior se admitirá la modificación de atributos adicionales.
+El único atributo editable admitido es el atributo **Identificador de usuario**. El valor de este atributo es el campo de Azure AD que identifica de forma única a cada usuario dentro de la aplicación. Por ejemplo, si la aplicación se ha implementado mediante la "dirección de correo electrónico" como nombre de usuario y un identificador único, el valor se establecería en el campo "user.mail" de Azure AD.
 
 ### <a name="saml-signing-certificate"></a>Certificado de firma SAML
 En esta sección se muestran los detalles del certificado que Azure AD usa para firmar los tokens SAML que se emiten a la aplicación cada vez que el usuario se autentica. Permite la inspección de las propiedades del certificado actual, incluida la fecha de caducidad.
-
-En una versión preliminar posterior se admitirá la capacidad de sustituir el certificado y de administrar opciones opcionales de certificados. Tenga en cuenta que la administración completa de certificados todavía puede realizarse en el [Portal de Azure clásico](active-directory-sso-certs.md).
 
 ### <a name="application-configuration"></a>Configuración de aplicaciones
 La sección final proporciona la documentación y los controles necesarios para configurar la aplicación para que use Azure Active Directory como proveedor de identidades.
@@ -80,7 +76,7 @@ La sección final proporciona la documentación y los controles necesarios para 
 El menú emergente **Configurar aplicación** proporciona nuevas instrucciones concisas e insertadas para configurar la aplicación. Esta es otra característica nueva y exclusiva en el nuevo Azure Portal.
 
 > [!NOTE]
-> Para ver un ejemplo completo de documentación insertada, consulte la aplicación Salesforce.com. Se está agregando continuamente documentación de las aplicaciones adicionales durante la versión preliminar.
+> Para ver un ejemplo completo de documentación insertada, consulte la aplicación Salesforce.com. Continuamente se agrega documentación de otras aplicaciones.
 > 
 > 
 
@@ -96,14 +92,13 @@ Si se admite para la aplicación, la selección del modo de inicio de sesión ú
 
 ![Inicio de sesión vinculado][5]
 
+##<a name="feedback"></a>Comentarios
+
+Esperamos que le guste usa la experiencia mejorada de Azure AD. Envíenos sus comentarios. Publique sus comentarios y sugerencias para la mejora en la sección **Portal de administración** de nuestro [foro de comentarios](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nos interesa cómo crear innovaciones estupendas todos los días y usamos sus comentarios para dar forma y definir qué será lo próximo que crearemos.
+
 [1]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.PNG
 [3]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.PNG
 [4]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.PNG
 [5]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.PNG
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
