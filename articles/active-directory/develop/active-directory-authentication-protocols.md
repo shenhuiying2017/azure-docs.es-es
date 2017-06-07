@@ -14,10 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 51c6a8ae17821d4eb00bf26612bc6e1e434ebbd9
-ms.lasthandoff: 04/17/2017
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 27c582436bd57adfb5e8edb0f63c0f206db66c89
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -30,7 +32,8 @@ Azure Active Directory (Azure AD) admite varios de los protocolos de autenticaci
 * [Metadatos de federación](active-directory-federation-metadata.md) : obtenga información sobre cómo buscar e interpretar los documentos de metadatos que Azure AD genera.
 * [OAuth 2.0 en Azure AD](active-directory-protocols-oauth-code.md) : obtenga información sobre la implementación de OAuth 2.0 en Azure AD.
 * [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) : obtenga información sobre cómo usar el protocolo de autorización OAuth 2.0 para la autenticación.
-* [Llamadas de servicio a servicio](active-directory-protocols-oauth-service-to-service.md): aprenda a usar el flujo de concesión de credenciales de cliente de OAuth 2.0 para las llamadas de servicio a servicio.
+* [Llamadas de servicio a servicio con credenciales de cliente](active-directory-protocols-oauth-service-to-service.md): aprenda a usar el flujo de concesión de credenciales de cliente de OAuth 2.0 para las llamadas de servicio a servicio.
+* [Llamadas de servicio a servicio con el flujo En nombre de](active-directory-protocols-oauth-on-behalf-of.md): aprenda a usar el flujo "En nombre de" de OAuth 2.0 en las llamadas de servicio a servicio.
 * [Referencia del protocolo SAML](active-directory-saml-protocol-reference.md) : obtenga información sobre los perfiles SAML de inicio de sesión único y de cierre de sesión único de Azure AD.
 
 ## <a name="see-also"></a>Otras referencias
@@ -39,5 +42,4 @@ Azure Active Directory (Azure AD) admite varios de los protocolos de autenticaci
 [Uso de Azure AD para la autenticación](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Ejemplos de código de Azure Active Directory](active-directory-code-samples.md)
-
 
