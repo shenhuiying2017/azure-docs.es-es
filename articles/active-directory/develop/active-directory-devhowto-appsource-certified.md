@@ -47,7 +47,7 @@ Use la sección de comentarios DISQUS a continuación de este artículo para pro
 [AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#guides
+[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-started
 
 
 <!--Image references-->

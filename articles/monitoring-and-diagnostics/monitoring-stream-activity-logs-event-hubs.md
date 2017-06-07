@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 6/06/2017
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
 ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
+ms.contentlocale: es-es
+ms.lasthandoff: 12/10/2016
 
 
 ---
@@ -54,7 +56,7 @@ Si ya existe un perfil de registro, primero debe quitarlo.
 3. Use `Set-AzureRmLogProfile` para crear un perfil:
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
 El identificador de regla del Bus de servicio es una cadena con este formato: por ejemplo, {Id. de recurso del Bus de servicio}/authorizationrules/{nombre de clave}. 
@@ -79,10 +81,5 @@ El identificador de regla del Bus de servicio es una cadena con este formato: `{
 * [(Archivado del registro de actividades en una cuenta de almacenamiento)](monitoring-archive-activity-log.md)
 * [Lea la información general sobre el registro de actividades de Azure](monitoring-overview-activity-logs.md)
 * [Configure una alerta basada en un evento del registro de actividades](insights-auditlog-to-webhook-email.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

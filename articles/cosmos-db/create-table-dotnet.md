@@ -105,7 +105,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En [Azure Portal](http://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Claves** y en **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el URI y la clave principal en el archivo app.config en el paso siguiente.
 
-    ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-documentdb-dotnet-core/keys.png)
+    ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-table-dotnet/keys.png)
 
 2. En Visual Studio, abra el archivo app.config. 
 
