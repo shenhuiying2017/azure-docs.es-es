@@ -1,11 +1,27 @@
 ---
-
-ROBOTS: NOINDEX, NOFOLLOW
+title: "(en desuso) Análisis de supervivencia con Azure Machine Learning | Microsoft Docs"
+description: "(en desuso) Probabilidad de aparición de eventos de análisis de supervivencia"
+services: machine-learning
+documentationcenter: 
+author: zhangya
+manager: jhubbard
+editor: cgronlun
+ms.assetid: a142fc45-cdfb-4971-910e-05dab8bc699e
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/06/2017
+ms.author: zhangya
+ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 38a086281ec9a93961caf492036aeed27091a462
-ms.lasthandoff: 05/03/2017
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
+ms.openlocfilehash: 32ae345bb1d4bc364440543ea5c273e9b358ae40
+ms.contentlocale: es-es
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -27,7 +43,7 @@ Este [servicio web](https://datamarket.azure.com/dataset/aml_labs/survivalanalys
 > 
 
 ## <a name="consumption-of-web-service"></a>Uso del servicio web
-El esquema de datos de entrada del servicio web se muestra en la tabla siguiente. Se necesitan seis elementos de información como entrada: los datos de aprendizaje, los datos de prueba, el tiempo de interés, el índice de la dimensión de "tiempo", el índice de la dimensión de "evento" y los tipos de variables (continua o factor). Los datos de aprendizaje se representan con una cadena, donde las filas están separadas por comas y las columnas están separadas por punto y coma. El número de características de los datos es flexible. Todos los elementos de la cadena de entrada deben ser numéricos. En los datos de aprendizaje, la dimensión de "tiempo" indica que el número de unidades de tiempo (días, años, kilometraje, etc.) transcurrido desde el inicio del estudio (un paciente recibe los programas de tratamiento contra el consumo de drogas, un alumno que empieza el doctorado, un automóvil que empieza a conducirse, etc.) hasta que se produce el evento de interés (el paciente vuelve a consumir droga, el alumno obtiene el título de doctorado, el vehículo presenta desgaste de las pastillas de freno, etc.). La dimensión de "evento" indica si se produce el evento de interés al final del estudio. El valor "evento = 1" significa que se produce el evento de interés en el momento indicado por la dimensión de "tiempo"; mientras que "evento = 0" significa que el evento de interés no se ha producido todavía en el momento indicado por la dimensión de "tiempo".
+El esquema de datos de entrada del servicio web se muestra en la tabla siguiente. Se necesitan seis elementos de información como entrada: los datos de aprendizaje, los datos de prueba, el tiempo de interés, el índice de la dimensión de "tiempo", el índice de la dimensión de "evento" y los tipos de variables (continua o factor). Los datos de aprendizaje se representan con una cadena, donde las filas están separadas por comas y las columnas están separadas por punto y coma. El número de características de los datos es flexible. Todos los elementos de la cadena de entrada deben ser numéricos. En los datos de aprendizaje, la dimensión de "tiempo" indica que el número de unidades de tiempo (días, años, kilometraje, etc.) transcurrido desde el inicio del estudio (un paciente recibe los programas de tratamiento contra el consumo de drogas, un alumno que empieza el doctorado, un automóvil que empieza a conducirse, etc.) hasta que se produce el evento de interés (el paciente vuelve a consumir droga, el alumno obtiene el título de doctorado, el vehículo presenta desgaste de las pastillas de freno, etc.). La dimensión de "evento" indica si se produce el evento de interés al final del estudio. El valor "evento =&1;" significa que se produce el evento de interés en el momento indicado por la dimensión de "tiempo"; mientras que "evento =&0;" significa que el evento de interés no se ha producido todavía en el momento indicado por la dimensión de "tiempo".
 
 * trainingdata: una cadena de caracteres Las filas están separadas por coma y las columnas están separadas por punto y coma. Cada fila incluye la dimensión de "tiempo", la dimensión de "evento" y las variables del previsor.
 * testingdata: una fila de datos que contiene variables del previsor para un objeto determinado.
@@ -86,7 +102,7 @@ Esta prueba se interpreta de la siguiente forma. Supongamos que el objetivo de l
 > 
 > 
 
-En Azure Machine Learning se creó un nuevo experimento en blanco y se extrajeron dos módulos [Ejecutar scripts R][execute-r-script] en el área de trabajo. El esquema de datos se creó con un módulo [Ejecutar script R][execute-r-script] sencillo, que define el esquema de datos de entrada para el servicio web. Este módulo está vinculado al segundo módulo [Ejecutar script R][execute-r-script], que hace la mayor parte del trabajo. Este módulo realiza el preprocesamiento de datos, la creación de modelos y las previsiones. En el paso del preprocesamiento de los datos, los datos de entrada representados por una cadena larga se transforman y convierten en una trama de datos. En el paso de creación del modelo, un paquete R externo "survival_2.37 7.zip" se instala en primer lugar para llevar a cabo el análisis de supervivencia. A continuación, se ejecuta la función "coxph" después de una serie de tareas de procesamiento de datos. Se pueden leer los detalles de la función "coxph" para el análisis de supervivencia en la documentación de R. En el paso de previsión, se proporciona una instancia de prueba en el modelo de entrenado con la función "surfit", y la curva de supervivencia para esta instancia de prueba se genera como variable "curva". Por último, se obtiene la probabilidad del tiempo de interés. 
+En Azure Machine Learning se creó un nuevo experimento en blanco y se extrajeron dos módulos [Ejecutar scripts R][execute-r-script] en el área de trabajo. El esquema de datos se creó con un módulo [Ejecutar script R][execute-r-script] sencillo, que define el esquema de datos de entrada para el servicio web. Este módulo está vinculado al segundo módulo [Ejecutar script R][execute-r-script], que hace la mayor parte del trabajo. Este módulo realiza el preprocesamiento de datos, la creación de modelos y las previsiones. En el paso del preprocesamiento de los datos, los datos de entrada representados por una cadena larga se transforman y convierten en una trama de datos. En el paso de creación del modelo, un paquete R externo "survival_2.37&7;.zip" se instala en primer lugar para llevar a cabo el análisis de supervivencia. A continuación, se ejecuta la función "coxph" después de una serie de tareas de procesamiento de datos. Se pueden leer los detalles de la función "coxph" para el análisis de supervivencia en la documentación de R. En el paso de previsión, se proporciona una instancia de prueba en el modelo de entrenado con la función "surfit", y la curva de supervivencia para esta instancia de prueba se genera como variable "curva". Por último, se obtiene la probabilidad del tiempo de interés. 
 
 ### <a name="experiment-flow"></a>Flujo de experimento:
 ![flujo de experimento][1]
