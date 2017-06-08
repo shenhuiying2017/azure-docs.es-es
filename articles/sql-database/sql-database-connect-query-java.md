@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start connect, mvc
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
@@ -73,7 +73,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
 6. Revise la cadena de conexión de**JDBC** completa.
 
-    ![Cadena de conexión JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)    
+    ![Cadena de conexión JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)   
 
 ### <a name="create-maven-project"></a>**Creación del proyecto de Maven**
 En el terminal, cree un nuevo proyecto de Maven. 
@@ -295,7 +295,7 @@ public class App {
                         int count = prep.executeUpdate();
                         System.out.println("Deleted: " + count + " row(s)");
                 }
-        }        
+        }       
         catch (Exception e) {
                 e.printStackTrace();
         }
