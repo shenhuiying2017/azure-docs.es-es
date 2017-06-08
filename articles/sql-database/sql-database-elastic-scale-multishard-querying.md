@@ -8,16 +8,18 @@ author: torsteng
 editor: 
 ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 873df52da976597ddfaa8f777b90382bfa7723fc
 ms.openlocfilehash: aa54ec3d982ea4422422bd4e520d2211aad57159
+ms.contentlocale: es-es
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -75,10 +77,5 @@ Las consultas a través de particiones múltiples no comprueban si los shardlets
 Clases y métodos **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)**.
 
 Administre las particiones con la [biblioteca de cliente de Base de datos elástica](sql-database-elastic-database-client-library.md). Incluye un nuevo espacio de nombres llamado [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx) que proporciona la capacidad de consultar varias particiones con una sola solicitud y un resultado. Brinda una abstracción de consulta sobre una recopilación de particiones. También proporciona directivas de ejecución alternativas, en especial resultados parciales, para abordar errores cuando se consulte sobre muchas particiones.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

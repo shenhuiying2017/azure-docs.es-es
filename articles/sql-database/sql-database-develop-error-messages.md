@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
