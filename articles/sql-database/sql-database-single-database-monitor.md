@@ -9,16 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
 ms.openlocfilehash: f4150149cea4fa31e7b991e15ffcbefa8a202ada
+ms.contentlocale: es-es
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -52,9 +54,4 @@ Las mismas métricas que se exponen en el Portal están también disponibles a t
 >
 
 En los grupos elásticos, puede supervisar bases de datos individuales del grupo con las técnicas descritas en esta sección. Sin embargo, también puede supervisar el grupo en conjunto. Para más información, consulte el artículo sobre la [supervisión y administración de un grupo de bases de datos elásticas](sql-database-elastic-pool-manage-portal.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -9,17 +9,18 @@ editor:
 tags: 
 ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: dcd7aef734da26a4357d11ff3da9501f55963a00
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -50,7 +51,7 @@ En este tema, se presenta un ejemplo de código de Transact-SQL que:
 * Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Cualquier base de datos donde pueda crear una tabla.
   
-  * De manera opcional, puede [crear una base de datos de **AdventureWorksLT** de demostración](sql-database-get-started-portal.md) en cuestión de minutos.
+  * De manera opcional, puede [crear una base de datos de **AdventureWorksLT** de demostración](sql-database-get-started.md) en cuestión de minutos.
 * SQL Server Management Studio (ssms.exe), idealmente la versión de actualización mensual más reciente. 
   Puede descargar la versión más reciente de ssms.exe desde:
   
