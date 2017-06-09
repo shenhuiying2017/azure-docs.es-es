@@ -117,7 +117,7 @@ La sección **activities** puede contener una o más actividades definidas. Cada
     },
     "policy":
     {
-    }
+    },
     "scheduler":
     {
     }

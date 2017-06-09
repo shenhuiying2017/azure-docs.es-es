@@ -157,7 +157,7 @@ Todas las consultas en la tabla temporal filtran automáticamente las filas hist
 La siguiente imagen muestra el plan de consulta para una consulta simple:
 
 ````
-SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
+SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 ````
 
 El plan de consulta incluye un filtro adicional que se aplica a la columna de fin de período (ValidTo) en el operador Examen de índice clúster de la tabla de historial (resaltada). En este ejemplo se supone que se ha establecido el período de retención de 1 MES en la tabla WebsiteUserInfo.
