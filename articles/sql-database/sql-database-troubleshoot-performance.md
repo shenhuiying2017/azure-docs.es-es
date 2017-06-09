@@ -9,17 +9,18 @@ editor:
 keywords: "SQL optimización del rendimiento, base de datos optimización del rendimiento, sugerencias para la optimización del rendimiento de SQL, optimización del rendimiento de Base de datos SQL"
 ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: v-shysun
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: faf2d9632462c434c38dc9c2d65f7c9e58f801d8
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
+ms.openlocfilehash: 3bfcaf4ae29d23754a19a61f2775d1b12e3e69ba
+ms.contentlocale: es-es
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -39,6 +40,6 @@ Puede cambiar el [nivel de servicio](sql-database-service-tiers.md) de una base 
 
 ## <a name="steps-to-improve-database-performance-with-more-resources"></a>Pasos para mejorar el rendimiento de la base de datos con más recursos
 1. Para las bases de datos independientes, puede [cambiar los niveles de servicio](sql-database-service-tiers.md) a petición para mejorar el rendimiento de la base de datos.
-2. Para varias bases de datos, considere el uso de [grupos elásticos](sql-database-elastic-pool.md) para escalar recursos automáticamente.
+2. Para varias bases de datos, considere el uso de [grupos elásticos](sql-database-elastic-pool-guidance.md) para escalar recursos automáticamente.
 
 

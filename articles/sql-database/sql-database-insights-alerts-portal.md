@@ -1,23 +1,24 @@
 ---
 title: Uso de Azure Portal para crear alertas de SQL Database | Microsoft Docs
 description: "Use Azure Portal para crear alertas de SQL Database, que pueden desencadenar notificaciones o automatización cuando se cumplen las condiciones que ha especificado."
-author: aamalvea
+author: CarlRabeler
 manager: jhubbard
 editor: 
 services: sql-database
 documentationcenter: 
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: aamalvea
-translationtype: Human Translation
+ms.author: carlrab
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2679681c77dd6a3410bbe6ddbcf562924b13bfe6
 ms.openlocfilehash: afa21052281200768db24ce35a94097f23f23efe
+ms.contentlocale: es-es
 ms.lasthandoff: 11/17/2016
 
 
@@ -74,7 +75,7 @@ Una vez que haya creado una alerta, puede seleccionarla y:
 
 ## <a name="sql-database-alert-values-and-thresholds"></a>Valores y umbrales de las alertas de SQL Database
 
-| Tipo de recurso    | Nombre de métrica | Nombre descriptivo | Tipo de agregación | Ventana de tiempo mínimo de la alerta|
+| Tipo de recurso | Nombre de métrica | Nombre descriptivo | Tipo de agregación | Ventana de tiempo mínimo de la alerta|
 | --- | --- | --- | --- | --- |
 | Base de datos SQL | cpu_percent | Porcentaje de CPU | Media | 5 minutos |
 | Base de datos SQL | physical_data_read_percent | Porcentaje de E/S de datos | Media | 5 minutos |
@@ -91,7 +92,7 @@ Una vez que haya creado una alerta, puede seleccionarla y:
 | Base de datos SQL | sessions_percent | Porcentaje de sesiones | Media | 5 minutos |
 | Base de datos SQL | dtu_limit | Límite de DTU | Media | 5 minutos |
 | Base de datos SQL | dtu_used | DTU utilizada | Media | 5 minutos |
-||||||               
+||||||           
 | SQL Data Warehouse | cpu_percent | Porcentaje de CPU | Media | 10 minutos |
 | SQL Data Warehouse | physical_data_read_percent | Porcentaje de E/S de datos | Media | 10 minutos |
 | SQL Data Warehouse | storage | Tamaño total de base de datos | Máxima | 10 minutos |
@@ -102,7 +103,7 @@ Una vez que haya creado una alerta, puede seleccionarla y:
 | SQL Data Warehouse | dwu_limit | Límite de DWU | Máxima | 10 minutos |
 | SQL Data Warehouse | dwu_consumption_percent | Porcentaje de DWU | Media | 10 minutos |
 | SQL Data Warehouse | dwu_used | DWU utilizada | Media | 10 minutos |
-||||||                     
+||||||               
 | Grupo elástico | cpu_percent | Porcentaje de CPU | Media | 5 minutos |
 | Grupo elástico | physical_data_read_percent | Porcentaje de E/S de datos | Media | 5 minutos |
 | Grupo elástico | log_write_percent | Porcentaje de E/S de registro | Media | 5 minutos |

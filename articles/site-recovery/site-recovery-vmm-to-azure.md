@@ -11,7 +11,7 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-=article
+ms.topic: hero-article
 ms.date: 04/05/2017
 ms.author: raynew
 ms.translationtype: Human Translation
@@ -210,7 +210,7 @@ Especifique la cuenta de Azure Storage que se utilizará para la replicación y 
 
 2. Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage compatibles.
 
-      ![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+    ![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
 3. Si no ha creado una cuenta de almacenamiento y desea crear una con Resource Manager, haga clic en **+Cuenta de almacenamiento** para hacerlo directamente.  En la hoja **Crear cuenta de almacenamiento**, especifique el nombre, el tipo, la suscripción y la ubicación de la cuenta. La cuenta debe estar en la misma ubicación que el almacén de Recovery Services.
 
