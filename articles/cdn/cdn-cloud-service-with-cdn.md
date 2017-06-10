@@ -140,7 +140,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
    > 
 
 ## <a name="test-the-cdn-endpoint"></a>Probar el punto de conexión de CDN
-Cuando el estado de publicación sea **Completado**, abra una ventana del explorador y navegue a **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. En nuestra instalación, esta URL es:
+Cuando el estado de publicación sea **Completado** abra una ventana del explorador y navegue a **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. En nuestra instalación, esta URL es:
 
     http://camservice.azureedge.net/Content/bootstrap.css
 
@@ -148,25 +148,25 @@ Esta URL corresponde a la siguiente URL de origen en el extremo de red CDN:
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-Cuando navegue a **http://*&lt;nombrecdn>*.azureedge.net/Content/bootstrap.css**, en función del explorador que haya usado, se le solicitará que descargue o abra el archivo bootstrap.css proveniente de la aplicación web publicada.
+Cuando navegue a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** en función del explorador que haya usado, se le solicitará que descargue o abra el archivo bootstrap.css proveniente de la aplicación web publicada.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-Puede acceder de forma parecida a cualquier dirección URL de acceso público en **http://*&lt;nombreServicio>*.cloudapp.net/**, directamente desde el punto de conexión de la red CDN. Por ejemplo:
+Puede acceder de forma parecida a cualquier dirección URL de acceso público en **http://*&lt;serviceName>*.cloudapp.net/** directamente desde el punto de conexión de la red CDN. Por ejemplo:
 
 * Un archivo .js desde la ruta /Script
 * Cualquier archivo de contenido desde la ruta /Content
 * Cualquier controlador/acción
 * Si la cadena de consulta está habilitada en el extremo de red CDN, cualquier URL con cadenas de consulta
 
-De hecho, con la configuración anterior, es posible hospedar todo el servicio en la nube desde **http://*&lt;nombrecdn>*.vo.msecnd.net/**. Si se navega a** http://camservice.azureedge.net/** , el resultado de la acción se obtiene de Home/Index.
+De hecho, con la configuración anterior, es posible hospedar todo el servicio en la nube desde **http://*&lt;cdnName>*.azureedge.net/ **. Si se navega a** http://camservice.azureedge.net/** el resultado de la acción se obtiene de Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
 Esto no significa, sin embargo, que sea siempre una buena idea (o en general una buena idea) suministrar un servicio en la nube entero a través de la red CDN de Azure. Estos son algunos de los puntos a tener en cuenta:
 
 * Este enfoque requiere que el sitio entero sea público, dado que CDN de Azure no puede servir contenido privado en este momento.
-* Si por algún motivo el punto de conexión de la red CDN se desconecta, ya sea por mantenimiento programado o debido a un error del usuario, se desconecta todo el servicio en la nube, a menos que los clientes se puedan redirigir a la dirección URL de origen **http://*&lt;nombreServicio>*.cloudapp.net/**.
+* Si por algún motivo el punto de conexión de la red CDN se desconecta, ya sea por mantenimiento programado o debido a un error del usuario, se desconecta todo el servicio en la nube, a menos que los clientes se puedan redirigir a la dirección URL de origen **http://*&lt;serviceName>*.cloudapp.net/** .
 * Incluso con la configuración personalizada del control de la memoria caché (consulte [Configuración de las opciones de caché para los archivos estáticos del servicio en la nube](#caching)), un extremo de red CDN no mejora el rendimiento del contenido extremadamente dinámico. Si ha intentado cargar la página principal desde el extremo de red CDN como se ha mostrado anteriormente, tenga en cuenta que al menos tardará cinco segundos en cargarse la página principal predeterminada la primera vez, pese a ser una página bastante simple. Imagine entonces cómo sería la experiencia del cliente si esta página incluyera contenido dinámico que se debe actualizar cada minuto. Servir contenido dinámico desde un extremo de red CDN requiere una corta caducidad de la caché, lo que se traduce en errores frecuentes de la caché en el extremo de red CDN. Esto afecta al rendimiento del servicio en la nube, y frustra el propósito de una red CDN.
 
 La alternativa es determinar qué contenido servir desde CDN de Azure según el caso en el servicio en la nube. Para tal fin, ya ha visto cómo acceder a archivos de contenido individuales desde el extremo de red CDN. Le mostraremos cómo servir una acción de controlador específica a través del extremo de red CDN en [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#controller).
