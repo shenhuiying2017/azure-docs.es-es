@@ -32,11 +32,11 @@ En este artículo se explica cómo administrar los miembros de un grupo en Azure
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
 
    ![Apertura de Administración de usuarios](./media/active-directory-groups-members-azure-portal/search-user-management.png)
-3. En la hoja **Usuarios y grupos**, seleccione **Todos los grupos**.
+3. En la hoja **Usuarios y grupos** , seleccione **Todos los grupos**.
 
    ![Apertura de la hoja Grupos](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
 4. En la hoja **Usuarios y grupos - Todos los grupos** , seleccione un grupo.
-5. En la hoja **Grupo - *nombre del grupo***, seleccione **Miembros**.
+5. En la hoja **Grupo - *nombre del grupo*** , seleccione **Miembros**.
 
    ![Apertura de la hoja Miembros](./media/active-directory-groups-members-azure-portal/view-group-members.png)
 6. Para agregar miembros al grupo, en la hoja **Grupo - Miembros**, seleccione **Agregar miembros**.
