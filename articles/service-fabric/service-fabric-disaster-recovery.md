@@ -43,7 +43,7 @@ Puede visualizar el diseño del clúster en los dominios de error mediante el ma
 > 
 
 ### <a name="geographic-distribution"></a>Distribución geográfica
-Actualmente, [hay&30; regiones de Azure en todo el mundo][azure-regions], y se han anunciado varias más. Una región individual puede contener uno o varios centros de datos lógicos según la demanda y la disponibilidad de las ubicaciones adecuadas, entre otros factores. Sin embargo, tenga en cuenta que incluso en regiones que contienen varios centros de datos físicos, no existe garantía de que las máquinas virtuales del clúster se vayan a distribuir uniformemente entre esas ubicaciones físicas. De hecho, actualmente, todas las máquinas virtuales de un clúster determinado se aprovisionan dentro de un único sitio físico.
+Actualmente, [hay 30 regiones de Azure en todo el mundo][azure-regions], y se han anunciado varias más. Una región individual puede contener uno o varios centros de datos lógicos según la demanda y la disponibilidad de las ubicaciones adecuadas, entre otros factores. Sin embargo, tenga en cuenta que incluso en regiones que contienen varios centros de datos físicos, no existe garantía de que las máquinas virtuales del clúster se vayan a distribuir uniformemente entre esas ubicaciones físicas. De hecho, actualmente, todas las máquinas virtuales de un clúster determinado se aprovisionan dentro de un único sitio físico.
 
 ## <a name="dealing-with-failures"></a>Gestión de los errores
 Hay varios tipos de errores que pueden afectar al clúster, cada uno con su propia solución. Los veremos en orden de probabilidad de que ocurran.
