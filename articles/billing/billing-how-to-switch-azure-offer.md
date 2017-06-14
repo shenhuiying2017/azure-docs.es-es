@@ -13,11 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/13/2017
 ms.author: genli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9c4c872d03a3927d02d17de6cc2aae6e684f1fad
 ms.openlocfilehash: b6a1e6175833ea0cdc785b18c88b43e06a7ad57c
+ms.contentlocale: es-es
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -106,10 +108,5 @@ El mismo día que se realiza el cambio se genera una factura por todos los cargo
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si tiene más preguntas, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

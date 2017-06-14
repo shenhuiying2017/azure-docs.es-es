@@ -3,7 +3,7 @@ title: "Azure AD B2C: Protección de una API web mediante Node.js | Microsoft Do
 description: "Creación de una API web Node.js que acepta tokens de un inquilino B2C"
 services: active-directory-b2c
 documentationcenter: 
-author: xerners
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
