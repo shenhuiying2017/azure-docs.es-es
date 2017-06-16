@@ -11,12 +11,13 @@ ms.service: site-recovery
 ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.workload: required
+ms.workload: storage-backup-recovery
 ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 198caeea693fbc48b6e0eb1c9c8ee559e0553261
+ms.contentlocale: es-es
 ms.lasthandoff: 03/31/2017
 
 
@@ -33,7 +34,7 @@ En este tutorial, se explica cómo integrar runbooks de Azure Automation en plan
 
     ![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
 - - -
-1. Haga clic en el botón Personalizar para empezar a agregar runbooks. 
+1. Haga clic en el botón Personalizar para empezar a agregar runbooks.
 
     ![](media/site-recovery-runbook-automation-new/customize-rp.PNG)
 
@@ -41,10 +42,10 @@ En este tutorial, se explica cómo integrar runbooks de Azure Automation en plan
 1. Haga clic con el botón derecho en el grupo de inicio 1 y seleccione "Agregar acción posterior".
 2. Elija un script en la nueva hoja.
 3. Denomine al script "Hello World".
-4. Elija un nombre para la cuenta de automatización 
+4. Elija un nombre para la cuenta de automatización
     >[!NOTE]
     > La cuenta de Automation puede estar en cualquier ubicación geográfica de Azure, pero tiene que residir en la misma suscripción que el almacén de Site Recovery.
-    
+
 5. Seleccione un runbook de la cuenta de automatización. Dicho runbook es el script que se ejecutará durante la ejecución del plan de recuperación después de la recuperación del primer grupo.
 
     ![](media/site-recovery-runbook-automation-new/update-rp.PNG)
@@ -71,13 +72,13 @@ A continuación se muestra un ejemplo de la variable de contexto.
         "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
 
                 { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
-                
+
                 "ResourceGroupName":"ContosoRG",
-                
+
                 "CloudServiceName":"pod02hrweb-Chicago-test",
 
                 "RoleName":"Fabrikam-Hrweb-frontend-test",
-                
+
                 "RecoveryPointId":"TimeStamp"}
 
                 }
@@ -165,15 +166,15 @@ En el script, adquiera los valores de las variables mediante el siguiente códig
     $NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
     $NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
 
-    $NSGnameVar = Get-AutomationVariable -Name $NSGValue 
+    $NSGnameVar = Get-AutomationVariable -Name $NSGValue
     $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
 ```
 
 A continuación puede utilizar las variables en el runbook y aplicar el NSG a la interfaz de red de la máquina virtual conmutada por error.
 
 ```
-     InlineScript { 
-         if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
+     InlineScript {
+        if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
             $NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
             Write-output $NSG.Id
             #Apply the NSG to a network interface
@@ -213,17 +214,17 @@ Considere un escenario en el que solo desea un script que active una IP pública
 3. Si se encuentra alguna instancia del VMGUID dado en el contexto del plan virtual, utilice esta variable en el runbook y aplique el NSG en la máquina virtual.
 
     ```
-        $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName 
+        $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
     ```
 
 4. En el runbook, recorra en bucle las máquinas virtuales del contexto del plan de recuperación para comprobar si la máquina virtual también existe en **$VMDetailsObj**. En caso afirmativo, aplique el NSG, para lo que debe acceder a las propiedades de la variable.
     ```
         $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
         $vmMap = $RecoveryPlanContext.VmMap
-           
+
         foreach($VMID in $VMinfo) {
             Write-output $VMDetailsObj.value.$VMID
-            
+
             if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
                 $VM = $vmMap.$VMID
                 # Access the properties of the variable

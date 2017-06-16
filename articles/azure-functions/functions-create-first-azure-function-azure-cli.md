@@ -42,7 +42,7 @@ Antes de ejecutar este ejemplo, debe tener lo siguiente:
 
 Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla. 
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 

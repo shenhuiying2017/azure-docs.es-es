@@ -38,7 +38,7 @@ Para realizar este tutorial de inicio rápido se necesita la CLI de Azure 2.0.4 
 
 Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 

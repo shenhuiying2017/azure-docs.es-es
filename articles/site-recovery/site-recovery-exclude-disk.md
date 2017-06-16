@@ -8,7 +8,7 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -108,8 +108,8 @@ Los discos de la máquina virtual de Azure después de la conmutación por error
 
 **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | ---
-DISK0 |    C:\ | Disco del sistema operativo
-Disk1 |    E:\ | Almacenamiento temporal</br /> </br />Azure agrega este disco y asigna la primera unidad disponible.
+DISK0 | C:\ | Disco del sistema operativo
+Disk1 | E:\ | Almacenamiento temporal</br /> </br />Azure agrega este disco y asigna la primera unidad disponible.
 Disk2 | D:\ | Base de datos del sistema SQL y Database1 del usuario
 Disk3 | G:\ | Database2 del usuario
 
@@ -141,13 +141,13 @@ Hay dos maneras de crear esta ruta de acceso:
 3. Ejecute el siguiente sqlcmd para cambiar a la nueva ruta de acceso de tempdb.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;        
-        GO        
-        ALTER DATABASE tempdb        
+        USE master;     
+        GO      
+        ALTER DATABASE tempdb       
         MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO        
-        ALTER DATABASE tempdb        
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');        
+        GO      
+        ALTER DATABASE tempdb       
+        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
         GO
 
 
@@ -173,9 +173,9 @@ En el ejemplo anterior, la configuración del disco de la máquina virtual de Az
 **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 |    E:\ | Almacenamiento temporal</br /> </br />Azure agrega este disco y asigna la primera unidad disponible.
-Disk2 |    D:\ | Base de datos del sistema SQL y Database1 del usuario
-Disk3 |    G:\ | Database2 del usuario
+Disk1 | E:\ | Almacenamiento temporal</br /> </br />Azure agrega este disco y asigna la primera unidad disponible.
+Disk2 | D:\ | Base de datos del sistema SQL y Database1 del usuario
+Disk3 | G:\ | Database2 del usuario
 
 
 #### <a name="vmware-to-azure"></a>VMware en Azure
@@ -186,8 +186,8 @@ Discos de la máquina virtual de VMWare (ubicación original) después de la con
 **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 |    D:\ | Base de datos del sistema SQL y Database1 del usuario
-Disk2 |    G:\ | Database2 del usuario
+Disk1 | D:\ | Base de datos del sistema SQL y Database1 del usuario
+Disk2 | G:\ | Database2 del usuario
 
 #### <a name="hyper-v-to-azure"></a>Hyper-V en Azure
 Cuando se realiza la conmutación por recuperación en la ubicación original, la configuración del disco de la máquina virtual de conmutación por recuperación es la misma que la original del disco de la máquina virtual para Hyper-V. Los discos que se excluyeran del sitio de Hyper-V a Azure no estarán disponibles en la máquina virtual de conmutación por recuperación.
@@ -196,7 +196,7 @@ Discos de la máquina virtual de Hyper-V (ubicación original) después de la co
 
 **Nombre del disco** | **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |    C:\ | Disco del sistema operativo
+DB-Disk0-OS | DISK0 |   C:\ | Disco del sistema operativo
 DB-Disk1 | Disk1 | D:\ | Base de datos del sistema SQL y Database1 del usuario
 DB-Disk2 (disco excluido) | Disk2 | E:\ | Archivos temporales
 DB-Disk3 (disco excluido) | Disk3 | F:\ | Base de datos tempdb de SQL (ruta de acceso de carpeta): F:\MSSQL\Data\)

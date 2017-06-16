@@ -8,7 +8,7 @@ manager: gauravd
 editor: 
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -101,18 +101,18 @@ Configure Active Directory en el sitio de recuperación secundario para que SQL 
 Las instrucciones de este artículo suponen que un controlador de dominio está disponible en la ubicación secundaria. [Más información](site-recovery-active-directory.md) sobre la protección de Active Directory con Site Recovery.
 
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure"></a>Integración con SQL Server AlwaysOn para la replicación en Azure 
+## <a name="integrate-with-sql-server-always-on-for-replication-to-azure"></a>Integración con SQL Server AlwaysOn para la replicación en Azure
 
 Esto es lo que debe hacer:
 
-1. Importe scripts en su cuenta de Azure Automation. Esta cuenta contiene los scripts para conmutar por error grupos de disponibilidad de SQL en una [máquina virtual de Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) y una [máquina virtual clásica](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). 
+1. Importe scripts en su cuenta de Azure Automation. Esta cuenta contiene los scripts para conmutar por error grupos de disponibilidad de SQL en una [máquina virtual de Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) y una [máquina virtual clásica](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
     [![Implementación en Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. Agregue ASR-SQL-FailoverAG como acción previa del primer grupo del plan de recuperación.
 
-1. Siga las instrucciones disponibles en el script para crear una variable de automatización para proporcionar el nombre de los grupos de disponibilidad. 
+1. Siga las instrucciones disponibles en el script para crear una variable de automatización para proporcionar el nombre de los grupos de disponibilidad.
 
 ### <a name="steps-to-do-a-test-failover"></a>Pasos para realizar una conmutación por error de prueba
 
@@ -124,13 +124,13 @@ SQL AlwaysOn no admite de forma nativa la conmutación por error de prueba. Por 
 
     ![Restauración de datos de Azure Backup ](./media/site-recovery-sql/restore-from-backup.png)
 
-1. [Fuerce un quórum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) en la máquina virtual restaurada de la copia de seguridad. 
+1. [Fuerce un quórum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) en la máquina virtual restaurada de la copia de seguridad.
 
-1. Actualice la IP del agente de escucha a una dirección IP disponible en la red de conmutación por error de prueba. 
- 
+1. Actualice la IP del agente de escucha a una dirección IP disponible en la red de conmutación por error de prueba.
+
     ![Actualización de la dirección IP del agente de escucha](./media/site-recovery-sql/update-listener-ip.png)
 
-1. Conecte el agente de escucha. 
+1. Conecte el agente de escucha.
 
     ![Conexión del agente de escucha](./media/site-recovery-sql/bring-listener-online.png)
 
@@ -144,7 +144,7 @@ SQL AlwaysOn no admite de forma nativa la conmutación por error de prueba. Por 
 
 ### <a name="steps-to-do-a-failover"></a>Pasos para realizar una conmutación por error
 
-Una vez que ha agregado el script en el plan de recuperación y ha validado el plan de recuperación mediante una conmutación por error de prueba, puede realizar una conmutación por error del plan de recuperación. 
+Una vez que ha agregado el script en el plan de recuperación y ha validado el plan de recuperación mediante una conmutación por error de prueba, puede realizar una conmutación por error del plan de recuperación.
 
 
 ## <a name="integrate-with-sql-server-always-on-for-replication-to-a-secondary-on-premises-site"></a>Integración con SQL Server Always On para la replicación en un sitio local secundario
@@ -155,7 +155,7 @@ Si el servidor SQL Server utiliza grupos de disponibilidad para alta disponibili
 1. Cree una red virtual en el sitio secundario.
 1. Configure una conexión VPN de sitio a sitio entre la red virtual y el sitio principal.
 1. Cree una máquina virtual en el sitio de recuperación e instale SQL Server en ella.
-1. Amplíe los grupos de disponibilidad AlwaysOn existentes a la nueva VM con SQL Server. Configure esta instancia de SQL Server como una copia de réplica asincrónica. 
+1. Amplíe los grupos de disponibilidad AlwaysOn existentes a la nueva VM con SQL Server. Configure esta instancia de SQL Server como una copia de réplica asincrónica.
 1. Cree un agente de escucha del grupo de disponibilidad o actualice el agente de escucha existente para incluir la máquina virtual de réplica asincrónica.
 1. Asegúrese de que la granja de aplicaciones está configurada con el agente de escucha. Si realiza la configuración mediante el nombre del servidor de la base de datos, actualícelo para utilizar el agente de escucha para que no tenga que volver a configurar después de la conmutación por error.
 
