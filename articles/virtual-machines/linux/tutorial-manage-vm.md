@@ -48,7 +48,7 @@ az group create --name myResourceGroupVM --location eastus
 
 Se especifica el grupo de recursos al crear o modificar una máquina virtual, como se ve a lo largo de este tutorial.
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Crear una Máquina Virtual
 
 Cree la máquina virtual con el comando [az vm create](https://docs.microsoft.com/cli/azure/vm#create). 
 
@@ -58,7 +58,7 @@ Al crear una máquina virtual, están disponibles varias opciones, como la image
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Una vez creada la máquina virtual, la CLI de Azure ofrece como salida información sobre la máquina virtual. Tome nota de `publicIpAddress`; esta dirección se puede usar para acceder a la máquina virtual. 
+Una vez creada la máquina virtual, la CLI de Azure ofrece como salida información de la misma. Tome nota de `publicIpAddress`; esta dirección se puede usar para acceder a la máquina virtual. 
 
 ```azurecli
 {
@@ -97,7 +97,7 @@ Para ver una lista de las imágenes usadas con más frecuencia, use el comando [
 az vm image list --output table
 ```
 
-La salida del comando devuelve las imágenes de máquina virtual más populares en Azure.
+La salida del comando devuelve las imágenes de las máquinas virtuales más populares en Azure.
 
 ```bash
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
@@ -160,7 +160,7 @@ En la tabla siguiente se clasifican los tamaños en casos de uso.
 
 ### <a name="find-available-vm-sizes"></a>Búsqueda de los tamaños de máquina virtual disponibles
 
-Para ver una lista de tamaños de máquina virtual disponibles en una región determinada, use el comando [az vm list-sizes](/cli/azure/vm#list-sizes). 
+Para ver una lista de tamaños de máquinas virtuales disponibles en una región determinada, use el comando [az vm list-sizes](/cli/azure/vm#list-sizes). 
 
 ```azurecli
 az vm list-sizes --location eastus --output table
@@ -191,7 +191,7 @@ Salida parcial:
 
 ### <a name="create-vm-with-specific-size"></a>Creación de máquinas virtuales con un tamaño específico
 
-En el anterior ejemplo de creación de máquinas virtuales, no se proporcionó ningún tamaño, lo que conlleva el uso de un tamaño predeterminado. Se puede seleccionar un tamaño de máquina virtual al crearla con el comando [az vm create](/cli/azure/vm#create) y el argumento `--size`. 
+En el anterior ejemplo de creación de máquinas virtuales, no se proporcionó ningún tamaño, lo que conlleva el uso de un tamaño predeterminado. Se puede seleccionar un tamaño para la máquina virtual al crearla con el comando [az vm create](/cli/azure/vm#create) y el argumento `--size`. 
 
 ```azurecli
 az vm create \
@@ -235,7 +235,7 @@ Tras el cambio de tamaño, se puede iniciar la máquina virtual.
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
-## <a name="vm-power-states"></a>Estados de la máquina virtual
+## <a name="vm-power-states"></a>Estados de una máquina virtual
 
 Una máquina virtual de Azure puede tener uno de muchos estados de energía. Este estado representa el estado actual de la máquina virtual desde el punto de vista del hipervisor. 
 
@@ -251,7 +251,7 @@ Una máquina virtual de Azure puede tener uno de muchos estados de energía. Est
 | Desasignado | Indica que la máquina virtual se quitó del hipervisor pero sigue estando disponible en el plano de control. Las máquinas virtuales en el estado Desasignado no incurren cargos por procesos. |
 | - | Indica que se desconoce el estado de la máquina virtual. |
 
-### <a name="find-power-state"></a>Búsqueda del estado
+### <a name="find-power-state"></a>Búsqueda del estado de una máquina virtual
 
 Para recuperar el estado de una máquina virtual concreta, use el comando [az vm get instance-view](/cli/azure/vm#get-instance-view). Asegúrese de especificar un nombre válido para la máquina virtual y el grupo de recursos. 
 
@@ -282,13 +282,13 @@ Este comando devuelve las direcciones IP públicas y privadas de una máquina vi
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
 ```
 
-### <a name="stop-virtual-machine"></a>Detención de la máquina virtual
+### <a name="stop-virtual-machine"></a>Detener una máquina virtual
 
 ```azurecli
 az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
-### <a name="start-virtual-machine"></a>Inicio de la máquina virtual
+### <a name="start-virtual-machine"></a>Iniciar una máquina virtual
 
 ```azurecli
 az vm start --resource-group myResourceGroupVM --name myVM
@@ -308,12 +308,12 @@ En este tutorial, ha aprendido conceptos básicos sobre la creación y administr
 
 > [!div class="checklist"]
 > * Crear y conectar elementos a una máquina virtual
-> * Seleccionar y usar imágenes de máquina virtual
-> * Ver y usar tamaños de máquina virtual específicos
+> * Seleccionar y usar imágenes de máquinas virtuales
+> * Ver y usar tamaños de una máquina virtual específicos
 > * Cambiar el tamaño de una máquina virtual
 > * Ver y entender el estado de las máquinas virtuales
 
-Prosiga con el siguiente tutorial para aprender sobre los discos de máquina virtual.  
+Prosiga con el siguiente tutorial para aprender sobre los discos en máquinas virtuales de Azure.  
 
 > [!div class="nextstepaction"]
 > [Creación y administración de discos de máquinas virtuales](./tutorial-manage-disks.md)
