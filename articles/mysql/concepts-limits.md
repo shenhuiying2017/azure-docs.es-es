@@ -5,10 +5,8 @@ services: mysql
 author: jasonh
 ms.author: kamathsun
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
@@ -47,9 +45,9 @@ Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
 
 ## <a name="preview-functional-limitations"></a>Limitaciones funcionales de versión preliminar:
 ### <a name="scale-operations"></a>Operaciones de escalado:
-1.    El escalado dinámico de servidores entre niveles de servicio no se admite en este momento. Es decir, el cambio entre los niveles de servicio Básico y Estándar.
-2.    El aumento dinámico bajo demanda del almacenamiento en un servidor creado previamente no se admite en este momento.
-3.    La reducción del tamaño de almacenamiento del servidor no se admite.
+1.  El escalado dinámico de servidores entre niveles de servicio no se admite en este momento. Es decir, el cambio entre los niveles de servicio Básico y Estándar.
+2.  El aumento dinámico bajo demanda del almacenamiento en un servidor creado previamente no se admite en este momento.
+3.  La reducción del tamaño de almacenamiento del servidor no se admite.
 
 ### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor:
 - La migración automatizada entre las principales versiones del motor de base de datos no se admite en este momento.
@@ -58,8 +56,8 @@ Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
 - El movimiento dinámico de servidores creados previamente entre grupo de suscripciones y recursos no se admite en este momento.
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado:
-1.    La restauración a un nivel de servicio o unidades de proceso y tamaño de almacenamiento diferente no se admite.
-2.    La restauración a un servidor que se ha quitado no se admite en este momento.
+1.  La restauración a un nivel de servicio o unidades de proceso y tamaño de almacenamiento diferente no se admite.
+2.  La restauración a un servidor que se ha quitado no se admite en este momento.
 
 ## <a name="next-steps"></a>Pasos siguientes:
 [What’s available in each service tier](concepts-service-tiers.md)(Elementos disponibles en cada nivel de servicio)

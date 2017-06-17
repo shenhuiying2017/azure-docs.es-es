@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
+ms.contentlocale: es-es
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -30,8 +32,8 @@ A continuación se muestra cómo solicitar un abono o un reembolso en nombre de 
 
 > [!NOTE]
 > Si un cliente o distribuidor de Azure se pone en contacto con Microsoft para solicitar un reembolso o un abono, aplicaremos las mismas directivas que usamos para los servicios de Azure que ofrecemos. Si nuestras directivas indican que un abono o reembolso es pagadero, emitiremos de manera anticipada (y usted nos autorizará para que lo hagamos en su nombre) un abono o reembolso al cliente o distribuidor de Azure, según proceda. En cambio, si nuestras directivas no indican que un reembolso o abono es pagadero, instaremos al cliente o distribuidor de Azure a que se ponga en contacto con usted directamente.
-> 
-> 
+>
+>
 
   ![1_RequestRefund][1]
 
@@ -39,12 +41,12 @@ A continuación se muestra cómo solicitar un abono o un reembolso en nombre de 
 2. En el cuadro **Tipo de problema**, seleccione **Administrar clientes**.
 3. En el cuadro **Categoría**, seleccione **Aprobar o solicitar el reembolso de un cliente**.
 4. Haga clic en **Solicitud de inicio**.
-   
+
    ![2_RequestRefund][2]
 
 1. Ofrecer la información de contacto.
 2. En el cuadro **¿Cuál es el problema?** , escriba la siguiente información:
-   
+
    * Identificador de suscripción del cliente afectado
    * Nombre del cliente
    * A cuánto asciende el abono
@@ -83,8 +85,8 @@ Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro
 
 > [!NOTE]
 > Puede usar su dirección de correo electrónico o número de teléfono para realizar la comprobación.
-> 
-> 
+>
+>
 
 ![protectacct][6]
 
@@ -121,9 +123,4 @@ Para los problemas siguientes, cree una solicitud de soporte técnico en [http:/
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

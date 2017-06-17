@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/22/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
@@ -155,7 +155,7 @@ Al desactivar una topología se pone en pausa hasta que se elimine o se reactive
 
 Las topologías de Storm, una vez iniciadas, se siguen ejecutando hasta que se detengan. Para detener una topología, use el siguiente comando:
 
-    storm stop TOPOLOGYNAME
+    storm kill TOPOLOGYNAME
 
 ### <a name="rebalance"></a>Reequilibrar
 

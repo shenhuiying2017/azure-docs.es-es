@@ -5,12 +5,9 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
@@ -40,7 +37,7 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
 2. Localice su servidor de Azure Database for MySQL. En el panel izquierdo, seleccione **Todos los recursos** y seleccione el servidor en la lista.
 
-3.    En la parte superior de la hoja de información general del servidor, haga clic en **Restaurar** en la barra de herramientas. Se abre la hoja Restaurar.
+3.  En la parte superior de la hoja de información general del servidor, haga clic en **Restaurar** en la barra de herramientas. Se abre la hoja Restaurar.
 ![haga clic en el botón restaurar](./media/howto-restore-server-portal/click-restore-button.png)
 
 4. Rellene el formulario Restaurar con la información necesaria:
