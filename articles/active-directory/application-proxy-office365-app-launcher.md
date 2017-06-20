@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
 ms.openlocfilehash: 31e8e39580ed83f13fd3ffb9981221765063a0b7
+ms.contentlocale: es-es
 ms.lasthandoff: 04/21/2017
 
 
@@ -76,7 +77,7 @@ Obtenga el ObjectID de la aplicación y, a continuación, busque la aplicación 
 3. Busque la aplicación en función de su dirección URL de página principal. Puede ver la dirección URL en el portal si va a **Azure Active Directory** > **Aplicaciones empresariales** > **Todas las aplicaciones**. Este ejemplo usa *sharepoint-iddemo*.
 
     ```
-    Get-AzureADApplications | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
+    Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
     ```
 4. Debe obtener un resultado similar al que se muestra aquí. Copie el GUID de ObjectID para usarlo en la siguiente sección.
 
@@ -93,7 +94,7 @@ En el mismo módulo de PowerShell que ha usado para el paso 1, haga lo siguiente
 1. Confirme que tiene la aplicación correcta y reemplace *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* por el GUID (ObjectID) de la aplicación que copió en el paso anterior.
 
     ```
-    Get-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
+    Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
  Ahora que ha confirmado la aplicación, está preparado para actualizar la página principal como se indica a continuación.
@@ -110,17 +111,17 @@ En el mismo módulo de PowerShell que ha usado para el paso 1, haga lo siguiente
 3. Establezca la dirección URL de la página principal en el valor que quiera. El valor debe ser una ruta de acceso de subdominio de la aplicación publicada. Por ejemplo, si cambia la dirección URL de la página principal de *https://sharepoint-iddemo.msappproxy.net/* a *https://sharepoint-iddemo.msappproxy.net/hybrid/*, los usuarios de la aplicación irán directamente a la página principal personalizada.
 
     ```
-    $appnew.Homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
+    $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
     ```
 4. Realice la actualización mediante el GUID (ObjectID) que copió en el "Paso 1: busque el ObjectID de la aplicación".
 
     ```
-    Set-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 - Application $appnew
+    Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
 5. Para confirmar que el cambio fue correcto, reinicie la aplicación.
 
     ```
-    Get-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 >[!NOTE]

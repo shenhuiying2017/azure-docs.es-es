@@ -5,19 +5,20 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017,it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
 ms.openlocfilehash: 71ba44c00036b3ed45518f58fa534a1767ab8c34
+ms.contentlocale: es-es
 ms.lasthandoff: 02/28/2017
 
 ---
@@ -36,17 +37,17 @@ Para proteger una aplicación web IIS que usa la autenticación basada en formul
 4. Para detectar el nombre de usuario, la contraseña y las variables de dominio automáticamente, escriba la dirección URL de inicio de sesión (como https://localhost/contoso/auth/login.aspx) en el cuadro de diálogo Configuración automática de sitio web basado en formularios y haga clic en **Aceptar**.
 5. Active la casilla **Requerir coincidencia de usuario de Multi-Factor Authentication** si todos los usuarios se importaron o importarán al Servidor y están sujetos a la autenticación multifactor. Si aún no se importó al Servidor un número significativo de usuarios o se van a excluir de la autenticación multifactor, deje la casilla desactivada.
 6. Si no se pueden detectar automáticamente las variables de página, haga clic en **Especificar manualmente** en el cuadro de diálogo Configuración automática de sitio web basado en formularios.
-7. En el cuadro de diálogo Agregar sitio web basado en formularios, escriba la dirección URL en la página de inicio de sesión en el campo URL de envío y escriba un nombre de aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil. 
+7. En el cuadro de diálogo Agregar sitio web basado en formularios, escriba la dirección URL en la página de inicio de sesión en el campo URL de envío y escriba un nombre de aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
 8. Seleccione el formato de solicitud correcto. Esto se establece en **POST o GET** para la mayoría de las aplicaciones web.
 9. Especifique las variables de nombre de usuario, contraseña y dominio (si aparece en la página de inicio de sesión). Para buscar los nombres de los cuadros de entrada, vaya a la página de inicio de sesión en un explorador web, haga clic con el botón derecho en la página y seleccione **Ver código fuente**.
-10. Active la casilla **Requerir coincidencia de usuario de Azure Multi-Factor Authentication** si todos los usuarios se importaron o importarán al Servidor y están sujetos a la autenticación multifactor. Si aún no se importó al Servidor un número significativo de usuarios o se van a excluir de la autenticación multifactor, deje la casilla desactivada. 
+10. Active la casilla **Requerir coincidencia de usuario de Azure Multi-Factor Authentication** si todos los usuarios se importaron o importarán al Servidor y están sujetos a la autenticación multifactor. Si aún no se importó al Servidor un número significativo de usuarios o se van a excluir de la autenticación multifactor, deje la casilla desactivada.
 11. Haga clic en **Avanzada** para revisar la configuración avanzada, incluido lo siguiente:
 
   - Seleccionar un archivo de página de denegación personalizado
   - Almacenar en caché las autenticaciones correctas en el sitio web durante un período mediante las cookies.
   - Seleccionar si autenticar las credenciales principales en un dominio de Windows, directorio LDAP o servidor RADIUS.
 
-12. Haga clic en **Aceptar** para volver al cuadro de diálogo Agregar sitio web basado en formularios. 
+12. Haga clic en **Aceptar** para volver al cuadro de diálogo Agregar sitio web basado en formularios.
 13. Haga clic en **Aceptar**.
 14. Una vez detectadas o especificadas las variables de página y dirección URL, los datos del sitio web se mostrarán en el panel Basados en formularios.
 
@@ -54,11 +55,11 @@ Para proteger una aplicación web IIS que usa la autenticación basada en formul
 Para proteger una aplicación web IIS que usa la autenticación integrada HTTP de Windows, instale el Servidor Azure MFA en el servidor web IIS y configure el servidor mediante el procedimiento siguiente:
 
 1. En Servidor Azure Multi-Factor Authentication, haga clic en el icono Autenticación de IIS en el menú izquierdo.
-2. Haga clic en la pestaña **HTTP**. 
+2. Haga clic en la pestaña **HTTP**.
 3. Haga clic en **Agregar**.
 4. En el cuadro de diálogo Agregar URL base, escriba la dirección URL para el sitio web donde se realiza la autenticación HTTP (como http://localhost/owa) y proporcione un nombre de la aplicación (opcional). El nombre de la aplicación aparece en los informes de Azure Multi-Factor Authentication y puede mostrarse en los mensajes de autenticación SMS o de aplicación móvil.
 5. Ajuste el tiempo de espera de inactividad y los tiempos de sesión máximos si el valor predeterminado no es suficiente.
-6. Active la casilla **Requerir coincidencia de usuario de Multi-Factor Authentication** si todos los usuarios se importaron o importarán al Servidor y están sujetos a la autenticación multifactor. Si aún no se importó al Servidor un número significativo de usuarios o se van a excluir de la autenticación multifactor, deje la casilla desactivada. 
+6. Active la casilla **Requerir coincidencia de usuario de Multi-Factor Authentication** si todos los usuarios se importaron o importarán al Servidor y están sujetos a la autenticación multifactor. Si aún no se importó al Servidor un número significativo de usuarios o se van a excluir de la autenticación multifactor, deje la casilla desactivada.
 7. Active la casilla **Caché de cookies** si lo desea.
 8. Haga clic en **Aceptar**.
 
@@ -76,5 +77,4 @@ Las IP de confianza permiten a los usuarios omitir Azure Multi-Factor Authentica
 2. Haga clic en **Agregar**.
 3. Cuando aparezca el cuadro de diálogo Agregar IP de confianza, seleccione el botón de radio **IP única**, **Intervalo IP** o **Subred**.
 4. Escriba la dirección IP, el intervalo IP o la subred que debe estar en la lista blanca. Si especifica una subred, seleccione la máscara de red adecuada y haga clic en **Aceptar**. Se ha agregado a la lista blanca.
-
 

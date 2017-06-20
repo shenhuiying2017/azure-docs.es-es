@@ -5,20 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
 ms.openlocfilehash: 07b14394b0e07fd78d70d77aeef8a2feb17284e0
+ms.contentlocale: es-es
 ms.lasthandoff: 02/17/2017
-
 
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integración de directorios entre Servidor Azure MFA y Active Directory
@@ -95,7 +96,7 @@ Nota: Los atributos pueden especificarse manualmente y no tienen que coincidir c
 | Extensión |Escriba el nombre del atributo que contiene la extensión del número de teléfono en un registro de usuario.  El valor del campo de extensión solo se usa como extensión para el número de teléfono principal.  El valor predeterminado es en blanco. <br><br>Si no se especifica el atributo de extensión, las extensiones se pueden incluir como parte del atributo del teléfono. En este caso, anteponga a la extensión una 'x' para que se analice correctamente.  Por ejemplo, 555-123-4567 x890 sería el número de teléfono 555-123-4567 y la extensión 890. |
 | Botón Restaurar valores predeterminados |Haga clic en **Restaurar valores predeterminados** para que todos los atributos recuperen sus valores predeterminados.  Los valores predeterminados deben funcionar correctamente con el esquema normal de Active Directory o de ADAM. |
 
-Para modificar los atributos, haga clic en **Editar** en la pestaña Atributos.  Se abre una ventana en la que puede modificar los atributos. Seleccione los puntos suspensivos (**...**) que aparecen al lado de cualquier atributo para abrir una ventana, donde puede elegir qué atributos se mostrarán. 
+Para modificar los atributos, haga clic en **Editar** en la pestaña Atributos.  Se abre una ventana en la que puede modificar los atributos. Seleccione los puntos suspensivos (**...**) que aparecen al lado de cualquier atributo para abrir una ventana, donde puede elegir qué atributos se mostrarán.
 
 ![Editar atributos](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
@@ -138,5 +139,4 @@ Los botones Subir y Bajar permiten al administrador cambiar el orden de los elem
 Se pueden configurar Servidores Multi-Factor Authentication adicionales para que actúen como proxy RADIUS de copia de seguridad, proxy LDAP o para autenticación de IIS. La configuración de la sincronización se compartirá entre todos los agentes. Sin embargo, solo uno de estos agentes puede tener Servidor Multi-Factor Authentication en ejecución. Esta pestaña permite seleccionar Servidor Multi-Factor Authentication que debe habilitarse para la sincronización.
 
 ![Servidores Multi-Factor Authentication](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-
 
