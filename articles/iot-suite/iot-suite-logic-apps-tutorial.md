@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 06/16/2017
 ms.author: corywink
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
+ms.contentlocale: es-es
 ms.lasthandoff: 03/10/2017
 
 
@@ -53,7 +54,7 @@ Para comenzar, configure la aplicación lógica que se usará con la solución p
 6. Seleccione **Solicitud**. Esta acción especifica que una solicitud HTTP entrante con una carga específica con formato de JSON actúa como desencadenador.
 7. Pegue el siguiente código en el esquema de JSON del cuerpo de la solicitud:
    
-    ```
+    ```json
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "id": "/",
@@ -109,14 +110,14 @@ En esta sección, se conectará la solución preconfigurada a la aplicación ló
 
 1. Use el cliente de Git para clonar la versión más reciente del [repositorio de GitHub azure-iot-remote-monitoring][lnk-rmgithub]. Por ejemplo:
    
-    ```
+    ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
 2. En Visual Studio, abra **RemoteMonitoring.sln** de la copia local del repositorio.
 3. Abra el archivo **ActionRepository.cs** de la carpeta **Infrastructure\\Repository**.
 4. Actualice el diccionario **actionIds** con el valor de **HTTP POST a esta dirección URL** que anotó de la aplicación lógica, como se indica a continuación:
    
-    ```
+    ```csharp
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
         { "Send Message", "<Http Post to this URL>" },
@@ -132,9 +133,9 @@ En esta sección, implementará la versión actualizada de la solución de super
 2. Para efectuar la implementación localmente, siga las instrucciones de [implementación local][lnk-localdeploy].
 3. Para efectuar la implementación en la nube y actualizar la existente, siga las instrucciones de [implementación de nube][lnk-clouddeploy]. Utilice el nombre de la implementación original como el nombre de la implementación. Por ejemplo, si la original se denomina **demologicapp**, utilice el siguiente comando:
    
-   ``
+   ```cmd
    build.cmd cloud release demologicapp
-   ``
+   ```
    
    Cuando se ejecute el script de compilación, asegúrese de usar la misma cuenta, suscripción, región e instancia de Active Directory de Azure que utilizó al aprovisionar la solución.
 

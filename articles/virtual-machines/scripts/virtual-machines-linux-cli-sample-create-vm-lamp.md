@@ -30,8 +30,6 @@ En este ejemplo se crea un conjunto de escalado de máquinas virtuales y se apli
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## <a name="sample-script"></a>Script de ejemplo
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Creación del conjunto de escalado de máquinas virtuales con la pila de LAMP")]

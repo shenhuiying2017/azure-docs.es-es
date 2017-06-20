@@ -189,7 +189,7 @@ En los ejemplos usamos los siguientes valores:
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
-  -VpnType RouteBased -GatewaySku Standard
+  -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>Paso 3: Creación y configuración de TestVNet4
@@ -251,7 +251,7 @@ Una vez que haya configurado TestVNet1, cree TestVNet4. Siga los pasos a continu
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
   -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
-  -VpnType RouteBased -GatewaySku Standard
+  -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-4---create-the-connections"></a>Paso 4: Creación de las conexiones
@@ -383,7 +383,7 @@ Este paso debe realizarse en el contexto de la nueva suscripción. Es posible qu
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
-  -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
+  -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
 ### <a name="step-8---create-the-connections"></a>Paso 8: Creación de las conexiones

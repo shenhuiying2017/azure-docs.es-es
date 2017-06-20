@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/20/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
@@ -357,7 +357,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 **En la máquina de puerta de enlace:**
 
-1.    Ejecute la utilidad **Ksetup** para configurar el dominio y el servidor KDC de Kerberos.
+1.  Ejecute la utilidad **Ksetup** para configurar el dominio y el servidor KDC de Kerberos.
 
     La máquina debe configurarse como miembro de un grupo de trabajo dado que un dominio Kerberos es diferente de un dominio de Windows. Para ello, establezca el dominio Kerberos y agregue un servidor KDC de la manera siguiente: Sustituya *REALM.COM* por su dominio respectivo, según sea necesario.
 
@@ -366,7 +366,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
     **Reinicie** la máquina después de ejecutar estos 2 comandos.
 
-2.    Compruebe la configuración con el comando **Ksetup**. La salida debe ser como la siguiente:
+2.  Compruebe la configuración con el comando **Ksetup**. La salida debe ser como la siguiente:
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -380,8 +380,8 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 ### <a name="kerberos-mutual-trust"></a>Opción 2: Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos
 
 #### <a name="requirement"></a>Requisito:
-*    La máquina de puerta de enlace debe unirse a un dominio de Windows.
-*    Necesita permiso para actualizar la configuración del controlador de dominio.
+*   La máquina de puerta de enlace debe unirse a un dominio de Windows.
+*   Necesita permiso para actualizar la configuración del controlador de dominio.
 
 #### <a name="how-to-configure"></a>Configuración:
 
@@ -390,7 +390,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 **En el servidor KDC:**
 
-1.    Edite la configuración de KDC en el archivo **krb5.conf** para permitir que KDC confíe en el dominio de Windows que hace referencia a la siguiente plantilla de configuración. De forma predeterminada, la configuración está ubicada en **/etc/krb5.conf**.
+1.  Edite la configuración de KDC en el archivo **krb5.conf** para permitir que KDC confíe en el dominio de Windows que hace referencia a la siguiente plantilla de configuración. De forma predeterminada, la configuración está ubicada en **/etc/krb5.conf**.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -428,24 +428,24 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
   **Reinicie** el servicio KDC después de la configuración.
 
-2.    Prepare una entidad de seguridad llamada **krbtgt/REALM.COM@AD.COM** en el servidor KDC con el siguiente comando:
+2.  Prepare una entidad de seguridad llamada **krbtgt/REALM.COM@AD.COM** en el servidor KDC con el siguiente comando:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.    En el archivo de configuración de servicio de HDFS **hadoop.security.auth_to_local**, agregue `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3.  En el archivo de configuración de servicio de HDFS **hadoop.security.auth_to_local**, agregue `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
 **En el controlador de dominio:**
 
-1.    Ejecute los siguientes comandos **Ksetup** para agregar una entrada de dominio:
+1.  Ejecute los siguientes comandos **Ksetup** para agregar una entrada de dominio:
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.    Establezca la confianza entre el dominio de Windows y el dominio Kerberos. [contraseña] es la contraseña de la entidad de seguridad  **krbtgt/REALM.COM@AD.COM**.
+2.  Establezca la confianza entre el dominio de Windows y el dominio Kerberos. [contraseña] es la contraseña de la entidad de seguridad  **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
-3.    Seleccione el algoritmo de cifrado usado en Kerberos.
+3.  Seleccione el algoritmo de cifrado usado en Kerberos.
 
     1. Vaya a Administrador de servidores > Administración de directivas de grupo > Dominio > Objetos de directiva de grupo > Default or Active Domain Policy (Directiva de dominio predeterminada o activa) y haga clic en Editar.
 
@@ -459,7 +459,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
                 C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.    Cree la asignación entre la cuenta de dominio y la entidad de seguridad de Kerberos, a fin de usar la entidad de seguridad de Kerberos en el dominio de Windows.
+4.  Cree la asignación entre la cuenta de dominio y la entidad de seguridad de Kerberos, a fin de usar la entidad de seguridad de Kerberos en el dominio de Windows.
 
     1. Inicie las herramientas administrativas > **Usuarios y equipos de Active Directory**.
 

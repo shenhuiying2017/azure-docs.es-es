@@ -23,7 +23,7 @@ ms.lasthandoff: 05/16/2017
 
 ---
 
-# <a name="implement-oracle-data-guard-on-azure-linux-vm"></a>Implementación de Oracle Data Guard en máquinas virtuales Linux de Azure
+# <a name="implement-oracle-data-guard-on-azure-linux-vm"></a>Implementación de Oracle Data Guard en máquinas virtuales Linux de Azure 
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía se detalla el uso de la CLI de Azure para la implementación de la base de datos de Oracle 12C desde la imagen de la galería de Marketplace. Una vez creada la base de datos de Oracle, este documento muestra paso a paso cómo instalar y configurar Data Guard en máquinas virtuales de Azure.
 
