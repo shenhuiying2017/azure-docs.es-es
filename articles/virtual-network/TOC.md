@@ -40,12 +40,7 @@
 #### [PowerShell (clásico)](virtual-network-create-udr-classic-ps.md)
 #### [CLI (clásico)](virtual-network-create-udr-classic-cli.md)
 
-### Emparejamiento de redes virtuales de Azure
-#### [Portal](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Plantilla](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-### [Direcciones IP públicas](virtual-network-public-ip-address.md)
+### [Emparejamiento de redes virtuales](virtual-network-create-peering.md)
 
 ### Máquinas virtuales
 #### Creación de una máquina virtual con una dirección IP pública estática
@@ -118,6 +113,7 @@
 #### [Adición, cambio o eliminación de direcciones IP](virtual-network-network-interface-addresses.md)
 ### Máquinas virtuales
 #### [Movimiento de VM a una subred diferente](virtual-networks-move-vm-role-to-subnet.md)
+### [Direcciones IP públicas](virtual-network-public-ip-address.md)
 
 ## Solución de problemas
 ### Grupos de seguridad de red

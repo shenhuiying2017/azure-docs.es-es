@@ -200,13 +200,13 @@
 #### [Eliminar](service-fabric-cluster-delete.md)
 
 ### Clústeres independientes
-#### [Contenido del paquete independiente](service-fabric-cluster-standalone-package-contents.md)
 #### [Planeación y preparación para la implementación](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Crear
 ##### [Creación local](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Creación en máquinas virtuales de Azure](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [Protección con certificados](service-fabric-windows-cluster-x509-security.md)  
 ##### [Protección mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md)
+##### [Contenido del paquete independiente](service-fabric-cluster-standalone-package-contents.md)
 #### [Escala](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Establecer control de acceso](service-fabric-cluster-security-roles.md)
 #### [Configuración](service-fabric-cluster-manifest.md)
@@ -232,8 +232,6 @@
 #### [Equilibrado de un clúster](service-fabric-cluster-resource-manager-balancing.md)
 #### [Limitaciones](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Movimiento de servicio](service-fabric-cluster-resource-manager-movement-cost.md)
-
-### [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md)
 
 ## Supervisión y diagnóstico
 ### [Aplicaciones de supervisión y diagnóstico](service-fabric-diagnostics-overview.md)
@@ -261,8 +259,9 @@
 # Referencia
 ## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
-## [API de Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [CLI de Azure](/cli/azure/sf)
+## [API de Java](/java/api/overview/azure/servicefabric)
+## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 
 # Recursos
