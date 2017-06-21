@@ -3,7 +3,7 @@ title: "Descripción del flujo de código de autorización de OAuth 2.0 en Azure
 description: "En este artículo se describe cómo utilizar mensajes HTTP para autorizar el acceso a aplicaciones y API web en su inquilino con Azure Active Directory y OAuth 2.0."
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: priyamo
+ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08

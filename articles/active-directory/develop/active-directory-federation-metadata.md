@@ -3,7 +3,7 @@ title: "Metadatos de federación de Azure AD | Microsoft Docs"
 description: "En este artículo se describe el documento de metadatos de federación que Azure Active Directory publica para los servicios que aceptan tokens de este directorio."
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: priyamo
+ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e

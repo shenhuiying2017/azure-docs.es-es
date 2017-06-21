@@ -3,7 +3,7 @@ title: "Procedimiento para crear una aplicación que pueda iniciar sesión cualq
 description: "Instrucciones paso a paso para crear una aplicación que pueda iniciar la sesión de un usuario desde cualquier inquilino de Azure Active Directory, lo que se conoce también como aplicación multiempresa."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2017
-ms.author: skwan;bryanla
+ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a

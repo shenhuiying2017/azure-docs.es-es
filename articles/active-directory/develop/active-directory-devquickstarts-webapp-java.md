@@ -3,7 +3,7 @@ title: "Introducción a las aplicaciones web de Java con Azure AD | Microsoft Do
 description: "Cree una aplicación web de Java que permita a los usuarios iniciar sesión con una cuenta profesional o académica."
 services: active-directory
 documentationcenter: java
-author: brandwe
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: brandwe
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228

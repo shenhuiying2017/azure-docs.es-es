@@ -3,7 +3,7 @@ title: "Aplicación para Android de la versión 2.0 de Azure Active Directory | 
 description: "Procedimiento para compilar una aplicación Android con la que los usuarios pueden iniciar sesión utilizando tanto su cuenta personal de Microsoft y sus cuentas profesionales o educativas, además de realizar llamadas a la API Graph mediante bibliotecas de terceros."
 services: active-directory
 documentationcenter: 
-author: brandwe
+author: danieldobalian
 manager: mbaldwin
 editor: 
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: brandwe
+ms.author: dadobali
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6

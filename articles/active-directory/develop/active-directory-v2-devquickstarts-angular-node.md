@@ -3,7 +3,7 @@ title: "Introducción a la aplicación de página única de AngularJS de NodeJS 
 description: "Cómo crear una aplicación de una página Angular JS que inicia la sesión de los usuarios tanto con cuentas de Microsoft personales como educativas o profesionales."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b

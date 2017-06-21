@@ -3,7 +3,7 @@ title: "Guía de inicio rápido de la API de Azure AD Graph | Microsoft Docs"
 description: "La API Graph de Azure Active Directory proporciona acceso mediante programación a Azure AD a través de los extremos de la API de REST OData. Las aplicaciones pueden usar la API Graph para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio."
 services: active-directory
 documentationcenter: n/a
-author: PatAltimore
+author: viv-liu
 manager: mbaldwin
 editor: 
 tags: 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
-ms.author: patricka
+ms.author: viviali
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f

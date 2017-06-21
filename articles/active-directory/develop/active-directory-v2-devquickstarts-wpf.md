@@ -3,7 +3,7 @@ title: "Aplicación nativa .NET v2.0 de Azure Active Directory | Microsoft Azure
 description: "Cómo crear una aplicación nativa .NET con la que los usuarios pueden iniciar sesión utilizando tanto la cuenta personal de Microsoft como sus cuentas profesionales o educativas."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 46d81e09-bad0-44ce-9026-881805976e72
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/30/2016
-ms.author: dastrock; vittorib
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
