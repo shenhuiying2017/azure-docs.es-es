@@ -9,7 +9,7 @@
 | Tamaño máximo de un blob en bloques |50 000 X 100 MB (4,75 TB aproximadamente) |
 | Tamaño máximo de un bloque en un blob en anexos |4 MB |
 | Tamaño máximo de un blob en anexos |50 000 x 4 MB (195 GB aproximadamente) |
-| Tamaño máximo de un blob en páginas |1 TB |
+| Tamaño máximo de un blob en páginas |8 TB |
 | Tamaño máximo de una entidad de tabla |1 MB |
 | Número máximo de propiedades de una entidad de tabla |252 |
 | Tamaño máximo de un mensaje de una cola |64 KB |

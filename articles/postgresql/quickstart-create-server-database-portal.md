@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/19/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c67ada15c11b81021ff5e6f6e5edc5cb530ece98
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -59,7 +59,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
 7.  En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.
  ![Azure Database for PostgreSQL: consulta de las notificaciones](./media/quickstart-create-database-portal/3-notifications.png)
    
-  De forma predeterminada, la base de datos de **postgres** se crea en el servidor. La base de datos de [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) es una base de datos predeterminada para que la usen los usuarios, las utilidades y aplicaciones de otros fabricantes. 
+  De forma predeterminada, la base de datos de **postgres** se crea en el servidor. La base de datos [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) es una base de datos predeterminada pensada para que la usen los usuarios, las utilidades y aplicaciones de otros fabricantes. 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configuración de una regla de firewall de nivel de servidor
 
@@ -127,7 +127,7 @@ CREATE DATABASE mypgsqldb;
 ## <a name="connect-to-postgresql-database-using-pgadmin"></a>Conexión a la base de datos de PostgreSQL mediante pgAdmin
 
 Para conectarse al servidor Azure PostgreSQL mediante la herramienta _pgAdmin_ de la GUI:
-1.  Lance la aplicación _pgAdmin_ en el equipo cliente. Puede instalar _pgAdmin_ desde http://www.pgadmin.org/.
+1.  Inicie la aplicación _pgAdmin_ en el equipo cliente. Puede instalar _pgAdmin_ desde http://www.pgadmin.org/.
 2.  Elija **Add New Server** (Agregar nuevo servidor) en el menú **Quick Links** (Vínculos rápidos).
 3.  En el cuadro de diálogo **Create - Server** (Crear: servidor) de la pestaña **General**, escriba un nombre descriptivo único para el servidor, como **Azure PostgreSQL Server**.
 ![Herramienta pgAdmin: crear servidor](./media/quickstart-create-database-portal/9-pgadmin-create-server.png)
@@ -145,13 +145,13 @@ Para conectarse al servidor Azure PostgreSQL mediante la herramienta _pgAdmin_ d
     - **SSL Mode** (Modo SSL): obligatorio
         - De forma predeterminada, todos los servidores de Azure PostgreSQL se crean para que se EXIJA SSL. Para DESACTIVAR la obligación de SSL, consulte los detalles de la sección sobre la [obligación de SSL](./concepts-ssl-connection-security.md).
 5.  Haga clic en **Guardar**.
-6.  En el panel izquierdo del explorador, expanda **Server Groups** (Grupos de servidores). Elija el servidor **Azure PostgreSQL Server**.
+6.  En el panel izquierdo del explorador, expanda **Grupos de servidores**. Seleccione su **servidor Azure PostgreSQL**.
 7.  Elija el **Server** (Servidor) al que se ha conectado y sus **Databases** (Bases de datos). 
-8.  Haga doble clic con el botón derecho en **Databases** (Bases de datos) para crear una base de datos.
-9.  Elija el nombre de base de datos **mypgsqldb** y su propietario **mylogin** (inicio de sesión de administrador del servidor).
+8.  Haga clic con el botón derecho en **Bases de datos** para crear una base de datos.
+9.  Elija el nombre de base de datos **mypgsqldb** y su propietario como valor **mylogin** para el inicio de sesión de administrador de servidor.
 10. Haga clic en **Save** (Guardar) para crear una base de datos vacía.
 11. En **Browser** (Explorador), expanda **Servers** (Servidores). Expanda el servidor que ha creado y su base de datos **mypgsqldb**.
- ![pgAdmin: creación de la base de datos](./media/quickstart-create-database-portal/11-pgadmin-database.png)
+ ![pgAdmin: Crear base de datos](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
@@ -169,6 +169,6 @@ Si solo desea eliminar el servidor recién creado:
 3.  Confirme el nombre del servidor que desea eliminar y observe si sus bases de datos están incluidas. Escriba **mypgserver-20170401** en el cuadro de texto y haga clic en Delete (Eliminar).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Migración de la base de datos mediante [exportación e importación](./howto-migrate-using-export-and-import.md) o [abandono y restauración](./howto-migrate-using-dump-and-restore.md).
-- Para crear el servidor de Azure Database for PostgreSQL con la CLI de Azure, consulte el artículo sobre la [Creación de un servidor PostgreSQL con la CLI](./quickstart-create-server-database-azure-cli.md).
-- Para información técnica, consulte el artículo [Acerca del servicio Azure Database for PostgreSQL](./overview.md).
+> [!div class="nextstepaction"]
+> [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)
+

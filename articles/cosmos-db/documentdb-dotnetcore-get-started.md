@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cb0ff55a6d09ce52a7633316bc03aa3e25ff9b17
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: d2d2892cf7704078c4ee21cbdf33dd4f1cf86316
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -209,7 +209,7 @@ Presione el botón **DocumentDBGettingStarted** para ejecutar la aplicación.
 
 ## <a id="CreateColl"></a>Paso 5: Creación de una colección
 > [!WARNING]
-> **CreateDocumentCollectionAsync** creará una nueva colección con un rendimiento reservado, lo que tiene implicaciones en los precios. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/documentdb/).
+> **CreateDocumentCollectionAsync** creará una nueva colección con un rendimiento reservado, lo que tiene implicaciones en los precios. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 Una [colección](documentdb-resources.md#collections) puede crearse mediante el método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) de la clase **DocumentClient**. Una colección es un contenedor de documentos JSON asociado a la lógica de aplicación de JavaScript.
 

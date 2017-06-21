@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 0b82a0c4e140d2084d7570f8c7eab1f809f15d9d
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: a05c878f876eadc5160ef9765f764595cade76a9
 ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -28,10 +28,10 @@ ms.lasthandoff: 05/23/2017
 En este artículo se explica cómo crear una conexión de VPN Gateway entre redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y usan la CLI de Azure. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Resource Manager - CLI de Azure](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Clásico - Azure Portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Portal de Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [CLI de Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Portal de Azure clásico](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Conexión de diferentes modelos de implementación - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Conexión de diferentes modelos de implementación - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -146,7 +146,7 @@ En los ejemplos usamos los siguientes valores:
 7. Cree la puerta de enlace de red virtual para TestVNet1. Las configuraciones VNet a VNet requieren un VpnType RouteBased. Si este comando se ejecuta con el parámetro '--no-wait', no se verán los comentarios o resultados. El parámetro "--no-wait" permite que la puerta de enlace se cree en segundo plano. No significa que se termine de crear la puerta de enlace de VPN de inmediato. Se suelen tardar 45 minutos o más en crear una puerta de enlace, según la SKU de puerta de enlace que se use.
 
   ```azurecli
-  az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
 ### <a name="TestVNet4"></a>Paso 3: Creación y configuración de TestVNet4
@@ -181,7 +181,7 @@ En los ejemplos usamos los siguientes valores:
 6. Cree la puerta de enlace de la red virtual TestVNet4.
 
   ```azurecli
-  az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
 ### <a name="step-4---create-the-connections"></a>Paso 4: Creación de las conexiones
@@ -318,10 +318,10 @@ Este paso debe realizarse en el contexto de la nueva suscripción, Suscripción 
 6. Creación de la puerta de enlace de TestVNet5
 
   ```azurecli
-  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-6---create-the-connections"></a>Paso 6: Creación de las conexiones
+### <a name="step-8---create-the-connections"></a>Paso 8: Creación de las conexiones
 
 Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]** y **[Suscripción 5]** porque las puertas de enlace están en suscripciones diferentes. Para cambiar entre suscripciones, use "az account list --all" para obtener una lista de las suscripciones disponibles para su cuenta y después use "az account set --subscription <subscriptionID>" para cambiar a la suscripción que desea usar.
 
@@ -371,3 +371,4 @@ Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]**
 
 * Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Para más información, consulte la [documentación sobre máquinas virtuales](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md).
+

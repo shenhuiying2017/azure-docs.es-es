@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: d28468adbfeb8af5b9c0a126c7cf337c428ad8ca
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 6d5572a2fa7a89d51ec62e3ae05bdc9939ca3a24
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -29,9 +29,9 @@ ms.lasthandoff: 05/25/2017
 En este artículo se muestra cómo se crea una red virtual con una conexión de punto a sitio en el modelo de implementación de Resource Manager desde PowerShell. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Clásico - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Portal de Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+> * [Portal de Azure clásico](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 >
 
@@ -192,7 +192,7 @@ Configure y cree la puerta de enlace de red virtual para la red virtual.
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 `
 -VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
 ```
 

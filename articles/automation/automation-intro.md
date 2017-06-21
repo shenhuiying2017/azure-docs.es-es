@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
-ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.contentlocale: es-es
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +52,7 @@ Puede [crear sus propios runbooks](automation-creating-importing-runbook.md) des
 [DSC de Automatización de Azure](automation-dsc-overview.md) es una solución basada en la nube para DSC de PowerShell que proporciona los servicios necesarios para los entornos empresariales.  Puede administrar los recursos de DSC en Automatización de Azure y aplicar las configuraciones a las máquinas virtuales o físicas que los recuperan desde un servidor de extracción DSC en la nube de Azure.  También proporciona servicios de informes que le informan de eventos importantes, como cuando se desvían los nodos de su configuración asignada y cuando se ha aplicado una nueva configuración. 
 
 ## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Creación de sus propias configuraciones DSC con Automatización de Azure
-[Configuraciones DSC](automation-dsc-overview.md#azure-automation-dsc-terms) especifican el estado deseado de un nodo.  Varios nodos pueden aplicar la misma configuración para garantizar que todos mantienen el mismo estado.  Puede crear una configuración con cualquier texto editor en el equipo local y, después, importarla en Automatización de Azure donde la puede compilar y aplicar los nodos.
+[Configuraciones DSC](automation-dsc-overview.md) especifican el estado deseado de un nodo.  Varios nodos pueden aplicar la misma configuración para garantizar que todos mantienen el mismo estado.  Puede crear una configuración con cualquier texto editor en el equipo local y, después, importarla en Automatización de Azure donde la puede compilar y aplicar los nodos.
 
 ## <a name="getting-modules-and-configurations"></a>Obtención de módulos y configuraciones
 Puede obtener [módulos de PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery) con cmdlets que puede usar en sus runbooks y configuraciones DSC en la [Galería de PowerShell](http://www.powershellgallery.com/). Puede iniciar esta galería desde el Portal de Azure e importar los módulos directamente en Automatización de Azure o puede descargarlos e importarlos de forma manual. No puede instalar los módulos directamente desde el Portal de Azure, pero puede descargarlos e instalarlos como cualquier otro módulo. 
@@ -83,10 +85,5 @@ Hay una amplia gama de recursos disponibles para obtener más información sobre
 
 ## <a name="can-i-provide-feedback"></a>¿Puedo proporcionar comentarios?
 **Envíenos sus comentarios** Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). Gracias. 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -25,9 +25,9 @@ Los dominios de error definen un grupo de máquinas virtuales que comparten un o
    ![Dibujo conceptual de la configuración del dominio de actualización y de error](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad
-Si actualmente está usando máquinas virtuales con discos no administrados, es muy recomendable [convertir las máquinas virtuales del conjunto de disponibilidad para que usen Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
+Si actualmente está usando máquinas virtuales con discos no administrados, es muy recomendable [convertir las máquinas virtuales del conjunto de disponibilidad para que usen Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-[Managed Disks](../articles/storage/storage-managed-disks-overview.md) proporciona una mayor confiabilidad para los conjuntos de disponibilidad, ya que garantiza que los discos de las máquinas virtuales de un conjunto de disponibilidad están suficientemente aislados entre sí para evitar puntos únicos de error. Para hacerlo, coloca automáticamente los discos en diferentes clústeres de almacenamiento. Si se produce un error en un clúster de almacenamiento debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichos sellos. 
+[Managed Disks](../articles/storage/storage-managed-disks-overview.md) proporciona una mayor confiabilidad para los conjuntos de disponibilidad, ya que garantiza que los discos de las máquinas virtuales de un conjunto de disponibilidad están suficientemente aislados entre sí para evitar puntos únicos de error. Para hacerlo, coloca automáticamente los discos en diferentes clústeres de almacenamiento. Si se produce un error en un clúster de almacenamiento debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichos sellos.
 
 ![Dominios de error de disco administrado](./media/virtual-machines-common-manage-availability/md-fd.png)
 
@@ -36,7 +36,7 @@ Si actualmente está usando máquinas virtuales con discos no administrados, es 
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-Si tiene previsto usar máquinas virtuales con [discos no administrados](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks), siga los procedimientos recomendados que aparecen a continuación para las cuentas de almacenamiento donde se almacenan los discos duros virtuales (VHD) de las máquinas virtuales como [blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs). 
+Si tiene previsto usar máquinas virtuales con [discos no administrados](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks), siga los procedimientos recomendados que aparecen a continuación para las cuentas de almacenamiento donde se almacenan los discos duros virtuales (VHD) de las máquinas virtuales como [blobs en páginas](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Mantenga todos los discos (sistema operativo y datos) asociados a una máquina virtual en la misma cuenta de almacenamiento.**
 2. **Revise los [límites](../articles/storage/storage-scalability-targets.md) en el número de discos no administrados de una cuenta de almacenamiento** antes de agregar más discos duros virtuales a esta
@@ -62,4 +62,3 @@ Si el equilibrador de carga no está configurado para equilibrar el tráfico ent
 [Combinación de un equilibrador de carga con conjuntos de disponibilidad]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad]: #use-managed-disks-for-vms-in-an-availability-set
-

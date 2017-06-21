@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: 5a5085416bff96c37fcde8a25deffe7dbd8f70d6
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: bc0c8ccad64166582dcb3f7162280a8772abc6b3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 06/21/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introducción a los registros de contenedores privados de Docker
@@ -40,7 +40,7 @@ Para más información sobre Docker y los contenedores, consulte:
 Extraiga imágenes desde un registro de contenedor de Azure a varios destinos de implementación:
 
 * **Sistemas escalables de orquestación** que administran aplicaciones en contenedores a través de clústeres de hosts, incluidos [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) y [Kubernetes](http://kubernetes.io/docs/).
-* **Servicios de Azure** que admiten la creación y ejecución de aplicaciones a escala, entre los que se incluyen [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) y otros más.
+* **Servicios de Azure** que admiten la creación y ejecución de aplicaciones a escala, entre los que se incluyen [Container Service](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) y otros más.
 
 Los desarrolladores también pueden insertar en un registro de contenedor como parte de un flujo de trabajo de desarrollo de contenedor. Por ejemplo, puede dirigir un registro de contenedor desde una herramienta de desarrollo e integración continua como [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) o [Jenkins](https://jenkins.io/).
 

@@ -43,5 +43,5 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Certificados raíz de punto a sitio por puerta de enlace de VPN |20 |20 | |
 | Configuraciones de IP secundarias por red virtual |1000 |póngase en contacto con el soporte técnico |
 
-Si necesita que los límites sean superiores a lo establecido de manera predeterminada, [póngase en contacto con el soporte técnico](../articles/azure-supportability/how-to-create-azure-support-request.md).
+Si necesita que los límites sean superiores a lo establecido de manera predeterminada, [póngase en contacto con el soporte técnico](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

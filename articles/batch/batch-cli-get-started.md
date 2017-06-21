@@ -16,10 +16,10 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 079632f304112e1034abbd7385506292f10e128d
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/15/2017
 
 La CLI 2.0 de Azure es la nueva experiencia de línea de comandos de Azure para administrar recursos de Azure. Se puede usar en macOS, Linux y Windows. La CLI de Azure 2.0 está optimizada para administrar recursos de Azure desde la línea de comandos. Puede usarla para administrar cuentas de Azure Batch y administrar recursos, como grupos, trabajos y tareas. Con la CLI de Azure, puede realizar mediante scripts muchas de las mismas tareas que lleva a cabo con las API de Batch, Azure Portal y los cmdlets PowerShell de Batch.
 
-En este artículo se proporciona una introducción al uso de la [CLI de Azure versión 2.0](https://docs.microsoft.com/cli/azure/overview) con Batch. Consulte [Introducción a la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md) para información general sobre el uso de la CLI con Azure.
+En este artículo se proporciona una introducción al uso de la [CLI de Azure versión 2.0](https://docs.microsoft.com/cli/azure/overview) con Batch. Consulte [Introducción a la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) para información general sobre el uso de la CLI con Azure.
 
 Microsoft recomienda usar la versión más reciente de la CLI de Azure, la versión 2.0. Para más información acerca de la versión 2.0, consulte [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/) (La línea de comandos de Azure 2.0 está ahora disponible con carácter general).
 
