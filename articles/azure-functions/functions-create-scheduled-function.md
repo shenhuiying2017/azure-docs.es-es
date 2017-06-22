@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 1478a2eedad496d3113fef28920d10859d11b1ce
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: f35f693131bd1f4f47b161afb0a4f38d4f00bbd6
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -47,18 +47,20 @@ Después, cree una función en la nueva Function App.
 
 ## <a name="create-a-timer-triggered-function"></a>Creación de una función desencadenada por un temporizador
 
-1. Expanda la Function App, haga clic en el botón **+** situado junto a **Funciones** y haga clic en la plantilla **TimerTrigger** para el idioma que quiera. Después, use la configuración especificada en la tabla y haga clic en **Crear**.
+1. Expanda la Function App, haga clic en el botón **+** situado junto a **Funciones** y haga clic en la plantilla **TimerTrigger** para el idioma que quiera. Luego, use la configuración que se especifica en la tabla:
 
-| Configuración | Valor sugerido | Descripción |
-|---|---|---|
-| **Asigne un nombre a la función** | TimerTriggerCSharp1 | Define el nombre de la función desencadenada por el temporizador. |
-| **[Programación](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | [Expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) de seis campos que programa la función para que se ejecute cada minuto. |
+    ![Creación de una función desencadenada mediante un temporizador en Azure Portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 
-Se crea una función en el lenguaje elegido que se ejecuta cada minuto.
+    | Configuración | Valor sugerido | Descripción |
+    |---|---|---|
+    | **Asigne un nombre a la función** | TimerTriggerCSharp1 | Define el nombre de la función desencadenada por el temporizador. |
+    | **[Programación](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | [Expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) de seis campos que programa la función para que se ejecute cada minuto. |
 
-1. Vea la información de seguimiento que se escribe en los registros para comprobar la ejecución.
+2. Haga clic en **Crear**. Se crea una función en el lenguaje elegido que se ejecuta cada minuto.
 
-![Visor de registros de las funciones en Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+3. Vea la información de seguimiento que se escribe en los registros para comprobar la ejecución.
+
+    ![Visor de registros de las funciones en Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
 Ahora puede cambiar la programación de la función para que se ejecute con menos frecuencia, por ejemplo, una vez cada hora. 
 

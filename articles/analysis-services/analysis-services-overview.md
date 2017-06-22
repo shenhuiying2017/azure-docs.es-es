@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 89c19e9b64fc4e1fea68c717fd5f5e0e054ac10c
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cc85ae1c6642e763e57327c151ec68845f7673f7
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -55,11 +55,9 @@ Azure Analysis Services admite modelos tabulares en los niveles de compatibilida
 ## <a name="data-sources"></a>Orígenes de datos
 Los modelos de datos implementados en servidores de Azure permiten conectarse a datos orígenes locales en su organización o en la nube. Combine datos de orígenes de datos tanto locales como en la nube para crear una solución de BI híbrida.
 
-![Orígenes de datos](./media/analysis-services-overview/aas-overview-data-sources.png)
+Como el servidor está en la nube, la conexión a los orígenes de datos en la nube se realiza sin problemas. Al conectarse a orígenes de datos locales, la [puerta de enlace de datos local](analysis-services-gateway.md) garantiza conexiones rápidas y seguras con su servidor en la nube.
 
-Como el servidor está en la nube, la conexión a los orígenes de datos en la nube se realiza sin problemas. Al conectarse a orígenes de datos locales, la [puerta de enlace de datos local](analysis-services-gateway.md) garantiza conexiones rápidas y seguras con el servidor de Analysis Services en la nube.
-
-\* Solo modelos tabulares 1400.
+Para más información acerca de qué orígenes de datos locales, consulte [Conexiones a origen de datos](analysis-services-datasource.md).
 
 
 ## <a name="explore-your-data-from-anywhere"></a>Exploración de los datos desde cualquier lugar

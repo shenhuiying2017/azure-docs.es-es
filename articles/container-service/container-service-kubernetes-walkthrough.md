@@ -18,10 +18,10 @@ ms.date: 05/08/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2ec155129374c03ba7e0ecaa5d2bf29a1d3111aa
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 0604a85192ed632b621113b98cc44172c584ea01
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -78,7 +78,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 Tras varios minutos, el comando se completa y debe tener un clúster de Kubernetes en funcionamiento.
 
 > [!IMPORTANT]
-> Si su cuenta no tiene permisos para crear la entidad de servicio de Azure AD, el comando genera un error similar a `Insufficient privileges to complete the operation.`. Para más información, consulte [Acerca de la entidad de servicio para un clúster de Kubernetes](container-service-kubernetes-service-principal.md).
+> Si su cuenta no tiene los permisos necesarios para crear la entidad de servicio de Azure AD, el comando genera un error similar a **Privilegios insuficientes para completar la operación**. Para más información, consulte [About the Azure Active Directory service principal for a Kubernetes cluster in Azure Container Service](container-service-kubernetes-service-principal.md) (Acerca de la entidad de servicio de Azure Active Directory para un clúster de Kubernetes de Azure Container Service).
 > 
 
 

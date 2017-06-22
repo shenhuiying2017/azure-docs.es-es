@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 1249d7ac42bec02227d47500fe3aabb601a36f88
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="create-your-first-java-web-app-in-azure-in-five-minutes"></a>Creación de su primera aplicación web de Java en Azure en cinco minutos
@@ -30,7 +30,7 @@ Este tutorial de inicio rápido le ayuda a implementar su primera aplicación we
 
 ![Navegación a la aplicación web](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
 Este tutorial muestra cómo utilizar el IDE de Eclipse para desarrolladores de Java EE para compilar e implementar una aplicación web de Java en Azure. Si aún no se ha instalado Eclipse, puede descargarlo gratuitamente desde http://www.eclipse.org/.
 
@@ -82,7 +82,7 @@ Guarde los cambios en la página.
 
 Para implementar la aplicación web en Azure, puede aprovecharse de las ventajas proporcionadas por el kit de herramientas de Azure para Eclipse.
 
-Para empezar el proceso de publicación, use alguno de los métodos siguientes:
+Para comenzar el proceso de publicación, use uno de los métodos siguientes:
 
 * Haga clic con el botón derecho en el proyecto en el **Explorador de proyectos** de Eclipse, luego, haga clic en **Azure**y, finalmente, haga clic en **Publicar en Azure Web App**.
 
@@ -143,7 +143,7 @@ Por último, haga clic en la pestaña **JDK**. Hay varias opciones que permiten 
 
 ![Creación de un plan de App Service](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
 
-El kit de herramientas de Azure empezará a crear una nueva instancia de App Service y mostrará un cuadro de diálogo de progreso mientras se está procesando.
+El kit de herramientas de Azure empieza a crear una nueva instancia de App Service y muestra un cuadro de diálogo de progreso durante el proceso.
 
 ![Barra de progreso del cuadro de diálogo Crear servicio de aplicaciones](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
@@ -155,7 +155,7 @@ Cuando haya terminado con todos los pasos anteriores, haga clic en **Implementar
 
 ![Implementar aplicación web en Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
 
-¡Enhorabuena! Ha implementado correctamente la aplicación web en Azure. Ahora ya puede obtener una vista previa de la aplicación web en el sitio web de Azure:
+¡Enhorabuena! Ha implementado correctamente la aplicación web en Azure. Ya puede ver la aplicación web en el sitio web de Azure:
 
 ![Navegación a la aplicación web](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 05/05/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 84f9677daebe13f54a54802b1b16cc6487a0b845
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -344,18 +344,24 @@ Normalmente, se utiliza un enfoque combinado para controlar una carga variable, 
 
 ## <a name="pool-network-configuration"></a>Configuración de la red del grupo
 
-Al crear un grupo de nodos de proceso en Azure Batch, puede usar las API para especificar el identificador de la [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) de Azure en la que se deben crear los nodos de proceso del grupo.
+Al crear un grupo de nodos de proceso en Azure Batch, puede especificar el identificador de subred de una [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) de Azure en la que se deben crear los nodos de proceso del grupo.
 
 * La red virtual debe:
 
    * Estar en la misma **región** de Azure que la cuenta de Azure Batch.
    * Estar en la misma **suscripción** que la cuenta de Azure Batch.
 
-* La red virtual debe tener suficientes **direcciones IP** libres para dar cabida a la propiedad `targetDedicated` del grupo. Si la subred no tiene suficientes direcciones IP libres, el servicio Batch asigna parcialmente los nodos de proceso en el grupo y devuelve un error de cambio de tamaño.
+* El tipo de red virtual que se admite depende de la forma en que se asignan los grupos en la cuenta de Batch:
+    - Si la cuenta de Batch se creó con su propiedad **poolAllocationMode** establecida en 'BatchService', la red virtual especificada debe ser una red virtual clásica.
+    - Si la cuenta de Batch se creó con su propiedad **poolAllocationMode** establecida en 'UserSubscription', la red virtual especificada puede ser una red virtual clásica o una red virtual de Azure Resource Manager. Los grupos se deben crear con una configuración de máquina virtual para usar una red virtual. Los grupos creados con una configuración de servicio en la nube no se admiten.
+
+* Si la cuenta de Batch se creó con su propiedad **poolAllocationMode** establecida en 'BatchService', debe proporcionar permisos para la entidad de servicio de Batch acceda a la red virtual. La entidad de servicio de Batch, denominada "Microsoft Azure Batch" o "MicrosoftAzureBatch", debe tener al rol de [control de acceso basado en roles (RBAC) Colaborador de la máquina virtual clásica](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) para la red virtual especificada. Si no se proporciona el rol de RBAC especificado, el servicio Batch devuelve 400 (Solicitud incorrecta).
+
+* La subred especificada debe disponer de suficientes **direcciones IP** libres para alojar el número total de nodos de destino; es decir, la suma de las propiedades `targetDedicatedNodes` y `targetLowPriorityNodes` del grupo. Si la subred no tiene suficientes direcciones IP libres, el servicio Batch asigna parcialmente los nodos de proceso en el grupo y devuelve un error de cambio de tamaño.
 
 * La subred especificada debe permitir la comunicación del servicio Batch para poder programar tareas en los nodos de proceso. Si un **grupo de seguridad de red (NSG)** asociado a la red virtual deniega la comunicación con los nodos de proceso, el servicio Batch establece el estado de dichos nodos en **No utilizable**.
 
-* Si la red virtual especificada tiene NSG asociados, debe habilitarse la comunicación entrante. Para grupos de Windows y Linux, deben habilitarse los puertos 29876 y 29877. Puede habilitar opcionalmente (o filtrar selectivamente) los puertos 22 o 3389, para SSH en grupos de Linux o RDP en los grupos de Windows, respectivamente.
+* Si la red virtual especificada tiene grupos de seguridad de red (NSG) asociados, será preciso habilitar varios puertos del sistema reservados para las comunicaciones entrantes. Para los grupos creados con una configuración de máquina virtual, habilite los puertos 29876 y 29877, así como el puerto 22 para Linux y el 3389 para Windows. Para los grupos creados con una configuración de servicio en la nube, habilite los puertos 10100, 20100 y 30100. Además, habilite las conexiones salientes a Azure Storage en el puerto 443.
 
 La necesidad de configuración adicional de la red virtual depende del modo de asignación de grupo de la cuenta de Batch.
 
@@ -415,16 +421,24 @@ Esta operación puede ser necesaria para controlar los errores de las tareas y l
 ### <a name="task-failure-handling"></a>Control de errores de tareas
 Los errores de las tareas se incluyen en estas categorías:
 
-* **Errores de programación**
+* **Errores de procesamiento previo**
 
-    Si por cualquier motivo se produce un error en la transferencia de archivos especificada para una tarea, se establece un *error de programación* para la tarea.
+    Si una tarea no se inicia, se establece un error de procesamiento previo para la misma.  
 
-    Los errores de programación pueden producirse si los archivos de recursos de la tarea se han movido, la cuenta de almacenamiento ya no está disponible u otro problema impidió la copia correcta de los archivos en el nodo.
+    Se pueden producir errores de procesamiento previo si se han movido los archivos de recursos de la tarea, la cuenta de Storage deja de estar disponible u ha surgido algún otro problema que ha impedido la copia correcta de los archivos en el nodo.
+
+* **Errores de carga de archivos**
+
+    Si por cualquier motivo no se realiza la carga de archivos especificados para una tarea, se establece un error de carga de archivos para la tarea.
+
+    Los errores de carga de archivos se pueden producir si el SAS suministrado para acceder a Azure Storage no es válido o no proporciona permisos de escritura, si la cuenta de Storage no está disponible o si ha surgido cualquier otro problema que ha impedido la copia correcta de los archivos desde el nodo.    
+
 * **Errores de aplicación**
 
     El proceso especificado por la línea de comandos de la tarea también puede presentar errores. Se considera que el proceso ha generado un error cuando el proceso ejecutado por la tarea devuelve un código de salida distinto de cero (consulte *Códigos de salida de la tarea* en la siguiente sección).
 
     Para los errores de aplicaciones, puede configurar el servicio Lote para volver a intentar automáticamente la tarea hasta un número especificado de veces.
+
 * **Errores de restricción**
 
     Puede establecer una restricción que especifique la duración máxima de ejecución de un trabajo o una tarea con *maxWallClockTime*. Esto puede ser útil para terminar las tareas que no avanzan.
@@ -435,6 +449,7 @@ Los errores de las tareas se incluyen en estas categorías:
 * `stderr` y `stdout`
 
     Durante la ejecución, una aplicación produce resultados de diagnóstico que se pueden usar para la solución de problemas. Como se mencionó en la sección anterior llamada [Archivos y directorios](#files-and-directories), el servicio Batch escribe resultados de salida estándar y error estándar en los archivos `stdout.txt` y `stderr.txt` ubicados en el directorio de la tarea en el nodo de proceso. Para descargar estos archivos, puede usar el Portal de Azure, o bien uno de los SDK de Lote. Por ejemplo, puede recuperar estos y otros archivos para solucionar problemas con [ComputeNode.GetNodeFile][net_getfile_node] y [CloudTask.GetNodeFile][net_getfile_task] en la biblioteca .NET de Batch.
+
 * **Códigos de salida de la tarea**
 
     Como ya se mencionó anteriormente, el servicio Lote marcará una tarea como con errores si el proceso ejecutado por la tarea devuelve un código de salida distinto de cero. Cuando una tarea ejecuta un proceso, Lote rellena la propiedad de código de salida de la tarea con el *código de retorno del proceso*. Es importante tener en cuenta que el código de salida de una tarea **no** lo determina el servicio Batch. El código de salida de una tarea lo determina el proceso en sí o el sistema operativo en que se ejecuta el proceso.
@@ -445,7 +460,7 @@ En ocasiones, las tareas pueden presentar errores o interrumpirse. Se podría pr
 También es posible que un problema intermitente haga que una tarea deje de responder o tarde demasiado tiempo en ejecutarse. Puede establecer el intervalo de ejecución máximo para una tarea. Si se supera, el servicio Batch interrumpe la aplicación de la tarea.
 
 ### <a name="connecting-to-compute-nodes"></a>Conexión a los nodos de proceso
-Puede realizar tareas adicionales de depuración y solución de problemas si se inicia una sesión remota en un nodo de proceso. Puede usar el Portal de Azure para descargar un protocolo de escritorio remoto (RDP) para los nodos de Windows y obtener información de conexión de Secure Shell (SSH) para los nodos de Linux. También puede hacer esto con las API de Batch, como [.NET de Batch][net_rdpfile] o [Python de Batch](batch-linux-nodes.md#connect-to-linux-nodes).
+Puede realizar tareas adicionales de depuración y solución de problemas si se inicia una sesión remota en un nodo de proceso. Puede usar el Portal de Azure para descargar un protocolo de escritorio remoto (RDP) para los nodos de Windows y obtener información de conexión de Secure Shell (SSH) para los nodos de Linux. También puede hacer esto con las API de Batch, como [.NET de Batch][net_rdpfile] o [Python de Batch](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
 > Para conectarse a un nodo a través de RDP o SSH, primero debe crear un usuario en el nodo. Para ello, puede usar Azure Portal, [agregar una cuenta de usuario a un nodo][rest_create_user] con la API de REST de Batch y llamar al método [ComputeNode.CreateComputeNodeUser][net_create_user] en .NET de Batch o al método [add_user][py_add_user] en el módulo Python de Batch.
