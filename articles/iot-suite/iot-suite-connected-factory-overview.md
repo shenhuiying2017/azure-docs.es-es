@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 90ed1d5ca50bfb19a9d1c5d258e9588e05893270
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 97da0f4dc5d5528bfb803eefe9037651939a8efd
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -84,7 +84,7 @@ El panel de la solución permite administrar la solución implementada. Es una r
 
 El panel muestra la siguiente información:
 
-* Un panel **Lista de fábricas** que muestra el estado, la ubicación y la configuración actual de producción de la solución. La primera vez que se ejecuta la solución hay una serie de dispositivos simulados. La simulación de la línea de producción se compone de tres servidores OPC UA reales por línea de producción que realizan tareas simuladas y comparten datos. 
+* Un panel **Lista de fábricas** que muestra el estado, la ubicación y la configuración actual de producción de la solución. La primera vez que se ejecuta la solución hay una serie de dispositivos simulados. La simulación de la línea de producción se compone de tres servidores OPC UA reales por línea de producción que realizan tareas simuladas y comparten datos. Para más información acerca de OPC UA, consulte las [preguntas frecuentes][lnk-faq].
 * Un **mapa** que muestra la ubicación de cada dispositivo conectado a la solución. La solución puede utilizar la API de Bing Maps para trazar la información en el mapa. Si la suscripción está habilitada para la API de Bing Maps Enterprise, esta característica se usa automáticamente. Si no es así, consulte las [preguntas más frecuentes][lnk-faq] para obtener información sobre cómo hacer que el mapa se vuelva dinámico.
 * Un panel de **Alertas**, que muestra las alertas generadas cuando un valor de OEE, KPI o telemetría supera un umbral específico.
 * Un panel **Eficiencia general de los equipos** que muestra los valores de OEE para toda la empresa o para la fábrica, línea de producción o estación que esté visualizando. Este valor se agrega desde la vista de estación hasta el nivel de empresa. La cifra de OEE y sus elementos constituyentes se pueden analizar aún más.

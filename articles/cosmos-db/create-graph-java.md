@@ -1,14 +1,14 @@
 ---
 title: "Compilar una aplicación de Java de Azure Cosmos DB mediante API Graph | Microsoft Docs"
 description: "Se presenta un ejemplo de código de Java que puede usar para conectarse y consultar datos de gráfico de Azure Cosmos DB con Gremlin."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 8279ffc8dc69f0899ad7b5d3a528393fc2165b77
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: e02dfacd7f67c6c935243a916140c8b29fb14f9d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,23 +27,23 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funciones de distribución global y escala horizontal en Azure Cosmos DB. 
 
-En esta guía de inicio rápido se muestra cómo crear una cuenta para API Graph (versión preliminar), una base de datos y un gráfico de Azure Cosmos DB mediante Azure Portal. Después, compilará y ejecutará una aplicación de consola con el controlador de [Java de Gremlin](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) de OSS.  
+En esta guía de inicio rápido se muestra cómo crear una cuenta para API Graph (versión preliminar), una base de datos y un gráfico de Azure Cosmos DB mediante Azure Portal. Después, compilará y ejecutará una aplicación de consola con el controlador de [Java de Gremlin](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) de OSS.  
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Antes de ejecutar este ejemplo, debe cumplir los siguientes requisitos previos:
-   * JDK 1.7+ (ejecute `apt-get install default-jdk` si no tiene JDK)
+   * JDK 1.7 + (ejecute `apt-get install default-jdk` si no tiene JDK) y establezca variables de entorno como`JAVA_HOME`
    * Maven (ejecute `apt-get install maven` si no tiene Maven)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-graph"></a>Agregar un gráfico
 
-[!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
@@ -87,7 +87,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
 1. En [Azure Portal](http://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Claves** y en **Claves de lectura y escritura**. Deberá usar los botones de copia del lado derecho de la pantalla para copiar el URI y la clave principal en el archivo `Program.java` en el paso siguiente.
 
-    ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-documentdb-dotnet/keys.png)
+    ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-graph-java/keys.png)
 
 2. Abra el archivo `src/remote-secure.yaml`. 
 
@@ -120,13 +120,13 @@ Ahora puede volver al Explorador de datos en Azure Portal para examinar y consul
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal: 
 
-1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que ha creado. 
+1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes

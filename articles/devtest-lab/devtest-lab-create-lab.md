@@ -12,16 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 05/30/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 75188a8f74b08d28b92259348626d5734ed4ce6c
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 015782373e59d1aaf10a7b089c84c982031b36b2
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Creación de un laboratorio con Laboratorios de desarrollo y pruebas de Azure
+En Azure DevTest Labs, un laboratorio es la infraestructura que abarca un grupo de recursos, como máquinas virtuales (VM), que permite una mejor administración de dichos recursos mediante la especificación de límites y cuotas. Este artículo le guiará a través del proceso de creación de un laboratorio mediante Azure Portal.
+
 ## <a name="prerequisites"></a>Requisitos previos
 Para crear un laboratorio necesitará:
 
@@ -31,19 +34,24 @@ Para crear un laboratorio necesitará:
 Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio en Azure DevTest Labs. 
 
 1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
-3. En la hoja **DevTest Labs**, seleccione **Agregar**.
+1. En el menú principal de la izquierda, seleccione **Más servicios** (en la parte inferior de la lista).
+
+    ![Opción del menú Más servicios](./media/devtest-lab-create-lab/more-services-menu-option.png)
+
+1. En la lista de servicios disponibles, **DevTest Labs**.
+1. En la hoja **DevTest Labs**, seleccione **Agregar**.
    
     ![Incorporación de un laboratorio](./media/devtest-lab-create-lab/add-lab-button.png)
-4. En la hoja **Crear un laboratorio de desarrollo y pruebas** :
+
+1. En la hoja **Crear un laboratorio de desarrollo y pruebas** :
    
-   1. Escriba un **Nombre de laboratorio** para el nuevo laboratorio.
-   2. Seleccione una **suscripción** para asociar al laboratorio.
-   3. Seleccione una **Ubicación** en la que se va a almacenar el laboratorio.
-   4. Seleccione **Apagado automático** para especificar si desea habilitar y definir los parámetros para el cierre automático de todas las máquinas virtuales del laboratorio. 
-   5. Seleccione **Anclar al panel** si desea que un acceso directo al laboratorio aparezca en el panel del portal.
-   6. Seleccione **Opciones de automatización** para obtener plantillas de Azure Resource Manager para la automatización de la configuración. 
-   7. Seleccione **Crear**.
+    1. Escriba un **Nombre de laboratorio** para el nuevo laboratorio.
+    2. Seleccione una **suscripción** para asociar al laboratorio.
+    3. Seleccione una **Ubicación** en la que se va a almacenar el laboratorio.
+    4. Seleccione **Apagado automático** para especificar si desea habilitar y definir los parámetros para el cierre automático de todas las máquinas virtuales del laboratorio. La característica de apagado automático es principalmente una característica de ahorro de costos por la que puede especificar cuándo desea que la máquina virtual se apague automáticamente. Para cambiar la configuración del apagado automático después de crear el laboratorio, siga los pasos que se describen en el artículo [Administración de todas las directivas para un laboratorio de Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
+    5. Seleccione **Anclar al panel** si desea que un acceso directo al laboratorio aparezca en el panel del portal.
+    6. Seleccione **Opciones de automatización** para obtener plantillas de Azure Resource Manager para la automatización de la configuración. 
+    7. Seleccione **Crear**. Después de seleccionar **Crear**, se muestra la hoja **DevTest Labs**. Para supervisar el estado del proceso de creación de un laboratorio, inspeccione el área **Notificaciones**. Una vez completado, actualice la página para ver el laboratorio recién creado en la lista de laboratorios.  
     
     ![Creación de una hoja de laboratorio](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 

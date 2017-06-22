@@ -14,15 +14,14 @@ Realice los pasos siguientes para descargar la actualización de software desde 
     Aparece la lista de revisiones; por ejemplo, la **actualización acumulativa 4.0 para la serie StorSimple 8000**.
    
     ![Búsqueda de catálogo](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
-4. Haga clic en **Agregar**. La actualización se agrega a la cesta.
-5. Busque cualquier otra revisión que figure en la tabla anterior (**4011841**), y agréguela a la cesta.
-6. Haga clic en **Ver cesta**.
-7. Haga clic en **Descargar**. Especifique o **busque** una ubicación local en la que quiera que aparezcan las descargas. Las actualizaciones se descargan en la ubicación especificada y se colocan en una subcarpeta con el mismo nombre que la actualización. La carpeta también se puede copiar en un recurso compartido de red que sea accesible desde el dispositivo.
+
+4. Haga clic en **Descargar**. Especifique o **busque** una ubicación local en la que quiera que aparezcan las descargas. Haga clic en los archivos que va a descargar en la ubicación y carpeta especificadas. La carpeta también se puede copiar en un recurso compartido de red que sea accesible desde el dispositivo.
+5. Busque las revisiones adicionales que se enumeran en la tabla anterior (**4011841**) y descargue los archivos correspondientes a las carpetas específicas, como se muestra en dicha tabla.
 
 > [!NOTE]
 > Las revisiones deben ser accesibles desde ambos controladores para detectar los posibles mensajes de error desde el controlador del mismo nivel.
 >
-> Las revisiones deben copiarse en tres carpetas separadas. Por ejemplo, la actualización de software del dispositivo se puede copiar en la carpeta _FirstOrderUpdate_, todas las demás actualizaciones sin interrupciones se pueden copiar en la carpeta _SecondOrderUpdate_ y las actualizaciones del modo de mantenimiento en la carpeta _ThirdOrderUpdate_.
+> Las revisiones deben copiarse en tres carpetas separadas. Por ejemplo, la actualización del software o Cis o agente MDS se puede copiar en la carpeta _FirstOrderUpdate_, las restantes actualizaciones que no provocan interrupciones se pueden copiar en la carpeta _SecondOrderUpdate_ y las actualizaciones del modo de mantenimiento en la carpeta _ThirdOrderUpdate_.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Instalar y comprobar las revisiones de modo normal
 
@@ -79,10 +78,10 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
     Controller1Events   :
     ```
 
-    > [!NOTE] 
+    > [!NOTE]
     > En ocasiones, el cmdlet notifica `False` cuando la actualización está todavía en curso. Para garantizar que la revisión está completada, espere unos minutos, vuelva a ejecutar este comando y compruebe que `RunInProgress` es `False`. Si es así, se habrá completado la revisión.
 
-1. Cuando se complete la actualización del software, compruebe las versiones de software del sistema. Escriba:
+6. Cuando se complete la actualización del software, compruebe las versiones de software del sistema. Escriba:
    
     `Get-HcsSystem`
    
@@ -94,9 +93,12 @@ Realice los pasos siguientes para instalar y comprobar las revisiones de modo no
     Si el número de versión no cambia después de aplicar la actualización, indica que la revisión no se ha podido aplicar. Si ve esto, póngase en contacto con [Soporte técnico de Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) para obtener más ayuda.
      
     > [!IMPORTANT]
-    > Antes de aplicar el resto de actualizaciones, debe reiniciar el controlador activo a través del cmdlet `Restart-HcsController`.
+    > Antes de aplicar la siguiente actualización, debe reiniciar el controlador activo a través del cmdlet `Restart-HcsController`.
      
-7. Repita los pasos 3 a 5 para instalar las actualizaciones de segundo orden. **Para las actualizaciones de segundo orden. se pueden instalar varias actualizaciones mediante la ejecución de `Start-HcsHotfix cmdlet` y señalando a la carpeta en que se encuentran las actualizaciones de segundo orden. El cmdlet ejecutará todas las actualizaciones disponibles en la carpeta.** Si una actualización ya está instalada, la lógica de la actualización la detectará y no aplicará esa actualización. Después de instalar las revisiones, use el cmdlet `Get-HcsSystem`. Las versiones deben ser:
+7. Repita los pasos 3 a 5 para instalar el agente de Cis/MDS descargado en la carpeta _FirstOrderUpdate_. 
+8. Repita los pasos 3 a 5 para instalar las actualizaciones de segundo orden. **Para las actualizaciones de segundo orden. se pueden instalar varias actualizaciones mediante la ejecución de `Start-HcsHotfix cmdlet` y señalando a la carpeta en que se encuentran las actualizaciones de segundo orden. El cmdlet ejecutará todas las actualizaciones disponibles en la carpeta.** Si una actualización ya está instalada, la lógica de la actualización la detectará y no aplicará esa actualización. 
+
+Después de instalar las revisiones, use el cmdlet `Get-HcsSystem`. Las versiones deben ser:
 
    * `CisAgentVersion:  1.0.9441.0`
    * `MdsAgentVersion: 35.2.2.0`

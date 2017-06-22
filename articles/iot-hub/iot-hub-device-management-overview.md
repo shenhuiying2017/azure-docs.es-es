@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: briz
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ae476dbaf51ae90cc3c5948b0ec8901d7a536da
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -64,7 +65,7 @@ Dentro de cada una de estas cinco fases, hay que cumplir varios requisitos de op
     *Lecturas adicionales*: [Uso de métodos directos][lnk-c2d-methods], [Invocación de un método directo en un dispositivo][lnk-methods-devguide], [Uso de propiedades de dispositivos gemelos][lnk-twin-properties], [Programación y difusión de trabajos ][lnk-jobs], [Programación de trabajos en varios dispositivos][lnk-jobs-devguide].
 * **Supervisión**: supervisar la situación general del conjunto de dispositivos y el estado de las operaciones en curso, y alertar a los operadores sobre los problemas que puedan necesitar su atención.  Aplique dispositivos gemelos para que los dispositivos puedan notificar en tiempo real las condiciones de funcionamiento y el estado de las operaciones de actualización. Genere informes de panel eficaces que expongan los problemas más inmediatos mediante el uso de dispositivos gemelos.
   
-    *Lecturas adicionales*: [Uso de propiedades de dispositivo gemelos][lnk-twin-properties], [lenguaje de consulta de IoT Hub para dispositivos gemelos y trabajos][lnk-query-language].
+    *Lecturas adicionales*: [Uso de las propiedades deseadas para configurar dispositivos][lnk-twin-properties], [Lenguaje de consulta de IoT Hub para dispositivos gemelos y trabajos][lnk-query-language].
 * **Retirada**: reemplazar o retirar dispositivos después de un error, ciclo de actualización o al final de la duración del servicio.  Use dispositivos gemelos para conservar la información del dispositivo si el dispositivo físico se va a reemplazar, o para archivarla si se va a retirar. Use el registro de identidades de IoT Hub para revocar de forma segura las credenciales y las identidades de los dispositivos.
   
     *Lecturas adicionales*: [Uso de propiedades de dispositivos gemelos][lnk-twin-properties], [Administración de identidades de dispositivo][lnk-identity-registry].
