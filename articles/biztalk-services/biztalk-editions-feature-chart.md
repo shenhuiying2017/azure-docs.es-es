@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="biztalk-services-editions-chart"></a>Servicios de BizTalk: gráfico de ediciones
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Servicios de BizTalk de Azure ofrece varias ediciones. Use este artículo para determinar qué edición es la adecuada para sus escenario y necesidades empresariales.
 
 ## <a name="compare-the-editions"></a>Comparar las ediciones
@@ -59,7 +64,7 @@ En la tabla siguiente se muestran las diferencias.
 
 <tr>
 <td><strong>Precio de salida</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Detalles de precios de Azure BizTalk Services Pricing</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Calculadora de precios de Azure</a></td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Precios de Azure BizTalk Services</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full">Calculadora de precios de Azure</a></td>
 </tr>
 <tr>
 <td><strong>Configuración mínima predeterminada</strong></td>
@@ -78,7 +83,7 @@ En la tabla siguiente se muestran las diferencias.
 <td>Sí, en incrementos de una unidad Premium</td>
 </tr>
 <tr>
-<td><strong>Escalamiento horizontal máximo permitido</strong></td>
+<td><strong>Escalado horizontal máximo permitido</strong></td>
 <td>Sin escala</td>
 <td>Sin escala</td>
 <td>Hasta ocho unidades</td>
@@ -120,7 +125,7 @@ Incluye contratos TPM</td>
 <td>500</td>
 </tr>
 <tr>
-<td><strong>Conexiones del servicio de adaptador BizTalk a sistemas locales de LOB</strong></td>
+<td><strong>Conexiones del servicio BizTalk Adapter a sistemas LOB locales</strong></td>
 <td>No se incluye</td>
 <td>1 conexión</td>
 <td>2 conexiones</td>
@@ -130,7 +135,7 @@ Incluye contratos TPM</td>
 <tr>
 <td align="left"><strong>Sistemas/protocolos compatibles:</strong>
 <ul>
-<li>HTTP</li>
+<li>http</li>
 <li>HTTPS</li>
 <li>FTP</li>
 <li>SFTP</li>
@@ -191,7 +196,7 @@ Incluye la recepción sin rechazo (NRR) y la descarga de mensajes controlados</t
 <td>Se incluye</td>
 </tr>
 <tr>
-<td><strong>Uso de transformaciones, incluido XSLT personalizado</strong></td>
+<td><strong>Uso de transformaciones, lo que incluye XSLT personalizado</strong></td>
 <td>No se incluye</td>
 <td>Se incluye</td>
 <td>Se incluye</td>
@@ -251,10 +256,5 @@ Para crear los Servicios de BizTalk de Azure en el Portal de Azure, vaya a [Crea
 * [Servicios de BizTalk: limitaciones](biztalk-throttling-thresholds.md)<br/>
 * [Servicios de BizTalk: nombre del emisor y clave del emisor](biztalk-issuer-name-issuer-key.md)<br/>
 * [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

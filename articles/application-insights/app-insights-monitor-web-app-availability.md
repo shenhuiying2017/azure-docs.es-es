@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/25/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 74cd4dbf74afbf5e7e0e7d0b7aca49b5aa214b83
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -245,6 +245,14 @@ Puede ejecutar una prueba de carga en el sitio web. Al igual que la prueba de di
 En la hoja Información general, abra **Configuración**, **Pruebas de rendimiento**. Cuando crea una prueba, se le invitará a conectarse o a crear una cuenta de Visual Studio Team Services.
 
 Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas de éxito.
+
+
+![Prueba de rendimiento](./media/app-insights-monitor-web-app-availability/perf-test.png)
+
+> [!TIP]
+> Para observar los efectos de una prueba de rendimiento, utilice [Live Stream](app-insights-live-stream.md) y el 
+[Generador de perfiles](app-insights-profiler.md).
+>
 
 ## <a name="automation"></a>Automation
 * [Use scripts de PowerShell para configurar una prueba de disponibilidad](app-insights-powershell.md#add-an-availability-test) automáticamente.

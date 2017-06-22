@@ -16,10 +16,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -38,6 +38,10 @@ La arquitectura de los informes de Azure AD consta de los siguientes componentes
 
 Este tema ofrece una visión general de las actividades de auditoría.
  
+## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
+* Usuarios de los roles de administrador o lector de seguridad
+* Administradores globales
+* Los usuarios individuales (no administradores) pueden ver sus propias actividades
 
 
 ## <a name="audit-logs"></a>Registros de auditoría
@@ -101,11 +105,12 @@ El filtro **Categoría** le permite seleccionar uno de los filtros siguientes:
 - Core category (Categoría principal)
 - Core Directory (Directorio principal)
 - Self-service Password Management (Administración de contraseñas de autorservicio)
-- Administración de grupos de autoservicio
-- Aprovisionamiento de cuentas
-- Automated Password Rollover (Sustitución automática de contraseña)
+- Self-service group management (Administración de grupos de autoservicio)
+- Account provisioning- Automated password rollover (Aprovisionamiento de cuentas: sustitución automática de contraseñas)
 - Invited users (Usuarios invitados)
 - MIM service (Servicio MIM)
+- Identity Protection
+- B2C
 
 El filtro **Tipo de recurso de actividad** le permite seleccionar uno de los filtros siguientes:
 
@@ -124,148 +129,9 @@ Cuando se selecciona **Grupo** como **Tipo de recurso de actividad**, obtendrá 
 - O365
 
 
-
-
 El filtro **Actividad** se basa en la selección de categoría y de tipo de recurso de actividad que realice. Puede seleccionar la actividad específica que desea ver o elegir todas. 
 
-| Categoría de actividad| Tipo de recurso de actividad| Actividad |
-| :-- | :-: | :-- |
-| Core Directory (Directorio principal)| Grupo| Eliminar configuración de grupo|
-| Core Directory (Directorio principal)| Directorio| Actualizar dominio|
-| Core Directory (Directorio principal)| Directorio| Quitar asociado de compañía|
-| Core Directory (Directorio principal)| Usuario| Actualizar rol|
-| Core Directory (Directorio principal)| Usuario| Agregar rol desde plantilla|
-| Core Directory (Directorio principal)| Grupo| Agregar asignación de roles de aplicación al grupo|
-| Core Directory (Directorio principal)| Grupo| Empezar a aplicar licencias basadas en grupo a los usuarios|
-| Core Directory (Directorio principal)| Application| Agregar entidad de servicio|
-| Core Directory (Directorio principal)| Directiva| Actualizar directiva|
-| Core Directory (Directorio principal)| Directiva| Agregar directiva a entidad de servicio|
-| Core Directory (Directorio principal)| Dispositivo| Agregar propietario registrado a dispositivo|
-| Core Directory (Directorio principal)| Dispositivo| Agregar usuarios registrados a dispositivo|
-| Core Directory (Directorio principal)| Dispositivo| Actualizar configuración de dispositivo|
-| Self-service Password Management (Administración de contraseñas de autorservicio)| Usuario| Restablecer contraseña (autoservicio)|
-| Self-service Password Management (Administración de contraseñas de autorservicio)| Usuario| Desbloquear cuenta de usuario (autoservicio)|
-| Self-service Password Management (Administración de contraseñas de autorservicio)| Usuario| Restablecer contraseña (de parte del administrador)|
-| Self-service Group Management (Administración de grupos de autoservicio)| Grupo| Eliminar una solicitud pendiente para unirse a un grupo|
-| Account Provisioning (Aprovisionamiento de cuentas)| Application| Procesar custodia|
-| Automated Password Rollover (Sustitución automática de contraseña)| Application| Automated Password Rollover (Sustitución automática de contraseña)|
-| Invited users (Usuarios invitados)| Otros| Invitaciones por lotes procesadas|
-| Core Directory (Directorio principal)| Directorio| Quitar dominio comprobado|
-| Core Directory (Directorio principal)| Directorio| Agregar dominio sin comprobar|
-| Core Directory (Directorio principal)| Directorio| Agregar dominio comprobado|
-| Core Directory (Directorio principal)| Directorio| Establecer característica de directorio en inquilino|
-| Core Directory (Directorio principal)| Directorio| Establecer marca DirSyncEnabled|
-| Core Directory (Directorio principal)| Directorio| Crear configuración de compañía|
-| Core Directory (Directorio principal)| Directorio| Actualizar configuración de compañía|
-| Core Directory (Directorio principal)| Directorio| Eliminar configuración de compañía|
-| Core Directory (Directorio principal)| Directorio| Establecer ubicación de datos permitida de compañía|
-| Core Directory (Directorio principal)| Directorio| Establecer característica de compañía multinacional habilitada|
-| Core Directory (Directorio principal)| Usuario| Actualizar usuario|
-| Core Directory (Directorio principal)| Usuario| Eliminar usuario|
-| Core Directory (Directorio principal)| Grupo| Quitar miembro de grupo|
-| Core Directory (Directorio principal)| Grupo| Establecer licencia de grupo|
-| Core Directory (Directorio principal)| Grupo| Crear configuración de grupo|
-| Core Directory (Directorio principal)| Application| Actualizar entidad de servicio|
-| Core Directory (Directorio principal)| Application| Eliminar aplicación|
-| Core Directory (Directorio principal)| Application| Actualizar aplicación|
-| Core Directory (Directorio principal)| Application| Quitar entidad de servicio|
-| Core Directory (Directorio principal)| Application| Agregar credenciales de la entidad de servicio|
-| Core Directory (Directorio principal)| Application| Quitar la asignación de rol de aplicación de entidad de servicio|
-| Core Directory (Directorio principal)| Application| Quitar propietario de aplicación|
-| Core Directory (Directorio principal)| Dispositivo| Quitar propietario registrado de dispositivo|
-| Self-service Password Management (Administración de contraseñas de autorservicio)| Usuario| Progreso de la actividad del flujo de restablecimiento de contraseña de autoservicio|
-| Account Provisioning (Aprovisionamiento de cuentas)| Application| Administración|
-| Account Provisioning (Aprovisionamiento de cuentas)| Application| Operación de directorio|
-| MIM service (Servicio MIM)| Grupo| Quitar miembro|
-| Core Directory (Directorio principal)| Directiva| Eliminar directiva|
-| Invited users (Usuarios invitados)| Usuario| Creación de inquilinos viral|
-| Core Directory (Directorio principal)| Directorio| Actualizar secretos externos|
-| Core Directory (Directorio principal)| Directorio| Establecer propiedades de Rights Management|
-| Core Directory (Directorio principal)| Directorio| Actualizar compañía|
-| Core Directory (Directorio principal)| Usuario| Agregar usuario|
-| Core Directory (Directorio principal)| Usuario| Convertir usuario federado en administrado|
-| Core Directory (Directorio principal)| Usuario| Crear contraseña de aplicaciones para usuario|
-| Core Directory (Directorio principal)| Grupo| Agregar miembro a grupo|
-| Core Directory (Directorio principal)| Grupo| Agregar grupo|
-| Core Directory (Directorio principal)| Application| Da consentimiento a la aplicación|
-| Core Directory (Directorio principal)| Application| Agregar aplicación|
-| Core Directory (Directorio principal)| Application| Agregar propietario a entidad de servicio|
-| Core Directory (Directorio principal)| Application| Quitar Oauth2Permissiongrant|
-| Core Directory (Directorio principal)| Directiva| Quitar credenciales de directiva|
-| Core Directory (Directorio principal)| Dispositivo| Eliminar configuración de dispositivo|
-| Self-service Group Management (Administración de grupos de autoservicio)| Grupo| Establecer propiedades de grupo dinámico|
-| Self-service Group Management (Administración de grupos de autoservicio)| Grupo| Actualizar directiva de administración del ciclo de vida|
-| Account Provisioning (Aprovisionamiento de cuentas)| Application| Acción de reglas de sincronización|
-| Invited users (Usuarios invitados)| Otros| Invitaciones por lotes cargadas|
-| MIM service (Servicio MIM)| Grupo| Agregar miembro|
-| Core Directory (Directorio principal)| Usuario| Establecer propiedades de licencia|
-| Core Directory (Directorio principal)| Usuario| Restaurar usuario|
-| Core Directory (Directorio principal)| Usuario| Quitar miembro de rol|
-| Core Directory (Directorio principal)| Usuario| Quitar la asignación de rol de aplicación de usuario|
-| Core Directory (Directorio principal)| Usuario| Quitar miembro con ámbito de rol|
-| Core Directory (Directorio principal)| Grupo| Actualizar grupo|
-| Core Directory (Directorio principal)| Grupo| Agregar propietario a grupo|
-| Core Directory (Directorio principal)| Grupo| Finalizar a aplicar licencias basadas en grupo a los usuarios|
-| Core Directory (Directorio principal)| Grupo| Quitar la asignación de rol de aplicación de grupo|
-| Core Directory (Directorio principal)| Grupo| Establecer grupo que va a administrar el usuario|
-| Core Directory (Directorio principal)| Application| Agregar Oauth2Permissiongrant|
-| Core Directory (Directorio principal)| Application| Agregar la asignación de rol de aplicación a entidad de servicio|
-| Core Directory (Directorio principal)| Application| Quitar credenciales de entidad de servicio|
-| Core Directory (Directorio principal)| Directiva| Quitar directiva de entidad de servicio|
-| Core Directory (Directorio principal)| Dispositivo| Actualizar dispositivo|
-| Core Directory (Directorio principal)| Dispositivo| Agregar dispositivo|
-| Core Directory (Directorio principal)| Dispositivo| Agregar configuración de dispositivo|
-| Self-service Password Management (Administración de contraseñas de autorservicio)| Usuario| Cambiar contraseña (autoservicio)|
-| Self-service Password Management (Administración de contraseñas de autorservicio)| Usuario| Usuario registrado para el restablecimiento de contraseña de autoservicio|
-| Self-service Group Management (Administración de grupos de autoservicio)| Grupo| Aprobar una solicitud pendiente para unirse a un grupo|
-| Core Directory (Directorio principal)| Directorio| Quitar dominio sin comprobar|
-| Core Directory (Directorio principal)| Directorio| Comprobar dominio|
-| Core Directory (Directorio principal)| Directorio| Establecer la autenticación de dominio|
-| Core Directory (Directorio principal)| Directorio| Establecer directiva de contraseñas|
-| Core Directory (Directorio principal)| Directorio| Agregar asociado a la compañía|
-| Core Directory (Directorio principal)| Directorio| Aumentar nivel de compañía al asociado|
-| Core Directory (Directorio principal)| Directorio| Establecer asociación|
-| Core Directory (Directorio principal)| Directorio| Establecer umbral de eliminación accidental|
-| Core Directory (Directorio principal)| Directorio| Disminuir nivel de asociado|
-| Invited users (Usuarios invitados)| Usuario| Invitar a usuario externo|
-| Account Provisioning (Aprovisionamiento de cuentas)| Application| Importar|
-| Core Directory (Directorio principal)| Application| Quitar propietario de entidad de servicio|
-| Core Directory (Directorio principal)| Dispositivo| Quitar usuarios registrados de dispositivo|
-| Core Directory (Directorio principal)| Directorio| Establecer información sobre la compañía|
-| Core Directory (Directorio principal)| Directorio| Establecer configuración de federación en el dominio|
-| Core Directory (Directorio principal)| Directorio| Crear compañía|
-| Core Directory (Directorio principal)| Directorio| Purgar propiedades de Rights Management|
-| Core Directory (Directorio principal)| Directorio| Establecer característica DirSync|
-| Core Directory (Directorio principal)| Directorio| Comprobar dominio verificado por correo electrónico|
-| Core Directory (Directorio principal)| Usuario| Cambiar licencia de usuario|
-| Core Directory (Directorio principal)| Usuario| Cambiar contraseña de usuario|
-| Core Directory (Directorio principal)| Usuario| Restablecer contraseña de usuario|
-| Core Directory (Directorio principal)| Usuario| Agregar asignación de roles de aplicación al usuario|
-| Core Directory (Directorio principal)| Usuario| Agregar miembro a rol|
-| Core Directory (Directorio principal)| Usuario| Eliminar contraseña de aplicaciones para usuario|
-| Core Directory (Directorio principal)| Usuario| Actualizar credenciales de usuario|
-| Core Directory (Directorio principal)| Usuario| Establecer administrador de usuarios|
-| Core Directory (Directorio principal)| Usuario| Agregar miembro con ámbito agregado a rol|
-| Core Directory (Directorio principal)| Grupo| Eliminar grupo|
-| Core Directory (Directorio principal)| Grupo| Quitar propietario de grupo|
-| Core Directory (Directorio principal)| Grupo| Actualizar configuración de grupo|
-| Core Directory (Directorio principal)| Application| Agregar propietario a aplicación|
-| Core Directory (Directorio principal)| Application| Revocar consentimiento|
-| Core Directory (Directorio principal)| Directiva| Agregar directiva|
-| Core Directory (Directorio principal)| Dispositivo| Eliminar dispositivo|
-| Self-service Password Management (Administración de contraseñas de autorservicio)| Usuario| Bloqueado para el restablecimiento de contraseña de autoservicio|
-| Self-service Group Management (Administración de grupos de autoservicio)| Grupo| Solicitar unirse a un grupo|
-| Self-service Group Management (Administración de grupos de autoservicio)| Grupo| Crear directiva de administración del ciclo de vida|
-| Self-service Group Management (Administración de grupos de autoservicio)| Grupo| Rechazar una solicitud pendiente para unirse a un grupo|
-| Self-service Group Management (Administración de grupos de autoservicio)| Grupo| Cancelar una solicitud pendiente para unirse a un grupo|
-| Self-service Group Management (Administración de grupos de autoservicio)| Grupo| Renovar grupo|
-| Account Provisioning (Aprovisionamiento de cuentas)| Application| Exportación|
-| Account Provisioning (Aprovisionamiento de cuentas)| Application| Otros|
-| Invited users (Usuarios invitados)| Usuario| Canjear invitación a usuario externo|
-| Invited users (Usuarios invitados)| Usuario| Creación de usuarios viral|
-| Invited users (Usuarios invitados)| Usuario| Asignar usuario externo a la aplicación|
-
-
+Para obtener la lista de todas las actividades de auditoría, use API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, donde $tenantdomain = el nombre de dominio, o bien consulte el artículo sobre [eventos del informe de auditoría](active-directory-reporting-audit-events.md#list-of-audit-report-events).
 
 
 ## <a name="audit-logs-shortcuts"></a>Métodos abreviados de los registros de auditoría
@@ -274,9 +140,6 @@ Además de **Azure Active Directory**, Azure Portal proporciona dos puntos de en
 
 - Usuarios y grupos
 - Aplicaciones empresariales
-
-Para obtener una lista completa de las actividades de informe de auditoría, consulte la [lista de eventos de informe de auditoría](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
 
 ### <a name="users-and-groups-audit-logs"></a>Registros de auditoría de los usuarios y grupos
 

@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 05/30/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 14a5da0430b4eaaa61ef875e59454e2b6d88de91
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: aa27689f564aedf61174fecaae76b5bf60951482
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -160,7 +161,7 @@ En esta sección se enumeran algunos escenarios típicos de conjuntos de escalad
 
 **P.** Si se usan varias extensiones en un conjunto de escalado, ¿se puede exigir una secuencia de ejecución?
 
-**R.** No directamente, pero para la extensión customScript, el script puede esperar hasta que finalice otra extensión (por ejemplo, mediante la [supervisión del registro de la extensión](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Puede obtener más instrucciones acerca de la secuenciación de extensiones en esta entrada de blog: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Secuenciación de extensiones en conjuntos de escalado de máquinas virtuales de Azure).
+**R.** No directamente, pero en el caso de la extensión customScript, el script puede esperar hasta que finalice otra extensión. Puede obtener más instrucciones acerca de la secuenciación de extensiones en esta entrada de blog: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Secuenciación de extensiones en conjuntos de escalado de máquinas virtuales de Azure).
 
 **P.** ¿Funcionan los conjuntos de escalado con los conjuntos de disponibilidad de Azure?
 

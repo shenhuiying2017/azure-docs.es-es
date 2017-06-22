@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ff4bf9c9e3bfbd0e51cdb91be85dec15db6cd758
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -107,13 +108,13 @@ Los grupos de seguridad de red (NSG) protegen el tráfico entrante y saliente. C
 6. Haga clic en **Aceptar**.
 
 
-## <a name="view-the-ngix-welcome-page"></a>Página principal de NGIX
+## <a name="view-the-nginx-welcome-page"></a>Visualización de la página de bienvenida de NGINX
 
-Con NGINX instalado y el puerto 80 abierto para la máquina virtual, se puede acceder ahora al servidor web desde Internet. Abra un explorador web y escriba la dirección IP pública de la máquina virtual. La dirección IP pública puede encontrarse en la hoja de la máquina virtual en Azure Portal.
+Con NGINX instalado y el puerto 80 abierto para la máquina virtual, se puede acceder ahora al servidor web desde Internet. Abra un explorador web y escriba la dirección IP pública de la máquina virtual. La dirección IP pública se puede encontrar en la hoja de la máquina virtual en Azure Portal.
 
 ![Sitio predeterminado de NGINX](./media/quick-create-cli/nginx.png) 
 
-## <a name="delete-virtual-machine"></a>Eliminación de máquinas virtuales
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando ya no los necesite, elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la hoja de la máquina virtual y haga clic en **Eliminar**.
 

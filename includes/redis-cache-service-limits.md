@@ -1,6 +1,6 @@
 | Recurso | Límite |
 | --- | --- |
-| Tamaño de memoria caché |530 GB ([póngase en contacto con nosotros](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase) para obtener más información). |
+| Tamaño de memoria caché |530 GB |
 | Bases de datos |64 |
 | Número máximo de clientes conectados |40.000 |
 | Réplicas de caché en Redis (para una alta disponibilidad) |1 |
@@ -10,5 +10,5 @@ Los tamaños y límite de caché en Redis de Azure son diferentes para cada nive
 
 Para más información sobre los límites de configuración de Azure Redis Cache, consulte [Configuración predeterminada del servidor Redis](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
-Dado que Microsoft realiza la configuración y la administración de instancias de Caché en Redis de Azure, no se admiten todos los comandos de Redis en la Caché en Redis de Azure. Para más información, vea [Comandos de Redis no admitidos en la Caché en Redis de Azure]((redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
+Dado que Microsoft realiza la configuración y la administración de instancias de Caché en Redis de Azure, no se admiten todos los comandos de Redis en la Caché en Redis de Azure. Para más información, consulte [Comandos de Redis que no se admiten en Azure Redis Cache](../articles/redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
 

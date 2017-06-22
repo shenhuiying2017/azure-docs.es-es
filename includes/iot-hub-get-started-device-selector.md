@@ -1,4 +1,5 @@
 > [!div class="op_single_selector"]
+> * [Simulador web de Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)   
 > * [Dispositivo simulado con .NET](../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md)
 > * [Dispositivo simulado con Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 > * [Dispositivo simulado con Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)

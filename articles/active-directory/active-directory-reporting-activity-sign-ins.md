@@ -1,5 +1,4 @@
 ---
-
 title: "Informes de actividad de inicio de sesión en el portal de Azure Active Directory | Microsoft Docs"
 description: "Introducción a los informes de actividad de inicio de sesión en el portal de Azure Active Directory"
 services: active-directory
@@ -16,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -37,6 +36,17 @@ La arquitectura de los informes de Azure Active Directory consta de los siguient
     - **Usuarios marcados en riesgo**: un usuario en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro. Para más información, consulte la sección Usuarios marcados en riesgo.
 
 Este tema ofrece una visión general de las actividades de inicio de sesión.
+
+## <a name="pre-requisite"></a>Requisito previo
+
+### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
+* Usuarios de los roles de administrador o lector de seguridad
+* Administradores globales
+* Cualquier usuario (no administradores) puede acceder a sus propios inicios de sesión 
+
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>¿Qué licencia de Azure AD se necesita para acceder a la actividad de inicio de sesión?
+* El inquilino debe tener una licencia de Azure AD Premium asociada para ver el informe de actividades de inicio de sesión activas
+
 
 ## <a name="signs-in-activities"></a>Actividades de inicio de sesión
 

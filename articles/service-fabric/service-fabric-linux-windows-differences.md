@@ -15,25 +15,28 @@ ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: e2d21b28c482427c60f708171336e6901b50e544
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Diferencias entre Service Fabric en Linux (versión preliminar) y Windows (disponible con carácter general)
 
-Dado que Service Fabric en Linux está en versión preliminar, hay varias características que se admiten en Windows, pero aún no en Linux. Por último, los conjuntos de características estarán a la par cuando Service Fabric en Linux esté disponible con carácter general.
+Dado que Service Fabric en Linux está en versión preliminar, hay varias características que se admiten en Windows, pero aún no en Linux. Por último, los conjuntos de características estarán a la par cuando Service Fabric en Linux esté disponible con carácter general. En las próximas versiones, esta distancia se reducirá. Existen las siguientes diferencias entre las últimas versiones disponibles (es decir, entre la versión 5.6 en Windows y la versión 5.5 en Linux): 
 
-* No se admiten Reliable Collections (ni servicios con estado confiables) en Linux.
-* ReverseProxy no está disponible en Linux.
-* El instalador independiente no está disponible en Linux.
-* No se realiza la validación del esquema XML para archivos de manifiesto en Linux. 
-* El redireccionamiento de la consola no se admite en Linux. 
-* El servicio de análisis de errores (FAS) no está disponible en Linux.
-* Azure Active Directory no es compatible con Linux.
-* Algunos de los comandos de la CLI equivalentes de los comandos de Powershell no están disponibles.
+* Colecciones confiables (y servicios con estado confiables) 
+* ReverseProxy 
+* Instalador independiente 
+* Validación del esquema XML para archivos de manifiesto 
+* Redireccionamiento de la consola 
+* El servicio de análisis de errores (FAS)
+* Docker Compose y controladores de volúmenes y de registro para contenedores 
+* Regulación de recursos para contenedores y servicios 
+* Servicio DNS
+* Compatibilidad con Azure Active Directory
+* Comandos de la CLI equivalentes a ciertos comandos de Powershell 
 * Solo se puede ejecutar un subconjunto de comandos de Powershell en un clúster de Linux (tal como se explica detalladamente en la sección siguiente).
 
 >[!NOTE]
