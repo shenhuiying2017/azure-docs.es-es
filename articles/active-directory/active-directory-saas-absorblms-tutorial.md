@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
 ms.openlocfilehash: e42c541ce15b2e025c7019e91ae3c6c74483b6c2
+ms.contentlocale: es-es
 ms.lasthandoff: 04/21/2017
 
 
@@ -240,7 +241,7 @@ En el caso de Absorb LMS, el aprovisionamiento es una tarea manual.
 
     d. En el cuadro de texto **Password** (Contraseña), escriba la contraseña de Britta Simon.
 
-    e. En la lista desplegable **Confirm Password** (Confirmar contraseña), seleccione la confirmación de contraseña de Britta Simon.
+    e. En el cuadro de texto **Confirm Password** (Confirmar contraseña), seleccione la confirmación de contraseña de Britta Simon.
     
     f. Establézcalo en **ACTIVE** (ACTIVO).    
 
