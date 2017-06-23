@@ -14,6 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/05/2017
 ms.author: raynew
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: hyper-v-site-walkthrough-overview
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: 0ef782a7bb7a98da2ec63c91732b3d5ddd959848
@@ -21,6 +23,7 @@ ms.contentlocale: es-es
 ms.lasthandoff: 05/17/2017
 
 ---
+
 
 # <a name="replicate-hyper-v-virtual-machines-without-vmm-to-azure-using-azure-site-recovery-with-the-azure-portal"></a>Replicación de máquinas virtuales de Hyper-V (sin VMM) en Azure usando Azure Site Recovery con Azure Portal
 
@@ -270,7 +273,7 @@ Habilite la replicación para máquinas virtuales como sigue:
 
 10. Haga clic en **Aceptar** para guardar los cambios. Puede establecer propiedades adicionales más adelante.
 
-     ![Habilitar replicación](./media/site-recovery-hyper-v-site-to-azure/enable-replication6-with-exclude-disk.png)
+    ![Habilitar replicación](./media/site-recovery-hyper-v-site-to-azure/enable-replication6-with-exclude-disk.png)
 
 11. En **Configuración de replicación** > **Establecer configuración de replicación**, seleccione la directiva de replicación que desea aplicar para las máquinas virtuales protegidas. A continuación, haga clic en **Aceptar**. Puede modificar la directiva de replicación en **Directivas de replicación** > nombre de directiva > **Editar configuración**. Los cambios que aplique se utilizarán tanto para las máquinas que ya se estén replicando como para otras nuevas.
 
