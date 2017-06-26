@@ -26,7 +26,7 @@ ms.lasthandoff: 05/31/2017
 
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Creación de una máquina virtual Windows con la CLI de Azure
 
-La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Esta guía se detalla cómo usar la CLI de Azure para implementar máquinas virtuales con Windows Server 2016. Una vez completada la implementación, nos conectamos al servidor e instalamos IIS.
+La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Esta guía se detalla cómo usar la CLI de Azure para implementar máquinas virtuales con Windows Server 2016. Una vez completada la implementación, nos conectaremos al servidor e instalaremos IIS.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -52,7 +52,7 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Crear máquina virtual
 
 Cree la máquina virtual con [az vm create](/cli/azure/vm#create). 
 
