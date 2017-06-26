@@ -10,17 +10,18 @@ ms.service: site-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 06/05/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 491bbfe61cf387f18b903caa45529be206876d49
-ms.openlocfilehash: fe253f5d95b0b9351d6ffd382cbba0c490074f15
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: ef7a25de4536cfd54331e1bce7d22f351768585c
+ms.contentlocale: es-es
+ms.lasthandoff: 06/05/2017
 
 ---
 # <a name="site-recovery-documentation"></a>Documentación de Site Recovery
 
-Aprenda a usar Site Recovery para una estrategia de continuidad del negocio y de recuperación ante desastres para las nubes privadas. Tutoriales y otra documentación le muestran cómo planear, implementar y administrar la orquestación de la replicación de servidores físicos locales y máquinas virtuales en la nube o en un centro de datos secundario.
+Aprenda a usar Site Recovery para mejorar las estrategias de continuidad empresarial y de recuperación ante desastres, y poder así mantener las aplicaciones y cargas de trabajo disponibles durante el tiempo de inactividad. Los tutoriales y otros artículos le explican cómo planear, implementar y administrar la replicación, la conmutación por error y la recuperación de máquinas locales y máquinas virtuales de Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -42,7 +43,7 @@ Aprenda a usar Site Recovery para una estrategia de continuidad del negocio y de
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager">
+        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=site-recovery">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -145,6 +146,4 @@ Aprenda a usar Site Recovery para una estrategia de continuidad del negocio y de
         </div>
     </li>
 </ul>
-
-
 

@@ -41,6 +41,7 @@
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (clásico)](application-gateway-create-probe-classic-ps.md)
+## [Integración en Azure Security Center](application-gateway-integration-security-center.md)
 ## [Combinación de servicios de equilibrio de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Solución de problemas
 ### [Solución de problemas en Application Gateway](application-gateway-troubleshooting-502.md)

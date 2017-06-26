@@ -22,6 +22,8 @@
 ### [Máquinas virtuales de prioridad baja](batch-low-pri-vms.md)
 ### [Administración de cuentas de Batch con Batch Management .NET](batch-management-dotnet.md)
 ### [Trabajo persistente y resultado de la tarea](batch-task-output.md)
+#### [Conservar la salida con Batch API](batch-task-output-files.md)
+#### [Conservar la salida con la biblioteca de convenciones de archivo](batch-task-output-file-conventions.md)
 ### [Ejecución de trabajos de MPI en Batch](batch-mpi.md)
 ### [Dependencias de las tareas](batch-task-dependencies.md)
 ### [Cuentas de usuario para ejecutar tareas](batch-user-accounts.md)

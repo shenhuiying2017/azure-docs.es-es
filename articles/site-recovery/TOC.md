@@ -1,15 +1,20 @@
 # Información general
 ## [¿Qué es Site Recovery?](site-recovery-overview.md)
-## [¿Cómo funciona Site Recovery?](site-recovery-azure-to-azure-architecture.md)
-## [Funcionamiento de la replicación de Hyper-V en Azure](site-recovery-hyper-v-azure-architecture.md)
+## ¿Cómo funciona Azure Site Recovery?
+### [Arquitectura de Azure a Azure](site-recovery-azure-to-azure-architecture.md)
+### [Arquitectura de VMware a Azure](site-recovery-architecture-vmware-to-azure.md)
+### [Arquitectura de Hyper-V a Azure](site-recovery-architecture-hyper-v-to-azure.md)
+### [Arquitectura de replicación en un sitio secundario](site-recovery-architecture-to-secondary-site.md)
 ## [¿Qué cargas de trabajo se pueden proteger?](site-recovery-workload.md)
-## [Matriz de compatibilidad de Site Recovery](site-recovery-support-matrix-azure-to-azure.md)
+## Matriz de compatibilidad de Site Recovery
+### [Compatibilidad de Azure a Azure](site-recovery-support-matrix-azure-to-azure.md)
+### [Compatibilidad de local a Azure](site-recovery-support-matrix-to-azure.md)
+### [Compatibilidad de local a sitio secundario](site-recovery-support-matrix-to-sec-site.md)
 ## [Preguntas más frecuentes](site-recovery-faq.md)
 ## [Vídeo introductorio](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Introducción
-## [Replicación de instancias de Azure Virtual Machines (versión preliminar)](site-recovery-azure-to-azure.md)
-## [Replicación de máquinas virtuales VMware en Azure](site-recovery-vmware-to-azure.md)
+## [Replicación de máquinas virtuales de Azure (vista previa)](site-recovery-azure-to-azure.md)
 ## [Replicación de servidores físicos a Azure](site-recovery-physical-servers-to-azure.md)
 ## [Replicación de máquinas virtuales de Hyper-V en Azure (con VMM)](site-recovery-vmm-to-azure.md)
 ## [Replicación de máquinas virtuales de Hyper-V en Azure](site-recovery-hyper-v-site-to-azure.md)
@@ -20,39 +25,65 @@
 # Procedimientos
 ## Plan
 ### [Requisitos previos de la replicación de Azure](site-recovery-azure-to-azure-prereq.md)
-### [Planeamiento de la conectividad de red saliente para Azure Virtual Machines (versión preliminar)](site-recovery-azure-to-azure-networking-guidance.md)
-### [Planeamiento de la infraestructura de red de las máquinas locales](site-recovery-network-design.md)
-### [Planeamiento de la asignación de red](site-recovery-network-mapping-azure-to-azure.md)
-### [Planeamiento de la capacidad y escalado de la replicación de VMware a Azure](site-recovery-plan-capacity-vmware.md)
-### [Deployment Planner para la replicación de VMware en Azure](site-recovery-deployment-planner.md)
-### [Capacity Planner para la replicación de Hyper-V](site-recovery-capacity-planner.md)
-### [Control de la replicación de máquinas virtuales con acceso basado en roles](site-recovery-role-based-linked-access-control.md)
-
+### Planeamiento de redes
+#### [Planeamiento de redes para la replicación de Azure en Azure (vista previa)](site-recovery-azure-to-azure-networking-guidance.md)
+#### [Planeamiento de redes para la replicación local de máquinas](site-recovery-network-design.md)
+#### [Planeamiento de la asignación de redes para la replicación de máquinas virtuales de Azure](site-recovery-network-mapping-azure-to-azure.md)
+#### [Planeamiento de la asignación de redes para la replicación de máquinas virtuales de Hyper-V](site-recovery-network-mapping.md)
+### Planeamiento de la capacidad y la escalabilidad
+#### [Planeamiento de la capacidad para la replicación de VMware en Azure](site-recovery-plan-capacity-vmware.md)
+#### [Deployment Planner para la replicación de VMware en Azure](site-recovery-deployment-planner.md)
+#### [Capacity Planner para la replicación de Hyper-V](site-recovery-capacity-planner.md)
+### [Planeamiento del acceso basado en roles para la replicación de máquinas virtuales](site-recovery-role-based-linked-access-control.md)
+## Implementación
+### [Replicación de máquinas virtuales VMware en Azure](vmware-walkthrough-overview.md)
+#### [Paso 1: Revisión de la arquitectura](vmware-walkthrough-architecture.md)
+#### [Paso 2: Comprobación de los requisitos previos y las limitaciones](vmware-walkthrough-prerequisites.md)
+#### [Paso 3: Planeamiento de la capacidad](vmware-walkthrough-capacity.md)
+#### [Paso 4: Planeamiento de redes](vmware-walkthrough-network.md)
+#### [Paso 5: Preparación de Azure](vmware-walkthrough-prepare-azure.md)
+#### [Paso 6: Preparación de VMware](vmware-walkthrough-prepare-vmware.md)
+#### [Paso 7: Creación de un almacén](vmware-walkthrough-create-vault.md)
+#### [Paso 8: Configuración del origen y el destino](vmware-walkthrough-source-target.md)
+#### [Paso 9: Configuración de una directiva de replicación](vmware-walkthrough-replication.md)
+#### [Paso 10: Instalación de Mobility Service](vmware-walkthrough-install-mobility.md)
+#### [Paso 11: Habilitamiento de la replicación](vmware-walkthrough-enable-replication.md)
+#### [Paso 12: Ejecución de una conmutación por error de prueba](vmware-walkthrough-test-failover.md)
 ## Configuración
-### [Configuración del entorno de origen](site-recovery-set-up-vmware-to-azure.md)
-### [Configuración del entorno de destino](site-recovery-prepare-target-vmware-to-azure.md)
+### Configuración del entorno de origen
+#### [Entorno de origen para replicación de VMware en Azure](site-recovery-set-up-vmware-to-azure.md)
+#### [Entorno de origen para replicación de dispositivo físico en Azure](site-recovery-set-up-physical-to-azure.md)
+### Configuración del entorno de destino
+#### [Entorno de destino para replicación de VMware en Azure](site-recovery-prepare-target-vmware-to-azure.md)
+#### [Entorno de destino para replicación de dispositivo físico en Azure](site-recovery-prepare-target-physical-to-azure.md)
 ### [Configuración de opciones de replicación](site-recovery-setup-replication-settings-vmware.md)
 ### [Implementación de Mobility Service para la replicación de VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Implementación de Mobility Service con System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Implementación de Mobility Service con DSC de Automatización de Azure](site-recovery-automate-mobility-service-install.md)
-### [Habilitar replicación](site-recovery-replicate-azure-to-azure.md)
+### Habilitar replicación
+#### [Habilitamiento de la replicación de Azure en Azure](site-recovery-replicate-azure-to-azure.md)
+#### [Habilitamiento de la replicación de VMware en Azure](site-recovery-replicate-vmware-to-azure.md)
 ## Conmutación por error y conmutación por recuperación
 ### [Configuración de planes de recuperación](site-recovery-create-recovery-plans.md)
 #### [Adicción de runbooks de Azure a los planes de recuperación](site-recovery-runbook-automation.md)
-### [Ejecución de una conmutación por error de prueba](site-recovery-test-failover-to-azure.md)
+### Ejecución de una conmutación por error de prueba
+#### [Ejecución de una conmutación por error de prueba en Azure](site-recovery-test-failover-to-azure.md)
+#### [Ejecución de una conmutación por error de prueba entre nubes VMM](site-recovery-test-failover-vmm-to-vmm.md)
 ### [Conmutación por error de máquinas protegidas](site-recovery-failover.md)
-### [Reprotección de los equipos después de la conmutación por error](site-recovery-how-to-reprotect-azure-to-azure.md)
-### [Conmutación por recuperación desde Azure](site-recovery-failback-azure-to-vmware.md)
-
+### Reprotección de las máquinas después de la conmutación por error
+#### [Reprotección de una región secundaria de Azure en una principal](site-recovery-how-to-reprotect-azure-to-azure.md)
+#### [Reprotección desde Azure a un entorno local](site-recovery-how-to-reprotect.md)
+### Conmutación por recuperación desde Azure
+#### [Conmutación por recuperación de Azure en VMware](site-recovery-failback-azure-to-vmware.md)
+#### [Conmutación por recuperación de Azure en Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)
 ## Migrar
 ### [Migración a Azure](site-recovery-migrate-to-azure.md)
 ### [Migración entre regiones de Azure](site-recovery-migrate-azure-to-azure.md)
 ### [Migrar instancias de AWS Windows a Azure](site-recovery-migrate-aws-to-azure.md)
 ### [Replicación de máquinas migradas a otra región de Azure](site-recovery-azure-to-azure-after-migration.md)
-
 ## Cargas de trabajo
 ### [Active Directory y DNS](site-recovery-active-directory.md)
-### [SQL Server](site-recovery-sql.md)
+### [Replicación de SQL Server](site-recovery-sql.md)
 ### [SharePoint](site-recovery-sharepoint.md)
 ### [Dynamics AX](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
@@ -66,16 +97,16 @@
 ### [Automatización de la replicación de Hyper-V en Azure (con VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automatización de la replicación de Hyper-V en un sitio secundario (con VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 ## Administrar
-### [Edición de la configuración de replicación](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy.md)
 ### [Administración de servidores de proceso de Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
 ### [Administración del servidor de configuración](site-recovery-vmware-to-azure-manage-configuration-server.md)
 ### [Administración de servidores de procesos de escalado horizontal](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Administración de servidores vCenter](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Quitar servidores y deshabilitar la protección](site-recovery-manage-registration-and-protection.md)
-## Solución de problemas
-### [Recopilación de registros](site-recovery-monitoring-and-troubleshooting.md)
-### [Problemas de replicación de Azure Virtual Machines](site-recovery-azure-to-azure-troubleshoot-errors.md)
+
+## Supervisión y solución de problemas
+### [Problemas de replicación de Azure en Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [Problemas de replicación desde un sitio local en Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Recopilación de registros y solución de problemas locales](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referencia
 ## [PowerShell](/powershell/module/azurerm.siterecovery)

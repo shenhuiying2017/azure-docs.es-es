@@ -39,10 +39,10 @@
 ### [Transmisión de registros de actividad a Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 ### [Operaciones de auditoría con Resource Manager](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Creación de alertas del registro de actividad con Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-## Notificaciones de servicio
+## Uso de notificaciones de servicio
 ### [Visualización de notificaciones de servicio](monitoring-service-notifications.md)
 ### [Configuración de alertas en notificaciones de servicio](monitoring-activity-log-alerts-on-service-notifications.md)
-## Grupos de acciones
+## Uso de grupos de acciones
 ### [Información acerca del esquema de webhook](monitoring-activity-log-alerts-webhook.md)
 ### [Comportamiento de alertas por SMS](monitoring-sms-alert-behavior.md)
 ### [Limitación de índice de alertas](monitoring-alerts-rate-limiting.md)

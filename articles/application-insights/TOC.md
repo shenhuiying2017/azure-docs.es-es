@@ -43,6 +43,7 @@
 ### Las tablas de Azure
 #### [Generador de perfiles](app-insights-profiler.md)
 #### [Diagnóstico](app-insights-azure-diagnostics.md)
+#### [Vistas previas](app-insights-previews.md)
 
 ### ASP.NET
 #### [Recolección de más telemetría](app-insights-asp-net-more.md)
@@ -91,8 +92,9 @@
 
 ### Uso
 #### [Información general](app-insights-usage-overview.md)
-#### [Retención](app-insights-usage-retention.md)
 #### [Usuarios, sesiones, eventos](app-insights-usage-segmentation.md)
+#### [Retención](app-insights-usage-retention.md)
+#### [Libros](app-insights-usage-workbooks.md)
 
 ### Análisis
 
@@ -108,6 +110,7 @@
 ### [Creación de recursos](app-insights-powershell-script-create-resource.md)
 ### [Establecimiento de alertas](app-insights-powershell-alerts.md)
 ### [Obtención de diagnósticos de Azure](app-insights-powershell-azure-diagnostics.md)
+### [Automatización con Microsoft Flow](app-insights-automate-with-flow.md)
 
 ## Desarrollo
 

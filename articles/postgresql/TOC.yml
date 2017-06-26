@@ -11,12 +11,14 @@
     href: quickstart-create-server-database-portal.md
   - name: 'Creación de la base de datos: CLI de Azure'
     href: quickstart-create-server-database-azure-cli.md
-  - name: Conectar
-    items:
-    - name: Node.js
-      href: connect-nodejs.md
+  - name: Conexión y consulta
+    items: 
     - name: Python
       href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: .NET
+      href: connect-csharp.md
 - name: Tutoriales
   items:
   - name: 1 - Diseño de una base de datos
@@ -27,6 +29,10 @@
       href: tutorial-design-database-using-azure-cli.md
   - name: '2 - Diseño de aplicaciones web: Python'
     href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+- name: Muestras
+  items:
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
 - name: Conceptos
   items:
   - name: Bases de datos y servidores
@@ -57,10 +63,6 @@
     items:
     - name: Bibliotecas de conexiones
       href: concepts-connection-libraries.md
-- name: Muestras
-  items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
 - name: Guías de procedimientos
   items:
   - name: Reglas de firewall
@@ -73,6 +75,8 @@
     items:
     - name: Portal de Azure
       href: howto-restore-server-portal.md
+    - name: CLI de Azure
+      href: howto-restore-server-cli.md
   - name: Migración de la base de datos
     items:
     - name: Volcado de memoria y restauración
@@ -99,6 +103,8 @@
     href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
   - name: Stackoverflow
     href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+  - name: Vídeos
+    href: videos.md    
   - name: Foro de comentarios
     href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
   - name: Disponibilidad en regiones

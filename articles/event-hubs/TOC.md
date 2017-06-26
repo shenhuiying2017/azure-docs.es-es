@@ -19,13 +19,11 @@
 
 # Procedimientos
 ## Planeamiento y diseño
-### [🔧 Escenarios comunes de integración con servicios de Azure](event-hubs-common-integrations.md)
 ### [Event Hubs dedicado](event-hubs-dedicated-overview.md)
 ### [Introducción al modelo de autenticación y seguridad](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilidad y coherencia](event-hubs-availability-and-consistency.md)
+### [Escalado automático de las unidades de rendimiento](event-hubs-auto-inflate.md)
 ## Desarrollo
-### [🔧 Control de errores y reintentos](event-hubs-handling-errors-retry.md)
-### [🔧 Administración del rendimiento y escala](event-hubs-performance-scale.md)
 ### [API disponibles](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

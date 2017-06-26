@@ -48,7 +48,7 @@
 #### [Preparación de máquinas virtuales implementadas según el modelo de Resource Manager](backup-azure-arm-vms-prepare.md)
 ### Planeamiento del entorno
 #### [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](backup-azure-vms-introduction.md)
-### Copia de seguridad de servidores y cargas de trabajo
+### Copia de seguridad de máquinas virtuales
 #### [Copia de seguridad de instancias de Azure Virtual Machines en el almacén de Backup](backup-azure-vms.md)
 #### [Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services](backup-azure-arm-vms.md)
 #### [Copia de seguridad de máquinas virtuales cifradas](backup-azure-vms-encryption.md)
