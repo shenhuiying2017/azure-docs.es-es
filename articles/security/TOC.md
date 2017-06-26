@@ -11,6 +11,7 @@
 ### [Registro y auditoría](azure-log-audit.md)
 ### [Aislamiento en la nube pública](azure-isolation.md)
 ### [Funcionalidades técnicas de seguridad](azure-security-technical-capabilities.md)
+### [Gobierno en Azure](governance-in-azure.md)
 
 # Introducción
 ## [Introducción a la seguridad de Azure](azure-security-getting-started.md)

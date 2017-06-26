@@ -5,6 +5,7 @@
 # Introducción
 ## [Creación de un registro en el portal](container-registry-get-started-portal.md)
 ## [Creación de un registro con la CLI de Azure 2.0](container-registry-get-started-azure-cli.md)
+## [Creación de un registro con Azure PowerShell](container-registry-get-started-powershell.md)
 ## [Inserción y extracción de una imagen](container-registry-get-started-docker-cli.md)
 ## [Visualización de repositorios](container-registry-repositories.md)
 

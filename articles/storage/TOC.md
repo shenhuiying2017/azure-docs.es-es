@@ -1,6 +1,7 @@
 # Información general
 
 ## [Introducción](storage-introduction.md)
+## [Elección de blobs, archivos o discos de datos](storage-decide-blobs-files-disks.md)
 
 # Introducción
 
@@ -50,6 +51,7 @@
 ### [Adición de un disco administrado a una máquina virtual Linux](../virtual-machines/linux/add-disk.md)
 ### [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Uso de Managed Disks en plantillas de Resource Manager](storage-using-managed-disks-template-deployments.md)
 
 # Procedimientos
 ## [crear una cuenta de almacenamiento](storage-create-storage-account.md)
@@ -70,7 +72,8 @@
 ### [Ejemplos](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Uso de archivos
 ### [Información general](/rest/api/storageservices/File-Service-Concepts)
-### [Solucionar problemas de Azure Files](storage-troubleshoot-file-connection-problems.md)
+### [Solución de problemas de Azure Files: Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Solución de problemas de Azure Files: Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Ejemplos](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Uso de discos
 ### [Discos y discos duros virtuales para máquinas virtuales Windows](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +112,7 @@
 ## Protección
 ### [Guía de seguridad](storage-security-guide.md)
 ### [Cifrado de datos en reposo](storage-service-encryption.md)
+### [Cifrado en reposo con claves de cliente](storage-service-encryption-customer-managed-keys.md)
 ### [Autenticación de clave compartida](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Cifrado y descifrado de blobs mediante Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -130,7 +134,8 @@
 ### [Guía de recuperación ante desastres](storage-disaster-recovery-guidance.md)
 ## Transferencia de datos
 ### [Movimiento de datos hacia Storage y desde este](storage-moving-data.md)
-### [Utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
+### [AzCopy en Windows](storage-use-azcopy.md)
+### [AzCopy en Linux](storage-use-azcopy-linux.md)
 ### [Uso del servicio Import/Export](storage-import-export-service.md)
 ### [Uso de la herramienta Import/Export](storage-import-export-tool-how-to.md)
 #### [Configuración de la herramienta Import/Export](storage-import-export-tool-setup.md)
