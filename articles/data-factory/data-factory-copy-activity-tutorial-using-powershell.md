@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 674a35f36af07e00c558948cbce5b4279eb7f9f8
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: ba2f64eb962aa34ca74c09441845f627342590f8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -275,7 +275,7 @@ En este paso, se crea un conjunto de datos llamado InputDataset, que apunta a un
 
     | Propiedad | Descripción |
     |:--- |:--- |
-    | type | La propiedad type se establece en **AzureBlob** porque los datos residen en Azure Blob Storage. |
+    | type | La propiedad type se establece en **AzureBlob** porque los datos residen en una instancia de Azure Blob Storage. |
     | linkedServiceName | Hace referencia al servicio **AzureStorageLinkedService** que creó anteriormente. |
     | folderPath | Especifica el **contenedor** de blobs y la **carpeta** que contiene los blobs de entrada. En este tutorial, adftutorial es el contenedor de blobs y folder es la carpeta raíz. | 
     | fileName | Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este tutorial, se especifica **emp.txt** en fileName, por lo que solo se selecciona ese archivo para su procesamiento. |
@@ -509,7 +509,7 @@ En este paso, se usa Azure PowerShell para supervisar lo que ocurre en una Data 
     State             : InProgress
     SubState          :
     LatencyStatus     :
-    LongRetryCount    : 0    
+    LongRetryCount    : 0   
 
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : ADFTutorialDataFactoryPSH0516

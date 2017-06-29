@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 23e833b9eb926c81fd8c02cd96d43da8cffcaa43
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 
@@ -281,7 +281,7 @@ El [script de shell](https://github.com/shwetams/azure-batchclient-sample-nodejs
 Puede cargar el script en una cuenta de Azure Storage y generar un URI de SAS para tener acceso al script. Este proceso también se puede automatizar utilizando el SDK de Azure Storage para Node.js.
 
 > [!Tip]
-> Una tarea de preparación de un trabajo se ejecuta solo en los nodos de máquina virtual en los que la tarea específica necesita ejecutarse. Si desea como requisito previo que la tarea se instale en todos los nodos con independencia de las tareas que se ejecutan en él, puede usar la propiedad [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) al agregar un grupo. Puede utilizar como referencia la definición de tarea de preparación siguiente.
+> Una tarea de preparación de un trabajo se ejecuta solo en los nodos de máquina virtual en los que la tarea específica necesita ejecutarse. Si desea que los requisitos previos se instalen en todos los nodos con independencia de las tareas que se ejecutan en él, puede usar la propiedad [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) al agregar un grupo. Puede utilizar como referencia la definición de tarea de preparación siguiente.
 >
 >
 

@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -62,4 +62,10 @@ Para más información acerca de la paginación de resultados de búsqueda, cons
 ## <a name="hit-highlighting"></a>Resaltado de referencias
 En Búsqueda de Azure, resaltar la parte exacta de los resultados de búsqueda que coincide con la consulta de búsqueda es fácil mediante el uso de los parámetros `highlight`, `highlightPreTag`, y `highlightPostTag`. Puede especificar qué campos *habilitados para búsquedas* deben tener su texto coincidente resaltado, así como especificar las etiquetas de cadena exactas que se anexarán al comienzo y al final del texto coincidente que devuelve Azure Search.
 
+## <a name="try-out-query-syntax"></a>Prueba de la sintaxis de consulta
 
+La mejor manera de comprender las diferencias de sintaxis es enviar consultas y revisar los resultados.
+
++ Use el [Explorador de búsqueda](search-explorer.md) de Azure Portal. Mediante la implementación del [índice de ejemplo](search-get-started-portal.md), puede consultar el índice en minutos gracias a las herramientas en el portal.
+
++ Use [Fiddler](search-fiddler.md) o Chrome Postman para enviar consultas a un índice que se haya cargado en el servicio de búsqueda. Ambas herramientas admiten llamadas REST para un punto de conexión HTTP. 

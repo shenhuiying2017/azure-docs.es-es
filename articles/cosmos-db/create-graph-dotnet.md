@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 597b12b98edb07e453fc3cd5a0884c584a5bfd14
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 3491aa53a55d988876710c0ac19383e642dda27b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -61,7 +61,7 @@ Ahora vamos a clonar una aplicación de API Graph desde GitHub, establecer la ca
 
 Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo Program.cs y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
 
-* Se inicializa DocumentClient. En la vista previa, hemos agregado una API de extensión de gráficos en el cliente de DocumentDB. Estamos trabajando en un cliente de gráficos independiente desacoplado del cliente y los recursos de DocumentDB.
+* Se inicializa DocumentClient. En la versión preliminar, hemos agregado una API de extensión de gráficos en el cliente de la base de datos de Azure Cosmos. Estamos trabajando en un cliente de gráficos independiente desacoplado del cliente y los recursos de la base de datos de Azure Cosmos.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(

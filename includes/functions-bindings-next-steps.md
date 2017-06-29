@@ -1,2 +1,2 @@
-Para más información sobre otros enlaces y desencadenadores para Funciones de Azure, consulte [Referencias para desarrolladores de desencadenadores y enlaces de Funciones de Azure](../articles/azure-functions/functions-triggers-bindings.md)
+Para más información sobre otros enlaces y desencadenadores de Azure Functions, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](../articles/azure-functions/functions-triggers-bindings.md).
 

@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/21/2017
+ms.date: 6/01/2017
 ms.author: negat
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 4ec20a30f423d4b30e953f873100be90167f987b
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.contentlocale: es-es
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -45,7 +46,7 @@ Como alternativa, también puede buscar en el [repositorio Azure Quickstart Temp
 
 ## <a name="api-versions"></a>Versiones de API
 
-La versión actual de la API de disponibilidad general de los conjuntos de escalado con discos administrados es `2016-04-30-preview`. Los conjuntos de escalado con discos no administrados seguirán funcionando como ahora lo hacen, incluso en nuevas versiones de API que admiten discos administrados. Sin embargo, los conjuntos de escalado con discos no administrados no obtienen las ventajas de los discos administrados, incluso en estas nuevas versiones de API.
+Los conjuntos de escalado con discos administrados requieren la versión `2016-04-30-preview` de API Microsoft.Compute o una versión posterior. Los conjuntos de escalado con discos no administrados seguirán funcionando como ahora lo hacen, incluso en nuevas versiones de API que admiten discos administrados. Sin embargo, los conjuntos de escalado con discos no administrados no obtienen las ventajas de los discos administrados, incluso en estas nuevas versiones de API.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

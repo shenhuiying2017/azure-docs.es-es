@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8cfe8689494a9f85d1533d259a2744e18407ecef
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 053e2ae7f382bc55a6638ccd612289ab2ba64e52
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -82,7 +82,12 @@ Al crear la primera cuenta de Batch en modo de suscripción de usuario, realice 
 
     ![Control de acceso a la suscripción][subscription_access]
 
-4. En la hoja **Agregar permisos**, seleccione el rol **Colaborador** y busque **MicrosoftAzureBatch** (sin espacios). Seleccione **MicrosoftAzureBatch** y haga clic en **Guardar**.
+4. En la hoja **Agregar permisos**, seleccione el rol **Colaborador** y busque Batch API. Busque cada una de estas cadenas hasta que encuentre la API:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Los inquilinos más recientes de Azure AD pueden utilizar este nombre.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** es el identificador de Batch API. 
+
+5. Una vez que encuentre Batch API, selecciónelo y haga clic en **Guardar**.
 
     ![Adición de permisos de Batch][add_permission]
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4b7192b22d1583be2b2ab027b040c9a2fce8a293
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: db97edd3c4fbfdbe955c49cc9a58de30c5085305
+ms.contentlocale: es-es
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -81,39 +82,9 @@ Al crear un grupo de recursos, es preciso proporcionar una ubicación para dicho
 ## <a name="resource-providers"></a>Proveedores de recursos
 Cada proveedor de recursos ofrece un conjunto de recursos y operaciones para trabajar con un servicio de Azure. Por ejemplo, si desea almacenar claves y secretos, trabajará con el proveedor de recursos **Microsoft.KeyVault**. Este proveedor de recursos ofrece un tipo de recurso denominado **almacenes** para crear el almacén de claves. 
 
-Antes de comenzar a implementar los recursos, debe conocer los proveedores de recursos disponibles. Conocer los nombres de los recursos y sus proveedores ayuda a definir los recursos que desea implementar en Azure.
+El nombre de un tipo de recurso tiene el formato: **{proveedor de recursos}/{tipo de recurso}**. Por ejemplo, el tipo de almacén de claves es **Microsoft.KeyVault\vaults**.
 
-Puede ver todos los proveedores de recursos mediante el portal. En la hoja de su suscripción, seleccione **Proveedores de recursos**:
-
-![ver proveedores de recursos](./media/resource-group-overview/view-resource-providers.png)
-
-Recupere todos los proveedores de recursos con el siguiente cmdlet de PowerShell:
-
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-O bien, en la CLI de Azure 2.0, recupere todos los proveedores de recursos con el siguiente comando:
-
-```azurecli
-az provider list
-```
-
-Puede examinar la lista devuelta de los proveedores de recursos que necesita usar.
-
-Para obtener detalles acerca de un proveedor de recursos, agregue su espacio de nombres al comando. El comando devuelve los tipos de recursos admitidos para el proveedor de recursos, así como las ubicaciones compatibles y las versiones de API para cada tipo de recurso. El siguiente cmdlet de PowerShell obtiene detalles sobre Microsoft.Compute:
-
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
-```
-
-O bien, en la CLI de Azure 2.0, recupere los tipos de recursos admitidos, las ubicaciones y las versiones de API para Microsoft.Compute con el siguiente comando:
-
-```azurecli
-az provider show --namespace Microsoft.Compute
-```
-
-Para más información, consulte [Proveedores, regiones, versiones de API y esquemas de Resource Manager](resource-manager-supported-services.md).
+Antes de comenzar a implementar los recursos, debe conocer los proveedores de recursos disponibles. Conocer los nombres de los recursos y sus proveedores ayuda a definir los recursos que desea implementar en Azure. Además, es necesario que conozca las ubicaciones y las versiones de API válidas de cada tipo de recurso. Para más información, consulte [Tipos y proveedores de recursos](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 Con Resource Manager, puede crear una plantilla (en formato JSON) que defina la infraestructura y la configuración de su solución de Azure. Mediante una plantilla, puede implementar la solución repetidamente a lo largo del ciclo de vida y tener la seguridad de que los recursos se implementan de forma coherente. Cuando crea una solución desde el Portal, la solución incluye automáticamente una plantilla de implementación. No tiene que crear la plantilla desde cero, puede empezar con la plantilla para la solución y personalizarla para satisfacer sus necesidades específicas. Puede recuperar una plantilla de un grupo de recursos existente mediante la exportación del estado actual del grupo de recursos o la visualización de la plantilla de una implementación determinada. Una buena estrategia para aprender sobre la sintaxis de una plantilla es consultar la [plantilla exportada](resource-manager-export-template.md).

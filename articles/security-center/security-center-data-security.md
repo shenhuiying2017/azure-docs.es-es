@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 06/12/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
-ms.openlocfilehash: 5c030f463b21284c15752cf95aa1f9a75f17ffb0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 6f95cf7631664f4630edbbcdadfd1d98105fdb98
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -25,14 +27,18 @@ Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure 
 
 En este artículo se explica cómo se administran y protegen los datos en Azure Security Center.
 
+>[!NOTE] 
+>Desde primeros de junio de 2017, Security Center usará Microsoft Monitoring Agent para recopilar y almacenar datos. Consulte [Migración de la plataforma de Azure Security Center](security-center-platform-migration.md) para más información. La información de este artículo representa la funcionalidad de Security Center después de la transición a Microsoft Monitoring Agent.
+>
+
 
 ## <a name="data-sources"></a>Orígenes de datos
 Azure Security Center analiza los datos de los orígenes siguientes para proporcionar visibilidad de su estado de seguridad, identificar vulnerabilidades y recomendar mitigaciones y detectar amenazas activas:
 
 - Servicios de Azure: utiliza la información acerca de la configuración de los servicios de Azure que se hayan implementado mediante la comunicación con el proveedor de recursos de cada uno de dichos servicios.
 - Tráfico de red: usa metadatos muestreados del tráfico de red de la infraestructura de Microsoft, como el IP o el puerto de origen o destino, el tamaño de paquete y el protocolo de red.
-- Soluciones de asociados: usa alertas de seguridad de las soluciones de asociados integradas, como firewalls y soluciones antimalware.
-- Sus Virtual Machines: usa información de configuración e información sobre eventos de seguridad, como los eventos y registros de auditoría de Windows, registros IIS, mensajes de Syslog y archivos de volcado de memoria de sus máquinas virtuales.
+- Soluciones de asociados: usa alertas de seguridad de las soluciones de asociados integradas, como firewalls y soluciones antimalware. 
+- Sus máquinas virtuales y servidores: usa la información de configuración y la información sobre eventos de seguridad, como los eventos y registros de auditoría de Windows, registros IIS, mensajes de Syslog y archivos de volcado de memoria de las máquinas virtuales. Además, cuando se crea una alerta, Azure Security Center puede generar una instantánea del disco de máquina virtual afectado y extraer los artefactos de máquina relacionados con la alerta desde el disco de máquina virtual, como un archivo de registro, para fines de análisis forense.
 
 
 ## <a name="data-protection"></a>Protección de datos
@@ -43,19 +49,32 @@ Azure Security Center analiza los datos de los orígenes siguientes para proporc
 **Uso de datos**: Microsoft utiliza los patrones y la información sobre amenazas vistos en varios inquilinos para mejorar las funcionalidades de detección y prevención; esto se realiza según lo dispuesto en los compromisos de privacidad que se describen en nuestra [declaración de privacidad](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
 ## <a name="data-location"></a>Ubicación de los datos
-**Su cuenta o cuentas de almacenamiento**: se especifica una cuenta de almacenamiento para cada región en la que se ejecutan máquinas virtuales. Esto permite almacenar los datos en la misma región en que se encuentra la máquina virtual de la que se recopilan. Dichos datos, entre los que se incluyen los archivos de volcado de memoria, se almacenarán de forma persistente en su cuenta de almacenamiento. Las instantáneas del disco de máquina virtual se almacenan en la misma cuenta de almacenamiento que el disco de máquina virtual.
 
-**Almacenamiento de Azure Security Center**: Además, se guarda información acerca de las alertas de seguridad, incluidas las alertas de asociado, recomendaciones y estado de mantenimiento de seguridad en el almacenamiento centralizado, que actualmente se encuentra en Estados Unidos. Esta información puede incluir información de configuración relacionada y eventos de seguridad recopilados de las máquinas virtuales que son necesarios para proporcionarle la alerta de seguridad, la recomendación o el estado de mantenimiento de seguridad.
+**Sus áreas de trabajo**: se especifica una área de trabajo para las siguientes geoáreas y datos recopilados de sus máquinas virtuales de Azure, como los volcados de datos y algunos tipos de datos de alerta, que se guardan en el área de trabajo más próxima. 
 
+| Geoárea de la máquina virtual                        | Geoárea del área de trabajo |
+|-------------------------------|---------------|
+| Estados Unidos, Brasil, Canadá | Estados Unidos |
+| Europa, Reino Unido        | Europa        |
+| Asia Pacífico, Japón, India    | Asia Pacífico  |
+| Australia                     | Australia     |
+
+ 
+Las instantáneas del disco de máquina virtual se almacenan en la misma cuenta de almacenamiento que el disco de máquina virtual.
+ 
+Para máquinas virtuales y servidores que se ejecutan en otros entornos, por ejemplo, de forma local, puede especificar el área de trabajo y la región donde almacenar los datos recopilados. 
+
+**Almacenamiento de Azure Security Center**: la información acerca de las alertas de seguridad, incluidas las alertas de los asociados, se almacena a nivel regional según la ubicación del recurso de Azure, mientras que la información sobre el estado de mantenimiento de seguridad y la recomendación se almacenan centralmente, ya sea en Estados Unidos o en Europa, en función de la ubicación del cliente.
 Azure Security Center recopila copias efímeras de los archivos de volcado de memoria y las analiza para buscar pruebas de intentos de vulnerabilidad y de riesgos ciertos. Azure Security Center realiza este análisis en la misma geoárea en la que se encuentra el área de trabajo y elimina las copias efímeras una vez que el análisis se completa.
 
-Los artefactos de la máquina se almacenan de forma centralizada en la misma región que la máquina virtual.
+Los artefactos de la máquina se almacenan de forma centralizada en la misma región que la máquina virtual. 
 
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Administración de recolección de datos de máquinas virtuales
-Si elige habilitar Azure Security Center, la recolección de datos estará activada para todas las suscripciones. También se puede activar la recolección de datos en la sección "Directiva de seguridad" de Azure Security Center. Cuando se activa la recolección de datos, Azure Security Center aprovisiona el Agente de supervisión de Azure en todas las máquinas virtuales compatibles existentes y en las nuevas que se crean. La extensión Supervisión de seguridad de Azure busca diversas configuraciones relacionadas con la seguridad y las envía a [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (Seguimientos de eventos de Windows). Además, el sistema operativo generará eventos del registro de eventos mientras la máquina se ejecute. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP, usuario conectado e identificador de inquilino. El Agente de supervisión de Azure lee las entradas de los registros de eventos y los seguimientos de ETW y los copia en la cuenta de almacenamiento para su análisis.
 
-La recolección de datos de máquinas virtuales se puede deshabilitar en cualquier momento, lo que eliminará todos los agentes de supervisión que Azure Security Center haya instalado previamente. Las instantáneas de disco de máquina virtual y la recolección de artefactos continuará habilitada aunque la recopilación de datos se deshabilite.
+Al habilitar Security Center en Azure, la recopilación de datos se activa para todas las suscripciones de Azure. También se puede activar la recopilación de datos para las suscripciones en la sección "Directivas de seguridad" de Azure Security Center. Cuando se activa la recopilación de datos, Azure Security Center aprovisiona el Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles existentes y en las que se crean. Microsoft Monitoring Agent busca diversos eventos y configuraciones relacionados con la seguridad y los envía a [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo generará eventos del registro de eventos mientras la máquina se ejecute. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP, usuario conectado e identificador de inquilino. Microsoft Monitoring Agent lee las entradas de los registros de eventos y los seguimientos de ETW y los copia en las áreas de trabajo para el análisis. Microsoft Monitoring Agent también copia los archivos de volcado de memoria en las áreas de trabajo.
+
+Si utiliza Azure Security Center gratis, también puede deshabilitar la recopilación de datos de las máquinas virtuales en las directivas de seguridad. La recopilación de datos es necesaria para las suscripciones del nivel estándar. Las instantáneas de disco de máquina virtual y la recolección de artefactos continuará habilitada aunque la recopilación de datos se deshabilite.
 
 
 ## <a name="see-also"></a>Consulte también
@@ -67,9 +86,4 @@ En este documento, se ha explicado cómo se administran y protegen los datos en 
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md) : aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

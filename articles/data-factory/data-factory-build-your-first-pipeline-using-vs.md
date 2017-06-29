@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 9d788bf8e41fe225a4c24a4f5b464e8664f3d677
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 7ea9988b02bc09626a11efb5e95c2349b378256a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -38,7 +38,7 @@ La canalización de este tutorial tiene una actividad: **actividad de HDInsight 
 > [!NOTE]
 > Este tutorial no muestra cómo copiar datos mediante Azure Data Factory. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Copia de datos de Blob Storage en SQL Database mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> pero se puede tener más de una actividad en una canalización. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
+> pero cualquier canalización puede tener más de una actividad. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
 ## <a name="walkthrough-create-and-publish-data-factory-entities"></a>Tutorial: Creación y publicación de entidades de Data Factory
@@ -202,7 +202,7 @@ Ahora, se crea el conjunto de datos de salida que representa los datos de salida
     }
     ```
     Este fragmento de código JSON define un conjunto de datos denominado **AzureBlobOutput** que representa los datos de salida generados por la actividad de Hive de la canalización. Debe especificar que los datos de salida generados por la actividad de Hive se encuentran en el contenedor de blobs llamado `adfgetstarted` y en la carpeta `partitioneddata`. 
-     
+    
     La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente. El conjunto de datos de salida controla la programación de la canalización. La canalización se ejecuta mensualmente a una hora específica comprendida entre sus horas de inicio y finalización. 
 
     Consulte la sección **Creación del conjunto de datos de entrada** para obtener las descripciones de estas propiedades. No establezca la propiedad externa en un conjunto de datos ya que este es generado por la canalización.
@@ -320,7 +320,7 @@ Puntos importantes que hay que tener en cuenta:
 
 - Si recibe el error: **La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**, realice una de las acciones siguientes e intente publicarla de nuevo:
     - En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory.
-        ```PowerShell    
+        ```PowerShell   
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory.
@@ -400,7 +400,7 @@ La Aplicación de supervisión y administración también se puede usar para sup
 > El archivo de entrada se elimina cuando el segmento se procesa correctamente. Por lo tanto, si desea volver a ejecutar el segmento o volver a realizar el tutorial, cargue el archivo de entrada (input.log) en la carpeta `inputdata` del contenedor `adfgetstarted`.
 
 ### <a name="additional-notes"></a>Notas adicionales
-- Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen a un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada. Consulte los [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver todos orígenes y receptores que admite la actividad de copia. Consulte los [servicios vinculados de procesos](data-factory-compute-linked-services.md) para ver la lista de servicios de proceso compatibles con Data Factory.
+- Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos desde un origen hasta un almacén de datos de destino o una actividad de Hive de HDInsight para ejecutar un script de Hive que transforme los datos de entrada. Consulte los [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver todos orígenes y receptores que admite la actividad de copia. Consulte los [servicios vinculados de procesos](data-factory-compute-linked-services.md) para ver la lista de servicios de proceso compatibles con Data Factory.
 - Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos de Azure. Consulte los [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver todos orígenes y receptores que admite la actividad de copia. Consulte los [servicios vinculados de procesos](data-factory-compute-linked-services.md) para ver la lista de servicios de proceso compatibles con Data Factory y las [actividades de transformación](data-factory-data-transformation-activities.md) que se pueden ejecutar en ellos.
 - Consulte [Movimiento de datos hacia y desde Azure Blob mediante Azure Data Factory](data-factory-azure-blob-connector.md#azure-storage-linked-service) para más información acerca de las propiedades JSON usadas en la definición del servicio vinculado de Azure Storage.
 - Puede usar su propio clúster de HDInsight en lugar de usar un clúster de HDInsight a petición. Consulte [Servicios vinculados de procesos](data-factory-compute-linked-services.md) para más información.

@@ -1,21 +1,21 @@
 1. En una nueva ventana, inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú de la izquierda, haga clic en **Nuevo**, en **Bases de datos** y, después, en **Azure Cosmos DB**.
+2. En el panel de la izquierda, haga clic en **Nuevo**, luego en **Bases de datos** y, después, en **la base de datos de Azure Cosmos**.
    
-   ![Captura de pantalla de Azure Portal, donde se resaltan Más servicios y Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
+   ![Panel de las bases de datos de Azure Portal](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
 
 3. En la hoja **Nueva cuenta**, especifique la configuración que quiera para la cuenta de Azure Cosmos DB. 
 
-    Con Azure Cosmos DB, puede elegir uno de cuatro modelos de programación: Gremlin (graph), MongoDB, SQL (DocumentDB) y Table (clave-valor).  
+    Con Azure Cosmos DB, puede elegir uno de cuatro modelos de programación: Gremlin (gráfico), MongoDB, SQL (DocumentDB) y Table (clave-valor).  
        
-    En esta guía de inicio rápido programaremos con la API Graph, por lo que elegirá **Gremlin (graph)** al rellenar el formulario. Pero si tiene datos de documentos de una aplicación de catálogo, datos de clave-valor (tabla) o datos migrados desde una aplicación de MongoDB, debe tener en cuenta que Azure Cosmos DB puede proporcionar una plataforma de servicio de base de datos distribuida globalmente y de alta disponibilidad para todas las aplicaciones críticas.
+    En este artículo de guía de inicio rápido programaremos con la API Graph, así que elija **Gremlin (graph)** al rellenar el formulario. Si tiene datos de documentos de una aplicación de catálogo, datos de clave/valor (tabla) o datos migrados desde una aplicación de MongoDB, debe tener en cuenta que la base de datos de Azure Cosmos puede proporcionar una plataforma de servicio de base de datos distribuida globalmente y de alta disponibilidad para todas las aplicaciones críticas.
 
-    Rellene la hoja Nueva cuenta con la información de la captura de pantalla como guía. Al configurar su cuenta elegirá valores únicos, por lo que no coincidirán exactamente con los de la captura de pantalla. 
+    En la hoja **Nueva cuenta**, rellene los campos usando la información de la captura de pantalla siguiente como guía. Sus valores no coincidirán con los de la captura de pantalla, por ello al configurar la cuenta asegúrese de que elige valores únicos. 
  
-    ![Captura de pantalla de la hoja Nueva cuenta de Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
+    ![La hoja de la base de datos de Azure Cosmos](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
     Configuración|Valor sugerido|Descripción
     ---|---|---
-    ID|*Valor único*|Nombre único elegido para identificar la cuenta de Azure Cosmos DB. Se anexará *documents.azure.com* al identificador que proporcione para crear el URI, por lo que debe usar un identificador único pero reconocible. El identificador solo puede contener minúsculas, números y el carácter "-". Además, debe tener entre 3 y 50 caracteres.
+    ID|*Valor único*|Un nombre único elegido para identificar la cuenta de la base de datos de Azure Cosmos. Como *documents.azure.com* se anexará al identificador que proporcione para crear el URI, debe usar un identificador único pero reconocible. El identificador tiene que contener solo letras minúsculas, números y el carácter guion (-), y tiene que tener una extensión de entre 3 y 50 caracteres.
     API|Gremlin (graph)|Más adelante en este artículo programaremos con la [API Graph](../articles/cosmos-db/graph-introduction.md).|
     La suscripción|*Su suscripción*|Suscripción de Azure que quiere usar para la cuenta de Azure Cosmos DB. 
     Grupo de recursos|*Mismo valor que el identificador*|Nombre del nuevo grupo de recursos para la cuenta. Para simplificar, puede usar el mismo nombre del identificador. 
@@ -26,6 +26,6 @@
 
     ![Notificación Implementación iniciada](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-nosql-notification.png)
 
-6.  Una vez completada la implementación, abra la nueva cuenta desde el icono Todos los recursos. 
+6.  Una vez completada la implementación, abra la nueva cuenta desde el icono **All Resources** (Todos los recursos). 
 
     ![Cuenta de DocumentDB en el icono Todos los recursos](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-all-resources.png)

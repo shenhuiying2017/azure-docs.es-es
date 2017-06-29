@@ -12,61 +12,36 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 06/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="security-alerts-by-type-in-azure-security-center"></a>Alertas de seguridad por tipo en Azure Security Center
-Este artículo ayuda a comprender los distintos tipos de alertas de seguridad disponibles en Azure Security Center. Para más información sobre cómo administrar estas alertas, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
+# <a name="understanding-security-alerts-in-azure-security-center"></a>Comprensión de las alertas de seguridad en Azure Security Center
+Este artículo ayuda a comprender los distintos tipos de alertas de seguridad y aspectos relacionados disponibles en Azure Security Center. Para más información sobre cómo administrar las alertas y los incidentes, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 > [!NOTE]
 > Para configurar las detecciones avanzadas, actualice a la versión estándar de Azure Security Center. Hay disponible una versión de evaluación gratuita de 60 días. Para actualizar a este nivel, seleccione el **plan de tarifa** en la [directiva de seguridad](security-center-policies.md). Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
 >
->
 
 ## <a name="what-type-of-alerts-are-available"></a>¿Qué tipo de alertas está disponible?
-Azure Security Center proporciona una variedad de alertas que se alinean con las fases de la cadena de eliminación en Internet. La ilustración siguiente muestra varias alertas, ya que afectan a algunas de estas fases.
-
-![Cadena de eliminación](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
-
-**Destino y ataque**
-
-* Ataques RDP o SSH entrantes
-* Ataques DDoS y aplicaciones (asociados de WAF)
-* Detección de intrusiones (asociados de NG Firewall)
-
-**Instalación y vulnerabilidad de seguridad**
-
-* Firmas de malware conocidas (asociados de AM)
-* Intentos de malware y vulnerabilidad de seguridad en memoria
-* Ejecución de procesos sospechosos
-* Maniobras evasivas para evitar la detección
-* Desplazamiento lateral
-* Reconocimiento interno
-* Actividad de PowerShell sospechosa
-
-**Brecha de POST**  
-
-* Comunicación con una dirección IP malintencionada conocida (exfiltración de datos o comando y control)
-* Uso de recursos en peligro para montar ataques adicionales (ataques de fuerza bruta de RDP o SSH de detección del puerto de salida y correo no deseado)
-
-Los diferentes tipos de ataques están asociados a cada fase y se dirigen a distintos subsistemas. Para afrontar los ataques durante estas fases, Security Center tiene tres categorías de alertas:
+Azure Security Center usa una variedad de [funcionalidades de detección](security-center-detection-capabilities.md) para alertar a los clientes de posibles ataques contra sus entornos. Estas alertas contienen información valiosa sobre lo que desencadenó la alerta, los recursos objetivo y el origen del ataque. La información incluida en las alertas varía según el tipo de análisis utilizado para detectar la amenaza. Los incidentes también pueden contener información contextual adicional que puede resultar útil para la investigación de la amenaza.  En este artículo se proporciona información acerca de los siguientes tipos de alertas:
 
 * Análisis del comportamiento de la máquina virtual (VMBA)
 * Análisis de red
 * Análisis de recursos
+* Información contextual
 
 ## <a name="virtual-machine-behavioral-analysis"></a>Análisis del comportamiento de la máquina virtual
 Azure Security Center puede utilizar el análisis de comportamiento para identificar los recursos en peligro a partir del análisis de registros de eventos de la máquina virtual. Por ejemplo, eventos de creación de proceso y eventos de inicio de sesión. Además, existe una correlación con otras señales que se comprueban para fundamentar las pruebas de que se trata una campaña de gran difusión.
 
 > [!NOTE]
 > Para más información acerca de cómo actúan las funcionalidades de detección de Security Center, consulte [Funcionalidades de detección de Azure Security Center](security-center-detection-capabilities.md).
->
 >
 
 ### <a name="crash-analysis"></a>Análisis de bloqueos
@@ -258,6 +233,18 @@ Esta alerta se desencadena cuando se detecta un error de aplicación en una base
 Esta alerta se desencadena cuando se detecta un evento de acceso desde una dirección IP desconocida en el servidor, que no se ha visto en el último período.
 
 ![Alerta de acceso inusual](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
+
+## <a name="contextual-information"></a>Información contextual
+Durante una investigación, los analistas necesitan más contexto para llegar a un veredicto sobre la naturaleza de la amenaza y cómo mitigarla.  Por ejemplo, se detecta una anomalía de red, pero sin saber qué más sucede en la red o con respecto al recurso objetivo, es muy difícil conocer las medidas que se deben tomar a continuación. Para ayudar a los investigadores con esto, los incidentes de seguridad pueden incluir artefactos, eventos e información relacionada. La disponibilidad de información adicional variará según el tipo de amenaza detectada y la configuración de su entorno y no estará disponible para todos los incidentes de seguridad.
+
+Si hay disponible información adicional, se mostrará en el incidente de seguridad por debajo de la lista de alertas. Podría contener datos como:
+
+- Eventos de registro borrados
+- Dispositivos Plug and Play desconocidos
+- Alertas que no se pueden activar 
+
+![Alerta de acceso inusual](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
+
 
 ## <a name="see-also"></a>Consulte también
 En este artículo, ha aprendido acerca de los distintos tipos de alertas de seguridad en Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:

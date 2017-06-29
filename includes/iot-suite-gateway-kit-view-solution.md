@@ -28,7 +28,7 @@ Para agregar un dispositivo a su solución de supervisión remota, complete los 
 
    ![Agregar id. de dispositivo][3]
 
-1. Anote las credenciales de dispositivo (**Id. de dispositivo**, **Nombre de host de IoT Hub** y **Clave de dispositivo**). La aplicación cliente en su Raspberry Pi necesita estos valores para conectarse con la solución de supervisión remota. A continuación, haga clic en **Hecho**.
+1. Anote las credenciales de dispositivo (**Id. de dispositivo**, **Nombre de host de IoT Hub** y **Clave de dispositivo**). La aplicación cliente en Intel NUC necesita estos valores para conectarse con la solución de supervisión remota. A continuación, haga clic en **Hecho**.
 
     ![Ver las credenciales del dispositivo][4]
 

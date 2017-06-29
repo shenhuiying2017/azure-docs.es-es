@@ -1,6 +1,6 @@
 Puede conectarse a una máquina virtual que se ha implementado en la red virtual mediante la creación de una conexión a Escritorio remoto a la máquina virtual. La mejor manera de comprobar inicialmente que puede conectarse a la máquina virtual es hacerlo mediante su dirección IP privada, en lugar del nombre de equipo. Con este método prueba si puede conectarse, no si la resolución de nombres está configurada correctamente.
 
-1. Busque la dirección IP privada. Para buscar la dirección IP privada de una máquina virtual, examine sus propiedades en Azure Portal o use PowerShell.
+1. Busque la dirección IP privada. Hay varias formas de encontrar la dirección IP privada de una máquina virtual. A continuación, se muestran los pasos tanto para Azure Portal como para PowerShell.
 
   - Azure Portal: busque la máquina virtual en Azure Portal. Vea las propiedades de la máquina virtual. Se enumera la dirección IP privada.
 

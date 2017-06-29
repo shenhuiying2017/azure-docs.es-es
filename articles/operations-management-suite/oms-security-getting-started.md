@@ -4,7 +4,7 @@ description: "Este documento le ayuda a empezar a trabajar con las funcionalidad
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -138,6 +139,12 @@ Puede continuar con su investigación haciendo clic en cada equipo y revisar los
 ### <a name="threat-intelligence"></a>Información sobre amenazas
 
 Mediante el uso de la opción Información sobre amenazas disponible en Seguridad y auditoría de OMS, los administradores de TI pueden identificar las amenazas de seguridad en el entorno, por ejemplo, identificar si un determinado equipo forma parte de un botnet. Los equipos pueden ser nodos en un botnet cuando los atacantes instalan de forma ilegal malware que se conecta en secreto al equipo para hacerse con el control. También puede identificar posibles amenazas procedentes de canales de comunicación de tipo underground, como darknet. Para más información sobre información de amenazas, consulte el artículo [Supervisión de las alertas de seguridad y su respuesta en la solución Seguridad y auditoría de Operations Management Suite](oms-security-responding-alerts.md).
+
+En algunos escenarios, puede que observe una posible dirección IP malintencionada a la que se accedió desde un equipo supervisado:
+
+![mapa de información sobre amenazas](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Esta alerta y otras de la misma categoría, se generan a través de la seguridad de OMS mediante el uso de [Inteligencia de amenazas de Microsoft](https://youtu.be/O4WtxgUrDc8). Microsoft recopila los datos de inteligencia de amenazas, así como también los adquiere a través de los principales proveedores. Estos datos se actualizan con frecuencia y se adaptan a amenazas que cambian rápidamente. Debido a su naturaleza, debe combinarse con otras fuentes de información de seguridad mientras se [investiga](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) una alerta de seguridad. 
 
 ### <a name="baseline-assessment"></a>Evaluación de línea base
 

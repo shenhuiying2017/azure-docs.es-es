@@ -16,10 +16,10 @@ ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
 ms.contentlocale: es-es
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -577,6 +577,9 @@ Primero vamos a reducir verticalmente hasta 100 DWU para que hacernos una idea d
 6. Escale el almacenamiento de datos de nuevo a 400 DWU. Tenga en cuenta que cada 100 DWU se agrega otro nodo de proceso a Azure SQL Data Warehouse.
 
 7. Ejecute la consulta de nuevo. Debe observar una diferencia significativa. 
+
+    > [!NOTE]
+    > Dado que la consulta devuelve una gran cantidad de datos, la disponibilidad de ancho de banda de la máquina que ejecute SSMS puede verse afectada por un cuello de botella en el rendimiento. Como consecuencia, es posible que no pueda ver ninguna mejora del rendimiento.
 
 > [!NOTE]
 > Como SQL Data Warehouse utiliza el procesamiento paralelo masivo, las consultas que examinen o realicen funciones analíticas en millones de filas experimentarán la auténtica potencia de Azure SQL Data Warehouse.

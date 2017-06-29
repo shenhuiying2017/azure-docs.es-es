@@ -8,17 +8,17 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/21/2017
+ms.date: 06/05/2017
 ms.author: nisoneji
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 3c72026a7a6c6b348a77560c7f35d76d93c75e17
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -141,7 +141,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Operation | Inicio de la generación de perfiles |
 | -Server | El nombre de dominio completo o la dirección IP del servidor vCenter/host de vSphere ESXi de cuyas máquinas virtuales se va a generar el perfil.|
 | -User | El nombre de usuario para conectarse al servidor de vCenter/host de vSphere ESXi. El usuario debe tener, como mínimo, acceso de solo lectura.|
-| -VMListFile |    El archivo que contiene la lista de máquinas virtuales cuyos perfiles se van a generar. La ruta de acceso del archivo puede ser absoluta o relativa. El archivo debe contener un nombre de máquina virtual o una dirección IP en cada línea. El nombre de la máquina virtual especificado en el archivo debe ser el mismo que el nombre de la máquina virtual del servidor vCenter/host de vSphere ESXi.<br>Por ejemplo, el archivo VMList.txt contiene las siguientes máquinas virtuales:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -VMListFile | El archivo que contiene la lista de máquinas virtuales cuyos perfiles se van a generar. La ruta de acceso del archivo puede ser absoluta o relativa. El archivo debe contener un nombre de máquina virtual o una dirección IP en cada línea. El nombre de la máquina virtual especificado en el archivo debe ser el mismo que el nombre de la máquina virtual del servidor vCenter/host de vSphere ESXi.<br>Por ejemplo, el archivo VMList.txt contiene las siguientes máquinas virtuales:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
 | -NoOfDaysToProfile | El número de días durante el que se va a ejecutar la generación de perfiles. Se recomienda ejecutar la generación de perfiles durante más de 15 días para asegurarse de que el patrón de carga de trabajo en su entorno durante el período especificado se observa y se usa para proporcionar una recomendación adecuada. |
 | -Directory | (Opcional) La convención de nomenclatura universal (UNC) o ruta de acceso del directorio local para almacenar los datos de la generación de perfiles que se han producido durante esta. Si no se especifica un nombre de directorio, se usará "ProfiledData" de la ruta de acceso actual como directorio predeterminado. |
 | -Password | (Opcional) La contraseña que se usa para conectarse al servidor vCenter/host de vSphere ESXi. Si no se especifica ahora, se le pedirá que lo haga cuando se ejecute el comando.|
@@ -206,10 +206,7 @@ Una vez que se completa la generación de perfiles, se puede ejecutar la herrami
 | -StartDate | (Opcional) La fecha y hora de inicio en DD-MM-AAAA:HH:MM (formato de 24 horas). *StartDate* se debe especificar junto con *EndDate*. Cuando se especifica StartDate, se genera el informe de los datos de generación de perfiles que se recopilan entre StartDate y EndDate. |
 | -EndDate | (Opcional) La fecha y hora de finalización en DD-MM-AAAA:HH:MM (formato de 24 horas). *EndDate* se debe especificar junto con *StartDate*. Cuando se especifica EndDate, se genera el informe para los datos de la generación de perfiles recopilados entre StartDate y EndDate. |
 | -GrowthFactor | (Opcional) El factor de crecimiento, expresado en forma de porcentaje. El valor predeterminado es 30 %. |
-| -UseManagedDisks | (Opcional) UseManagedDisks - Yes/No. El valor predeterminado es Yes. El número de máquinas virtuales que se pueden colocar en una cuenta de almacenamiento individual se calcula en función de si el disco administrado está seleccionado para la conmutación por error o la conmutación por error de prueba. |
-
-La colocación en cuenta de almacenamiento individual se calcula teniendo en cuenta que la conmutación por error o la conmutación por error de prueba de las máquinas virtuales se realizan en un disco administrado, en lugar de en uno no administrado. |
-
+| -UseManagedDisks | (Opcional) UseManagedDisks - Yes/No. El valor predeterminado es Yes. El cálculo del número de máquinas virtuales que se pueden colocar en una única cuenta de almacenamiento se realiza teniendo en cuenta si se ha realizado la conmutación por error o la conmutación por error de prueba en discos administrados y no en discos sin administrar. |
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Ejemplo 1: Generación de un informe con los valores predeterminados cuando los datos de generación de perfiles están en la unidad local
 ```
@@ -532,11 +529,11 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 
 **Destino de almacenamiento de la replicación** | **Tamaño medio de E/S de disco de origen** |**Actividad de datos media de disco de origen** | **Actividad de datos de disco de origen total por día**
 ---|---|---|---
-Standard storage | 8 KB    | 2 MBps | 168 GB por disco
-Disco P10 Premium | 8 KB    | 2 MBps | 168 GB por disco
-Disco P10 Premium | 16 KB | 4 MBps |    336 GB por disco
+Standard storage | 8 KB | 2 MBps | 168 GB por disco
+Disco P10 Premium | 8 KB | 2 MBps | 168 GB por disco
+Disco P10 Premium | 16 KB | 4 MBps | 336 GB por disco
 Disco P10 Premium | 32 KB, o más | 8 MBps | 672 GB por disco
-Disco Premium P20 o P30 | 8 KB    | 5 MBps | 421 GB por disco
+Disco Premium P20 o P30 | 8 KB  | 5 MBps | 421 GB por disco
 Disco Premium P20 o P30 | 16 KB, o más |10 MBps | 842 GB por disco
 
 Estos son los números promedio si la superposición de E/S es del 30 %. Site Recovery es capaz de controlar un mayor rendimiento en función de la relación de superposición, tamaños de escritura mayores y el comportamiento real de E/S de la carga de trabajo. Los números anteriores asumen un trabajo pendiente típico de aproximadamente cinco minutos. Es decir, una vez que se cargan los datos, se procesan y se crea un punto de recuperación en menos de cinco minutos.

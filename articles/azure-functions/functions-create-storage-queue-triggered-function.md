@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 42fabff59577db5feb98e5c03d7a2b6d3d2461c3
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: ba8db575c8731e4f9067a6635e745da12c8667dd
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Crear una función desencadenada por Azure Queue Storage
@@ -33,7 +33,7 @@ Obtenga información sobre cómo crear una función que se desencadena cuando se
 
 - Descargue e instale el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
 
-- Necesita una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -49,15 +49,21 @@ Después, cree una función en la nueva Function App.
 
 ## <a name="create-a-queue-triggered-function"></a>Creación de una función desencadenada por el servicio Queue
 
-Expanda la Function App, haga clic en el botón **+** situado junto a **Funciones** y haga clic en la plantilla **QueueTrigger** para el idioma que quiera. Después, use la configuración especificada en la tabla y haga clic en **Crear**.
+1. Expanda su instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **Función personalizada**. Se muestra el conjunto completo de plantillas de funciones.
 
-![Cree la función desencadenada por la cola de almacenamiento.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-| Configuración | Valor sugerido | Descripción |
-|---|---|---|
-| **Nombre de la cola**   | myqueue-items    | Nombre de la cola a la que se va a conectar en la cuenta de almacenamiento. |
-| **Conexión de cuenta de Storage** | AzureWebJobStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una.  |
-| **Asigne un nombre a la función** | Único en la Function App | Nombre de la función desencadenada por la cola. |
+2. Seleccione la plantilla **QueueTrigger** de idioma que desee y use la configuración que se especifica en la tabla.
+
+    ![Cree la función desencadenada por la cola de almacenamiento.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    
+    | Configuración | Valor sugerido | Descripción |
+    |---|---|---|
+    | **Nombre de la cola**   | myqueue-items    | Nombre de la cola a la que se va a conectar en la cuenta de almacenamiento. |
+    | **Conexión de cuenta de Storage** | AzureWebJobStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una.  |
+    | **Asigne un nombre a la función** | Único en la Function App | Nombre de la función desencadenada por la cola. |
+
+3. Haga clic en **Crear** para crear la función.
 
 Después, conéctese a su cuenta de Azure Storage y cree la cola de almacenamiento **myqueue-items**.
 

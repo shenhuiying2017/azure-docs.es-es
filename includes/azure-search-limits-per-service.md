@@ -13,6 +13,6 @@ El almacenamiento está limitado por el espacio en disco o e *número máximo* d
 | Número máximo de documentos |10.000 |1 millón |15 millones por partición, 180 millones por servicio |60 millones por partición, 720 millones por servicio |120 millones por partición, 1400 millones por servicio |1 millón por índice, 200 millones por partición |
 | Consultas por segundo (QPS) estimadas |N/D |~ 3 por réplica |~ 15 por réplica |~ 60 por réplica |~ 60 por réplica |>60 por réplica |
 
-<sup>1</sup> Las versiones gratuitas y preliminares de los SKU no incluyen contratos de nivel de servicio (SLA). Los Acuerdo de Nivel de Servicio se aplican cuando una SKU pasa a estar disponible de manera general.
+<sup>1</sup> Las versiones gratuitas y preliminares no incluyen contratos de nivel de servicio (SLA). Para todos los niveles facturables, los SLA tomarán efecto cuando se aprovisione suficiente redundancia para el servicio. Son necesarias dos o más réplicas para el SLA de consulta (lectura). Son necesarias tres o más réplicas para el SLA de consulta e indexación (lectura y escritura). El número de particiones no es una consideración del SLA. 
 
 <sup>2</sup> S3 HD tiene un límite máximo de 3 particiones, que es inferior al límite de partición para S3. El límite inferior de la partición se impone porque el número de índice para S3 HD es mucho más alto. Como existen límites de servicio en ambos recursos informáticos (almacenamiento y procesamiento) y el contenido (índices y documentos), el límite de contenido se alcanza primero.

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2017
+ms.date: 06/09/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: d1e1f977c9023f4727d8c444b5e490e8f5ba8d9e
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 07dc5e1520cf60e19a1961ad85d2aea0cc7bd15f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/31/2017
 
 ![API Table Storage de Azure y Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
 
-Azure Cosmos DB proporciona la API Table para las aplicaciones que necesitan un almacén de clave-valor con un esquema flexible. Las API de REST y los SDK de [Azure Table Storage](../storage/storage-introduction.md) se pueden usar para trabajar con Azure Cosmos DB. Puede usar Azure Cosmos DB para crear tablas con requisitos de alto rendimiento. Azure Cosmos DB admite tablas optimizadas para el rendimiento (llamadas informalmente "tablas premium"), actualmente en versión preliminar pública. 
+Azure Cosmos DB proporciona la API de tabla (versión preliminar) para las aplicaciones que necesitan un almacén de pares clave-valor con un esquema flexible, un rendimiento predecible, una distribución global y un alto rendimiento. La API de tabla proporciona la misma funcionalidad que Azure Table Storage, pero saca provecho de las ventajas del motor de Azure Cosmos DB. 
 
 Puede seguir usando Azure Table Storage para las tablas con requisitos de alto almacenamiento y menor rendimiento. Azure Cosmos DB incorporará compatibilidad con tablas optimizadas para almacenamiento en una futura actualización. Además, las cuentas existentes y nuevas de Azure Table Storage se actualizarán a Azure Cosmos DB.
 
@@ -56,3 +56,4 @@ Estas son algunas sugerencias para comenzar:
 * Use el SDK de Table de .NET existente para empezar trabajar con la [API Table de Azure Cosmos DB](create-table-dotnet.md).
 * Obtenga información sobre la [distribución global con Azure Cosmos DB](distribute-data-globally.md).
 * Obtenga información sobre el [rendimiento aprovisionado en Azure Cosmos DB](request-units.md).
+

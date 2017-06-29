@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: c0d1271bc083688bbc72bd2556546c2f738e7345
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: a55f28fad4c70e49e417d2856568791b313ad1eb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Crear una función desencadenada por Azure Blob Storage
@@ -31,11 +31,8 @@ Obtenga información sobre cómo crear una función que se desencadena cuando se
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de ejecutar este ejemplo, debe haber realizado lo siguiente:
-
-- Descargue e instale el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
++ Descargue e instale el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
++ Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -51,15 +48,21 @@ Después, cree una función en la nueva Function App.
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Creación de una función desencadenada por Blob Storage
 
-Expanda la Function App, haga clic en el botón **+** situado junto a **Funciones** y haga clic en la plantilla **BlobTrigger** para el idioma que quiera. Después, use la configuración especificada en la tabla y haga clic en **Crear**.
+1. Expanda su instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **Función personalizada**. Se muestra el conjunto completo de plantillas de funciones.
 
-![Cree la función desencadenada por Blob Storage.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-| Configuración | Valor sugerido | Descripción |
-|---|---|---|
-| **Ruta de acceso**   | mycontainer/{name}    | Ubicación de Blob Storage que se está supervisando. El nombre de archivo del blob se pasa en el enlace como parámetro _name_.  |
-| **Conexión de cuenta de Storage** | AzureWebJobStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una.  |
-| **Asigne un nombre a la función** | Único en la Function App | Nombre de la función desencadenada por la cola. |
+2. Seleccione la plantilla **BlobTrigger** de idioma que desee y use la configuración que se especifica en la tabla.
+
+    ![Cree la función desencadenada por Blob Storage.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+
+    | Configuración | Valor sugerido | Descripción |
+    |---|---|---|
+    | **Ruta de acceso**   | mycontainer/{name}    | Ubicación de Blob Storage que se está supervisando. El nombre de archivo del blob se pasa en el enlace como parámetro _name_.  |
+    | **Conexión de cuenta de Storage** | AzureWebJobStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una.  |
+    | **Asigne un nombre a la función** | Único en la Function App | Nombre de la función desencadenada por este blob. |
+
+3. Haga clic en **Crear** para crear la función.
 
 Después, conéctese a su cuenta de Azure Storage y cree el contenedor **mycontainer**.
 
@@ -111,3 +114,4 @@ Ha creado una función que se ejecuta cuando se agrega o se actualiza un blob en
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Para obtener más información sobre los desencadenadores de Blob Storage, vea [Enlaces de Blob Storage en Azure Functions](functions-bindings-storage-blob.md).
+

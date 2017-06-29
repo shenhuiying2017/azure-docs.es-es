@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 3d30024920295298ad2a8a6e22e11ef829934255
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -45,7 +45,7 @@ Puede crear un perfil de Traffic Manager mediante el portal de Azure. Después d
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Deshabilitar, habilitar o eliminar un perfil
 
-Puede deshabilitar un perfil existente para que Traffic Manager no refiera solicitudes de usuario a los puntos de conexión configurados. Cuando deshabilite un perfil de Traffic Manager, dicho perfil y la información que contiene se mantienen intactos y se pueden editar en la interfaz de Traffic Manager.  Las referencias se reanudarán cuando vuelva a habilitar el perfil. Cuando se crea un perfil de Traffic Manager en el Portal de Azure clásico, se habilita automáticamente. Si decide que un perfil ha dejado de ser necesario, puede eliminarlo.
+Puede deshabilitar un perfil existente para que Traffic Manager no refiera solicitudes de usuario a los puntos de conexión configurados. Cuando deshabilite un perfil de Traffic Manager, dicho perfil y la información que contiene se mantienen intactos y se pueden editar en la interfaz de Traffic Manager.  Las referencias se reanudarán cuando vuelva a habilitar el perfil. Cuando se crea un perfil de Traffic Manager en Azure Portal, este se habilita automáticamente. Si decide que un perfil ha dejado de ser necesario, puede eliminarlo.
 
 ### <a name="to-disable-a-profile"></a>Para deshabilitar un perfil
 

@@ -12,17 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 06/14/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 9fd40892c77630bd4f0b7abf5c3458a6dc200402
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 74a0837b7149236faa45ef2cda0a0aee7c46a31b
 ms.contentlocale: es-es
-ms.lasthandoff: 03/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
+
 El servicio Relay de Azure facilita las aplicaciones híbridas, ya que permite exponer de forma segura los servicios que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall y sin que sea necesario realizar cambios molestos en una infraestructura de red corporativa. Relay admite diversos protocolos de transporte y estándares de servicios web.
 
 El servicio de retransmisión admite mensajería unidireccional tradicional, de solicitud/respuesta y de punto a punto. También admite la distribución de eventos en el ámbito de internet para habilitar escenarios de publicación/suscripción y la comunicación de socket bidireccional para aumentar la eficacia punto a punto. 
@@ -48,15 +49,19 @@ Conexiones híbridas y Retransmisiones de WCF habilitan una conexión segura a l
 | **Varios modelos de programación de RPC** | |x |
 
 ## <a name="hybrid-connections"></a>conexiones híbridas
+
 La funcionalidad [Conexiones híbridas de Azure Relay](relay-hybrid-connections-protocol.md) es una evolución segura y de protocolo abierto de las características de retransmisión existentes que se pueden implementar en cualquier plataforma y en cualquier lenguaje que tenga una funcionalidad de WebSocket básica, que incluya explícitamente la API de WebSocket en los exploradores web habituales. Conexiones híbridas se basa en HTTP y WebSockets.
 
 ## <a name="wcf-relays"></a>Relés de WCF
+
 Retransmisión de WCF es totalmente compatible con NET Framework (NETFX) y WCF. La conexión entre el servicio local y el servicio de retransmisión se inicia mediante un conjunto de enlaces de “retransmisión” WCF. En segundo plano, los enlaces de retransmisión se asignan a nuevos elementos de enlace de transporte diseñados para crear componentes de canal WCF que se integran con el Bus de servicio en la nube.
 
 ## <a name="service-history"></a>Historial de servicios
-Conexiones híbridas sustituye a la anterior característica, denominada igualmente "BizTalk Services", que se basa en Retransmisión de WCF de Azure Service Bus. La nueva funcionalidad Conexiones híbridas complementa a la característica Retransmisión de WCF existente; en el futuro, estas dos funcionalidades de servicio se ejecutarán en paralelo en el servicio Relay. Aunque comparten una puerta de enlace común, se trata de implementaciones diferentes.
+
+Conexiones híbridas sustituye a la anterior característica, denominada igualmente "BizTalk Services", que se basa en Retransmisión de WCF de Azure Service Bus. La nueva funcionalidad Conexiones híbridas complementa a la característica Retransmisión de WCF existente; en el futuro, estas dos funcionalidades de servicio se ejecutarán en paralelo en el servicio Azure Relay. Aunque comparten una puerta de enlace común, se trata de implementaciones diferentes.
 
 ## <a name="next-steps"></a>Pasos siguientes:
+
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)
 * [Introducción a .NET](relay-hybrid-connections-dotnet-get-started.md)

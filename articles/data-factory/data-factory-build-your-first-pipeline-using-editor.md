@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: c54a1ed648022875f489179a3321dedf2d290d7e
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: dac2b51cb48f76a88fc592c0fac50414da641777
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -83,7 +83,7 @@ Una factoría de datos puede tener una o más canalizaciones. Una canalización 
 Antes de crear una canalización en Data Factory, es necesario crear varias entidades de Data Factory. En primer lugar, cree servicios vinculados para vincular los almacenes de datos y procesos con su almacén de datos, luego defina los conjuntos de datos de entrada y salida para representar los datos de entrada/salida en los almacenes de datos vinculados y, finalmente, cree la canalización con una actividad que utilice estos conjuntos de datos.
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
-En este paso, vinculará su cuenta de Almacenamiento de Azure y el clúster de HDInsight de Azure a petición con su factoría de datos. La cuenta de Almacenamiento de Azure contiene los datos de entrada y salida de la canalización de este ejemplo. Para ejecutar el script de Hive especificado en la actividad de la canalización en este ejemplo, se usa el servicio vinculado de HDInsight. Identifique qué [almacén de datos](data-factory-data-movement-activities.md)/[servicios de proceso](data-factory-compute-linked-services.md) se utilizan en este caso y vincule esos servicios a la factoría de datos creando servicios vinculados.  
+En este paso, vinculará su cuenta de Almacenamiento de Azure y el clúster de HDInsight de Azure a petición con su factoría de datos. La cuenta de Almacenamiento de Azure contiene los datos de entrada y salida de la canalización de este ejemplo. El servicio vinculado de HDInsight se usa para ejecutar un script de Hive especificado en la actividad de la canalización en este ejemplo. Identifique qué [almacén de datos](data-factory-data-movement-activities.md)/[servicios de proceso](data-factory-compute-linked-services.md) se utilizan en este caso y vincule esos servicios a la factoría de datos creando servicios vinculados.  
 
 ### <a name="create-azure-storage-linked-service"></a>Creación de un servicio vinculado de Almacenamiento de Azure
 En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría de datos. Para este tutorial, usará la misma cuenta de Azure Storage para almacenar los datos de entrada y salida y el archivo de script de HQL.

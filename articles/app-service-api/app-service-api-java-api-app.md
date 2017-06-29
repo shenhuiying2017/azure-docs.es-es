@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 26f2fba953870564292ef3e986a3151373f6babf
-ms.lasthandoff: 01/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -153,7 +154,7 @@ En esta sección va a reemplazar la implementación en el lado servidor del cód
 1. Abra el archivo de modelo *Contact.java*, ubicado en la carpeta *src/gen/java/io/swagger/model*, mediante [código de Visual Studio] o en el editor de texto de su elección. 
    
     ![Abrir archivo de modelo de contacto][open-contact-model-file]
-2. Agregue el siguiente constructor a la clase **Contact** . 
+2. Agregue el siguiente constructor a la clase **Contact**. 
    
         public Contact(Integer id, String name, String email) 
         {
@@ -291,7 +292,7 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
-[editor en línea de Swagger]: http://editor.swagger.io/
+[editor en línea de Swagger]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
 [SDK de almacenamiento para Java]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/

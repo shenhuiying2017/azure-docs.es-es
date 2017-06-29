@@ -1,16 +1,15 @@
-En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento agregado estimado por SKU de puerta de enlace. Esta tabla se aplica a los modelos de implementación del Administrador de recursos y clásico. Los precios difieren entre las SKU de puerta de enlace. Para obtener más información, vea [Precios de VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
+Azure ofrece las siguientes SKU de VPN Gateway:
 
-Tenga en cuenta que la SKU de la puerta de enlace de UltraPerformance no se representa en esta tabla. Para obtener información acerca de la SKU de UltraPerformance, consulte la documentación de [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+|**SKU**   | **Túneles<br>S2S/entre redes virtuales** | **Conexiones<br>P2S** | **Rendimiento<br>agregado** |
+|---       | ---                             | ---                    | ---                         |
+|**VpnGw1**| Máx. 30                         | Máx. 128               | 500 Mbps                    |
+|**VpnGw2**| Máx. 30                         | Máx. 128               | 1 Gbps                      |
+|**VpnGw3**| Máx. 30                         | Máx. 128               | 1,25 Gbps                   |
+|**Básica** | Máx. 10                         | Máx. 128               | 100 Mbps                    | 
+|          |                                 |                        |                             | 
 
-|  | **Rendimiento de puerta de enlace VPN (1)** | **Túneles IPsec máx. de puerta de enlace VPN (2)** | **Rendimiento de puerta de enlace de ExpressRoute** | **Puerta de enlace de VPN y ExpressRoute coexisten** |
-| --- | --- | --- | --- | --- |
-| **SKU básica (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |No |
-| **SKU estándar (4)(5)** |100 Mbps |10 |1000 Mbps |Sí |
-| **SKU de alto rendimiento (4)** |200 Mbps |30 |2000 Mbps |Sí |
+- El rendimiento se basa en las mediciones de varios túneles agregados a través de una sola puerta de enlace. No es un rendimiento garantizado debido a las condiciones del tráfico de Internet y a los comportamientos de las aplicaciones.
 
-* (1) El rendimiento de la VPN es una estimación aproximada basada en las medidas entre redes virtuales en la misma región de Azure. No es un rendimiento garantizado para las conexiones entre locales a través de Internet. Es el valor máximo posible del rendimiento.
-* (2) El número de túneles hace referencia a VPN basadas en enrutamiento. Una VPN basada en directivas solo puede admitir un túnel VPN de sitio a sitio.
-* (3) BGP no es compatible con la SKU básica.
-* (4) Las VPN basadas en directivas no son compatibles con esta SKU. Solo son compatibles con la SKU básica.
-* (5) Esta SKU no admite conexiones de VPN Gateway S2S activo/activo. Activo/activo solo es compatible con la SKU HighPerformance.
-* (6) La SKU básica está obsoleta para su uso con ExpressRoute.
+- Puede encontrar más información sobre los precios en la página de [precios](https://azure.microsoft.com/pricing/details/vpn-gateway) .
+
+- La información del SLA (Acuerdo de Nivel de Servicio) puede encontrarse en la página [SLA](https://azure.microsoft.com/en-us/support/legal/sla/vpn-gateway/).

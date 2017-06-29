@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cc85ae1c6642e763e57327c151ec68845f7673f7
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 34726377836d00d484ca01edb098f6c7cbfa9dbf
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -31,7 +31,6 @@ Azure Analysis Services, que se basa en el motor analítico de eficacia probada 
 Vea este vídeo para averiguar cómo Azure Analysis Services se integra en las funcionalidades globales de BI de Microsoft y cómo puede beneficiarse de tener sus modelos de datos en la nube.
 
 
->
 >[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >
@@ -43,7 +42,7 @@ Azure Analysis Services es compatible con la misma edición SQL Server Analysis 
 ## <a name="use-the-tools-you-already-know"></a>Use las herramientas que ya conoce
 ![Herramientas para desarrolladores de BI](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-Para crear modelos de datos para Azure Analysis Services, use las mismas herramientas que para SQL Server Analysis Services. Puede crear e implementar modelos con [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) o con [Azure PowerShell](/powershell/azureps-cmdlets-docs) y las plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) en [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+Para crear modelos de datos para Azure Analysis Services, use las mismas herramientas que para SQL Server Analysis Services. Crear e implementar modelos mediante [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx). Administrar los servidores y las bases de datos modelo mediante el uso de [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Y automatizar las tareas con [Powershell](analysis-services-powershell.md) y plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
 
 ## <a name="supports-the-latest-features"></a>Compatibilidad con las características más recientes
 Azure Analysis Services admite modelos tabulares en los niveles de compatibilidad 1200 y 1400 (versión preliminar).
@@ -55,9 +54,7 @@ Azure Analysis Services admite modelos tabulares en los niveles de compatibilida
 ## <a name="data-sources"></a>Orígenes de datos
 Los modelos de datos implementados en servidores de Azure permiten conectarse a datos orígenes locales en su organización o en la nube. Combine datos de orígenes de datos tanto locales como en la nube para crear una solución de BI híbrida.
 
-Como el servidor está en la nube, la conexión a los orígenes de datos en la nube se realiza sin problemas. Al conectarse a orígenes de datos locales, la [puerta de enlace de datos local](analysis-services-gateway.md) garantiza conexiones rápidas y seguras con su servidor en la nube.
-
-Para más información acerca de qué orígenes de datos locales, consulte [Conexiones a origen de datos](analysis-services-datasource.md).
+Como el servidor está en la nube, la conexión a los orígenes de datos en la nube se realiza sin problemas. Al conectarse a orígenes de datos locales, la [puerta de enlace de datos local](analysis-services-gateway.md) garantiza conexiones rápidas y seguras con su servidor en la nube. Para más información acerca de qué orígenes de datos locales, consulte [Conexiones a origen de datos](analysis-services-datasource.md).
 
 
 ## <a name="explore-your-data-from-anywhere"></a>Exploración de los datos desde cualquier lugar
@@ -84,13 +81,17 @@ Azure Analysis Services se rige por los [términos de Microsoft Online Services]
 Para más información sobre la seguridad de Azure, consulte [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
 
 ## <a name="get-help"></a>Obtener ayuda
-Azure Analysis Services es fácil de configurar y administrar. Puede encontrar toda la información que necesita para crear y administrar un servidor aquí. Crear un modelo de datos para implementar en el servidor es similar a crear un modelo de datos que se implementa en un servidor local. Hay una amplia biblioteca de artículos sobre conceptos, procedimientos, tutoriales y referencia en [Analysis Services en MSDN](https://msdn.microsoft.com/library/bb522607.aspx).
 
-También contamos con una serie de vídeos útiles en [Azure Analysis Services en Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
+### <a name="documentation"></a>Documentación
+Azure Analysis Services es fácil de configurar y administrar. Puede encontrar toda la información que necesita para crear y administrar un servidor aquí. Crear un modelo de datos para implementar en el servidor es similar a crear un modelo de datos que se implementa en un servidor local. Hay una amplia biblioteca de artículos sobre conceptos, procedimientos, tutoriales y referencia en [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
-Las cosas cambian rápidamente. Siempre puede obtener la información más reciente en el [blog de Azure Analysis Services](https://go.microsoft.com/fwlink/?linkid=830920).
+### <a name="videos"></a>Vídeos
+Consulte algunos vídeos útiles en [Azure Analysis Services en Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
 
-## <a name="community"></a>Comunidad
+### <a name="blogs"></a>Blogs
+Las cosas cambian rápidamente. Siempre puede obtener la información más reciente en el [blog del equipo de Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/) y el [blog de Azure](https://azure.microsoft.com/blog/).
+
+### <a name="community"></a>Comunidad
 Analysis Services cuenta con una dinámica comunidad de usuarios. Únase a la conversación en el [foro de Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
 ## <a name="feedback"></a>Comentarios
@@ -100,5 +101,4 @@ Analysis Services cuenta con una dinámica comunidad de usuarios. Únase a la co
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe más acerca de Azure Analysis Services, es momento de empezar a trabajar. Obtenga información acerca de cómo [crear un servidor](analysis-services-create-server.md) en Azure y cómo [implementar un modelo tabular](analysis-services-deploy.md) en él.
-
 

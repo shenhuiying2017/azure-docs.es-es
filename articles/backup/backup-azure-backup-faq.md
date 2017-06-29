@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: aabd0481e6dd264e9a5e91c2e4b2b83f01227db1
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 17b0740f11fcfe200191f8695b6d885df41e68e2
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -155,10 +156,13 @@ Totalmente. Copia de seguridad de Azure proporciona copia de seguridad de nivel 
 Sí. Instale el agente de Azure Backup en el SO invitado de Windows y realice una copia de seguridad de los archivos y las carpetas en un almacenamiento temporal. Las copias de seguridad de los trabajos dejarán de funcionar cuando se borren los datos del almacenamiento temporal. Además, si se han eliminado los datos del almacenamiento temporal, la restauración solo se podrá realizar en un almacenamiento no volátil.
 
 
-## <a name="azure-backup-server-and-data-protection-manager"></a>Servidor de copia de seguridad de Azure y Data Protection Manager
+## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure Backup Server y System Center Data Protection Manager
 
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>¿Puedo usar el servidor de Copia de seguridad de Azure para crear una copia de seguridad de reconstrucción completa (BMR) para un servidor físico? <br/>
 Sí.
+
+### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>¿Puedo registrar mi servidor DPM en varios almacenes? <br/>
+No. Un servidor DPM o MABS solo se puede registrar en un único almacén.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>¿Qué versión de System Center Data Protection Manager se admite? <br/>
 Se recomienda que instale el agente de Azure Backup [más reciente](http://aka.ms/azurebackup_agent) en el último paquete acumulativo (UR) de actualizaciones para System Center Data Protection Manager (DPM). A partir de agosto de 2016, el paquete acumulativo de actualizaciones 11 es la actualización más reciente.

@@ -1,6 +1,6 @@
 ---
 title: "Protección de los recursos en la nube con Azure MFA y AD FS | Microsoft Docs"
-description: "En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA y AD FS&2;.0 en la nube."
+description: "En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA y AD FS 2.0 en la nube."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 05/29/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
-ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 6cf4ec4f777ea1f2b852945ab82da2547946f378
+ms.contentlocale: es-es
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -29,7 +31,7 @@ Para proteger los recursos de la nube, configure una regla de notificaciones par
 
 1. Abra Administración de AD FS.
 2. A la izquierda, seleccione **Relaciones de confianza para usuario autenticado**.
-3. Haga clic con el botón derecho en **Plataforma de identidad de Microsoft Office 365** y seleccione **Editar reglas de notificaciones…**
+3. Haga clic con el botón derecho en **Plataforma de identidad de Microsoft Office 365** y seleccione **Editar reglas de notificaciones**.
 
    ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
@@ -88,15 +90,12 @@ Ahora que las notificaciones están listas, podemos configurar direcciones IP de
 3. En Directorio, seleccione el directorio en el que desea configurar las direcciones IP de confianza.
 4. En el directorio que ha seleccionado, haga clic en **Configurar**.
 5. En la sección de Multi-Factor Authentication, haga clic en **Administrar configuración del servicio**.
-6. En la página Configuración del servicio, en IP de confianza, seleccione **Omitir autenticación multifactor para solicitudes de usuarios federados en mi intranet**.
+6. En la página Configuración del servicio, en IP de confianza, seleccione **Omitir autenticación multifactor para solicitudes de usuarios federados en mi intranet**.  
+
    ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+   
 7. Haga clic en **guardar**.
 8. Una vez que se han aplicado las actualizaciones, haga clic en **Cerrar**.
 
 ¡Ya está! En este punto, los usuarios federados de Office 365 solo deberán usar MFA cuando una notificación se origine fuera de la intranet corporativa.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

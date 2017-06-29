@@ -1,6 +1,6 @@
 Una máquina virtual de Azure admite la conexión de varios discos de datos. Si desea obtener un rendimiento óptimo, conviene que limite el número de discos muy usados que se conectan a la máquina virtual para evitar una posible limitación de solicitudes. Si no todos los discos se usan mucho al mismo tiempo, la cuenta de almacenamiento admite un mayor número de discos.
 
-* **Para Azure Managed Disks:** el límite del número de instancias de Managed Disks depende de la región de la suscripción. El límite temporal predeterminado es 2.000 por región y por suscripción. Para aumentar el límite, póngase en contacto con el soporte técnico de Azure.
+* **Para Azure Managed Disks:** el límite del número de instancias de Managed Disks depende de la región y también del tipo de almacenamiento. El valor predeterminado, así como el límite máximo, es de 10.000 por suscripción, por región y por tipo de almacenamiento. Por ejemplo, puede crear hasta 10.000 discos administrados estándar, así como 10.000 discos administrados premium, en una suscripción y en una región. 
 
     Las instantáneas administradas y las imágenes se tienen en cuenta para el límite de instancias de Managed Disks.
 

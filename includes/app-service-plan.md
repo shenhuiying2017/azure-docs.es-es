@@ -1,4 +1,4 @@
-Un plan de App Service especifica la ubicación, el tamaño y las características de la granja de servidores web que hospeda la aplicación. Para ahorrar dinero cuando hospede varias aplicaciones, configure las aplicaciones web para que compartan un único plan de App Service.
+Un [plan de App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) especifica la ubicación, el tamaño y las características de la granja de servidores web que hospeda la aplicación. Para ahorrar dinero cuando hospede varias aplicaciones, configure las aplicaciones web para que compartan un único plan de App Service.
 
 Los planes de App Service definen lo siguiente:
 

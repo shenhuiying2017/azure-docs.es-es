@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 0ba2158a45eb4ec9254ef829894152fe92276920
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -124,6 +124,12 @@ Es importante supervisar el estado de la instancia de Application Gateway. La su
 #### <a name="azure-monitor"></a>Azure Monitor
 
 Cada registro de Application Gateway se integra con [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Esto permite realizar un seguimiento de la información de diagnóstico incluidos los registros y alertas de WAF.  Esta funcionalidad se proporciona en el recurso de Application Gateway en el portal en la pestaña **Diagnóstico** o mediante el servicio Azure Monitor directamente. Para más información acerca de cómo habilitar los registros de diagnóstico de Application Gateway, visite [Diagnósticos de Application Gateway](application-gateway-diagnostics.md)
+
+#### <a name="azure-security-center"></a>Azure Security Center
+
+[Azure Security Center](../security-center/security-center-intro.md) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure. Application Gateway ahora [se integra en Azure Security Center](application-gateway-integration-security-center.md). Azure Security Center examina su entorno para detectar aplicaciones web no protegidas. Después, puede recomendar el firewall de aplicación web (WAF) de Application Gateway para proteger estos recursos vulnerables. Puede crear el WAF de Application Gateway directamente desde Azure Security Center.  Estas instancias de WAF se integran con Azure Security Center y envían alertas e información de estado a Azure Security Center para crear informes.
+
+![Figura 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 
 #### <a name="logging"></a>Registro
 

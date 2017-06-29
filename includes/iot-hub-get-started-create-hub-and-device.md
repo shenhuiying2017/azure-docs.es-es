@@ -35,7 +35,7 @@
 1. Haga clic en **Explorador de dispositivos**.
 1. En el panel Explorador del dispositivo, haga clic en **Agregar** para agregar un dispositivo a su centro de IoT.
 
-   **Id. de dispositivo**: el identificador del nuevo dispositivo.
+   **Id. de dispositivo**: el identificador del nuevo dispositivo. Los identificadores de dispositivos distinguen mayúsculas de minúsculas.
 
    **Tipo de autenticación**: seleccione **Clave simétrica**.
 

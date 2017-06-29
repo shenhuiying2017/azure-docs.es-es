@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: eea9b247b42db81f30b7169f71ddf0d5068f6a5e
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 085a36edd2a0e80123ac8754b438bceadfa6c0e9
 ms.contentlocale: es-es
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-11-create-roles"></a>Lección 11: Creación de roles
@@ -29,17 +29,17 @@ ms.lasthandoff: 05/05/2017
 En esta lección, creará roles. Los roles proporcionan seguridad para los objetos y los datos de la base de datos modelo, ya que solo permiten el acceso a los usuarios que son miembros del rol. Cada rol se define con un permiso único: Ninguno, Lectura, Lectura y procesamiento, Procesamiento o Administrador. Los roles se pueden definir durante la creación del modelo mediante el Administrador de roles. Una vez implementado un modelo, puede administrar roles mediante SQL Server Management Studio (SSMS). Para obtener más información, vea [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
 > [!NOTE]  
-> No es necesario crear roles para completar este tutorial. De forma predeterminada, la cuenta en la que ha iniciado sesión actualmente tendrá privilegios de administrador en el modelo. Pero para permitir que otros usuarios de la organización examinen el modelo mediante el uso de un cliente de creación de informes, debe crear al menos un rol con permisos de lectura y agregar a los usuarios como miembros.  
+> No es necesario crear roles para completar este tutorial. De forma predeterminada, la cuenta en la que ha iniciado sesión actualmente tiene privilegios de administrador en el modelo. Pero para que otros usuarios de la organización naveguen mediante el uso de un cliente de creación de informes, debe crear al menos un rol con permisos de lectura y agregar a los usuarios como miembros.  
   
-Creará tres roles:  
+Se crean tres roles:  
   
 -   **Director de ventas**: este rol puede incluir a los usuarios de la organización que quiere que tengan permiso de lectura en todos los objetos y datos del modelo.  
   
--   **Analista de ventas de EE. UU.**: este rol puede incluir a los usuarios de la organización que quiere que solo puedan examinar los datos relacionados con las ventas en Estados Unidos. Para este rol, usará una fórmula DAX para definir un *filtro de fila* que hace que los miembros solo puedan examinar los datos de Estados Unidos.  
+-   **Analista de ventas de EE. UU.**: este rol puede incluir a los usuarios de la organización que quiere que solo puedan examinar los datos relacionados con las ventas en Estados Unidos. Para este rol se usa una fórmula DAX para definir un *filtro de fila* que hace que los miembros solo puedan examinar los datos de Estados Unidos.  
   
 -   **Administrador**: este rol puede incluir a los usuarios que quiere que tengan permisos de administrador, lo que permite un acceso ilimitado y permisos para realizar tareas administrativas en la base de datos modelo.  
   
-Dado que las cuentas de usuario y de grupo de Windows de la organización son únicas, puede agregar cuentas de su propia organización a los miembros, pero para este tutorial también puede dejar los miembros en blanco. Podrá probar el efecto de cada rol más adelante en la Lección 12: Analizar en Excel.  
+Dado que las cuentas de usuario y de grupo de Windows de la organización son únicas, puede agregar cuentas de su propia organización a los miembros, Pero para este tutorial también puede dejar los miembros en blanco. Más adelante en la Lección 12: Analizar en Excel se prueba el efecto de cada rol.  
   
 Tiempo estimado para completar esta lección: **15 minutos**  
   
@@ -54,7 +54,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
   
 2.  En el Administrador de roles, haga clic en **Nuevo**.  
   
-3.  Haga clic en el nuevo rol y, luego, en la columna **Nombre**, cambie el nombre del rol a **Director de ventas**.  
+3.  Haga clic en el nuevo rol y en la columna **Nombre**, cambie el nombre del rol a **Jefe de ventas**.  
   
 4.  En la columna **Permisos**, haga clic en la lista desplegable y, luego, seleccione el permiso **Lectura**. 
 
@@ -66,7 +66,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
   
 1.  En el Administrador de roles, haga clic en **Nuevo**.    
   
-2.  Cambie el nombre del rol a **Analista de ventas de EE. UU.**.  
+2.  Cambie el nombre del rol a **Analista de ventas de EE. UU.**  
   
 3.  Asigne a este rol el permiso **Lectura**.  
   
@@ -76,7 +76,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
     =DimGeography[CountryRegionCode] = "US" 
     ```
     
-    Una fórmula de filtro de fila debe resolverse en un valor booleano (TRUE/FALSE). Con esta fórmula, se especifica que solo serán visibles para el usuario las filas con el valor "US" (EE. UU.) para el código de país o región.  
+    Una fórmula de filtro de fila debe resolverse en un valor booleano (TRUE/FALSE). Con esta fórmula se especifica que el usuario solo puede ver las filas con el valor "US" (EE. UU.) para el código de país o región.  
     ![aas-lesson11-role-filter](../tutorials/media/aas-lesson11-role-filter.png) 
   
 6.  Opcional: Haga clic en la pestaña **Miembros** y, luego, haga clic en **Agregar**. En el cuadro de diálogo **Seleccionar usuarios o grupos**, escriba los usuarios o grupos de Windows de la organización que quiere incluir en el rol.  

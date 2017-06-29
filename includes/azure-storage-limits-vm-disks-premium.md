@@ -10,12 +10,12 @@
 
 **Discos de máquina virtual no administrados Premium: por límites de disco**
 
-| Tipo de disco de Almacenamiento premium | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| Tamaño del disco |128 GB |512 GB |1024 GB (1 TB) |
-| Máximo de IOPS por disco |500 |2300 |5.000 |
-| Rendimiento máximo por disco |100 MB/s | 150 MB/s |200 MB/s |
-| Número máximo de discos por cuenta de almacenamiento |280 |70 |35 |
+| Tipo de disco de Almacenamiento premium | P10 | P20 | P30 | P40 | P50 |
+| --- | --- | --- | --- | --- | --- |
+| Tamaño del disco |128 GB |512 GB |1024 GB (1 TB) |2048 GB (2 TB)|4095 GB (4 TB)|
+| Máximo de IOPS por disco |500 |2300 |5000 |7500 |7500 |
+| Rendimiento máximo por disco |100 MB/s | 150 MB/s |200 MB/s |250 MB/s |250 MB/s |
+| Número máximo de discos por cuenta de almacenamiento |280 |70 |35 | 17 | 8 |
 
 **Discos de máquina virtual no administrados Premium: por límites de máquina virtual**
 

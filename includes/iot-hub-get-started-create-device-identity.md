@@ -1,6 +1,6 @@
 ## <a name="create-a-device-identity"></a>Creación de una identidad de dispositivo
 
-En esta sección, se usa una herramienta de Node.js llamada [iothub-explorer][iot-hub-explorer] para crear una identidad de dispositivo para este tutorial.
+En esta sección, se usa una herramienta de Node.js llamada [iothub-explorer][iot-hub-explorer] para crear una identidad de dispositivo para este tutorial. Los identificadores de dispositivos distinguen mayúsculas de minúsculas.
 
 1. En el entorno de línea de comandos, ejecute lo siguiente:
 

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/23/2017
+ms.date: 06/02/2017
 ms.author: garye
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: bb4d64f799027c9af74fd50ab724449bdede7804
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 0a1e23cd52ab5c10791a11d93753b54eb1c1b71a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -47,7 +47,7 @@ Para más información sobre Estudio de aprendizaje automático, consulte [¿Qu�
 
 El servicio API de Machine Learning le permite implementar modelos predictivos, igual que los que se crean en Machine Learning Studio, como servicios escalables y tolerantes a errores. Los servicios web creados con el servicio API de Machine Learning son varias API de REST que proporcionan una interfaz para la comunicación entre las aplicaciones externas y los modelos de análisis predictivo.
 
-Para obtener más información, consulte [Conexión a un servicio web de Aprendizaje automático](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Para más información, consulte [Consumo de servicios web de Azure Machine Learning](machine-learning-consume-web-services.md).
 
 **¿Dónde se muestran mis servicios web clásicos? ¿Dónde se muestran mis nuevos servicios web basados Azure Resource Manager?**
 
@@ -221,7 +221,7 @@ Consulte [Límites de la suscripción de Azure](../azure-subscription-service-li
 ### <a name="use"></a>Uso
 **¿Cuándo podría ejecutar mi modelo predictivo como servicio de ejecución de lotes en lugar de como servicio web de solicitud/respuesta?**
 
-El servicio de solicitud-respuesta (RRS) es un servicio web de alta escala y baja latencia que se usa para proporcionar una interfaz con los modelos sin estado creados e implementados desde el entorno de experimentación. El servicio de ejecución de lotes (BES) es un servicio para la puntuación asincrónica de lotes de registros de datos. La entrada de BES es similar a la entrada de datos que se emplea en RRS. La diferencia principal radica en que BES lee un bloque de registros de varios orígenes, como Azure Blob Storage, Azure Table Storage, Azure SQL Database, HDInsight (consultas de Hive) y orígenes de HTTP. Para obtener más información, consulte [Consumo de servicios web de Aprendizaje automático](machine-learning-consume-web-services.md).
+El servicio de solicitud-respuesta (RRS) es un servicio web de alta escala y baja latencia que se usa para proporcionar una interfaz con los modelos sin estado creados e implementados desde el entorno de experimentación. El servicio de ejecución de lotes (BES) es un servicio para la puntuación asincrónica de lotes de registros de datos. La entrada de BES es similar a la entrada de datos que se emplea en RRS. La diferencia principal radica en que BES lee un bloque de registros de varios orígenes, como Azure Blob Storage, Azure Table Storage, Azure SQL Database, HDInsight (consultas de Hive) y orígenes de HTTP. Para más información, consulte [Consumo de servicios web de Azure Machine Learning](machine-learning-consume-web-services.md).
 
 **¿Cómo se actualiza el modelo para la producción del servicio implementado?**
 
@@ -287,7 +287,7 @@ No.
 ## <a name="security-and-availability"></a>Seguridad y disponibilidad
 **¿Quién puede acceder de forma predeterminada al punto de conexión http del servicio web? ¿Cómo se restringe el acceso al punto de conexión?**
 
-Cuando se implementa un servicio web, se crea un punto de conexión predeterminado para ese servicio. El punto de conexión predeterminado puede llamarse mediante su clave de API. Se pueden agregar puntos de conexión adicionales con sus propias claves desde el Portal de Azure clásico o mediante programación con Service Management API. Se necesitan claves de acceso para realizar llamadas al servicio web. Para obtener más información, consulte [Conexión a un servicio web de Aprendizaje automático](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Cuando se implementa un servicio web, se crea un punto de conexión predeterminado para ese servicio. El punto de conexión predeterminado puede llamarse mediante su clave de API. Se pueden agregar puntos de conexión adicionales con sus propias claves desde el Portal de Azure clásico o mediante programación con Service Management API. Se necesitan claves de acceso para realizar llamadas al servicio web. Para más información, consulte [Consumo de servicios web de Azure Machine Learning](machine-learning-consume-web-services.md).
 
 **¿Qué sucede si no se encuentra mi cuenta de Azure Storage?**
 

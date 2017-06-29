@@ -7,7 +7,7 @@ Para crear una caché premium, inicie sesión en [Azure Portal](https://portal.a
 > 
 > 
 
-Para configurar las características premium, primero seleccione uno de los planes de tarifa Premium en la hoja **Elija su plan de tarifa** .
+Para configurar las características premium, primero seleccione uno de los planes de tarifa Premium en la lista desplegable **Plan de tarifa**. Para más información acerca de cada plan de tarifa, haga clic en **Ver todos los detalles de los precios** y seleccione un plan de tarifa en la hoja **Elegir el plan de tarifa**.
 
 ![Elija su plan de tarifa](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: dfa9f6e4bc95a1cd99f84e58167192d951960a7a
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.contentlocale: es-es
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -182,7 +183,7 @@ Como se muestra en el diagrama, las máquinas virtuales *Web1* y *Web2* están c
 1. Separación del tráfico entre los servidores web y de bases de datos.
 2. Reglas de equilibrio de carga que reenvían tráfico desde el equilibrador de carga hacia todos los servidores web en el puerto 80.
 3. Reglas NAT de equilibrador de carga que reenvían el tráfico entrante en el equilibrador de carga en el puerto 50001 hacia el puerto 3389 en la máquina virtual WEB1.
-4. Sin acceso a las máquinas virtuales front-end o back-end desde Internet, a excepción de los requisitos 1 y 3.
+4. Sin acceso a las máquinas virtuales front-end o back-end desde Internet, a excepción de los requisitos 2 y 3.
 5. Sin acceso saliente a Internet desde los servidores web o de bases de datos.
 6. Se permite el acceso desde la subred FrontEnd hacia el puerto 3389 de cualquier servidor web.
 7. Se permite el acceso desde la subred FrontEnd hacia el puerto 3389 de cualquier servidor de bases de datos.

@@ -15,10 +15,10 @@ ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 80fd9d79652e4f0d9c4c524e3a762bcc3462bb53
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -74,7 +74,7 @@ Comencemos con una plantilla en blanco que incluya solo las secciones básicas d
        {
          "name": "string",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-05-01",
+         "apiVersion": "2016-12-01",
          "sku": {
            "name": "string"
          },
@@ -102,6 +102,8 @@ Comencemos con una plantilla en blanco que incluya solo las secciones básicas d
    }
    ```
 
+  VS Code puede indicar que 2016-12-01 no es una versión de API válida. Si utiliza un número de versión de la documentación de referencia de las plantillas, puede omitir esta advertencia. La verá cuando el esquema no se haya actualizado con el número de versión más reciente desde el proveedor de recursos. 
+  
   En el ejemplo anterior se incluyen muchos de los valores de marcador de posición y algunas propiedades que quizá no necesite en su cuenta de almacenamiento.
 
 ## <a name="set-values-for-storage-account"></a>Establecimiento de los valores de la cuenta de almacenamiento
@@ -117,7 +119,7 @@ Ahora, está listo para establecer los valores de la cuenta de almacenamiento.
      {
        "name": "string",
        "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-05-01",
+       "apiVersion": "2016-12-01",
        "sku": {
          "name": "string"
        },
@@ -156,7 +158,7 @@ La plantilla ahora tiene el aspecto siguiente:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -199,7 +201,7 @@ La plantilla ahora tiene el aspecto siguiente:
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -328,7 +330,7 @@ Después de completar los pasos descritos en este artículo, la plantilla tendr�
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },

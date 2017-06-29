@@ -27,7 +27,7 @@ Para más información sobre el uso del almacenamiento estándar con discos de m
 
 ### <a name="premium-storage"></a>Premium Storage 
 
-Premium Storage está respaldado por discos SSD y ofrece compatibilidad con discos de alto rendimiento y baja latencia para máquinas virtuales con cargas de trabajo intensivas de E/S. Puede usar Premium Storage con DS, DSv2, GS o máquinas virtuales de Azure de serie FS. Para más información, consulte [Premium Storage](../articles/storage/storage-premium-storage.md).
+Premium Storage está respaldado por discos SSD y ofrece compatibilidad con discos de alto rendimiento y baja latencia para máquinas virtuales con cargas de trabajo intensivas de E/S. Puede usar Premium Storage con máquinas virtuales de Azure de las series DS, DSv2, GS, Ls o FS. Para más información, consulte [Premium Storage](../articles/storage/storage-premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Discos no administrados
 
@@ -50,6 +50,7 @@ En la tabla siguiente se ofrece una comparación de almacenamiento premium y est
 | Tipo de disco | Unidades de estado sólido (SSD) | Unidades de disco duro (HDD)  |
 | Información general  | Compatibilidad con discos de alto rendimiento y baja latencia basados en SSD para máquinas virtuales que ejecutan cargas de trabajo intensivas de E/S o que hospedan un entorno de producción crítico | Compatibilidad rentable con discos basados en HHD para escenarios de máquinas virtuales de desarrollo o pruebas |
 | Escenario  | Cargas de trabajo confidenciales de producción y rendimiento | Desarrollo y pruebas, no crítico, <br>Acceso infrecuente |
-| Tamaño del disco | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Discos no administrados: de 1 GB a 1 TB <br><br>Discos administrados:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
-| Rendimiento máximo por disco | 200 MB/s | 60 MB/s |
-| IOPS máximas por disco | 5000 IOPS | 500 IOPS |
+| Tamaño del disco | P4: 32 GB<br>P6: 64 GB<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Discos no administrados: de 1 GB a 4 TB (4095 GB) <br><br>Discos administrados:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
+| Rendimiento máximo por disco | 250 MB/s | 60 MB/s | 
+| IOPS máximas por disco | 7500 IOPS | 500 IOPS | 
+
