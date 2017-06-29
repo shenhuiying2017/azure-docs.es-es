@@ -25,7 +25,7 @@ ms.lasthandoff: 05/31/2017
 
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 
-Azure Cosmos DB es la base de datos multi-modelo de distribución global de Microsoft. Con tan sólo un clic, Azure Cosmos DB le permite escalar de forma elástica e individual el rendimiento y el almacenamiento en cualquiera de las regiones geográficas de Azure. Ofrece garantía de rendimiento, latencia, disponibilidad y coherencia con [acuerdos de nivel de servicio](https://aka.ms/acdbsla) (SLA) integrales, algo que no ofrece ningún otro servicio de base de datos.
+Azure Cosmos DB es la base de datos multimodelo de distribución global de Microsoft. Con tan solo un clic, Azure Cosmos DB permite escalar de forma elástica e individual el rendimiento y el almacenamiento en cualquiera de las regiones geográficas de Azure. Ofrece garantía de rendimiento, latencia, disponibilidad y coherencia con [acuerdos de nivel de servicio](https://aka.ms/acdbsla) (SLA) integrales, algo que no ofrece ningún otro servicio de base de datos. 
 
 ![Azure Cosmos DB es el servicio de base de datos de distribución global de Microsoft con escalado elástico horizontal, baja latencia garantizada, cinco modelos de coherencia y SLA integrales garantizados.](./media/introduction/azure-cosmos-db.png)
 
@@ -53,7 +53,7 @@ Como un servicio de base de datos de distribución global, Azure Cosmos DB propo
     * Su aplicación está disponible al instante para los usuarios desde cualquier lugar. Ahora, los datos, también.
     * No se preocupe del hardware ni de agregar nodos, máquinas virtuales o núcleos. Solo apunte y haga clic, los datos están ahí. 
 
-* [**Varios modelos de datos y APIs populares para acceder a los datos y consultarlos**](#data-models)
+	 * [**Varios modelos de datos y API populares para acceder a los datos y consultarlos**](#data-models)
     * Compatibilidad con varios modelos de datos, como los de clave-valor, documentos, gráficos y columnas.
     * APIs extensibles para Node.js, Java,.NET, .NET Core, Python y MongoDB.
     * SQL y Gremlin para las consultas. 
@@ -71,7 +71,7 @@ Como un servicio de base de datos de distribución global, Azure Cosmos DB propo
     * [Simule un error](regional-failover.md) en una o más regiones sin pérdida de datos, garantizada. 
 
 * [**Escritura de aplicaciones de distribución global de la forma correcta**](#consistency)
-    * [Cinco modelos de consistencia](consistency-levels.md) ofrecen homogeneidad similar a SQL a la coherencia definitiva similar a NoSQL y en todo lo intermedio. 
+    * [Cinco modelos de coherencia](consistency-levels.md) aportan desde una coherencia fuerte similar a SQL hasta una coherencia eventual similar a NoSQL, y todo lo intermedio.
   
 * [**Garantía de devolución del dinero**](#sla) 
     * Los datos llegarán rápidamente o le devolvemos el dinero. 
@@ -87,7 +87,7 @@ Como un servicio de base de datos de distribución global, Azure Cosmos DB propo
 <a id="global-distribution"></a>
 
 ## <a name="global-distribution"></a>Distribución global
-Los contenedores de Azure Cosmos DB son distribuidos en dos dimensiones: 
+Los contenedores de Azure Cosmos DB se distribuyen en dos dimensiones:
 
 1. En una región determinada, todos los recursos se dividen horizontalmente con particiones de recursos (distribución local). 
 2. Cada partición de recursos también se replica en regiones geográficas (distribución global). 
