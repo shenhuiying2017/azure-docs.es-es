@@ -103,7 +103,7 @@ Use los pasos siguientes para supervisar una asociación de replicación geográ
 2. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **maestra** y haga clic en **Nueva consulta**.
 3. Use la siguiente instrucción para mostrar todas las bases de datos con vínculos de replicación geográfica.
    
-        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
+        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].dm_geo_replication_links;
 4. Haga clic en **Ejecutar** para ejecutar la consulta.
 5. Abra la carpeta Bases de datos, expanda la carpeta **Bases de datos del sistema**, haga clic con el botón derecho en **MyDB** y luego haga clic en **Nueva consulta**.
 6. Use la siguiente instrucción para mostrar los retrasos de replicación y la hora de la última replicación de mis bases de datos secundarias de MyDB.

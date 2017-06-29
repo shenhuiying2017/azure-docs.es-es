@@ -167,7 +167,7 @@ Para cambiar el valor predeterminado, abra el archivo `app.config` del Explorado
 
       <!--Table creation options -->
       <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}">
+      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
