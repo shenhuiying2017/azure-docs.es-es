@@ -1,4 +1,4 @@
---- 
+---
 title: Complemento de Azure Service Fabric para Eclipse | Microsoft Docs
 description: Empezar a trabajar con el complemento de Service Fabric para Eclipse.
 services: service-fabric
@@ -12,7 +12,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/03/2016
+ms.date: 06/29/2016
 ms.author: saysa
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
@@ -38,7 +38,7 @@ En Eclipse se puede instalar un complemento Service Fabric. El complemento puede
   1.    En el cuadro **Trabajar con**, escriba **http://dl.microsoft.com/eclipse**.
   2.    Haga clic en **Agregar**.
 
-         ![Complemento Service Fabric para Eclipse Neon][sf-eclipse-plugin-install] 
+         ![Complemento Service Fabric para Eclipse Neon][sf-eclipse-plugin-install]
   3.    Seleccione el complemento Service Fabric y, después, haga clic en **Next** (Siguiente).
   4.    Complete los pasos de la instalación y acepte los términos de licencia del software de Microsoft.
 
