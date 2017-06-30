@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: da455a350f61e17425cd308d0fdc8bb5294a0b76
 ms.openlocfilehash: 574921fdecdadaa48c572685f7486d4e7b1d25f4
+ms.contentlocale: es-es
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -48,7 +50,7 @@ Si desea preparar el recurso para el streaming dinámico, tiene dos opciones:
 2. [Usar el codificador Media Encoder Standard para producir conjuntos MP4 de velocidad de bits adaptable H.264](media-services-dotnet-encode-with-media-encoder-standard.md).
 3. [Transmita el contenido](media-services-deliver-content-overview.md).
 
-## <a name="a-idunsupportedformatsaformats-that-are-not-supported-by-dynamic-packaging"></a><a id="unsupported_formats"></a>Formatos no compatibles con el empaquetado dinámico
+## <a id="unsupported_formats"></a>Formatos no compatibles con el empaquetado dinámico
 El empaquetado dinámico no admite los siguientes formatos de archivo de origen:
 
 * Archivos MP4 Dolby Digital.
@@ -59,10 +61,5 @@ El empaquetado dinámico no admite los siguientes formatos de archivo de origen:
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

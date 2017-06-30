@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 99c43c63f75e01713600ef5ca46a8d11e8c5c7ce
 ms.openlocfilehash: b6560fdd50c93a7e84f12047ec4401328b601deb
+ms.contentlocale: es-es
+ms.lasthandoff: 12/09/2016
 
 
 ---
@@ -40,7 +42,6 @@ En los temas siguientes se muestra cómo habilitar el sistema de telemetría:
 [Habilitación del sistema de telemetría con .NET](media-services-dotnet-telemetry.md) 
 
 [Habilitación del sistema de telemetría con REST](media-services-rest-telemetry.md)
-
 
 ## <a name="consuming-telemetry-information"></a>uso de información de telemetría
 
@@ -67,11 +68,9 @@ Gracias a esto, muchas de las consultas comunes serán eficaces:
 - Recuperación de todos los datos de un servicio determinado en un intervalo de fechas
 - Recuperación de los datos más recientes de un servicio
 
-
 ### <a name="telemetry-table-storage-output-schema"></a>Esquema de salida de almacenamiento de tablas de telemetría
 
 Los datos de telemetría se almacenan en una tabla, TelemetryMetrics20160321, donde&20160;321 es la fecha de la tabla creada. El sistema de telemetría creará una tabla independiente para cada día nuevo con el formato de hora 00:00 UTC. La tabla se utiliza para almacenar valores de repetición, como la velocidad de bits de ingesta en una determinada ventana de tiempo, los bytes enviados, etc. 
-
 
 Propiedad|Valor|Ejemplos y notas
 ---|---|---
@@ -83,7 +82,6 @@ Nombre|El nombre del evento de telemetría|ChannelHeartbeat y StreamingEndpointR
 ObservedTime|La hora a la que se produjo el evento de telemetría (UTC)|2016-09-09T22:42:36.924Z<br/><br/>La entidad que envía los datos de telemetría (por ejemplo, un canal) proporciona la hora observada. Puede haber problemas de sincronización en los componentes, así que este valor es aproximado.
 ServiceID|{IDdeServicio}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Propiedades específicas de la entidad|Tal y como se define en el evento|StreamName: stream1, Bitrate 10123, etc.<br/><br/>Las propiedades restantes se definen para el tipo de evento determinado. El contenido de la tabla de Azure son pares clave-valor  (es decir, las diferentes filas de la tabla tienen distintos conjuntos de propiedades).
-
 
 ### <a name="entity-specific-schema"></a>Esquema específico de la entidad
 
@@ -112,7 +110,6 @@ BytesSent|Bytes agregados enviados|2987358
 ServerLatency|Latencia media del servidor (incluido el almacenamiento)|129
 E2ELatency|Latencia media de extremo a extremo|250
 
-
 **Canal activo**
 
 Propiedad|Valor|Ejemplos y notas
@@ -138,7 +135,6 @@ UnalignedPresentationTime|Si se reciben fragmentos (en los distintos niveles de 
 UnexpectedBitrate|True, si la velocidad de bits calculada o real de la pista de audio o vídeo es superior a 40 000 bps, y si el valor de IncomingBitrate es 0 o los valores de IncomingBitrate y actualBitrate difieren en un 50 % |True
 Healthy|True, si los valores de <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime y <br/>UnexpectedBitrate<br/> son 0|True<br/><br/>Healthy es una función compuesta que devuelve el valor False cuando se da una de las siguientes condiciones:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
-
 **Archivo activo**
 
 Propiedad|Valor|Ejemplos y notas
@@ -156,7 +152,6 @@ TrackType|Tipo de pista|Audio y vídeo
 CustomAttribute|Cadena hexadecimal que distingue entre pistas diferentes con el mismo nombre y la misma velocidad de bits (ángulos multicámara)|
 Bitrate|Velocidad de bits de la pista|785000
 Healthy|True, si el valor de FragmentDiscardedCount es 0 y el de ArchiveAcquisitionError, False|True (estos dos valores no están presentes en la métrica, pero sí en el evento de origen)<br/><br/>Healthy es una función compuesta que devuelve el valor False cuando se da una de las siguientes condiciones:<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
-
 
 ## <a name="general-qa"></a>Preguntas y respuestas generales
 
@@ -226,9 +221,4 @@ El sistema de telemetría no proporciona funcionalidades de administración de r
 ## <a name="provide-feedback"></a>Envío de comentarios
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

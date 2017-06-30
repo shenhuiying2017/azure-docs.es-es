@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: cenkd;juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
 ms.openlocfilehash: d0f9899d6b8cc83ea4f2836444b41a9dabe7fea7
+ms.contentlocale: es-es
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -92,7 +94,7 @@ Para obtener más información sobre cómo entregar el contenido y crear URL de 
 > 
 > 
 
-### <a name="a-idfiltersafilters"></a><a id="filters"></a>Filtros
+### <a id="filters"></a>Filtros
 Hay dos tipos de filtros de activos: 
 
 * Filtros globales (se pueden aplicar a cualquier activo de la cuenta de Servicios multimedia de Azure, tienen una duración de la cuenta) y 
@@ -100,7 +102,7 @@ Hay dos tipos de filtros de activos:
 
 Los tipos de filtros globales y locales tienen exactamente las mismas propiedades. La diferencia principal entre los dos es para qué escenarios es más adecuado cada tipo de filtro. Los filtros globales suelen ser adecuados para los perfiles de dispositivos (filtrado de representaciones) donde los filtros locales podrían usarse para recortar un activo específico.
 
-## <a name="a-idscenariosacommon-scenarios"></a><a id="scenarios"></a>Escenarios comunes
+## <a id="scenarios"></a>Escenarios comunes
 Como se mencionó anteriomente, al entregar su contenido a los clientes (transmisión de eventos en directo o vídeo a la carta bajo demanda), el objetivo es entregar un vídeo de alta calidad a varios dispositivos en condiciones de red diferentes. Además, puede tener otros requisitos que implican el filtrado de los activos y el uso de **manifiestos dinámico**s. En las secciones siguientes se ofrece una breve introducción a los diferentes escenarios de filtrado.
 
 * Especifique solo un subconjunto de representaciones de audio y vídeo que pueden controlar determinados dispositivos (en lugar de todas las representaciones asociadas al activo). 
@@ -210,9 +212,4 @@ Para obtener más información, consulte [este blog](https://azure.microsoft.com
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
