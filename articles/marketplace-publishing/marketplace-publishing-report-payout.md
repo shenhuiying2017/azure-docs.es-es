@@ -50,7 +50,7 @@ Los informes están disponibles 45 días después del cierre del trimestre y se 
 ## <a name="view-your-payout-reports-in-dev-center"></a>Visualización de los informes de pago en el Centro de desarrollo
 El informe de pago para cada trimestre registra todas las transacciones que se producen dentro de ese trimestre.
 
-* El importe reservado indica los pagos que se acumularán fuera del ciclo de pago próximo (por ejemplo, este importe se moverá al próximo pago el mes siguiente).  Este importe suele ser normalmente&0; $ (a menos que un cliente pague con mucha antelación).
+* El importe reservado indica los pagos que se acumularán fuera del ciclo de pago próximo (por ejemplo, este importe se moverá al próximo pago el mes siguiente).  Este importe suele ser normalmente 0 $ (a menos que un cliente pague con mucha antelación).
 * Haga clic en los vínculos **Ver detalles** de Próximo pago o Pago más reciente para ver una nota sobre esos pagos.
 * Haga clic en **Extractos de pagos** para ver los detalles en Ganancias por aplicación o producto.
 * Haga clic en el vínculo **Ver** para ver extractos individuales.
