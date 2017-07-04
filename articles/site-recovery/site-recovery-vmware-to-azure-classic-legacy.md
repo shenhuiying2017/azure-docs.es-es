@@ -394,10 +394,10 @@ Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están re
       ![servidor de destino maestro de Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
    5. Asegúrese de que se encuentra en el directorio en el que extrajo el contenido del archivo tar.
    6. Copie la frase de contraseña del servidor de configuración en un archivo local con el comando **echo*`<passphrase>`* >passphrase.txt**
-   7. Ejecute el comando “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**”.
+   7. Ejecute el comando “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i* `<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**”.
 
       ![Registrar servidor de destino](./media/site-recovery-vmware-to-azure-classic-legacy/linux-mt-install.png)
-7. Espere unos minutos (de&10; a&15;) y en la página compruebe que el servidor de destino maestro se muestra como registrado en la pestaña **Servidores** > **Servidores de configuración****Detalles del servidor**. Si ejecuta Linux y no se ha registrado, vuelva a ejecutar la herramienta de configuración de host en /usr/local/ASR/Vx/bin/hostconfigcli. Deberá establecer los permisos de acceso mediante la ejecución de chmod como raíz.
+7. Espere unos minutos (de 10 a 15) y en la página compruebe que el servidor de destino maestro se muestra como registrado en la pestaña **Servidores** > **Servidores de configuración****Detalles del servidor**. Si ejecuta Linux y no se ha registrado, vuelva a ejecutar la herramienta de configuración de host en /usr/local/ASR/Vx/bin/hostconfigcli. Deberá establecer los permisos de acceso mediante la ejecución de chmod como raíz.
 
     ![Verificar servidor de destino](./media/site-recovery-vmware-to-azure-classic-legacy/target-server-list.png)
 
@@ -472,10 +472,10 @@ Los componentes de Site Recovery se actualizan periódicamente. Cuando haya disp
 3. Si está ejecutando las máquinas virtuales o los servidores físicos que ya tienen instalado Mobility Service, puede obtener actualizaciones para el servicio como sigue:
 
    * **Opción 1**: Descarga de actualizaciones
-     * [Windows Server&64; (solo&64; bits)](http://download.microsoft.com/download/8/4/8/8487F25A-E7D9-4810-99E4-6C18DF13A6D3/Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe)
+     * [Windows Server 64 (solo 64 bits)](http://download.microsoft.com/download/8/4/8/8487F25A-E7D9-4810-99E4-6C18DF13A6D3/Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe)
      * [CentOS 6.4, 6.5, 6.6 (solo 64 bits)](http://download.microsoft.com/download/7/E/D/7ED50614-1FE1-41F8-B4D2-25D73F623E9B/Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz)
      * [Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits)](http://download.microsoft.com/download/5/2/6/526AFE4B-7280-4DC6-B10B-BA3FD18B8091/Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz)
-     * [SUSE Linux Enterprise Server SP3 (solo&64; bits)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
+     * [SUSE Linux Enterprise Server SP3 (solo 64 bits)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
      * Después de actualizar el servidor de procesos, puede obtener la versión actualizada de Mobility Service en la carpeta C:\pushinstallsvc\repository en el servidor de procesos.
    * **Opción 2**: Si tiene una máquina con una versión anterior de Mobility Service instalada, también puede actualizarlo automáticamente en la máquina desde el portal de administración.
 
@@ -568,7 +568,7 @@ Los paquetes de software que se usan para instalar Mobility Service están en el
 
 | Sistema operativo de origen | Paquete de Mobility Service en el servidor de procesos |
 | --- | --- |
-| Windows Server&64; (solo&64; bits) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe` |
+| Windows Server 64 (solo 64 bits) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe` |
 | CentOS 6.4, 6.5, 6.6 (solo 64 bits) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz` |
 | SUSE Linux Enterprise Server 11 SP3 (solo 64 bits) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz` |
 | Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz` |
@@ -630,7 +630,7 @@ Para habilitar la protección, agregue máquinas virtuales y servidores físicos
 * Las máquinas virtuales se detectan cada 15 minutos y pueden tardar hasta 15 minutos en aparecer en Azure Site Recovery después de la detección.
 * Los cambios de entorno en la máquina virtual (como la instalación de herramientas de VMware) también pueden tardar hasta 15 minutos en actualizarse en Site Recovery.
 * Puede consultar la última detección en el campo **ÚLTIMO CONTACTO A LAS** para el servidor vCenter/host ESXi en la página **Servidores de configuración**.
-* Si tiene un grupo de protección ya creado y agrega un servidor vCenter o un host ESXi después de eso, se tarda&15; minutos en actualizar el portal de Azure Site Recovery y en mostrar las máquinas virtuales en el cuadro de diálogo **Agregar máquinas al grupo de protección** .
+* Si tiene un grupo de protección ya creado y agrega un servidor vCenter o un host ESXi después de eso, se tarda 15 minutos en actualizar el portal de Azure Site Recovery y en mostrar las máquinas virtuales en el cuadro de diálogo **Agregar máquinas al grupo de protección** .
 * Si desea continuar inmediatamente con la incorporación de equipos al grupo de protección, sin esperar la detección programada, resalte el servidor de configuración (no haga clic en él) y haga clic en el botón **Actualizar** .
 * Al agregar máquinas virtuales o equipos físicos a un grupo de protección, el servidor de procesos inserta automáticamente e instala Mobility Service en el servidor de origen si aún no está instalado.
 * Asegúrese de que ha configurado los equipos protegidos tal como se ha descrito en el paso anterior para que el mecanismo de inserción automática funcione.
