@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b80ee30379e9aac207cfe420cae17da57ea123a5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8d876a0f2168ee9375a3905d5d5a562ab1194cf3
 ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
-ms.lasthandoff: 03/02/2017
+ms.contentlocale: es-es
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -460,7 +461,7 @@ La configuración de Azure AD que creó anteriormente se puede insertar directam
 }
 ```
 
-### <a name="a-configure-arm-aconfigure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Configuración de los parámetros de plantilla de Resource Manager
+### <a "configure-arm" ></a>Configuración de los parámetros de plantilla de Resource Manager
 Por último, utilice los valores de salida del almacén de claves y los comandos de PowerShell de Azure AD para rellenar el archivo de parámetros:
 
 ```json
