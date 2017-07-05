@@ -178,7 +178,7 @@ Puede agregar otros parámetros, cuyas descripciones se encuentran en la secció
 Después de crear un recurso de aplicación, querrá la clave de instrumentación: 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>"
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
     $details = Get-AzureRmResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```
