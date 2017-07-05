@@ -2,7 +2,7 @@
 title: Azure Active Directory para desarrolladores | Microsoft Docs
 description: "En este artículo se proporciona información general de inicio de sesión en las cuentas de trabajo y educativas de Microsoft con Azure Active Directory."
 services: active-directory
-author: bryanla
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/07/2017
-ms.author: bryanla
+ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 7b4a4c5b9e6092806adb5e9f415f5e595e84f9df
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 0275bd00850a734c9b721c8348e24c5c40422201
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para desarrolladores
@@ -67,6 +67,7 @@ Estos son los mejores lugares para obtener ayuda con el desarrollo en Azure Acti
 |---|
 |[`azure-active-directory` de Stack Overflow y etiquetas `adal`](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
 |[Comentarios sobre Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
+| [Pruebe Microsoft Dev Chat (gratis durante un tiempo limitado)](http://aka.ms/devchat) |
 
 <br />
 
