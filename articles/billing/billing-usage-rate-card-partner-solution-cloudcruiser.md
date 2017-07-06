@@ -4,7 +4,7 @@ description: "Proporciona una perspectiva exclusiva del socio de facturación de
 services: 
 documentationcenter: 
 author: BryanLa
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 02/03/2017
 ms.author: mobandyo;sirishap;bryanla
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 09c18ca6a967c2930ddd2b16d37f0bc606712ea1
 ms.openlocfilehash: 125b777e0ab05066cf066789b603b8edb15a0936
+ms.contentlocale: es-es
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -223,9 +225,4 @@ Lo mejor de todo es que solamente tiene que realizar este proceso una vez. Cuand
 [12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Ilustración 12 - Datos de la API de uso importados en la hoja UsageAPI"
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Ilustración 13 - Creación de nuevos campos para la información de etiqueta"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Ilustración 14 - Relleno de la estructura de la cuenta con la información de las búsquedas"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
