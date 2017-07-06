@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d30cbc1cfd095ab9e8321a723335ebab593ee5fe
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 4a41d9eb8b28aed499bb20e17e3c979962c78bcd
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,14 +41,14 @@ Una vez que haya [creado una cuenta de integración](../logic-apps/logic-apps-en
 
 ## <a name="create-an-x12-agreement"></a>Creación de un contrato X12
 
-1.    Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). En el menú izquierdo, seleccione **Más servicios**. 
+1.  Inicie sesión en [Azure Portal](http://portal.azure.com "Azure Portal"). En el menú izquierdo, seleccione **Más servicios**. 
 
     > [!TIP]
     > Si no ve **Más servicios**, expanda el menú. En la parte superior del menú contraído, seleccione **Mostrar menú**.
 
     ![En el menú izquierdo, seleccione "Más servicios"](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.    En el cuadro de búsqueda, escriba "integración" como filtro. En la lista de resultados, seleccione **Cuentas de integración**.  
+2.  En el cuadro de búsqueda, escriba "integración" como filtro. En la lista de resultados, seleccione **Cuentas de integración**.  
 
     ![Filtre por "integración", seleccione "Cuentas de integración"](./media/logic-apps-enterprise-integration-x12/account-2.png)
 
@@ -87,7 +87,7 @@ Si no ve ninguna, [créela](../logic-apps/logic-apps-enterprise-integration-acco
 
 Ahora que ha establecido las propiedades del contrato, puede configurar cómo este identifica y controla los mensajes entrantes recibidos del asociado a través de este contrato.
 
-1.    En **Agregar**, seleccione **Configuración de recepción**.
+1.  En **Agregar**, seleccione **Configuración de recepción**.
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
 
     **Configuración de recepción** se divide en las siguientes secciones: Identificadores, Reconocimiento, Esquemas, Sobres, Números de control, Validaciones y Configuración interna.
@@ -183,7 +183,7 @@ Cuando haya completado cada fila de validación, se agrega otra automáticamente
 
 Puede configurar cómo este contrato identifica y controla los mensajes salientes que envía a su asociado a través de este contrato.
 
-1.    En **Agregar**, seleccione **Send Settings** (Configuración de envío).
+1.  En **Agregar**, seleccione **Send Settings** (Configuración de envío).
 Configure estas propiedades en función del contrato con el asociado con el que intercambia mensajes. Para las descripciones de las propiedades, consulte las tablas de esta sección.
 
     **Configuración de envío** se organiza en las siguientes secciones: Identificadores, Reconocimiento, Esquemas, Sobres, Juegos de caracteres y separadores, Números de control y Validación.
@@ -290,11 +290,11 @@ Cuando haya completado cada fila de validación, se agrega otra automáticamente
 
 ## <a name="find-your-created-agreement"></a>Búsqueda del contrato creado
 
-1.    Cuando termine de establecer las propiedades del contrato, en la hoja **Agregar**, elija **Aceptar** para terminar de crear el contrato y volver a la hoja de la cuenta de integración.
+1.  Cuando termine de establecer las propiedades del contrato, en la hoja **Agregar**, elija **Aceptar** para terminar de crear el contrato y volver a la hoja de la cuenta de integración.
 
     Ahora el contrato recién agregado aparece en la lista **Acuerdos**.
 
-2.    También puede ver los contratos en la información general de la cuenta de integración. En la hoja de la cuenta de integración, elija **Información general** y seleccione el icono **Acuerdos**.
+2.  También puede ver los contratos en la información general de la cuenta de integración. En la hoja de la cuenta de integración, elija **Información general** y seleccione el icono **Acuerdos**.
 
     ![Elección del icono "Acuerdos" para ver todos los contratos](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 

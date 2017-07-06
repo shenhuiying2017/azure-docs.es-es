@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 02688f62101fe2ee602badc08feba02fa3e86e26
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 7963a07a2b9d529e89302f32e5ffd56c51687ffa
 ms.contentlocale: es-es
 
 
@@ -25,8 +25,8 @@ ms.contentlocale: es-es
 
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utilice la biblioteca de autenticación de Microsoft (MSAL) para obtener un token para la API Graph de Microsoft.
 
-1.    Abra `MainActivity` (en `app` > `java` > `{domain}.{appname}`)
-2.    Agregue las importaciones siguientes:
+1.  Abra `MainActivity` (en `app` > `java` > `{domain}.{appname}`)
+2.  Agregue las importaciones siguientes:
 
 ```java
 import android.app.Activity;
@@ -254,12 +254,12 @@ La llamada a `AcquireTokenAsync` genera una ventana que pide al usuario que inic
 `AcquireTokenSilentAsync` controla las adquisiciones y la renovación de tokens sin interacción del usuario. Después de que `AcquireTokenAsync` se ejecuta por primera vez, `AcquireTokenSilentAsync` es el método usado habitualmente para obtener los tokens empleados para tener acceso a recursos protegidos en las llamadas posteriores, ya que las llamadas para solicitar o renovar los tokens se realizan en modo silencioso.
 Es posible que `AcquireTokenSilentAsync` genere eventualmente un error; por ejemplo, si el usuario ha cerrado la sesión o ha cambiado su contraseña en otro dispositivo. Si MSAL detecta que el problema puede solucionarse requiriendo una acción interactiva, desencadena una acción `MsalUiRequiredException`. La aplicación puede abordar esta excepción de dos maneras:
 
-1.    Realizar una llamada a `AcquireTokenAsync` inmediatamente, lo que ocasiona que el usuario tenga que iniciar sesión. Este patrón se da normalmente en aplicaciones en línea en las que no hay ningún contenido sin conexión en la aplicación disponible para el usuario. El ejemplo generado en esta instalación guiada sigue este modelo: puede verlo en acción la primera vez que ejecute el ejemplo; dado que la aplicación no se ha utilizado nunca por ningún usuario, `PublicClientApp.Users.FirstOrDefault` contendrá un valor nulo y se generará una excepción de tipo `MsalUiRequiredException`. El código en el ejemplo entonces trata la excepción mediante una llamada a `AcquireTokenAsync`, lo que resulta en una petición al usuario de que inicie sesión.
-2.    Las aplicaciones también pueden hacer una indicación visual al usuario de que se requiere un inicio de sesión interactivo, de manera que el usuario pueda seleccionar el momento adecuado para iniciar sesión, o la aplicación puede reintentar `AcquireTokenSilentAsync` en un momento posterior. Esto se utiliza normalmente cuando el usuario puede tener acceso a funciones de la aplicación sin que se le interrumpa: por ejemplo, hay contenido sin conexión disponible en la aplicación. En este caso, el usuario puede decidir el momento en que desea iniciar sesión para tener acceso al recurso protegido, o actualizar la información no actualizada; o puede decidir que la aplicación vuelva a intentar `AcquireTokenSilentAsync` cuando se restaure la red después de estar no disponible temporalmente.
+1.  Realizar una llamada a `AcquireTokenAsync` inmediatamente, lo que ocasiona que el usuario tenga que iniciar sesión. Este patrón se da normalmente en aplicaciones en línea en las que no hay ningún contenido sin conexión en la aplicación disponible para el usuario. El ejemplo generado en esta instalación guiada sigue este modelo: puede verlo en acción la primera vez que ejecute el ejemplo; dado que la aplicación no se ha utilizado nunca por ningún usuario, `PublicClientApp.Users.FirstOrDefault` contendrá un valor nulo y se generará una excepción de tipo `MsalUiRequiredException`. El código en el ejemplo entonces trata la excepción mediante una llamada a `AcquireTokenAsync`, lo que resulta en una petición al usuario de que inicie sesión.
+2.  Las aplicaciones también pueden hacer una indicación visual al usuario de que se requiere un inicio de sesión interactivo, de manera que el usuario pueda seleccionar el momento adecuado para iniciar sesión, o la aplicación puede reintentar `AcquireTokenSilentAsync` en un momento posterior. Esto se utiliza normalmente cuando el usuario puede tener acceso a funciones de la aplicación sin que se le interrumpa: por ejemplo, hay contenido sin conexión disponible en la aplicación. En este caso, el usuario puede decidir el momento en que desea iniciar sesión para tener acceso al recurso protegido, o actualizar la información no actualizada; o puede decidir que la aplicación vuelva a intentar `AcquireTokenSilentAsync` cuando se restaure la red después de estar no disponible temporalmente.
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Llamada a la API Graph de Microsoft con el token que acaba de obtener
-1.    Agregue los siguientes métodos a la clase `MainActivity`:
+1.  Agregue los siguientes métodos a la clase `MainActivity`:
 
 ```java
 /* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
@@ -323,7 +323,7 @@ En esta aplicación de ejemplo, `callGraphAPI` llama a `getAccessToken` y, a con
 
 ## <a name="setup-sign-out"></a>Configuración del cierre de sesión
 
-1.    Agregue los siguientes métodos a la clase `MainActivity`:
+1.  Agregue los siguientes métodos a la clase `MainActivity`:
 
 ```java
 /* Clears a user's tokens from the cache.
