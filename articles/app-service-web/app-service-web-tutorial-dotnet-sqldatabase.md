@@ -33,8 +33,8 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Crear una base de datos SQL en Azure
 > * Conectar una aplicación ASP.NET a SQL Database
-> * Desplegar la aplicación en Azure
-> * Actualizar el modelo de datos y volver a desplegar la aplicación
+> * Implementación de la aplicación en Azure
+> * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros desde Azure a un terminal
 > * Administrar la aplicación en Azure Portal
 
@@ -70,7 +70,7 @@ En el directorio extraído, abra _dotnet-sqldb-tutorial-master\DotNetAppSqlDb.sl
 
 Cuando se abra la solución de ejemplo, escriba `F5` para ejecutarla en el explorador.
 
-Debería ver una lista sencilla de tareas pendientes en la página principal. Pruebe agregando unas cuantas tareas pendientes a la lista vacía.
+Debería ver una lista sencilla de tareas pendientes en la página principal. Pruebe a agregar unas cuantas tareas pendientes a la lista vacía.
 
 ![Cuadro de diálogo New ASP.NET Project](./media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
 
@@ -144,7 +144,7 @@ En la pestaña **Servicios**, haga clic en el icono **+** junto a **SQL Database
 
 En el cuadro de diálogo **Configurar SQL Database**, haga clic en **Nuevo** junto a **SQL Server**. 
 
-En **Nombre del servidor**, escriba un nombre único. Este nombre se usará como parte del nombre DNS predeterminado para el servidor de base de datos, `<server_name>.database.windows.net`, por lo que debe ser único en todas las instancias de SQL Server en Azure. 
+En **Nombre del servidor**, escriba un nombre único. Este nombre se usará como parte del nombre DNS predeterminado para el servidor de base de datos, "<server_name>.database.windows.net", por lo que debe ser único en todas las instancias de SQL Server en Azure.
 
 Configure el resto de los campos como desee y haga clic en **Aceptar**.
 
@@ -164,7 +164,7 @@ Haga clic en **Crear**.
 
 Una vez que el asistente finaliza la creación de los recursos de Azure, publica automáticamente la aplicación ASP.NET en Azure por primera vez y, a continuación, inicia la aplicación web de Azure publicada en el explorador predeterminado.
 
-Pruebe agregar unos cuantos elementos de tareas pendientes a la lista vacía.
+Pruebe a agregar unos cuantos elementos de tareas pendientes a la lista vacía.
 
 ![Aplicación ASP.NET publicada en la aplicación web de Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -432,8 +432,8 @@ En este tutorial, ha aprendido cómo:
 > [!div class="checklist"]
 > * Crear una base de datos SQL en Azure
 > * Conectar una aplicación ASP.NET a SQL Database
-> * Desplegar la aplicación en Azure
-> * Actualizar el modelo de datos y volver a desplegar la aplicación
+> * Implementación de la aplicación en Azure
+> * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros desde Azure a un terminal
 > * Administrar la aplicación en Azure Portal
 
