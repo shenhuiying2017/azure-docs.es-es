@@ -48,7 +48,7 @@ az group create --name myResourceGroupVM --location eastus
 
 Se especifica el grupo de recursos al crear o modificar una máquina virtual, como se ve a lo largo de este tutorial.
 
-## <a name="create-virtual-machine"></a>Crear una Máquina Virtual
+## <a name="create-virtual-machine"></a>Crear una máquina virtual
 
 Cree la máquina virtual con el comando [az vm create](https://docs.microsoft.com/cli/azure/vm#create). 
 
@@ -58,7 +58,7 @@ Al crear una máquina virtual, están disponibles varias opciones, como la image
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Una vez creada la máquina virtual, la CLI de Azure ofrece como salida información de la misma. Tome nota de `publicIpAddress`; esta dirección se puede usar para acceder a la máquina virtual. 
+Una vez creada la máquina virtual, la CLI de Azure ofrece como salida información de la misma. Tome nota de “publicIpAddress”, una dirección que se puede usar para acceder a la máquina virtual.  
 
 ```azurecli
 {
@@ -191,7 +191,7 @@ Salida parcial:
 
 ### <a name="create-vm-with-specific-size"></a>Creación de máquinas virtuales con un tamaño específico
 
-En el anterior ejemplo de creación de máquinas virtuales, no se proporcionó ningún tamaño, lo que conlleva el uso de un tamaño predeterminado. Se puede seleccionar un tamaño para la máquina virtual al crearla con el comando [az vm create](/cli/azure/vm#create) y el argumento `--size`. 
+En el anterior ejemplo de creación de máquinas virtuales, no se proporcionó ningún tamaño, lo que conlleva el uso de un tamaño predeterminado. Se puede seleccionar un tamaño para la máquina virtual al crearla con el comando [az vm create](/cli/azure/vm#create) y el argumento “—size”. 
 
 ```azurecli
 az vm create \
@@ -313,7 +313,7 @@ En este tutorial, ha aprendido conceptos básicos sobre la creación y administr
 > * Cambiar el tamaño de una máquina virtual
 > * Ver y entender el estado de las máquinas virtuales
 
-Prosiga con el siguiente tutorial para aprender sobre los discos en máquinas virtuales de Azure.  
+Prosiga con el siguiente tutorial para aprender sobre los discos en máquinas virtuales de Azure.
 
 > [!div class="nextstepaction"]
 > [Creación y administración de discos de máquinas virtuales](./tutorial-manage-disks.md)
