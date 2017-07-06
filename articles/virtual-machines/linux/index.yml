@@ -6,7 +6,7 @@ metadata:
   title: 'Documentación sobre las máquinas virtuales Linux de Azure: tutoriales y referencia de API'
   meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
-  author: apexprodleads
+  author: czeumault
   manager: carolz
   ms.service: virtual-machines-linux
   ms.tgt_pltfrm: na
@@ -29,17 +29,17 @@ sections:
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: 'Learn how to deploy an NGINX web-server within a Virtual Machine running Ubuntu:'
+    text: 'Aprenda a implementar un servidor web NGINX dentro de una máquina virtual que ejecuta Ubuntu:'
   - type: list
     style: icon48
     items: 
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
+      text: CLI de Azure
       href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal
+      text: Portal de Azure
       href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
@@ -48,49 +48,49 @@ sections:
 - title: Tutoriales detallados
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and scale Linux VMs on Azure
+    text: 'Aprenda a implementar, administrar y escalar máquinas virtuales Linux en Azure'
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Create and manage Linux VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Create and manage VM disks</a></li>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automate VM configuration</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Create custom VM images</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Create highly available VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Create a VM scale set</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage VMs and virtual networks</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Backup VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitor VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Manage security on VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Creación y administración de máquinas virtuales Linux</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Creación y administración de discos de máquinas virtuales</a></li>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automatización de la configuración de máquinas virtuales</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Creación de imágenes personalizadas de máquinas virtuales</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Creación de máquinas virtuales de alta disponibilidad</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Creación de un conjunto de escalado de máquinas virtuales</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Equilibrio de carga de máquinas virtuales</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Administración de máquinas y redes virtuales</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Copia de seguridad de máquinas virtuales</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Supervisión de máquinas virtuales</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Administración de seguridad en máquinas virtuales</a>
+    - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Creación de una infraestructura de integración y entrega continuas con Jenkins, Docker y GitHub</a>'
 - title: Vídeo gratuito de aprendizaje de PluralSight
   items:
   - type: list
     style: cards
     className: cardsW
     items:
-    - html: <p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Managing Infrastructure</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Administración de la infraestructura</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-infrastructure.png
         href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with Virtual Machines</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Introducción a Virtual Machines</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-vms.png
         href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: <p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Getting Started with IaaS Monitoring</a></p>
+    - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Introducción a la supervisión de IaaS</a></p>'
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png
         href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
 - title: Muestras
   items:
   - type: paragraph
-    text: Deploy your first application to Azure.
+    text: Implemente su primera aplicación en Azure.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a>
+    - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">CLI de Azure</a>
     - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
 - title: Referencia
   items:
@@ -99,8 +99,8 @@ sections:
     className: cardsD
     items:
     - title: Línea de comandos
-      html: <p><a href="/cli/azure/vm">Azure CLI</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
+      html: <p><a href="/cli/azure/vm">CLI de Azure</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
     - title: Idiomas
-      html: <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+      html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
     - title: REST
-      html: <p><a href="/rest/api/compute">REST API Reference</a></p>
+      html: <p><a href="/rest/api/compute">Referencia de API de REST</a></p>

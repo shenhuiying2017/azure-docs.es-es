@@ -6,7 +6,7 @@ keywords: "Administración de contraseñas de Active Directory, administración 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
