@@ -1,6 +1,6 @@
 ---
 title: "Cómo generar y transferir claves protegidas con HSM para Azure Key Vault | Microsoft Docs"
-description: "Use este artículo para ayudarle a planear, generar y, a continuación, transfiera sus propias claves protegidas con HSM para utilizar con el Almacén de clave de Azure. También se denomina BYOK o &quot;traiga su propia clave&quot;."
+description: "Use este artículo para ayudarle a planear, generar y, a continuación, transfiera sus propias claves protegidas con HSM para utilizar con el Almacén de clave de Azure. También se denomina BYOK o \"traiga su propia clave\"."
 services: key-vault
 documentationcenter: 
 author: cabailey
@@ -18,7 +18,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: f481de9d7eb23531b4be82c3b61e4f3850bed72e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---

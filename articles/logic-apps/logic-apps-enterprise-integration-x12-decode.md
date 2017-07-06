@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6408fdf494035b37e0025dd8439e800a80bffb4e
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,7 +41,7 @@ Esto es lo que necesita:
 
 2. El conector de descodificación de mensajes X12 no tiene desencadenadores, por lo que debe agregar uno para iniciar la aplicación lógica, como un desencadenador de solicitud. En el Diseñador de aplicaciones lógicas, agregue un desencadenador y una acción a la aplicación lógica.
 
-3.    En el cuadro de búsqueda, escriba "x12" para el filtro. Seleccione **X12 - Decode X12 message** (X12 – Descodificación de mensajes X12).
+3.  En el cuadro de búsqueda, escriba "x12" para el filtro. Seleccione **X12 - Decode X12 message** (X12 – Descodificación de mensajes X12).
    
     ![Búsqueda de "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
 
@@ -56,7 +56,7 @@ Esto es lo que necesita:
     | Nombre de la conexión * |Escriba cualquier nombre para la conexión. |
     | Cuenta de integración* |Escriba un nombre para la cuenta de integración. Asegúrese de que la cuenta de integración y la aplicación lógica se encuentren en la misma ubicación de Azure. |
 
-5.    Cuando haya terminado, los detalles de la conexión deberían parecerse a este ejemplo. Para terminar de crear la conexión, elija **Crear**.
+5.  Cuando haya terminado, los detalles de la conexión deberían parecerse a este ejemplo. Para terminar de crear la conexión, elija **Crear**.
    
     ![detalles de conexión de la cuenta de integración](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
 

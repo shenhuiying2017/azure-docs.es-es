@@ -16,10 +16,10 @@ ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a77337b582f337723b9e4b1befb2c638870a1c4b
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 6d49c742f72440e22830915c90de009d9188db2a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -419,7 +419,7 @@ A continuación, puede pasar a temas más avanzados. Podría interesarle:
 Estos son algunos recursos adicionales:
 
 * [Guía del desarrollador de Azure AD v2.0](active-directory-appmodel-v2-overview.md)
-* [Etiqueta "azure-active-directory" de StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Etiqueta "azure-active-directory" de Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ### <a name="get-security-updates-for-our-products"></a>Obtención de actualizaciones de seguridad para nuestros productos
 Le recomendamos suscribirse para recibir una notificación cuando se produzcan incidentes de seguridad. En la página [Notificaciones técnicas de seguridad de Microsoft](https://technet.microsoft.com/security/dd252948), suscríbase a las alertas de documentos informativos de seguridad.

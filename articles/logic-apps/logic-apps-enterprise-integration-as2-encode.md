@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 82d64d159412af6ff2bba1d625af66cdd18a4616
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 7889bf9e4e02143b6bb4c797531afa54f8647ce5
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,7 +41,7 @@ Esto es lo que necesita:
 
 2. El conector de codificación de mensajes AS2 no tiene desencadenadores, por lo que debe agregar uno para iniciar la aplicación lógica, por ejemplo, un desencadenador de solicitud. En el Diseñador de aplicaciones lógicas, agregue un desencadenador y una acción a la aplicación lógica.
 
-3.    En el cuadro de búsqueda, escriba "AS2" para el filtro. Seleccione **AS2 – Encode AS2 Message** (AS2: codificación de mensajes AS2).
+3.  En el cuadro de búsqueda, escriba "AS2" para el filtro. Seleccione **AS2 – Encode AS2 Message** (AS2: codificación de mensajes AS2).
    
     ![Búsqueda de "AS2"](./media/logic-apps-enterprise-integration-as2-encode/as2decodeimage1.png)
 
@@ -56,7 +56,7 @@ Esto es lo que necesita:
     | Nombre de la conexión * |Escriba cualquier nombre para la conexión. |
     | Cuenta de integración* |Escriba un nombre para la cuenta de integración. Asegúrese de que la cuenta de integración y la aplicación lógica se encuentren en la misma ubicación de Azure. |
 
-5.    Cuando haya terminado, los detalles de la conexión deberían parecerse a este ejemplo. Para terminar de crear la conexión, elija **Crear**.
+5.  Cuando haya terminado, los detalles de la conexión deberían parecerse a este ejemplo. Para terminar de crear la conexión, elija **Crear**.
    
     ![detalles de la conexión de integración](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage2.png)
 
