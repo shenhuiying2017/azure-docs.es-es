@@ -1,6 +1,6 @@
 ---
 title: "Redes conocidas en el Portal de Azure clásico | Microsoft Docs"
-description: "Mediante la configuración de redes conocidas, puede evitar que direcciones IP que son propiedad de su organización estén incluidas en los informes &quot;Inicios de sesión desde varias ubicaciones geográficas&quot; e &quot;Inicios de sesión desde direcciones IP con actividad sospechosa&quot;."
+description: "Mediante la configuración de redes conocidas, puede evitar que direcciones IP que son propiedad de su organización estén incluidas en los informes \"Inicios de sesión desde varias ubicaciones geográficas\" e \"Inicios de sesión desde direcciones IP con actividad sospechosa\"."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 07/05/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c8f41a5f9dcb6a069850c59e18dfdcfa92daa333
 ms.openlocfilehash: f14ced0c578fc54a48dd027aedfc24ad3478aef4
+ms.contentlocale: es-es
 ms.lasthandoff: 01/19/2017
 
 
