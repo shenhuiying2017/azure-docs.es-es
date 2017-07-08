@@ -99,3 +99,5 @@
 #### [Conexión de un equipo a una red virtual](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Pasos siguientes](azure-operations-guide.md#next-steps)
+# Recursos
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

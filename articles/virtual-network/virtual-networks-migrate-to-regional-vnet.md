@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f74379c3e310a7bbcf659ef610727bff19639022
 ms.openlocfilehash: c495af3e818758cc5fe99af9b5f07506a16b59ef
-ms.lasthandoff: 02/01/2017
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---

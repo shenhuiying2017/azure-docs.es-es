@@ -99,6 +99,7 @@
 ## [REST de Storage](/rest/api/storageservices)
 
 # Recursos
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Precios](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Disponibilidad regional](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

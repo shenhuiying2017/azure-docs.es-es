@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/28/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e74a04276810c52fef3ad62e7f2c56860ba4fbd1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5ee9855e1428c7a2d871d9c215d302c5c3b7101a
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -52,7 +54,7 @@ Complete los pasos siguientes para enumerar todas las copias de seguridad para u
    1. Seleccione el dispositivo adecuado.
    2. En la lista desplegable, elija un volumen para ver las copias de seguridad correspondientes.
    3. Especifique el intervalo de tiempo.
-   4. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  para ejecutar esta consulta.
+   4. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) para ejecutar esta consulta.
       
       Las copias de seguridad asociadas al volumen seleccionado deben aparecer en la lista de conjuntos de copias de seguridad.
 
@@ -66,7 +68,7 @@ Complete los pasos siguientes para seleccionar un conjunto de copias de segurida
    1. Seleccione el dispositivo adecuado.
    2. En la lista desplegable, seleccione el volumen o la directiva de copia de seguridad para la copia de seguridad que desea seleccionar.
    3. Especifique el intervalo de tiempo.
-   4. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  para ejecutar esta consulta.
+   4. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) para ejecutar esta consulta.
       
       Las copias de seguridad asociadas al volumen o la directiva de copia de seguridad seleccionados deben aparecer en la lista de conjuntos de copias de seguridad.
 3. Selecciona y expanda un conjunto de copia de seguridad. Las opciones **Restaurar** y **Eliminar** aparecen en la parte inferior de la página. Puede realizar cualquiera de estas acciones en el conjunto de copia de seguridad que haya seleccionado.
@@ -81,7 +83,7 @@ Elimine una copia de seguridad cuando ya no desee conservar los datos asociados 
    1. Seleccione el dispositivo adecuado.
    2. En la lista desplegable, seleccione el volumen o la directiva de copia de seguridad para la copia de seguridad que desea seleccionar.
    3. Especifique el intervalo de tiempo.
-   4. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png)  para ejecutar esta consulta.
+   4. Haga clic en el icono de marca de verificación  ![Icono de marca de verificación](./media/storsimple-manage-backup-catalog/HCS_CheckIcon.png) para ejecutar esta consulta.
       
       Las copias de seguridad asociadas al volumen o la directiva de copia de seguridad seleccionados deben aparecer en la lista de conjuntos de copias de seguridad.
 3. Selecciona y expanda un conjunto de copia de seguridad. Las opciones **Restaurar** y **Eliminar** aparecen en la parte inferior de la página. Hacer clic en **Eliminar**.
@@ -90,10 +92,5 @@ Elimine una copia de seguridad cuando ya no desee conservar los datos asociados 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo usar el catálogo de copias de seguridad para [restaurar el dispositivo desde un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md).
 * Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

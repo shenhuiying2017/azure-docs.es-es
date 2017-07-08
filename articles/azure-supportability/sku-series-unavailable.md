@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: gangan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0f41aac0512e78039e6038795c72c07251bbcf76
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -46,10 +48,5 @@ Siempre estamos abiertos a todo tipo de comentarios y sugerencias. No dude en en
 
 ## <a name="learn-more"></a>Más información
 [Preguntas más frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

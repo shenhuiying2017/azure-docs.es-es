@@ -14,8 +14,5 @@
 ### [Inicio de sesión con el teléfono](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Preguntas más frecuentes](microsoft-authenticator-app-faq.md)
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+# Recursos
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/07/2017
 ms.author: cabailey
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f9dba42681f69406f9066a63140f74e3f5ec41dd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a178f6b88054425177092225095b016c902cfc78
+ms.openlocfilehash: 59b1e2a5398d687d71708f6e641cda321062dd7d
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -32,7 +34,7 @@ Utilice la tabla siguiente para comprender mejor cómo Almacén de claves puede 
 
 | Rol | Declaración del problema | Resuelto por Almacén de claves de Azure |
 | --- | --- | --- |
-| Desarrollador para una aplicación de Azure |“Quiero escribir una aplicación para Azure que use claves para la firma y el cifrado, pero quiero que dichas claves no estén en la propia aplicación, con el fin de que la solución sea adecuada para una aplicación que se distribuya geográficamente. <br/><br/>También quiero que tanto las claves como los secretos estén protegidos sin tener que escribir el código. Por último, quiero poder usar fácilmente las claves y los secretos desde mis aplicaciones, y que el rendimiento sea óptimo". |√ Las claves se almacenan en un almacén y las invoca un identificador URI cuando se necesitan.<br/><br/> √ Las claves se protegen mediante Azure, para lo que se usan algoritmos estándar del sector, longitudes de clave y módulos de seguridad de hardware (HSM).<br/><br/>  √ Las claves se procesan en los HSM que residen en los mismos centros de datos de Azure que la aplicaciones. Esto proporciona mayor confiabilidad y menor latencia que si las claves se encuentran en una ubicación independiente, como por ejemplo si son locales. |
+| Desarrollador para una aplicación de Azure |“Quiero escribir una aplicación para Azure que use claves para la firma y el cifrado, pero quiero que dichas claves no estén en la propia aplicación, con el fin de que la solución sea adecuada para una aplicación que se distribuya geográficamente. <br/><br/>También quiero que tanto las claves como los secretos estén protegidos sin tener que escribir el código. Por último, quiero poder usar fácilmente las claves y los secretos desde mis aplicaciones, y que el rendimiento sea óptimo". |√ Las claves se almacenan en un almacén y las invoca un identificador URI cuando se necesitan.<br/><br/> √ Las claves se protegen mediante Azure, para lo que se usan algoritmos estándar del sector, longitudes de clave y módulos de seguridad de hardware (HSM).<br/><br/> √ Las claves se procesan en los HSM que residen en los mismos centros de datos de Azure que la aplicaciones. Esto proporciona mayor confiabilidad y menor latencia que si las claves se encuentran en una ubicación independiente, como por ejemplo si son locales. |
 | Desarrollador para software como servicio (SaaS): |“No quiero asumir la responsabilidad, ni tampoco la posible responsabilidad, de las claves y los secretos de inquilino de mis clientes. <br/><br/>Quiero que los clientes posean y administren sus claves de modo que pueda concentrarse en hacer lo que hago mejor, que es proporcionar las características de software principales.” |√ Los clientes pueden importar sus propias claves a Azure y administrarlas. Cuando una aplicación SaaS necesita realizar operaciones criptográficas mediante las claves de sus clientes, Key Vault las hace en nombre de la aplicación. La aplicación no ve las claves de los clientes. |
 | Responsable principal de la seguridad (CSO) |“Quiero saber que nuestras aplicaciones cumplen con HSM FIPS 140-2 de nivel 2 para administración de claves segura. <br/><br/>Deseo asegurarme de que mi organización tiene el control del ciclo de vida de las claves y puedo supervisar el uso de las mismas. <br/><br/>Y aunque usamos varios servicios y recursos de Azure, quiero administrar las claves desde una ubicación única en Azure.” |√ Los HSM tienen la validación FIPS 140-2 de nivel 2.<br/><br/>√ Key Vault está diseñado de modo que Microsoft no pueda ver ni extraer sus claves.<br/><br/>√ Registro del uso de claves casi en tiempo real.<br/><br/>√ El almacén proporciona una sola interfaz, independientemente del número de almacenes que tenga en Azure, las regiones que admitan y las aplicaciones que los usen. |
 
@@ -59,9 +61,4 @@ Para más información acerca del uso de claves y secretos con Azure Key Vault, 
 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

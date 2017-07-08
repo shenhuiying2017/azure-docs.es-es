@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b79492914bb52e970343a2e829622122f03642b
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 31ed9dad8ba56a3746873b7b35e678e97743fbfe
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---

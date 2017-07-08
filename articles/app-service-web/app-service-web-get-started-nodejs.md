@@ -16,10 +16,10 @@ ms.date: 05/05/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: b58ecb5dee434ab2295ccf3ff9a80dbfbdd1fe14
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e41c6f544ace374eb1f059c115e585a70265a571
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creación de una aplicación web de Node.js en Azure
@@ -139,7 +139,7 @@ El código de ejemplo de Node.js se está ejecutando en una aplicación web de A
 
 ![Aplicación de ejemplo que se ejecuta en Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-**¡Enhorabuena!** Ha implementado la primera aplicación PHP en App Service.
+**¡Enhorabuena!** Ha implementado la primera aplicación de Node.js en App Service.
 
 ## <a name="update-and-redeploy-the-code"></a>Actualización del código y nueva implementación
 

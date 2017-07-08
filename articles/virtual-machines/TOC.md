@@ -3,3 +3,5 @@
 # [Máquinas virtuales Linux mediante la implementación con el método clásico](linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 # [Máquinas virtuales con Windows mediante la implementación con el método clásico](windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
+# Recursos
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d1d1f4d581721994fe7417ae970ad70f9a7b3368
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6df1b27ce76de7a781ecc40af8430114d80b20d6
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -80,10 +82,5 @@ Ahora se cancelará este trabajo.
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [administrar las directivas de copia de seguridad de StorSimple](storsimple-manage-backup-policies.md).
 * Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

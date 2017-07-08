@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 387b274a993454814f7238f4cd89a52351a6fc1f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 303cdffa15fdfe9b83d0612edecafc6943d218f3
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,10 +43,5 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 8 |Conmutación por error del dispositivo |No se admiten varias conmutaciones por error de un contenedor de volúmenes del mismo dispositivo de origen a diferentes dispositivos de destino. La conmutación por error de un único dispositivo inactivo a varios dispositivos hará que los contenedores de volúmenes del primer dispositivo conmutado por error pierdan la propiedad de los datos. Después de este tipo de conmutación por error, estos contenedores de volúmenes aparecerán o se comportarán de forma diferente cuando se visualicen en el Portal de Azure clásico. | |Sí |No |
 | 9 |Instalación |Durante la instalación del adaptador de StorSimple para SharePoint, deberá proporcionar una dirección IP de dispositivo para que la instalación finalice correctamente. | |Sí |No |
 | 10 |Interfaces de red |Las interfaces de red DATA 2 y DATA 3 se intercambiaron en el software. |Póngase en contacto con el soporte técnico de Microsoft si necesita configurar estas interfaces. |Sí |No |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

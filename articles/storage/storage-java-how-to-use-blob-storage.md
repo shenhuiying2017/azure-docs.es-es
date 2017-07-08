@@ -14,9 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 1dd0736634c23658b8e3fc0f2ff4dbf9740db47f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 33630644e2b3b6565d009276145ecf220802cc63
+ms.openlocfilehash: b8a4eca600b458802a7a23851bb80ea4da2664ef
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -287,9 +289,4 @@ Para más información, consulte también el [Centro de desarrolladores de Java]
 [Referencia del SDK del cliente de Azure Storage]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

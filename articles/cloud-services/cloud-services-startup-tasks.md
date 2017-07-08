@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: be5bd67ed977a62b1574d8a48de0cfcfe8876bb4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
+ms.openlocfilehash: cbe7da8670693a6bbc895ce06f000b6a7d6f0ae1
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -99,9 +101,9 @@ A continuación se describen los atributos del elemento **Task** en el archivo [
 **executionContext** - especifica el nivel de privilegio de la tarea de inicio. El nivel de privilegio puede tener los valores limited o elevated:
 
 * **limited**  
-   la tarea de inicio se ejecuta con los mismos privilegios que el rol. Cuando el atributo **executionContext** para el elemento [Runtime] también tiene el valor **limited**, se usan los privilegios de usuario.
+  la tarea de inicio se ejecuta con los mismos privilegios que el rol. Cuando el atributo **executionContext** para el elemento [Runtime] también tiene el valor **limited**, se usan los privilegios de usuario.
 * **elevated**  
-   la tarea de inicio se ejecuta con privilegios de administrador. Esto permite a las tareas de inicio instalar programas, realizar cambios en la configuración de IIS, realizar cambios en el registro y otras tareas de nivel de administrador, sin aumentar el nivel de privilegio del propio rol.  
+  la tarea de inicio se ejecuta con privilegios de administrador. Esto permite a las tareas de inicio instalar programas, realizar cambios en la configuración de IIS, realizar cambios en el registro y otras tareas de nivel de administrador, sin aumentar el nivel de privilegio del propio rol.  
 
 > [!NOTE]
 > No es preciso que el nivel de privilegios de la tarea de inicio sea el mismo que el del propio rol.
@@ -120,9 +122,9 @@ A continuación se describen los atributos del elemento **Task** en el archivo [
   
     Para asegurarse de que el archivo por lotes finaliza con un valor **errorlevel** de cero, ejecute el comando `EXIT /B 0` al final del proceso de archivo por lotes.
 * **background**  
-   Las tareas se ejecutan de forma asincrónica, en paralelo con el inicio del rol.
+  Las tareas se ejecutan de forma asincrónica, en paralelo con el inicio del rol.
 * **foreground**  
-   Las tareas se ejecutan de forma asincrónica, en paralelo con el inicio del rol. La diferencia clave entre una tarea con el valor **foreground** y otra con el valor **background** es que una tarea **foreground** impide que el rol se recicle o se cierre hasta que haya finalizado la tarea. Las tareas con el valor **background** no tienen esta restricción.
+  Las tareas se ejecutan de forma asincrónica, en paralelo con el inicio del rol. La diferencia clave entre una tarea con el valor **foreground** y otra con el valor **background** es que una tarea **foreground** impide que el rol se recicle o se cierre hasta que haya finalizado la tarea. Las tareas con el valor **background** no tienen esta restricción.
 
 ## <a name="environment-variables"></a>Variables de entorno
 Las variables de entorno son una manera de pasar información a una tarea de inicio. Por ejemplo, puede colocar la ruta de acceso a un blob que contiene un programa para instalar, o los números de puerto que usará el rol o las configuraciones que controlan las funciones de la tarea de inicio.
@@ -167,9 +169,4 @@ Aprenda a realizar algunas [tareas de inicio comunes](cloud-services-startup-tas
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

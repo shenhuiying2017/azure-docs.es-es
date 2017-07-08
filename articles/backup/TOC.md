@@ -91,6 +91,8 @@
 ## [Eliminación de un almacén de Azure Backup](backup-azure-delete-vault.md)
 ## [Control de acceso basado en roles](backup-rbac-rs-vault.md)
 ## [Seguridad para copias de seguridad híbridas](backup-azure-security-feature.md)
+## [Configuración de informes de Azure Backup](backup-azure-configure-reports.md)
+## [Modelo de datos para informes de Azure Backup](backup-azure-reports-data-model.md)
 ## [Configuración de copias de seguridad sin conexión](backup-azure-backup-import-export.md)
 ## [Reemplazo de la biblioteca de cintas](backup-azure-backup-cloud-as-tape.md)
 ## [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux](backup-azure-linux-app-consistent.md)
@@ -100,7 +102,8 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # Recursos
-## [Precios](https://azure.microsoft.com/pricing/details/backup/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
-## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=backup)
+## [Precios](https://azure.microsoft.com/pricing/details/backup/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=backup)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=backup)

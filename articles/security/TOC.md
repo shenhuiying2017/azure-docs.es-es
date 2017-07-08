@@ -42,6 +42,7 @@
 #### [Introducción a la integración de registro de Azure](security-azure-log-integration-get-started.md)
 #### [Integración de los registros de auditoría de Azure Active Directory](security-azure-log-integration-ad.md)
 #### [Integración de alertas de Security Center](security-azure-log-integration-security-center.md)
+#### [Integración de registros en Key Vault mediante Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Preguntas más frecuentes](security-azure-log-integration-faq.md)
 
 ## Administración de identidades
@@ -72,9 +73,10 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Recursos
-## [Blog sobre seguridad y cumplimiento](http://blogs.msdn.com/b/azuresecurity/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Programa MVP de seguridad de Azure](azure-security-mvp.md)
 ## [Consultoría de ciberseguridad](azure-security-cyber-services.md)
+## [Blog sobre seguridad y cumplimiento](http://blogs.msdn.com/b/azuresecurity/)
 ## [Cursos sobre seguridad de Academia virtual](security-microsoft-virtual-academy.md)
 ## [Vídeos sobre seguridad de Channel 9](security-channel-nine.md)
 ## [Herramienta de modelado de amenazas](azure-security-threat-modeling-tool.md)

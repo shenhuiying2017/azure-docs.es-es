@@ -18,7 +18,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
 ms.openlocfilehash: f36d5da78818410e028a73a36a502a758400e5a5
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -200,8 +200,8 @@ Para más información, consulte [Extensiones de directorio](active-directory-aa
 ### <a name="enabling-single-sign-on-sso"></a>Habilitación del inicio de sesión único (SSO)
 Configurar el inicio de sesión único para su uso con la sincronización de contraseñas o la autenticación de paso a través es un proceso sencillo que solo se debe completar una vez para cada bosque que se está sincronizando con Azure AD. La configuración se realiza en dos pasos:
 
-1.    Crear la cuenta de equipo necesaria en su instancia de Active Directory local.
-2.    Configurar la zona de intranet de las máquinas cliente para admitir el inicio de sesión único.
+1.  Crear la cuenta de equipo necesaria en su instancia de Active Directory local.
+2.  Configurar la zona de intranet de las máquinas cliente para admitir el inicio de sesión único.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Creación de la cuenta de equipo en Active Directory
 Para cada bosque que se ha agregado en Azure AD Connect, debe proporcionar las credenciales de administrador de dominio para poder crear la cuenta de equipo en cada bosque. Las credenciales solo se usan para crear la cuenta y no se almacenan ni se usan para ninguna otra operación. Basta con agregar las credenciales en la página **Enable Single sign on** (Habilitar el inicio de sesión único) del asistente para Azure AD Connect, tal y como se muestra a continuación:
@@ -215,20 +215,20 @@ Para cada bosque que se ha agregado en Azure AD Connect, debe proporcionar las c
 Para asegurarse de que el cliente inicia sesión automáticamente en la zona de intranet, debe asegurarse de que las dos direcciones URL forman parte de la zona de intranet. Así se asegurará de que el equipo unido a un dominio envía automáticamente un vale de Kerberos cuando está conectado a la red corporativa.
 En un equipo que tenga las herramientas de administración de directiva de grupo:
 
-1.    Abra las herramientas de administración de directivas de grupo.
-2.    Edite la directiva de grupo que se aplicará a todos los usuarios. Por ejemplo, la directiva de dominio predeterminada.
-3.    Vaya a **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** y seleccione **Site to Zone Assignment List** (Lista de asignación de sitio a zona), como en la imagen siguiente.
-4.    Habilite la directiva y escriba los dos elementos siguientes en el cuadro de diálogo.
+1.  Abra las herramientas de administración de directivas de grupo.
+2.  Edite la directiva de grupo que se aplicará a todos los usuarios. Por ejemplo, la directiva de dominio predeterminada.
+3.  Vaya a **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** y seleccione **Site to Zone Assignment List** (Lista de asignación de sitio a zona), como en la imagen siguiente.
+4.  Habilite la directiva y escriba los dos elementos siguientes en el cuadro de diálogo.
 
-        Valor: `https://autologon.microsoftazuread-sso.com`  
-        Data 1  
-        Valor: `https://aadg.windows.net.nsatc.net`  
-        Data 1
+        Value: `https://autologon.microsoftazuread-sso.com`  
+        Data: 1  
+        Value: `https://aadg.windows.net.nsatc.net`  
+        Data: 1
 
-5.    El archivo debe tener un aspecto similar al siguiente:  
+5.  El archivo debe tener un aspecto similar al siguiente:  
 ![Zonas de intranet](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.    Haga clic en **Ok** (Aceptar) dos veces.
+6.  Haga clic en **Ok** (Aceptar) dos veces.
 
 ## <a name="configuring-federation-with-ad-fs"></a>Configuración de federación con AD FS
 La configuración de AD FS con Azure AD Connect es muy sencilla y solo se necesitan unos cuantos clics. Antes de la configuración se requiere lo siguiente.

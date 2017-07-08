@@ -14,9 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 27d088291d93ce936a9b2465a13a47e62270fb84
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff0c9f9c800b0e4764efb88e43087bd96fa820e9
+ms.openlocfilehash: a172b881fa38a69f4510df94f5797b7a56940c52
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -29,7 +31,7 @@ El siguiente ejemplo muestra cómo se puede utilizar el almacenamiento de Azure 
 * El SDK de Azure instalado.
 * El archivo JAR de las Bibliotecas de Azure para Java (y cualquier JAR de dependencia correspondiente) instalado y en la ruta de acceso de compilación utilizada por el compilador de Java. Para obtener información acerca de la instalación de bibliotecas de Azure para Java, consulte [Descarga del SDK de Azure para Java](../java-download-azure-sdk.md).
 * Una cuenta de almacenamiento configurada en Azure. El código en este artículo usará el nombre y la clave de cuenta para la cuenta de almacenamiento. Consulte [Crear una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account) para más información sobre la creación de una cuenta de almacenamiento y [Visualización y copia de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-and-copy-storage-access-keys) para más información acerca de la recuperación de la clave de cuenta.
-* Ha creado un archivo de imagen local con el nombre almacenado en la ruta de acceso c:\\myimages\\image1.jpg. También puede modificar el constructor   **FileInputStream** en el ejemplo para usar una ruta de acceso de imagen y un nombre de archivo diferentes.
+* Ha creado un archivo de imagen local con el nombre almacenado en la ruta de acceso c:\\myimages\\image1.jpg. También puede modificar el constructor **FileInputStream** en el ejemplo para usar una ruta de acceso de imagen y un nombre de archivo diferentes.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -406,10 +408,5 @@ Siga estos vínculos para obtener más información acerca de las tareas de alma
 * [Referencia del SDK de cliente de almacenamiento de Azure](http://dl.windowsazure.com/storage/javadoc/)
 * [API de REST de servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

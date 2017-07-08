@@ -14,9 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f5716ebd46560793a4f7161705252839a3f70e44
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c885edd7064f7ee3c9907e6b938d826e181dcae5
+ms.openlocfilehash: 7841fcf0b5f4dcb409abf8bfb804c2e03dad6d3a
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -68,10 +70,5 @@ El ejemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) es el Hello World d
 
 ## <a name="bandwidth-monitor"></a>Supervisión del ancho de banda
 El ejemplo [Supervisión del ancho de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite supervisar el ancho de banda utilizado en el cliente. Para medir el ancho de banda, ejecute el ejemplo en el equipo cliente de la caché, realice llamadas a la memoria caché y observe el ancho de banda notificado por el ejemplo de supervisión de ancho de banda.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
