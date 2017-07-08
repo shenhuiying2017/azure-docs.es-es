@@ -104,7 +104,7 @@ El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide
    > lo necesitará para conectarse a su servidor y a sus bases de datos en los inicios rápidos posteriores.
    > 
 
-   ![nombre del servidor](./media/sql-database-get-started-portal/server-name.png) 
+   ![nombre del servidor](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Haga clic en **Establecer el firewall del servidor** en la barra de herramientas, como se muestra en la imagen anterior. Se abrirá la página **Configuración del firewall** del servidor de SQL Database. 
 
