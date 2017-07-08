@@ -3,7 +3,7 @@ title: Polimorfismo en el marco de Reliable Actors | Microsoft Docs
 description: "Cree jerarquías de tipos e interfaces de .NET en el marco de trabajo de Reliable Actors para volver a usar la funcionalidad y las definiciones de la API."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: vturecek
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46

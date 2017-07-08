@@ -4,7 +4,7 @@ description: "Describe cómo usar el complemento MMC de Administrador de instant
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/26/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: b31f6d51399dc0533d8cbefcafc3b55762cb6cf1
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Uso de Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad
+
 ## <a name="overview"></a>Información general
 En el panel **Ámbito**, El nodo **Trabajos** muestra las tareas de copia de seguridad **Programada**, **Últimas 24 horas** y **En ejecución** que se han iniciado de forma interactiva o mediante una directiva configurada. 
 
@@ -38,9 +41,7 @@ Use el procedimiento siguiente para ver los trabajos de copia de seguridad progr
    * **Última ejecución** : la fecha y hora de la instantánea programada más reciente
      
      > [!NOTE]
-     > En las instantáneas que se realizan una sola vez, los valores de **Siguiente ejecución** y **Última ejecución** serán iguales. 
-     > 
-     > 
+     > En las instantáneas que se realizan una sola vez, los valores de **Siguiente ejecución** y **Última ejecución** serán iguales.
      
      ![Trabajos de copia de seguridad programados](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_scheduled.png) 
 3. Para realizar acciones adicionales en un trabajo específico, haga clic con el botón derecho en el nombre del trabajo en el panel **Resultados** y realice su selección entre las opciones de menú.
@@ -63,14 +64,14 @@ Utilice el procedimiento siguiente para ver la copia de seguridad y restaurar tr
      ![Trabajos ejecutados en las últimas 24 horas](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_Last_24_hours.png) 
 3. Para realizar acciones adicionales en un trabajo específico, haga clic con el botón derecho en el nombre del trabajo en el panel **Resultados** y realice su selección entre las opciones de menú.
    
-    ![Eliminación de un trabajo](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png) 
+    ![Eliminación de un trabajo](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Delete_backup.png)
 
 ## <a name="view-currently-running-jobs"></a>Visualización de los trabajos en ejecución
 Utilice el procedimiento siguiente para ver los trabajos que se están ejecutando en el momento presente.
 
 #### <a name="to-view-currently-running-jobs"></a>Para ver los trabajos en ejecución
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
-2. En el panel **Ámbito**, expanda el nodo **Trabajos** y haga clic en **En ejecución**. Dependiendo de las opciones de **Vista** que se especifiquen, aparece la siguiente información en el panel **Resultados**: 
+2. En el panel **Ámbito**, expanda el nodo **Trabajos** y haga clic en **En ejecución**. Dependiendo de las opciones de **Vista** que se especifiquen, aparece la siguiente información en el panel **Resultados**:
    
    * **Nombre** : el nombre de la instantánea programada.
    * **Iniciado** : fecha y hora del comienzo de la instantánea.
@@ -87,10 +88,5 @@ Utilice el procedimiento siguiente para ver los trabajos que se están ejecutand
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 * Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar el catálogo de copias de seguridad](storsimple-snapshot-manager-manage-backup-catalog.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
