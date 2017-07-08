@@ -50,7 +50,8 @@
 ## [Centro de IoT](/azure/iot-hub/)
 ## [Aprendizaje automático](/azure/machine-learning/)
 
-# resources
+# Recursos
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Preguntas más frecuentes](iot-suite-faq.md)
 ## [Ruta de aprendizaje del Conjunto de aplicaciones de IoT](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 

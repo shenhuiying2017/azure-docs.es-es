@@ -1,6 +1,6 @@
 # Información general
 ## [¿Qué es Application Insights?](app-insights-overview.md)
-## [Supervisión del rendimiento en un ciclo de devOps](app-insights-detect-triage-diagnose.md)
+## [Introducción a la supervisión del rendimiento para DevOps](app-insights-detect-triage-diagnose.md)
 
 # Introducción
 ## Supervisión de Azure
@@ -80,7 +80,6 @@
 #### [Search](app-insights-diagnostic-search.md)
 #### [Métricas](app-insights-metrics-explorer.md)
 #### [Live Stream](app-insights-live-stream.md)
-
 #### [Mapa de aplicación](app-insights-app-map.md)
 #### [Datos de HockeyApp](app-insights-hockeyapp-bridge-app.md)
 
@@ -93,6 +92,7 @@
 ### Uso
 #### [Información general](app-insights-usage-overview.md)
 #### [Usuarios, sesiones, eventos](app-insights-usage-segmentation.md)
+#### [Embudos](app-insights-understand-usage-patterns.md)
 #### [Retención](app-insights-usage-retention.md)
 #### [Libros](app-insights-usage-workbooks.md)
 
@@ -111,6 +111,7 @@
 ### [Establecimiento de alertas](app-insights-powershell-alerts.md)
 ### [Obtención de diagnósticos de Azure](app-insights-powershell-azure-diagnostics.md)
 ### [Automatización con Microsoft Flow](app-insights-automate-with-flow.md)
+### [Automatización con una aplicación de lógica de Azure](automate-with-logic-apps.md)
 
 ## Desarrollo
 
@@ -154,6 +155,7 @@
 ## [Correlación de telemetría](application-insights-correlation.md)
 
 # Recursos
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 
 ## [Lenguajes y plataformas](app-insights-platforms.md)
 

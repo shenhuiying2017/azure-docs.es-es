@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: cephalin;dariac
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 816113f7635a003e22a5172113e5039dbcc1ceac
 ms.openlocfilehash: 5dc546849bd02ccf4d02f3e6363a3e2fc3898259
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -70,11 +72,7 @@ Para ver escenarios de implementación más avanzados, pruebe [Implementación e
 
 ## <a name="more-resources"></a>Más recursos
 
-* [Creación de un sitio web PHP-MySQL e implementación con FTP.](web-sites-php-mysql-deploy-use-ftp.md).
+* <seg>
+  [Creación de un sitio web PHP-MySQL e implementación con FTP](web-sites-php-mysql-deploy-use-ftp.md).</seg>
 * [Credenciales de implementación de Azure App Service](app-service-deploy-ftp.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

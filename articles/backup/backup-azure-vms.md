@@ -13,12 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 06/14/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
-ms.openlocfilehash: b89e7b0538ae428b5057ea1d69b7371a4a261589
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 0d35d01ccd48dcddd18ba13ea0543a68bff97206
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -45,6 +46,11 @@ La realización de copias de seguridad de máquinas virtuales de Azure consta tr
 > [!NOTE]
 > La copia de seguridad de máquinas virtuales es un proceso local. No puede realizar copias de seguridad de máquinas virtuales de una región en un almacén de copia de seguridad de otra región. Por lo tanto, debe crear un almacén de copia de seguridad en cada región de Azure donde estén las máquinas virtuales de las que se realizará una copia de seguridad.
 >
+> [!IMPORTANT]
+> A partir de marzo de 2017, ya no podrá usar el portal clásico para crear almacenes de Backup.
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **A partir del 1 de noviembre de 2017**:
+>- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
+>- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 >
 
 ## <a name="step-1---discover-azure-virtual-machines"></a>Paso 1: Detección de máquinas virtuales de Azure

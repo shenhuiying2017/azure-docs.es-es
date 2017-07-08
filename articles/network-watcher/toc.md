@@ -70,8 +70,9 @@
 ## [Máquinas virtuales](/azure/virtual-machines/)
 ## [VPN Gateway](/azure/vpn-gateway/)
 # Recursos
-## [Precios](https://azure.microsoft.com/pricing/details/network-watcher/)
-## [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)
+## [Precios](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=network-watcher)
+## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)

@@ -70,6 +70,7 @@
 ### [1.3 y versiones posteriores](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Recursos
-## [Ejemplos de PowerShell](insights-powershell-samples.md)
 ## [Ejemplos de la CLI de Azure 1.0](insights-cli-samples.md)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Ejemplos de PowerShell](insights-powershell-samples.md)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=monitor)

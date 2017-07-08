@@ -139,11 +139,12 @@
 ## [Vistas del sistema T-SQL](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Cmdlets de PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
 
-# resources
-## [Precios](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
-## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+# Recursos
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Foro](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Precios](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Asociados

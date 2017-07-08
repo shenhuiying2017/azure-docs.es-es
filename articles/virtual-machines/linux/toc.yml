@@ -37,7 +37,7 @@
     href: tutorial-monitoring.md
   - name: 11 - Administración de la seguridad de la máquina virtual
     href: tutorial-azure-security.md
-  - name: 12 - Integración y entrega continuas con Jenkins
+  - name: 12 - Implementación de Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
 - name: Muestras
   items:
@@ -204,6 +204,8 @@
       href: cli-ps-findimage.md
     - name: Creación de imágenes personalizadas de máquinas virtuales
       href: create-upload-generic.md
+    - name: Descarga de un disco duro virtual
+      href: download-vhd.md
     - name: Carga de imágenes personalizadas de máquinas virtuales
       href: upload-vhd.md
     - name: Captura de una máquina virtual existente en una imagen
@@ -331,6 +333,8 @@
       href: install-mongodb.md
     - name: MySQL
       href: mysql-install.md
+    - name: OpenShift
+      href: openshift-get-started.md
     - name: PostgreSQL
       href: postgresql-install.md
     - name: Implementación de una pila de LAMP
@@ -378,6 +382,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: Solución de problemas
     items:
+    - name: Restablecimiento de la contraseña de la máquina virtual Linux
+      href: virtual-machines-linux-reset-password.md
     - name: Descripción de un reinicio del sistema
       href: understand-vm-reboot.md
     - name: Conexiones SSH
@@ -393,6 +399,8 @@
     - name: Errores de asignación
       href: allocation-failure.md
     - name: Problemas de implementación
+      href: troubleshoot-deploy-vm.md
+    - name: Creación de una máquina virtual
       href: troubleshoot-deployment-new-vm.md
     - name: Reimplementación de una máquina virtual en un nuevo nodo de Azure
       href: redeploy-to-new-node.md
@@ -424,6 +432,8 @@
   items:
   - name: Creación de plantillas
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Plantillas de la comunidad
     href: https://azure.microsoft.com/documentation/templates
   - name: Precios

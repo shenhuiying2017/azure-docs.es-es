@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: edaacfb8e7c179ac6e4831a113656b3cf128f985
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 09b67ca9258a490338d29763710c40ea2da23ce7
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -48,11 +50,11 @@ Puede crear un clon en el mismo dispositivo, en otro dispositivo o incluso en un
       > 
       > 
    2. Especifique un nombre de volumen único para el clon. El nombre debe tener entre 3 y 127 caracteres.
-   3. Haga clic en el icono con forma de flecha  ![icono de flecha](./media/storsimple-clone-volume/HCS_ArrowIcon.png)  para ir a la página siguiente.
+   3. Haga clic en el icono con forma de flecha  ![icono de flecha](./media/storsimple-clone-volume/HCS_ArrowIcon.png) para ir a la página siguiente.
 5. En **Especificar los hosts que pueden usar este volumen**:
    
    1. Especifique un registro de control de acceso (ACR) para el clon. Puede agregar un ACR nuevo o elegir uno de la lista.
-   2. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-clone-volume/HCS_CheckIcon.png) para completar la operación.
+   2. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-clone-volume/HCS_CheckIcon.png)para completar la operación.
 6. Se iniciará un trabajo de clonación y se le notificará cuando se haya creado correctamente el clon. Haga clic en **Ver trabajo** para supervisar el trabajo de clonación en la página **Trabajos**.
 7. Una vez completado el trabajo de clonación:
    
@@ -89,10 +91,5 @@ Necesita comprobar un error de prueba en el entorno de producción. Puede crear 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 * Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

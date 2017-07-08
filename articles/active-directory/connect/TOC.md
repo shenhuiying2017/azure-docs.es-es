@@ -104,6 +104,7 @@
 ## [Guía de diseño de identidad híbrida](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
-# resources
+# Recursos
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ##[Preguntas más frecuentes sobre Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[Degradación de la sincronización de directorios](active-directory-aadconnect-dirsync-deprecated.md)

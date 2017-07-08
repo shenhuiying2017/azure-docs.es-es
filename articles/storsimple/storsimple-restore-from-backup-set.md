@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c507135c4db758e58d8236de4bc76435b8caf32d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 12484338f5b4d489604d70a657ef0992b6267297
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -31,7 +33,7 @@ La página **Catálogo de copias de seguridad** muestra todos los conjuntos de c
 En este tutorial se explica cómo usar la página **Catálogo de copias de seguridad** para restaurar un volumen desde un conjunto de copia de seguridad.
 
 ## <a name="how-to-use-the-backup-catalog"></a>Cómo usar el catálogo de copias de seguridad
-La página **Catálogo de copias de seguridad** proporciona una consulta que permite limitar la selección de conjuntos de copias de seguridad. Puede filtrar los conjuntos de copias de seguridad que se recuperan en función de los parámetros siguientes:
+La página **Catálogo de Backup** proporciona una consulta que permite limitar la selección de conjuntos de copias de seguridad. Puede filtrar los conjuntos de copias de seguridad que se recuperan en función de los parámetros siguientes:
 
 * **Dispositivo** : dispositivo en el que se creó el conjunto de copias de seguridad.
 * **Directiva de copia de seguridad** o **volumen**: directiva de copia de seguridad o volumen asociado a este conjunto de copia de seguridad.
@@ -58,13 +60,13 @@ Antes de iniciar una restauración en un volumen, asegúrese de que el volumen e
 ### <a name="to-restore-from-a-backup-set"></a>Para restaurar desde un conjunto de copias de seguridad
 1. En la página del servicio de Administrador de StorSimple, haga clic en la pestaña **Catálogo de copias de seguridad** .
    
-    ![Catálogo de copias de seguridad](./media/storsimple-restore-from-backup-set/HCS_Restore.png)
+    ![Catálogo de Backup](./media/storsimple-restore-from-backup-set/HCS_Restore.png)
 2. Seleccione una copia de seguridad de la siguiente manera:
    
    1. Seleccione el dispositivo adecuado.
    2. En la lista desplegable, seleccione el volumen o la directiva de copia de seguridad para la copia de seguridad que desea seleccionar.
    3. Especifique el intervalo de tiempo.
-   4. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png)  para ejecutar esta consulta.
+   4. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) para ejecutar esta consulta.
       
       Las copias de seguridad asociadas al volumen o la directiva de copia de seguridad seleccionados deben aparecer en la lista de conjuntos de copias de seguridad.
 3. Expanda el conjunto de copias de seguridad para ver los volúmenes asociados. Estos volúmenes deben desconectarse en el host y en el dispositivo para que pueda restaurarlos. Siga los pasos de [Desconexión de un volumen](storsimple-manage-volumes.md#take-a-volume-offline).
@@ -87,10 +89,5 @@ Para ver un vídeo en el que se muestra cómo puede usar el clon y restaurar las
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [Administrar volúmenes de StorSimple](storsimple-manage-volumes.md).
 * Obtenga información sobre cómo [usar el servicio del administrador de StorSimple para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

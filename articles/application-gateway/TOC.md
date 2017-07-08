@@ -64,8 +64,9 @@
 ## [Equilibrador de carga](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # Recursos
-## [Precios](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
+## [Precios](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=application-gateway)
-## [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/)
+## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

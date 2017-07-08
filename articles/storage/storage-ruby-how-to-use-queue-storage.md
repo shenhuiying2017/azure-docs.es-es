@@ -14,9 +14,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a2ab40c9986f8f5194be527257632b0c2f689dcd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1fea38ed4caacfee0c69d024b1ea6dbdcbccaf1d
+ms.openlocfilehash: b978b65bb3b717362697a41510c5b2b4d057cf1f
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -168,8 +170,3 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 * Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
 Podrá encontrar una comparación entre Azure Queue Service, que se explica en este artículo, y Azure Service Bus Queues, que se explican en el artículo [Utilización de las colas de Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), en el documento [Colas de Azure y Colas de Service Bus: comparación y diferencias](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

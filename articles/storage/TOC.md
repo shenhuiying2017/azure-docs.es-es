@@ -113,9 +113,10 @@
 ### [Guía de seguridad](storage-security-guide.md)
 ### [Cifrado de datos en reposo](storage-service-encryption.md)
 ### [Cifrado en reposo con claves de cliente](storage-service-encryption-customer-managed-keys.md)
-### [Autenticación de clave compartida](https://msdn.microsoft.com/library/dd179428.aspx)
+### [Autenticación de clave compartida](/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [Firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Cifrado y descifrado de blobs mediante Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
+### [Exigencia de transferencia segura](storage-require-secure-transfer.md)
 ### Cifrado de cliente
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
@@ -201,11 +202,12 @@
 ### [Tutorial de solución de problemas](storage-e2e-troubleshooting-classic-portal.md)
 
 # Recursos
-## [Precios](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Herramientas de cliente de Azure Storage](storage-explorers.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Foro](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [Precios](https://azure.microsoft.com/pricing/details/storage/blobs/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=storage)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=storage)
 
 ## Explorador de Azure Storage

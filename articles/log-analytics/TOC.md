@@ -56,16 +56,18 @@
 ### [Análisis de registros de actividad](log-analytics-activity.md)
 ### [Evaluación de AD](log-analytics-ad-assessment.md)
 ### [Estado de replicación de AD](log-analytics-ad-replication-status.md)
+### [Agent Health](../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Administración de alertas](log-analytics-solution-alert-management.md)
+### [Application Insights Connector](log-analytics-app-insights-connector.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
 ### [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md)
 ### [Capacidad y rendimiento](log-analytics-capacity.md)
 ### [Seguimiento de cambios](log-analytics-change-tracking.md)
 ### [Contenedores](log-analytics-containers.md)
 ### [DNS Analytics](log-analytics-dns.md)
-### [IT Service Management Connector en OMS](log-analytics-itsmc-overview.md)
-#### [Conexiones de IT Service Management en OMS](log-analytics-itsmc-connections.md)
-### [Almacén de claves](log-analytics-azure-key-vault.md)
+### [IT Service Management Connector](log-analytics-itsmc-overview.md)
+#### [Conexiones de IT Service Management](log-analytics-itsmc-connections.md)
+### [Key Vault](log-analytics-azure-key-vault.md)
 ### Mensajes de Logic Apps B2B
 #### [Solución de mensajes de Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Esquema de seguimiento personalizado de Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -89,6 +91,7 @@
 ### [Cmdlets de PowerShell](log-analytics-powershell-workspace-configuration.md)
 ### [Plantillas de Resource Manager](log-analytics-template-workspace-configuration.md)
 ### [Log Search API](log-analytics-log-search-api.md)
+#### [Python](log-analytics-log-search-api-python.md)
 ### [API de alerta](log-analytics-api-alerts.md)
 
 # Referencia
@@ -96,6 +99,7 @@
 ## [REST](/rest/api/loganalytics)
 
 # Recursos
-## [Análisis de Windows](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Precios](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=log-analytics)
+## [Análisis de Windows](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

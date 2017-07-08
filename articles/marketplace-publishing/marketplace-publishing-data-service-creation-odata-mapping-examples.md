@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f479602647d67e7048371df76b128e33b27c1014
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -162,10 +164,5 @@ Use la paginación RESTful de implementación a través de sus datos con GET.  L
 * Si le interesa entender el proceso de asignación de OData y el propósito general, lea este artículo sobre [Asignación de OData del Servicio de datos](marketplace-publishing-data-service-creation-odata-mapping.md) para revisar las definiciones, las estructuras y las instrucciones.
 * Si está interesado en aprender y comprender los nodos específicos y sus parámetros, lea este artículo sobre [Nodos de asignación de OData de Servicio de datos](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) para ver definiciones y explicaciones, ejemplos y contexto de caso de uso.
 * Para volver a la ruta de acceso recomendada para publicar un servicio de datos en Azure Marketplace, lea el artículo [Guía de publicación de servicios de datos](marketplace-publishing-data-service-creation.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
