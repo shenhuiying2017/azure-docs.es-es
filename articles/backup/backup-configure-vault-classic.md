@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 06/14/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 52b7360230efd0a63e411339fe32f929a905391d
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 3cd32a85c225d1670887d086c324db1eadd61262
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -45,7 +45,12 @@ Si desea crear una copia de seguridad de un servidor o cliente en Azure, necesit
 Para hacer una copia de seguridad de los archivos y las carpetas de un servidor o cliente, debe crear un almacén de copia de seguridad en la región geográfica donde desea almacenar los datos.
 
 > [!IMPORTANT]
-> A partir de marzo de 2017, ya no podrá usar el portal clásico para crear almacenes de Backup. Todavía se admitirán los almacenes de Backup existentes y es posible [usar Azure PowerShell para crear almacenes de Backup](./backup-client-automation-classic.md#create-a-backup-vault). Sin embargo, Microsoft recomienda crear almacenes de Recovery Services para todas las implementaciones porque las futuras mejoras solo se aplican a almacenes de Recovery Services.
+> A partir de marzo de 2017, ya no podrá usar el portal clásico para crear almacenes de Backup.
+>
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **A partir del 1 de noviembre de 2017**:
+>- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
+>- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
+>
 
 
 ## <a name="download-the-vault-credential-file"></a>Descargar el archivo de credenciales de almacén

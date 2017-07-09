@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 1e35b589f61d47c2746ba920fb5959bdae5b746c
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 26a0281ca272ebb7366aefe392ab1d25b3806eb4
+ms.contentlocale: es-es
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -198,7 +199,7 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

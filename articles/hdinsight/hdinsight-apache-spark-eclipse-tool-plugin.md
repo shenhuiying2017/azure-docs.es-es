@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: d83e84e8ea2158ecf6c8b966732ca1d8961389e0
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 013a3175d5e19689629d1d0ea3b413184e71c485
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -87,7 +87,7 @@ Las herramientas de HDInsight para Eclipse están disponibles como parte del kit
    * Asegúrese de que el SDK de Spark esté establecido en la ubicación donde descargó el SDK. El vínculo a la ubicación de descarga figura en la sección [Requisitos previos](#prerequisites) al principio de este artículo. También puede descargar el SDK desde el vínculo del cuadro de diálogo.
 
     ![Cuadro de diálogo nuevo proyecto de Scala para HDInsight](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-4.    En el siguiente cuadro de diálogo, haga clic en la pestaña **Libraries** (Bibliotecas) y deje los valores predeterminados, luego clic en **Finish** (Finalizar). 
+4.  En el siguiente cuadro de diálogo, haga clic en la pestaña **Libraries** (Bibliotecas) y deje los valores predeterminados, luego clic en **Finish** (Finalizar). 
    
     ![Pestaña de bibliotecas](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
 
@@ -208,7 +208,7 @@ Si tiene sugerencias o comentarios, o si se le presenta algún problema al usar 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Uso del kit de herramientas de Azure para IntelliJ con el fin de crear y enviar aplicaciones Spark en Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Uso del kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

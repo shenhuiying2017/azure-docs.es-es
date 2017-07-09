@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 5ccb5c0b3c2ffaf8aba855a9dbe3da9691ab149b
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Información general sobre las métricas en Microsoft Azure
-Todos los servicios de Azure realizan un seguimiento de las métricas clave que le permiten supervisar el estado, el rendimiento, la disponibilidad y el uso de los servicios. Puede ver estas métricas en Azure Portal y, además, puede utilizar la [API de REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) o el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para tener acceso mediante programación a todo el conjunto de métricas.
+Todos los servicios de Azure realizan un seguimiento de las métricas clave que le permiten supervisar el estado, el rendimiento, la disponibilidad y el uso de los servicios. Puede ver estas métricas en Azure Portal y, además, puede utilizar la [API de REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) o el [SDK de .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para tener acceso mediante programación a todo el conjunto de métricas.
 
 Para algunos servicios, puede que necesite activar diagnósticos para ver las métricas. Para otros, como las máquinas virtuales, obtendrá un conjunto básico de métricas, pero necesita habilitar el conjunto completo de métricas de alta frecuencia. Consulte [Habilitación de supervisión y diagnóstico](insights-how-to-use-diagnostics.md) para obtener más información.
 
@@ -58,7 +60,7 @@ También puede ver las cuotas de uso en la hoja de los recursos que tienen cuota
 
 ![Uso](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
-Al igual que con las métricas, puede utilizar la [API de REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) o el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para tener acceso a todo el conjunto de cuotas de uso mediante programación.
+Al igual que con las métricas, puede utilizar la [API de REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) o el [SDK de .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para tener acceso a todo el conjunto de cuotas de uso mediante programación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Reciba notificaciones de alerta](insights-receive-alert-notifications.md) cada vez que una métrica traspase un umbral.
@@ -67,10 +69,5 @@ Al igual que con las métricas, puede utilizar la [API de REST](https://msdn.mic
 * [Supervise el rendimiento de la aplicación](../application-insights/app-insights-azure-web-apps.md) si desea comprender exactamente cómo está actuando su código en la nube.
 * Utilice [aplicaciones y páginas web de Application Insights para JavaScript](../application-insights/app-insights-web-track-usage.md) para obtener el análisis del cliente acerca de los exploradores que visitan una página web.
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

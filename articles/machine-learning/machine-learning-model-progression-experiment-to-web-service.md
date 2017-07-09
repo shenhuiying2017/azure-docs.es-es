@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 209d1cbe4f1ad08a98caf0a8d16f5b0ee45468ca
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 008952b4fee6bffe1e20259dc86fd6d5122777ec
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -71,7 +72,7 @@ En este proceso de conversión no se descarta el experimento de entrenamiento. C
 > 
 
 ### <a name="the-web-service"></a>El servicio web
-Cuando crea firmemente que el experimento predictivo está listo, puede implementar el servicio como servicio web clásico o nuevo basado en Azure Resource Manager. Para aplicar el modelo implementándolo como *servicio web Machine Learning clásico*, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [Classic]** (Implementar servicio web [clásico]). Para implementarlo como *servicio web Machine Learning nuevo*, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [New]** (Implementar servicio web [nuevo]). Hecho esto, los usuarios ya pueden enviar datos al modelo mediante la API de REST del servicio web y recibir los resultados de vuelta. Para obtener más información, consulte [Consumo de un servicio web Azure Machine Learning implementado en un experimento de Machine Learning](machine-learning-consume-web-services.md).
+Cuando crea firmemente que el experimento predictivo está listo, puede implementar el servicio como servicio web clásico o nuevo basado en Azure Resource Manager. Para aplicar el modelo implementándolo como *servicio web Machine Learning clásico*, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [Classic]** (Implementar servicio web [clásico]). Para implementarlo como *servicio web Machine Learning nuevo*, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [New]** (Implementar servicio web [nuevo]). Hecho esto, los usuarios ya pueden enviar datos al modelo mediante la API de REST del servicio web y recibir los resultados de vuelta. Para más información, consulte [Consumo de servicios web de Azure Machine Learning](machine-learning-consume-web-services.md).
 
 ## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>El caso no típico: creación de un servicio web no predictivo
 Si el experimento no entrena un modelo de análisis predictivo, no tendrá que crear un experimento de entrenamiento y un experimento de puntuación, sino solo un experimento que puede implementar como un servicio web. Machine Learning Studio detecta si el experimento contiene un modelo predictivo analizando los módulos que se han usado.

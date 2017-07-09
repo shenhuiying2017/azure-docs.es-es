@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: cfa23a21a10f53a042b3a5cd85265b0ed1130d07
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 8a9f30f3dab4a4593abc75f51d096d4e5351fe47
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/15/2017
 
 Este ejemplo escala el rendimiento del contenedor para cualquier tipo de contenedor de Azure Cosmos DB.  
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de ejemplo
 

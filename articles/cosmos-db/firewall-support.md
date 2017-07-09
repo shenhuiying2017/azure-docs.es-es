@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ankshah
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 9a17d9fe0c252e2327ffbd75fde38d1f97ce3cc9
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e08c0ba9c1fc0bab72ae8c1158aafaad4f66920e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +50,7 @@ Al agregar instancias adicionales de máquina virtual al grupo, se les proporcio
 Cuando se accede a una cuenta de base de datos de Azure Cosmos DB desde un equipo de Internet, se debe agregar la dirección IP del cliente o el intervalo de direcciones IP de la máquina a la lista de direcciones IP permitidas para dicha cuenta. 
 
 ## <a id="configure-ip-policy"></a> Configuración de la directiva de control de acceso IP
-La directiva de control de acceso basado en IP se puede establecer en Azure Portal mediante programación a través la [CLI de Azure](cli-samples.md), [Azure Powershell](powershell-samples.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) actualizando la propiedad `ipRangeFilter`. Los intervalos o direcciones IP deben ir separados por una coma y no deben contener espacios. Ejemplo: "13.91.6.132,13.91.6.1/24". Al actualizar la cuenta de la base de datos mediante estos métodos, asegúrese de rellenar todas las propiedades para evitar que se restablezca la configuración predeterminada.
+La directiva de control de acceso basado en IP se puede establecer en Azure Portal mediante programación a través la [CLI de Azure](cli-samples.md), [Azure Powershell](powershell-samples.md) o la [API de REST](/rest/api/documentdb/) actualizando la propiedad `ipRangeFilter`. Los intervalos o direcciones IP deben ir separados por una coma y no deben contener espacios. Ejemplo: "13.91.6.132,13.91.6.1/24". Al actualizar la cuenta de la base de datos mediante estos métodos, asegúrese de rellenar todas las propiedades para evitar que se restablezca la configuración predeterminada.
 
 > [!NOTE]
 > Al habilitar una directiva de control de acceso IP para su cuenta de base de datos de Azure Cosmos DB, todo el acceso a esta cuenta desde máquinas fuera de la lista configurada de intervalos de direcciones IP permitidas se bloquea. En virtud de este modelo, la exploración de la operación de plano de datos desde el portal también se bloqueará para garantizar la integridad del control de acceso.

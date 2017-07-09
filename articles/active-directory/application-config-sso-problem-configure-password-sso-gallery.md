@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4394a5ddd17e635661cd89b42f76b0558ffa17ab
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 32c6d4ed5470077856d4ab175a5df5188b3690a6
+ms.contentlocale: es-es
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -67,7 +68,7 @@ Hay dos principales causas de este problema:
 
 -   Dependiendo de la configuración de seguridad habilitada en Internet Explorer, si el sitio web no es parte de una **Zona de confianza**, a veces se impide que nuestro script ejecute la aplicación.
 
-  *  Para resolver este problema, pida al usuario que **agregue el sitio web de la aplicación** a la lista de **Sitios de confianza** en la **configuración de seguridad de Internet Explorer**. Puede enviar a los usuarios al artículo sobre [cómo agregar un sitio a la lista de sitios de confianza](https://answers.microsoft.com/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) para obtener instrucciones detalladas.
+  *  Para resolver este problema, pida al usuario que **agregue el sitio web de la aplicación** a la lista de **Sitios de confianza** en la **configuración de seguridad de Internet Explorer**. Puede enviar a los usuarios al artículo sobre [cómo agregar un sitio a la lista de sitios de confianza](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) para obtener instrucciones detalladas.
 
 -   En circunstancias excepcionales, la validación de seguridad de Internet Explorer puede ocasionar a veces que la página se cargue más lentamente que la ejecución del script.
 

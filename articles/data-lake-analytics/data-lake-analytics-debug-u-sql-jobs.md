@@ -14,17 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: a5bb452582f05981a17c2514e0e40db0571bf61d
-ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: aac455520ab62d69b406a254a54b0f000ea2e5bc
+ms.contentlocale: es-es
+ms.lasthandoff: 06/26/2017
 
 
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depuración de código C# definido por el usuario para trabajos de U-SQL con errores
-
-Aprenda a depurar trabajos de U-SQL con errores de código definido por el usuario mediante Herramientas de Azure Data Lake para Visual Studio.
-
-## <a name="background"></a>Fondo
 
 U-SQL proporciona un modelo de extensibilidad mediante C# con el que los usuarios pueden escribir código C# definido por el usuario, como extractores, reductores, etc., para conseguir una mayor extensibilidad (aprenda más sobre el [código definido por el usuario de U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#user-defined-functions---udf)). Sin embargo, ningún desarrollador puede crear código sin cometer errores, y depurar sistemas de macrodatos es difícil dado que muchos sistemas solo proporcionan información limitada de depuración en tiempo de ejecución, como registros, etc. 
 
@@ -34,15 +32,10 @@ En el siguiente vídeo se demuestra la **depuración de vértice con errores** e
 
 > [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
 >
->
 
 > [!NOTE]
 > Visual Studio puede bloquearse si no dispone de estas dos actualizaciones de Windows: [Microsoft Visual C++ 2015 Redistributable Update 2](https://www.microsoft.com/download/details.aspx?id=51682) y [Universal C Runtime para Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0).
 > 
-> 
-
-## <a name="prerequisites"></a>Requisitos previos
-* Leer el artículo de [introducción](data-lake-analytics-data-lake-tools-get-started.md)
 
 ## <a name="download-failed-vertex-to-local"></a>Error al descargar el vértice en el entorno local
 
@@ -127,13 +120,7 @@ Cuando haya terminado la depuración, puede volver a enviar el trabajo con error
 
 * [Guía de programación de U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 * [Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Azure Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-* [Tutorial: Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
 * [Tutorial: Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

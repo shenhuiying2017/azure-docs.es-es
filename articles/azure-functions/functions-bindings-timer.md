@@ -16,15 +16,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: chrande; glenga
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2542d8c750fc7e1bcc31a9c0eb1672402facfd58
-ms.openlocfilehash: 146884833e968767c14d7e4f924762a592e427e2
-ms.lasthandoff: 03/01/2017
+ms.custom: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 12a793c4df497f221dbd592ca3d249b8c1f65e04
+ms.contentlocale: es-es
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="schedule-code-execution-with-azure-functions"></a>Programación de la ejecución de código con Azure Functions
+# <a name="azure-functions-timer-trigger"></a>Desencadenador de temporizador de funciones de Azure
+
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 En este artículo se explica cómo configurar y codificar desencadenadores de temporizador en Azure Functions. Azure Functions incluye un enlace a un desencadenador de temporizador que le permite ejecutar su código de función según una programación definida. 
@@ -60,13 +62,13 @@ Por ejemplo, la *Hora estándar del Este* (EST) es UTC-05:00. Para que el desenc
 
 ```json
 "schedule": "0 0 15 * * *",
-```    
+``` 
 
 Si lo prefiere, puede agregar una nueva configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE` y establecer el valor en **Hora estándar del Este**.  A continuación, se podría usar la siguiente expresión CRON para las 10:00 EST: 
 
 ```json
 "schedule": "0 0 10 * * *",
-```    
+``` 
 
 
 <a name="examples"></a>

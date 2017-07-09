@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: liamca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0740bc1f9e8b8be3c59518d9b23b8a1411c6d16a
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: bfb6fc04d3aa4937336083d04137e22694e5146c
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Búsqueda de Azure
 Al construir consultas para Azure Search, puede usar la [sintaxis de consulta simple](https://msdn.microsoft.com/library/azure/dn798920.aspx) predeterminada o el [analizador de consultas Lucene alternativo de Azure Search](https://msdn.microsoft.com/library/azure/mt589323.aspx). El Analizador de consultas de Lucene admite las construcciones de consultas más complejas, como las consultas de ámbito de campo, la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos y las expresiones regulares.
 
-En este artículo, puede avanzar por los ejemplos que muestran la sintaxis de consulta de Lucene y los resultados en paralelo. Ejemplos que se ejecutan en un índice de búsqueda cargado previamente en [JSFiddle](https://jsfiddle.net/), un editor de código en línea para probar el script y HTML. Para obtener información preliminar sobre el procesamiento de consultas, vea [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md).
+En este artículo, puede avanzar por los ejemplos que muestran la sintaxis de consulta de Lucene y los resultados en paralelo. Ejemplos que se ejecutan en un índice de búsqueda cargado previamente en [JSFiddle](https://jsfiddle.net), un editor de código en línea para probar el script y HTML. Para obtener información preliminar sobre el procesamiento de consultas, vea [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md).
 
 Haga doble clic en las direcciones URL de ejemplo de consulta para abrir JSFiddle en otra ventana del explorador.
 

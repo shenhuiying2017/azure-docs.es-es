@@ -13,13 +13,14 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
+ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 231d9f2e4a501f20a47b1cec55c75fba4c2e57c8
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 9e9198f827d0906f65f59322126ef27ba6428d3e
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -193,6 +194,7 @@ Obtenga la herramienta de configuración más reciente haciendo clic [aquí](htt
 3. Luego vaya a la carpeta de repositorio para ejecutar el comando siguiente a fin de instalar todos los paquetes, proceso que puede tardar varios minutos en completarse.
    
    ```bash
+   cd iot-hub-node-intel-edison-client-app
    npm install
    ```
 
@@ -207,9 +209,9 @@ Obtenga la herramienta de configuración más reciente haciendo clic [aquí](htt
 
    ![Archivo config](media/iot-hub-intel-edison-kit-node-get-started/13_configure_file.png)
 
-   Hay dos macros en este archivo que se pueden configurar. La primera es `INTERVAL`, que define el intervalo de tiempo entre dos mensajes que se envían a la nube. La segunda es `SIMULATED_DATA`, un valor booleano que indica si se usan los datos de sensor simulados o no.
+   Hay dos macros en este archivo que se pueden configurar. La primera es `INTERVAL`, que define el intervalo de tiempo entre dos mensajes que se envían a la nube. La segunda es `simulatedData`, un valor booleano que indica si se usan los datos de sensor simulados o no.
 
-   Si **no tiene el sensor**, establezca el valor `SIMULATED_DATA` en `1` para que la aplicación de ejemplo cree y use datos de sensor simulados.
+   Si **no tiene el sensor**, establezca el valor `simulatedData` en `true` para que la aplicación de ejemplo cree y use datos de sensor simulados.
 
 1. Guarde y salga al presionar Control-O > Entrar > Control-X.
 
@@ -232,3 +234,4 @@ Debería ver el resultado siguiente, que muestra los datos del sensor y los mens
 Ha ejecutado una aplicación de ejemplo para recopilar datos de sensor y enviarlos a IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

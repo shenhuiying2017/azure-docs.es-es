@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 34cc5f5b2947f775c00548e5d8699976caabfd47
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 030a1fc9f36d6fcfa607552d85ce232e36eaa64b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -112,16 +112,16 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url11.png)
 
-       In the **Reply URL** textbox, type a URL using the following pattern: `https://<sub domain>.mobilexpense.com/SSO/SAML20/SAML/AssertionConsumerService.aspx`
+    En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<sub domain>.mobilexpense.com/SSO/SAML20/SAML/AssertionConsumerService.aspx`.
 
 4. Active **Mostrar configuración avanzada de URL**, si quiere configurar la aplicación en modo iniciado por **SP**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url22.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub domain>.mobilexpense.com/<customername>`.
-     
-    > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de MobileXpense](http://www.mobilexpense.net/contact) para obtener estos valores. 
+En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub domain>.mobilexpense.com/<customername>`.
+
+> [!NOTE] 
+> Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de MobileXpense](http://www.mobilexpense.net/contact) para obtener estos valores. 
 
 5. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 

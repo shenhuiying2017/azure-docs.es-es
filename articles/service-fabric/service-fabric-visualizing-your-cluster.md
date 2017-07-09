@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 06/12/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2bf6bd76b653e30f38595631eff576d8eeb8efda
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: c58de22e29b6403e88bf22bdfe704a25757cdfca
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -33,11 +33,6 @@ Para información sobre cómo usar Service Fabric Explorer, vea el siguiente ví
 
 ## <a name="connect-to-service-fabric-explorer"></a>Conexión al Explorador de Service Fabric
 Si ha seguido las instrucciones para [preparar el entorno de desarrollo](service-fabric-get-started.md), puede iniciar el Explorador de Service Fabric en el clúster local en http://localhost:19080/Explorer.
-
-> [!NOTE]
-> Si usa Internet Explorer con el Explorador de Service Fabric para administrar un clúster remoto, deberá configurar algunas opciones de Internet Explorer. Vaya a **Herramientas** > **Configuración de Vista de compatibilidad** y desactive la casilla **Mostrar sitios de la intranet en Vista de compatibilidad** para asegurarse de que toda la información se cargue correctamente.
->
->
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Información sobre el diseño del Explorador de Service Fabric
 Puede desplazarse por el Explorador de Service Fabric desde el árbol situado a la izquierda. En la raíz del árbol, el panel del clúster proporciona información general del clúster, incluido un resumen de la aplicación y del estado del nodo.

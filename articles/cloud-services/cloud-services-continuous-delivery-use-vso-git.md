@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: da4bb7fcbb45afed5d45f4d48c0b90e44503daf8
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: f4f5f231536bc381d17898ff2c592be821168a65
+ms.contentlocale: es-es
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -186,7 +187,7 @@ Cuando usa Git, realiza cambios habitualmente en una bifurcación de trabajo y l
 10. Vaya a la vista **Compilaciones** y busque la compilación que se acaba de desencadenar para la bifurcación de trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver más sugerencias sobre el uso de Git con Visual Studio Team Services, consulte [Desarrollo y uso compartido del código de Git con Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y para más información sobre el uso de un repositorio de Git no administrado por Visual Studio Team Services para publicar en Azure, consulte [Implementación continua en Azure App Service](../app-service-web/app-service-continuous-deployment.md). Para obtener más información sobre Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Para ver más sugerencias sobre el uso de Git con Visual Studio Team Services, consulte [Desarrollo y uso compartido del código de Git con Visual Studio](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs-2017) y para más información sobre el uso de un repositorio de Git no administrado por Visual Studio Team Services para publicar en Azure, consulte [Implementación continua en Azure App Service](../app-service-web/app-service-continuous-deployment.md). Para obtener más información sobre Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG

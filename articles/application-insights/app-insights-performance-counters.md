@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/11/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 2bcdff44f6c3169779c3dd018706eea8275825ca
 ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -29,15 +29,6 @@ Los contadores de rendimiento aparecen en la hoja Servidores, que incluye una ta
 ![Contadores de rendimiento notificados en Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
 (Los contadores de rendimiento no están disponibles para Azure Web Apps. Pero puede [enviar Diagnósticos de Azure a Application Insights](app-insights-azure-diagnostics.md)).
-
-## <a name="configure"></a>Configuración
-Si Monitor de estado de Application Insights aún no está instalado en las máquinas servidor, debe instalarlo para ver los contadores de rendimiento.
-
-Descargue y ejecute el [instalador del Monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648) en cada instancia del servidor. Si ya está instalado, no es preciso volver a instalarlo.
-
-* *He [instalado el SDK de Application Insights en mi aplicación](app-insights-asp-net.md) durante el desarrollo. ¿Todavía necesito Monitor de estado?*
-  
-    Sí, Monitor de estado es necesario para recopilar contadores de rendimiento para las aplicaciones web ASP.NET. Como es posible que sepa, Monitor de estado también se puede utilizar para [supervisar aplicaciones web que ya están activas](app-insights-monitor-performance-live-website-now.md), sin tener que instalar el SDK durante el desarrollo.
 
 ## <a name="view-counters"></a>Visualización de contadores
 La hoja Servidores muestra un conjunto predeterminado de contadores de rendimiento. 

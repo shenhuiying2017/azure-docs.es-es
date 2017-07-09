@@ -1,22 +1,25 @@
-<properties
-   pageTitle="Sinónimos en Azure Search (versión preliminar) | Microsoft Docs"
-   description="La documentación preliminar de la característica Sinónimos (versión preliminar), expuesta en la API de REST de Azure Search."
-   services="search"
-   documentationCenter=""
-   authors="mhko"
-   manager="pablocas"
-   editor=""/>
+---
+pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
+description: "La documentación preliminar de la característica Sinónimos (versión preliminar), expuesta en la API de REST de Azure Search."
+services: search
+documentationCenter: 
+authors: mhko
+manager: pablocas
+editor: 
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 07/07/2016
+ms.author: nateko
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
-<tags
-   ms.service="search"
-   ms.devlang="rest-api"
-   ms.workload="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="07/07/2016"
-   ms.author="nateko"/>
-
-
+---
 # <a name="synonyms-in-azure-search-preview"></a>Sinónimos en Azure Search (versión preliminar)
 
 Los sinónimos de los motores de búsqueda asocian términos equivalentes que expanden implícitamente el ámbito de una consulta, sin que el usuario tenga que proporcionar realmente el término. Por ejemplo, con el término "perro" y las asociaciones de sinónimos de "canino" y "cachorro", los documentos que contengan los términos "perro", "canino" o "cachorro" estarán dentro del ámbito de la consulta.
@@ -35,9 +38,9 @@ Los índices y asignaciones de sinónimos se mantienen de forma independiente. U
 
 La incorporación de sinónimos en la aplicación de búsqueda es un proceso de dos pasos:
 
-1.    Agregar una asignación de sinónimos al servicio de búsqueda a través de las API siguientes.  
+1.  Agregar una asignación de sinónimos al servicio de búsqueda a través de las API siguientes.  
 
-2.    Configurar un campo buscable para usar la asignación de sinónimos en la definición del índice.
+2.  Configurar un campo buscable para usar la asignación de sinónimos en la definición del índice.
 
 ### <a name="synonymmaps-resource-apis"></a>API de recursos de SynonymMaps
 

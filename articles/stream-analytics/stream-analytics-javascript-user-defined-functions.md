@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: e917385cb9afc13ba459aed48e5f06cc156efac5
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 3dfe8571114d936cc07d887392ec294ec8a67120
+ms.contentlocale: es-es
+ms.lasthandoff: 07/04/2017
 
 ---
 
@@ -43,11 +44,11 @@ Aunque haya funciones como **Date.GetDate()** o **Math.random()** que no están 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Incorporación de una función definida por el usuario de JavaScript en Azure Portal
 Para crear una función definida por el usuario de JavaScript en un trabajo de Stream Analytics existente, realice estos pasos:
 
-1.    En Azure Portal, busque el trabajo de Stream Analytics.
+1.  En Azure Portal, busque el trabajo de Stream Analytics.
 2.  En **TOPOLOGÍA DE TRABAJO**, seleccione la función. Aparece una lista vacía de funciones.
-3.    Para crear una nueva función definida por el usuario, seleccione **Agregar**.
-4.    En la hoja **Nueva función**, en **Tipo de función**, seleccione **JavaScript**. Aparecerá una plantilla de función predeterminada en el editor.
-5.    Como **alias de la función definida por el usuario** escriba **hex2Int** y cambie la implementación de la función como se indica a continuación:
+3.  Para crear una nueva función definida por el usuario, seleccione **Agregar**.
+4.  En la hoja **Nueva función**, en **Tipo de función**, seleccione **JavaScript**. Aparecerá una plantilla de función predeterminada en el editor.
+5.  Como **alias de la función definida por el usuario** escriba **hex2Int** y cambie la implementación de la función como se indica a continuación:
 
     ```
     // Convert Hex value to integer.
@@ -56,13 +57,13 @@ Para crear una función definida por el usuario de JavaScript en un trabajo de S
     }
     ```
 
-6.    Seleccione **Guardar**. La función aparece en la lista de funciones.
-7.    Seleccione la nueva función **hex2Int** y compruebe la definición de función. Todas las funciones tienen un prefijo **UDF** agregado al alias de la función. Debe *incluir el prefijo* cuando llama a la función en la consulta de Stream Analytics. En este caso, debe llamar a **UDF.hex2Int**.
+6.  Seleccione **Guardar**. La función aparece en la lista de funciones.
+7.  Seleccione la nueva función **hex2Int** y compruebe la definición de función. Todas las funciones tienen un prefijo **UDF** agregado al alias de la función. Debe *incluir el prefijo* cuando llama a la función en la consulta de Stream Analytics. En este caso, debe llamar a **UDF.hex2Int**.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Llamada a una función definida por el usuario de JavaScript en una consulta
 
 1. En el editor de consultas, en **TOPOLOGÍA DE CONSULTA**, seleccione **Consulta**.
-2.    Edite la consulta y, a continuación, llame a la función definida por el usuario, de la siguiente forma:
+2.  Edite la consulta y, a continuación, llame a la función definida por el usuario, de la siguiente forma:
 
     ```
     SELECT
@@ -74,8 +75,8 @@ Para crear una función definida por el usuario de JavaScript en un trabajo de S
         InputStream
     ```
 
-3.    Haga clic con el botón derecho en la entrada del trabajo para cargar el archivo de datos de ejemplo.
-4.    Para probar la consulta, seleccione **Probar**.
+3.  Haga clic con el botón derecho en la entrada del trabajo para cargar el archivo de datos de ejemplo.
+4.  Para probar la consulta, seleccione **Probar**.
 
 
 ## <a name="supported-javascript-objects"></a>Objetos de JavaScript compatibles
@@ -144,7 +145,7 @@ Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https:/
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

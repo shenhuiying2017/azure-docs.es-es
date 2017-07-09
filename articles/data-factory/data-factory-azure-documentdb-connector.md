@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 06/20/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: f665ff5ca345d96bac9b51c3c798874e55738a62
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 7a11c6ade0325b08ad520448bbf82d64a0a555f3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -56,6 +56,20 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **DocumentDb** |Sí |
 | connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure Cosmos DB. |Sí |
+
+Ejemplo:
+
+```JSON
+{
+  "name": "CosmosDbLinkedService",
+  "properties": {
+    "type": "DocumentDb",
+    "typeProperties": {
+      "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+    }
+  }
+}
+```
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).

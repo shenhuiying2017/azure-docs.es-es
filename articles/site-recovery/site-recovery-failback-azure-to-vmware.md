@@ -11,20 +11,19 @@ ms.service: site-recovery
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.workload: required
+ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3bd182a775377f912914c0c7a63fe41811146e1a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 795dd0c05daf560e5a271fef5356eb83d72a6112
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos al sitio local
-> [!div class="op_single_selector"]
-> * [Máquinas de VMware o físicas desde Azure](site-recovery-how-to-failback-azure-to-vmware.md)
-> * [Máquinas virtuales de Hyper-V desde Azure](site-recovery-failback-from-azure-to-hyper-v.md)
+
 
 En este artículo se describe cómo conmutar por recuperación máquinas virtuales de Azure al sitio local. Siga las instrucciones que se describen aquí cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que haya vuelto a proteger las máquinas mediante esta [referencia](site-recovery-how-to-reprotect.md).
 
@@ -151,7 +150,7 @@ Para configurar el servidor de administración que ejecuta el servidor de destin
 #### <a name="install-centos-66"></a>Instalación de CentOS 6.6
 
 1. Instale el sistema operativo mínimo CentOS 6.6 en la máquina virtual del servidor de administración. Guarde la imagen ISO en una unidad de DVD y arranque el sistema. Omita la comprobación de medios físicos. Seleccione **Inglés de Estados Unidos** como el idioma, elija **Basic Storage Devices** (Dispositivos de almacenamiento básico), compruebe que el disco duro no tenga información importante, haga clic en **Sí** y descarte los datos. Escriba el nombre de host del servidor de administración y seleccione el adaptador de red del servidor.  En el cuadro de diálogo **Editing System** (Sistema de edición), seleccione **Conectar automáticamente** y agregue una dirección IP estática, una red y parámetros de configuración de DNS. Especifique una zona horaria. Para tener acceso al servidor de administración, escriba la contraseña raíz.
-2. Cuando se le pregunte por el tipo de instalación que quiere, seleccione **Create Custom Layout** (Crear diseño personalizado) como partición. Haga clic en **Next**. Seleccione **Libre** y, a continuación, haga clic en **Crear**. Cree **/**, **/var/crash** y **/home partitions** con **FS Type:** **ext4**. Cree la partición de intercambio como **FS Type: swap**(Tipo FS: intercambio).
+2. Cuando se le pregunte por el tipo de instalación que quiere, seleccione **Create Custom Layout** (Crear diseño personalizado) como partición. Haga clic en **Siguiente**. Seleccione **Libre** y, a continuación, haga clic en **Crear**. Cree **/**, **/var/crash** y **/home partitions** con **FS Type:** **ext4**. Cree la partición de intercambio como **FS Type: swap**(Tipo FS: intercambio).
 3. Si se encuentran dispositivos ya existentes, aparecerá un mensaje de advertencia. Haga clic en **Formato** para formatear la unidad con la configuración de partición. Haga clic en **Write change to disk** (Escribir cambios en el disco) para aplicar los cambios de partición.
 4. Seleccione **Install boot loader (Instalar cargador de arranque)** > **Siguiente** para instalar el cargador de arranque en la partición raíz.
 5. Cuando la instalación se haya completado, haga clic en **Reiniciar**.
