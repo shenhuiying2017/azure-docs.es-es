@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
-ms.author: edmaca, yanacai
+ms.date: 06/28/2017
+ms.author: saveenr, yanacai
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: b2fd62683f0272da271eebeb6eb3a71388ecb59e
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 401e2d84e5e2eb9f66a16b299fbb93bd1943e04b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -33,7 +33,7 @@ Aprenda a usar Visual Studio para crear cuentas de Azure Data Lake Analytics, de
 
 * **Visual Studio**: se admiten todas las ediciones, excepto Express.
     * Visual Studio 2017
-    * Visual Studio 2015 Update 4
+    * Visual Studio 2015
     * Visual Studio 2013
 * **Microsoft Azure SDK para .NET** versión 2.7.1, o posterior.  Instálelo con el [Instalador de plataforma web](http://www.microsoft.com/web/downloads/platform.aspx).
 * Una cuenta de **Data Lake Analytics**. Para crear una cuenta, consulte [Introducción a Azure Data Lake Analytics mediante Azure Portal](data-lake-analytics-get-started-portal.md).
@@ -89,10 +89,10 @@ OUTPUT @a
 
     ![Gráfico de rendimiento del trabajo de Data Lake Analytics de U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-   *  **Resumen del trabajo** muestra el resumen del trabajo.   
+   * **Resumen del trabajo** muestra el resumen del trabajo.   
    * **Detalles del trabajo** muestra información más específica acerca del trabajo, lo que incluye el script, los recursos y los vértices.
-   *  **Grafo de trabajo** muestra el progreso del trabajo.
-   *  **Operaciones de metadatos** muestra todas las acciones que se realizaron en el catálogo de U-SQL.
+   * **Grafo de trabajo** muestra el progreso del trabajo.
+   * **Operaciones de metadatos** muestra todas las acciones que se realizaron en el catálogo de U-SQL.
    * **Datos** muestra todas las entradas y salidas.
    * **Diagnósticos** proporciona un análisis avanzado para la optimización de rendimiento y la ejecución del trabajo.
 

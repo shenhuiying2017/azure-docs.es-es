@@ -1,5 +1,3 @@
-## <a name="create-a-service-namespace"></a>Creación de un espacio de nombres de servicio
-
 Para empezar a usar colas del Bus de servicio en Azure, primero hay que crear un espacio de nombres. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación. 
 
 Para crear un espacio de nombres:
@@ -16,6 +14,7 @@ Para crear un espacio de nombres:
 8. Haga clic en **Crear**. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
 ### <a name="obtain-the-management-credentials"></a>Obtención de las credenciales de administración
+
 1. En la lista de espacios de nombres, haga clic en el nombre del espacio de nombres recién creado.
 2. En la hoja del espacio de nombres, haga clic en **Directivas de acceso compartido**.
 3. En la hoja **Directivas de acceso compartido**, haga clic en **RootManageSharedAccessKey**.
