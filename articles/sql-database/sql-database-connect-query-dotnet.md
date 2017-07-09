@@ -16,16 +16,20 @@ ms.topic: hero-article
 ms.date: 05/23/2017
 ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 4faa029062fef6495debd5d787a1d86f4747453b
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: c3949447d40fe7e72c6490827fae4bdab6db48be
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Azure SQL Database: uso de .NET (C#) para conectar y consultar datos
 
 Este inicio rápido muestra cómo usar [C# y ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) para conectarse a una base de datos de SQL Azure Database, para después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos desde las plataformas de Windows, Mac OS y Ubuntu Linux.
+
+> [!TIP]
+> Para ver un tutorial sobre cómo crear una base de datos y consultarla mediante C#, consulte [Design your first database using C#](sql-database-design-first-database-csharp.md) (Diseño de su primera base de datos con C#).
+>
 
 ## <a name="prerequisites"></a>Requisitos previos
 
