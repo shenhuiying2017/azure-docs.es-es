@@ -153,7 +153,7 @@ Si desea configurar la asignación de redes, haga lo siguiente:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) desde el servidor VMM que desee registrar en el almacén.
 2. Expanda **Data Services** > **Recovery Services** y haga clic en **Almacén de Site Recovery**.
-3. Haga clic en **Crear nuevo	** > **Creación rápida**.
+3. Haga clic en **Crear nuevo** > **Creación rápida** .
 4. En **Nombre**, escriba un nombre descriptivo para identificar el almacén.
 5. En **Región**, seleccione la región geográfica del almacén. Para ver las regiones admitidas, consulte [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Haga clic en **Crear almacén**.
