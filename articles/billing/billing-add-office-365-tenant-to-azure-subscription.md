@@ -23,22 +23,26 @@ ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="associate-an-office-365-tenant-to-an-azure-subscription"></a>Asociación de un inquilino de Office 365 a una suscripción de Azure
+<a id="associate-an-office-365-tenant-to-an-azure-subscription" class="xliff"></a>
+# Asociación de un inquilino de Office 365 a una suscripción de Azure
 Vincule las suscripciones independientes de Azure y Office 365 para poder acceder al inquilino de Office 365 desde su suscripción de Azure. Para vincular sus suscripciones, inicie sesión en Azure con la cuenta de administrador de servicio de Azure, agregue un directorio y agregue las cuentas de organización de Office 365 al inquilino de Azure Active Directory.
 
 Si desea una suscripción de Office 365 para los usuarios de la instancia de Azure Active Directory o tiene una cuenta de Office 365, pero no una cuenta de Azure, consulte [Uso de una cuenta de Office 365 con la suscripción de Azure y viceversa](billing-use-existing-office-365-account-azure-subscription.md). 
 
-## <a name="before-you-begin"></a>Antes de empezar
+<a id="before-you-begin" class="xliff"></a>
+## Antes de empezar
 * Necesita las credenciales de administrador de servicios de la suscripción de Azure. Las cuentas de coadministrador no pueden realizar algunos de los pasos de este artículo. Para cambiar el administrador del servicio, consulte [Incorporación o cambio de roles de administrador de Azure](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription).
 * Debe tener las credenciales de administrador global del inquilino de Office 365.
 * La dirección de correo electrónico del administrador de servicios no debe estar en el inquilino de Office 365.
 * La dirección de correo electrónico del administrador de servicios no debe coincidir con la de ningún administrador global del inquilino de Office 365.
 * Si utiliza una dirección de correo electrónico que es una cuenta de Microsoft y una cuenta de organización, cambie temporalmente el administrador de servicios de su suscripción de Azure para que use otra cuenta de Microsoft. Puede crear una cuenta de Microsoft en la [página de suscripción de una cuenta de Microsoft](https://signup.live.com/).
 
-## <a name="link-office-365-tenant-to-azure-subscription"></a>Vinculación de un inquilino de Office 365 a una suscripción de Azure
+<a id="link-office-365-tenant-to-azure-subscription" class="xliff"></a>
+## Vinculación de un inquilino de Office 365 a una suscripción de Azure
 Para asociar el inquilino de Office 365 con la suscripción de Azure, siga estos pasos:
 
-### <a name="step-1-add-office-365-tenant-to-your-azure-subscription"></a>Paso 1: agregue el inquilino de Office 365 a su suscripción de Azure.
+<a id="step-1-add-office-365-tenant-to-your-azure-subscription" class="xliff"></a>
+### Paso 1: agregue el inquilino de Office 365 a su suscripción de Azure.
 
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) con las credenciales de administrador de servicios.
 
@@ -98,7 +102,8 @@ Para asociar el inquilino de Office 365 con la suscripción de Azure, siga estos
    
 5. Seleccione **Completar** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
 
-### <a name="step-3-add-your-office-365-organizational-accounts-as-co-administrators-to-the-azure-active-directory-tenant"></a>Paso 3: agregue sus cuentas de organización de Office 365 como coadministradores al inquilino de Azure Active Directory.
+<a id="step-3-add-your-office-365-organizational-accounts-as-co-administrators-to-the-azure-active-directory-tenant" class="xliff"></a>
+### Paso 3: agregue sus cuentas de organización de Office 365 como coadministradores al inquilino de Azure Active Directory.
    
 1. Seleccione la pestaña **ADMINISTRADORES** y, a continuación, **AGREGAR**.
    
@@ -121,7 +126,8 @@ Para asociar el inquilino de Office 365 con la suscripción de Azure, siga estos
    
     ![Captura de pantalla de la página de inicio de sesión en Azure](./media/billing-add-office-365-tenant-to-azure-subscription/s324_azure-sign-in-with-co-admin.png)
 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
+<a id="need-help-contact-support" class="xliff"></a>
+## ¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
 
