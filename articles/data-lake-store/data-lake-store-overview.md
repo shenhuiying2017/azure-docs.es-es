@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
+ms.contentlocale: es-es
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -55,7 +57,7 @@ El Almacén de Azure Data Lake puede almacenar cualquier dato en su formato nati
 
 Los contenedores de datos de Almacén de Azure Data Lake son básicamente carpetas y archivos. Se opera en los datos almacenados mediante los SDK, el Portal de Azure y Azure Powershell. Siempre que ponga los datos en el almacén mediante estas interfaces y los contenedores adecuados, puede almacenar cualquier tipo de datos. Almacén de Data Lake no realiza ningún control especial de datos según el tipo de datos que almacena.
 
-## <a name="a-namedatalakestoresecurityasecuring-data-in-azure-data-lake-store"></a><a name="DataLakeStoreSecurity"></a>Protección de los datos en el Almacén de Azure Data Lake
+## <a name="DataLakeStoreSecurity"></a>Protección de los datos en el Almacén de Azure Data Lake
 El Almacén de Azure Data Lake usa Azure Active Directory para la autenticación y listas de control de acceso (ACL) para administrar el acceso a los datos.
 
 | Característica | Description |
@@ -101,10 +103,5 @@ Si prefiere ver vídeos para obtener información, Almacén de Data Lake proporc
 * [Use Apache Sqoop to move data between relational sources and Azure Data Lake Store (Uso de Apache Sqoop para mover datos entre orígenes relacionales y el Almacén de Azure Data Lake)](https://mix.office.com/watch/1butcdjxmu114)
 * [Data Orchestration using Azure Data Factory for Azure Data Lake Store (Orquestación de datos mediante Azure Data Factory para el Almacén de Azure Data Lake)](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Securing Data in the Azure Data Lake Store (Protección de datos en el Almacén de Azure Data Lake)](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
