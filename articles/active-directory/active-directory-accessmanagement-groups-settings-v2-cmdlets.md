@@ -13,41 +13,48 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand;rodejo
-translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 9342ecff33ca60d39c55042238ea563dd1a82da6
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: d7be54b508a845d6746fd65887e3339ff371a287
+ms.contentlocale: es-es
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="azure-active-directory-preview-cmdlets-for-group-management"></a>Cmdlets del módulo de vista previa de Azure Active Directory para administrar grupos
+<a id="azure-active-directory-version-2-cmdlets-for-group-management" class="xliff"></a>
+
+# Cmdlets de la versión 2 de Azure Active Directory para la administración de grupos
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-groups-create-azure-portal.md)
+> * [Portal de Azure](active-directory-groups-create-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
 
-En el siguiente documento se proporcionan ejemplos de cómo usar PowerShell para administrar grupos en Azure Active Directory (Azure AD).  También se ofrece información sobre cómo configurar el módulo de vista previa de Azure AD PowerShell. En primer lugar, debe [descargar el módulo de Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+En el siguiente documento se proporcionan ejemplos de cómo usar PowerShell para administrar grupos en Azure Active Directory (Azure AD).  También se ofrece información sobre cómo configurar el módulo de Azure AD PowerShell. En primer lugar, debe [descargar el módulo de Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
-## <a name="installing-the-azure-ad-powershell-module"></a>Instalación del módulo de Azure AD PowerShell
+<a id="installing-the-azure-ad-powershell-module" class="xliff"></a>
+
+## Instalación del módulo de Azure AD PowerShell
 Para instalar el módulo de Azure AD PowerShell, use los siguientes comandos:
 
     PS C:\Windows\system32> install-module azuread
 
-Para comprobar que se ha instalado el módulo de vista previa, ejecute el siguiente comando:
+Para comprobar que se ha instalado el módulo, ejecute el siguiente comando:
 
-    PS C:\Windows\system32> get-module azureadpreview
+    PS C:\Windows\system32> get-module azuread
 
-    ModuleType Version    Name                                ExportedCommands
-    ---------- -------    ----                                ----------------
-    Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
+    ModuleType Version      Name                                ExportedCommands
+    ---------- ---------    ----                                ----------------
+    Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 
 Ahora puede empezar a usar los cmdlets del módulo. Para ver una descripción completa de los cmdlets del módulo de Azure AD, consulte la [documentación de referencia en línea](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-## <a name="connecting-to-the-directory"></a>Conexión al directorio
+<a id="connecting-to-the-directory" class="xliff"></a>
+
+## Conexión al directorio
 Antes de empezar a administrar los grupos mediante los cmdlets de Azure AD PowerShell, debe conectar la sesión de PowerShell al directorio que quiera administrar. Para ello, ejecute el siguiente comando:
 
     PS C:\Windows\system32> Connect-AzureAD
@@ -60,7 +67,9 @@ El cmdlet le pedirá las credenciales que quiera utilizar para acceder al direct
 
 Ahora puede empezar a usar los cmdlets de Azure AD para administrar grupos en el directorio.
 
-## <a name="retrieving-groups"></a>Recuperación de grupos
+<a id="retrieving-groups" class="xliff"></a>
+
+## Recuperación de grupos
 Para recuperar grupos que ya se encuentren en el directorio, puede usar el cmdlet Get-AzureADGroups. Para recuperar todos los grupos del directorio, ejecute el cmdlet sin parámetros:
 
     PS C:\Windows\system32> get-azureadgroup
@@ -110,12 +119,16 @@ Puede buscar un grupo específico mediante el parámetro - filter. Este parámet
 
 Tenga en cuenta que los cmdlets de Azure AD PowerShell implementan el estándar de consulta OData. Puede obtener más información [aquí](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
 
-## <a name="creating-groups"></a>Creación de grupos
+<a id="creating-groups" class="xliff"></a>
+
+## Creación de grupos
 Para crear un nuevo grupo en el directorio, use el cmdlet New-AzureADGroup. Este cmdlet crea un nuevo grupo de seguridad llamado "Marketing":
 
     PS C:\Windows\system32> New-AzureADGroup -Description "Marketing" -DisplayName "Marketing" -MailEnabled $false -SecurityEnabled $true -MailNickName "Marketing"
 
-## <a name="updating-groups"></a>Actualización de grupos
+<a id="updating-groups" class="xliff"></a>
+
+## Actualización de grupos
 Para actualizar un grupo que ya exista, utilice el cmdlet Set-AzureADGroup. En este ejemplo, vamos a cambiar la propiedad DisplayName del grupo "Administradores de Intune". En primer lugar, buscaremos el grupo mediante el cmdlet Get-AzureADGroup y aplicaremos un filtro usando el atributo DisplayName:
 
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -160,12 +173,16 @@ Ahora, si encontramos el grupo nuevo, veremos que la propiedad Description se ac
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-## <a name="deleting-groups"></a>Eliminación de grupos
+<a id="deleting-groups" class="xliff"></a>
+
+## Eliminación de grupos
 Para eliminar grupos del directorio, use el cmdlet Remove-AzureADGroup de la siguiente manera:
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="managing-members-of-groups"></a>Administración de miembros de grupos
+<a id="managing-members-of-groups" class="xliff"></a>
+
+## Administración de miembros de grupos
 Si necesita agregar nuevos miembros a un grupo, utilice el cmdlet Add-AzureADGroupMember. Este comando agrega un miembro al grupo de administradores de Intune que utilizamos en el ejemplo anterior:
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -204,7 +221,9 @@ Ahora, si queremos comprobar si un usuario con el id. de objeto 72cd4bbd-2594-40
 
 El valor devuelto es una lista con los grupos de los que es miembro este usuario. También puede aplicar este método para comprobar si determinados contactos, grupos o entidades de seguridad pertenecen a los grupos de una lista concreta. Para ello, utilice Select-AzureADGroupIdsContactIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf o Select-AzureADGroupIdsServicePrincipalIsMemberOf.
 
-## <a name="managing-owners-of-groups"></a>Administración de propietarios de grupos
+<a id="managing-owners-of-groups" class="xliff"></a>
+
+## Administración de propietarios de grupos
 Para agregar propietarios a un grupo, utilice el cmdlet Add-AzureADGroupOwner:
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -225,7 +244,9 @@ Si desea quitar un propietario de un grupo, utilice Remove-AzureADGroupOwner:
 
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 Puede encontrar más documentación de Azure Active Directory PowerShell en el artículo sobre los [cmdlets de Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)

@@ -1,5 +1,6 @@
 ---
-title: "Eliminación de un usuario de un directorio en la versión preliminar de Azure Active Directory | Microsoft Docs"
+
+title: "Eliminación de un usuario de un directorio en Azure Active Directory | Microsoft Docs"
 description: "En este artículo se explica cómo eliminar un usuario y toda su información de Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,19 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 06/27/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d33da5ca6cf1768fc7ca6d9f2035be7edbb8ad36
-ms.lasthandoff: 11/17/2016
+ms.reviewer: jeffsta
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f4d12e8a8e2710879c8748b120ab63179b3a4be2
+ms.contentlocale: es-es
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="delete-a-user-from-a-directory-in-azure-active-directory-preview"></a>Eliminación de un usuario de un directorio en la versión preliminar de Azure Active Directory
-En este artículo se explica cómo eliminar un usuario de un directorio en la versión preliminar de Azure Active Directory (Azure AD). [¿Qué hay en la versión preliminar?](active-directory-preview-explainer.md) Para más información sobre cómo agregar nuevos usuarios a su organización, consulte [Incorporación de nuevos usuarios a la versión preliminar de Azure Active Directory](active-directory-users-create-azure-portal.md).
 
-## <a name="to-delete-a-user"></a>Para eliminar un usuario
+<a id="delete-a-user-from-a-directory-in-azure-active-directory" class="xliff"></a>
+
+# Eliminación de un usuario de un directorio en Azure Active Directory
+En este artículo se explica cómo eliminar un usuario de un directorio en Azure Active Directory (Azure AD). Para más información sobre cómo agregar nuevos usuarios en su organización, consulte [Incorporación de nuevos usuarios a Azure Active Directory](active-directory-users-create-azure-portal.md).
+
+<a id="to-delete-a-user" class="xliff"></a>
+
+## Para eliminar un usuario
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
 
@@ -37,10 +45,12 @@ En este artículo se explica cómo eliminar un usuario de un directorio en la ve
 
     ![Selección del comando Quitar](./media/active-directory-users-delete-user-azure-portal/create-users-delete-command.png)
 
-## <a name="next-steps"></a>Pasos siguientes
-* [Agregar nuevos usuarios a la versión preliminar de Azure Active Directory](active-directory-users-create-azure-portal.md)
-* [Restablecer la contraseña de un usuario en la versión preliminar de Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
-* [Asignar un usuario a roles de administrador en la versión preliminar de Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Agregar o cambiar la información de perfil de un usuario en la versión preliminar de Azure Active Directory](active-directory-users-work-info-azure-portal.md)
-* [Eliminar un usuario de un directorio en la versión preliminar de Azure Active Directory](active-directory-users-profile-azure-portal.md)
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
+* [Adición de nuevos usuarios a Azure Active Directory](active-directory-users-create-azure-portal.md)
+* [Restablecimiento de la contraseña de un usuario en Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
+* [Asignación de un usuario a roles de administrador en Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
+* [Adición o modificación de la información de perfil de un usuario en Azure Active Directory](active-directory-users-work-info-azure-portal.md)
+* [Eliminación de un usuario de un directorio en Azure Active Directory](active-directory-users-profile-azure-portal.md)
 

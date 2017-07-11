@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 38121cccc81ef82226e9ea7cbc197e294bb723e3
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: a7abb8fb279e134b7f23df779f1c4548a9feb82d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Uso de iothub-explorer para enviar y recibir mensajes entre el dispositivo y la instancia de IoT Hub
+<a id="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub" class="xliff"></a>
+
+# Uso de iothub-explorer para enviar y recibir mensajes entre el dispositivo y la instancia de IoT Hub
 
 ![Diagrama integral](media/iot-hub-get-started-e2e-diagram/2.png)
 
@@ -30,16 +33,22 @@ ms.lasthandoff: 04/25/2017
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) tiene una serie de comandos que facilitan la administración de IoT Hub. Este tutorial se centra en cómo utilizar iothub-explorer para enviar y recibir mensajes entre el dispositivo y el IoT Hub.
 
-## <a name="what-you-will-learn"></a>Lo qué aprenderá
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Lo qué aprenderá
 
 Aprenderá a utilizar iothub-explorer para supervisar los mensajes del dispositivo a la nube y enviar mensajes de la nube al dispositivo. Los mensajes del dispositivo a la nube podrían ser datos de sensor que el dispositivo recopila y, a continuación, envía al IoT Hub. Los mensajes de la nube al dispositivo podrían ser comandos que el IoT Hub envía al dispositivo para hacer parpadear un LED que está conectado al dispositivo.
 
-## <a name="what-you-will-do"></a>Lo que hará
+<a id="what-you-will-do" class="xliff"></a>
+
+## Lo que hará
 
 - Utilizará iothub-explorer para supervisar los mensajes del dispositivo a la nube.
 - Utilizará iothub-explorer para enviar mensajes de la nube al dispositivo.
 
-## <a name="what-you-need"></a>Lo que necesita
+<a id="what-you-need" class="xliff"></a>
+
+## Lo que necesita
 
 - Tutorial [Instalación de su dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) completado donde se abordan los siguientes requisitos:
   - Una suscripción de Azure activa.
@@ -47,7 +56,9 @@ Aprenderá a utilizar iothub-explorer para supervisar los mensajes del dispositi
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
 - iothub-explorer ([instalación de iothub-explorer](https://github.com/azure/iothub-explorer)).
 
-## <a name="monitor-device-to-cloud-messages"></a>Supervisión de mensajes de dispositivo a nube
+<a id="monitor-device-to-cloud-messages" class="xliff"></a>
+
+## Supervisión de mensajes de dispositivo a nube
 
 Para supervisar los mensajes que se envían desde el dispositivo al IoT Hub, siga estos pasos:
 
@@ -55,13 +66,15 @@ Para supervisar los mensajes que se envían desde el dispositivo al IoT Hub, sig
 1. Ejecute el siguiente comando:
 
    ```bash
-   iothub-explorer monitor-events <device-id> --login <IoTHubConnectionString>
+   iothub-explorer monitor-events <device-id> --login "<IoTHubConnectionString>"
    ```
 
    > [!Note]
-   > Obtenga `<device-id>` y `<IoTHubConnectionString>` desde el IoT Hub. Asegúrese de haber finalizado el tutorial anterior.
+   > Obtenga `<device-id>` y `<IoTHubConnectionString>` desde el IoT Hub. Asegúrese de haber finalizado el tutorial anterior. O bien, puede intentar usar `iothub-explorer monitor-events <device-id> --login "HostName=<my-hub>.azure-devices.net;SharedAccessKeyName=<my-policy>;SharedAccessKey=<my-policy-key>"` si tiene `HostName`, `SharedAccessKeyName` y `SharedAccessKey`.
 
-## <a name="send-cloud-to-device-messages"></a>Envío de mensajes de nube a dispositivo
+<a id="send-cloud-to-device-messages" class="xliff"></a>
+
+## Envío de mensajes de nube a dispositivo
 
 Para enviar un mensaje desde el IoT Hub al dispositivo, siga estos pasos:
 
@@ -69,7 +82,7 @@ Para enviar un mensaje desde el IoT Hub al dispositivo, siga estos pasos:
 1. Inicie una sesión en su IoT Hub mediante la ejecución del siguiente comando:
 
    ```bash
-   iothub-explorer login <IoTHubConnectionString>
+   iothub-explorer login `<IoTHubConnectionString>`
    ```
 
 1. Envíe un mensaje al dispositivo mediante la ejecución del siguiente comando:
@@ -83,8 +96,11 @@ El comando hace parpadear el LED que está conectado al dispositivo y envía el 
 > [!Note]
 > No es necesario que el dispositivo envíe un comando de confirmación independiente al IoT Hub al recibir el mensaje.
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 
 Ahora sabe cómo supervisar los mensajes del dispositivo a la nube y enviar mensajes de la nube al dispositivo entre el dispositivo de IoT y la instancia de Azure IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

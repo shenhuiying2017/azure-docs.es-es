@@ -12,20 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 05/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 52b7728c3fc702e37f5c5fe3d6544117a11464e8
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: c23e7404f9eee6f1246cafc72c6733546cc82934
+ms.contentlocale: es-es
+ms.lasthandoff: 05/04/2017
 
 
 ---
-# <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configuración del firewall de aplicaciones web en una puerta de enlace de aplicaciones nueva o existente
+<a id="configure-web-application-firewall-on-a-new-or-existing-application-gateway" class="xliff"></a>
+
+# Configuración del firewall de aplicaciones web en una puerta de enlace de aplicaciones nueva o existente
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-web-application-firewall-powershell.md)
+> * [PowerShell de Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
+
+Aprenda a crear una puerta de enlace de aplicaciones habilitada para un firewall de aplicaciones web o a agregar un firewall de aplicaciones web a una puerta de enlace de aplicaciones existente.
 
 El firewall de aplicaciones web (WAF) de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones.
 
@@ -35,107 +40,87 @@ En el artículo siguiente se muestra cómo [agregar el firewall de aplicaciones 
 
 ![imagen de escenario][scenario]
 
-## <a name="waf-configuration-differences"></a>Diferencias de configuración de WAF
+<a id="waf-configuration-differences" class="xliff"></a>
+
+## Diferencias de configuración de WAF
 
 Si ha leído [Creación de una puerta de enlace de aplicaciones con PowerShell](application-gateway-create-gateway-arm.md), comprenderá los valores de SKU que se deben configurar al crear una puerta de enlace de aplicaciones. WAF proporciona una configuración adicional que se puede definir al configurar la SKU en una puerta de enlace de aplicaciones. No hay ningún otro cambio que deba realizar en la puerta de enlace de aplicaciones propiamente dicha.
 
-**SKU**: una puerta de enlace de aplicaciones normal sin WAF admite los tamaños **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**. Con la introducción de WAF, hay dos SKU adicionales, **WAF\_Medium** y **WAF\_Large**. No se admite WAF en puertas de enlace de aplicaciones de pequeño tamaño.
+| **Configuración** | **Detalles**
+|---|---|
+|**SKU** |Una puerta de enlace de aplicaciones normal sin WAF admite los tamaños **Standard\_Small**, **Standard\_Medium** y **Standard\_Large**. Con la introducción de WAF, hay dos SKU adicionales, **WAF\_Medium** y **WAF\_Large**. No se admite WAF en puertas de enlace de aplicaciones de pequeño tamaño.|
+|**Nivel** | Los valores disponibles son **Estándar** o **WAF**. Cuando se usa el firewall de aplicaciones web, se debe seleccionar **WAF**.|
+|**Modo** | Esta configuración es el modo de WAF. Los valores permitidos son **Detección** y **Prevención**. Cuando WAF está configurado en modo de detección, todas las amenazas se almacenan en un archivo de registro. En modo de prevención, los eventos se siguen registrando pero el atacante recibe una respuesta 403 no autorizado de la puerta de enlace de aplicaciones.|
 
-**Nivel**: los valores disponibles son **Estándar** o **WAF**. Cuando se usa el firewall de aplicaciones web, se debe seleccionar **WAF**.
+<a id="add-web-application-firewall-to-an-existing-application-gateway" class="xliff"></a>
 
-**Modo** : este valor es el modo de WAF. Los valores permitidos son **Detección** y **Prevención**. Cuando WAF está configurado en modo de detección, todas las amenazas se almacenan en un archivo de registro. En modo de prevención, los eventos se siguen registrando pero el atacante recibe una respuesta 403 no autorizado de la puerta de enlace de aplicaciones.
-
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Adición del firewall de aplicaciones web a una puerta de enlace de aplicaciones existente
+## Adición del firewall de aplicaciones web a una puerta de enlace de aplicaciones existente
 
 Asegúrese de que está usando la versión más reciente de Azure PowerShell. Hay más información disponible en [Uso de Windows PowerShell con Resource Manager](../powershell-azure-resource-manager.md).
 
-### <a name="step-1"></a>Paso 1
+1. Inicie sesión en la cuenta de Azure.
 
-Inicie sesión en la cuenta de Azure.
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
-```powershell
-Login-AzureRmAccount
-```
+2. Seleccione la suscripción que se usará en este escenario.
 
-### <a name="step-2"></a>Paso 2
+    ```powershell
+    Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
+    ```
 
-Seleccione la suscripción que se usará en este escenario.
+3. Recupere la puerta de enlace a la que va a agregar el firewall de aplicaciones web.
 
-```powershell
-Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
-```
+    ```powershell
+    $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
+    ```
 
-### <a name="step-3"></a>Paso 3
+1. Configure la SKU del firewall de aplicaciones web. Los tamaños disponibles son **WAF\_Large** y **WAF\_Medium**. Cuando se usa un firewall de aplicaciones web el nivel debe ser **WAF** y la capacidad se debe confirmar cuando se establece la SKU.
 
-Recupere la puerta de enlace a la que va a agregar el firewall de aplicaciones web.
+    ```powershell
+    $gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF -Capacity 2
+    ```
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
-```
+1. Configure las opciones de WAF, tal como se define en el ejemplo siguiente:
 
-### <a name="step-4"></a>Paso 4
+   Para **FirewallMode**, los valores disponibles son prevención y detección.
 
-Configure la SKU del firewall de aplicaciones web. Los tamaños disponibles son **WAF\_Large** y **WAF\_Medium**. Cuando se usa un firewall de aplicaciones web el nivel debe ser **WAF** y la capacidad se debe confirmar cuando se establece la SKU.
+    ```powershell
+    $gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
+    ```
 
-```powershell
-$gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF -Capacity 2
-```
+1. Actualice la puerta de enlace de aplicaciones con la configuración definida en el paso anterior.
 
-### <a name="step-5"></a>Paso 5
-
-Configure las opciones de WAF, tal como se define en el ejemplo siguiente:
-
-Para el valor **WafMode** , los valores disponibles son Detección y Prevención.
-
-```powershell
-$gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
-```
-
-### <a name="step-6"></a>Paso 6
-
-Actualice la puerta de enlace de aplicaciones con la configuración definida en el paso anterior.
-
-```powershell
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
-```
+    ```powershell
+    Set-AzureRmApplicationGateway -ApplicationGateway $gw
+    ```
 
 Este comando actualiza la puerta de enlace de aplicaciones con el firewall de aplicaciones web. Se recomienda consultar [Diagnósticos de Application Gateway](application-gateway-diagnostics.md) para entender cómo ver los registros de la puerta de enlace de aplicaciones. Debido a la naturaleza de la seguridad de WAF, los registros se deben revisar periódicamente para entender la postura de seguridad de las aplicaciones web.
 
-## <a name="create-an-application-gateway-with-web-application-firewall"></a>Creación de una puerta de enlace de aplicaciones con el firewall de aplicaciones web
+<a id="create-an-application-gateway-with-web-application-firewall" class="xliff"></a>
+
+## Creación de una puerta de enlace de aplicaciones con el firewall de aplicaciones web
 
 Los pasos siguientes le llevan por el proceso entero de creación de una puerta de enlace de aplicaciones con el firewall de aplicaciones web.
 
 Asegúrese de que está usando la versión más reciente de Azure PowerShell. Hay más información disponible en [Uso de Windows PowerShell con Resource Manager](../powershell-azure-resource-manager.md).
 
-### <a name="step-1"></a>Paso 1
+1. Inicie sesión en Azure mediante la ejecución de `Login-AzureRmAccount`; se le pedirá que se autentique con sus credenciales.
 
-Inicie sesión en Azure.
+1. Compruebe las suscripciones de la cuenta mediante la ejecución de `Get-AzureRmSubscription`.
 
-```powershell
-Login-AzureRmAccount
-```
+1. Elección de la suscripción de Azure que se va a usar.
 
-Se le solicita que se autentique con sus credenciales.
+    ```powershell
+    Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
+    ```
 
-### <a name="step-2"></a>Paso 2
+<a id="create-a-resource-group" class="xliff"></a>
 
-Compruebe las suscripciones para la cuenta.
+### Crear un grupo de recursos
 
-```powershell
-Get-AzureRmSubscription
-```
-
-### <a name="step-3"></a>Paso 3
-
-Elección de la suscripción de Azure que se va a usar.
-
-```powershell
-Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
-```
-
-### <a name="step-4"></a>Paso 4
-
-Cree un grupo de recursos (omita este paso si usa uno existente).
+Cree un grupo de recursos para la puerta de enlace de aplicaciones.
 
 ```powershell
 New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
@@ -148,161 +133,82 @@ En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-RG" y la 
 > [!NOTE]
 > Si necesita configurar un sondeo personalizado para la puerta de enlace de aplicaciones, consulte [Creación de una puerta de enlace de aplicaciones con sondeos personalizados mediante PowerShell](application-gateway-create-probe-ps.md). Para más información, consulte [Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md) .
 
-### <a name="step-5"></a>Paso 5
+<a id="configure-virtual-network" class="xliff"></a>
 
-Asigne un intervalo de direcciones para la subred de la puerta de enlace de aplicaciones propiamente dicha.
+### Configuración de una red virtual
+
+La puerta de enlace de aplicaciones requiere su propia subred. En este paso creará una red virtual con un espacio de direcciones de 10.0.0.0/16 y dos subredes, una para la puerta de enlace de aplicaciones y otra para los miembros del grupo de back-end.
 
 ```powershell
+# Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
 $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
-```
 
-> [!NOTE]
-> Una subred de una aplicación debe tener como mínimo 28 bits de máscara. Este valor deja 10 direcciones disponibles en la subred para instancias de Application Gateway. Con una subred más pequeña, puede que no sea capaz de agregar más instancias de su puerta de enlace de aplicaciones en el futuro.
-
-
-### <a name="step-6"></a>Paso 6
-
-Asigne un intervalo de direcciones para el grupo de direcciones de back-end.
-
-```powershell
+# Create a subnet configuration object for the backend pool members subnet
 $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
-```
 
-### <a name="step-7"></a>Paso 7
-
-Cree una red virtual con las subredes anteriores en el grupo de recursos creado en el paso: [Creación del grupo de recursos](#create-the-resource-group)
-
-```powershell
+# Create the virtual network with the previous created subnets
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
 ```
 
-### <a name="step-8"></a>Paso 8
+<a id="configure-public-ip-address" class="xliff"></a>
 
-Recupere el recurso de red virtual y los recursos de subred que se usarán en los pasos siguientes:
+### Configuración de direcciones IP públicas
 
-```powershell
-$vnet = Get-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
-$gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -VirtualNetwork $vnet
-$nicSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appsubnet' -VirtualNetwork $vnet
-```
-
-### <a name="step-9"></a>Paso 9:
-
-Cree un recurso de IP pública para la puerta de enlace de aplicaciones. Esta dirección IP pública se usa en uno de los siguientes pasos:
+Para controlar las solicitudes externas, la puerta de enlace de aplicaciones requiere una dirección IP pública. Esta dirección IP pública no debe definido un elemento `DomainNameLabel` para que la pueda usar la puerta de enlace de aplicaciones.
 
 ```powershell
+# Create a public IP address for use with the application gateway. Defining the domainnamelabel during creation is not supported for use with application gateway
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
 ```
 
-> [!IMPORTANT]
-> Application Gateway no admite el uso de una dirección IP pública creada con una etiqueta de dominio definida. Solo se admite una dirección IP pública con una etiqueta de dominio creada dinámicamente. Si necesita un nombre DNS descriptivo para la puerta de enlace de aplicaciones, se recomienda usar un registro CNAME como alias.
+<a id="configure-the-application-gateway" class="xliff"></a>
 
-
-### <a name="step-10"></a>Paso 10
-
-Debe configurar todos los elementos de configuración antes de crear la puerta de enlace de aplicaciones de la aplicación. En los pasos siguientes, se crean los elementos de configuración necesarios para un recurso de puerta de enlace de aplicaciones.
-
-Cree una configuración de IP de puerta de enlace de aplicaciones. Esta configuración determina la subred que usará Application Gateway. Cuando se inicia la Puerta de enlace de aplicaciones, elige una dirección IP de la subred configurada y redirige el tráfico de red a las direcciones IP en el grupo IP de back-end. Tenga en cuenta que cada instancia toma una dirección IP.
+### Configuración de la Puerta de enlace de aplicaciones
 
 ```powershell
+# Create a IP configuration. This configures what subnet the Application Gateway uses. When Application Gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
-```
 
-### <a name="step-11"></a>Paso 11
-
-Configure el grupo de direcciones IP de back-end con las direcciones IP de los servidores web de back-end. Estas direcciones IP son las direcciones que reciben el tráfico de red procedente del punto de conexión de la IP del front-end. Reemplazará las siguientes direcciones IP para agregar sus propios puntos de conexión de dirección IP de la aplicación.
-
-```powershell
+# Create a backend pool to hold the addresses or NICs for the application that application gateway is protecting.
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
-```
 
-### <a name="step-12"></a>Paso 12
-
-Cargue el certificado que se usará en los recursos del grupo de back-end habilitado para SSL.
-
-```powershell
+# Upload the authenication certificate that will be used to communicate with the backend servers
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile <full path to .cer file>
-```
 
-### <a name="step-13"></a>Paso 13
-
-Configure los valores HTTP de back-end de la puerta de enlace de aplicaciones. Asigne el certificado cargado en el paso anterior a la configuración HTTP.
-
-```powershell
+# Conifugre the backend HTTP settings to be used to define how traffic is routed to the backend pool. The authenication certificate used in the previous step is added to the backend http settings.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
-```
 
-### <a name="step-14"></a>Paso 14
-
-Configure el puerto IP de front-end para el punto de conexión de IP pública. Este puerto es el puerto al que se conectan los usuarios finales.
-
-```powershell
+# Create a frontend port to be used by the listener.
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
-```
 
-### <a name="step-15"></a>Paso 15
-
-Cree una configuración IP de front-end. Esta configuración asigna una dirección IP pública o privada al front-end de la puerta de enlace de aplicaciones. El paso siguiente asocia la dirección IP pública del paso anterior con la configuración IP de front-end.
-
-```powershell
+# Create a frontend IP configuration to associate the public IP address with the application gateway
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
-```
 
-### <a name="step-16"></a>Paso 16
-
-Configure el certificado de la puerta de enlace de aplicaciones. Este certificado se usa para descifrar y volver a cifrar el tráfico de la puerta de enlace de aplicaciones.
-
-```powershell
+# Configure the certificate for the application gateway. This certificate is used to decrypt and re-encrypt the traffic on the application gateway.
 $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
-```
 
-### <a name="step-17"></a>Paso 17
-
-Cree el agente de escucha HTTP para la puerta de enlace de aplicaciones. Asigne la configuración IP de front-end, el puerto y el certificado SSL que se usarán.
-
-```powershell
+# Create the HTTP listener for the application gateway. Assign the front-end ip configuration, port, and ssl certificate to use.
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
-```
 
-### <a name="step-18"></a>Paso 18
-
-Cree una regla de enrutamiento del equilibrador de carga que configure el comportamiento del equilibrador de carga. En este ejemplo, se crea una regla básica de operaciones por turnos.
-
-```powershell
+#Create a load balancer routing rule that configures the load balancer behavior. In this example, a basic round robin rule is created.
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-```
 
-### <a name="step-19"></a>Paso 19
-
-Configure el tamaño de la instancia de la puerta de enlace de aplicaciones.
-
-```powershell
+# Configure the SKU of the application gateway
 $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
-```
 
-> [!NOTE]
-> Puede elegir entre **WAF\_Medium** y **WAF\_Large**; el nivel cuando se usa WAF siempre es **WAF**. La capacidad es cualquier número entre 1 y 10.
-
-### <a name="step-20"></a>Paso 20
-
-Configure el modo de WAF. Los valores aceptables son **Prevención** y **Detección**.
-
-```powershell
+#Configure the waf configuration settings.
 $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
-```
 
-### <a name="step-21"></a>Paso 21
-
-Cree una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la puerta de enlace de aplicaciones se denomina "appgwtest".
-
-```powershell
+# Create the application gateway utilizing all the previously created configuration objects
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
 ```
 
 > [!NOTE]
 > Las puertas de enlace de la aplicación creadas con la configuración de firewall de aplicación web básica se configuran con CRS 3.0 para protección.
 
-## <a name="get-application-gateway-dns-name"></a>Obtención del nombre DNS de una puerta de enlace de aplicaciones
+<a id="get-application-gateway-dns-name" class="xliff"></a>
+
+## Obtención del nombre DNS de una puerta de enlace de aplicaciones
 
 Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la Application Gateway, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la Application Gateway. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
 
@@ -332,7 +238,9 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 
 Aprenda a configurar el registro de diagnóstico para registrar los eventos que se detectan o impiden con el firewall de aplicaciones web en [Diagnósticos de Application Gateway](application-gateway-diagnostics.md).
 

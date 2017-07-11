@@ -15,17 +15,21 @@ ms.workload: tbd
 ms.date: 04/26/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b7bcf6de0c8306492d7f7745cc5c091f9ddb76db
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: b9421e4d899982af5e4caf9d23eebb73188a8db1
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
+<a id="storage-queues-and-service-bus-queues---compared-and-contrasted" class="xliff"></a>
+
+# Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de colas que ofrece Microsoft Azure en la actualidad: colas de Storage y colas de Service Bus. Con esta información, puede comparar y contrastar las tecnologías respectivas y puede tomar una decisión más fundamentada sobre la solución que satisfaga mejor sus necesidades.
 
-## <a name="introduction"></a>Introducción
+<a id="introduction" class="xliff"></a>
+
+## Introducción
 Azure admite dos tipos de mecanismos de cola: **colas de Storage** y **colas de Service Bus**.
 
 Las **colas de Storage**, que forman parte de la infraestructura de [Azure Storage](https://azure.microsoft.com/services/storage/), ofrecen una interfaz de Get/Put/Peek sencilla basada en REST, que ofrece una mensajería confiable y persistente dentro de los servicios y entre ellos.
@@ -34,7 +38,9 @@ Las **colas de Service Bus** forman parte de una infraestructura de [mensajería
 
 Aunque ambas tecnologías de cola existen de manera simultánea, las colas de Storage se presentaron en primer lugar, como un mecanismo de almacenamiento de cola dedicado creado a partir de los servicios de Azure Storage. Las colas de Service Bus se generan a partir de la infraestructura de "mensajería asíncrona" más amplia diseñada para integrar aplicaciones o componentes de aplicaciones que pueden abarcar varios protocolos de comunicación, contratos de datos, dominios de confianza o entornos de red.
 
-## <a name="technology-selection-considerations"></a>Consideraciones de selección de tecnología
+<a id="technology-selection-considerations" class="xliff"></a>
+
+## Consideraciones de selección de tecnología
 Tanto las colas de Storage como las colas de Service Bus son implementaciones del servicio de cola de mensajes ofrecido actualmente en Microsoft Azure. Cada una tiene un conjunto de características ligeramente diferente, lo que significa que puede elegir una u otra, o usar ambas, según las necesidades de su solución concreta o problema empresarial o técnico que va a resolver.
 
 Al determinar qué tecnología de cola se ajusta al propósito de una solución determinada, los desarrolladores y arquitectos de soluciones deben considerar las siguientes recomendaciones. Para obtener información detallada vea la siguiente sección.
@@ -62,10 +68,14 @@ Como arquitecto o desarrollador de soluciones, **debe considerar el uso de colas
 * La solución de mensajería debe ser capaz de admitir la garantía de entrega "Una vez como máximo" sin necesidad de compilar los componentes de infraestructura adicionales.
 * Le gustaría poder publicar y consumir lotes de mensajes.
 
-## <a name="comparing-storage-queues-and-service-bus-queues"></a>Comparación de las colas de Storage y las colas de Service Bus
+<a id="comparing-storage-queues-and-service-bus-queues" class="xliff"></a>
+
+## Comparación de las colas de Storage y las colas de Service Bus
 En las tablas de las secciones siguientes se ofrece una agrupación lógica de las características de cola y le permite comparar, de un vistazo, las funcionalidades disponibles tanto en las colas de Storage y las colas de Service Bus.
 
-## <a name="foundational-capabilities"></a>Capacidades fundamentales
+<a id="foundational-capabilities" class="xliff"></a>
+
+## Capacidades fundamentales
 En esta sección se comparan algunas de las funcionalidades de puesta en cola fundamentales ofrecidas por las colas de Storage y las colas de Service Bus.
 
 | Criterios de comparación | Colas de Storage | Colas del Bus de servicio |
@@ -82,7 +92,9 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 | Recepción por lotes |**Sí**<br/><br/>(especificando explícitamente el número de mensajes al recuperar mensajes, hasta un máximo de 32 mensajes) |**Sí**<br/><br/>(habilitando implícitamente una propiedad de captura previa o explícitamente mediante el uso de transacciones) |
 | Envío por lotes |**No** |**Sí**<br/><br/>(mediante el uso de transacciones o de procesamiento por lotes del lado cliente) |
 
-### <a name="additional-information"></a>Información adicional
+<a id="additional-information" class="xliff"></a>
+
+### Información adicional
 * El sistema de los mensajes en las colas de Storage es normalmente primero en entrar, primero en salir; sin embargo, en ocasiones, pueden estar desordenados; por ejemplo, cuando expira la duración de tiempo de espera de visibilidad de un mensaje (por ejemplo, como resultado de una aplicación cliente que se bloquea durante el proceso). Cuando expira el tiempo de espera de visibilidad, el mensaje se vuelve visible en la cola para que otro trabajador lo quite de la cola. En ese momento, el mensaje recién visible se puede colocar en la cola (para quitarlo después) después de un mensaje que se colocó originalmente en cola después de él.
 * El patrón de FIFO garantizado en las colas de Service Bus requiere el uso de sesiones de mensajería. En caso de que la aplicación se bloquee al procesar un mensaje recibido en el modo **Ojear y bloquear**, la próxima vez que un receptor de la cola acepte una sesión de mensajería, empezará con el mensaje de error después de que expire su período de vida (TTL).
 * Las colas de Storage están diseñadas para admitir escenarios de puesta en cola estándar, como componentes de aplicación de desacoplamiento para aumentar la escalabilidad y tolerancia a errores, nivelación de carga y creación de flujos de trabajo de proceso.
@@ -97,7 +109,9 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 * Características como el límite de 200 TB de las colas de Storage (más cuando se virtualizan las cuentas) y las colas ilimitadas la convierten en la plataforma idónea para los proveedores de SaaS.
 * Las colas de Storage ofrecen un mecanismo de control de acceso delegado flexible y eficiente.
 
-## <a name="advanced-capabilities"></a>Capacidades avanzadas
+<a id="advanced-capabilities" class="xliff"></a>
+
+## Capacidades avanzadas
 En esta sección se comparan algunas de las funcionalidades avanzadas ofrecidas por las colas de Storage y las colas de Service Bus.
 
 | Criterios de comparación | Colas de Storage | Colas del Bus de servicio |
@@ -118,7 +132,9 @@ En esta sección se comparan algunas de las funcionalidades avanzadas ofrecidas 
 | Exploración de grupos de mensaje |**No** |**Sí** |
 | Captura de sesiones de mensajes por id. |**No** |**Sí** |
 
-### <a name="additional-information"></a>Información adicional
+<a id="additional-information" class="xliff"></a>
+
+### Información adicional
 * Ambas tecnologías de cola permiten que se programe un mensaje para su entrega posteriormente.
 * El reenvío automático de cola permite el reenvío automático de miles de colas de sus mensajes a una única cola, desde la que la aplicación receptora consume el mensaje. Puede usar este mecanismo para lograr seguridad, flujo de control y aislar el almacenamiento aislado entre cada publicador de mensajes.
 * Las colas de Storage ofrecen compatibilidad para actualizar el contenido del mensaje. Puede usar esta funcionalidad para conservar información de estado y actualizaciones incrementales de progreso en el mensaje para que se pueda procesar desde el último punto de comprobación conocido, en lugar de hacerlo desde el principio. Con las colas de Service Bus, puede habilitar el mismo escenario mediante el uso de sesiones de mensajes. Las sesiones le permiten guardar y recuperar el estado de procesamiento de la aplicación (mediante [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) y [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)).
@@ -128,18 +144,22 @@ En esta sección se comparan algunas de las funcionalidades avanzadas ofrecidas 
 * El concepto de "sesiones de mensajes" admitido por Bus de servicio permite que los mensajes que pertenecen a un determinado grupo lógico se asocien a un receptor específico, que a su vez crea una afinidad de sesiones entre los mensajes y sus receptores respectivos. Puede habilitar esta funcionalidad avanzada en el Service Bus estableciendo la propiedad [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) en un mensaje. Los receptores pueden escuchar entonces en un id. de sesión específico y recibir mensajes que comparten el identificador de sesión especificado.
 * La funcionalidad de detección de duplicación admitida por las colas de Service Bus elimina automáticamente los mensajes duplicados enviados a una cola o tema, según el valor de la propiedad [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId).
 
-## <a name="capacity-and-quotas"></a>Capacidad y cuotas
+<a id="capacity-and-quotas" class="xliff"></a>
+
+## Capacidad y cuotas
 En esta sección se comparan las colas de Storage y las colas de Service Bus desde la perspectiva de la [capacidad y las cuotas](service-bus-quotas.md) que se pueden aplicar.
 
 | Criterios de comparación | Colas de Storage | Colas del Bus de servicio |
 | --- | --- | --- |
-| Tamaño de cola máximo |**200 TB**<br/><br/>(limitado a una capacidad de cuenta de almacenamiento única) |**De 1 GB a 80 GB**<br/><br/>(definido al crear una cola y [habilitar particiones](service-bus-partitioning.md): vea la sección "Información adicional") |
+| Tamaño de cola máximo |**500 TB**<br/><br/>(limitado a una [capacidad de cuenta de almacenamiento única](../storage/storage-introduction.md#queue-storage)) |**De 1 GB a 80 GB**<br/><br/>(definido al crear una cola y [habilitar particiones](service-bus-partitioning.md): vea la sección "Información adicional") |
 | Tamaño de mensaje máximo |**64 KB**<br/><br/>(48 K cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento. |**256 KB** o **1 MB**<br/><br/>(incluidos tanto el encabezado como el cuerpo, tamaño de encabezado máximo: 64 KB).<br/><br/>Depende del [nivel de servicio](service-bus-premium-messaging.md). |
 | TTL de mensaje máximo |**7 días** |**`TimeSpan.Max`** |
 | Número máximo de colas |**Sin límite** |**10.000**<br/><br/>(por espacio de nombres de servicio, se puede aumentar) |
 | Número máximo de clientes simultáneos |**Sin límite** |**Sin límite**<br/><br/>(el límite de 100 conexiones simultáneas solo se aplica a la comunicación basada en protocolo TCP) |
 
-### <a name="additional-information"></a>Información adicional
+<a id="additional-information" class="xliff"></a>
+
+### Información adicional
 * Service Bus aplica límites de tamaño de cola. El tamaño máximo de la cola se especifica al crear la cola y puede tener un valor entre 1 y 80 GB. Si se alcanza el valor de tamaño de la cola establecido al crear la cola, se rechazarán los mensajes entrantes adicionales y el código de llamada recibirá una excepción. Para obtener más información sobre las cuotas en el Service Bus, vea [Cuotas de Service Bus](service-bus-quotas.md).
 * En el [nivel Estándar](service-bus-premium-messaging.md), puede crear colas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). En el nivel Premium, puede crear colas de hasta 80 GB de tamaño. En el nivel Estándar, con las particiones habilitadas (que es el valor predeterminado), Service Bus crea 16 particiones por cada GB que especifique. Por lo tanto, si crea una cola con un tamaño de 5 GB y con 16 particiones, el tamaño de cola máximo pasa a ser (5 * 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en [Azure Portal][Azure portal]. En el nivel Premium, se crean solo 2 particiones por cola.
 * Con las colas de Storage, si el contenido del mensaje no es seguro para XML, debe estar codificado con **Base64**. Si codifica el mensaje con **Base64**, la carga de usuario puede ser de hasta 48 KB, en lugar de 64 KB.
@@ -147,7 +167,9 @@ En esta sección se comparan las colas de Storage y las colas de Service Bus des
 * Cuando los clientes se comunican con colas de Service Bus por el protocolo TCP, el número máximo de conexiones simultáneas a una única cola de Service Bus se limita a 100. Este número se comparte entre remitentes y receptores. Si se alcanza esta cuota, se rechazarán las solicitudes posteriores de conexiones adicionales y el código de llamada recibirá una excepción. Este límite no se impone en clientes que se conectan a las colas mediante la API basada en REST.
 * Si necesita más de 10.000 colas en un único espacio de nombres de Service Bus, puede ponerse en contacto con el equipo de soporte técnico de Azure y solicitar un aumento. Para escalar más allá de las 10 000 colas con Service Bus, también puede crear espacios de nombres adicionales mediante [Azure Portal][Azure portal].
 
-## <a name="management-and-operations"></a>Administración y operaciones
+<a id="management-and-operations" class="xliff"></a>
+
+## Administración y operaciones
 En esta sección se comparan algunas de las características de administración ofrecidas por las colas de Storage y las colas de Service Bus.
 
 | Criterios de comparación | Colas de Storage | Colas de Service Bus |
@@ -164,14 +186,18 @@ En esta sección se comparan algunas de las características de administración 
 | Función de obtención de la longitud de la cola |**Sí**<br/><br/>(valor aproximado si los mensajes expiran más allá del TTL sin eliminarse). |**Sí**<br/><br/>(valor exacto en un momento dado). |
 | Función de ojear |**Sí** |**Sí** |
 
-### <a name="additional-information"></a>Información adicional
+<a id="additional-information" class="xliff"></a>
+
+### Información adicional
 * Las colas de Storage ofrecen compatibilidad con atributos arbitrarios que se pueden aplicar a la descripción de la cola, en forma de pares de nombre-valor.
 * Ambas tecnologías de cola ofrecen la capacidad de ojear un mensaje sin tener que bloquearlo, lo que puede resultar útil al implementar una herramienta de explorador de colas.
 * Las API de mensajería asíncrona de .NET de Service Bus aprovechan las conexiones TCP de dúplex completo para mejorar el rendimiento en comparación con REST sobre HTTP, y admiten el protocolo estándar AMQP 1.0.
 * Los nombres de colas de Storage pueden tener de 3 a 63 caracteres de longitud que pueden incluir letras minúsculas, números y guiones. Para obtener más información, vea [Nomenclatura de colas y metadatos](/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata).
 * Los nombres de cola de Service Bus pueden tener hasta 260 caracteres y reglas de nomenclatura menos restrictivas. Los nombres de cola de Bus de servicio pueden contener letras, números, puntos, guiones y caracteres de subrayado.
 
-## <a name="authentication-and-authorization"></a>Autenticación y autorización
+<a id="authentication-and-authorization" class="xliff"></a>
+
+## Autenticación y autorización
 En esta sección se describen las características de autenticación y autorización compatibles con las colas de Storage y las colas de Service Bus.
 
 | Criterios de comparación | Colas de Storage | Colas del Bus de servicio |
@@ -180,16 +206,22 @@ En esta sección se describen las características de autenticación y autorizac
 | Modelo de seguridad |Acceso delegado a través de tokens SAS. |SAS |
 | Federación de proveedor de identidad: |**No** |**Sí** |
 
-### <a name="additional-information"></a>Información adicional
+<a id="additional-information" class="xliff"></a>
+
+### Información adicional
 * Se debe autenticar cada solicitud a cualquiera de las tecnologías de cola. No se admiten colas públicas con acceso anónimo. Con [SAS](service-bus-sas.md), puede abordar este escenario publicando un SAS de solo escritura, un SAS de solo lectura o incluso un SAS de acceso completo.
 * El esquema de autenticación ofrecido por las colas de Storage implica el uso de una clave simétrica, que es un código de autenticación de mensajes basado en hash (HMAC), calculado con el algoritmo SHA-256 y codificado como una cadena **Base64**. Para obtener más información sobre el protocolo respectivo, consulte [Autenticación para los servicios de Azure Storage](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services). Las colas de Service Bus admiten un modelo similar mediante claves simétricas. Para obtener más información, vea [Autenticación con firma de acceso compartido con Service Bus](service-bus-sas.md).
 
-## <a name="conclusion"></a>Conclusión
+<a id="conclusion" class="xliff"></a>
+
+## Conclusión
 Al comprender mejor las dos tecnologías, podrá tomar una decisión más fundamentada sobre la tecnología de cola que usará y cuándo. La decisión sobre cuándo usar las colas de Storage o las colas de Service Bus depende claramente de una serie de factores. Estos factores pueden dependen en gran medida de las necesidades individuales de la aplicación y de su arquitectura. Si la aplicación ya usa las funcionalidades principales de Microsoft Azure, quizás prefiera elegir las colas de Storage, especialmente si necesita comunicación básica y mensajería entre servicios o necesita colas que puedan tener un tamaño superior a 80 GB.
 
 Dado que las colas de Service Bus ofrecen varias características avanzadas, como sesiones, transacciones, detección de duplicados, mensajes con problemas de entrega automáticos, y capacidades de publicación o suscripción duraderas, pueden ser la opción preferida si está creando una aplicación híbrida o si su aplicación necesita por otra parte estas características.
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 En los artículos siguientes se ofrece más orientación e información sobre el uso de las colas de Storage o las colas de Service Bus.
 
 * [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)

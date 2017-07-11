@@ -1,5 +1,5 @@
 ---
-title: "Deshabilitación de los inicios de sesión de usuario de una aplicación empresarial en la versión preliminar de Azure Active Directory | Microsoft Docs"
+title: "Deshabilitación de los inicios de sesión de usuario de una aplicación empresarial en Azure Active Directory | Microsoft Docs"
 description: "Cómo deshabilitar una aplicación empresarial para que ningún usuario pueda iniciar sesión en ella en Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,18 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: c57505d037d991f3c0d720a481393ec2ae6b8069
-ms.openlocfilehash: ef6ae32c1d9b2e417d2a766207575f19aa06feaa
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 5d27046370eada0c371c94fb573fa1bcf536f7cf
+ms.contentlocale: es-es
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory-preview"></a>Deshabilitación de los inicios de sesión de usuario de una aplicación empresarial en la versión preliminar de Azure Active Directory
-Es fácil deshabilitar una aplicación empresarial para que ningún usuario pueda iniciar sesión en ella en la versión preliminar de Azure Active Directory (Azure AD). [¿Qué es la versión preliminar?](active-directory-preview-explainer.md) Debe tener los permisos adecuados para administrar la aplicación empresarial. En la versión preliminar actual, debe ser administrador global del directorio.
+<a id="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory" class="xliff"></a>
 
-## <a name="how-do-i-disable-user-sign-ins"></a>¿Cómo puedo deshabilitar los inicios de sesión de usuario?
+# Deshabilitación de los inicios de sesión de usuario de una aplicación empresarial en Azure Active Directory
+Deshabilitar una aplicación empresarial para que ningún usuario pueda iniciar sesión en ella en Azure Active Directory (Azure AD) es fácil. Debe tener los permisos adecuados para administrar la aplicación de empresa y debe ser administrador global en el directorio.
+
+<a id="how-do-i-disable-user-sign-ins" class="xliff"></a>
+
+## ¿Cómo puedo deshabilitar los inicios de sesión de usuario?
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Azure Active Directory** en el cuadro de texto y presione **ENTRAR**.
 3. En la hoja **Azure Active Directory** -  ***nombreDelDirectorio*** (es decir, la hoja de Azure AD del directorio que está administrando), seleccione **Aplicaciones empresariales**.
@@ -37,14 +43,11 @@ Es fácil deshabilitar una aplicación empresarial para que ningún usuario pued
 7. En la hoja ***nombreDeLaAplicación*** - **Propiedades**, en **¿Habilitado para que los usuarios inicien sesión?**, seleccione **No**.
 8. Haga clic en el comando **Guardar** .
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * [Ver todos mis grupos](active-directory-groups-view-azure-portal.md)
 * [Asignar un usuario o grupo a una aplicación empresarial](active-directory-coreapps-assign-user-azure-portal.md)
 * [Eliminación de asignaciones de usuario o grupo de una aplicación empresarial](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Cambio del nombre o el logotipo de una aplicación empresarial](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

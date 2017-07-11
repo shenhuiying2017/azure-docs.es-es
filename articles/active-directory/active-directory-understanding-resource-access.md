@@ -1,6 +1,6 @@
 ---
 title: "Descripción de acceso a los recursos de Azure | Microsoft Docs"
-description: En este tema se explican conceptos acerca del uso de los administradores de suscripciones para controlar el acceso a los recursos en todo el Portal de Azure.
+description: En este tema se explican conceptos acerca del uso de los administradores de suscripciones para controlar el acceso a los recursos en todo el portal de Azure.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,16 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 9906aa7ac4296089fd2e41897323e757b181a022
-ms.lasthandoff: 02/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: d9143c1ec2075f71659e8deaadc93d1972ea9a85
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="understanding-resource-access-in-azure"></a>Descripción de acceso a los recursos de Azure
+<a id="understanding-resource-access-in-azure" class="xliff"></a>
+
+# Descripción de acceso a los recursos de Azure
 > [!NOTE]
 > En este tema se explican conceptos acerca del uso de los administradores de suscripciones para controlar el acceso a los recursos en todo el Portal de Azure. Como alternativa, el Portal de vista previa de Azure proporciona [control de acceso basado en rol](role-based-access-control-configure.md) para que los recursos de Azure se puedan administrar con mayor precisión.
 > 
@@ -56,7 +59,9 @@ Los usuarios con suscripciones en varios directorios tienen la posibilidad de ca
 
 Operaciones tales como mover recursos entre suscripciones pueden ser más difíciles como resultado de esta vista única del directorio de suscripciones. Para realizar la transferencia de recursos, puede que sea necesario usar primero el comando **Editar directorio** de la página Suscripciones de **Configuración** para asociar las suscripciones al mismo directorio.
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Para obtener más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * Para más información sobre cómo asignar roles en Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md)
