@@ -24,7 +24,8 @@ ms.contentlocale: es-es
 ms.lasthandoff: 03/17/2017
 
 ---
-# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Actualización de la suscripción de Microsoft Imagine Azure o la prueba gratuita al plan de pago por uso
+<a id="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go" class="xliff"></a>
+# Actualización de la suscripción de Microsoft Imagine Azure o la prueba gratuita al plan de pago por uso
 Actualice su [suscripción gratuita](https://azure.microsoft.com/free/) o de [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) a [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) en el portal de la cuenta de Azure. La actualización no cuesta dinero, y solo se le cobrará por los servicios que utilice.
 
 1. Inicie sesión en el [portal de la cuenta de Azure](https://account.windowsazure.com/subscriptions) y vaya a la pestaña **suscripciones**.

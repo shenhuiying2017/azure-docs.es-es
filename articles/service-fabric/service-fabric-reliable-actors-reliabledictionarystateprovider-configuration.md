@@ -22,7 +22,8 @@ ms.lasthandoff: 01/24/2017
 
 
 ---
-# <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configuración de Reliable Actors: ReliableDictionaryActorStateProvider
+<a id="configuring-reliable-actors--reliabledictionaryactorstateprovider" class="xliff"></a>
+# Configuración de Reliable Actors: ReliableDictionaryActorStateProvider
 Puede modificar configuración predeterminada de ReliableDictionaryActorStateProvider cambiando el archivo settings.xml que se genera en la raíz del paquete de Visual Studio en la carpeta Config del actor especificado.
 
 El tiempo de ejecución de Azure Service Fabric busca los nombres de sección predefinidos en el archivo settings.xml y usa los valores de configuración mientras crea los componentes en tiempo de ejecución subyacentes.
@@ -34,12 +35,14 @@ El tiempo de ejecución de Azure Service Fabric busca los nombres de sección pr
 
 También hay configuraciones globales que afectan a la configuración de ReliableDictionaryActorStateProvider.
 
-## <a name="global-configuration"></a>Configuración global
+<a id="global-configuration" class="xliff"></a>
+## Configuración global
 La configuración global se especifica en el manifiesto de clúster para el clúster de la sección KtlLogger. Permite la configuración del tamaño y la ubicación del registro compartido, así como los límites de memoria global usados por el registrador. Tenga en cuenta que los cambios en el manifiesto de clúster afectan a todos los servicios que usan ReliableDictionaryActorStateProvider y servicios con estado confiables.
 
 El manifiesto de clúster es un único archivo XML que contiene los valores y las configuraciones que se aplican a todos los nodos y servicios del clúster. El archivo suele llamarse ClusterManifest.xml. Puede ver el manifiesto de clúster para su clúster usando el comando de PowerShell Get-ServiceFabricClusterManifest.
 
-### <a name="configuration-names"></a>Nombres de configuración
+<a id="configuration-names" class="xliff"></a>
+### Nombres de configuración
 | Nombre | Unidad | Valor predeterminado | Comentarios |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Número mínimo de KB que se van a asignar en modo kernel al grupo de memoria del búfer de escritura del registrador. Este grupo de memoria se usa para almacenar en caché la información de estado antes de escribir en el disco. |
@@ -48,7 +51,8 @@ El manifiesto de clúster es un único archivo XML que contiene los valores y la
 | SharedLogPath |Nombre de ruta de acceso completo |"" |Especifica la ruta de acceso completa donde se encuentra el archivo de registro compartido que usan todos los servicios de confianza en todos los nodos del clúster que no especifican SharedLogPath en su configuración específica del servicio. Sin embargo, si se especifica SharedLogPath, también se debe especificar SharedLogId. |
 | SharedLogSizeInMB |Megabytes |8192 |Especifica el número de MB de espacio en disco que se va a asignar estáticamente para el registro compartido. El valor deber ser 2048 o superior. |
 
-### <a name="sample-cluster-manifest-section"></a>Ejemplo de sección de manifiesto de clúster
+<a id="sample-cluster-manifest-section" class="xliff"></a>
+### Ejemplo de sección de manifiesto de clúster
 ```xml
    <Section Name="KtlLogger">
      <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
@@ -59,28 +63,34 @@ El manifiesto de clúster es un único archivo XML que contiene los valores y la
    </Section>
 ```
 
-### <a name="remarks"></a>Comentarios
+<a id="remarks" class="xliff"></a>
+### Comentarios
 El registrador tiene un grupo global de memoria asignado desde la memoria del kernel no paginada que está disponible para todos los servicios de confianza en un nodo para almacenar en caché los datos de estado antes de que se escriban en el registro específico asociado con la réplica del servicio de confianza. El tamaño del grupo se controla mediante las opciones WriteBufferMemoryPoolMinimumInKB y WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB especifica el tamaño inicial de este grupo de memoria y el tamaño mínimo al que se puede reducir el grupo de memoria. WriteBufferMemoryPoolMaximumInKB es el tamaño máximo que puede alcanzar el grupo de memoria. Cada réplica de un servicio de confianza que está abierta puede aumentar el tamaño del grupo de memoria en una cantidad que determina el sistema hasta WriteBufferMemoryPoolMaximumInKB. Si el grupo de memoria demanda más memoria de la que hay disponible, las solicitudes de memoria se retrasarán hasta que haya memoria disponible. Por lo tanto, si el grupo de memoria del búfer de escritura es demasiado pequeño para una configuración concreta, el rendimiento se puede ver afectado.
 
 Los parámetros SharedLogId y SharedLogPath siempre se usan juntos para definir el GUID y la ubicación del registro compartido predeterminado de todos los nodos del clúster. El registro compartido predeterminado se usa para todos los servicios de confianza que no especifican los valores de configuración en el archivo settings.xml para el servicio específico. Para obtener un mejor rendimiento, los archivos de registro compartidos deben colocarse en discos que se usen únicamente para el archivo de registro compartido, de modo que se reduzca la contención.
 
 SharedLogSizeInMB especifica la cantidad de espacio en disco que se va a preasignar para el registro compartido predeterminado en todos los nodos.  No es necesario especificar SharedLogId y SharedLogPath para poder especificar SharedLogSizeInMB.
 
-## <a name="replicator-security-configuration"></a>Configuración de seguridad del replicador
+<a id="replicator-security-configuration" class="xliff"></a>
+## Configuración de seguridad del replicador
 Las configuraciones de seguridad del replicador se usan para proteger el canal de comunicación que se usa durante la replicación. Esto significa que los servicios no ven el tráfico de replicación de unos y los otros, lo que garantiza que los datos de alta disponibilidad también están protegidos.
 De forma predeterminada, una sección de configuración de seguridad vacía impide la seguridad de replicación.
 
-### <a name="section-name"></a>Nombre de sección
+<a id="section-name" class="xliff"></a>
+### Nombre de sección
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## <a name="replicator-configuration"></a>Configuración de replicador
+<a id="replicator-configuration" class="xliff"></a>
+## Configuración de replicador
 Las configuraciones del replicador se usan para configurar el replicador que es responsable de hacer que el proveedor de estado del actor resulte altamente confiable mediante la replicación y la conservación del estado de forma local.
 La configuración predeterminada es generada por la plantilla de Visual Studio y debe ser suficiente. En esta sección se habla sobre las configuraciones adicionales que están disponibles para optimizar el replicador.
 
-### <a name="section-name"></a>Nombre de sección
+<a id="section-name" class="xliff"></a>
+### Nombre de sección
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-### <a name="configuration-names"></a>Nombres de configuración
+<a id="configuration-names" class="xliff"></a>
+### Nombres de configuración
 | Nombre | Unidad | Valor predeterminado | Comentarios |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0.015 |Período de tiempo durante el que el replicador del secundario espera después de recibir una operación antes de enviar una confirmación al principal. El resto de confirmaciones que se enviarán para las operaciones que se procesan dentro de este intervalo se envían como una respuesta. |
@@ -94,7 +104,8 @@ La configuración predeterminada es generada por la plantilla de Visual Studio y
 | SharedLogId |GUID |"" |Especifica un guid único que debe usarse para identificar el archivo de registro compartido que se usa con esta réplica. Normalmente, los servicios no deben usar esta opción de configuración. Sin embargo, si se especifica SharedLogId, también se debe especificar SharedLogPath. |
 | SharedLogPath |Nombre de ruta de acceso completo |"" |Especifica la ruta de acceso completa donde se creará el archivo de registro compartido para esta réplica. Normalmente, los servicios no deben usar esta opción de configuración. Sin embargo, si se especifica SharedLogPath, también se debe especificar SharedLogId. |
 
-## <a name="sample-configuration-file"></a>Archivo de configuración de muestra
+<a id="sample-configuration-file" class="xliff"></a>
+## Archivo de configuración de muestra
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -115,7 +126,8 @@ La configuración predeterminada es generada por la plantilla de Visual Studio y
 </Settings>
 ```
 
-## <a name="remarks"></a>Comentarios
+<a id="remarks" class="xliff"></a>
+## Comentarios
 El parámetro BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "0" ofrecerá la menor latencia posible, a costa del rendimiento (como deben enviarse y procesarse más mensajes de confirmación, cada uno con menos confirmaciones).
 Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendimiento general de la replicación a costa de una mayor latencia de la operación. Esto se traduce directamente en la latencia de transacciones confirmadas.
 
