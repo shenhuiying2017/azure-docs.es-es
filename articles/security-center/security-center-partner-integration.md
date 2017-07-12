@@ -12,20 +12,28 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 06/23/2017
 ms.author: yurid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 8dddfc8929ab1a0c44522ed2a2596e2c82e3987d
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: 85460ea37d251b53074de9d832610d253700f2c1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 06/24/2017
 
 
 ---
-# <a name="partner-integration-in-azure-security-center"></a>Integración de asociados en Azure Security Center
+<a id="partner-integration-in-azure-security-center" class="xliff"></a>
+
+# Integración de asociados en Azure Security Center
 Este documento explica cómo se integra Azure Security Center con asociados para mejorar la seguridad general y proporcionar una experiencia integrada en Azure, mientras aprovecha Azure Marketplace para la certificación y la facturación de los asociados.
 
-## <a name="why-deploy-partners-solutions-from-security-center"></a>¿Por qué implementar las soluciones de asociados desde Security Center?
+>[!NOTE] 
+>Desde primeros de junio de 2017, Security Center usará Microsoft Monitoring Agent para recopilar y almacenar datos. Consulte [Migración de la plataforma de Azure Security Center](security-center-platform-migration.md) para más información. La información de este artículo representa la funcionalidad de Security Center después de la transición a Microsoft Monitoring Agent.
+>
+
+<a id="why-deploy-partners-solutions-from-security-center" class="xliff"></a>
+
+## ¿Por qué implementar las soluciones de asociados desde Security Center?
 
 Las cuatro principales razones para aprovechar la integración de asociados en Security Center son:
 
@@ -35,17 +43,21 @@ Las cuatro principales razones para aprovechar la integración de asociados en S
 - **Exportación a SIEM**: los clientes ya pueden exportar todas las alertas de Security Center y de los asociados en formato CEF a sistemas SIEM locales mediante Microsoft Azure Log Integration (versión preliminar)
 
 
-## <a name="what-partners-are-integrated-with-security-center"></a>¿Qué asociados se integran con Security Center?
-Actualmente, Security Center se integra con los siguientes asociados:
+<a id="what-partners-are-integrated-with-security-center" class="xliff"></a>
 
-- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)) 
-- Firewall de aplicaciones web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [App Gateway WAF](https://azure.microsoft.com/en-us/blog/azure-web-application-firewall-waf-generally-available/)) 
+## ¿Qué asociados se integran con Security Center?
+Actualmente, Security Center se integra con las soluciones:
+
+- Protección del punto de conexión ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, [Microsoft Antimalware para Azure](https://docs.microsoft.com/azure/security/azure-security-antimalware)) 
+- Firewall de aplicaciones web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [App Gateway WAF](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)) 
 - Firewall de última generación ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) y [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
-- Evaluación de vulnerabilidad ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/): versión preliminar)  
+- Evaluación de vulnerabilidad ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
 
 Con el tiempo, Security Center aumentará el número de asociados dentro de estas categorías y agregará otras nuevas categorías. 
 
-## <a name="how-to-deploy-a-partner-solution"></a>¿Cómo implementar una solución de asociados?
+<a id="how-to-deploy-a-partner-solution" class="xliff"></a>
+
+## ¿Cómo implementar una solución de asociados?
 
 En función de la configuración de su entorno de Azure y la directiva de seguridad que se haya definido, es posible que Security Center recomiende que se implemente una solución de asociados. La recomendación le guiará a través del proceso de selección e instalación de una solución de asociados. La experiencia de implementación global en este momento puede variar según el tipo de solución y el asociado. Para más información, consulte los vínculos que se muestran a continuación:
 
@@ -54,14 +66,21 @@ En función de la configuración de su entorno de Azure y la directiva de seguri
 - [Instalación de Endpoint Protection](security-center-install-endpoint-protection.md)
 - [Evaluación de vulnerabilidades no instalada](security-center-vulnerability-assessment-recommendations.md)
 
-## <a name="how-to-manage-partner-solutions"></a>Administración de las soluciones de asociados
+<a id="how-to-manage-partner-solutions" class="xliff"></a>
+
+## Administración de las soluciones de asociados
 
 Una vez que se ha implementado una solución de asociados, puede ver información sobre el estado de la solución y realizar tareas básicas de administración desde el icono de la solución en el panel principal de Security Center. Para más información acerca de cómo administrar soluciones de asociados en Security Center, lea [Supervisión de soluciones de asociados con Azure Security Center](security-center-partner-solutions.md).
 
 ![Integración de asociados](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
 
+> [!NOTE]
+> La compatibilidad con la protección del punto de conexión Symantec se limita a la detección, sin alertas de estado disponibles.
+>
 
-## <a name="see-also"></a>Consulte también
+<a id="see-also" class="xliff"></a>
+
+## Consulte también
 En este documento, ha aprendido a integrar la solución de asociado en Azure Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md)

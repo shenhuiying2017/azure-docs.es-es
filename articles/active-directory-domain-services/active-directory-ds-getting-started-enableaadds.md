@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services: habilitación de Azure Active Directory Domain Services | Microsoft Docs"
-description: "Introducción a los Servicios de dominio de Azure Active Directory"
+description: "Habilitación de Azure Active Directory Domain Services mediante el Portal de Azure clásico"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,18 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e5f1fe51d8931985fa55b2d8c0a3fd25bb93f20f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="enable-azure-active-directory-domain-services"></a>Habilitación de Azure Active Directory Domain Services
-## <a name="task-3-enable-azure-active-directory-domain-services"></a>Tarea 3: Habilitación de Azure Active Directory Domain Services
-En esta tarea, va a habilitar Azure Active Directory Domain Services (Azure AD DS) para su directorio haciendo lo siguiente:
+<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+
+# Habilitación de Azure Active Directory Domain Services mediante el Portal de Azure clásico
+
+<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
+
+## Tarea 3: Habilitación de Azure Active Directory Domain Services
+En esta tarea, habilitará Azure Active Directory Domain Services (Azure AD DS) para su directorio mediante los pasos siguientes:
 
 1. Vaya al [Portal de Azure clásico](https://manage.windowsazure.com).
 2. En el panel izquierdo, seleccione el botón **Active Directory**.
@@ -70,20 +76,20 @@ En esta tarea, va a habilitar Azure Active Directory Domain Services (Azure AD D
    * Utilice una subred dedicada en la red virtual para Azure Active Directory Domain Services. *No* seleccione la subred de puerta de enlace. Consulte las [consideraciones sobre redes](active-directory-ds-networking.md).
 
    * De igual forma, las redes virtuales que se crearon mediante Azure Resource Manager no aparecerán en la lista desplegable. Esto es porque las redes virtuales basadas en Resource Manager no son compatibles de momento con Azure Active Directory Domain Services.
-9. Para habilitar Azure Active Directory Domain Services, haga clic en **Guardar** en el panel de tareas de la parte inferior de la página. 
+9. Para habilitar Azure Active Directory Domain Services, haga clic en **Guardar** en el panel de tareas de la parte inferior de la página.
     * Durante el proceso de habilitación de Azure Active Directory Domain Services para el directorio, la página muestra un estado de *Pendiente*.
 
         ![Habilitación de la ventana Servicios de dominio](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
         > [!NOTE]
-        > Azure Active Directory Domain Services proporciona una alta disponibilidad para el dominio administrado. Después de habilitar Azure Active Directory Domain Services, observará que las direcciones IP en las que están disponibles los servicios de dominio en la red virtual se muestran de una en una. La segunda dirección IP se muestra poco después de la primera, en cuanto el servicio habilita la alta disponibilidad para el dominio. Cuando se configura la alta disponibilidad y está activa para su dominio, debe ver dos direcciones IP en la sección **Servicios de dominio**de la pestaña **Configurar**.
+        > Azure Active Directory Domain Services proporciona una alta disponibilidad para el dominio administrado. Después de habilitar Azure Active Directory Domain Services, las direcciones IP en las que están disponibles los servicios de dominio en la red virtual se muestran de una en una. La segunda dirección IP se muestra poco después de la primera, en cuanto el servicio habilita la alta disponibilidad para el dominio. Cuando se configura la alta disponibilidad y está activa para su dominio, debe ver dos direcciones IP en la sección **Servicios de dominio**de la pestaña **Configurar**.
         >
         >
     * Al cabo de unos 20 o 30 minutos, verá la primera dirección IP en la que Domain Services está disponible en la red virtual, en el campo **Dirección IP** de la página **Configurar**.
 
         ![Ventana de Domain Services que muestra la primera dirección IP aprovisionada](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
-    * Cuando la alta disponibilidad está operativa para el dominio, aparecen dos direcciones IP en la página. El dominio administrado está disponible en la red virtual seleccionada en estas dos direcciones IP. 
-    
+    * Cuando la alta disponibilidad está operativa para el dominio, aparecen dos direcciones IP en la página. El dominio administrado está disponible en la red virtual seleccionada en estas dos direcciones IP.
+
 10. Anote las dos direcciones IP para que pueda actualizar la configuración de DNS de la red virtual. Con ello permite a las máquinas virtuales de la red virtual conectarse al dominio de cara para realizar operaciones como unirse a un dominio.
 
     ![Ventana de Domain Services que muestra ambas direcciones IP aprovisionadas](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
@@ -93,6 +99,8 @@ En esta tarea, va a habilitar Azure Active Directory Domain Services (Azure AD D
 >
 >
 
-## <a name="next-steps"></a>Pasos siguientes
-Tarea 4: [Actualización de la configuración DNS para la red virtual de Azure](active-directory-ds-getting-started-dns.md)
+<a id="next-step" class="xliff"></a>
+
+## Paso siguiente
+[Tarea 4: Actualización de la configuración DNS en la red virtual de Azure](active-directory-ds-getting-started-update-dns.md)
 

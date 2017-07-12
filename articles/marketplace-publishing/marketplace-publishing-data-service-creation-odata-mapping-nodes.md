@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
-ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Descripción del esquema de nodos para la asignación de un servicio web existente a OData mediante CSDL
+<a id="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl" class="xliff"></a>
+
+# Descripción del esquema de nodos para la asignación de un servicio web existente a OData mediante CSDL
 > [!IMPORTANT]
 > **En este momento, ya no se pueden incorporar nuevos editores del Servicio de datos. No se aprobarán nuevos servicios de datos para mostrarse en lista.** Si tiene una aplicación de negocio de SaaS que desea publicar en AppSource, puede encontrar más información [aquí](https://appsource.microsoft.com/partners). Si tiene aplicaciones IaaS o un servicio para desarrolladores que quiera publicar en Azure Marketplace, encontrará más información [aquí](https://azure.microsoft.com/marketplace/programs/certified/).
 >
@@ -28,7 +32,9 @@ ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
 
 En este documento se clarificará la estructura de nodos para la asignación de un protocolo de OData en CSDL. Es importante tener en cuenta que la estructura de nodos es un código XML con formato correcto. Por tanto, el esquema de raíz, primarios y secundarios se puede aplicar al diseñar una asignación de OData.
 
-## <a name="ignored-elements"></a>Elementos omitidos
+<a id="ignored-elements" class="xliff"></a>
+
+## Elementos omitidos
 A continuación encontrará los elementos de CSDL de alto nivel (nodos XML) que no van a usar el back-end de Azure Marketplace en la importación de metadatos del servicio web. Pueden estar presentes, pero se omitirán.
 
 | Elemento | Scope |
@@ -45,15 +51,16 @@ A continuación encontrará los elementos de CSDL de alto nivel (nodos XML) que 
 
 A continuación se describen detalladamente los cambios (elementos agregados e ignorados) realizados en los distintos nodos XML de CSDL.
 
-## <a name="functionimport-node"></a>Nodo FunctionImport
+<a id="functionimport-node" class="xliff"></a>
+
+## Nodo FunctionImport
 Un nodo FunctionImport representa una dirección URL (punto de entrada) que expone un servicio al usuario final. El nodo permite describir cómo se trata la dirección URL, qué parámetros están disponibles para el usuario final y cómo se proporcionan estos parámetros.
 
 Encontrará más información sobre este nodo [aquí][MSDNFunctionImportLink](https://msdn.microsoft.com/library/cc716710.aspx).
 
 Éstos son los atributos adicionales (o adiciones a los atributos) que expone el nodo FunctionImport:
 
-**d:BaseUri** -
-La plantilla de URI para el recurso de REST que se expone en Marketplace. Marketplace usa la plantilla para construir consultas en el servicio web REST. La plantilla del identificador URI contiene marcadores de posición para los parámetros cuyo formato es {parameterName}, donde parameterName es el nombre del parámetro. Ejemplo: apiVersion={versiónDeAPI}.
+**d:BaseUri**: la plantilla de URI para el recurso de REST que se expone en Marketplace. Marketplace usa la plantilla para construir consultas en el servicio web REST. La plantilla del identificador URI contiene marcadores de posición para los parámetros cuyo formato es {parameterName}, donde parameterName es el nombre del parámetro. Ejemplo: apiVersion={versiónDeAPI}.
 Los parámetros pueden aparecer como parámetros URI o como parte de la ruta de acceso de URI. En el caso de la apariencia de la ruta de acceso siempre son obligatorios (no se pueden marcar como que admitan valores NULL). *Ejemplo:* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
 
 **Name**: el nombre de la función importada.  No puede ser igual que otros nombres definidos en el CSDL.  Ejemplo: Name = "GetModelUsageFile"
@@ -102,7 +109,7 @@ Los nodos secundarios adicionales (no cubiertos por la documentación de CSDL) d
         ]]>
         </d:RequestBody>`
 
-**d:Namespaces** y **d:Namespace**: en este nodo se describen los espacios de nombres que se definen en el XML que devuelve la función import (punto de conexión de URI). El XML que devuelve el servicio back-end puede contener cualquier número de espacios de nombres para diferenciar el contenido que se devuelve. **Todos estos espacios de nombres, si se usan en consultas XPath de d:Map o d:Match deben enumerarse.**  El nodo d:Namespaces contiene un conjunto o lista de nodos de d:Namespace. Cada uno de ellos enumera un espacio de nombres usado en la respuesta del servicio back-end. Éstos son los atributos del nodo d:Namespace:
+**d:Namespaces** y **d:Namespace**: en este nodo se describen los espacios de nombres que se definen en el XML que devuelve la función import (punto de conexión de URI). El XML que devuelve el servicio back-end puede contener cualquier número de espacios de nombres para diferenciar el contenido que se devuelve. **Todos estos espacios de nombres, si se usan en consultas XPath de d:Map o d:Match deben enumerarse.** El nodo d:Namespaces contiene un conjunto o lista de nodos de d:Namespace. Cada uno de ellos enumera un espacio de nombres usado en la respuesta del servicio back-end. Éstos son los atributos del nodo d:Namespace:
 
 * **d:Prefix:** el prefijo del espacio de nombres, como se ve en los resultados XML que devuelve el servicio, por ejemplo, f:FirstName o f:LastName, donde f es el prefijo.
 * **d:Uri:** el identificador URI completo del espacio de nombres usado en el documento de resultados. Representa el valor en que se resuelve el prefijo en tiempo de ejecución.
@@ -148,7 +155,9 @@ Los nodos secundarios adicionales (no cubiertos por la documentación de CSDL) d
 
 **d:ErrorMessage** : extensión opcional de OData
 
-## <a name="parameter-node"></a>Nodo Parameter
+<a id="parameter-node" class="xliff"></a>
+
+## Nodo Parameter
 Este nodo representa un parámetro que se expone como parte de la plantilla del identificador URI o cuerpo de la solicitud que se ha especificado en el nodo FunctionImport.
 
 [Aquí](http://msdn.microsoft.com/library/ee473431.aspx) encontrará una página muy útil con información sobre el nodo “Parameter Element” (si es necesario, use la lista desplegable **Otras versiones** para ver otra versión de la documentación). *Ejemplo:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
@@ -171,7 +180,9 @@ Estos son los atributos que se han agregado a la especificación de CSDL:
 | **d.: Nullable** *(opcional)* |Permite definir si un parámetro puede ser nulo. El valor predeterminado es: true. Sin embargo, los parámetros que se exponen como parte de la ruta de acceso de la plantilla del identificador URI no pueden ser nulos. Cuando el atributo se establece en false para estos parámetros, se reemplaza la entrada del usuario. **Ejemplo:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
 | **d:SampleValue** *(opcional)* |Valor de ejemplo que se muestra en forma de nota al cliente en la interfaz de usuario.  Se pueden agregar varios valores con una lista separada por barras verticales, como `a |
 
-## <a name="entitytype-node"></a>Nodo EntityType
+<a id="entitytype-node" class="xliff"></a>
+
+## Nodo EntityType
 Este nodo representa uno de los tipos que Marketplace devuelve al usuario final. También contiene la asignación de la salida que devuelve el servicio del proveedor de contenido a los valores que se devuelven al usuario final.
 
 [Aquí](http://msdn.microsoft.com/library/bb399206.aspx) encontrará más información sobre este nodo (si es necesario para ver la documentación, use la lista desplegable **Otras versiones** para seleccionar otra versión).
@@ -195,11 +206,12 @@ La expresión XPath sería /foo/bar porque cada instancia del nodo bar es el nod
 
 **Key** : Marketplace omite este atributo. Servicios web basados en REST, en general no exponen una clave principal.
 
-## <a name="property-node"></a>Nodo Property
+<a id="property-node" class="xliff"></a>
+
+## Nodo Property
 Este nodo contiene una propiedad del registro.
 
-En [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) encontrará más información sobre este nodo (si es necesario, use la lista desplegable **Otras versiones** para ver otra versión de la documentación). *Ejemplo:*
-        `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
+En [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) encontrará más información sobre este nodo (si es necesario, use la lista desplegable **Otras versiones** para ver otra versión de la documentación). *Ejemplo:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
         <Property Name="Name"     Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
         ...
         </EntityType>`
@@ -252,7 +264,9 @@ Aquí, la expresión XPath sería ./bar/baz0 para obtener el nodo baz0 del servi
 
 **d:DatabaseDataType** : es el tipo de datos de la columna de la base de datos, es decir, el tipo de datos SQL. Consulte DataService CSDL Example
 
-## <a name="supported-parametersproperty-types"></a>Tipos que se admiten en parámetros y propiedades
+<a id="supported-parametersproperty-types" class="xliff"></a>
+
+## Tipos que se admiten en parámetros y propiedades
 Éstos son los tipos que se admiten para los parámetros y propiedades. (Distingue mayúsculas de minúsculas)
 
 | Tipos primitivos | Description |
@@ -270,13 +284,10 @@ Aquí, la expresión XPath sería ./bar/baz0 para obtener el nodo baz0 del servi
 | Int64 |Representa un valor entero de 64 bits con signo |
 | String |Representa datos de caracteres de longitud fija o variable |
 
-## <a name="see-also"></a>Otras referencias
+<a id="see-also" class="xliff"></a>
+
+## Otras referencias
 * Si está interesado en conocer el proceso general de asignación de OData y su finalidad, consulte el artículo [Mapping an existing web service to OData through CSDL](marketplace-publishing-data-service-creation-odata-mapping.md) , donde podrá encontrar definiciones, información sobre las estructuras e instrucciones.
 * Si está interesado en ver ejemplos, consulte el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md) , donde podrá ver ejemplos de código y comprender el contexto y la sintaxis del código.
 * Para volver a la ruta de acceso prescrita para publicar un servicio de datos en Azure Marketplace, consulte el artículo [Data Service Publishing Guide for the Azure Marketplace](marketplace-publishing-data-service-creation.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

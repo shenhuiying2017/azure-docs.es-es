@@ -15,14 +15,16 @@ ms.workload: NA
 ms.date: 06/02/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 4ffab9eb858b05d3f5894e8753fb0fd4f38c4087
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: e229602b4bfa72977c9b15e854d796ed09fa55d2
 ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="create-your-first-service-fabric-java-application-on-linux"></a>Creación de la primera aplicación Java de Service Fabric en Linux
+<a id="create-your-first-service-fabric-java-application-on-linux" class="xliff"></a>
+
+# Creación de la primera aplicación Java de Service Fabric en Linux
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -32,10 +34,16 @@ ms.lasthandoff: 06/03/2017
 
 Este inicio rápido le ayuda a crear su primera aplicación Java de Azure Service Fabric en un entorno de desarrollo de Linux en tan solo unos minutos.  Cuando haya terminado, tendrá una sencilla aplicación Java con un único servicio en el clúster de desarrollo local.  
 
-## <a name="prerequisites"></a>Requisitos previos
+<a id="prerequisites" class="xliff"></a>
+
+## Requisitos previos
 Antes de comenzar, instale el SDK de Service Fabric y la CLI de Azure CLI y configure un clúster de desarrollo en su [entorno de desarrollo de Linux](service-fabric-get-started-linux.md). Si usa Mac OS X, puede [configurar un entorno de desarrollo de Linux en una máquina virtual mediante Vagrant](service-fabric-get-started-mac.md).
 
-## <a name="create-the-application"></a>Creación de la aplicación
+También deseará configurar la [CLI de Azure 2.0](service-fabric-azure-cli-2-0.md) (se recomienda) o la [CLI de XPlat](service-fabric-azure-cli.md) para implementar la aplicación.
+
+<a id="create-the-application" class="xliff"></a>
+
+## Creación de la aplicación
 Una aplicación de Service Fabric contiene uno o varios servicios, cada uno de ellos con un rol específico a la hora de proporcionar la funcionalidad de la aplicación. El SDK de Service Fabric para Linux incluye un generador [Yeoman](http://yeoman.io/) que permite crear fácilmente el primer servicio y agregar más posteriormente.  También puede crear, compilar e implementar aplicaciones Java de Service Fabric mediante un complemento para Eclipse. Consulte [Creación e implementación de la primera aplicación Java mediante Eclipse](service-fabric-get-started-eclipse.md). En este inicio rápido, use Yeoman para crear una aplicación con un único servicio que almacena y obtiene un valor de contador.
 
 1. En un terminal, escriba ``yo azuresfjava``.
@@ -43,7 +51,9 @@ Una aplicación de Service Fabric contiene uno o varios servicios, cada uno de e
 3. Elija el tipo del primer servicio y asígnele un nombre. En este tutorial, elija un servicio de Reliable Actor. Para más información sobre los otros tipos de servicios, consulte [Información general del modelo de programación de Service Fabric](service-fabric-choose-framework.md).
    ![Generador Yeoman de Service Fabric para Java][sf-yeoman]
 
-## <a name="build-the-application"></a>Compilar la aplicación
+<a id="build-the-application" class="xliff"></a>
+
+## Compilar la aplicación
 Las plantillas de Yeoman de Service Fabric incluyen un script de compilación para [Gradle](https://gradle.org/), que se puede usar para compilar la aplicación desde el terminal. Para compilar y empaquetar la aplicación, ejecute el siguiente código:
 
   ```bash
@@ -51,8 +61,14 @@ Las plantillas de Yeoman de Service Fabric incluyen un script de compilación pa
   gradle
   ```
 
-## <a name="deploy-the-application"></a>Implementación de la aplicación
-Una vez compilada la aplicación, puede implementarla en el clúster local mediante la CLI de Azure.
+<a id="deploy-the-application" class="xliff"></a>
+
+## Implementación de la aplicación
+Una vez compilada la aplicación, se puede implementar en el clúster local.
+
+<a id="using-xplat-cli" class="xliff"></a>
+
+### Uso de la CLI multiplataforma
 
 1. Conéctese al clúster de Service Fabric local.
 
@@ -66,11 +82,20 @@ Una vez compilada la aplicación, puede implementarla en el clúster local media
     ./install.sh
     ```
 
-3. Abra un explorador y vaya a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) en http://localhost:19080/Explorer (reemplace localhost por la dirección IP privada de la máquina virtual si usa Vagrant en Mac OS X).
+<a id="using-azure-cli-20" class="xliff"></a>
 
-4. Expanda el nodo **Aplicaciones** y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de ese tipo.
+### Uso de la CLI de Azure 2.0
 
-## <a name="start-the-test-client-and-perform-a-failover"></a>Inicio del cliente de prueba y ejecución de una conmutación por error
+La aplicación compilada se implementa de la misma forma que cualquier otra aplicación de Service Fabric. Para obtener instrucciones detalladas, consulte la documentación relativa a la [administración de una aplicación de Service Fabric con la CLI de Azure](service-fabric-application-lifecycle-azure-cli-2-0.md).
+
+Los parámetros de estos comandos se pueden encontrar en los manifiestos generados dentro del paquete de aplicación.
+
+Una vez que se haya implementado la aplicación, abra un explorador y navegue hasta el [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) en [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+Luego, expanda el nodo **Applications** y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de dicho tipo.
+
+<a id="start-the-test-client-and-perform-a-failover" class="xliff"></a>
+
+## Inicio del cliente de prueba y ejecución de una conmutación por error
 Los actores no hacen nada por sí solos, necesitan que otro servicio o cliente les envíe mensajes. La plantilla de actor incluye un sencillo script de prueba que puede usar para interactuar con el servicio de actor.
 
 1. Ejecute el script con la utilidad de inspección para ver la salida del servicio de actor.  El script de prueba llamad al método `setCountAsync()` en el servicio de actor para aumentar el contador, llama al método `getCountAsync()` en el servicio de actor para obtener el nuevo valor de contador y muestra ese valor en la consola.
@@ -86,13 +111,17 @@ Los actores no hacen nada por sí solos, necesitan que otro servicio o cliente l
 
 3. En **Nodos**, haga clic en el nodo que encontró en el paso anterior y seleccione **Desactivar (reiniciar)** en el menú Acciones. Esta acción reinicia el nodo que ejecuta la réplica principal del servicio y fuerza una conmutación por error a una de las réplicas secundarias que se ejecutan en otro nodo.  Esa réplica secundaria se promueve a principal, se crea otra réplica secundaria en un nodo diferente y la réplica principal comienza a aceptar operaciones de lectura/escritura. Cuando se reinicie el nodo, preste atención a la salida del cliente de prueba y observe que el contador sigue incrementándose a pesar de la conmutación por error.
 
-## <a name="add-another-service-to-the-application"></a>Adición de otro servicio a la aplicación
+<a id="add-another-service-to-the-application" class="xliff"></a>
+
+## Adición de otro servicio a la aplicación
 Para agregar otro servicio a una aplicación existente mediante `yo`, realice los pasos siguientes:
 1. Cambie el directorio al directorio raíz de la aplicación existente.  Por ejemplo, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` es la aplicación creada por Yeoman.
 2. Ejecute `yo azuresfjava:AddService`
 3. Compile e implemente la aplicación, como en los pasos anteriores.
 
-## <a name="remove-the-application"></a>Eliminación de la aplicación
+<a id="remove-the-application" class="xliff"></a>
+
+## Eliminación de la aplicación
 Use el script de desinstalación proporcionado en la plantilla para eliminar la instancia de la aplicación, anular el registro del paquete de aplicación y quitar dicho paquete del almacén de imágenes del clúster.
 
 ```bash
@@ -101,12 +130,21 @@ Use el script de desinstalación proporcionado en la plantilla para eliminar la 
 
 En Service Fabric Explorer, verá que la aplicación y el tipo de aplicación ya no aparecen en el nodo **Aplicaciones**.
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * [Creación de la primera aplicación Java de Service Fabric en Linux](service-fabric-get-started-eclipse.md)
 * [Más información acerca de Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interacción con clústeres de Service Fabric mediante la CLI de Azure](service-fabric-azure-cli.md)
 * [Solución de problemas: implementación](service-fabric-azure-cli.md#troubleshooting)
 * Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
+
+<a id="related-articles" class="xliff"></a>
+
+## Artículos relacionados
+
+* [Introducción a Service Fabric y la CLI de Azure 2.0](service-fabric-azure-cli-2-0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md) (Introducción a la CLI de XPlat de Service Fabric)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png

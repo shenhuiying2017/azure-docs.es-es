@@ -2,7 +2,7 @@
 title: "Notas de la versión de Data Management Gateway | Microsoft Docs"
 description: "Notas de la versión de Data Management Gateway"
 services: data-factory
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
-ms.author: spelluru
+ms.date: 06/19/2017
+ms.author: abnarain
 published: true
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f29bb67ea50c531278e546c9fde88fd53230bc3c
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: c7753ab9db74d32aef35aca6a26cced24782fb6b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
-Uno de los desafíos de la integración de datos moderna es mover datos sin problemas entre ubicación la local y la nube. Data Factory hace que dicha integración sea perfecta con Data Management Gateway, que es un agente que se puede instalar de forma local para permitir el movimiento de datos híbridos.
+<a id="release-notes-for-data-management-gateway" class="xliff"></a>
+
+# Notas de la versión de Data Management Gateway
+Uno de los desafíos de la integración de datos moderna es la migración de datos entre la ubicación local y la nube. Data Factory realiza la integración con Data Management Gateway, un agente que se puede instalar de forma local para permitir la migración de datos híbridos.
 
 En los siguientes artículos se proporciona información detallada sobre Data Management Gateway y cómo utilizarlo:
 
@@ -30,64 +32,109 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 *  [Movimiento de datos entre una ubicación local y la nube mediante Factoría de datos de Azure](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## <a name="current-version-2963132"></a>VERSIÓN ACTUAL (2.9.6313.2)
+<a id="current-version-21063477" class="xliff"></a>
 
-### <a name="enhancements-"></a>Mejoras-
--    Puede agregar entradas DNS a la lista blanca de Service Bus en vez de incluir todas las direcciones IP de Azure en la lista blanca del firewall (en caso necesario). Más detalles aquí.
--    Ahora puede copiar hasta 4,75 TB de datos (tamaño máximo admitido para blob en bloques) en un único blob de bloques, y viceversa. (el límite anterior era 195 GB).
--    Problema solucionado: memoria agotada al descomprimir varios archivos pequeños durante la actividad de copia.
--    Problema solucionado: índice fuera de rango al copiar de Document DB a SQL local con característica de idempotencia.
--    Problema solucionado: script de limpieza SQL no funciona en SQL local desde el Asistente para copiar.
--    Problema solucionado: nombre de columna con espacio al final no funciona en la actividad de copia.
+## VERSIÓN ACTUAL (2.10.6347.7)
+
+<a id="enhancements-" class="xliff"></a>
+
+### Mejoras-
+- Puede agregar entradas DNS a la lista de Service Bus permitidos en vez de incluir todas las direcciones IP de Azure en la lista de permitidas del firewall (en caso necesario). Puede encontrar la entrada DNS correspondiente en Azure Portal (Data Factory -> "Crear e implementar" -> "Puertas de enlace" -> "serviceUrls" (en JSON)
+- El conector HDFS admite ahora certificados públicos autofirmados para poder omitir la validación de SSL.
+- Solucionado: problema con la puerta de enlace sin conexión durante la actualización (debido a la distorsión del reloj)
 
 
-## <a name="earlier-versions"></a>Versiones anteriores
 
-## <a name="28662833"></a>2.8.66283.3
-### <a name="enhancements-"></a>Mejoras-
+<a id="earlier-versions" class="xliff"></a>
+
+## Versiones anteriores
+
+<a id="2963132" class="xliff"></a>
+
+## 2.9.6313.2
+<a id="enhancements-" class="xliff"></a>
+
+### Mejoras-
+-   Puede agregar entradas DNS a la lista blanca de Service Bus en vez de incluir todas las direcciones IP de Azure en la lista blanca del firewall (en caso necesario). Más detalles aquí.
+-   Ahora puede copiar hasta 4,75 TB de datos (tamaño máximo admitido para blob en bloques) en un único blob en bloques, y viceversa (el límite anterior era 195 GB).
+-   Problema solucionado: memoria agotada al descomprimir varios archivos pequeños durante la actividad de copia.
+-   Problema solucionado: índice fuera de rango al copiar de Document DB a una instancia de SQL Server local con la característica de idempotencia.
+-   Problema solucionado: el script de limpieza SQL no funciona en la instancia de SQL Server local desde el Asistente para copia.
+-   Problema solucionado: nombre de columna con espacio al final no funciona en la actividad de copia.
+
+<a id="28662833" class="xliff"></a>
+
+## 2.8.66283.3
+<a id="enhancements-" class="xliff"></a>
+
+### Mejoras-
 - Problema solucionado: falta de credenciales durante el reinicio de máquina de puerta de enlace.
-- Problema solucionado: registro durante la restauración de puerta de enlace mediante el archivo de copia de seguridad.
+- Solucionado: problema de registro durante la restauración de la puerta de enlace mediante un archivo de copia de seguridad.
 
 
-## <a name="2762401"></a>2.7.6240.1
-### <a name="enhancements-"></a>Mejoras-
+<a id="2762401" class="xliff"></a>
+
+## 2.7.6240.1
+<a id="enhancements-" class="xliff"></a>
+
+### Mejoras-
 - Problema solucionado: lectura incorrecta de valor NULL decimal desde Oracle como origen.
 
-## <a name="2661922"></a>2.6.6192.2
-### <a name="whats-new"></a>Novedades
+<a id="2661922" class="xliff"></a>
+
+## 2.6.6192.2
+<a id="whats-new" class="xliff"></a>
+
+### Novedades
 - Los clientes pueden proporcionar comentarios en la experiencia de registro de la puerta de enlace.
 - Nuevo formato de compresión compatible: ZIP (Deflate).
 
-### <a name="enhancements-"></a>Mejoras-
+<a id="enhancements-" class="xliff"></a>
+
+### Mejoras-
 - Mejora del rendimiento del origen de HDFS y el receptor de Oracle.
 - Corrección de errores de la capacidad de procesamiento en paralelo y la actualización automática de la puerta de enlace.
 
 
-## <a name="2561641"></a>2.5.6164.1
-### <a name="enhancements"></a>Mejoras
+<a id="2561641" class="xliff"></a>
+
+## 2.5.6164.1
+<a id="enhancements" class="xliff"></a>
+
+### Mejoras
 - Experiencia de registro de la puerta de enlace mejorada y más sólida: ahora puede realizar el seguimiento del estado del progreso durante el proceso de registro de la puerta de enlace, con lo que la experiencia de registro tiene una mayor capacidad de respuesta.
 - Mejora del proceso de restauración de la puerta de enlace: puede recuperar la puerta de enlace incluso si no tiene el archivo de copia de seguridad de la puerta de enlace con esta actualización. Esto requeriría restablecer credenciales de servicio vinculado en el Portal.
 - Corrección de errores.
 
-## <a name="2461511"></a>2.4.6151.1
+<a id="2461511" class="xliff"></a>
 
-### <a name="whats-new"></a>Novedades
+## 2.4.6151.1
+
+<a id="whats-new" class="xliff"></a>
+
+### Novedades
 
 - Ahora puede almacenar localmente las credenciales de origen de datos. Las credenciales se cifran. Las credenciales del origen de datos se pueden recuperar y restaurar usando el archivo de copia de seguridad que se puede exportar desde la puerta de enlace existente, todo de manera local.
 
-### <a name="enhancements-"></a>Mejoras-
+<a id="enhancements-" class="xliff"></a>
+
+### Mejoras-
 
 - Experiencia de registro de puerta de enlace mejorada y más eficaz.
 - Compatibilidad con detección automática de la configuración de QuoteChar para formato de texto en el Asistente para copia y mejorar la precisión de la detección de formato general.
 
-## <a name="2361002"></a>2.3.6100.2
+<a id="2361002" class="xliff"></a>
+
+## 2.3.6100.2
 
 - Compatibilidad con la detección automática de firstRowAsHeader y SkipLineCount en el Asistente para copia para archivos de texto en el sistema de archivos local y HDFS.
 - Mejora de la estabilidad de la conexión de red entre la puerta de enlace y Service Bus
 - Unas pocas correcciones de errores
 
 
-## <a name="2260721"></a>2.2.6072.1
+<a id="2260721" class="xliff"></a>
+
+## 2.2.6072.1
 
 *  Admite la configuración de proxy HTTP para la puerta de enlace con el Administrador de configuración de Data Management Gateway. Si está configurado, se accede a Blob de Azure, Tabla de Azure, Azure Data Lake y DocumentDB a través del proxy HTTP.
 *  Admite el control de encabezados para TextFormat al copiar datos en Blob de Azure, Azure Data Lake Store, el sistema de archivos local y el HDFS local como origen y destino.
@@ -95,15 +142,19 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 *  Introduce un nuevo estado de puerta de enlace **Online (Limited)**(En línea [limitado]), lo que indica que se puede utilizar sin problemas la funcionalidad principal de la puerta de enlace, pero la operación interactiva del Asistente para copia.
 *  Mejora la estabilidad del registro de puerta de enlace mediante la clave de registro.
 
-## <a name="216040"></a>2.1.6040.
+<a id="216040" class="xliff"></a>
 
-*  El controlador DB2 se incluye ahora en el paquete de instalación de la puerta de enlace. No es necesario instalarlo por separado. 
-*  El controlador DB2 ahora admite z/OS y DB2 para i (AS / 400) junto con las plataformas ya admitidas (Linux, Unix y Windows). 
+## 2.1.6040.
+
+*  El controlador DB2 se incluye ahora en el paquete de instalación de la puerta de enlace. No es necesario instalarlo por separado.
+*  El controlador DB2 ahora admite z/OS y DB2 para i (AS / 400) junto con las plataformas ya admitidas (Linux, Unix y Windows).
 *  Admite el uso de Azure Cosmos DB como origen o destino para almacenes de datos locales
-*  Admite la copia de datos desde/a blobs de almacenamiento en frío y en caliente junto con la cuenta de almacenamiento general ya admitida. 
+*  Admite la copia de datos desde/a blobs de almacenamiento en frío y en caliente junto con la cuenta de almacenamiento general ya admitida.
 *  Le permite conectarse a la instancia local de SQL Server a través de la puerta de enlace con privilegios de inicio de sesión remoto.  
 
-## <a name="2060131"></a>2.0.6013.1
+<a id="2060131" class="xliff"></a>
+
+## 2.0.6013.1
 
 *  Puede seleccionar el idioma o la referencia cultural que utilizará una puerta de enlace durante la instalación manual.
 
@@ -122,11 +173,15 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
     * Se ha mejorado el rendimiento al visualizar los esquemas y la vista previa en SQL Server mediante la herramienta de vista previa de copia sin código.
 
-## <a name="11259531"></a>1.12.5953.1
+<a id="11259531" class="xliff"></a>
+
+## 1.12.5953.1
 
 *  Corrección de errores
 
-## <a name="11159181"></a>1.11.5918.1
+<a id="11159181" class="xliff"></a>
+
+## 1.11.5918.1
 
 *  El tamaño máximo del registro de eventos de puerta de enlace ha aumentado de 1 MB a 40 MB.
 
@@ -140,13 +195,17 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 
 *  Corrección de errores
 
-## <a name="11058921"></a>1.10.5892.1
+<a id="11058921" class="xliff"></a>
+
+## 1.10.5892.1
 
 *  Mejoras en el rendimiento
 
 *  Corrección de errores
 
-## <a name="1958652"></a>1.9.5865.2
+<a id="1958652" class="xliff"></a>
+
+## 1.9.5865.2
 
 *  Funcionalidad de actualización automática sin intervención del usuario
 *  Icono de bandeja de nuevo con indicadores de estado de la puerta de enlace
@@ -157,34 +216,46 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
-## <a name="1858221"></a>1.8.5822.1
+<a id="1858221" class="xliff"></a>
+
+## 1.8.5822.1
 
 *  Mejora de la solución de problemas
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
-### <a name="1757951"></a>1.7.5795.1
+<a id="1757951" class="xliff"></a>
+
+### 1.7.5795.1
 
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
-### <a name="1757641"></a>1.7.5764.1
+<a id="1757641" class="xliff"></a>
+
+### 1.7.5764.1
 
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
-### <a name="1657351"></a>1.6.5735.1
+<a id="1657351" class="xliff"></a>
+
+### 1.6.5735.1
 
 *  Compatibilidad origen y receptor HDFS locales
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
-### <a name="1656961"></a>1.6.5696.1
+<a id="1656961" class="xliff"></a>
+
+### 1.6.5696.1
 
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
-### <a name="1656761"></a>1.6.5676.1
+<a id="1656761" class="xliff"></a>
+
+### 1.6.5676.1
 
 *  Compatibilidad con herramientas de diagnóstico de Administrador de configuración
 *  Columnas de la tabla de soporte técnico para orígenes de datos tabulares de la Factoría de datos de Azure
@@ -195,54 +266,72 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 *  Compatibilidad con la validación de conectividad de origen de datos para Factoría de datos de Azure
 *  Corrección de errores
 
-### <a name="1656721"></a>1.6.5672.1
+<a id="1656721" class="xliff"></a>
+
+### 1.6.5672.1
 
 *  Compatibilidad con nombre de tabla de origen de datos ODBC para Factoría de datos de Azure
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
-### <a name="1656581"></a>1.6.5658.1
+<a id="1656581" class="xliff"></a>
+
+### 1.6.5658.1
 
 *  Compatibilidad con receptor de archivos para Factoría de datos de Azure
 *  Compatibilidad con la conservación jerarquía en copia binaria para Factoría de datos de Azure
 *  Compatibilidad con idempotencia de la actividad de copia para Factoría de datos de Azure
 *  Corrección de errores
 
-### <a name="1656401"></a>1.6.5640.1
+<a id="1656401" class="xliff"></a>
+
+### 1.6.5640.1
 
 *  Compatibilidad con tres orígenes de datos más para Factoría de datos de Azure (ODBC, OData y HDFS)
 *  Compatibilidad con carácter de comillas en el analizador de archivos .csv para Factoría de datos de Azure
 *  Compatibilidad con compresión (BZip2)
 *  Corrección de errores
 
-### <a name="1556121"></a>1.5.5612.1
+<a id="1556121" class="xliff"></a>
+
+### 1.5.5612.1
 
 *  Compatibilidad con cinco bases de datos relacionales para Data Factory de Azure (MySQL, PostgreSQL, DB2, Teradata y Sybase)
 *  Compatibilidad de compresión (Gzip y Deflate)
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
-### <a name="1455491"></a>1.4.5549.1
+<a id="1455491" class="xliff"></a>
+
+### 1.4.5549.1
 
 *  Incorporación de compatibilidad de origen de datos Oracle para Factoría de datos de Azure
 *  Mejoras en el rendimiento
 *  Corrección de errores
 
-### <a name="1454921"></a>1.4.5492.1
+<a id="1454921" class="xliff"></a>
+
+### 1.4.5492.1
 
 *  Binario unificado que admite los servicios Factoría de datos de Microsoft Azure y Office 365 Power BI
 *  Restricción de la interfaz de usuario de configuración y del proceso de registro
 *  Factoría de datos de Azure: compatibilidad de entrada y salida de Azure con origen de datos SQL Server
 
-### <a name="1253031"></a>1.2.5303.1
+<a id="1253031" class="xliff"></a>
+
+### 1.2.5303.1
 
 *  Corrección del problema del tiempo de espera para admitir más conexiones de orígenes de datos que requieren mucho tiempo.
 
-### <a name="1155268"></a>1.1.5526.8
+<a id="1155268" class="xliff"></a>
+
+### 1.1.5526.8
 
 *  Requiere .NET Framework 4.5.1 como requisito previo durante la instalación.
 
-### <a name="1051442"></a>1.0.5144.2
+<a id="1051442" class="xliff"></a>
+
+### 1.0.5144.2
 
 *  No hay cambios que afecten a los escenarios de Factoría de datos de Azure.
 

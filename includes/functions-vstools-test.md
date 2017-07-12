@@ -1,0 +1,3 @@
+Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en el equipo de desarrollo local. Se le solicita que instale estas herramientas la primera vez que inicie una función de Visual Studio.  
+
+Para probar la función, haga clic con el botón derecho en el nodo del proyecto en el **Explorador de soluciones** y seleccione **Depurar** > **Iniciar nueva instancia**. Si se le solicita, acepte la solicitud de Visual Studio para descargar e instalar las herramientas de Azure Functions Core (CLI).  También es preciso que habilite una excepción de firewall para habilitar las herramientas para controlar las solicitudes de HTTP.

@@ -12,19 +12,76 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/11/2017
+ms.date: 6/6/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 51b5c32eb73dc70b4019e60342db659959cc93bb
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: e8c1f132dc2fb2cf0e7d4d47f278bd52d2d21190
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="azure-guest-os"></a>SO invitado de Azure
+<a id="azure-guest-os" class="xliff"></a>
+
+# SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
 
-## <a name="march-guest-os"></a>SO invitado de marzo
+<a id="may-guest-os" class="xliff"></a>
+
+## SO invitado de mayo
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| Rel 17-05 | [4019472] |Mejoras de calidad del SO WS 2016 |5.7 | 9 de mayo de 2017 |
+| Rel 17-05 | [4019263] |Indicador de seguridad de Windows |2.62 | 9 de mayo de 2017 |
+| Rel 17-05 | [4019213] |Indicador de seguridad de Windows |4.42 | 9 de mayo de 2017 |
+| Rel 17-05 | [4019214] |Indicador de seguridad de Windows |3.49 | 9 de mayo de 2017 |
+| Rel 17-05 | [4018271] |Actualización de seguridad acumulativa para Internet Explorer |3.49 | 9 de mayo de 2017 |
+| Rel 17-05 | [4010323] |Aviso de SHA1 |2.62, 4.42, 5.7 | 9 de mayo de 2017 |
+| Rel 17-05 | [4022344] |Documento informativo sobre seguridad de Microsoft |5.7 | 9 de mayo de 2017 |
+| Rel 17-05 | [4022345] |Documento informativo sobre seguridad de Microsoft |5.7 | 9 de mayo de 2017 |
+| Rel 17-05 | [4021279] |Aviso de .Net /ASP.Net Core |2.62, 3.49, 4.42, 5.7 | 9 de mayo de 2017 |
+| N/D | [4012864] |Actualización de zona horaria |2.62, 3.49, 4.42 | 9 de mayo de 2017 |
+| N/D | [4014565] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |2.62 | 9 de mayo de 2017 |
+| N/D | [4014559] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |2.62 | 9 de mayo de 2017 |
+| N/D | [4015549] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, abril |2.62 | 9 de mayo de 2017 |
+| N/D | [4019990] |Actualización de D3DCompiler, requisito de .NET 4.7 |3.49 | 9 de mayo de 2017 |
+| N/D | [4014563] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 9 de mayo de 2017 |
+| N/D | [4014557] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 9 de mayo de 2017 |
+| N/D | [4014545] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 9 de mayo de 2017 |
+| N/D | [4014548] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 9 de mayo de 2017 |
+| N/D | [4015551] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, abril |3.49 | 9 de mayo de 2017 |
+| N/D | [3173424] |Actualización de la pila de servicio  |4.42 | 9 de mayo de 2017 |
+| N/D | [4014555] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril  |4.42 | 9 de mayo de 2017 |
+| N/D | [4014567] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |4.42 | 9 de mayo de 2017 |
+| N/D | [4015550] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, abril |4.42 | 9 de mayo de 2017 |
+| N/D | [4013418] |Actualización de la pila de servicio |5.7 | 9 de mayo de 2017 |
+
+<a id="april-guest-os" class="xliff"></a>
+
+## SO invitado de abril
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| Rel 17-04 |  [4015217]  |Mejoras de calidad del SO WS 2016 | 5.6 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015546]  |Indicador de seguridad de Windows |2.61 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015547]  |Indicador de seguridad de Windows |4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015548]  |Indicador de seguridad de Windows |3.48 | 11 de abril de 2017 |
+| Rel 17-04 |  [4014661]  |Internet Explorer |2.61, 3.48, 4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |Seguridad de .NET |4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4014564]; [4014572]; [4014549] |Seguridad de .NET |3.48 | 11 de abril de 2017 |
+| Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |Seguridad de .NET |2.61 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | 11 de abril de 2017 |
+| Rel 17-04 |  [4015193]  |Cambios del horario de verano en Windows para Magallanes (Chile) |2.61, 3.48, 4.41 | 11 de abril de 2017 |
+| Rel 17-04 |  [4012215]  |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de marzo de 2017 para Windows 7 SP1 y Windows Server 2008 R2 SP1 |2.61 | 11 de abril de 2017 |
+| Rel 17-04 |  [4012217]  |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de marzo de 2017 para Windows Server 2012 |3.48 | 11 de abril de 2017 |
+| Rel 17-04 |  [4012216]  |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de marzo de 2017 para Windows 8.1 y Windows Server 2012 R2 |4.41 | 11 de abril de 2017 |
+
+<a id="march-guest-os" class="xliff"></a>
+
+## SO invitado de marzo
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Mejoras y correcciones | 5.5 | 14 de marzo de 2017 |
@@ -38,40 +95,44 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |  [3205401] |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de diciembre de 2016 para Windows 8.1 y Windows Server 2012 R2 |4.40 |14 de marzo de 2017 |
 | N/D |  [3211320] |Actualización de la pila de mantenimiento para Windows 10 versión 1607 y Windows Server 2016: 24 de enero de 2017 |5.5 |14 de marzo de 2017 |
 
+<a id="january-guest-os" class="xliff"></a>
 
-
-## <a name="january-guest-os"></a>SO invitado de enero
+## SO invitado de enero
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS17-004 | [3216771] |Actualización del Servicio de subsistema de autoridad de seguridad local |2.59 |10 de enero de 2017 |
 
-## <a name="december-guest-os"></a>SO invitado de diciembre
+<a id="december-guest-os" class="xliff"></a>
+
+## SO invitado de diciembre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Actualización de seguridad acumulativa para Internet Explorer |2.58, 3.46, 4.39 |13 de diciembre de 2016 |
 | MS16-145 |[3204062] |Actualización de seguridad acumulativa para Microsoft Edge |5.4 |13 de diciembre de 2016 |
-| MS16-146 |[3204066]    |Actualización de seguridad para el componente de gráficos de Microsoft|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
-| MS16-147 |[3204063]    |Actualización de seguridad para Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
-| MS16-149 |[3205655]    |Actualización de seguridad Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
-| MS16-150 |[3205642]    |Actualización de seguridad para el modo de kernel seguro |5.4 |13 de diciembre de 2016 |
-| MS16-151 |[3205651]    |Actualización de seguridad para controladores de modo kernel|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
-| MS16-152 |[3199709]    |Actualización de seguridad para el kernel de Windows |5.4 |13 de diciembre de 2016 |
+| MS16-146 |[3204066]   |Actualización de seguridad para el componente de gráficos de Microsoft|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
+| MS16-147 |[3204063]   |Actualización de seguridad para Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
+| MS16-149 |[3205655]   |Actualización de seguridad Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
+| MS16-150 |[3205642]   |Actualización de seguridad para el modo de kernel seguro |5.4 |13 de diciembre de 2016 |
+| MS16-151 |[3205651]   |Actualización de seguridad para controladores de modo kernel|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
+| MS16-152 |[3199709]   |Actualización de seguridad para el kernel de Windows |5.4 |13 de diciembre de 2016 |
 | MS16-153 |[3207328] |Actualización de seguridad para el controlador del Sistema de archivos de registro común|2.58, 3.46, 4.39, 5.4 |13 de diciembre de 2016 |
-| MS16-155 |[3205640]    |Actualización de seguridad para .NET Framework |5.4 |13 de diciembre de 2016 |
+| MS16-155 |[3205640]   |Actualización de seguridad para .NET Framework |5.4 |13 de diciembre de 2016 |
 | N/D |[3197868] |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de noviembre de 2016 para Windows 7 SP1 y Windows Server 2008 R2 SP1 |2.58 |13 de diciembre de 2016 |
 | N/D |[3197877] |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de noviembre de 2016 para Windows Server 2012 |3,46 |13 de diciembre de 2016 |
 | N/D |[3197874] |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de noviembre de 2016 para Windows 8.1 y Windows Server 2012 R2 |4.39 |13 de diciembre de 2016 |
 
-## <a name="november-guest-os"></a>SO invitado de noviembre
+<a id="november-guest-os" class="xliff"></a>
+
+## SO invitado de noviembre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Actualización de seguridad acumulativa para Microsoft Edge |5.3 |8 de noviembre de 2016 |
 | MS16-130 |[3199172] |Actualización de seguridad Microsoft Windows |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
-| MS16-131 |[3199151]    |Actualización de seguridad para Control de vídeo de Microsoft |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
+| MS16-131 |[3199151]   |Actualización de seguridad para Control de vídeo de Microsoft |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
 | MS16-132 |[3199120] |Actualización de seguridad para componentes de Microsoft |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
 | MS16-134 |[3193706] |Actualización de seguridad para el controlador del Sistema de archivos de registro común |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
 | MS16-135 |[3199135] |Actualización de seguridad para controladores de modo kernel |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
-| MS16-137 |[3199173]    |Actualización de seguridad para los métodos de autenticación de Windows |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
+| MS16-137 |[3199173]   |Actualización de seguridad para los métodos de autenticación de Windows |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
 | MS16-138 |[3199647] |Actualización de seguridad para la unidad de disco duro virtual de Microsoft |5.3, 4.38 y 3.45 |8 de noviembre de 2016 |
 | MS16-139 |[3199720] |Actualización de seguridad para el kernel de Windows |2.57 |8 de noviembre de 2016 |
 | MS16-140 |[3193479] |Actualización de seguridad para el Administrador de arranque |5.3, 4.38 y 3.45 |8 de noviembre de 2016 |
@@ -87,7 +148,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3199986] |Actualización para Windows 10 versión 1607 de conjunto de servicios: 27 de octubre de 2016 |5.3 |8 de noviembre de 2016 |
 | N/D |[3197954] |Actualización acumulativa para Windows 10 versión 1607 y Windows Server 2016. 27 de octubre de 2016 |5.3 |8 de noviembre de 2016 |
 
-## <a name="october-guest-os"></a>SO invitado de octubre
+<a id="october-guest-os" class="xliff"></a>
+
+## SO invitado de octubre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Actualización de seguridad acumulativa para Internet Explorer |4.37, 3.44, 2.56 |11 de octubre de 2016 |
@@ -102,7 +165,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3185279] |Paquete acumulativo de actualizaciones de septiembre de 2016 para Windows 8.1 y Windows Server 2012 R2 |4.37 |11 de octubre de 2016 |
 | N/D |[3194798] |Actualización acumulativa para Windows 10 versión 1607 y Windows Server 2016 |5.2 |11 de octubre de 2016 |
 
-## <a name="september-guest-os"></a>SO invitado de septiembre
+<a id="september-guest-os" class="xliff"></a>
+
+## SO invitado de septiembre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Actualización de seguridad acumulativa para Internet Explorer |4.36, 3.43, 2.55 |13 de septiembre de 2016 |
@@ -119,7 +184,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3179575] |Paquete acumulativo de actualizaciones de agosto de 2016 de Windows Server 2012 |3.43 |13 de septiembre de 2016 |
 | N/D |[3179574] |Paquete acumulativo de actualizaciones de agosto de 2016 para Windows RT 8.1, Windows 8.1 y Windows Server 2012 R2 |4.36 |13 de septiembre de 2016 |
 
-## <a name="august-guest-os"></a>SO invitado de agosto
+<a id="august-guest-os" class="xliff"></a>
+
+## SO invitado de agosto
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Actualización de seguridad acumulativa para Internet Explorer |4.35, 3.42, 2.54 |9 de agosto de 2016 |
@@ -133,7 +200,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3172615] |Paquete acumulativo de actualizaciones de julio de 2016 de Windows Server 2012 |3.42 |9 de agosto de 2016 |
 | N/D |[3172614] |Paquete acumulativo de actualizaciones de julio de 2016 para Windows RT 8.1, Windows 8.1 y Windows Server 2012 R2 |4.35 |9 de agosto de 2016 |
 
-## <a name="july-guest-os"></a>SO invitado de julio
+<a id="july-guest-os" class="xliff"></a>
+
+## SO invitado de julio
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Actualización de seguridad acumulativa para Internet Explorer |4.34, 3.41, 2.53 |12 de julio de 2016 |
@@ -149,7 +218,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3161606] |Paquete acumulativo de actualizaciones de junio de 2016 para Windows RT 8.1, Windows 8.1 y Windows Server 2012 R2 |4.34 |12 de julio de 2016 |
 | N/D |[3139923] |La reparación de Windows Installer (MSI) no funciona cuando se instala el paquete MSI en un recurso compartido HTTP en Windows |4.34 |12 de julio de 2016 |
 
-## <a name="june-guest-os"></a>SO invitado de junio
+<a id="june-guest-os" class="xliff"></a>
+
+## SO invitado de junio
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Actualización de seguridad de .NET Framework tratar la omisión de la característica de seguridad |4.33, 3.40, 2.52 |14 de junio de 2016 |
@@ -176,7 +247,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3156418] |Paquete acumulativo de actualizaciones de mayo de 2016 para Windows RT 8.1, Windows 8.1 y Windows Server 2012 R2 |4.33 |14 de junio de 2016 |
 | N/D |[3153731] |Actualización de mayo de 2016 de horario de verano para Azerbaiyán, Chile, Haití y Marruecos en Windows |4.33, 3.40, 2.52 |14 de junio de 2016 |
 
-## <a name="may-guest-os"></a>SO invitado de mayo
+<a id="may-guest-os" class="xliff"></a>
+
+## SO invitado de mayo
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Actualización de seguridad acumulativa para Internet Explorer |4.32, 3.39, 2.51 |10 de mayo de 2016 |
@@ -194,7 +267,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3123245] |La actualización mejora la identificación de agotamiento del puerto en Windows Server 2012 R2  |4.32 |10 de mayo de 2016 |
 | N/D |[Deshabilitar RC4] | Aviso de seguridad de Microsoft: actualización para deshabilitar RC4  |4.32, 3.39, 2.51 |10 de mayo de 2016 |
 
-## <a name="april-guest-os"></a>SO invitado de abril
+<a id="april-guest-os" class="xliff"></a>
+
+## SO invitado de abril
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Actualización de seguridad acumulativa para Internet Explorer |4.31, 3.38, 2.50 |12 de abril de 2016 |
@@ -205,7 +280,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS16-047 |[3148527] |Actualización de seguridad para protocolo remoto del Administrador de cuentas de seguridad |4.31, 3.38, 2.50 |12 de abril de 2016 |
 | MS16-048 |[3148528] |Actualización de seguridad para CSRSS |4.31, 3.38 |12 de abril de 2016 |
 
-## <a name="march-guest-os"></a>SO invitado de marzo
+<a id="march-guest-os" class="xliff"></a>
+
+## SO invitado de marzo
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Actualización de seguridad acumulativa para Internet Explorer |4.30, 3.37, 2.49 |8 de marzo de 2016 |
@@ -218,7 +295,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS16-033 |[3143142] |Actualización de seguridad del Controlador de clase de almacenamiento USB para tratar la elevación de privilegios |4.30, 3.37, 2.49 |8 de marzo de 2016 |
 | MS16-034 |[3143145] |Actualizaciones de seguridad del controlador modo kernel para tratar la elevación de privilegios |4.30, 3.37, 2.49 |8 de marzo de 2016 |
 
-## <a name="february-guest-os"></a>SO invitado de febrero
+<a id="february-guest-os" class="xliff"></a>
+
+## SO invitado de febrero
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Actualización de seguridad acumulativa para Internet Explorer |4.29, 3.36, 2.48 |9 de febrero de 2016 |
@@ -233,7 +312,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Volver a publicar la versión-MS15-118 |[3104507] |Actualización de seguridad de .NET Framework para tratar la elevación de privilegios |4.29, 3.36, 2.48 |9 de febrero de 2016 |
 | Volver a publicar la versión-MS15-128 |[3104503] |Actualizaciones de seguridad del componente de gráficos de Microsoft para tratar la ejecución remota de código |4.29, 3.36, 2.48 |9 de febrero de 2016 |
 
-## <a name="january-guest-os"></a>SO invitado de enero
+<a id="january-guest-os" class="xliff"></a>
+
+## SO invitado de enero
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Actualización de seguridad acumulativa para Internet Explorer |4.28, 3.35, 2.47 |12 de enero de 2016 |
@@ -246,7 +327,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Documento informativo sobre seguridad de Microsoft |[3123479] |Degradación del algoritmo hash SHA-1 para el Programa de certificados raíz de Microsoft |4.28, 3.35, 2.47 |12 de enero de 2016 |
 | Documento informativo sobre seguridad de Microsoft |[2736233] |Actualizaciones para bits de cierre de ActiveX |4.28, 3.35, 2.47 |12 de enero de 2016 |
 
-## <a name="december-guest-os"></a>SO invitado de diciembre
+<a id="december-guest-os" class="xliff"></a>
+
+## SO invitado de diciembre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS15-124 |[3116180] |Actualización de seguridad acumulativa para Internet Explorer |4.27, 3.34, 2.46 |8 de diciembre de 2015 |
@@ -258,7 +341,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-134 |[3108669] |Actualización de seguridad de Windows Media Center para tratar la ejecución remota de código |4.27, 3.34, 2.46 |8 de diciembre de 2015 |
 | MS15-135 |[3119075] |Actualización de seguridad de los controladores del modo del kernel de Windows para tratar la elevación de privilegios |4.27, 3.34, 2.46 |8 de diciembre de 2015 |
 
-## <a name="november-guest-os"></a>SO invitado de noviembre
+<a id="november-guest-os" class="xliff"></a>
+
+## SO invitado de noviembre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS15-112 |[3104517] |Actualización de seguridad acumulativa para Internet Explorer |4.26, 3.33, 2.45 |10 de noviembre de 2015 |
@@ -272,7 +357,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-122 |[3105256] |Actualización de seguridad de Kerberos tratar la omisión de la característica de seguridad |4.26, 3.33, 2.45 |10 de noviembre de 2015 |
 | Documento informativo sobre seguridad de Microsoft |[3097966] |La revelación de forma involuntaria de los certificados digitales puede provocar la suplantación de identidades |4.26, 3.33, 2.45 |10 de noviembre de 2015 |
 
-## <a name="october-guest-os"></a>SO invitado de octubre
+<a id="october-guest-os" class="xliff"></a>
+
+## SO invitado de octubre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS15-106 |[3096441] |Actualización de seguridad acumulativa para Internet Explorer |4.25, 3.32, 2.44 |13 de octubre de 2015 |
@@ -281,7 +368,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-111 |[3096447] |Actualización de seguridad del kernel de Windows para tratar la elevación de privilegios |4.25, 3.32, 2.44 |13 de octubre de 2015 |
 | Documento informativo sobre seguridad de Microsoft |[3092627] |Actualización de septiembre de 2015 para corregir bloqueos de Windows o de aplicaciones después de instalar la actualización de seguridad 3076895 |4.25, 3.32, 2.44 |13 de octubre de 2015 |
 
-## <a name="september-guest-os"></a>SO invitado de septiembre
+<a id="september-guest-os" class="xliff"></a>
+
+## SO invitado de septiembre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Actualización de seguridad para Internet Explorer |4.24, 3.31, 2.43 |8 de septiembre de 2015 |
@@ -293,7 +382,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-102 |[3089657] |Vulnerabilidades en la Administración de tareas de Windows podrían permitir la elevación de privilegios |4.24, 3.31, 2.43 |8 de septiembre de 2015 |
 | MS15-105 |[3091287] |Una vulnerabilidad en Windows Hyper-V podría permitir la omisión de la característica de seguridad |4.24 |8 de septiembre de 2015 |
 
-## <a name="august-guest-os"></a>SO invitado de agosto
+<a id="august-guest-os" class="xliff"></a>
+
+## SO invitado de agosto
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Actualización de seguridad acumulativa para Internet Explorer |4.23, 3.30, 2.42 |11 de agosto de 2015 |
@@ -305,7 +396,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-089 |[3060716] |Las vulnerabilidades de Microsoft Windows podrían permitir la elevación de privilegios |4.23, 3.30, 2.42 |11 de agosto de 2015 |
 | MS15-090 |[3076949] |Una vulnerabilidad en WebDAV podría permitir la divulgación de información |4.23, 3.30, 2.42 |11 de agosto de 2015 |
 
-## <a name="july-guest-os"></a>SO invitado de julio
+<a id="july-guest-os" class="xliff"></a>
+
+## SO invitado de julio
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Actualización de seguridad acumulativa para Internet Explorer |4.22, 3.29, 2.41 |14 de julio de 2015 |
@@ -322,7 +415,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-077 |[3077657] |Una vulnerabilidad en el controlador de fuentes ATM podría permitir la elevación de privilegios |4.22, 3.29, 2.41 |14 de julio de 2015 |
 | N/D |[3057154] |Actualización para restringir el uso del cifrado DES |4.22, 3.29, 2.41 |14 de julio de 2015 |
 
-## <a name="june-guest-os"></a>SO invitado de junio
+<a id="june-guest-os" class="xliff"></a>
+
+## SO invitado de junio
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Actualización de seguridad acumulativa para Internet Explorer |4,21; 3,28; 2,40 |9 de junio de 2015 |
@@ -332,7 +427,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-062 |[3062577] |Una vulnerabilidad en Servicios de federación de Active Directory podría permitir la elevación de privilegios |4,21; 3,28; 2,40 |9 de junio de 2015 |
 | MS15-063 |[3063858] |Una vulnerabilidad en el kernel de Windows podría permitir la elevación de privilegios |4,21; 3,28; 2,40 |9 de junio de 2015 |
 
-## <a name="may-guest-os"></a>SO invitado de mayo
+<a id="may-guest-os" class="xliff"></a>
+
+## SO invitado de mayo
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Actualización de seguridad acumulativa para Internet Explorer |4,20; 3,27; 2,39 |12 de mayo de 2015 |
@@ -355,12 +452,16 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-042 |[3047234] |Una vulnerabilidad en Windows Hyper-V podría permitir la denegación de servicio |4,20; 3,27; 2,39 |17 de abril de 2015 |
 | N/D |[3045755] |Actualización para mejorar la autenticación PKU2U |4,20; 3,27; 2,39 |17 de abril de 2015 |
 
-## <a name="april-guest-os"></a>SO invitado de abril
+<a id="april-guest-os" class="xliff"></a>
+
+## SO invitado de abril
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |Una vulnerabilidad en HTTP.sys podría permitir la ejecución remota de código |4.19, 3.26, 2.38 |17 de abril de 2015 |
 
-## <a name="march-guest-os"></a>SO invitado de marzo
+<a id="march-guest-os" class="xliff"></a>
+
+## SO invitado de marzo
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Actualización de seguridad acumulativa para Internet Explorer |4,18; 3,25; 2,37 |N/D |
@@ -380,7 +481,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 >
 >
 
-## <a name="february-guest-os"></a>SO invitado de febrero
+<a id="february-guest-os" class="xliff"></a>
+
+## SO invitado de febrero
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Actualización de seguridad para Internet Explorer |4,17; 3,24; 2,36 |N/D |
@@ -391,7 +494,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-016 |[3029944] |Una vulnerabilidad del componente de gráficos de Microsoft podría permitir la divulgación de información |4,17; 3,24; 2,36 |N/D |
 | N/D |[3004375] |Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota**: se instala pero la clave del registro para habilitarlo está desactivada |4,17; 3,24; 2,36 |N/D |
 
-## <a name="january-guest-os"></a>SO invitado de enero
+<a id="january-guest-os" class="xliff"></a>
+
+## SO invitado de enero
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |Una vulnerabilidad de Windows AppCompatCache podría permitir la elevación de privilegios |4,16; 3,23; 2,35 |19 de enero de 2015 |
@@ -406,7 +511,9 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-002 |[3020393] |Una vulnerabilidad del servicio Telnet de Windows podría provocar la ejecución remota de código |4,16; 3,23; 2,35 |19 de enero de 2015 |
 | MS15-002 |[3020393] |Una vulnerabilidad del servicio Telnet de Windows podría provocar la ejecución remota de código |4,16; 3,23; 2,35 |19 de enero de 2015 |
 
-## <a name="december-guest-os"></a>SO invitado de diciembre
+<a id="december-guest-os" class="xliff"></a>
+
+## SO invitado de diciembre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | N/D |[3013776] |El sistema se bloquea cuando se usa una cuenta de dominio para iniciar una aplicación |4,15; 3,22; 2,34 |13 de enero de 2015 |
@@ -420,6 +527,56 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3007054] |Siempre se muestra la opción de impresión protegida con PIN al imprimir un documento en una aplicación de la Tienda Windows en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 | N/D |[2999802] |Se imprimen líneas sólidas en lugar de líneas de puntos en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 | N/D |[2896881] |Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
+
+[4019472]: http://support.microsoft.com/kb/4019472
+[4019263]: http://support.microsoft.com/kb/4019263
+[4019213]: http://support.microsoft.com/kb/4019213
+[4019214]: http://support.microsoft.com/kb/4019214
+[4018271]: http://support.microsoft.com/kb/4018271
+[4010323]: http://support.microsoft.com/kb/4010323
+[4012864]: http://support.microsoft.com/kb/4012864
+[4014565]: http://support.microsoft.com/kb/4014565
+[4014559]: http://support.microsoft.com/kb/4014559
+[4015549]: http://support.microsoft.com/kb/4015549
+[4019990]: http://support.microsoft.com/kb/4019990
+[4014563]: http://support.microsoft.com/kb/4014563
+[4014557]: http://support.microsoft.com/kb/4014557
+[4014545]: http://support.microsoft.com/kb/4014545
+[4014548]: http://support.microsoft.com/kb/4014548
+[4015551]: http://support.microsoft.com/kb/4015551
+[3173424]: http://support.microsoft.com/kb/3173424
+[4014555]: http://support.microsoft.com/kb/4014555
+[4014567]: http://support.microsoft.com/kb/4014567
+[4015550]: http://support.microsoft.com/kb/4015550
+[4013418]: http://support.microsoft.com/kb/4013418
+[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
+
+
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015546]: http://support.microsoft.com/kb/4015546
+[4015547]: http://support.microsoft.com/kb/4015547
+[4015548]: http://support.microsoft.com/kb/4015548
+[4014661]: http://support.microsoft.com/kb/4014661
+[4014550]: http://support.microsoft.com/kb/4014550
+[4014560]: http://support.microsoft.com/kb/4014560
+[4014562]: http://support.microsoft.com/kb/4014562
+[4014556]: http://support.microsoft.com/kb/4014556
+[4014574]: http://support.microsoft.com/kb/4014574
+[4014564]: http://support.microsoft.com/kb/4014564
+[4014572]: http://support.microsoft.com/kb/4014572
+[4014549]: http://support.microsoft.com/kb/4014549
+[4014566]: http://support.microsoft.com/kb/4014566
+[4014552]: http://support.microsoft.com/kb/4014552
+[4014573]: http://support.microsoft.com/kb/4014573
+[4014558]: http://support.microsoft.com/kb/4014558
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015193]: http://support.microsoft.com/kb/4015193
+[4012215]: http://support.microsoft.com/kb/4012215
+[4012217]: http://support.microsoft.com/kb/4012217
+[4012216]: http://support.microsoft.com/kb/4012216
+
 
 [4013429]: http://support.microsoft.com/kb/4013429 
 [4012212]: http://support.microsoft.com/kb/4012212 

@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 8dbc951416d577fa7f534c2eab1605c6bee61fce
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Introducción a la creación de un equilibrador de carga interno (clásico) para servicios en la nube
+<a id="get-started-creating-an-internal-load-balancer-classic-for-cloud-services" class="xliff"></a>
+
+# Introducción a la creación de un equilibrador de carga interno (clásico) para servicios en la nube
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -30,7 +34,9 @@ ms.openlocfilehash: e32ffa81f7465682579eec92087b98aebbe3c4a8
 > [!IMPORTANT]
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
-## <a name="configure-internal-load-balancer-for-cloud-services"></a>Configuración del equilibrador de carga interno para los servicios en la nube
+<a id="configure-internal-load-balancer-for-cloud-services" class="xliff"></a>
+
+## Configuración del equilibrador de carga interno para los servicios en la nube
 
 El equilibrador de carga interno es compatible tanto con las máquinas virtuales como con los servicios en la nube. Un punto de conexión del equilibrador de carga interno creado en un servicio en la nube que está fuera de una red virtual regional solo será accesible dentro del servicio en la nube.
 
@@ -39,7 +45,9 @@ La configuración del equilibrador de carga interno se debe establecer durante l
 > [!IMPORTANT]
 > Un requisito previo para ejecutar los pasos siguientes es tener ya creada una red virtual para la implementación en la nube. Necesitarás el nombre de red virtual y el nombre de la subred para crear el Equilibrio de carga interno.
 
-### <a name="step-1"></a>Paso 1
+<a id="step-1" class="xliff"></a>
+
+### Paso 1
 
 Abre el archivo de configuración de servicio (.cscfg) para la implementación en la nube en Visual Studio y agrega la siguiente sección para crear el Equilibrio de carga interno en el último elemento «`</Role>`» para la configuración de red.
 
@@ -53,7 +61,7 @@ Abre el archivo de configuración de servicio (.cscfg) para la implementación e
 </NetworkConfiguration>
 ```
 
-Vamos a agregar los valores para que el archivo de configuración de red muestre su aspecto. En el ejemplo, supongamos que creó una subred que se llama "test_vnet" con una subred 10.0.0.0/24 denominada test_subnet y una dirección IP estática 10.0.0.4. El equilibrador de carga se denominará testLB.
+Vamos a agregar los valores para que el archivo de configuración de red muestre su aspecto. En el ejemplo, supongamos que creó una red virtual denominada "test_vnet" con una subred 10.0.0.0/24 denominada test_subnet y la dirección IP estática 10.0.0.4. El equilibrador de carga se denominará testLB.
 
 ```xml
 <NetworkConfiguration>
@@ -67,7 +75,9 @@ Vamos a agregar los valores para que el archivo de configuración de red muestre
 
 Para obtener más información sobre el esquema del equilibrador de carga, consulta [Agregar equilibrador de carga](https://msdn.microsoft.com/library/azure/dn722411.aspx)
 
-### <a name="step-2"></a>Paso 2
+<a id="step-2" class="xliff"></a>
+
+### Paso 2
 
 Cambia los archivos de definición (.csdef) para agregar extremos al Equilibrio de carga interno. Cuando se crea una instancia de rol, el archivo de definición de servicio agregará las instancias de rol al Equilibrio de carga interno.
 
@@ -91,15 +101,12 @@ Vamos a agregar los valores del archivo de definición de servicio siguiendo los
 
 La carga del tráfico de red se equilibrará mediante el equilibrador de carga testLB, en el que se usa el puerto 80 para las solicitudes entrantes y se envía a instancias de rol de trabajo también en el puerto 80.
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 
 [Configurar un modo de distribución del equilibrador de carga mediante la afinidad IP de origen](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

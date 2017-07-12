@@ -14,14 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 85a4c87447681bd21698143b4228d94c0877d1b9
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="configuring-an-app-service-environment"></a>Configuración de un entorno del Servicio de aplicaciones
-## <a name="overview"></a>Información general
+<a id="configuring-an-app-service-environment" class="xliff"></a>
+
+# Configuración de un entorno del Servicio de aplicaciones
+<a id="overview" class="xliff"></a>
+
+## Información general
 A un alto nivel, un entorno del Servicio de aplicaciones de Azure consta de varios componentes principales:
 
 * Los recursos de proceso que se ejecutan en el servicio hospedado del entorno del Servicio de aplicaciones
@@ -30,7 +36,9 @@ A un alto nivel, un entorno del Servicio de aplicaciones de Azure consta de vari
 * Una Red virtual de Azure (VNet) implementada según el modelo clásico (V1) o según el modelo de Resource Manager (V2) 
 * Una subred con el servicio hospedado del entorno del Servicio de aplicaciones que se ejecuta en él
 
-### <a name="compute-resources"></a>Recursos de proceso
+<a id="compute-resources" class="xliff"></a>
+
+### Recursos de proceso
 Utilice los recursos de proceso para los cuatro grupos de recursos.  Cada entorno del Servicio de aplicaciones (ASE) tiene un conjunto de servidores front-end y tres posibles grupos de trabajo. No es necesario usar los tres grupos de trabajo y, si lo desea, puede usar solo uno o dos.
 
 Los host de los grupos de recursos, los servidores front-end y los trabajos no son accesibles directamente para los inquilinos. No se puede usar el protocolo de escritorio remoto (RDP) para conectarse a ellos, cambiar su aprovisionamiento o actuar como un administrador en ellos.
@@ -64,15 +72,21 @@ Si las aplicaciones requieren un mayor tamaño de recursos de proceso, no le ser
 
 **Escalado automático**: Una de las herramientas que le pueden ayudar a administrar el consumo de recursos de proceso es el escalado automático. Este se puede aplicar a grupos de trabajo o servidores front-end. Puede, por ejemplo, aumentar las instancias de cualquier tipo de grupo por la mañana y reducirlo por la noche. O puede agregar instancias cuando la cantidad de trabajo disponible en un grupo de trabajo caiga por debajo de un umbral determinado.
 
-Si desea establecer reglas de escalado automático alrededor de métricas del grupo de recursos de proceso, tenga en cuenta el tiempo necesario para el aprovisionamiento. Para más detalles sobre el escalado automático de los entornos del App Service, consulte [Escalado automático y App Service Environment][ASEAutoscale].
+Si desea establecer reglas de escalado automático alrededor de métricas del grupo de recursos de proceso, tenga en cuenta el tiempo necesario para el aprovisionamiento. Para más detalles sobre el escalado automático de los entornos de App Service, consulte [Escalado automático y el entorno de App Service][ASEAutoscale].
 
-### <a name="storage"></a>Almacenamiento
+<a id="storage" class="xliff"></a>
+
+### Almacenamiento
 Cada ASE se configura con 500 GB de almacenamiento. Este espacio se usa en todas las aplicaciones del ASE. Este espacio de almacenamiento es parte del ASE y actualmente no se puede cambiar para usar su espacio de almacenamiento. Si va a realizar ajustes en el enrutamiento o la seguridad de la red virtual, debe seguir permitiendo el acceso a Almacenamiento de Azure o, de lo contrario, ASE no funcionará.
 
-### <a name="database"></a>Base de datos
+<a id="database" class="xliff"></a>
+
+### Base de datos
 La base de datos contiene la información que define el entorno, así como los detalles acerca de las aplicaciones que se ejecutan en él. Esto también forma parte de la suscripción mantenida en Azure. No es algo que tenga una capacidad directa para manipular. Si va a realizar ajustes en el enrutamiento o la seguridad de la red virtual, debe seguir permitiendo el acceso a SQL Azure o, de lo contrario, ASE no funcionará.
 
-### <a name="network"></a>Red
+<a id="network" class="xliff"></a>
+
+### Red
 La red virtual que se usa con el ASE puede ser una de las que hizo al crear el ASE o alguna que ya tuviera de antes. Si crea la subred durante la creación del ASE, obligará al ASE a permanecer en el mismo grupo de recursos que la red virtual. Si necesita el grupo de recursos que usa su ASE sea diferente de la red virtual, debe crear su ASE utilizando una plantilla de Resource Manager.
 
 Existen algunas restricciones en la red virtual que se aplican a un ASE:
@@ -82,7 +96,7 @@ Existen algunas restricciones en la red virtual que se aplican a un ASE:
 * Después de utilizar una subred para hospedar un ASE, no se puede cambiar el intervalo de direcciones de la subred. Por este motivo, se recomienda que la subred contenga al menos 64 direcciones para tener en cuenta el crecimiento futuro del ASE.
 * Puede que no haya nada más en la subred excepto el ASE.
 
-A diferencia del servicio hospedado que contiene el ASE, la [red virtual][virtualnetwork] y la subred están bajo el control del usuario.  Puede administrar la red virtual a través de la interfaz de usuario de la red virtual o de Powershell.  Un ASE se puede implementar en una red virtual según el modelo clásico o según el modelo de Resource Manager.  Las experiencias del portal y de la API son ligeramente diferentes para las redes virtuales implementadas según el modelo clásico y aquellas implementadas según el modelo de Resource Manager pero la experiencia del ASE es la misma.
+A diferencia del servicio hospedado que contiene el ASE, el usuario controla la [red virtual][virtualnetwork] y la subred.  Puede administrar la red virtual a través de la interfaz de usuario de la red virtual o de Powershell.  Un ASE se puede implementar en una red virtual según el modelo clásico o según el modelo de Resource Manager.  Las experiencias del portal y de la API son ligeramente diferentes para las redes virtuales implementadas según el modelo clásico y aquellas implementadas según el modelo de Resource Manager pero la experiencia del ASE es la misma.
 
 La red virtual que se utiliza para hospedar un ASE puede usar direcciones IP RFC1918 privadas o puede usar direcciones IP públicas.  Si desea usar un intervalo IP que no está cubierto por RFC1918 (10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16), deberá crear la red virtual y la subred que va a usar el ASE antes de la creación de este.
 
@@ -90,16 +104,20 @@ Dado que esta funcionalidad coloca el Servicio de aplicaciones de Azure en la re
 
 Por ejemplo, puede usar la integración de red virtual para integrarse con una red virtual que está en su suscripción, pero que no está conectada a la red virtual en la que se encuentra el ASE. También puede usar las conexiones híbridas para tener acceso a los recursos de otras redes, de la manera habitual.  
 
-Si la red virtual está configurada con una VPN de ExpressRoute, debe tener en cuenta las necesidades de enrutamiento que tenga un ASE. Existen algunas configuraciones de rutas definidas por el usuario (UDR) que son incompatibles con un ASE. Para obtener información detallada respecto a la ejecución de un ASE en una red virtual con ExpressRoute, consulte el siguiente documento: [Detalles de configuración de red para entornos del App Service con ExpressRoute][ExpressRoute].
+Si la red virtual está configurada con una VPN de ExpressRoute, debe tener en cuenta las necesidades de enrutamiento que tenga un ASE. Existen algunas configuraciones de rutas definidas por el usuario (UDR) que son incompatibles con un ASE. Para información detallada respecto a la ejecución de un ASE en una red virtual con ExpressRoute, consulte el artículo sobre la [ejecución de un entorno de App Service en una red virtual con ExpressRoute][ExpressRoute].
 
-#### <a name="securing-inbound-traffic"></a>Protección del tráfico de entrada
+<a id="securing-inbound-traffic" class="xliff"></a>
+
+#### Protección del tráfico de entrada
 Hay dos métodos principales para controlar el tráfico entrante en el ASE.  Puede utilizar grupos de seguridad de red (NSG) para controlar qué direcciones IP pueden tener acceso al ASE como se describe aquí [Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones](app-service-app-service-environment-control-inbound-traffic.md) y también puede configurar el ASE con un equilibrador de carga interno (ILB).  Estas características también pueden utilizarse a la vez si desea restringir el acceso mediante los NSG al ASE del ILB.
 
 Cuando se crea un ASE, este creará a una dirección VIP de la red virtual.  Hay dos tipos de direcciones VIP, internas y externas.  Cuando se crea un ASE con una dirección VIP externa, se podrá acceder a las aplicaciones del ASE a través de una dirección IP enrutable de Internet. Si selecciona una dirección VIP interna, el ASE se configurara con un ILB y no podrá acceder directamente a ella a través de Internet.  Un ASE del ILB seguirá necesitando una dirección VIP externa pero solo se utilizará para la administración de Azure y el acceso de mantenimiento.  
 
-Durante la creación del ASE del ILB deberá proporcionar el subdominio utilizado por este y tendrá que administrar su propio DNS para el subdominio que especifique.  Puesto que ha establecido el nombre del subdominio deberá administrar también el certificado usado para el acceso HTTPS.  Después de la creación del ASE se le pedirá que proporcione el certificado.  Para más información sobre la creación y utilización de un ASE del ILB, lea [Uso de un equilibrador de carga interno con un entorno del App Service][ILBASE]. 
+Durante la creación del ASE del ILB deberá proporcionar el subdominio utilizado por este y tendrá que administrar su propio DNS para el subdominio que especifique.  Puesto que ha establecido el nombre del subdominio deberá administrar también el certificado usado para el acceso HTTPS.  Después de la creación del ASE se le pedirá que proporcione el certificado.  Para más información sobre la creación y utilización de un ASE del ILB, lea [Uso de un equilibrador de carga interno con un entorno de App Service][ILBASE]. 
 
-## <a name="portal"></a>Portal
+<a id="portal" class="xliff"></a>
+
+## Portal
 Puede administrar y supervisar el entorno del Servicio de aplicaciones mediante la interfaz de usuario que está disponible en el Portal de Azure. Si tiene un ASE, es probable que vea el símbolo del Servicio de aplicaciones en la barra lateral. Este símbolo se usa para representar entornos del Servicio de aplicaciones en el Portal de Azure:
 
 ![Símbolo del entorno del Servicio de aplicaciones][1]
@@ -110,7 +128,9 @@ Para abrir la interfaz de usuario que muestra todos los entornos del Servicio de
 
 La primera hoja muestra algunas de las propiedades del ASE junto con un gráfico de métrica por grupo de recursos. Algunas de las propiedades que aparecen en el bloque **Essentials** también son hipervínculos que abrirán la hoja asociada. Por ejemplo puede seleccionar el nombre de la **red virtual** para abrir la interfaz de usuario asociada a la red virtual en la que se ejecuta el ASE. Los **planes de App Service** y las **aplicaciones** abren hojas que muestran los elementos que se encuentran en el ASE.  
 
-### <a name="monitoring"></a>Supervisión
+<a id="monitoring" class="xliff"></a>
+
+### Supervisión
 Los gráficos le permiten ver una variedad de estadísticas de rendimiento de cada grupo de recursos. Para el grupo de servidores front-end, puede supervisar la CPU y la memoria promedio. Para grupos de trabajo, puede supervisar la cantidad que se usa y la cantidad que está disponible.
 
 Varios planes del Servicio de aplicaciones pueden usar los trabajos en un grupo de trabajo. La carga de trabajo no se distribuye de la misma manera que en los servidores front-end; por tanto, el uso de CPU y memoria no proporciona una gran cantidad de información útil. Es más importante realizar el seguimiento de cuántos trabajos usó y están disponibles, sobre todo si va a administrar este sistema para que otros lo usen.  
@@ -123,14 +143,16 @@ Las métricas que acabamos de analizar son las métricas el entorno del Servicio
 
 En un ASE, todos los planes del Servicio de aplicaciones son planes dedicados. Esto significa que las únicas aplicaciones que se ejecutan en los hosts asignados a dicho plan del Servicio de aplicaciones son las aplicaciones de este plan. Para ver los detalles del plan del Servicio de aplicaciones, muéstrelo desde cualquiera de las listas de la interfaz de usuario del ASE o examine los **planes del Servicio de aplicaciones** que enumeran todos ellos.   
 
-### <a name="settings"></a>Settings
+<a id="settings" class="xliff"></a>
+
+### Settings
 En la hoja del ASE hay una sección de **configuración** que contiene varias funcionalidades importantes:
 
 **Configuración** > **Propiedades**: la hoja **Configuración** se abrirá automáticamente cuando acceda a la hoja del ASE. En la parte superior se encuentra **Propiedades**. Hay una serie de elementos aquí que son redundantes con lo que ve en **Essentials**, aunque lo que es muy útil es la **dirección IP virtual**, así como la **dirección IP saliente**.
 
 ![Hoja de configuración y propiedades][4]
 
-**Settings** > **Direcciones IP**: Al crear una aplicación de capa de sockets seguros (SSL) de IP en el ASE, necesita una dirección SSL de IP. Para obtener una, el ASE debe tener algunas direcciones SSL de IP que se puedan asignar. Cuando se crea un ASE, este tiene una dirección SSL de IP para este propósito, pero puede agregar más. Las direcciones de SSL de IP adicionales conllevan un cargo, como se muestra en los [precios de App Service][AppServicePricing], en la sección sobre las conexiones SSL. El precio adicional es el precio de SSL de IP.
+**Settings** > **Direcciones IP**: Al crear una aplicación de capa de sockets seguros (SSL) de IP en el ASE, necesita una dirección SSL de IP. Para obtener una, el ASE debe tener algunas direcciones SSL de IP que se puedan asignar. Cuando se crea un ASE, este tiene una dirección SSL de IP para este propósito, pero puede agregar más. Las direcciones SSL de IP adicionales conllevan un cargo, como se muestra en los [precios de App Service][AppServicePricing], en la sección sobre las conexiones SSL. El precio adicional es el precio de SSL de IP.
 
 **Configuración** > **Grupo de servidores front-end** / **Grupos de trabajo**: cada una de estas hojas del grupo de recursos ofrece la posibilidad de ver información únicamente acerca de ese grupo de recursos, además de proporcionar controles para escalar completamente ese grupo de recursos.  
 
@@ -138,7 +160,9 @@ La hoja base de cada grupo de recursos proporciona un gráfico con métricas de 
 
 ![Interfaz de usuario de configuración de grupo de trabajo][5]
 
-### <a name="portal-scale-capabilities"></a>Funcionalidad de escalado del portal
+<a id="portal-scale-capabilities" class="xliff"></a>
+
+### Funcionalidad de escalado del portal
 Hay tres operaciones de escala:
 
 * Cambio del número de direcciones IP en el ASE que están disponibles para el uso de SSL de IP.
@@ -159,7 +183,9 @@ Para usar las funcionalidades de escalado manual o automático en un grupo de re
 
 ![Interfaz de usuario de configuración de escalado][7]
 
-## <a name="fault-tolerance-considerations"></a>Consideraciones de tolerancia a errores
+<a id="fault-tolerance-considerations" class="xliff"></a>
+
+## Consideraciones de tolerancia a errores
 Puede configurar un entorno del Servicio de aplicaciones para usar hasta 55 recursos de proceso en total. De esos 55 recursos de proceso, solamente 50 se pueden usar para hospedar cargas de trabajo. El motivo es de esto es doble. Hay un mínimo de 2 recursos de proceso front-end.  Esto deja hasta 53 para admitir la asignación de grupos de trabajo. Para proporcionar tolerancia a errores, necesita tener un recurso de proceso adicional asignado según las reglas siguientes:
 
 * Cada grupo de trabajo necesita al menos un recurso de proceso adicional al que no se puede asignar cargas de trabajo.
@@ -180,12 +206,16 @@ La superficie mínima tiene dos servidores front-end y dos trabajos.  Con las in
 
 El aspecto de la tolerancia a errores es importante, pero debe tenerlo en cuenta cuando la escala supera determinados umbrales. Si desea agregar más capacidad a partir de 20 instancias, en este caso elija 22 o un valor superior ya que 21 no agregará más capacidad. Lo mismo puede decirse por encima de 40, donde el número siguiente que agrega capacidad es 42.  
 
-## <a name="deleting-an-app-service-environment"></a>Eliminación de un entorno del Servicio de aplicaciones
+<a id="deleting-an-app-service-environment" class="xliff"></a>
+
+## Eliminación de un entorno del Servicio de aplicaciones
 Si desea eliminar un entorno del Servicio de aplicaciones, simplemente utilice la acción **Eliminar** que se encuentra en la parte superior de la hoja Entorno del Servicio de aplicaciones. Al hacerlo, se le pedirá que escriba el nombre del entorno del Servicio de aplicaciones para confirmar que realmente quiere hacerlo. Tenga en cuenta que cuando se elimina un entorno del Servicio de aplicaciones, se elimina también todo su contenido.  
 
 ![Eliminación de la interfaz de usuario de un entorno del Servicio de aplicaciones][9]  
 
-## <a name="getting-started"></a>Introducción
+<a id="getting-started" class="xliff"></a>
+
+## Introducción
 Para empezar a trabajar con los entornos del Servicio de aplicaciones, consulte [Creación de un entorno del Servicio de aplicaciones](app-service-web-how-to-create-an-app-service-environment.md).
 
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
@@ -217,9 +247,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

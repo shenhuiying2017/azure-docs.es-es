@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 146aa7706b5ff2a613dd94c75f3ad447ace82834
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 3b0fe2a300038e13cc488bdb4f50f8be270ea8f4
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="how-to-use-properties-in-azure-api-management-policies"></a>Uso de propiedades en directivas de Administración de API de Azure
+<a id="how-to-use-properties-in-azure-api-management-policies" class="xliff"></a>
+
+# Uso de propiedades en directivas de Administración de API de Azure
 En Administración de API, las directivas constituyen una eficaz funcionalidad del sistema que permite al editor cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Las instrucciones de las directivas se pueden crear con valores de texto literal, expresiones de directiva y propiedades. 
 
 Cada instancia del servicio de Administración de API tiene una colección de propiedades de pares clave-valor que son globales para la instancia del servicio. Estas propiedades se pueden utilizar para administrar los valores constantes de la cadena en todas las directivas y la configuración de API. Cada propiedad tiene también los siguientes atributos.
@@ -44,7 +48,9 @@ Los valores de propiedad pueden contener cadenas literales y [expresiones de dir
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
-## <a name="to-use-a-property"></a>Uso de una propiedad
+<a id="to-use-a-property" class="xliff"></a>
+
+## Uso de una propiedad
 Para utilizar una propiedad en una directiva, coloque el nombre de la propiedad dentro de un par doble de llaves (como `{{ContosoHeader}}`), de la misma forma que se muestra en el ejemplo siguiente.
 
 ```xml
@@ -77,7 +83,9 @@ Si busca en el [seguimiento de API Inspector](api-management-howto-api-inspector
 
 Tenga en cuenta que, a pesar de que los valores de propiedad pueden contener expresiones de directiva, no pueden contener otras propiedades. Si se utiliza texto que contiene una referencia de propiedad para un valor de propiedad, como `Property value text {{MyProperty}}`, esa referencia de propiedad no se reemplazará y se incluirá como parte del valor de la propiedad.
 
-## <a name="to-create-a-property"></a>Creación de una propiedad
+<a id="to-create-a-property" class="xliff"></a>
+
+## Creación de una propiedad
 Para crear una propiedad, haga clic en **Agregar propiedad** en la pestaña **Propiedades**.
 
 ![Agregar propiedad][api-management-properties-add-property-menu]
@@ -92,7 +100,9 @@ Cuando se guarda una nueva propiedad, el cuadro de texto **Search property (Busc
 
 Para obtener información sobre cómo crear una propiedad mediante la API de REST, consulte [Create a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put)(Creación de una propiedad mediante la API de REST).
 
-## <a name="to-edit-a-property"></a>Edición de una propiedad
+<a id="to-edit-a-property" class="xliff"></a>
+
+## Edición de una propiedad
 Para editar una propiedad, haga clic en **Edit (Editar)** junto a la propiedad que se va a editar.
 
 ![Editar propiedad][api-management-properties-edit]
@@ -103,7 +113,9 @@ Realice los cambios necesarios y haga clic en **Save (Guardar)**. Si cambia el n
 
 Para obtener información sobre cómo editar una propiedad mediante la API de REST, consulte [Edit a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch)(Edición de una propiedad mediante la API de REST).
 
-## <a name="to-delete-a-property"></a>Eliminación de una propiedad
+<a id="to-delete-a-property" class="xliff"></a>
+
+## Eliminación de una propiedad
 Para eliminar una propiedad, haga clic en **Delete (Eliminar)** junto a la propiedad que se va a eliminar.
 
 ![Eliminar propiedad][api-management-properties-delete]
@@ -119,7 +131,9 @@ Haga clic en **Sí, eliminar** para confirmar.
 
 Para obtener información sobre cómo eliminar una propiedad mediante la API de REST, consulte [Delete a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete)(Eliminación de una propiedad mediante la API de REST).
 
-## <a name="to-search-and-filter-properties"></a>Búsqueda y filtrado de propiedades
+<a id="to-search-and-filter-properties" class="xliff"></a>
+
+## Búsqueda y filtrado de propiedades
 En la pestaña **Properties (Propiedades)** se incluyen las funcionalidades de búsqueda y filtrado para ayudarle a administrar las propiedades. Para filtrar la lista de propiedades por el nombre de la propiedad, escriba un término de búsqueda en el cuadro de texto **Search property (Buscar propiedad)** . Para mostrar todas las propiedades, borre el cuadro de texto **Search property (Buscar propiedad)** y pulse la tecla Entrar.
 
 ![Search][api-management-properties-search]
@@ -128,13 +142,17 @@ Para filtrar la lista de propiedades por valores de etiqueta, escriba una o vari
 
 ![Filtrar][api-management-properties-filter]
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * Obtenga más información sobre cómo trabajar con directivas
   * [Directivas de Administración de API de Azure](api-management-howto-policies.md)
   * [Referencia de directiva](https://msdn.microsoft.com/library/azure/dn894081.aspx)
   * [Policy expressions (Expresiones de directiva)](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
-## <a name="watch-a-video-overview"></a>Vea un vídeo de introducción.
+<a id="watch-a-video-overview" class="xliff"></a>
+
+## Vea un vídeo de introducción.
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Use-Properties-in-Policies/player]
 > 
 > 
@@ -151,10 +169,5 @@ Para filtrar la lista de propiedades por valores de etiqueta, escriba una o vari
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

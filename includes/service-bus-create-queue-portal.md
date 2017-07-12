@@ -2,7 +2,7 @@ Asegúrese de haber creado antes un espacio de nombres de Service Bus, como se m
 
 1. Inicie sesión en [Azure Portal][azure-portal].
 2. En el panel de navegación izquierdo del portal, haga clic en **Service Bus** (si no ve **Service Bus**, haga clic en **Más servicios**).
-3. Seleccione el espacio de nombres donde desea crear la cola. En este caso, es **nstest1**.
+3. Haga clic en el espacio de nombres en el que desea crear la cola. En este caso, es **nstest1**.
    
     ![Creación de una cola][createqueue1]
 4. En la hoja **Espacio de nombres de Service Bus**, seleccione **Colas** y, a continuación, haga clic en **Agregar cola**.
