@@ -1,4 +1,6 @@
-### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Creación de un extremo TCP para la máquina virtual
+<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
+
+### Creación de un extremo TCP para la máquina virtual
 Para poder acceder a SQL Server desde Internet, la máquina virtual debe tener un extremo para escuchar la comunicación TCP de entrada. Este paso de la configuración de Azure dirige el tráfico del puerto TCP de entrada a un puerto TCP al que puede tener acceso la máquina virtual.
 
 > [!NOTE]

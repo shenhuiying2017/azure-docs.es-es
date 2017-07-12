@@ -1,0 +1,35 @@
+<!--author=alkohli last changed: 01/12/17-->
+
+<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
+
+#### Para completar la instalación mínima del dispositivo StorSimple
+
+1. En la lista tabular de dispositivos de la hoja **Dispositivos**, seleccione su dispositivo y haga clic en él. El dispositivo está en estado **Listo para configurar**. Se abre la hoja **Configurar dispositivo**.
+
+     ![Interfaces de red de la instalación mínima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
+
+2. En la hoja **Configurar dispositivo**:
+   
+   1. Proporcione un **nombre descriptivo** para el dispositivo. El nombre de dispositivo predeterminado refleja información como el modelo de dispositivo y el número de serie. Puede asignar un nombre descriptivo de hasta 64 caracteres para administrar el dispositivo.
+   2. Establezca la **zona horaria** según la ubicación geográfica en la que se va a implementar el dispositivo. El dispositivo usa esta zona horaria para todas las operaciones programadas.
+   3. En la **configuración de DATOS 0**:
+
+       1. La interfaz de red de DATOS 0 se muestra como habilitada con la configuración de red (IP, subred, puerta de enlace) definida mediante el Asistente para instalación. DATOS 0 también se habilita automáticamente para la nube y para iSCSI.
+
+       2. Proporcione las direcciones IP fijas de Controlador 0 y Controlador 1. **Las direcciones IP fijas del controlador deben ser direcciones IP libres dentro de la subred y accesibles mediante la dirección IP del dispositivo.** Si la interfaz DATA 0 estaba configurada para IPv4, las direcciones IP fijas deben suministrarse en formato IPv4. Si proporcionó un prefijo para la configuración de IPv6, las direcciones IP fijas se rellenan automáticamente en estos campos.
+
+            ![Interfaces de red de la instalación mínima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
+
+            Las direcciones IP fijas del controlador se usan para el mantenimiento de las actualizaciones del dispositivo. Por lo tanto, las direcciones IP fijas deben ser enrutables y disponer de capacidad de conexión a Internet. Para comprobar que sus IP de controlador fijas son enrutables, use el cmdlet [Test-HcsmConnection][Test]. En el ejemplo siguiente se muestra que las direcciones IP fijas del controlador se enrutan a Internet y pueden tener acceso a los servidores de Microsoft Update.
+
+            ![Test-HcsmConnection que muestra direcciones IP enrutables](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig3.png)
+
+1. Haga clic en **Aceptar**. Se inicia la configuración del dispositivo. Cuando finalice, recibirá una notificación. El estado del dispositivo cambia a **En línea** en la hoja **Dispositivos**.
+
+    ![Interfaces de red de la instalación mínima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
+
+   > [!NOTE]
+   > Puede modificar el resto de la configuración del dispositivo en cualquier desde la hoja **Configuración del dispositivo**.
+
+<!--Link reference-->
+[Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
