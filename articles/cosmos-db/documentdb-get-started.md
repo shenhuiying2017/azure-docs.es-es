@@ -12,18 +12,20 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/22/2017
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5855b0542ca2ec58f3a24efcc2cf7a96fb92da0f
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 22244cbb85e3d0256b9f495f406942dd2b4b95fc
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: tutorial de introducción a las API de DocumentDB
+<a id="azure-cosmos-db-documentdb-api-getting-started-tutorial" class="xliff"></a>
+
+# Azure Cosmos DB: tutorial de introducción a las API de DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -54,14 +56,18 @@ Después, utilice los botones de votación situados en la parte superior o infer
 
 Comencemos.
 
-## <a name="prerequisites"></a>Requisitos previos
+<a id="prerequisites" class="xliff"></a>
+
+## Requisitos previos
 Asegúrese de que dispone de lo siguiente:
 
 * Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/). 
     * Como alternativa, en este tutorial puede usar el [Emulador de Azure Cosmos DB](local-emulator.md).
 * [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Paso 1: Creación de una cuenta de Azure Cosmos DB
+<a id="step-1-create-an-azure-cosmos-db-account" class="xliff"></a>
+
+## Paso 1: Creación de una cuenta de Azure Cosmos DB
 Vamos a crear una cuenta de Azure Cosmos DB. Si ya tiene una cuenta que desea usar, puede ir directamente a [Configuración de la solución de Visual Studio](#SetupVS). Si usa el Emulador de Azure Cosmos DB, siga los pasos que se indican en [Emulador de Azure Cosmos DB](local-emulator.md) para configurar el emulador y vaya directamente a [Configuración de la solución de Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -162,7 +168,9 @@ Presione **F5** para ejecutar la aplicación. La salida de la ventana de consola
 
 ¡Enhorabuena! Se ha conectado correctamente a una cuenta de Azure Cosmos DB y ahora se explicará cómo trabajar con recursos de Azure Cosmos DB.  
 
-## <a name="step-4-create-a-database"></a>Paso 4: Creación de una base de datos
+<a id="step-4-create-a-database" class="xliff"></a>
+
+## Paso 4: Creación de una base de datos
 Antes de agregar el código para crear una base de datos, agregue un método auxiliar para escribirlo en la consola.
 
 Copie y pegue el método **WriteToConsoleAndPromptToContinue** después del método **GetStartedDemo**.
@@ -192,7 +200,7 @@ Presione **F5** para ejecutar la aplicación.
 
 ## <a id="CreateColl"></a>Paso 5: Creación de una colección
 > [!WARNING]
-> **CreateDocumentCollectionIfNotExistsAsync** creará una nueva colección con un rendimiento reservado, lo que tiene implicaciones en los precios. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/documentdb/).
+> **CreateDocumentCollectionIfNotExistsAsync** creará una nueva colección con un rendimiento reservado, lo que tiene implicaciones en los precios. Para obtener más información, visite nuestra [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
@@ -543,7 +551,9 @@ Para restaurar las referencias al SDK de DocumentDB para .NET en Visual Studio, 
 Y, eso es todo, genérela y habrá terminado.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * ¿Desea un tutorial de ASP.NET MVC más complejo? Consulte el artículo sobre la [Creación de una aplicación web con ASP.NET MVC mediante Azure Cosmos DB](documentdb-dotnet-application.md).
 * ¿Desea realizar pruebas de escala y de rendimiento con Azure Cosmos DB? Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md)
 * Obtenga información acerca de cómo [supervisar una cuenta de Azure Cosmos DB](monitor-accounts.md).
