@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-take-a-backup" class="xliff"></a>
-
 ### Para realizar una copia de seguridad
+<a id="to-take-a-backup" class="xliff"></a>
 
 1. Vaya al servicio StorSimple Device Manager. En la lista tabular de dispositivos, seleccione y haga clic en su dispositivo y después en **Toda la configuración**. En la hoja **Configuración**, vaya a **Configuración > Administrar > Directiva de copia de seguridad**.
 

@@ -21,9 +21,8 @@ ms.contentlocale: es-es
 ms.lasthandoff: 07/12/2017
 
 ---
-<a id="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services" class="xliff"></a>
-
 # Introducción a Azure Multi-Factor Authentication y a los Servicios de federación de Active Directory
+<a id="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services" class="xliff"></a>
 <center>![Nube](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Si su organización ha federado su Active Directory local con Azure Active Directory mediante AD FS, tiene a su disposición dos opciones para usar Azure Multi-Factor Authentication.
@@ -45,9 +44,8 @@ Advertencias sobre las contraseñas de aplicación para usuarios federados:
 * Se pierde la capacidad de registro de autenticación local para las contraseñas de aplicación.
 * La deshabilitación o eliminación de la cuenta puede tardar hasta 3 horas en la sincronización de directorios, retrasando la deshabilitación o eliminación de las contraseñas de aplicación en la identidad de nube.
 
-<a id="next-steps" class="xliff"></a>
-
 ## Pasos siguientes
+<a id="next-steps" class="xliff"></a>
 Para información sobre cómo configurar Azure Multi-Factor Authentication o Servidor Azure Multi-Factor Authentication con AD FS, consulte los siguientes artículos:
 
 * [Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS](multi-factor-authentication-get-started-adfs-cloud.md)

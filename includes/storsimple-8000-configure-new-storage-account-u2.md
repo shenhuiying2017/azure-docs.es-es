@@ -1,9 +1,8 @@
 <!--author=alkohli last changed: 01/20/17-->
 
 
-<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
-
 #### Para agregar una credencial de cuenta de almacenamiento en la misma suscripción que el servicio StorSimple Device Manager, siga estos pasos:
+<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
 
 1. Vaya al servicio StorSimple Device Manager. En la sección **Configuración**, haga clic en **Credenciales de cuenta de almacenamiento**.
 

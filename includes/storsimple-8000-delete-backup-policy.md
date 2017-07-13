@@ -1,9 +1,8 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-<a id="to-delete-a-storsimple-backup-policy" class="xliff"></a>
-
 #### Para eliminar una directiva de copia de seguridad de StorSimple
+<a id="to-delete-a-storsimple-backup-policy" class="xliff"></a>
 
 1. Vaya al dispositivo StorSimple y haga clic en **Directiva de copia de seguridad**.
 

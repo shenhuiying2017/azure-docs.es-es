@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
-
 #### Para completar la instalación mínima del dispositivo StorSimple
+<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
 
 1. En la lista tabular de dispositivos de la hoja **Dispositivos**, seleccione su dispositivo y haga clic en él. El dispositivo está en estado **Listo para configurar**. Se abre la hoja **Configurar dispositivo**.
 

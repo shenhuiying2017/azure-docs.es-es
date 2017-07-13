@@ -1,9 +1,8 @@
 <!--author=alkohli last changed: 01/02/17-->
 
 
-<a id="to-add-or-remove-a-volume" class="xliff"></a>
-
 #### Para agregar o quitar un volumen, siga estos pasos:
+<a id="to-add-or-remove-a-volume" class="xliff"></a>
 
 1. Vaya al dispositivo StorSimple y haga clic en **Directiva de copia de seguridad**.
 

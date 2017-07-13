@@ -1,9 +1,8 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-<a id="to-add-or-modify-a-storsimple-backup-schedule" class="xliff"></a>
-
 #### Para agregar o modificar una programación de copia de seguridad de StorSimple
+<a id="to-add-or-modify-a-storsimple-backup-schedule" class="xliff"></a>
 
 1. Vaya al dispositivo StorSimple y haga clic en **Directiva de copia de seguridad**.
 

@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
-
 #### Para agregar una directiva de copia de seguridad de StorSimple
+<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
 
 1. Vaya al dispositivo StorSimple y haga clic en **Directiva de copia de seguridad**.
 
