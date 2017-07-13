@@ -12,18 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 04/24/2017
+ms.date: 06/05/2017
 ms.author: alok;rotimpe
-translationtype: Human Translation
-ms.sourcegitcommit: a384756abaca45fc6863f8bc59dc3d6cb4fa974a
-ms.openlocfilehash: ae9a4f99d5b38944f38534021523e2153ce7f0d0
-ms.lasthandoff: 01/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 5ddc02905fbb7f9f7c5deb9b970101788d824642
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
 
-# <a name="machine-learning-anomaly-detection-api"></a>API de detección de anomalías de Machine Learning
-## <a name="overview"></a>Información general
+<a id="machine-learning-anomaly-detection-api" class="xliff"></a>
+
+# API de detección de anomalías de Machine Learning
+<a id="overview" class="xliff"></a>
+
+## Información general
 La [API de detección de anomalías](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) es un ejemplo integrado en Azure Machine Learning que detecta anomalías en los datos de serie temporales con valores numéricos espaciados de manera uniforme en el tiempo.
 
 Estas API pueden detectar los siguientes tipos de patrones anómalos en datos de series temporales:
@@ -45,33 +50,47 @@ La oferta de detección de anomalías incluye herramientas útiles para comenzar
 > 
 >
 
-## <a name="api-deployment"></a>Implementación de la API
+<a id="api-deployment" class="xliff"></a>
+
+## Implementación de la API
 Para poder usar la API, debe implementarla en su suscripción de Azure, donde se hospedará como un servicio web Machine Learning.  Para ello, puede utilizar la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con esta acción se implementarán dos servicios web Machine Learning (y sus recursos relacionados) en su suscripción de Azure: uno para la detección de anomalías con detección de estacionalidad y otro sin detección de estacionalidad.  Una vez que la implementación haya finalizado, podrá administrar las API desde la página [Azure Machine Learning Web Services](https://services.azureml.net/webservices/) (Servicios web Machine Learning de Azure).  En esta página podrá buscar sus ubicaciones de punto de conexión y las claves de API, así como código de ejemplo para llamar a la API.  Puede encontrar instrucciones más detalladas [aquí](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice).
 
-## <a name="scaling-the-api"></a>Escalado de la aplicación
+<a id="scaling-the-api" class="xliff"></a>
+
+## Escalado de la aplicación
 De forma predeterminada, la implementación tendrá un plan de facturación de desarrollo y pruebas gratuito que incluye 1000 transacciones al mes y 2 horas de proceso al mes.  Puede actualizar a otro plan según sus necesidades.  La información de precios de los distintos planes está disponibles [aquí](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) en "Precios de API web de producción".
 
-## <a name="managing-aml-plans"></a>Administración de los planes de AML 
+<a id="managing-aml-plans" class="xliff"></a>
+
+## Administración de los planes de AML 
 Puede administrar el plan de facturación [aquí](https://services.azureml.net/plans/).  El nombre del plan tomará como base el nombre del grupo de recursos que eligió al implementar la API, a lo que se añadirá una cadena única para la suscripción.  Las instrucciones sobre cómo actualizar el plan están disponibles [aquí](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice) en la sección "Administración de planes de facturación".
 
-## <a name="api-definition"></a>Definición de la API
+<a id="api-definition" class="xliff"></a>
+
+## Definición de la API
 El servicio web proporciona API basadas en REST a través de HTTPS que se pueden consumir de varias formas, como una aplicación web o móvil, R, Python, Excel, etc.  Los datos de la serie temporal se envían a este servicio mediante una llamada a la API de REST, y se ejecuta una combinación de los tres tipos de anomalías descritos a continuación.
 
-## <a name="calling-the-api"></a>Llamada a la API
+<a id="calling-the-api" class="xliff"></a>
+
+## Llamada a la API
 Para poder llamar a la API, debe conocer la ubicación del punto de conexión y la clave de API.  Estos dos elementos, junto con el código de ejemplo para llamar a la API, están disponibles en la página [Azure Machine Learning Web Services](https://services.azureml.net/webservices/) (Servicios web Machine Learning de Azure).  Navegue a la API deseada y, a continuación, haga clic en la pestaña "Consume" (Usar) para buscarlos.  Tenga en cuenta que se puede llamar a la API como una API de Swagger (es decir, con el parámetro de dirección URL `format=swagger`) o como una API no Swagger (es decir, sin el parámetro de dirección URL `format`).  El código de ejemplo utiliza el formato de Swagger.  A continuación se muestra una solicitud de ejemplo y una respuesta en formato no Swagger.  Estos ejemplos son para el punto de conexión de estacionalidad.  El punto de conexión de no estacionalidad es similar.
 
-### <a name="sample-request-body"></a>Cuerpo de solicitud de ejemplo
-La solicitud contiene dos objetos: `input1` y `GlobalParameters`.  En la solicitud de ejemplo siguiente, algunos parámetros se envían explícitamente mientras que otros no (desplácese hacia abajo para obtener una lista completa de parámetros para cada punto de conexión).  Los parámetros que no se envían explícitamente en la solicitud utilizarán los valores predeterminados que se indican a continuación.
+<a id="sample-request-body" class="xliff"></a>
+
+### Cuerpo de solicitud de ejemplo
+La solicitud contiene dos objetos: `Inputs` y `GlobalParameters`.  En la solicitud de ejemplo siguiente, algunos parámetros se envían explícitamente mientras que otros no (desplácese hacia abajo para obtener una lista completa de parámetros para cada punto de conexión).  Los parámetros que no se envían explícitamente en la solicitud utilizarán los valores predeterminados que se indican a continuación.
 
     {
-        "input1": {
-            "ColumnNames": ["Time", "Data"],
-            "Values": [
-                ["5/30/2010 18:07:00", "1"],
-                ["5/30/2010 18:08:00", "1.4"],
-                ["5/30/2010 18:09:00", "1.1"]
-            ]
-        },
+                "Inputs": {
+                        "input1": {
+                                "ColumnNames": ["Time", "Data"],
+                                "Values": [
+                                        ["5/30/2010 18:07:00", "1"],
+                                        ["5/30/2010 18:08:00", "1.4"],
+                                        ["5/30/2010 18:09:00", "1.1"]
+                                ]
+                        }
+                },
         "GlobalParameters": {
             "tspikedetector.sensitivity": "3",
             "zspikedetector.sensitivity": "3",
@@ -80,7 +99,9 @@ La solicitud contiene dos objetos: `input1` y `GlobalParameters`.  En la solicit
         }
     }
 
-### <a name="sample-response"></a>Respuesta de ejemplo
+<a id="sample-response" class="xliff"></a>
+
+### Respuesta de ejemplo
 Tenga en cuenta que, para ver el campo `ColumnNames`, debe incluir `details=true` como un parámetro de dirección URL en la solicitud.  Consulte las tablas siguientes para conocer el significado de cada uno de estos campos.
 
     {
@@ -101,11 +122,15 @@ Tenga en cuenta que, para ver el campo `ColumnNames`, debe incluir `details=true
     }
 
 
-## <a name="score-api"></a>API de puntuación
+<a id="score-api" class="xliff"></a>
+
+## API de puntuación
 La API de puntuación se utiliza para ejecutar la detección de anomalías en datos de series temporales no estacionales. La API ejecuta una serie de detectores de anomalías en los datos y devuelve sus puntuaciones de anomalías. En la siguiente ilustración se muestra un ejemplo de anomalías que puede detectar la API de puntuación. Esta serie temporal tiene 2 cambios de nivel distintos y 3 picos. Los puntos rojos muestran la hora en que se detecta el cambio de nivel, mientras que los puntos negros muestran los picos detectados.
 ![API de puntuación][1]
 
-### <a name="detectors"></a>Detectores
+<a id="detectors" class="xliff"></a>
+
+### Detectores
 La API de detección de anomalías admite detectores en tres categorías generales. En la siguiente tabla se pueden encontrar detalles sobre parámetros de entrada específicos y salidas para cada detector.
 
 | Categoría del detector | Detector | Description | Parámetros de entrada | Salidas |
@@ -115,7 +140,9 @@ La API de detección de anomalías admite detectores en tres categorías general
 | Detector de tendencia lenta |Detector de tendencia lenta |Detección de tendencia positiva lenta según la sensibilidad establecida |*trenddetector.sensitivity:* umbral en la puntuación del detector (valor predeterminado: 3,25, 3,25 - 5 es un intervalo razonable del que seleccionar este valor; cuanto más alto, menos sensible) |tscore: número flotante que representa la puntuación de anomalías en la tendencia |
 | Detectores de cambio de nivel | Detector de cambio de nivel bidireccional |Detección de cambio de nivel ascendente y descendente según la sensibilidad establecida |*bileveldetector.sensitivity* : umbral en la puntuación del detector (valor predeterminado: 3,25, 3,25 - 5 es un intervalo razonable del que seleccionar este valor; cuanto más alto, menos sensible) |rpscore: número flotante que representa la puntuación de anomalía en el cambio de nivel ascendente y descendente | |
 
-### <a name="parameters"></a>Parámetros
+<a id="parameters" class="xliff"></a>
+
+### Parámetros
 En la siguiente tabla se muestra información más detallada sobre estos parámetros de entrada:
 
 | Parámetros de entrada | Description | Configuración predeterminada | Tipo | Intervalo válido | Intervalo sugerido |
@@ -128,7 +155,9 @@ En la siguiente tabla se muestra información más detallada sobre estos paráme
 | zspikedetector.sensitivity |Sensibilidad del detector ZSpike |3 |integer |1-10 |3-5 (cuanto menores sean los valores, mayor es la sensibilidad) |
 | postprocess.tailRows |Número de los puntos de datos más recientes que se van a mantener en los resultados de salida |0 |integer |0 (se mantienen todos los puntos de datos), o especifique el número de puntos para mantener en los resultados |N/D |
 
-### <a name="output"></a>Salida
+<a id="output" class="xliff"></a>
+
+### Salida
 La API ejecuta todos los detectores en los datos de la serie temporal y devuelve puntuaciones de anomalías e indicadores de picos binarios para cada punto en el tiempo. En la tabla siguiente se muestran los resultados de la API. 
 
 | Salidas | Description |
@@ -142,15 +171,21 @@ La API ejecuta todos los detectores en los datos de la serie temporal y devuelve
 | tscore |Número flotante que representa la puntuación de anomalía en tendencia positiva |
 | talert |Valor 1/0 que indica que hay una anomalía de tendencia positiva basada en la sensibilidad de entrada |
 
-## <a name="scorewithseasonality-api"></a>La API ScoreWithSeasonality
+<a id="scorewithseasonality-api" class="xliff"></a>
+
+## La API ScoreWithSeasonality
 La API ScoreWithSeasonality se utiliza para ejecutar la detección de anomalías en series temporales que tienen patrones estacionales. Esta API es útil para detectar desviaciones en los patrones estacionales.  
 En la siguiente ilustración se muestra un ejemplo de anomalías detectadas en una serie temporal estacional. La serie temporal tiene un pico (el primer punto negro), dos interrupciones (el segundo punto negro y otro al final) y un cambio de nivel (punto rojo). Tenga en cuenta que tanto la interrupción en el medio de la serie temporal como el cambio de nivel son solo apreciables después de que los componentes estacionales se eliminan de la serie.
 ![API de estacionalidad][2]
 
-### <a name="detectors"></a>Detectores
+<a id="detectors" class="xliff"></a>
+
+### Detectores
 Los detectores en el punto de conexión de estacionalidad son similares a los del punto de conexión de no estacionalidad, pero con nombres de parámetro ligeramente diferentes (incluidos más abajo).
 
-### <a name="parameters"></a>Parámetros
+<a id="parameters" class="xliff"></a>
+
+### Parámetros
 
 En la siguiente tabla se muestra información más detallada sobre estos parámetros de entrada:
 
@@ -171,7 +206,9 @@ En la siguiente tabla se muestra información más detallada sobre estos paráme
 | seasonality.transform |Si los componentes de tendencia (y) estacionales se eliminarán antes de aplicar la detección de anomalías |deseason |enumerated |none, deseason, deseasontrend |N/D |
 | postprocess.tailRows |Número de los puntos de datos más recientes que se van a mantener en los resultados de salida |0 |integer |0 (se mantienen todos los puntos de datos), o especifique el número de puntos para mantener en los resultados |N/D |
 
-### <a name="output"></a>Salida
+<a id="output" class="xliff"></a>
+
+### Salida
 La API ejecuta todos los detectores en los datos de la serie temporal y devuelve puntuaciones de anomalías e indicadores de picos binarios para cada punto en el tiempo. En la tabla siguiente se muestran los resultados de la API. 
 
 | Salidas | Description |

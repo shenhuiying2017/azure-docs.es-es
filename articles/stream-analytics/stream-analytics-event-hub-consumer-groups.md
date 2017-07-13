@@ -16,22 +16,26 @@ ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 3724b9077b04c767d0b1679caffed2bc5d077113
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: d1c099dd39fd6a58bf4d0679f536499d6dd8d29a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
 
-# <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Depuración de Azure Stream Analytics con receptores de Event Hubs
+<a id="debug-azure-stream-analytics-with-event-hub-receivers" class="xliff"></a>
+
+# Depuración de Azure Stream Analytics con receptores de Event Hubs
 
 Puede usar Azure Event Hubs en Azure Stream Analytics para ingerir o extraer datos de un trabajo. Una práctica recomendada para usar Event Hubs es usar varios grupos de consumidor para garantizar la escalabilidad del trabajo. Una razón es que el número de lectores en el trabajo de Stream Analytics para una entrada específica afecta a la cantidad de lectores en un grupo de consumidores único. El número exacto de destinatarios se basa en los detalles de implementación interna para la lógica de la topología de escalado horizontal. El número de destinatarios no se expone externamente. El número de lectores puede cambiar a la hora de inicio del trabajo o durante las actualizaciones del trabajo.
 
 > [!NOTE]
 > Cuando el número de lectores cambia durante una actualización de trabajo, se escriben advertencias transitorias en registros de auditoría. Los trabajos de Stream Analytics se recuperan automáticamente de estos problemas transitorios.
 
-## <a name="number-of-readers-per-partition-exceeds-event-hubs-limit-of-five"></a>El número de lectores por partición supera el límite de Event Hubs de cinco
+<a id="number-of-readers-per-partition-exceeds-event-hubs-limit-of-five" class="xliff"></a>
+
+## El número de lectores por partición supera el límite de Event Hubs de cinco
 
 Los escenarios en los que el número de lectores por partición supera el límite de Event Hubs de cinco incluyen los siguientes:
 
@@ -39,11 +43,15 @@ Los escenarios en los que el número de lectores por partición supera el límit
 * UNION: cuando se utiliza UNION, es posible tener varias entradas que hacen referencia al **mismo** centro de eventos y grupo de consumidores.
 * SELF JOIN: cuando se usa una operación SELF JOIN, es posible hacer referencia al **mismo** centro de eventos varias veces.
 
-## <a name="solution"></a>Solución
+<a id="solution" class="xliff"></a>
+
+## Solución
 
 Las siguientes prácticas recomendadas pueden ayudar a reducir los escenarios en los que el número de lectores por partición supera el límite de Event Hubs de cinco.
 
-### <a name="split-your-query-into-multiple-steps-by-using-a-with-clause"></a>División de la consulta en varios pasos mediante una cláusula WITH
+<a id="split-your-query-into-multiple-steps-by-using-a-with-clause" class="xliff"></a>
+
+### División de la consulta en varios pasos mediante una cláusula WITH
 
 La cláusula WITH especifica un conjunto de resultados con nombre temporal al que se puede hacer referencia mediante una cláusula FROM en la consulta. Defina la cláusula WITH en el ámbito de ejecución de una única instrucción SELECT.
 
@@ -77,17 +85,23 @@ FROM data
 …
 ```
 
-### <a name="ensure-that-inputs-bind-to-different-consumer-groups"></a>Asegúrese de que las entradas se enlazan a grupos de consumidores diferentes
+<a id="ensure-that-inputs-bind-to-different-consumer-groups" class="xliff"></a>
+
+### Asegúrese de que las entradas se enlazan a grupos de consumidores diferentes
 
 Para las consultas en las que hay conectadas tres o más entradas al mismo grupo de consumidores de Event Hubs, cree grupos de consumidores independientes. Esto requiere la creación de entradas de Stream Analytics adicionales.
 
 
-## <a name="get-help"></a>Obtener ayuda
+<a id="get-help" class="xliff"></a>
+
+## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * [¿Qué es Stream Analytics?](stream-analytics-introduction.md)
-* [Introducción a Stream Analytics](stream-analytics-get-started.md)
+* [Introducción a Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalado de trabajos de Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia de lenguaje de consulta de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

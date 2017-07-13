@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/24/2017
+ms.date: 07/05/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: dcb7b326cbb4ed18769010d8061f80dc9f941c87
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: d95f193b5bb88f8d29110b67d8555a36a070888c
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 ---
 
-# <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Copia de seguridad automatizada para SQL Server 2014 en Azure Virtual Machines (Resource Manager)
+<a id="automated-backup-for-sql-server-2014-virtual-machines-resource-manager" class="xliff"></a>
+
+# Copia de seguridad automatizada para SQL Server 2014 en Azure Virtual Machines (Resource Manager)
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
@@ -32,13 +35,16 @@ Copia de seguridad automatizada configura automáticamente [Copia de seguridad a
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+<a id="prerequisites" class="xliff"></a>
+
+## Requisitos previos
 Para utilizar Copia de seguridad automatizada, tenga en cuenta los siguientes requisitos previos:
 
 **Sistema operativo**:
 
 - Windows Server 2012
 - Windows Server 2012 R2
+- Windows Server 2016
 
 **Edición/versión de SQL Server**:
 
@@ -64,7 +70,9 @@ Para utilizar Copia de seguridad automatizada, tenga en cuenta los siguientes re
 > [!NOTE]
 > Copia de seguridad automatizada se basa en la Extensión Agente de IaaS de SQL Server. Las imágenes actuales de la galería de máquinas virtuales de SQL agregan esta extensión de manera predeterminada. Para más información, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-## <a name="settings"></a>Settings
+<a id="settings" class="xliff"></a>
+
+## Settings
 
 En la siguiente tabla se describen las opciones que pueden configurarse para Copia de seguridad automatizada. Los pasos de configuración reales varían si usa Azure Portal o comandos de Windows PowerShell de Azure.
 
@@ -76,11 +84,15 @@ En la siguiente tabla se describen las opciones que pueden configurarse para Cop
 | **Cifrado** | Habilitar/deshabilitar (deshabilitado) | Habilita o deshabilita el cifrado. Cuando se habilita el cifrado, los certificados usados para restaurar la copia de seguridad se ubican en la cuenta de almacenamiento especificada en el mismo contenedor `automaticbackup` con la misma convención de nomenclatura. Si la contraseña cambia, se genera un nuevo certificado con esa contraseña, pero el certificado antiguo permanece para restaurar copias de seguridad anteriores. |
 | **Password** | Texto de contraseña | Una contraseña para claves de cifrado. Esto solo es necesario si se habilita el cifrado. Para restaurar una copia de seguridad cifrada, debe disponer de la contraseña correcta y del certificado relacionado que se usó en el momento en el que se realizó la copia de seguridad. |
 
-## <a name="configuration-in-the-portal"></a>Configuración en el Portal
+<a id="configuration-in-the-portal" class="xliff"></a>
+
+## Configuración en el Portal
 
 Puede usar Azure Portal para configurar Copia de seguridad automatizada durante el aprovisionamiento o para las máquinas virtuales existentes de SQL Server 2014.
 
-### <a name="new-vms"></a>Nuevas máquinas virtuales
+<a id="new-vms" class="xliff"></a>
+
+### Nuevas máquinas virtuales
 
 Utilice Azure Portal para configurar la opción Copia de seguridad automatizada cuando cree una nueva máquina virtual con SQL Server 2014 en el modelo de implementación de Resource Manager.
 
@@ -90,7 +102,9 @@ En la hoja **Configuración de SQL Server**, seleccione **Copia de seguridad aut
 
 Para conocer el contexto, consulte el tema completo en [Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
-### <a name="existing-vms"></a>Máquinas virtuales existentes
+<a id="existing-vms" class="xliff"></a>
+
+### Máquinas virtuales existentes
 
 Para las máquinas virtuales de SQL Server existentes, seleccione su máquina virtual de SQL Server. Después, seleccione la sección **Configuración de SQL Server** de la hoja **Configuración**.
 
@@ -107,14 +121,18 @@ Si habilita Copia de seguridad automatizada por primera vez, Azure configura el 
 > [!NOTE]
 > También puede usar una plantilla para configurar Copia de seguridad automatizada. Para más información, consulte [la plantilla de inicio rápido de Azure para Copia de seguridad automatizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update).
 
-## <a name="configuration-with-powershell"></a>Configuración con PowerShell
+<a id="configuration-with-powershell" class="xliff"></a>
+
+## Configuración con PowerShell
 
 Puede usar PowerShell para configurar Copia de seguridad automatizada. Antes de comenzar:
 
 - [Descargue e instale la última versión de Azure PowerShell](http://aka.ms/webpi-azps).
 - Abra Windows PowerShell y asócielo con su cuenta. Puede hacerlo siguiendo los pasos descritos en la sección [Configuración de su suscripción](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) del tema sobre aprovisionamiento.
 
-### <a name="install-the-sql-iaas-extension"></a>Instalación de la extensión IaaS de SQL Server
+<a id="install-the-sql-iaas-extension" class="xliff"></a>
+
+### Instalación de la extensión IaaS de SQL Server
 Si se aprovisiona una máquina virtual con SQL Server desde Azure Portal, la extensión IaaS de SQL Server también debe estar instalada. Puede determinar si está instalada para la VM llamando al comando **Get-AzureRmVM** y examinando la propiedad **Extensiones**.
 
 ```powershell
@@ -165,7 +183,9 @@ Si la salida muestra que la opción **Habilitar** está establecida en **False**
 > [!NOTE] 
 > Si comprueba la configuración inmediatamente después de realizar un cambio, es posible que obtenga los valores de configuración anteriores. Espere unos minutos y compruebe la configuración de nuevo para asegurarse de que se hayan aplicado los cambios.
 
-### <a name="configure-automated-backup"></a>Configurar Copia de seguridad automatizada
+<a id="configure-automated-backup" class="xliff"></a>
+
+### Configurar Copia de seguridad automatizada
 Puede usar PowerShell para habilitar la copia de seguridad automatizada, así como para modificar su configuración y comportamiento en cualquier momento.
 
 En primer lugar, seleccione o cree una cuenta de almacenamiento para los archivos de copia de seguridad. El script siguiente selecciona una cuenta de almacenamiento o la crea si no existe.
@@ -217,7 +237,9 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 Para confirmar que se ha aplicado la configuración, [verifique la configuración de Copia de seguridad automatizada](#verifysettings).
 
-### <a name="disable-automated-backup"></a>Deshabilitar Copia de seguridad automatizada
+<a id="disable-automated-backup" class="xliff"></a>
+
+### Deshabilitar Copia de seguridad automatizada
 
 Para deshabilitar Copia de seguridad automatizada, ejecute el mismo script sin el parámetro **-Enable** en el comando **New-AzureRmVMSqlServerAutoBackupConfig**. La ausencia del parámetro **-Enable** indica al comando que deshabilite la característica. Al igual que la instalación, la deshabilitación de Copia de seguridad automatizada puede tardar algunos minutos.
 
@@ -228,7 +250,9 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-### <a name="example-script"></a>Script de ejemplo
+<a id="example-script" class="xliff"></a>
+
+### Script de ejemplo
 
 El script siguiente proporciona un conjunto de variables que se pueden personalizar para habilitar y configurar Copia de seguridad automatizada para la VM. En su caso, debe personalizar el script en función de sus requisitos. Por ejemplo, debe realizar cambios si desea deshabilitar la copia de seguridad de bases de datos del sistema o habilitar el cifrado.
 
@@ -266,7 +290,9 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 
 Copia de seguridad automatizada configura Copia de seguridad administrada en máquinas virtuales de Azure. Por lo tanto, es importante [revisar la documentación de la Copia de seguridad administrada](https://msdn.microsoft.com/library/dn449496.aspx) para comprender el comportamiento y las implicaciones.
 

@@ -15,21 +15,23 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: e8452e272916222679dd5e411b5f8732d3e8059b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 328a4d893637d7150807855e118b485a2c3bbfc5
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Administración de todas las directivas para un laboratorio de Azure DevTest Labs
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-VM-policies-in-a-DevTest-Lab/player]
-> 
-> 
+<a id="manage-all-policies-for-a-lab-in-azure-devtest-labs" class="xliff"></a>
+
+# Administración de todas las directivas para un laboratorio de Azure DevTest Labs
 
 Azure DevTest Labs le permite controlar los costos y desperdiciar lo mínimo posible en sus laboratorios gracias a la posibilidad de administrar políticas (configuración) en cada uno de ellos. Este artículo explica en detalle paso a paso cómo configurar cada directiva.  
 
-## <a name="set-allowed-virtual-machine-sizes"></a>Establecimiento de tamaños de máquina virtual permitidos
+<a id="set-allowed-virtual-machine-sizes" class="xliff"></a>
+
+## Establecimiento de tamaños de máquina virtual permitidos
 La directiva para establecer los tamaños permitidos de la máquina virtual ayuda a minimizar la pérdida del laboratorio al permitirle especificar los tamaños de máquina virtual que se permiten en este. Si se activa esta directiva, los tamaños de máquina virtual de esta lista son los únicos que pueden utilizarse en la creación de tales máquinas.
 
 1. En el menú **Configuration and policies** (Directivas y configuración) del laboratorio, seleccione **Allowed virtual machines sizes** (Tamaños de máquinas virtuales permitidas).
@@ -42,7 +44,9 @@ La directiva para establecer los tamaños permitidos de la máquina virtual ayud
 
 1. Seleccione **Guardar**.
 
-## <a name="set-virtual-machines-per-user"></a>Establecimiento de máquinas virtuales por usuario
+<a id="set-virtual-machines-per-user" class="xliff"></a>
+
+## Establecimiento de máquinas virtuales por usuario
 La directiva de **Máquinas virtuales por usuario** le permite especificar el número máximo de máquinas virtuales que puede crear un usuario individual. Si un usuario trata de crear o reclamar una máquina virtual una vez alcanzado el límite, aparece un mensaje de error que indica que la máquina virtual no se puede crear ni exigir. 
 
 1. En el menú **Configuration and policies** (Directivas y configuración) del laboratorio, seleccione **Máquinas virtuales por usuario**.
@@ -55,7 +59,9 @@ La directiva de **Máquinas virtuales por usuario** le permite especificar el n�
 
 1. Seleccione **Guardar**.
 
-## <a name="set-virtual-machines-per-lab"></a>Establecimiento de máquinas virtuales por laboratorio
+<a id="set-virtual-machines-per-lab" class="xliff"></a>
+
+## Establecimiento de máquinas virtuales por laboratorio
 La directiva de **Máquinas virtuales por laboratorio** le permite especificar el número máximo de máquinas virtuales que se pueden crear para el laboratorio actual. Si un usuario intenta crear una máquina virtual una vez alcanzado el límite, aparece un mensaje de error que indica que la máquina virtual no se puede crear. 
 
 1. En el menú **Configuration and policies** (Directivas y configuración) del laboratorio, seleccione **Máquinas virtuales por laboratorio**.
@@ -68,7 +74,9 @@ La directiva de **Máquinas virtuales por laboratorio** le permite especificar e
 
 1. Seleccione **Guardar**.
 
-## <a name="set-auto-shutdown"></a>Establecimiento del apagado automático
+<a id="set-auto-shutdown" class="xliff"></a>
+
+## Establecimiento del apagado automático
 La directiva de apagado automático ayuda a minimizar la pérdida del laboratorio, ya que permite especificar la hora de apagado de la máquina virtual de este laboratorio.
 
 1. En la hoja **Configuration and Policies** (Directivas y configuración) del laboratorio, seleccione **Apagado automático**.
@@ -85,7 +93,9 @@ La directiva de apagado automático ayuda a minimizar la pérdida del laboratori
 
     De manera predeterminada, una vez que se habilite, esta directiva se aplica a todas las máquinas virtuales del laboratorio actual. Para quitar esta configuración de una máquina virtual específica, abra la hoja de la máquina virtual y cambie la configuración de **Apagado automático** . 
 
-## <a name="set-auto-start"></a>Establecimiento del inicio automático
+<a id="set-auto-start" class="xliff"></a>
+
+## Establecimiento del inicio automático
 La directiva de inicio automático le permite especificar cuándo se deben iniciar las máquinas virtuales del laboratorio actual.  
 
 1. En la hoja **Configuration and Policies** (Directivas y configuración) del laboratorio, seleccione **Inicio automático**.
@@ -100,12 +110,16 @@ La directiva de inicio automático le permite especificar cuándo se deben inici
 
     Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar esta configuración a una máquina virtual específica, abra la hoja de la máquina virtual y cambie su configuración de **Inicio automático** . 
 
-## <a name="set-expiration-date"></a>Establecimiento de la fecha de expiración
+<a id="set-expiration-date" class="xliff"></a>
+
+## Establecimiento de la fecha de expiración
 Puede establecer una fecha de expiración cuando [cree la VM](devtest-lab-add-vm.md). En **Configuración avanzada**, elija el icono del calendario para especificar una fecha en la que la VM se eliminará automáticamente.  De forma predeterminada, la VM nunca expirará.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 Una vez que defina y aplique las distintas configuraciones de las directivas de máquina virtual correspondientes al laboratorio, puede intentar algunos de los siguientes pasos:
 
 * [Direcciones IP compartidas](devtest-lab-shared-ip.md); explica cómo las direcciones IP compartidas se usan en DevTest Labs para minimizar el número de direcciones IP públicas necesarias para conectarse a las máquinas virtuales del laboratorio.

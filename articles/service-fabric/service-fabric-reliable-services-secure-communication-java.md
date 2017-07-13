@@ -11,23 +11,28 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/09/2017
+ms.date: 06/30/2017
 ms.author: pakunapa
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5640901dae5d8c9d8619865be66b6c188a059363
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: c4634e3d8efb1745fffcfe3e647e43d867038716
+ms.contentlocale: es-es
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Ayuda para garantizar la comunicación de los servicios de Azure Service Fabric
+<a id="help-secure-communication-for-services-in-azure-service-fabric" class="xliff"></a>
+
+# Ayuda para garantizar la comunicación de los servicios de Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [C# en Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java en Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Ayuda para garantizar un servicio cuando usa la comunicación remota para los servicios
+<a id="help-secure-a-service-when-youre-using-service-remoting" class="xliff"></a>
+
+## Ayuda para garantizar un servicio cuando usa la comunicación remota para los servicios
 Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remoting-java.md) existente que explica cómo configurar la comunicación remota para Reliable Services Para ayudar a garantizar un servicio cuando usa la comunicación remota para los servicios, siga estos pasos:
 
 1. Cree una interfaz, `HelloWorldStateless`, que defina los métodos que estarán disponibles para la llamada a procedimiento remoto en su servicio. El servicio usará `FabricTransportServiceRemotingListener`, que se declara en el paquete `microsoft.serviceFabric.services.remoting.fabricTransport.runtime`. Se trata de una implementación de `CommunicationListener` que ofrece capacidades de comunicación remota.
@@ -93,7 +98,7 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
             ...
         </Section>
         ```
-        En este caso, el método `CreateServiceReplicaListeners` tendrá este aspecto.
+        En este caso, el método `CreateServiceInstanceListeners` tendrá este aspecto.
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {

@@ -15,19 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0aa754ee248b98395bfc9c7fd53187ef702a6d1e
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 18c39a025f750cf5a17c535ab40923b7cafe413d
+ms.contentlocale: es-es
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>Visualización y solución de problemas de trabajos de Análisis de transmisiones
+<a id="visualize-and-troubleshoot-stream-analytics-jobs" class="xliff"></a>
+
+# Visualización y solución de problemas de trabajos de Análisis de transmisiones
 En Análisis de transmisiones, al igual que con otras tecnologías basadas en la nube, en ocasiones se necesita la solución de problemas para profundizar en los motivos de que un trabajo no produzca el resultado esperado (o ningún resultado para ese propósito). A este respecto, Análisis de transmisiones ofrece la posibilidad de visualizar un trabajo en streaming. Esto también resulta útil como herramienta de modelado y tiene la ventaja adicional, para aquellos que lo necesitan, de documentar su trabajo.
 
 En el panel de visualización se pueden ver las entradas, así como la consulta que se ejecuta y luego todas las salidas configuradas. Los problemas de conectividad o configuración se hacen más evidentes y también ayuda a tener una representación visual de su configuración.
 
-## <a name="using-the-diagnosis-diagram-tool"></a>Uso de la herramienta de diagrama de diagnóstico
+<a id="using-the-diagnosis-diagram-tool" class="xliff"></a>
+
+## Uso de la herramienta de diagrama de diagnóstico
 Para tener acceso a este visualizador, simplemente haga clic en el botón "Diagrama de diagnóstico" en la hoja "Configuración" del trabajo de Análisis de transmisiones.
 
 ![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
@@ -40,9 +45,11 @@ Cuando el usuario quiera examinar los pasos de consulta intermedios para compren
 
 ![stream-analytics-troubleshoot-visualization-intermediate-steps](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-intermediate-steps.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

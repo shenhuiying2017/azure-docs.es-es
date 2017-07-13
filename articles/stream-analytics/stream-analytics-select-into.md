@@ -16,18 +16,22 @@ ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 440976ffaf276cea8c98b47384ee6699c1845eae
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 5d782e2a23c76a95f5fa1e1f9c78369feb4e051b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="debug-queries-by-using-select-into-statements"></a>Depuración de consultas mediante instrucciones SELECT INTO
+<a id="debug-queries-by-using-select-into-statements" class="xliff"></a>
+
+# Depuración de consultas mediante instrucciones SELECT INTO
 
 En el procesamiento de datos en tiempo real, puede ser útil conocer qué aspecto tendrán los datos en el medio de la consulta. Como las entradas o pasos de un trabajo de Azure Stream Analytics se pueden leer muchas veces, puede escribir instrucciones SELECT INTO adicionales. Si lo hace, se generan daros intermedios en el almacenamiento y puede inspeccionar la integridad de los datos, igual que hacen las *variables de inspección* cuando se depura un programa.
 
-## <a name="use-select-into-to-check-the-data-stream"></a>Uso de SELECT INTO para comprobar el flujo de datos
+<a id="use-select-into-to-check-the-data-stream" class="xliff"></a>
+
+## Uso de SELECT INTO para comprobar el flujo de datos
 
 La siguiente consulta de ejemplo en un trabajo de Azure Stream Analytics tiene una entrada de secuencias, dos entradas de datos de referencia y una salida a Azure Table Storage. La consulta combina datos del centro de eventos y dos blobs de referencia para obtener la información de nombre y categoría:
 
@@ -74,14 +78,18 @@ Esta vez, los datos en la salida tienen el formato adecuado y se han rellenado s
 ![Tabla final de SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
 
-## <a name="get-help"></a>Obtener ayuda
+<a id="get-help" class="xliff"></a>
+
+## Obtener ayuda
 
 Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

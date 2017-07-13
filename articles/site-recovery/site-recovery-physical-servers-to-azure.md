@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: raynew
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: physical-walkthrough-overview
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: ab2a4b2771a4d45c947e35c8ee032e5ddf20a8aa
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: a9655ce1540c788d02d178eb619d2051cddda1c2
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 06/29/2017
 
 ---
-# <a name="replicate-physical-machines-to-azure-by-using-site-recovery"></a>Replicar máquinas físicas en Azure mediante Site Recovery
+---
+<a id="replicate-physical-machines-to-azure-by-using-site-recovery" class="xliff"></a>
+
+# Replicar máquinas físicas en Azure mediante Site Recovery
 
 
 En este artículo, se describe cómo replicar máquinas físicas locales en Azure mediante el servicio Azure Site Recovery en Azure Portal.
@@ -32,7 +36,9 @@ Si quiere migrar máquinas físicas a Azure (solo conmutación por error), lea [
 Publique cualquier comentario o pregunta en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+<a id="prerequisites" class="xliff"></a>
+
+## Requisitos previos
 
 **Requisito de compatibilidad** | **Detalles**
 --- | ---
@@ -42,7 +48,9 @@ Publique cualquier comentario o pregunta en la parte inferior de este artículo,
 **URLs** | El servidor de configuración necesita acceso a estas direcciones URL:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> Si tiene reglas de firewall basadas en direcciones IP, asegúrese de que permitan la comunicación con Azure.<br/></br> Permita los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el puerto HTTPS (443).<br/></br> Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).<br/><br/> Permita esta dirección URL para la descarga de MySQL: http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
 **Servicio de movilidad** | Este servicio se instalará en cada máquina que quiera replicar.
 
-## <a name="limitations"></a>Limitaciones
+<a id="limitations" class="xliff"></a>
+
+## Limitaciones
 
 **Limitación** | **Detalles**
 --- | ---
@@ -52,7 +60,9 @@ Publique cualquier comentario o pregunta en la parte inferior de este artículo,
 **Conmutación por recuperación** | No se puede realizar la conmutación por recuperación a Azure en una máquina física. Si quiere poder realizar la conmutación por recuperación en la ubicación local después de la conmutación por error, necesitará un entorno de VMware para así poder realizar la conmutación por recuperación en una máquina virtual de VMware.
 
 
-## <a name="set-up-azure"></a>Configuración de Azure
+<a id="set-up-azure" class="xliff"></a>
+
+## Configuración de Azure
 
 1. [Configure una red de Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
@@ -66,13 +76,17 @@ Publique cualquier comentario o pregunta en la parte inferior de este artículo,
 
     b. Puede configurar una cuenta en el modo de Resource Manager o en el clásico.
 
-## <a name="prepare-the-configuration-server"></a>Preparar el servidor de configuración
+<a id="prepare-the-configuration-server" class="xliff"></a>
+
+## Preparar el servidor de configuración
 
 1. Instale Windows Server 2012 R2 o una versión posterior en un servidor físico local o una máquina virtual de VMware.
 
 2. Asegúrese de que la máquina tenga acceso a las direcciones URL que se indican en la sección [Requisitos previos](#prerequisites).
 
-## <a name="prepare-for-mobility-service-installation"></a>Preparación para la instalación del Servicio de Movilidad
+<a id="prepare-for-mobility-service-installation" class="xliff"></a>
+
+## Preparación para la instalación del Servicio de Movilidad
 
 Si quiere insertar el servicio de movilidad en una máquina física, necesita una cuenta que el servidor de procesos pueda usar para acceder a las máquinas. La cuenta solo se usa para la instalación de inserción. Puede usar una cuenta local o de dominio:
 
@@ -82,12 +96,16 @@ Si quiere insertar el servicio de movilidad en una máquina física, necesita un
   - Para Linux, la cuenta debe ser un usuario raíz en el servidor Linux de origen.
 
 
-## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
+<a id="create-a-recovery-services-vault" class="xliff"></a>
+
+## Creación de un almacén de Recovery Services
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
 
-## <a name="select-the-protection-goal"></a>Selección del objetivo de protección
+<a id="select-the-protection-goal" class="xliff"></a>
+
+## Selección del objetivo de protección
 
 Seleccione aquello que desea replicar y la ubicación en donde se va a realizar la replicación.
 
@@ -99,7 +117,9 @@ Seleccione aquello que desea replicar y la ubicación en donde se va a realizar 
 3. En **Objetivo de protección**, seleccione **En Azure** > **No virtualizado/Otro**.
 
 
-## <a name="set-up-the-source-environment"></a>Configuración del entorno de origen
+<a id="set-up-the-source-environment" class="xliff"></a>
+
+## Configuración del entorno de origen
 
 Configure el servidor de configuración, regístrelo en el almacén y detecte máquinas virtuales.
 
@@ -115,7 +135,9 @@ Configure el servidor de configuración, regístrelo en el almacén y detecte m�
    ![Configurar origen](./media/site-recovery-vmware-to-azure/set-source2.png)
 
 
-## <a name="run-site-recovery-unified-setup"></a>Ejecución de la instalación unificada de Site Recovery
+<a id="run-site-recovery-unified-setup" class="xliff"></a>
+
+## Ejecución de la instalación unificada de Site Recovery
 
 Antes de empezar, haga lo siguiente:
 
@@ -133,7 +155,9 @@ Antes de empezar, haga lo siguiente:
 > El servidor de configuración también se puede instalar [desde la línea de comandos](http://aka.ms/installconfigsrv).
 
 
-## <a name="set-up-the-target-environment"></a>Configuración del entorno de destino
+<a id="set-up-the-target-environment" class="xliff"></a>
+
+## Configuración del entorno de destino
 
 Antes de configurar el entorno de destino, asegúrese de tener una [cuenta y una red de Azure Storage](#set-up-azure).
 
@@ -145,7 +169,9 @@ Antes de configurar el entorno de destino, asegúrese de tener una [cuenta y una
 
 4. Si no creó una cuenta de almacenamiento ni una red, haga clic en **+Cuenta de almacenamiento** o **+Red** para crear una cuenta o red de Resource Manager en línea.
 
-## <a name="set-up-replication-settings"></a>Configuración de las opciones de replicación
+<a id="set-up-replication-settings" class="xliff"></a>
+
+## Configuración de las opciones de replicación
 
 Antes de empezar, vea un vídeo introductorio rápido (el vídeo describe cómo replicar máquinas virtuales de VMware, pero el proceso es similar para la replicación de máquinas físicas).
 
@@ -162,7 +188,9 @@ Antes de empezar, vea un vídeo introductorio rápido (el vídeo describe cómo 
 6. Cuando se crea una nueva directiva, esta se asocia automáticamente con el servidor de configuración. De forma predeterminada, se crea automáticamente una directiva correspondiente para la conmutación por recuperación. Por ejemplo, si la directiva de replicación es **rep-policy**, la directiva de conmutación por recuperación será **rep-policy-failback**. Esta directiva no se usa hasta que se inicie una conmutación por recuperación desde Azure.  
 
 
-## <a name="plan-capacity"></a>Planeamiento de la capacidad
+<a id="plan-capacity" class="xliff"></a>
+
+## Planeamiento de la capacidad
 
 1. Ahora que tiene la infraestructura básica configurada, puede planear la capacidad y averiguar si necesitará recursos adicionales. [Más información](site-recovery-plan-capacity-vmware.md).
 2. Seleccione **Sí** en **¿Completó el planeamiento de capacidad?** cuando haya terminado de planear la capacidad.
@@ -170,7 +198,9 @@ Antes de empezar, vea un vídeo introductorio rápido (el vídeo describe cómo 
    ![Planificación de capacidad](./media/site-recovery-vmware-to-azure/gs-capacity-planning.png)
 
 
-## <a name="prepare-vms-for-replication"></a>Preparación de las máquinas virtuales para la replicación
+<a id="prepare-vms-for-replication" class="xliff"></a>
+
+## Preparación de las máquinas virtuales para la replicación
 
 Todas las máquinas que desee replicar deben tener instalado el servicio de movilidad. Puede instalarlo de varias maneras:
 
@@ -181,7 +211,9 @@ Todas las máquinas que desee replicar deben tener instalado el servicio de movi
 [Más información](site-recovery-vmware-to-azure-install-mob-svc.md).
 
 
-## <a name="enable-replication"></a>Habilitar replicación
+<a id="enable-replication" class="xliff"></a>
+
+## Habilitar replicación
 
 Antes de comenzar:
 
@@ -195,11 +227,15 @@ Antes de comenzar:
     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video3-Protect-VMware-Virtual-Machines/player]
 
 
-### <a name="exclude-disks-from-replication"></a>Excluir discos de la replicación
+<a id="exclude-disks-from-replication" class="xliff"></a>
+
+### Excluir discos de la replicación
 
 De manera predeterminada, se replican todos los discos de una máquina. Puede excluir discos de la replicación. Por ejemplo, es posible que no quiera replicar los discos con datos temporales o los datos que se actualizan cada vez que una máquina o aplicación se reinicia (por ejemplo, pagefile.sys o tempdb de SQL Server).
 
-### <a name="replicate-vms"></a>Replicación de máquinas virtuales
+<a id="replicate-vms" class="xliff"></a>
+
+### Replicación de máquinas virtuales
 
 1. Haga clic en **Replicar la aplicación** > **Origen**.
 2. En **Origen**, seleccione **Local**.
@@ -240,7 +276,9 @@ De manera predeterminada, se replican todos los discos de una máquina. Puede ex
 Después de habilitar la replicación, se instalará el servicio de movilidad si configura la instalación de inserción. Después de instalar el servicio de movilidad por inserción en una máquina, se inicia un trabajo de protección y se produce un error. Debe reiniciar manualmente cada máquina después del error. Después, se vuelve a iniciar el trabajo de protección y se produce la replicación inicial.
 
 
-### <a name="view-and-manage-azure-vm-properties"></a>Ver y administrar las propiedades de la máquina virtual de Azure
+<a id="view-and-manage-azure-vm-properties" class="xliff"></a>
+
+### Ver y administrar las propiedades de la máquina virtual de Azure
 
 Se recomienda que compruebe las propiedades de máquina virtual y realice todos los cambios necesarios.
 
@@ -266,7 +304,9 @@ Se recomienda que compruebe las propiedades de máquina virtual y realice todos 
    - Si la máquina virtual tiene varios adaptadores de red, el primero de ellos que se muestre en la lista se convertirá en el *predeterminado* en la VM de Azure.
 5. En **Discos**, se ven el sistema operativo de la VM y los discos de datos replicados.
 
-## <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba
+<a id="run-a-test-failover" class="xliff"></a>
+
+## Ejecución de una conmutación por error de prueba
 
 Una vez terminada la configuración, ejecute una conmutación por error de prueba para asegurarse de que todo funcione de la forma esperada. Vea un vídeo introductorio rápido antes de empezar.
 
@@ -286,7 +326,9 @@ Una vez terminada la configuración, ejecute una conmutación por error de prueb
 
 Para obtener más información, consulte el documento sobre la [conmutación por error de prueba a Azure](site-recovery-test-failover-to-azure.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 
 Después de poner en funcionamiento la replicación, cuando se produce una interrupción, se conmuta por error a Azure y se crean máquinas virtuales de Azure a partir de los datos replicados. Entonces, puede acceder a cargas de trabajo y aplicaciones en Azure, hasta que conmute por recuperación a la ubicación principal cuando vuelva a funcionar de forma normal.
 
@@ -294,7 +336,9 @@ Después de poner en funcionamiento la replicación, cuando se produce una inter
 - Si migra máquinas en lugar de replicar y conmutar por recuperación, [lea más](site-recovery-migrate-to-azure.md#migrate-on-premises-vms-and-physical-servers).
 - Al replicar máquinas físicas, solo puede conmutar por recuperación a un entorno de VMWare. [Lea acerca de la conmutación por recuperación](site-recovery-failback-azure-to-vmware.md).
 
-## <a name="third-party-software-notices-and-information"></a>Avisos e información de software de terceros
+<a id="third-party-software-notices-and-information" class="xliff"></a>
+
+## Avisos e información de software de terceros
 Do Not Translate or Localize
 
 The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”). Microsoft is the not original author of the Third Party Code. The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.

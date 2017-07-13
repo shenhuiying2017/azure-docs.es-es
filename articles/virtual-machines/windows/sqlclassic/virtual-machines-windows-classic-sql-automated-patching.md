@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/17/2017
+ms.date: 07/05/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: fd0ec396ebd75aabd986c24244600a43e3e1585f
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 66ab12f2590196ff14ee96a9b88c3d87e376230b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure (implementación clásica)
+<a id="automated-patching-for-sql-server-in-azure-virtual-machines-classic" class="xliff"></a>
+
+# Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure (implementación clásica)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)
 > * [Clásico](../classic/sql-automated-patching.md)
@@ -34,13 +37,16 @@ Aplicación de revisión automatizada establece una ventana de mantenimiento par
 > [!IMPORTANT] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para ver la versión de Resource Manager de este artículo, consulte [Aplicación de revisión automatizada para SQL Server en Azure Virtual Machines (Resource Manager)](../sql/virtual-machines-windows-sql-automated-patching.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+<a id="prerequisites" class="xliff"></a>
+
+## Requisitos previos
 Para utilizar Aplicación de revisión automatizada, tenga en cuenta los siguientes requisitos previos:
 
 **Sistema operativo**:
 
 * Windows Server 2012
 * Windows Server 2012 R2
+* Windows Server 2016
 
 **Versión de SQL Server**:
 
@@ -56,7 +62,9 @@ Para utilizar Aplicación de revisión automatizada, tenga en cuenta los siguien
 
 * [Instale la extensión IaaS de SQL Server](../classic/sql-server-agent-extension.md).
 
-## <a name="settings"></a>Settings
+<a id="settings" class="xliff"></a>
+
+## Settings
 En la siguiente tabla se describen las opciones que pueden configurarse para Aplicación de revisión automatizada. Para las máquinas virtuales clásicas, debe usar PowerShell para configurar estas opciones.
 
 | Configuración | Valores posibles | Description |
@@ -67,7 +75,9 @@ En la siguiente tabla se describen las opciones que pueden configurarse para Apl
 | **Duración de la ventana de mantenimiento** |30-180 |El número de minutos permitido para completar la descarga y la instalación de actualizaciones. |
 | **Categoría de la revisión** |Importante |La categoría de actualizaciones para descargar e instalar. |
 
-## <a name="configuration-with-powershell"></a>Configuración con PowerShell
+<a id="configuration-with-powershell" class="xliff"></a>
+
+## Configuración con PowerShell
 En el ejemplo siguiente, se usa PowerShell para configurar Aplicación de revisión automatizada en una máquina virtual de SQL Server existente. El comando **New-AzureVMSqlServerAutoPatchingConfig** configura una nueva ventana de mantenimiento para actualizaciones automáticas.
 
     $aps = New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
@@ -87,9 +97,11 @@ La instalación y configuración del agente de Iaas de SQL Server puede tardar a
 
 Para deshabilitar Aplicación de revisión automatizada, ejecute el script sin el parámetro -Enable en New-AzureVMSqlServerAutoPatchingConfig. Al igual que la instalación, la deshabilitación de Aplicación de revisión automatizada puede tardar algunos minutos.
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](../classic/sql-server-agent-extension.md).
 
-Para más información sobre cómo ejecutar SQL Server en máquinas virtuales de Azure, consulte [Introducción a SQL Server en máquinas virtuales de Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para más información sobre cómo ejecutar SQL Server en máquinas virtuales de Azure, consulte [Introducción a SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
 
