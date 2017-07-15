@@ -16,21 +16,25 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 0a83f249bbaba0ae3fd6ebf10863abc398859200
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: a167f15b1c885c51c9a85c501a9a9a60992cdf5d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 
-# <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
-## <a name="10-introduction"></a>1.0 Introducción
-### <a name="11-overview"></a>1.1 Información general
+# Aislamiento en la nube pública de Azure
+<a id="isolation-in-the-azure-public-cloud" class="xliff"></a>
+##  Introducción
+<a id="introduction" class="xliff"></a>
+### Información general
+<a id="overview" class="xliff"></a>
 Para ayudar a clientes actuales y potenciales de Azure a comprender y utilizar las diversas funcionalidades relacionadas con la seguridad disponibles en torno a la plataforma de Azure, Microsoft ha desarrollado una serie de notas del producto, información general de seguridad, procedimientos recomendados y listas de comprobación.
 Los temas varían en extensión y detalle, y se actualizan periódicamente. Este documento forma parte de esa serie, como se resume en la breve descripción de la siguiente sección.
 
-### <a name="12-azure-platform"></a>1.2 Plataforma Azure
+### Plataforma Azure
+<a id="azure-platform" class="xliff"></a>
 Azure es una plataforma de servicios en la nube abierta y flexible que admite la más amplia selección de sistemas operativos, lenguajes de programación, marcos, herramientas, bases de datos y dispositivos. Por ejemplo, puede:
 - Ejecutar contenedores de Linux con integración con Docker.
 - Compilar aplicaciones con JavaScript, Python, .NET, PHP, Java y Node.js.
@@ -42,20 +46,23 @@ Al crear en un proveedor de servicios en la nube pública, o migrar recurso de T
 
 La infraestructura de Azure está diseñada desde la instalación hasta las aplicaciones para hospedar millones de clientes simultáneamente, y proporciona una base de confianza en la que las empresas pueden satisfacer sus necesidades de seguridad. Además, Azure ofrece una amplia gama de opciones de seguridad configurables, así como la posibilidad de controlarlas, por lo que puede personalizar la seguridad para satisfacer los requisitos únicos de sus implementaciones. Este documento le ayuda a cumplir estos requisitos.
 
-### <a name="13-abstract"></a>1.3 Descripción breve
+### Descripción breve
+<a id="abstract" class="xliff"></a>
 
 Microsoft Azure permite ejecutar aplicaciones y máquinas virtuales (VM) en una infraestructura física compartida. Una de las motivaciones económicas principales para ejecutar aplicaciones en un entorno de nube es la capacidad de distribuir el costo de los recursos compartidos entre varios clientes. Esta práctica de multiinquilino mejora la eficiencia al multiplexar los recursos entre los distintos clientes a un bajo costo. Lamentablemente, también presenta el riesgo del uso compartido de servidores físicos y otros recursos de infraestructura al ejecutar aplicaciones confidenciales y máquinas virtuales que pueden pertenecer a un usuario arbitrario y potencialmente malintencionado.
 
 En este artículo se describe cómo Microsoft Azure proporciona aislamiento contra usuarios malintencionados y no malintencionados y cómo sirve como guía para diseñar soluciones en la nube, ya que ofrece diversas opciones de aislamiento a los arquitectos. Estas notas del producto se centran en la tecnología de la plataforma de Azure y los controles de seguridad orientados al cliente y no pretende indicar ningún SLA, modelo de precios o consideraciones prácticas sobre DevOps.
 
-## <a name="20-tenant-level-isolation"></a>2.0 Aislamiento en el nivel de inquilino
+## Aislamiento en el nivel de inquilino
+<a id="tenant-level-isolation" class="xliff"></a>
 Una de las principales ventajas de la informática en la nube es el concepto de una infraestructura común compartida por varios clientes simultáneamente, dando lugar a economías de escala. Este concepto se denomina multiinquilinato. Microsoft trabaja continuamente para asegurarse de que la arquitectura multiinquilino de Microsoft Cloud Azure admita las normas de seguridad, confidencialidad, privacidad, integridad y disponibilidad.
 
 En un área de trabajo habilitada en la nube, un inquilino puede definirse como un cliente o una organización que posee y administra una instancia específica de ese servicio en la nube. Con la plataforma de identidad proporcionada por Microsoft Azure, un inquilino es simplemente una instancia dedicada de Azure Active Directory (Azure AD) que su organización recibe y posee cuando se suscribe a un servicio en la nube de Microsoft.
 
 Cada directorio de Azure AD es distinto e independiente de otros directorios de Azure AD. Del mismo modo que un edificio de oficinas para empresas es un activo seguro dedicado específicamente a su organización, un directorio de Azure AD se ha diseñado también para ser un activo seguro para el uso exclusivo de su organización. La arquitectura de Azure AD aísla los datos del cliente y la información de identidad para evitar contactos cruzados. Esto significa que los usuarios y los administradores de un directorio de Azure AD no tendrán acceso a los datos de otro directorio, ya sea de manera involuntaria o malintencionada.
 
-### <a name="21-azure-tenancy"></a>2.1 Inquilinato de Azure
+### Inquilinato de Azure
+<a id="azure-tenancy" class="xliff"></a>
 El inquilinato de Azure (suscripción de Azure) hace referencia a una relación "cliente/facturación" y a un único [inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) en [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). El aislamiento en el nivel de inquilino en Microsoft Azure se logra con Azure Active Directory y los [controles basados en roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) que ofrece. Cada suscripción de Azure está asociada a un directorio de Azure Active Directory (AD).
 
 Los usuarios, grupos y aplicaciones de ese directorio pueden administrar los recursos en la suscripción de Azure. Puede asignar estos derechos de acceso con Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure. Un inquilino de Azure está aislado lógicamente mediante límites de seguridad de forma que ningún cliente puede acceder o poner en riesgo los coinquilinos, ya sea de forma malintencionada o por accidente. Azure AD se ejecuta en servidores sin sistema operativo, aislados en un segmento de red separado donde el filtrado de paquetes de nivel de host y Firewall de Windows bloquean el tráfico y las conexiones no deseadas.
@@ -83,7 +90,8 @@ El concepto de contenedores de inquilino está profundamente relacionado con el 
 
 Aunque se almacenan metadatos de varios inquilinos de Azure Active Directory en el mismo disco físico, no hay relación entre los contenedores salvo la que se define en el servicio de directorio, que a su vez viene determinada por el administrador del inquilino.
 
-### <a name="22-azure-role-based-access-control-rbac"></a>2.2 Control de acceso basado en rol (RBAC) de Azure
+### Control de acceso basado en rol (RBAC) de Azure
+<a id="azure-role-based-access-control-rbac" class="xliff"></a>
 El [control de acceso basado en rol (RBAC) de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) ayuda a compartir varios componentes disponibles dentro de una suscripción de Azure, y proporciona una administración de acceso detallada en Azure. RBAC de Azure le permite separar las tareas dentro de su organización y conceder acceso en función de lo que los usuarios necesitan para realizar sus tareas. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones.
 
 RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de recurso:
@@ -113,7 +121,8 @@ Otras funcionalidades de Azure Active Directory incluyen:
 
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) proporciona un servicio de administración de identidades global y de alta disponibilidad para aplicaciones de consumo que se escalan a cientos de millones de identidades. Se puede integrar en plataformas móviles y web. Los consumidores pueden iniciar sesión en todas las aplicaciones con experiencias personalizables usando sus cuentas de redes sociales existentes o mediante la creación de credenciales.
 
-### <a name="23-isolation-from-microsoft-administrators--data-deletion"></a>2.3 Aislamiento de los administradores de Microsoft y eliminación de datos
+### Aislamiento de los administradores de Microsoft y eliminación de datos
+<a id="isolation-from-microsoft-administrators--data-deletion" class="xliff"></a>
 Microsoft aplica medidas seguras para proteger los datos contra el acceso inadecuado o el uso por parte de personas no autorizadas. Estos controles y procesos operativos están detallados en los [términos de los servicios en línea](http://aka.ms/Online-Services-Terms), que recoge los compromisos contractuales que controlan el acceso a los datos.
 
 -    Los ingenieros de Microsoft no tienen acceso de forma predeterminada a los datos en la nube. En su lugar, se les concede acceso, bajo la supervisión de la administración, solo cuando sea necesario. El acceso se controla y registra cuidadosamente y se revoca tan pronto como deje de ser necesario.
@@ -126,10 +135,12 @@ Si se elimina algún dato, Microsoft Azure eliminará los datos, incluidas las c
 
 Si una unidad de disco utilizada para el almacenamiento sufre un error de hardware, se [borra o destruye](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) de un modo seguro antes de que Microsoft la devuelva al fabricante para su reemplazo o reparación. Los datos de la unidad se sobrescriben para asegurarse de que no se puedan recuperar de ninguna forma.
 
-## <a name="30-compute-isolation"></a>3.0 Aislamiento de proceso
+## Aislamiento de proceso
+<a id="compute-isolation" class="xliff"></a>
 Microsoft Azure proporciona diversos servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso que se pueden escalar vertical y horizontalmente para satisfacer las necesidades de su aplicación o de su empresa. Estos servicios e instancias de proceso ofrecen aislamiento en varios niveles para proteger los datos, sin sacrificar la flexibilidad en la configuración que los clientes demandan.
 
-### <a name="31-hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>3.1 Aislamiento de Hyper-V y sistema operativo raíz entre la máquina virtual raíz y las máquinas virtuales invitadas
+### Aislamiento de Hyper-V y sistema operativo raíz entre la máquina virtual raíz y las máquinas virtuales invitadas
+<a id="hyper-v--root-os-isolation-between-root-vm--guest-vms" class="xliff"></a>
 La plataforma de proceso de Azure se basa en la virtualización, lo que significa que todo el código del cliente se ejecuta en una máquina virtual de Hyper-V. En cada nodo de Azure (o punto de conexión de red), hay un hipervisor que se ejecuta directamente sobre el hardware y divide un nodo en un número variable de máquinas virtuales invitadas.
 
 
@@ -144,10 +155,12 @@ El anillo 0 tiene los mayores privilegios y el anillo 3 tiene los menores. El si
 
 El hipervisor de Azure actúa como un micronúcleo y pasa todas las solicitudes de acceso al hardware desde las máquinas virtuales invitadas hasta el host para procesarlas mediante una interfaz de memoria compartida denominada VMBus. Esto impide que los usuarios obtengan acceso de lectura/escritura/ejecución sin procesar en el sistema y reduce el riesgo de compartir recursos del sistema.
 
-### <a name="32-advanced-vm-placement-algorithm--protection-from-side-channel-attacks"></a>3.2 Algoritmo avanzado de selección de ubicación de la máquina virtual y protección frente a ataques de canal lateral
+### Algoritmo avanzado de selección de ubicación de la máquina virtual y protección frente a ataques de canal lateral
+<a id="advanced-vm-placement-algorithm--protection-from-side-channel-attacks" class="xliff"></a>
 Cualquier ataque entre máquinas virtuales conlleva dos pasos: situar una máquina virtual controlada por el adversario en el mismo host que una de las máquinas virtuales víctimas y, a continuación, romper el límite de aislamiento para robar información confidencial de la víctima o afectar a su rendimiento por codicia o vandalismo. Microsoft Azure proporciona protección frente a ambos pasos mediante el uso de un algoritmo avanzado de selección de ubicación de máquinas virtuales y protección frente a todos los ataques de canal lateral conocidos, incluidos los ataques de máquinas virtuales vecinas que puedan generar ruido.
 
-### <a name="33-the-azure-fabric-controller"></a>3.3 Controlador de tejido de Azure
+### Controlador de tejido de Azure
+<a id="the-azure-fabric-controller" class="xliff"></a>
 El controlador de tejido de Azure es responsable de asignar recursos de infraestructura a cargas de trabajo de inquilinos y administra las comunicaciones unidireccionales desde el host hasta las máquinas virtuales. El algoritmo de selección de ubicación de máquinas virtuales del controlador de tejido de Azure es muy sofisticado y casi imposible de predecir en el nivel de host físico.
 
 ![Controlador de tejido de Azure](./media/azure-isolation/azure-isolation-fig5.png)
@@ -171,7 +184,8 @@ El aislamiento se extiende desde la máquina virtual raíz a las máquinas virtu
 El hipervisor y el sistema operativo host proporcionan filtros de paquetes de red para ayudar a garantizar que las máquinas virtuales que no son de confianza no puedan generar tráfico simulado o recibir tráfico no dirigido a ellas, para dirigir tráfico a puntos de conexión protegidos de la infraestructura, y para enviar y recibir tráfico de difusión inadecuado.
 
 
-### <a name="34-additional-rules-configured-by-fabric-controller-agent-to-isolate-vm"></a>3.4 Reglas adicionales configuradas por el agente del controlador de tejido para aislar la máquina virtual
+### Reglas adicionales configuradas por el agente del controlador de tejido para aislar la máquina virtual
+<a id="additional-rules-configured-by-fabric-controller-agent-to-isolate-vm" class="xliff"></a>
 De forma predeterminada, cuando se crea una máquina virtual, se bloquea todo el tráfico y luego el agente del controlador de tejido configura el filtro de paquetes para agregar reglas y excepciones a fin de permitir el tráfico autorizado.
 
 Se programan dos categorías de reglas:
@@ -180,7 +194,8 @@ Se programan dos categorías de reglas:
 
 -    **Archivo de configuración de roles**: define las listas de control de acceso (ACL) de entrada según el modelo de servicio del inquilino.
 
-### <a name="35-vlan-isolation"></a>3.5 Aislamiento de VLAN
+### Aislamiento de VLAN
+<a id="vlan-isolation" class="xliff"></a>
 Hay tres redes VLAN en cada clúster:
 
 ![Aislamiento de VLAN](./media/azure-isolation/azure-isolation-fig8.jpg)
@@ -194,12 +209,15 @@ Hay tres redes VLAN en cada clúster:
 
 Se permite la comunicación desde la VLAN FC a la VLAN principal, pero no se puede iniciar desde la VLAN principal hacia la VLAN FC. La comunicación también está bloqueada desde la VLAN principal hacia la VLAN de dispositivo. Esto asegura que incluso si un nodo que ejecuta código del cliente se ve comprometido, no puede atacar nodos ni de la VLAN FC ni de las VLAN de dispositivo.
 
-## <a name="40-storage-isolation"></a>4.0 Aislamiento de almacenamiento
-### <a name="41-logical-isolation-between-compute-and-storage"></a>4.1 Aislamiento lógico entre proceso y almacenamiento
+## Aislamiento de almacenamiento
+<a id="storage-isolation" class="xliff"></a>
+### Aislamiento lógico entre proceso y almacenamiento
+<a id="logical-isolation-between-compute-and-storage" class="xliff"></a>
 Como parte fundamental de su diseño, Microsoft Azure separa las máquinas virtuales de proceso y las de almacenamiento. Esta separación permite escalar la computación y el almacenamiento de forma independiente, facilitando así el multiinquilinato y el aislamiento.
 
 Por tanto, Azure Storage se ejecuta en hardware independiente sin conectividad de red con Azure Compute, excepto en el nivel lógico. [Esto](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) significa que, cuando se crea un disco virtual, no se asigna espacio en disco para toda su capacidad. En su lugar, se crea una tabla que asigna direcciones en el disco virtual a las áreas en el disco físico y la tabla está inicialmente vacía. **La primera vez que un cliente escribe datos en el disco virtual, se asigna espacio en el disco físico y se coloca un puntero a este en la tabla.**
-### <a name="42-isolation-using-storage-access-control"></a>4.2 Aislamiento con Storage Access Control
+### Aislamiento con Storage Access Control
+<a id="isolation-using-storage-access-control" class="xliff"></a>
 **Azure Storage Access Control** tiene un modelo de control de acceso simple. Cada suscripción de Azure puede crear una o más cuentas de almacenamiento. Cada cuenta de almacenamiento tiene una única clave secreta que se utiliza para controlar el acceso a todos los datos de esa cuenta de almacenamiento.
 
 ![Aislamiento con Storage Access Control](./media/azure-isolation/azure-isolation-fig9.png)
@@ -208,18 +226,21 @@ Por tanto, Azure Storage se ejecuta en hardware independiente sin conectividad d
 
 Esto significa que puede conceder permisos limitados a los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos. Se pueden conceder estos permisos limitados sin tener que compartir las claves de acceso de su cuenta.
 
-### <a name="43-ip-level-storage-isolation"></a>4.3 Aislamiento del almacenamiento en el nivel de dirección IP
+### Aislamiento del almacenamiento en el nivel de dirección IP
+<a id="ip-level-storage-isolation" class="xliff"></a>
 Puede establecer firewalls y definir un intervalo de direcciones IP para los clientes de confianza. Con un intervalo de direcciones IP, solo los clientes que tengan una dirección IP dentro del intervalo definido podrán conectarse a [Azure Storage](https://docs.microsoft.com/azure/storage/storage-security-guide).
 
 Los datos de almacenamiento de IP se pueden proteger contra usuarios no autorizados mediante un mecanismo de red que se utiliza para asignar un túnel de tráfico dedicado al almacenamiento de IP.
 
-### <a name="44-encryption"></a>4.4 Cifrado
+### Cifrado
+<a id="encryption" class="xliff"></a>
 Azure ofrece los siguientes tipos de cifrado para proteger los datos:
 -    Cifrado en tránsito
 
 -    Cifrado en reposo
 
-#### <a name="441-encryption-in-transit"></a>4.4.1 Cifrado en tránsito
+#### Cifrado en tránsito
+<a id="encryption-in-transit" class="xliff"></a>
 Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a través de redes. Con Azure Storage, puede proteger los datos mediante:
 
 -    [Cifrado de nivel de transporte](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), como HTTPS para transferir datos a Almacenamiento de Azure o desde este servicio.
@@ -228,7 +249,8 @@ Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a 
 
 -    [Cifrado de cliente](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), para cifrar los datos antes de transferirlos al almacenamiento y descifrarlos una vez transferidos desde este servicio.
 
-#### <a name="442-encryption-at-rest"></a>4.4.2 Cifrado en reposo
+#### Cifrado en reposo
+<a id="encryption-at-rest" class="xliff"></a>
 Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de Azure que proporcionan cifrado de datos "en reposo":
 
 -    [Cifrado del servicio de almacenamiento](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Almacenamiento de Azure.
@@ -237,7 +259,8 @@ Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.mi
 
 -    [Cifrado de discos de Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
 
-#### <a name="443-azure-disk-encryption"></a>4.4.3 Azure Disk Encryption
+#### Cifrado de disco de Azure
+<a id="azure-disk-encryption" class="xliff"></a>
 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) para máquinas virtuales le ayuda solucionar los aspectos de seguridad y cumplimiento normativo de su organización, ya que cifra los discos de las máquinas virtuales (incluidos los discos de inicio y de datos) con claves y directivas que se controlan en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 La solución Cifrado de discos para Windows se basa en la tecnología de [Cifrado de unidad BitLocker de Microsoft](https://technet.microsoft.com/library/cc732774.aspx), y la solución de Linux se basa en [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
@@ -277,10 +300,12 @@ La solución no admite los siguientes escenarios, características y tecnología
 
 -    Azure Files (sistema de archivos compartido), Network File System (NFS), volúmenes dinámicos y máquinas virtuales Windows configuradas con sistemas RAID basadas en software
 
-## <a name="50-sql-azure-database-isolation"></a>5.0 Aislamiento de base de datos de SQL Azure
+## Aislamiento de base de datos de SQL Azure
+<a id="sql-azure-database-isolation" class="xliff"></a>
 SQL Database es un servicio de bases de datos relacionales de Microsoft Cloud que usa el motor de Microsoft SQL Server líder del mercado, lo que le permite controlar cargas de trabajo críticas. SQL Database ofrece aislamiento de datos predecible en el nivel de cuenta, basado en región o área geográfica, o basado en red, todo ello con una administración prácticamente inexistente.
 
-### <a name="51-sql-azure-application-model"></a>5.1 Modelo de aplicación de SQL Azure
+### Modelo de aplicación de SQL Azure
+<a id="sql-azure-application-model" class="xliff"></a>
 
 [Microsoft SQL Azure Database](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) es un servicio de base de datos relacional en la nube que se basa en la tecnología de SQL Server. Proporciona un servicio de base de datos de alta disponibilidad, escalable y multiinquilino, hospedado por Microsoft en la nube.
 
@@ -306,7 +331,8 @@ No se garantiza que la información de facturación y aquella relacionada con el
 
 Desde la perspectiva del cliente, un servidor lógico se crea en un región geográfica, en tanto que la creación real del servidor se produce en uno de los clústeres de la región.
 
-### <a name="52-isolation-through-network-topology"></a>5.2 Aislamiento mediante la topología de red
+### Aislamiento mediante topología de red
+<a id="isolation-through-network-topology" class="xliff"></a>
 
 Cuando se crea un servidor lógico y se registra su nombre DNS, el nombre DNS apunta a la dirección “VIP de puerta de enlace” del centro de datos específico en el que se sitúa el servidor.
 
@@ -325,10 +351,12 @@ La capa situada detrás de las puertas de enlace se denomina "back-end". Ahí es
 
 Por lo general, el sistema back-end no tiene comunicaciones salientes a otros sistemas como precaución de seguridad. Eso se reserva para los sistemas de la capa front-end (puerta de enlace). Las máquinas de la capa de puerta de enlace tienen privilegios limitados en las máquinas back-end para minimizar la superficie de ataque como un mecanismo de defensa en profundidad.
 
-### <a name="53-isolation-by-machine-function-and-access"></a>5.3 Aislamiento por función y acceso de la máquina
+### Aislamiento por función y acceso de la máquina
+<a id="isolation-by-machine-function-and-access" class="xliff"></a>
 SQL Azure se compone de servicios que se ejecutan en máquinas de funciones diferentes. SQL Azure se divide en la base de datos en la nube “back-end” y entornos “front-end” (puerta de enlace y administración), con el principio general de que el tráfico va hacia el sistema back-end pero no sale de él. El entorno front-end puede comunicarse con cualquier otro servicio exterior y, en general, solo tiene permisos limitados en el entorno back-end (los suficientes para llamar a los puntos de entrada que necesita invocar).
 
-## <a name="60-networking-isolation"></a>6.0 Aislamiento de red
+## Aislamiento de red
+<a id="networking-isolation" class="xliff"></a>
 La implementación de Azure tiene varios niveles de aislamiento de red. El siguiente diagrama muestra los diferentes niveles de aislamiento de red que Azure proporciona a los clientes. Estos niveles son nativos en la plataforma de Azure y también son características definidas por el cliente. En la entrada desde Internet, DDoS de Azure proporciona aislamiento frente a ataques a gran escala contra Azure. En el siguiente nivel de aislamiento están las direcciones IP públicas (puntos de conexión) definidas por el cliente que se usan para determinar el tráfico que puede pasar desde el servicio en la nube a la red virtual. El aislamiento de la red virtual de Azure nativa garantiza un aislamiento completo de todas las demás redes y que el tráfico solo fluya a través de los métodos y las rutas de acceso configurados por el usuario. Estas rutas de acceso y métodos son el siguiente nivel, en el que se pueden usar NSG, UDR y dispositivos de red virtual para crear límites de aislamiento y así proteger las implementaciones de aplicaciones en la red protegida.
 
 ![Aislamiento de red](./media/azure-isolation/azure-isolation-fig13.png)
@@ -337,7 +365,8 @@ La implementación de Azure tiene varios niveles de aislamiento de red. El sigui
 
 [Subred](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) ofrece un nivel de aislamiento adicional de la red virtual basado en un intervalo de direcciones IP. Direcciones IP en la red virtual, puede dividir una red virtual en varias subredes por organización y seguridad. Las instancias de rol de PaaS y máquinas virtuales implementadas en subredes (iguales o distintas) dentro de una red virtual pueden comunicarse entre sí sin ninguna configuración adicional. También puede configurar [grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) para permitir o denegar el tráfico de red a una instancia de máquina virtual en función de las reglas configuradas en la lista de control de acceso (ACL) del NSG. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de la máquina virtual de esa subred.
 
-## <a name="next-steps"></a>Pasos siguientes
+## Pasos siguientes
+<a id="next-steps" class="xliff"></a>
 
 - [Opciones de aislamiento de red para máquinas Windows en redes virtuales de Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
 

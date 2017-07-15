@@ -12,37 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/10/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6ac399b4aa81e849aacb37e55e804b935dde7419
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
 
-# <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Expansión del disco del sistema operativo en una máquina virtual Linux mediante la CLI de Azure 1.0
-Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Puede [agregar discos de datos](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir el disco del sistema operativo. En este artículo se detalla cómo expandir el disco del sistema operativo para una máquina virtual Linux mediante discos no administrados con la CLI de Azure 1.0.
+# Expansión del disco del sistema operativo en una máquina virtual Linux mediante la CLI de Azure 1.0
+<a id="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10" class="xliff"></a>
+Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Puede [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir el disco del sistema operativo. En este artículo se detalla cómo expandir el disco del sistema operativo para una máquina virtual Linux mediante discos no administrados con la CLI de Azure 1.0.
 
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
+## Versiones de la CLI para completar la tarea
+<a id="cli-versions-to-complete-the-task" class="xliff"></a>
 Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 
 - [CLI de Azure 1.0](#prerequisites): la CLI para los modelos de implementación clásico y de Resource Manager (este artículo)
-- [CLI de Azure 2.0](expand-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): la CLI de última generación para el modelo de implementación de administración de recursos
+- [CLI de Azure 2.0](expand-disks.md): la CLI de última generación para el modelo de implementación de administración de recursos
 
-## <a name="prerequisites"></a>Requisitos previos
+## Requisitos previos
+<a id="prerequisites" class="xliff"></a>
 Necesita tener instalada la [CLI de Azure 1.0 más reciente](../../cli-install-nodejs.md) y haber iniciado sesión en una [cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/) con el modo Resource Manager de la forma siguiente:
 
 ```azurecli
 azure config mode arm
 ```
 
-En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetros de ejemplo incluyen `myResourceGroup` y `myVM`.
+En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetros de ejemplo incluyen *myResourceGroup* y *myVM*.
 
-## <a name="expand-os-disk"></a>Expansión del disco del sistema operativo
+## Expansión del disco del sistema operativo
+<a id="expand-os-disk" class="xliff"></a>
 
-1. No se pueden realizar operaciones en los discos duros virtuales con la máquina virtual en ejecución. En el ejemplo siguiente se detiene y desasigna la máquina virtual llamada `myVM` en el grupo de recursos `myResourceGroup`:
+1. No se pueden realizar operaciones en los discos duros virtuales con la máquina virtual en ejecución. En el ejemplo siguiente se detiene y desasigna la máquina virtual llamada *myV* en el grupo de recursos llamado *myResourceGroup*:
 
     ```azurecli
     azure vm deallocate --resource-group myResourceGroup --name myVM
@@ -51,10 +56,13 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
     > [!NOTE]
     > `azure vm stop` no libera los recursos de proceso. Para liberar los recursos de proceso, use `azure vm deallocate`. Debe desasignar la máquina virtual para expandir el disco duro virtual.
 
-2. Actualice el tamaño del disco no administrado de sistema operativo mediante el comando `azure vm set`. En el ejemplo siguiente se actualiza la máquina virtual llamada `myVM` en el grupo de recursos `myResourceGroup` para que tenga `50` GB:
+2. Actualice el tamaño del disco no administrado de sistema operativo mediante el comando `azure vm set`. En el ejemplo siguiente se desasigna la máquina virtual denominada *myVM* del grupo de recursos llamado *myResourceGroup* para que tenga *50* GB:
 
     ```azurecli
-    azure vm set --resource-group myResourceGroup --name myVM --new-os-disk-size 50
+    azure vm set \
+        --resource-group myResourceGroup \
+        --name myVM \
+        --new-os-disk-size 50
     ```
 
 3. Inicie la máquina virtual como se indica a continuación:
@@ -63,7 +71,7 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
     azure vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. SSH en la máquina virtual con las credenciales adecuadas. Para comprobar que se ha cambiado el tamaño de disco del sistema operativo, use `df -h`. La siguiente salida de ejemplo muestra que la partición principal (`/dev/sda1`) ahora es de 50 GB:
+4. SSH en la máquina virtual con las credenciales adecuadas. Para comprobar que se ha cambiado el tamaño de disco del sistema operativo, use `df -h`. La siguiente salida de ejemplo muestra que la partición principal (*/dev/sda1*) es ahora de 50 GB:
 
     ```bash
     Filesystem      Size  Used Avail Use% Mounted on
@@ -72,6 +80,7 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
     /dev/sda1        49G  1.3G   48G   3% /
     ```
 
-## <a name="next-steps"></a>Pasos siguientes
-Si necesita almacenamiento adicional, también puede [agregar discos de datos a una máquina virtual Linux](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para más información acerca del cifrado de disco, consulte [Cifrado de discos en una máquina virtual Linux mediante la CLI de Azure](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+Si necesita almacenamiento adicional, también puede [agregar discos de datos a una máquina virtual Linux](add-disk.md). Para más información acerca del cifrado de disco, consulte [Cifrado de discos en una máquina virtual Linux mediante la CLI de Azure](encrypt-disks.md).
 
