@@ -1,4 +1,4 @@
----
+﻿---
 title: "Introducción a Azure Cosmos DB | Microsoft Docs"
 description: "Información acerca de Azure Cosmos DB. Esta base de datos de varios modelos y distribución global se ha creado con latencia baja, escalabilidad elástica y alta disponibilidad."
 services: cosmos-db

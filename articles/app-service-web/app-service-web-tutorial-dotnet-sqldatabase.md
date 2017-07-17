@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de ejecutar este ejemplo, [descargue e instale la versión gratuita de Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
+Antes de ejecutar este ejemplo, [descargue e instale la versión gratuita de Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de habilitar **Desarrollo de Azure** durante la instalación de Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -144,7 +144,7 @@ En la pestaña **Servicios**, haga clic en el icono **+** junto a **SQL Database
 
 En el cuadro de diálogo **Configurar SQL Database**, haga clic en **Nuevo** junto a **SQL Server**. 
 
-En **Nombre del servidor**, escriba un nombre único. Este nombre se usar como parte del nombre DNS predeterminado para el servidor de base de datos, `<server_name>.database.windows.net`, por lo que debe ser único en todas las instancias de SQL Server en Azure. 
+En **Nombre del servidor**, escriba un nombre único. Este nombre se usará como parte del nombre DNS predeterminado para el servidor de base de datos, "<server_name>.database.windows.net", por lo que debe ser único en todas las instancias de SQL Server en Azure.
 
 Configure el resto de los campos como desee y haga clic en **Aceptar**.
 
