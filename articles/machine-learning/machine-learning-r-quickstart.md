@@ -178,15 +178,15 @@ En esta vista se puede ver una gran cantidad de información útil. Puede ver la
 ### <a name="first-r-script"></a>Primer script de R
 A continuación, vamos a crear nuestro primer script de código R para experimentar con él en Estudio de aprendizaje automático de Azure. Para ello, he creado y probado el siguiente script en RStudio.  
 
-    ## Solo una de las siguientes dos lineas debe usarse
-    ## Si lo ejecuta en Estudio de aprendizaje automático, utilice la primera linea con maml.mapInputPort()
-    ## Si es usando RStudio, utilice la segunda linea con read.csv()
+    ## Only one of the following two lines should be used
+    ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
+    ## If in RStudio, use the second line with read.csv()
     cadairydata <- maml.mapInputPort(1)
     # cadairydata  <- read.csv("cadairydata.csv", header = TRUE, stringsAsFactors = FALSE)
     str(cadairydata)
     pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata)
-    ## La siguiente linea deberia ser ejecutada solo cuando se este usando en
-    ## Estudio de aprendizaje automático de Azure
+    ## The following line should be executed only when running in
+    ## Azure Machine Learning Studio
     maml.mapOutputPort('cadairydata')
 
 Ahora necesito transferir este script a Estudio de aprendizaje automático de Azure. Basta con cortar y pegar. Sin embargo, en este caso, transferiré el script de código R mediante un archivo zip.
