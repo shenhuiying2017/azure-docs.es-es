@@ -14,18 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6e476e1dc550f246027c015dee75850236baa9a9
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: da848aec495a8248fd4791f350d439e937831d01
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local en el Servicio de aplicaciones de Azure
+<a id="local-git-deployment-to-azure-app-service" class="xliff"></a>
+
+# Implementación de Git local en el Servicio de aplicaciones de Azure
 En este tutorial se muestra cómo implementar la aplicación en el [Servicio de aplicaciones de Azure] desde un repositorio de Git en el equipo local. El Servicio de aplicaciones admite este enfoque con la opción de implementación **Git local** en el [Portal de Azure].  
 Muchos de los comandos de Git que se describen en este artículo se ejecutan automáticamente al crear una aplicación de App Service mediante la [interfaz de la línea de comandos de Azure], como se describe [aquí](app-service-web-get-started.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+<a id="prerequisites" class="xliff"></a>
+
+## Requisitos previos
 Para completar este tutorial, necesita:
 
 * Git. Puede descargar el archivo binario de instalación [aquí](http://www.git-scm.com/downloads).  
@@ -43,8 +48,10 @@ Realice las tareas siguientes al crear un nuevo repositorio Git.
 1. Inicie una herramienta de línea de comandos, como **GitBash** (Windows) o **Bash** (shell de Unix). En los sistemas OS X puede tener acceso a la línea de comandos mediante la aplicación **Terminal** .
 2. Desplácese al directorio donde se ubicará el contenido que se va a implementar.
 3. Utilice el comando siguiente para inicializar un nuevo repositorio Git:
-   
-        git init
+
+```bash  
+git init
+```
 
 ## <a name="Step2"></a>Paso 2: Confirmación del contenido
 El Servicio de aplicaciones admite aplicaciones creadas en varios lenguajes de programación. 
@@ -54,11 +61,15 @@ El Servicio de aplicaciones admite aplicaciones creadas en varios lenguajes de p
    * Con un editor de texto, cree un archivo nuevo denominado **index.html** en la raíz del repositorio Git.
    * Agregue el texto siguiente como contenido para el archivo index.htm y guárdelo: *Hello Git!*
 2. Desde la línea de comandos, compruebe que está en la raíz de su repositorio de Git. Use el comando siguiente para agregar archivos al repositorio:
-   
-        git add -A 
+
+```bash  
+git add -A
+```
 3. A continuación, confirme los cambios en el repositorio mediante el siguiente comando:
-   
-        git commit -m "Hello Azure App Service"
+
+```bash  
+git commit -m "Hello Azure App Service"
+```  
 
 ## <a name="Step3"></a>Paso 3: Habilitación del repositorio de aplicaciones de App Service
 Lleve a cabo los pasos siguientes para habilitar un repositorio de Git para su aplicación del Servicio de aplicaciones.
@@ -88,10 +99,11 @@ Siga los pasos que se indican a continuación para publicar una aplicación en e
    > 
    > 
 4. Inserte el contenido en el Servicio de aplicaciones con el nuevo comando remoto **azure** que acaba de crear.
-   
-        git push azure master
-   
-    Se le solicitará la contraseña que ha creado antes al restablecer las credenciales de implementación en el Portal de Azure. Escriba la contraseña (tenga en cuenta que Gitbash no envía los asteriscos a la consola mientras escribe la contraseña). 
+
+```bash  
+git push azure master
+```
+    You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 5. Vuelva a la aplicación en el Portal de Azure. En la hoja **Implementaciones** debería aparecer una entrada de registro de la última inserción. 
    
     ![](./media/app-service-deploy-local-git/deployment_history.png)
@@ -121,8 +133,9 @@ Estos son los errores o problemas que suelen aparecer al usar Git para publicar 
 
 **Resolución**: vuelva a realizar la operación de inserción, especificando la rama principal. Por ejemplo:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Síntoma**: src refspec [branchname] no coincide con ninguna.
 
@@ -130,8 +143,9 @@ Estos son los errores o problemas que suelen aparecer al usar Git para publicar 
 
 **Resolución**: vuelva a realizar la operación de inserción, especificando la rama principal. Por ejemplo:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Síntoma**: error de RPC; resultado=22; código HTTP=502.
 
@@ -139,8 +153,9 @@ Estos son los errores o problemas que suelen aparecer al usar Git para publicar 
 
 **Resolución**: cambie la configuración de git en la máquina local para aumentar el tamaño de postBuffer.
 
-    git config --global http.postBuffer 524288000
-
+```bash  
+git config --global http.postBuffer 524288000
+```
 - - -
 **Síntoma**: Error: los cambios se han confirmado en el repositorio remoto, pero la aplicación web no se ha actualizado.
 
@@ -156,7 +171,9 @@ Estos son los errores o problemas que suelen aparecer al usar Git para publicar 
       OR
   * npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
-## <a name="additional-resources"></a>Recursos adicionales
+<a id="additional-resources" class="xliff"></a>
+
+## Recursos adicionales
 * [Documentación de Git](http://git-scm.com/documentation)
 * [Documentación de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Implementación continua en el Servicio de aplicaciones de Azure](app-service-continuous-deployment.md)

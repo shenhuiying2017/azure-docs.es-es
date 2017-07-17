@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f4ff9c9a76cb5e33c5474ce3b535c3e582dff890
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 4004e1601750e9b2874e6f8b05811cdf20306a48
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -198,7 +198,7 @@ Si usa __Azure Data Lake Store__, consulte los siguientes vínculos para ver las
 
 * [Explorador web](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [CLI de Azure](../data-lake-store/data-lake-store-get-started-cli.md)
+* [CLI de Azure 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [API de REST de WebHDFS](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Data Lake Tools para Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)

@@ -16,14 +16,16 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: e87157e822752c16fb3d25916efc8223d22b3812
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 2e989ab0cb95a1caef44b2f235b162f2c12a79cc
 ms.contentlocale: es-es
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Creación de un trabajo de procesamiento de análisis de datos para Análisis de transmisiones
+<a id="how-to-create-a-data-analytics-processing-job-for-stream-analytics" class="xliff"></a>
+
+# Creación de un trabajo de procesamiento de análisis de datos para Análisis de transmisiones
 El recurso de nivel superior en el Análisis de transmisiones de Azure es un trabajo de análisis de transmisiones.  Consta de uno o varios orígenes de datos de entrada, una consulta que expresa la transformación de datos y uno o más destinos de salida en los que se escriben los resultados. Juntos, permiten al usuario realizar procesamiento de análisis de datos para escenarios de streaming de datos.
 
 Para empezar a usar Análisis de transmisiones, cree un trabajo de Análisis de transmisiones.  Tenga en cuenta que esta acción no tiene ninguna implicación de facturación hasta que se inicie el trabajo.
@@ -51,12 +53,16 @@ Para empezar a usar Análisis de transmisiones, cree un trabajo de Análisis de 
    
    ![Trabajo de procesamiento de análisis de datos en el Portal de Azure: Estado del trabajo](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 
-## <a name="get-help"></a>Obtener ayuda
+<a id="get-help" class="xliff"></a>
+
+## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

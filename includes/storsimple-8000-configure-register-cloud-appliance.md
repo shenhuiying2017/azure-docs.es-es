@@ -1,0 +1,20 @@
+#### Para configurar y registrar el dispositivo de la nube, siga estos pasos:
+<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
+
+1. Seleccione la instancia de StorSimple Cloud Appliance que creó en la hoja **Dispositivos** y haga clic en ella.
+
+    ![StorSimple Cloud Appliance en la lista de dispositivos](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
+2. En la hoja **Configurar dispositivo**, realice los siguientes pasos:
+    
+    1. Escriba la **Clave de cifrado de datos de servicio** en el espacio proporcionado. Esta clave se genera cuando registra el primer dispositivo físico en su servicio StorSimple Device Manager.
+
+    2. Escriba la **contraseña de administrador de dispositivo** y la contraseña de **Snapshot Manager** con la longitud y los valores especificados.
+
+    3. Haga clic en **Aceptar** para finalizar la configuración inicial y el registro del dispositivo de nube.
+    
+        ![Configuración del dispositivo en StorSimple Cloud Appliance](./media/storsimple-8000-configure-register-cloud-appliance/sca-configure1.png)
+
+Una vez que complete la configuración y el registro, el dispositivo se conectará. (Esto puede demorar varios minutos).
+
+![Fase en línea de StorSimple Cloud Appliance](./media/storsimple-8000-configure-register-cloud-appliance/sca-configure2.png)
+

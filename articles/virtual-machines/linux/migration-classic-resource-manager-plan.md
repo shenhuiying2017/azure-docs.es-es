@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: e7499bdd38245dd8d1b7ee4d6384b4b1ca61a5ae
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 5db4e5b18ad385e7eba125a1296a9c5054213446
+ms.contentlocale: es-es
+ms.lasthandoff: 05/08/2017
 
 ---
 
-# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
+<a id="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager" class="xliff"></a>
+
+# Planificación de la migración de recursos de IaaS del modelo clásico a Azure Resource Manager
 Aunque Azure Resource Manager ofrece muchas características increíbles, es fundamental planificar la trayectoria de migración para garantizar que el proceso se desarrolle con facilidad. Dedicar tiempo a la planificación garantizará que no se planteen problemas al ejecutar las actividades de migración. 
 
 > [!NOTE] 
@@ -32,9 +35,13 @@ La trayectoria de migración consta de cuatro fases generales:
 
 ![Fases de migración](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Plan
+<a id="plan" class="xliff"></a>
 
-### <a name="technical-considerations-and-tradeoffs"></a>Consideraciones técnicas y compromisos
+## Plan
+
+<a id="technical-considerations-and-tradeoffs" class="xliff"></a>
+
+### Consideraciones técnicas y compromisos
 
 En función de la envergadura de los requisitos técnicos, de las zonas geográficas y de las prácticas operativas, debería tener en cuenta lo siguiente:
 
@@ -50,7 +57,9 @@ En función de la envergadura de los requisitos técnicos, de las zonas geográf
 10. ¿Cuál es el plan de administración de programas o de proyectos para la migración?
 11. ¿Cuáles son las escalas de tiempo para la migración de Azure Resource Manager y para otros mapas de rutas tecnológicos relacionados?  ¿Están perfectamente alineados?
 
-### <a name="patterns-of-success"></a>Patrones de éxito
+<a id="patterns-of-success" class="xliff"></a>
+
+### Patrones de éxito
 
 Los clientes de éxito disponen de planes detallados en los que se abordan, se documentan y se administran las preguntas anteriores.  Asegúrese de que los planes de migración se comunican de forma amplia a los patrocinadores y a las partes interesadas.  Adquiera conocimientos sobre las opciones de migración; se recomienda leer este documento de migración a continuación.
 
@@ -63,14 +72,18 @@ Los clientes de éxito disponen de planes detallados en los que se abordan, se d
 * [Revisión de los errores más comunes en la migración](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Revisión de las preguntas más frecuentes acerca de cómo migrar recursos de IaaS de la versión clásica a Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="pitfalls-to-avoid"></a>Errores que hay que evitar
+<a id="pitfalls-to-avoid" class="xliff"></a>
+
+### Errores que hay que evitar
 
 - Errores de planificación.  Los pasos tecnológicos de esta migración se han comprobado y el resultado es predecible.
 - En todos los escenarios se tendrá en cuenta la suposición de que la plataforma admite la API de migración. Leer las [configuraciones y características no admitidas](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations) para saber qué escenarios se admiten.
 - Ausencia de planificación de interrupciones potenciales de la aplicación para los usuarios finales.  Planee suficiente búfer para advertir a los usuarios finales del tiempo durante el cual la aplicación posiblemente no estará disponible.
 
 
-## <a name="lab-test"></a>Análisis de laboratorio 
+<a id="lab-test" class="xliff"></a>
+
+## Análisis de laboratorio 
 
 **Replicación del entorno y realización de una migración de prueba**
   > [!NOTE]
@@ -84,7 +97,9 @@ Los clientes de éxito disponen de planes detallados en los que se abordan, se d
 
   Esto puede realizarse con la herramienta AsmMetadataParser. [Aquí puede encontrar más información sobre esta herramienta](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset).
 
-### <a name="patterns-of-success"></a>Patrones de éxito
+<a id="patterns-of-success" class="xliff"></a>
+
+### Patrones de éxito
 
 A continuación se indican problemas detectados en muchas de las migraciones más grandes. No se trata de una lista exhaustiva, por lo que debe remitirse a [Configuraciones y características no admitidas](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations) para más detalles. Puede encontrarse o no con estos problemas técnicos, pero, de plantearse, podrá tener una experiencia más fluida si los soluciona antes de intentar realizar la migración.
 
@@ -142,22 +157,28 @@ A continuación se indican problemas detectados en muchas de las migraciones má
     az storage account show-usage
     ```
 
-- **Límites de la API de Azure Resource Manager**: si tiene un entorno lo suficientemente grande (por ejemplo, más de 400 máquinas virtuales en una red virtual), podría alcanzar los límites predeterminados de escritura de la API (actualmente `1200 writes/hour`) en Azure Resource Manager. Antes de iniciar la migración, debe presentar un vale de soporte para aumentar este límite en la suscripción.
+- **Límites de la API de Azure Resource Manager**: si tiene un entorno lo suficientemente grande (por ejemplo, más de 400 máquinas virtuales en una red virtual), podría alcanzar los límites predeterminados de escritura de la API (actualmente **1200 escrituras/hora**) en Azure Resource Manager. Antes de iniciar la migración, debe presentar un vale de soporte para aumentar este límite en la suscripción.
 
-- **Estado de máquina virtual de tiempo de espera de aprovisionamiento agotado**: si alguna máquina virtual presenta el estado `provisioning timed out`, es necesario resolver este problema antes de la migración. La única manera de hacerlo es que el tiempo de inactividad, mediante el desaprovisionamiento y el reaprovisionamiento de la máquina virtual, es decir, eliminarla, conservar el disco y volver a crearla. 
+- **Estado de máquina virtual de tiempo de espera de aprovisionamiento agotado**: si alguna máquina virtual presenta el estado **Tiempo de espera de aprovisionamiento agotado**, es necesario resolver este problema antes de la migración. La única manera de hacerlo es que el tiempo de inactividad, mediante el desaprovisionamiento y el reaprovisionamiento de la máquina virtual, es decir, eliminarla, conservar el disco y volver a crearla. 
 
-- **Estado de máquina virtual RoleStateUnknown**: si la migración se detiene debido a un mensaje de error `role state unknown`, inspeccione la máquina virtual en el portal y asegúrese de que está en ejecución. Este error suele desaparecer por sí solo (no se precisa de ninguna corrección) transcurridos unos minutos, suele ser de carácter transitorio y suele detectarse durante las operaciones `start`, `stop` y `restart` de una máquina virtual. **Práctica recomendada:** vuelva a intentar la migración después de unos minutos. 
+- **Estado de máquina virtual RoleStateUnknown**: si la migración se detiene debido a un mensaje de error de **estado de erro desconocido**, inspeccione la máquina virtual en el portal y asegúrese de que está en funcionamiento. Este error suele desaparecer por sí solo (no se precisa de ninguna corrección) transcurridos unos minutos, suele ser de carácter transitorio y suele detectarse durante las operaciones de **inicio**, **detención** y **reinicio** de una máquina virtual. **Práctica recomendada:** vuelva a intentar la migración después de unos minutos. 
 
-- **El clúster de Fabric no existe** : en algunos casos, determinadas máquinas virtuales no se pueden migrar por distintas razones poco comunes. Uno de estos casos conocidos se da si la máquina virtual se ha creado recientemente (durante la última semana más o menos) y ha iniciado un clúster de Azure que aún no está equipado para cargas de trabajo de Azure Resource Manager.  Obtendrá un error que indica `fabric cluster does not exist` y, en este caso, la máquina virtual no se puede migrar. Normalmente, basta con esperar un par de día para que este problema concreto se resuelva, ya que el clúster no tardará en estar habilitado para Azure Resource Manager. Sin embargo, una solución inmediata consiste en `stop-deallocate` la máquina virtual, continuar después con la migración e iniciar la copia de seguridad de la máquina virtual en Azure Resource Manager después de la migración.
+- **El clúster de Fabric no existe** : en algunos casos, determinadas máquinas virtuales no se pueden migrar por distintas razones poco comunes. Uno de estos casos conocidos se da si la máquina virtual se ha creado recientemente (durante la última semana más o menos) y ha iniciado un clúster de Azure que aún no está equipado para cargas de trabajo de Azure Resource Manager.  Recibirá un error que dice que el **clúster de Fabric no existe** y la no se puede migrar la máquina virtual. Normalmente, basta con esperar un par de día para que este problema concreto se resuelva, ya que el clúster no tardará en estar habilitado para Azure Resource Manager. Sin embargo, una solución inmediata consiste en `stop-deallocate` la máquina virtual, continuar después con la migración e iniciar la copia de seguridad de la máquina virtual en Azure Resource Manager después de la migración.
 
-### <a name="pitfalls-to-avoid"></a>Errores que hay que evitar
+<a id="pitfalls-to-avoid" class="xliff"></a>
+
+### Errores que hay que evitar
 
 - No use métodos abreviados y omita las migraciones del simulacro de validación, preparación y anulación.
 - La mayoría de los problemas potenciales, si no todos, se detectarán durante los pasos del simulacro de validación, preparación y anulación.
 
-## <a name="migration"></a>Migración
+<a id="migration" class="xliff"></a>
 
-### <a name="technical-considerations-and-tradeoffs"></a>Consideraciones técnicas y compromisos
+## Migración
+
+<a id="technical-considerations-and-tradeoffs" class="xliff"></a>
+
+### Consideraciones técnicas y compromisos
 
 Ahora está listo porque ha trabajado con los problemas conocidos en su entorno.
 
@@ -168,17 +189,25 @@ Para las migraciones reales, conviene tener en cuenta lo siguiente:
 3. **(OPCIONAL)**  Programe un tiempo de inactividad por mantenimiento con una gran cantidad de búfer en caso de que surjan problemas inesperados.
 4. Comuníquese con los equipos de soporte y póngase de acuerdo con ellos en caso de que surjan problemas.
 
-### <a name="patterns-of-success"></a>Patrones de éxito
+<a id="patterns-of-success" class="xliff"></a>
+
+### Patrones de éxito
 
 Es necesario tener en cuenta y abordar la orientación técnica de la sección de análisis de laboratorio anterior antes de realizar la migración real.  Con las pruebas oportunas, la migración realmente no es ningún evento.  Para entornos de producción, puede resultar útil contar con soporte técnico adicional, como un asociado de Microsoft de confianza o Microsoft Premier Services.
 
-### <a name="pitfalls-to-avoid"></a>Errores que hay que evitar
+<a id="pitfalls-to-avoid" class="xliff"></a>
+
+### Errores que hay que evitar
 
 El hecho de no realizar las pruebas completas puede generar problemas y retrasos en la migración.  
 
-## <a name="beyond-migration"></a>Después de la migración
+<a id="beyond-migration" class="xliff"></a>
 
-### <a name="technical-considerations-and-tradeoffs"></a>Consideraciones técnicas y compromisos
+## Después de la migración
+
+<a id="technical-considerations-and-tradeoffs" class="xliff"></a>
+
+### Consideraciones técnicas y compromisos
 
 Ahora que ya está en Azure Resource Manager, maximice la plataforma.  Lea la [información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) para obtener información sobre otras ventajas.
 
@@ -188,7 +217,9 @@ Puntos que se deben tener en cuenta:
 - Revise los motivos técnicos y empresariales para migrar a Azure Resource Manager; habilite los servicios adicionales disponibles solo en Azure Resource Manager que sean aplicables a su entorno.
 - Modernice el entorno con servicios PaaS.
 
-### <a name="patterns-of-success"></a>Patrones de éxito
+<a id="patterns-of-success" class="xliff"></a>
+
+### Patrones de éxito
 
 Determine qué servicios desea habilitar en Azure Resource Manager.  Muchos clientes encuentran atractivos los siguientes para sus entornos de Azure:
 
@@ -198,12 +229,16 @@ Determine qué servicios desea habilitar en Azure Resource Manager.  Muchos clie
 - [Control de actividad](../../azure-resource-manager/resource-group-audit.md)
 - [Directivas de recursos](../../azure-resource-manager/resource-manager-policy.md)
 
-### <a name="pitfalls-to-avoid"></a>Errores que hay que evitar
+<a id="pitfalls-to-avoid" class="xliff"></a>
+
+### Errores que hay que evitar
 
 Recuerde por qué ha iniciado esta trayectoria de migración del modelo clásico a Azure Resource Manager.  ¿Cuáles eran los objetivos empresariales originales? ¿Ha conseguido el objetivo empresarial?
 
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 
 * [Información general sobre la migración compatible con la plataforma de recursos de IaaS desde el modelo de implementación clásica a Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

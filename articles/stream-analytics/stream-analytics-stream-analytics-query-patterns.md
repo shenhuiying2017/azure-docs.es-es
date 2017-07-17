@@ -15,18 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 976e765a906896c236497d074ca2a8c5fb1f1c53
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 3eb5d7e7198dbfbb8ffe47728d0fa532c49a294c
+ms.contentlocale: es-es
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Análisis de transmisiones
-## <a name="introduction"></a>Introducción
+<a id="query-examples-for-common-stream-analytics-usage-patterns" class="xliff"></a>
+
+# Ejemplos de consulta para patrones de uso comunes de Análisis de transmisiones
+<a id="introduction" class="xliff"></a>
+
+## Introducción
 Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje de consulta similar a SQL que se documenta en [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx) .  En este artículo se describen las soluciones para varios patrones de consulta comunes basados en situaciones del mundo real.  Es un trabajo en curso y continuará actualizándose con nuevos patrones de forma continuada.
 
-## <a name="query-example-data-type-conversions"></a>Ejemplo de consulta: conversiones de tipos de datos
+<a id="query-example-data-type-conversions" class="xliff"></a>
+
+## Ejemplo de consulta: conversiones de tipos de datos
 **Descripción**: defina el tipo de las propiedades en la transmisión de entrada.
 Por ejemplo, el peso del vehículo se incorpora a la transmisión de entrada como cadena y se debe convertir en INT para realizar la operación SUM.
 
@@ -56,7 +63,9 @@ Por ejemplo, el peso del vehículo se incorpora a la transmisión de entrada com
 
 **Explicación**: use una instrucción CAST en el campo Peso para especificar su tipo (consulte la lista de tipos de datos admitidos [aquí](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
 
-## <a name="query-example-using-likenot-like-to-do-pattern-matching"></a>Ejemplo de consulta: uso de Like/Not like para realizar la correspondencia de patrones
+<a id="query-example-using-likenot-like-to-do-pattern-matching" class="xliff"></a>
+
+## Ejemplo de consulta: uso de Like/Not like para realizar la correspondencia de patrones
 **Descripción**: compruebe que cada valor de campo en el evento coincida con un determinado patrón, p. ej., devolver matrículas que empiezan por A y terminan en 9.
 
 **Entrada**:
@@ -85,7 +94,9 @@ Por ejemplo, el peso del vehículo se incorpora a la transmisión de entrada com
 
 **Explicación**: use la instrucción LIKE para comprobar que el valor del campo LicensePlate comienza por A, tiene cualquier cadena de cero o más caracteres y termina por 9. 
 
-## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Ejemplo de consulta: especificación de la lógica para los distintos casos/valores (instrucciones CASE)
+<a id="query-example-specify-logic-for-different-casesvalues-case-statements" class="xliff"></a>
+
+## Ejemplo de consulta: especificación de la lógica para los distintos casos/valores (instrucciones CASE)
 **Descripción**: proporcione un cálculo diferente para un campo en función de determinados criterios.
 Por ejemplo, proporcione una descripción de cadena para el número de vehículos que han pasado de la misma marca con un caso especial para 1.
 
@@ -120,7 +131,9 @@ Por ejemplo, proporcione una descripción de cadena para el número de vehículo
 
 **Explicación**: la cláusula CASE nos permite proporcionar un cálculo diferente en función de criterios determinados (en nuestro caso, el número de automóviles en la ventana de agregado).
 
-## <a name="query-example-send-data-to-multiple-outputs"></a>Ejemplo de consulta: envío de datos a varias salidas
+<a id="query-example-send-data-to-multiple-outputs" class="xliff"></a>
+
+## Ejemplo de consulta: envío de datos a varias salidas
 **Descripción**: envíe datos a varios destinos de salida desde un único trabajo.
 Por ejemplo, analice los datos para una alerta de umbral y archive todos los eventos en Blob Storage.
 
@@ -190,7 +203,9 @@ Por ejemplo,
     SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
-## <a name="query-example-counting-unique-values"></a>Ejemplo de consultas: recuento de valores únicos
+<a id="query-example-counting-unique-values" class="xliff"></a>
+
+## Ejemplo de consultas: recuento de valores únicos
 **Descripción**: cuente el número de valores de campo únicos que aparecen en la transmisión durante un período de tiempo determinado.
 Por ejemplo, ¿cuántas marcas de vehículos únicas pasan a través de la cabina de peaje en un intervalo de 2 segundos?
 
@@ -225,7 +240,9 @@ GROUP BY
 
 **Explicación:** COUNT(DISTINCT Make) devuelve la cantidad de valores distintos de la columna "Make" dentro de una ventana de tiempo.
 
-## <a name="query-example-determine-if-a-value-has-changed"></a>Ejemplo de consulta: determinar si un valor ha cambiado
+<a id="query-example-determine-if-a-value-has-changed" class="xliff"></a>
+
+## Ejemplo de consulta: determinar si un valor ha cambiado
 **Descripción**: mire el valor anterior para determinar si es diferente del actual. Por ejemplo, ¿el vehículo anterior en Carretera con peaje es de la misma marca que el actual?
 
 **Entrada**:
@@ -253,7 +270,9 @@ GROUP BY
 
 **Explicación**: use LAG para revisar en la transmisión de entrada un evento anterior y obtener el valor Marca. A continuación, compárelo con el de la marca del evento actual y genere el evento si son distintos.
 
-## <a name="query-example-find-first-event-in-a-window"></a>Ejemplo de consulta: buscar el primer evento en una ventana
+<a id="query-example-find-first-event-in-a-window" class="xliff"></a>
+
+## Ejemplo de consulta: buscar el primer evento en una ventana
 **Descripción**: ¿desea buscar el primer vehículo en un intervalo de cada 10 minutos?
 
 **Entrada**:
@@ -307,7 +326,9 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
     WHERE 
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## <a name="query-example-find-last-event-in-a-window"></a>Ejemplo de consulta: buscar el último evento en una ventana
+<a id="query-example-find-last-event-in-a-window" class="xliff"></a>
+
+## Ejemplo de consulta: buscar el último evento en una ventana
 **Descripción**: buscar el último vehículo en un intervalo de cada 10 minutos.
 
 **Entrada**:
@@ -352,7 +373,9 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 
 **Explicación**: hay dos pasos en la consulta, el primero busca la marca de tiempo más reciente en ventanas de 10 minutos. El segundo paso combina los resultados de la primera consulta con la transmisión original para buscar eventos que coinciden con las últimas marcas de tiempo en cada ventana. 
 
-## <a name="query-example-detect-the-absence-of-events"></a>Ejemplo de consulta: detectar la ausencia de eventos
+<a id="query-example-detect-the-absence-of-events" class="xliff"></a>
+
+## Ejemplo de consulta: detectar la ausencia de eventos
 **Descripción**: compruebe que una transmisión no tiene ningún valor que cumpla determinados criterios.
 Por ejemplo, ¿han entrado 2 vehículos consecutivos de la misma marca en la carretera con peaje dentro en un plazo de 90 segundos?
 
@@ -386,7 +409,9 @@ Por ejemplo, ¿han entrado 2 vehículos consecutivos de la misma marca en la car
 
 **Explicación**: use LAG para revisar en la transmisión de entrada un evento anterior y obtener el valor Marca. A continuación, compárelo con el del evento actual y genere el evento si son iguales, y use LAG para obtener los datos del vehículo anterior.
 
-## <a name="query-example-detect-duration-between-events"></a>Ejemplo de consulta: detectar la duración entre eventos
+<a id="query-example-detect-duration-between-events" class="xliff"></a>
+
+## Ejemplo de consulta: detectar la duración entre eventos
 **Descripción**: busque la duración de un evento determinado. Por ejemplo, dada una secuencia de clics de web, determine el tiempo invertido en una característica.
 
 **Entrada**:  
@@ -414,7 +439,9 @@ Por ejemplo, ¿han entrado 2 vehículos consecutivos de la misma marca en la car
 
 **Explicación**: use la función LAST para recuperar el último valor Time en el que el tipo de evento era "Start". Tenga en cuenta que la última LAST usa PARTITION BY [user] para indicar que el resultado se calculará por usuario único.  La consulta tiene un umbral máximo de 1 hora para el intervalo de tiempo entre eventos "Start" y "Stop", pero se puede configurar como según sea necesario (LIMIT DURATION(hour, 1).
 
-## <a name="query-example-detect-duration-of-a-condition"></a>Ejemplo de consulta: detectar la duración de una condición
+<a id="query-example-detect-duration-of-a-condition" class="xliff"></a>
+
+## Ejemplo de consulta: detectar la duración de una condición
 **Descripción**: averigüe la duración de una condición.
 Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorrecto (por encima de 20 000 libras) y queremos calcular la duración del error.
 
@@ -460,7 +487,9 @@ Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorr
 
 **Explicación**: use LAG para ver la transmisión de entrada que se produjo durante 24 horas y busque instancias donde StartFault y StopFault superan el peso de <20000.
 
-## <a name="query-example-fill-missing-values"></a>Ejemplo de consulta: rellenar los valores que faltan
+<a id="query-example-fill-missing-values" class="xliff"></a>
+
+## Ejemplo de consulta: rellenar los valores que faltan
 **Descripción**: para la transmisión de eventos con valores que faltan, genere una transmisión de eventos con intervalos regulares.
 Por ejemplo, genere un evento cada 5 segundos que informará el punto de datos visto más recientemente.
 
@@ -502,12 +531,16 @@ Por ejemplo, genere un evento cada 5 segundos que informará el punto de datos v
 
 **Explicación**: esta consulta generará eventos cada 5 segundos y generará como resultado el último evento que se recibió antes. [ventana de salto](https://msdn.microsoft.com/library/dn835041.aspx "ventana de salto - Azure Stream Analytics") determina hasta cuándo se remontará la consulta para encontrar el evento más reciente (en este ejemplo, 300 segundos).
 
-## <a name="get-help"></a>Obtener ayuda
+<a id="get-help" class="xliff"></a>
+
+## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

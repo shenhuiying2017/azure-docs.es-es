@@ -2,7 +2,7 @@ Cree credenciales de implementación con el comando [az webapp deployment user s
 
 Se requiere un usuario de implementación para la implementación de FTP y Git local en una aplicación web. El nombre de usuario y la contraseña predeterminados están en el nivel de la cuenta. Son diferentes de las credenciales de suscripción de Azure.
 
-En el siguiente comando, reemplace  *\<nombre de usuario>* y * \<contraseña>* por un nuevo nombre de usuario y contraseña.
+En el siguiente comando, reemplace *\<nombre de usuario>* y *\<contraseña>* por un nuevo nombre de usuario y contraseña.
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>

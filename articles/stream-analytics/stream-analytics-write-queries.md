@@ -16,17 +16,21 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: e77a1ce586b3c0d1e7fef27cd56402774ab7bbe3
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: abfc94fe9a4b35dae33de7bc39d5dac2fcb59afc
 ms.contentlocale: es-es
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="how-to-write-queries-in-stream-analytics"></a>Cómo escribir consultas en Análisis de transmisiones
+<a id="how-to-write-queries-in-stream-analytics" class="xliff"></a>
+
+# Cómo escribir consultas en Análisis de transmisiones
 La escritura de consultas con lógica de procesamiento de transmisiones de Análisis de transmisiones de Azure se implementa como una "consulta permanente" que se define antes de que un trabajo empiece y se ejecuta en los datos conforme llega al trabajo. La transformación de datos se expresa en un lenguaje de consultas similar a SQL, que es en gran medida un subconjunto de T-SQL con algunas extensiones de lenguaje agregadas como [Basado en ventanas](https://msdn.microsoft.com/library/azure/dn835019.aspx) que se usa para expresar la semántica temporal.
 
-## <a name="writing-queries"></a>Escritura de consultas:
+<a id="writing-queries" class="xliff"></a>
+
+## Escritura de consultas:
 1. En su trabajo de Análisis de transmisiones en el Portal de administración de Azure, haga clic en **Consulta**.
    
     ![Seleccionar consulta](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)  
@@ -41,7 +45,9 @@ La escritura de consultas con lógica de procesamiento de transmisiones de Anál
    
    ![Ventana de datos de consulta](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)  
 
-## <a name="to-validate-query-data-is-working"></a>Para comprobar que los datos de consulta funcionan:
+<a id="to-validate-query-data-is-working" class="xliff"></a>
+
+## Para comprobar que los datos de consulta funcionan:
 Puede probar que la consulta se comporta según lo esperado si la ejecuta en el explorador a través de uno o más archivos JSON locales que contienen los datos de prueba. Esto no iniciará el trabajo ni tendrá implicaciones de facturación.
 
 > [!NOTE]
@@ -62,12 +68,16 @@ Puede probar que la consulta se comporta según lo esperado si la ejecuta en el 
    
    ![Resumen de la consulta](./media/stream-analytics-write-queries/6-stream-analytics-write-queries.png)  
 
-## <a name="get-help"></a>Obtener ayuda
+<a id="get-help" class="xliff"></a>
+
+## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

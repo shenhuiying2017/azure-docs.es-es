@@ -4,7 +4,7 @@ description: "Agregar conexiones S2S de varios sitios a VPN Gateway con una cone
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
@@ -16,25 +16,30 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 9550b0076105b018bd8ede50519ac96bfb773001
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente
+<a id="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection" class="xliff"></a>
+
+# Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente
+
 > [!div class="op_single_selector"]
-> * [Resource Manager: portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-> * [Clásico: PowerShell](vpn-gateway-multi-site.md)
-> 
+> * [Portal de Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [PowerShell (clásico)](vpn-gateway-multi-site.md)
+>
 > 
 
 Este artículo le guiará a través del uso de Azure Portal para agregar conexiones de sitio a sitio (S2S) a VPN Gateway con una conexión existente. Este tipo de conexión se denomina con frecuencia, configuración "multisitio". Puede agregar una conexión S2S a una red virtual que ya tiene una conexión S2S, una conexión de punto a sitio o una conexión entre dos redes virtuales. Existen algunas limitaciones al agregar conexiones. Vea la sección [Antes de empezar](#before) de este artículo para comprobarlas antes de iniciar la configuración. 
 
 Este artículo se aplica a las redes virtuales creadas con el modelo de implementación de Resource Manager que tiene una VPN Gateway RouteBased. Estos pasos no se aplican a las configuraciones de conexión coexistentes de ExpressRoute/sitio a sitio. Consulte [conexiones coexistentes de ExpressRoute/S2S](../expressroute/expressroute-howto-coexist-resource-manager.md) para obtener información sobre las conexiones coexistentes.
 
-### <a name="deployment-models-and-methods"></a>Modelos de implementación y métodos
+<a id="deployment-models-and-methods" class="xliff"></a>
+
+### Modelos de implementación y métodos
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 Esta tabla se actualiza cada vez que hay nuevos artículos y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde esta tabla.
@@ -92,7 +97,9 @@ Compruebe los siguientes aspectos:
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) de las máquinas virtuales para más información.
 

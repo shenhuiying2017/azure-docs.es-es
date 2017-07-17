@@ -12,16 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2017
+ms.date: 6/29/2017
 ms.author: mcoskun
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 18c71608f7429f7c52720282ca66f44c88de2d84
+ms.contentlocale: es-es
 ms.lasthandoff: 11/17/2016
 
 
 ---
-# <a name="reliable-services-notifications"></a>Notificaciones de Reliable Services
+# Notificaciones de Reliable Services
+<a id="reliable-services-notifications" class="xliff"></a>
 Las notificaciones permiten que los clientes sigan los cambios que se están realizando en un objeto que les interesa. Existen dos tipos de objeto que admiten notificaciones: *Reliable State Manager* y *Reliable Dictionary*.
 
 Algunas causas habituales del uso de notificaciones son:
@@ -31,7 +33,8 @@ Algunas causas habituales del uso de notificaciones son:
 
 Las notificaciones se desencadenan como parte de la aplicación de operaciones. Por ese motivo, se deben controlar las notificaciones lo más rápido posible y los eventos sincrónicos no deben incluir operaciones costosas.
 
-## <a name="reliable-state-manager-notifications"></a>Notificaciones de Reliable State Manager
+## Notificaciones de Reliable State Manager
+<a id="reliable-state-manager-notifications" class="xliff"></a>
 Reliable State Manager proporciona notificaciones para los siguientes eventos:
 
 * Transacción
@@ -106,7 +109,8 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-## <a name="reliable-dictionary-notifications"></a>Notificaciones de Reliable Dictionary
+## Notificaciones de Reliable Dictionary
+<a id="reliable-dictionary-notifications" class="xliff"></a>
 Reliable Dictionary proporciona notificaciones para los siguientes eventos:
 
 * Rebuild: se llama cuando **ReliableDictionary** ha recuperado su estado de una copia de seguridad o un estado local copiado o recuperado.
@@ -203,7 +207,8 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-## <a name="recommendations"></a>Recomendaciones
+## Recomendaciones
+<a id="recommendations" class="xliff"></a>
 * *Complete* los eventos de notificación tan rápido como sea posible.
 * *No ejecute* ninguna operación costosa (por ejemplo, operaciones de E/S) como parte de eventos sincrónicos.
 * *Compruebe* el tipo de acción antes de procesar el evento. Es posible que se agreguen nuevos tipos de acción en el futuro.
@@ -216,7 +221,8 @@ Algunos aspectos que debe tener en cuenta:
 * Para las transacciones que contienen varias operaciones, se aplican las operaciones en el orden en que se recibieron en la réplica principal del usuario.
 * Como parte del procesamiento de progreso falso, es posible que algunas operaciones se deshagan. Se generan notificaciones para estas operaciones de deshacer y se revierte el estado de la réplica a un punto estable. Una diferencia importante de las notificaciones de deshacer es que se agregan eventos con claves duplicadas. Por ejemplo, si se está deshaciendo la transacción T1, el usuario verá una única notificación para Delete(X).
 
-## <a name="next-steps"></a>Pasos siguientes
+## Pasos siguientes
+<a id="next-steps" class="xliff"></a>
 * [Colecciones confiables](service-fabric-work-with-reliable-collections.md)
 * [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
 * [Copia de seguridad y restauración de Reliable Services (recuperación ante desastres)](service-fabric-reliable-services-backup-restore.md)

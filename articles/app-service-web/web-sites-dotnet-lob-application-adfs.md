@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 22fe6397120c36e1aa716f4711fbe9e7c72d17e8
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 1895094b28d9596eec644078b6f9a877b526b89e
+ms.contentlocale: es-es
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="create-a-line-of-business-azure-app-with-ad-fs-authentication"></a>Creación de una aplicación de Azure de línea de negocio con autenticación de AD FS
+<a id="create-a-line-of-business-azure-app-with-ad-fs-authentication" class="xliff"></a>
+
+# Creación de una aplicación de Azure de línea de negocio con autenticación de AD FS
 En este artículo se muestra cómo crear una aplicación de línea de negocio ASP.NET MVC en [Azure App Service](../app-service/app-service-value-prop-what-is.md) mediante el uso de [Servicios de federación de Active Directory](http://technet.microsoft.com/library/hh831502.aspx) locales como proveedor de identidades. Este escenario puede funcionar cuando desea crear aplicaciones de línea de negocio en el Servicio de aplicaciones de Azure, pero su organización requiere que los datos de directorio se almacenen en el sitio.
 
 > [!NOTE]
@@ -31,7 +34,9 @@ En este artículo se muestra cómo crear una aplicación de línea de negocio AS
 
 <a name="bkmk_build"></a>
 
-## <a name="what-you-will-build"></a>Lo que va a crear
+<a id="what-you-will-build" class="xliff"></a>
+
+## Lo que va a crear
 Creará una aplicación ASP.NET básica en Aplicaciones web del Servicio de aplicaciones de Azure con las siguientes características:
 
 * Autentica a los usuarios con AD FS
@@ -40,7 +45,9 @@ Creará una aplicación ASP.NET básica en Aplicaciones web del Servicio de apli
 
 <a name="bkmk_need"></a>
 
-## <a name="what-you-need"></a>Lo que necesita
+<a id="what-you-need" class="xliff"></a>
+
+## Lo que necesita
 [!INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 Necesita lo siguiente para completar este tutorial:
@@ -52,7 +59,9 @@ Necesita lo siguiente para completar este tutorial:
 
 <a name="bkmk_sample"></a>
 
-## <a name="use-sample-application-for-line-of-business-template"></a>Usar la aplicación de ejemplo para la plantilla de línea de negocio
+<a id="use-sample-application-for-line-of-business-template" class="xliff"></a>
+
+## Usar la aplicación de ejemplo para la plantilla de línea de negocio
 La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), la crea el equipo de Azure Active Directory. Debido a que AD FS es compatible con WS-Federation, puede usarla como una plantilla para crear aplicaciones de línea de negocio con facilidad. Tiene las siguientes características:
 
 * Usa [WS-Federation](http://msdn.microsoft.com/library/bb498017.aspx) para autenticar con una implementación de AD FS local
@@ -61,7 +70,9 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 
 <a name="bkmk_setup"></a>
 
-## <a name="set-up-the-sample-application"></a>Configurar la aplicación de muestra
+<a id="set-up-the-sample-application" class="xliff"></a>
+
+## Configurar la aplicación de muestra
 1. Clone o descargue la solución de muestra de [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) en su directorio local.
    
    > [!NOTE]
@@ -119,7 +130,9 @@ Eso es todo. Ahora la aplicación de muestra está lista para trabajar con AD FS
 
 <a name="bkmk_deploy"></a>
 
-## <a name="deploy-the-sample-application-to-azure-app-service-web-apps"></a>Implemente la aplicación de muestra en Aplicaciones web del Servicio de aplicaciones de Azure
+<a id="deploy-the-sample-application-to-azure-app-service-web-apps" class="xliff"></a>
+
+## Implemente la aplicación de muestra en Aplicaciones web del Servicio de aplicaciones de Azure
 Aquí publica la aplicación en una aplicación web en Aplicaciones web del Servicio de aplicaciones, a la vez que conserva el entorno de depuración. Tenga en cuenta que va a publicar la aplicación antes de que tenga una relación de confianza para usuario autenticado con AD FS, por lo que la autenticación no funciona todavía. Sin embargo, si lo hace ahora puede tener la dirección URL de la aplicación web que puede usar para configurar una relación de confianza para usuario autenticado posteriormente.
 
 1. Haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
@@ -148,7 +161,9 @@ Si desea asociar la aplicación web publicada en Azure al depurador (es decir, d
 
 <a name="bkmk_rptrusts"></a>
 
-## <a name="configure-relying-party-trusts-in-ad-fs-management"></a>Configurar las relaciones de confianza para usuarios autenticados en la administración de AD FS
+<a id="configure-relying-party-trusts-in-ad-fs-management" class="xliff"></a>
+
+## Configurar las relaciones de confianza para usuarios autenticados en la administración de AD FS
 Ahora debe configurar una relación de confianza para usuario autenticado en Administración de AD FS para poder usar su aplicación de muestra y que se pueda autenticar realmente con AD FS. Deberá configurar dos relaciones de confianza para usuarios autenticados independientes, una para su entorno de depuración y otra para su aplicación web publicada.
 
 > [!NOTE]
@@ -244,7 +259,9 @@ Ahora debe configurar una relación de confianza para usuario autenticado en Adm
 
 <a name="bkmk_test"></a>
 
-## <a name="test-federated-authentication-for-your-application"></a>Probar la autenticación federada para la aplicación
+<a id="test-federated-authentication-for-your-application" class="xliff"></a>
+
+## Probar la autenticación federada para la aplicación
 Está preparado para probar la lógica de autenticación de la aplicación con AD FS. En mi entorno de laboratorio de AD FS, tengo un usuario de prueba que pertenece a un grupo de prueba en Active Directory (AD).
 
 ![](./media/web-sites-dotnet-lob-application-adfs/10-test-user-and-group.png)
@@ -271,7 +288,9 @@ Si falta la notificación de nombre, habría visto **Hello, !**. Si echa un vist
 
 <a name="bkmk_authorize"></a>
 
-## <a name="authorize-users-for-specific-controllers-or-actions"></a>Autorizar a los usuarios para acciones o controladores concretos
+<a id="authorize-users-for-specific-controllers-or-actions" class="xliff"></a>
+
+## Autorizar a los usuarios para acciones o controladores concretos
 Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en la configuración de relación de confianza para usuario autenticado, ahora puede usarlas directamente en la representación `[Authorize(Roles="...")]` para controladores y acciones. En una aplicación de línea de negocio con el patrón Create-Read-Update-Delete (CRUD), puede autorizar a roles específicos para acceder a cada acción. Por ahora, solo probará esta característica en el controlador principal existente.
 
 1. Abra Controllers\HomeController.cs.
@@ -287,10 +306,13 @@ Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en l
     }
    
     <mark>[Authorize(Roles="Domain Admins")]</mark>
-    public ActionResult Contact()  {      ViewBag.Message = "Su página de contacto.";
+    public ActionResult Contact()
+    {
+        ViewBag.Message = "Your contact page.";
    
         return View();
-    }  </pre>
+    }
+    </pre>
    
     Puesto que agregué **Usuario de prueba** a **Grupo de prueba** en mi entorno de laboratorio de AD FS, usaré el grupo de prueba para probar la autorización en `About`. Para `Contact`, probaré el caso negativo de **Admins. del dominio**, al que no pertenece el **Usuario de prueba**.
 3. Para iniciar el depurador, escriba `F5` e inicie sesión y, a continuación, haga clic en **Acerca de**. Ahora debería ver la página `~/About/Index` correctamente, si el usuario autenticado tiene autorización para esa acción.
@@ -342,15 +364,18 @@ Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en l
 
 <a name="bkmk_data"></a>
 
-## <a name="connect-to-on-premises-data"></a>Conectarse a datos locales
+<a id="connect-to-on-premises-data" class="xliff"></a>
+
+## Conectarse a datos locales
 Un motivo por el que desearía implementar su aplicación de línea de negocio con AD FS en lugar de Azure Active Directory son los problemas de cumplimiento a la hora de mantener los datos de la organización remotos. Esto también puede significar que su aplicación web de Azure deba acceder a bases de datos remotas, ya que no se le permite usar [Base de datos SQL](/services/sql-database/) como la capa de datos para sus aplicaciones web.
 
 Azure App Service Web Apps admite el acceso a bases de datos locales con dos enfoques: [Conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md) y [Redes virtuales](web-sites-integrate-with-vnet.md). Para obtener más información, consulte [Uso de integración VNET y conexiones híbridas con Aplicaciones web del Servicio de aplicaciones de Azure](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 
-## <a name="further-resources"></a>Recursos adicionales
-* [Protección de la aplicación con SSL y el atributo Authorize](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
+<a id="further-resources" class="xliff"></a>
+
+## Recursos adicionales
 * [Autenticación con Active Directory local en aplicaciones de Azure](web-sites-authentication-authorization.md)
 * [Creación de una aplicación de línea de negocio de Azure con autenticación de Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
 * [Usar la opción de autenticación de organización profesional local (ADFS) con ASP.NET en Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)

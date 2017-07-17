@@ -13,18 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 6259c2d163cc2036964d119eb0b54ba108c5cd0a
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
+ms.contentlocale: es-es
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Creación de una máquina virtual que ejecuta Windows en el Portal de Azure
+<a id="create-a-virtual-machine-running-windows-in-the-azure-portal" class="xliff"></a>
+
+# Creación de una máquina virtual que ejecuta Windows en el Portal de Azure
 > [!div class="op_single_selector"]
-> * [Portal de Azure clásico](tutorial.md)
+> * [Portal de Azure](tutorial.md)
 > * [PowerShell: implementación clásica](create-powershell.md)
 >
 >
@@ -45,7 +48,9 @@ También puede crear máquinas virtuales con sus [propias imágenes](createuploa
 ## <a id="createvirtualmachine"> </a>Creación de la máquina virtual
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * Aprenda a [crear una máquina virtual mediante el modelo de implementación de Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en Azure Portal.
 * Iniciar sesión en la nueva máquina virtual. Para obtener instrucciones, consulte el artículo sobre el [inicio de sesión en una máquina virtual que ejecute Windows Server](connect-logon.md).
 * Acople un disco para almacenar los datos. Puede acoplar tanto discos vacíos como discos que contienen datos. Para obtener instrucciones, consulte [Conexión de un disco de datos a una máquina virtual Windows creada con el modelo de implementación clásica](attach-disk.md).

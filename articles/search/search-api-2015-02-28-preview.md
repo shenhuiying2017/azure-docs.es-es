@@ -15,10 +15,10 @@ ms.workload: search
 ms.date: 05/01/2017
 ms.author: brjohnst
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ea3fc801074bb6d7e7c32574bc94702c79a61185
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -259,7 +259,7 @@ Es posible establecer los siguientes atributos para crear un índice. Para obten
 
 `name` : establece el nombre del campo.
 
-`type` : establece el tipo de datos del campo. Consulte [Tipos de datos admitidos](#DataTypes) para obtener una lista de tipos admitidos.
+`type` : establece el tipo de datos del campo.
 
 `searchable` : marca el campo como de búsqueda de texto completo. Esto significa que se someterá a análisis como la separación de palabras durante la indexación. Si establece un campo `searchable` en un valor como "día soleado", internamente, se dividirá en los tokens individuales "soleado" y "día". Esto permite realizar búsquedas de texto completo de estos términos. Los campos de tipo `Edm.String` o `Collection(Edm.String)` son `searchable` de manera predeterminada. Los campos de otros tipos no pueden ser `searchable`.
 
@@ -290,7 +290,7 @@ Es posible establecer los siguientes atributos para crear un índice. Para obten
 
 <!-- This is a standalone topic in MSDN -->
 <a name="LanguageSupport"></a>
-**Compatibilidad con idiomas**
+**Compatibilidad con idioma**
 
 Los campos localizables se someten a análisis que con frecuencia implican la separación de palabras, la normalización de texto y el filtrado de términos. De forma predeterminada, los campos localizables de Azure Search se analizan con el [analizador estándar de Apache Lucene](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html) que divide el texto en elementos siguiendo las reglas de ["Segmentación de texto Unicode"](http://unicode.org/reports/tr29/). Además, el analizador estándar convierte todos los caracteres en minúsculas. Los documentos indexados y lo términos de búsqueda son sometidos a análisis durante la indexación y el procesamiento de consultas.
 
@@ -1461,7 +1461,7 @@ Además, la codificación con URL solo es necesaria cuando se llama directamente
 > 
 > 
 
-`$filter=[string]` (opcional): expresión de búsqueda estructurada en la sintaxis estándar de OData. Consulte [Sintaxis de expresiones de OData](#ODataExpressionSyntax) para obtener detalles sobre el subconjunto de la gramática de expresiones de OData que admite la Búsqueda de Azure.
+`$filter=[string]` (opcional): expresión de búsqueda estructurada en la sintaxis estándar de OData.
 
 > [!NOTE]
 > Al llamar a la **búsqueda** mediante POST, este parámetro se denomina `filter` en lugar de `$filter`.

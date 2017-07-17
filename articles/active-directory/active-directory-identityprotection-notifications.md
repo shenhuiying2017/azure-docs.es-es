@@ -13,25 +13,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
 ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
+ms.contentlocale: es-es
 ms.lasthandoff: 12/22/2016
 
 
 ---
-# <a name="azure-active-directory-identity-protection-notifications"></a>Notificaciones de Azure Active Directory Identity Protection
+<a id="azure-active-directory-identity-protection-notifications" class="xliff"></a>
+# Notificaciones de Azure Active Directory Identity Protection
 Azure AD Identity Protection envía dos tipos de correos electrónicos de notificación automatizados para ayudar a administrar el riesgo del usuario y los eventos de riesgo:
 
 * Correo electrónico de alerta para usuarios en peligro
 * Correo electrónico de resumen semanal
 
-## <a name="user-compromised-alert-email"></a>Correo electrónico de alerta para usuarios en peligro
+<a id="user-compromised-alert-email" class="xliff"></a>
+## Correo electrónico de alerta para usuarios en peligro
 Se genera una alerta de correo electrónico para usuarios en peligro cuando Azure AD Identity Protection identifica que una cuenta se ha puesto en peligro. El correo electrónico incluye un vínculo al informe Usuarios marcados como de riesgo en el panel de Identity Protection. Se recomienda que las notificaciones de cuentas en peligro se investiguen inmediatamente.
 
-## <a name="weekly-digest-email"></a>Correo electrónico de resumen semanal
+<a id="weekly-digest-email" class="xliff"></a>
+## Correo electrónico de resumen semanal
 El correo electrónico de resumen semanal contiene un sumario de nuevos eventos de riesgo.<br>
 Incluye:
 
@@ -60,6 +64,7 @@ Puede desactivar la opción de envío de un correo electrónico de resumen seman
    ![Directiva de riesgo de usuario](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
    <br>
 
-## <a name="see-also"></a>Consulte también
+<a id="see-also" class="xliff"></a>
+## Consulte también
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 

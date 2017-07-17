@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/23/2017
+ms.date: 06/07/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
-ms.openlocfilehash: c7094a92355a199e9b94bc695c8499271b9adc39
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: d41a02b837d2cd0c478abdcf3068a5ccf7ed1b6f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -45,12 +46,12 @@ Hay una correspondencia uno a uno entre los límites de los índices y los lími
 | Recurso | Gratuito | Básica | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
 | Índice: campos máximos por índice |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Índice: perfiles de puntuación máximos por índice |16 |16 |16 |16 |16 |16 |
+| Índice: perfiles de puntuación máximos por índice |100 |100 |100 |100 |100 |100 |
 | Índice: funciones máximas por perfil |8 |8 |8 |8 |8 |8 |
-| Indexadores: carga máxima de indexación por invocación |10&000; documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |N/D <sup>2</sup> |
+| Indexadores: carga máxima de indexación por invocación |10 000 documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |N/D <sup>2</sup> |
 | Indexadores: tiempo de ejecución máximo |3 minutos |24 horas |24 horas |24 horas |24 horas |N/D <sup>2</sup> |
 | Indexador de blobs: tamaño máximo de blob, MB |16 |16 |128 |256 |256 |N/D <sup>2</sup> |
-| Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32&000; |64&000; |4 millones |4 millones |4 millones |N/D <sup>2</sup> |
+| Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32 000 |64 000 |4 millones |4 millones |4 millones |N/D <sup>2</sup> |
 
 <sup>1</sup> El nivel básico es el único SKU con un límite inferior de 100 campos por índice.
 
@@ -68,7 +69,7 @@ Para mantener el tamaño del documento reducido, no olvide excluir los datos no 
 ## <a name="workload-limits-queries-per-second"></a>Límites de carga de trabajo (consultas por segundo)
 | Recurso | Gratuito | Básica | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| QPS |N/D  |~&3; por réplica |~&15; por réplica |~&60; por réplica |>60 por réplica |>60 por réplica |
+| QPS |N/D  |~ 3 por réplica |~ 15 por réplica |~ 60 por réplica |>60 por réplica |>60 por réplica |
 
 Las consultas por segundo (QPS) son una aproximación basada en heurística, mediante cargas de trabajo de clientes reales y simuladas para obtener valores estimados. El rendimiento QPS exacto varía dependiendo de los datos y de la naturaleza de la consulta.
 

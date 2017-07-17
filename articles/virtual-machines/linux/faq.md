@@ -15,45 +15,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d579b55f07a2e710624b10fe77c17f449b09ab42
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 5a0092481cb461f26ba463f4c9bbaf114ecb1248
+ms.contentlocale: es-es
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="frequently-asked-question-about-linux-virtual-machines"></a>Preguntas frecuentes sobre las máquinas virtuales de Linux
+# Preguntas frecuentes sobre las máquinas virtuales de Linux
+<a id="frequently-asked-question-about-linux-virtual-machines" class="xliff"></a>
 En este artículo se responden algunas preguntas comunes que los usuarios plantean sobre las máquinas virtuales Linux creadas en Azure mediante el modelo de implementación de Resource Manager. Para ver la versión de Windows de este tema, consulte [Preguntas más frecuentes sobre máquinas virtuales Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="what-can-i-run-on-an-azure-vm"></a>¿Qué puedo ejecutar en una máquina virtual de Azure?
+## ¿Qué puedo ejecutar en una máquina virtual de Azure?
+<a id="what-can-i-run-on-an-azure-vm" class="xliff"></a>
 Todos los suscriptores pueden ejecutar software de servidor en una máquina virtual de Azure. Para más información, consulte [Linux en distribuciones aprobadas por Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>¿Cuánto almacenamiento puedo usar con una máquina virtual?
+## ¿Cuánto almacenamiento puedo usar con una máquina virtual?
+<a id="how-much-storage-can-i-use-with-a-virtual-machine" class="xliff"></a>
 Cada disco de datos puede ser de hasta 1 TB. El número de discos de datos que puede usar depende del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Una cuenta de almacenamiento de Azure proporciona almacenamiento para el disco del sistema operativo y los discos de datos. Cada disco es un archivo .vhd almacenado como un blob en páginas. Para obtener información detallada sobre los precios, consulte [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/).
 
-## <a name="how-can-i-access-my-virtual-machine"></a>¿Cómo puedo tener acceso a mi máquina virtual?
+## ¿Cómo puedo tener acceso a mi máquina virtual?
+<a id="how-can-i-access-my-virtual-machine" class="xliff"></a>
 Establezca una conexión remota para iniciar sesión en la máquina virtual mediante Secure Shell (SSH). Consulte las instrucciones sobre cómo conectarse [desde Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [desde Linux y Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
 
 Si tiene problemas, consulte [Solución de problemas de conexiones de Secure Shell (SSH)](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="can-i-use-the-temporary-disk-devsdb1-to-store-data"></a>¿Puedo usar el disco temporal (/dev/sdb1) para almacenar datos?
+## ¿Puedo usar el disco temporal (/dev/sdb1) para almacenar datos?
+<a id="can-i-use-the-temporary-disk-devsdb1-to-store-data" class="xliff"></a>
 No utilice el disco temporal (/dev/sdb1) para almacenar datos. Solo existe para el almacenamiento temporal. Corre el riesgo de perder datos que no se podrán recuperar.
 
-## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>¿Puedo copiar o clonar una máquina virtual de Azure existente?
+## ¿Puedo copiar o clonar una máquina virtual de Azure existente?
+<a id="can-i-copy-or-clone-an-existing-azure-vm" class="xliff"></a>
 Sí. Para obtener instrucciones, consulte [Creación de una copia de una máquina virtual Linux en el modelo de implementación de Resource Manager](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>¿Por qué no veo las regiones de Canadá central y Canadá oriental por medio de Azure Resource Manager?
+## ¿Por qué no veo las regiones de Canadá central y Canadá oriental por medio de Azure Resource Manager?
+<a id="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager" class="xliff"></a>
 Las dos nuevas áreas Canadá central y Canadá oriental no se registran automáticamente para la creación de máquinas virtuales en las suscripciones de Azure existentes. Este registro se realizará automáticamente cuando se implementa una máquina virtual mediante el Portal de Azure en cualquier otra región usando Azure Resource Manager. Después de implementar una máquina virtual en cualquier otra región de Azure, las áreas nuevas deberán estar disponibles para las máquinas virtuales siguientes.
 
-## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>¿Puedo agregar una NIC a mi máquina virtual después de crearla?
+## ¿Puedo agregar una NIC a mi máquina virtual después de crearla?
+<a id="can-i-add-a-nic-to-my-vm-after-its-created" class="xliff"></a>
 Sí, ahora es posible. En primer lugar, la máquina virtual debe detenerse desasignada. A continuación, puede agregar o quitar una NIC (a menos que sea la última en la máquina virtual). 
 
-## <a name="are-there-any-computer-name-requirements"></a>¿Hay algún requisito de nombre de equipo?
+## ¿Hay algún requisito de nombre de equipo?
+<a id="are-there-any-computer-name-requirements" class="xliff"></a>
 Sí. El nombre del equipo puede tener un máximo de 64 caracteres. Consulte [Directrices de nomenclatura de la infraestructura](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obtener más información sobre la nomenclatura de sus recursos.
 
-## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>¿Cuáles son los requisitos de nombre de usuario cuando se crea una VM?
+## ¿Existen algunos requisitos para los nombres de grupos de recursos?
+<a id="are-there-any-resource-group-name-requirements" class="xliff"></a>
+Sí. El nombre del grupo de recursos puede tener como máximo 90 caracteres. Consulte [Directrices para el grupo de recursos de infraestructura](infrastructure-resource-groups-guidelines.md) para más información sobre los grupos de recursos.
+
+## ¿Cuáles son los requisitos de nombre de usuario cuando se crea una VM?
+<a id="what-are-the-username-requirements-when-creating-a-vm" class="xliff"></a>
 Los nombres de usuario deben tener entre 1 y 64 caracteres.
 
 No se permiten los siguientes nombres de usuario:
@@ -86,7 +101,8 @@ No se permiten los siguientes nombres de usuario:
 </table>
 
 
-## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>¿Cuáles son los requisitos de contraseña cuando se crea una VM?
+## ¿Cuáles son los requisitos de contraseña cuando se crea una VM?
+<a id="what-are-the-password-requirements-when-creating-a-vm" class="xliff"></a>
 Las contraseñas deben tener entre 6 y 72 caracteres y deben cumplir 3 de estos 4 requisitos de complejidad:
 
 * Deben incluir caracteres en minúsculas.

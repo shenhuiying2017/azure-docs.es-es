@@ -17,14 +17,16 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: cbe2b6bbc8e193bdbbf08572a8488239c633548d
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 84c27de6b5fafb3b9236fed77a9d0557d89d217c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application"></a>Administración del esquema para varios inquilinos en la aplicación SaaS de Wingtip
+<a id="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application" class="xliff"></a>
+
+# Administración del esquema para varios inquilinos en la aplicación SaaS de Wingtip
 
 El [primer tutorial sobre SaaS de Wingtip](sql-database-saas-tutorial.md) muestra cómo la aplicación puede aprovisionar una base de datos de inquilino y registrarla en el catálogo. Como cualquier otra aplicación, la aplicación SaaS de Wingtip evolucionará con el tiempo y, en ocasiones, requerirá que se hagan cambios en la base de datos. Estos cambios pueden incluir un esquema nuevo o modificado, datos de referencia nuevos o modificados y tareas de mantenimiento de la base de datos rutinarias para garantizar un rendimiento óptimo de la aplicación. Con una aplicación SaaS, estos cambios deben implementarse de manera coordinada a lo largo de una línea potencialmente masiva de bases de datos de inquilino. Los cambios también deben incorporarse en el proceso de aprovisionamiento para futuras bases de datos de inquilino.
 
@@ -48,25 +50,33 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 *En este tutorial se usan características del servicio SQL Database que se encuentran en una versión preliminar limitada (trabajos de Elastic Database). Si desea seguir este tutorial, envíe su identificador de suscripción a SaaSFeedback@microsoft.com con el asunto Elastic Jobs Preview. Después de recibir la confirmación de que se ha habilitado su suscripción, [descargue e instale los cmdlets de trabajos de versión preliminar más recientes](https://github.com/jaredmoo/azure-powershell/releases). Al tratarse de una versión preliminar limitada, debe ponerse en contacto con SaaSFeedback@microsoft.com si necesita asistencia.*
 
 
-## <a name="introduction-to-saas-schema-management-patterns"></a>Introducción a los patrones de administración de esquema de SaaS
+<a id="introduction-to-saas-schema-management-patterns" class="xliff"></a>
+
+## Introducción a los patrones de administración de esquema de SaaS
 
 El patrón de inquilino único por base de datos de SaaS se aprovecha de varias maneras del aislamiento de los datos resultante, pero al mismo tiempo introduce la complejidad adicional de mantener y administrar muchas bases de datos. La característica [Trabajos elásticos](sql-database-elastic-jobs-overview.md) facilita la administración de la capa de datos SQL. Los trabajos permiten ejecutar tareas (scripts T-SQL) en un grupo de bases de datos de manera segura y confiable independientemente de las interacciones o entradas del usuario. Este método puede utilizarse para implementar cambios en el esquema y los datos de referencia comunes en todos los inquilinos de una aplicación. Trabajos elásticos también se puede utilizar para mantener una copia *golden* de la base de datos utilizada para crear nuevos inquilinos, garantizando así que siempre tenga el esquema y los datos de referencia más recientes.
 
 ![pantalla](media/sql-database-saas-tutorial-schema-management/schema-management.png)
 
 
-## <a name="elastic-jobs-limited-preview"></a>Versión preliminar limitada de Trabajos elásticos
+<a id="elastic-jobs-limited-preview" class="xliff"></a>
+
+## Versión preliminar limitada de Trabajos elásticos
 
 Hay una nueva versión de Trabajos elásticos que ahora es una característica integrada de Azure SQL Database (no requiere servicios ni componentes adicionales). Esta nueva versión de Trabajos elásticos ofrece actualmente una versión preliminar limitada. Esta versión preliminar limitada admite PowerShell para crear cuentas de trabajo y T-SQL para crear y administrar trabajos.
 
 > [!NOTE]
 > *En este tutorial se usan características del servicio SQL Database que se encuentran en una versión preliminar limitada (trabajos de Elastic Database). Si desea seguir este tutorial, envíe su identificador de suscripción a SaaSFeedback@microsoft.com con el asunto Elastic Jobs Preview. Después de recibir la confirmación de que se ha habilitado su suscripción, [descargue e instale los cmdlets de trabajos de versión preliminar más recientes](https://github.com/jaredmoo/azure-powershell/releases). Al tratarse de una versión preliminar limitada, debe ponerse en contacto con SaaSFeedback@microsoft.com si necesita asistencia.*
 
-## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
+<a id="get-the-wingtip-application-scripts" class="xliff"></a>
 
-Los scripts SaaS de Wingtip y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Pasos para descargar los scripts SaaS de Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+## Obtener scripts de la aplicación Wingtip
 
-## <a name="create-a-job-account-database-and-new-job-account"></a>Creación de una base de datos de cuentas de trabajo y una nueva cuenta de trabajo
+Los scripts SaaS de Wingtip y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Pasos para descargar los scripts SaaS de Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+
+<a id="create-a-job-account-database-and-new-job-account" class="xliff"></a>
+
+## Creación de una base de datos de cuentas de trabajo y una nueva cuenta de trabajo
 
 Para este tutorial, es necesario usar PowerShell para crear la base de datos de cuentas de trabajo y una nueva cuenta de trabajo. Al igual que MSDB y el Agente SQL, Trabajos Elásticos utiliza una instancia de Azure SQL Database para almacenar definiciones de trabajos, estados de trabajo y el historial. Una vez creada la cuenta de trabajo, puede crear y supervisar trabajos inmediatamente.
 
@@ -75,7 +85,9 @@ Para este tutorial, es necesario usar PowerShell para crear la base de datos de 
 
 El script *Demo-SchemaManagement.ps1* llama al script *Deploy-SchemaManagement.ps1* para crear una base de datos *S2* llamada **jobaccount** en el servidor de catálogo. A continuación, crea la cuenta de trabajo, transfiriendo la base de datos jobaccount como un parámetro a la llamada de creación de la cuenta de trabajo.
 
-## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Creación de un trabajo para implementar nuevos datos de referencia en todos los inquilinos
+<a id="create-a-job-to-deploy-new-reference-data-to-all-tenants" class="xliff"></a>
+
+## Creación de un trabajo para implementar nuevos datos de referencia en todos los inquilinos
 
 Cada base de datos de inquilinos incluye un conjunto de tipos de ubicación que definen la clase de eventos que se celebran en una ubicación. En este ejercicio, se implementa una actualización en todas las bases de datos de inquilinos para agregar dos tipos de ubicación adicionales: *Motorcycle Racing* (motociclismo) y *Swimming Club* (club de natación). Estos tipos de ubicación se corresponden con la imagen de fondo que se ve en la aplicación de eventos de inquilino.
 
@@ -101,7 +113,9 @@ Para crear un nuevo trabajo, utilizamos un conjunto de procedimientos almacenado
 1. En SSMS, vaya a la base de datos *contosoconcerthall* del servidor *tenants1* y consulte la tabla *VenueTypes* para confirmar que *Motorcycle Racing* y *Swimming Club* **figuran** ahora en la lista de resultados.
 
 
-## <a name="create-a-job-to-manage-the-reference-table-index"></a>Creación de un trabajo para administrar el índice de tabla de referencia
+<a id="create-a-job-to-manage-the-reference-table-index" class="xliff"></a>
+
+## Creación de un trabajo para administrar el índice de tabla de referencia
 
 Al igual que en el ejercicio anterior, en este ejercicio se crea un trabajo para volver a crear el índice en la clave principal de la tabla de referencia, una operación de administración de bases de datos habitual que puede realizar un administrador después de cargar una gran cantidad de datos en una tabla.
 
@@ -118,7 +132,9 @@ Cree un trabajo con los mismos procedimientos almacenados del "sistema" de traba
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 
 En este tutorial, ha aprendido cómo:
 
@@ -131,8 +147,11 @@ En este tutorial, ha aprendido cómo:
 [Tutorial de análisis ad hoc](sql-database-saas-tutorial-adhoc-analytics.md)
 
 
-## <a name="additional-resources"></a>Recursos adicionales
+<a id="additional-resources" class="xliff"></a>
+
+## Recursos adicionales
 
 * [Otros tutoriales basados en la implementación de la aplicación SaaS de Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Administración de bases de datos escaladas horizontalmente en la nube](sql-database-elastic-jobs-overview.md)
 * [Creación y administración de bases de datos escaladas horizontalmente](sql-database-elastic-jobs-create-and-manage.md)
+

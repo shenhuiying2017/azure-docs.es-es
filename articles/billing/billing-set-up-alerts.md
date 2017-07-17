@@ -5,7 +5,7 @@ keywords: "alerta de crédito, alerta de facturación"
 services: 
 documentationcenter: 
 author: vikdesai
-manager: vikdesai
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
@@ -17,18 +17,21 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: vikdesai
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 32a2508997d7f50b0b2989d76d0574951d81a73f
 ms.openlocfilehash: a2eb813bc96cd58762ce077d2c0710ed4bc7bde6
+ms.contentlocale: es-es
 ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Configuración de alertas de crédito o facturación para las suscripciones de Microsoft Azure
+<a id="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions" class="xliff"></a>
+# Configuración de alertas de crédito o facturación para las suscripciones de Microsoft Azure
 Si es el administrador de cuenta de una suscripción a Azure, puede utilizar el servicio de alertas de facturación de Azure para crear alertas de facturación personalizadas que le ayudarán a supervisar y administrar la actividad de facturación de las cuentas de Azure.
 
 Este servicio está en versión preliminar, por lo que primero debe habilitarlo en la página Características de vista previa.
 
-## <a name="set-the-alert-threshold-and-email-recipients"></a>Establecimiento de los destinatarios de correo electrónico y del umbral de alerta
+<a id="set-the-alert-threshold-and-email-recipients" class="xliff"></a>
+## Establecimiento de los destinatarios de correo electrónico y del umbral de alerta
 1. Visite [la página Características de vista previa](https://account.windowsazure.com/PreviewFeatures) y habilite **Billing Alert Service** (Servicio de alertas de facturación).
 
 1. Después de recibir la confirmación de correo electrónico de que el servicio de facturación está activado para su suscripción, visite [la página de suscripciones](https://account.windowsazure.com/Subscriptions) en el portal de cuentas. Haga clic en la suscripción que desea supervisar y después haga clic en **Alertas**.
@@ -45,13 +48,16 @@ Este servicio está en versión preliminar, por lo que primero debe habilitarlo 
 
 Azure admite cualquier dirección de correo electrónico pero no comprueba que la dirección de correo electrónico funcione. Por lo tanto, revise si hay errores ortográficos.
 
-## <a name="check-on-your-alerts"></a>Comprobación de las alertas
+<a id="check-on-your-alerts" class="xliff"></a>
+## Comprobación de las alertas
 Después de configurar las alertas, el centro de cuentas enumera y muestra cuántas más se pueden configurar. Para cada alerta, se mostrará la fecha y la hora de envío, si es una alerta de total de facturación o de crédito monetario, así como el límite configurado. El formato de fecha y hora es de 24 horas según el horario universal coordinado (UTC) y la fecha tiene el formato aaaa-mm-dd. Haga clic en el signo más de una alerta de la lista para modificarla o haga clic en la papelera para eliminarla.
 
-## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Alertas de facturación para los clientes del Contrato Enterprise (EA)
+<a id="billing-alerts-for-enterprise-agreement-ea-customers" class="xliff"></a>
+## Alertas de facturación para los clientes del Contrato Enterprise (EA)
 Los clientes EA pueden obtener alertas para cada departamento con una inscripción estableciendo cuotas de gastos. Consulte [Department Spending Quotas](https://ea.azure.com/helpdocs/departmentSpendingQuotas) (Cuotas de gastos de departamento) en el portal EA para empezar a trabajar.
 
-## <a name="learn-more-about-azure-cost-management"></a>Más información sobre la administración de costos de Azure
+<a id="learn-more-about-azure-cost-management" class="xliff"></a>
+## Más información sobre la administración de costos de Azure
 - Calcule los costos mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/), la [calculadora de costo total de propiedad](https://aka.ms/azure-tco-calculator) y cuando agregue un servicio.
 - [Revise el uso y los costos con regularidad en Azure Portal](billing-getting-started.md#costs).
 - Active las [recomendaciones sobre el costo de Azure Advisor](../advisor/advisor-cost-recommendations.md).

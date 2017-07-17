@@ -15,22 +15,26 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: c9b2ed2f480b0c100a3f838dac8d9652be3c0391
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 854ad17006b70dfbdaf680744320a87ffb654e13
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 
-# <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
-## <a name="10-introduction"></a>1.0 Introducción
+# Detección de amenazas avanzada de Azure
+<a id="azure-advanced-threat-detection" class="xliff"></a>
+## Introducción
+<a id="introduction" class="xliff"></a>
 
-### <a name="11-overview"></a>1.1 Información general
+### Información general
+<a id="overview" class="xliff"></a>
 
 Microsoft ha desarrollado una serie de notas del producto, información general de seguridad, procedimientos recomendados y las listas de comprobación para ayudar a los clientes de Azure con las diferentes funcionalidades de seguridad disponibles en plataforma Azure y relacionadas con ella. Los temas varían en extensión y detalle, y se actualizan periódicamente. Este documento forma parte de esa serie, como se resume en la breve descripción de la siguiente sección.
 
-### <a name="12-azure-platform"></a>1.2 Plataforma Azure
+### Plataforma Azure
+<a id="azure-platform" class="xliff"></a>
 
 Azure es una plataforma de servicios en la nube abierta y flexible que admite la más amplia selección de sistemas operativos, lenguajes de programación, marcos, herramientas, bases de datos y dispositivos.
 Admite los lenguajes de programación siguientes:
@@ -44,7 +48,8 @@ Si va a migrar a una nube pública con una organización, esta es responsable de
 
 La infraestructura de Azure está diseñada desde la instalación hasta las aplicaciones para hospedar millones de clientes simultáneamente, y proporciona una base de confianza en la que las empresas pueden satisfacer sus necesidades de seguridad. Azure proporciona una amplia gama de opciones para configurar y personalizar la seguridad para que cumpla los requisitos de las implementaciones de la aplicación. Este documento le ayuda a cumplir estos requisitos.
 
-### <a name="13-abstract"></a>1.3 Descripción breve
+### Descripción breve
+<a id="abstract" class="xliff"></a>
 
 Microsoft Azure ofrece funcionalidades de detección de amenazas avanzada integradas en servicios como Azure Active Directory, Azure Operations Management Suite (OMS) y Azure Security Center. Esta colección de servicios de seguridad y funcionalidades ofrece una manera sencilla y rápida de comprender lo que ocurre en las implementaciones de Azure.
 
@@ -52,7 +57,8 @@ Estas notas del producto le guiarán con los "enfoques de Microsoft Azure" hacia
 
 Estas notas del producto se centran en la tecnología de la plataforma Azure y los controles orientados al cliente y no intenta abordar los SLA, los modelos de precios ni las consideraciones sobre los procedimientos de DevOps.
 
-## <a name="20-azure-active-directory-identity-protection"></a>2.0 Azure Active Directory Identity Protection
+## Azure Active Directory Identity Protection
+<a id="azure-active-directory-identity-protection" class="xliff"></a>
 
 ![Azure Active Directory Identity Protection](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 
@@ -65,7 +71,8 @@ Pero Azure Active Directory Identity Protection es más de una herramienta de su
 
 Estas directivas basadas en riesgos, además de otros [controles de acceso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) proporcionados por Azure Active Directory y [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), pueden bloquear automáticamente u ofrecer acciones de corrección adaptables que incluyen el restablecimiento de contraseñas y el cumplimiento de la autenticación multifactor.
 
-### <a name="21-identity-protections-capabilities"></a>2.1 Funcionalidades de Identity Protection
+### Funcionalidades de Identity Protection
+<a id="identity-protections-capabilities" class="xliff"></a>
 
 Azure Active Directory Identity Protection es más que una herramienta de supervisión e informes. Para proteger las identidades de la organización, puede configurar directivas basadas en riesgos que respondan automáticamente a problemas detectados si se alcanza un nivel de riesgo específico. Estas directivas, además de otros controles de acceso condicional proporcionados por Azure Active Directory y EMS, pueden bloquear automáticamente o iniciar acciones de corrección adaptables que incluyen el restablecimiento de contraseñas y el cumplimiento de la autenticación multifactor.
 
@@ -87,7 +94,8 @@ Ejemplos de algunas de las maneras en que Azure Identity Protection puede ayudar
 -    Directiva para proteger o bloquear cuentas de usuario peligrosas
 -    Directiva para exigir que los usuarios se registren en la autenticación multifactor
 
-### <a name="22-azure-ad-privileged-identity-management-pim"></a>2.2 Azure AD Privileged Identity Management (PIM)
+### Azure AD Privileged Identity Management (PIM)
+<a id="azure-ad-privileged-identity-management-pim" class="xliff"></a>
 
 Con [Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure),
 
@@ -103,13 +111,15 @@ Privileged Identity Management de Azure AD le ayuda a:
 
 -    Obtener alertas sobre el acceso a un rol con privilegios
 
-## <a name="30-microsoft-operations-management-suite-oms"></a>3.0 Microsoft Operations Management Suite (OMS)
+## Microsoft Operations Management Suite (OMS)
+<a id="microsoft-operations-management-suite-oms" class="xliff"></a>
 
 [Microsoft Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura local y en la nube. Puesto que OMS se implementa como un servicio basado en la nube, puede hacer que funcione rápidamente con una inversión mínima en servicios de infraestructura. Las características nuevas de seguridad se entregan automáticamente, lo que supone un ahorro en costos permanentes de mantenimiento y actualización.
 
 Además de proporcionar servicios valiosos en sí, OMS puede integrarse con componentes de System Center, como [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/) para ampliar sus inversiones existentes en la administración de la seguridad en la nube. System Center y OMS pueden trabajar juntos para proporcionar una experiencia de administración totalmente híbrida.
 
-### <a name="31-holistic-security-and-compliance-posture"></a>3.1 Seguridad integral y postura de cumplimiento
+### Seguridad integral y postura de cumplimiento
+<a id="holistic-security-and-compliance-posture" class="xliff"></a>
 
 El [panel Seguridad y auditoría de OMS](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) proporciona una vista completa de la postura de seguridad de TI de la organización, con consultas de búsqueda integradas para problemas importantes que requieren su atención. El panel Seguridad y auditoría es la pantalla principal para todo lo relacionado con la seguridad en OMS. Proporciona información detallada sobre el estado de seguridad de los equipos. También incluye la capacidad de ver todos los eventos de las últimas 24 horas, 7 días o cualquier otro intervalo personalizado.
 
@@ -129,7 +139,8 @@ El panel de Seguridad y auditoría de OMS se organiza en cuatro categorías prin
 
 -    **Consultas comunes de seguridad**: esta opción le proporciona una lista de las consultas de seguridad más comunes que puede utilizar para supervisar el entorno. Al hacer clic en una de las consultas, se abrirá la hoja Buscar con los resultados de la consulta.
 
-### <a name="32-insight-and-analytics"></a>3.2 Insight and Analytics
+### Insight and Analytics
+<a id="insight-and-analytics" class="xliff"></a>
 En el centro de [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) se encuentra el repositorio de OMS, hospedado en la nube de Azure.
 
 ![Insight and Analytics](./media/azure-threat-detection/azure-threat-detection-fig4.png)
@@ -150,7 +161,8 @@ Seguridad y auditoría es un ejemplo de solución de este tipo.
 
 
 
-### <a name="33-automation--control-alert-on-security-configuration-drifts"></a>3.3 Automation and Control: desviación de la alerta de configuración de seguridad
+### Automation & Control: desviación de la alerta de configuración de seguridad
+<a id="automation--control-alert-on-security-configuration-drifts" class="xliff"></a>
 
 Azure Automation automatiza los procesos administrativos con runbooks basados en PowerShell que se ejecutan en la nube de Azure. Los runbooks pueden ejecutarse en un servidor en el centro de datos local para administrar recursos locales. Azure Automation proporciona administración de configuración con DSC de PowerShell (Configuración de estado deseada).
 
@@ -158,7 +170,8 @@ Azure Automation automatiza los procesos administrativos con runbooks basados en
 
 Puede crear y administrar recursos de DSC hospedados en Azure y aplicarlos a los sistemas de nube y locales para definir y aplicar automáticamente su configuración u obtener informes de la desviación para ayudar a garantizar que las configuraciones de seguridad cumplen siempre las directivas.
 
-## <a name="40-azure-security-center"></a>4.0 Azure Security Center
+## Azure Security Center
+<a id="azure-security-center" class="xliff"></a>
 
 Azure Security Center ayuda a proteger los recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en suscripciones de Azure. Dentro del servicio, es posible definir directivas no solo para las suscripciones de Azure, sino también para [grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), por lo que puede ser más específico.
 
@@ -175,7 +188,8 @@ En Security Center, las alertas de seguridad están clasificadas por prioridad y
 
 Security Center utiliza análisis avanzados que superan con creces los enfoques basados en firmas. Los grandes avances registrados en las tecnologías de macrodatos y [aprendizaje automático](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) se usan para evaluar eventos en todo el tejido de la nube, lo que permite identificar amenazas que no se podrían identificar con métodos manuales, así como predecir la evolución de los ataques. Estas técnicas de análisis de la seguridad incluyen lo siguiente.
 
-### <a name="41-threat-intelligence"></a>4.1 Información sobre amenazas
+### Información sobre amenazas
+<a id="threat-intelligence" class="xliff"></a>
 
 Microsoft dispone de una ingente cantidad de información sobre amenazas globales.
 Los recursos telemétricos proceden de diferentes fuentes, como Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, la Unidad de crímenes digitales de Microsoft (DCU) y Microsoft Security Response Center (MSRC).
@@ -194,7 +208,8 @@ Los investigadores también cuentan con la información sobre amenazas que compa
 
 -    **Detección de amenazas de Azure SQL Database:** identifica actividades anómalas de la base de datos e indica los intentos inusuales o posiblemente dañinos de acceso o ataque a las bases de datos.
 
-### <a name="42-behavioral-analytics"></a>4.2 Análisis del comportamiento
+### Análisis del comportamiento
+<a id="behavioral-analytics" class="xliff"></a>
 
 El análisis del comportamiento es una técnica que analiza datos y los compara con una serie de patrones conocidos. No obstante, estos patrones no son simples firmas, sino que están determinados por unos complejos algoritmos de aprendizaje automático que se aplican a conjuntos de datos masivos.
 
@@ -216,13 +231,15 @@ Estos son algunos ejemplos:
 
 -    **Ataques de salida:** a menudo, el objetivo de los atacantes son recursos en la nube, que utilizan con el propósito de perpetrar otros ataques. Por ejemplo, las máquinas virtuales afectadas pueden usarse para iniciar ataques por fuerza bruta contra otras máquinas virtuales, enviar correo no deseado o buscar puertos abiertos y otros dispositivos en Internet. Gracias a la aplicación del aprendizaje automático en el tráfico de red, Security Center puede detectar cuándo las comunicaciones de red salientes superan la norma establecida. En el caso del correo no deseado, Security Center relaciona el tráfico inusual de correo con la información de Office 365 para determinar si es probable que el mensaje sea fraudulento o si es el resultado de una campaña de correo electrónico legítima.
 
-### <a name="43-anomaly-detection"></a>4.3 Detección de anomalías
+### Detección de anomalías
+<a id="anomaly-detection" class="xliff"></a>
 
 Azure Security Center también utiliza la detección de anomalías para identificar amenazas. A diferencia del análisis del comportamiento, que depende de patrones conocidos obtenidos a partir de grandes conjuntos de datos, la detección de anomalías es una técnica más “personalizada” y se basa en referencias que son específicas de las implementaciones. El aprendizaje automático se aplica para determinar la actividad normal de las implementaciones. A partir de ahí, se generan reglas para definir condiciones de valores atípicos que podrían constituir un evento de seguridad. Veamos un ejemplo:
 
 -    **Ataques por fuerza bruta de RDP/SSH entrantes:** es posible que las implementaciones integren máquinas virtuales con mucha actividad que tengan multitud de inicios de sesión al día y otras máquinas virtuales que tengan pocos o ningún inicio de sesión. Azure Security Center puede determinar la actividad de referencia de los inicios de sesión de estas máquinas virtuales y utilizar el aprendizaje automático para definir las actividades relacionadas con el inicio de sesión normal. Si no hay discrepancias con la línea básica definida para las características relacionadas con el inicio de sesión, puede generarse una alerta. Una vez más, es el aprendizaje automático el que se encarga de determinar qué es significativo.
 
-### <a name="44-continuous-threat-intelligence-monitoring"></a>4.4 Supervisión continuada de la información sobre amenazas
+### Supervisión continuada de la información sobre amenazas
+<a id="continuous-threat-intelligence-monitoring" class="xliff"></a>
 
 Azure Security Center cuenta con equipos de científicos de datos e investigadores de seguridad de todo el mundo que supervisan sin descanso los cambios que se registran en el terreno de las amenazas. Estos son algunas de las iniciativas que llevan a cabo:
 
@@ -236,15 +253,18 @@ Azure Security Center cuenta con equipos de científicos de datos e investigador
 
 Toda esta combinación de esfuerzos culmina en nuevas y mejoradas técnicas de detección, de las que puede beneficiarse al instante sin ninguna acción por su parte.
 
-## <a name="50-advanced-threat-detection-features---other-azure-services"></a>5.0 Características de la detección de amenazas avanzada: otros servicios de Azure
+## Características de la detección de amenazas avanzada: otros servicios de Azure
+<a id="advanced-threat-detection-features---other-azure-services" class="xliff"></a>
 
-### <a name="51-virtual-machine-microsoft-antimalware"></a>5.1 Microsoft Antimalware de máquina virtual
+### Microsoft Antimalware de máquina virtual
+<a id="virtual-machine-microsoft-antimalware" class="xliff"></a>
 
 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para Azure es una solución de un único agente dirigida a entornos de aplicaciones e inquilinos, concebida para la ejecución en segundo plano sin intervención humana. Puede implementar la protección en función de las necesidades de sus cargas de trabajo de aplicaciones, con configuración de protección básica o personalizada avanzada que incluye supervisión antimalware. Azure Antimalware es una opción de seguridad para Azure Virtual Machines que se instala automáticamente en todas las máquinas virtuales de PaaS de Azure.
 
 **Características de Azure para implementar y habilitar Microsoft Antimalware para las aplicaciones**
 
-#### <a name="511-microsoft-antimalware-core-features"></a>5.1.1 Características principales de Microsoft Antimalware
+#### Características principales de Microsoft Antimalware
+<a id="microsoft-antimalware-core-features" class="xliff"></a>
 
 -    **Protección en tiempo real:** supervisa la actividad en Cloud Services y Virtual Machines para detectar y bloquear la ejecución de malware.
 
@@ -266,7 +286,8 @@ Toda esta combinación de esfuerzos culmina en nuevas y mejoradas técnicas de d
 
 -    **Recopilación de eventos antimalware:** registra el estado del servicio antimalware, las actividades sospechosas y las acciones de corrección adoptadas en el registro de eventos del sistema operativo y los recopila en la cuenta de Azure Storage del cliente.
 
-### <a name="52-azure-sql-database-threat-detection"></a>5.2 Detección de amenazas de Azure SQL Database
+### Detección de amenazas de Azure SQL Database
+<a id="azure-sql-database-threat-detection" class="xliff"></a>
 
 [Detección de amenazas de Azure SQL Database](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/) es una nueva característica de inteligencia de seguridad integrada en el servicio de Azure SQL Database. Estamos trabajando permanentemente para conocer y detectar actividades anómalas de la base de datos y generar perfiles; Detección de amenazas de Azure SQL Database identifica las posibles amenazas a la base de datos.
 
@@ -289,7 +310,8 @@ Los detectores de amenazas de SQL Database usan uno de los métodos de detecció
 
 -    **Detección de comportamiento:** detecta la actividad anómala, comportamiento anómalo de la base de datos que no se haya observado durante los últimos 30 días.  Un ejemplo de actividad anómala del cliente SQL puede ser un pico de consultas o inicios de sesión fallidos, un gran volumen de datos extraídos, consultas canónicas inusuales y direcciones IP no familiares que se hayan usado para acceder a la base de datos
 
-### <a name="53-application-gateway-web-application-firewall"></a>5.3 Firewall de aplicaciones web de Application Gateway
+### Firewall de aplicaciones web de Application Gateway
+<a id="application-gateway-web-application-firewall" class="xliff"></a>
 
 El [firewall de aplicaciones web](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall) (WAF) es una característica de [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) que protege las aplicaciones web que utilizan una puerta de enlace de aplicaciones para las funciones estándar de [Application Delivery Control](https://kemptechnologies.com/in/application-delivery-controllers). El firewall de aplicaciones web ofrece protección contra las [10 vulnerabilidades web identificadas por OWASP](https://www.owasp.org/index.php/Top_10_2010-Main) más comunes
 
@@ -319,7 +341,8 @@ La configuración de WAF en Application Gateway proporciona las siguientes venta
 
 -    Algunos controles de cumplimiento requieren que todos los puntos de conexión accesibles desde Internet estén protegidos por una solución WAF. Mediante el uso de Application Gateway con WAF habilitado, puede satisfacer estos requisitos de cumplimiento.
 
-### <a name="54-anomaly-detection--an-api-built-with-azure-machine-learning"></a>5.4 Detección de anomalías: API creada con Azure Machine Learning
+### Detección de anomalías: API creada con Azure Machine Learning
+<a id="anomaly-detection--an-api-built-with-azure-machine-learning" class="xliff"></a>
 
 La Detección de anomalías es una API creada con Azure Machine Learning que resulta útil para detectar distintos tipos de patrones anómalos en los datos de series temporales. La API asigna una puntuación de anomalía a cada punto de datos de la serie temporal, que se puede usar para generar alertas, supervisar a través de paneles o conectar con los sistemas de vales.
 
@@ -354,7 +377,8 @@ La API de detección de anomalías es una solución eficaz y eficiente para una 
 
 -    Los grupos de análisis de negocios desean supervisar los movimientos anómalos en los KPI (como el volumen de las ventas, las opiniones de los clientes o los precios) en tiempo real.
 
-### <a name="55-cloud-app-security"></a>5.5 Cloud App Security
+### Cloud App Security
+<a id="cloud-app-security" class="xliff"></a>
 
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) es un componente esencial de la pila de seguridad de Microsoft Cloud. Es una solución integral que ayuda a la organización a medida que avanza para aprovechar al máximo la promesa de las aplicaciones en la nube, pero permite mantener el control gracias a la mejor visibilidad de la actividad. También ayuda a aumentar la protección de los datos críticos en todas las aplicaciones de la nube.
 
@@ -405,9 +429,11 @@ Cloud App Security integra visibilidad con la nube gracias a lo siguiente:
 
 En la recopilación de datos de estos orígenes, Cloud App Security ejecuta un sofisticado análisis de los datos. Le avisa inmediatamente en caso de actividades anómalas y proporciona visibilidad profunda en el entorno de nube. Puede configurar una directiva en Cloud App Security y usarla para proteger todo el contenido del entorno de nube.
 
-## <a name="60-third-party-atd-capabilities-through-azure-marketplace"></a>6.0 Funcionalidades ATD de terceros a través de Azure Marketplace
+## Funcionalidades ATD de terceros a través de Azure Marketplace
+<a id="third-party-atd-capabilities-through-azure-marketplace" class="xliff"></a>
 
-### <a name="web-application-firewall"></a>Firewall de aplicaciones web
+### Firewall de aplicaciones web
+<a id="web-application-firewall" class="xliff"></a>
 
 El firewall de aplicaciones web inspecciona el tráfico web entrante y bloquea las inyecciones de SQL, el scripting entre sitios, las cargas de malware y DDoS de aplicación, así como otros ataques dirigidos a las aplicaciones web. También examina las respuestas de los servidores web back-end para prevención de pérdida de datos (DLP). El motor de control de acceso integrado permite a los administradores crear directivas de control de acceso pormenorizadas para la autenticación, la autorización y la contabilidad (AAA), lo cual proporciona autenticación fiable a las organizaciones así como control sobre los usuarios.
 
@@ -424,7 +450,8 @@ A continuación se presentan unos ejemplos de firewall de aplicaciones web dispo
 
 [Firewall de aplicaciones web Barracuda, firewall de aplicaciones web virtuales Brocade (Brocade vWAF), Imperva SecureSphere y firewall ThreatSTOP IP.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
 
-## <a name="next-steps"></a>Pasos siguientes
+## Pasos siguientes
+<a id="next-steps" class="xliff"></a>
 
 - [Funcionalidades de detección de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities)
 

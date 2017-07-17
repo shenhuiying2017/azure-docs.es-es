@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/24/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: db227bfea10255322c090e68b197cfb2dd1cf15b
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 99685748120b40cd02328f6ece0b8dde55042d61
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/08/2017
 
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Azure Search?
@@ -31,7 +31,7 @@ Aprenda sobre las características de Azure Search.
 
 ### <a name="full-text-search-and-text-analysis"></a>Búsqueda de texto completo y análisis de texto
 
-[Búsqueda de texto completo](https://en.wikipedia.org/wiki/Full_text_search) es el principal caso de uso para la mayoría de las aplicaciones basadas en búsquedas. En Azure Search, las consultas se pueden formular mediante la [sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), que ofrece operadores lógicos, operadores de búsqueda de frase, operadores de sufijo y operadores de precedencia. Además, la [sintaxis de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) puede habilitar la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos y las expresiones regulares. Azure Search también admite [analizadores léxicos personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para permitir que su aplicación administre consultas de búsqueda complejas mediante coincidencia fonética y expresiones regulares.
+[Búsqueda de texto completo](search-lucene-query-architecture.md) es el principal caso de uso para la mayoría de las aplicaciones basadas en búsquedas. En Azure Search, las consultas se pueden formular mediante la [sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), que ofrece operadores lógicos, operadores de búsqueda de frase, operadores de sufijo y operadores de precedencia. Además, la [sintaxis de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) puede habilitar la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos y las expresiones regulares. Azure Search también admite [analizadores léxicos personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para permitir que su aplicación administre consultas de búsqueda complejas mediante coincidencia fonética y expresiones regulares.
 
 ### <a name="language-support"></a>Compatibilidad con idiomas
 
@@ -53,11 +53,11 @@ La *averiguación de documentos* permite indexar los [principales formatos de ar
 
 + El **resaltado de referencias** [aplica un formato visual a una palabra clave coincidente en los resultados de búsqueda](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Se puede elegir qué campos devuelven los fragmentos resaltados.
 
-+ **puntuación simple** es una ventaja clave de Azure Search. Los [perfiles de puntuación](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) se utilizan para modelar la relevancia en función de los valores de los propios documentos. Por ejemplo, tal vez se desea que los productos más recientes o con descuento aparezcan arriba en los resultados de búsqueda. También se pueden crear perfiles de puntuación mediante etiquetas para puntuaciones personalizadas, según las preferencias de búsqueda de los clientes de las que se ha hecho seguimiento y se han almacenado por separado.
++ **puntuación simple** es una ventaja clave de Búsqueda de Azure. Los [perfiles de puntuación](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) se utilizan para modelar la relevancia en función de los valores de los propios documentos. Por ejemplo, tal vez se desea que los productos más recientes o con descuento aparezcan arriba en los resultados de búsqueda. También se pueden crear perfiles de puntuación mediante etiquetas para puntuaciones personalizadas, según las preferencias de búsqueda de los clientes de las que se ha hecho seguimiento y se han almacenado por separado.
 
 + **clasificación** se ofrece para varios campos mediante el esquema de índice y luego se activa o se desactiva en el momento de consulta con un único parámetro de búsqueda.
 
-+ **paginación** y limitación de los resultados de búsqueda se [aplican fácilmente con el control adaptado](search-pagination-page-layout.md) que Azure Search ofrece a través de los resultados de búsqueda.  
++ **paginación** y limitación de los resultados de búsqueda se [aplican fácilmente con el control adaptado](search-pagination-page-layout.md) que Búsqueda de Azure ofrece a través de los resultados de búsqueda.  
 
 ### <a name="geosearch"></a>Búsqueda geográfica
 

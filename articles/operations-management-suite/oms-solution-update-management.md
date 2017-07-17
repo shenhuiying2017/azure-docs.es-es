@@ -12,34 +12,45 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/23/2017
+ms.date: 06/21/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: ff8d911750a551f4a099fcba13841c98881104a9
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: b4d5ab66db64a50d1b87edd4bf445e49004e67b4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
-# <a name="update-management-solution-in-oms"></a>Solución Administración de actualizaciones de OMS
-La solución Administración de actualizaciones de OMS permite administrar las actualizaciones de los equipos Windows y Linux.  Puede evaluar rápidamente el estado de las actualizaciones disponibles en todos los equipos agente e iniciar el proceso de instalación de las actualizaciones necesarias para los servidores. 
+<a id="update-management-solution-in-oms" class="xliff"></a>
 
-## <a name="solution-components"></a>Componentes de soluciones
+# Solución Administración de actualizaciones de OMS
 
-Los equipos administrados por OMS usan lo siguiente para evaluar e implementar actualizaciones: 
+![Símbolo de Administración de actualizaciones](./media/oms-solution-update-management/update-management-symbol.png)
+
+La solución Administración de actualizaciones de OMS permite administrar las actualizaciones de los equipos Windows y Linux.  Puede evaluar rápidamente el estado de las actualizaciones disponibles en todos los equipos agente e iniciar el proceso de instalación de las actualizaciones necesarias para los servidores.
+
+
+<a id="solution-overview" class="xliff"></a>
+
+## Información general de la solución
+Los equipos administrados por OMS usan lo siguiente para evaluar e implementar actualizaciones:
 
 * Agente de OMS para Windows o Linux
-* Extensión DSC (configuración de estado deseado) de PowerShell para Linux 
-* Hybrid Runbook Worker de Automation 
+* Extensión DSC (configuración de estado deseado) de PowerShell para Linux
+* Hybrid Runbook Worker de Automation
 * Microsoft Update o Windows Server Update Services para equipos Windows
 
 Los siguientes diagramas muestran una vista conceptual del comportamiento y un flujo de datos con el modo en que la solución evalúa y aplica las actualizaciones a todos los equipos Windows Server y Linux conectados en un área de trabajo.    
 
-#### <a name="windows-server"></a>Windows Server
+<a id="windows-server" class="xliff"></a>
+
+#### Windows Server
 ![Flujo del proceso de administración de actualizaciones en Windows Server](media/oms-solution-update-management/update-mgmt-windows-updateworkflow.png)
 
-#### <a name="linux"></a>Linux
+<a id="linux" class="xliff"></a>
+
+#### Linux
 ![Flujo del proceso de administración de actualizaciones en Linux](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
 Después de que el equipo realiza un examen de cumplimiento de las actualizaciones, el agente de OMS reenvía la información de forma masiva a OMS. En un equipo Windows, el examen de cumplimiento se realiza cada 12 horas de forma predeterminada.  Además del examen programado, se inicia el examen de cumplimiento de las actualizaciones a los 15 minutos si se reinicia Microsoft Monitoring Agent (MMA), antes y después de la instalación de actualizaciones.  En un equipo Linux, el examen de cumplimiento se realiza cada 3 horas de forma predeterminada y se inicia un examen de cumplimiento en 15 minutos si se reinicia el agente MMA.  
@@ -50,15 +61,17 @@ Puede implementar e instalar las actualizaciones de software en equipos que requ
 
 En la fecha y hora especificadas en la implementación de actualizaciones, los equipos de destino ejecutan la implementación en paralelo.  En primer lugar, se realiza un examen para comprobar si las actualizaciones siguen siendo necesarias y las instala.  Para los equipos cliente WSUS, es importante tener en cuenta que, si no se aprueban las actualizaciones en WSUS, se producirá un error en la implementación de actualizaciones.  Los resultados de las actualizaciones aplicadas se reenvían a OMS para que se procesen y se resuman en los paneles o para la búsqueda de eventos.     
 
-## <a name="prerequisites"></a>Requisitos previos
-* La solución permite realizar evaluaciones de las actualizaciones en Windows Server 2008 y versiones posteriores, e implementaciones de actualizaciones en Windows Server 2008 R2 y versiones posteriores.  No se admiten las opciones de instalación de Server Core y Nano Server.
+<a id="prerequisites" class="xliff"></a>
+
+## Requisitos previos
+* La solución permite realizar evaluaciones de las actualizaciones en Windows Server 2008 y versiones posteriores, e implementaciones de actualizaciones en Windows Server 2008 R2 SP1 y versiones posteriores.  No se admiten las opciones de instalación de Server Core y Nano Server.
 
     > [!NOTE]
-    > Para poder implementar las actualizaciones en Windows Server 2008 R2 se necesita .NET Framework 4.5 y WMF 5.0 o versiones posteriores.
+    > Para poder implementar las actualizaciones en Windows Server 2008 R2 SP1 se necesita .NET Framework 4.5 y WMF 5.0 o versiones posteriores.
     >  
 * No se admiten los sistemas operativos cliente Windows.  
 * Los agentes de Windows deben estar configurados para comunicarse con un servidor de Windows Server Update Services (WSUS) o tener acceso a Microsoft Update.  
-  
+
     > [!NOTE]
     > System Center Configuration Manager no puede administrar simultáneamente el agente de Windows.  
     >
@@ -66,19 +79,26 @@ En la fecha y hora especificadas en la implementación de actualizaciones, los e
 * Red Hat Enterprise (x86/x64) 6 y 7 (x64)
 * SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)
 * Ubuntu 12.04 LTS y versiones más recientes (x86/x64)  
+    > [!NOTE]  
+    > Para evitar que las actualizaciones se apliquen fuera de una ventana de mantenimiento en Ubuntu, vuelva a configurar el paquete de actualizaciones desatendidas para deshabilitar las actualizaciones automáticas. Para más información sobre cómo configurarlo, consulte el [tema sobre actualizaciones automáticas en la Guía de Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
 * Los agentes de Linux deben tener acceso a un repositorio de actualización.  
 
     > [!NOTE]
     > La solución no admite un agente de OMS para Linux configurado para informar a varias áreas de trabajo OMS.  
-    > 
+    >
 
 Para más información acerca de cómo instalar el agente de OMS para Linux y descargar la versión más reciente, consulte [Agente de Operations Management Suite para Linux](https://github.com/microsoft/oms-agent-for-linux).  Para más información sobre cómo instalar el agente de OMS para Windows, consulte [Agente de Operations Management Suite para Windows](../log-analytics/log-analytics-windows-agents.md).  
 
-## <a name="solution-components"></a>Componentes de soluciones
-Esta solución consta de los siguientes recursos que se agregan a la cuenta de Automation y a los agentes directamente conectados o al grupo de administración conectado a Operations Manager. 
+<a id="solution-components" class="xliff"></a>
 
-### <a name="management-packs"></a>Módulos de administración
-Si el grupo de administración de System Center Operations Manager está conectado al área de trabajo de OMS, se instalarán los siguientes módulos de administración en Operations Manager.  Estos módulos de administración también se instalan en equipos Windows directamente conectados después de agregar esta solución. No hay nada para configurar o administrar en estos módulos de administración. 
+## Componentes de soluciones
+Esta solución consta de los siguientes recursos que se agregan a la cuenta de Automation y a los agentes directamente conectados o al grupo de administración conectado a Operations Manager.
+
+<a id="management-packs" class="xliff"></a>
+
+### Módulos de administración
+Si el grupo de administración de System Center Operations Manager está conectado al área de trabajo de OMS, se instalarán los siguientes módulos de administración en Operations Manager.  Estos módulos de administración también se instalan en equipos Windows directamente conectados después de agregar esta solución. No hay nada para configurar o administrar en estos módulos de administración.
 
 * Intelligence Pack Update Assessment de Microsoft System Center Advisor (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -86,13 +106,17 @@ Si el grupo de administración de System Center Operations Manager está conecta
 
 Para obtener más información sobre cómo se actualizan los módulos de administración de soluciones, consulte [Conexión de Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
-### <a name="hybrid-worker-groups"></a>Grupos de Hybrid Worker
+<a id="hybrid-worker-groups" class="xliff"></a>
+
+### Grupos de Hybrid Worker
 Si habilita esta solución, los equipos Windows conectados directamente al área de trabajo de OMS se configurarán automáticamente como Hybrid Runbook Worker para admitir los runbooks que se incluyen en esta solución.  Cada equipo Windows administrado por la solución se enumerará en la hoja de grupos de Hybrid Runbook Worker de la cuenta de Automation, siguiendo la convención de nomenclatura *Nombre de host FQDN_GUID*.  Estos grupos no pueden ser grupos de destino de runbooks de su cuenta, porque se producirá un error. Estos grupos están diseñados únicamente para admitir la solución de administración.   
 
 Sin embargo, puede agregar equipos Windows a un grupo de Hybrid Runbook Worker en la cuenta de Automation para admitir runbooks de Automation siempre que la cuenta para la solución y la pertenencia a grupos de Hybrid Runbook Worker sean las mismas.  Esta funcionalidad se agregó a la versión 7.2.12024.0 de Hybrid Runbook Worker.  
 
-## <a name="configuration"></a>Configuración
-Realice los pasos siguientes para agregar la solución de administración de actualizaciones al área de trabajo de OMS y confirmar los agentes a los que se informa. Los agentes de Windows ya conectados al área de trabajo se agregan automáticamente sin ninguna configuración adicional. 
+<a id="configuration" class="xliff"></a>
+
+## Configuración
+Realice los pasos siguientes para agregar la solución de administración de actualizaciones al área de trabajo de OMS y confirmar los agentes a los que se informa. Los agentes de Windows ya conectados al área de trabajo se agregan automáticamente sin ninguna configuración adicional.
 
 Puede implementar la solución utilizando los métodos siguientes:
 
@@ -101,7 +125,9 @@ Puede implementar la solución utilizando los métodos siguientes:
 
 Si ya tiene una cuenta de Automation vinculada a un área de trabajo de OMS en el mismo grupo de recursos y región, al seleccionar Automation & Control se comprobará la configuración y se instalará y configurará la solución en ambos servicios.  Si selecciona la solución de administración de actualizaciones de Azure Marketplace, se produce el mismo comportamiento.  Si no tiene ambos servicios implementados en su suscripción, siga los pasos descritos en la hoja **Crear nueva solución** y confirme que desea instalar las otras soluciones preseleccionadas recomendadas.  También puede agregar la solución de administración de actualizaciones al área de trabajo de OMS mediante los pasos descritos en [Agregar soluciones de OMS](../log-analytics/log-analytics-add-solutions.md) desde la galería de soluciones.  
 
-### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>Confirmar que los agentes de OMS y el grupo de administración de Operations Manager conectan a OMS
+<a id="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms" class="xliff"></a>
+
+### Confirmar que los agentes de OMS y el grupo de administración de Operations Manager conectan a OMS
 
 Para confirmar que los agentes de OMS para Linux y Windows conectados directamente se comunican con OMS, después de unos minutos, puede ejecutar la siguiente búsqueda en el registro:
 
@@ -114,14 +140,24 @@ En un equipo Windows, revise lo siguiente para comprobar la conectividad del age
 1.  Abra Microsoft Monitoring Agent en el panel de control y, en la pestaña **Azure Log Analytics (OMS)**, el agente muestra un mensaje que indica: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite**.   
 2.  Abra el registro de eventos de Windows, vaya a **Registro de aplicaciones y servicios\Operations Manager** y busque los eventos con el identificador 3000 y 5002 del conector de servicio de origen.  Estos eventos indican que el equipo se ha registrado en el área de trabajo de OMS y está recibiendo la configuración.  
 
-Si el agente no es capaz de comunicarse con el servicio OMS y está configurado para comunicarse con Internet a través de un servidor proxy o firewall, confirme que el firewall o el servidor proxy están configurados correctamente; para ello, consulte [Configuración del proxy y del firewall de Log Analytics](../log-analytics/log-analytics-proxy-firewall.md).
-  
-Los agentes de Linux recién agregados mostrarán el estado **Actualizado** después de haber realizado una evaluación.  Este proceso puede tardar hasta 6 horas. 
+Si el agente no es capaz de comunicarse con el servicio OMS y está configurado para comunicarse con Internet a través de un servidor proxy o firewall, confirme que el firewall o el servidor proxy están configurados correctamente; para ello, consulte las secciones sobre [configuración de red para el agente de Windows](../log-analytics/log-analytics-windows-agents.md#network) o [configuración de red para el agente de Linux](../log-analytics/log-analytics-agent-linux.md#network).
+
+> [!NOTE]
+> Si los sistemas de Linux están configurados para comunicarse con un servidor proxy o puerta de enlace de OMS y está incorporando esta solución, actualice los permisos de *proxy.conf* para conceder al grupo omiuser permiso de lectura sobre este archivo realizando los siguientes comandos:  
+> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
+
+
+Los agentes de Linux recién agregados mostrarán el estado **Actualizado** después de haber realizado una evaluación.  Este proceso puede tardar hasta 6 horas.
 
 Para confirmar que un grupo de administración de Operations Manager se comunica con OMS, consulte [Validación de la integración de Operations Manager con OMS](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
-## <a name="data-collection"></a>Colección de datos
-### <a name="supported-agents"></a>Agentes admitidos
+<a id="data-collection" class="xliff"></a>
+
+## Colección de datos
+<a id="supported-agents" class="xliff"></a>
+
+### Agentes admitidos
 En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución.
 
 | Origen conectado | Compatible | Description |
@@ -131,32 +167,42 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | Grupo de administración de Operations Manager |Sí |La solución recopila información acerca de las actualizaciones del sistema de agentes en un grupo de administración conectado.<br>No se requiere ninguna conexión directa entre el agente de Operations Manager y Log Analytics. Los datos se reenvían del grupo de administración al repositorio de OMS. |
 | Cuenta de almacenamiento de Azure |No |Azure Storage no incluye información acerca de las actualizaciones del sistema. |
 
-### <a name="collection-frequency"></a>Frecuencia de recopilación
-Para cada equipo Windows administrado, se realiza un examen dos veces al día. Cada 15 minutos, se llama a la API de Windows para consultar la hora de la última actualización y determinar si ha cambiado el estado y, de ser así, se inicia un examen de cumplimiento.  Para cada equipo Linux administrado, se realiza un examen cada tres horas. 
+<a id="collection-frequency" class="xliff"></a>
+
+### Frecuencia de recopilación
+Para cada equipo Windows administrado, se realiza un examen dos veces al día. Cada 15 minutos, se llama a la API de Windows para consultar la hora de la última actualización y determinar si ha cambiado el estado y, de ser así, se inicia un examen de cumplimiento.  Para cada equipo Linux administrado, se realiza un examen cada tres horas.
 
 Puede tardar entre 30 minutos y 6 horas mostrar en el panel los datos actualizados de los equipos administrados.   
 
-## <a name="using-the-solution"></a>Uso de la solución
+<a id="using-the-solution" class="xliff"></a>
+
+## Uso de la solución
 Al agregar la solución Administración de actualizaciones al área de trabajo de OMS, se agrega el icono de **Administración de actualizaciones al panel de OMS**. Este icono muestra un recuento y una representación gráfica del número de equipos en el entorno y del cumplimiento de las actualizaciones.<br><br>
 ![Icono Update Management Summary](media/oms-solution-update-management/update-management-summary-tile.png) (Resumen de administración de actualizaciones)  
 
 
-## <a name="viewing-update-assessments"></a>Visualización de evaluaciones de la actualización
-Haga clic en el icono de **Administración de actualizaciones** para abrir el panel **Administración de actualizaciones**.<br><br> ![Panel Update Management Summary](./media/oms-solution-update-management/update-management-dashboard.png) (Resumen de administración de actualizaciones)<br> 
+<a id="viewing-update-assessments" class="xliff"></a>
+
+## Visualización de evaluaciones de la actualización
+Haga clic en el icono de **Administración de actualizaciones** para abrir el panel **Administración de actualizaciones**.<br><br> ![Panel Update Management Summary](./media/oms-solution-update-management/update-management-dashboard.png) (Resumen de administración de actualizaciones)<br>
 
 Este panel proporciona un análisis detallado del estado de las actualizaciones clasificadas por tipo de sistema operativo y clasificación de la actualización: crítica, seguridad u otros (por ejemplo, una actualización de definiciones). Al seleccionar el icono **Implementaciones de actualizaciones**, le redirige a la página Implementaciones de actualizaciones donde puede ver las programaciones, las implementaciones que se está ejecutando actualmente o las implementaciones completadas, o puede programar una nueva implementación.  
 
 Para ejecutar una búsqueda en el registro que devuelva todos los registros, haga clic en el icono específico o, para ejecutar una consulta de una categoría determinada y criterios predefinidos, seleccione una de las disponibles en la lista de la columna **Consultas de actualización comunes**.    
 
-## <a name="installing-updates"></a>Instalación de actualizaciones
-Una vez se han evaluado las actualizaciones para todos los equipos Linux y Windows de su área de trabajo, puede instalar las actualizaciones necesarias mediante la creación de una *implementación de actualizaciones*.  Una implementación de actualizaciones es una instalación programada de las actualizaciones necesarias en uno o más equipos.  Especifique la fecha y hora para la implementación, además de un equipo o grupo de equipos que deben incluirse en el ámbito de una implementación.  Para más información sobre grupos de equipos, consulte [Grupos de equipos de Log Analytics](../log-analytics/log-analytics-computer-groups.md).  Al incluir grupos de equipos en la implementación de la actualización, la pertenencia al grupo se evalúa solo en el momento de la creación de la programación.  No se reflejan los cambios posteriores en un grupo.  Para resolver este problema, elimine la implementación de actualización programada y vuelva a crearla. 
+<a id="installing-updates" class="xliff"></a>
+
+## Instalación de actualizaciones
+Una vez se han evaluado las actualizaciones para todos los equipos Linux y Windows de su área de trabajo, puede instalar las actualizaciones necesarias mediante la creación de una *implementación de actualizaciones*.  Una implementación de actualizaciones es una instalación programada de las actualizaciones necesarias en uno o más equipos.  Especifique la fecha y hora para la implementación, además de un equipo o grupo de equipos que deben incluirse en el ámbito de una implementación.  Para más información sobre grupos de equipos, consulte [Grupos de equipos de Log Analytics](../log-analytics/log-analytics-computer-groups.md).  Al incluir grupos de equipos en la implementación de la actualización, la pertenencia al grupo se evalúa solo en el momento de la creación de la programación.  No se reflejan los cambios posteriores en un grupo.  Para resolver este problema, elimine la implementación de actualización programada y vuelva a crearla.
 
 > [!NOTE]
 > Las máquinas virtuales Windows implementadas desde Azure Marketplace se establecen de forma predeterminada para recibir actualizaciones automáticas del servicio de Windows Update.  Este comportamiento no cambia después de agregar esta solución o máquinas virtuales Windows al área de trabajo.  Si no ha administrado activamente las actualizaciones con la solución, se aplicará el comportamiento predeterminado (aplicar automáticamente las actualizaciones).  
 
 En el caso de las máquinas virtuales creadas a partir de las imágenes a petición de Red Hat Enterprise Linux (RHEL) en Azure Marketplace se registran para acceder a la instancia de [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) implementada en Azure.  Cualquier otra distribución de Linux se debe actualizar desde el repositorio de archivos en línea de distribuciones según los métodos admitidos de cada una de ellas.  
 
-### <a name="viewing-update-deployments"></a>Visualización de implementaciones de actualizaciones
+<a id="viewing-update-deployments" class="xliff"></a>
+
+### Visualización de implementaciones de actualizaciones
 Haga clic en el icono **Implementación de actualizaciones** para ver la lista de implementaciones de actualizaciones existentes.  Se agrupan por estado: **Programado**, **En ejecución** y **Completado**.<br><br> ![Página de programación de las implementaciones de actualizaciones](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
 
 Las propiedades mostradas para cada implementación de actualizaciones se describen en la tabla siguiente.
@@ -179,10 +225,12 @@ Seleccione una implementación de actualizaciones completada para ver su pantall
 | Equipos Linux |Enumera el número de equipos Linux de la implementación de actualizaciones por estado.  Haga clic en un estado para ejecutar una búsqueda de registros que devuelva todos los registros de actualización con ese estado para la implementación de actualizaciones. |
 | Estado de la instalación del equipo |Enumera los equipos implicados en la implementación de actualizaciones y el porcentaje de las actualizaciones que se instalaron correctamente. Haga clic en una de las entradas para ejecutar una búsqueda de registros que devuelva todas las actualizaciones pendientes y críticas. |
 | **Vista de actualizaciones** | |
-| Actualizaciones de Windows |Enumera las actualizaciones de Windows incluidas en la implementación de actualizaciones y su estado de instalación por cada actualización.  Seleccione una actualización para ejecutar una búsqueda en el registro que devuelva todos los registros de una actualización específica o haga clic en el estado para ejecutar una búsqueda en el registro que devuelva todos los registros de la implementación. | 
-| Actualizaciones de Linux |Enumera las actualizaciones de Linux que se incluyen en la implementación de actualizaciones y su estado de instalación por cada actualización.  Seleccione una actualización para ejecutar una búsqueda en el registro que devuelva todos los registros de una actualización específica o haga clic en el estado para ejecutar una búsqueda en el registro que devuelva todos los registros de la implementación. | 
+| Actualizaciones de Windows |Enumera las actualizaciones de Windows incluidas en la implementación de actualizaciones y su estado de instalación por cada actualización.  Seleccione una actualización para ejecutar una búsqueda en el registro que devuelva todos los registros de una actualización específica o haga clic en el estado para ejecutar una búsqueda en el registro que devuelva todos los registros de la implementación. |
+| Actualizaciones de Linux |Enumera las actualizaciones de Linux que se incluyen en la implementación de actualizaciones y su estado de instalación por cada actualización.  Seleccione una actualización para ejecutar una búsqueda en el registro que devuelva todos los registros de una actualización específica o haga clic en el estado para ejecutar una búsqueda en el registro que devuelva todos los registros de la implementación. |
 
-### <a name="creating-an-update-deployment"></a>Creación de una implementación de actualizaciones
+<a id="creating-an-update-deployment" class="xliff"></a>
+
+### Creación de una implementación de actualizaciones
 Para crear una implementación de actualizaciones, haga clic en el botón **Agregar**, situado en la parte superior de la pantalla para abrir la página **New Update Deployment** (Nueva implementación de actualizaciones).  Debe proporcionar valores para las propiedades en la tabla siguiente.
 
 | Propiedad | Descripción |
@@ -196,15 +244,21 @@ Para crear una implementación de actualizaciones, haga clic en el botón **Agre
 
 <br><br> ![Página New Update Deployment (Nueva implementación de actualizaciones)](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
-### <a name="time-range"></a>Intervalo de tiempo
-De forma predeterminada, el ámbito de los datos analizados en la solución Administración de actualizaciones es desde todos los grupos de administración conectados generados en el último día. 
+<a id="time-range" class="xliff"></a>
+
+### Intervalo de tiempo
+De forma predeterminada, el ámbito de los datos analizados en la solución Administración de actualizaciones es desde todos los grupos de administración conectados generados en el último día.
 
 Para cambiar el intervalo de tiempo de los datos, seleccione **Datos basados en** en la parte superior del panel. Puede seleccionar registros creados o actualizados en los últimos 7 días, 1 día o 6 horas. O puede seleccionar **Personalizado** y especificar un intervalo de fechas personalizado.
 
-## <a name="log-analytics-records"></a>Registros de Log Analytics
+<a id="log-analytics-records" class="xliff"></a>
+
+## Registros de Log Analytics
 La solución Administración de actualizaciones crea dos tipos de registros en el repositorio de OMS.
 
-### <a name="update-records"></a>Registros de actualización
+<a id="update-records" class="xliff"></a>
+
+### Registros de actualización
 Se crea un registro con el tipo **Actualizar** para cada actualización que está instalada o es necesaria en cada equipo. Los registros de actualización tienen las propiedades de la tabla siguiente.
 
 | Propiedad | Descripción |
@@ -233,11 +287,11 @@ Se crea un registro con el tipo **Actualizar** para cada actualización que est�
 | UpdateID |GUID para identificar de forma única la actualización. |
 | UpdateState |Especifica si la actualización está instalada en este equipo.<br>Los valores posibles son:<br>- Instalada: la actualización está instalada en este equipo.<br>- Necesaria: la actualización no está instalada y es necesaria en este equipo. |
 
-Cuando se realiza una búsqueda de registros que devuelve los registros con un tipo **Actualizar**, puede seleccionar la vista **Actualizaciones**, que muestra un conjunto de iconos que resumen las actualizaciones devueltas por la búsqueda. Puede hacer clic en las entradas de los iconos **Actualizaciones que faltan y aplicadas** y **Actualizaciones obligatorias y opcionales** para centrar el ámbito de la vista en ese conjunto de actualizaciones. Seleccione la vista **Lista** o **Tabla** para devolver los registros individuales.<br> 
+Cuando se realiza una búsqueda de registros que devuelve los registros con un tipo **Actualizar**, puede seleccionar la vista **Actualizaciones**, que muestra un conjunto de iconos que resumen las actualizaciones devueltas por la búsqueda. Puede hacer clic en las entradas de los iconos **Actualizaciones que faltan y aplicadas** y **Actualizaciones obligatorias y opcionales** para centrar el ámbito de la vista en ese conjunto de actualizaciones. Seleccione la vista **Lista** o **Tabla** para devolver los registros individuales.<br>
 
 ![Vista de actualización de búsqueda de registros con actualización de tipo de registro](./media/oms-solution-update-management/update-la-view-updates.png)  
 
-En la vista **Tabla**, puede hacer clic en **KBID** para cualquier registro con el fin de abrir un explorador con el artículo de la KB. Esto le permite leer rápidamente sobre los detalles de esa actualización específica.<br> 
+En la vista **Tabla**, puede hacer clic en **KBID** para cualquier registro con el fin de abrir un explorador con el artículo de la KB. Esto le permite leer rápidamente sobre los detalles de esa actualización específica.<br>
 
 ![Vista de tabla de búsqueda de registros con iconos de actualizaciones de tipo de registro](./media/oms-solution-update-management/update-la-view-table.png)
 
@@ -245,7 +299,9 @@ En la vista **Lista**, haga clic en el vínculo **Ver** situado junto al KBID pa
 
 ![Vista de lista de búsqueda de registros con iconos de actualizaciones de tipo de registro](./media/oms-solution-update-management/update-la-view-list.png)
 
-### <a name="updatesummary-records"></a>Registros de UpdateSummary
+<a id="updatesummary-records" class="xliff"></a>
+
+### Registros de UpdateSummary
 Se crea un registro con un tipo de **UpdateSummary** para cada equipo del agente de Windows. Este registro se actualiza cada vez que se buscan actualizaciones en el equipo. Los registros **UpdateSummary** tienen las propiedades en la tabla siguiente.
 
 | Propiedad | Descripción |
@@ -268,45 +324,52 @@ Se crea un registro con un tipo de **UpdateSummary** para cada equipo del agente
 | WindowsUpdateSetting |Configuración de cómo el equipo instalará las actualizaciones importantes.<br>Los valores posibles son:<br>- Deshabilitado<br>- Notificar antes de la instalación<br>- Instalación programada |
 | WSUSServer |Dirección URL del servidor WSUS si el equipo está configurado para usar uno. |
 
-## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
-En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para los registros de actualización recopilados por esta solución. 
+<a id="sample-log-searches" class="xliff"></a>
+
+## Búsquedas de registros de ejemplo
+En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para los registros de actualización recopilados por esta solución.
 
 | Consultar | Descripción |
 | --- | --- |
-|Servidores basados en Windows que necesitan actualizaciones |`Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false | measure count() by Computer` |
-|Servidores Linux que necesitan actualizaciones | `Type:Update OSType=Linux UpdateState!="Not needed" | measure count() by Computer` |
-| Todos los equipos con actualizaciones pendientes |`Type=Update UpdateState=Needed Optional=false | select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Actualizaciones pendientes para un equipo específico (reemplace el valor por el nombre del equipo) |`Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" | select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate` |
-| Todos los equipos con actualizaciones de seguridad o críticas pendientes |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates"`) |
-| Actualizaciones críticas o de seguridad necesarias para las máquinas a las que se aplican manualmente las actualizaciones |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual | Distinct Computer} | Distinct KBID` |
-| Eventos de error para las máquinas que tienen pendientes actualizaciones de seguridad o críticas necesarias |`Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false | Distinct Computer}` |
-| Todos los equipos con paquetes acumulativos de actualizaciones pendientes |`Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed| select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| Actualizaciones distintivas pendientes en todos los equipos |`Type=Update UpdateState=Needed Optional=false | Distinct Title` |
-| Servidores basados en Windows con actualizaciones con error en la ejecución de la actualización | `Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Title, UpdateRunName` |
-| Servidores Linux con actualizaciones con error en la ejecución de la actualización |`Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Product, UpdateRunName` |
-| Pertenencia a un equipo WSUS |`Type=UpdateSummary | measure count() by WSUSServer` |
-| Configuración de actualizaciones automáticas |`Type=UpdateSummary | measure count() by WindowsUpdateSetting` |
-| Equipos con la actualización automática deshabilitada |`Type=UpdateSummary WindowsUpdateSetting=Manual` |
-| Lista de todas las máquinas Linux que tienen un paquete de actualización disponible |`Type=Update and OSType=Linux and UpdateState!="Not needed" | measure count() by Computer` |
-| Lista de todas las máquinas Linux que tienen un paquete de actualización disponible que soluciona una vulnerabilidad de seguridad o crítica |`Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") | measure count() by Computer` |
-| Lista de todos los paquetes que tienen una actualización disponible |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| Lista de todos los paquetes que tienen una actualización disponible que soluciona una vulnerabilidad de seguridad o crítica |`Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates")` |
-| Lista de las implementaciones de actualizaciones que han modificado equipos |`Type:UpdateRunProgress | measure Count() by UpdateRunName` |
-|Equipos que se actualizaron en esta ejecución de la actualización (reemplace el valor por el nombre de la implementación de actualizaciones) |`Type:UpdateRunProgress UpdateRunName="DeploymentName" | measure Count() by Computer` |
-| Lista de todas las máquinas "Ubuntu" con cualquier actualización disponible |`Type=Update and OSType=Linux and OSName = Ubuntu &| measure count() by Computer` |
+| Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false &#124; measure count() by Computer |Servidores basados en Windows que necesitan actualizaciones |
+| Type:Update OSType=Linux UpdateState!="Not needed" &#124; measure count() by Computer |Servidores Linux que necesitan actualizaciones | 
+| Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |Todos los equipos con actualizaciones pendientes |
+| Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |Actualizaciones pendientes para un equipo específico (reemplace el valor por el nombre del equipo)|
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |Todos los equipos con actualizaciones de seguridad o críticas pendientes | 
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |Actualizaciones críticas o de seguridad necesarias para las máquinas a las que se aplican manualmente las actualizaciones |
+| Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |Eventos de error para las máquinas que tienen pendientes actualizaciones de seguridad o críticas necesarias |
+| Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |Todos los equipos con paquetes acumulativos de actualizaciones pendientes | 
+| Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |Actualizaciones distintivas pendientes en todos los equipos | 
+| Type:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Title, UpdateRunName |Servidores basados en Windows con actualizaciones con error en la ejecución de la actualización | 
+| Type:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Product, UpdateRunName |Servidores Linux con actualizaciones con error en la ejecución de la actualización | 
+| Type=UpdateSummary &#124; measure count() by WSUSServer |Pertenencia a un equipo WSUS | 
+| Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |Configuración de actualizaciones automáticas | 
+| Type=UpdateSummary WindowsUpdateSetting=Manual |Equipos con la actualización automática deshabilitada | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |Lista de todas las máquinas Linux que tienen un paquete de actualización disponible | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |Lista de todas las máquinas Linux que tienen un paquete de actualización disponible que soluciona una vulnerabilidad de seguridad o crítica | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" |Lista de todos los paquetes que tienen una actualización disponible | 
+| Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |Lista de todos los paquetes que tienen una actualización disponible que soluciona una vulnerabilidad de seguridad o crítica | 
+| Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |Lista de las implementaciones de actualizaciones que han modificado equipos | 
+| Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Equipos que se actualizaron en esta ejecución de la actualización (reemplace el valor por el nombre de la implementación de actualizaciones) | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Lista de todas las máquinas "Ubuntu" con cualquier actualización disponible | 
 
-## <a name="troubleshooting"></a>Solución de problemas 
+<a id="troubleshooting" class="xliff"></a>
+
+## Solución de problemas
 
 En esta sección se proporciona información para resolver problemas con la solución de administración de actualizaciones.  
 
-### <a name="how-do-i-troubleshoot-update-deployments"></a>¿Cómo puedo solucionar problemas con las implementaciones de actualizaciones?
+<a id="how-do-i-troubleshoot-update-deployments" class="xliff"></a>
+
+### ¿Cómo puedo solucionar problemas con las implementaciones de actualizaciones?
 Puede ver los resultados del runbook responsable de implementar las actualizaciones incluidas en la implementación de actualizaciones programada en la hoja Trabajos de su cuenta de Automation vinculada con el área de trabajo de OMS que admite esta solución.  El runbook **Patch-MicrosoftOMSComputer** es un runbook secundario que tiene como destino un equipo administrado específico y, al revisar el flujo detallado, presentará información detallada de la implementación.  La salida muestra qué actualizaciones necesarias son aplicables, el estado de descarga, el estado de instalación y detalles adicionales.<br><br> ![Estado del trabajo de implementación de actualizaciones](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 Para más información, consulte [Mensajes y salidas del runbook de Automation](../automation/automation-runbook-output-and-messages.md).   
-  
-## <a name="next-steps"></a>Pasos siguientes
+
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 * Usar Búsquedas de registros en [Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre la actualización.
 * [Crear sus propios paneles](../log-analytics/log-analytics-dashboards.md) que muestren el cumplimiento de las actualizaciones de los equipos administrados.
 * [Crear alertas](../log-analytics/log-analytics-alerts.md) cuando se detectan actualizaciones críticas pendientes en equipos, o bien cuando un equipo tiene las actualizaciones automáticas deshabilitadas.  
-
 

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: pratshar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e6d05d7a7595e17d026be6a448b2fa2cca9b816
-ms.openlocfilehash: a62fe406af18c9c7d9b58839bfa0d6e785b614ef
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 2d8d0feb5c391017e02413b009aafe4d5c012976
 ms.contentlocale: es-es
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -27,7 +27,8 @@ ms.lasthandoff: 02/22/2017
 Este artículo va dirigido a los profesionales de TI responsables de la elaboración, implementación y soporte técnico de la infraestructura de continuidad empresarial y recuperación ante desastres (BCDR), y que desean sacar provecho de Microsoft Azure Site Recovery (ASR) para dar soporte técnico a sus servicios de BCDR y mejorarlos. En este documento se describen consideraciones prácticas para la implementación de servidores en System Center Virtual Machine Manager, las ventajas y desventajas de las subredes ampliadas frente a la conmutación por error de subred y cómo estructurar la recuperación ante desastres en sitios virtuales de Microsoft Azure.
 
 ## <a name="overview"></a>Información general
-[Azure Site Recovery (ASR)](https://azure.microsoft.com/services/site-recovery/) es un servicio de Microsoft Azure que organiza la protección y recuperación de las aplicaciones virtualizadas con fines de continuidad empresarial y recuperación ante desastres (BCDR).. El fin de este documento es guiar al lector a través del proceso de diseño de las redes, y se centra en la elaboración de intervalos IP y subredes en el sitio de recuperación ante desastres, al replicar máquinas virtuales (VM) mediante Site Recovery.
+<seg>
+  [Azure Site Recovery (ASR)](https://azure.microsoft.com/services/site-recovery/) es un servicio de Microsoft Azure que organiza la protección y recuperación de las aplicaciones virtualizadas con fines de continuidad empresarial y recuperación ante desastres (BCDR)..</seg> El fin de este documento es guiar al lector a través del proceso de diseño de las redes, y se centra en la elaboración de intervalos IP y subredes en el sitio de recuperación ante desastres, al replicar máquinas virtuales (VM) mediante Site Recovery.
 
 Además, este artículo muestra la forma en que Site Recovery permite elaborar e implementar un centro de datos virtual multisitio para admitir los servicios BCDR en pruebas o ante un desastre.
 
@@ -41,7 +42,7 @@ Cuando los administradores planean implementar una solución de recuperación an
 
 Al diseñar la red del sitio de recuperación, el administrador tiene dos opciones:
 
-* Utilizar un intervalo de direcciones IP diferente para la red del sitio de recuperación. En este escenario, después de la conmutación por error la máquina virtual obtendrá una nueva dirección IP y el administrador tendría que realizar una actualización de DNS. Obtenga más información [aquí](site-recovery-test-failover-vmm-to-vmm.md#preparing-infrastructure-for-test-failover)
+* Utilizar un intervalo de direcciones IP diferente para la red del sitio de recuperación. En este escenario, después de la conmutación por error la máquina virtual obtendrá una nueva dirección IP y el administrador tendría que realizar una actualización de DNS. Obtenga más información [aquí](site-recovery-test-failover-vmm-to-vmm.md#prepare-the-infrastructure-for-test-failover)
 * Utilizar el mismo intervalo de direcciones IP diferente para la red del sitio de recuperación. En ciertos escenarios, los administradores prefieren conservar las direcciones IP que tienen en el sitio principal, incluso después de la conmutación por error. En un escenario normal, los administradores tendrían que actualizar las rutas para que indiquen la nueva ubicación de las direcciones IP. Pero en el escenario en el que hay una VLAN ampliada entre el sitio principal y el de recuperación, conservar la dirección IP de las máquinas virtuales se convierte en una opción atractiva. Mantener las mismas direcciones IP simplifica el proceso de recuperación, ya que se eliminan todos los pasos relacionados posteriores a la conmutación por error.
 
 Cuando los administradores planean implementar una solución de recuperación ante desastres, una de las preguntas claves que se plantean es cómo se podrá acceder a las aplicaciones una vez que se complete la conmutación por error. Las aplicaciones modernas casi siempre dependen hasta cierto punto de las redes, por lo que mover físicamente un servicio de un sitio a otro representa un reto de redes. Hay dos formas principales de abordar este problema en las soluciones de recuperación ante desastres. El primer enfoque es mantener direcciones IP fijas. A pesar de que los servicios cambien de sitio y los servidores de hospedaje se encuentren en distintas ubicaciones físicas, las aplicaciones llevan consigo la configuración de dirección IP a la nueva ubicación. El segundo enfoque implica cambiar totalmente la dirección IP durante la transición hacia el sitio recuperado. Cada enfoque tiene distintas variaciones de implementación, que se resumen a continuación.

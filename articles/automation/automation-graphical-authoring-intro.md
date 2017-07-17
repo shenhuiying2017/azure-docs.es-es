@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1e61e3717a9006f67c0b57c33573c2d0f5fbfa05
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 417fceb0961165d96ece000f95c8a3f973f4f75b
+ms.contentlocale: es-es
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -254,7 +255,7 @@ Puede establecer [puntos de control](automation-powershell-workflow.md#checkpoin
 Los puntos de control solo se habilitan en los runbooks gráficos de flujo de trabajo de PowerShell; no están disponibles en los runbooks gráficos.  Si el runbook usa cmdlets de Azure, debe seguir cualquier actividad establecida con puntos de control con un AzureRMAccount en caso de suspender el runbook y de reiniciarlo a partir de dicho punto de control en un trabajo diferente. 
 
 ## <a name="authenticating-to-azure-resources"></a>Autenticación a los recursos de Azure
-Los runbooks de Automatización de Azure que administran recursos de Azure requerirán tendrán que autenticarse en Azure.  La característica de [cuenta de ejecución](automation-offering-get-started.md#automation-account) (también denominada entidad de servicio) es el método predeterminado para acceder a los recursos de Azure Resource Manager de la suscripción con los runbooks de Automation.  Puede agregar esta funcionalidad a un runbook gráfico incorporando el activo de conexión **AzureRunAsConnection**, que utiliza el cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) de PowerShell, y el cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) al lienzo. Esto se muestra en el ejemplo siguiente.<br>![Actividades de autenticación de ejecución](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Los runbooks de Automatización de Azure que administran recursos de Azure requerirán tendrán que autenticarse en Azure.  La característica de [cuenta de ejecución](automation-offering-get-started.md#creating-an-automation-account) (también denominada entidad de servicio) es el método predeterminado para acceder a los recursos de Azure Resource Manager de la suscripción con los runbooks de Automation.  Puede agregar esta funcionalidad a un runbook gráfico incorporando el activo de conexión **AzureRunAsConnection**, que utiliza el cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) de PowerShell, y el cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) al lienzo. Esto se muestra en el ejemplo siguiente.<br>![Actividades de autenticación de ejecución](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 La actividad de obtención de conexión de ejecución (es decir, Get-AutomationConnection) se configura con un origen de datos de valor constante denominado "AzureRunAsConnection".<br>![Configuración de la conexión de ejecución](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 La siguiente actividad, Add-AzureRmAccount, agrega la cuenta de ejecución autenticada para que pueda utilizarse en el runbook.<br>
 ![Conjunto de parámetros Add-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>

@@ -1,5 +1,6 @@
 ---
-title: "Administración de los grupos a los que pertenece un grupo en la versión preliminar de Azure Active Directory | Microsoft Docs"
+
+title: "Administración de los grupos a los que pertenece un grupo en Azure Active Directory | Microsoft Docs"
 description: "Los grupos pueden contener otros grupos en Azure Active Directory. Aquí se muestra cómo administrar las pertenencias a grupos."
 services: active-directory
 documentationcenter: 
@@ -12,20 +13,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 8e0563f3490186a19dd9418ebf7beac7dd8dd046
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 08e04a6590176c4084ca47b4bd6cbb22500eca2d
+ms.contentlocale: es-es
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Administración de los grupos a los que pertenece un grupo en el inquilino de Azure Active Directory
-Los grupos pueden contener otros grupos en la versión preliminar de Azure Active Directory. [¿Qué es la versión preliminar?](active-directory-preview-explainer.md) Aquí se muestra cómo administrar las pertenencias a grupos.
+<a id="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant" class="xliff"></a>
 
-## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>¿Cómo puedo encontrar los grupos de los que es miembro mi grupo?
+# Administración de los grupos a los que pertenece un grupo en el inquilino de Azure Active Directory
+Los grupos pueden contener otros grupos en Azure Active Directory. Aquí se muestra cómo administrar las pertenencias a grupos.
+
+<a id="how-do-i-find-the-groups-my-group-is-a-member-of" class="xliff"></a>
+
+## ¿Cómo puedo encontrar los grupos de los que es miembro mi grupo?
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
 
@@ -34,7 +40,7 @@ Los grupos pueden contener otros grupos en la versión preliminar de Azure Activ
 
    ![Apertura de la hoja Grupos](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
 4. En la hoja **Usuarios y grupos - Todos los grupos** , seleccione un grupo.
-5. En la hoja **Grupo - *nombreDelGrupo***, seleccione **Pertenencia a grupos**.
+5. En la hoja **Grupo - *nombre del grupo***, seleccione **Pertenencia a grupos**.
 
    ![Apertura de la hoja Pertenencia a grupos](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
 6. Para agregar un grupo como miembro de otro grupo, en la hoja **Grupo - Pertenencia a grupos**, seleccione el comando **Agregar** comando.
@@ -47,7 +53,9 @@ Los grupos pueden contener otros grupos en la versión preliminar de Azure Activ
    ![Comando de eliminación de pertenencia a grupo](./media/active-directory-groups-membership-azure-portal/remove-group-membership.png)
 10. Cuando termine de cambiar las pertenencias a grupos de su grupo, seleccione **Guardar**.
 
-## <a name="additional-information"></a>Información adicional
+<a id="additional-information" class="xliff"></a>
+
+## Información adicional
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Ver los grupos existentes](active-directory-groups-view-azure-portal.md)

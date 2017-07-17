@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
-ms.openlocfilehash: bec672005b0b1856faeb230f5674013a37add774
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 22665107cdf689042a5b0eee34eaeacc0434fbc4
+ms.contentlocale: es-es
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -80,11 +82,11 @@ Para configurar la integración de SAP Cloud for Customer en Azure AD, es precis
 
 6. En el cuadro de búsqueda, escriba **SAP Cloud for Customer**.
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_01.png)
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_01.png)
 
 7. En el panel de resultados, seleccione **SAP Cloud for Customer** y luego haga clic en **Completar** para agregar la aplicación.
    
-    ![Active Directory](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_02.png)
+    ![Active Directory](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, se configura y se prueba el inicio de sesión único de Azure AD con SAP Cloud for Customer con un usuario de prueba llamado "Britta Simon".
@@ -106,15 +108,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **SAP Cloud for Customer**, en el menú de la parte superior, haga clic en **Atributos**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_80.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_80.png) 
 
 2. En la lista de atributos de token de SAML, seleccione el atributo nameidentifier y haga clic en **Editar**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_84.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_84.png) 
 
 3. En el cuadro de diálogo **Editar atributo de usuario** , siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_85.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_85.png) 
 
     a. En la lista **Valor del atributo**, seleccione la función **ExtractMailPrefix()**.
 
@@ -130,23 +132,23 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en SAP Cloud for Customer?**, seleccione **Inicio de sesión único de Azure AD** y luego haga clic en **Siguiente**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_03.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_03.png) 
 
 3. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_04.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_04.png) 
    
     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación SAP Cloud for Customer con el siguiente patrón: `https://<server name>.crm.ondemand.com`
    
-    b. click **Siguiente**
+    b. Haga clic en **Siguiente**
 
 4. En la página **Configurar inicio de sesión único en SAP Cloud for Customer** , siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_05.png)
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_05.png)
    
     a. Haga clic en **Descargar metadatos**y luego guarde el archivo en el equipo.
    
-    b. Haga clic en **Next**.
+    b. Haga clic en **Siguiente**.
 
 5. Para configurar SSO, siga estos pasos:
    
@@ -156,7 +158,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
    
     c. Haga clic en **New Identity Provider** (Nuevo proveedor de identidades) y seleccione el archivo XML de metadatos que ha descargado del Portal de Azure clásico. Al importar los metadatos, el sistema carga automáticamente el certificado de firma y el certificado de cifrado necesarios.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_54.png)
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_54.png)
    
     d. Azure AD requiere la URL del Servicio de consumidor de aserciones del elemento en la solicitud SAML, así que active la casilla **Include Assertion Consumer Service URL** (Incluir URL del Servicio de consumidor de aserciones).
    
@@ -166,11 +168,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
    
     g. Haga clic en la pestaña **My System** (Mi sistema).
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_52.png)
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_52.png)
    
     h. Copie la **dirección URL de SSO** y péguela en el cuadro de texto **URL de inicio de sesión de Azure AD**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_53.png)
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_53.png)
    
     i. Especifique si el empleado puede elegir manualmente entre iniciar sesión con el Id. de usuario y una contraseña o mediante SSO, para lo que debe seleccionar **Manual Identity Provider Selection** (Selección manual de proveedor de identidades).
    
@@ -208,21 +210,21 @@ En esta sección, se crea un usuario de prueba llamado Britta Simon en el Portal
 
 1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_09.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_09.png) 
 
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
 
 3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_03.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_03.png) 
 
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_04.png) 
 
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_05.png) 
    
     a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
    
@@ -230,7 +232,7 @@ En esta sección, se crea un usuario de prueba llamado Britta Simon en el Portal
    
     c. Haga clic en **Siguiente**.
 
-6. En el cuadro de diálogo **Perfil de usuario**, siga estos pasos:  ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png) 
+6. En el cuadro de diálogo **Perfil de usuario**, siga estos pasos:  ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_06.png) 
    
     a. En el cuadro de texto **Nombre**, escriba **Britta**.  
    
@@ -244,11 +246,11 @@ En esta sección, se crea un usuario de prueba llamado Britta Simon en el Portal
 
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_07.png) 
 
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_08.png) 
    
     a. Anote el valor del campo **Nueva contraseña**.
    
@@ -275,7 +277,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 2. En la lista de aplicaciones, seleccione **SAP Cloud for Customer**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_50.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_50.png) 
 
 3. En el menú de la parte superior, haga clic en **Usuarios**.
    
@@ -298,24 +300,19 @@ Al hacer clic en el icono de SAP Cloud for Customer en el Panel de acceso, deber
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_100.png
+[6]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_05.png
+[10]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_06.png
+[11]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_07.png
+[20]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_201.png
-[203]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+[200]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_201.png
+[203]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_203.png
+[204]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_204.png
+[205]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_205.png
 

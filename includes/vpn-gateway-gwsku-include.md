@@ -1,17 +1,37 @@
-Al crear una puerta de enlace de red virtual, debe especificar la SKU de la puerta de enlace que desea usar. Cuando se selecciona una SKU de puerta de enlace superior, se asignan más CPU y mayor ancho de banda de red a la puerta de enlace y. como resultado, esta admite un mayor rendimiento de red a la red virtual.
+Al crear una puerta de enlace de red virtual, debe especificar la SKU de la puerta de enlace que desea usar. Seleccione las SKU que cumplan sus requisitos en función de los tipos de cargas de trabajo, rendimientos, características y Acuerdos de Nivel de Servicio.
 
-VPN Gateway puede usar las SKU siguientes:
+[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
-* Básica
-* Estándar
-* HighPerformance
+[!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-La VPN Gateway no utiliza la SKU de puerta de enlace de UltraPerformance. Para obtener información acerca de la SKU de UltraPerformance, consulte la documentación de [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+###  <a name="workloads"></a>Cargas de trabajo  *de producción* frente a cargas de desarrollo y pruebas
 
-Al seleccionar un SKU, considere los siguientes factores:
+Dadas las diferencias en los Acuerdos de Nivel de Servicio y los conjuntos de características, se recomiendan las siguientes SKU para la producción *frente a* desarrollo y pruebas:
 
-* Si desea utilizar un tipo de VPN PolicyBased, debe utilizar la SKU de nivel Básico. Las VPN PolicyBased (que anteriormente se denominaba enrutamiento estático) no se admiten en otra SKU.
-* BGP no es compatible con la SKU de nivel Básico.
-* Las configuraciones de la coexistencia de ExpressRoute-VPN Gateway no se admiten en la SKU de nivel Básico.
-* Las conexiones de VPN Gateway S2S activo/activo solo pueden configurarse en la SKU HighPerformance.
+| **Carga de trabajo**                       | **SKU**               |
+| ---                                | ---                    |
+| **Cargas de trabajo de producción, críticas** | VpnGw1, VpnGw2, VpnGw3 |
+| **Desarrollo y pruebas o prueba de concepto**   | Básica                  |
+|                                    |                        |
 
+Si continúa utilizando las SKU antiguas, las recomendaciones de SKU de producción son las SKU Estándar y HighPerformance. Para obtener información acerca de las SKU anteriores, consulte [SKU de puerta de enlace (antiguo)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+
+###  <a name="feature"></a>Conjuntos de características de las SKU de puerta de enlace
+
+Las nueva SKU de puerta de enlace simplifican los conjuntos de características que se ofrecen en las puertas de enlace:
+
+| **SKU**| **Características**|
+| ---    | ---         |
+| VpnGw1<br>VpnGw2<br>VpnGw3|VPN basada en ruta hasta 30 túneles* <br>P2S, BGP, activo-activo, directiva de protocolo de seguridad de Internet/intercambio de claves por red personalizada, coexistencia de ExpressRoute/VPN <br><br>* Se puede configurar "PolicyBasedTrafficSelectors" para conectar una puerta de enlace de VPN Gateway basada en ruta (VpnGw1, VpnGw2, VpnGw3) a varios dispositivos de firewall locales basados en directivas. Consulte [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Conexión de puertas de enlace VPN Gateway a varios dispositivos de VPN locales basados en directivas con PowerShell) para más información. |
+|Básica   | Basada en ruta: 10 túneles con P2S<br>Basada en directiva (IKEv1): 1 túnel; sin P2S|
+|        |             |
+
+###  <a name="resize"></a>Cambio de tamaño de las SKU de puerta de enlace
+
+1. Puede cambiar el tamaño entre las SKU de VpnGw1, VpnGw2 y VpnGw3.
+2. Si trabaja con las SKU de puerta de enlace antiguas, puede cambiar el tamaño entre las SKU Básica, Estándar y HighPerformance.
+2. Sin embargo **no puede** cambiar el tamaño de las SKU de Básica/Estándar/HighPerformance a las nuevas SKU de VpnGw1/VpnGw2/VpnGw3. En su lugar, debe [migrar](#migrate) a las SKU nuevas.
+
+###  <a name="migrate"></a>Migración de las SKU antiguas a las nuevas
+
+[!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]

@@ -16,17 +16,16 @@ ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 2d1092af00c1bce3e47d980a512a25eff1f0d9b6
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: c5d09cf03c87c8da1d8588be62fea3f0cc3eec4f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 06/22/2017
 
 ---
 
 # <a name="azure-sql-database-use-ruby-to-connect-and-query-data"></a>Azure SQL Database: uso de Ruby para conectar y consultar datos
 
-En esta guía de inicio rápido se muestra cómo usar [Ruby](https://Ruby.org) para conectarse a una base de datos de Azure SQL Database y, después, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos de la base de datos desde las plataformas Mac OS y Ubuntu Linux.
+En esta guía de inicio rápido se muestra cómo usar [Ruby](https://www.ruby-lang.org) para conectarse a una base de datos de Azure SQL Database y, después, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos de la base de datos desde las plataformas Mac OS y Ubuntu Linux.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

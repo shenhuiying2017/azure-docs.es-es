@@ -11,16 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 91a4e54b3dd2e1f44a6b52c548a243ae98e3ba3f
+ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="azure-active-directory-automatic-device-registration-faq"></a>Preguntas más frecuentes sobre el registro automático de dispositivos de Azure Active Directory
+<a id="azure-active-directory-automatic-device-registration-faq" class="xliff"></a>
+# Preguntas más frecuentes sobre el registro automático de dispositivos de Azure Active Directory
 
 **P: He registrado el dispositivo hace poco. ¿Por qué no puedo ver el dispositivo en la información del usuario en Azure Portal?**
 
@@ -58,17 +60,17 @@ Solo los dispositivos siguientes aparecen en la información del USUARIO:
 
 Para dispositivos Windows 10 y Windows Server 2016 unidos a un dominio AD local:
 
-1.    Abra el símbolo del sistema como administrador.
+1.  Abra el símbolo del sistema como administrador.
 
-2.    Escriba `dsregcmd.exe /debug /leave`
+2.  Escriba `dsregcmd.exe /debug /leave`
 
-3.    Cierre la sesión y luego iníciela para desencadenar la tarea programada que registra de nuevo el dispositivo. 
+3.  Cierre la sesión y luego iníciela para desencadenar la tarea programada que registra de nuevo el dispositivo. 
 
 Para otras plataformas de Windows unidas a un dominio AD local:
 
-1.    Abra el símbolo del sistema como administrador.
-2.    Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-3.    Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+1.  Abra el símbolo del sistema como administrador.
+2.  Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+3.  Escriba `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
 
@@ -76,13 +78,13 @@ Para otras plataformas de Windows unidas a un dominio AD local:
 
 **R:**
 
--    Para Windows 10 y Windows Server 2016, si se dan varios intentos para desunir y volver a unir el mismo dispositivo, pueden aparecer entradas duplicadas. 
+-   Para Windows 10 y Windows Server 2016, si se dan varios intentos para desunir y volver a unir el mismo dispositivo, pueden aparecer entradas duplicadas. 
 
--    Si ha usado Agregar cuenta profesional o educativa, cada usuario de Windows que usa Agregar cuenta profesional o educativa creará un nuevo registro de dispositivo con el mismo nombre de dispositivo.
+-   Si ha usado Agregar cuenta profesional o educativa, cada usuario de Windows que usa Agregar cuenta profesional o educativa creará un nuevo registro de dispositivo con el mismo nombre de dispositivo.
 
--    Otras plataformas de Windows unidas a un dominio AD local con el registro automático crearán un nuevo registro de dispositivo con el mismo nombre de dispositivo para cada usuario del dominio registrado en el dispositivo. 
+-   Otras plataformas de Windows unidas a un dominio AD local con el registro automático crearán un nuevo registro de dispositivo con el mismo nombre de dispositivo para cada usuario del dominio registrado en el dispositivo. 
 
--    Una máquina AADJ que se ha borrado, se ha vuelto a instalar y se ha vuelto a unir con el mismo nombre, aparece como otro registro con el mismo nombre de dispositivo.
+-   Una máquina AADJ que se ha borrado, se ha vuelto a instalar y se ha vuelto a unir con el mismo nombre, aparece como otro registro con el mismo nombre de dispositivo.
 
 ---
 

@@ -14,21 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 3/31/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ecfe9d512b0ffc891120d899f0541d3d3c9f6498
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 3116e2c15242ea7be8eeb77281b40bc4b38b846e
+ms.contentlocale: es-es
+ms.lasthandoff: 06/15/2017
 
 
 ---
 
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Conmutación por recuperación en Site Recovery para máquinas virtuales de Hyper-V
 
-> [!div class="op_single_selector"]
-> * [Máquinas de VMware o físicas desde Azure](site-recovery-how-to-failback-azure-to-vmware.md)
-> * [Máquinas virtuales de Hyper-V desde Azure](site-recovery-failback-from-azure-to-hyper-v.md)
-
-En este artículo se describe cómo se realiza la conmutación por recuperación en máquinas virtuales protegidas con Site Recovery. 
+En este artículo se describe cómo se realiza la conmutación por recuperación en máquinas virtuales protegidas con Site Recovery.
 
 ## <a name="prerequisites"></a>Requisitos previos
 1. Asegúrese de que el servidor del sitio principal de VMM/Hyper-V está conectado.
@@ -55,7 +52,7 @@ Después de la conmutación por error de la ubicación principal a la secundaria
 
     - **Sincronizar datos solo durante la conmutación por error (descarga completa)**: utilice esta opción si ha estado trabajando en Azure durante mucho tiempo. Esta opción es más rápida, ya que se prevé que la mayoría del disco ha cambiado y no queremos dedicar tiempo al cálculo de la suma de comprobación. Realiza una descarga del disco. También es útil cuando se ha eliminado la máquina virtual local.
 
-    >[!NOTE] 
+    >[!NOTE]
     >Se recomienda utilizar esta opción si ha estado trabajando con Azure durante un tiempo (un mes o más) o se ha eliminado la máquina virtual local. Esta opción no realiza cálculos de suma de comprobación.
     >
     >
@@ -99,6 +96,4 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 Una vez haya completado el trabajo de conmutación por recuperación, realice la acción **Confirmar** en la máquina virtual. La confirmación elimina la máquina virtual de Azure y sus discos, y la prepara para volver a protegerla.
 
 Después de **Confirmar**, puede iniciar la *Replicación inversa*. Esto iniciará la protección de la máquina virtual del entorno local a Azure. Tenga en cuenta que esto solo replicará los cambios, ya que la máquina virtual se ha desactivado en Azure y solo envía los cambios incrementales.
-
-
 

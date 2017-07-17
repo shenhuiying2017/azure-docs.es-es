@@ -16,23 +16,28 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 16d04d0f470dde3917f5a12f527ecceb493b2a57
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 89001404fa7255efc656b98983502d1f1d84fd73
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure con máquinas virtuales Linux
+# Uso de la extensión de script personalizado de Azure con máquinas virtuales Linux
+<a id="using-the-azure-custom-script-extension-with-linux-virtual-machines" class="xliff"></a>
 La extensión de script personalizado descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage u otra ubicación de Internet accesible, o se puede proporcionar a la extensión en tiempo de ejecución. La extensión de script personalizado se integra con las plantillas de Azure Resource Manager y también se puede ejecutar mediante la CLI de Azure, PowerShell, Azure Portal o la API de REST de máquina virtual de Azure.
 
 En este documento se detalla cómo usar la extensión de script personalizado desde la CLI de Azure y una plantilla de Azure Resource Manager, y también detalla los pasos para solucionar problemas en los sistemas Linux.
 
-## <a name="extension-configuration"></a>Configuración de la extensión
+## Configuración de la extensión
+<a id="extension-configuration" class="xliff"></a>
 La configuración de la extensión de script personalizado especifica aspectos como la ubicación del script y el comando que se ejecutará. Esta configuración se puede almacenar en archivos de configuración o se puede especificar en la línea de comandos o en una plantilla de Azure Resource Manager. Los datos confidenciales se pueden almacenar en una configuración protegida, que se cifra y se descifra solo dentro de la máquina virtual. La configuración protegida es útil cuando el comando de ejecución incluye secretos tales como una contraseña.
 
-### <a name="public-configuration"></a>Configuración pública
+### Configuración pública
+<a id="public-configuration" class="xliff"></a>
 Esquema:
+
+**Nota**: Los nombres de propiedad distinguen entre mayúsculas y minúsculas. Use los nombres tal y como se muestra a continuación para evitar problemas de implementación.
 
 * **commandToExecute**: (necesario, cadena) script de punto de entrada que se va a ejecutar.
 * **fileUris**: (opcional, matriz de cadenas) direcciones URL de los archivos que se van a descargar.
@@ -45,8 +50,11 @@ Esquema:
 }
 ```
 
-### <a name="protected-configuration"></a>Configuración protegida
+### Configuración protegida
+<a id="protected-configuration" class="xliff"></a>
 Esquema:
+
+**Nota**: Los nombres de propiedad distinguen entre mayúsculas y minúsculas. Use los nombres tal y como se muestra a continuación para evitar problemas de implementación.
 
 * **commandToExecute**: (opcional, cadena) script de punto de entrada que se va a ejecutar. Use este campo si el comando contiene secretos tales como contraseñas.
 * **storageAccountName**: (opcional, string) nombre de la cuenta de almacenamiento. Si especifica credenciales de almacenamiento, todos los valores de fileUri deben ser direcciones URL de blobs de Azure.
@@ -60,7 +68,8 @@ Esquema:
 }
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## Azure CLI
+<a id="azure-cli" class="xliff"></a>
 Cuando use la CLI de Azure para ejecutar la extensión de script personalizado, cree uno o varios archivos de configuración que contengan como mínimo el URI de archivo y el comando de ejecución del script.
 
 ```azurecli
@@ -78,7 +87,8 @@ az vm extension set '
   --settings '{"fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],"commandToExecute": "./test.sh"}'
 ```
 
-### <a name="azure-cli-examples"></a>Ejemplos de la CLI de Azure
+### Ejemplos de la CLI de Azure
+<a id="azure-cli-examples" class="xliff"></a>
 
 **Ejemplo 1** : configuración pública con archivo de script.
 
@@ -133,10 +143,12 @@ Comando de la CLI de Azure:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings
 ```
 
-## <a name="resource-manager-template"></a>Plantilla de Resource Manager
+## Plantilla de Resource Manager
+<a id="resource-manager-template" class="xliff"></a>
 La extensión de script personalizado de Azure se puede ejecutar en tiempo de implementación de la máquina virtual mediante una plantilla de Resource Manager. Para ello, agregue código JSON con el formato correcto a la plantilla de implementación.
 
-### <a name="resource-manager-examples"></a>Ejemplos de Resource Manager
+### Ejemplos de Resource Manager
+<a id="resource-manager-examples" class="xliff"></a>
 **Ejemplo 1** : configuración pública.
 
 ```json
@@ -199,7 +211,8 @@ La extensión de script personalizado de Azure se puede ejecutar en tiempo de im
 
 Vea el ejemplo completo de Music Store de .NET Core: [Music Store Demo](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db)(Ejemplo de Music Store).
 
-## <a name="troubleshooting"></a>Solución de problemas
+## Solución de problemas
+<a id="troubleshooting" class="xliff"></a>
 Cuando la extensión de script personalizado se ejecuta, el script se crea o se descarga en un directorio similar al del ejemplo siguiente. La salida del comando se guarda también en este directorio, en los archivos `stdout` y `stderr`.
 
 ```bash
@@ -230,7 +243,8 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## Pasos siguientes
+<a id="next-steps" class="xliff"></a>
 Para más información sobre otras extensiones de script de máquina virtual, consulte [Introducción a la extensión de script de Azure para Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 

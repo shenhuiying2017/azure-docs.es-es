@@ -13,27 +13,32 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/14/2017
+ms.date: 5/27/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 6f09d2244d0a1f6dbd7cff164c6d9e35379ee131
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d82480c013f3d5f13fdbf49ff89f19cf71c1a50f
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
 
-# <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar Raspberry Pi a Azure IoT Hub (Node.js)
+<a id="connect-raspberry-pi-to-azure-iot-hub-nodejs" class="xliff"></a>
+
+# Conectar Raspberry Pi a Azure IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 En este tutorial, empezará por aprender los principios básicos del uso de Raspberry Pi que ejecuta Raspbian. A continuación, aprenderá a conectar sin problemas los dispositivos en la nube con [Azure IoT Hub](iot-hub-what-is-iot-hub.md). Para obtener ejemplos de Windows 10 IoT Core, vaya al [Centro de desarrollo de Windows](http://www.windowsondevices.com/).
 
-¿Aún no tiene un kit? Compre un nuevo kit [aquí](https://azure.microsoft.com/develop/iot/starter-kits).
+¿Aún no tiene un kit? Pruebe el [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md). También puede comprar un nuevo kit [aquí](https://azure.microsoft.com/develop/iot/starter-kits).
 
 
-## <a name="what-you-do"></a>Qué debe hacer
+<a id="what-you-do" class="xliff"></a>
+
+## Qué debe hacer
 
 * Configure Raspberry Pi.
 * Cree un Centro de IoT.
@@ -42,14 +47,18 @@ En este tutorial, empezará por aprender los principios básicos del uso de Rasp
 
 Conecte Raspberry Pi al IoT Hub que ha creado. Luego ejecute una aplicación de ejemplo en Pi para recopilar datos de temperatura y humedad de un sensor BME280. Por último, envíe los datos del sensor a IoT Hub.
 
-## <a name="what-you-learn"></a>Conocimientos que adquirirá
+<a id="what-you-learn" class="xliff"></a>
+
+## Conocimientos que adquirirá
 
 * Cómo crear Azure IoT Hub y obtener la cadena de conexión del nuevo dispositivo.
 * Cómo conectar Pi con un sensor BME280.
 * Cómo recopilar datos del sensor al ejecutar una aplicación de ejemplo en Pi.
 * Cómo enviar los datos del sensor a IoT Hub.
 
-## <a name="what-you-need"></a>Lo que necesita
+<a id="what-you-need" class="xliff"></a>
+
+## Lo que necesita
 
 ![Lo que necesita](media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
@@ -75,9 +84,13 @@ Estos elementos son opcionales porque el ejemplo de código simula los datos del
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="setup-raspberry-pi"></a>Configurar Raspberry Pi
+<a id="setup-raspberry-pi" class="xliff"></a>
 
-### <a name="install-the-raspbian-operating-system-for-pi"></a>Instalar el sistema operativo Raspbian para Pi
+## Configurar Raspberry Pi
+
+<a id="install-the-raspbian-operating-system-for-pi" class="xliff"></a>
+
+### Instalar el sistema operativo Raspbian para Pi
 
 Prepare la tarjeta microSD para instalar la imagen de Raspbian.
 
@@ -92,26 +105,31 @@ Prepare la tarjeta microSD para instalar la imagen de Raspbian.
    1. Quite la tarjeta microSD del equipo cuando se complete la instalación. Es seguro quitar la tarjeta microSD directamente porque Etcher expulsa o desmonta la tarjeta microSD automáticamente al acabar.
    1. Inserte la tarjeta microSD en la Pi.
 
-### <a name="enable-ssh-and-i2c"></a>Habilitar SSH e I2C
+<a id="enable-ssh-and-i2c" class="xliff"></a>
+
+### Habilitar SSH e I2C
 
 1. Conecte Pi al monitor, el teclado y el mouse, inicie Pi y luego inicie sesión en Raspbian con `pi` como nombre de usuario y `raspberry` como contraseña.
 1. Haga clic en el icono de Raspberry > **Preferencias** > **Configuración de Raspberry Pi**.
 
    ![Menú Preferencias de Raspbian](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
 
-1. En la pestaña **Interfaces**, establezca **I2C** y **SSH** en **Habilitar** y luego haga clic en **Aceptar**.
+1. En la pestaña **Interfaces**, establezca **I2C** y **SSH** en **Habilitar** y luego haga clic en **Aceptar**. Si no tiene sensores físicos y desea utilizar datos de detección simulados, este paso es opcional.
 
    ![Habilitar I2C y SSH en Raspberry Pi](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-Para habilitar SSH e I2C, puede buscar más documentos de referencia en [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) y [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2).
+Para habilitar SSH e I2C, puede buscar más documentos de referencia en [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) y [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
-### <a name="connect-the-sensor-to-pi"></a>Conectar el sensor a Pi
+<a id="connect-the-sensor-to-pi" class="xliff"></a>
+
+### Conectar el sensor a Pi
 
 Use la placa de pruebas y los cables de puente para conectar un LED y un BME280 a Pi como se indica a continuación. Si no tiene el sensor, omita esta sección.
 
 ![Conexión de Raspberry Pi y el sensor](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
+El sensor BME280 recopila datos sobre la temperatura y la humedad, y el LED parpadea si se produce comunicación entre el dispositivo y la nube. 
 
 En las patillas del sensor, use el siguiente cableado:
 
@@ -130,18 +148,46 @@ Una vez que haya conectado correctamente BME280 a Raspberry Pi, su aspecto deber
 
 ![Pi y BME280 conectados](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
-Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el cable Ethernet para conectar Pi a la red cableada o siga las [instrucciones de Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) para conectar Pi a la red inalámbrica.
+<a id="connect-pi-to-the-network" class="xliff"></a>
+
+### Conexión de Pi a la red
+
+Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el cable Ethernet para conectar Pi a la red cableada o siga las [instrucciones de Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) para conectar Pi a la red inalámbrica. Después de que Pi se ha conectado correctamente a la red, debe anotar la [dirección IP de su Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
 ![Conectado a la red cableada](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
+> [!NOTE]
+> Asegúrese de que la Pi se conecta a la misma red que el equipo. Por ejemplo, si el equipo está conectado a una red inalámbrica mientras Pi está conectada a una red cableada, es posible que no vea la dirección IP en la salida de devdisco.
 
-## <a name="run-a-sample-application-on-pi"></a>Ejecutar una aplicación de ejemplo en Pi
+<a id="run-a-sample-application-on-pi" class="xliff"></a>
 
-### <a name="clone-sample-application-and-install-the-prerequisite-packages"></a>Clonar una aplicación de ejemplo e instalar los paquetes de requisitos previos
+## Ejecutar una aplicación de ejemplo en Pi
+
+<a id="clone-sample-application-and-install-the-prerequisite-packages" class="xliff"></a>
+
+### Clonar una aplicación de ejemplo e instalar los paquetes de requisitos previos
 
 1. Use uno de los siguientes clientes SSH del equipo host para conectar con Raspberry Pi.
-    - [PuTTY](http://www.putty.org/) para Windows.
-    - El cliente de SSH integrado en Ubuntu o macOS.
+    - [PuTTY](http://www.putty.org/) para Windows. Necesitará la dirección IP de su Pi para conectarlo a través de SSH.
+    - El cliente de SSH integrado en Ubuntu o macOS. Quizás deba ejecutar `ssh pi@<ip address of pi>` para conectar Pi mediante SSH.
+
+   > [!NOTE] 
+   El nombre de usuario predeterminado es `pi` y la contraseña es `raspberry`.
+
+1. Instale Node.js y NPM en Pi.
+   
+   Primero debe comprobar la versión de Node.js con el siguiente comando. 
+   
+   ```bash
+   node -v
+   ```
+
+   Si la versión es inferior a 4.x o no hay ningún Node.js en el Pi, ejecute entonces el siguiente comando para instalar o actualizar Node.js.
+
+   ```bash
+   curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+   sudo apt-get -y install nodejs
+   ```
 
 1. Clone la aplicación de ejemplo mediante el comando siguiente:
 
@@ -152,13 +198,15 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
 1. Instale todos los paquetes mediante el comando siguiente. Incluye el SDK de dispositivo IoT de Azure, la biblioteca del sensor BME280 y la biblioteca de cableado de Pi.
 
    ```bash
-   cd iot-hub-node-raspberry-pi-clientapp
-   npm install
+   cd iot-hub-node-raspberrypi-client-app
+   sudo npm install
    ```
    > [!NOTE] 
    Este proceso de instalación puede llevar varios minutos en función de la conexión de red.
 
-### <a name="configure-the-sample-application"></a>Configurar la aplicación de ejemplo
+<a id="configure-the-sample-application" class="xliff"></a>
+
+### Configurar la aplicación de ejemplo
 
 1. Abra el archivo config mediante la ejecución de los comandos siguientes:
 
@@ -168,13 +216,15 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
 
    ![Archivo config](media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
 
-   Hay dos elementos en este archivo que se pueden configurar. El primero es `interval`, que define el intervalo de tiempo entre dos mensajes que se envían a la nube. El segundo es `simulatedData`, un valor booleano que indica si se usan los datos de sensor simulados o no.
+   Hay dos elementos en este archivo que se pueden configurar. El primero es `interval`, que define el intervalo de tiempo entre dos mensajes que se envían a la nube. La segunda es `simulatedData`, un valor booleano que indica si se usan los datos de sensor simulados o no.
 
    Si **no tiene el sensor**, establezca el valor `simulatedData` en `true` para que la aplicación de ejemplo cree y use datos de sensor simulados.
 
 1. Guarde y salga al presionar Control-O > Entrar > Control-X.
 
-### <a name="run-the-sample-application"></a>Ejecutar la aplicación de ejemplo
+<a id="run-the-sample-application" class="xliff"></a>
+
+### Ejecutar la aplicación de ejemplo
 
 1. Ejecute la aplicación de ejemplo mediante el comando siguiente:
 
@@ -190,7 +240,9 @@ Debería ver el resultado siguiente, que muestra los datos del sensor y los mens
 
 ![Resultado: datos de sensor enviados desde Raspberry Pi a IoT Hub](media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 
 Ha ejecutado una aplicación de ejemplo para recopilar datos de sensor y enviarlos a IoT Hub.
 

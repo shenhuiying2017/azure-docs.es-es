@@ -1,14 +1,16 @@
-## <a name="using-azure-portal"></a>Uso de Azure Portal
-1. Seleccione la máquina virtual que quiere volver a implementar y haga clic en el botón Volver a implementar en la hoja Configuración. Desplácese hacia abajo para ver la sección de **soporte técnico y solución de problemas** que contiene el botón Implementar de nuevo, como en el ejemplo siguiente:
+<a id="use-the-azure-portal" class="xliff"></a>
+
+## Uso del Portal de Azure
+1. Seleccione la máquina virtual que quiera volver a implementar y el botón *Volver a implementar* en la hoja *Configuración*. Es posible que deba bajar para ver la sección **Soporte y solución de problemas** que contiene el botón Volver a implementar, como en el ejemplo siguiente:
    
     ![Hoja Máquina virtual de Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
-2. Haga clic en el botón Volver a implementar para confirmar la operación:
+2. Para confirmar la operación, haga clic en el botón *Volver a implementar*:
    
     ![Hoja Volver a implementar una máquina virtual](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
-3. El **estado** de la máquina virtual cambia a *Actualizando* puesto que la máquina virtual se prepara para implementarse de nuevo, como en el siguiente ejemplo:
+3. El valor de **Estado** de la máquina virtual cambia a *Actualizando*, puesto que la máquina virtual se prepara para implementarse de nuevo, como se muestra en el siguiente ejemplo:
    
     ![Máquina virtual actualizando](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
-4. El **estado** pasa luego a *Iniciando* cuando arranque la máquina virtual en un nuevo host de Azure, como en el ejemplo siguiente:
+4. El valor de **Estado** pasa luego a *Iniciando* cuando la máquina virtual se inicia en un nuevo host de Azure, como se muestra en el ejemplo siguiente:
    
     ![Máquina virtual iniciando](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
 5. Cuando la máquina virtual finaliza el proceso de arranque, el **estado** vuelve a *En ejecución*, lo que indica que la máquina virtual se ha vuelto a implementar correctamente:

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2017
 ms.author: zivr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 28c2fb5a67eca0c5ab2f0299bba7c11375e10558
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: f5e52f4642b85a75f0c9f1892fbf0e565aa8b35b
 ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -32,8 +32,9 @@ La mayoría de estas actualizaciones se realizan sin que ello afecte a las máqu
 
 Sin embargo, hay casos en los que afectan a las máquinas virtuales hospedadas:
 
--   El mantenimiento de conservación de las máquinas virtuales mediante la migración de máquinas virtuales locales describe una clase de actualizaciones en las que aquellas no se reinician.
+-   El mantenimiento de conservación de las máquinas virtuales mediante la migración local de máquinas virtuales describe una clase de actualizaciones en las que aquellas no se reinician.
 
 -   El mantenimiento de reinicio de las máquinas virtuales que requiere un reinicio o una reimplementación de las máquinas virtuales hospedadas.
 
-Tenga en cuenta que en esta página se describe cómo realiza Microsoft Azure el mantenimiento planeado. Para más información sobre eventos no planeados (interrupciones), consulte [Administración de la disponibilidad de las máquinas virtuales](../windows/manage-availability.md).
+Tenga en cuenta que en esta página se describe cómo realiza Microsoft Azure el mantenimiento planeado. Para más información sobre eventos no planeados (interrupciones), consulte [Administración de la disponibilidad de las máquinas virtuales](../linux/manage-availability.md).
+

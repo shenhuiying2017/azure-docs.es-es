@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 8e8723c6dc81012a0dddd4e0a28c4d4af6828c6c
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 59954c02741de2fbba22a3e41640573914efdad8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -156,6 +156,17 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 
 ## <a name="assign-or-remove-administrator-roles"></a>Asignación o eliminación de roles de administrador
 Para más información sobre cómo asignar roles administrativos a un usuario en Azure Active Directory, consulte [Asignación de roles de administrador en la versión preliminar de Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="deprecated-roles"></a>Roles en desuso
+
+Los siguientes roles no deben usarse. Están en desuso y se eliminarán de Azure AD más adelante.
+
+* Administrador de licencias ad hoc
+* Creador de usuarios comprobados de correo electrónico
+* Combinación de dispositivos
+* Administradores de dispositivos
+* Usuarios de dispositivos
+* Combinación de dispositivos de área de trabajo
 
 ## <a name="next-steps"></a>Pasos siguientes
 

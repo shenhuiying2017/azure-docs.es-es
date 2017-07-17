@@ -14,17 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: 8c4920107b5d05716021bcef80d3c52c25f6eade
+ms.contentlocale: es-es
 ms.lasthandoff: 12/28/2016
 
 
 ---
-# <a name="managing-owners-for-a-group"></a>Administración de propietarios de un grupo
+<a id="managing-owners-for-a-group" class="xliff"></a>
+
+# Administración de propietarios de un grupo
 Una vez que un propietario de recursos haya asignado acceso a un recurso a un grupo de Azure AD, el propietario del grupo será quien administre los miembros del grupo. El propietario del recursos delega de manera eficaz el permiso para asignar usuarios al recurso al propietario del grupo.
 
-## <a name="assigning-group-ownership"></a>Asignación de la propiedad de un grupo
+<a id="assigning-group-ownership" class="xliff"></a>
+
+## Asignación de la propiedad de un grupo
 **Para agregar un propietario a un grupo**
 
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory**y luego abra el directorio de su organización.
@@ -39,7 +44,9 @@ Una vez que un propietario de recursos haya asignado acceso a un recurso a un gr
 3. Seleccione la pestaña **Propietarios** .
 4. Seleccione el propietario que desea quitar del grupo y luego seleccione **Quitar**.
 
-## <a name="additional-information"></a>Información adicional
+<a id="additional-information" class="xliff"></a>
+
+## Información adicional
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)

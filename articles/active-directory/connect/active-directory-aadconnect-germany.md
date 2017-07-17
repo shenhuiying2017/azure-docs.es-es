@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
+ms.contentlocale: es-es
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -35,8 +37,7 @@ Actualmente, muchos de los escenarios en [Microsoft Cloud Germany](https://www.m
 * No están disponibles las características siguientes:
   * Azure AD Connect Health
   * Actualizaciones automáticas
-  * Escritura diferida de contraseñas
-
+ 
 ## <a name="download"></a>Descargar
 Puede descargar Azure AD Connect en la hoja Azure AD Connect en el portal.  Utilice las instrucciones siguientes para localizar la hoja Azure AD Connect.
 
@@ -64,10 +65,5 @@ Para instalar Azure AD Connect, puede utilizar [esta](active-directory-aadconnec
 
 ## <a name="advanced-features-and-additional-information"></a>Características avanzadas e información adicional
 Para obtener información adicional e instrucciones sobre la configuración personalizada o configuraciones avanzadas, empiece con la [integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).  Esta página proporciona información y vínculos a información adicional.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

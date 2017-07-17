@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4649bec5290e09b8a18e3e12719e63bf5e57c0b0
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 3499ff57e650c70679dfa018eec5dbe1a6173a33
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/04/2017
 
 
 
@@ -52,7 +52,7 @@ Otra manera de acceder a la hoja es hacer clic en **Más servicios** y luego bus
 1. Haga clic en **+Agregar** en la parte superior de la hoja.
 1. Escriba un **Nombre** para la aplicación que la describa a los consumidores. Por ejemplo, puede escribir "Aplicación Contoso B2C".
 1. Cambie el conmutador **Include web app / web API** (Incluir aplic. web/API web) a **Yes** (Sí).
-1. Escriba un valor [adecuado](#choosing-a-web-app/api-reply-url) para las **Direcciones URL de respuesta**, que son los puntos de conexión a los que Azure AD B2C devolverá los tokens que la aplicación solicite. Por ejemplo, escriba: `https://localhost:44316/`.
+1. Escriba un valor [adecuado](#limitations) para las **Direcciones URL de respuesta**, que son los puntos de conexión a los que Azure AD B2C devolverá los tokens que la aplicación solicite. Por ejemplo, escriba: `https://localhost:44316/`.
 1. Haga clic en **Crear** para registrar la aplicación.
 1. Haga clic en la aplicación que acaba de crear y copie el **Id. de cliente de aplicación** único global que usará más adelante en el código.
 1. Si la aplicación web va a llamar también a una API web protegida mediante Azure AD B2C, deberá:
@@ -154,3 +154,4 @@ Para eliminar la aplicación, vaya al [Portal de registro de aplicaciones](https
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que tiene una aplicación registrada en Azure AD B2C, puede completar uno de [nuestros tutoriales de inicio rápido](active-directory-b2c-overview.md#get-started) para ponerse en marcha rápidamente.
+

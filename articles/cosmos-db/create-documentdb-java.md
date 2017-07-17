@@ -13,23 +13,27 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/27/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 6ffa6a538139f3d68f9bc79dc61a8fdd4034b71e
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c178646f0ec10cb08e90c1eda544a2488782187f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación de API DocumentDB con Java y Azure Portal
+<a id="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal" class="xliff"></a>
+
+# Azure Cosmos DB: Compilar una aplicación de API DocumentDB con Java y Azure Portal
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escalado horizontal en Azure Cosmos DB. 
 
 En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos de documentos y una colección de Azure Cosmos DB mediante Azure Portal. Después, compilará y ejecutará una aplicación de consola compilada en la [API DocumentDB de Java](documentdb-sdk-java.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+<a id="prerequisites" class="xliff"></a>
+
+## Requisitos previos
 
 * Antes de ejecutar este ejemplo, debe cumplir los siguientes requisitos previos:
    * JDK 1.7+ (ejecute `apt-get install default-jdk` si no tiene JDK)
@@ -37,15 +41,21 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de d
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
+<a id="create-a-database-account" class="xliff"></a>
+
+## Creación de una cuenta de base de datos
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Incorporación de una colección
+<a id="add-a-collection" class="xliff"></a>
+
+## Incorporación de una colección
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
+<a id="clone-the-sample-application" class="xliff"></a>
+
+## Clonación de la aplicación de ejemplo
 
 Ahora vamos a clonar una aplicación de API DocumentDB desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
 
@@ -54,12 +64,14 @@ Ahora vamos a clonar una aplicación de API DocumentDB desde GitHub, establecer 
 2. Ejecute el comando siguiente para clonar el repositorio de ejemplo. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-java-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
-## <a name="review-the-code"></a>Revisar el código
+<a id="review-the-code" class="xliff"></a>
 
-Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `app.js` y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
+## Revisar el código
+
+Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `Program.java` y busque estas líneas de código que crean los recursos de Azure Cosmos DB. 
 
 * Se inicializa `DocumentClient`.
 
@@ -126,7 +138,9 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `a
     }
     ```    
 
-## <a name="update-your-connection-string"></a>Actualizar la cadena de conexión
+<a id="update-your-connection-string" class="xliff"></a>
+
+## Actualizar la cadena de conexión
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
@@ -140,30 +154,36 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     `"https://FILLME.documents.azure.com"`
 
-4. Después, copie el valor de la clave principal del portal y conviértalo en el valor de la clave maestra del constructor DocumentClient en "Program.java". Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
-
-    `config.primaryKey "FILLME"`
+4. A continuación, copie el valor PRIMARY KEY del portal y sustituya el segundo parámetro "FILL ME” por la clave del constructor DocumentClient en "Program.java". Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
     
-## <a name="run-the-app"></a>Ejecución de la aplicación
+<a id="run-the-app" class="xliff"></a>
 
-1. Ejecute `mvn package` en un terminal para instalar los módulos de NPM necesarios.
+## Ejecución de la aplicación
+
+1. Ejecute `mvn package` en un terminal para instalar los paquetes Java necesarios.
 
 2. Ejecute `mvn exec:java -D exec.mainClass=GetStarted.Program` en un terminal para iniciar la aplicación de Java.
 
 Ahora puede volver al Explorador de datos y ver, consultar, modificar y trabajar con estos nuevos datos. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Revisión de los SLA en Azure Portal
+<a id="review-slas-in-the-azure-portal" class="xliff"></a>
+
+## Revisión de los SLA en Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
+<a id="clean-up-resources" class="xliff"></a>
+
+## Limpieza de recursos
 
 Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal:
 
 1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+<a id="next-steps" class="xliff"></a>
+
+## Pasos siguientes
 
 En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB, crear una colección mediante el Explorador de datos y ejecutar una aplicación. Ahora puede importar datos adicionales en la cuenta de Cosmos DB. 
 

@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 7cf2c0a9e5e7785397a7229e3b44e9dbcc26f429
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 6b5af18d02fd508a21cdc21b38b1c16e79f07ecb
 ms.contentlocale: es-es
-ms.lasthandoff: 03/27/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
 # <a name="install-mongodb-on-a-windows-vm-in-azure"></a>Instalación de MongoDB en una máquina virtual de Windows en Azure
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../../../resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para instalar y configurar MongoDB mediante el modelo de implementación de Resource Manager, consulte [este artículo](../../virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md).  En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para instalar y configurar MongoDB mediante el modelo de implementación de Resource Manager, consulte [este artículo](../install-mongodb.md).
 
 [MongoDB][MongoDB] es una conocida base de datos NoSQL de código abierto y alto rendimiento. Este artículo le guía en la creación de una máquina virtual (VM) de Windows Server con el [Azure Portal][AzurePortal]. A continuación, creará y conectará un disco de datos a la máquina virtual antes de instalar y configurar MongoDB. Si tiene una máquina virtual existente en Azure que le gustaría usar, puede pasar directamente a la [instalación y configuración de MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 44bcf3ed1be8007a3c1ab9b727acf9a249cf84cc
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -27,7 +27,7 @@ En el [Portal de Azure](https://portal.azure.com/), puede establecer manualmente
 
 Antes de escalar según el recuento de instancias, tenga en cuenta que, además de con el recuento de instancias, el escalado está relacionado con el **plan de tarifa**. Diferentes niveles de precios pueden tener diferentes cantidades de núcleos y memoria y, por tanto, es posible encontrar un mejor rendimiento para el mismo número de instancias. (lo que se conoce como *Escalar verticalmente* o *Reducir verticalmente*). Este artículo trata específicamente sobre *Reducir horizontalmente* y *Escalar horizontalmente*.
 
-Puede reducir horizontalmente en el portal, y también puede utilizar la [API de REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) o el [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) para ajustar la escala de forma manual o automática.
+Puede reducir horizontalmente en el portal, y también puede utilizar la [API de REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) o el [SDK de .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para ajustar la escala de forma manual o automática.
 
 > [!NOTE]
 > En este artículo se describe cómo crear una configuración de escalado automático en el portal en [http://portal.azure.com](http://portal.azure.com). La configuración de escalado automático creada en este portal no se puede editar en el portal clásico ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
