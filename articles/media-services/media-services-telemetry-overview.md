@@ -14,17 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 99c43c63f75e01713600ef5ca46a8d11e8c5c7ce
-ms.openlocfilehash: b6560fdd50c93a7e84f12047ec4401328b601deb
+ms.translationtype: HT
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: bc16ef727f0c3942b0be8c633717fd52da246c55
 ms.contentlocale: es-es
-ms.lasthandoff: 12/09/2016
-
+ms.lasthandoff: 07/19/2017
 
 ---
 
-# Sistema de telemetría de Azure Media Services
-<a id="azure-media-services-telemetry" class="xliff"></a>
+# <a name="azure-media-services-telemetry"></a>Sistema de telemetría de Azure Media Services
 
 Gracias a Azure Media Services (AMS), podrá acceder a los datos de telemetría y métricas de dicha plataforma. La versión actual de AMS permite recopilar datos de telemetría de entidades activas **StreamingEndpoint**, **Channel** y **Archive**. 
 
@@ -34,8 +32,7 @@ El sistema de telemetría no administra la retención de datos. Puede quitar los
 
 En este tema se explica cómo configurar y usar el sistema de telemetría de AMS.
 
-## Configuración del sistema de telemetría
-<a id="configuring-telemetry" class="xliff"></a>
+## <a name="configuring-telemetry"></a>Configuración del sistema de telemetría
 
 Puede configurar la telemetría en la granularidad de nivel de componente. Hay dos niveles de detalle "Normal" y "Detallado". Actualmente, los dos devuelven la misma información. Se recomienda utilizar el nivel Normal. 
 
@@ -45,8 +42,7 @@ En los temas siguientes se muestra cómo habilitar el sistema de telemetría:
 
 [Habilitación del sistema de telemetría con REST](media-services-rest-telemetry.md)
 
-## uso de información de telemetría
-<a id="consuming-telemetry-information" class="xliff"></a>
+## <a name="consuming-telemetry-information"></a>uso de información de telemetría
 
 Los datos de telemetría se crean en una tabla de Azure Storage de la cuenta de almacenamiento que especificó al configurar el sistema de telemetría para la cuenta de Media Services. En esta sección se describen las tablas de almacenamiento de las métricas.
 
@@ -71,8 +67,7 @@ Gracias a esto, muchas de las consultas comunes serán eficaces:
 - Recuperación de todos los datos de un servicio determinado en un intervalo de fechas
 - Recuperación de los datos más recientes de un servicio
 
-### Esquema de salida de almacenamiento de tablas de telemetría
-<a id="telemetry-table-storage-output-schema" class="xliff"></a>
+### <a name="telemetry-table-storage-output-schema"></a>Esquema de salida de almacenamiento de tablas de telemetría
 
 Los datos de telemetría se almacenan en una tabla, TelemetryMetrics20160321, donde 20160321 es la fecha de la tabla creada. El sistema de telemetría creará una tabla independiente para cada día nuevo con el formato de hora 00:00 UTC. La tabla se utiliza para almacenar valores de repetición, como la velocidad de bits de ingesta en una determinada ventana de tiempo, los bytes enviados, etc. 
 
@@ -87,8 +82,7 @@ ObservedTime|La hora a la que se produjo el evento de telemetría (UTC)|2016-09-
 ServiceID|{IDdeServicio}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Propiedades específicas de la entidad|Tal y como se define en el evento|StreamName: stream1, Bitrate 10123, etc.<br/><br/>Las propiedades restantes se definen para el tipo de evento determinado. El contenido de la tabla de Azure son pares clave-valor  (es decir, las diferentes filas de la tabla tienen distintos conjuntos de propiedades).
 
-### Esquema específico de la entidad
-<a id="entity-specific-schema" class="xliff"></a>
+### <a name="entity-specific-schema"></a>Esquema específico de la entidad
 
 Hay tres tipos específicos de entradas de datos de telemetría específicas de la entidad que se insertan con la siguiente frecuencia:
 
@@ -158,11 +152,9 @@ CustomAttribute|Cadena hexadecimal que distingue entre pistas diferentes con el 
 Bitrate|Velocidad de bits de la pista|785000
 Healthy|True, si el valor de FragmentDiscardedCount es 0 y el de ArchiveAcquisitionError, False|True (estos dos valores no están presentes en la métrica, pero sí en el evento de origen)<br/><br/>Healthy es una función compuesta que devuelve el valor False cuando se da una de las siguientes condiciones:<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
 
-## Preguntas y respuestas generales
-<a id="general-qa" class="xliff"></a>
+## <a name="general-qa"></a>Preguntas y respuestas generales
 
-### ¿Cómo se utilizan los datos de métricas?
-<a id="how-to-consume-metrics-data" class="xliff"></a>
+### <a name="how-to-consume-metrics-data"></a>¿Cómo se utilizan los datos de métricas?
 
 Los datos de métricas se almacenan como una serie de tablas de Azure en la cuenta de almacenamiento del cliente. Además, pueden utilizarse con las siguientes herramientas:
 
@@ -170,24 +162,20 @@ Los datos de métricas se almacenan como una serie de tablas de Azure en la cuen
 - El Explorador de Microsoft Azure Storage (puede exportar la información en un archivo con formato de valores separados por comas y procesarse en Excel)
 - API de REST
 
-### ¿Cómo puedo buscar los datos de uso medio del ancho de banda?
-<a id="how-to-find-average-bandwidth-consumption" class="xliff"></a>
+### <a name="how-to-find-average-bandwidth-consumption"></a>¿Cómo puedo buscar los datos de uso medio del ancho de banda?
 
 El uso medio de ancho de banda es el promedio del valor de BytesSent un intervalo de tiempo.
 
-### ¿Cómo puedo definir el número de unidades de streaming?
-<a id="how-to-define-streaming-unit-count" class="xliff"></a>
+### <a name="how-to-define-streaming-unit-count"></a>¿Cómo puedo definir el número de unidades de streaming?
 
 El número de unidades de streaming se puede definir como el rendimiento máximo de los puntos de conexión de streaming del servicio dividido por el rendimiento máximo de un punto de conexión de streaming. El rendimiento máximo que puede aprovechar un punto de conexión de streaming es de 160 Mbps.
 Por ejemplo, supongamos que el rendimiento máximo del servicio de un cliente es de 40 MBps el (valor máximo de BytesSent a lo largo de un intervalo de tiempo). Después, el número de unidades de streaming es igual a (40 MBps) * (8 bits/byte)/(160 Mbps) = 2 unidades de streaming.
 
-### ¿Cómo puedo buscar el valor medio de solicitudes por segundo?
-<a id="how-to-find-average-requestssecond" class="xliff"></a>
+### <a name="how-to-find-average-requestssecond"></a>¿Cómo puedo buscar el valor medio de solicitudes por segundo?
 
 Para buscar la cantidad media de solicitudes por segundo, calcule el promedio de solicitudes (RequestCount) a lo largo de un intervalo de tiempo.
 
-### ¿Cómo puedo definir el estado de un canal?
-<a id="how-to-define-channel-health" class="xliff"></a>
+### <a name="how-to-define-channel-health"></a>¿Cómo puedo definir el estado de un canal?
 
 El estado de un canal se puede definir como una función booleana compuesta que tiene un valor False cuando se dé una de las siguientes condiciones:
 
@@ -199,23 +187,19 @@ El estado de un canal se puede definir como una función booleana compuesta que 
 - UnexpectedBitrate == True
 
 
-### ¿Cómo puedo detectar interrupciones?
-<a id="how-to-detect-discontinuities" class="xliff"></a>
+### <a name="how-to-detect-discontinuities"></a>¿Cómo puedo detectar interrupciones?
 
 Para detectar interrupciones, busque todas las entradas de la entidad Channel en las que el valor de DiscontinuityCount sea mayor que 0. La marca de tiempo de ObservedTime correspondiente indica las horas en las que se produjeron las interrupciones.
 
-### ¿Cómo puedo detectar superposiciones de marcas de tiempo?
-<a id="how-to-detect-timestamp-overlaps" class="xliff"></a>
+### <a name="how-to-detect-timestamp-overlaps"></a>¿Cómo puedo detectar superposiciones de marcas de tiempo?
 
 Para detectar superposiciones de marcas de tiempo, busque todas las entradas de datos de la entidad Channel en las que el valor de OverlapCount sea mayor que 0. La marca de tiempo de ObservedTime correspondiente indica las horas en las que se produjeron las superposiciones de marcas de tiempo.
 
-### ¿Cómo puedo buscar errores en las solicitudes de streaming y los motivos?
-<a id="how-to-find-streaming-request-failures-and-reasons" class="xliff"></a>
+### <a name="how-to-find-streaming-request-failures-and-reasons"></a>¿Cómo puedo buscar errores en las solicitudes de streaming y los motivos?
 
 Para encontrar errores en las solicitudes de streaming y los motivos, busque todas las entradas de datos de la entidad StreamingEndpoint en las que el valor de ResultCode no sea igual a S_OK. El campo StatusCode correspondiente indica el motivo del error en una solicitud.
 
-### ¿Cómo puedo utilizar los datos con herramientas externas?
-<a id="how-to-consume-data-with-external-tools" class="xliff"></a>
+### <a name="how-to-consume-data-with-external-tools"></a>¿Cómo puedo utilizar los datos con herramientas externas?
 
 Los datos de telemetría se pueden procesar y visualizar con las siguientes herramientas:
 
@@ -225,18 +209,15 @@ Los datos de telemetría se pueden procesar y visualizar con las siguientes herr
 - El panel en tiempo real de AMS
 - Azure Portal (pendiente de publicación)
 
-### ¿Cómo puedo administrar la retención de datos?
-<a id="how-to-manage-data-retention" class="xliff"></a>
+### <a name="how-to-manage-data-retention"></a>¿Cómo puedo administrar la retención de datos?
 
 El sistema de telemetría no proporciona funcionalidades de administración de retención de datos ni de eliminación automática de registros antiguos. Por lo tanto, debe administrar y eliminar manualmente los registros antiguos de la tabla de almacenamiento. Puede consultar el SDK de almacenamiento para saber cómo hacerlo.
 
-## Pasos siguientes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
-<a id="provide-feedback" class="xliff"></a>
+## <a name="provide-feedback"></a>Envío de comentarios
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
