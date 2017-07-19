@@ -24,14 +24,10 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant" class="xliff"></a>
-
-# Administración de los grupos a los que pertenece un grupo en el inquilino de Azure Active Directory
+# <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Administración de los grupos a los que pertenece un grupo en el inquilino de Azure Active Directory
 Los grupos pueden contener otros grupos en Azure Active Directory. Aquí se muestra cómo administrar las pertenencias a grupos.
 
-<a id="how-do-i-find-the-groups-my-group-is-a-member-of" class="xliff"></a>
-
-## ¿Cómo puedo encontrar los grupos de los que es miembro mi grupo?
+## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>¿Cómo puedo encontrar los grupos de los que es miembro mi grupo?
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
 
@@ -39,11 +35,11 @@ Los grupos pueden contener otros grupos en Azure Active Directory. Aquí se mues
 3. En la hoja **Usuarios y grupos**, seleccione **Todos los grupos**.
 
    ![Apertura de la hoja Grupos](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
-4. En la hoja **Usuarios y grupos - Todos los grupos** , seleccione un grupo.
-5. En la hoja **Grupo - *nombre del grupo***, seleccione **Pertenencia a grupos**.
+4. En la hoja **Usuarios y grupos - Todos los grupos** seleccione un grupo.
+5. En la hoja **Grupo - *nombre del grupo*** seleccione **Pertenencia a grupos**.
 
    ![Apertura de la hoja Pertenencia a grupos](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
-6. Para agregar un grupo como miembro de otro grupo, en la hoja **Grupo - Pertenencia a grupos**, seleccione el comando **Agregar** comando.
+6. Para agregar un grupo como miembro de otro grupo, en la hoja **Grupo - Pertenencia a grupos** seleccione el comando **Agregar** comando.
 7. Seleccione un grupo de la hoja **Seleccionar grupo** y, después, haga clic en el botón **Seleccionar** situado en la parte inferior de dicha hoja. Solo se pueden agregar grupos a otros grupos de uno en uno. El cuadro **Usuario** filtra la visualización en función de si coincide lo que ha escrito con cualquier parte del nombre de un usuario o dispositivo. No se aceptan caracteres comodín en el cuadro.
 
    ![Adición de una pertenencia a grupos](./media/active-directory-groups-membership-azure-portal/add-group-membership.png)
@@ -53,9 +49,7 @@ Los grupos pueden contener otros grupos en Azure Active Directory. Aquí se mues
    ![Comando de eliminación de pertenencia a grupo](./media/active-directory-groups-membership-azure-portal/remove-group-membership.png)
 10. Cuando termine de cambiar las pertenencias a grupos de su grupo, seleccione **Guardar**.
 
-<a id="additional-information" class="xliff"></a>
-
-## Información adicional
+## <a name="additional-information"></a>Información adicional
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Ver los grupos existentes](active-directory-groups-view-azure-portal.md)
