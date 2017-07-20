@@ -475,7 +475,7 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 
 **Número de discos**: el número total de discos (VMDK) de la máquina virtual.
 
-**Tamaño de disco (en GB) **: el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
+**Tamaño de disco (en GB)**: el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
 **Núcleos**: el número de núcleos de CPU de la máquina virtual.
 
@@ -512,7 +512,7 @@ Si las características de carga de trabajo de un disco lo colocan en la categor
 
 **Número de discos**: el número total de VMDK de la máquina virtual.
 
-**Tamaño de disco (en GB) **: el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
+**Tamaño de disco (en GB)**: el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
 **Núcleos**: el número de núcleos de CPU de la máquina virtual.
 
