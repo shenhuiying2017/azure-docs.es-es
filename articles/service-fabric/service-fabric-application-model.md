@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/02/2017
+ms.date: 6/28/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 31bd58f5b64f4b7636e1fe973cf78ac87bb9175f
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: fa7b48225698a2e210d61656ffff0225227e2ab5
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -26,28 +26,28 @@ ms.lasthandoff: 05/10/2017
 En este artículo, se proporciona información general sobre el modelo de aplicación de Azure Service Fabric y se describe el modo de definir una aplicación y un servicio a través de archivos de manifiesto.
 
 ## <a name="understand-the-application-model"></a>Entender el modelo de aplicación
-Una aplicación es una colección de servicios constituyentes que realizan una determinada función o funciones. Un servicio realiza una función completa e independiente (puede iniciarse y ejecutarse independientemente de otros servicios) y se compone de código, configuración y datos. Para cada servicio, el código consta de los archivos binarios ejecutables, la configuración consta de una configuración del servicio que se puede cargar en tiempo de ejecución y los datos constan de datos estáticos arbitrarios que el servicio va a consumir. Cada componente de este modelo de aplicación jerárquico puede tener varias versiones y actualizarse independientemente.
+Una aplicación es una colección de servicios constituyentes que realizan una determinada función o funciones. Un servicio realiza una función completa e independiente, y puede iniciarse y ejecutarse independientemente de otros servicios.  Un servicio se compone de código, configuración y datos. Para cada servicio, el código consta de los archivos binarios ejecutables, la configuración consta de una configuración del servicio que se puede cargar en tiempo de ejecución y los datos constan de datos estáticos arbitrarios que el servicio va a consumir. Cada componente de este modelo de aplicación jerárquico puede tener varias versiones y actualizarse independientemente.
 
 ![Modelo de aplicación de Service Fabric][appmodel-diagram]
 
 Un tipo de aplicación es una categorización de una aplicación, que consta de un conjunto de tipos de servicio. Un tipo de servicio es una categorización de un servicio. La categorización puede tener una configuración diferente, pero cuya funcionalidad básica sigue siendo la misma. Las instancias de un servicio son las distintas variaciones de la configuración del servicio del mismo tipo de servicio.  
 
-Las clases (o "tipos") de aplicaciones y servicios se describen mediante archivos XML (manifiestos de aplicación y manifiestos de servicio) que son las plantillas en las que se puede crear una instancia de las aplicaciones desde el almacén de imágenes del clúster. La definición de esquema para los archivos ServiceManifest.xml y ApplicationManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\Archivos de programa\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Las clases (o "tipos") de aplicaciones y servicios se describen a través de archivos XML (manifiestos de aplicación y de servicio).  Los manifiestos son las plantillas sobre las que se pueden crear instancias de las aplicaciones desde el almacén de imágenes del clúster. La definición de esquema para los archivos ServiceManifest.xml y ApplicationManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\Archivos de programa\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-El código de las diversas instancias de aplicación se ejecutará como procesos independientes, incluso cuando lo hospede el mismo nodo de Service Fabric. Además, el ciclo de vida de cada instancia de aplicación se puede administrar (es decir, actualizar) de forma independiente. En el siguiente diagrama se muestra cómo los tipos de aplicación constan de tipos de servicio, que a su vez constan de código, configuración y paquetes. Para simplificar el diagrama, solo se muestran los paquetes code/config/data para `ServiceType4` , aunque cada tipo de servicio podría incluir algunos o todos los tipos de paquetes.
+El código de las diversas instancias de aplicación se ejecuta como procesos independientes, incluso cuando lo hospede el mismo nodo de Service Fabric. Además, el ciclo de vida de cada instancia de aplicación se puede administrar (por ejemplo, actualizar) de forma independiente. En el siguiente diagrama se muestra cómo los tipos de aplicación constan de tipos de servicio, que a su vez constan de código, configuración y paquetes de datos. Para simplificar el diagrama, solo se muestran los paquetes code/config/data para `ServiceType4`, aunque cada tipo de servicio podría incluir algunos o todos esos tipos de paquetes.
 
 ![Tipos de aplicaciones de Service Fabric y tipos de servicio][cluster-imagestore-apptypes]
 
-Dos archivos de manifiesto se usan para describir aplicaciones y servicios: el manifiesto de servicio y el manifiesto de aplicación. Estos aparecen detallados en las secciones subsiguientes.
+Dos archivos de manifiesto se usan para describir aplicaciones y servicios: el manifiesto de servicio y el manifiesto de aplicación. En las siguientes secciones se detallan los manifiestos.
 
-Puede haber una o más instancias de un tipo de servicio activas en el clúster. Por ejemplo, las instancias de servicio con estado o réplicas logran una alta confiabilidad mediante la replicación del estado entre réplicas ubicadas en distintos nodos del clúster. Esta replicación esencialmente proporciona redundancia para que el servicio esté disponible, incluso si se produce un error en un nodo de un clúster. Un [servicio con particiones](service-fabric-concepts-partitioning.md) divide aún más su estado (y patrones de acceso a ese estado) entre los nodos del clúster.
+Puede haber una o más instancias de un tipo de servicio activas en el clúster. Por ejemplo, las instancias de servicio con estado o réplicas logran una alta confiabilidad mediante la replicación del estado entre réplicas ubicadas en distintos nodos del clúster. La replicación esencialmente proporciona redundancia para que el servicio esté disponible, incluso si se produce un error en un nodo de un clúster. Un [servicio con particiones](service-fabric-concepts-partitioning.md) divide aún más su estado (y patrones de acceso a ese estado) entre los nodos del clúster.
 
 En el siguiente diagrama se muestra la relación entre aplicaciones e instancias de servicio, particiones y réplicas.
 
 ![Particiones y réplicas dentro de un servicio][cluster-application-instances]
 
 > [!TIP]
-> Puede ver el diseño de las aplicaciones en un clúster mediante la herramienta Service Fabric Explorer disponible en http://&lt;direcciónDelClúster&gt;:19080/Explorer. Para más información, consulte [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md).
+> Puede ver el diseño de las aplicaciones en un clúster mediante la herramienta Service Fabric Explorer disponible en http://&lt;direcciónDelClúster&gt;:19080/Explorer. Para más información, vea [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 > 
 > 
 
@@ -82,24 +82,24 @@ El manifiesto de servicio define mediante declaración el tipo de servicio y la 
 </ServiceManifest>
 ```
 
-**Versión** son cadenas no estructuradas y no analizadas por el sistema. Se usan para dotar a cada componente de varias versiones para posibilitar las actualizaciones.
+**Versión** son cadenas no estructuradas y no analizadas por el sistema. Los atributos de versión se usan para dotar a cada componente de varias versiones para las actualizaciones.
 
-**ServiceTypes** declara qué tipos de servicio admite **CodePackages** en este manifiesto. Cuando se crea una instancia de un servicio en uno de estos tipos de servicio, todos los paquetes de código declarados en este manifiesto se activan mediante la ejecución de sus puntos de entrada. Se espera que los procesos resultantes registren los tipos de servicio admitidos en tiempo de ejecución. Tenga en cuenta que los tipos de servicio se declaran en el nivel de manifiesto y no en el nivel de paquete de código. De modo que, cuando hay varios paquetes de código, se activan todos cada vez que el sistema busca cualquiera de los tipos de servicio declarados.
+**ServiceTypes** declara qué tipos de servicio admite **CodePackages** en este manifiesto. Cuando se crea una instancia de un servicio en uno de estos tipos de servicio, todos los paquetes de código declarados en este manifiesto se activan mediante la ejecución de sus puntos de entrada. Se espera que los procesos resultantes registren los tipos de servicio admitidos en tiempo de ejecución. Los tipos de servicio se declaran en el nivel de manifiesto y no en el nivel de paquete de código. De modo que, cuando hay varios paquetes de código, se activan todos cada vez que el sistema busca cualquiera de los tipos de servicio declarados.
 
-**SetupEntryPoint** es un punto de entrada con privilegios que se ejecuta con las mismas credenciales que Service Fabric (normalmente, la cuenta *LocalSystem* ) antes que cualquier otro punto de entrada. El archivo ejecutable especificado por **EntryPoint** suele ser el host de servicio de ejecución prolongada. La presencia de un punto de entrada de configuración independiente evita tener que ejecutar el host de servicio con privilegios elevados durante largos períodos de tiempo. El archivo ejecutable especificado por **EntryPoint** se ejecuta después de salir de **SetupEntryPoint** correctamente. El proceso resultante se supervisa y reinicia (comenzando de nuevo con **SetupEntryPoint**) si alguna vez finaliza o se bloquea. 
+**SetupEntryPoint** es un punto de entrada con privilegios que se ejecuta con las mismas credenciales que Service Fabric (normalmente, la cuenta *LocalSystem* ) antes que cualquier otro punto de entrada. El archivo ejecutable especificado por **EntryPoint** suele ser el host de servicio de ejecución prolongada. La presencia de un punto de entrada de configuración independiente evita tener que ejecutar el host de servicio con privilegios elevados durante largos períodos de tiempo. El archivo ejecutable especificado por **EntryPoint** se ejecuta después de salir de **SetupEntryPoint** correctamente. Si el proceso finaliza o se bloquea alguna vez, el proceso resultante se supervisa y reinicia (comenzando de nuevo con **SetupEntryPoint**).  
 
-Los escenarios de uso de **SetupEntryPoint** habituales corresponden a cuando se necesita ejecutar un archivo ejecutable antes de iniciar el servicio o cuando necesita realizar una operación con privilegios elevados. Por ejemplo:
+Los escenarios de uso de **SetupEntryPoint** habituales se corresponden a cuando se ejecuta un archivo ejecutable antes de iniciar el servicio o cuando se realiza una operación con privilegios elevados. Por ejemplo:
 
 * configuración e inicialización de las variables de entorno que el ejecutable del servicio necesita. Esto no se limita tan solo a los archivos ejecutables escritos a través de los modelos de programación de Service Fabric. Por ejemplo, npm.exe necesita algunas variables de entorno configuradas para implementar una aplicación node.js.
 * Configuración del control de acceso mediante la instalación de certificados de seguridad.
 
 Para obtener más información sobre cómo configurar **SetupEntryPoint**, vea [Configuración de la directiva para un punto de entrada del programa de instalación del servicio](service-fabric-application-runas-security.md).
 
-**EnvironmentVariables** proporciona una lista de variables de entorno que se establecen para este paquete de código. Se pueden invalidar en `ApplicationManifest.xml` para proporcionar valores diferentes para distintas instancias de servicio. 
+**EnvironmentVariables** proporciona una lista de variables de entorno que se establecen para este paquete de código. Las variables de entorno se pueden invalidar en `ApplicationManifest.xml` para proporcionar valores diferentes para distintas instancias de servicio. 
 
 **DataPackage** declara una carpeta denominada por el atributo **Nombre** que contiene datos estáticos arbitrarios que va a consumir el proceso en tiempo de ejecución.
 
-**ConfigPackage** declara una carpeta denominada por el atributo **Nombre** que contiene un archivo *Settings.xml*. Este archivo contiene secciones de configuración del par clave-valor definida por el usuario que el proceso puede volver a leer en tiempo de ejecución. Durante una actualización, si solo ha cambiado la **versión** de **ConfigPackage**, no se reiniciará el proceso en ejecución. En su lugar, una devolución de llamada notifica el proceso que los ajustes de configuración han cambiado, por lo que pueden volver a cargarse de forma dinámica. Este es un ejemplo de archivo *Settings.xml* :
+**ConfigPackage** declara una carpeta denominada por el atributo **Nombre** que contiene un archivo *Settings.xml*. El archivo de configuración contiene secciones de configuración del par clave-valor definido por el usuario que el proceso vuelve a leer en tiempo de ejecución. Durante una actualización, si solo ha cambiado la **versión** de **ConfigPackage**, no se reiniciará el proceso en ejecución. En su lugar, una devolución de llamada notifica el proceso que los ajustes de configuración han cambiado, por lo que pueden volver a cargarse de forma dinámica. Este es un ejemplo de archivo *Settings.xml* :
 
 ```xml
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -153,9 +153,9 @@ Por lo tanto, un manifiesto de aplicación describe elementos en el nivel de apl
 </ApplicationManifest>
 ```
 
-Al igual que los manifiestos de servicio, los atributos **Versión** son cadenas no estructuradas y no analizadas por el sistema. También se usan para dotar a cada componente de varias versiones para posibilitar las actualizaciones.
+Al igual que los manifiestos de servicio, los atributos **Versión** son cadenas no estructuradas y no analizadas por el sistema. Los atributos de versión también se usan para dotar a cada componente de varias versiones para las actualizaciones.
 
-**ServiceManifestImport** contiene referencias a manifiestos de servicio que componen este tipo de aplicación. Los manifiestos de servicio importados determinan qué tipos de servicio son válidos dentro de este tipo de aplicación. Dentro de ServiceManifestImport puede invalidar los valores de configuración en Settings.xml y las variables de entorno en los archivos ServiceManifest.xml. 
+**ServiceManifestImport** contiene referencias a manifiestos de servicio que componen este tipo de aplicación. Los manifiestos de servicio importados determinan qué tipos de servicio son válidos dentro de este tipo de aplicación. Dentro de ServiceManifestImport se invalidan los valores de configuración en Settings.xml y las variables de entorno en los archivos ServiceManifest.xml. 
 
 
 **DefaultServices** declara instancias de servicio que se crean automáticamente cada vez que se crea una instancia de una aplicación en este tipo de aplicación. Los servicios predeterminados son simplemente una comodidad y se comportan como servicios normales en todos los aspectos después de su creación. Se actualizan junto con cualquier otro servicio de la instancia de aplicación y también se pueden quitar.
@@ -186,7 +186,7 @@ En [Implementación y eliminación de aplicaciones][10] se describe cómo usar P
 
 [Configuración de directivas de seguridad para la aplicación][12] describe cómo ejecutar los servicios a través de directivas de seguridad para restringir el acceso.
 
-[Modelos de hospedaje de aplicaciones][13] describe la relación entre las réplicas o las instancias de un servicio implementado y el proceso de host de servicio.
+Los [Modelos de hospedaje de aplicaciones][13] describen la relación entre las réplicas o las instancias de un servicio implementado y el proceso de host de servicio.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

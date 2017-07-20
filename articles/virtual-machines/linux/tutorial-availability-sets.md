@@ -17,10 +17,10 @@ ms.date: 05/22/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: bfa4135600cb94d3947323219969872c2da7912b
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 927eb9f4f40759c0a79daa6dd3e91e5ab0853520
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -36,10 +36,10 @@ En este tutorial, aprenderá a:
 > * Crear una máquina virtual en un conjunto de disponibilidad
 > * Comprobar los tamaños de máquina virtual disponibles
 
-Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="availability-set-overview"></a>Información general sobre conjuntos de disponibilidad
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: cephalin;dariac
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 99ec39d3f0f6e82409de571db1e7c7c9468eb068
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 7eff46740cdbc8467c711aada5e6022d82930e31
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -150,7 +151,6 @@ Los inconvenientes de la implementación mediante un IDE son los siguientes:
 ### <a name="vs"></a>Implementación directa desde Visual Studio
 * [Introducción a Azure y ASP.NET](app-service-web-get-started-dotnet.md). Creación e implementación de un proyecto web ASP.NET MVC simple mediante Visual Studio y Web Deploy.
 * [Implementación de WebJobs de Azure con Visual Studio](websites-dotnet-deploy-webjobs.md). Configuración de proyectos de aplicación de consola para que se implementen como trabajos web.  
-* [Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y base de datos SQL en aplicaciones web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Creación e implementación de un proyecto web ASP.NET MVC con una base de datos SQL mediante Visual Studio, Web Deploy y migraciones de Entity Framework Code First .
 * [Implementación web de ASP.NET con Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Una serie de 12 tutoriales que abarca un rango más completo de tareas de implementación que otros de esta lista. Desde que se escribió el tutorial se han agregado algunas características de implementación de Azure, pero las notas agregadas posteriormente explican lo que falta.
 * [Implementación de un sitio web ASP.NET en Azure en Visual Studio 2012 desde un repositorio Git directamente](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explica cómo implementar un proyecto web de ASP.NET en Visual Studio, con el complemento Git para confirmar el código en Git y conectar Azure al repositorio Git. A partir de Visual Studio 2013, la compatibilidad con Git está integrada y no requiere la instalación de un complemento.
 

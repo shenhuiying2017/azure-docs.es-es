@@ -1,6 +1,6 @@
 ---
-title: "Creación y exportación de certificados para conexiones de punto a sitio: makecert : Azure | Microsoft Docs"
-description: "Este artículo contiene pasos para crear un certificado raíz autofirmado, exportar la clave pública y generar los certificados de cliente mediante makecert."
+title: "Generación y exportación de certificados para conexiones de punto a sitio: MakeCert: Azure | Microsoft Docs"
+description: "Este artículo contiene pasos para crear un certificado raíz autofirmado, exportar la clave pública y generar los certificados de cliente mediante MakeCert."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,43 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 06/19/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 0800a7754241eb409dbd86db82b586a3e19a29fc
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: bb61222ae01d1613ec27bb016ff1f94bcdaf8935
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generación y exportación de certificados para conexiones de punto a sitio con makecert
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generación y exportación de certificados para conexiones de punto a sitio con MakeCert
 
 > [!NOTE]
-> Siga estas instrucciones solo cuando no tenga acceso a un equipo Windows 10 para generar certificados autofirmados para conexiones de punto a sitio. Makecert está en desuso. Además, makecert no puede crear un certificado de SHA-2, solo SHA-1 (que sigue siendo válido para P2S). Por estos motivos, se recomienda que siga los [pasos de PowerShell](vpn-gateway-certificates-point-to-site.md), si es posible. Los certificados creados por usted, con PowerShell o makecert, pueden instalarse en cualquier [sistema operativo cliente admitido](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq), no solo en el sistema operativo que usó para crearlos.
->
+> Siga las instrucciones de este artículo para generar certificados solo cuando no disponga de acceso a un equipo con Windows 10. En caso contrario, se recomienda que use el artículo [Generate self-signed certificates using Windows 10 PowerShell](vpn-gateway-certificates-point-to-site.md) (Generación de certificados autofirmados con Windows 10 PowerShell) en su lugar.
 >
 
-
-En este artículo, se muestra cómo crear un certificado raíz autofirmado, exportar la clave pública y generar certificados de cliente. Este artículo no contiene instrucciones de configuración de punto a sitio ni preguntas más frecuentes sobre este tipo de configuración. Puede encontrar esa información en uno de los artículos «Configuración de punto a sitio» de la lista siguiente:
+Las conexiones de punto a sitio utilizan certificados para realizar la autenticación. En este artículo, se muestra cómo crear un certificado raíz autofirmado y generar certificados de cliente con MakeCert. Si desea obtener los pasos de configuración de punto a sitio (por ejemplo, cómo cargar certificados raíz), seleccione uno de los artículos de "Configuración de punto a sitio" de la lista siguiente:
 
 > [!div class="op_single_selector"]
 > * [Creación de certificados autofirmados: PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [Creación de certificados autofirmados: Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
+> * [Creación de certificados autofirmados: MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
 > * [Configuración de una conexión de punto a sitio: Resource Manager: Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Configuración de una conexión de punto a sitio - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Configuración de una conexión de punto a sitio: Clásico: Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 
-Las conexiones de punto a sitio utilizan certificados para realizar la autenticación. Cuando se configura una conexión de punto a sitio, debe cargar la clave pública (archivo .cer) de un certificado raíz en Azure. Además, los certificados de cliente deben generarse a partir del certificado raíz e instalarse en todos los equipos cliente que se conecten a la red virtual. El certificado de cliente permite al cliente autenticarse.
+Aunque se recomienda utilizar los [pasos de Windows 10 PowerShell](vpn-gateway-certificates-point-to-site.md) para crear los certificados, proporcionamos estas instrucciones de MakeCert como un método opcional. Los certificados que genera mediante cualquiera de estos métodos pueden instalarse en [cualquier sistema operativo cliente compatible](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). Sin embargo, MakeCert tiene las siguientes limitaciones:
+
+* MakeCert no puede generar certificados SHA-2, solo SHA-1. Los certificados SHA-1 siguen siendo válidos para las conexiones de punto a sitio, pero SHA-1 usa un hash de cifrado que no es tan seguro como SHA-2.
+* Makecert está en desuso. Esto significa que se puede quitar esta herramienta en cualquier momento. Los certificados ya generados con MakeCert no se verán afectados si MakeCert ya no está disponible. MakeCert solo se utiliza para generar los certificados, no como un mecanismo de validación.
 
 ## <a name="rootcert"></a>Creación de un certificado raíz autofirmado
 
-Los siguientes pasos le mostrarán cómo crear un certificado autofirmado mediante makecert. Estos pasos no son específicos del modelo de implementación. Son válidos para el Administrador de recursos y la versión clásica.
+Los siguientes pasos le mostrarán cómo crear un certificado autofirmado mediante MakeCert. Estos pasos no son específicos del modelo de implementación. Son válidos para el Administrador de recursos y la versión clásica.
 
-1. Descargue e instale [makecert](https://msdn.microsoft.com/en-us/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Después de la instalación, la utilidad makecert.exe se encuentra en esta ruta de acceso: C:\Archivos de programa (x86)\Windows Kits\10\bin\<arch>. Abra un símbolo del sistema como administrador y navegue hasta la ubicación de la herramienta makecert. Puede usar el siguiente ejemplo:
+1. Descargue e instale [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
+2. Después de la instalación, la utilidad makecert.exe se encuentra normalmente en esta ruta de acceso: C:\Archivos de programa (x86)\Windows Kits\10\bin\<arch>. Sin embargo, es posible que se haya instalado en otra ubicación. Abra un símbolo del sistema como administrador y navegue hasta la ubicación de la utilidad MakeCert. Puede usar el siguiente ejemplo y ajustar la ubicación adecuada:
 
   ```cmd
   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
@@ -57,14 +58,14 @@ Los siguientes pasos le mostrarán cómo crear un certificado autofirmado median
 3. Después, cree e instale un certificado en el almacén de certificados personal de su equipo. En el ejemplo siguiente se crea un archivo *.cer* correspondiente que se carga en Azure al configurar P2S. Reemplace P2SRootCert y P2SRootCert.cer por el nombre que quiera usar para el certificado. El certificado estará en sus certificados, en Usuario actual\Personal\Certificados.
 
   ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My "P2SRootCert.cer"
+  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My
   ```
 
 ## <a name="cer"></a>Exportación de la clave pública (.cer)
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-El archivo exported.cer debe cargarse en Azure. Para ver las instrucciones, consulte [Configuración de una conexión de punto a sitio](vpn-gateway-howto-point-to-site-rm-ps.md#upload).
+El archivo exported.cer debe cargarse en Azure. Para ver las instrucciones, consulte [Configuración de una conexión de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Para agregar un certificado raíz de confianza adicional, vea [esta sección](vpn-gateway-howto-point-to-site-resource-manager-portal.md#add) del artículo.
 
 ### <a name="export-the-self-signed-certificate-and-private-key-to-store-it-optional"></a>Exportación del certificado autofirmado y clave privada para almacenarlo (opcional)
 
@@ -105,3 +106,4 @@ Continúe con la configuración de punto a sitio.
 
 * Para ver los pasos del modelo de implementación de **Resource Manager**, consulte [Configuración de una conexión de punto a sitio a una red virtual mediante una red virtual](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * Para ver los pasos del modelo de implementación **clásica**, consulte el artículo [Configuración de una conexión VPN de punto a sitio a una red virtual mediante el Portal clásico](vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+

@@ -3,7 +3,7 @@ title: Direcciones IP que emplea Application Insights | Microsoft Docs
 description: Excepciones para el firewall del servidor requeridas por Application Insights
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 44d989f8-bae9-40ff-bfd5-8343d3e59358
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 135f95457eae073efc9ce08117fb082be2c47468
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: eec83ceb6edbc1aaa68d51a85d2a913063677530
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -36,6 +36,7 @@ Debe abrir algunos puertos de salida en el firewall del servidor para permitir q
 | --- | --- | --- | --- |
 | Telemetría |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
 | Secuencia de métricas en directo |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
+| Telemetría interna |breeze.aimon.applicationinsights.io |52.161.11.71 |443 |
 
 ## <a name="status-monitor"></a>Monitor de estado
 Configuración del Monitor de estado; solo lo necesitará en caso de que tenga que hacer cambios.
@@ -204,12 +205,37 @@ US : VA-Ashburn
 | --- | --- | --- | --- |
 | API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80 443 |
 | Documentos de API |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80 443 |
+| API Interna |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |dinámico|443 |
+
+## <a name="application-insights-analytics"></a>Application Insights Analytics
+
+| Propósito | URI | IP | Puertos |
+| --- | --- | --- | --- |
+| Portal de Analytics | analytics.applicationinsights.io | dinámico | 80 443 |
+| CDN | applicationanalytics.azureedge.net | dinámico | 80 443 |
+| Medios + CDN | applicationanalyticsmedia.azureedge.net | dinámico | 80 443 |
+
+Nota: el dominio *.applicationinsights.io es propiedad del equipo de Application Insights.
+
+## <a name="application-insights-azure-portal-extension"></a>Extensión de Application Insights de Azure Portal
+
+| Propósito | URI | IP | Puertos |
+| --- | --- | --- | --- |
+| Extensión de Application Insights | stamp2.app.insightsportal.visualstudio.com | dinámico | 80 443 |
+| CDN de la extensión Application Insights | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dinámico | 80 443 |
+
+## <a name="application-insights-sdks"></a>SDK de Application Insights
+
+| Propósito | URI | IP | Puertos |
+| --- | --- | --- | --- |
+| CDN del SDK de JS de Application Insights | az416426.vo.msecnd.net | dinámico | 80 443 |
+| SDK de Java de Application Insights | aijavasdk.blob.core.windows.net | dinámico | 80 443 |
 
 ## <a name="profiler"></a>Generador de perfiles
 
 | Propósito | URI | IP | Puertos |
 | --- | --- | --- | --- |
-| Agente | agent.azureserviceprofiler.net | dinámico | 443
+| Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | dinámico | 443
 | Portal | gateway.azureserviceprofiler.net | dinámico | 443
 | Almacenamiento | *.core.windows.net | dinámico | 443
 
@@ -217,7 +243,7 @@ US : VA-Ashburn
 
 | Propósito | URI | IP | Puertos |
 | --- | --- | --- | --- |
-| Agente | ppe.azureserviceprofiler.net | dinámico | 443
+| Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | dinámico | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dinámico | 443
 | Almacenamiento | *.core.windows.net | dinámico | 443
 

@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/05/2017
+ms.date: 06/06/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: c3af0df0f2e5a0367bef8e12edaca4937db7e39f
-ms.openlocfilehash: 50bc63845bab1322090097dd0d5736e11642a95b
-ms.lasthandoff: 01/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 9fb4d440fad8e4c5af8030c91e6871c6418ab9be
+ms.contentlocale: es-es
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -36,7 +37,7 @@ Los siguientes requisitos de software son para los clientes de almacenamiento qu
 
 | Sistemas operativos compatibles | Versión requerida | Requisitos/notas adicionales |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012R2, 2016 |Se admiten volúmenes iSCSI de StorSimple para utilizarlos exclusivamente en los siguientes tipos de discos de Windows:<ul><li>Volumen simple en disco básico</li><li>Volumen simple y reflejado en disco dinámico</li></ul>El aprovisionamiento fino de Windows Server 2012 y 2016 y las características de ODX se admiten si se usa un volumen iSCSI de StorSimple.<br><br>StorSimple puede crear volúmenes con aprovisionamiento fino y totalmente aprovisionados. No puede crear volúmenes de aprovisionamiento parcial.<br><br>El proceso de volver a formatear un volumen con aprovisionamiento fino puede tardar mucho tiempo en completarse. Se recomienda eliminar el volumen y luego crear uno nuevo en lugar de volverlo a formatear. Sin embargo, si aun así prefiere volver a formatear un volumen:<ul><li>Ejecute el siguiente comando antes de volver a formatear para evitar retrasos por recuperación de espacio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Una vez completada la aplicación de formato, use el siguiente comando para volver a habilitar la recuperación de espacio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique la revisión de Windows Server 2012, como se describe en [KB 2878635 ](https://support.microsoft.com/kb/2870270), al equipo con Windows Server.</li></ul></li></ul></ul> Si va a configurar Snapshot Manager de StorSimple o el Adaptador de StorSimple para SharePoint, vaya a los [requisitos de software para ver los componentes opcionales](#software-requirements-for-optional-components). |
+| Windows Server |2008R2 SP1, 2012, 2012R2, 2016 |Se admiten volúmenes iSCSI de StorSimple para utilizarlos exclusivamente en los siguientes tipos de discos de Windows:<ul><li>Volumen simple en disco básico</li><li>Volumen simple y reflejado en disco dinámico</li></ul>Solo se admiten los iniciadores iSCSI de software presentes de forma nativa en el sistema operativo. No se admiten los iniciadores iSCSI de hardware.<br></br>El aprovisionamiento fino de Windows Server 2012 y 2016 y las características de ODX se admiten si se usa un volumen iSCSI de StorSimple.<br><br>StorSimple puede crear volúmenes con aprovisionamiento fino y totalmente aprovisionados. No puede crear volúmenes de aprovisionamiento parcial.<br><br>El proceso de volver a formatear un volumen con aprovisionamiento fino puede tardar mucho tiempo en completarse. Se recomienda eliminar el volumen y luego crear uno nuevo en lugar de volverlo a formatear. Sin embargo, si aun así prefiere volver a formatear un volumen:<ul><li>Ejecute el siguiente comando antes de volver a formatear para evitar retrasos por recuperación de espacio: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Una vez completada la aplicación de formato, use el siguiente comando para volver a habilitar la recuperación de espacio:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique la revisión de Windows Server 2012, como se describe en [KB 2878635 ](https://support.microsoft.com/kb/2870270), al equipo con Windows Server.</li></ul></li></ul></ul> Si va a configurar Snapshot Manager de StorSimple o el Adaptador de StorSimple para SharePoint, vaya a los [requisitos de software para ver los componentes opcionales](#software-requirements-for-optional-components). |
 | VMWare ESX |5.5 y 6.0 |Admitido con VMware vSphere como cliente iSCSI La característica VAAI-block se admite con VMware vSphere en dispositivos de StorSimple. |
 | Linux RHEL/CentOS |5, 6 y 7 |Compatibilidad con clientes iSCSI de Linux con versiones del iniciador Open-iSCSI 5, 6 y 7. |
 | Linux |SUSE Linux 11 | |

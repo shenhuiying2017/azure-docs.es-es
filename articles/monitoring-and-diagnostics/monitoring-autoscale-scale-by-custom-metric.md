@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: rajram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 894d5dc2599246fda59ecc9e8b542888d2ce7f74
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 428cfb29fe5d436073744a369da8ca1c2784044b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -28,7 +28,7 @@ En este artículo se describe cómo escalar el recurso mediante una métrica per
 El escalado automático de Azure Monitor solo se aplica a Conjuntos de escalado de máquinas virtuales, Cloud Services, planes de App Service y App Service Environment. 
 
 # <a name="lets-get-started"></a>Introducción
-En este artículo se asume que tiene una aplicación web configurada con Application Insights. Si aún no la tiene, puede [configurar Application Insights para el sitio web ASP.NET][1].
+En este artículo se presupone que tiene una aplicación web con Application Insights configurado. Si aún no la tiene, puede [configurar Application Insights para el sitio web ASP.NET][1].
 
 - Abra [Azure Portal][2].
 - Haga clic en el icono de Azure Monitor en el panel de navegación izquierdo.
@@ -58,3 +58,4 @@ En este artículo se asume que tiene una aplicación web configurada con Applica
 [5]: ./media/monitoring-autoscale-scale-by-custom-metric/scale-setting-new-web-app.png
 [6]: ./media/monitoring-autoscale-scale-by-custom-metric/scale-by-custom-metric.png
 [7]: ./media/monitoring-autoscale-scale-by-custom-metric/autoscale-setting-custom-metrics-ai.png
+

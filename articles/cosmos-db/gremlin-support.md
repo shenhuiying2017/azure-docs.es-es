@@ -1,31 +1,31 @@
 ---
 title: Compatibilidad de Azure Cosmos DB con Gremlin | Microsoft Docs
-description: "Obtenga información sobre el lenguaje Gremlin, y qué características y pasos están disponibles en Azure Cosmos DB"
-services: cosmosdb
+description: "Más información sobre el lenguaje Gremlin de Apache TinkerPop y sobre las características y pasos que están disponibles en Azure Cosmos DB"
+services: cosmos-db
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: 
 tags: 
-ms.assetid: 
-ms.service: cosmosdb
+ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 06/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: db2287782df66ecee0795adb483e253021d0c2cf
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: acea54d202d1117cf2dfb1d35ad48346daa9053d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
 
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Compatibilidad de Azure Cosmos DB con gráficos Gremlin
-Azure Cosmos DB admite una API Graph de [Gremlin]([Gremlin language](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)) para crear entidades gráficas y para realizar operaciones de recorrido y consultas de gráficos. Puede usar el lenguaje Gremlin para crear entidades de gráfico (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
+Azure Cosmos DB admite un lenguaje de recorrido de gráficos de [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin]([Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)), que es una API Graph para crear entidades gráficas y realizar operaciones de consulta de gráficos. Puede usar el lenguaje Gremlin para crear entidades de gráfico (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
 
 Azure Cosmos DB aporta características empresariales a las bases de datos de gráficos, entre ellas, distribución global, escalado independiente del almacenamiento y la capacidad de proceso, latencias predecibles inferiores a 10 milisegundos, indexación automática y SLA del 99,99 %. Dado que Azure Cosmos DB admite TinkerPop/Gremlin, puede migrar fácilmente aplicaciones escritas con otra base de datos de gráficos sin tener que hacer cambios en el código. Además, gracias a la compatibilidad con Gremlin, Azure Cosmos DB se integra perfectamente entornos de análisis habilitados para TinkerPop, tales como [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
@@ -94,7 +94,7 @@ En la tabla siguiente se enumeran las características de TinkerPop implementada
 
 Azure Cosmos DB usa el [formato GraphSON](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) al devolver los resultados de las operaciones de Gremlin. GraphSON es el formato estándar de Gremlin para representar los vértices, las aristas y las propiedades (propiedades con uno o varios valores) mediante JSON. 
 
-Por ejemplo, el fragmento de código siguiente muestra una representación de GraphSON de un vértice en Azure Cosmos DB. 
+Por ejemplo, el fragmento de código siguiente muestra una representación de GraphSON de un vértice *devuelto al cliente* desde Azure Cosmos DB. 
 
 ```json
   {
@@ -172,6 +172,7 @@ Ahora, echemos un vistazo a los pasos de Gremlin que Azure Cosmos DB admite. Par
 | --- | --- | --- | --- |
 | `addE` | Agrega una arista entre dos vértices. | [Paso addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Agrega un vértice al gráfico. | [Paso addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
+| `and` | Garantiza que todos los recorridos devuelven un valor | [y un paso](http://tinkerpop.apache.org/docs/current/reference/#and-step). | |
 | `as` | Modulador de pasos para asignar una variable a la salida de un paso. | [paso as](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
 | `by` | Modulador de pasos que se usa con `group` y `order`. | [paso by](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Devuelve el primer recorrido que devuelve un resultado. | [paso coalesce](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
@@ -209,4 +210,3 @@ De forma predeterminada, el motor optimizado para escritura de Azure Cosmos DB a
 ## <a name="next-steps"></a>Pasos siguientes
 * Empezar a compilar una aplicación de gráficos [con nuestros SDK](create-graph-dotnet.md) 
 * Más información sobre la [compatibilidad de Azure Cosmos DB con gráficos](graph-introduction.md)
-

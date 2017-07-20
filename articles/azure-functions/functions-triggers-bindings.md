@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 05/30/2017
 ms.author: donnam
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f7d0ed4f43c68c73c967a401509f1a5ccac7da0b
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: cc41debb2523df77be4db05817a4c7ac55604439
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -190,6 +190,23 @@ let Run(input: WorkItem, log: TraceWriter) =
     json
 ```
 
+## <a name="binding-datatype-property"></a>Enlace de la propiedad DataType
+
+En .NET, use los tipos para definir el tipo de datos de los datos de entrada. Por ejemplo, use `string` para enlazar al texto de un desencadenador de cola y una matriz de bytes que se lee como binaria.
+
+Para los idiomas que se escriben dinámicamente, como JavaScript, use la propiedad `dataType` en la definición de enlace. Por ejemplo, para leer el contenido de una solicitud HTTP en formato binario, use el tipo `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Otras opciones para `dataType` son `stream` y `string`.
+
 ## <a name="resolving-app-settings"></a>Resolver la configuración de la aplicación
 Como procedimiento recomendado, los secretos y las cadenas de conexión deberían administrarse mediante los ajustes de la aplicación, en lugar de archivos de configuración. De este modo, se limita el acceso a estos secretos y resulta seguro almacenar *function.json* en un repositorio de control de código fuente público.
 
@@ -307,6 +324,19 @@ Azure Functions facilita una práctica sintaxis para generar GUID en los enlaces
 }
 ```
 
+### <a name="current-time"></a>Hora actual
+
+Puede usar la expresión de enlace `DateTime`, que se resuelve en `DateTime.UtcNow`.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
 ## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>Enlace a propiedades de entrada personalizadas en una expresión de enlace
 
 Las expresiones de enlace también pueden hacer referencia a propiedades definidas en la propia carga de los desencadenadores. Por ejemplo, es posible que quiera establecer un enlace de forma dinámica a un archivo de almacenamiento de blobs a partir de un nombre de archivo proporcionado en un webhook.
@@ -377,6 +407,10 @@ module.exports = function (context, info) {
     context.done();
 }
 ```
+
+## <a name="configuring-binding-data-at-runtime"></a>Configuración de datos de enlace en tiempo de ejecución
+
+En C# y otros lenguajes .NET, puede usar un patrón de enlace imperativo, en contraposición a los enlaces declarativos de *function.json*. Los enlaces imperativos resultan útiles cuando los parámetros de enlace tienen que calcularse en tiempo de ejecución, en lugar de en el tiempo de diseño. Para obtener más información, vea [Enlace en tiempo de ejecución a través de enlaces imperativos](functions-reference-csharp.md#imperative-bindings) en la Referencia para desarrolladores de C#.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre un tipo de enlace concreto, consulte estos artículos:

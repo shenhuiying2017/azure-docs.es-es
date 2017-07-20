@@ -11,21 +11,21 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 06/05/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eccc927550aef4c9cd71ffad64d2eddedb74326e
-ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: fd331d805c0c6ddcfb492db2902a8e53b23dcab3
 ms.contentlocale: es-es
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Configuración del entorno de origen (VMware a Azure)
 > [!div class="op_single_selector"]
-> * [Máquinas virtuales de VMware](./site-recovery-set-up-vmware-to-azure.md)
-> * [Servidores físicos](./site-recovery-set-up-physical-to-azure.md)
+> * [VMware a Azure](./site-recovery-set-up-vmware-to-azure.md)
+> * [Físico en Azure](./site-recovery-set-up-physical-to-azure.md)
 
 En este artículo se describe cómo configurar el entorno local para comenzar a replicar máquinas virtuales que se ejecutan en VMware en Azure.
 

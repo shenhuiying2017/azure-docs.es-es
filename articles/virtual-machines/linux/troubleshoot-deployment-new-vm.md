@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7e8e54aad26ddec8be9f6e13931e42f4cc07843f
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: aea5db05843b0175b8ef8b713944e12262e33010
+ms.contentlocale: es-es
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -27,6 +28,10 @@ ms.lasthandoff: 04/03/2017
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
+## <a name="top-issues"></a>Principales problemas
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
+
+Para consultar otros problemas de implementación de máquinas virtuales y preguntas, vea [Troubleshoot deploying Linux virtual machine issues in Azure](troubleshoot-deploy-vm.md) (Solución de problemas de implementación de máquinas virtuales de Linux en Azure).
 ## <a name="collect-activity-logs"></a>Recopilación de registros de actividad
 Para iniciar la solución de problemas, recopile los registros de actividad para identificar el error asociado con el problema. Los vínculos siguientes contienen información detallada sobre el proceso que se debe seguir.
 

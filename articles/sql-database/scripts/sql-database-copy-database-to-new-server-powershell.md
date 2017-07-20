@@ -1,6 +1,6 @@
 ---
-title: Copia mediante script de Azure PowerShell de una instancia de SQL Database en un nuevo servidor | Microsoft Docs
-description: 'Ejemplo de script de Azure PowerShell: copie una instancia de SQL Database a un servidor nuevo con PowerShell'
+title: Ejemplo de PowerShell para copiar una instancia de Azure SQL Database en un servidor nuevo | Microsoft Docs
+description: Script de ejemplo de Azure PowerShell para copiar una instancia de SQL Database en un servidor nuevo
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: cb3412398e566cc16dadc8348241a603e78a098c
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 7b57e37a1bc9391c88c8170f59a39654bf895d47
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="copy-a-sql-database-to-a-new-server-using-powershell"></a>Copia de una instancia de SQL Database en un nuevo servidor mediante PowerShell
+# <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>Uso de PowerShell para copiar una instancia de SQL Database en un servidor nuevo
 
-Este script de PowerShell de ejemplo crea una copia de una base de datos existente en un nuevo servidor. 
+Este ejemplo de script de PowerShell crea una copia de una base de datos existente en un nuevo servidor. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

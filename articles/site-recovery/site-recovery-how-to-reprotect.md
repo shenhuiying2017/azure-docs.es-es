@@ -11,18 +11,20 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 02/13/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3156ca5b2b8ba836e94d79a97b28bf591c799b48
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d77f9c4e6365c95b0ea1bf4d00b9f2e9c35eefde
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotección desde Azure a un sitio local
+
+
 
 ## <a name="overview"></a>Información general
 En este artículo se describe cómo reproteger máquinas virtuales desde Azure al sitio local. Siga las instrucciones que se describen en este artículo cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que se hayan conmutado por error del sitio local a Azure según [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-failover.md).
@@ -44,7 +46,7 @@ A continuación, se describen los requisitos previos que debe llevar a cabo o co
 
 * Si las máquinas virtuales que desea conmutar por recuperación las administra un servidor vCenter, debe asegurarse de tener los permisos necesarios para la detección de máquinas virtuales en servidores vCenter. [Más información](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 
-> [!WARNING] 
+> [!WARNING]
 > Si existen instantáneas en el destino maestro local o la máquina virtual, la reprotección no se realizará correctamente. Puede eliminar las instantáneas del destino maestro antes de continuar con la reprotección. Las instantáneas de la máquina virtual se combinarán automáticamente durante el trabajo de reprotección.
 
 * Antes de conmutar por recuperación, deberá crear dos componentes adicionales:
@@ -103,6 +105,10 @@ Haga clic en los vínculos siguientes para leer sobre cómo instalar un servidor
 * [Instalación del servidor de destino maestro de Linux](site-recovery-how-to-install-linux-master-target.md)
 
 
+### <a name="what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback"></a>¿Qué tipos de almacén de datos se admiten en el host ESXi local durante la conmutación por recuperación?
+
+Actualmente ASR solo admite la conmutación por recuperación a un almacén de datos VMFS. No se admiten los almacenes de datos vSAN ni NFS. Tenga en cuenta que puede proteger las máquinas virtuales que se ejecutan en un almacén de datos vSAN o NFS. Debido a esta limitación, la entrada de selección de almacén de datos en la pantalla de reprotección estará vacía en el caso de almacenes de datos NFS o mostrará el almacén de datos vSAN pero producirá un error durante el trabajo. Si piensa realizar la conmutación por recuperación, puede crear un almacén de datos VMFS local y conmutar por recuperación a él. Esta conmutación por recuperación producirá una descarga completa del VMDK. Estamos agregando compatibilidad con los almacenes de datos NFS y vSAN en las futuras versiones.
+
 #### <a name="common-things-to-check-after-completing-installation-of-the-master-target-server"></a>Comprobaciones habituales tras completar la instalación del servidor de destino maestro
 
 * Si la máquina virtual está presente de forma local en el servidor vCenter, el servidor de destino maestro necesita acceso al VMDK de la máquina virtual local. Se necesita acceso para escribir los datos replicados en los discos de la máquina virtual. Asegúrese de que el almacén de datos de la máquina virtual local esté montado en el host del destino maestro con acceso de lectura y escritura.
@@ -129,7 +135,7 @@ Haga clic en los vínculos siguientes para leer sobre cómo instalar un servidor
    * El volumen de retención predeterminado para Windows es el volumen R.
 
    * El volumen de retención predeterminado para Linux es /mnt/retention.
-   
+
    > [!IMPORTANT]
    > Si usa una máquina CS+PS existente o una máquina PS+MT o de escalado, debe agregar una nueva unidad. La nueva unidad debe cumplir los requisitos anteriores. Si la unidad de retención no está presente, no se mostrará ninguna en la lista de selección desplegable en el portal. Después de agregar una unidad al destino maestro local, pasa un máximo de quince minutos hasta que se refleja en la selección en el portal. También puede actualizar el servidor de configuración si la unidad no aparece después de quince minutos.
 

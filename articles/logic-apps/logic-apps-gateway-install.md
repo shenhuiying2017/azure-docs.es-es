@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/5/2017
+ms.date: 06/9/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8a1ae2ef790455383118bb55c34f6ca10fe0169e
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 7122b970c2e4703df9771e8ace4e710399ca3e6c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -76,19 +76,22 @@ No puede instalarla en un controlador de dominio.
 
 * No instale la puerta de enlace en un equipo que se apague, que entre en suspensión o que no se conecte a Internet, ya que no se puede ejecutar la puerta de enlace en esas circunstancias. Además, el rendimiento de la puerta de enlace podría verse afectado en una red inalámbrica.
 
-* Solo puede iniciar sesión con una cuenta de Azure que tenga una dirección de correo electrónico profesional o educativa administrada por Azure Active Directory (Azure AD). Necesitará esta cuenta para asociar la puerta de enlace de datos local a una suscripción de Azure para una cuenta basada en Azure AD.
+* Durante la instalación, debe iniciar sesión con una [cuenta profesional o educativa](https://docs.microsoft.com/azure/active-directory/sign-up-organization) que está administrada por Azure Active Directory (Azure AD), no una cuenta de Microsoft. 
 
-  > [!TIP] 
-  > Si tiene una cuenta de Microsoft (por ejemplo, @outlook.com), puede usar su cuenta de Azure para [crear una dirección de correo electrónico profesional o educativa](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal). O bien, si se suscribió a una oferta de Office 365 y no proporcionó su correo electrónico profesional real, la dirección de inicio de sesión podría tener un aspecto similar al siguiente: jeff@contoso.onmicrosoft.com. 
+  Tiene que usar la misma cuenta profesional o educativa más adelante en Azure Portal al crear un recurso de puerta de enlace y asociarlo a la instalación de puerta de enlace. Este recurso de puerta de enlace se selecciona después al crear la conexión entre la aplicación lógica y el origen de datos local. [¿Por qué debo usar una cuenta profesional o educativa de Azure AD?](#why-azure-work-school-account)
+
+  > [!TIP]
+  > Si se suscribió a una oferta de Office 365 y no proporcionó su correo electrónico profesional real, la dirección de inicio de sesión podría tener un aspecto similar al siguiente: jeff@contoso.onmicrosoft.com. 
 
 * Si tiene una puerta de enlace existente que configuró con un instalador que es anterior a la versión 14.16.6317.4, no puede cambiar la ubicación de la puerta de enlace ejecutando el programa de instalación más reciente. Sin embargo, puede usar el programa de instalación más reciente para instalar una puerta de enlace nueva con la ubicación que quiere en su lugar.
   
   Si tiene un instalador de puerta de enlace que es anterior a la versión 14.16.6317.4, pero no ha instalado la puerta de enlace todavía, puede descargar y usar el programa de instalación más reciente.
 
 <a name="install-gateway"></a>
+
 ## <a name="install-the-data-gateway"></a>Instalación de la puerta de enlace de datos
 
-1.    [Descargue y ejecute el programa de instalación de la puerta de enlace en un equipo local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1.  [Descargue y ejecute el programa de instalación de la puerta de enlace en un equipo local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. Revise y acepte las condiciones de uso y la declaración de privacidad.
 
@@ -96,29 +99,38 @@ No puede instalarla en un controlador de dominio.
 
 4. Cuando se le solicite, inicie sesión con su cuenta profesional o educativa de Azure, no con una cuenta de Microsoft.
 
-5. Registre la instalación de la puerta de enlace con el [servicio en la nube de la puerta de enlace](#gateway-cloud-service). 
+   ![Inicio de sesión con una cuenta profesional o educativa de Azure](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-     El servicio en la nube de la puerta de enlace cifra y almacena los detalles de la puerta de enlace y las credenciales del origen de datos. 
-     El servicio también enruta las consultas y sus resultados entre los usuarios en la nube, como la aplicación lógica, la puerta de enlace de datos local y el origen de datos local.
+5. Registre ahora la puerta de enlace instalada con el [servicio en la nube de la puerta de enlace](#gateway-cloud-service). Elija **Registrar una nueva puerta de enlace en este equipo**.
 
-     1. Proporcione un nombre para la instalación de la puerta de enlace y cree una clave de recuperación. 
-     Confirme la clave de recuperación.
+   El servicio en la nube de la puerta de enlace cifra y almacena los detalles de la puerta de enlace y las credenciales del origen de datos. 
+   El servicio también enruta las consultas y sus resultados entre la aplicación lógica, la puerta de enlace de datos local y el origen de datos local.
 
-        > [!IMPORTANT] 
-        > La clave de recuperación debe contener al menos ocho caracteres. Asegúrese de guardar y conservar la clave en un lugar seguro. También necesitará esta clave cuando quiera migrar, restaurar o tomar el control de una puerta de enlace existente.
+6. Especifique un nombre para la instalación de la puerta de enlace. Cree una clave de recuperación y luego confírmela. 
 
-     2. Para cambiar la región predeterminada del servicio en la nube de la puerta de enlace y de Azure Service Bus que usa la instalación de la puerta de enlace, elija **Cambiar región**.
+   > [!IMPORTANT] 
+   > La clave de recuperación debe contener al menos ocho caracteres. Asegúrese de guardar y conservar la clave en un lugar seguro. También necesita esta clave cuando quiera migrar, restaurar o controlar una puerta de enlace existente.
 
-        Por ejemplo, puede seleccionar la misma región que la aplicación lógica o la región más cercana al origen de datos local para reducir la latencia. El recurso de puerta de enlace y la aplicación lógica pueden tener ubicaciones distintas.
+   1. Para cambiar la región predeterminada del servicio en la nube de la puerta de enlace y de Azure Service Bus que usa la instalación de la puerta de enlace, elija **Cambiar región**.
 
-        > [!IMPORTANT]
-        > No puede cambiar esta región después de la instalación. Esta región también determina y restringe la ubicación en la que puede crear el recurso de Azure para la puerta de enlace. De modo que, al crear el recurso de puerta de enlace en Azure, asegúrese de que la ubicación del recurso coincide con la región que seleccionó durante la instalación de la puerta de enlace.
-        > 
-        > Si quiere usar una región distinta para la puerta de enlace más adelante, debe configurar una puerta de enlace nueva.
+      ![Cambio de región](./media/logic-apps-gateway-install/change-region-gateway-install.png)
 
-     3. Cuando termine, seleccione, **Configurar**.
+      La región predeterminada es la asociada al inquilino de Azure AD.
 
-6. Ahora, siga estos pasos en Azure Portal para [crear un recurso de Azure para la puerta de enlace](../logic-apps/logic-apps-gateway-connection.md). 
+   2. En el panel siguiente, abra **Seleccionar región** para elegir otra región.
+
+      ![Seleccione otra región.](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+
+      Por ejemplo, puede seleccionar la misma región que la aplicación lógica o la región más cercana al origen de datos local para reducir la latencia. El recurso de puerta de enlace y la aplicación lógica pueden tener ubicaciones distintas.
+
+      > [!IMPORTANT]
+      > No puede cambiar esta región después de la instalación. Esta región también determina y restringe la ubicación en la que puede crear el recurso de Azure para la puerta de enlace. De modo que, al crear el recurso de puerta de enlace en Azure, asegúrese de que la ubicación del recurso coincide con la región que seleccionó durante la instalación de la puerta de enlace.
+      > 
+      > Si quiere usar una región distinta para la puerta de enlace más adelante, debe configurar una puerta de enlace nueva.
+
+   3. Cuando esté listo, elija **Hecho**.
+
+7. Ahora, siga estos pasos en Azure Portal para [crear un recurso de Azure para la puerta de enlace](../logic-apps/logic-apps-gateway-connection.md). 
 
 Más información sobre [cómo funciona la puerta de enlace de datos](#gateway-cloud-service).
 
@@ -127,7 +139,12 @@ Más información sobre [cómo funciona la puerta de enlace de datos](#gateway-c
 Para llevar a cabo estas tareas, debe tener la clave de recuperación que se especificó cuando se instaló la puerta de enlace.
 
 1. En el menú Inicio del equipo, elija **Puerta de enlace de datos locales**.
-2. Después de que se abra el programa de instalación, proporcione la clave de recuperación para la puerta de enlace que quiere migrar, restaurar o controlar.
+
+2. Cuando se abra el instalador, inicie sesión con la misma cuenta profesional o educativa de Azure que se usó anteriormente para instalar la puerta de enlace.
+
+3. Elija **Migrar, restaurar o controlar una puerta de enlace existente**.
+
+4. Especifique la clave de recuperación para la puerta de enlace que quiere migrar, restaurar o controlar.
 
 <a name="restart-gateway"></a>
 ## <a name="restart-the-gateway"></a>Reinicio de la puerta de enlace
@@ -199,7 +216,7 @@ Si tiene que aprobar direcciones IP en lugar de los dominios, puede descargar y 
 <a name="gateway-cloud-service"></a>
 ## <a name="how-does-the-data-gateway-work"></a>¿Cómo funciona la puerta de enlace de datos?
 
-La puerta de enlace de datos facilita la comunicación rápida y segura entre un usuario en la nube, como la aplicación lógica, el servicio en la nube de la puerta de enlace y el origen de datos local. 
+La puerta de enlace de datos facilita la comunicación rápida y segura entre la aplicación lógica, el servicio en la nube de la puerta de enlace y el origen de datos local. 
 
 ![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -228,8 +245,10 @@ Por lo tanto, cuando el usuario en la nube interactúa con un elemento conectado
 **P**: ¿La puerta de enlace debe estar instalada en la misma máquina que el origen de datos? <br/>
 **R:** No. La puerta de enlace se conecta al origen de datos mediante la información de conexión que se proporcionó. Considere la puerta de enlace como una aplicación cliente en este sentido. La puerta de enlace solo necesita la funcionalidad para conectarse al nombre de servidor que se proporcionó.
 
+<a name="why-azure-work-school-account"></a>
+
 **P**: ¿Por qué debo usar una cuenta profesional o educativa de Azure para iniciar sesión? <br/>
-**R**: Solo puede asociar la puerta de enlace de datos local con una cuenta profesional o educativa de Azure. Su cuenta de inicio de sesión se almacena en un inquilino administrado por Azure Active Directory (Azure AD). Por lo general, el UPN de la cuenta de Azure AD coincide con la dirección de correo electrónico.
+**R**: Solo puede usar una cuenta profesional o educativa de Azure al instalar la puerta de enlace de datos local. Su cuenta de inicio de sesión se almacena en un inquilino administrado por Azure Active Directory (Azure AD). Por lo general, el nombre principal de usuario (UPN) de la cuenta de Azure AD coincide con la dirección de correo electrónico.
 
 **P**: ¿Dónde se almacenan mis credenciales? <br/>
 **R**: Las credenciales que especifique para un origen de datos se cifran y almacenan en el servicio en la nube de la puerta de enlace. Las credenciales se descifran en la puerta de enlace de datos local.

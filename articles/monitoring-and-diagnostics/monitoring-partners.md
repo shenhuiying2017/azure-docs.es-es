@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 5/9/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 18a45dd16e51e477758c3ba08f936a2e831dddb3
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 5914e8be1cf2671da7af1d190811e0e809039135
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -67,10 +67,7 @@ Datadog es un servicio de supervisión líder en el mundo para aplicaciones de e
 [Vaya a la documentación.][datadog-doc]
 
 ## <a name="dynatrace"></a>Dynatrace
-Dynatrace OneAgent se integra con Azure Virtual Machines y App Services a través de los mecanismos de extensión de Azure correspondientes.
-De esta forma se pueden recopilar métricas de rendimiento sobre los hosts, la red y los servicios.
-Aparte de mostrar simplemente las métricas, se visualizan entornos de un extremo a otro, que muestran las transacciones desde el lado cliente hasta la capa de base de datos.
-La correlación basada en AI de problemas y el análisis integrado de las causas principales, incluida la información a nivel de método sobre código y bases de datos, facilita bastante la solución de problemas y las optimizaciones de rendimiento.
+Dynatrace OneAgent se integra con Azure Virtual Machines y App Services a través de los mecanismos de extensión de Azure correspondientes. De esta forma Dynatrace OneAgent puede recopilar métricas de rendimiento sobre los hosts, la red y los servicios. Aparte de mostrar simplemente las métricas, Dynatrace visualiza entornos de un extremo a otro, que muestran las transacciones desde el lado cliente hasta la capa de base de datos. La correlación basada en AI de problemas y el análisis integrado de las causas principales, incluida la información a nivel de método sobre código y bases de datos, facilita bastante la solución de problemas y las optimizaciones de rendimiento.
 
 [Vaya a la documentación.][dynatrace-doc]
 
@@ -148,7 +145,7 @@ Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en 
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introducción de CloudMonix."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Introducción de Cloudyn."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentación de Datadog."
-[dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Documentación de Dynatrace."
+[dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Documentación de Dynatrace."
 [newrelic-doc]: https://newrelic.com/azure "Documentación de NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentación de OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentación de PagerDuty."

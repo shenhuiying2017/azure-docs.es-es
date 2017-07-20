@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2017
+ms.date: 07/02/2017
 ms.author: msfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 77eb843f83bd2d246dd4943e52c1e8b2ac07a5ab
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c90079542a91720cb60010dfd5be2cf76802cc70
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -36,7 +36,7 @@ Todas estas necesidades afectan a la *forma* en que se crean las aplicaciones.
 Para más información sobre el enfoque de Azure de los microservicios, vea [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservicios: una revolución en las aplicaciones con la tecnología de la nube).
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>Enfoque de diseño monolítico en comparación con el de microservicios
-Todas las aplicaciones evolucionan con el tiempo. Las aplicaciones que triunfan evolucionan por ser útiles a sus usuarios. Las que fracasan no evolucionan y terminan por entrar en desuso. Por tanto, la pregunta que debe hacerse es: ¿cuánto sabe acerca de los requisitos actuales y cuáles serán en el futuro? Por ejemplo, supongamos que está creando una aplicación de informes para un departamento. Está seguro de que la aplicación permanecerá dentro del ámbito de su empresa y que los informes serán relevantes por un tiempo limitado. El enfoque elegido es diferente al adoptado para crear un servicio que entrega contenido de vídeo a decenas de millones de clientes. 
+Todas las aplicaciones evolucionan con el tiempo. Las aplicaciones que triunfan evolucionan por ser útiles a sus usuarios. Las que fracasan no evolucionan y terminan por entrar en desuso. Por tanto, la pregunta que debe hacerse es: ¿cuánto sabe acerca de los requisitos actuales y cuáles serán en el futuro? Por ejemplo, supongamos que está creando una aplicación de informes para un departamento. Está seguro de que la aplicación permanece dentro del ámbito de la compañía y que los informes son relevantes por un tiempo limitado. El enfoque elegido es diferente al adoptado para crear un servicio que entrega contenido de vídeo a decenas de millones de clientes. 
 
 A veces, terminar un servicio como prueba de concepto es el factor determinante, con la certeza de que el diseño de la aplicación podrá modificarse más adelante. No tiene mucho sentido volcarse en la ingeniería de algo que no se va a usar nunca. Es el equilibrio habitual en ingeniería. Por otra parte, cuando las empresas hablan sobre la creación de aplicaciones para la nube, lo que esperan es crecimiento y uso. El problema es que el crecimiento y la escala son imprevisibles. Nos gustaría poder crear prototipos rápidamente y, al mismo tiempo, saber que estamos bien encaminados para tratar el futuro éxito. Este es el enfoque Lean Startup: compilar, medir, aprender e iterar.
 
@@ -59,12 +59,15 @@ A medida que se producen más aplicaciones en la nube, se descubre que la descom
 ## <a name="comparison-between-application-development-approaches"></a>Comparación entre los enfoques de desarrollo de aplicaciones
 ![Desarrollo de aplicaciones de la plataforma Service Fabric][Image1]
 
-* Las aplicaciones monolíticas contienen funciones específicas del dominio y normalmente se dividen en capas funcionales, como Web, negocios y datos.
-* Para escalar aplicaciones monolíticas, es preciso clonarlas en varios servidores, máquinas virtuales o contenedores.
-* Las aplicaciones de microservicios separan las funciones en servicios más pequeños independientes.
-* Este enfoque de microservicios se escala horizontalmente mediante la implementación de cada servicio de manera independiente, con la creación de instancias de estos servicios en servidores, máquinas virtuales y contenedores.
+1) Las aplicaciones monolíticas contienen funciones específicas del dominio y normalmente se dividen en capas funcionales, como Web, negocios y datos.
 
-La realización del diseño con un enfoque de microservicios no es la panacea para todos los proyectos, pero se adapta mejor a los objetivos de negocio descritos. Comenzar con un enfoque monolítico puede ser aceptable si se sabe que después no habrá oportunidad de readaptar el código a un diseño con microservicios, en caso de que sea necesario. Es más frecuente comenzar con una aplicación monolítica y, poco a poco, dividirla en fases, empezando por las áreas funcionales que deban ser más escalables o ágiles.
+2) Para escalar aplicaciones monolíticas, es preciso clonarlas en varios servidores, máquinas virtuales o contenedores.
+
+3) Las aplicaciones de microservicios separan las funciones en servicios más pequeños independientes.
+
+4) Este enfoque de microservicios se escala horizontalmente mediante la implementación de cada servicio de manera independiente, con la creación de instancias de estos servicios en servidores, máquinas virtuales y contenedores.
+
+La realización del diseño con un enfoque de microservicios no es la panacea para todos los proyectos, pero se adapta mejor a los objetivos de negocio descritos. Comenzar con un enfoque monolítico sería aceptable si se sabe que después no habrá oportunidad de reprocesar el código en un diseño con microservicios. Es más frecuente comenzar con una aplicación monolítica y, poco a poco, dividirla en fases, empezando por las áreas funcionales que deban ser más escalables o ágiles.
 
 En resumen, el enfoque de microservicios consiste en componer la aplicación de muchos servicios pequeños. Los servicios se ejecutan en contenedores implementados en un clúster de máquinas. Los equipos más pequeños desarrollan un servicio que se centra en un escenario y, de forma independiente, prueban, controlan versiones, implementan y escalan cada servicio para que toda la aplicación pueda evolucionar.
 
@@ -104,7 +107,7 @@ Si volvemos un momento a la comparación entre el enfoque monolítico y el de mi
 
 En un enfoque monolítico, normalmente la aplicación usa una base de datos única. La ventaja es que está en una única ubicación, lo que facilita la implementación. Cada componente puede tener una única tabla para almacenar su estado. Los equipos tienen que separar el estado estrictamente, lo cual supone un reto. Inevitablemente, existe la tentación de agregar una nueva columna a una tabla de clientes existente, realizar una combinación entre tablas y crear dependencias en la capa de almacenamiento. Tras esto, no es posible escalar los componentes individuales. 
 
-En el enfoque de microservicios, cada servicio administra y almacena su propio estado. Cada servicio se encarga de escalar el código y el estado juntos para satisfacer las demandas del servicio. La desventaja es que, cuando sea necesario crear vistas, o consultas, de los datos de las aplicaciones, tendrá que consultar almacenes de estado dispares. Por lo general, esto se resuelve teniendo un microservicio independiente que genera una vista de una colección de microservicios. Si necesita realizar varias consultas espontáneas en los datos, cada microservicio debería considerar la posibilidad escribir sus datos en un servicio de almacenamiento de datos para poder realizar análisis sin conexión.
+En el enfoque de microservicios, cada servicio administra y almacena su propio estado. Cada servicio se encarga de escalar el código y el estado juntos para satisfacer las demandas del servicio. La desventaja es que, cuando sea necesario crear vistas o consultas de los datos de la aplicación, tendrá que consultar almacenes de estado dispares. Por lo general, esto se resuelve teniendo un microservicio independiente que genera una vista de una colección de microservicios. Si necesita realizar varias consultas espontáneas en los datos, cada microservicio debería considerar la posibilidad escribir sus datos en un servicio de almacenamiento de datos para poder realizar análisis sin conexión.
 
 El control de versiones es específico de la versión implementada de un microservicio, de forma que se implementan y ejecutan en paralelo varias versiones diferentes. El control de versiones sirve para los escenarios en que una versión más reciente de un microservicio produce un error durante la actualización y es preciso revertir a una anterior. El otro escenario para el control de versiones es la realización de pruebas de estilo A/B en las que distintos usuarios experimentan versiones diferentes del servicio. Por ejemplo, es común actualizar un microservicio para que un conjunto específico de clientes prueben probar nuevas funcionalidades, antes de distribuirlas más ampliamente. Después de la administración del ciclo de vida de los microservicios, pasamos a la comunicación entre ellos.
 
@@ -112,7 +115,7 @@ El control de versiones es específico de la versión implementada de un microse
 No necesitamos centrarnos aquí en este tema, ya que en los últimos diez años se ha publicado amplia documentación sobre la arquitectura orientada a servicios en la que se describen los patrones de comunicación. Por lo general, la comunicación en los servicios usa un enfoque de REST con los protocolos HTTP y TCP, y XML o JSON como formato de serialización. Desde la perspectiva de la interfaz, esto supone adoptar el enfoque de diseño web. No obstante, no hay nada que le impida usar protocolos binarios o sus propios formatos de datos. Debe estar preparado para que a los usuarios les resulte más complicado usar sus microservicios si están disponibles públicamente.
 
 ### <a name="has-a-unique-name-url-used-to-resolve-its-location"></a>Tiene un nombre único (dirección URL) que se usa para resolver su ubicación
-¿Recuerda que repetimos varias veces que el enfoque de microservicios es como la Web? Al igual que la Web, el microservicio debe ser direccionable, independientemente de dónde se ejecute. Si piensa en las máquinas y en cuál de ellas ejecuta un microservicio concreto, va las cosas empeorarán rápidamente. 
+¿Recuerda que repetimos varias veces que el enfoque de microservicios es como la Web? Al igual que la Web, el microservicio debe ser direccionable, independientemente de dónde se ejecute. Si piensa en las máquinas y en cuál de ellas se ejecuta un microservicio concreto, las cosas empeoran rápidamente. 
 
 De la misma manera que DNS resuelve una dirección URL determinada en una máquina concreta, su microservicio necesita un nombre único para que la ubicación actual sea detectable. Los microservicios necesitan nombres direccionables que los hagan independientes de la infraestructura en que se ejecutan. Esto implica que existe una interacción entre la forma en que se implementa el servicio y cómo se detecta, ya que debe haber un Registro del servicio. Igualmente, cuando se produce un error en una máquina, el servicio de Registro debe indicar dónde se está ejecutando el servicio. 
 
@@ -135,12 +138,41 @@ Azure Service Fabric surgió cuando Microsoft pasó de ofrecer productos embalad
 
 ***El objetivo de Service Fabric es resolver las complicaciones que conlleva crear y ejecutar un servicio y usar de forma eficiente los recursos de infraestructura para que los equipos puedan resolver problemas de negocios con un enfoque de microservicios.***
 
-Service Fabric proporciona dos amplias áreas que le ayudan a crear aplicaciones que usan un enfoque de microservicios:
+Service Fabric proporciona tres amplias áreas que le ayudan a crear aplicaciones que usan un enfoque de microservicios:
 
-* Una plataforma que proporciona servicios del sistema para implementar, actualizar, detectar y reiniciar servicios con errores, detectar la ubicación del servicio, administrar el estado y supervisar el mantenimiento. De hecho, estos servicios del sistema hacen posibles muchas de las características de microservicios descritas antes.
-* API de programación, o marcos, que le ayudan a crear aplicaciones como microservicios: [Reliable Actors y Reliable Services](service-fabric-choose-framework.md). Por supuesto, puede usar cualquier código para generar un microservicio. Sin embargo, estas API facilitan el trabajo y se integran con la plataforma a un nivel más profundo. Por ejemplo, con ellas es posible obtener información de estado y de diagnóstico, o se puede aprovechar la alta disponibilidad integrada.
+* Una plataforma que proporciona servicios del sistema para implementar, actualizar, detectar y reiniciar servicios con errores, detectar servicios, enrutar mensajes, administrar el estado y supervisar el mantenimiento. De hecho, estos servicios del sistema hacen posibles muchas de las características de microservicios descritas antes.
+* La posibilidad de implementar aplicaciones que se ejecuten en contenedores o como procesos. Service Fabric es un organizador de contenedores y proceso.
+* API de programación productivas que ayudan a crear aplicaciones como microservicios: [ASP.NET Core, Reliable Actors y Reliable Services](service-fabric-choose-framework.md). Puede usar cualquier código para generar el microservicio. Sin embargo, estas API facilitan el trabajo y se integran con la plataforma a un nivel más profundo. Por ejemplo, con ellas es posible obtener información de estado y de diagnóstico, o se puede aprovechar la alta disponibilidad integrada.
 
 ***Service Fabric es independiente de la forma en que cree el servicio y permite usar cualquier tecnología. Sin embargo, proporciona API de programación integradas que facilitan la compilación de microservicios.***
+
+### <a name="migrating-existing-applications-to-service-fabric"></a>Migración de aplicaciones existentes a Service Fabric
+Un enfoque clave en Service Fabric es reutilizar código existente, que luego puede modernizarse con nuevos microservicios. Hay cinco fases para la modernización de aplicaciones. Puede empezar y detenerse en cualquiera de ellas. Las fases son:
+
+1) Adopción de una aplicación monolítica tradicional
+2) Levantamiento y movimiento: use contenedores o ejecutables invitados para hospedar código existente en Service Fabric.
+3) Modernización: se agregan nuevos microservicios con código existente en contenedores. 
+4) Innovación: divida la aplicación monolítica en microservicios únicamente en función de las necesidades.
+5) Transformación en microservicios: transforme aplicaciones monolíticas existentes o cree aplicaciones "vírgenes".
+
+![Migración a microservicios][Image3]
+
+Es importante insistir en que puede **empezar y detenerse en cualquiera de estas fases**, no está obligado a pasar a la fase siguiente. Veamos ahora ejemplos de cada una de las fases.
+
+**Levantamiento y movimiento** gran cantidad de compañías están levantando y moviendo las aplicaciones monolíticas existentes a contenedores por dos motivos:
+
+- Reducción de costos debidos a la consolidación y eliminación de hardware existente o a la ejecución de aplicaciones de mayor densidad. 
+- Contrato de implementación coherente entre el desarrollo y las operaciones.
+
+La reducción de costos es comprensible, además, en Microsoft, gran cantidad de aplicaciones existentes que se convierten en contenedores suponen simplemente un ahorro de millones de dólares. La implementación coherente es difícil de evaluar, pero también es muy importante. Se dice que los desarrolladores tienen libertad para elegir la tecnología que mejor se ajuste a sus necesidades, pero las operaciones solo aceptarán una única forma de implementar y administrar esas aplicaciones. Evita que las operaciones se vean afectadas por la complejidad de muchas tecnologías diferentes o que obliguen a los desarrolladores a elegir solo algunas. Básicamente, cada aplicación se convierte en un contenedor de imágenes de implementación independientes.
+
+Muchas organizaciones se detienen aquí. Ya tienen las ventajas de los contenedores y Service Fabric ofrece la experiencia de administración completa de implementación, actualizaciones, control de versiones, reversiones, supervisión de estado, etc.
+
+**Modernización**: es la incorporación de nuevos servicios junto a código existente en contenedores. Si va a escribir otro código, lo mejor es optar por dar pequeños pasos en la ruta a los microservicios. Esto podría ser agregar un nuevo punto de conexión de la API de REST o una nueva lógica de negocios. De ese modo, inicia el camino de creación de microservicios y practica su desarrollo e implementación.
+
+**Innovación**: ¿recuerda las cambiantes necesidades empresariales originales al principio de este artículo que determinan el enfoque de los microservicios? En esta fase, lo que hay que preguntarse es si estas necesidades se producen en la aplicación actual y, de ser así, si es necesario empezar a dividir el enfoque monolítico o innovar. Un ejemplo sería una base de datos que se convierte en un cuello de botella de procesamiento porque se usa como cola de flujo de trabajo. A medida que las solicitudes de flujo de trabajo aumentan es necesario distribuir el trabajo a escala. Por lo que para esa parte concreta de la aplicación que no se escala o hay que actualizar con más frecuencia, divídala en un microservicio e innove. 
+
+**Transformación en microservicios**: aquí es dónde la aplicación se compone de (o descompone en) microservicios. Para llegar aquí, ha hecho el camino de los microservicios. Puede empezar aquí, pero hacerlo sin una plataforma de microservicios que le ayude resulta una importante inversión. 
 
 ### <a name="are-microservices-right-for-my-application"></a>¿Son los microservicios adecuados para mi aplicación?
 Es posible. En nuestra experiencia, a medida que más y más equipos de Microsoft empezaron a crear para la nube por razones empresariales, muchos de ellos constataron las ventajas de adoptar el enfoque de microservicios. Por ejemplo, Bing lleva años desarrollando microservicios para búsqueda. Para otros equipos, el enfoque de microservicios era nuevo. Estos equipos descubrieron que se planteaban problemas difíciles de resolver fuera de sus principales campos de especialización. Por esta razón, Service Fabric ganó popularidad como tecnología preferida para la creación de servicios.
@@ -155,4 +187,5 @@ El objetivo de Service Fabric es reducir las complejidades que conlleva crear ap
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
+[Image3]: media/service-fabric-overview-microservices/microservices-migration.png
 

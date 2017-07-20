@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 5b6c65ec8431c3a55e7cbccec3db5d08974982b5
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 8d7d69fb6a27dfac3c96fb6bc811cad6a531e24e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -33,7 +34,12 @@ En un tutorial anterior, ha aprendido cómo acceder mediante SSH a una máquina 
 > * Usar Key Vault para almacenar de forma segura certificados
 > * Automatizar implementaciones seguras de NGINX con cloud-init
 
-Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). También puede usar [Cloud Shell](/azure/cloud-shell/quickstart) desde el explorador.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).  
+
+
 
 ## <a name="cloud-init-overview"></a>Introducción a cloud-init
 [cloud-init](https://cloudinit.readthedocs.io) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Como cloud-init se ejecuta durante el proceso de arranque inicial, no hay pasos adicionales o agentes requeridos que aplicar a la configuración.
@@ -100,13 +106,13 @@ Para más información sobre las opciones de configuración de cloud-init, consu
 ## <a name="create-virtual-machine"></a>Create virtual machine
 Antes de poder crear una máquina virtual, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupAutomate* en la ubicación *eastus*:
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
 Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#create). Use el parámetro `--custom-data` para pasar su archivo de configuración cloud-init. Proporcione la ruta de acceso completa a la configuración de *cloud-init.txt* si guardó el archivo fuera de su directorio de trabajo actual. En el ejemplo siguiente se crea una VM denominada *myAutomatedVM*:
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVM \
@@ -120,7 +126,7 @@ Transcurren unos minutos hasta que la máquina virtual se crea, los paquetes se 
 
 Para permitir que el tráfico web llegue a la máquina virtual, abra el puerto 80 desde Internet con el comando [az vm open-port](/cli/azure/vm#open-port):
 
-```azurecli
+```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
@@ -145,7 +151,7 @@ Los pasos siguientes muestran cómo puede:
 ### <a name="create-an-azure-key-vault"></a>Crear una instancia de Azure Key Vault
 En primer lugar, cree una instancia de Key Vault con [az keyvault create](/cli/azure/keyvault#create) y habilítela para su uso al implementar una máquina virtual. Cada instancia de Key Vault requiere un nombre único, que debe estar todo en minúsculas. Reemplace *<mykeyvault>* en el siguiente ejemplo por su propio nombre único de Key Vault:
 
-```azurecli
+```azurecli-interactive 
 keyvault_name=<mykeyvault>
 az keyvault create \
     --resource-group myResourceGroupAutomate \
@@ -156,7 +162,7 @@ az keyvault create \
 ### <a name="generate-certificate-and-store-in-key-vault"></a>Generación de un certificado y su almacenamiento en Key Vault
 Para usarlo en producción, debe importar un certificado válido firmado por un proveedor de confianza con [az keyvault certificate import](/cli/azure/certificate#import). En este tutorial, el ejemplo siguiente muestra cómo puede generar un certificado autofirmado con [az keyvault certificate create](/cli/azure/certificate#create) que usa la directiva de certificado predeterminada:
 
-```azurecli
+```azurecli-interactive 
 az keyvault certificate create \
     --vault-name $keyvault_name \
     --name mycert \
@@ -167,7 +173,7 @@ az keyvault certificate create \
 ### <a name="prepare-certificate-for-use-with-vm"></a>Preparación del certificado para usarlo con la máquina virtual
 Para usar el certificado durante el proceso de creación de la máquina virtual, obtenga el id. del certificado con [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions). Convierta el certificado con [az vm format-secret](/cli/azure/vm#format-secret). En el ejemplo siguiente se asigna la salida de estos comandos a las variables para facilitar su uso en los pasos siguientes:
 
-```azurecli
+```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
           --vault-name $keyvault_name \
           --name mycert \
@@ -233,7 +239,7 @@ runcmd:
 ### <a name="create-secure-vm"></a>Creación de una máquina virtual segura
 Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#create). Los datos del certificado se insertan desde Key Vault con el parámetro `--secrets`. Como en el ejemplo anterior, se pasa la configuración de cloud-init con el parámetro `--custom-data`:
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVMSecured \
@@ -248,7 +254,7 @@ Transcurren unos minutos hasta que la máquina virtual se crea, los paquetes se 
 
 Para permitir que el tráfico web llegue a la máquina virtual, abra el puerto 443 desde Internet con el comando [az vm open-port](/cli/azure/vm#open-port):
 
-```azurecli
+```azurecli-interactive 
 az vm open-port \
     --resource-group myResourceGroupAutomate \
     --name myVMSecured \

@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2015
+ms.date: 05/31/2017
 ms.author: ningk
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e910c47d88434fae76f9c2d3bcb8a258d7d3fde4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 8f2ec884fa98e989448ac11675e71f39aa21fa7f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -42,27 +43,22 @@ Existen límites en cuanto al número de discos que puede agregar para los disti
 En este artículo se da por supuesto que ya ha creado una máquina virtual Linux y que MYSQL está instalado y configurado. Para más información sobre cómo empezar, consulte Instalación de MySQL en Azure.  
 
 ### <a name="set-up-raid-on-azure"></a>Configuración de RAID en Azure
-Los siguientes pasos muestran cómo crear RAID en Azure mediante el Portal de Azure clásico. También puede configurar RAID mediante scripts de Windows PowerShell.
+Los siguientes pasos muestran cómo crear RAID en Azure mediante Azure Portal. También puede configurar RAID mediante scripts de Windows PowerShell.
 En este ejemplo, configuraremos RAID 0 con 4 discos.  
 
 #### <a name="add-a-data-disk-to-your-virtual-machine"></a>Incorporación de un disco de datos a la máquina virtual
-En la página de máquinas virtuales del Portal de Azure clásico, haga clic en la máquina virtual a la que desea agregar un disco de datos. En este ejemplo, la máquina virtual es mysqlnode1.  
+En Azure Portal, vaya al panel y seleccione la máquina virtual a la que quiere agregar un disco de datos. En este ejemplo, la máquina virtual es mysqlnode1.  
 
-![Máquinas virtuales][1]
+<!--![Virtual machines][1]-->
 
-En la página de la máquina virtual, haga clic en **Panel**.  
+Haga clic en **Discos** y luego haga clic en **Asociar nuevo**.
 
-![Panel de máquina virtual][2]
+![Agregar disco a máquinas virtuales](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-Disks-option.png)
 
-En la barra de tareas, haga clic en **Adjuntar**.
+Cree un nuevo disco de 500 GB. Asegúrese de que **Preferencia de caché de host** esté establecida en **Ninguna**.  Cuando haya terminado, haga clic en **Aceptar**.
 
-![Barra de tareas de máquina virtual][3]
+![Acoplar disco vacío](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-attach-empty-disk.png)
 
-A continuación, haga clic en **Conectar disco vacío**.  
-
-![Acoplar disco vacío][4]
-
-Para discos de datos, **Preferencia de caché de host** debe establecerse en **Ninguna**.  
 
 Esta acción agrega un disco vacío a la máquina virtual. Repita este paso tres veces más para que disponga de 4 discos de datos para RAID.  
 
@@ -348,4 +344,5 @@ Para obtener [parámetros de configuración de optimización](http://dev.mysql.c
 [12]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-12.png
 [13]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
+
 

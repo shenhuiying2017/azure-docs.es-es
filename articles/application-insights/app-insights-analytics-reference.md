@@ -3,7 +3,7 @@ title: Referencia de Analytics de Azure Application Insights | Microsoft Docs
 description: "Referencia de instrucciones de Analytics, la eficaz herramienta de búsqueda de Application Insights. "
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 07/05/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3fb2464e3757d316367487506f0aca9f1c2e35cc
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: dd3478966e4e5ccc9f108940401c7ee9454087dd
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -35,7 +35,7 @@ Fuentes adicionales de información:
 ## <a name="index"></a>Índice
 **Let** [let](#let-clause) | [materialize](#materialize) 
 
-**Consultas y operadores** [as](#as-operator) | [autocluster](#evaluate-autocluster) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
+**Consultas y operadores** [as](#as-operator) | [autocluster](#evaluate-autocluster_v2) | [basket](#evaluate-basketv2) | [count](#count-operator) | [datatable](#datatable-operator) | [diffpatterns](#evaluate-diffpatterns_v2) | [distinct](#distinct-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [extractcolumns](#evaluate-extractcolumns) | [find](#find-operator) | [getschema](#getschema-operator) | [join](#join-operator) | [limit](#limit-operator) | [make-series](#make-series-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sample](#sample-operator) | [sample-distinct](#sample-distinct-operator) | [sort](#sort-operator) | [summarize](#summarize-operator) | [table](#table-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) 
 
 **Agregaciones** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -44,7 +44,7 @@ Fuentes adicionales de información:
 **Números** [Operadores aritméticos](#arithmetic-operators) | [Literales numéricos](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [Registro](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Serie numérica** 
-[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) | [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
+[series_fir](#seriesfir) | [series\_fit\_line](#seriesfitline) | [series\_fit\_2lines](#seriesfit2lines) | [series_iir](#seriesiir) |[series_outliers](#seriesoutliers)| [series_periods](#seriesperiods) | [series_stats](#seriesstats) | 
 
 **Fecha y hora** [Expresiones de fecha y hora](#date-and-time-expressions) | [Literales de fecha y hora](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -318,14 +318,16 @@ datatable (Supplier: string, Fruit: string, Price:int)
 
 `evaluate` debe ser el último operador de la canalización de la consulta (excepto un posible `render`). No debe aparecer en el cuerpo de una función.
 
-[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+[evaluate autocluster](#evaluate-autocluster_v2) | [evaluate basket](#evaluate-basketv2) | [evaluate diffpatterns](#evaluate-diffpatterns_v2) | [evaluate extractcolumns](#evaluate-extractcolumns)
 
-#### <a name="evaluate-autocluster"></a>evaluate autocluster
+#### <a name="evaluate-autocluster-deprecated"></a>evaluate autocluster (en desuso)
      T | evaluate autocluster()
 
 AutoCluster proporciona una forma rápida de buscar agrupaciones naturales en un conjunto de datos. Por ejemplo, a partir de una cantidad de datos de solicitud, podría identificar rápidamente que el 80 % de los errores 404 eran solicitudes de una URL concreta que realizó un cliente de una ciudad determinada.
 
 AutoCluster busca patrones comunes de atributos discretos (dimensiones) en los datos y reduce los resultados de la consulta original (ya sean 100 o 100 000 filas) a un pequeño número de patrones. AutoCluster se ha desarrollado para ayudar a analizar los errores (por ejemplo, las excepciones o los bloqueos), pero puede trabajar en cualquier conjunto de datos filtrado. 
+
+**Esta versión de `autocluster` está en desuso. Use [autocluster_v2](#evaluate-autocluster_v2).**
 
 **Sintaxis**
 
@@ -374,6 +376,92 @@ Tenga en cuenta que los patrones son contiguos: pueden solaparse y, normalmente,
   
     Ejemplo: `T | evaluate autocluster("weight_column=sample_Count")` 
 
+<a name="evaluate-autocluster_v2"></a>
+
+#### <a name="evaluate-autoclusterv2"></a>evaluate autocluster_v2
+
+    T | evaluate autocluster_v2()
+
+AutoCluster busca patrones comunes de atributos discretos (dimensiones) en los datos y reduce los resultados de la consulta original (ya sean 100 o 100 000 filas) a un pequeño número de patrones. AutoCluster se ha desarrollado para ayudar a analizar los errores (por ejemplo, las excepciones o los bloqueos), pero puede trabajar en cualquier conjunto de datos filtrado. El algoritmo AutoCluster fue desarrollado por el equipo de investigación de Developer Analytics (KustoML@microsoft.com).
+
+Este complemento reemplaza la sintaxis en desuso del complemento autocluster.     
+
+**Sintaxis**
+`T | evaluate autocluster_v2( arguments )`
+
+**Devuelve** AutoCluster devuelve un conjunto de patrones (normalmente pequeño) que captura partes de los datos con valores comunes compartidos entre varios atributos discretos. Cada patrón se representa mediante una fila en los resultados. La primera columna es el identificador de segmento. Las dos columnas siguientes son el número y el porcentaje de filas fuera de la consulta original capturadas por el patrón. Las columnas restantes proceden de la consulta original y su valor es un valor específico de la columna o un valor comodín (que son NULL de forma predeterminada) entendidos como valores de las variables. Tenga en cuenta que los patrones no son distintivos: pueden solaparse y, normalmente, no cubren todas las filas originales. Algunas filas no pueden estar en cualquier patrón.
+
+**Sugerencias** Use `where` y `project` en la canalización de entrada para reducir los datos justo a lo que le interesa.
+Al buscar una fila interesante, puede profundizar aún más mediante la adición de sus valores específicos a su filtro `where` .
+
+**Argumentos (todos opcionales)** `T | evaluate autocluster_V2([*SizeWight*,*WeightColumn*,*NumSeeds*,*CustomWildcard*,...])
+
+Todos los argumentos son opcionales, pero se deben ordenar como se indica anteriormente. Para indicar que se debe usar el valor predeterminado, use el carácter de tilde: ~ (vea los ejemplos siguientes).
+
+**Argumentos disponibles**
+
+- SizeWeight - 0<*doble* <1 [valor predeterminado 0,5] Proporciona control sobre el equilibrio entre genérico (gran cobertura) e informativo (muchos valores compartidos). Aumentar el valor normalmente reduce el número de patrones, y cada patrón tiende a abarcar un porcentaje mayor. Reducir el valor normalmente genera patrones más específicos, con más valores compartidos y una cobertura de porcentaje más pequeña. La fórmula interna es la media geométrica ponderada entre la puntuación genérica normalizada y la puntuación informativa con *SizeWeight* y *1-SizeWeight* como los pesos. 
+
+**Ejemplo**
+`T | evaluate autocluster_v2(0.8)`
+
+- WeightColumn - *nombre_columna*
+
+Considera cada fila de la entrada según el peso especificado (de forma predeterminada cada fila tiene un peso de '1'). El argumento debe ser un nombre de una columna numérica (por ejemplo, int, long, real). Un uso común de una columna de peso es tener en cuenta el muestreo o la creación de depósitos y la agregación de los datos que ya se han insertado en cada fila.
+
+**Ejemplo**
+`T | evaluate autocluster_v2('~', sample_Count)`
+
+`- NumSeeds - *int* [valor predeterminado 25]
+
+El número de inicializaciones determina el número de puntos de búsqueda local iniciales del algoritmo. En algunos casos, según la estructura de los datos, un número de inicializaciones creciente aumenta el número o la calidad de los resultados mediante un espacio de búsqueda mayor con un equilibrio de consulta más lento. El valor tiene una disminución de los resultados en ambas direcciones, por lo que reducirlo por debajo de 5 proporcionará mejoras de rendimiento insignificantes, mientras que aumentarlo por encima de 50 rara vez generará patrones adicionales.
+
+**Ejemplo**
+`T | evaluate autocluster_v2('~','~',15)`
+
+- CustomWildcard - *cualquier_valor_por_tipo*
+
+Establece el valor de carácter comodín para un tipo específico en la tabla de resultados que indicará que el patrón actual no tiene una restricción en esta columna. El valor predeterminado es null, y para las cadenas es una cadena vacía. Si el valor predeterminado es un valor viable de los datos, se debería usar otro valor comodín (por ejemplo, *).
+
+**Ejemplo**
+
+`T | evaluate autocluster_v2('~','~','~',int (-1), double(-1), long(0), datetime(1900-1-1))`
+
+**Ejemplo**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State , EventType , Damage
+| evaluate autocluster_v2(0.6)
+```
+**Resultados**
+|SegmentId|Recuento|Percent|Estado|EventType|Daños|
+----------|-----|-------|-----|---------|------|
+0|2278|38,7||Granizo|NO
+1|512|8,7||Viento de tormenta|SÍ
+2|898|15,3|TEXAS|||
+
+**Ejemplo con caracteres comodín personalizados**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State , EventType , Damage 
+| evaluate autocluster_v2(0.2, '~', '~', '*')
+```
+**Resultados**
+|SegmentId|Recuento|Percent|Estado|EventType|Daños|
+----------|-----|-------|-----|---------|------|
+0|2278|38,7|\*|Granizo|NO
+1|512|8,7|\*|Viento de tormenta|SÍ
+2|898|15,3|TEXAS|\*|\*|
+
+**Información adicional**
+
+-  AutoCluster se basa en gran medida en el algoritmo de expansión de valores de inicialización del documento siguiente: [Algorithms for Telemetry Data Mining using Discrete Attributes](http://www.scitepress.org/DigitalLibrary/PublicationsDetail.aspx?ID=d5kcrO+cpEU=&t=1) (Algoritmos para minería de datos de telemetría con atributos discretos), vínculo de texto completo: [pdf](https://kusto.azurewebsites.net/docs/queryLanguage/images/queries/ICPRAM17telemetry.pdf). 
+
+
 #### <a name="evaluate-basket-deprecated"></a>evaluate basket (en desuso)
 
      T | evaluate basket()
@@ -417,9 +505,13 @@ Reemplaza la sintaxis `evaluate basket` en desuso.
 
 **Devuelve**
 
-Todos los patrones que aparecen en más de una fracción especificada de los eventos (el valor predeterminado es 0,05). En cada modelo, las columnas que no estén establecidas en el patrón (es decir, sin restricción en un valor específico) contendrán un valor comodín que, de forma predetermina, constituyen valores null (vea la sección Argumentos de a continuación para saber cómo se puede cambiar manualmente).
+basket devuelve todos los patrones frecuentes que aparecen por encima del umbral de frecuencia (el valor predeterminado es 0,05) de las filas. Cada modelo se representa mediante una fila en los resultados.
+
+La primera columna es el identificador de segmento. Las dos columnas siguientes son el número y el porcentaje de filas fuera de la consulta original capturadas por el patrón. Las columnas restantes proceden de la consulta original y su valor es un valor específico de la columna o un valor comodín (que son NULL de forma predeterminada) entendidos como valores de las variables.
 
 **Argumentos (todos opcionales)**
+
+Ejemplo: `T | evaluate basket_v2([Threshold, WeightColumn, MaxDimensions, CustomWildcard, CustomWildcard, ...])`
 
 Todos los argumentos son opcionales, pero deben tener el siguiente orden. Para indicar que se debe usar un valor predeterminado, use el carácter de tilde ~ (vea los ejemplos siguientes).
 
@@ -427,32 +519,69 @@ Todos los argumentos son opcionales, pero deben tener el siguiente orden. Para i
   
     Establece la relación mínima de las filas para que se consideren frecuentes (no se devolverán los patrones con una relación menor).
   
-    Ejemplo: `T | evaluate basket(0.02)`
-* Columna de peso *itemCount*
+    Ejemplo: `T | evaluate basket_v2(0.02)`
+* Columna de peso: *-nombre_columna*
   
-    Use este argumento para tener en cuenta la agregación previa de métricas y el muestreo. A cada fila se le atribuye el peso especificado en esta columna. De forma predeterminada, cada una de ellas tiene un peso de 1. Así se tienen en cuenta la creación de depósitos o la agregación de los datos que ya se incrustaron en cada fila.
+    Considera cada fila de la entrada según el peso especificado (de forma predeterminada cada fila tiene un peso de '1'). El argumento debe ser un nombre de una columna numérica (por ejemplo, int, long, real). Un uso común de una columna de peso es tener en cuenta el muestreo o la creación de depósitos y la agregación de los datos que ya se han insertado en cada fila.
   
-    Ejemplo: `T | evaluate basket('~', itemCount)`
+    Ejemplo: `T | evaluate basket_v2('~', sample_Count)`
 * Dimensiones máximas: 1 < *int* (valor predeterminado: 5)
   
     Establece el número máximo de dimensiones no correlacionadas por basket, limitado de forma predeterminada para reducir el tiempo de ejecución de la consulta.
 
-    Ejemplo: `T | evaluate basket('~', '~', 3)`
+    Ejemplo: `T | evaluate basket_v2('~', '~', 3)`
 * Tipos de valores comodines personalizados: *cualquier valor por tipo*
   
     Establece el valor de carácter comodín para un tipo específico en la tabla de resultados que indicará que el patrón actual no tiene una restricción en esta columna. El valor predeterminado es null, y para las cadenas es una cadena vacía. Si el valor predeterminado es un valor viable de los datos, se debería usar otro valor comodín (por ejemplo, *).
 
     Ejemplo: `T | evaluate basket_v2('~', '~', '~', '*', int(-1), double(-1), long(0), datetime(1900-1-1))`
 
-**Ejemplo**
+**Ejemplos**
 
-``` AIQL
-requests 
-| evaluate basket_v2(0.7, itemCount)
+``` 
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State, EventType, Damage, DamageCrops
+| evaluate basket_v2(0.2)
 ```
+Results
 
-#### <a name="evaluate-diffpatterns"></a>evaluate diffpatterns
-     requests | evaluate diffpatterns("split=success")
+|SegmentId|Recuento|Percent|Estado|EventType|Daños|DamageCrops
+----------|-----|-------|-----|---------|------|-----------
+0|4574|77,7|||NO|0
+1|2278|38,7||Granizo|NO|0
+2|5675|96,4||||0
+3|2371|40,3||Granizo||0
+4|1279|21,7||Viento de tormenta||0
+5|2468|41,9||Granizo|||
+6|1310|22,3|||SÍ||
+7|1291|21,9||Viento de tormenta||
+
+Ejemplo con caracteres comodín personalizados
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , "YES" , "NO")
+| project State, EventType, Damage, DamageCrops
+| evaluate basket_v2(0.2, '~', '~', '*', int(-1))
+```
+Results
+
+|SegmentId|Recuento|Percent|Estado|EventType|Daños|DamageCrops
+----------|-----|-------|-----|---------|------|-----------
+0|4574|77,7|\*|\*|NO|0
+1|2278|38,7|\*|Granizo|NO|0
+2|5675|96,4|\*|\*|\*|0
+3|2371|40,3|\*|Granizo|\*|0
+4|1279|21,7|\*|Viento de tormenta|\*|0
+5|2468|41,9|\*|Granizo|\*|-1|
+6|1310|22,3|\*|\*|SÍ|-1|
+7|1291|21,9|\*|Viento de tormenta|\*|-1|
+
+#### <a name="evaluate-diffpatterns-deprecated"></a>evaluate diffpatterns (en desuso)
+**Esta versión del complemento diffpatterns está en desuso. Use la nueva sintaxis del complemento [diffpatterns](#evaluate-diffpatterns_v2).**
+requests | evaluate diffpatterns("split=success")
 
 Diffpatterns identifica las diferencias entre dos conjuntos de datos de la misma estructura; por ejemplo, el registro de solicitudes en el momento de un incidente y los registros de solicitudes normales. diffpatterns se ha desarrollado para ayudar a analizar los errores (por ejemplo, al comparar errores y no errores durante un período determinado), pero puede encontrar las diferencias entre los dos conjuntos de datos de la misma estructura. 
 
@@ -502,6 +631,110 @@ Tenga en cuenta que los patrones no son distintivos: pueden solaparse y, normalm
     Considera cada fila de la entrada según el peso especificado (de forma predeterminada cada fila tiene un peso de '1'). Un uso común de una columna de peso es tener en cuenta el muestreo o la creación de depósitos y la agregación de los datos que ya se han incrustado en cada fila.
   
     `requests | evaluate autocluster("weight_column=itemCount")`
+
+<a name="evaluate-diffpatterns_v2"></a>
+#### <a name="evaluate-diffpatternsv2"></a>evaluate diffpatterns_v2
+"T | evaluate diffpatterns_v2(splitColumn)"
+
+diffpatterns compara dos conjuntos de datos de la misma estructura y busca patrones de atributos discretos (dimensiones) que caracterizan las diferencias entre los dos conjuntos de datos. diffpatterns se ha desarrollado para ayudar a analizar los errores (por ejemplo, al comparar errores y no errores durante un período determinado), pero puede encontrar las diferencias entre los dos conjuntos de datos de la misma estructura. El algoritmo Diffpatterns fue desarrollado por el equipo de investigación de Developer Analytics (KustoML@microsoft.com).
+
+Este complemento reemplaza la sintaxis en desuso del complemento diffpatterns.
+
+**Sintaxis**
+
+`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, arguments] )`
+
+**Devoluciones**
+
+diffpatterns devuelve un conjunto (normalmente pequeño) de patrones que captura distintas partes de los datos en los dos conjuntos (es decir, un patrón que captura un gran porcentaje de las filas del primer conjunto de datos y un porcentaje bajo de las filas del segundo conjunto). Cada patrón se representa mediante una fila en los resultados.
+La primera columna es el identificador de segmento. Las cuatro columnas siguientes son el número y el porcentaje de filas de la consulta original capturadas por el patrón de cada conjunto, la sexta columna es la diferencia (absoluta en puntos de porcentaje) entre los dos conjuntos. Las columnas restantes provienen de la consulta original.
+En cada modelo, las columnas que no estén establecidas en el patrón (es decir, sin restricción en un valor específico) contendrán un valor comodín que, de forma predetermina, es NULL (vea la sección Argumentos a continuación para saber cómo se pueden cambiar manualmente los comodines).
+Tenga en cuenta que los patrones no son distintivos: pueden solaparse y, normalmente, no cubren todas las filas originales. Algunas filas no pueden estar en cualquier patrón.
+
+**Sugerencias**
+
+Use where y project en la canalización de entrada para reducir los datos justo lo que le interesa.
+Al buscar una fila interesante, puede profundizar aún más mediante la adición de sus valores específicos a su filtro `where` .
+
+**Argumentos necesarios**
+
+`T | evaluate diffpatterns_v2(SplitColumn, SplitValueA, SplitValueB [, WeightColumn, Threshold, MaxDimensions, CustomWildcard, ...])` 
+
+- SplitColumn: *nombre_columna* 
+
+Indica al algoritmo cómo dividir la consulta en conjuntos de datos. Según los valores especificados para los argumentos SplitValueA y SplitValueB (ver a continuación), el algoritmo divide la consulta en dos conjuntos de datos, "A" y "B", y analiza las diferencias entre ellos. Por tanto, la columna dividida debe tener al menos dos valores distintos.
+
+- SplitValueA - *cadena*
+
+Una representación de cadena de uno de los valores de SplitColumn que se especificó. Todas las filas que tienen este valor en SplitColumn se consideran como el conjunto de datos "A".
+
+- SplitValueB - *cadena*
+
+Una representación de cadena de uno de los valores de SplitColumn que se especificó. Todas las filas que tienen este valor en SplitColumn se consideran como el conjunto de datos "B".
+
+**Ejemplo**
+
+```
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure")
+```
+**Argumentos opcionales**
+
+Todos los demás argumentos son opcionales, pero se deben ordenar como se indica a continuación. Para indicar que se debe usar el valor predeterminado, use el carácter de tilde: ~ (vea los ejemplos siguientes).
+
+- WeightColumn - *nombre_columna*
+
+Considera cada fila de la entrada según el peso especificado (de forma predeterminada cada fila tiene un peso de '1'). El argumento debe ser un nombre de una columna numérica (por ejemplo, int, long, real). Un uso común de una columna de peso es tener en cuenta el muestreo o la creación de depósitos y la agregación de los datos que ya se han insertado en cada fila.
+
+**Ejemplo**
+```
+T | extend splitColumn=iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", sample_Count)
+```
+- Umbral: 0,015 < doble < 1 [valor predeterminado: 0,05]
+
+Establece la diferencia mínima de los patrones (relación) entre los dos conjuntos.
+
+**Ejemplo**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", 0.04)
+```
+- MaxDimensions: 0 < int [valor predeterminado: ilimitado]
+
+Establece el número máximo de dimensiones no correlacionadas por patrón de resultados, especificando un límite que reduce el tiempo de ejecución de la consulta.
+
+**Ejemplo**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", 3)
+```
+- CustomWildcard - *cualquier_valor_por_tipo*
+
+Establece el valor de carácter comodín para un tipo específico en la tabla de resultados que indicará que el patrón actual no tiene una restricción en esta columna. El valor predeterminado es null, y para las cadenas es una cadena vacía. Si el valor predeterminado es un valor viable de los datos, se debería usar otro valor comodín (por ejemplo, *). Vea el ejemplo siguiente.
+
+**Ejemplo**
+```
+T | extend splitColumn = iff(request_responseCode == 200, "Success" , "Failure") | evaluate diffpatterns_v2(splitColumn, "Success","Failure", "~", "~", "~", int(-1), double(-1), long(0), datetime(1900-1-1))
+```
+
+**Ejemplo**
+```
+StormEvents 
+| where monthofyear(StartTime) == 5
+| extend Damage = iff(DamageCrops + DamageProperty > 0 , 1 , 0)
+| project State , EventType , Source , Damage, DamageCrops
+| evaluate diffpatterns_v2(Damage, "0", "1" )
+```
+**Resultados**
+
+|SegmentId|CountA|CountB|PercentA|PercentB|DiffAB|Estado|EventType|Origen|DamageCrops
+----------|------|------|--------|--------|------|-----|---------|------|-----------
+0|2278|93|49,8|7.1|42,7||Granizo||0
+1|779|512|17,03|39,08|22,05||Viento de tormenta|||
+2|1098|118|24,01|9,01|15|||Observador entrenado|0|
+3|136|158|2,97|12.06|9,09|||Periódico||
+4|359|214|7,85|16,34|8,49||Riada|||
+5|50|122|1,09|9,31|8,22|IOWA||||
+6|655|279|14,32|21,3|6,98|||Cuerpos de seguridad||
+7|150|117|3,28|8,93|5,65||Inundación|||
+8|362|176|7,91|13,44|5,52|||Administrador de emergencia||
 
 #### <a name="evaluate-extractcolumns"></a>evaluate extractcolumns
      exceptions | take 1000 | evaluate extractcolumns("details=json") 
@@ -2346,7 +2579,41 @@ range t from 1 to 1 step 1
 |2.0|3.0|
 |3.0|6.0|
 |4.0|10.0|
+### <a name="seriesoutliers"></a>series_outliers 
 
+La función series_outliers() toma una columna que contiene una matriz dinámica como entrada y genera una matriz dinámica numérica de la misma longitud que la entrada. Cada valor de la matriz indica una puntuación que indica una posible anomalía mediante la prueba de Tukey. Un valor mayor que 1,5 o menor que -1,5 indica una anomalía de aumento o disminución respectivamente en el mismo elemento de la entrada.  
+
+**Sintaxis**  
+
+```
+series_outliers(x,kind,ignore_val,min_percentile,max_percentile)  
+```
+**Argumentos** 
+* *x:* celda de matriz dinámica que es una matriz de valores numéricos. Se supone que los valores son equidistantes, en caso contrario pueden producir resultados inesperados.  
+* *kind:* algoritmo de detección de valores atípicos. Actualmente admite "tukey" y "ctukey". El valor predeterminado es "ctukey".  
+* *ignore_val:* valor numérico que indica que faltan valores en la serie, el valor predeterminado es double(null).
+* *min_percentile:* para calcular el rango intercuartil normal, el valor predeterminado es 10 (solo ctukey).
+* *max_percentile:* para calcular el rango intercuartil normal, el valor predeterminado es 90 (solo ctukey).
+
+En la tabla siguiente se describen las diferencias entre "tukey" y "ctukey":
+
+|Algoritmo|Rango intercuartil predeterminado|Admite rango intercuartil personalizado|
+|---------|----------------------|------------------------------|
+|"tukey"|25% / 75%|No|
+|"ctukey"|10% / 90%|Sí|
+
+**Nota importante** La manera más cómoda de usar esta función es aplicarla a los resultados del operador `make-series`.
+
+**Ejemplos** 
+
+Para la entrada siguiente   
+```
+[30,28,5,27,31,38,29,80,25,37,30]
+``` 
+series_outliers() devuelve  
+[0.0,0.0,-3.206896551724138,-0.1724137931034483,0.0,2.6666666666666667,0.0,16.666666666666669,-0.4482758620689655,2.3333333333333337,0.0]
+
+es decir, el 5 es una anomalía en la disminución y 80 es una anomalía en el aumento en comparación con el resto de la serie. 
 
 ### <a name="seriesperiods"></a>series_periods
 
@@ -3094,7 +3361,8 @@ Para crear un literal dinámico, use `parsejson` (alias `todynamic`) con un argu
 * `parsejson('21')` : Un valor único de tipo dinámico que contiene un número.
 * `parsejson('"21"')` : Un valor único de tipo dinámico que contiene una cadena.
 
-> ![NOTE (NOTA)] Las comillas dobles (`"`) se deben usar para incluir etiquetas y valores de cadena en JSON. Por lo tanto, generalmente es más fácil citar literales de cadena codificados en JSON con comillas simples (`'`).
+> [!NOTE]
+> Las comillas dobles (`"`) se deben usar para incluir etiquetas y valores de cadena en JSON. Por lo tanto, generalmente es más fácil citar literales de cadena codificados en JSON con comillas simples (`'`).
 > 
 
 En este ejemplo se crea un valor dinámico y, a continuación, se utilizan sus campos:
@@ -3278,7 +3546,7 @@ En el ejemplo siguiente, `customDimensions.person` es un elemento `string` simil
 "\"addresses\":[{\"postcode\":\"C789\",\"street\":\"high st\",\"town\":\"Cardigan\"},{\"postcode\":\"J456\",\"street\":\"low st\",\"town\":\"Jumper\"}],\"name\":\"Ada\""
 ```
 
-Después, el siguiente fragmento recupera el valor de la ranura `duration` del objeto, y desde ahí recupera dos ranuras, `duration.value` y  `duration.min` (`118.0` y `110.0`, respectivamente).
+Después, el siguiente fragmento recupera el valor de la ranura `duration` del objeto, y desde ahí recupera dos ranuras, `duration.value` y `duration.min` (`118.0` y `110.0`, respectivamente).
 
 ```AIQL
 customEvents
@@ -3287,7 +3555,8 @@ customEvents
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
-> ![NOTE (NOTA)] Los caracteres de comillas dobles se deben usar para incluir etiquetas y valores de cadena en JSON. 
+> [!NOTE]
+> Los caracteres de comillas dobles se deben usar para incluir etiquetas y valores de cadena en JSON. 
 >
 
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 037045c4e76d0fb8e96944fe8a3235223594a034
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 3b2ddf764f54d2e7f23b02b5b593077938ac9355
+ms.contentlocale: es-es
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -32,7 +33,7 @@ Azure Application Gateway es un controlador de entrega de aplicaciones (ADC) com
 
 **P. ¿Qué características admite Application Gateway?**
 
-Application Gateway admite la descarga de SSL y SSL de un extremo a otro, Firewall de aplicaciones web (vista previa), afinidad de sesión basada en cookies, enrutamiento basado en ruta de dirección URL, alojamiento de varios sitios y muchas otras más. Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
+Application Gateway admite la descarga de SSL y SSL de un extremo a otro, Firewall de aplicaciones web, afinidad de sesión basada en cookies, enrutamiento basado en ruta de dirección URL, alojamiento de varios sitios y muchas otras más. Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
 
 **P. ¿Cuál es la diferencia entre Application Gateway y Azure Load Balancer?**
 
@@ -78,6 +79,10 @@ Solo se admite una dirección IP pública en una instancia de Application Gatewa
 
 Sí, Application Gateway inserta encabezados x-forwarded-for, x-forwarded-proto y x-forwarded-port en la solicitud que se reenvía al back-end. El formato del encabezado x-forwarded-for es una lista separada por comas de IP:Port. Los valores válidos para x-forwarded-proto son http o https. X-forwarded-port especifica el puerto al que llegó la solicitud en Application Gateway.
 
+**P. ¿Cuánto tiempo se tarda en implementar Application Gateway? ¿Sigue funcionando Application Gateway mientras se actualiza?**
+
+Las nuevas implementaciones de Application Gateway pueden tardar hasta 20 minutos en aprovisionarse. Los cambios de tamaño y recuento de instancias no provocan interrupciones, y la puerta de enlace permanece activa durante este tiempo.
+
 ## <a name="configuration"></a>Configuración
 
 **P. ¿Se implementa Application Gateway siempre en una red virtual?**
@@ -90,11 +95,17 @@ Application Gateway puede comunicarse con instancias fuera de la red virtual en 
 
 **P. ¿Puedo implementar algo más en la subred en la que está Application Gateway?**
 
-No, pero se pueden implementar otras puertas de enlace de aplicaciones
+No, pero se pueden implementar otras puertas de enlace de aplicación en la subred.
 
 **P. ¿Se admiten grupos de seguridad de red en la subred en la que está Application Gateway?**
 
-Se admiten grupos de seguridad de red en la subred en la que está Application Gateway, pero se deben aplicar excepciones a los puertos 65503-65534 para que el mantenimiento de back-end funcione correctamente. No se debe bloquear la conectividad saliente de Internet.
+Se admiten grupos de seguridad de red en la subred de Application Gateway con las restricciones siguientes:
+
+* Se deben colocar excepciones para el tráfico entrante en los puertos 65503-65534 para que el estado del back-end funcione correctamente.
+
+* No se debe bloquear la conectividad saliente de Internet.
+
+* Se debe permitir el tráfico de la etiqueta AzureLoadBalancer.
 
 **P. ¿Cuáles son los límites de Application Gateway? ¿Puedo aumentar estos límites?**
 
@@ -122,7 +133,21 @@ Los sondeos personalizados no admiten caracteres comodín o regex en los datos d
 
 **P. ¿Qué significa el campo Host de los sondeos personalizados?**
 
-El campo Host especifica el nombre al que enviar el sondeo. Solo se puede aplicar cuando se ha configurado un entorno multisitio en Application Gateway; de lo contrario hay que usar '127.0.0.1'. Este valor es diferente del nombre de host de máquina virtual y está en formato \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\>. 
+El campo Host especifica el nombre al que enviar el sondeo. Solo se puede aplicar cuando se ha configurado un entorno multisitio en Application Gateway; de lo contrario hay que usar '127.0.0.1'. Este valor es diferente del nombre de host de máquina virtual y está en formato \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\>.
+
+**P. ¿Puedo permitir a Application Gateway el acceso a algunas direcciones IP de origen?**
+
+Esto puede hacerse mediante el uso de NSG en la subred de Application Gateway. Las siguientes restricciones se deben colocar en la subred en el orden de prioridad indicado:
+
+* Permitir el tráfico entrante de la IP o intervalo IP de origen.
+
+* Permitir las solicitudes entrantes de todos los orígenes a los puertos 65503-65534 para la [comunicación del estado del back-end](application-gateway-diagnostics.md).
+
+* Permitir sondeos entrantes de Azure Load Balancer (con la etiqueta AzureLoadBalancer) y el tráfico de red virtual entrante (con la etiqueta VirtualNetwork) en el [NSG](../virtual-network/virtual-networks-nsg.md).
+
+* Bloquear todo el tráfico entrante restante con una regla Denegar todo.
+
+* Permitir el tráfico saliente a Internet para todos los destinos.
 
 ## <a name="performance"></a>Rendimiento
 
@@ -283,3 +308,4 @@ La razón más común es que el acceso al servidor está bloqueado por un NSG o 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Application Gateway, visite [Introducción a Application Gateway](application-gateway-introduction.md).
+

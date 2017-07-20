@@ -13,12 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/5/2017
+ms.date: 5/22/2017
 ms.author: markgal;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b6780e3dc0833c9a074ba85566848ac4246fa848
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 6d390a75df51a22aa4e60094f3e4ba945a5725ad
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -118,7 +119,8 @@ Se recomienda seguir estos procedimientos recomendados al configurar copias de s
 * Programe las copias de seguridad de máquinas virtuales durante horas de poca actividad. De esta forma, el servicio Backup utiliza IOPS para transferir datos desde la cuenta de almacenamiento del cliente al almacén.
 * Asegúrese de que una directiva se aplique en máquinas virtuales entre distintas cuentas de almacenamiento. Se recomienda que la misma programación de copia de seguridad proteja hasta 20 discos como máximo de una única cuenta de almacenamiento. Si tiene más de 20 discos en una cuenta de almacenamiento, distribuya esas máquinas virtuales entre varias directivas para obtener el número de IOPS necesario durante la fase de transferencia del proceso de copia de seguridad.
 * No restaure una máquina virtual que se ejecuta en almacenamiento Premium en la misma cuenta de almacenamiento. Si el proceso de la operación de restauración coincide con la operación de copia de seguridad, se reduce el número de IOPS disponible para copia de seguridad.
-* Se recomienda ejecutar cada máquina virtual Premium en una cuenta de almacenamiento Premium distinta para garantizar el rendimiento óptimo de las copias de seguridad.
+* Para una copia de seguridad de la máquina virtual Premium, asegúrese de que la cuenta de almacenamiento que hospeda los discos Premium tenga al menos 50 % de espacio libre para que la instantánea de almacenamiento provisional realice una copia de seguridad correcta. 
+* Asegúrese de que la versión de python en máquinas virtuales Linux habilitadas para la copia de seguridad sea 2.7
 
 ## <a name="data-encryption"></a>Cifrado de datos
 Copia de seguridad de Azure no cifra los datos como parte del proceso de copia de seguridad. Pero se pueden cifrar datos dentro de la máquina virtual y los datos protegidos de copia de seguridad sin ningún problema (vea más información sobre [copia de seguridad de datos cifrados](backup-azure-vms-encryption.md)).

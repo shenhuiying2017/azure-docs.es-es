@@ -12,12 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/24/2017
+ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: a42488d618c58b36fa8105c1b22fd32ca615d1b1
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: a8df63821af039b7a5ad34f065423701485ee7d8
+ms.contentlocale: es-es
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -26,8 +27,13 @@ ms.lasthandoff: 03/27/2017
 
 Puede solucionar los errores detectados al usar Azure Backup Server con la información incluida en la tabla siguiente.
 
->
->
+
+## <a name="installation-issues"></a>Problemas de instalación
+
+| Operación | Detalles del error | Solución alternativa |
+|-----------|---------------|------------|
+|Instalación | El programa de instalación no pudo actualizar los metadatos del Registro. Este error de actualización podría provocar un uso excesivo de almacenamiento. Para evitar esto, actualice la entrada del Registro del recorte de ReFS. | Ajustar la clave del Registro SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim. Establezca el valor Dword en 1. |
+|Instalación | El programa de instalación no pudo actualizar los metadatos del Registro. Este error de actualización podría provocar un uso excesivo de almacenamiento. Para evitar esto, actualice la entrada del Registro de SnapOptimization del volumen. | Cree la clave del Registro, SOFTWARE\Microsoft Data Protection Manager\Configuration\VolSnapOptimization\WriteIds, con un valor de cadena vacía. |
 
 ## <a name="registration-and-agent-related-issues"></a>Problemas relacionados con el registro y el agente
 | Operación | Detalles del error | Solución alternativa |
@@ -43,6 +49,7 @@ Puede solucionar los errores detectados al usar Azure Backup Server con la infor
 | Configurar grupos de protección | DPM no pudo enumerar el componente de la aplicación en el equipo protegido (nombre del equipo protegido). | Haga clic en "Actualizar" en la pantalla de interfaz de usuario para configurar el grupo de protección en el nivel de origen de datos o el componente correspondiente. |
 | Configurar grupos de protección | No se puede configurar la protección. | Si el servidor protegido es un servidor SQL Server, compruebe si se han proporcionado permisos de rol sysadmin para la cuenta del sistema (NTAuthority\System) en el equipo protegido, como se indica en [este artículo](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx).
 | Configurar grupos de protección | No hay suficiente espacio disponible en el grupo de almacenamiento para este grupo de protección. | Los discos que se agregan al grupo de almacenamiento [no deben contener ninguna partición](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx). Elimine los volúmenes existentes en los discos y agréguelos al grupo de almacenamiento|
+| Cambio de directiva |No se ha podido modificar la directiva de copia de seguridad. Error: no se pudo realizar la operación actual debido a un error de servicio interno [0x29834]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. |**Causa:**<br/>Este error se genera cuando está habilitada la configuración de seguridad, intenta reducir la duración de retención por debajo de los valores mínimos especificados anteriormente y se encuentra en una versión no admitida (debajo de MAB versión 2.0.9052 y Azure Backup Server update 1). <br/>**Acción recomendada:**<br/> En este caso, debe establecer el período de retención por encima el período de retención mínimo (siete días para un valor diario, cuatro semanas para uno semanal, tres semanas para mensual o un año para la copia anual) para continuar con las actualizaciones relacionadas con la directiva. Si lo desea, el enfoque preferido sería actualizar el agente de copia de seguridad y Azure Backup Server para aprovechar todas las actualizaciones de seguridad. |
 
 ## <a name="backup"></a>Backup
 | Operación | Detalles del error | Solución alternativa |
@@ -54,4 +61,10 @@ Puede solucionar los errores detectados al usar Azure Backup Server con la infor
 | Backup | No se pudo crear el punto de recuperación en línea | Si aparece el mensaje de error "No se ha establecido la frase de contraseña de cifrado para este servidor. Configure la frase de contraseña de cifrado, intente configurarla. Si esto no funciona, <br> <ol><li>compruebe si la ubicación temporal existe. La ubicación mencionada en el Registro HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config debe existir con el nombre "ScratchLocation".</li><li> Si no existe la ubicación temporal, intente volver a registrarlo con la frase de contraseña de cifrado anterior. **Siempre que configure una frase de contraseña de cifrado, guárdela en una ubicación segura**.</li><ol>
 | Backup | Error en la copia de seguridad de la BMR | Si la BMR es enorme, vuelva a intentarlo después de mover algunos archivos de la aplicación a la unidad del sistema operativo. |
 | Backup | Error al acceder a carpetas o archivos compartidos | Pruebe a modificar la configuración del antivirus como se sugiere [aquí](https://technet.microsoft.com/library/hh757911.aspx).|
+
+## <a name="change-passphrase"></a>Cambiar la frase de contraseña
+| Operación | Detalles del error | Solución alternativa |
+| --- | --- | --- |
+| Cambiar la frase de contraseña |El PIN de seguridad escrito no es correcto. Proporcione el PIN de seguridad correcto para completar esta operación. |**Causa:**<br/> Este error se genera cuando se escribe un PIN de seguridad no válido o caducado mientras se realiza una operación crítica (por ejemplo, cambiar la frase de contraseña). <br/>**Acción recomendada:**<br/> Para completar la operación, debe escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta el almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
+| Cambiar la frase de contraseña |Error en la operación ID: 120002 |**Causa:**<br/>Este error se genera cuando está habilitada la configuración de seguridad, intenta cambiar la frase de contraseña y se encuentra en una versión no compatible.<br/>**Acción recomendada:**<br/> Para cambiar la frase de contraseña, primero debe actualizar el agente de copia de seguridad a la versión mínima 2.0.9052 y Azure Backup Server a la actualización mínima 1 y, después, escribir el PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta el almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
 

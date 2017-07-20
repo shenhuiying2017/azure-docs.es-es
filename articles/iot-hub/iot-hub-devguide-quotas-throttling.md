@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 06/16/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: f36ce029acebfccdfa84122a86ea3a642c048b8c
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 3aab67303fd349195c2ffb8d0854efec74e47070
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -34,7 +34,7 @@ El valor de SKU también determina los valores de limitación que aplica el Cent
 ## <a name="operation-throttles"></a>Limitaciones de operación
 Las limitaciones de operación son las limitaciones de velocidad que se aplican en los intervalos de minutos y están diseñadas para evitar abusos. El Centro de IoT intenta evitar los errores de devolución siempre que sea posible, pero inicia la excepción de devolución si se infringe la limitación durante demasiado tiempo.
 
-A continuación se muestra la lista de las limitaciones aplicadas. Los valores hacen referencia a un centro individual.
+En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen referencia a un centro individual.
 
 | Limitación | Gratuitos y centros S1 | Centros S2 | Centros S3 | 
 | -------- | ------- | ------- | ------- |
@@ -50,7 +50,7 @@ A continuación se muestra la lista de las limitaciones aplicadas. Los valores h
 | Operaciones de trabajos <br/> (crear, actualizar, enumerar, eliminar) | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/min/unidad) |
 | Resultado de operaciones por dispositivo de trabajos | 10/s | Máximo de 10/s o 1/s/unidad | 50/s/unidad |
 
-Es importante aclarar que la limitación de las *conexiones de dispositivo* determina la velocidad a la que se pueden establecer nuevas conexiones de dispositivo con un Centro de IoT, no el número máximo de dispositivos conectados a la vez. La limitación depende del número de unidades aprovisionadas para el centro de IoT.
+Es importante aclarar que la limitación de las *conexiones de dispositivo* determina la velocidad a la que se pueden establecer nuevas conexiones de dispositivo con un IoT Hub. La limitación de las *conexiones de dispositivo* no controla el número máximo de dispositivos conectados a la vez. La limitación depende del número de unidades aprovisionadas para el centro de IoT.
 
 Por ejemplo, si compra una sola unidad S1, tendrá una limitación de 100 conexiones por segundo. Por lo tanto, para conectar 100 000 dispositivos, se tarda al menos 1000 segundos (aproximadamente 16 minutos). Sin embargo, puede tener el mismo número de dispositivos conectados al mismo tiempo que de dispositivos registrados en el registro de identidad.
 
@@ -66,29 +66,36 @@ Consulte la entrada de blog [IoT Hub throttling and you][lnk-throttle-blog] (Lim
 
 ## <a name="other-limits"></a>Otros límites
 
-IoT Hub exige otros límites en sus distintas funcionalidades.
+IoT Hub exige otros límites operativos:
 
 | Operación | Límite |
 | --------- | ----- |
 | URI de carga de archivos | 10000 URI de SAS pueden estar fuera para una cuenta de almacenamiento al mismo tiempo. <br/> 10 URI/dispositivo de SAS puede estar fuera al mismo tiempo. |
-| Trabajos | El historial de trabajos se conserva durante 30 días como máximo. <br/> El número máximo de trabajos simultáneos es: 1 para gratuitos y S1, 5 para S2 y 10 para S3. |
+| Trabajos | El historial de trabajos se conserva durante 30 días como máximo. <br/> El número máximo de trabajos simultáneos es 1 para gratuitos y S1, 5 para S2 y 10 para S3. |
 | Puntos de conexión adicionales | Los centros de SKU de pago pueden tener 10 puntos de conexión adicionales. Los centros de SKU gratis pueden tener un punto de conexión adicional. |
 | Reglas de enrutamiento de mensajes | Los centros de SKU de pago pueden tener 100 reglas de enrutamiento. Los centros de SKU gratis pueden tener cinco reglas de enrutamiento. |
+| Mensajería de un dispositivo a la nube | Tamaño máximo del mensaje 256 KB |
+| Mensajería de la nube a un dispositivo | Tamaño máximo del mensaje 64 KB |
+| Mensajería de la nube a un dispositivo | El número máximo de mensajes pendientes para la entrega es 50 |
 
 > [!NOTE]
-> Actualmente, el número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 500 000. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/en-us/support/options/).
+> Actualmente, el número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 500 000. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="latency"></a>Latency
-IoT Hub se esfuerza por proporcionar una latencia baja para todas las operaciones. Sin embargo, debido a las condiciones de red y a otros factores imprevisibles, no puede garantizar una latencia máxima. Al diseñar una solución, evite realizar suposiciones sobre la latencia máxima de cualquier operación de IoT Hub. Aprovisione IoT Hub en la región de Azure más cercana a los dispositivos y considere la posibilidad de usar Azure IoT Edge para realizar operaciones sensibles a la latencia en el dispositivo o en una puerta de enlace próxima al dispositivo.
+IoT Hub se esfuerza por proporcionar una latencia baja para todas las operaciones. Pero debido a las condiciones de la red y otros factores impredecibles no puede garantizar una latencia máxima. Cuando diseñe la solución, debería:
+
+* Evitar realizar suposiciones sobre la latencia máxima de cualquier operación de IoT Hub.
+* Aprovisionar el IoT Hub en la región de Azure más cercana a los dispositivos.
+* Considere la posibilidad de usar Azure IoT Edge para realizar operaciones sensibles a la latencia en el dispositivo o en una puerta de enlace próxima al dispositivo.
 
 Muchas unidades de IoT Hub afectan a la limitación, tal como se ha descrito anteriormente, pero no proporcionan ventajas ni garantías de latencia adicionales.
-En caso de aumentos inesperados de la latencia de operación, póngase en contacto con el [Soporte técnico de Microsoft](https://azure.microsoft.com/en-us/support/options/).
+Si ve aumentos inesperados de la latencia de operación, póngase en contacto con el [Soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 
 * [IoT Hub endpoints][lnk-devguide-endpoints] (Puntos de conexión de IoT Hub)
-* [Lenguaje de consulta de IoT Hub para dispositivos gemelos y trabajos][lnk-devguide-query]
+* [IoT Hub query language for device twins, jobs, and message routing][lnk-devguide-query] (Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes)
 * [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

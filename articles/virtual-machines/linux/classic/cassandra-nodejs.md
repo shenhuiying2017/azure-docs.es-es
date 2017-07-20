@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: hanuk;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1cc14b99a4c0dfeb9eec0afaf72200e93cd22e12
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 7dc61a4ea5f7ce9749a3280562e42223dfdbde17
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -86,7 +87,7 @@ La replicación compatible del centro de datos de Cassandra y el modelo de coher
 
 **Implementación basada en proximidad:** Las aplicaciones de varios inquilinos, con una asignación clara de los usuarios inquilino a la región, se pueden beneficiar de las bajas latencias del clúster de varias regiones. Por ejemplo, los sistemas de administración de aprendizaje para instituciones educativas pueden implementar un clúster distribuido en regiones del Este de EE. UU. y del Oeste de EE. UU. para servir a los campus correspondientes de forma transaccional, así como analítica. Los datos pueden ser coherentes localmente en las lecturas y escrituras en el momento, y pueden ser coherentes con el tiempo entre ambas regiones. Hay otros ejemplos como la distribución de medios, el comercio electrónico y todo lo que sirva a una base de usuario concentrada geográficamente es un buen caso de uso para este modelo de implementación.
 
-**Alta disponibilidad:** La redundancia es un factor clave para lograr una alta disponibilidad de software y hardware; consulte Creación de sistemas en nube confiables en Microsoft Azure para obtener más información. En Microsoft Azure, la única manera confiable de lograr una verdadera redundancia es mediante la implementación de un clúster de varias regiones. Se pueden implementar aplicaciones en modo activo-activo o activo-pasivo y si una de las regiones está inactiva, el Administrador de tráfico de Azure puede redirigir el tráfico a la región activa.  Con la implementación de una sola región, si la disponibilidad es de 99,9, una implementación de dos regiones puede alcanzar una disponibilidad de 99,9999 calculada mediante la fórmula: (1-(1-0,999) *(1-0,999))*100); consulte la nota anterior para obtener más información.
+**Alta disponibilidad:** La redundancia es un factor clave para lograr una alta disponibilidad de software y hardware; consulte Creación de sistemas en nube confiables en Microsoft Azure para obtener más información. En Microsoft Azure, la única manera confiable de lograr una verdadera redundancia es mediante la implementación de un clúster de varias regiones. Se pueden implementar aplicaciones en modo activo-activo o activo-pasivo y si una de las regiones está inactiva, el Administrador de tráfico de Azure puede redirigir el tráfico a la región activa.  Con la implementación de una sola región, si la disponibilidad es de 99,9, una implementación de dos regiones puede alcanzar una disponibilidad de 99,9999 calculada mediante la fórmula: (1-(1-0,999) * (1-0,999))*100); consulte la nota anterior para obtener más información.
 
 **Recuperación ante desastres:** El clúster de Cassandra de varias regiones, si está correctamente diseñado, puede resistir interrupciones del centro de datos por catástrofes. Si una región está inactiva, la aplicación implementada en otras regiones puede empezar a servir a los usuarios finales. Al igual que cualquier otra implementación de continuidad empresarial, la aplicación tiene que ser tolerante a errores de pérdida de datos resultantes de los datos en la canalización asincrónica. Sin embargo, Cassandra hace que la recuperación sea mucho más rápida que el tiempo empleado por los procesos de recuperación de bases de datos tradicionales. La Ilustración 2 muestra el modelo de implementación típica de varias regiones de ocho nodos en cada región. Ambas regiones son imágenes reflejadas entre sí para la misma de simetría; los diseños reales dependen del tipo de carga de trabajo (por ejemplo, transaccional o analítico), el RPO, RTO, la coherencia de los datos y los requisitos de disponibilidad.
 
@@ -303,15 +304,13 @@ Asegúrese de que la máquina virtual está resaltada y haga clic en el vínculo
 Esto tardará unos segundos. La imagen debe estar disponible en la sección Mis imágenes de la Galería de imágenes. La máquina virtual de origen se eliminará automáticamente después de que la imagen se capture correctamente. 
 
 ## <a name="single-region-deployment-process"></a>Proceso de implementación en una sola región
-**Paso 1: Creación de la red virtual** Inicie sesión en el Portal de Azure clásico y cree una red virtual con los atributos que se muestran en la tabla. Consulte [Configurar una red virtual solo en la nube en el Portal de Azure clásico](../../../virtual-network/virtual-networks-create-vnet-classic-portal.md) para obtener pasos detallados del proceso.      
+**Paso 1: Creación de la red virtual** Inicie sesión en Azure Portal y cree una red virtual (clásica) con los atributos que se muestran en la tabla siguiente. Consulte [Creación de una red virtual (clásica) usando Azure Portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para obtener pasos detallados del proceso.      
 
 <table>
 <tr><th>Nombre del atributo de VM</th><th>Valor</th><th>Comentarios</th></tr>
 <tr><td>Nombre</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Region</td><td>Oeste de EE. UU.</td><td></td></tr>
-<tr><td>Servidores DNS    </td><td>None</td><td>Ignore esto, ya que no estamos usando un servidor DNS</td></tr>
-<tr><td>Configurar una VPN de punto a sitio</td><td>None</td><td> Ignore esto</td></tr>
-<tr><td>Configurar una VPN de sitio a sitio</td><td>None</td><td> Ignore esto</td></tr>
+<tr><td>Servidores DNS</td><td>None</td><td>Ignore esto, ya que no estamos usando un servidor DNS</td></tr>
 <tr><td>Espacio de direcciones</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>IP inicial:</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>

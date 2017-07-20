@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: e843e444d2fe32f578c5a887b606db982920a9e0
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: de7e77b7d4c26b08e73036b8da67489823100f4c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -35,7 +36,10 @@ Las máquinas virtuales de Azure utilizan las redes de Azure para la comunicaci�
 > * Proteger el tráfico entrante de Internet
 > * Protección de máquinas virtuales para el tráfico de máquinas virtuales
 
-Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Para buscar la versión de la CLI, ejecute `az --version`. Si necesita actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). También puede usar [Cloud Shell](/azure/cloud-shell/quickstart) desde el explorador.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="vm-networking-overview"></a>Introducción a las redes de máquinas virtuales
 
@@ -47,7 +51,7 @@ Para este tutorial, se crea una única red virtual con dos subredes: una subred 
 
 Antes de poder crear una red virtual, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myRGNetwork* en la ubicación eastus.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
 ```
 
@@ -55,7 +59,7 @@ az group create --name myRGNetwork --location eastus
 
 Cree una red virtual con el comando [az network vnet create](/cli/azure/network/vnet#create). En este ejemplo, la red se denomina *mvVnet* y se le asigna un prefijo de dirección de *10.0.0.0/16*. También se crea una subred con el nombre de *mySubnetFrontEnd* y un prefijo de *10.0.1.0/24*. Más adelante en este tutorial, se va a conectar una máquina virtual de front-end a esta subred. 
 
-```azurecli
+```azurecli-interactive 
 az network vnet create \
   --resource-group myRGNetwork \
   --name myVnet \
@@ -68,7 +72,7 @@ az network vnet create \
 
 Para agregar una subred nueva a la red virtual, se utiliza el comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#create). En este ejemplo, la subred se denomina *mySubnetBackEnd* y se le asigna un prefijo de dirección de *10.0.2.0/24*. Esta subred se usa con todos los servicios back-end.
 
-```azurecli
+```azurecli-interactive 
 az network vnet subnet create \
   --resource-group myRGNetwork \
   --vnet-name myVnet \
@@ -92,7 +96,7 @@ El método de asignación se puede establecer en estático, lo que garantiza que
 
 Al crear una máquina virtual con el comando [az vm create](/cli/azure/vm#create), el método predeterminado para la asignación de una dirección IP pública es dinámico. En el ejemplo siguiente, se crea una máquina virtual con una dirección IP dinámica. 
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myRGNetwork \
   --name myFrontEndVM \
@@ -114,19 +118,19 @@ Se puede cambiar el método de asignación de dirección IP mediante el comando 
 
 En primer lugar, desasigne la máquina virtual.
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myRGNetwork --name myFrontEndVM
 ```
 
 Use el comando [az network public-ip update](/azure/network/public-ip#update) para actualizar el método de asignación. En este caso, `--allocaion-metod` se establece en *estático*.
 
-```azurecli
+```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myFrontEndIP --allocation-method static
 ```
 
 Inicie la máquina virtual.
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myRGNetwork --name myFrontEndVM --no-wait
 ```
 
@@ -150,13 +154,13 @@ Todos los grupos de seguridad de red contienen un conjunto de reglas predetermin
 
 ### <a name="create-network-security-groups"></a>Creación de grupos de seguridad de red
 
-Un grupo de seguridad de red puede crearse a la vez como máquina virtual mediante el comando [az vm create](/cli/azure/vm#create). De este modo, el NSG está asociado a la interfaz de red de máquinas virtuales y se crea automáticamente una regla de NSG para permitir el tráfico en el puerto *22* desde cualquier destino. Anteriormente en este tutorial, se ha creado automáticamente el NSG de front-end con la máquina virtual de front-end. También se crea automáticamente una regla de NSG para el puerto 22. 
+Un grupo de seguridad de red puede crearse a la vez como máquina virtual mediante el comando [az vm create](/cli/azure/vm#create). De este modo, el NSG está asociado a la interfaz de red de máquinas virtuales y se crea automáticamente una regla de NSG para permitir el tráfico en el puerto *22* desde cualquier origen. Anteriormente en este tutorial, se ha creado automáticamente el NSG de front-end con la máquina virtual de front-end. También se crea automáticamente una regla de NSG para el puerto 22. 
 
 En algunos casos, puede resultar útil crear previamente un NSG, por ejemplo, cuando no se deben crear reglas predeterminadas de SSH o cuando el NSG debe asociarse a una subred. 
 
 Utilice el comando [az network nsg create](/cli/azure/network/nsg#create) para crear un grupo de seguridad de red.
 
-```azurecli
+```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myNSGBackEnd
 ```
 
@@ -164,7 +168,7 @@ En lugar de asociar el NSG a una interfaz de red, está asociado a una subred. E
 
 Actualice la subred existente denominada *mySubnetBackEnd* con el nuevo NSG.
 
-```azurecli
+```azurecli-interactive 
 az network vnet subnet update \
   --resource-group myRGNetwork \
   --vnet-name myVnet \
@@ -174,7 +178,7 @@ az network vnet subnet update \
 
 Ahora cree una máquina virtual que esté asociada a *mySubnetBackEnd*. Tenga en cuenta que el argumento `--nsg` tiene un valor de comillas dobles vacías. No es obligatorio crear un NSG con la máquina virtual. La máquina virtual está conectada a la subred de back-end que está protegida con el NSG de back-end creado previamente. Este NSG se aplica a la máquina virtual. Además, tenga en cuenta aquí que el argumento `--public-ip-address` tiene un valor de comillas dobles vacías. Esta configuración crea una máquina virtual sin una dirección IP pública. 
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myRGNetwork \
   --name myBackEndVM \
@@ -192,7 +196,7 @@ Al crear la máquina virtual de front-end, se ha creado una regla de NSG para pe
 
 Utilice el comando [az network nsg rule create](/cli/azure/network/nsg/rule#create) para crear una regla para el puerto *80*.
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGFrontEnd \
@@ -209,13 +213,13 @@ az network nsg rule create \
 
 La máquina virtual de front-end solo está accesible ahora en el puerto *22* y el puerto *80*. El resto del tráfico entrante se bloquea en el grupo de seguridad de red. Puede ser útil visualizar las configuraciones de reglas de NSG. Se puede volver a la configuración de las reglas de NSG con el comando [az network rule list](/cli/azure/network/nsg/rule#list). 
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGFrontEnd --output table
 ```
 
 Salida:
 
-```azurecli
+```azurecli-interactive 
 Access    DestinationAddressPrefix      DestinationPortRange  Direction    Name                 Priority  Protocol    ProvisioningState    ResourceGroup    SourceAddressPrefix    SourcePortRange
 --------  --------------------------  ----------------------  -----------  -----------------  ----------  ----------  -------------------  ---------------  ---------------------  -----------------
 Allow     *                                               22  Inbound      default-allow-ssh        1000  Tcp         Succeeded            myRGNetwork      *                      *
@@ -228,7 +232,7 @@ También pueden aplicar reglas del grupo de seguridad de red entre máquinas vir
 
 Utilice el comando [az network nsg rule create](/cli/azure/network/nsg/rule#create) para crear una regla para el puerto 22. Tenga en cuenta que el argumento `--source-address-prefix` especifica un valor de *10.0.1.0/24*. Esta configuración garantiza que solo se permite el tráfico de la subred de front-end a través de NSG.
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGBackEnd \
@@ -245,7 +249,7 @@ az network nsg rule create \
 
 Ahora, agregue una regla para el tráfico de MySQL en el puerto 3306.
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGBackEnd \
@@ -262,7 +266,7 @@ az network nsg rule create \
 
 Por último, como los NSG tienen una regla predeterminada que permite todo el tráfico entre las máquinas virtuales de la misma red virtual, se puede crear una regla para que los NSG de back-end bloqueen todo el tráfico. Observe que a `--priority` se le asigna un valor de *300*, que es menor que las reglas de NSG y MySQL. Esta configuración garantiza que se sigue permitiendo el tráfico SSH y MySQL a través de NSG.
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule create \
   --resource-group myRGNetwork \
   --nsg-name myNSGBackEnd \
@@ -279,13 +283,13 @@ az network nsg rule create \
 
 La máquina virtual de back-end solo está accesible ahora en el puerto *22* y el puerto *3306* desde la subred de front-end. El resto del tráfico entrante se bloquea en el grupo de seguridad de red. Puede ser útil visualizar las configuraciones de reglas de NSG. Se puede volver a la configuración de las reglas de NSG con el comando [az network rule list](/cli/azure/network/nsg/rule#list). 
 
-```azurecli
+```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myNSGBackEnd --output table
 ```
 
 Salida:
 
-```azurecli
+```azurecli-interactive 
 Access    DestinationAddressPrefix    DestinationPortRange    Direction    Name       Priority  Protocol    ProvisioningState    ResourceGroup    SourceAddressPrefix    SourcePortRange
 --------  --------------------------  ----------------------  -----------  -------  ----------  ----------  -------------------  ---------------  ---------------------  -----------------
 Allow     *                           22                      Inbound      SSH             100  Tcp         Succeeded            myRGNetwork      10.0.1.0/24            *
@@ -309,3 +313,4 @@ Prosiga en el siguiente tutorial para aprender a proteger los datos en máquinas
 
 > [!div class="nextstepaction"]
 > [Copia de seguridad de máquinas virtuales Linux en Azure](./tutorial-backup-vms.md)
+

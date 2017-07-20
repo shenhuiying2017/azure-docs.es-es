@@ -3,7 +3,7 @@ title: "Copias de seguridad de Azure SQL Database automáticas y con redundancia
 description: "SQL Database crea automáticamente una copia de seguridad local de la base de datos cada pocos minutos y usa almacenamiento con redundancia geográfica con acceso de lectura de Azure para proporcionar redundancia geográfica."
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2016
-ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d849eeedae65c8cc35271c2e9b63236760c4629c
-ms.lasthandoff: 04/15/2017
+ms.date: 07/05/2017
+ms.author: carlrab
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: cfd0d130186f851bc306065893b137c94cfb7d3d
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,7 +42,6 @@ Puede utilizar estas copias de seguridad para realizar lo siguiente:
 
 > [!NOTE]
 > En Azure Storage, el término *replicación* hace referencia a la copia de archivos desde una ubicación a otra. La *replicación de base de datos* de SQL hace referencia a mantener varias bases de datos secundarias sincronizadas con una base de datos principal. 
-> 
 > 
 
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>¿Cuánto almacenamiento de copia de seguridad se incluye sin costo?
@@ -69,7 +69,6 @@ Si elimina una base de datos, SQL Database mantiene las copias de seguridad de l
 > [!IMPORTANT]
 > Si elimina el servidor de Azure SQL que hospeda las bases de datos SQL, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. No puede restaurar un servidor eliminado.
 > 
-> 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>¿Cómo se puede ampliar el periodo de retención de las copias de seguridad?
 Si la aplicación requiere que las copias de seguridad estén disponibles durante un periodo mayor, puede ampliar el periodo de retención integrado configurando la directiva de retención de copias de seguridad a largo plazo para bases de datos individuales (directiva de LTR). De este modo, podrá ampliar el periodo de retención integrado de 35 días a un máximo de 10 años. Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md).
@@ -79,6 +78,10 @@ Una vez que agregue la directiva de LTR a una base de datos mediante Azure Porta
 > [!TIP]
 > Para obtener una guía de procedimientos, vea [Configuración de la retención de copias de seguridad a largo plazo de Azure SQL Database](sql-database-long-term-backup-retention-configure.md).
 >
+
+## <a name="are-backups-encrypted"></a>¿Se cifran las copias de seguridad?
+
+Cuando TDE está habilitado para una instancia de Azure SQL Database, también se cifran las copias de seguridad. Todas las instancias nuevas de Azure SQL Database están configuradas con TDE habilitado de forma predeterminada. Para más información, vea [Cifrado de datos transparente con Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

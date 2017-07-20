@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 06/27/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 951a7849beb9653083ed0112dbbb6cf57175469d
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: f27bc3689f228809e9db8f61485ea0c8b4b302d1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -31,8 +31,6 @@ Hay que comprender dos conceptos acerca de las directivas:
 * asignación de la directiva: la definición de la directiva se aplica a un ámbito (suscripción o grupo de recursos)
 
 Este tema se centra en la definición de la directiva. Para obtener información acerca de la asignación de directivas, consulte [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Uso de Azure Portal para asignar y administrar directivas de recursos) o [Assign and manage policies through script](resource-manager-policy-create-assign.md) (Asignación y administración de directivas a través de scripts).
-
-Azure proporciona algunas definiciones de directiva predefinidas que pueden reducir el número de directivas que tiene que definir. Si una definición de directiva integrada funciona para su escenario, úsela para la asignación a un ámbito.
 
 Las directivas se evalúan al crear y actualizar los recursos (operaciones PUT y PATCH).
 
@@ -50,6 +48,22 @@ Para usar las directivas, debe autenticarse a través de RBAC. En concreto, la c
 * El permiso `Microsoft.Authorization/policyassignments/write` para asignar una directiva. 
 
 Estos permisos no se incluyen en el rol **Colaborador**.
+
+## <a name="built-in-policies"></a>Directivas integradas
+
+Azure proporciona algunas definiciones de directiva predefinidas que pueden reducir el número de directivas que tiene que definir. Para continuar con las definiciones de la directiva, debe tener en cuenta si una directiva integrada ya proporciona la definición que necesita. Las definiciones de directiva integrada son:
+
+* Ubicaciones permitidas
+* Tipos de recursos permitidos
+* SKU de cuenta de almacenamiento permitida
+* SKU de máquina virtual permitida
+* Aplicación de etiqueta y valor predeterminado
+* Aplicación de etiqueta y valor
+* Tipos de recursos no permitidos
+* Requisito de la versión 12.0 de SQL Server
+* Requisito de cifrado de la cuenta de almacenamiento
+
+Puede asignar cualquier de estas directivas a través del [portal](resource-manager-policy-portal.md), [PowerShell](resource-manager-policy-create-assign.md#powershell) o la [CLI de Azure](resource-manager-policy-create-assign.md#azure-cli).
 
 ## <a name="policy-definition-structure"></a>Estructura de definición de directiva
 Para crear una definición de directiva se utiliza JSON. La definición de directiva contiene elementos para:
@@ -149,7 +163,7 @@ Los operadores lógicos admitidos son:
 
 La sintaxis **not** invierte el resultado de la condición. La sintaxis **allOf** (similar a la operación lógica **And**) requiere que se cumplan todas las condiciones. La sintaxis **anyOf** (similar a la operación lógica **Or**) requiere que se cumplan una o varias condiciones.
 
-Puede anidar los operadores lógicos. El ejemplo siguiente muestra una operación **Not** que está anidada dentro de una operación **And**. 
+Puede anidar los operadores lógicos. El ejemplo siguiente muestra una operación **not** que está anidada dentro de una operación **allOf**. 
 
 ```json
 "if": {
@@ -194,27 +208,7 @@ Se admiten los siguientes campos:
 * `location`
 * `tags`
 * `tags.*` 
-* alias de propiedad
-
-Los alias de propiedad se usan para tener acceso a propiedades específicas de un tipo de recurso. Los alias admitidos son:
-
-* Microsoft.CDN/profiles/sku.name
-* Microsoft.Compute/virtualMachines/imageOffer
-* Microsoft.Compute/virtualMachines/imagePublisher
-* Microsoft.Compute/virtualMachines/sku.name
-* Microsoft.Compute/virtualMachines/imageSku 
-* Microsoft.Compute/virtualMachines/imageVersion
-* Microsoft.SQL/servers/databases/edition
-* Microsoft.SQL/servers/databases/elasticPoolName
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveId
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveName
-* Microsoft.SQL/servers/elasticPools/dtu
-* Microsoft.SQL/servers/elasticPools/edition
-* Microsoft.SQL/servers/version
-* Microsoft.Storage/storageAccounts/accessTier
-* Microsoft.Storage/storageAccounts/enableBlobEncryption
-* Microsoft.Storage/storageAccounts/sku.name
-* Microsoft.Web/serverFarms/sku.name
+* alias de propiedad: para obtener una lista, vea [Alias](#aliases).
 
 ### <a name="effect"></a>Efecto
 La directiva admite tres tipos de efectos: `deny`, `audit` y `append`. 
@@ -237,127 +231,131 @@ En el caso de **append**, debe proporcionar los detalles tal y como se muestra a
 
 El valor puede ser una cadena o un objeto con formato JSON. 
 
+## <a name="aliases"></a>Alias
+
+Los alias de propiedad se usan para tener acceso a propiedades específicas de un tipo de recurso. 
+
+**Microsoft.Cache/Redis**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| Microsoft.Cache/Redis/enableNonSslPort | Establece si el puerto de servidor Redis que no es SSL (6379) está habilitado. |
+| Microsoft.Cache/Redis/shardCount | Establezca el número de particiones que se va a crear en una caché de clúster premium.  |
+| Microsoft.Cache/Redis/sku.capacity | Establezca el tamaño de la caché de Redis que implementar.  |
+| Microsoft.Cache/Redis/sku.family | Establezca la familia de SKU que utilizar. |
+| Microsoft.Cache/Redis/sku.name | Establezca el tipo de Redis Cache que implementar. |
+
+**Microsoft.Cdn/profiles**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| Microsoft.CDN/profiles/sku.name | Establezca el nombre del plan de tarifa. |
+
+**Microsoft.Compute/disks**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Establezca la oferta de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/imagePublisher | Establezca el publicador de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/imageSku | Establezca la SKU de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/imageVersion | Establezca la versión de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+
+
+**Microsoft.Compute/virtualMachines**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Establezca la oferta de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/imagePublisher | Establezca el publicador de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/imageSku | Establezca la SKU de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/imageVersion | Establezca la versión de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/licenseType | Establezca que la imagen o el disco cuenten con una licencia local. Este valor solo se usa para imágenes que contienen el sistema operativo Windows Server.  |
+| Microsoft.Compute/virtualMachines/imageOffer | Establezca la oferta de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/virtualMachines/imagePublisher | Establezca el publicador de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/virtualMachines/imageSku | Establezca la SKU de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/virtualMachines/imageVersion | Establezca la versión de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/virtualMachines/osDisk.Uri | Establezca el URI de VHD. |
+| Microsoft.Compute/virtualMachines/sku.name | Establezca el tamaño de la máquina virtual. |
+
+**Microsoft.Compute/virtualMachines/extensions**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| Microsoft.Compute/virtualMachines/extensions/publisher | Establezca el nombre del publicador de la extensión. |
+| Microsoft.Compute/virtualMachines/extensions/type | Establezca el tipo de extensión. |
+| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Establezca la versión de la extensión. |
+
+**Microsoft.Compute/virtualMachineScaleSets**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Establezca la oferta de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/imagePublisher | Establezca el publicador de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/imageSku | Establezca la SKU de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/imageVersion | Establezca la versión de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+| Microsoft.Compute/licenseType | Establezca que la imagen o el disco cuenten con una licencia local. Este valor solo se usa para imágenes que contienen el sistema operativo Windows Server. |
+| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Establezca el prefijo del nombre de equipo para todas las máquinas virtuales en el conjunto de escalado. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Establece el URI del blob para la imagen de usuario. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Establezca las direcciones URL de contenedor que se utilizan para almacenar los discos del sistema operativo para el conjunto de escalado. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Establezca el tamaño de las máquinas virtuales en un conjunto de escalado. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Establezca el nivel las máquinas virtuales en un conjunto de escalado. |
+  
+**Microsoft.Network/applicationGateways**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| Microsoft.Network/applicationGateways/sku.name | Establezca el tamaño de la puerta de enlace. |
+
+**Microsoft.Network/virtualNetworkGateways**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| Microsoft.Network/virtualNetworkGateways/gatewayType | Establezca el tipo de esta puerta de enlace de red virtual. |
+| Microsoft.Network/virtualNetworkGateways/sku.name | Establezca el nombre de SKU de puerta de enlace. |
+
+**Microsoft.Sql/servers**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| Microsoft.Sql/servers/version | Establezca la versión del servidor. |
+
+**Microsoft.Sql/databases**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| Microsoft.Sql/servers/databases/edition | Establezca la edición de la base de datos. |
+| Microsoft.Sql/servers/databases/elasticPoolName | Establezca el nombre del grupo elástico en el que está la base de datos. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Establezca el Id. de objetivo de nivel de servicio configurado de la base de datos. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Establezca el nombre del objetivo de nivel de servicio configurado de la base de datos.  |
+
+**Microsoft.Sql/elasticpools**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Establezca la DTU compartida total para el grupo elástico de base de datos. |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Establezca la edición del grupo elástico. |
+
+**Microsoft.Storage/storageAccounts**
+
+| Alias | Descripción |
+| ----- | ----------- |
+| Microsoft.Storage/storageAccounts/accessTier | Establezca el nivel de acceso usado para la facturación. |
+| Microsoft.Storage/storageAccounts/accountType | Establezca el nombre de SKU. |
+| Microsoft.Storage/storageAccounts/enableBlobEncryption | Establezca si el servicio cifra los datos como si estuvieran almacenados en el servicio Blob Storage. |
+| Microsoft.Storage/storageAccounts/enableFileEncryption | Establezca si el servicio cifra los datos como si estuvieran almacenados en el servicio File Storage. |
+| Microsoft.Storage/storageAccounts/sku.name | Establezca el nombre de SKU. |
+| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Establezca permitir solo el tráfico https en el servicio de almacenamiento. |
+
+
 ## <a name="policy-examples"></a>Ejemplos de directivas
 
 Los siguientes temas contienen ejemplos de directivas:
 
 * Para ver ejemplos de directivas de etiqueta, consulte [Apply resource policies for tags](resource-manager-policy-tags.md) (Aplicación de directivas de recursos para etiquetas).
+* Para obtener ejemplos de patrones de texto y nomenclatura, vea [Aplicación de directivas de recursos para nombres y texto](resource-manager-policy-naming-convention.md).
 * Para ver ejemplos de directivas de almacenamiento, consulte [Aplicación de directivas de recursos a cuentas de almacenamiento](resource-manager-policy-storage.md).
 * Para ver ejemplos de directivas de máquina virtual, consulte [Aplicación de directivas de recursos a máquinas virtuales Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) y [Aplicación de directivas de recursos a máquinas virtuales Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
 
-### <a name="allowed-resource-locations"></a>Ubicaciones de recursos permitidas
-Para especificar qué ubicaciones se permiten, vea el ejemplo de la sección [Estructura de la definición de directiva](#policy-definition-structure). Para asignar esta definición de directiva, use la directiva integrada con el identificador de recurso `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
-
-### <a name="not-allowed-resource-locations"></a>Ubicaciones de recursos no permitidas
-Para especificar qué ubicaciones no se permiten, use la siguiente definición de directiva:
-
-```json
-{
-  "properties": {
-    "parameters": {
-      "notAllowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that are not allowed when deploying resources",
-          "strongType": "location",
-          "displayName": "Not allowed locations"
-        }
-      }
-    },
-    "displayName": "Not allowed locations",
-    "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "field": "location",
-        "in": "[parameters('notAllowedLocations')]"
-      },
-      "then": {
-        "effect": "deny"
-      }
-    }
-  }
-}
-```
-
-### <a name="allowed-resource-types"></a>Tipos de recursos permitidos
-En el siguiente ejemplo se muestra una directiva que solo permite implementaciones para los tipos de recurso Microsoft.Resources, Microsoft.Compute, Microsoft.Storage y Microsoft.Network. Todos los demás se deniegan:
-
-```json
-{
-  "if": {
-    "not": {
-      "anyOf": [
-        {
-          "field": "type",
-          "like": "Microsoft.Resources/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Compute/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Storage/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Network/*"
-        }
-      ]
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-### <a name="set-naming-convention"></a>Convención de nomenclatura
-En el ejemplo siguiente se muestra el uso de caracteres comodín que admite la condición **like**. La condición indica que se denegará la solicitud si el nombre coincide con el patrón indicado (namePrefix\*nameSuffix):
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "like": "namePrefix*nameSuffix"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-Para especificar que los nombres de recursos coincidan con un patrón, use la condición match. El ejemplo siguiente requiere que los nombres empiecen por `contoso` y contengan seis letras adicionales:
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "match": "contoso??????"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-Para requerir un patrón de fecha de dos dígitos, guion, tres letras, guion y cuatro dígitos, use:
-
-```json
-{
-  "if": {
-    "field": "tags.date",
-    "match": "##-???-####"
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Después de definir una regla de directiva, asígnela a un ámbito. Para asignar directivas a través del portal, consulte [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Uso de Azure Portal para asignar y administrar directivas de recursos). Para asignar directivas a través de la API de REST, PowerShell o la CLI de Azure, consulte [Assign and manage policies through script](resource-manager-policy-create-assign.md) (Asignación y administración de directivas a través de scripts).

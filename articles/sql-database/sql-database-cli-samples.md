@@ -1,6 +1,6 @@
 ---
-title: Ejemplos de la CLI de Azure para SQL Database | Microsoft Docs
-description: "Ejemplos de la CLI de Azure: creación y administración de servidores de Azure SQL Database, grupos elásticos, bases de datos y firewalls."
+title: Ejemplos de script de la CLI de Azure para SQL Database | Microsoft Docs
+description: "Ejemplos de script de la CLI de Azure para crear y administrar servidores de Azure SQL Database, grupos elásticos, bases de datos y firewalls."
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
@@ -14,27 +14,27 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: f4fab4159ed4ff14adad9b1ad63315fe1acfe9e9
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 91b02d1099dc1683abb1042b3dc65cbee5aeae5b
 ms.contentlocale: es-es
-ms.lasthandoff: 03/30/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Ejemplos de la CLI de Azure para Azure SQL Database
 
-En la tabla siguiente se incluyen vínculos a scripts de la CLI de Azure para Azure SQL Database.
+En la tabla siguiente se incluyen vínculos a ejemplos de script de la CLI de Azure para Azure SQL Database.
 
 | |  |
 |---|---|
 |**Creación de una base de datos única y un grupo elástico**||
-| [Creación de una base de datos única y configuración de una regla de firewall](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una instancia única de Azure SQL Database y configura una regla de firewall en el nivel de servidor. |
-| [Creación de grupos elásticos y traslado de bases de datos agrupadas](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea grupos elásticos, traslada instancias agrupadas de Azure SQL Database y cambia los niveles de rendimiento.|
+| [Creación de una base de datos única y configuración de una regla de firewall](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este ejemplo de la CLI crea una instancia de Azure SQL Database y configura una regla de firewall en el nivel de servidor. |
+| [Creación de grupos elásticos y traslado de bases de datos agrupadas](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este ejemplo de script de la CLI crea grupos elásticos de SQL, traslada instancias agrupadas de Azure SQL Database y cambia los niveles de rendimiento.|
 |**Escalado de una base de datos única y un grupo elástico**||
-| [Escalado de una base de datos única](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Escala una instancia única de Azure SQL Database a un nivel de rendimiento diferente después de consultar la información de tamaño de la base de datos. |
-| [Escalado de un grupo elástico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Escala un grupo elástico a un nivel de rendimiento diferente.  |
+| [Escalado de una base de datos única](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este ejemplo de script de la CLI escala una sola instancia de Azure SQL Database a un nivel de rendimiento distinto después de consultar la información del tamaño de la base de datos. |
+| [Escalado de un grupo elástico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este ejemplo de script de la CLI escala un grupo elástico de SQL a un nivel de rendimiento distinto.  |
 |||
 

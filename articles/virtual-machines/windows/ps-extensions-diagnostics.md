@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0a4c7df2ef385b8bdec467859af64fc243241d77
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 9d3b4abdd395806b1a53d4f23d45ba8b449978a9
+ms.contentlocale: es-es
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -52,7 +53,7 @@ Una vez habilitada la extensión de diagnósticos en una VM, puede obtener la co
 
     Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
-El cmdlet devuelve *PublicSettings*, que contiene la configuración XML en un formato codificado en Base64. Para leer el archivo XML, es necesario descodificarlo.
+El cmdlet devuelve *PublicSettings*, que contiene la configuración de diagnóstico. Hay dos tipos de configuraciones compatibles: WadCfg y xmlCfg. WadCfg es la configuración JSON y xmlCfg es la configuración XML en formato con codificación Base64. Para leer el archivo XML, es necesario descodificarlo.
 
     $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg

@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: cb2d789a53ee2fa16db8d2553086a18043d4976e
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 6f8d220a64e04b7dfa021aacf68dadf0d55393bf
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/30/2017
 
 
 
@@ -27,8 +27,7 @@ ms.lasthandoff: 05/09/2017
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Carga de datos de Azure Data Lake Store en SQL Data Warehouse
 Este documento ofrece todos los pasos que necesarios para cargar sus propios datos desde Azure Data Lake Store (ADLS) en SQL Data Warehouse mediante PolyBase.
 Aunque es posible ejecutar consultas ad hoc en los datos almacenados en ADLS con tablas externas, como procedimiento recomendado se recomienda importar los datos en SQL Data Warehouse.
-, Estimación de tiempo: 10 minutos, suponiendo que cumple los requisitos previos que necesite completar.
->
+Estimación de tiempo: 10 minutos, suponiendo que cumple los requisitos previos que necesite completar.
 En este tutorial, aprenderá a:
 
 1. Crear objetos de base de datos externa que se van a cargar desde Azure Data Lake Store
@@ -42,12 +41,13 @@ Para ejecutar este tutorial, necesitará:
 
 >[!NOTE] 
 > Se necesitan el identificador del cliente, la clave y el valor del punto de conexión del token de OAuth2.0 de su aplicación Active Directory para conectarse a su instancia de Azure Data Lake desde SQL Data Warehouse. En el vínculo siguiente se detalla cómo obtener estos valores.
+>Tenga en cuenta que el registro de aplicación de Azure Active Directory usa el "Id. de la aplicación" como identificador de cliente.
 
 * SQL Server Management Studio o SQL Server Data Tools, para descargar SSMS y conectarse consulte [Consulta de SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
 * Una instancia de Azure SQL Data Warehouse; para crear una, siga estas instrucciones: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* Una instancia de Azure Data Lake Store que no tenga el cifrado habilitado. Para crear una, consulte: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+* Una instancia de Azure Data Lake Store, con o sin cifrado habilitado. Para crear una, consulte: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 
@@ -81,6 +81,12 @@ WITH
     SECRET = '<key>'
 ;
 
+-- It should look something like this:
+CREATE DATABASE SCOPED CREDENTIAL ADLCredential
+WITH
+    IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.windows.net/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
+    SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
+;
 ```
 
 

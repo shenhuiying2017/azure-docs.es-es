@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: fb764e3d228aa852a4d4e6b0f314daa60d099093
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: bee96774abacebe36e61a1f4d051f65dd20342f6
+ms.contentlocale: es-es
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -30,22 +31,22 @@ Este artículo ofrece una visión general de cada una de estas características 
 Estos son los temas que se tratarán en este artículo:
 
 * [Seguridad en el plano de la administración](#management-plane-security): protección de la cuenta de almacenamiento
-  
+
   El plano de la administración está compuesto por los recursos que se usan para administrar la cuenta de almacenamiento. En esta sección, hablaremos sobre el modelo de implementación de Azure Resource Manager y cómo usar el control de acceso basado en roles (RBAC) para controlar el acceso a las cuentas de almacenamiento. También hablaremos acerca de cómo administrar las claves de cuenta de almacenamiento y cómo volver a generarlas.
 * [Seguridad en el plano de los datos](#data-plane-security) : protección del acceso a los datos
-  
+
   En esta sección, analizaremos el modo de permitir el acceso a los objetos de datos reales de la cuenta de almacenamiento, como blobs, archivos, colas y tablas, y el uso de Firmas de acceso compartido y Directivas de acceso almacenadas. Nos fijaremos en las Firmas de acceso compartido tanto a nivel de servicio como a nivel de cuenta. También veremos cómo limitar el acceso a una dirección IP específica (o un intervalo de direcciones IP), cómo limitar el protocolo utilizado para HTTPS y cómo revocar una Firma de acceso compartido sin esperar a que expire.
 * [Cifrado en tránsito](#encryption-in-transit)
-  
+
   En esta sección se describe cómo proteger los datos cuando se transfieren a o desde Azure Storage. Hablaremos sobre el uso recomendado de HTTPS y el cifrado que usa SMB 3.0 para los recursos compartidos de archivos de Azure. También echaremos un vistazo al Cifrado de cliente, que permite cifrar los datos antes de transferirlos al Almacenamiento en una aplicación cliente y descifrarlos una vez transferidos desde este servicio.
 * [Cifrado en reposo](#encryption-at-rest)
-  
+
   Hablaremos acerca del cifrado del servicio Storage (SSE) y el modo de habilitarlo para una cuenta de almacenamiento, lo que conlleva que los blobs en bloques, los blobs en páginas y los blobs en anexos se cifren automáticamente al escribir en Azure Storage. También veremos cómo puede usar Azure Disk Encryption y exploraremos los casos y las diferencias básicas entre Disk Encryption, SSE y el cifrado del lado cliente. Asimismo, estudiaremos brevemente el cumplimiento de la norma FIPS para equipos del Gobierno de EE. UU.
 * Uso de [Storage Analytics](#storage-analytics) para auditar el acceso de Azure Storage
-  
+
   En esta sección se describe cómo buscar información en los registros de Storage Analytics para una solicitud. Echaremos un vistazo a datos de registro reales de Storage Analytics y aprenderemos a discernir si una solicitud se realiza con una clave de cuenta de Storage, una Firma de acceso compartido o de manera anónima, y si se pudo completar o no.
 * [Habilitación de clientes basados en explorador mediante el uso compartido de recursos entre orígenes](#Cross-Origin-Resource-Sharing-CORS)
-  
+
   En esta sección se analiza cómo permitir el uso compartido de recursos entre orígenes. Abordaremos el acceso entre dominios y cómo administrarlo con las funcionalidades del uso compartido de recursos entre orígenes integradas en Azure Storage.
 
 ## <a name="management-plane-security"></a>Seguridad en el plano de la administración
@@ -70,14 +71,14 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
 * Los roles pueden asignarse específicamente a una cuenta de usuario, un grupo de usuarios o una aplicación.
 * Cada rol tiene una lista de acciones y no acciones. Por ejemplo, el rol de colaborador de la máquina virtual tiene una acción "listKeys" que permite leer las claves de cuenta de almacenamiento. El colaborador tiene "no acciones", como actualizar el acceso de los usuarios en Active Directory.
 * Entre los roles para el almacenamiento se incluyen, entre otros, los siguientes:
-  
+
   * Propietario: puede administrar todo, incluido el acceso.
   * Colaborador: puede hacer lo mismo que el propietario, salvo asignar acceso. Un usuario con este rol puede ver y volver a generar las claves de cuenta de almacenamiento. Con las claves de cuenta de almacenamiento, puede tener acceso a los objetos de datos.
   * Lector: puede ver información sobre la cuenta de almacenamiento, excepto los secretos. Por ejemplo, si asigna un rol con permisos de lectura sobre la cuenta de almacenamiento a otro usuario, este puede ver las propiedades de la cuenta de almacenamiento, pero no puede realizar cambios en las propiedades ni ver las claves de cuenta de almacenamiento.
   * Colaborador de la cuenta de almacenamiento: puede administrar la cuenta de almacenamiento, leer los grupos de recursos y los recursos de la suscripción, y crear y administrar implementaciones de los grupos de recursos de la suscripción. También puede acceder a las claves de cuenta de almacenamiento, lo que a su vez implica que puede acceder al plano de los datos.
   * Administrador de acceso de usuarios: puede administrar el acceso de los usuarios a la cuenta de almacenamiento. Por ejemplo, puede conceder acceso de lectura a un usuario específico.
   * Colaborador de la máquina virtual: puede administrar máquinas virtuales, pero no la cuenta de almacenamiento o la red virtual a la que están conectadas. Este rol puede listar las claves de cuenta de almacenamiento, lo que significa que el usuario a quien asigne este rol puede actualizar el plano de los datos.
-    
+
     Para que un usuario pueda crear una máquina virtual, tiene que poder crear el archivo VHD correspondiente en una cuenta de almacenamiento. Para ello, es necesario que pueda recuperar la clave de la cuenta de almacenamiento y pasarla a la API que está creando la máquina virtual. Por lo tanto, es necesario que disponga de este permiso para listar las claves de cuenta de almacenamiento.
 * La posibilidad de definir roles personalizados es una característica que le permite crear un conjunto de acciones desde una lista de acciones disponibles que se puede llevar a cabo sobre recursos de Azure.
 * Es necesario que el usuario se haya configurado en Azure Active Directory para poder asignarle un rol.
@@ -85,25 +86,25 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
 
 #### <a name="resources"></a>Recursos
 * [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md)
-  
+
   En este artículo se explica el control de acceso basado en rol de Azure Active Directory y su funcionamiento.
 * [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md)
-  
+
   En este artículo se detalla todas las funciones integradas disponibles en el control de acceso basado en rol.
 * [Descripción de la implementación de Resource Manager y la implementación clásica](../azure-resource-manager/resource-manager-deployment-model.md)
-  
+
   En este artículo se explican los modelos de implementación clásica y de Resource Manager, y se detallan las ventajas de utilizar Resource Manager y los grupos de recursos. Se explica cómo funcionan los proveedores de Azure Compute, Network y Storage en el modelo de Resource Manager.
 * [Administración del control de acceso basado en rol con la API de REST](../active-directory/role-based-access-control-manage-access-rest.md)
-  
+
   En este artículo se muestra cómo utilizar la API de REST para administrar el control de acceso basado en rol.
 * [Referencia de API de REST de proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)
-  
+
   Esta es la referencia para las API que puede usar para administrar la cuenta de almacenamiento mediante programación.
 * [Developer’s guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/) (Guía del desarrollador para la autenticación con la API de Azure Resource Manager)
-  
+
   En este artículo se muestra cómo realizar la autenticación mediante las API de Resource Manager.
 * [Role-Based Access Control for Microsoft Azure from Ignite (Control de acceso basado en rol para Microsoft Azure de Ignite)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
-  
+
   Este es un vínculo a un vídeo de Channel 9 de la conferencia de MS Ignite de 2015. En esta sesión, se abordan las funciones de notificación y administración de acceso en Azure y se exploran los procedimientos recomendados en torno a la protección del acceso a suscripciones de Azure con Azure Active Directory.
 
 ### <a name="managing-your-storage-account-keys"></a>Administración de las claves de cuenta de almacenamiento
@@ -144,16 +145,16 @@ Nota: Se recomienda usar solo una de las claves en todas las aplicaciones al mis
 
 #### <a name="resources"></a>Recursos
 * [Acerca de las cuentas de Azure Storage](storage-create-storage-account.md#regenerate-storage-access-keys)
-  
+
   En este artículo se ofrece una visión general de las cuentas de almacenamiento y se trata la visualización, la copia y la regeneración de las claves de acceso de almacenamiento.
 * [Referencia de API de REST de proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/mt163683.aspx)
-  
+
   Este artículo contiene vínculos a artículos específicos sobre la recuperación de las claves de cuenta de almacenamiento y su regeneración para una cuenta de Azure que usa la API de REST. Nota: Se trata de cuentas de almacenamiento de Resource Manager.
 * [Operaciones en cuentas de almacenamiento](https://msdn.microsoft.com/library/ee460790.aspx)
-  
+
   Este artículo de la referencia de API de REST del administrador de servicios de almacenamiento contiene vínculos a artículos específicos sobre la recuperación y la regeneración de las claves de cuenta de almacenamiento mediante la API de REST. Nota: Esto se dirige a las cuentas de almacenamiento Estándar.
 * [Say goodbye to key management – manage access to Azure Storage data using Azure AD (Adiós a administración de claves: administre el acceso a los datos de Azure Storage con Azure AD)](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
-  
+
   Este artículo muestra cómo utilizar Active Directory para controlar el acceso a las claves de Azure Storage en Azure Key Vault. También muestra cómo utilizar un trabajo de Azure Automation para regenerar las claves cada hora.
 
 ## <a name="data-plane-security"></a>Seguridad en el plano de los datos
@@ -212,10 +213,10 @@ Por ejemplo, con la dirección URL anterior, si la dirección URL apuntase a un 
 
 #### <a name="creating-an-sas-uri"></a>Creación de un URI de Firma de acceso compartido
 1. Puede crear un URI ad hoc a petición, definiendo todos los parámetros de consulta cada vez.
-   
+
    Esta opción es realmente flexible, pero si tiene un conjunto lógico de parámetros que se parecen cada vez, es mejor utilizar una Directiva de acceso almacenada.
 2. Puede crear una Directiva de acceso almacenada para todo un contenedor, el recurso compartido de archivos, la tabla o la cola. A continuación, puede utilizar esto como base para los URI de Firma de acceso compartido que cree. Los permisos basados en Directivas de acceso almacenadas se pueden revocar fácilmente. Puede tener hasta 5 directivas definidas en cada contenedor, cola, tabla o recurso compartido de archivos.
-   
+
    Por ejemplo, si en su caso muchas personas fueran a leer los blobs de un contenedor determinado, podría crear una Directiva de acceso almacenada para "conceder acceso de lectura" y cualquier otro valor que se repita. A continuación, puede crear un URI de Firma de acceso compartido mediante la configuración de la Directiva de acceso almacenada y la especificación de la fecha y hora de expiración. Esto presenta la ventaja de que no es necesario especificar siempre todos los parámetros de consulta.
 
 #### <a name="revocation"></a>Revocación
@@ -231,59 +232,58 @@ Dado que el uso de una Firma de acceso compartido derivada de una Directiva de a
 Para más información sobre el uso de Firmas de acceso compartido y Directivas de acceso almacenadas, junto con ejemplos, consulte los artículos siguientes:
 
 * Estos son los artículos de referencia.
-  
+
   * [Ejemplos SAS del servicio.](https://msdn.microsoft.com/library/dn140256.aspx)
-    
+
     Este artículo proporciona ejemplos de cómo utilizar una SAS de nivel de servicio con blobs, mensajes de cola, intervalos de tabla y archivos.
   * [Creación de una SAS de servicio](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Creación de una SAS de cuenta](https://msdn.microsoft.com/library/mt584140.aspx)
 * Se trata de tutoriales para usar la biblioteca de cliente .NET a fin de crear Firmas de acceso compartido y Directivas de acceso almacenadas.
-  
+
   * [Uso de Firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md)
   * [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con Blob service](storage-dotnet-shared-access-signature-part-2.md)
-    
+
     Este artículo incluye una explicación del modelo de SAS, ejemplos de SAS y recomendaciones para el mejor uso práctico de SAS. También trata la revocación de los permisos concedidos.
 * Limitación del acceso por dirección IP (ACL de IP)
-  
+
   * [¿Qué es una lista de control de acceso (ACL) de extremo?](../virtual-network/virtual-networks-acl.md)
   * [Creación de una SAS de servicio](https://msdn.microsoft.com/library/azure/dn140255.aspx)
-    
+
     Este es el artículo de referencia para SAS de nivel de servicio; incluye un ejemplo de creación de ACL de IP.
   * [Creación de una SAS de cuenta](https://msdn.microsoft.com/library/azure/mt584140.aspx)
-    
+
     Este es el artículo de referencia para SAS de nivel de cuenta; incluye un ejemplo de creación de ACL de IP.
 * Autenticación
-  
+
   * [Autenticación para los servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Tutorial de introducción a las Firmas de acceso compartido
-  
+
   * [Getting Started with Shared Access Signatures (SAS) (Introducción a las Firmas de acceso compartido)](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ## <a name="encryption-in-transit"></a>Cifrado en tránsito
 ### <a name="transport-level-encryption--using-https"></a>Cifrado de nivel de transporte – Uso de HTTPS
 Otro paso que debe seguir para garantizar la seguridad de los datos de Azure Storage es cifrar los datos entre el cliente y Azure Storage. La primera recomendación es utilizar siempre el protocolo [HTTPS](https://en.wikipedia.org/wiki/HTTPS), que garantiza una comunicación segura a través de la red pública de Internet.
 
-Siempre debe usar HTTPS al llamar a las API de REST u obtener acceso a objetos de almacenamiento. Además, las **Firmas de acceso compartido**, que pueden utilizarse para delegar el acceso a objetos de Azure Storage, incluyen una opción para especificar que se utilice solo el protocolo HTTPS con las Firmas de acceso compartido, lo que garantiza que cualquiera que envíe vínculos con tokens de SAS utilice el protocolo adecuado.
+Para tener un canal de comunicación seguro, siempre debe usar HTTPS al llamar a las API de REST u obtener acceso a objetos de almacenamiento. Además, las **Firmas de acceso compartido**, que pueden utilizarse para delegar el acceso a objetos de Azure Storage, incluyen una opción para especificar que se utilice solo el protocolo HTTPS con las Firmas de acceso compartido, lo que garantiza que cualquiera que envíe vínculos con tokens de SAS utilice el protocolo adecuado.
 
-#### <a name="resources"></a>Recursos
-* [Habilitación de HTTPS para una aplicación en Azure App Service](../app-service-web/web-sites-configure-ssl-certificate.md)
-  
-  Este artículo le muestra cómo habilitar HTTPS en una aplicación web de Azure.
+Puede exigir el uso de HTTPS al llamar a las API de REST para acceder a objetos de cuentas de almacenamiento habilitando la opción [Se requiere transferencia segura](storage-require-secure-transfer.md) para la cuenta de almacenamiento. Una vez que esta opción esté habilitada, se rechazarán las conexiones que usan HTTP.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Uso del cifrado durante el tránsito con recursos compartidos de archivos de Azure
-Azure File Storage admite HTTPS cuando se usa la API de REST, pero se usa con más frecuencia como un recurso compartido de archivos de SMB conectado a una máquina virtual. SMB 2.1 no admite el cifrado, por lo que solo se permiten las conexiones dentro de la misma región de Azure. Sin embargo, SMB 3.0 admite el cifrado, y se puede utilizar con Windows Server 2012 R2, Windows 8, Windows 8.1 y Windows 10, lo que permite el acceso entre regiones e incluso el acceso en el escritorio.
+Azure File Storage admite HTTPS cuando se usa la API de REST, pero se usa con más frecuencia como un recurso compartido de archivos de SMB conectado a una máquina virtual. SMB 2.1 no admite el cifrado, por lo que solo se permiten las conexiones dentro de la misma región de Azure. Sin embargo, SMB 3.0 admite cifrado y está disponible en Windows Server 2012 R2, Windows 8, Windows 8.1 y Windows 10, lo que permite el acceso entre regiones e incluso el acceso en el escritorio.
 
 Tenga en cuenta que aunque puede usar recursos compartidos de archivos de Azure con Unix, el cliente SMB de Linux aún no admite el cifrado, por lo que solo se permite el acceso dentro de una misma región de Azure. La compatibilidad con el cifrado para Linux está en la hoja de ruta de los desarrolladores de Linux responsables de la funcionalidad SMB. Cuando se agregue el cifrado, podrá tener acceso a un recurso compartido de archivos de Azure en Linux al igual que hace en Windows.
 
+Puede exigir el uso de cifrado con el servicio Azure Files habilitando la opción [Se requiere transferencia segura](storage-require-secure-transfer.md) para la cuenta de almacenamiento. Si usa las API de REST, se necesita HTTPS. Para SMB, solo las conexiones SMB que admiten cifrado se conectarán correctamente.
+
 #### <a name="resources"></a>Recursos
 * [Uso de Azure File Storage con Linux](storage-how-to-use-files-linux.md)
-  
+
   Este artículo muestra cómo montar un recurso compartido de archivos de Azure en un sistema Linux y cargar/descargar archivos.
 * [Introducción a Azure File Storage en Windows](storage-dotnet-how-to-use-files.md)
-  
+
   Este artículo ofrece una visión general de los recursos compartidos de archivos de Azure y cómo montarlos y usarlos con PowerShell y. NET.
 * [Inside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/) (En el interior de Azure File Storage)
-  
+
   En este artículo se anuncia la disponibilidad general de Azure File Storage y se proporcionan detalles técnicos sobre el cifrado SMB 3.0.
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Uso del cifrado de cliente para proteger los datos que envía al almacenamiento
@@ -307,7 +307,7 @@ Esta característica está disponible para cuentas de Standard Sorage y Premium 
 
 Solo se cifran los datos cuando está habilitado SSE y los datos se escriben en Blob Storage. El hecho de habilitar o deshabilitar el SSE no afecta a los datos existentes. En otras palabras, al habilitar este cifrado, no se cifrarán los datos que ya existan; y tampoco se descifrarán los datos que ya existan al deshabilitarlo.
 
-Si desea probar esta función con una cuenta de almacenamiento clásica, puede crear una nueva cuenta de almacenamiento de Resource Manager y usar AzCopy para copiar los datos en la nueva cuenta. 
+Si desea probar esta función con una cuenta de almacenamiento clásica, puede crear una nueva cuenta de almacenamiento de Resource Manager y usar AzCopy para copiar los datos en la nueva cuenta.
 
 ### <a name="client-side-encryption"></a>cifrado de cliente
 Hemos mencionado el Cifrado de cliente al hablar sobre el cifrado de los datos en tránsito. Esta característica le permite cifrar mediante programación los datos en una aplicación cliente antes de enviarlos a través del cable para que se escriban en el Azure Storage, y descifrar mediante programación los datos después de recuperarlos de Azure Storage.
@@ -322,10 +322,10 @@ Para el propio cifrado, puede generar y administrar sus propias claves de cifrad
 
 #### <a name="resources"></a>Recursos
 * [Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
-  
+
   Este artículo muestra cómo utilizar el cifrado de cliente con Azure Key Vault, incluido cómo crear la KEK y almacenarlo en el almacén con PowerShell.
 * [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](storage-client-side-encryption.md)
-  
+
   Este artículo ofrece una explicación del cifrado de cliente y proporciona ejemplos de uso de la biblioteca de clientes de Storage para cifrar y descifrar los recursos de los cuatro servicios de Storage. También trata Azure Key Vault.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Uso de Azure Disk Encryption para cifrar discos usados por las máquinas virtuales
@@ -356,14 +356,14 @@ La solución no admite los siguientes escenarios, características y tecnología
 
 > [!NOTE]
 > Actualmente, el cifrado de disco del sistema operativo Linux es compatible con las siguientes distribuciones de Linux: RHEL 7.2, CentOS 7.2n y Ubuntu 16.04.
-> 
-> 
+>
+>
 
 Esta característica garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage.
 
 #### <a name="resources"></a>Recursos
 * [Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
-  
+
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparación entre Azure Disk Encryption, SSE y cifrado del lado cliente
 #### <a name="iaas-vms-and-their-vhd-files"></a>Máquinas virtuales de IaaS y sus archivos VHD
 Para los discos usados por las máquinas virtuales de IaaS, se recomienda utilizar Azure Disk Encryption. Puede activar SSE para cifrar los archivos VHD que se usan para respaldar esos discos en Azure Storage, pero solos se cifran los datos recién escritos. Esto significa que si crea una máquina virtual y luego habilita SSE en la cuenta de almacenamiento que contiene el archivo VHD, se cifrarán solo los cambios, no el archivo VHD original.
@@ -430,32 +430,32 @@ Por ejemplo, en las primeras filas del listado anterior, el estado de la solicit
 Son tres los casos que nos interesan.
 
 1. El blob es público y se tiene acceso a él mediante una dirección URL sin Firma de acceso compartido. En este caso, el estado de la solicitud es "AnonymousSuccess" y el tipo de autorización es "anonymous".
-   
+
    1.0;2015-11-17T02:01:29.0488963Z;GetBlob;**AnonymousSuccess**;200;124;37;**anonymous**;;mystorage…
 2. El blob es privado y se utilizó con una Firma de acceso compartido. En este caso, el estado de la solicitud es "SASSuccess" y el tipo de autorización es "sas".
-   
+
    1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
 3. El blob es privado y la clave de almacenamiento se utilizó para tener acceso a él. En este caso, el estado de la solicitud es "**Success**" y el tipo de autorización es "**authenticated**".
-   
+
    1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
 
 Puede utilizar el Analizador de mensajes de Microsoft para ver y analizar estos registros. Incluye funcionalidades de búsqueda y filtrado. Por ejemplo, puede que desee buscar instancias de GetBlob para ver si efectivamente se les está dando el uso que espera; es decir, para asegurarse de que un usuario no tenga acceso la cuenta de almacenamiento incorrectamente.
 
 #### <a name="resources"></a>Recursos
 * [Storage Analytics](storage-analytics.md)
-  
+
   Este artículo ofrece una visión general de Storage Analytics y explica cómo habilitarlo.
 * [Formato del registro de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343259.aspx)
-  
+
   Este artículo ilustra el formato del registro de Storage Analytics y detalla los campos que incluye, como el tipo de autenticación, que indica el tipo de autenticación utilizado para la solicitud.
 * [Supervisión de una cuenta de almacenamiento en Azure Portal](storage-monitor-storage-account.md)
-  
+
   Este artículo muestra cómo configurar la supervisión de las métricas y el registro para una cuenta de almacenamiento.
 * [Solución integral de problemas con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes](storage-e2e-troubleshooting.md)
-  
+
   Este artículo trata la solución de problemas mediante Storage Analytics y muestra cómo utilizar el Analizador de mensajes de Microsoft.
 * [Guía de funcionamiento del analizador de mensajes de Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
-  
+
   Este artículo es la referencia para el Analizador de mensajes de Microsoft e incluye vínculos a un tutorial, el inicio rápido y el resumen de características.
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Uso compartido de recursos entre orígenes
@@ -500,37 +500,38 @@ Esto es lo que significa cada fila:
 Para más información acerca del uso compartido de recursos entre orígenes y cómo habilitarlo, consulte estos recursos.
 
 * [Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los servicios de Azure Storage en Azure.com](storage-cors-support.md)
-  
+
   Este artículo proporciona una visión general del uso compartido de recursos entre orígenes y explica cómo establecer las reglas para los diferentes servicios de Storage.
 * [Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los servicios de Azure Storage en MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
-  
+
   Se trata de la documentación de referencia para la compatibilidad con el uso compartido de recursos entre orígenes para los servicios de Azure Storage. Contiene vínculos a artículos que se aplican a cada servicio de almacenamiento, se muestra un ejemplo y se explica cada elemento en el archivo del uso compartido de recursos entre orígenes.
 * [Microsoft Azure Storage: Introducing CORS (Microsoft Azure Storage: Introducción a uso compartido de recursos entre orígenes)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
-  
+
   Se trata de un vínculo al artículo inicial del blog en el que se anuncia el uso compartido de recursos entre orígenes y se muestra cómo utilizarlo.
 
 ## <a name="frequently-asked-questions-about-azure-storage-security"></a>Preguntas más frecuentes acerca de la seguridad de Azure Storage
 1. **¿Cómo se puede comprobar la integridad de los blobs que estoy transfiriendo hacia o desde Azure Storage si no puedo usar el protocolo HTTPS?**
-   
+
    Si por algún motivo debe utilizar HTTP en lugar de HTTPS y está trabajando con blobs en bloques, puede usar la comprobación de MD5 para ayudar a comprobar la integridad de los blobs que se transfieren. Esto le ayudará con la protección frente a errores de red o de la capa de transporte, pero no necesariamente con ataques de intermediarios.
-   
+
    Si puede usar HTTPS, que proporciona seguridad de nivel de transporte, el uso de la comprobación de MD5 es redundante e innecesario.
-   
+
    Para obtener más información, consulte [Windows Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)(Información general de MD5 de Azure Blob service).
 2. **¿Y qué ocurre con el cumplimiento de la norma FIPS para el Gobierno de EE. UU.?**
-   
+
    La norma Federal Information Processing Standard (FIPS) de EE. UU. define los algoritmos criptográficos aprobados para su uso por los sistemas informáticos del Gobierno Federal de EE. UU para la protección de los datos confidenciales. La habilitación del modo FIPS en un servidor o escritorio de Windows indica al sistema operativo que solo se deben usar los algoritmos criptográficos validados por FIPS. Si una aplicación utiliza algoritmos no compatibles, se invalidarán las aplicaciones. Con .NET Framework en su versión 4.5.2 u otra posterior, la aplicación cambia automáticamente los algoritmos criptográficos para utilizar los algoritmos conformes a FIPS cuando el equipo está en modo FIPS.
-   
+
    Microsoft permite que sea cada cliente quien decida si desea habilitar el modo FIPS. Creemos que los clientes que no están sujetos a reglamentaciones gubernamentales no tienen ninguna razón para habilitar el modo FIPS de forma predeterminada.
-   
+
    **Recursos**
 
 * [Why We're Not Recommending “FIPS Mode” Anymore](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx) (Por qué ya no recomendamos el "modo FIPS")
-  
+
   En este artículo de blog se proporciona información general de FIPS y se explica por qué no se habilita el modo FIPS de forma predeterminada.
 * [FIPS 140 Validation (Validación FIPS 140)](https://technet.microsoft.com/library/cc750357.aspx)
-  
+
   Este artículo proporciona información sobre el cumplimiento de los productos y los módulos criptográficos de Microsoft con la norma FIPS para el Gobierno Federal de EE. UU.
 * ["Criptografía de sistema: usar FIPS algoritmos compatibles con para cifrado, firma y operaciones hash" efectos de la configuración de seguridad en Windows XP y en versiones posteriores de Windows](https://support.microsoft.com/kb/811833)
-  
+
   Este artículo aborda el uso del modo FIPS en equipos más antiguos de Windows.
+

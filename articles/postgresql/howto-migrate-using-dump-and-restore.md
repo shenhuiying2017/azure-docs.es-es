@@ -5,17 +5,15 @@ services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/14/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b056b2aee8b3d82077f61c18e3a660f3562ae068
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 19cf0a68a8cd05d94badee2efc6c8b023fee7461
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migración de una base de datos de PostgreSQL mediante volcado y restauración
@@ -26,7 +24,7 @@ Para seguir esta guía, necesitará:
 - Un [servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md) con reglas de firewall para permitir el acceso a las bases de datos que hay en él.
 - Utilidades de línea de comandos [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) y [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) instaladas
 
-Siga estos pasos para realizar un volcado y restaurar la base de datos de PostgreSQL.
+Siga estos pasos para realizar un volcado y restaurar la base de datos de PostgreSQL:
 
 ## <a name="create-a-dump-file-using-pgdump-that-contains-the-data-to-be-loaded"></a>Creación de un archivo de volcado mediante pg_dump con los datos que se van a cargar
 Para hacer una copia de seguridad de una base de datos de PostgreSQL existente en el entorno local o en una máquina virtual, ejecute el comando siguiente:
@@ -43,7 +41,7 @@ Después de crear la base de datos de destino, puede usar el comando pg_restore 
 ```bash
 pg_restore -v –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
-En este ejemplo, los datos se restaurarán en la base de datos **mypgsqldb**, en el servidor de destino **mypgserver 20170401.postgres.database.azure.com**, desde el archivo de volcado generado **testdb.dump**.
+En este ejemplo, restaure los datos del archivo de copia de seguridad **testdb.dump** en la base de datos **mypgsqldb** en el servidor de destino **mypgserver-20170401.postgres.database.azure.com**.
 ```bash
 pg_restore -v --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=mypgsqldb testdb.dump
 ```

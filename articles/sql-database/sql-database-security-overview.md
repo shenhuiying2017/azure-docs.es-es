@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 07/05/2017
 ms.author: thmullan;jackr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 957644b81d373ce8d60a8c57c1ba6431bbdf83cb
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: caac079989f5f1616fdbed880ec51ae6e0946b8e
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -44,7 +44,7 @@ Si desea conocer otras formas de cifrar datos, considere:
 SQL Database protege los datos mediante la limitación del acceso a la base de datos a través de reglas de firewall, de mecanismos de autenticación que requieren que los usuarios prueben su identidad y de la autorización a través de pertenencias y permisos basados en roles, así como la seguridad de nivel de fila y el enmascaramiento dinámico de datos. Para obtener información acerca del uso de las características de control de acceso en SQL Database, consulte [Control de acceso](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> La administración de bases de datos y servidores lógicos en Azure se controlan mediante las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este tema, consulte [Control de acceso basado en rol en el Portal de Azure](../active-directory/role-based-access-control-configure.md).
+> La administración de bases de datos y servidores lógicos en Azure se controlan mediante las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este tema, consulte [Control de acceso basado en rol en el Portal de Azure](../active-directory/role-based-access-control-what-is.md).
 >
 
 ### <a name="firewall-and-firewall-rules"></a>Firewall y reglas de firewall
@@ -63,7 +63,7 @@ Autorización indica las acciones que pueden realizar los usuarios en Azure SQL 
 La seguridad de nivel de fila permite a los clientes controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (por ejemplo, la pertenencia a un grupo o el contexto de ejecución). Para más información, consulte [Seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131).
 
 ### <a name="data-masking"></a>Enmascaramiento de datos 
-El enmascaramiento datos dinámicos de Base de datos SQL limita la exposición de información confidencial mediante el enmascaramiento a los usuarios sin privilegios. Enmascaramiento de datos dinámicos detecta automáticamente datos potencialmente confidenciales en Azure SQL Database y proporciona acciones recomendables para enmascarar estos campos, con un impacto mínimo en la capa de aplicación. Su funcionamiento consiste en ocultar los datos confidenciales del conjunto de resultados de una consulta en los campos designados de la base de datos, mientras que los datos de la base de datos no cambian. Para más información, consulte [Introducción al enmascaramiento de datos dinámicos de bases de datos SQL (Azure Portal)](sql-database-dynamic-data-masking-get-started.md), que se puede utilizar para limitar la exposición de datos confidenciales.
+El enmascaramiento dinámico de datos de SQL Database limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. La característica Enmascaramiento dinámico de datos detecta automáticamente información potencialmente confidencial en Azure SQL Database y proporciona recomendaciones accionables para enmascarar estos campos, con un impacto mínimo en el nivel de aplicación. Su funcionamiento consiste en ocultar los datos confidenciales del conjunto de resultados de una consulta en los campos designados de la base de datos, mientras que los datos de la base de datos no cambian. Para más información, vea [Introducción al Enmascaramiento dinámico de datos de SQL Database](sql-database-dynamic-data-masking-get-started.md), que se puede utilizar para limitar la exposición de la información confidencial.
 
 ## <a name="proactive-monitoring"></a>Supervisión proactiva
 SQL Database protege los datos proporcionando funcionalidades de auditoría y detección de amenazas. 
@@ -72,13 +72,13 @@ SQL Database protege los datos proporcionando funcionalidades de auditoría y de
 SQL Database Auditing realiza un seguimiento de las actividades de la base de datos y ayuda a mantener el cumplimiento normativo, para lo que graba eventos de base de datos en un registro de auditoría de su cuenta de Azure Storage. La auditoría permite conocer las actividades en curso de la base de datos, así como analizar e investigar la actividad histórica para identificar posibles amenazas o supuestas infracciones de seguridad y abusos. Para más información, consulte [Introducción a SQL Database Auditing](sql-database-auditing.md).  
 
 ### <a name="threat-detection"></a>Detección de amenazas
-Detección de amenazas complementa la auditoría, ya que proporciona una capa adicional de inteligencia de seguridad integrada en el servicio de Azure SQL Database que detecta intentos inusuales y potencialmente dañinos para obtener acceso a las bases de datos o vulnerarlas. Recibirá alertas de actividades sospechosas, vulnerabilidades potenciales y ataques pon inyección de código SQL, así como patrones anómalos de acceso a bases de datos. Las alertas de Detección de amenazas pueden verse en [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) y proporcionar detalles de actividad sospechosa y la acción recomendada sobre cómo investigar y mitigar la amenaza. Detección de amenazas cuesta 15 USD/servidor/mes. Será gratis para los primeros 60 días. Para más información, vea [Introducción a Detección de amenazas de SQL Database](sql-database-threat-detection.md).
+Detección de amenazas complementa la auditoría, ya que proporciona una capa adicional de inteligencia de seguridad integrada en el servicio de Azure SQL Database que detecta intentos inusuales y potencialmente dañinos para obtener acceso a las bases de datos o vulnerarlas. Recibirá alertas de actividades sospechosas, vulnerabilidades potenciales y ataques pon inyección de código SQL, así como patrones anómalos de acceso a bases de datos. Las alertas de Detección de amenazas pueden verse en [Azure Security Center](https://azure.microsoft.com/services/security-center/) y proporcionar detalles de actividad sospechosa y la acción recomendada sobre cómo investigar y mitigar la amenaza. Detección de amenazas cuesta 15 USD/servidor/mes. Será gratis durante los primeros 60 días. Para más información, consulte [Introducción a Detección de amenazas de Base de datos SQL](sql-database-threat-detection.md).
  
 ### <a name="data-masking"></a>Enmascaramiento de datos 
-El enmascaramiento datos dinámicos de Base de datos SQL limita la exposición de información confidencial mediante el enmascaramiento a los usuarios sin privilegios. Enmascaramiento de datos dinámicos detecta automáticamente datos potencialmente confidenciales en Azure SQL Database y proporciona acciones recomendables para enmascarar estos campos, con un impacto mínimo en la capa de aplicación. Su funcionamiento consiste en ocultar los datos confidenciales del conjunto de resultados de una consulta en los campos designados de la base de datos, mientras que los datos de la base de datos no cambian. Para más información, consulte [Introducción al enmascaramiento de datos dinámicos de SQL Database](sql-database-dynamic-data-masking-get-started.md)
+El enmascaramiento dinámico de datos de SQL Database limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. La característica Enmascaramiento dinámico de datos detecta automáticamente información potencialmente confidencial en Azure SQL Database y proporciona recomendaciones accionables para enmascarar estos campos, con un impacto mínimo en el nivel de aplicación. Su funcionamiento consiste en ocultar los datos confidenciales del conjunto de resultados de una consulta en los campos designados de la base de datos, mientras que los datos de la base de datos no cambian. Para más información, vea la introducción al [Enmascaramiento dinámico de datos de SQL Database](sql-database-dynamic-data-masking-get-started.md).
  
 ## <a name="compliance"></a>Cumplimiento normativo
-Además de las anteriores características y funcionalidades que pueden ayudar a su aplicación a cumplir distintos requisitos de cumplimiento de normas de seguridad, la Base de datos SQL de Azure también participa en las auditorías regulares y ha sido certificada con una serie de estándares de cumplimiento normativo. Para más información, consulte el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/), donde podrá encontrar la lista más reciente de [certificaciones de cumplimiento de SQL Database](https://azure.microsoft.com/support/trust-center/services/).
+Además de las anteriores características y funcionalidades que pueden ayudar a la aplicación a cumplir distintos requisitos de seguridad, Azure SQL Database también participa en las auditorías regulares y ha obtenido la certificación de una serie de normas de cumplimiento. Para más información, consulte el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/), donde podrá encontrar la lista más reciente de [certificaciones de cumplimiento de SQL Database](https://azure.microsoft.com/support/trust-center/services/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

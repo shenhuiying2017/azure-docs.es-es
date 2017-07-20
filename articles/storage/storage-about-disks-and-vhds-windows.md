@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 06/15/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 3b9d6eb9bcc4afe0e68920bbd5da7c259ceb0c67
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 402e5cb976d12ce01da83e8b39da49b807e4aa36
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -33,7 +34,7 @@ En este artículo, se tratan los diferentes usos de los discos y después se des
 Observemos cómo las máquinas virtuales utilizan los discos.
 
 ### <a name="operating-system-disk"></a>Disco del sistema operativo
-Cada máquina virtual tiene un disco de sistema operativo acoplado. Está registrado como unidad SATA y etiquetado como la unidad C: de forma predeterminada. Este disco tiene una capacidad máxima de 1023 gigabytes (GB). 
+Cada máquina virtual tiene un disco de sistema operativo acoplado. Está registrado como unidad SATA y etiquetado como la unidad C: de forma predeterminada. Este disco tiene una capacidad máxima de 2048 gigabytes (GB). 
 
 ### <a name="temporary-disk"></a>Disco temporal
 Cada máquina contiene un disco temporal. El disco temporal proporciona almacenamiento a corto plazo para aplicaciones y procesos, y está destinado únicamente a almacenar datos como archivos de paginación o de intercambio. Los datos del disco temporal pueden perderse durante un [evento de mantenimiento](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) o cuando [vuelva a implementar una máquina virtual](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante un reinicio estándar de la máquina virtual, los datos de la unidad temporal deben conservarse.
@@ -44,7 +45,7 @@ Para más información sobre cómo usa Azure el disco temporal, consulte [Unders
 
 
 ### <a name="data-disk"></a>Disco de datos
-Un disco de datos es un disco duro virtual (VHD) que se adjunta a una máquina virtual para almacenar datos de aplicaciones u otros datos que necesita mantener. Los discos de datos se registran como unidades SCSI y se etiquetan con una letra elegida por usted. Cada disco de datos tiene una capacidad máxima de 1023 GB. El tamaño de la máquina virtual determina cuántos discos de datos puede conectar y el tipo de almacenamiento que puede usar para hospedar los discos.
+Un disco de datos es un disco duro virtual (VHD) que se adjunta a una máquina virtual para almacenar datos de aplicaciones u otros datos que necesita mantener. Los discos de datos se registran como unidades SCSI y se etiquetan con una letra elegida por usted. Cada disco de datos tiene una capacidad máxima de 4095 GB. El tamaño de la máquina virtual determina cuántos discos de datos puede conectar y el tipo de almacenamiento que puede usar para hospedar los discos.
 
 > [!NOTE]
 > Para más información acerca de las capacidades de las máquinas virtuales, consulte [Tamaños de las máquinas virtuales Windows](../virtual-machines/windows/sizes.md).
@@ -63,6 +64,7 @@ Si utiliza discos estándar no administrados (HDD), debería habilitar TRIM. TRI
 
 Puede ejecutar este comando para comprobar la configuración de TRIM. Abra un símbolo del sistema en su máquina virtual de Windows y escriba:
 
+
 ```
 fsutil behavior query DisableDeleteNotify
 ```
@@ -73,10 +75,13 @@ Si el comando devuelve 0, significa que TRIM está habilitada correctamente. Si 
 fsutil behavior set DisableDeleteNotify 0
 ```
 
+> [!NOTE]
+> Nota: La compatibilidad con Trim comienza con Windows Server 2012 / Windows 8 y versiones posteriores. Vea [New API allows apps to send "TRIM and Unmap" hints to storage media](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints) (La nueva API que permite a las aplicaciones enviar sugerencias "TRIM y Unmap" a los medios de almacenamiento).
+> 
+
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Pasos siguientes
 * [Conecte un disco](../virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para agregar almacenamiento adicional para la máquina virtual.
-* [Carga de una imagen de máquina virtual Windows en Azure](../virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para usarla al crear una nueva máquina virtual.
 * [Cambiar la letra de unidad de disco temporal de Windows](../virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) con el fin de que la aplicación pueda usar la unidad D: para los datos.
 
 

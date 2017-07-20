@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: d967d70c7fad45f7a10a5288623440491dcfffa3
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -26,11 +27,11 @@ En este artículo se muestra cómo empaquetar e implementar varios ejecutables i
 
 Aunque este tutorial muestra cómo implementar una aplicación con un front-end de Node.js que usa MongoDB como almacén de datos, puede aplicar estos pasos en cualquier aplicación que tenga dependencias en otra aplicación.   
 
-Puede utilizar Visual Studio para generar el paquete de aplicación que contiene varios ejecutables invitados. Consulte [Uso de Visual Studio para empaquetar un ejecutable existente](service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). Después de haber agregado el primer ejecutable invitado, haga clic con el botón derecho en el proyecto de aplicación y seleccione el **Agregar->Nuevo servicio de Service Fabric** para agregar el segundo proyecto ejecutable invitado a la solución. Nota: Si decide vincular el origen en el proyecto de Visual Studio, mediante la compilación de la solución de Visual Studio, se asegurará de que el paquete de aplicación esté actualizado con los cambios en el origen. 
+Puede utilizar Visual Studio para generar el paquete de aplicación que contiene varios ejecutables invitados. Consulte [Uso de Visual Studio para empaquetar un ejecutable existente](service-fabric-deploy-existing-app.md). Después de haber agregado el primer ejecutable invitado, haga clic con el botón derecho en el proyecto de aplicación y seleccione el **Agregar->Nuevo servicio de Service Fabric** para agregar el segundo proyecto ejecutable invitado a la solución. Nota: Si decide vincular el origen en el proyecto de Visual Studio, mediante la compilación de la solución de Visual Studio, se asegurará de que el paquete de aplicación esté actualizado con los cambios en el origen. 
 
 ## <a name="samples"></a>Muestras
 * [Ejemplo para empaquetar e implementar un archivo ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Ejemplo de dos archivos ejecutables invitados (C# y Node.js) comunicándose a través del servicio de nomenclatura mediante REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Ejemplo de dos ejecutables invitados (C# y Node.js) que se comunican a través del servicio de nombres con REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Empaquetar manualmente la aplicación del ejecutable invitado múltiple
 También puede empaquetar manualmente el ejecutable invitado. Para el empaquetado manual, este artículo usa la herramienta de empaquetado de Service Fabric, que está disponible en [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
@@ -218,5 +219,5 @@ Para agregar otro servicio a una aplicación ya creada mediante `yo`, realice lo
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtener información acerca de la implementación de contenedores con [información general de Service Fabric y contenedores](service-fabric-containers-overview.md)
 * [Ejemplo para empaquetar e implementar un archivo ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Ejemplo de dos archivos ejecutables invitados (C# y Node.js) comunicándose a través del servicio de nomenclatura mediante REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Ejemplo de dos ejecutables invitados (C# y Node.js) que se comunican a través del servicio de nombres con REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 

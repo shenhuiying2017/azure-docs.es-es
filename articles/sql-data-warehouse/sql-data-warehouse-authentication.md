@@ -17,10 +17,10 @@ ms.custom: security
 ms.date: 03/21/2017
 ms.author: rortloff;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9f38d57029e962d1bbe8adae68232baa8a4c575d
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
 ms.contentlocale: es-es
-ms.lasthandoff: 03/22/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -89,7 +89,7 @@ Siga estos pasos para configurar la autenticación de Azure Active Directory.
 Actualmente los usuarios de Azure Active Directory no se muestran en el Explorador de objetos de SSDT. Como solución alternativa, vea los usuarios de [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 ### <a name="find-the-details"></a>Búsqueda de los detalles
-* Siga los pasos detallados. Los pasos detallados para configurar y usar la autenticación de Azure Active Directory son casi idénticos para Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure. Siga los pasos detallados del tema [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
+* Los pasos para configurar y usar la autenticación de Azure Active Directory son casi idénticos para Azure SQL Database y Azure SQL Data Warehouse. Siga los pasos detallados del tema [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
 * Cree roles de base de datos personalizados y agrégueles usuarios. A continuación, conceda permisos específicos a los roles. Para obtener más información, consulte [Introducción a los permisos de los motores de bases de datos](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes

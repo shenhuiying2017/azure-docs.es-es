@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2f0b7a04f4b732277abc65dd5fe0844d6e906496
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 78025789fd03d3c3a6cfb170329d9d51ac282034
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -118,6 +119,10 @@ El equilibrador de carga puede administrarse mediante las herramientas , las API
 Puede asignar más de una dirección IP pública de carga equilibrada a un conjunto de máquinas virtuales. Gracias a esta posibilidad, puede hospedar varios sitios web SSL o varios agentes de escucha de Grupo de disponibilidad AlwaysOn de SQL Server en el mismo conjunto de máquinas virtuales. Para obtener más información, consulte [Varias direcciones VIP por servicio en la nube](load-balancer-multivip.md).
 
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
+
+## <a name="limitations"></a>Limitaciones
+
+Los grupos de back-end de Load Balancer pueden contener cualquier SKU de máquina virtual, excepto nivel Básico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

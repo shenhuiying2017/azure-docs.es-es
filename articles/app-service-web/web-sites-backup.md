@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
+ms.author: cephalin;aelnably
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 673ea14ff534f237e06dd1d00586dad5736792d5
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 891359514e776e169bf05df7b84d2b99306f98bf
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -59,32 +59,35 @@ Las siguientes soluciones de base de datos son compatibles con la característic
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Crear una copia de seguridad manual
-1. En [Azure Portal](https://portal.azure.com), vaya a la hoja de la aplicación, seleccione **Configuración** y **Copias de seguridad**. Se mostrará la hoja **Copias de seguridad** .
+1. En [Azure Portal](https://portal.azure.com), vaya a la hoja de la aplicación y seleccione **Copias de seguridad**. Se mostrará la hoja **Copias de seguridad** .
    
     ![Página Copias de seguridad][ChooseBackupsPage]
    
    > [!NOTE]
-   > Si ve este mensaje, haga clic en él para actualizar su plan de App Service antes de continuar con las copias de seguridad.
-   > Vea [Escalado vertical de aplicaciones en Azure](web-sites-scale.md) para obtener más información.  
-   > ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/01UpgradePlan.png)
+   > Si ve el mensaje siguiente, haga clic en él para actualizar su plan del Servicio de aplicaciones antes de continuar con las copias de seguridad.
+   > Vea [Escalación de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md) para obtener más información.  
+   > ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
-2. En la hoja **Copias de seguridad**, haga clic en **Almacenamiento: no configurado** para configurar una cuenta de almacenamiento.
+
+2. En la hoja **Copia de seguridad**, haga clic en **Configurar**
+![Haga clic en Configurar](./media/web-sites-backup/ClickConfigure1.png)
+3. En la hoja **Configuración de copia de seguridad**, haga clic en **Almacenamiento: no configurado** para configurar una cuenta de almacenamiento.
    
     ![Selección de la cuenta de almacenamiento][ChooseStorageAccount]
-3. Elija el destino de copia de seguridad; para ello, seleccione una **Cuenta de almacenamiento** y un **Contenedor**. La cuenta de almacenamiento debe pertenecer a la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Si lo desea, puede crear una cuenta de almacenamiento o un nuevo contenedor en las hojas correspondientes. Cuando haya terminado, haga clic en **Seleccionar**.
+4. Elija el destino de copia de seguridad; para ello, seleccione una **Cuenta de almacenamiento** y un **Contenedor**. La cuenta de almacenamiento debe pertenecer a la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Si lo desea, puede crear una nueva cuenta de almacenamiento o un nuevo contenedor en las hojas correspondientes. Cuando haya terminado, haga clic en **Seleccionar**.
    
-    ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. En la hoja **Configurar ajustes de copia de seguridad** que está abierta aún, haga clic en **Configuración de base de datos**, seleccione las bases de datos que desea incluir en las copias de seguridad (SQL Database, MySQL o PostgreSQL) y después haga clic en **Aceptar**.  
+    ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+5. En la hoja **Configuración de copia de seguridad** que sigue abierta, puede configurar **Copia de seguridad de la base de datos**, seleccionar las bases de datos que desee incluir en las copias de seguridad (SQL Database o MySQL) y después haga clic en **Aceptar**.  
    
-    ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/03ConfigureDatabase.png)
+    ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la hoja **Configuración de la aplicación** de la aplicación.
    > 
    > 
-5. En la hoja **Establecer la configuración de la copia de seguridad**, haga clic en **Guardar**.    
-6. En la barra de comandos de la hoja **Copias de seguridad**, haga clic en **Realizar copia de seguridad ahora**.
+6. En la hoja **Configuración de copia de seguridad**, haga clic en **Guardar**.    
+7. En la hoja **Copias de seguridad**, haga clic en **Copia de seguridad**.
    
     ![Botón Backup Now][BackUpNow]
    
@@ -95,24 +98,12 @@ Una vez configurados tanto la cuenta de almacenamiento como el contenedor, puede
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Configuración de copias de seguridad automatizadas
-1. En la hoja **Copias de seguridad**, haga clic en **Programación: no configurada**. 
+1. En la hoja **Configuración de copia de seguridad**, establezca **Copia de seguridad programada** en **Activada**. 
    
-    ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/05ScheduleBackup.png)
-2. En la hoja **Configuración de programación de copia de seguridad**, establezca **Copia de seguridad programada** en **Activada**, configure la programación de la copia de seguridad como desee y haga clic en **Aceptar**.
+    ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/05ScheduleBackup1.png)
+2. Se mostrarán las opciones de programación de copia de seguridad. Establezca **Copia de seguridad programada** en **Activada**, configure la programación de la copia de seguridad como desee y haga clic en **Aceptar**.
    
     ![Activación de las copias de seguridad automatizadas][SetAutomatedBackupOn]
-3. En la hoja **Establecer la configuración de la copia de seguridad** que está abierta aún, haga clic en **Configuración de almacenamiento** y después elija un destino de copia de seguridad seleccionando una **Cuenta de almacenamiento** y un **Contenedor**. La cuenta de almacenamiento debe pertenecer a la misma suscripción que la aplicación de la que quiere realizar una copia de seguridad. Si lo desea, puede crear una cuenta de almacenamiento o un nuevo contenedor en las hojas correspondientes. Cuando haya terminado, haga clic en **Seleccionar**.
-   
-    ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. En la hoja **Configurar ajustes de copia de seguridad**, haga clic en **Configuración de base de datos**, seleccione las bases de datos que desea incluir en las copias de seguridad (SQL Database, MySQL o PostgreSQL) y después haga clic en **Aceptar**. 
-   
-    ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/03ConfigureDatabase.png)
-   
-   > [!NOTE]
-   > Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la hoja **Configuración de la aplicación** de la aplicación.
-   >  Si utiliza [MySQL en aplicación](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app), no verá ninguna base de datos en la lista dado que la cadena de conexión no se expone en el portal bajo **Configuración de la aplicación**.
-   > 
-5. En la hoja **Establecer la configuración de la copia de seguridad**, haga clic en **Guardar**.    
 
 <a name="partialbackups"></a>
 
@@ -173,19 +164,19 @@ Para obtener información sobre cómo restaurar una aplicación desde una copia 
 
 
 <!-- IMAGES -->
-[ChooseBackupsPage]:./media/web-sites-backup/01ChooseBackupsPage.png
-[ChooseStorageAccount]:./media/web-sites-backup/02ChooseStorageAccount.png
-[IncludedDatabases]:./media/web-sites-backup/03IncludedDatabases.png
-[BackUpNow]:./media/web-sites-backup/04BackUpNow.png
-[BackupProgress]:./media/web-sites-backup/05BackupProgress.png
-[SetAutomatedBackupOn]:./media/web-sites-backup/06SetAutomatedBackupOn.png
-[Frequency]:./media/web-sites-backup/07Frequency.png
-[StartDate]:./media/web-sites-backup/08StartDate.png
-[StartTime]:./media/web-sites-backup/09StartTime.png
-[SaveIcon]:./media/web-sites-backup/10SaveIcon.png
-[ImagesFolder]:./media/web-sites-backup/11Images.png
-[LogsFolder]:./media/web-sites-backup/12Logs.png
-[GhostUpgradeWarning]:./media/web-sites-backup/13GhostUpgradeWarning.png
+[ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage1.png
+[ChooseStorageAccount]: ./media/web-sites-backup/02ChooseStorageAccount-1.png
+[IncludedDatabases]: ./media/web-sites-backup/03IncludedDatabases.png
+[BackUpNow]: ./media/web-sites-backup/04BackUpNow1.png
+[BackupProgress]: ./media/web-sites-backup/05BackupProgress.png
+[SetAutomatedBackupOn]: ./media/web-sites-backup/06SetAutomatedBackupOn1.png
+[Frequency]: ./media/web-sites-backup/07Frequency.png
+[StartDate]: ./media/web-sites-backup/08StartDate.png
+[StartTime]: ./media/web-sites-backup/09StartTime.png
+[SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
+[ImagesFolder]: ./media/web-sites-backup/11Images.png
+[LogsFolder]: ./media/web-sites-backup/12Logs.png
+[GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
 [kudu-portal]:./media/web-sites-backup/kudu-portal.PNG
 
 

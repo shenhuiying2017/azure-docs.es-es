@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 01/30/2017
+ms.date: 06/23/2017
 ms.author: joeyong;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3fd5224983c723faefb8001888ae20e78acdb8ce
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
 ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migración del código SQL a Almacenamiento de datos SQL
-Al migrar el código desde otra base de datos a Almacenamiento de datos SQL, es muy probable que tenga que realizar cambios en el código base. Algunas características de Almacenamiento de datos SQL pueden mejorar significativamente el rendimiento, ya que están diseñadas para trabajar directamente en un modo distribuido. Sin embargo, para mantener el rendimiento y la escala, también hay algunas características que no están disponibles.
+En este artículo se explican los cambios de código que probablemente tenga que realizar al migrar el código desde otra base de datos a SQL Data Warehouse. Algunas características de Almacenamiento de datos SQL pueden mejorar significativamente el rendimiento, ya que están diseñadas para trabajar directamente en un modo distribuido. Sin embargo, para mantener el rendimiento y la escala, también hay algunas características que no están disponibles.
 
 ## <a name="common-t-sql-limitations"></a>Limitaciones comunes de T-SQL
-En la lista siguiente se resumen las características más comunes que no se admiten en Almacenamiento de datos SQL de Azure. Los vínculos siguientes le llevan a soluciones alternativas para la característica no admitida:
+En la lista siguiente se resumen las características más comunes que SQL Data Warehouse no admite. Los vínculos le llevan a soluciones alternativas para la característica no admitida:
 
 * [ANSI JOINS en UPDATE][ANSI joins on updates]
 * [ANSI JOINS en DELETE][ANSI joins on deletes]
@@ -80,7 +80,7 @@ Estas son algunas de las limitaciones de las expresiones de tabla comunes en Alm
 * Cuando se usa en instrucciones preparadas por sp_prepare, las CTE comportarán del mismo modo que otras instrucciones SELECT en PDW. Sin embargo, si las CTE se usan como parte de las CETAS preparadas por sp_prepare, el comportamiento puede diferir de SQL Server y de otras instrucciones PDW debido a la manera en que se implementa el enlace para sp_prepare. Si SELECT que hace referencia a la CTE está usando una columna incorrecta que no existe en la CTE, sp_prepare pasará sin detectar el error, pero el error se generará durante sp_execute en su lugar.
 
 ## <a name="recursive-ctes"></a>CTE recursivas
-Las CTE recursivas no se admiten en Almacenamiento de datos SQL.  La migración de CTE recursivas puede ser bastante completa y el mejor proceso es desglosarla en varios pasos. Normalmente puede usar un bucle y rellenar una tabla temporal conforme se recorren en iteración las consultas provisionales recursivas. Cuando se rellene la tabla temporal, puede devolver los datos como un conjunto único de resultados. Se ha usado un enfoque similar para resolver `GROUP BY WITH CUBE` en el artículo [cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS][group by clause with rollup / cube / grouping sets options].
+Las CTE recursivas no se admiten en Almacenamiento de datos SQL.  La migración de CTE recursivas puede ser bastante compleja y el mejor proceso es dividirla en varios pasos. Normalmente puede usar un bucle y rellenar una tabla temporal conforme se recorren en iteración las consultas provisionales recursivas. Cuando se rellene la tabla temporal, puede devolver los datos como un conjunto único de resultados. Se ha usado un enfoque similar para resolver `GROUP BY WITH CUBE` en el artículo [cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS][group by clause with rollup / cube / grouping sets options].
 
 ## <a name="unsupported-system-functions"></a>Funciones de sistema no compatibles
 También hay algunas funciones del sistema que no son compatibles. Algunas de las principales que normalmente se usan en almacenamiento de datos son:

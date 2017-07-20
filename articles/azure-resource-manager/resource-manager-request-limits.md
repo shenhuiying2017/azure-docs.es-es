@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 4029b699b59bb12eaa9e24b487d2829b5fb26daf
-ms.openlocfilehash: 6780b422138fbe18adfe256e9f7aa279dfed1cd9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 6d7eeaf460674c3ab98425a5412ffa465b9ffd1d
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
-Para cada suscripción e inquilino, los límites de Resource Manager leen 15 000 solicitudes y escriben 1200 cada hora. Si la aplicación o el script alcanza estos límites, debe limitar las solicitudes. En este tema se muestra cómo determinar las solicitudes restantes que quedan antes de alcanzar el límite y cómo responder cuando se ha alcanzado dicho límite.
+Para cada suscripción e inquilino, los límites de Resource Manager leen 15 000 solicitudes y escriben 1200 cada hora. Estos límites se aplican a cada instancia de Azure Resource Manage. Hay varias instancias en cada región de Azure y Azure Resource Manager se implementa en todas las regiones de Azure.  Por lo tanto, en la práctica, los límites son eficazmente mucho mayores que los mencionados anteriormente, ya que las solicitudes del usuario se ofrecen normalmente mediante muchas instancias diferentes.
+
+Si la aplicación o el script alcanza estos límites, debe limitar las solicitudes. En este tema se muestra cómo determinar las solicitudes restantes que quedan antes de alcanzar el límite y cómo responder cuando se ha alcanzado dicho límite.
 
 Cuando se alcanza este límite, recibirá el código de estado HTTP **429 Demasiadas solicitudes**.
 
@@ -109,9 +113,4 @@ Cuando alcance el límite de solicitudes, Azure Resource Manager devuelve el có
 
 * Para más información acerca de límites y cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 * Para obtener información sobre el control de solicitudes asincrónicas de REST, vea [Seguimiento de las operaciones asincrónicas de Azure](resource-manager-async-operations.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

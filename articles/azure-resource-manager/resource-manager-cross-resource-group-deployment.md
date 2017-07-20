@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2017
+ms.date: 06/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 1436b39fdb9a66a00903442496cc5203b47c1bcb
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -90,7 +90,7 @@ Si establece `resourceGroup` en el nombre de un grupo de recursos que no existe,
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Para implementar la plantilla de ejemplo, puede usar Azure PowerShell o la CLI de Azure. Debe usar una versión de Azure PowerShell o la CLI de Azure de mayo de 2017 o posterior. En los ejemplos se supone que ha guardado la plantilla localmente como un archivo denominado **crossrgdeployment.json**.
+Para implementar la plantilla de ejemplo, puede usar el portal, Azure PowerShell o la CLI de Azure. En el caso de Azure PowerShell o la CLI de Azure, debe usar una versión de mayo de 2017 o posterior. En los ejemplos se supone que ha guardado la plantilla localmente como un archivo denominado **crossrgdeployment.json**.
 
 Para PowerShell:
 
@@ -117,6 +117,42 @@ az group deployment create \
 ```
 
 Una vez finalizada la implementación, verá dos grupos de recursos. Cada uno contiene una cuenta de almacenamiento.
+
+## <a name="use-resourcegroup-function"></a>Usar la función resourceGroup()
+
+En el caso de las implementaciones de grupos de recursos, la [función resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) se resuelve de manera diferente en función de cómo se especifica la plantilla anidada. 
+
+Si inserta una plantilla dentro de otra, la función resourceGroup() de la plantilla anidada se resuelve en el grupo de recursos principal. Una plantilla insertada usa el formato siguiente:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "embeddedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "template": {
+        ...
+        resourceGroup() refers to parent resource group
+    }
+}
+```
+
+Si vincula a una plantilla independiente, la función resourceGroup() de la plantilla vinculada se resuelve en el grupo de recursos anidado. Una plantilla vinculada usa el formato siguiente:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "linkedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "templateLink": {
+        ...
+        resourceGroup() in linked template refers to linked resource group
+    }
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
