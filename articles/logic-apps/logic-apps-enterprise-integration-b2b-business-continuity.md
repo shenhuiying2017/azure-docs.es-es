@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 197df490690754730425231f358fde31d17dcfad
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 97864ade77fc694bd1eababe22e6eeb4b9d6e11e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -69,71 +69,73 @@ Para revertir a una región primaria si está disponible, siga estos pasos:
 
 ## <a name="x12"></a>X12 
 La continuidad empresarial de los documentos EDI X12 se basa en los números de control:
-* Números de control recibidos (mensajes entrantes) de asociados  
-* Números de control generados (mensajes salientes) y enviados a asociados 
-    
-    > [!Tip]
+
+> [!Tip]
     > También puede usar la [plantilla de inicio rápido de X12](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/) para crear aplicaciones lógicas. La creación de cuentas de integración primaria y secundaria es un requisito previo para usar la plantilla. La plantilla ayuda a crear dos aplicaciones lógicas, una para números de control recibidos y otra para números de control generados. Las acciones y los desencadenadores respectivos se crean en las aplicaciones lógicas, conectando el desencadenador a la cuenta de integración primaria y la acción a la cuenta de integración secundaria.
-    > 
+    >
     >
 
-### <a name="control-numbers-received-from-partners"></a>Números de control recibidos de los asociados
+Requisitos previos: Seleccione comprobar la configuración duplicada en la configuración de recepción de contrato X12 a fin de habilitar DR para los mensajes entrantes ![Búsqueda de X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Habilite las comprobaciones de duplicados en la configuración de recepción del contrato   
-![Búsqueda de X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
+1. Cree una [aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en una región secundaria.    
 
-2. Cree una [aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en una región secundaria. 
-
-3. Busque en **X12** y seleccione **X12: Cuando se modifica un número de control recibido**.   
-![Búsqueda de X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN1.png)
-
-4. El desencadenador le pide que establezca una conexión con una cuenta de integración. El desencadenador se debe conectar a la cuenta de integración de una región primaria. Escriba un nombre de conexión, seleccione la **cuenta de integración de la región primaria** en la lista y haga clic en **Crear**.  
-![Nombre de la cuenta de integración de la región primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN2.png)
-
-5. La configuración **DateTime para iniciar la sincronización de números de control** es opcional. La **frecuencia** se puede establecer en **Día**, **Hora**, **Minuto** o **Segundo** con un intervalo.  
-![DateTime y frecuencia](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN3.png)
-
-6. Seleccione **Nuevo paso** > **Agregar una acción**.    
-![Agregar una acción](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN4.png)
-
-7. Busque en **X12** y seleccione **X12: Permite agregar o actualizar un número de control recibido**.   
-![Modificación del número de control recibido](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN5.png)
-
-8. Para conectar una acción a la cuenta de integración de una región secundaria, seleccione **Cambiar conexión** > **Agregar nueva conexión** para ver una lista de las cuentas de integración disponibles. Escriba un nombre de conexión, seleccione la **cuenta de integración de la región secundaria** en la lista y haga clic en **Crear**.   
-![Nombre de la cuenta de integración de la región secundaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN6.png)
-
-9. Seleccione el contenido dinámico y guarde la aplicación lógica. 
-![Contenido dinámico](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN7.png)
-
-10. Según el intervalo de tiempo, el desencadenador sondea la tabla de número de control recibido de la región primaria y extrae los nuevos registros. La acción los actualiza en la cuenta de integración de una región secundaria. Si no hay actualizaciones, el estado del desencadenador aparece como **Omitido**.
-![Tabla de número de control](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN8.png)
-
-### <a name="control-numbers-generated-and-sent-to-partners"></a>Números de control generados y enviados a los asociados
-1. Cree una [aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en una región secundaria.
-
-2. Busque en **X12** y seleccione **X12: Cuando se modifica un número de control generado**.  
-![Modificación del número de control generado](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN1.png)
+2. Busque en **X12** y seleccione **X12: Cuando se modifica un número de control**.   
+![Búsqueda de X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn1.png)
 
 3. El desencadenador le pide que establezca una conexión con una cuenta de integración. El desencadenador se debe conectar a la cuenta de integración de una región primaria. Escriba un nombre de conexión, seleccione la **cuenta de integración de la región primaria** en la lista y haga clic en **Crear**.   
-![Nombre de la cuenta de integración de la región primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN2.png) 
+![Nombre de la cuenta de integración de la región primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
-4. La configuración **DateTime para iniciar la sincronización de números de control** es opcional. La **frecuencia** se puede establecer en **Día**, **Hora**, **Minuto** o **Segundo** con un intervalo.  
-![DateTime y frecuencia](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN3.png)  
+4. La configuración **DateTime para iniciar la sincronización de números de control** es opcional. La **frecuencia** se puede establecer en **Día**, **Hora**, **Minuto** o **Segundo** con un intervalo.   
+![DateTime y frecuencia](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
-5. Seleccione **Nuevo paso** > **Agregar una acción**.  
-![Agregar una acción](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN4.png)
+5. Seleccione **Nuevo paso** > **Agregar una acción**.    
+![Agregar una acción](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-6. Busque en **X12** y seleccione **X12: Agregar o actualizar un número de control generado**.   
-![Incorporación o actualización de número de control generado](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN5.png)
+6. Busque en **X12** y seleccione **X12: Permite agregar o actualizar números de control**.   
+![Modificación del número de control recibido](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
-7. Para conectar una acción a la cuenta de integración secundaria, seleccione **Cambiar conexión** > **Agregar nueva conexión** para ver una lista de las cuentas de integración disponibles. Escriba un nombre de conexión, seleccione la **cuenta de integración de la región secundaria** en la lista y haga clic en **Crear**.   
-![Nombre de la cuenta de integración de la región secundaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN6.png)
+7. Para conectar una acción a la cuenta de integración de una región secundaria, seleccione **Cambiar conexión** > **Agregar nueva conexión** para ver una lista de las cuentas de integración disponibles. Escriba un nombre de conexión, seleccione la **cuenta de integración de la región secundaria** en la lista y haga clic en **Crear**.   
+![Nombre de la cuenta de integración de la región secundaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-8. Seleccione el contenido dinámico y guarde la aplicación lógica. 
-![Contenido dinámico](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN7.png)
+8. Seleccione el contenido dinámico y guarde la aplicación lógica.   
+![Contenido dinámico](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn7.png)
 
-9. Según el intervalo de tiempo, el desencadenador sondea la tabla de número de control recibido de la región primaria y extrae los nuevos registros. La acción los actualiza en la cuenta de integración de una región secundaria. Si no hay actualizaciones, el estado del desencadenador aparece como **Omitido**.  
-![Tabla de número de control](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN8.png)
+9. Según el intervalo de tiempo, el desencadenador sondea la tabla de número de control recibido de la región primaria y extrae los nuevos registros. La acción los actualiza en la cuenta de integración de una región secundaria. Si no hay actualizaciones, el estado del desencadenador aparece como **Omitido**.   
+![Tabla de número de control](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
+
+Según el intervalo de tiempo, el estado en tiempo de ejecución incremental se replica de una región primaria a una secundaria. Durante un desastre, si la región primaria no está disponible, el tráfico se dirige a la región secundaria para la continuidad empresarial. 
+
+## <a name="edifact"></a>EDIFACT 
+La continuidad empresarial de los documentos EDI EDIFACT se basa en los números de control:
+
+Requisitos previos: Seleccione comprobar la configuración duplicada en la configuración de recepción de contrato EDIFACT a fin de habilitar DR para los mensajes entrantes     
+![Búsqueda de EDIFACT](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+
+1. Cree una [aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en una región secundaria.    
+
+2. Busque en **EDIFACT** y seleccione **EDIFACT: Cuando se modifica un número de control**.     
+![Búsqueda de EDIFACT](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
+
+4. El desencadenador le pide que establezca una conexión con una cuenta de integración. El desencadenador se debe conectar a la cuenta de integración de una región primaria. Escriba un nombre de conexión, seleccione la **cuenta de integración de la región primaria** en la lista y haga clic en **Crear**.    
+![Nombre de la cuenta de integración de la región primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
+
+5. La configuración **DateTime para iniciar la sincronización de números de control** es opcional. La **frecuencia** se puede establecer en **Día**, **Hora**, **Minuto** o **Segundo** con un intervalo.    
+![DateTime y frecuencia](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+
+6. Seleccione **Nuevo paso** > **Agregar una acción**.    
+![Agregar una acción](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+
+7. Busque en **EDIFACT** y seleccione **EDIFACT: Permite agregar o actualizar números de control**.   
+![Modificación del número de control recibido](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+
+8. Para conectar una acción a la cuenta de integración de una región secundaria, seleccione **Cambiar conexión** > **Agregar nueva conexión** para ver una lista de las cuentas de integración disponibles. Escriba un nombre de conexión, seleccione la **cuenta de integración de la región secundaria** en la lista y haga clic en **Crear**.   
+![Nombre de la cuenta de integración de la región secundaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+
+9. Seleccione el contenido dinámico y guarde la aplicación lógica.   
+![Contenido dinámico](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn5.png)
+
+10. Según el intervalo de tiempo, el desencadenador sondea la tabla de número de control recibido de la región primaria y extrae los nuevos registros. La acción los actualiza en la cuenta de integración de una región secundaria. Si no hay actualizaciones, el estado del desencadenador aparece como **Omitido**.   
+![Tabla de número de control](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
 
 Según el intervalo de tiempo, el estado en tiempo de ejecución incremental se replica de una región primaria a una secundaria. Durante un desastre, si la región primaria no está disponible, el tráfico se dirige a la región secundaria para la continuidad empresarial. 
 
@@ -148,30 +150,31 @@ La continuidad empresarial de los documentos que usan el protocolo AS2 se basa e
 1. Cree una [aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en la región secundaria.  
 
 2. Busque en **AS2** y seleccione **AS2: Cuando se crea un valor MIC**.   
-![Búsqueda de AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid1.png)
+![Búsqueda de AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
 
 3. Un desencadenador le pide que establezca una conexión con una cuenta de integración. El desencadenador se debe conectar a la cuenta de integración de una región primaria. Escriba un nombre de conexión, seleccione la **cuenta de integración de la región primaria** en la lista y haga clic en **Crear**.   
-![Nombre de la cuenta de integración de la región primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid2.png)
+![Nombre de la cuenta de integración de la región primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
 4. La configuración **DateTime para iniciar la sincronización del valor MIC** es opcional. La **frecuencia** se puede establecer en **Día**, **Hora**, **Minuto** o **Segundo** con un intervalo.   
-![DateTime y frecuencia](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid3.png)
+![DateTime y frecuencia](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid3.png)
 
 5. Seleccione **Nuevo paso** > **Agregar una acción**.  
-![Agregar una acción](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid4.png)
+![Agregar una acción](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
 
 6. Busque en **AS2** y seleccione **AS2: Agregar o actualizar un valor MIC**.  
-![Incorporación o actualización de MIC](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid5.png)
+![Incorporación o actualización de MIC](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 
 7. Para conectar una acción a la cuenta de integración secundaria, seleccione **Cambiar conexión** > **Agregar nueva conexión** para ver una lista de las cuentas de integración disponibles. Escriba un nombre de conexión, seleccione la **cuenta de integración de la región secundaria** en la lista y haga clic en **Crear**.    
-![Nombre de la cuenta de integración de la región secundaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid6.png)
+![Nombre de la cuenta de integración de la región secundaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
 
 8. Seleccione el contenido dinámico y guarde la aplicación lógica.   
-![Contenido dinámico](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid7.png)
+![Contenido dinámico](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid7.png)
 
 9. Según el intervalo de tiempo, el desencadenador sondea la tabla de la región primaria y extrae los nuevos registros. La acción los actualiza en la cuenta de integración de una región secundaria. Si no hay actualizaciones, el estado del desencadenador aparece como **Omitido**.  
-![Tabla de la región primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid8.png)
+![Tabla de la región primaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid8.png)
 
 Según el intervalo de tiempo, el estado en tiempo de ejecución incremental se replica de la región primaria a la secundaria. Durante un desastre, si la región primaria no está disponible, el tráfico se dirige a la región secundaria para la continuidad empresarial. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información sobre la [supervisión de mensajes B2B](logic-apps-monitor-b2b-message.md).   

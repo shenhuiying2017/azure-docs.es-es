@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/24/2017
 ms.author: gauravbh; tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: a4348a4d2348d744c03ad3a89d0548526fa2f9f8
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c4e0508e243bd4f0cd57ea1619f7812433329423
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -34,9 +34,13 @@ Hay dos posibilidades cuando se trabaja con aplicaciones administradas:
 1. El proveedor o fabricante de software independiente (ISV) que crea una aplicación administrada y hace que esté disponible para un uso mayor. 
 2. El cliente o el usuario que desea crear y usar la aplicación publicada. 
 
-En este artículo se tratan ambas posibilidades. En primer lugar, permite comprender el funcionamiento de las aplicaciones administradas. 
+En este artículo se ofrece información general sobre ambas experiencias. En primer lugar, permite comprender el funcionamiento de las aplicaciones administradas. 
 
 Una aplicación administrada es similar a una plantilla de solución de Marketplace, aunque hay una diferencia importante. En una aplicación administrada, los recursos se aprovisionan en un grupo de recursos que está administrado por el ISV o proveedor. El grupo de recursos está presente en la suscripción del cliente, pero un usuario, grupo de usuarios o aplicación del inquilino del ISV tiene acceso al grupo de recursos. Para administrar y mantener la aplicación, la identidad del proveedor se agrega a los roles de propietario, colaborador, lector, o cualquier otro rol integrado en Active Directory. 
+
+Para más información sobre la experiencia del proveedor, vea [Creación y publicación de una aplicación administrada de Azure](managed-application-publishing.md).
+
+Para más información sobre la experiencia del consumidor, vea [Uso de una aplicación administrada de Azure](managed-application-consumption.md).
 
 ## <a name="key-concepts"></a>Conceptos clave
 

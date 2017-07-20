@@ -3,7 +3,7 @@ title: "Instalación de Visual Studio y SSDT para SQL Data Warehouse | Microsoft
 description: "Instalación de herramientas de desarrollo de Visual Studio y SQL Server Data Tools (SSDT) para Almacenamiento de datos SQL de Azure"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: antvgski
 manager: jhubbard
 editor: 
 ms.assetid: 0ed9b406-9b42-4fe6-b963-fe0a5b48aac1
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 ms.date: 03/30/2017
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ae025ee2e6865b225efc5e225e261ac579a339aa
-ms.lasthandoff: 04/03/2017
+ms.author: anvang;barbkess
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: f7023b78c241a7bc8014276cd0bfa455165b42cc
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -41,7 +42,7 @@ Siga estos vínculos para descargar e instalar Visual Studio. Si ya tiene Visual
 ## <a name="step-2-install-ssdt"></a>Paso 2: Instalación de SSDT
 Para instalar SSDT para Visual Studio, simplemente busque una actualización de SSDT desde dentro de Visual Studio siguiendo estos pasos.
 
-1. En Visual Studio, haga clic en **Herramientas** / **Extensiones y actualizaciones...** / **Actualizaciones**.
+1. En Visual Studio, haga clic en **Herramientas** / **Extensiones y actualizaciones...** / **Actualizaciones**
 2. Seleccione **Actualizaciones de productos** y busque la actualización **Microsoft SQL Server Update para herramientas de base de datos**.
 
 Si no hay ninguna actualización, debería tener la última versión instalada.  Para confirmar que SSDT está instalado, haga clic en **Ayuda** / **Acerca de Microsoft Visual Studio** y busque SQL Server Data Tools en la lista.  La versión más reciente de SSDT es 14.0.60525.0.  Si la opción para instalar no está disponible en Visual Studio, también puede visitar la página [Descargar las últimas herramientas de datos SQL Server][SSDT Download] para descargar e instalar SSDT manualmente.

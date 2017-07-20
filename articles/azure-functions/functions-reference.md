@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 05/30/2017
 ms.author: chrande
-translationtype: Human Translation
-ms.sourcegitcommit: bc96edb44dc8bbbbe4687806117990c9d3470fdc
-ms.openlocfilehash: adb70fc58321c11c0b57efc9810a44d0ab2c8a20
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -76,7 +77,7 @@ Al configurar un proyecto para la implementación de funciones en una aplicació
 > 
 > 
 
-## <a name="a-idfileupdatea-how-to-update-function-app-files"></a><a id="fileupdate"></a> Actualización de los archivos de aplicación de función
+## <a id="fileupdate"></a> Actualización de los archivos de aplicación de función
 El editor de funciones integrado en el Portal de Azure le permite actualizar el archivo *function.json* y el archivo de código de una función. Para cargar o actualizar otros archivos como *package.json* o *project.json* u otras dependencias, tendrá que usar otros métodos de implementación.
 
 Las aplicaciones de función se integran en App Service, por lo que todas las [opciones de implementación disponibles para aplicaciones web estándar](../app-service-web/web-sites-deploy.md) están también disponibles para aplicaciones de función. Estos son algunos métodos que puede utilizar para cargar o actualizar los archivos del contenedor de funciones. 
@@ -96,9 +97,7 @@ Las aplicaciones de función se integran en App Service, por lo que todas las [o
 3. Vaya a `D:\home\site\wwwroot\` para actualizar *host.json* o `D:\home\site\wwwroot\<function_name>` para actualizar los archivos de la función.
 4. Arrastre y coloque el archivo que desea cargar en la carpeta adecuada en la cuadrícula de archivos. Hay dos áreas en la cuadrícula de archivos donde puede colocar un archivo. Para los archivos *.zip* , aparece un cuadro con la etiqueta "Drag here to upload and unzip" (Arrastre aquí para cargar y descomprimir). Para otros tipos de archivo, colóquelos en la cuadrícula de archivos, pero fuera del cuadro para "descomprimir".
 
-#### <a name="to-use-ftp"></a>Para usar FTP
-1. Siga las instrucciones descritas [aquí](../app-service-web/web-sites-deploy.md#ftp) para configurar el FTP.
-2. Cuando esté conectado al sitio de Function App, copie el archivo *host.json* actualizado en `/site/wwwroot` o copie los archivos de funciones en `/site/wwwroot/<function_name>`.
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
 
 #### <a name="to-use-continuous-deployment"></a>Para usar la implementación continua
 Siga las instrucciones que se indican en el tema [Continuous deployment for Azure Functions](functions-continuous-deployment.md)(Implementación continua para Funciones de Azure).
@@ -106,8 +105,9 @@ Siga las instrucciones que se indican en el tema [Continuous deployment for Azur
 ## <a name="parallel-execution"></a>Ejecución en paralelo
 Cuando se producen varios eventos de desencadenado más rápido de lo que un tiempo de ejecución de función de un solo subproceso pueda procesarlos, el tiempo de ejecución puede invocar la función varias veces en paralelo.  Si una aplicación de función usa el [plan de hospedaje de consumo](functions-scale.md#how-the-consumption-plan-works), esta aplicación podría escalarse horizontalmente de forma automática.  Cada instancia de la aplicación de función, tanto si la aplicación se ejecuta en el plan de hospedaje de consumo como en el [plan de hospedaje de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) normal, puede procesar invocaciones de función simultáneas en paralelo mediante varios subprocesos.  El número máximo de invocaciones de función simultáneas en cada instancia de aplicación de función varía según el tipo de desencadenador usado y lo recursos empleados por otras funciones dentro de la aplicación de función.
 
-## <a name="azure-functions-pulse"></a>Impulso de funciones de Azure
-El impulso es una secuencia de eventos en directo que muestra con qué frecuencia se ejecuta la función, así como las operaciones correctas y erróneas. También puede supervisar el tiempo medio de ejecución. Iremos agregando más características y personalización con el paso del tiempo. Puede acceder a la página **Impulso** desde la pestaña **Supervisión**.
+## <a name="functions-runtime-versioning"></a>Versiones del entorno en tiempo de ejecución de Functions
+
+Puede configurar la versión del entorno en tiempo de ejecución de Functions mediante la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`. Por ejemplo, el valor "~1" indica que la Function App utilizará 1 como versión principal. Las Function App se actualizan a las nuevas versiones secundarias a medida que se lanzan. Puede consultar la versión exacta de Function App en la pestaña **Configuración** de Azure Portal.
 
 ## <a name="repositories"></a>Repositorios
 El código de Funciones de Azure es código abierto y está almacenado en repositorios de GitHub:

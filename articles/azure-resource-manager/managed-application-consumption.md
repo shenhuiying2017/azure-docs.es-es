@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/17/2017
 ms.author: gauravbh; tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 2763da60fe25f2ca55603ecfcbbcefe3e368c25d
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 041254b07584a52ae92e603f60a439050b747af1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -49,8 +49,7 @@ az group create --name managedResourceGroup --location westcentralus
 Después, use el comando siguiente para implementar el archivo applianceMainTemplate.json en mainResourceGroup:
 
 ```azurecli
-az group deployment --name managedAppDeployment --resourceGroup mainResourceGroup 
-      --templateUri  
+az group deployment create --name managedAppDeployment --resourceGroup mainResourceGroup --templateUri  
 ```
 
 Cuando se ejecuta la plantilla anterior, le pide los valores de los parámetros que se definen en la plantilla. Además de los parámetros necesarios para el aprovisionamiento de recursos en una plantilla, necesita los valores de dos parámetros clave:
@@ -94,9 +93,9 @@ Este comando devuelve la definición de dispositivo. Se necesita el valor de la 
 
 Azure Portal también permite utilizar aplicaciones administradas publicadas por el ISV. Siga estos pasos:
 
-Seleccione la aplicación administrada en la hoja Crear en Azure Portal:
+Seleccione la aplicación administrada del catálogo de servicios en la hoja Crear en Azure Portal:
 
-![](./media/managed-application-consumption/create-blade.png)
+![](./media/managed-application-consumption/create-service-catalog-managed-application.png)
 
 A continuación, verá la lista de ofertas de distintos ISV o asociados. Seleccione la que le gustaría crear y haga clic en "Crear".
 

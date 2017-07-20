@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3216868d867f4c840a610c45855d22575ded609c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -41,7 +43,7 @@ Una máquina virtual denominada *VM1* forma parte de una subred *Subnet1* dentro
 
 Aunque este ejemplo utiliza el puerto TCP 3389, los pasos siguientes pueden utilizarse para determinar errores de conexión entrante y saliente a través de cualquier puerto.
 
-### <a name="view-effective-security-rules-for-a-virtual-machine"></a>Visualización de las reglas de seguridad vigentes para una máquina virtual
+### <a name="vm"></a>Visualización de las reglas de seguridad vigentes para una máquina virtual
 Complete los pasos siguientes para solucionar problemas de los NSG para una máquina virtual:
 
 Puede ver una lista completa de las reglas de seguridad vigentes en una NIC, desde la propia máquina virtual. También puede agregar, modificar y eliminar reglas de NIC y de subred de NSG en la hoja reglas vigentes, si dispone de permisos para realizar estas operaciones.
@@ -92,7 +94,7 @@ Puede ver una lista completa de las reglas de seguridad vigentes en una NIC, des
    
     Compruebe que el puerto TCP 3389 está abierto abriendo una conexión RDP con la máquina virtual o usando la herramienta PsPing. Puede obtener más información sobre PsPing consultando la [página de descarga de PsPing](https://technet.microsoft.com/sysinternals/psping.aspx).
 
-### <a name="view-effective-security-rules-for-a-network-interface"></a>Visualización de las reglas de seguridad vigentes para una interfaz de red
+### <a name="nic"></a>Visualización de las reglas de seguridad vigentes para una interfaz de red
 Si el flujo de tráfico de la máquina virtual se ve afectado por una NIC específica, puede ver una lista completa de las reglas vigentes para la NIC desde el contexto de interfaces de red mediante los pasos siguientes:
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
@@ -109,7 +111,7 @@ Si el flujo de tráfico de la máquina virtual se ve afectado por una NIC espec�
    > 
 4. Puede editar directamente las reglas para los NSG asociados con una subred y una NIC. Para obtener información sobre cómo hacerlo, vea el paso 8 de la sección **Visualización de las reglas de seguridad vigentes para una máquina virtual** de este artículo.
 
-## <a name="view-effective-security-rules-for-a-network-security-group-nsg"></a>Visualización de las reglas de seguridad vigentes para un grupo de seguridad de red (NSG)
+## <a name="nsg"></a>Visualización de las reglas de seguridad vigentes para un grupo de seguridad de red (NSG)
 Al modificar las reglas de NSG, puede revisar el impacto de las reglas que se agregan en una máquina virtual específica. Puede ver una lista completa de las reglas de seguridad vigentes para todas las NIC a las que se aplica un NSG determinado, sin tener que cambiar el contexto de la hoja de NSG determinada. Para solucionar problemas de las reglas vigentes dentro de un NSG, realice los pasos siguientes:
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
@@ -148,10 +150,5 @@ Tenga en cuenta los puntos siguientes cuando tenga que solucionar problemas de c
 * Si ha emparejado redes virtuales, de forma predeterminada, la etiqueta VIRTUAL_NETWORK se expandirá automáticamente para incluir prefijos para redes virtuales emparejadas. Puede ver estos prefijos en la lista **ExpandedAddressPrefix** para solucionar los problemas relacionados con la conectividad de emparejamiento de rede virtuales. 
 * Las reglas de seguridad vigentes solo se muestran si hay un NSG asociado con la NIC o subred de máquina virtual. 
 * Si no hay ningún NSG asociado a la NIC o subred y tiene una dirección IP pública asignada a la máquina virtual, todos los puertos estarán abiertos para el acceso entrante y saliente. Si la máquina virtual tiene una dirección IP pública, es muy recomendable aplicar los NSG a la subred o NIC.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

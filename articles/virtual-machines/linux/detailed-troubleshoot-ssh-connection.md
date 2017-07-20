@@ -14,17 +14,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 03/07/2017
+ms.date: 05/18/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: df65c08a56596af2341b9cad4c89b5d18f6c6404
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f31f17121fdb42f4ae911efde9e98bbd223d0680
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="detailed-ssh-troubleshooting-steps"></a>Pasos de solución de problemas detallados de SSH
-Hay muchas razones posibles por las que el cliente SSH podría no ser capaz de ponerse en contacto con el servicio SSH en la máquina virtual. Si ha seguido los [pasos más generales de solución de problemas de SSH](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), debe solucionar además el problema de conexión. Este artículo le guiará por los pasos de solución de problemas detallados para determinar dónde se producen errores en la conexión SSH y cómo resolverlos.
+# <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Pasos detallados de solución de problemas de SSH para los problemas de conexión a una máquina virtual Linux en Azure
+Hay muchas razones posibles por las que el cliente SSH podría no ser capaz de ponerse en contacto con el servicio SSH en la máquina virtual. Si ha seguido los [pasos más generales de solución de problemas de SSH](troubleshoot-ssh-connection.md), debe solucionar además el problema de conexión. Este artículo le guiará por los pasos de solución de problemas detallados para determinar dónde se producen errores en la conexión SSH y cómo resolverlos.
 
 ## <a name="take-preliminary-steps"></a>Pasos previos
 El siguiente diagrama muestra los componentes que intervienen.
@@ -95,7 +96,7 @@ Para descartar el dispositivo perimetral de la organización como causa de los e
 
 ![Diagrama que resalta el dispositivo perimetral de la organización](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Si no tiene un equipo conectado directamente a Internet, cree una nueva máquina virtual de Azure en su propio grupo de recursos o servicio en la nube y úsela. Para más información, consulte [Creación de una máquina virtual que ejecuta Linux en Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Cuando acabe de realizar las pruebas, elimine el grupo de recursos o la máquina virtual y el servicio en la nube.
+Si no tiene un equipo conectado directamente a Internet, cree una nueva máquina virtual de Azure en su propio grupo de recursos o servicio en la nube y úsela. Para más información, consulte [Creación de una máquina virtual que ejecuta Linux en Azure](quick-create-cli.md). Cuando acabe de realizar las pruebas, elimine el grupo de recursos o la máquina virtual y el servicio en la nube.
 
 Si puede crear una conexión SSH con un equipo que esté conectado directamente a Internet, compruebe si el dispositivo perimetral de la organización tiene lo siguiente:
 
@@ -113,7 +114,7 @@ Para descartar el punto de conexión de servicio en la nube y ACL como el origen
 
 ![Diagrama que resalta el punto de conexión del servicio en la nube y ACL](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-Si no tiene otra máquina virtual en la misma red virtual, puede crear una fácilmente. Para más información, consulte [Creación de una máquina virtual Linux en Azure mediante la CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Cuando acabe de realizar las pruebas, elimine la máquina virtual que creó.
+Si no tiene otra máquina virtual en la misma red virtual, puede crear una fácilmente. Para más información, consulte [Creación de una máquina virtual Linux en Azure mediante la CLI](quick-create-cli.md). Cuando acabe de realizar las pruebas, elimine la máquina virtual que creó.
 
 Si puede crear una conexión SSH con una máquina virtual en la misma red virtual, compruebe las siguientes áreas:
 
@@ -143,6 +144,6 @@ Pruebe de nuevo la conexión desde su equipo. Si sigue sin funcionar, estos son 
 * El software de detección de intrusiones o supervisión de red que se ejecuta en la máquina virtual de Azure impide las conexiones SSH.
 
 ## <a name="additional-resources"></a>Recursos adicionales
-Para más información sobre cómo solucionar problemas de acceso a las aplicaciones, consulte [Solución de problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para más información sobre cómo solucionar problemas de acceso a las aplicaciones, consulte [Solución de problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](troubleshoot-app-connection.md).
 
 

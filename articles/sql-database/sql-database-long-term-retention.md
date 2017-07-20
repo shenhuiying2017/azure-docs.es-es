@@ -17,56 +17,53 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: e47c10c2c979622fba254757d3f7b9f19d3240f8
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 84e95127ae2951ec5d1e0727801fc598d7e78227
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="storing-azure-sql-database-backups-for-up-to-10-years"></a>Almacenamiento de copias de seguridad de Azure SQL Database durante diez años como máximo
-Muchas aplicaciones tienen finalidades normativas, de cumplimiento u otras de carácter empresarial que requieren que se conserven las copias de seguridad de las bases de datos completas automáticas más allá de los entre 7 y 35 días proporcionados por las [copias de seguridad automáticas](sql-database-automated-backups.md) de SQL Database. La función **Long-Term Backup Retention** (Retención a largo plazo de copias de seguridad) le permite almacenar las copias de seguridad de Azure SQL Database en un almacén de Azure Recovery Services hasta 10 años. Puede almacenar hasta 1000 bases de datos por almacén. Puede seleccionar cualquier copia de seguridad del almacén para restaurarlo como una base de datos nueva.
+# <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Almacenamiento de copias de seguridad de Azure SQL Database durante diez años como máximo
+Muchas aplicaciones tienen finalidades normativas, de conformidad u otras de carácter empresarial que requieren que se conserven copias de seguridad de las bases de datos completas automáticas más allá de los entre 7 y 35 días proporcionados por las [copias de seguridad automáticas](sql-database-automated-backups.md) de Azure SQL Database. Al usar la función de retención de copias de seguridad a largo plazo, puede almacenar las copias de seguridad de las bases de datos SQL en un almacén de Azure Recovery Services hasta diez años. Puede almacenar hasta 1000 bases de datos por almacén. Puede seleccionar cualquier copia de seguridad del almacén para restaurarlo como una base de datos nueva.
 
 > [!IMPORTANT]
-> La retención de copia de seguridad a largo plazo está actualmente disponible en versión preliminar en las siguientes regiones: este de Australia, sudeste de Australia, sur de Brasil, centro de EE. UU., Asia Oriental, este de EE.UU., este de EE. UU. 2, India central, sur de la India, Japón Oriental, Oeste de Japón, centro-norte de EE.UU., Europa del Norte, centro-sur de EE.UU., Sudeste Asiático, Europa Occidental y oeste de EE.UU.
+> La retención de copias de seguridad a largo plazo está actualmente disponible en versión preliminar en las siguientes regiones: este de Australia, sudeste de Australia, sur de Brasil, centro de EE. UU., Asia oriental, este de EE. UU., este de EE. UU. 2, India central, sur de la India, Japón oriental, Japón Occidental, centro-norte de EE. UU., Europa del Norte, centro-sur de EE. UU., Sudeste Asiático, Europa Occidental y oeste de EE. UU.
 >
 
 > [!NOTE]
-> Puede habilitar hasta 200 bases de datos por almacén durante 24 horas. Por lo tanto, se recomienda que use un almacén independiente para cada servidor para minimizar el impacto de este límite. 
+> Puede habilitar hasta 200 bases de datos por almacén durante 24 horas. Se recomienda que use un almacén independiente para cada servidor para minimizar el impacto de este límite. 
 > 
 
+## <a name="how-sql-database-long-term-backup-retention-works"></a>¿Cómo funciona la retención de copias de seguridad a largo plazo de SQL Database?
 
+Con la retención de copias de seguridad a largo plazo, puede asociar un servidor de bases de datos SQL a un almacén de Azure Recovery Services. 
 
- 
-## <a name="how-does-sql-database-long-term-backup-retention-work"></a>¿Cómo funciona la retención a largo plazo de copias de seguridad de SQL Database?
-
-La retención a largo plazo de copias de seguridad permite asociar un servidor de Azure SQL Database a un almacén de Azure Recovery Services. 
-
-* El almacén debe crearse en la misma suscripción de Azure que creó el servidor SQL Server y en la misma región geográfica y el grupo de recursos. 
-* A continuación, configure una directiva de retención para cualquier base de datos. Esta directiva tiene como consecuencia que se copien las copias de seguridad completas semanales de la base de datos en el almacén de Recovery Services y que se conserven durante el periodo especificado de retención (hasta 10 años). 
-* A continuación, puede restaurar desde cualquiera de estas copias de seguridad a una base de datos nueva en cualquier servidor de la suscripción. La copia se realiza mediante Azure Storage desde las copias de seguridad existentes y no afecta al rendimiento de la base de datos existente.
+* Debe crear el almacén en la misma suscripción de Azure que creó el servidor SQL Server y en la misma región geográfica y grupo de recursos. 
+* A continuación, configure una directiva de retención para cualquier base de datos. Esta directiva tiene como consecuencia que se copien las copias de seguridad completas semanales de la base de datos en el almacén de Recovery Services y que se conserven durante el periodo especificado de retención (hasta diez años). 
+* Luego, puede restaurar la base de datos desde cualquiera de estas copias de seguridad a una base de datos nueva en cualquier servidor de la suscripción. Azure Storage crea una copia desde las copias de seguridad existentes, y esta copia no afecta al rendimiento de la base de datos existente.
 
 > [!TIP]
-> Para obtener una guía de procedimientos, vea [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md) (Configuración y restauración de retención a largo plazo de copias de seguridad de Azure SQL Database)
+> Para obtener una guía de procedimientos, consulte [Configuración y restauración de retención de copias de seguridad a largo plazo de Azure SQL Database](sql-database-long-term-backup-retention-configure.md).
 
-## <a name="how-do-i-enable-long-term-backup-retention"></a>¿Cómo se habilita la retención a largo plazo de copias de seguridad?
+## <a name="enable-long-term-backup-retention"></a>Habilitación de la retención de copias de seguridad a largo plazo
 
 Para configurar la retención a largo plazo de copias de seguridad de una base de datos, es preciso:
 
-1. crear un almacén de Azure Recovery Services en la misma región, suscripción y grupo de recursos que el servidor de SQL Database, 
-2. registrar el servidor en el almacén.
-3. crear una directiva de protección de Azure Recovery Services,
-4. aplicar la directiva de protección a las bases de datos que requieren la retención a largo plazo de copias de seguridad.
+1. Cree un almacén de Azure Recovery Services en la misma región, suscripción y grupo de recursos que el servidor de SQL Database. 
+2. Registre el servidor en el almacén.
+3. Cree una directiva de protección de Azure Recovery Services.
+4. Aplique la directiva de protección a las bases de datos que requieren la retención de copias de seguridad a largo plazo.
 
-### <a name="azure-portal"></a>Portal de Azure
+Para configurar, administrar y restaurar una base de datos desde la retención de copias de seguridad automatizadas a largo plazo en un almacén de Azure Recovery Services, adopte una de las siguientes medidas:
 
-Para configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services mediante Azure Portal, haga clic en **Retención a largo plazo de copias de seguridad**, seleccione la base de datos y, luego, haga clic en **Configurar**. 
+* Desde Azure Portal: haga clic en **Retención de copias de seguridad a largo plazo**, seleccione una base de datos y, Luego, haga clic en **configurar**. 
 
-   ![seleccionar base de datos para retención de copia de seguridad a largo plazo](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
+   ![Seleccionar base de datos para retención de copias de seguridad a largo plazo](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
 
-Para configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services mediante PowerShell, vea [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md) (Configuración y restauración de retención a largo plazo de copias de seguridad de Azure SQL Database).
+* Desde PowerShell: vaya a [Configuración y restauración de retención de copias de seguridad a largo plazo de Azure SQL Database](sql-database-long-term-backup-retention-configure.md).
 
-## <a name="how-do-i-restore-a-database-stored-with-the-long-term-backup-retention-feature"></a>¿Cómo se restaura una base de datos almacenada con la función de retención a largo plazo de copias de seguridad?
+## <a name="restore-a-database-thats-stored-with-the-long-term-backup-retention-feature"></a>Restauración de una base de datos almacenada con la función de retención de copias de seguridad a largo plazo
 
 Para recuperar desde una copia de seguridad de retención a largo plazo, es preciso:
 
@@ -74,83 +71,101 @@ Para recuperar desde una copia de seguridad de retención a largo plazo, es prec
 2. incluir en una lista el contenedor que se asigna a su servidor lógico,
 3. incluir en una lista el origen de datos en el almacén que se asigna a la base de datos,
 4. incluir en una lista de los puntos de restauración disponibles para restaurar,
-5. restaurar desde el punto de recuperación en el servidor objetivo en su suscripción.
+5. restaurar la base de datos desde el punto de recuperación en el servidor de destino en su suscripción.
 
-Para configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services mediante Azure Portal, consulte [Administración de la retención de copia de seguridad a largo plazo mediante Azure Portal](sql-database-long-term-backup-retention-configure.md). Para configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services mediante PowerShell, consulte [Administración de la retención de copia de seguridad a largo plazo mediante PowerShell](sql-database-long-term-backup-retention-configure.md).
+Para configurar, administrar y restaurar una base de datos desde la retención de copias de seguridad automatizadas a largo plazo en un almacén de Azure Recovery Services, adopte una de las siguientes medidas:
 
-## <a name="how-much-does-long-term-backup-retention-cost"></a>¿Cuánto cuesta la retención a largo plazo de copias de seguridad?
+* Desde Azure Portal: vaya a [Administración de la retención de copias de seguridad a largo plazo mediante Azure Portal](sql-database-long-term-backup-retention-configure.md). 
 
-La retención a largo plazo de copias de seguridad de una base de datos Azure SQL Database se cobra según las [tarifas de precios de servicios de copias de seguridad de Azure](https://azure.microsoft.com/pricing/details/backup/).
+* Desde PowerShell: vaya a [Administración de la retención de copias de seguridad a largo plazo mediante PowerShell](sql-database-long-term-backup-retention-configure.md).
 
-Una vez que el servidor de Azure SQL Database esté registrado en el almacén, se le cobra por el almacenamiento total utilizado por las copias de seguridad semanales guardadas en el almacén.
+## <a name="get-pricing-for-long-term-backup-retention"></a>Obtención de precios para la retención de copias de seguridad a largo plazo
 
-## <a name="view-available-backups-stored-in-long-term-backup-retention"></a>Consulta de las copias de seguridad disponibles almacenadas en retención de copia de seguridad a largo plazo
+La retención de copias de seguridad a largo plazo de una base de datos SQL se cobra según las [tarifas de precios de servicios de copias de seguridad de Azure](https://azure.microsoft.com/pricing/details/backup/).
 
-Para configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services mediante Azure Portal, consulte [Administración de la retención a largo plazo de copias de seguridad mediante Azure Portal](sql-database-long-term-backup-retention-configure.md). Para configurar, administrar y restaurar desde la retención a largo plazo de copias de seguridad automatizadas en un almacén de Azure Recovery Services mediante PowerShell, consulte [Administración de la retención a largo plazo de copias de seguridad mediante PowerShell](sql-database-long-term-backup-retention-configure.md).
+Una vez que el servidor de bases de datos SQL esté registrado en el almacén, se le cobra por el almacenamiento total utilizado por las copias de seguridad semanales guardadas en el almacén.
 
-## <a name="disabling-long-term-retention"></a>Inhabilitación de la retención a largo plazo
+## <a name="view-available-backups-that-are-stored-in-long-term-backup-retention"></a>Consulta de las copias de seguridad disponibles almacenadas en retención de copias de seguridad a largo plazo
 
-Recovery Service controla automáticamente la limpieza de las copias de seguridad según la directiva de retención proporcionada. 
+Para configurar, administrar y restaurar una base de datos desde la retención de copias de seguridad automatizadas a largo plazo en un almacén de Azure Recovery Services mediante Azure Portal, adopte una de las siguientes medidas:
 
-* Para detener el envío de copias de seguridad de una base de datos específica al almacén, elimine la directiva de retención de esa base de datos.
+* Desde Azure Portal: vaya a [Administración de la retención de copias de seguridad a largo plazo mediante Azure Portal](sql-database-long-term-backup-retention-configure.md). 
+
+* Desde PowerShell: vaya a [Administración de la retención de copias de seguridad a largo plazo mediante PowerShell](sql-database-long-term-backup-retention-configure.md).
+
+## <a name="disable-long-term-retention"></a>Deshabilitación de la retención a largo plazo
+
+El servicio de recuperación gestiona automáticamente la limpieza de las copias de seguridad según la directiva de retención proporcionada. 
+
+Para detener el envío de copias de seguridad de una base de datos específica al almacén, elimine la directiva de retención de esa base de datos.
   
-    ```
-    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName 'RG1' -ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
-    ```
+```
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName 'RG1' -ServerName 'Server1' -DatabaseName 'DB1' -State 'Disabled' -ResourceId $policy.Id
+```
 
 > [!NOTE]
-> Las copias de seguridad que ya están en el almacén no resultan afectadas. Recovery Service los elimina automáticamente cuando termina el período de retención.
+> Las copias de seguridad que ya están en el almacén no se ven afectadas. El servicio de recuperación la elimina automáticamente cuando termina el periodo de retención.
 
-## <a name="long-term-backup-retention-faq"></a>Preguntas frecuentes sobre la retención a largo plazo de copias de seguridad:
+## <a name="long-term-backup-retention-faq"></a>Preguntas frecuentes sobre la retención de copias de seguridad a largo plazo
 
-1. P: ¿puedo eliminar manualmente las copias de seguridad específicas en el almacén?
+**¿Puedo eliminar manualmente copias de seguridad específicas del almacén?**
 
-    R.: actualmente, no. El almacén limpiará automáticamente las copias de seguridad cuando haya terminado el período de retención.
-2. P: ¿puedo registrar mi servidor para guardar las copias de seguridad en más de un almacén?
+Actualmente, no. El almacén limpiará automáticamente las copias de seguridad cuando haya terminado el período de retención.
 
-    R.: no, actualmente solo puede guardar copias de seguridad en un almacén a la vez.
-3. P: ¿puedo tener un almacén y un servidor en suscripciones distintas?
+**¿Puedo registrar mi servidor para guardar las copias de seguridad en más de un almacén?**
 
-    R: no, actualmente el almacén y el servidor deben estar en la misma suscripción y el grupo de recursos.
-4. P: ¿puedo usar un almacén que he creado en una región distinta a la de mi servidor?
+No, actualmente solo puede guardar copias de seguridad en un almacén a la vez.
 
-    R: no, el almacén y el servidor deben estar en la misma región para minimizar el tiempo de copia y evitar los cargos de tráfico.
-5. P.: ¿cuántas bases de datos puedo guardar en un almacén?
+**¿Puedo tener un almacén y un servidor en suscripciones distintas?**
 
-    R.: Actualmente solo se admiten hasta 1000 bases de datos por almacén. 
-6. P: ¿Cuántos almacenes puedo crear por suscripción?
+No, actualmente el almacén y el servidor deben estar en la misma suscripción y el grupo de recursos.
 
-    A. Se pueden crear hasta 25 almacenes por suscripción.
-7. P: ¿cuántas bases de datos puedo configurar diariamente por almacén?
+**¿Puedo usar un almacén que he creado en una región que es distinta a la de mi servidor?**
 
-    A. Solo puede configurar 200 bases de datos diariamente por almacén.
-8. P.: ¿la retención a largo plazo de copias de seguridad funciona con grupos elásticos?
+No, el almacén y el servidor deben estar en la misma región para minimizar el tiempo de copia y evitar cargos de tráfico.
 
-    R: Sí. Cualquier base de datos del grupo puede configurarse con la directiva de retención.
-9. P: ¿puedo elegir el momento en que se crea la copia de seguridad?
+**¿Cuántas bases de datos puedo guardar en un almacén?**
 
-    R.: no, la base de datos SQL Database controla la programación de copias de seguridad con el fin de minimizar el impacto del rendimiento en las bases de datos.
-10. P: he habilitado TDE en mi base de datos. ¿Puedo usar TDE con el almacén? 
+Actualmente se admiten hasta 1000 bases de datos por almacén. 
 
-    A. Sí, es compatible con TDE. Puede restaurar la base de datos desde el almacén incluso si la base de datos original ya no existe.
-11. P: ¿Qué ocurre con las copias de seguridad en el almacén si se suspende mi suscripción? 
+**¿Cuántos almacenes puedo crear por suscripción?**
 
-    A. Si la suscripción se suspende, se conservan las bases de datos y las copias de seguridad existentes. Las copias de seguridad nuevas no se copian en el almacén. Después haber reactivado la suscripción, el servicio retoma el copiado de copias de seguridad en el almacén. El almacén estará accesible para las operaciones de restauración mediante el uso de copias de seguridad que se copiaron allí antes de que se suspendiera la suscripción. 
-12. P.: ¿puedo obtener acceso a los archivos de copias de seguridad de la base de datos SQL Database para descargar o restaurar a SQL Server?
+Se pueden crear hasta 25 almacenes por suscripción.
 
-    R.: actualmente, no.
-13. P.: ¿es posible tener varias programaciones (diaria, semanal, mensual, anual) dentro de una directiva de retención de SQL.
+**¿Cuántas bases de datos puedo configurar diariamente por almacén?**
 
-    R.: no, en este momento esto solo está disponible para las copias de seguridad de máquinas virtuales.
-14. P: ¿Qué ocurre si establecemos la retención de copia de seguridad a largo plazo en una base de datos secundaria con replicación geográfica activa?
+Puede configurar 200 bases de datos diariamente por almacén.
 
-    R: En estos momentos no creamos copias de seguridad de réplicas y, por lo tanto, no hay ninguna opción para la retención de copia de seguridad a largo plazo en bases de datos secundarias. Sin embargo, es importante que un cliente configure una retención de copia de seguridad a largo plazo en una base de datos secundaria con replicación geográfica activa por estos motivos:
-    - Cuando se produce una conmutación por error y la base de datos se convierte en la principal, creamos una copia de seguridad completa y esta se carga al almacén.
-    - No hay costo adicional si el cliente configura la retención de copia de seguridad a largo plazo en una base de datos secundaria.
+**¿La retención de copias de seguridad a largo plazo funciona con grupos elásticos?**
 
+Sí. Cualquier base de datos del grupo puede configurarse con la directiva de retención.
 
+**¿Puedo elegir el momento en que se crea la copia de seguridad?**
+
+No, SQL Database controla la programación de copias de seguridad con el fin de minimizar el impacto del rendimiento en las bases de datos.
+
+**Si dispone de cifrado de datos transparente habilitado para la base de datos. ¿Puedo usarlo con el almacén?** 
+
+Si, se admite el cifrado de datos transparente. Puede restaurar la base de datos desde el almacén incluso si la base de datos original ya no existe.
+
+**¿Qué ocurre con las copias de seguridad en el almacén si se suspende mi suscripción?** 
+
+Si la suscripción se suspende, se conservan las bases de datos y las copias de seguridad existentes. Las copias de seguridad nuevas no se copian en el almacén. Después haber reactivado la suscripción, el servicio retoma el copiado de copias de seguridad en el almacén. El almacén estará accesible para las operaciones de restauración mediante el uso de copias de seguridad que se copiaron allí antes de que se suspendiera la suscripción. 
+
+**¿Puedo obtener acceso a los archivos de copias de seguridad de la base de datos SQL Database para descargar o restaurar al servidor SQL Server?**
+
+Actualmente, no.
+
+**¿Es posible tener varias programaciones (diaria, semanal, mensual, anual) dentro de una directiva de retención de SQL?**
+
+No, actualmente solo están disponibles varias programaciones para las copias de seguridad de máquinas virtuales.
+
+**¿Qué ocurre si establecemos la retención de copias de seguridad a largo plazo en una base de datos secundaria con replicación geográfica activa?**
+
+Dado que no creamos copias de seguridad de réplicas, actualmente no hay ninguna opción para la retención de copias de seguridad a largo plazo en bases de datos secundarias. Sin embargo, es importante que un usuario configure una retención de copias de seguridad a largo plazo en una base de datos secundaria con replicación geográfica activa por los siguientes motivos:
+* Cuando se produce una conmutación por error y la base de datos se convierte en la principal, creamos una copia de seguridad completa y esta se carga al almacén.
+* No hay costo adicional si el cliente configura la retención de copias de seguridad a largo plazo en una base de datos secundaria.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad del negocio, ya que protegen los datos de daños o eliminaciones accidentales. Para descubrir otras soluciones de continuidad empresarial de Azure SQL Database, consulte el artículo de [información general sobre la continuidad empresarial](sql-database-business-continuity.md).
-
+Dado que las copias de seguridad de bases de datos protegen los datos de eliminaciones o daños accidentales, son una parte esencial de cualquier estrategia de recuperación ante desastres y de continuidad empresarial. Para descubrir otras soluciones de continuidad empresarial de SQL Database, consulte el artículo de [información general sobre la continuidad empresarial](sql-database-business-continuity.md).
 

@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 05/25/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: aa3704fe844a41fef22b8cdd35838c68aebc7752
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: a36283053939ccd53856a394cd9efb66285271ae
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -32,16 +33,16 @@ Esta es una comparación detallada de las distintas opciones de comunicación de
 
 |  | Mensajes de dispositivo a nube | Propiedades notificadas | Cargas de archivos |
 | ---- | ------- | ---------- | ---- |
-| Escenario | Serie temporal de telemetría y alertas. Por ejemplo, lotes de datos del sensor de 256KB enviados cada 5 minutos. | Funcionalidades disponibles y condiciones. Por ejemplo, el modo actual de conectividad del dispositivo, como móvil o WiFi. Sincronización de flujos de trabajo de ejecución prolongada, como configuración y actualizaciones de software. | Archivos multimedia. Lotes de telemetría (generalmente comprimidos) de gran tamaño. |
+| Escenario | Serie temporal de telemetría y alertas. Por ejemplo, lotes de datos del sensor de 256 KB enviados cada cinco minutos. | Funcionalidades disponibles y condiciones. Por ejemplo, el modo actual de conectividad del dispositivo, como móvil o WiFi. Sincronización de flujos de trabajo de ejecución prolongada, como configuración y actualizaciones de software. | Archivos multimedia. Lotes de telemetría (generalmente comprimidos) de gran tamaño. |
 | Almacenamiento y recuperación | Almacenados temporalmente por IoT Hub, hasta 7 días. Solo lectura secuencial. | Almacenados por IoT Hub en el dispositivo gemelo. Recuperables mediante el [lenguaje de consulta de IoT Hub][lnk-query]. | Almacenadas en la cuenta de Azure Storage proporcionada por el usuario. |
-| Tamaño | Hasta 256 KB de mensajes. | El tamaño máximo de las propiedades notificadas es 8 KB. | Tamaño máximo de archivo admitido por Azure Blob Storage. |
+| Tamaño | Mensajes de hasta 256 KB. | El tamaño máximo de las propiedades notificadas es 8 KB. | Tamaño máximo de archivo admitido por Azure Blob Storage. |
 | Frecuencia | Alta. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. | Mediana. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. | Baja. Para más información, consulte los [Límites de IoT Hub][lnk-quotas]. |
 | Protocol | Disponible en todos los protocolos. | Actualmente solo está disponible cuando se usa MQTT. | Disponible cuando se usa cualquier protocolo, pero hace falta HTTP en el dispositivo. |
 
 Es posible que una aplicación deba enviar información como alertas o series temporales de telemetría y también permitir que esté disponible en el dispositivo gemelo. En este escenario, puede elegir una de las siguientes opciones:
 
-* O bien la aplicación para dispositivos envía un mensaje del dispositivo a la nube y notifica un cambio de propiedad. 
-* O el back-end de solución puede almacenar la información en las etiquetas del dispositivo gemelo cuando recibe el mensaje. 
+* La aplicación para dispositivo envía un mensaje de dispositivo a nube y notifica un cambio de propiedad.
+* El back-end de la solución puede almacenar la información en las etiquetas del dispositivo gemelo cuando recibe el mensaje.
 
 Dado que los mensajes de dispositivo a nube permiten una capacidad de proceso mucho mayor que las actualizaciones de dispositivos gemelos, a veces es aconsejable evitar actualizar el dispositivo gemelo con cada mensaje de dispositivo a nube.
 
@@ -50,5 +51,5 @@ Dado que los mensajes de dispositivo a nube permiten una capacidad de proceso mu
 [lnk-fileupload]: iot-hub-devguide-file-upload.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-query]: iot-hub-devguide-query-language.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: iot-hub-devguide-messages-d2c.md
 

@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 04/21/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: b1b67a83a25159414a80382030903d300aad71f7
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 40fe0ae04eb94322356ed19773512e3bc383639c
 ms.contentlocale: es-es
 ms.lasthandoff: 05/18/2017
 
@@ -58,7 +58,7 @@ Una vez completada la conmutación por error de la base de datos y los puntos de
 Si se produce una interrupción en la región secundaria, se suspende el vínculo de replicación entre la base de datos principal y la secundaria pero la conmutación por error no se desencadena porque la base de datos principal no se ve afectada. En este caso, la disponibilidad de la aplicación no cambia, pero la aplicación funciona expuesta y, por tanto, con un riesgo más alto en caso de que ambas regiones tengan un error en cadena.
 
 > [!NOTE]
-> Solo se recomienda las configuraciones de implementación con una sola región de recuperación ante desastres. Esto es porque la mayoría de las ubicaciones geográficas de Azure tienen dos regiones. Estas configuraciones no protegerán la aplicación de un error grave de ambas regiones. En el caso poco probable de que este error se produjese, podría recuperar sus bases de datos en una tercera región mediante una [operación de restauración geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
+> Para recuperación ante desastres, se recomienda la configuración con la implementación de aplicaciones limitada a dos regiones. Esto es porque la mayoría de las ubicaciones geográficas de Azure tienen solo dos regiones. Esta configuración no protegerá la aplicación de un error grave simultáneo de ambas regiones.  En el caso poco probable de que este error se produjese, podría recuperar sus bases de datos en una tercera región mediante una [operación de restauración geográfica](sql-database-disaster-recovery.md#recover-using-geo-restore).
 >
 
 Una vez que se reduce la interrupción, la base de datos secundaria se volverá a sincronizar automáticamente con la principal. Durante la sincronización, el rendimiento de la principal podría verse afectado ligeramente dependiendo de la cantidad de datos que haya que sincronizar. El siguiente diagrama ilustra una interrupción en la región secundaria.

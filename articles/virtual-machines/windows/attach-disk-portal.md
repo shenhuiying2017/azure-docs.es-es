@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: d02f92a8809efd6f58312af8cb40739299ea28f6
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c0886302c82641f8cc1a00d3972870d58ba8afb4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -95,12 +95,15 @@ Si el comando devuelve 0, significa que TRIM está habilitada correctamente. Si 
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
-                
+
 Después de eliminar los datos del disco, puede garantizar que las operaciones de TRIM se vacían correctamente mediante la ejecución de desfragmentación con TRIM:
 
 ```
 defrag.exe <volume:> -l
 ```
+
+También puede formatear el volumen para asegurarse de que quede recortado por completo.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si la aplicación debe usar la unidad D: para almacenar datos, puede [cambiar la letra de la unidad del disco temporal de Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

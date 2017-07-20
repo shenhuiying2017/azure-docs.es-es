@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 306dde28a4af82197ae5a75bee83c0e7cf219e42
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 96c46b2c01272abfaf1dd2667a45e3818cbe49a0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -834,7 +834,7 @@ Si va a copiar datos desde Azure Cosmos DB, establezca el **tipo de origen** de 
 
 | **Propiedad** | **Descripción** | **Valores permitidos** | **Obligatorio** |
 | --- | --- | --- | --- |
-| query |Especifique la consulta para leer los datos. |Cadena de consulta compatible con Azure Cosmos DB. <br/><br/>Ejemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta: `select <columns defined in structure> from mycollection` |
+| query |Especifique la consulta para leer los datos. |Cadena de consulta admitida por Azure Cosmos DB. <br/><br/>Ejemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Carácter especial para indicar que el documento está anidado |Cualquier carácter. <br/><br/>Azure Cosmos DB es un almacén NoSQL para documentos JSON, en el que se permiten estructuras anidadas. Azure Data Factory permite al usuario indicar la jerarquía a través de nestingSeparator que es "." en los ejemplos anteriores. Con el separador, la actividad de copia generará el objeto "Name" con tres elementos secundarios First, Middle y Last, según "Name.First", "Name.Middle" y "Name.Last" en la definición de tabla. |No |
 
 #### <a name="example"></a>Ejemplo
@@ -880,7 +880,7 @@ Si va a copiar datos a Azure Cosmos DB, establezca el **tipo de receptor** de la
 
 | **Propiedad** | **Descripción** | **Valores permitidos** | **Obligatorio** |
 | --- | --- | --- | --- |
-| nestingSeparator |Un carácter especial en el nombre de columna de origen que indica que el documento anidado es necesario. <br/><br/>Ejemplo de lo anterior: `Name.First` en la tabla de salida produce la siguiente estructura JSON en el documento de Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Carácter que se usa para separar los niveles de anidamiento.<br/><br/>El valor predeterminado es `.` (punto). |Carácter que se usa para separar los niveles de anidamiento. <br/><br/>El valor predeterminado es `.` (punto). |
+| nestingSeparator |Un carácter especial en el nombre de columna de origen que indica que el documento anidado es necesario. <br/><br/>En el ejemplo anterior: `Name.First` en la tabla de salida produce la siguiente estructura JSON en el documento de Cosmos DB:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Carácter que se usa para separar los niveles de anidamiento.<br/><br/>El valor predeterminado es `.` (punto). |Carácter que se usa para separar los niveles de anidamiento. <br/><br/>El valor predeterminado es `.` (punto). |
 | writeBatchSize |Número de solicitudes paralelas al servicio de Azure Cosmos DB para crear documentos.<br/><br/>Puede ajustar el rendimiento cuando se copian datos en Azure Cosmos DB, y viceversa, mediante esta propiedad. Puede esperar un rendimiento mejor al aumentar writeBatchSize porque se envían más solicitudes paralelas a Azure Cosmos DB. Sin embargo, deberá evitar una limitación de solicitudes que puede generar el mensaje de error: "La tasa de solicitudes es grande".<br/><br/>La limitación de solicitudes se decide mediante una serie de factores, incluidos tamaño de los documentos, número de términos en los documentos, directiva de indexación de colección de destino, etc. Para las operaciones de copia, puede usar una colección mejor (por ejemplo, S3) para obtener el máximo rendimiento disponible (2500 unidades de solicitudes por segundo). |Entero  |No (valor predeterminado: 5) |
 | writeBatchTimeout |Tiempo de espera para que la operación se complete antes de que se agote el tiempo de espera. |timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). |No |
 
@@ -4834,7 +4834,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 | type |La propiedad type se debe establecer en **HDInsightOnDemand**. |Sí |
 | clusterSize |Número de nodos de datos o trabajo del clúster El clúster de HDInsight se crea con dos nodos principales junto con el número de nodos de trabajo que haya especificado para esta propiedad. Los nodos son de tamaño Standard_D3 con 4 núcleos, por lo que un clúster de nodos de 4 trabajos necesitará 24 núcleos (4\*4 = 16 para nodos de trabajo, más 2\*4 = 8 para nodos principales). Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para más información acerca del nivel Standard_D3. |yes |
 | timeToLive |El tiempo de inactividad permitido para el clúster de HDInsight a petición. Especifica cuánto tiempo permanece activo el clúster de HDInsight a petición después de la finalización de una ejecución de actividad si no hay ningún otro trabajo activo en el clúster.<br/><br/>Por ejemplo, si una ejecución de actividad tarda 6 minutos y timetolive está establecido en 5 minutos, el clúster permanece activo durante 5 minutos después de los 6 minutos de procesamiento de la ejecución de actividad. Si se realiza otra ejecución de actividad con un margen de 6 minutos, la procesa el mismo clúster.<br/><br/>Crear un clúster de HDInsight a petición es una operación costosa (podría tardar un poco); use esta configuración si es necesario para mejorar el rendimiento de una factoría de datos mediante la reutilización de un clúster de HDInsight a petición.<br/><br/>Si establece el valor de timetolive en 0, el clúster se elimina en cuanto se procesa la ejecución de actividad. Por otra parte, si establece un valor alto, el clúster puede permanecer inactivo innecesariamente, lo que conlleva unos costos elevados. Por lo tanto, es importante que establezca el valor adecuado en función de sus necesidades.<br/><br/>Varias canalizaciones pueden compartir la misma instancia del clúster de HDInsight a petición si el valor de la propiedad timetolive está correctamente configurado. |Sí |
-| versión |Versión del clúster de HDInsight. El valor predeterminado es 3.1 para el clúster de Windows y 3.2 para el clúster de Linux. |No |
+| versión |Versión del clúster de HDInsight. Para obtener más información, consulte [Versiones admitidas de HDInsight en Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |No |
 | linkedServiceName |El servicio vinculado de Almacenamiento de Azure que usará el clúster a petición para almacenar y procesar datos. <p>Actualmente, no se puede crear un clúster de HDInsight a petición que utilice una instancia de Azure Data Lake Store como almacenamiento. Si desea almacenar los datos de resultados del procesamiento de HDInsight en una instancia de Azure Data Lake Store, utilice una actividad de copia para copiar los datos desde Azure Blob Storage a Azure Data Lake Store.</p>  | Sí |
 | additionalLinkedServiceNames |Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. |No |
 | osType |Tipo de sistema operativo. Los valores permitidos son: Windows (predeterminado) y Linux |No |
@@ -4873,6 +4873,8 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 | nombre de usuario |Especifique el nombre de usuario que se usará para conectarse a un clúster de HDInsight existente. |Sí |
 | contraseña |Especifique la contraseña para la cuenta de usuario. |Sí |
 | linkedServiceName | Nombre del servicio vinculado para Azure Storage que hace referencia al almacenamiento Azure Blob Storage que usa el clúster de HDInsight. <p>Actualmente, no se puede especificar un servicio vinculado de Azure Data Lake Store para esta propiedad. Puede acceder a los datos de Azure Data Lake Store desde scripts de Pig/Hive si el clúster de HDInsight tiene acceso a Data Lake Store. </p>  |Sí |
+
+Para conocer las versiones de los clústeres de HDInsight admitidas, consulte [Versiones compatibles con HDInsight](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). 
 
 #### <a name="json-example"></a>Ejemplo JSON
 

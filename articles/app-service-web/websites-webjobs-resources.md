@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: fc5c87e45f3c92172f01a462451bc145ce8b0b16
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 9023ca104fcab29bc0b16ecd3a6584848e2d453e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -25,11 +26,11 @@ ms.lasthandoff: 03/27/2017
 ## <a name="overview"></a>Información general
 Este tema establece vínculos a recursos de documentación acerca de cómo usar WebJobs de Azure y el SDK de WebJobs de Azure. WebJobs de Azure proporciona una forma simple de ejecutar scripts o programas como procesos en segundo plano en el contexto de una [aplicación web del Servicio de aplicaciones, aplicación de API o aplicación móvil](../app-service/app-service-value-prop-what-is.md). Puede cargar y ejecutar un archivo ejecutable como cmd, bat, exe (.NET), ps1, sh, php, py, js y jar. Estos programas se ejecutan como WebJobs según una programación (cron) o de forma continua.
 
-El propósito del [SDK de WebJobs](websites-webjobs-resources.md) es simplificar el código que escriba para las tareas comunes que puede realizar un WebJob, como procesamiento de imágenes, procesamiento de colas, agregación de RSS, mantenimiento de archivos y enviar de correos electrónicos. El SDK de WebJobs tiene características integradas para trabajar con Almacenamiento de Azure y Bus de servicio, para programar tareas y controlar errores, y para muchos otros escenarios comunes. Además, se ha diseñado para ser extensible y hay un [repositorio de código abierto para las extensiones](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). [Funciones de Azure](../azure-functions/functions-overview.md) (actualmente en versión preliminar) se basa en una versión del SDK de WebJobs que funciona con el script C#, Node.js y otros lenguajes. 
+El propósito del [SDK de WebJobs](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-webjobs-sdk) es simplificar el código que escriba para las tareas comunes que puede realizar un WebJob, como procesamiento de imágenes, procesamiento de colas, agregación de RSS, mantenimiento de archivos y enviar de correos electrónicos. El SDK de WebJobs tiene características integradas para trabajar con Almacenamiento de Azure y Bus de servicio, para programar tareas y controlar errores, y para muchos otros escenarios comunes. Además, se ha diseñado para ser extensible y hay un [repositorio de código abierto para las extensiones](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). [Funciones de Azure](../azure-functions/functions-overview.md) (actualmente en versión preliminar) se basa en una versión del SDK de WebJobs que funciona con el script C#, Node.js y otros lenguajes. 
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
-La creación, implementación y administración de WebJobs se realiza de manera fluida gracias al conjunto de herramientas integradas en Visual Studio. Puede crear WebJobs a partir de plantillas, así como publicarlos y administrarlos (procesos de ejecución, detención, supervisión o implementación). 
+La creación, implementación y administración de WebJobs se realiza de manera fluida gracias al conjunto de herramientas integradas en Visual Studio. Puede crear WebJobs a partir de plantillas, así como publicarlos y administrarlos (procesos de ejecución, detención, supervisión o depuración). 
 
 El panel de WebJobs en el Portal de Azure proporciona capacidades de administración eficaces que ofrecen un control completo sobre la ejecución de WebJobs, incluida la capacidad para invocar funciones individuales dentro de WebJobs. El panel también muestra los tiempos de ejecución de las funciones y el resultado del registro. 
 
@@ -38,7 +39,7 @@ El panel de WebJobs en el Portal de Azure proporciona capacidades de administrac
 * [Azure WebJobs are awesome and you should start using them right now! (¡Los WebJobs de Azure son impresionantes y debería comenzar a usarlos ya!) (¡Los WebJobs de Azure son impresionantes y debería comenzar a usarlos ya!)](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Blog publicado por Troy Hunt.)
 * [Características de WebJobs de Azure](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [¿Qué es el SDK de WebJobs](websites-dotnet-webjobs-sdk.md)
-* [Orientación sobre trabajos en segundo plano: Microsoft Patterns and Practices](/documentation/articles/best-practices-background-jobs/)
+* [Orientación sobre trabajos en segundo plano: Microsoft Patterns and Practices](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs)
 * [Anuncio de la versión RTM 1.1.0 del SDK de WebJobs de Microsoft Azure](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Introducción al SDK de WebJobs de Azure](websites-dotnet-webjobs-sdk-get-started.md)
 * [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)

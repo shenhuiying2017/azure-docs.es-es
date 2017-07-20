@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: 
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 08da5407cc5ddceeba21a558dc0de1008a566bab
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 09fc9021e8dfb910d1a81178434ca2e27c0bacf7
+ms.contentlocale: es-es
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -37,4 +38,4 @@ No todas las actualizaciones pueden implementarse con este mecanismo, pero graci
 
 Las actualizaciones de varias instancias (máquinas virtuales en un conjunto de disponibilidad) se aplican a un dominio de actualización a la vez.
 
-Las aplicaciones que se ejecutan en una máquina virtual pueden conocer las próximas actualizaciones mediante una llamada a los eventos programados de Metadata Service. Para obtener más información acerca de los eventos programados, consulte [Azure Metadata Service: eventos programados](../virtual-machines-scheduled-events.md).
+Algunas aplicaciones pueden resultar afectadas por estas actualizaciones más que otras. Por ejemplo, las aplicaciones que realizan procesamiento de eventos en tiempo real, transcodificación y streaming multimedia o escenarios de redes de alto rendimiento pueden no estar diseñadas para tolerar una pausa de 30 segundos. Las aplicaciones que se ejecutan en una máquina virtual pueden conocer las próximas actualizaciones mediante una llamada a la API de [eventos programados](../virtual-machines-scheduled-events.md) de [Azure Metadata Service](../virtual-machines-instancemetadataservice-overview.md).
