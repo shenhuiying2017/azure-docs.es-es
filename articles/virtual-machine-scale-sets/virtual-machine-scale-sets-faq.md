@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/09/2017
+ms.date: 7/03/2017
 ms.author: negat
 ms.custom: na
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: de67dba5e615db8138957420a1db89d444a37d67
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 718732df4455831454245ea1a80d49e042c20f09
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -188,7 +188,7 @@ Incluya **osProfile** en la plantilla:
 }
 ```
  
-Este bloque JSON se usa en  [la plantilla de inicio rápido de GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Este bloque JSON se usa en [la plantilla de inicio rápido de GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
 El perfil de SO se utiliza también en [la plantilla de inicio rápido de GitHub grelayhost.json](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
@@ -495,7 +495,7 @@ Sí. Un grupo de seguridad de red se puede aplicar directamente a un conjunto de
                             "loadBalancerBackendAddressPools": [
                                 {
                                     "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
-                                }
+                                 }
                             ]
                         }
                     }
@@ -511,7 +511,7 @@ Sí. Un grupo de seguridad de red se puede aplicar directamente a un conjunto de
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>¿Cómo hago un intercambio de VIP para conjuntos de escalado de máquinas virtuales de la misma suscripción y la misma región?
 
-Para realizar un intercambio de VIP para conjuntos de escalado de máquinas virtuales que estén en la misma suscripción y la misma región, consulte [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Intercambio de VIP: implementación Blue-green en Azure Resource Manager).
+Si tiene dos conjuntos de escalado de máquinas virtuales con servidores front-end de Azure Load Balancer, y están en la misma suscripción y región, puede desasignar las direcciones IP públicas de cada uno de ellos y asignarlas al otro. Consulte, por ejemplo, [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Intercambio de VIP: implementación Blue-green en Azure Resource Manager). Esto implica un retraso ya que los recursos se desasignan y asignan a nivel de red. Otra opción consiste en hospedar la aplicación con [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) que proporciona compatibilidad para el cambio rápido entre las ranuras de ensayo y producción.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>¿Cómo especifico un intervalo de direcciones IP privadas para la asignación estática de direcciones IP privadas?
 
@@ -527,7 +527,49 @@ Para implementar un conjunto de escalado de máquinas virtuales en una red virtu
 
 Para agregar la dirección IP de la primera máquina virtual de un conjunto de escalado de máquinas virtuales en la salida de una plantilla, consulte [ARM - Get VMSS's private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips) (ARM: obtención de las IP privadas de VMSS).
 
+### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>¿Puedo usar conjuntos de escalado con redes aceleradas?
 
+Sí. Para usar las redes aceleradas, establezca enableAcceleratedNetworking en true en los ajustes de networkInterfaceConfigurations de su conjunto de escalado. Por ejemplo,
+```json
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+    {
+        "name": "niconfig1",
+        "properties": {
+        "primary": true,
+        "enableAcceleratedNetworking" : true,
+        "ipConfigurations": [
+                ]
+            }
+            }
+        ]
+        }
+    }
+    ]
+}
+```
+
+### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>¿Cómo puedo configurar los servidores DNS usados por un conjunto de escalado?
+
+Para crear un conjunto de escalado de máquina virtual con una configuración de DNS personalizada, agregue un paquete JSON dnsSettings a la sección de networkInterfaceConfigurations del conjunto de escalado. Ejemplo:
+```json
+    "dnsSettings":{
+        "dnsServers":["10.0.0.6", "10.0.0.5"]
+    }
+```
+
+### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>¿Cómo puedo configurar conjunto de escalado para asignar una dirección IP pública a cada máquina virtual?
+
+Para crear un conjunto de escalado de máquina virtual que asigne una dirección IP pública a cada máquina virtual, asegúrese de que la versión de API del recurso Microsoft.Compute/virtualMAchineScaleSets es 2017-03-30 y agregue un paquete JSON _publicipaddressconfiguration_ a la sección ipConfigurations del conjunto de escalado. Ejemplo:
+
+```json
+    "publicipaddressconfiguration": {
+        "name": "pub1",
+        "properties": {
+        "idleTimeoutInMinutes": 15
+        }
+    }
+```
 
 ## <a name="scale"></a>Escala
 

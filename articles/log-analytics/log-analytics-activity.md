@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: cfdc507d5e45fc716940bd4607631ba500bf4c59
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="view-azure-activity-logs"></a>Ver los registros de actividad de Azure
 
- ![Símbolo de Registros de actividad de Azure](./media/log-analytics-activity/activity-log-analytics.png) La solución Activity Log Analytics ayuda a analizar y buscar en el [registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) de todas las suscripciones de Azure. El registro de actividad de Azure es un registro que proporciona información sobre las operaciones realizadas en los recursos de las suscripciones. Antes el registro de actividad se conocía como *Registros de auditoría* o *Registros operativos*, ya que notifica eventos de las suscripciones.
+![Símbolo de registros de actividad de Azure](./media/log-analytics-activity/activity-log-analytics.png)
+
+La solución Activity Log Analytics ayuda a analizar y buscar en el [registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) de todas las suscripciones de Azure. El registro de actividad de Azure es un registro que proporciona información sobre las operaciones realizadas en los recursos de las suscripciones. Antes el registro de actividad se conocía como *Registros de auditoría* o *Registros operativos*, ya que notifica eventos de las suscripciones.
 
 Con el registro de actividad se pueden determinar los interrogantes *qué*, *quién* y *cuándo* de las operaciones de escritura (PUT, POST, DELETE) realizadas para los recursos de la suscripción. También permite entender el estado de las operaciones y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET) ni las operaciones para los recursos que usan el modelo de implementación clásica.
 

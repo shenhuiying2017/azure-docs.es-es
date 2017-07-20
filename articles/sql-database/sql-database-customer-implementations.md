@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b05b24bf9a14570b07c2c1ab3076835c7167b647
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 24c345e173ffe3cd215552b604e8b6cc525d8aa7
 ms.contentlocale: es-es
-ms.lasthandoff: 03/10/2017
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -32,3 +32,10 @@ ms.lasthandoff: 03/10/2017
 - [SnelStart](sql-database-implementation-snelstart.md): SnelStart desarrolla conocidas aplicaciones de software de administración financiera y empresarial para pequeñas y medianas empresas (pymes) de los Países Bajos. Un personal compuesto por 110 empleados —entre ellos, un equipo de TI de 35 miembros— atiende a 55 000 clientes. Al migrar su infraestructura a la oferta de software como servicio (SaaS) de Azure, SnelStart pudo integrar la mayoría de los servicios, con lo que automatizó la administración mediante un entorno familiar en C#, y optimizó el rendimiento y la escalabilidad sin tener que provocar el exceso o la falta de aprovisionamiento de negocios gracias a los grupos elásticos. Azure proporciona a SnelStart fluidez para migrar clientes entre entornos locales y en la nube.
 
 - [Umbraco](sql-database-implementation-umbraco.md): para simplificar las implementaciones de clientes, Umbraco agregó Umbraco as a Service (UaaS), una oferta SaaS que elimina la necesidad de realizar implementaciones locales, proporciona escalado integrado, y acaba con la sobrecarga de administración, ya que permite a los desarrolladores centrarse en las innovaciones de productos en lugar de en la administración de soluciones. Umbraco puede brindar todas estas ventajas empleando el modelo flexible de plataforma como servicio (PaaS) que ofrece Microsoft Azure.
+
+- [Quorum](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database): Quorum duplica cargas de trabajo clave de las bases de datos a la vez que reduce las DTU en un 70 % con SQL Database.
+
+- [Quest](https://customers.microsoft.com/en-US/story/quest): Quest ofrece su servicio Spotlight en SQL Server Enterprise con un objetivo en mente: proporcionar a los profesionales de bases de datos las mejores herramientas disponibles para proteger los datos, mover esos datos y supervisar las operaciones de base de datos. Con Spotlight y el uso combinado de Microsoft Azure y Azure SQL Database, los administradores de bases de datos de SQL Server pueden supervisar, detectar, diagnosticar y proporcionar una manera de resolver problemas de rendimiento en SQL Server, tanto si trabajan en una oficina o desde casa.
+
+- [Microsoft Synamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): este breve estudio de caso destaca los procedimientos recomendados y las lecciones aprendidas de la experiencia del equipo de producto de Dynamics 365 for Operations en la migración a Azure SQL Database a fin de proporcionar a los clientes una oferta de software como servicio (SaaS) completamente administrada. Con Azure SQL Database, el equipo de Dynamics 365 for Operations pudo administrar y usar el servicio con bastante menos personal y escalarlo fácilmente gracias a las características de capacidad de administración listas para usar, como copias de seguridad automáticas de bases de datos, retención de copias de seguridad de bases de datos, alta disponibilidad y recuperación ante desastres. Esto, junto con la posibilidad de aprovisionar bases de datos con apenas automatización, llevaron a que Azure SQL Database fuera una buena plataforma para poner en marcha servicios a gran escala.
+

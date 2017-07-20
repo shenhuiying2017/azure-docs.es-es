@@ -13,12 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 06/27/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 7b3c6da0e158c2824a5feb084a13eafe265762ce
-ms.lasthandoff: 01/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 4735a1789c33b7cc51896e26ec8e079f9b0de7d9
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -29,20 +30,24 @@ Este tutorial se validó con Ubuntu Server 14.04 LTS. Si utiliza una distribuci�
 
 > [!IMPORTANT]
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-vm"></a>Creación de una máquina virtual de Azure
 Empiece por crear una máquina virtual de Azure con una imagen de Linux.
 
-Para crear la máquina virtual, puede usar el Portal de Azure clásico o la interfaz de línea de comandos (CLI) de Azure.
+Para crear la máquina virtual, puede usar Azure Portal o la interfaz de línea de comandos (CLI) de Azure.
 
-### <a name="azure-management-portal"></a>Portal de administración de Azure
-1. Iniciar sesión en el [Portal de Azure clásico](http://manage.windowsazure.com)
-2. Haga clic en **Nuevo** > **Proceso** > **Máquina Virtual** > **Creación rápida**. Seleccione una imagen de Linux.
-3. Escriba una contraseña.
+### <a name="azure-portal"></a>Portal de Azure
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+2. Haga clic en **Nuevo** y , a continuación, escriba "Ubuntu Server 14.04" en el cuadro de búsqueda. Haga clic en la entrada devuelta por la búsqueda. Como modelo de implementación, seleccione **Clásico** y haga clic en "Crear".
+3. En la hoja de datos básicos, proporcione valores para los campos obligatorios: Nombre (para la máquina virtual), Nombre de usuario, Tipo de autenticación y las credenciales correspondientes, Suscripción de Azure, Grupo de recursos y Ubicación.
 
-Después de aprovisionar la máquina virtual, haga clic en el nombre de la máquina virtual y en **Panel**. Encuentre el extremo de SSH, que aparece en **Detalles de SSH**.
+   ![Creación de una imagen Ubuntu](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
+
+4. Después de aprovisionar la máquina virtual, haga clic en su nombre y, después, en **Puntos de conexión**, en la categoría **Configuración**. Encuentre el punto de conexión de SSH, que aparece en **Independiente**.
+
+   ![Punto de conexión predeterminado](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
 ### <a name="azure-cli"></a>CLI de Azure
 Siga los pasos de [Creación rápida de una máquina virtual que ejecuta Linux][vm-instructions].
@@ -54,20 +59,25 @@ Después de aprovisionar la máquina virtual, puede obtener el extremo de SSH ej
 ## <a name="install-ruby-on-rails"></a>Instalación de Ruby on Rails
 1. Use SSH para conectarse a la máquina virtual.
 2. En la sesión de SSH, use los siguientes comandos para instalar Ruby en la máquina virtual:
-   
+
         sudo apt-get update -y
         sudo apt-get upgrade -y
-        sudo apt-get install ruby ruby-dev build-essential libsqlite3-dev zlib1g-dev nodejs -y
-   
+
+        sudo apt-add-repository ppa:brightbox/ruby-ng
+        sudo apt-get update
+        sudo apt-get install ruby2.4
+
+        > [!TIP]
+        > The brightbox repository contains the current Ruby distribution.
+
     La instalación puede tardar unos minutos. Cuando se complete, use el siguiente comando para comprobar que está instalado Ruby:
-   
+
         ruby -v
-   
-    Devuelve la versión de Ruby que se instaló.
+
 3. Use el siguiente comando para instalar Rails:
-   
+
         sudo gem install rails --no-rdoc --no-ri -V
-   
+
     Utilice las marcas --no-rdoc y --no-ri para omitir la instalación de la documentación, lo que es más rápido.
     Este comando probablemente tardará mucho tiempo en ejecutarse, por lo que agregar -V mostrará información sobre el progreso de la instalación.
 
@@ -91,28 +101,32 @@ Debería ver una salida similar a la siguiente.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>Agregación de un extremo
-1. Vaya al [Portal de Azure clásico][management-portal] y seleccione su máquina virtual.
-   
-    ![Lista de máquinas virtuales][vmlist]
-2. Seleccione **PUNTOS DE CONEXIÓN** en la parte superior de la página y, a continuación, haga clic en **+ AGREGAR PUNTO DE CONEXIÓN** en la parte inferior de la página.
-   
-    ![Página de extremos][endpoints]
-3. En el cuadro de diálogo **AGREGAR PUNTO DE CONEXIÓN**, seleccione "Add a standalone endpoint" (Agregar punto de conexión independiente) y haga clic en la flecha **Siguiente**.
-   
-    ![Cuadro de diálogo de extremo nuevo][new-endpoint1]
-4. En la siguiente página del cuadro de diálogo, escriba la siguiente información:
-   
-   * **NAME**: HTTP
-   * **PROTOCOL**: TCP
-   * **PUBLIC PORT**: 80
-   * **PRIVATE PORT**: 3000
-     
-     De esta manera se crea un puerto público 80 que dirigirá el tráfico hasta el puerto privado 3000, donde el servidor de Rails está escuchando.
-     
-     ![Cuadro de diálogo de extremo nuevo][new-endpoint]
-5. Haga clic en la marca de verificación para guardar el extremo.
-6. Debe aparecer un mensaje que muestre **UPDATE IN PROGRESS**. Después de que el mensaje desaparece, el extremo está activo. Ahora puede probar su aplicación dirigiéndose al nombre de DNS de la máquina virtual. El sitio web que aparece debe ser similar al siguiente:
-   
+1. Vaya a [Azure Portal] [https://portal.azure.com] y seleccione la máquina virtual.
+
+2. Seleccione **PUNTOS DE CONEXIÓN** en la **Configuración**, a lo largo del borde izquierdo de la página.
+
+3. Haga clic en **AGREGAR** en la parte superior de la página.
+
+4. En la página del cuadro de diálogo **Agregar punto de conexión**, escriba la siguiente información:
+
+   * **Nombre**: HTTP
+   * **Protocolo**: TCP
+   * **Puerto público**: 80
+   * **Puerto privado**: 3000
+   * **Dirección IP flotante**: deshabilitada
+   * **Lista de control de acceso - Orden**: 1001 u otro valor que establezca la prioridad de esta regla de acceso.
+   * **Lista de control de acceso - Nombre**: allowHTTP
+   * **Lista de control de acceso - Acción**: permit
+   * **Lista de control de acceso - Subred remota**: 1.0.0.0/16
+
+     Este punto de conexión tiene un puerto público 80 que dirigirá el tráfico hasta el puerto privado 3000, donde el servidor de Rails está escuchando. La regla de la lista de control de acceso permite el tráfico público en el puerto 80.
+
+     ![nuevo-punto-de-conexión](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
+
+5. Haga clic en Aceptar para guardar el punto de conexión.
+
+6. Debería aparecer un mensaje que indique: **Guardando el punto de conexión de la máquina virtual**. Después de que el mensaje desaparece, el extremo está activo. Ahora puede probar su aplicación dirigiéndose al nombre de DNS de la máquina virtual. El sitio web que aparece debe ser similar al siguiente:
+
     ![Página predeterminada de Rails][default-rails-cloud]
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -129,7 +143,6 @@ Para utilizar servicios de Azure desde su aplicación de Ruby, consulte:
 <!-- WA.com links -->
 [blobs]:../../../storage/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:https://azure.microsoft.com/develop/ruby/app-services/
-[management-portal]:https://manage.windowsazure.com/
 [tables]:../../../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]:createportal.md
 

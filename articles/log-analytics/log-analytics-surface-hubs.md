@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d568c52a7cbbe593658fb95203bfa98af13a1554
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: b6ecd0d09589fec85c1633f528afc1165c346b7f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Supervisión de Surface Hubs con Log Analytics para realizar un seguimiento de su estado
+
+![Símbolo de Surface Hub](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
 
 Este artículo describe cómo puede usar la solución Surface Hub en Log Analytics para supervisar los dispositivos Microsoft Surface Hub con Microsoft Operations Management Suite (OMS). Log Analytics ayuda a realizar un seguimiento del estado de sus dispositivos con esta solución y comprender cómo se están utilizando.
 
@@ -36,32 +39,32 @@ Utilice la siguiente información para instalar y configurar la solución. Para 
 
 Después, agregará una suscripción de OMS a su suscripción de Microsoft Azure existente o creará una nueva área de trabajo directamente a través del portal de OMS. Las instrucciones detalladas para usar cualquiera de estos métodos se encuentran en el artículo de [introducción a Log Analytics](log-analytics-get-started.md). Una vez configurada la suscripción de OMS, hay dos formas de inscribir dispositivos Surface Hub:
 
-* Automáticamente mediante InTune
+* Automáticamente mediante Intune
 * Manualmente a través de la aplicación **Configuración** del dispositivo Surface Hub.
 
 ## <a name="set-up-monitoring"></a>Configuración de la supervisión
-Puede supervisar el estado y la actividad de su dispositivo Surface Hub usando Log Analytics de OMS. Puede inscribir el dispositivo Surface Hub en OMS mediante InTune o localmente a través de la aplicación **Configuración** de Surface Hub.
+Puede supervisar el estado y la actividad de su dispositivo Surface Hub usando Log Analytics de OMS. Puede inscribir el dispositivo Surface Hub en OMS mediante Intune o localmente con **Configuración** de Surface Hub.
 
-## <a name="connect-surface-hubs-to-oms-through-intune"></a>Conexión de dispositivos Surface Hub a OMS mediante InTune
+## <a name="connect-surface-hubs-to-oms-through-intune"></a>Conexión de dispositivos Surface Hub a OMS mediante Intune
 Necesitará el identificador de área de trabajo y la clave de área de trabajo del área de trabajo de OMS que va a administrar sus dispositivos Surface Hub. Puede obtenerlos desde el portal de OMS.
 
-InTune es un producto de Microsoft que permite administrar de forma centralizada la configuración de OMS que se aplica a uno o varios de los dispositivos. Siga estos pasos para configurar los dispositivos a través de InTune:
+Intune es un producto de Microsoft que permite administrar de forma centralizada la configuración de OMS que se aplica a uno o varios de los dispositivos. Siga estos pasos para configurar los dispositivos mediante Intune:
 
-1. Inicie sesión en InTune.
+1. Inicie sesión en Intune.
 2. Vaya a **Configuración** > **Orígenes conectados**.
 3. Cree o edite una directiva basada en la plantilla de Surface Hub.
 4. Vaya a la sección de OMS (Azure Operational Insights) de la directiva y agregue el *identificador de área de trabajo* y la *clave de área de trabajo* a la directiva.
 5. Guarde la directiva.
 6. Asocia la directiva con el grupo de dispositivos adecuado.
 
-   ![Directiva de InTune](./media/log-analytics-surface-hubs/intune.png)
+   ![Directiva de Intune](./media/log-analytics-surface-hubs/intune.png)
 
-Después, InTune sincroniza la configuración de OMS con los dispositivos en el grupo de destino, con lo que se inscriben en el área de trabajo de OMS.
+Después, Intune sincroniza la configuración de OMS con los dispositivos en el grupo de destino, con lo que se inscriben en el área de trabajo de OMS.
 
 ## <a name="connect-surface-hubs-to-oms-using-the-settings-app"></a>Conexión de los dispositivos Surface Hub a OMS a través de la aplicación Configuración
 Necesitará el identificador de área de trabajo y la clave de área de trabajo del área de trabajo de OMS que va a administrar sus dispositivos Surface Hub. Puede obtenerlos desde el portal de OMS.
 
-Si no usa InTune para administrar su entorno, puede inscribir dispositivos manualmente a través de la aplicación **Configuración** en cada dispositivo Surface Hub:
+Si no usa Intune para administrar su entorno, puede inscribir dispositivos manualmente con **Configuración** en cada dispositivo Surface Hub:
 
 1. En Surface Hub, abra **Configuración**.
 2. Escriba las credenciales de administrador de dispositivos cuando se le solicite.

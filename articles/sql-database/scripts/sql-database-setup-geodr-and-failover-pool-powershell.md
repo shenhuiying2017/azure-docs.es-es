@@ -1,6 +1,6 @@
 ---
-title: "Script de Azure PowerShell: Configuración de la redundancia geográfica de instancias agrupadas de SQL Database | Microsoft Docs"
-description: "Ejemplo de script de Azure PowerShell: Configuración de la replicación geográfica activa para instancias agrupadas de Azure SQL Database con PowerShell"
+title: "Ejemplo de PowerShell para configurar la replicación geográfica activa para una base de datos SQL agrupada de Azure | Microsoft Docs"
+description: "Script de ejemplo de Azure PowerShell para configurar la replicación geográfica activa para una base de datos SQL agrupada de Azure"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 3f62371eb84df1ba0f29ef2c6fe0da82674ed069
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 34a4970e9b0e99cbbbbc52788b00edab4a197755
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="configure-active-geo-replication-for-a-pooled-azure-sql-database-using-powershell"></a>Configuración de la replicación geográfica activa para instancias agrupadas de Azure SQL Database con PowerShell
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>Use PowerShell para configurar la replicación geográfica activa para una base de datos SQL agrupada de Azure
 
-Este ejemplo de script de PowerShell configura la replicación geográfica activa para una base de datos de un grupo elástico y la conmuta por error a la réplica secundaria.
+En este ejemplo de script de PowerShell se configura una replicación geográfica activa para una base de datos SQL de Azure y se conmuta por error a una réplica secundaria de la base de datos SQL de Azure.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

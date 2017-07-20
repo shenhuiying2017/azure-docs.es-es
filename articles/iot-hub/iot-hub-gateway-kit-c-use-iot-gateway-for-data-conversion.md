@@ -1,6 +1,6 @@
 ---
 title: "Conversión de datos en la puerta de enlace de IoT con Azure IoT Edge | Microsoft Docs"
-description: "Use la puerta de enlace de IoT para convertir el formato de los datos del sensor mediante un módulo personalizado de Azure IoT Edge."
+description: "Use la puerta de enlace de IoT para convertir el formato de los datos del sensor mediante un módulo personalizado desde Azure IoT Edge."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -13,13 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 06/25/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7bf9e64db91cb0fec37ff242bea94dbbd0833054
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 5f5151c9e250fb8a19a953c6212dd2675004dc55
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -73,11 +73,11 @@ Aprenderá a crear un módulo para convertir mensajes del formato SensorTag a ot
 Para compilar el módulo, ejecute los comandos siguientes:
 
 ```bash
-cd iot-hub-c-intel-nuc-gateway-customized-module
+cd iot-hub-c-intel-nuc-gateway-customized-module/my_module
 # change the build script runnable
 chmod 777 build.sh
 # remove the invalid windows character
-sed -i -e "s/\r$\/\/" build.sh
+sed -i -e "s/\r$//" build.sh
 # run the build shell script
 ./build.sh
 ```
@@ -149,3 +149,4 @@ Obtendrá un archivo `libmy_module.so` una vez completada la compilación. Tome 
 Ha usado correctamente la puerta de enlace de IoT para convertir el mensaje de SensorTag en el formato .json.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

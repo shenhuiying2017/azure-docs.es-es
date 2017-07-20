@@ -3,7 +3,7 @@ title: "Administración de las aplicaciones en Visual Studio | Microsoft Docs"
 description: Use Visual Studio para crear, desarrollar, empaquetar, implementar y depurar las aplicaciones y servicios de Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: 
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
-ms.author: seanmck;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 60d440c75d6352d5e65e0158e439df9db2315ecd
-ms.openlocfilehash: 70c393f1185844bb26ff1f89cb69cb06b51fc155
+ms.date: 06/07/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 3f6a47a15b74a7ceb6504b2834be62e76ab70bcc
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -30,54 +32,48 @@ De forma predeterminada, la implementación de una aplicación combina los pasos
 2. Carga del paquete de aplicación en el almacén de imágenes
 3. Registro del tipo de aplicación
 4. Eliminación de cualquier instancia de aplicación en ejecución
-5. Creación de una nueva instancia de aplicación
+5. Creación de una instancia de aplicación
 
-En Visual Studio, al presionar **F5** también se implementará su aplicación y se asociará el depurador a todas las instancias de aplicación. Puede usar **CTRL+F5** para implementar una aplicación sin depurar o bien, publicar en un clúster local o remoto mediante el perfil de publicación. Para obtener más información, consulte [Publicación de una aplicación en un clúster remoto con Visual Studio](service-fabric-publish-app-remote-cluster.md).
+En Visual Studio, al presionar **F5** se implementará su aplicación y se asociará el depurador a todas las instancias de aplicación. Puede usar **CTRL+F5** para implementar una aplicación sin depurar o bien, publicar en un clúster local o remoto mediante el perfil de publicación. Para obtener más información, consulte [Publicación de una aplicación en un clúster remoto con Visual Studio](service-fabric-publish-app-remote-cluster.md).
 
 ### <a name="application-debug-mode"></a>Application Debug Mode
-De forma predeterminada, Visual Studio quita las instancias existentes de su tipo de aplicación cuando detenga la depuración o, si se implementa la aplicación sin asociar el depurador, cuando vuelva a implementar la aplicación. En ese caso, se quitarán todos los datos de la aplicación. Mientras se realiza la depuración local, puede que quiera conservar los datos que ya ha creado al probar una nueva versión de la aplicación, mantener en ejecución la aplicación o que las sesiones de depuración posteriores actualicen la aplicación. Service Fabric Tools para Visual Studio proporciona una propiedad llamada "**Application Debug Mode**" (Modo de depuración de aplicación), que controla si al presionar **F5** se debe desinstalar la aplicación, mantenerla en ejecución después de finalizar una sesión de depuración o permitir que se actualice en las sesiones de depuración posteriores, en lugar de eliminarla y volver a implementarla.
+Visual Studio proporciona una propiedad llamada **Application Debug Mode**, que controla cómo desea que Visual Studio controle la implementación de la aplicación como parte de la depuración.
 
 #### <a name="to-set-the-application-debug-mode-property"></a>Establecimiento de la propiedad Application Debug Mode
-1. En el menú de acceso directo del proyecto de la aplicación, elija **Propiedades** (o presione la tecla **F4**).
+1. En el menú de acceso directo del proyecto de la aplicación de Service Fabric (*.sfproj), elija **Propiedades** (o presione la tecla **F4**).
 2. En la ventana **Propiedades**, establezca la propiedad **Application Debug Mode** (Modo de depuración de aplicación).
 
-    ![Establecer la propiedad Application Debug Mode][debugmodeproperty]
+![Establecer la propiedad Application Debug Mode][debugmodeproperty]
 
-Estas son las opciones disponibles de **Application Debug Mode** (Modo de depuración de aplicación).
+#### <a name="application-debug-modes"></a>Modos de depuración de la aplicación
 
-1. **Actualización automática**: la aplicación continúa ejecutándose cuando finaliza la sesión de depuración. La siguiente vez que presione **F5** se considerará la implementación como una actualización y se usará el modo automático no supervisado para actualizar rápidamente la aplicación a una versión más reciente con una cadena de fecha anexada. El proceso de actualización conserva todos los datos especificados en una sesión de depuración anterior.
-2. **Keep Application**(Mantener aplicación): la aplicación sigue ejecutándose en el clúster cuando finaliza la sesión de depuración. La siguiente vez que presione **F5** se quitará la aplicación y se implementará la aplicación recién creada en el clúster.
-3. **Quitar aplicación** : la aplicación se quita cuando finaliza la sesión de depuración.
+1. **Actualizar aplicación** Este modo le permite cambiar y depurar su código rápidamente y permite editar archivos web estáticos durante la depuración. Este modo solo funciona si el clúster de desarrollo local está en [modo 1 nodo](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+2. **Quitar aplicación** : la aplicación se quita cuando finaliza la sesión de depuración.
+3. **Actualización automática** La aplicación continúa ejecutándose cuando finaliza la sesión de depuración. La siguiente sesión de depuración tratará la implementación como una actualización. El proceso de actualización conserva todos los datos especificados en una sesión de depuración anterior.
+4. **Mantener aplicación** La aplicación sigue ejecutándose en el clúster cuando finaliza la sesión de depuración. Al principio de la siguiente sesión de depuración, se eliminará la aplicación.
 
-Se conservan los datos de **Actualización automática** por medio de las funcionalidades de actualización de aplicaciones de Service Fabric, pero esto está optimizado para mejorar el rendimiento más que la seguridad. Para obtener más información sobre la actualización de aplicaciones y cómo se realiza una actualización en un entorno real, consulte [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md).
-
-![Ejemplo de la nueva versión de aplicación con la fecha anexada][preservedata]
-
-> [!NOTE]
-> Esta propiedad no existe antes de la versión 1.1 de Service Fabric Tools para Visual Studio. Antes de la versión 1.1, use la propiedad **Conservar datos al iniciar** para obtener el mismo comportamiento. La opción Keep Application (Mantener aplicación) se introdujo en la versión 1.2 de Service Fabric Tools para Visual Studio.
->
->
+Se conservan los datos de **Actualización automática** por medio de las funcionalidades de actualización de aplicaciones de Service Fabric. Para obtener más información sobre la actualización de aplicaciones y cómo se realiza una actualización en un entorno real, consulte [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md).
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Agregue un servicio a su aplicación Service Fabric
 Puede agregar nuevos servicios a su aplicación para ampliar su funcionalidad.  Para garantizar que el servicio se incluye en el paquete de aplicación, agregue el servicio a través del elemento de menú **Nuevo servicio del tejido...** .
 
-![Agregar un nuevo Service Fabric a la aplicación][newservice]
+![Agregar un nuevo servicio de Service Fabric][newservice]
 
 Seleccione un tipo de proyecto de Service Fabric para agregarlo a la aplicación y especifique un nombre para el servicio.  Vea [Elección de un marco para el servicio](service-fabric-choose-framework.md) para ayudarle a decidir qué tipo de servicio quiere usar.
 
-![Seleccionar un tipo de proyecto de Service Fabric para agregarlo a la aplicación][addserviceproject]
+![Seleccione un tipo de proyecto de servicio de Service Fabric para agregarlo a la aplicación][addserviceproject]
 
-El nuevo servicio se agregará a la solución y al paquete de aplicación existente. Se agregarán las referencias del servicio y una instancia predeterminada del servicio al manifiesto de aplicación. El servicio se creará e iniciará la próxima vez que implemente la aplicación.
+El nuevo servicio se agrega a la solución y al paquete de aplicación existente. Se agregarán al manifiesto de la aplicación las referencias del servicio y una instancia del servicio predeterminada, haciendo que el servicio se cree y se inicie la próxima vez que implemente la aplicación.
 
-![Se agregará el nuevo servicio a su manifiesto de aplicación][newserviceapplicationmanifest]
+![Se agrega el nuevo servicio al manifiesto de la aplicación][newserviceapplicationmanifest]
 
 ## <a name="package-your-service-fabric-application"></a>Empaquetar la aplicación de Service Fabric
-Para implementar la aplicación y sus servicios en un clúster, debe crear una paquete de aplicación.  El paquete organiza el manifiesto de aplicación, los manifiestos de servicio y otros archivos necesarios en un diseño específico.  Visual Studio configura y administra el paquete en la carpeta del proyecto de aplicación, en el directorio 'pkg'.  Haga clic en **Paquete** en el menú contextual **Aplicación** para crear o actualizar el paquete de aplicación.  Puede que quiera hacerlo si implementa la aplicación mediante scripts de PowerShell personalizados.
+Para implementar la aplicación y sus servicios en un clúster, debe crear una paquete de aplicación.  El paquete organiza el manifiesto de la aplicación, los manifiestos de servicio y otros archivos necesarios en un diseño específico.  Visual Studio configura y administra el paquete en la carpeta del proyecto de aplicación, en el directorio 'pkg'.  Haga clic en **Paquete** en el menú contextual **Aplicación** para crear o actualizar el paquete de aplicación.
 
 ## <a name="remove-applications-and-application-types-using-cloud-explorer"></a>Eliminación de aplicaciones y tipos de aplicación mediante Cloud Explorer
 Puede realizar operaciones básicas de administración de clúster desde Visual Studio mediante Cloud Explorer, que se puede iniciar desde el menú **Vista** . Por ejemplo, puede eliminar aplicaciones y deshacer el aprovisionamiento de tipos de aplicación en clústeres locales o remotos.
 
-![Eliminación de una aplicación](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
+![Eliminación de una aplicación][removeapplication]
 
 > [!TIP]
 > Para obtener una mejor funcionalidad de administración de clúster, consulte [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
@@ -97,11 +93,5 @@ Puede realizar operaciones básicas de administración de clúster desde Visual 
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]:./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]:./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
-[preservedata]:./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [debugmodeproperty]:./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+[removeapplication]:./media/service-fabric-manage-application-in-visual-studio/removeapplication.png

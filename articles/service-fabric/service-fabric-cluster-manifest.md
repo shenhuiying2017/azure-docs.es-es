@@ -1,6 +1,6 @@
 ---
-title: "Configuración de clústeres independientes | Microsoft Docs"
-description: "En este artículo se describe cómo configurar un clúster de Service Fabric privado o independiente."
+title: "Configuración del clúster de Azure Service Fabric independiente | Microsoft Docs"
+description: "Aprenda a configurar un clúster de Service Fabric privado o independiente."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2017
+ms.date: 06/02/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 8192f9e36ebadd41d93ec3c2fa61b05e342d5bc1
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 3b65f9391a4ff5a641546f8d0048f36386a7efe8
+ms.contentlocale: es-es
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -37,7 +38,7 @@ Describe las opciones de configuración generales del clúster, como se muestra 
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "01-2017",
 
 Asigne cualquier nombre descriptivo al clúster de Service Fabric en la variable **name** . **clusterConfigurationVersion** es el número de versión del clúster; debe aumentarlo cada vez que actualice el clúster de Service Fabric. Sin embargo, debe dejar **apiVersion** en el valor predeterminado.
 
@@ -87,6 +88,10 @@ La sección **reliabilityLevel** define el número de copias de los servicios de
     "reliabilityLevel": "Bronze",
 
 Como un nodo principal ejecuta una única copia de los servicios del sistema, tenga en cuenta que necesitaría un mínimo de 3 nodos principales para el nivel de confiabilidad *Bronce*, 5 para *Plata*, 7 para *Oro* y 9 para *Platino*.
+
+Si no se especifica la propiedad reliabilityLevel en clusterConfig.json, nuestro sistema calculará la mejor propiedad reliabilityLevel en función del número de nodos de tipo principal que tenga. Por ejemplo, si tiene 4 nodos principales, se establecerá reliabilityLevel en Bronce, si tiene 5 nodos de este tipo, en Plata. En un futuro próximo, se eliminará la opción para configurar el nivel de confiabilidad, puesto que el clúster lo detectará automáticamente y usará el mejor.
+
+ReliabilityLevel se puede actualizar. Puede crear un archivo clusterConfig.json v2 y escalar y reducir verticalmente mediante la [actualización de la configuración de un clúster independiente](service-fabric-cluster-upgrade-windows-server.md). También puede actualizar a un archivo clusterConfig.json v2 en el que no se especifique reliabilityLevel para que se calcule automáticamente. 
 
 ### <a name="diagnostics"></a>Diagnóstico
 La sección **diagnosticsStore** permite configurar parámetros para habilitar el diagnóstico y la solución de problemas de errores de nodos o clústeres, tal y como se muestra en el siguiente fragmento de código. 
@@ -183,6 +188,21 @@ En el ejemplo siguiente se muestra cómo cambiar el registro de transacciones co
             "value": "4096"
         }]
     }]
+
+### <a name="add-on-features"></a>Características complementarias
+Para configurar características complementarias, el valor de apiVersion debe configurarse como "04-2017" o superior y addonFeatures, como:
+
+    "apiVersion": "04-2017",
+    "properties": {
+      "addOnFeatures": [
+          "DnsService",
+          "RepairManager"
+      ]
+    }
+
+### <a name="container-support"></a>Compatibilidad con los contenedores
+Para habilitar la compatibilidad con un contenedor de Windows Server o Hyper-V para clústeres independientes, debe habilitarse la característica complementaria "DnsService".
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Cuando ya tenga un archivo ClusterConfig.JSON completo configurado según la configuración del clúster independiente, puede implementar el clúster siguiendo el artículo [Creación de un clúster de Azure Service Fabric independientes](service-fabric-cluster-creation-for-windows-server.md) y luego continúe con [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).

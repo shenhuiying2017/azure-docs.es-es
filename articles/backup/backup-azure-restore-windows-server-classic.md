@@ -12,12 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
+ms.date: 06/14/2017
 ms.author: saurse;trinadhk;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: be6bc58ab856309004904626db166331b29199a8
-ms.openlocfilehash: aa8ccc15971bed76d7ce8fd554e6a0f89d985fb8
-ms.lasthandoff: 02/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: e2eac02d194c8a3de653292664cb94a55aafc9b7
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -28,7 +29,15 @@ ms.lasthandoff: 02/02/2017
 >
 >
 
-En este artículo se explica cómo restaurar datos a partir de un almacén de copia de seguridad. Para restaurar datos, utilice al Asistente para recuperar datos del agente de Microsoft Azure Recovery Services (MARS). Al restaurar datos, es posible realizar las siguientes tareas:
+En este artículo se explica cómo recuperar datos de un almacén de Backup y restaurarlos en un servidor o equipo. A partir de marzo de 2017, no se podrán crear almacenes de Backup en el portal clásico.
+
+> [!IMPORTANT]
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **A partir del 1 de noviembre de 2017**:
+>- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
+>- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
+>
+
+Para restaurar datos, utilice al Asistente para recuperar datos del agente de Microsoft Azure Recovery Services (MARS). Al restaurar datos, es posible realizar las siguientes tareas:
 
 * La restauración de datos en la misma máquina desde la cual se realizaron las copias de seguridad.
 * Restaurar datos en una máquina alternativa.
@@ -46,7 +55,7 @@ La restauración instantánea está disponible en los almacenes de Recovery Serv
 
 Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máquina (desde la que se realizó la copia de seguridad), los pasos siguientes le ayudarán a recuperar esos datos.
 
-1. Abra el complemento **Copia de seguridad de Microsoft Azure** . Si no conoce la ubicación donde se instaló el complemento, busque el equipo o servidor para **Microsoft Azure Backup**.
+1. Abra el complemento **Microsoft Azure Backup** . Si no conoce la ubicación donde se instaló el complemento, busque el equipo o servidor para **Microsoft Azure Backup**.
 
     La aplicación de escritorio debe aparecer en los resultados de búsqueda.
 
@@ -93,7 +102,7 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
 ## <a name="recover-data-to-the-same-machine"></a>Recuperar los datos en la misma máquina
 Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máquina (desde la que se realizó la copia de seguridad), los pasos siguientes le ayudarán a recuperar esos datos.
 
-1. Abra el complemento **Copia de seguridad de Microsoft Azure** .
+1. Abra el complemento **Microsoft Azure Backup** .
 2. Haga clic en **Recuperar datos** para iniciar el flujo de trabajo.
 
     ![Recuperar datos](./media/backup-azure-restore-windows-server-classic/recover.png)
@@ -123,7 +132,7 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
 8. Una vez proporcionadas estas entradas, haga clic en **Siguiente**. El flujo de trabajo de recuperación que se encarga de restaurar los archivos de la máquina, se iniciará.
 
 ## <a name="recover-to-an-alternate-machine"></a>Recuperar en una máquina alternativa
-Si ha perdido todo el servidor, todavía puede recuperar los datos de la Copia de seguridad de Azure en una máquina diferente. Los pasos siguientes muestran el flujo de trabajo.  
+Si ha perdido todo el servidor, todavía puede recuperar los datos de Azure Backup en una máquina diferente. Los pasos siguientes muestran el flujo de trabajo.  
 
 La terminología usada en estos pasos incluye:
 
@@ -136,7 +145,7 @@ La terminología usada en estos pasos incluye:
 >
 >
 
-1. Abra el complemento **Copia de seguridad de Microsoft Azure** en la *Máquina de destino*.
+1. Abra el complemento **Microsoft Azure Backup** en la *Máquina de destino*.
 2. Asegúrese de que tanto la *Máquina de destino* como la *Máquina de origen* están registradas en el mismo almacén de copia de seguridad.
 3. Haga clic en **Recuperar datos** para iniciar el flujo de trabajo.
 
@@ -163,7 +172,7 @@ La terminología usada en estos pasos incluye:
 11. Una vez especificada la entrada, haga clic en **Recuperar**, para desencadenar la restauración de los archivos con copia de seguridad en el destino proporcionado.
 
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>Uso de restauración instantánea para restaurar datos en una máquina alternativa
-Si ha perdido todo el servidor, todavía puede recuperar los datos de la Copia de seguridad de Azure en una máquina diferente. Los pasos siguientes muestran el flujo de trabajo.
+Si ha perdido todo el servidor, todavía puede recuperar los datos de Azure Backup en una máquina diferente. Los pasos siguientes muestran el flujo de trabajo.
 
 La terminología usada en estos pasos incluye:
 
@@ -176,7 +185,7 @@ La terminología usada en estos pasos incluye:
 >
 >
 
-1. Abra el complemento **Copia de seguridad de Microsoft Azure** en la *Máquina de destino*.
+1. Abra el complemento **Microsoft Azure Backup** en la *Máquina de destino*.
 
 2. Asegúrese de que tanto la *máquina de destino* como la *máquina de origen* están registradas en el mismo almacén de Recovery Services.
 
@@ -226,11 +235,11 @@ La terminología usada en estos pasos incluye:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
-* Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+* [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md)
+* Visite el [Foro de Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
 ## <a name="learn-more"></a>Más información
-* [Información general de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425)
+* [Información general de Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=222425)
 * [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md)
 * [Copia de seguridad de las cargas de trabajo de Microsoft](backup-azure-dpm-introduction.md)
 

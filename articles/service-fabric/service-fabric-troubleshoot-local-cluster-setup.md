@@ -3,7 +3,7 @@ title: "Solucionar problemas de instalación del clúster local de Service Fabri
 description: "En este artículo se trata de un conjunto de sugerencias para solucionar problemas de su clúster de desarrollo local"
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: 
 ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202
@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f0db912ac3cee02f4268996bf2409440afade86
-ms.lasthandoff: 11/17/2016
+ms.date: 06/07/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -57,7 +58,7 @@ Ejecute siempre los cmdlets de Service Fabric directamente desde Windows PowerSh
 Cuando se conecta al clúster en PowerShell, aparece el error TypeInitializationException para System.Fabric.Common.AppTrace.
 
 #### <a name="solution"></a>Solución
-La variable de ruta de acceso no se estableció correctamente durante la instalación. Cierre la sesión de Windows y vuelva a iniciarla. Se actualizará completamente la ruta de acceso.
+La variable de ruta de acceso no se estableció correctamente durante la instalación. Cierre la sesión de Windows y vuelva a iniciarla. Esto actualiza la ruta de acceso.
 
 ### <a name="cluster-connection-fails-with-object-is-closed"></a>Se produce un error de conexión del clúster con el mensaje "El objeto está cerrado"
 #### <a name="problem"></a>Problema
@@ -78,12 +79,12 @@ Cierre la ventana de PowerShell actual y abra una nueva ventana de PowerShell co
 Cuando se depura desde Visual Studio, se obtiene un error FabricConnectionDeniedException.
 
 #### <a name="solution"></a>Solución
-Este error suele producirse cuando se intenta iniciar manualmente un proceso de host de servicio en lugar de permitir que el tiempo de ejecución de Service Fabric se inicie automáticamente.
+Este error suele producirse cuando se intenta iniciar manualmente un proceso de host de servicio en lugar de permitir que el tiempo de ejecución de Service Fabric lo inicie automáticamente.
 
 Asegúrese de que no tenga ningún proyecto de servicio establecido como proyecto de inicio de la solución. Solo los proyectos de aplicación de Service Fabric deben establecerse como proyectos de inicio.
 
 > [!TIP]
-> Si, después de la configuración, el clúster local comienza a comportarse de forma anormal, puede restablecerse con la aplicación de la bandeja del sistema de administrador de clústeres locales. De este modo, se quitará el clúster existente y se configurará uno nuevo. Tenga en cuenta que todas las aplicaciones implementadas y los datos asociados también se quitarán.
+> Si, después de la configuración, el clúster local comienza a comportarse de forma anormal, puede restablecerse con la aplicación de la bandeja del sistema de administrador de clústeres locales. De este modo se quita el clúster existente y se configura uno nuevo. Tenga en cuenta que todas las aplicaciones implementadas y los datos asociados también se quitan.
 > 
 > 
 

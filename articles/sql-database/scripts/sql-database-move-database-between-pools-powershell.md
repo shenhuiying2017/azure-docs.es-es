@@ -1,6 +1,6 @@
 ---
-title: "Script de Azure PowerShell: traslado de una instancia de SQL Database y de los grupos elásticos | Microsoft Docs"
-description: "Ejemplo de script de Azure PowerShell: traslado de una instancia de SQL Database entre grupos elásticos mediante PowerShell"
+title: "Ejemplo de PowerShell para trasladar una base de datos SQL de Azure a un grupo elástico de SQL | Microsoft Docs"
+description: "Ejemplo de Azure PowerShell para trasladar una instancia base de datos SQL entre grupos elásticos mediante PowerShell"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 3e483b2f3fe180219334d0c08512eae82a47a8a7
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: a883c3c6156e8e1f6d56c9be4c1e9c8a7990d16a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
 # <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-powershell"></a>Creación de grupos elásticos y traslado de bases de datos de un grupo a otro y fuera de un grupo mediante PowerShell
 
-Este script de ejemplo de PowerShell crea dos grupos elásticos, traslada una base de datos de un grupo elástico al otro y, a continuación, traslada una base de datos fuera de un grupo elástico a un nivel de rendimiento de base de datos única. 
+Este script de ejemplo de PowerShell crea dos grupos elásticos, traslada una base de datos de un grupo elástico a otro y, a continuación, traslada una base de datos fuera de un grupo elástico a un nivel de rendimiento de base de datos única. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

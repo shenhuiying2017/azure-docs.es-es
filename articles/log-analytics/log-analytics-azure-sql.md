@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/05/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 0184e95ca56e4bc4ffbe860da2b7a5cae9b5a043
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: f5f9aa186480926df1110928983566e05f79efb8
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -25,15 +26,17 @@ ms.lasthandoff: 03/11/2017
 
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Supervisión de Azure SQL Database mediante Azure SQL Analytics (versión preliminar) en Log Analytics
 
-La solución Azure SQL Monitoring en Azure Log Analytics recopila y muestra métricas de rendimiento importantes de Azure SQL. Mediante el uso de las métricas que se recopilan con la solución, puede crear alertas y reglas de supervisión personalizadas. Y puede supervisar Azure SQL Database y las métricas de los grupos elásticos de varias suscripciones y grupos elásticos de Azure y visualizarlos. La solución también le ayuda a identificar los problemas de cada nivel de la pila de la aplicación.  Usa las [métricas de diagnóstico de Azure](log-analytics-azure-storage.md) junto con las vistas de Log Analytics para presentar datos sobre todas sus instancias de Azure SQL Database y sus grupos elásticos en una sola área de trabajo de Log Analytics.
+![Símbolo de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-symbol.png)
+
+La solución Azure SQL Analytics de Azure Log Analytics recopila y muestra métricas de rendimiento importantes de Azure SQL. Mediante el uso de las métricas que se recopilan con la solución, puede crear alertas y reglas de supervisión personalizadas. Y puede supervisar Azure SQL Database y las métricas de los grupos elásticos de varias suscripciones y grupos elásticos de Azure y visualizarlos. La solución también le ayuda a identificar los problemas de cada nivel de la pila de la aplicación.  Usa las [métricas de diagnóstico de Azure](log-analytics-azure-storage.md) junto con las vistas de Log Analytics para presentar datos sobre todas sus instancias de Azure SQL Database y sus grupos elásticos en una sola área de trabajo de Log Analytics.
 
 Actualmente, la versión preliminar de esta solución admite hasta 150 000 instancias de Azure SQL Database y 5000 grupos elásticos de SQL por área de trabajo.
 
-La solución Azure SQL Monitoring, al igual que otras disponibles para Log Analytics, le ayuda a supervisar y recibir notificaciones sobre el estado de los recursos de Azure y, en este caso, de Azure SQL Database. Microsoft Azure SQL Database es un servicio de base de datos relacional escalable que proporciona funcionalidades conocidas de tipo SQL Server para aplicaciones que se ejecutan en la nube de Azure. Log Analytics le ayuda a recopilar, correlacionar y visualizar datos estructurados y no estructurados.
+La solución Azure SQL Analytics, al igual que otras disponibles para Log Analytics, le ayuda a supervisar y recibir notificaciones sobre el estado de los recursos de Azure y, en este caso, de Azure SQL Database. Microsoft Azure SQL Database es un servicio de base de datos relacional escalable que proporciona funcionalidades conocidas de tipo SQL Server para aplicaciones que se ejecutan en la nube de Azure. Log Analytics le ayuda a recopilar, correlacionar y visualizar datos estructurados y no estructurados.
 
 ## <a name="connected-sources"></a>Orígenes conectados
 
-La solución Azure SQL Monitoring no usa agentes para conectarse al servicio Log Analytics.
+La solución Azure SQL Analytics no usa agentes para conectarse al servicio Log Analytics.
 
 En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución.
 
@@ -47,13 +50,13 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-1. Una suscripción de Azure. Si no tiene ninguna, puede crear una [gratis](https://azure.microsoft.com/free/).
-2. Un área de trabajo de Log Analytics. Puede usar una existente, o bien puede [crear una nueva](log-analytics-get-started.md) para empezar a usar esta solución.
-3. Habilite Diagnósticos de Azure para sus instancias de Azure SQL Database y para los grupos elásticos y [configúrelo para que envíe sus datos a Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+- Una suscripción de Azure. Si no tiene ninguna, puede crear una [gratis](https://azure.microsoft.com/free/).
+- Un área de trabajo de Log Analytics. Puede usar una existente, o bien puede [crear una nueva](log-analytics-get-started.md) para empezar a usar esta solución.
+- Habilite Diagnósticos de Azure para sus instancias de Azure SQL Database y para los grupos elásticos y [configúrelo para que envíe sus datos a Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
 
 ## <a name="configuration"></a>Configuración
 
-Realice los pasos siguientes para agregar la solución Azure SQL Monitoring al área de trabajo.
+Realice los pasos siguientes para agregar la solución Azure SQL Analytics al área de trabajo.
 
 1. Agregue la Azure SQL Analytics al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Log Analytics desde la Galería de soluciones](log-analytics-add-solutions.md).
 2. En Azure Portal, haga clic en **Nuevo** (el símbolo +) y, a continuación, en la lista de recursos, seleccione **Supervisión y administración**.  
@@ -87,33 +90,16 @@ Cuando la solución se agrega al área de trabajo, el icono de Azure SQL Analyti
 
 ![Icono de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
-### <a name="viewing-azure-sql-monitoring-data"></a>Visualización de los datos de Azure SQL Monitoring
+### <a name="viewing-azure-sql-analytics-data"></a>Visualización de los datos de Azure SQL Analytics
 
-Haga clic en el icono de **Azure SQL Monitoring** para que se abra el panel de Azure SQL Analytics. El panel incluye las columnas de la tabla siguiente. Cada columna muestra hasta los diez principales elementos que coinciden con los criterios de esa columna para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que devuelva todos los registros haciendo clic en **Ver todo** en la parte inferior de la columna o haciendo clic en el encabezado de la columna.
+Haga clic en el icono de **Azure SQL Analytics** para que se abra el panel de Azure SQL Analytics. El panel incluye las hojas detalladas a continuación. Cada hoja enumera hasta 15 recursos (suscripción, servidor, grupo elástico y base de datos). Haga clic en cualquiera de los recursos para abrir el panel de ese recurso concreto. Grupo elástico o base de datos contienen los gráficos de métricas de un recurso seleccionado. Haga clic en un gráfico para abrir el cuadro de diálogo de búsqueda de registros.
 
-Para más información, consulte [Opciones y rendimiento de SQL Database: descripción de lo que está disponible en cada nivel de servicio](../sql-database/sql-database-service-tiers.md).
-
-
-
-![Panel de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-dash-01.png)
-
-
-
-![Panel de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-dash-02.png)
-
-| Columna | Descripción |
-| --- | --- |
-| **Azure SQL Database Analytics** | &nbsp; |
-| Las N bases de datos primeras según el uso de DTU &gt; 90% | Este panel muestra el número de instancias de Azure SQL Database cuyo uso de DTU es superior al 90% durante el tiempo seleccionado. El icono superior muestra el número de bases de datos que han consumido más del 90% de la disponibilidad de DTU asignada total durante el tiempo especificado para todas las bases de datos que está supervisando en Log Analytics.  Haga clic en el nombre de una base de datos para ejecutar una búsqueda de registros que muestre un gráfico de líneas que compare el uso de DTU de la base de datos con el de todas las demás bases de datos supervisadas por el área de trabajo. |
-| Las N bases de datos primeras según el uso de CPU &gt; 90% | Este panel muestra el número de instancias de Azure SQL Database cuyo uso de CPU es superior al 90% durante el tiempo seleccionado. El icono superior muestra el número de bases de datos que han consumido más del 90% de la disponibilidad de CPU asignada total durante el tiempo especificado para todas las bases de datos que está supervisando en Log Analytics.  Haga clic en el nombre de una base de datos para ejecutar una búsqueda de registros que muestre un gráfico de líneas que compare el uso de CPU de la base de datos con el de todas las demás bases de datos supervisadas por el área de trabajo. |
-| Las N bases de datos primeras según el consumo de almacenamiento &gt; 90% | Este panel muestra el número de instancias de Azure SQL Database que han consumido un valor superior al 90% de su asignación de almacenamiento para el tiempo seleccionado. El icono superior muestra el número de bases de datos que han superado el umbral del 90% durante el tiempo especificado para todas las bases de datos que está supervisando en Log Analytics.  Haga clic en el nombre de una base de datos para ejecutar una búsqueda de registros que muestre un gráfico de líneas que compare el consumo de almacenamiento de la base de datos con el de todas las demás bases de datos supervisadas por el área de trabajo. |
-| **Grupos elásticos de Azure SQL** | &nbsp; |
-| Los N grupos elásticos primeros según DTU &gt; 90% | Este panel muestra el número de grupos elásticos de Azure SQL que han consumido un valor superior al 90% de su asignación de DTU para el tiempo seleccionado. El icono superior muestra el número de grupos elásticos que han superado el umbral del 90% durante el tiempo especificado para todos los grupos elásticos que está supervisando en Log Analytics.  Haga clic en el nombre de un grupo elástico para ejecutar una búsqueda de registros que muestre un gráfico de líneas que compare el consumo de almacenamiento de los grupos elásticos con el de todos los demás grupos elásticos supervisados por el área de trabajo. |
-| Los N grupos elásticos primeros según CPU &gt; 90% | Este panel muestra el número de grupos elásticos de Azure SQL cuyo uso de CPU es superior al 90% durante el tiempo seleccionado. El icono superior muestra el número de grupos elásticos que han superado el umbral del 90% durante el tiempo especificado para todos los grupos elásticos que está supervisando en Log Analytics.  Haga clic en el nombre de un grupo elástico para ejecutar una búsqueda de registros que muestre un gráfico de líneas que compare la utilización de CPU de los grupos elásticos con la de todos los demás grupos elásticos supervisados por el área de trabajo. |
-| Los N grupos elásticos primeros según el consumo de almacenamiento &gt; 90% | Este panel muestra el número de grupos elásticos de Azure SQL que han consumido un valor superior al 90% de su asignación de almacenamiento para el tiempo seleccionado. El icono superior muestra el número de grupos elásticos que han superado el umbral del 90% durante el tiempo especificado para todos los grupos elásticos que está supervisando en Log Analytics.  Haga clic en el nombre de un grupo elástico para ejecutar una búsqueda de registros que muestre un gráfico de líneas que compare el consumo de almacenamiento de los grupos elásticos con el de todos los demás grupos elásticos supervisados por el área de trabajo. |
-| **Registros de actividad de Azure SQL** | &nbsp; |
-| Auditoría de actividad de Azure SQL | Este panel muestra el número de registros de actividad de Azure relacionados con Azure SQL durante el tiempo seleccionado. Haga clic en un elemento para ejecutar una búsqueda de registros que muestre detalles adicionales sobre el elemento. |
-
+| Hoja | Descripción |
+|---|---|
+| Suscripciones | Lista de las suscripciones con el número de servidores conectados, los grupos y las bases de datos. |
+| Servidores | Lista de servidores con el número de grupos conectados y las bases de datos. |
+| Grupos elásticos | Lista de grupos elásticos conectados con número máximo de GB y eDTU en el período observado. |
+|Bases de datos | Lista de bases de datos conectadas con GB máximos y DTU en el período observado.|
 
 
 ### <a name="analyze-data-and-create-alerts"></a>Análisis de datos y creación de alertas
@@ -136,7 +122,7 @@ La solución incluye algunas *consultas basadas en alertas*, tal y como se muest
 6. En la página **Agregar regla de alerta** página, configure las propiedades adecuadas y los umbrales específicos que desee y, a continuación, haga clic en **Guardar**.  
 ![agregar regla de alerta](./media/log-analytics-azure-sql/create-alert02.png)
 
-### <a name="act-on-azure-sql-monitoring-data"></a>Actuación sobre datos de Azure SQL Monitoring
+### <a name="act-on-azure-sql-analytics-data"></a>Actuar sobre los datos de Azure SQL Analytics
 
 A modo de ejemplo, una de las consultas más útiles que puede realizar es comparar el uso de DTU de todos los grupos elásticos de Azure SQL de todas sus suscripciones de Azure. La unidad de rendimiento de base de datos (DTU) proporciona una manera de describir la capacidad relativa de un nivel de rendimiento de las bases de datos y grupos elásticos de los niveles Básico, Estándar y Premium. Las DTU se basan en una medición combinada de CPU, memoria y número de lecturas y escrituras. A medida que aumentan las DTU, aumenta la capacidad que ofrece el nivel de rendimiento. Por ejemplo, un nivel de rendimiento con 5 DTU es cinco veces más potente que un nivel de rendimiento con 1 DTU. Se aplica una cuota máxima de DTU para cada servidor y grupo elástico.
 

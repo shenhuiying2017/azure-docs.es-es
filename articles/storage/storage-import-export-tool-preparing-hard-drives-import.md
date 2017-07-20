@@ -12,18 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 06/29/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 04ac94a1c07c3ad2a9384f5cf5fca1341ebfa0d8
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 5b894dac8fdc26999b6f3cbffaf7e6a98e68d000
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparación de unidades de disco duro para un trabajo de importación
 
-La herramienta WAImportExport es la herramienta de preparación y reparación de unidades de disco duro que se puede usar con el [servicio Microsoft Azure Import/Export](storage-import-export-service.md). Puede usar esta herramienta para copiar los datos en las unidades de disco duro que se van a enviar a un centro de datos de Azure. Cuando haya finalizado un trabajo de importación, puede usar esta herramienta para reparar los blobs que se hayan dañado, no se hayan encontrado o hayan entrado en conflicto con otros blobs. Después de recibir las unidades de un trabajo de exportación completado, puede utilizar esta herramienta para reparar los archivos dañados o no encontrados de las unidades. En este artículo se tratará el funcionamiento de esta herramienta.
+La herramienta WAImportExport es la herramienta de preparación y reparación de unidades de disco duro que se puede usar con el [servicio Microsoft Azure Import/Export](storage-import-export-service.md). Puede usar esta herramienta para copiar los datos en las unidades de disco duro que se van a enviar a un centro de datos de Azure. Cuando haya finalizado un trabajo de importación, puede usar esta herramienta para reparar los blobs que se hayan dañado, no se hayan encontrado o hayan entrado en conflicto con otros blobs. Después de recibir las unidades de un trabajo de exportación completado, puede utilizar esta herramienta para reparar los archivos dañados o no encontrados de las unidades. En este artículo, se explica el uso de esta herramienta.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -36,13 +37,13 @@ La herramienta WAImportExport es la herramienta de preparación y reparación de
 
 ### <a name="preparing-disk-for-import-job"></a>Preparación del disco para el trabajo de importación
 
-- **BitLocker:** se debe habilitar BitLocker en la máquina que está ejecutando la herramienta WAImportExport. Consulte las [preguntas más frecuentes](#faq) sobre cómo habilitar BitLocker
+- **BitLocker:** se debe habilitar BitLocker en la máquina donde se ejecuta la herramienta WAImportExport. Consulte las [preguntas más frecuentes](#faq) sobre cómo habilitar BitLocker.
 - **Discos** accesibles desde la máquina en la que se ejecuta la herramienta WAImportExport. Consulte las [preguntas más frecuentes](#faq) sobre la especificación del disco.
 - **Archivos de origen**: se debe poder acceder a los archivos que se van a importar desde la máquina de copia, independientemente de si están en un recurso compartido de red o en una unidad de disco duro local.
 
 ### <a name="repairing-a-partially-failed-import-job"></a>Reparación de un trabajo de importación con errores
 
-- **Copie los archivos de registro** que se generan cuando el servicio Azure Import/Export copia los datos entre la cuenta de almacenamiento y el disco. Se encuentra en la cuenta de almacenamiento de destino.
+- **Copie el archivo de registro** que se genera cuando el servicio Azure Import/Export copia los datos entre la cuenta de almacenamiento y el disco. Se encuentra en la cuenta de almacenamiento de destino.
 
 ### <a name="repairing-a-partially-failed-export-job"></a>Reparación de un trabajo de exportación con errores
 
@@ -51,7 +52,7 @@ La herramienta WAImportExport es la herramienta de preparación y reparación de
 
 ## <a name="download-and-install-waimportexport"></a>Descarga e instalación de WAImportExport
 
-Descargue la [versión más reciente de WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=42659). Extraiga el contenido comprimido en un directorio del equipo.
+Descargue la [versión más reciente de WAImportExport.exe](https://www.microsoft.com/download/details.aspx?id=55280). Extraiga el contenido comprimido en un directorio del equipo.
 
 La siguiente tarea consiste en crear archivos CSV.
 
@@ -59,9 +60,9 @@ La siguiente tarea consiste en crear archivos CSV.
 
 ### <a name="what-is-dataset-csv"></a>¿Qué es un archivo CSV de conjunto de datos?
 
-Un archivo CSV de conjunto de datos, es el valor de la marca /dataset, es un archivo CSV que contiene la lista de directorios o archivos que se van a copiar en las unidades de destino. El primer paso para crear un trabajo de importación es determinar los directorios y archivos que se van a importar. Puede tratarse de una lista de directorios, una lista de archivos únicos o una combinación de ambos. Si se incluye un directorio, todos los archivos del directorio y sus subdirectorios formarán parte del trabajo de importación.
+Un archivo CSV de conjunto de datos es el valor de la marca /dataset, un archivo CSV que contiene la lista de directorios o archivos que se van a copiar en las unidades de destino. El primer paso para crear un trabajo de importación es determinar los directorios y archivos que se van a importar. Puede tratarse de una lista de directorios, una lista de archivos únicos o una combinación de ambos. Si se incluye un directorio, todos los archivos del directorio y sus subdirectorios formarán parte del trabajo de importación.
 
-Para cada directorio o archivo que se va a importar, debe identificar un directorio virtual de destino o un blob en Azure Blob service. Usará estos destinos como entradas de la herramienta WAImportExport. Tenga en cuenta que los directorios deben delimitarse con el carácter de barra diagonal "/".
+Para cada directorio o archivo que se va a importar, debe identificar un directorio virtual de destino o un blob en Azure Blob service. Usará estos destinos como entradas de la herramienta WAImportExport. Los directorios deben delimitarse con el carácter de barra diagonal "/".
 
 En la tabla siguiente se muestran algunos ejemplos de destinos de blob:
 
@@ -84,10 +85,10 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 | Campo | Descripción |
 | --- | --- |
-| BasePath | **[Obligatorio]**<br/>El valor de este parámetro representa el origen donde se encuentran los datos que desea importar. La herramienta copiará de forma recursiva todos los datos que se encuentran en esta ruta de acceso.<br><br/>**Valores permitidos**: estos deben constituir una ruta de acceso válida en el equipo local o una ruta de acceso a un recurso compartido válida, que sean accesibles para el usuario. La ruta de acceso del directorio debe ser una ruta absoluta (no relativa). Si la ruta de acceso finaliza con "\\", representa un directorio mientras que si finaliza sin "\\" representa un archivo.<br/>No se permite ningún regex en este campo. Si la ruta de acceso contiene espacios, póngala entre "".<br><br/>**Ejemplo**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
-| DstBlobPathOrPrefix | **[Obligatorio]**<br/> La ruta de acceso al directorio virtual de destino en la cuenta de Windows Azure Storage. El directorio virtual puede existir ya o no. Si no existe, el servicio Import/Export creará uno.<br/><br/>Asegúrese de utilizar nombres de contenedor válidos al especificar los directorios virtuales de destino o blobs. Tenga en cuenta que los nombres de contenedor deben estar en minúsculas. Para más información sobre las reglas de nomenclatura de contenedor, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Si solo se especifica la raíz, la estructura de directorios del origen se replicará en el contenedor de blobs de destino. Si se desea una estructura de directorios diferente a la de origen, incluya varias filas de asignación en CSV<br/><br/>Puede especificar un contenedor o un prefijo de blob como music/70s/. El directorio de destino debe comenzar con el nombre del contenedor, seguido por una barra diagonal "/" y puede incluir opcionalmente un directorio virtual de blobs que termina por "/".<br/><br/>Si el contenedor de destino es el contenedor raíz, debe especificar de forma explícita el contenedor raíz, incluida la barra diagonal, como $root/. Puesto que los blobs del contenedor raíz no pueden incluir "/" en sus nombres, los subdirectorios del directorio de origen no se copiarán si el directorio de destino es el contenedor raíz.<br/><br/>**Ejemplo**<br/>Si la ruta de acceso del blob de destino es https://mystorageaccount.blob.core.windows.net/video, el valor de este campo puede ser video/  |
+| BasePath | **[Obligatorio]**<br/>El valor de este parámetro representa el origen donde se encuentran los datos que desea importar. La herramienta copiará de forma recursiva todos los datos que se encuentran en esta ruta de acceso.<br><br/>**Valores permitidos**: estos deben constituir una ruta de acceso válida en el equipo local o una ruta de acceso a un recurso compartido válida, que sean accesibles para el usuario. La ruta del directorio debe ser una ruta absoluta (no una ruta de acceso relativa). Si la ruta de acceso finaliza en "\\", representa un directorio; por otro lado, una ruta de acceso que no termine en "\\" representa un archivo.<br/>No se permite ninguna expresión regular en este campo. Si la ruta de acceso contiene espacios, póngala entre "".<br><br/>**Ejemplo**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
+| DstBlobPathOrPrefix | **[Obligatorio]**<br/> La ruta de acceso al directorio virtual de destino en la cuenta de Windows Azure Storage. El directorio virtual puede existir ya o no. Si no existe, el servicio Import/Export creará uno.<br/><br/>Asegúrese de utilizar nombres de contenedor válidos al especificar los directorios virtuales de destino o blobs. Tenga en cuenta que los nombres de contenedor deben estar en minúsculas. Para más información sobre las reglas de nomenclatura de contenedores, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Si solo se especifica la raíz, la estructura de directorios del origen se replica en el contenedor de blob de destino. Si se desea una estructura de directorios diferente que la del origen, se necesitan varias filas de asignación en el archivo CSV.<br/><br/>Puede especificar un contenedor o un prefijo de blob como music/70s/. El directorio de destino debe comenzar con el nombre del contenedor, seguido por una barra diagonal "/" y puede incluir opcionalmente un directorio virtual de blobs que termina por "/".<br/><br/>Si el contenedor de destino es el contenedor raíz, debe especificar de forma explícita el contenedor raíz, incluida la barra diagonal, como $root/. Puesto que los blobs del contenedor raíz no pueden incluir "/" en sus nombres, los subdirectorios del directorio de origen no se copiarán si el directorio de destino es el contenedor raíz.<br/><br/>**Ejemplo**<br/>Si la ruta de acceso del blob de destino es https://mystorageaccount.blob.core.windows.net/video, el valor de este campo puede ser video/  |
 | BlobType | **[Opcional]** block &#124; page<br/>Actualmente el servicio Import/Export admite 2 tipos de blobs. Blobs en páginas y blobs en bloques. De forma predeterminada, todos los archivos se importarán como blobs en bloque. Y \*.vhd y \*.vhdx se importarán como blobs en páginas. Hay un límite para el tamaño permitido de los blobs en bloque y los blobs en página. Consulte [Objetivos de escalabilidad de Storage](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) para más información.  |
-| Disposition | **[Opcional]**  rename | no-overwrite | overwrite <br/> Este campo especifica el comportamiento de copia solo durante la importación, es decir cuando los datos se están cargando en la cuenta de almacenamiento desde el disco. Las opciones disponibles son: rename | no-overwrite | overwrite. El valor predeterminado será "rename" si no se especifica nada. <br/><br/>**Rename**: si hay un objeto con el mismo nombre, crea una copia en el destino.<br/>Overwrite: sobrescribe el archivo con el archivo más reciente. El archivo con la modificación más reciente gana.<br/>**No-overwrite**: omite la sobrescritura del archivo si ya está presente.|
+| Disposition | **[Opcional]**  rename | no-overwrite | overwrite <br/> Este campo especifica el comportamiento de copia solo durante la importación, es decir , cuando se están cargando datos en la cuenta de almacenamiento desde el disco. Las opciones disponibles son: rename&#124;overwite&#124;no-overwrite. El valor predeterminado es "rename" si no se especifica nada. <br/><br/>**Rename**: si hay un objeto con el mismo nombre, crea una copia en el destino.<br/>Overwrite: sobrescribe el archivo con el archivo más reciente. El archivo con la modificación más reciente gana.<br/>**No-overwrite**: omite la sobrescritura del archivo si ya está presente.|
 | MetadataFile | **[Opcional]** <br/>El valor de este campo es el archivo de metadatos que se puede proporcionar si es necesario mantener los metadatos de los objetos o proporcionar metadatos personalizados. Ruta de acceso al archivo de metadatos para los blobs de destino. Para obtener más información, consulte [Formato de archivo de propiedades y metadatos del servicio Import/Export](storage-import-export-file-format-metadata-and-properties.md). |
 | PropertiesFile | **[Opcional]** <br/>Ruta de acceso al archivo de propiedades para los blobs de destino. Para obtener más información, consulte [Formato de archivo de propiedades y metadatos del servicio Import/Export](storage-import-export-file-format-metadata-and-properties.md). |
 
@@ -95,9 +96,9 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 ### <a name="what-is-driveset-csv"></a>¿Qué es el archivo CSV de conjunto de unidades?
 
-El valor de la marca /InitialDriveSet o /AdditionalDriveSet es un archivo CSV que contiene la lista de discos a los que se asignan las letras de las unidades para que la herramienta pueda elegir correctamente la lista de discos que se van a preparar. Si el tamaño de los datos es mayor que el de un solo disco, la herramienta WAImportExport distribuirá los datos entre varios discos de los que aparecen en este archivo CSV de forma optimizada.
+El valor de la marca /InitialDriveSet o /AdditionalDriveSet es un archivo CSV que contiene la lista de discos a los que se asignan letras de unidad para que la herramienta pueda elegir correctamente la lista de discos que se van a preparar. Si el tamaño de los datos es mayor que el de un solo disco, la herramienta WAImportExport distribuirá los datos entre varios discos de los que aparecen en este archivo CSV de forma optimizada.
 
-No hay ningún límite en el número de discos en los que se pueden escribir los datos en una sola sesión. La herramienta distribuirá los datos basándose en el tamaño del disco y de la carpeta. Seleccionará el disco óptimo para el tamaño del objeto. Al cargar los datos en la cuenta de almacenamiento, estos convergen de nuevo en la estructura de directorios que se especificó en el archivo de conjunto de datos. Para crear un archivo CSV de conjunto de unidades, siga los pasos descritos a continuación.
+No hay ningún límite en el número de discos en los que se pueden escribir los datos en una sola sesión. La herramienta distribuirá los datos basándose en el tamaño del disco y de la carpeta. Seleccionará el disco más optimizado para el tamaño del objeto. Al cargar los datos en la cuenta de almacenamiento, estos convergen de nuevo en la estructura de directorios que se especificó en el archivo de conjunto de datos. Para crear un archivo CSV de conjunto de unidades, siga los pasos descritos a continuación.
 
 ### <a name="create-basic-volume-and-assign-drive-letter"></a>Creación de volumen básico y asignación de letras de unidad
 
@@ -117,7 +118,7 @@ H,Format,SilentMode,Encrypt,
 | --- | --- |
 | DriveLetter | **[Obligatorio]**<br/> Cada unidad que se proporciona a la herramienta como destino debe tener un volumen NTFS simple en ella y una letra de unidad asignada.<br/> <br/>**Ejemplo**: R o r |
 | FormatOption | **[Obligatorio]**  Format | AlreadyFormatted<br/><br/> **Format**: si se especifica esto formateará todos los datos del disco. <br/>**AlreadyFormatted**: la herramienta omitirá el formateo si se especifica este valor. |
-| SilentOrPromptOnFormat | **[Obligatorio]**  SilentMode | PromptOnFormat<br/><br/>**SilentMode**: si proporciona este valor permitirá al usuario ejecutar la herramienta en modo silencioso. <br/>**PromptOnFormat**: la herramienta pedirá al usuario que confirme si la acción es realmente intencionada en cada formato.<br/><br/>Si no se establece, el comando se anulará y aparecerá el mensaje de error: "Incorrect value for SilentOrPromptOnFormat: none" (Valor incorrecto para SilentOrPromptOnFormat: ninguno) |
+| SilentOrPromptOnFormat | **[Obligatorio]**  SilentMode | PromptOnFormat<br/><br/>**SilentMode**: si proporciona este valor permitirá al usuario ejecutar la herramienta en modo silencioso. <br/>**PromptOnFormat**: la herramienta pedirá al usuario que confirme si la acción es realmente intencionada en cada formato.<br/><br/>Si no se establece, el comando se anulará y mostrará el mensaje de error: "Incorrect value for SilentOrPromptOnFormat: none" (Valor incorrecto para SilentOrPromptOnFormat: ninguno) |
 | Cifrado | **[Obligatorio]**  Encrypt | AlreadyEncrypted<br/> El valor de este campo decide qué disco cifrar y cuáles no. <br/><br/>**Encrypt**: la herramienta formateará la unidad. Si el valor del campo "FormatOption" es "Format", este valor debe ser obligatoriamente "Encrypt". Si se especifica "AlreadyEncrypted" en este caso, se producirá un error "When Format is specified, Encrypt must also be specified" (Si se especifica Format, también se debe especificar Encrypt).<br/>**AlreadyEncrypted**: la herramienta descifrará la unidad con la clave BitLockerKey proporcionada en el campo "ExistingBitLockerKey". Si el valor del campo "FormatOption" es "AlreadyFormatted", este valor podrá ser "Encrypt" o "AlreadyEncrypted" |
 | ExistingBitLockerKey | **[Obligatorio]**  Si el valor del campo "Encryption" es "AlreadyEncrypted"<br/> El valor de este campo es la clave de BitLocker que está asociada al disco concreto. <br/><br/>Este campo debe dejarse en blanco si el valor del campo "Encryption" es "Encrypt".  Si se especifica la clave de BitLocker en este caso, se producirá el error "Bitlocker Key should not be specified" (No se debe especificar la clave de Bitlocker).<br/>  **Ejemplo**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
@@ -222,7 +223,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     /ManifestFile:&lt;DriveManifestFile&gt; | **Obligatorio** Solo es aplicable para RepairExport.<br/> Ruta de acceso al archivo de manifiesto de la unidad.  |
 |     /PathMapFile:&lt;DrivePathMapFile&gt; | **Opcional**. Solo es aplicable para RepairImport.<br/> Ruta de acceso al archivo que contiene las asignaciones de las rutas de acceso de archivo relativas a la raíz de la unidad de las ubicaciones de archivos reales (delimitado por tabulaciones). Cuando se especifica en primer lugar, se rellenará con las rutas de acceso de archivo con destinos vacíos, lo que significa que no se encuentran en TargetDirectories, se les ha denegado el acceso, tienen nombres no válidos o se encuentran en varios directorios. El archivo de asignación de rutas de acceso puede editarse manualmente para incluir las rutas de acceso de destino correctas y se especifica de nuevo para que la herramienta resuelva las rutas de acceso del archivo correctamente.  |
 |     /ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Obligatoria**. Solo se aplica para PreviewExport.<br/> Ruta de acceso al archivo XML que contiene una lista de rutas de acceso de blob o prefijos de ruta de acceso para los blobs que se van a exportar. El formato de archivo es el mismo que el formato de blob de la lista de blobs de la operación Put Job de la API de REST del servicio Import/Export.  |
-|     /DriveSize:&lt;DriveSize&gt; | **Obligatoria**. Solo se aplica para PreviewExport.<br/>  Tamaño de las unidades que se utilizan para la exportación. Por ejemplo, 500 GB, 1,5 TB. Nota: 1 GB = 1 000 000 000 de bytes1 TB = 1 000 000 000 000 de bytes  |
+|     /DriveSize:&lt;DriveSize&gt; | **Obligatoria**. Solo se aplica para PreviewExport.<br/>  Tamaño de las unidades que se utilizan para la exportación. Por ejemplo, 500 GB; 1,5 TB. Nota: 1 GB = 1 000 000 000 bytes 1 TB = 1 000 000 000 000 bytes  |
 |     /DataSet:&lt;dataset.csv&gt; | **Obligatorio**<br/> Un archivo CSV que contiene la lista de directorios o archivos que se van a copiar en las unidades de destino.  |
 |     /silentmode  | **Opcional**.<br/> Si no se especifica, le recordará el requisito de las unidades y necesitará su confirmación para continuar.  |
 
@@ -285,7 +286,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-### <a name="sample-journal-file-jrn-for-session-which-records-the-trail-of-sessions"></a>Ejemplo de archivo de diario (JRN) de la sesión, que registra el rastro de sesiones
+### <a name="sample-journal-file-jrn-for-session-that-records-the-trail-of-sessions"></a>Ejemplo de archivo de diario (JRN) de la sesión, que registra el rastro de sesiones
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -309,9 +310,9 @@ StorageAccountKey: *******
 
 La herramienta WAImportExport es la herramienta de preparación y reparación de unidades de disco duro que se puede usar con el servicio Microsoft Azure Import/Export. Puede usar esta herramienta para copiar los datos en las unidades de disco duro que se van a enviar a un centro de datos de Azure. Cuando haya finalizado un trabajo de importación, puede usar esta herramienta para reparar los blobs que se hayan dañado, no se hayan encontrado o hayan entrado en conflicto con otros blobs. Después de recibir las unidades de un trabajo de exportación completado, puede utilizar esta herramienta para reparar los archivos dañados o no encontrados de las unidades.
 
-#### <a name="how-does-the-waimportexport-tool-work-on-multiple-sorce-dir-and-disks"></a>¿Cómo funciona la herramienta WAImportExport en varios directorios y discos de origen?
+#### <a name="how-does-the-waimportexport-tool-work-on-multiple-source-dir-and-disks"></a>¿Cómo funciona la herramienta WAImportExport en varios directorios y discos de origen?
 
-Si el tamaño de los datos es mayor que el del disco, la herramienta WAImportExport distribuirá los datos entre los discos de forma optimizada. La copia de datos en varios discos se puede hacer en paralelo o secuencialmente. No hay ningún límite en el número de discos en los que se pueden escribir los datos de forma simultánea. La herramienta distribuirá los datos basándose en el tamaño del disco y de la carpeta. Seleccionará el disco óptimo para el tamaño del objeto. Al cargar los datos en la cuenta de almacenamiento, estos convergen de nuevo en la estructura de directorios que se especificó.
+Si el tamaño de los datos es mayor que el del disco, la herramienta WAImportExport distribuirá los datos entre los discos de forma optimizada. La copia de datos en varios discos se puede hacer en paralelo o secuencialmente. No hay ningún límite en el número de discos en los que se pueden escribir los datos de forma simultánea. La herramienta distribuirá los datos basándose en el tamaño del disco y de la carpeta. Seleccionará el disco más optimizado para el tamaño del objeto. Al cargar los datos en la cuenta de almacenamiento, estos convergen de nuevo en la estructura de directorios que se especificó.
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>¿Dónde puedo encontrar la versión anterior de la herramienta WAImportExport?
 
@@ -337,13 +338,13 @@ Para cada unidad de disco duro que prepare con la herramienta Azure Import/Expor
 
 #### <a name="what-is-a-log-directory"></a>¿Qué es un directorio de registro?
 
-El directorio de registro especifica el directorio que se usará para almacenar los registros detallados así como los archivos de manifiesto temporales. Si no se especifica, se usará el directorio actual como directorio de registro. Los registros son registros detallados.
+El directorio de registro especifica el directorio que se usará para almacenar los registros detallados así como los archivos de manifiesto temporales. Si no se especifica, se usará el directorio actual como directorio de registro. Los registros son detallados.
 
 ### <a name="prerequisites"></a>Requisitos previos
 
 #### <a name="what-are-the-specifications-of-my-disk"></a>¿Cuáles son las especificaciones de mi disco?
 
-Una o más unidades de disco duro SATAII o III o SSD de 2,5 o 3,5 pulgadas conectadas a la máquina de copia.
+Una o más unidades de disco duro SATAII o III, o SSD, de 2,5 o 3,5 pulgadas conectadas a la máquina de copia.
 
 #### <a name="how-can-i-enable-bitlocker-on-my-machine"></a>¿Cómo se puede habilitar BitLocker en mi máquina?
 
@@ -353,11 +354,11 @@ Una manera sencilla de comprobarlo es hacer clic con el botón derecho en la uni
 
 Este es un artículo sobre [cómo habilitar BitLocker](https://technet.microsoft.com/library/cc766295.aspx)
 
-Es posible que la máquina no tenga el chip de TPM. Si no obtiene una salida mediante tpm.msc, mire la sección de preguntas más frecuentes que aparece a continuación.
+Es posible que la máquina no tenga el chip TPM. Si no obtiene una salida mediante tpm.msc, mire la sección de preguntas más frecuentes que aparece a continuación.
 
 #### <a name="how-to-disable-trusted-platform-module-tpm-in-bitlocker"></a>¿Cómo deshabilitar el Módulo de plataforma segura (TPM) en BitLocker?
 > [!NOTE]
-> Solo si no hay ningún TPM en sus servidores deberá deshabilitar la directiva TPM. No es necesario deshabilitar el TPM si hay un TPM de confianza en el servidor del usuario. 
+> Solo si no hay ningún TPM en sus servidores, debe deshabilitar la directiva TPM. No es necesario deshabilitar TPM si hay un TPM de confianza en el servidor del usuario. 
 > 
 
 Para deshabilitar el TPM de BitLocker, siga los pasos siguientes:<br/>
@@ -394,7 +395,7 @@ Aunque los datos se distribuyen entre los discos, al cargar los datos en la cuen
 
 #### <a name="how-many-of-the-input-disks-will-have-active-io-in-parallel-when-copy-is-in-progress"></a>¿Cuántos discos de entrada tendrán E/S activo en paralelo cuando la copia esté en curso?
 
-La herramienta distribuye los datos entre los discos de entrada en función del tamaño de los archivos de entrada. Es decir, el número de discos activos en paralelo depende completamente de la naturaleza de los datos de entrada. Según el tamaño de los archivos individuales en el conjunto de datos de entrada, uno o varios discos pueden mostrar E/S activo en paralelo. Consulte la siguiente sección de preguntas más frecuentes para obtener información más detallada.
+La herramienta distribuye los datos entre los discos de entrada en función del tamaño de los archivos de entrada. Es decir, el número de discos activos en paralelo depende completamente de la naturaleza de los datos de entrada. Según el tamaño de los archivos individuales en el conjunto de datos de entrada, uno o varios discos pueden mostrar E/S activo en paralelo. Consulte más detalles en la siguiente pregunta.
 
 #### <a name="how-does-the-tool-distribute-the-files-across-the-disks"></a>¿Cómo distribuye la herramienta los archivos entre los discos?
 

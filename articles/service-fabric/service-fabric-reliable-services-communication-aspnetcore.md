@@ -12,57 +12,62 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/22/2017
+ms.date: 05/02/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: cce66615ebe457ed7230401d154ddad07941f5bc
-ms.lasthandoff: 03/23/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 8ac4d409f7363e8b4ae98be659a627ac8db8d787
+ms.contentlocale: es-es
+ms.lasthandoff: 06/10/2017
 
 ---
 
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core en Reliable Services de Service Fabric
 
-ASP.NET Core es un nuevo marco de código abierto multiplataforma para crear aplicaciones conectadas a Internet modernas y basadas en la nube, como aplicaciones web, aplicaciones de IoT y back-ends móviles. Aunque las aplicaciones de ASP.NET Core se pueden ejecutar en .NET Core o en la versión completa de .NET Framework, actualmente los servicios de Service Fabric solo se pueden ejecutar en esta última. Esto significa que, cuando se crea un servicio de Service Fabric de ASP.NET Core, todavía debe tener como destino la versión completa de .NET Framework.
+ASP.NET Core es un nuevo marco de código abierto multiplataforma para crear aplicaciones conectadas a Internet modernas y basadas en la nube, como aplicaciones web, aplicaciones de IoT y back-ends móviles. 
+
+Este artículo es una guía en profundidad sobre cómo hospedar servicios de ASP.NET Core en Reliable Services de Service Fabric mediante el conjunto de paquetes NuGet **Microsoft.ServiceFabric.AspNetCore.***.
+
+Para ver un tutorial introductorio sobre ASP.NET Core en Service Fabric e instrucciones para configurar el entorno de desarrollo, consulte [Creación de un front-end de servicio web para una aplicación mediante ASP.NET Core](service-fabric-add-a-web-frontend.md).
+
+En el resto de este artículo se da por supuesto que ya conoce ASP.NET Core. Si no es así, se recomienda leer los [fundamentos de ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/index).
+
+## <a name="aspnet-core-in-the-service-fabric-environment"></a>ASP.NET Core en el entorno de Service Fabric
+
+Aunque las aplicaciones de ASP.NET Core se pueden ejecutar en .NET Core o en la versión completa de .NET Framework, actualmente los servicios de Service Fabric solo se pueden ejecutar en esta última. Esto significa que, cuando se crea un servicio de Service Fabric de ASP.NET Core, todavía debe tener como destino la versión completa de .NET Framework.
 
 ASP.NET Core se puede utilizar de dos maneras diferentes en Service Fabric:
- - **Implementado como archivo ejecutable invitado**. Esto se usa principalmente para ejecutar aplicaciones de ASP.NET Core existentes en Service Fabric sin realizar ningún cambio en el código.
- - **Ejecutado dentro de una instancia de Reliable Services**. Esto permite una mejor integración con el sistema en tiempo de ejecución de Service Fabric y permite servicios de ASP.NET Core con estado.
+ - **Implementado como archivo ejecutable invitado**. Se usa principalmente para ejecutar aplicaciones ASP.NET Core existentes en Service Fabric sin realizar ningún cambio en el código.
+ - **Ejecutado dentro de una instancia de Reliable Services**. Permite una mejor integración con el entorno de ejecución de Service Fabric y permite servicios ASP.NET Core con estado.
 
 En el resto de este artículo se explica cómo usar ASP.NET Core dentro de una instancia de Reliable Services mediante los componentes de integración de ASP.NET Core que se incluyen con el SDK de Service Fabric. 
 
-> [!NOTE]
->En el resto de este artículo se da por supuesto que sabe acerca del hospedaje en ASP.NET Core. Para aprender más sobre el hospedaje en ASP.NET Core, consulte [Introduction to hosting in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/hosting) (Introducción al hospedaje en ASP.NET Core).
-
-> [!NOTE]
-> Para desarrollar Reliable Services con ASP.NET Core en Visual Studio 2015, debe tener [.NET Core VS 2015 Tooling Preview 2](https://www.microsoft.com/net/download/core) instalado.
-
 ## <a name="service-fabric-service-hosting"></a>Hospedaje de servicios de Service Fabric
-En Service Fabric, una o varias instancias o réplicas del servicio se ejecutan en un *proceso de host de servicio* (un archivo ejecutable que ejecuta el código del servicio). Como autor del servicio, es propietario del proceso de host de servicio; Service Fabric lo activa y supervisa automáticamente.
 
-Tradicionalmente, ASP.NET (hasta MVC 5) está estrechamente unido a IIS a través de System.Web.dll. ASP.NET Core proporciona una separación entre el servidor web y la aplicación web. Esto permite que las aplicaciones web sean portátiles entre diferentes servidores web y también que los servidores web se *hospeden a sí mismos*, lo que significa que puede iniciar un servidor web en su propio proceso, al contrario que un proceso que pertenece a software de servidor web dedicado, como IIS. 
+En Service Fabric, una o varias instancias o réplicas del servicio se ejecutan en un *proceso de host de servicio* (un archivo ejecutable que ejecuta el código del servicio). Aunque, como autor del servicio, usted es el propietario del proceso de host de servicio, Service Fabric lo activa y supervisa automáticamente.
 
-Para combinar un servicio de Service Fabric y ASP.NET, ya sea como ejecutable invitado o en una instancia de Reliable Services, debe ser capaz de iniciar ASP.NET dentro de su proceso de host de servicio. El autohospedaje de ASP.NET Core permite hacer esto.
+Tradicionalmente, ASP.NET (hasta MVC 5) ha estado estrechamente unido a IIS a través de System.Web.dll. ASP.NET Core proporciona una separación entre el servidor web y la aplicación web. Esto permite que las aplicaciones web sean portátiles entre diferentes servidores web y también que los servidores web se *hospeden a sí mismos*, lo que significa que puede iniciar un servidor web en su propio proceso, al contrario que un proceso que pertenece a software de servidor web dedicado, como IIS. 
+
+Para combinar un servicio de Service Fabric y ASP.NET, ya sea como ejecutable invitado o en una instancia de Reliable Services, debe ser capaz de iniciar ASP.NET dentro de su proceso de host de servicio. El autohospedaje de ASP.NET Core lo permite.
 
 ## <a name="hosting-aspnet-core-in-a-reliable-service"></a>Hospedaje de ASP.NET Core en una instancia de Reliable Services
-Por lo general, las aplicaciones de ASP.NET Core autohospedadas crean un elemento WebHost en el punto de entrada de una aplicación, como el método `static void Main()` en `Program.cs`. En este caso, el ciclo de vida de WebHost está ligado al del proceso.
+Por lo general, las aplicaciones ASP.NET Core autohospedadas crean un elemento WebHost en el punto de entrada de una aplicación, como el método `static void Main()` en `Program.cs`. En este caso, el ciclo de vida de WebHost está ligado al del proceso.
 
 ![Hospedaje de ASP.NET Core en un proceso][0]
 
-Sin embargo, el punto de entrada de la aplicación no es el lugar adecuado para crear un elemento WebHost en una instancia de Reliable Services, porque el punto de entrada de la aplicación solo se usa para registrar un tipo de servicio con el sistema en tiempo de ejecución de Service Fabric, para que pueda crear instancias de ese tipo de servicio. El elemento WebHost debe crearse en una instancia de Reliable Services. Dentro del proceso de host de servicio, las instancias o réplicas de servicio pueden atravesar varios ciclos de vida. 
+Sin embargo, el punto de entrada de la aplicación no es el lugar adecuado para crear un elemento WebHost en una instancia de Reliable Services, porque el punto de entrada de la aplicación solo se usa para registrar un tipo de servicio con el sistema en tiempo de ejecución de Service Fabric, para que pueda crear instancias de ese tipo de servicio. El elemento WebHost debe crearse en una instancia de Reliable Services. Dentro del proceso de host de servicio, las instancias o réplicas de servicio pueden pasar por varios ciclos de vida. 
 
-Una instancia de Reliable Services se representa con su clase de servicio derivada de `StatelessService` o `StatefulService`. La pila de comunicación de un servicio se encuentra en una implementación `ICommunicationListener` en la clase de servicio. Los paquetes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` contienen implementaciones de `ICommunicationListener` que inician y administran el elemento WebHost de ASP.NET Core para Kestrel o WebListener en una instancia de Reliable Services.
+Una instancia de Reliable Services se representa mediante la clase de servicio derivada de `StatelessService` o `StatefulService`. La pila de comunicación de un servicio se encuentra en una implementación `ICommunicationListener` en la clase de servicio. Los paquetes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` contienen implementaciones de `ICommunicationListener` que inician y administran el elemento WebHost de ASP.NET Core para Kestrel o WebListener en una instancia de Reliable Services.
 
 ![Hospedaje de ASP.NET Core en una instancia de Reliable Services][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ICommunicationListeners en ASP.NET Core
-Las implementaciones `ICommunicationListener` para Kestrel y WebListener en los paquetes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` tienen patrones de uso parecidos pero realizan acciones ligeramente diferentes, específicas para cada servidor web. 
+Las implementaciones de `ICommunicationListener` para Kestrel y WebListener en los paquetes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` tienen patrones de uso parecidos pero realizan acciones ligeramente diferentes, específicas de cada servidor web. 
 
 Ambos agentes de escucha de comunicación proporcionan un constructor que acepta los argumentos siguientes:
  - **`ServiceContext serviceContext`**: el objeto `ServiceContext` que contiene información sobre el servicio en ejecución.
  - **`string endpointName`**: el nombre de una configuración `Endpoint` en ServiceManifest.xml. Es en este aspecto en lo que se diferencian principalmente ambos agentes de escucha de comunicación: WebListener **requiere** una configuración `Endpoint`, pero Kestrel no.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: una lambda que se implementa en la que se crea y devuelve `IWebHost`. Esto permite configurar `IWebHost` tal como lo haría normalmente en una aplicación de ASP.NET Core. La lambda proporciona una dirección URL que se genera automáticamente en función de las opciones de integración de Service Fabric que use y la configuración `Endpoint` que proporcione. Esa dirección URL se puede modificar o utilizar tal cual para iniciar el servidor web.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: expresión lambda que se implementa para crear y devolver `IWebHost`. Esto permite configurar `IWebHost` tal como lo haría normalmente en una aplicación de ASP.NET Core. La lambda proporciona una dirección URL que se genera automáticamente en función de las opciones de integración de Service Fabric que use y la configuración `Endpoint` que proporcione. Esa dirección URL se puede modificar o utilizar tal cual para iniciar el servidor web.
 
 ## <a name="service-fabric-integration-middleware"></a>Middleware de integración de Service Fabric
 El paquete NuGet `Microsoft.ServiceFabric.Services.AspNetCore` incluye el método de extensión `UseServiceFabricIntegration` en `IWebHostBuilder` que agrega middleware compatible con Service Fabric. Este middleware configura la implementación `ICommunicationListener` de Kestrel o WebListener para que registre una dirección URL de servicio única con el servicio de nomenclatura de Service Fabric y después valida las solicitudes de cliente para asegurarse de que los clientes se conecten al servicio adecuado. Esto es necesario en un entorno de host compartido como Service Fabric, donde varias aplicaciones web se pueden ejecutar en la misma máquina física o virtual pero no utilizan nombres de host únicos, para evitar que los clientes se conecten por error al servicio incorrecto. Este escenario se describe con más detalle en la sección siguiente.
@@ -77,7 +82,7 @@ Las réplicas de servicio, con independencia del protocolo, escuchan en una comb
  5. El cliente intenta conectarse al servicio A con la dirección 10.0.0.1:30000 en caché.
  6. Ahora el cliente está conectado al servicio B sin darse cuenta de que es el servicio incorrecto.
 
-Esto puede causar errores aleatorios que pueden ser difíciles de diagnosticar. 
+Esto puede causar errores aleatoriamente que son difíciles de diagnosticar. 
 
 ### <a name="using-unique-service-urls"></a>Uso de direcciones URL de servicio únicas
 Para evitar esto, los servicios pueden exponer un punto de conexión ante el servicio de nomenclatura con un identificador único y después validar este último durante las solicitudes de cliente. Se trata de una acción cooperativa entre servicios en un entorno de confianza sin inquilinos hostiles. No proporciona autenticación de servicio segura en un entorno con inquilinos hostiles.
@@ -133,9 +138,9 @@ Actualmente, `WebListenerCommunicationListener` no está diseñado para usarse e
 
 ### <a name="endpoint-configuration"></a>Configuración del punto de conexión
 
-Se necesita una configuración `Endpoint` para los servidores web que usen la API de servidor HTTP de Windows, lo que incluye WebListener. Los servidores web que usan la API de servidor HTTP de Windows deben reservar en primer lugar su dirección URL con *http.sys* (normalmente con la herramienta [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx)). Esta acción requiere privilegios elevados de los que sus servicios carecen de forma predeterminada. Las opciones "http" o "https" para la propiedad `Protocol` de la configuración `Endpoint` en *ServiceManifest.xml* se utilizan específicamente para indicar al sistema en tiempo de ejecución de Service Fabric que registre una dirección URL con *http.sys* en su nombre mediante el prefijo de URL con un [*carácter comodín fuerte*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx).
+Se necesita una configuración `Endpoint` para los servidores web que usen la API de servidor HTTP de Windows, lo que incluye WebListener. Los servidores web que usan la API de servidor HTTP de Windows deben reservar en primer lugar su dirección URL con *http.sys* (normalmente con la herramienta [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx)). Esta acción requiere privilegios elevados de los que sus servicios carecen de forma predeterminada. Las opciones "http" o "https" para la propiedad `Protocol` de la configuración `Endpoint` en *ServiceManifest.xml* se utilizan específicamente para indicar al entorno de ejecución de Service Fabric que registre una dirección URL con *http.sys* en su nombre mediante un prefijo de URL con [*comodín seguro*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx).
 
-Por ejemplo, para reservar `http://+:80` para un servicio, debe usarse la siguiente configuración en ServiceManifest.xml:
+Por ejemplo, si se quiere reservar `http://+:80` para un servicio, debe usarse la siguiente configuración en ServiceManifest.xml:
 
 ```xml
 <ServiceManifest ... >
@@ -275,7 +280,7 @@ new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listen
 Si no se usa una configuración `Endpoint`, se omite el nombre en el constructor `KestrelCommunicationListener`. En este caso, se utilizará un puerto dinámico. Consulte la siguiente sección para más información.
 
 #### <a name="use-kestrel-with-a-dynamic-port"></a>Uso de Kestrel con un puerto dinámico
-Kestrel no puede usar la asignación automática de puertos desde la configuración `Endpoint` en ServiceManifest.xml, porque la asignación automática de puertos desde una configuración `Endpoint` asigna un puerto único por *cada proceso de host*, y un único proceso de host puede contener varias instancias de Kestrel. Puesto que Kestrel no admite el uso compartido de puertos, esto no funciona porque cada instancia de Kestrel debe abrirse en un puerto único.
+Kestrel no puede usar la asignación automática de puertos de la configuración `Endpoint` en ServiceManifest.xml, porque la asignación automática de puertos de una configuración `Endpoint` asigna un puerto único por *cada proceso de host*, y un único proceso de host puede contener varias instancias de Kestrel. Puesto que Kestrel no admite el uso compartido de puertos, esto no funciona porque cada instancia de Kestrel debe abrirse en un puerto único.
 
 Para usar la asignación dinámica de puertos con Kestrel, basta con que omita la configuración `Endpoint` en ServiceManifest.xml por completo y no pase un nombre de punto de conexión al constructor `KestrelCommunicationListener`:
 
@@ -307,7 +312,7 @@ Cuando se expone a Internet, un servicio sin estado debe usar un punto de conexi
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor Web | WebListener | Si el servicio solo se expone a una red de confianza, como una intranet, se puede usar Kestrel. De lo contrario, WebListener es la opción preferida. |
+| Servidor web | WebListener | Si el servicio solo se expone a una red de confianza, como una intranet, se puede usar Kestrel. De lo contrario, WebListener es la opción preferida. |
 | Configuración de puerto | estática | Se debe configurar un puerto estático conocido en la configuración `Endpoints` de ServiceManifest.xml, como 80 para HTTP o 443 para HTTPS. |
 | ServiceFabricIntegrationOptions | None | La opción `ServiceFabricIntegrationOptions.None` se debe usar al configurar el middleware de integración de Service Fabric para que el servicio no intente validar solicitudes entrantes para un identificador único. Los usuarios externos de la aplicación no conocerán la información de identificación única utilizada por el middleware. |
 | Recuento de instancias | -1 | En casos de uso habituales, la configuración de recuento de instancias debe establecerse en "-1" para que una instancia esté disponible en todos los nodos que reciban tráfico de un equilibrador de carga. |
@@ -332,7 +337,7 @@ Los servicios sin estado a los que solo se llama desde dentro del clúster deben
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor Web | Kestrel | Aunque WebListener puede utilizarse para servicios sin estado internos, Kestrel es el servidor recomendado para permitir que varias instancias de servicio compartan un host.  |
+| Servidor web | Kestrel | Aunque WebListener puede utilizarse para servicios sin estado internos, Kestrel es el servidor recomendado para permitir que varias instancias de servicio compartan un host.  |
 | Configuración de puerto | asignado de forma dinámica | Varias réplicas de un servicio con estado pueden compartir un proceso de host o un sistema operativo host y, por tanto, necesitarán puertos únicos. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con la asignación dinámica de puertos, esta configuración evita el problema de identidad equivocada descrito antes. |
 | InstanceCount | cualquiera | La configuración de recuento de instancias se puede establecer en cualquier valor necesario para hacer funcionar el servicio. |
@@ -342,7 +347,7 @@ Los servicios con estado a los que solo se llama desde dentro del clúster deben
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor Web | Kestrel | `WebListenerCommunicationListener` no está diseñado para usarse en servicios con estado en los que las réplicas comparten un proceso de host. |
+| Servidor web | Kestrel | `WebListenerCommunicationListener` no está diseñado para usarse en servicios con estado en los que las réplicas comparten un proceso de host. |
 | Configuración de puerto | asignado de forma dinámica | Varias réplicas de un servicio con estado pueden compartir un proceso de host o un sistema operativo host y, por tanto, necesitarán puertos únicos. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con la asignación dinámica de puertos, esta configuración evita el problema de identidad equivocada descrito antes. |
 

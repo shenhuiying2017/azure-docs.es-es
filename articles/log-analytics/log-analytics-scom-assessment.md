@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 97ae17912eaa7508e3ae1315800408664a340837
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 6754505e7f58a8e7305987db9204271ca9b93870
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Optimización del entorno con la solución Evaluación de System Center Operations Manager (versión preliminar)
+
+![Símbolo de System Center Operations Manager Assessment](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
 
 Puede usar periódicamente la solución Evaluación de System Center Operations Manager para evaluar el riesgo y el estado de los entornos de servidor de System Center Operations Manager. Este artículo le ayudará a instalar, configurar y usar la solución para que pueda tomar acciones correctivas en caso de posibles problemas.
 
@@ -57,13 +60,13 @@ Utilice la siguiente información para instalar y configurar la solución.
 1. [Establecimiento de la cuenta de ejecución de System Center Operations Manager](#operations-manager-run-as-accounts-for-oms)  
 2. [Configuración de la regla de System Center Operations Manager](#configure-the-assessment-rule)
 
-# <a name="system-center-operations-manager-assessment-data-collection-details"></a>Información detallada sobre la recopilación de datos de Evaluación de System Center Operations Manager
+## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Información detallada sobre la recopilación de datos de Evaluación de System Center Operations Manager
 
 Evaluación de System Center Operations Manager recopila datos de WMI, datos del Registro, datos del registro de eventos, datos de Operations Manager mediante Windows PowerShell, consultas SQL, el recopilador de información de archivo usando el servidor que se ha habilitado.
 
 En la siguiente tabla se muestran los métodos de recopilación de datos de Evaluación de System Center Operations Manager, y la frecuencia con la que un agente recopila datos.
 
-| plataforma | Agente directo | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| plataforma | Agente directo | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Sí](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![No](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | siete días |
 
@@ -155,8 +158,8 @@ De forma predeterminada, la regla Microsoft System Center Advisor SCOM Assessmen
 1. En el área de trabajo **Creación** de la consola de Operations Manager, busque la regla *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* (Regla de Evaluación de Microsoft System Center Advisor SCOM) en el panel **Reglas**.
 2. En los resultados de búsqueda, seleccione el que incluye el texto *Tipo: servidor de administración*.
 3. Haga clic con el botón derecho en la regla y, a continuación, haga clic en **Invalidaciones** > **Para un objeto de clase específico: servidor de administración**.
-4.    En la lista de servidores de administración disponibles, seleccione el servidor de administración donde se debe ejecutar la regla.
-5.    Asegúrese de cambiar el valor de la invalidación a **True** para el valor del parámetro **Habilitado**.  
+4.  En la lista de servidores de administración disponibles, seleccione el servidor de administración donde se debe ejecutar la regla.
+5.  Asegúrese de cambiar el valor de la invalidación a **True** para el valor del parámetro **Habilitado**.  
     ![invalidar parámetro](./media/log-analytics-scom-assessment/rule.png)
 
 Mientras sigue en esta ventana, configure la frecuencia de la ejecución con el procedimiento siguiente.

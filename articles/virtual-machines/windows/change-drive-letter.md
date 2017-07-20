@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/31/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e3c97fdc9d4c69e2d67744798bc0b47d21b08ddf
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
+ms.contentlocale: es-es
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -29,13 +30,8 @@ Si se cambia el tamaño o se selecciona **Detener (desasignar)** una máquina vi
 
 Para obtener más información sobre cómo usa Azure el disco temporal, consulte [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 ## <a name="attach-the-data-disk"></a>Conectar el disco de datos
-En primer lugar, deberá conectar el disco de datos a la máquina virtual. 
-
-* Para usar el portal, consulte [How to attach a data disk in the Azure portal](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Para usar el portal clásico, consulte [Cómo conectar un disco de datos a una máquina virtual Windows](classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
+En primer lugar, deberá conectar el disco de datos a la máquina virtual. Para hacerlo mediante el portal, consulte [How to attach a managed data disk in the Azure portal](attach-managed-disk-portal.md) (Conexión de un disco de datos administrado en Azure Portal).
 
 ## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Mover temporalmente el archivo pagefile.sys a la unidad C
 1. Conexión a una máquina virtual. 
@@ -69,6 +65,6 @@ En primer lugar, deberá conectar el disco de datos a la máquina virtual.
 9. Reinicie la máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Puede aumentar el almacenamiento disponible para la máquina virtual [conectando un disco de datos adicional](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Puede aumentar el almacenamiento disponible para la máquina virtual [conectando un disco de datos adicional](attach-managed-disk-portal.md).
 
 

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 691caf95971ccdd37b12bbc178627f25b228a782
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: ecde5dd3211bfbb290e6910d7d55136d079c6cf3
+ms.contentlocale: es-es
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -57,9 +58,13 @@ En estos pasos se supone que ya ha creado un VM de Azure con el modelo de implem
 4. Escriba **Salir** para cerrar el cliente SSH.
 
    > [!NOTE]
-   > En los demás pasos se supone que ya ha [instalado la CLI de Azure](../../../cli-install-nodejs.md) en el equipo cliente. Todos los pasos siguientes también pueden realizarse en el [Portal de Azure clásico][Azure classic portal].
+   > En los demás pasos se supone que ya ha [instalado la CLI de Azure](../../../cli-install-nodejs.md) en el equipo cliente. Todos los pasos siguientes también pueden realizarse en [Azure Portal](http://portal.azure.com).
 
 5. Desde el equipo cliente, abra la CLI de Azure e inicie sesión en su suscripción de Azure. Para detalles, lea [Conexión a una suscripción de Azure desde la CLI de Azure](../../../xplat-cli-connect.md).
+
+   > [!NOTE]
+   > Inicie sesión en Azure Portal.
+
 6. Asegúrese de que está en modo de administración de servicios:
 
     ```azurecli
@@ -71,9 +76,10 @@ En estos pasos se supone que ya ha creado un VM de Azure con el modelo de implem
     ```azurecli
     azure vm shutdown myVM
     ```
+   Si lo necesita, puede ver una lista de todas las máquinas virtuales creadas en su suscripción mediante `azure vm list`.
 
    > [!NOTE]
-   > Puede ver una lista de todas las VM creadas en su suscripción mediante `azure vm list`.
+   > Si está usando Azure Portal, seleccione la máquina virtual y haga clic en **Detener** para apagarla.
 
 8. Cuando la VM se detenga, capture la imagen. En el ejemplo siguiente se captura la VM denominada `myVM` y se crea una imagen generalizada denominada `myNewVM`:
 
@@ -82,6 +88,9 @@ En estos pasos se supone que ya ha creado un VM de Azure con el modelo de implem
     ```
 
     El subcomando `-t` elimina la máquina virtual original.
+
+    > [!NOTE]
+    > En Azure Portal, puede capturar una imagen seleccionando **Imagen** desde el menú central. Debe proporcionar la siguiente información para la imagen: nombre, grupo de recursos, ubicación, tipo de sistema operativo y ruta de acceso de almacenamiento de blobs.
 
 9. La nueva imagen ahora está disponible en la lista de imágenes que pueden usarse para configurar nuevas VM. Puede visualizarla mediante el comando:
 
@@ -96,11 +105,10 @@ En estos pasos se supone que ya ha creado un VM de Azure con el modelo de implem
 ## <a name="next-steps"></a>Pasos siguientes
 La imagen está lista para usarse para crear VM. Puede usar el comando de la CLI de Azure `azure vm create` y proporcionar el nombre de la imagen que ha creado. Para más información, consulte [Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-También puede usar el [Portal de Azure clásico][Azure classic portal] para crear una VM personalizada mediante el método **De la galería** y seleccionar la imagen que ha creado. Para más información, consulte [Creación de una máquina virtual con Linux personalizada][How to Create a Custom Virtual Machine].
+También puede usar [Azure Portal](http://portal.azure.com) para crear una máquina virtual personalizada mediante el método **Imagen** y seleccionar la imagen que ha creado. Para más información, consulte [Creación de una máquina virtual con Linux personalizada][How to Create a Custom Virtual Machine].
 
 **Consulte también:** [Guía de usuario del Agente de Linux de Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-[Azure classic portal]:http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]:create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk.md

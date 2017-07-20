@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 6/5/2016
 ms.custom: loading
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 1a82f9f1de27c9197bf61d63dd27c5191fec1544
-ms.openlocfilehash: 3e1bf2372762de474310c78d512a6a073c7a01b6
-ms.lasthandoff: 01/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 
@@ -119,60 +120,19 @@ WHERE
     AND DateRequested > '12/31/2013'
     AND DateRequested < '01/01/2015';
 ```
+## <a name="isolate-loading-users"></a>Aislar la carga de usuarios
+A menudo, es necesario tener varios usuarios que puedan cargar datos en un almacén de datos de SQL. Dado que [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] requiere permisos de CONTROL en la base de datos, existirán múltiples usuarios con acceso de control en todos los esquemas. Para limitar esto, puede usar la instrucción DENY CONTROL.
 
+Ejemplo: tenemos los esquemas de base de datos schema_A para el departamento A, schema_B para el departamento B y los usuarios de PolyBase user_A y user_B con cargas en los departamentos A y B respectivamente. A ambos se les ha concedido permiso de CONTROL sobre la base de datos.
+Ahora, los creadores de los esquemas A y B bloquean dichos esquemas utilizando DENY:
 
-## <a name="working-around-the-polybase-utf-8-requirement"></a>Evitar el requisito UTF-8 de PolyBase
-Actualmente PolyBase admite la carga de archivos de datos que se han codificado con UTF-8. Como UTF-8 usa la misma codificación de caracteres que PolyBase  ASCII, también admitirá la carga de datos codificada con ASCII. Sin embargo, PolyBase no admite otra codificación de caracteres como UTF-16/Unicode o caracteres ASCII extendidos. ASCII extendido incluye caracteres con acentos como la diéresis que es común en alemán.
+```sql
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+```   
+ Con esto, user_A y user_B estarán ahora bloqueados en el esquema de los otros departamentos.
+ 
 
-Para satisfacer este requisito, la mejor respuesta es volver a escribir con codificación UTF-8.
-
-Hay varias maneras de hacerlo. A continuación se muestran dos enfoques de uso de Powershell:
-
-### <a name="simple-example-for-small-files"></a>Ejemplo sencillo para archivos pequeños
-A continuación se muestra un script de Powershell sencillo de una línea crea el archivo.
-
-```PowerShell
-Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
-```
-
-Sin embargo, aunque se trata de una manera sencilla de volver a codificar los datos, no es de ningún modo la más eficaz. El siguiente ejemplo de streaming de entrada/salida es mucho más rápido y logra el mismo resultado.
-
-### <a name="io-streaming-example-for-larger-files"></a>Ejemplo de streaming de E/S para archivos de mayor tamaño
-El siguiente ejemplo de código es más complejo, pero conforme transmite por secuencias las filas de datos del origen al destino es mucho más eficaz. Use este método para archivos más grandes.
-
-```PowerShell
-#Static variables
-$ascii = [System.Text.Encoding]::ASCII
-$utf16le = [System.Text.Encoding]::Unicode
-$utf8 = [System.Text.Encoding]::UTF8
-$ansi = [System.Text.Encoding]::Default
-$append = $False
-
-#Set source file path and file name
-$src = [System.IO.Path]::Combine("C:\input_file_path\","input_file_name.txt")
-
-#Set source file encoding (using list above)
-$src_enc = $ansi
-
-#Set target file path and file name
-$tgt = [System.IO.Path]::Combine("C:\output_file_path\","output_file_name.txt")
-
-#Set target file encoding (using list above)
-$tgt_enc = $utf8
-
-$read = New-Object System.IO.StreamReader($src,$src_enc)
-$write = New-Object System.IO.StreamWriter($tgt,$append,$tgt_enc)
-
-while ($read.Peek() -ne -1)
-{
-    $line = $read.ReadLine();
-    $write.WriteLine($line);
-}
-$read.Close()
-$read.Dispose()
-$write.Close()
-$write.Dispose()
-```
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo mover datos a SQL Data Warehouse, vea la [información general sobre la migración de datos][data migration overview].

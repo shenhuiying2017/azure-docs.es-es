@@ -2,7 +2,7 @@
 title: "Unidades de solicitud y estimación de rendimiento: Azure Cosmos DB | Microsoft Docs"
 description: "Obtenga información sobre cómo entender, especificar y estimar los requisitos de la unidad de solicitud en Azure Cosmos DB."
 services: cosmos-db
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: syamk
+ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f263aaad1ba2a902401d8210727f146cb92f4ea8
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 95adddc01ee2814515c20f36e8503de30454a8f4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -28,11 +28,11 @@ Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.
 ![Calculadora de rendimiento][5]
 
 ## <a name="introduction"></a>Introducción
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Con Azure Cosmos DB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los mejores ingenieros de Microsoft operan y supervisan de forma continua Azure Cosmos DB para ofrecer disponibilidad, rendimiento y protección de datos universales. Puede acceder a sus datos con las API de su preferencia, como [DocumentDB SQL](documentdb-sql-query.md) (documentos), MongoDB (documentos), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (clave-valor) y [Gremlin](https://tinkerpop.apache.org/gremlin.html) (grafos), que admite de forma nativa. La divisa de Azure Cosmos DB es la Unidad de solicitud (RU). Con RU, no necesita reservas capacidades de lectura o escritura ni aprovisionar CPU, memoria o E/S por segundo.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Con Azure Cosmos DB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los mejores ingenieros de Microsoft operan y supervisan de forma continua Azure Cosmos DB para ofrecer disponibilidad, rendimiento y protección de datos universales. Puede acceder a sus datos con las API de su preferencia, como [DocumentDB SQL](documentdb-sql-query.md) (documentos), MongoDB (documentos), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (clave-valor) y [Gremlin](https://tinkerpop.apache.org/gremlin.html) (grafos), que admite de forma nativa. La divisa de Azure Cosmos DB es la Unidad de solicitud (RU). Con las RU, no necesita reservar funcionalidades de lectura o escritura ni aprovisionar CPU, memoria ni E/S por segundo.
 
-Azure Cosmos DB admite varias API con distintas operaciones que van desde lecturas y escrituras hasta consultas de grafos complejos. Puesto que no todas las solicitudes son iguales, se les asigna una cantidad normalizada de **unidades de solicitud** según la cantidad de procesamiento requerida para prestar servicio a la solicitud. El número de unidades de solicitud para una operación es determinista y puede realizar un seguimiento del número de unidades de solicitud consumidas por cualquier operación de Azure Cosmos DB a través de un encabezado de respuesta. 
+Azure Cosmos DB admite varias API con distintas operaciones que varían desde lecturas y escrituras sencillas hasta consultas de grafos complejos. Puesto que no todas las solicitudes son iguales, se les asigna una cantidad regularizada de **unidades de solicitud** según el número de procesamientos necesario para prestar servicio a la solicitud. El número de unidades de solicitud para una operación es determinista y puede realizar un seguimiento del número de unidades de solicitud consumidas por cualquier operación de Azure Cosmos DB a través de un encabezado de respuesta. 
 
-Para proporcionar un rendimiento predecible, debe reservar rendimiento por unidad de 100 RU/segundo. Para cada bloque de 100 RU/segundo, puede adjuntar un bloque de 1.000 RU/minuto. Combinar el aprovisionamiento por segundo y por minuto resulta muy eficaz, puesto que no es necesario aprovisionar para los tamaños máximos y puede ahorrar hasta un 75 % de los costos en comparación con cualquier servicio que funcione solo con aprovisionamiento por segundo.
+Para proporcionar un rendimiento predecible, debe reservar el rendimiento en unidades de 100 RU/segundo. Para cada bloque de 100 RU/segundo, puede adjuntar un bloque de 1.000 RU/minuto. Combinar el aprovisionamiento por segundo y por minuto resulta muy eficaz, puesto que no es necesario aprovisionar para las cargas máximas y puede ahorrar hasta un 75 % de los costos en comparación con cualquier servicio que funcione solo con aprovisionamiento por segundo.
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:  
 
@@ -298,7 +298,7 @@ Considere el siguiente documento de ~1 KB:
 ```
 
 > [!NOTE]
-> Los documentos se han minimizado en Azure Cosmos DB, por lo que el tamaño calculado del sistema del documento anterior es ligeramente menor de 1 KB.
+> Los documentos se han minimizado en Azure Cosmos DB, por lo que el tamaño calculado del sistema del documento anterior es ligeramente inferior a 1 KB.
 > 
 > 
 

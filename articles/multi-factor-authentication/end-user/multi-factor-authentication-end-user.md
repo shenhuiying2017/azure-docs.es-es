@@ -5,40 +5,41 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: curtland
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 06/15/2017
 ms.author: kgremban
+ms.reviewer: yossib
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
-ms.openlocfilehash: dd9b0692dbc044e4bed26cfe7e9e4be11450a595
-ms.lasthandoff: 12/22/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 6527e624ce9c911b201881ffd409c57b2f065ef3
+ms.contentlocale: es-es
+ms.lasthandoff: 06/22/2017
 
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>¿Qué relevancia tiene Azure Multi-Factor Authentication para mí?
-Ha recibido un correo electrónico de alguien en el departamento de TI, o incluso de su jefe, que le informa de que se que ha agregado una comprobación de seguridad adicional a su cuenta.  ¿Qué quiere decir esto?
+Ha recibido un correo electrónico de alguien en el departamento de TI o su jefe, que le informa de que se ha agregado una comprobación de seguridad adicional a su cuenta.  ¿Qué quiere decir esto?
 
-No se preocupe.  Esto significa simplemente que su organización desea seguir algunos pasos adicionales para asegurarse de que usted es quien dice que ser al iniciar sesión en cosas como Office 365.  Para ello se utiliza una combinación de su nombre de usuario y contraseña y de un teléfono.  O su teléfono de la oficina o un smartphone.
+No se preocupe. Su organización simplemente desea tomar medidas adicionales para asegurarse de que usted sea quien dice ser al iniciar sesión. Para la comprobación, se usa una combinación de su nombre de usuario y contraseña, y un teléfono.  
 
-Así que lo primero que tiene que hacer es completar el proceso de inscripción.  Pero antes de comenzar este proceso tiene decidir algunas cosas.
+Lo primero que debe hacer es completar el proceso de registro.  Pero antes de comenzar este proceso tiene decidir algunas cosas.
 
 * **Teléfono de la oficina o teléfono móvil** : elija entre usar el teléfono del trabajo o el teléfono móvil.
-* **Llamada de teléfono móvil, texto o aplicación móvil** : si se decide por el teléfono móvil, escoja entre recibir una llamada, un texto, o utilizar la aplicación móvil.
+* **Llamada de teléfono móvil, mensaje de texto o aplicación móvil**: si usa un teléfono móvil, escoja entre recibir una llamada, un mensaje de texto o utilizar la aplicación móvil.
 * **Aplicación móvil con una notificación o un código de comprobación** : si va a usar la aplicación móvil, elija entre recibir una notificación a la que tendrá que responder o un código de comprobación.
 
 > [!NOTE]
-> Tenga en cuenta que el departamento de TI puede deshabilitar una o varias de las opciones anteriores.  Si este es el caso, esas opciones no estará disponibles durante el proceso de inscripción.  
+> Su departamento de TI puede deshabilitar una o varias de estas opciones.  Si es así, esas opciones no estarán disponibles durante el proceso de registro.  
 
-Una vez que haya decidido su método de comprobación, es el momento de inscribirse.  Utilice el vínculo [Experiencia de configuración](multi-factor-authentication-end-user-first-time.md) para iniciarse con un recorrido por en el proceso de inscripción.
+Una vez que haya decidido su método de comprobación, es el momento de registrarse. Use el vínculo [Experiencia de configuración](multi-factor-authentication-end-user-first-time.md) para empezar con un recorrido del proceso de inscripción.
 
-## <a name="how-to-get-going-with-multi-factor-authentication"></a>Cómo empezar a utilizar la autenticación multifactor
-Seleccione uno de los temas siguientes para empezar.
+## <a name="how-to-get-going-with-two-step-verification"></a>Cómo empezar con la verificación en dos pasos
+Seleccione uno de estos temas para empezar.
 
 | Tema. | Description |
 |:--- |:--- |

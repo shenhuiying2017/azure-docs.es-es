@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a8221c35a440ae859c82072ea170b438dc40d261
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
+ms.contentlocale: es-es
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -49,7 +50,7 @@ Al decidir qué modelo de implementación se usará para los recursos, hay tres 
 2. El servicio admite Resource Manager pero proporciona dos tipos: uno para Resource Manager y otro para el modelo clásico. Este escenario se aplica solo a las máquinas virtuales, las cuentas de almacenamiento y las redes virtuales.
 3. El servicio no admite Resource Manager.
 
-Para averiguar si un servicio admite Resource Manager, consulte [Proveedores compatibles de Resource Manager](resource-manager-supported-services.md).
+Para averiguar si un servicio admite Resource Manager, consulte el artículo sobre [tipos y proveedores de recursos](resource-manager-supported-services.md).
 
 Si el servicio que desea usar no admite Resource Manager, debe continuar usando la implementación clásica.
 

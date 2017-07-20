@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 24ccafb4df95e0010416485199e19f81e1ae31aa
-ms.openlocfilehash: 11017c7c0a761569892aebcd085d5d3fb2d67a69
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 02c51e6a576b5a91044eae784c72d7529497b814
 ms.contentlocale: es-es
-ms.lasthandoff: 02/14/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -84,8 +84,38 @@ Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Seleccionar la visualización](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Actualice el informe manualmente a intervalos o configure una actualización programada en la página Opciones.
 
+## <a name="troubleshooting"></a>Solución de problemas
+
+### <a name="401-or-403-unauthorized"></a>401 o 403 No autorizado 
+Esto puede ocurrir si no se ha actualizado su token de actualización. Pruebe estos pasos para asegurarse de que todavía tiene acceso. Si tiene acceso pero la actualización de las credenciales no funciona, abra una incidencia de soporte técnico.
+
+1. Inicie sesión en Azure Portal y asegúrese de que pueda acceder al recurso
+2. Intente actualizar las credenciales en el panel
+
+### <a name="502-bad-gateway"></a>Puerta de enlace incorrecta 502
+Esto se debe normalmente a una consulta de Analytics que devuelve demasiados datos. También debe intentar usar un intervalo de tiempo más reducido o usar las funciones [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) o [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) para que [proyect](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator) recupere solo los campos que necesite.
+
+Si la reducción del conjunto de datos que procede de la consulta de Analytics no se ajusta a sus requisitos, debe considerar el uso de la [API](https://dev.applicationinsights.io/documentation/overview) para extraer un conjunto de datos más grande. Las siguientes instrucciones le muestran cómo convertir la exportación de M-Query para usar la API.
+
+1. Cree una [clave de API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
+2. Actualice el script M de Power BI que exportó desde Analytics; para ello, reemplace la dirección URL de ARM por la API AI (ver el ejemplo siguiente).
+   * Reemplace **https://management.azure.com/subscriptions/...**
+   * por **https://api.applicationinsights.io/beta/apps/...**
+3. Por último, actualice las credenciales al modo básico y use su clave de API.
+  
+
+**Script existente**
+ ```
+ Source = Json.Document(Web.Contents("https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups//providers/microsoft.insights/components//api/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+**Script actualizado**
+ ```
+ Source = Json.Document(Web.Contents("https://api.applicationinsights.io/beta/apps/<APPLICATION_ID>/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+
 ## <a name="about-sampling"></a>Acerca del muestreo
 Si la aplicación envía muchos datos, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. Esto se aplica igualmente si ha configurado el muestreo manualmente en el SDK o en la recopilación. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Power BI: más información](http://www.powerbi.com/learning/)

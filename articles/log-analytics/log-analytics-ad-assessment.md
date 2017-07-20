@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: d50d25e4ea594b5231d29a862f3a98f07de70324
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: fa214f1c8d7cfb4b3b1d475183a63a3028f2306f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimización del entorno de Active Directory con la solución de evaluación de Active Directory en Log Analytics
+
+![Símbolo de AD Assessment](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
 
 Puede usar periódicamente la solución de evaluación de Active Directory para evaluar el riesgo y el estado de los entornos de servidor. Este artículo le ayudará a instalar y usar la solución para que pueda tomar acciones correctivas en caso de posibles problemas.
 
@@ -55,7 +58,7 @@ La evaluación de Active Directory recopila datos WMI, datos del registro y dato
 
 En la siguiente tabla se muestran los métodos de recopilación de datos para agentes, si se necesita Operations Manager (SCOM) y la frecuencia con la que un agente recopila datos.
 
-| plataforma | Agente directo | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| plataforma | Agente directo | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Sí](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Sí](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Sí](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 días |
 

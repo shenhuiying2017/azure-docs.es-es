@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 71a4ccb1914c147b1504068a09ef957a51067c08
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: a87924faaf5c6c43716b06b6d70ab5100c61f097
+ms.contentlocale: es-es
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -36,12 +37,9 @@ El ciclo de vida de un servicio sin estado es muy sencillo. Los servicios sin es
 
 Aunque `RunAsync` debe ser suficiente en casi todos los casos, también se encuentran disponibles eventos de apertura, cierre o anulación en los servicios sin estado:
 
-* `Task OnOpenAsync(IStatelessServicePartition, CancellationToken) - C# / CompletableFuture<String> onOpenAsync(CancellationToken) - Java`
-   OnOpenAsync es llamado cuando está a punto de usarse la instancia de servicio sin estado. En este momento, se pueden iniciar las tareas de inicialización del servicio ampliado.
-* `Task OnCloseAsync(CancellationToken) - C# / CompletableFuture onCloseAsync(CancellationToken) - Java`
-   Se realiza una llamada a OnCloseAsync cuando la instancia de servicio sin estado se va a apagar correctamente. Esto puede ocurrir cuando se está actualizando el código de servicio, cuando se está moviendo la instancia de servicio debido al equilibrio de carga o se detecta un error transitorio. OnCloseAsync puede utilizarse para cerrar de manera segura todos los recursos, detener cualquier procesamiento en segundo plano, terminar de guardar el estado externo o cerrar conexiones existentes.
-* `void OnAbort() - C# / void onAbort() - Java`
-   Se realiza una llamada a OnAbort cuando la instancia de servicio sin estado se apaga a la fuerza. Normalmente se llama cuando se detecta un error permanente en el nodo o cuando Service Fabric no puede administrar el ciclo de vida de la instancia de servicio debido a errores internos.
+* `Task OnOpenAsync(IStatelessServicePartition, CancellationToken) - C# / CompletableFuture<String> onOpenAsync(CancellationToken) - Java` Se llama a OnOpenAsync cuando está a punto de usarse la instancia de servicio sin estado. En este momento, se pueden iniciar las tareas de inicialización del servicio ampliado.
+* `Task OnCloseAsync(CancellationToken) - C# / CompletableFuture onCloseAsync(CancellationToken) - Java` Se llama a OnCloseAsync cuando la instancia de servicio sin estado se va a apagar correctamente. Esto puede ocurrir cuando se está actualizando el código de servicio, cuando se está moviendo la instancia de servicio debido al equilibrio de carga o se detecta un error transitorio. OnCloseAsync puede utilizarse para cerrar de manera segura todos los recursos, detener cualquier procesamiento en segundo plano, terminar de guardar el estado externo o cerrar conexiones existentes.
+* `void OnAbort() - C# / void onAbort() - Java` Se llama a OnAbort cuando la instancia de servicio sin estado se apaga a la fuerza. Normalmente se llama cuando se detecta un error permanente en el nodo o cuando Service Fabric no puede administrar el ciclo de vida de la instancia de servicio debido a errores internos.
 
 ## <a name="stateful-service-replica-lifecycle"></a>Ciclo de vida de réplicas de servicio con estado
 
@@ -52,8 +50,7 @@ Aunque `RunAsync` debe ser suficiente en casi todos los casos, también se encue
 
 El ciclo de vida de una réplica de servicio con estado es mucho más complejo que una instancia de servicio sin estado. Además de los eventos de apertura, cierre y anulación, las réplicas de servicio con estado sufren cambios de rol durante su ciclo de vida. Cuando una réplica de servicio con estado cambia de rol, se desencadena el evento `OnChangeRoleAsync` :
 
-* `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)`
-   Se realiza una llamada a OnChangeRoleAsync cuando la réplica del servicio con estado cambia de rol, por ejemplo, a principal o secundario. Las réplicas principales reciben el estado de escritura (se les permite crear y escribir en Reliable Collections). Las réplicas secundarias reciben el estado de lectura (solo pueden leer desde Reliable Collections existentes). La mayoría del trabajo en un servicio con estado se lleva a cabo en la réplica principal. Las réplicas secundarias pueden realizar validación de solo lectura, generación de informes, minería de datos u otros trabajos de solo lectura.
+* `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` cuando la réplica del servicio con estado cambia de rol, por ejemplo, a principal o secundario. Las réplicas principales reciben el estado de escritura (se les permite crear y escribir en Reliable Collections). Las réplicas secundarias reciben el estado de lectura (solo pueden leer desde Reliable Collections existentes). La mayoría del trabajo en un servicio con estado se lleva a cabo en la réplica principal. Las réplicas secundarias pueden realizar validación de solo lectura, generación de informes, minería de datos u otros trabajos de solo lectura.
 
 En un servicio con estado, solo la réplica principal tiene acceso de escritura al estado y, por tanto, normalmente cuando el servicio está realizando tareas reales. El método `RunAsync` de un servicio con estado se ejecuta solo cuando la réplica de servicio con estado es principal. El método `RunAsync` se cancela cuando el rol de una réplica principal cambia a otro distinto del principal, así como durante los eventos de cierre y anulación.
 

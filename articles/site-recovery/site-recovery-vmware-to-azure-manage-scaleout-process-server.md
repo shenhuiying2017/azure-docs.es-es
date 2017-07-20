@@ -1,5 +1,5 @@
 ---
-title: " Administración de un servidor de procesos de escalado horizontal en Azure Site Recovery | Microsoft Docss"
+title: " Administración de un servidor de procesos de escalado horizontal en Azure Site Recovery | Microsoft Docs"
 description: "En este artículo se describe cómo configurar y administrar un servidor de procesos de escalado horizontal en Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: cabbce12a07720c37375092962ee1f89c32269ef
-ms.openlocfilehash: 03bb87bdbf3dce07a282323f484d0aefae8bad62
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: e5c01de19917235c34c035415df86291b9152bf0
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -95,7 +96,7 @@ El parámetro ProxySettingsFilePath toma un archivo como entrada. Cree el archiv
   ```
   cmd
   cdpcli.exe --registermt
-  
+
   net stop obengine
 
   net start obengine
@@ -144,7 +145,7 @@ Es posible que la eliminación del servidor de procesos no se refleje en Azure P
 
 | **Servidores de procesos adicionales** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
 | --- | --- | --- | --- |
-|4 vCPU (2 sockets * 2 núcleos @ 2,5 GHz), 8 GB de memoria |<&300; GB |250 GB o menos |Replicar 85 máquinas o menos. |
+|4 vCPU (2 sockets * 2 núcleos @ 2,5 GHz), 8 GB de memoria |< 300 GB |250 GB o menos |Replicar 85 máquinas o menos. |
 |8 vCPU (2 sockets * 4 núcleos @ 2,5 GHz), 12 GB de memoria |600 GB |250 GB a 1 TB |Replicar entre 85 y 150 máquinas. |
 |12 vCPU (2 sockets * 6 núcleos @ 2,5 GHz) 24 GB de memoria |1 TB |1 TB a 2 TB |Replicar entre 150 y 225 máquinas. |
 

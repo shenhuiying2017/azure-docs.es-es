@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/23/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 3528294d944fd71fc98a30e2736e1245e50c3be6
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: aa6b75ef1786021b56a59ad1bea2d45eb74ad25f
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 02/24/2017
 >
 >
 
-En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Copia de seguridad de Azure usando el modelo de implementación de Resource Manager.
+En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Azure Backup usando el modelo de implementación de Resource Manager.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
 
@@ -180,14 +181,23 @@ Ahora que ha creado un almacén, prepare la infraestructura para realizar una co
 
 Ahora está instalado el agente y el equipo está registrado en el almacén. Está listo para configurar y programar la copia de seguridad.
 
+## <a name="network-and-connectivity-requirements"></a>Requisitos de conectividad y de red
+
+Si la máquina o proxy tienen limitado el acceso a Internet, asegúrese de que su configuración de firewall esté establecida para permitir las direcciones URL siguientes: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.ne
+
 
 ## <a name="create-the-backup-policy"></a>Creación de la directiva de copia de seguridad
 La directiva de copia de seguridad constituye la programación del momento en que se establecen los puntos de recuperación y del período de retención de dichos puntos. Use el agente de Microsoft Azure Backup para crear la directiva de copia de seguridad de archivos y carpetas.
 
 ### <a name="to-create-a-backup-schedule"></a>Para crear una programación de copia de seguridad
-1. Abra el agente de Copia de seguridad de Microsoft Azure. Para encontrarlo, busque **Copia de seguridad de Microsoft Azure**en la máquina.
+1. Abra el agente de Microsoft Azure Backup. Para encontrarlo, busque **Microsoft Azure Backup** en la máquina.
 
-    ![Lanzamiento del agente de Copia de seguridad de Azure](./media/backup-configure-vault/snap-in-search.png)
+    ![Lanzamiento del agente de Azure Backup](./media/backup-configure-vault/snap-in-search.png)
 2. En el panel **Acciones** del agente de Backup, haga clic en **Programar copia de seguridad** para iniciar el Asistente para programar copias de seguridad.
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
@@ -206,7 +216,7 @@ La directiva de copia de seguridad constituye la programación del momento en qu
     ![Elementos para la copia de seguridad de Windows Server](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
    > [!NOTE]
-   > Si desea más información sobre cómo especificar la programación de las copias de seguridad, consulte el artículo [Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
+   > Si desea más información sobre cómo especificar la programación de las copias de seguridad, consulte el artículo [Usar Azure Backup para cambiar su infraestructura de cintas](backup-azure-backup-cloud-as-tape.md).
    >
    >
 
@@ -215,7 +225,7 @@ La directiva de copia de seguridad constituye la programación del momento en qu
     La directiva de retención especifica el período durante el cual se almacena la copia de seguridad. En vez de especificar solo una directiva para todos los puntos de copia de seguridad, puede especificar directivas de retención distintas en función de cuándo se realice la copia de seguridad. Puede modificar las directivas de retención diarias, semanales, mensuales y anuales según sus necesidades.
 9. En la página Elija el tipo de copia de seguridad inicial, elija el tipo de copia de seguridad inicial. Deje activada la opción **Automáticamente a través de la red** y, luego, haga clic en **Siguiente**.
 
-    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](backup-azure-backup-import-export.md) para más información.
+    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md) para más información.
 10. En la página Confirmación, revise la información y, luego, haga clic en **Finalizar**.
 11. Cuando el asistente termine de crear la programación de copia de seguridad, haga clic en **Cerrar**.
 
@@ -223,7 +233,7 @@ La directiva de copia de seguridad constituye la programación del momento en qu
 El agente de Microsoft Azure Backup proporciona limitación de red. Esta limitación controla cómo se utiliza el ancho de banda de red durante la transferencia de datos. Este control puede resultar útil si necesita realizar una copia de seguridad durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación se aplica a las actividades de copia de seguridad y restauración.
 
 > [!NOTE]
-> La limitación de la red no está disponible en Windows Server 2008 R2 SP1, Windows Server 2008 SP2 ni en Windows 7 (con Service Packs). La característica de limitación de la red de copia de seguridad de Azure participa en la Calidad del servicio (QoS) del sistema operativo local. Aunque la copia de seguridad de Azure puede proteger estos sistemas operativos, la versión de QoS disponible en estas plataformas no funciona con la limitación de la red de copia de seguridad de Azure. La limitación de la red puede usarse en todos los demás [sistemas operativos admitidos](backup-azure-backup-faq.md).
+> La limitación de la red no está disponible en Windows Server 2008 R2 SP1, Windows Server 2008 SP2 ni en Windows 7 (con Service Packs). La característica de limitación de la red de Azure Backup participa en la Calidad del servicio (QoS) del sistema operativo local. Aunque Azure Backup puede proteger estos sistemas operativos, la versión de QoS disponible en estas plataformas no funciona con la limitación de la red de Azure Backup. La limitación de la red puede usarse en todos los demás [sistemas operativos admitidos](backup-azure-backup-faq.md).
 >
 >
 

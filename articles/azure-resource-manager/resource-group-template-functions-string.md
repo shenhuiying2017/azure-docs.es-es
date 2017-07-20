@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 9932ac04699f49b7a3ea3dabe4d380fdc4d05ec1
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 0db4ba33c3a6720ba447e27f530ca97c992fbb72
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -70,6 +70,10 @@ Devuelve la representación de base64 de la cadena de entrada.
 |:--- |:--- |:--- |:--- |
 | inputString |Sí |string |Valor que se va a devolver como una representación de base64. |
 
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena que contiene la representación en base64.
+
 ### <a name="examples"></a>Ejemplos
 
 En el ejemplo siguiente se muestra cómo utilizar la función de base64.
@@ -111,9 +115,13 @@ En el ejemplo siguiente se muestra cómo utilizar la función de base64.
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena que contiene la representación en base64.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
+| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 <a id="base64tojson" />
 
@@ -127,6 +135,10 @@ Convierte una representación en base64 a un objeto JSON.
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | base64Value |Sí |string |La representación en base64 para convertir en un objeto JSON. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Un objeto JSON.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -169,9 +181,13 @@ En el ejemplo siguiente se utiliza la función base64ToJson para convertir un va
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Un objeto JSON.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
+| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 <a id="base64tostring" />
 
@@ -185,6 +201,10 @@ Convierte una representación en base64 en una cadena.
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | base64Value |Sí |cadena |La representación en base64 para convertir en una cadena. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena del valor convertido de base64.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -227,9 +247,13 @@ En el ejemplo siguiente se utiliza la función base64ToString para convertir un 
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena del valor convertido de base64.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | one, two, three |
+| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 <a id="bool" />
 
@@ -243,6 +267,9 @@ Convierte el parámetro en un booleano.
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o entero |El valor para convertir en booleano. |
+
+### <a name="return-value"></a>Valor devuelto
+Valor booleano del valor convertido.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -274,8 +301,14 @@ En el ejemplo siguiente se muestra cómo usar bool con una cadena o un entero.
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
-Un valor booleano.
+La salida del ejemplo anterior con los valores predeterminados es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| trueString | Booleano | True |
+| falseString | Booleano | False |
+| trueInt | Booleano | True |
+| falseInt | Booleano | False |
 
 <a id="concat" />
 
@@ -290,6 +323,9 @@ Combina varios valores de cadena y devuelve la cadena concatenada, o combina var
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o matriz |El primer valor para la concatenación. |
 | argumentos adicionales |No |cadena |Valores adicionales en orden secuencial para la concatenación. |
+
+### <a name="return-value"></a>Valor devuelto
+Una cadena o matriz de valores concatenados.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -308,12 +344,18 @@ En el ejemplo siguiente se muestra cómo combinar dos valores de cadena y devolv
     "resources": [],
     "outputs": {
         "concatOutput": {
-            "value": "[concat(parameters('prefix'), uniqueString(resourceGroup().id))]",
+            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
             "type" : "string"
         }
     }
 }
 ```
+
+La salida del ejemplo anterior con los valores predeterminados es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 En el ejemplo siguiente se muestra cómo combinar dos matrices.
 
@@ -350,8 +392,11 @@ En el ejemplo siguiente se muestra cómo combinar dos matrices.
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
-Una cadena o matriz de valores concatenados.
+La salida del ejemplo anterior con los valores predeterminados es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| return | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 <a id="contains" />
 
@@ -366,6 +411,10 @@ Comprueba si una matriz contiene un valor, un objeto contiene una clave o una ca
 |:--- |:--- |:--- |:--- |
 | container |Sí |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
 | itemToFind |Sí |cadena o entero |El valor para buscar. |
+
+### <a name="return-value"></a>Valor devuelto
+
+**True** si el elemento se encuentra; en caso contrario, **False**.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -420,9 +469,16 @@ En el ejemplo siguiente se muestra cómo utilizar contains con diferentes tipos:
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-**True** si el elemento se encuentra; en caso contrario, **False**.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| stringTrue | Booleano | True |
+| stringFalse | Booleano | False |
+| objectTrue | Booleano | True |
+| objectFalse | Booleano | False |
+| arrayTrue | Booleano | True |
+| arrayFalse | Booleano | False |
 
 <a id="datauri" />
 
@@ -437,6 +493,10 @@ Convierte un valor en un identificador URI de datos.
 |:--- |:--- |:--- |:--- |
 | stringToConvert |Sí |cadena |El valor para convertir en un identificador URI de datos. |
 
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena con formato de identificador URI de datos.
+
 ### <a name="examples"></a>Ejemplos
 
 En el ejemplo siguiente se convierte un valor en un identificador URI de datos, y se convierte un identificador URI de datos en una cadena:
@@ -469,9 +529,12 @@ En el ejemplo siguiente se convierte un valor en un identificador URI de datos, 
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena con formato de identificador URI de datos.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hola mundo. |
 
 <a id="datauritostring" />
 
@@ -486,6 +549,10 @@ Convierte un valor con formato de identificador URI de datos en una cadena.
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |Sí |cadena |El valor del identificador URI para convertir. |
 
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena que contiene el valor convertido.
+
 ### <a name="examples"></a>Ejemplos
 
 En el ejemplo siguiente se convierte un valor en un identificador URI de datos, y se convierte un identificador URI de datos en una cadena:
@@ -518,9 +585,12 @@ En el ejemplo siguiente se convierte un valor en un identificador URI de datos, 
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena que contiene el valor convertido.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hola mundo. |
 
 <a id="empty" /> 
 
@@ -534,6 +604,10 @@ Determina si una matriz, un objeto o una cadena están vacíos.
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sí |matriz, objeto o cadena |El valor para comprobar si está vacío. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Devuelve **True** si el valor está vacío; en caso contrario, **False**.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -576,9 +650,13 @@ En el ejemplo siguiente se comprueba si una matriz, un objeto y una cadena está
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Devuelve **True** si el valor está vacío; en caso contrario, **False**.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayEmpty | Booleano | True |
+| objectEmpty | Booleano | True |
+| stringEmpty | Booleano | True |
 
 <a id="endswith" />
 
@@ -593,6 +671,10 @@ Determina si una cadena termina con un valor. La comparación distingue entre ma
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
+
+### <a name="return-value"></a>Valor devuelto
+
+**True** si el último carácter o caracteres de la cadena coinciden con el valor; en caso contrario, **False**.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -632,9 +714,16 @@ En el ejemplo siguiente se muestra cómo utilizar las funciones startsWith y end
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-**True** si el último carácter o caracteres de la cadena coinciden con el valor; en caso contrario, **False**.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| startsTrue | Booleano | True |
+| startsCapTrue | Booleano | True |
+| startsFalse | Booleano | False |
+| endsTrue | Booleano | True |
+| endsCapTrue | Booleano | True |
+| endsFalse | Booleano | False |
 
 <a id="first" />
 
@@ -648,6 +737,10 @@ Devuelve el primer carácter de la cadena o el primer elemento de la matriz.
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena del primer carácter, o el tipo (cadena, entero, matriz u objeto) del primer elemento en una matriz.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -678,9 +771,12 @@ En el ejemplo siguiente se muestra cómo utilizar la primera función con una ma
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena del primer carácter, o el tipo (cadena, entero, matriz u objeto) del primer elemento en una matriz.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 <a id="indexof" />
 
@@ -695,6 +791,10 @@ Devuelve la primera posición de un valor dentro de una cadena. La comparación 
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Un entero que representa la posición del elemento que se va a buscar. El valor está basado en cero. Si no se encuentra el elemento, se devuelve -1.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -730,10 +830,15 @@ En el ejemplo siguiente se muestra cómo utilizar las funciones indexOf y lastIn
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Un entero que representa la posición del elemento que se va a buscar. El valor está basado en cero. Si no se encuentra el elemento, se devuelve -1.
-
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| firstT | int | 0 |
+| lastT | int | 3 |
+| firstString | int | 2 |
+| lastString | int | 0 |
+| notFound | int | -1 |
 
 <a id="last" />
 
@@ -747,6 +852,10 @@ Devuelve el último carácter de la cadena, o el último elemento de la matriz.
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el último elemento o carácter. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena del último carácter, o el tipo (cadena, entero, matriz u objeto) del último elemento de una matriz.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -777,9 +886,12 @@ En el ejemplo siguiente se muestra cómo utilizar la última función con una ma
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena del último carácter, o el tipo (cadena, entero, matriz u objeto) del último elemento de una matriz.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 <a id="lastindexof" />
 
@@ -794,6 +906,10 @@ Devuelve la última posición de un valor dentro de una cadena. La comparación 
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Un entero que representa la última posición del elemento que se va a buscar. El valor está basado en cero. Si no se encuentra el elemento, se devuelve -1.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -829,10 +945,15 @@ En el ejemplo siguiente se muestra cómo utilizar las funciones indexOf y lastIn
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Un entero que representa la última posición del elemento que se va a buscar. El valor está basado en cero. Si no se encuentra el elemento, se devuelve -1.
-
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| firstT | int | 0 |
+| lastT | int | 3 |
+| firstString | int | 2 |
+| lastString | int | 0 |
+| notFound | int | -1 |
 
 <a id="length" />
 
@@ -846,6 +967,10 @@ Devuelve el número de caracteres de una cadena, o elementos de una matriz.
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Un entero. 
 
 ### <a name="examples"></a>Ejemplos
 
@@ -883,9 +1008,12 @@ En el ejemplo siguiente se muestra cómo utilizar length con una matriz y una ca
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Un entero. 
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayLength | int | 3 |
+| stringLength | int | 13 |
 
 <a id="padleft" />
 
@@ -904,6 +1032,10 @@ Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda ha
 
 Si la cadena original es mayor que el número de caracteres que se va a rellenar, no se agrega ningún carácter.
 
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena con al menos el número de caracteres especificados.
+
 ### <a name="examples"></a>Ejemplos
 
 En el ejemplo siguiente se muestra cómo rellenar el valor del parámetro proporcionado por el usuario agregando el carácter cero hasta que alcance el número total de caracteres. 
@@ -916,25 +1048,23 @@ En el ejemplo siguiente se muestra cómo rellenar el valor del parámetro propor
         "testString": {
             "type": "string",
             "defaultValue": "123"
-        },
-        "totalCharacters": {
-            "type": "int",
-            "defaultValue": 10
         }
     },
     "resources": [],
     "outputs": {
         "stringOutput": {
             "type": "string",
-            "value": "[padLeft(parameters('testString'),parameters('totalCharacters'),'0')]"
+            "value": "[padLeft(parameters('testString'),10,'0')]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena con al menos el número de caracteres especificados.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| stringOutput | String | 0000000123 |
 
 <a id="replace" />
 
@@ -950,6 +1080,10 @@ Devuelve una nueva cadena con todas las instancias de una cadena reemplazadas po
 | originalString |Sí |cadena |Valor que tiene todas las instancias de una cadena reemplazadas por otra cadena. |
 | oldString |Sí |cadena |Cadena que se va a quitar de la cadena original. |
 | newString |Sí |cadena |La cadena que se va a agregar en lugar de la cadena eliminada. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena con los caracteres reemplazados.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -979,9 +1113,12 @@ El ejemplo siguiente muestra cómo quitar todos los guiones de la cadena proporc
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena con los caracteres reemplazados.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| firstOutput | String | 1231231234 |
+| secodeOutput | String | 123-123-xxxx |
 
 <a id="skip" />
 
@@ -996,6 +1133,10 @@ Devuelve una cadena con todos los caracteres después del número especificado d
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena que se usará para la omisión. |
 | numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Una matriz o cadena.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -1041,9 +1182,12 @@ En el ejemplo siguiente se omite el número especificado de elementos de la matr
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una matriz o cadena.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | Matriz | ["three"] |
+| stringOutput | String | two three |
 
 <a id="split" />
 
@@ -1058,6 +1202,10 @@ Devuelve una matriz de cadenas que contiene las subcadenas de la cadena de entra
 |:--- |:--- |:--- |:--- |
 | inputString |Sí |cadena |La cadena que se va a dividir. |
 | delimiter |Sí |cadena o matriz de cadenas |Delimitador que se utilizará para dividir la cadena. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Una matriz de cadenas.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -1094,9 +1242,12 @@ En el ejemplo siguiente se divide la cadena de entrada con una coma, y con una c
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una matriz de cadenas.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| firstOutput | Matriz | ["one", "two", "three"] |
+| secondOutput | Matriz | ["one", "two", "three"] |
 
 <a id="startswith" />
 
@@ -1111,6 +1262,10 @@ Determina si una cadena empieza con un valor. La comparación distingue entre ma
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
+
+### <a name="return-value"></a>Valor devuelto
+
+**True** si el primer carácter o caracteres de la cadena coinciden con el valor; en caso contrario, **False**.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -1150,14 +1305,20 @@ En el ejemplo siguiente se muestra cómo utilizar las funciones startsWith y end
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-**True** si el primer carácter o caracteres de la cadena coinciden con el valor; en caso contrario, **False**.
-
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| startsTrue | Booleano | True |
+| startsCapTrue | Booleano | True |
+| startsFalse | Booleano | False |
+| endsTrue | Booleano | True |
+| endsCapTrue | Booleano | True |
+| endsFalse | Booleano | False |
 
 <a id="string" />
 
-## <a name="string"></a>string
+## <a name="string"></a>cadena
 `string(valueToConvert)`
 
 Convierte el valor especificado en cadena.
@@ -1167,6 +1328,10 @@ Convierte el valor especificado en cadena.
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sí | Cualquiera |El valor que se convierte en cadena. Se puede convertir cualquier tipo de valor, incluidos objetos y matrices. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Cadena del valor convertido.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -1215,9 +1380,13 @@ En el ejemplo siguiente se muestra cómo convertir distintos tipos de valores en
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
+| arrayOutput | String | ["a","b","c"] |
+| intOutput | String | 5 |
 
 <a id="substring" />
 
@@ -1233,6 +1402,23 @@ Devuelve una subcadena que empieza en la posición de carácter especificada y q
 | stringToParse |Sí |cadena |La cadena original desde la que se extrae la subcadena. |
 | startIndex |No |int |La posición de carácter inicial basado en cero de la subcadena. |
 | length |No |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Subcadena.
+
+### <a name="remarks"></a>Comentarios
+
+La función genera un error cuando la subcadena supera el final de la cadena. En el ejemplo siguiente se produce el error "Los parámetros index y length deben hacer referencia a una ubicación dentro de la cadena. Parámetro index: '0'; parámetro length: '11'; longitud del parámetro string: '10'.
+
+```json
+"parameters": {
+    "inputString": { "type": "string", "value": "1234567890" }
+},
+"variables": { 
+    "prefix": "[substring(parameters('inputString'), 0, 11)]"
+}
+```
 
 ### <a name="examples"></a>Ejemplos
 
@@ -1258,16 +1444,12 @@ En el ejemplo siguiente se extrae una subcadena de un parámetro.
 }
 ```
 
-En el ejemplo siguiente se produce el error "Los parámetros index y length deben hacer referencia a una ubicación dentro de la cadena. Parámetro index: '0'; parámetro length: '11'; longitud del parámetro string: '10'.
+La salida del ejemplo anterior con los valores predeterminados es:
 
-```json
-"parameters": {
-    "inputString": { "type": "string", "value": "1234567890" }
-},
-"variables": { 
-    "prefix": "[substring(parameters('inputString'), 0, 11)]"
-}
-```
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| substringOutput | String | two |
+
 
 <a id="take" />
 
@@ -1282,6 +1464,10 @@ Devuelve una cadena con el número especificado de caracteres desde el inicio de
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
 | numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Una matriz o cadena.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -1327,9 +1513,12 @@ En el ejemplo siguiente se toma el número especificado de elementos de la matri
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una matriz o cadena.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | Matriz | ["one", "two"] |
+| stringOutput | String | en |
 
 <a id="tolower" />
 
@@ -1344,6 +1533,10 @@ Convierte la cadena especificada a minúsculas.
 |:--- |:--- |:--- |:--- |
 | stringToChange |Sí |string |Valor que se va a convertir a minúsculas. |
 
+### <a name="return-value"></a>Valor devuelto
+
+Cadena convertida a minúsculas.
+
 ### <a name="examples"></a>Ejemplos
 
 En el siguiente ejemplo se convierte un valor de parámetro a minúsculas y a mayúsculas.
@@ -1371,6 +1564,13 @@ En el siguiente ejemplo se convierte un valor de parámetro a minúsculas y a ma
     }
 }
 ```
+
+La salida del ejemplo anterior con los valores predeterminados es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
 
 <a id="toupper" />
 
@@ -1385,6 +1585,10 @@ Convierte la cadena especificada a mayúsculas.
 |:--- |:--- |:--- |:--- |
 | stringToChange |Sí |cadena |Valor que se va a convertir a mayúsculas. |
 
+### <a name="return-value"></a>Valor devuelto
+
+Cadena convertida a mayúsculas.
+
 ### <a name="examples"></a>Ejemplos
 
 En el siguiente ejemplo se convierte un valor de parámetro a minúsculas y a mayúsculas.
@@ -1413,6 +1617,13 @@ En el siguiente ejemplo se convierte un valor de parámetro a minúsculas y a ma
 }
 ```
 
+La salida del ejemplo anterior con los valores predeterminados es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| toLowerOutput | String | one two three |
+| toUpperOutput | String | ONE TWO THREE |
+
 <a id="trim" />
 
 ## <a name="trim"></a>trim
@@ -1425,6 +1636,10 @@ Quita todos los caracteres de espacio en blanco iniciales y finales de la cadena
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |Sí |cadena |Valor que se recortará. |
+
+### <a name="return-value"></a>Valor devuelto
+
+Cadena sin caracteres de espacio en blanco iniciales ni finales.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -1450,6 +1665,12 @@ En el ejemplo siguiente se recortan los caracteres de espacio en blanco del par�
 }
 ```
 
+La salida del ejemplo anterior con los valores predeterminados es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| return | String | one two three |
+
 <a id="uniquestring" />
 
 ## <a name="uniquestring"></a>uniqueString
@@ -1471,8 +1692,6 @@ Esta función es útil cuando se debe crear un nombre único para un recurso. Pr
 El valor devuelto no es una cadena aleatoria, sino que es el resultado de una función hash. El valor devuelto tiene 13 caracteres. Debe ser único globalmente. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre que sea más fácil de reconocer. En el ejemplo siguiente se muestra el formato del valor devuelto. El valor real varía según los parámetros proporcionados.
 
     tcvhiyu5h2o5o
-
-### <a name="examples"></a>Ejemplos
 
 En los ejemplos siguientes se muestra cómo utilizar uniqueString a fin de crear un valor único para niveles de uso común.
 
@@ -1505,7 +1724,29 @@ En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta 
 
 ### <a name="return-value"></a>Valor devuelto
 
-Una cadena que contiene 13 caracteres
+Cadena que contiene 13 caracteres.
+
+### <a name="examples"></a>Ejemplos
+
+En el ejemplo siguiente se devuelven los resultados de uniquestring:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "uniqueRG": {
+            "value": "[uniqueString(resourceGroup().id)]",
+            "type" : "string"
+        },
+        "uniqueDeploy": {
+            "value": "[uniqueString(resourceGroup().id, deployment().name)]",
+            "type" : "string"
+        }
+    }
+}
+```
 
 <a id="uri" />
 
@@ -1522,6 +1763,10 @@ Crea un URI absoluto mediante la combinación de la cadena de relativeUri y base
 | relativeUri |Sí |string |La cadena de uri relativo que se agregará a la cadena de uri base. |
 
 El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar `http://contoso.com/resources/azuredeploy.json` como parámetro baseUri, se obtiene como resultado un identificador URI base de `http://contoso.com/resources/`.
+
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena que representa el identificador URI absoluto para los valores base y relativos.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -1560,9 +1805,13 @@ En el ejemplo siguiente se muestra cómo usar uri, uriComponent y uriComponentTo
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena que representa el identificador URI absoluto para los valores base y relativos.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 <a id="uricomponent" />
 
@@ -1577,6 +1826,10 @@ Codifica un identificador URI.
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Sí |string |El valor para codificar. |
 
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena del valor codificado por el identificador URI.
+
 ### <a name="examples"></a>Ejemplos
 
 En el ejemplo siguiente se muestra cómo usar uri, uriComponent y uriComponentToString:
@@ -1608,9 +1861,14 @@ En el ejemplo siguiente se muestra cómo usar uri, uriComponent y uriComponentTo
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena del valor codificado por el identificador URI.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+
 
 <a id="uricomponenttostring" />
 
@@ -1625,6 +1883,10 @@ Devuelve una cadena del valor codificado por el identificador URI.
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |Sí |cadena |El valor codificado por el identificador URI para convertir en una cadena. |
 
+### <a name="return-value"></a>Valor devuelto
+
+Una cadena descodificada del valor codificado por el identificador URI.
+
 ### <a name="examples"></a>Ejemplos
 
 En el ejemplo siguiente se muestra cómo usar uri, uriComponent y uriComponentToString:
@@ -1656,9 +1918,14 @@ En el ejemplo siguiente se muestra cómo usar uri, uriComponent y uriComponentTo
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Una cadena descodificada del valor codificado por el identificador URI.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).

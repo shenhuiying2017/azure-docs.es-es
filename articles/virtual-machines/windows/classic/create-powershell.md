@@ -13,18 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8b823c42743bc477dceaa3270836de8ebd92c28f
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: bd14d9902f4061965c008454a14f91d3927f5b99
+ms.contentlocale: es-es
+ms.lasthandoff: 06/01/2017
 
 
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>Creación de una máquina virtual de Windows con PowerShell y el modelo de implementación clásica
 > [!div class="op_single_selector"]
-> * [Portal de Azure clásico - Windows](tutorial.md)
+> * [Azure Portal - Windows](tutorial.md)
 > * [PowerShell - Windows](create-powershell.md)
 > 
 > 
@@ -164,7 +165,7 @@ Opción 1: Creación de la máquina virtual en un servicio en la nube existente.
 
     New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-El nombre corto del servicio en la nube es el nombre que aparece en la lista de Servicios en la nube en el Portal de Azure clásico o en la lista de grupos de recursos en el Portal de Azure.
+El nombre corto del servicio en la nube es el nombre que aparece en la lista de Servicios en la nube en Azure Portal o en la lista de grupos de recursos en Azure Portal.
 
 Opción 2: Creación de la máquina virtual en un servicio en la nube y la red virtual.
 
@@ -180,7 +181,7 @@ Si está utilizando un editor de texto, copie el conjunto de comandos en el Port
 Si va a crear esta máquina virtual de nuevo o una similar, puede:
 
 * Guardar este conjunto de comandos como archivo de script de PowerShell (*.ps1).
-* Guarde este conjunto de comandos como un Runbook de Automatización de Azure en la sección **Automatización** del Portal de Azure clásico.
+* Guarde este conjunto de comandos como un Runbook de Azure Automation en la sección **Cuentas de Automation** de Azure Portal.
 
 ## <a id="examples"></a>Ejemplos
 Estos son dos ejemplos del uso de los pasos anteriores para crear conjuntos de comandos de Azure PowerShell que creen máquinas virtuales de Azure basadas en Windows.

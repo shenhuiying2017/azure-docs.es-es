@@ -1,6 +1,6 @@
 ---
-title: 'Recomendaciones de ajuste del rendimiento de consultas: Azure SQL Database | Microsoft Docs'
-description: El Asesor de Base de datos SQL de Azure ofrece recomendaciones para las bases de datos SQL existentes que pueden mejorar el rendimiento actual de las consultas.
+title: 'Recomendaciones de rendimiento: Azure SQL Database | Microsoft Docs'
+description: Azure SQL Database ofrece recomendaciones para las bases de datos SQL que pueden mejorar el rendimiento actual de las consultas.
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,32 +8,45 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
 ms.service: sql-database
-ms.custom: monitor & manage
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/30/2016
+ms.date: 07/05/2017
 ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
-ms.openlocfilehash: a8d0b08abc7e3c688f9ab79499b3459b33f06848
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 357a25a665894c86ddb0f93beeb4dd59d8837489
 ms.contentlocale: es-es
-ms.lasthandoff: 02/02/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="sql-database-advisor"></a>Asesor de Base de datos SQL
+# <a name="performance-recommendations"></a>Recomendaciones de rendimiento
 
-Azure SQL Database aprende y se adapta a su aplicación, y proporciona recomendaciones personalizadas que le permiten maximizar el rendimiento de las bases de datos SQL. SQL Database Advisor ofrece recomendaciones para crear y quitar índices, parametrizar consultas y solucionar problemas del esquema. El asesor evalúa el rendimiento mediante el análisis del historial de uso de la base de datos SQL. Se recomienda usar los índices que sean más adecuados para ejecutar la carga de trabajo habitual de su base de datos. 
+Azure SQL Database aprende y se adapta a su aplicación, y proporciona recomendaciones personalizadas que le permiten maximizar el rendimiento de las bases de datos SQL. Se evalúa continuamente el rendimiento mediante el análisis de su historial de uso de SQL Database. Las recomendaciones que se proporcionan se basan en un patrón de carga de trabajo único de la base de datos y ayudan a mejorar su rendimiento.
 
-Las recomendaciones siguientes están disponibles para los servidores de Azure SQL Database. En estos momentos, puede configurar que las recomendaciones de creación y eliminación de índices se apliquen automáticamente. Para más información, consulte la sección de [administración automática de índices](sql-database-advisor-portal.md#enable-automatic-index-management).
+> [!NOTE]
+> La manera recomendada de usar las recomendaciones es habilitando "Ajuste automático" en la base de datos. Para ver detalles, consulte [Ajuste automático](sql-database-automatic-tuning.md).
+>
 
-## <a name="create-index-recommendations"></a>Recomendaciones para crear índice
-**creación de índices** aparecen cuando el servicio Base de datos SQL detecta que falta un índice que, si se crea, puede beneficiar a la carga de trabajo de las bases de datos (solo en el caso de los índices no agrupados en clústeres).
+## <a name="create-index-recommendations"></a>Recomendaciones Crear índice
+Azure SQL Database supervisa continuamente las consultas que se ejecutan e identifica los índices que podrían mejorar el rendimiento. Una vez que se crea suficiente confianza de que falta un determinado índice, se crea una recomendación **Crear índice**. Azure SQL Database genera confianza calculando la mejora de rendimiento que el índice aportaría a lo largo del tiempo. Según la ganancia de rendimiento estimada, una recomendación se clasifica como Alta, Media o Baja. 
 
-## <a name="drop-index-recommendations"></a>Recomendaciones para quitar índice
-**eliminación de índices** aparecen cuando el servicio Base de datos SQL detecta índices duplicados (funcionalidad actualmente en versión preliminar; solo aplicable a índices duplicados).
+Los índices creados mediante recomendaciones se marcan siempre como índices auto_created. Puede ver qué índices son auto_created en la vista sys.indexes. Los índices creados de forma automática no bloquean los comandos ALTER/RENAME. Si intenta quitar la columna en la que se ha creado un índice de forma automática, el comando pasa y también se quita el índice creado automáticamente con el comando. Los índices normales bloquearían el comando ALTER/RENAME en las columnas que están indexadas.
+
+Una vez aplicada la recomendación Crear índice, Azure SQL Database comparará el rendimiento de las consultas con el de línea de base. Si el nuevo índice aportó mejoras de rendimiento, la recomendación se marcará como correcta y el informe de impacto estará disponible. Si no aportó ventajas, se revertirá automáticamente. De esta forma, Azure SQL Database se asegura de que usar recomendaciones solo reporte mejoras para el rendimiento de la base de datos.
+
+Cualquier recomendación **Crear índice** tiene una directiva de rechazo que no permitirá aplicar la recomendación si la utilización de DTU de la base de datos o del grupo superó el 80 % en los 20 minutos anteriores o si el almacenamiento supera el 90 % de la utilización. En este caso, se pospondrá la recomendación.
+
+## <a name="drop-index-recommendations"></a>Recomendaciones Quitar índice
+Además de detectar un índice que falta, Azure SQL Database analiza continuamente el rendimiento de los índices existentes. Si no se usa un índice, Azure SQL Database recomendará quitarlo. Se recomienda quitar un índice en dos casos:
+* El índice es un duplicado de otro (misma columna indexada e incluida, esquema de partición y filtros)
+* El índice lleva sin usarse un período prolongado (93 días)
+
+Las recomendaciones Quitar índice también llevan a cabo la comprobación después de la implementación. Si se ha mejorado el rendimiento, el informe de impacto estará disponible. Si se detecta una degradación del rendimiento, se revertirá la recomendación.
+
 
 ## <a name="parameterize-queries-recommendations"></a>Recomendaciones para parametrizar consultas
 Las recomendaciones de **parametrización de consultas** aparecen cuando tiene una o varias consultas que se vuelven a compilar continuamente, pero que terminan con el mismo plan de ejecución de consultas. Esta condición abre la posibilidad de aplicar la parametrización forzada, que permite que los planes de consulta se almacenen en caché y se reutilicen en el futuro para mejorar el rendimiento y reducir el uso de recursos. 
@@ -65,12 +78,12 @@ La recomendación de solución de problema del esquema aparece cuando el servici
 ## <a name="next-steps"></a>Pasos siguientes
 Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. Las cargas de trabajo de bases de datos son dinámicas y cambian con frecuencia. SQL Database Advisor sigue supervisando y ofreciendo recomendaciones que pueden mejorar el rendimiento de la base de datos. 
 
-* Consulte el artículo del [Asistente de Base de datos SQL en el Portal de Azure](sql-database-advisor-portal.md) si quiere conocer los pasos necesarios para usar el Asistente de Base de datos SQL en el Portal de Azure.
+* Consulte [Recomendaciones de rendimiento en Azure Portal](sql-database-advisor-portal.md) para ver cómo usar recomendaciones de rendimiento en Azure Portal.
 * Consulte [Query Performance Insight](sql-database-query-performance.md) para más información sobre el impacto en el rendimiento de las principales consultas.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Control de acceso basado en rol](../active-directory/role-based-access-control-configure.md)
+* [Control de acceso basado en rol](../active-directory/role-based-access-control-what-is.md)
 
 

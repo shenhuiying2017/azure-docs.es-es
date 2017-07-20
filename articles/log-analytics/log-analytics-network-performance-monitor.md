@@ -12,16 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 7e9ca0c15c29fb670b742d939107bb5d4a48245c
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 5c2cb05ced7841899c2bd19f627d13b86a4b05cc
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solución Monitor de rendimiento de red de Log Analytics
+
+![Símbolo de Network Performance Monitor](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
 En este documento se describe la instalación y el uso de la solución Monitor de rendimiento de red de Log Analytics, que le ayuda a supervisar el rendimiento de sus redes, prácticamente en tiempo real, para detectar y encontrar los cuellos de botella en el rendimiento de la red. Con la solución Monitor de rendimiento de red, puede supervisar la pérdida y la latencia entre dos redes, subredes o servidores. Monitor de rendimiento de red detecta posibles problemas de red, como enrutamiento del tráfico a "agujeros negros", errores de enrutamiento y problemas que los métodos de supervisión de red convencionales no pueden encontrar. Monitor de rendimiento de red genera alertas y notifica cómo y cuándo se supera un umbral en un vínculo de red. El sistema puede aprender automáticamente estos umbrales, o bien puede configurarlos para usar reglas de alerta personalizadas. Monitor de rendimiento de red garantiza la detección oportuna de los problemas de rendimiento de red y localiza el origen del problema en un segmento o dispositivo de red determinado.
 
@@ -178,7 +181,7 @@ Si elige ICMP al crear una regla de transacciones sintéticas, los agentes de NP
 Antes de elegir un protocolo, tenga en cuenta la siguiente información:
 
 ##### <a name="discovering-multiple-network-routes"></a>Detección de varias rutas de red
-TCP ofrece más precisión al detectar varias rutas y necesita menos agentes en cada subred. Por ejemplo, uno o dos agentes que utilicen TCP pueden detectar todas las rutas redundantes entre subredes. Sin embargo, se necesitarán varios agentes que utilicen ICMP para lograr resultados similares. Con ICMP, si tiene una cantidad *N* de rutas entre dos subredes, necesitará más de 5 veces *N* agentes en una subred de origen o de destino.
+TCP es más preciso cuando se detectan varias rutas y necesita menos agentes en cada subred. Por ejemplo, uno o dos agentes que utilicen TCP pueden detectar todas las rutas redundantes entre subredes. Sin embargo, se necesitarán varios agentes que utilicen ICMP para lograr resultados similares. Con ICMP, si tiene una cantidad *N* de rutas entre dos subredes, necesitará más de 5 veces *N* agentes en una subred de origen o de destino.
 
 ##### <a name="accuracy-of-results"></a>Precisión de los resultados
 Los enrutadores y conmutadores tienden a asignar una prioridad menor a paquetes de eco ICMP en comparación con los paquetes TCP. En determinadas situaciones, cuando los dispositivos de red están muy cargados, los datos obtenidos mediante TCP reflejan más fielmente la pérdida y la latencia que experimentan las aplicaciones. Esto ocurre porque la mayoría del tráfico de las aplicaciones fluye a través de TCP. En tales casos, ICMP proporciona resultados menos precisos en comparación con TCP.
@@ -199,9 +202,9 @@ En cambio, ICMP no utiliza ningún puerto. En la mayoría de los escenarios empr
 Si decide utilizar ICMP durante la implementación, puede cambiar a TCP en cualquier momento editando la regla de supervisión predeterminada.
 
 ##### <a name="to-edit-the-default-monitoring-rule"></a>Edición de la regla de supervisión predeterminada
-1.    Vaya a **Network Performance** (Rendimiento de red)  > **Monitor** > **Configurar** > **Monitor** y, a continuación, haga clic en **Regla predeterminada**.
-2.    Desplácese hasta la sección **Protocolo** y seleccione el protocolo que desee utilizar.
-3.    Haga clic en **Guardar** para aplicar el cambio.
+1.  Vaya a **Network Performance** (Rendimiento de red)  > **Monitor** > **Configurar** > **Monitor** y, a continuación, haga clic en **Regla predeterminada**.
+2.  Desplácese hasta la sección **Protocolo** y seleccione el protocolo que desee utilizar.
+3.  Haga clic en **Guardar** para aplicar el cambio.
 
 Aunque la regla predeterminada use un protocolo específico, puede crear nuevas reglas con un protocolo diferente. Incluso puede crear una combinación de reglas en la que algunas usen ICMP y otras utilicen TCP.
 
@@ -213,7 +216,7 @@ El Monitor de rendimiento de red usa los paquetes de protocolo de enlace TCP SYN
 
 En la siguiente tabla se muestran los métodos de recopilación de datos y otros detalles sobre cómo se reúnen los datos para Monitor de rendimiento de red.
 
-| plataforma | Agente directo | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| plataforma | Agente directo | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Sí](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![Sí](./media/log-analytics-network-performance-monitor/oms-bullet-green.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |![No](./media/log-analytics-network-performance-monitor/oms-bullet-red.png) |Protocolos de enlace TCP/mensajes ICMP ECHO cada 5 segundos, datos enviados cada 3 minutos |
 

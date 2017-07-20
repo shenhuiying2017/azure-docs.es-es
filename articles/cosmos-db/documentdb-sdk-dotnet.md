@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/05/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 38bd198958180caece4747b972476475059191df
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e42d4746c89614f6990cb84c0b25871a078ecbec
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Descarga del SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 
-<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de API de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de API de .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Ejemplos**</td><td>[Ejemplos de código de .NET](documentdb-dotnet-samples.md)</td></tr>
 
@@ -53,16 +53,22 @@ ms.lasthandoff: 05/31/2017
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
+*   Se agregó compatibilidad con la especificación de JsonSerializerSettings personalizado al crear instancias de [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
+
+### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
+*   Se corrigió un problema que afectaba a las máquinas x64 que no admiten instrucciones SSE4 y que producía una excepción SEHException al ejecutar consultas de API de DocumentDB.
+
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-*    Se agregó compatibilidad con la característica Unidad de solicitud por minuto (RU/m).
-*    Se agregó compatibilidad con un nuevo nivel de coherencia denominado ConsistentPrefix.
-*    Se agregó compatibilidad con métricas de consulta para particiones individuales.
-*    Se agregó compatibilidad para limitar el tamaño del token de continuación para las consultas.
-*    Se agregó compatibilidad para un seguimiento más detallado de las solicitudes con error.
-*    Se hicieron algunas mejoras de rendimiento en el SDK.
+*   Se agregó compatibilidad con la característica Unidad de solicitud por minuto (RU/m).
+*   Se agregó compatibilidad con un nuevo nivel de coherencia denominado ConsistentPrefix.
+*   Se agregó compatibilidad con métricas de consulta para particiones individuales.
+*   Se agregó compatibilidad para limitar el tamaño del token de continuación para las consultas.
+*   Se agregó compatibilidad para un seguimiento más detallado de las solicitudes con error.
+*   Se hicieron algunas mejoras de rendimiento en el SDK.
 
 ### <a name="a-name11341134"></a><a name="1.13.4"/>1.13.4
-* Funcionalmente es igual a 1.13.4. Se hicieron algunos cambios internos.
+* Funcionalmente es igual a 1.13.3. Se hicieron algunos cambios internos.
 
 ### <a name="a-name11331133"></a><a name="1.13.3"/>1.13.3
 * Funcionalmente es igual a 1.13.2. Se hicieron algunos cambios internos.
@@ -173,7 +179,7 @@ ms.lasthandoff: 05/31/2017
   * Operador Take para habilitar el comportamiento de SELECT TOP en LINQ
   * Operador CompareTo para habilitar las comparaciones de intervalos de cadenas
   * Operadores conditional (?) y coalesce (??)
-* **[Corregido]** ArgumentOutOfRangeException al combinar la proyección Model en la consulta Where-In de LINQ.  [81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+* **[Corregido]** ArgumentOutOfRangeException al combinar la proyección Model en la consulta Where-In de LINQ. [81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
 * **[Corregido]** Si Select no es la última expresión, el proveedor LINQ suponía que no había ninguna proyección y generaba SELECT * incorrectamente.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -181,66 +187,68 @@ ms.lasthandoff: 05/31/2017
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 * Upsert implementada, métodos de UpsertXXXAsync agregados
 * Mejoras de rendimiento para todas las solicitudes
-* Compatibilidad del proveedor de LINQ con los métodos condicionales, de fusión y CompareTo para cadenas
+* Compatibilidad del proveedor LINQ con los métodos condicionales, de fusión y CompareTo para cadenas
 * **[Corregido]** proveedor LINQ--> la implementación del método Contains en List para generar el mismo SQL que en IEnumerable y en una matriz
 * **[Corregido]** BackoffRetryUtility usa el mismo HttpRequestMessage de nuevo en lugar de crear uno nuevo al reintentar
 * **[Obsoleto]** UriFactory.CreateCollection--> debería usar ahora UriFactory.CreateDocumentCollection
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
-* **[Corregido]** problemas de localización al usar la información de referencia cultural diferente de EN como nl-NL etc. 
+* **[Corregido]** Problemas de localización al usar la información de referencia cultural diferente de EN como nl-NL etc. 
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
-* Enrutamiento por identificador.
+* Se agregó el enrutamiento basado en identificador
   * Nueva aplicación auxiliar UriFactory para ayudar a construir vínculos de recursos basados en identificador
   * Nuevas sobrecargas en DocumentClient para tener en cuenta URI
 * Se agregaron IsValid() y IsValidDetailed() en LINQ para geoespaciales
-* Compatibilidad mejorada con el proveedor de LINQ
+* Compatibilidad mejorada con el proveedor LINQ:
   * **Math** : Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate
   * **String** : Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper
   * **Array** : Concat, Contains, Count
   * **IN** 
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
-* Se agregó compatibilidad para la modificación de las directivas de indexación
+* Se agregó compatibilidad para la modificación de las directivas de indexación.
   * Nuevo método de ReplaceDocumentCollectionAsync en DocumentClient
   * Nueva propiedad IndexTransformationProgress en ResourceResponse<T> para el seguimiento del porcentaje de progreso de cambios de la directiva de índice
   * DocumentCollection.IndexingPolicy ahora es mutable
-* Se agregó compatibilidad para consulta e indexación espacial
+* Se agregó compatibilidad para consulta e indexación espacial.
   * Nuevo espacio de nombres Microsoft.Azure.Documents.Spatial para serializar y deserializar tipos espaciales como punto y polígono
   * Nueva clase de SpatialIndex para la indexación de datos GeoJSON almacenados en Cosmos DB
-* **[Corregido]** : consulta SQL incorrecta generada a partir de la expresión linq [n.º 38](https://github.com/Azure/azure-documentdb-net/issues/38)
+* **[Corregido]** Consulta SQL incorrecta generada a partir de la expresión LINQ [n.º 38](https://github.com/Azure/azure-documentdb-net/issues/38).
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Dependencia de Newtonsoft.Json v5.0.7 
-* Cambios para admitir Order By
+* Se agregó una dependencia de Newtonsoft.Json v5.0.7.
+* Se hicieron cambios para admitir Order By:
   
   * Compatibilidad del proveedor LINQ para OrderBy() u OrderByDescending()
   * IndexingPolicy para admitir Order By 
     
-    **NB: Posible cambio brusco** 
+    **Posible cambio importante** 
     
-    Si tiene un código existente que aprovisiona colecciones con una directiva de indexación personalizada, habrá que actualizar el código existente para admitir la nueva clase IndexingPolicy. Si no tiene ninguna directiva de indexación personalizada, este cambio no le afectará.
+    Si tiene un código existente que aprovisiona colecciones con una directiva de indexación personalizada, debe actualizar el código existente para admitir la nueva clase IndexingPolicy. Si no tiene ninguna directiva de indexación personalizada, este cambio no le afectará.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Compatibilidad para las particiones de datos mediante las nuevas clases HashPartitionResolver y RangePartitionResolver y el IPartitionResolver
-* Serialización de DataContract
-* Compatibilidad con el GUID de proveedor de LINQ
-* Compatibilidad con UDF en LINQ
+* Se agregó compatibilidad para las particiones de datos mediante las nuevas clases HashPartitionResolver y RangePartitionResolver y el IPartitionResolver.
+* Se agregó serialización de DataContract.
+* Se agregó compatibilidad con GUID en el proveedor LINQ.
+* Se agregó compatibilidad con UDF en LINQ.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * SDK de GA
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
-Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
+Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
 Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible. 
 
-El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK retirado.
+El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un SDK retirado.
 
 <br/>
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.15.0](#1.15.0) |30 de junio de 2017 |--- |
+| [1.14.1](#1.14.1) |23 de mayo de 2017 |--- |
 | [1.14.0](#1.14.0) |10 de mayo de 2017 |--- |
 | [1.13.4](#1.13.4) |09 de mayo de 2017 |--- |
 | [1.13.3](#1.13.3) |06 de mayo de 2017 |--- |

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6a3c4273042a7684307d56341de1065ad45eb617
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -26,8 +26,7 @@ ms.lasthandoff: 05/10/2017
 
 Averigüe cuánto tiempo se dedica a cada método en la aplicación web activa con la herramienta de generación de perfiles de [Azure Application Insights](app-insights-overview.md). Esta herramienta le muestra perfiles detallados de solicitudes activas que han sido atendidas por su aplicación y resalta la "ruta de acceso activa" que se usa la mayor parte del tiempo. Selecciona automáticamente ejemplos con distintos tiempos de respuesta. El generador de perfiles usa diversas técnicas para minimizar la sobrecarga.
 
-El generador de perfiles actualmente funciona para las aplicaciones web ASP.NET con Azure App Services, en al menos el plan de tarifa Básico. (Si usa ASP.NET Core, la plataforma de destino debe ser `.NetCoreApp`).
-
+El generador de perfiles actualmente funciona para las aplicaciones web ASP.NET con Azure App Services, en al menos el plan de tarifa Básico. 
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Habilitar el generador de perfiles
@@ -196,18 +195,21 @@ Abra una incidencia de soporte técnico desde el portal. Incluya el identificado
 
 ## <a name="manual-installation"></a>Instalación manual
 
-Cuando se configura el generador de perfiles, se realizan las siguientes actualizaciones a la configuración de la Aplicación web. Puede realizarlas manualmente si su entorno lo requiere, por ejemplo, o si la aplicación se ejecuta en una red privada con el equilibrador de carga interno:
+Cuando se configura el generador de perfiles, se realizan las siguientes actualizaciones a la configuración de la Aplicación web. Puede hacerlo manualmente si el entorno lo requiere; por ejemplo, si la aplicación se ejecuta en una instancia de Azure App Service Environment (ASE):
 
-1. En la hoja Control de la Aplicación web, abra Configuración.
+1. En la hoja de control de la aplicación web, abra Configuración.
 2. Establezca "Versión de .Net Framework" en v4.6.
 3. Establezca "Siempre activado" en activado.
 4. Agregue el ajuste de configuración de la aplicación "__APPINSIGHTS_INSTRUMENTATIONKEY__" y establezca el valor en la misma clave de instrumentación que el SDK.
-5. En **Extensiones**, agregue "Application Insights". Tardará unos minutos en instalarse.
+5. Abra Herramientas avanzadas.
+6. Haga clic en "Ir" para abrir el sitio Web de Kudu.
+7. En el sitio Web de Kudu, seleccione "Site extensions" (Extensiones de sitio).
+8. Instale "__Application Insights__" desde la galería.
+9. Reinicie la aplicación web.
 
 ## <a id="aspnetcore"></a>Compatibilidad con ASP.NET Core
 
-Las aplicaciones de ASP.NET Core 1.1.2 destinadas al SDK de AI 2.0 o posterior funcionarían con Profiler. 
-
+La aplicación ASP.NET Core necesita instalar el paquete de Nuget Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 o posterior para trabajar con el generador de perfiles. Ya no se admiten las versiones anteriores después de 6/27/2017.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

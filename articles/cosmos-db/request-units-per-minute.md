@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: acomet
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ea63b988a72801ae4c288048021a915b20a34794
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 0c597fa4afa816f9731edb744ae494b6ef928b9e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -114,7 +114,7 @@ En esta sección, proporcionamos información general de escenarios de buen ajus
 
 **Entorno de desarrollo y pruebas:** buen ajuste. Durante la fase de desarrollo, si prueba la aplicación con diversas cargas de trabajo, RU/m puede proporcionar la flexibilidad en esta fase. El [emulador](local-emulator.md), por otra parte, es una herramienta gratuita excelente para probar Azure Cosmos DB. Sin embargo, si desea empezar en un entorno en la nube, dispondrá de una gran flexibilidad con RU/m para sus necesidades de rendimiento ad hoc. Pasará más tiempo desarrollando que preocupándose de las necesidades de rendimiento al principio. Recomendamos empezar con el aprovisionamiento de RU/s mínimo y habilitar RU/m.
 
-**Necesidades de granularidad de minuto con picos impredecibles:** buen ajuste. Ahorro: 25-75 %. Hemos observado una gran mejora con respecto a RU/m, estando en dicho grupo la mayoría de los escenarios de producción. Si tiene una carga de trabajo de IoT que se ha disparado varias veces en un minuto o consultas que se ejecutan cuando el sistema realiza inserción masiva al mismo tiempo, necesitará capacidad adicional para administrar las necesidades de picos. Recomendamos optimizar sus necesidades de recursos aplicando nuestro enfoque paso a paso a continuación.
+**Necesidades de granularidad de minuto con picos impredecibles:** buen ajuste. Ahorro: 25-75 %. Hemos observado una gran mejora con respecto a RU/m, estando en dicho grupo la mayoría de los escenarios de producción. Si tiene una carga de trabajo de IoT que se ha disparado varias veces en un minuto o consultas que se ejecutan cuando el sistema realiza inserción masiva al mismo tiempo, necesitará capacidad adicional para administrar las necesidades de los picos. Recomendamos optimizar sus necesidades de recursos aplicando nuestro enfoque paso a paso a continuación.
 
  ![Gráfico donde se muestra el consumo de la solicitud en una granularidad de cinco minutos](./media/request-units-per-minute/azure-cosmos-db-request-units-per-minute-consumption.png)
  
@@ -176,7 +176,7 @@ var query = client.CreateDocumentQuery<Book>(
 En este artículo hemos descrito el funcionamiento de las particiones en Azure Cosmos DB, cómo crear colecciones particionadas y cómo elegir una buena clave de partición para la aplicación.
 
 * Realice pruebas de escala y de rendimiento con Azure Cosmos DB. Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md) para ver ejemplos.
-* Introducción a la codificación con los [SDK](documentdb-sdk-dotnet.md) o la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+* Introducción a la codificación con los [SDK](documentdb-sdk-dotnet.md) o la [API de REST](/rest/api/documentdb/).
 * Información sobre el [procesamiento aprovisionado](request-units.md) en Azure Cosmos DB 
 
 

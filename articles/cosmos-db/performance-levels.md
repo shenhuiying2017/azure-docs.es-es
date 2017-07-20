@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 929ee15b77215ca6b150918eff6f608dc153776e
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 38afe40cf45cf13d587faf13cc5216e4326b84a0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -143,7 +143,7 @@ Puede migrar de los niveles de rendimiento S1, S2 y S3 a colecciones de partici�
 
 **Para migrar a colecciones de partición única con el SDK de .NET**
 
-Otra opción para cambiar los niveles de rendimiento de las colecciones es a través de nuestros SDK. En esta sección solo se trata el cambio del nivel de rendimiento de una colección mediante el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), pero el proceso es similar para otros [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si no está familiarizado con el SDK. de NET, visite nuestro [tutorial de inicio](documentdb-get-started.md).
+Otra opción para cambiar los niveles de rendimiento de las colecciones es a través de nuestros SDK. En esta sección solo se trata el cambio del nivel de rendimiento de una colección mediante la [API de .NET de DocumentDB](documentdb-sdk-dotnet.md), pero el proceso es similar para otros SDK.
 
 A continuación se muestra un fragmento de código para cambiar el rendimiento de la colección a 5 000 unidades de solicitud por segundo:
     
@@ -177,7 +177,7 @@ El precio para los clientes de EA estará protegido hasta el final de su contrat
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre los precios y la administración de datos con Azure Cosmos DB, consulte estos recursos:
 
-1.    [Partición de datos en Cosmos DB](documentdb-partition-data.md). Información sobre la diferencia entre un contenedor de partición única y contenedores con particiones, así como sugerencias sobre cómo implementar una estrategia de particiones para escalar sin problemas.
-2.    [Precios de Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Aprenda sobre los costes de rendimiento del aprovisionamiento y el consumo de almacenamiento.
-3.    [Unidades de solicitud](request-units.md). Información sobre el consumo de rendimiento para diferentes tipos de operaciones; por ejemplo, lectura, escritura o consulta.
+1.  [Partición de datos en Cosmos DB](documentdb-partition-data.md). Información sobre la diferencia entre un contenedor de partición única y contenedores con particiones, así como sugerencias sobre cómo implementar una estrategia de particiones para escalar sin problemas.
+2.  [Precios de Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Aprenda sobre los costes de rendimiento del aprovisionamiento y el consumo de almacenamiento.
+3.  [Unidades de solicitud](request-units.md). Información sobre el consumo de rendimiento para diferentes tipos de operaciones; por ejemplo, lectura, escritura o consulta.
 

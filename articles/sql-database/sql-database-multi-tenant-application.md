@@ -9,7 +9,7 @@ editor: monicar
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-develop, mvc
+ms.custom: mvc,scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 05/08/2017
 ms.author: AyoOlubek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 80df7b504d13fe1b3be9806eb95e3980d7790970
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0aea69d86a51c38c99a72f46737de1eea27bef83
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -42,18 +42,21 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
+## <a name="prerequisites"></a>Requisitos previos
+
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos:
-* PowerShell instalado en la máquina y el [SDK de Azure PowerShell más reciente](http://azure.microsoft.com/downloads/)
 
-* La versión más reciente de [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Al instalar SQL Server Management Studio, también se instala la versión más reciente de SQLPackage, una utilidad de línea de comandos que puede usarse para automatizar diversas tareas de desarrollo de bases de datos.
+* Instale la versión más reciente de PowerShell y el [SDK más reciente de Azure PowerShell](http://azure.microsoft.com/downloads/)
 
-* [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) y el [Kit de desarrollo de JAVA (JDK) más reciente](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) instalados en la máquina. 
+* Instale la versión más reciente de [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Al instalar SQL Server Management Studio, también se instala la versión más reciente de SQLPackage, una utilidad de línea de comandos que puede usarse para automatizar diversas tareas de desarrollo de bases de datos.
 
-* [Apache Maven](https://maven.apache.org/download.cgi) instalado en la máquina. Maven se usará para ayudar a administrar las dependencias, compilar, probar y ejecutar el proyecto Java de ejemplo
+* Instale [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) y el [Kit de desarrollo de JAVA (JDK) más reciente](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) en la máquina. 
+
+* Instale [Apache Maven](https://maven.apache.org/download.cgi). Maven se usará para ayudar a administrar las dependencias, compilar, probar y ejecutar el proyecto Java de ejemplo
 
 ## <a name="set-up-data-environment"></a>Configuración del entorno de datos
 
-Aprovisionará una base de datos por inquilino. El modelo de base de datos por inquilino proporciona el mayor grado de aislamiento entre los inquilinos, con un pequeño costo de DevOps. Para optimizar el costo de los recursos de nube, también aprovisionará las bases de datos de inquilino en un grupo elástico, lo que le permitirá optimizar el rendimiento del precio de un grupo de bases de datos. Para información sobre otros modelos de aprovisionamiento de bases de datos, [haga clic aquí](sql-database-design-patterns-multi-tenancy-saas-applications.md#multitenant-data-models). 
+Aprovisionará una base de datos por inquilino. El modelo de base de datos por inquilino proporciona el mayor grado de aislamiento entre los inquilinos, con un pequeño costo de DevOps. Para optimizar el costo de los recursos de nube, también aprovisionará las bases de datos de inquilino en un grupo elástico, lo que le permitirá optimizar el rendimiento del precio de un grupo de bases de datos. Para información sobre otros modelos de aprovisionamiento de bases de datos, [haga clic aquí](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
 
 Siga estos pasos para crear una instancia de SQL Server y un grupo elástico que hospedará todas las bases de datos de inquilino. 
 
@@ -71,7 +74,7 @@ Siga estos pasos para crear una instancia de SQL Server y un grupo elástico que
    
    # Store current client IP address (modify to include your IP address)
    $startIpAddress = 0.0.0.0 
-   $endIpAddress = 0.0.0.1
+   $endIpAddress = 0.0.0.0
    ```
    
 2. Inicie sesión en Azure y cree una instancia de SQL Server y un grupo elástico 
@@ -505,6 +508,7 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 Intente conectarse a "tenant1" con la aplicación Java. Recibirá un error que indica que el inquilino no existe.
 
 ## <a name="next-steps"></a>Pasos siguientes 
+
 En este tutorial aprendió a:
 > [!div class="checklist"]
 > * Configurar un entorno de base de datos para admitir una aplicación SaaS multiinquilino con el patrón de base de datos por inquilino

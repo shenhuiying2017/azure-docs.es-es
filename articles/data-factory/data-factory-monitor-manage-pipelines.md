@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 05/18/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 223edfde090c9b77467e032198c2150fbaa56a5b
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 61bb5379cd94dd00814e14420947e7783999ff0a
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -27,15 +28,11 @@ ms.lasthandoff: 04/12/2017
 > * [Uso de la aplicación de supervisión y administración](data-factory-monitor-manage-app.md)
 
 
-Azure Data Factory proporciona una vista completa y confiable de los servicios de movimiento de datos, procesamiento y almacenamiento. El servicio pone a su disposición un panel de supervisión que puede utilizar para:
+> [!IMPORTANT]
+> La aplicación de supervisión y administración proporciona una mejor compatibilidad con la supervisión y la administración de las canalizaciones de datos y la solución de problemas. Para más información sobre el uso de la aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
 
-* Evaluar rápidamente el estado de la canalización de datos de extremo a extremo.
-* Identificar los problemas y tomar medidas correctivas si es necesario.
-* Realizar un seguimiento del linaje de datos.
-* Realizar un seguimiento de las relaciones entre los datos a través de cualquiera de los orígenes.
-* Ver un historial completo de las ejecuciones de los trabajos, el estado del sistema y las dependencias.
 
-En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones. También ofrece información sobre cómo crear alertas y recibir notificaciones cuando se produzcan errores.
+En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante Azure Portal y PowerShell. También se ofrece información sobre cómo crear alertas y recibir notificaciones cuando se produzcan errores.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Descripción de las canalizaciones y los estados de actividad
 Con Azure Portal, puede:
@@ -44,15 +41,13 @@ Con Azure Portal, puede:
 * Ver las actividades en una canalización.
 * Ver conjuntos de datos de entrada y salida.
 
-En esta sección se describe también cómo pasa un segmento de un estado a otro.   
+En esta sección se describen también las transiciones de sectores de un conjunto de datos de un estado a otro.   
 
 ### <a name="navigate-to-your-data-factory"></a>Navegación hasta la factoría de datos
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. Haga clic en **Factorías de datos** en el menú de la izquierda. Si no ve está opción, haga clic en **Más servicios >** y luego en **Factorías de datos**, en la categoría **INTELIGENCIA Y ANÁLISIS**.
 
    ![Examinar todo -> Factorías de datos](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
-
-   Debería ver todas las factorías de datos en la hoja **Factorías de datos**.
 3. En la hoja **Factorías de datos**, seleccione la factoría de datos que le interese.
 
     ![Selección de la factoría de datos](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
@@ -62,13 +57,11 @@ En esta sección se describe también cómo pasa un segmento de un estado a otro
    ![Hoja Factoría de datos](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### <a name="diagram-view-of-your-data-factory"></a>Vista de diagrama de la factoría de datos
-La vista **Diagrama** de una factoría de datos ofrece un panel único para supervisar y administrar la factoría de datos y sus recursos.
+La vista **Diagrama** de una factoría de datos ofrece un panel único para supervisar y administrar la factoría de datos y sus recursos. Haga clic en **Diagrama** en la página principal de la factoría de datos para ver la vista de **diagrama**.
 
-Haga clic en **Diagrama** en la página principal de la factoría de datos para ver la vista de **diagrama**.
+![Vista de diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-![Vista Diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
-
-Puede acercar, alejar, hacer zoom para ajustar, hacer zoom al 100%, bloquear el diseño del diagrama y colocar automáticamente canalizaciones y tablas. También puede ver la información de linaje de datos (es decir, se muestran los elementos ascendentes y descendentes de los elementos seleccionados).
+Puede acercar, alejar, hacer zoom para ajustar, hacer zoom al 100 %, bloquear el diseño del diagrama y colocar automáticamente canalizaciones y conjuntos de datos. También puede ver la información de linaje de datos (es decir, se muestran los elementos ascendentes y descendentes de los elementos seleccionados).
 
 ### <a name="activities-inside-a-pipeline"></a>Actividades en una canalización
 1. Haga clic con el botón derecho en la canalización y luego en **Abrir canalización** para ver todas las actividades de la canalización junto con los conjuntos de datos de entrada y salida para las actividades. Esta característica resulta útil cuando la canalización incluye más de una actividad y se quiere entender el linaje operativo de una sola canalización.
@@ -172,17 +165,13 @@ El segmento se inicia con un estado **En espera**, mientras se espera a que se c
 
 El usuario puede restablecer el segmento para que vuelva del estado **Listo** o **Error** al estado **En espera**. El usuario también puede marcar el estado del segmento como **Omitir**, lo que impide que la actividad se ejecute, y no se procesa el segmento.
 
-## <a name="manage-pipelines"></a>Administración de canalizaciones
-Puede administrar las canalizaciones usando Azure PowerShell. Por ejemplo, puede pausar y reanudar canalizaciones ejecutando cmdlets de Azure PowerShell.
+## <a name="pause-and-resume-pipelines"></a>Pausa y reanudación de canalizaciones
+Puede administrar las canalizaciones usando Azure PowerShell. Por ejemplo, puede pausar y reanudar canalizaciones ejecutando cmdlets de Azure PowerShell. 
 
-### <a name="pause-and-resume-pipelines"></a>Pausa y reanudación de canalizaciones
-Puede pausar o suspender canalizaciones con el cmdlet **Suspend-AzureRmDataFactoryPipeline** de Powershell. Este cmdlet es útil cuando no desea ejecutar canalizaciones hasta que se solucione un problema.
+> [!NOTE] 
+> La vista de diagrama no admite las funciones de pausa y reanudación de las canalizaciones. Si quiere usar una interfaz de usuario, utilice la aplicación de supervisión y administración. Para más información sobre el uso de la aplicación, consulte el artículo [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
 
-Por ejemplo, en la siguiente captura de pantalla, se ha identificado un problema con la canalización **PartitionProductsUsagePipeline** en la factoría de datos **productrecgamalbox1dev** y queremos suspender la canalización.
-
-![Canalización que se suspende](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
-
-Para suspender una canalización, ejecute el siguiente comando de PowerShell:
+Puede pausar o suspender canalizaciones con el cmdlet **Suspend-AzureRmDataFactoryPipeline** de Powershell. Este cmdlet es útil cuando no desea ejecutar canalizaciones hasta que se solucione un problema. 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -193,7 +182,7 @@ Por ejemplo:
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
-Tras solucionar el problema con **PartitionProductsUsagePipeline**, se puede reanudar la canalización suspendida mediante el siguiente comando de PowerShell:
+Tras solucionar el problema con la canalización, se puede reanudar la canalización suspendida mediante el siguiente comando de PowerShell:
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -203,8 +192,11 @@ Por ejemplo:
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
+
 ## <a name="debug-pipelines"></a>Depuración de canalizaciones
 Azure Data Factory ofrece amplias funcionalidades a través de Azure Portal y Azure PowerShell para depurar y solucionar problemas de las canalizaciones.
+
+> [NOTA} Es mucho más fácil solucionar errores mediante la aplicación de supervisión y administración. Para más información sobre el uso de la aplicación, consulte el artículo [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
 
 ### <a name="find-errors-in-a-pipeline"></a>Búsqueda de errores en una canalización
 Si falla la ejecución de actividad en una canalización, el conjunto de datos generado por la canalización tiene un estado de error debido al fallo. Puede depurar y solucionar los errores en Azure Data Factory con los métodos siguientes.
@@ -221,7 +213,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
    ![Hoja Detalles de ejecución de actividad con errores](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Uso de PowerShell para depurar un error
-1. Inicie **Azure PowerShell**.
+1. Inicie **PowerShell**.
 2. Ejecute el comando **Get-AzureRmDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado: **Error**.        
 
     ```powershell   
@@ -233,7 +225,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
     Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
-   Reemplace **StartDateTime** con el valor de StartDateTime especificado para Set-AzureDataFactoryPipelineActivePeriod.
+   Reemplace **StartDateTime** por la hora de inicio de la canalización. 
 3. Ahora, ejecute el cmdlet **Get-AzureRmDataFactoryRun** para obtener detalles sobre la ejecución de actividad para el segmento.
 
     ```powershell   
@@ -279,12 +271,17 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
     ```
 
 ## <a name="rerun-failures-in-a-pipeline"></a>Repetición de la ejecución de errores en una canalización
+
+> [!IMPORTANT]
+> Es más fácil solucionar los errores y volver a ejecutar los sectores erróneos con la aplicación de supervisión y administración. Para más información sobre el uso de la aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
+
 ### <a name="use-the-azure-portal"></a>Uso del Portal de Azure
 Tras solucionar los problemas y depurar los errores de una canalización, puede volver a ejecutar los elementos con fallos; para ello, vaya al segmento de error y haga clic en el botón **Ejecutar** de la barra de comandos.
 
 ![Repetición de ejecución de un segmento con errores](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
 En caso de que el segmento no se valide debido a un error de directiva (por ejemplo que los datos no estén disponibles), puede corregir el error y volver a validarlo haciendo clic en el botón **Validar** de la barra de comandos.
+
 ![Corrección de errores y validación](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Uso de Azure PowerShell

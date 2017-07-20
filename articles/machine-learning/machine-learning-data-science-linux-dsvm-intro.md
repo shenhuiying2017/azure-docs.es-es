@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d8ae05316b424af7d87c3c5ebdac575bcc04998d
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: f5c33212da13b33be60488992d93305807c98d38
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Aprovisionamiento de Linux Data Science Virtual Machine
 Linux Data Science Virtual Machine es una máquina virtual de Azure basada en CentOS que incluye una colección de herramientas preinstaladas. que se utilizan normalmente para hacer análisis de datos y tareas de aprendizaje automático. Los principales componentes de software que se incluyen son:
 
+* Sistema operativo: distribución CentOS de Linux.
 * Microsoft R Server Developer Edition
 * Distribución de Anaconda Python (versiones 2.7 y 3.5), incluidas las bibliotecas de análisis de datos más conocidas
 * JuliaPro : distribución protegida del lenguaje Julia con bibliotecas populares científicas y de análisis de datos

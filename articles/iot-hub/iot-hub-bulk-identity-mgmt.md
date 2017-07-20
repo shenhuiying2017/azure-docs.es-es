@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 07/03/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 9ea3896f73e0e97b89743d8b17c8fd1e723153c3
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 8df8cdfd0b265b11e6a11f0a5eb7ad8f0e669ca2
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Administración de las identidades de dispositivo de IoT Hub de forma masiva
 
-Cada centro de IoT tiene un registro de identidad que se usa para crear recursos en el servicio para cada dispositivo, como una cola que contiene los mensajes de nube a dispositivo en curso. El registro de identidad también permite controlar el acceso a los puntos de conexión accesibles desde los dispositivos. En este artículo se describe cómo importar y exportar identidades de dispositivo de forma masiva hacia y desde un Registro de identidad.
+Cada Centro de IoT tiene un registro de identidad que se puede usar para crear recursos por dispositivo en el servicio. El registro de identidad también permite controlar el acceso a los puntos de conexión accesibles desde los dispositivos. En este artículo se describe cómo importar y exportar identidades de dispositivo de forma masiva hacia y desde un Registro de identidad.
 
 Las operaciones de importación y exportación tienen lugar en el contexto de *Trabajos* que permiten ejecutar operaciones de servicio de forma masiva en un IoT Hub.
 
@@ -37,7 +37,7 @@ Las operaciones de Registro de identidad usan el sistema de **trabajo** cuando l
 * Tiene un tiempo de ejecución potencialmente largo en comparación con las operaciones en tiempo de ejecución estándar.
 * Devuelve una gran cantidad de datos al usuario.
 
-En estos casos, en lugar de una única llamada de API en espera o que bloquea el resultado de la operación, esta crea de forma asincrónica un **Trabajo** para ese IoT Hub. La operación después devuelve inmediatamente un objeto **JobProperties**.
+En estos casos, en lugar de una única API en espera o que bloquea el resultado de la operación, esta crea de forma asincrónica un **Trabajo** para ese Centro de IoT. La operación después devuelve inmediatamente un objeto **JobProperties**.
 
 El siguiente fragmento de código de C# muestra cómo crear un trabajo de exportación:
 
@@ -48,7 +48,6 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 
 > [!NOTE]
 > Para usar la clase **RegistryManager** en el código de C#, agregue el paquete de NuGet **Microsoft.Azure.Devices** al proyecto. La clase **RegistryManager** está en el espacio de nombres **Microsoft.Azure.Devices**.
-
 
 Puede usar la clase **RegistryManager** para consultar el estado de **Trabajo** con los metadatos de **JobProperties** devueltos.
 
@@ -122,7 +121,8 @@ En el siguiente ejemplo se muestran los datos de salida:
 ```
 
 Si un dispositivo tiene datos gemelos, estos también se exportan junto con los datos del dispositivo. En el siguiente ejemplo se muestra este formato. Todos los datos desde la línea "twinETag" hasta el final son datos gemelos.
-```
+
+```json
 {
    "id":"export-6d84f075-0",
    "eTag":"MQ==",
@@ -172,7 +172,7 @@ Si necesita acceso a los datos en el código, puede deserializar fácilmente est
 ```csharp
 var exportedDevices = new List<ExportImportDevice>();
 
-using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), RequestOptions, null), Encoding.UTF8))
+using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), null, null), Encoding.UTF8))
 {
   while (streamReader.Peek() != -1)
   {
@@ -217,7 +217,7 @@ El siguiente fragmento de código de C# muestra cómo iniciar un trabajo de impo
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-Este método también se puede usar para importar los datos para el dispositivo gemelo. El formato de la entrada de datos es el mismo que el que se mostraba en la sección **ExportDevicesAsync**. De esta manera, los datos exportados también se pueden volver a importar. El valor de $metadata es opcional.
+Este método también se puede usar para importar los datos para el dispositivo gemelo. El formato de la entrada de datos es el mismo que se muestra en la sección **ExportDevicesAsync**. De esta manera, se pueden volver a importar los datos exportados. El valor de **$metadata** es opcional.
 
 ## <a name="import-behavior"></a>Comportamiento de la importación
 
@@ -232,7 +232,7 @@ Puede usar el método **ImportDevicesAsync** para realizar las siguientes operac
 
 Puede realizar cualquier combinación de las operaciones precedentes en una única llamada **ImportDevicesAsync**. Por ejemplo, puede registrar nuevos dispositivos y eliminar o actualizar los dispositivos existentes al mismo tiempo. Cuando se utiliza junto con el método **ExportDevicesAsync** , puede migrar completamente todos los dispositivos de un Centro de IoT a otro.
 
-Si el archivo de importación especifica metadatos gemelos, estos metadatos sobrescriben los metadatos existentes del gemelo. Si no, solo se actualizan los metadatos de `lastUpdateTime` con la hora actual. 
+Si el archivo de importación especifica metadatos gemelos, estos sobrescriben los existentes. Si el archivo de importación no incluye metadatos gemelos, solo se actualizan los metadatos de `lastUpdateTime` que usan la hora actual.
 
 Use la propiedad opcional **importMode** en los datos de serialización de importación para cada dispositivo para controlar el proceso de importación por dispositivo. La propiedad **importMode** tiene las siguientes opciones:
 
@@ -263,7 +263,8 @@ var serializedDevices = new List<string>();
 
 for (var i = 0; i < 1000; i++)
 {
-// Create a new ExportImportDevice
+  // Create a new ExportImportDevice
+  // CryptoKeyGenerator is in the Microsoft.Azure.Devices.Common namespace
   var deviceToAdd = new ExportImportDevice()
   {
     Id = Guid.NewGuid().ToString(),
@@ -279,11 +280,11 @@ for (var i = 0; i < 1000; i++)
     ImportMode = ImportMode.Create
   };
 
-  // Add device to existing list
+  // Add device to the list
   serializedDevices.Add(JsonConvert.SerializeObject(deviceToAdd));
 }
 
-// Write this list to the blob
+// Write the list to the blob
 var sb = new StringBuilder();
 serializedDevices.ForEach(serializedDevice => sb.AppendLine(serializedDevice));
 await blob.DeleteIfExistsAsync();
@@ -298,8 +299,9 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
   }
 }
 
-// Call import using the same blob to add new devices!
-// This normally takes 1 minute per 100 devices the normal way
+// Call import using the blob to add new devices
+// Log information related to the job is written to the same container
+// This normally takes 1 minute per 100 devices
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
@@ -349,7 +351,7 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
   }
 }
 
-// Step 3: Call import using the same blob to delete all devices!
+// Step 3: Call import using the same blob to delete all devices
 importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
@@ -366,7 +368,6 @@ while(true)
 
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
-
 ```
 
 ## <a name="get-the-container-sas-uri"></a>Obtención del identificador URI de SAS del contenedor
@@ -394,7 +395,6 @@ static string GetContainerSasUri(CloudBlobContainer container)
   // including the SAS token.
   return container.Uri + sasContainerToken;
 }
-
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
