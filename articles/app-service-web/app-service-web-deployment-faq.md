@@ -3,7 +3,7 @@ title: "Preguntas más frecuentes sobre la implementación en Azure Web Apps | M
 description: "Conozca las respuestas a las preguntas más frecuentes sobre la implementación en la característica Web Apps de Azure App Service."
 services: app-service\web
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,14 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 5/16/2017
-ms.author: v-six
+ms.date: 7/10/2017
+ms.author: genli
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 0a184d21a2c5ed1166aa9011ad7f077bcacc0d94
 ms.contentlocale: es-es
 ms.lasthandoff: 06/15/2017
-
 
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la implementación en Web Apps en Azure

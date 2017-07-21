@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 07/13/2017
 ms.author: robb
 ms.translationtype: Human Translation
 ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 43061d1a9abd30d8f0c8a627183dbafb00da5067
 ms.contentlocale: es-es
 ms.lasthandoff: 06/14/2017
-
 
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Centros de eventos
@@ -89,15 +88,15 @@ El receptor de Centros de eventos también se debe declarar y definir en la secc
 
 ```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-  <StorageAccount name="" key="" endpoint="" />
+  <StorageAccount name="{account name}" key="{account key}" endpoint="{optional storage endpoint}" />
   <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
 </PrivateConfig>
 ```
 ```JSON
 {
-    "storageAccountName": "",
-    "storageAccountKey": "",
-    "storageAccountEndPoint": "",
+    "storageAccountName": "{account name}",
+    "storageAccountKey": "{account key}",
+    "storageAccountEndPoint": "{optional storage endpoint}",
     "EventHub": {
         "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
         "SharedAccessKeyName": "SendRule",
@@ -371,10 +370,10 @@ namespace EventHubListener
         </Sink>
       </SinksConfig>
     </WadCfg>
-    <StorageAccount />
+    <StorageAccount>ACCOUNT_NAME</StorageAccount>
   </PublicConfig>
   <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-    <StorageAccount name="" key="" endpoint="" />
+    <StorageAccount name="{account name}" key="{account key}" endpoint="{storage endpoint}" />
     <EventHub Url="https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py" SharedAccessKeyName="SendRule" SharedAccessKey="YOUR_KEY_HERE" />
   </PrivateConfig>
   <IsEnabled>true</IsEnabled>
@@ -490,14 +489,14 @@ La configuración JSON equivalente para máquinas virtuales es la siguiente:
             ]
         }
     },
-    "StorageAccount": ""
+    "StorageAccount": "{account name}"
 }
 
 
 "protectedSettings": {
-    "storageAccountName": "",
-    "storageAccountKey": "",
-    "storageAccountEndPoint": "",
+    "storageAccountName": "{account name}",
+    "storageAccountKey": "{account key}",
+    "storageAccountEndPoint": "{storage endpoint}",
     "EventHub": {
         "Url": "https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py",
         "SharedAccessKeyName": "SendRule",

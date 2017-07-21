@@ -3,7 +3,7 @@ title: "Azure AD Connect: Recuperación del problema que supone el límite de 10
 description: "En este tema se explica cómo recuperar el servicio Azure AD Connect Synchronization cuando se alcanza el límite de 10 GB en LocalDB."
 services: active-directory
 documentationcenter: 
-author: billmath
+author: cychua
 manager: femila
 editor: 
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-ms.author: cychua
-translationtype: Human Translation
+ms.date: 07/17/2017
+ms.author: billmath
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
 ms.openlocfilehash: 533d3db2a9b49f3077b7cdb699cac797c7a931b3
+ms.contentlocale: es-es
 ms.lasthandoff: 03/24/2017
-
 
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Recuperación del límite de 10 GB de LocalDB
@@ -79,13 +79,13 @@ El nombre de la base de datos creada para Azure AD Connect es **ADSync**. Para r
 ### <a name="delete-run-history-data"></a>Eliminación de los datos del historial de ejecución
 De forma predeterminada, Azure AD Connect mantiene durante un máximo de siete días los datos del historial de ejecución. En este paso, eliminaremos los datos del historial de ejecución para tratar de ampliar el espacio de la base de datos y, de este modo, conseguir que el servicio Azure AD Connect Synchronization consiga sincronizarse de nuevo.
 
-1.    Inicie **Synchronization Service Manager**. Para ello, vaya a INICIO → Synchronization Service (Servicio de sincronización).
+1.  Inicie **Synchronization Service Manager**. Para ello, vaya a INICIO → Synchronization Service (Servicio de sincronización).
 
-2.    Vaya a la pestaña **Operations** (Operaciones).
+2.  Vaya a la pestaña **Operations** (Operaciones).
 
-3.    En **Actions** (Acciones), seleccione **Clear Runs...** (Borrar ejecuciones...).
+3.  En **Actions** (Acciones), seleccione **Clear Runs...** (Borrar ejecuciones...).
 
-4.    Puede seleccionar una de estas dos opciones: **Clear all runs** (Borrar todas las ejecuciones) o **Clear runs before… <date>** (Borrar todas las ejecuciones anteriores a...). Es conveniente que empiece borrando los datos del historial de ejecución que tienen más de dos días. Si el tamaño de la base de datos sigue siendo un problema, elija la opción **Clear all runs** (Borrar todas las ejecuciones).
+4.  Puede seleccionar una de estas dos opciones: **Clear all runs** (Borrar todas las ejecuciones) o **Clear runs before… <date>** (Borrar todas las ejecuciones anteriores a...). Es conveniente que empiece borrando los datos del historial de ejecución que tienen más de dos días. Si el tamaño de la base de datos sigue siendo un problema, elija la opción **Clear all runs** (Borrar todas las ejecuciones).
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Reducción del período de retención de los datos del historial de ejecución
 Este paso está diseñado para reducir la probabilidad de que el límite de 10 GB resulte un problema después de ejecutar varios ciclos de sincronización.

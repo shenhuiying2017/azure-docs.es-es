@@ -3,7 +3,7 @@ title: "Configuración del dispositivo de firewall o VPN de terceros sugerida po
 description: "Obtenga información sobre la configuración del dispositivo de firewall o VPN de terceros sugerida por la comunidad para Azure VPN Gateway."
 services: vpn-gateway
 documentationcenter: 
-author: Deland-Han
+author: chadmath
 manager: cshepard
 editor: 
 tags: azure-vpn-gateway
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 07/04/2017
 ms.author: delhan
 ms.translationtype: Human Translation
 ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: c3182f14623fc53482ab13fbf4abf58e4e2c50d8
 ms.contentlocale: es-es
 ms.lasthandoff: 06/26/2017
-
 
 ---
 

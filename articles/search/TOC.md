@@ -31,6 +31,7 @@
 ### [Actualización del SDK](search-dotnet-sdk-migration.md)
 ### [Actualización de la API de REST](search-api-migration.md)
 ### [Tipos de datos complejos de modelo](search-howto-complex-data-types.md)
+
 ## Administrar
 ### Administración de Azure Search
 #### [Azure Portal](search-manage.md)

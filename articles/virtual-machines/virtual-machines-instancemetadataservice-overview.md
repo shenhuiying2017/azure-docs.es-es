@@ -2,16 +2,16 @@
 title: "Información general sobre el servicio de metadatos de instancia de Azure | Microsoft Docs"
 description: "Interfaz RESTful para obtener información sobre proceso, red y próximos eventos de mantenimiento de la máquina virtual."
 services: virtual-machines-windows, virtual-machines-linux,virtual-machines-scale-sets, cloud-services
-documentationcenter: 
+documentationcenter: virtual-machines
 author: harijay
 manager: timlt
 editor: 
-tags: 
-ms.service: azure-instancemetadataservice
+tags: azure-resource-manager
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: harijay
 ms.translationtype: Human Translation

@@ -10,6 +10,8 @@ Cree un Centro de IoT al que se pueda conectar la aplicación de dispositivo sim
     ![Hoja del Centro de IoT][2]
    
    1. En el cuadro **Nombre** , escriba un nombre para identificar el Centro de IoT. Si el **Nombre** es válido y está disponible, aparecerá una marca de verificación verde en el cuadro **Nombre**.
+    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
+   
    1. Seleccione un [plan de tarifa y escalado][lnk-pricing]. Este tutorial no requiere ningún nivel determinado. Para este tutorial, use el nivel F1 gratis.
    1. En **Grupo de recursos**, cree un grupo de recursos o seleccione uno existente. Para más información, consulte [Using resource groups to manage your Azure resources][lnk-resource-groups] (Uso de grupos de recursos para administrar los recursos de Azure).
    1. En **Ubicación**, seleccione la ubicación para hospedar su Centro de IoT. Para este tutorial, elija la ubicación más cercana.

@@ -20,7 +20,6 @@ ms.openlocfilehash: 384066affe46bfd2917a3a14e4cfa7d2fc8a25f1
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 
 # <a name="service-bus-management-libraries"></a>Bibliotecas de administración de Service Bus
@@ -49,9 +48,8 @@ Estos tutoriales le proporcionan valores para `AppId` (identificador de cliente)
 El patrón para manipular los recursos de Service Bus sigue un protocolo común:
 
 1. Obtenga un token de Azure Active Directory utilizando la biblioteca **Microsoft.IdentityModel.Clients.ActiveDirectory**.
-
    ```csharp
-   var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+   var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```

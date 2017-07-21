@@ -4,7 +4,7 @@ description: Aprenda a usar Intel NUC como una puerta de enlace de IoT para cone
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: puerta de enlace de IOT conectar dispositivo a la nube
 ms.assetid: cb851648-018c-4a7e-860f-b62ed3b493a5
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 61cb8eb0ad23a7d4b333bf54342b872a3a8ae1da
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
-
 
 ---
 # <a name="use-iot-gateway-to-connect-things-to-the-cloud---sensortag-to-azure-iot-hub"></a>Usar una puerta de enlace de IoT para conectar dispositivos a la nube: SensorTag a Azure IoT Hub

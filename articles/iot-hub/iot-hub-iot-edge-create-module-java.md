@@ -3,7 +3,7 @@ title: "Creación de un módulo de Azure IoT Edge con Java | Microsoft Docs"
 description: "En este tutorial se muestra cómo escribir un módulo de conversión de datos BLE con los paquetes Maven de Azure IoT Edge más recientes."
 services: iot-hub
 author: junyi
-manager: sushi
+manager: timlt
 ms.service: iot-hub
 ms.workload: na
 ms.tgt_pltfrm: na

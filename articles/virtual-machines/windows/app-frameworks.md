@@ -3,7 +3,7 @@ title: "Implementación de marcos de aplicaciones en máquinas virtuales Windows
 description: "Cree marcos de aplicaciones conocidas en máquinas virtuales Windows mediante el uso de las plantillas de Azure Resource Manager para instalar Active Directory, Docker y mucho más."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: squillace
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,14 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/19/2017
-ms.author: rasquill
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
 ms.openlocfilehash: 11fa6db637d90c2ee324a472730c607b8ae992c6
 ms.contentlocale: es-es
 ms.lasthandoff: 05/16/2017
-
 
 ---
 # <a name="deploy-popular-application-frameworks-on-windows-using-azure-resource-manager-templates"></a>Implementación de marcos de aplicaciones conocidos en Windows mediante plantillas de Azure Resource Manager 

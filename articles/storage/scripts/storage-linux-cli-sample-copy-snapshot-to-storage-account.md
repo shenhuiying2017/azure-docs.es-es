@@ -1,14 +1,14 @@
 ---
 title: "Ejemplo de script de CLI de Azure: exportación o copia de instantánea como un VHD a una cuenta de almacenamiento en otra región | Microsoft Docs"
 description: "Ejemplo de script de CLI de Azure: exportación o copia de instantánea como un VHD a una cuenta de almacenamiento en misma suscripción o en una diferente"
-services: managed-disks-linux
+services: virtual-machines-linux
 documentationcenter: storage
-author: ramankum
+author: ramankumarlive
 manager: kavithag
-editor: ramankum
+editor: tysonn
 tags: azure-service-management
 ms.assetid: 
-ms.service: managed-disks-linux
+ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux

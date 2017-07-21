@@ -20,7 +20,6 @@ ms.openlocfilehash: f4d72d4d11ee64e3431879f6ad1b5d8d091a0c87
 ms.contentlocale: es-es
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="silently-install-the-azure-ad-application-proxy-connector"></a>Instalación silenciosa del conector del proxy de la aplicación de Azure AD
 Quiere poder enviar un script de instalación a varios servidores de Windows o servidores de Windows Server que no tienen habilitada la interfaz de usuario. Este tema le ayuda a crear un script de Windows PowerShell que hace posible la instalación desatendida y el registro para el conector del proxy de la aplicación de Azure AD.
@@ -72,7 +71,7 @@ Hay dos métodos posibles para registrar el conector:
         /// <summary>
         /// The AAD authentication endpoint uri
         /// </summary>
-        static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.windows.net/common/oauth2/token?api-version=1.0");
+        static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.microsoftonline.com/common/oauth2/token?api-version=1.0");
 
         /// <summary>
         /// The application ID of the connector in AAD

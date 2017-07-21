@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/17/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 735f8d81ce089727b14b8b67de7233ab71fc5abd
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="azure-media-services-community"></a>Comunidad de Servicios multimedia de Azure
@@ -59,10 +60,5 @@ La siguiente tabla enumera el correo electrónico de los subequipos de las carac
 | Reproductor multimedia de Azure |ampinfo@microsoft.com |
 | Azure Media Explorer |amse@microsoft.com |
 | Diseñador de flujo de trabajo |mepd@microsoft.com |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

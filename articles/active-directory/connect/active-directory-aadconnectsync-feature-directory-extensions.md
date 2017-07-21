@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2f5c5e9af193c843765f63640d46c25f3a6d10c3
 ms.openlocfilehash: 3641f9309cc38f6575ce36d3450448cdae1601a9
-
+ms.contentlocale: es-es
+ms.lasthandoff: 02/02/2017
 
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Extensiones de directorio
@@ -49,9 +50,4 @@ Los atributos tienen el prefijo extension \_{AppClientId}\_. El AppClientId tien
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

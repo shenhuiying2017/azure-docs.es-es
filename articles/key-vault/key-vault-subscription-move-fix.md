@@ -20,7 +20,6 @@ ms.openlocfilehash: 4317cf84760289ca29d8d5a78e2adef99c4cedf2
 ms.contentlocale: es-es
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Cambio del identificador de inquilino de Key Vault después de mover una suscripción
 ### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>P: Mi suscripción se ha movido del inquilino A al inquilino B. ¿Cómo cambio el identificador de inquilino de Key Vault existente y establezco las ACL correctas para las entidades de seguridad del inquilino B?
@@ -36,7 +35,7 @@ Por ejemplo, si tiene el Key Vault 'myvault' en una suscripción que se ha movid
 $Select-AzureRmSubscription -SubscriptionId YourSubscriptionID
 $vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
 $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
-$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.Id
+$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId
 $vault.Properties.AccessPolicies = @()
 Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>

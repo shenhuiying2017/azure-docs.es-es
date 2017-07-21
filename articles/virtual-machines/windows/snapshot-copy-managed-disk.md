@@ -2,7 +2,7 @@
 title: "Creación de una copia de un disco administrado de Azure para copia de seguridad | Microsoft Docs"
 description: "Obtenga información sobre cómo crear una copia de un disco administrado de Azure que se usará para copias de seguridad o solucionar problemas del disco."
 documentationcenter: 
-author: cwatsonMSFT
+author: cwatson-cat
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -19,7 +19,6 @@ ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: bb913050fd3388d4632e6f75b36415006f370cbd
 ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Creación de una copia de un VHD almacenado como un disco administrado de Azure mediante instantáneas administradas

@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 2f33c266c14b62f51745ff67069358c007bc00a2
 ms.contentlocale: es-es
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creación, supervisión y administración de factorías de datos de Azure mediante el SDK de .NET de Azure Data Factory
@@ -90,7 +89,7 @@ Cree una aplicación de Azure Active Directory, cree una entidad de servicio par
 9. Obtenga el identificador de aplicación.
 
     ```PowerShell
-    $azureAdApplication    
+    $azureAdApplication 
     ```
     Anote el identificador de aplicación (applicationID) de la salida.
 
@@ -124,7 +123,7 @@ La actividad de copia realiza el movimiento de datos en Data Factory de Azure. L
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
         <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+            <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
             <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 

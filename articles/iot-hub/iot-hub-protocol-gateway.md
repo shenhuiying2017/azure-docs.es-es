@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 07/11/2017
 ms.author: kdotchko
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1a8dd3d024fbe1e85a43c5b4f98901ab59c5797f
 ms.openlocfilehash: e0a7c813da53bc6ab49a456f13227b62725c5fc4
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Compatibilidad con protocolos adicionales para centro de IoT Hub
@@ -49,9 +50,4 @@ Para más información acerca de planificación de la implementación del Centro
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

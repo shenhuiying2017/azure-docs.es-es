@@ -3,7 +3,7 @@ title: "Creación de un módulo de Azure IoT Edge con C# | Microsoft Docs"
 description: "Este tutorial muestra cómo escribir un módulo convertidor de datos BLE usando los paquetes de NuGet de Azure Iot Edge más recientes, Visual Studio Code y C#."
 services: iot-hub
 author: jeffreyCline
-manager: sushi
+manager: timlt
 keywords: "azure, iot, tutorial, módulo, nuget, vscode, csharp, edge"
 ms.service: iot-hub
 ms.devlang: csharp

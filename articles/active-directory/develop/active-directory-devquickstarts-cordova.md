@@ -21,7 +21,6 @@ ms.openlocfilehash: 4a80252f139d653ff8788b3c1a6a075448cb48e7
 ms.contentlocale: es-es
 ms.lasthandoff: 02/14/2017
 
-
 ---
 # <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Integración de Azure AD con una aplicación Apache Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -146,7 +145,7 @@ La aplicación que va a desarrollar en este tutorial proporciona una caracterís
 Lo primero que hay que hacer en el código es introducir los valores de protocolo que usa Azure AD para identificar la aplicación y los recursos a los que se dirige. Estos valores se utilizarán para construir las solicitudes de tokens más adelante. Inserte el fragmento de código siguiente en la parte superior del archivo index.js:
 
 ```javascript
-var authority = "https://login.windows.net/common",
+var authority = "https://login.microsoftonline.com/common",
     redirectUri = "http://MyDirectorySearcherApp",
     resourceUri = "https://graph.windows.net",
     clientId = "a5d92493-ae5a-4a9f-bcbf-9f1d354067d3",

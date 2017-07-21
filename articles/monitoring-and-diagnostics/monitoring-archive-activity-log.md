@@ -2,7 +2,7 @@
 title: Archivo del registro de actividades de Azure | Microsoft Docs
 description: "Aprenda a archivar el registro de actividades de Azure para su retención a largo plazo en una cuenta de almacenamiento."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaa162df8a6cd60cb174242e6a353439f2da58b4
 ms.openlocfilehash: eb3a0ad811a4286df1bac963904bd9154c0ccfa3
-
+ms.contentlocale: es-es
+ms.lasthandoff: 12/10/2016
 
 ---
 # <a name="archive-the-azure-activity-log"></a>Archivo del registro de actividades de Azure
@@ -167,10 +168,5 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 * [Descargar blobs para el análisis](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [Transmitir el registro de actividades a Centros de eventos](monitoring-stream-activity-logs-event-hubs.md)
 * [Obtener más información acerca del registro de actividades](monitoring-overview-activity-logs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

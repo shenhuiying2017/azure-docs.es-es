@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 07/18/2017
 ms.author: adegeo
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: ee3a2e0fe4c8a554d763befc466d7fc0638964ce
 ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure mediante PowerShell

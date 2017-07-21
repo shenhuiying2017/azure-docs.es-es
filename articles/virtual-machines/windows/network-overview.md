@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 07/17/2017
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: cda53c43d4524ddcc8139f60f6b605a1f26c2658
+ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
-
 
 ---
 
@@ -97,7 +97,7 @@ Si trabaja en una organización en la que otra persona es responsable de las red
 
 De forma predeterminada, no hay ningún límite de seguridad entre subredes, por lo que las máquinas virtuales de cada una de estas subredes pueden comunicarse entre sí. Sin embargo, se pueden configurar grupos de seguridad de red (NSG), que permiten controlar el flujo de tráfico que llega y sale tanto de las subredes como de las máquinas virtuales. 
 
-En esta tabla se enumeran los métodos que se pueden usar para crear una red virtual y subredes.    
+En esta tabla se enumeran los métodos que se pueden usar para crear una red virtual y subredes. 
 
 | Método | Descripción |
 | ------ | ----------- |

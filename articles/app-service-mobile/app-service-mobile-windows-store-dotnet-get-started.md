@@ -3,8 +3,8 @@ title: "Creación de una Plataforma universal de Windows (UWP) que se use en Mob
 description: "Siga este tutorial para aprender a usar back-ends de aplicación móvil de Azure para el desarrollo de aplicaciones para Plataforma universal de Windows (UWP) en C#, Visual Basic o JavaScript."
 services: app-service\mobile
 documentationcenter: windows
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
+ms.author: glenga
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 1a031c4858bcbc75ee807ba520e1b22c89471498
+ms.contentlocale: es-es
 ms.lasthandoff: 02/16/2017
-
 
 ---
 # <a name="create-a-windows-app"></a>Creación de una aplicación para Windows
@@ -28,12 +28,12 @@ ms.lasthandoff: 02/16/2017
 En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación para Plataforma universal de Windows (UWP). Para obtener más información, consulte [¿Qué son las aplicaciones móviles?](app-service-mobile-value-prop.md) A continuación se muestran las capturas de pantalla de la aplicación completada:
 
 ![Aplicación de escritorio completada](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)   
-Ejecutándose en un equipo de escritorio 
+Ejecutándose en un equipo de escritorio
 
 ![Aplicación de teléfono completada](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)  
 Ejecutándose en un teléfono
 
-Completar este tutorial es un requisito previo para todos los tutoriales de aplicaciones móviles para aplicaciones para UWP. 
+Completar este tutorial es un requisito previo para todos los tutoriales de aplicaciones móviles para aplicaciones para UWP.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial, necesitará lo siguiente:
@@ -43,8 +43,8 @@ Para completar este tutorial, necesitará lo siguiente:
 
 > [!NOTE]
 > Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/mobile/). Allí puede crear de forma inmediata una aplicación móvil de corta duración para iniciarse en el Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
-> 
-> 
+>
+>
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Creación de un nuevo back-end de Aplicaciones móviles de Azure
 Siga estos pasos para crear un nuevo back-end de aplicación móvil.
@@ -60,20 +60,20 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
 Una vez configurado el back-end de aplicación móvil, puede crear una nueva aplicación cliente o modificar una aplicación existente para conectarse a Azure. En esta sección, descargará un proyecto de plantilla de aplicación para UWP que se personaliza para conectarse al back-end de aplicación móvil.
 
 1. De nuevo en la hoja **Inicio rápido** para el back-end de aplicación móvil, haga clic en **Crear una nueva aplicación** > **Descargar** y extraiga los archivos de proyecto comprimidos en el equipo local.
-   
+
     ![Descargar el proyecto de inicio rápido de Windows](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
 2. (Opcional) Agregue el proyecto de aplicación para UWP a la misma solución que el proyecto de servidor. Esto hace que sea más fácil depurar y probar la aplicación y el back-end en la misma solución de Visual Studio, si decide hacer esto. Para agregar un proyecto de aplicación para UWP a la solución, debe usar Visual Studio 2015 o una versión posterior.
 3. Con la aplicación para UWP como proyecto de inicio, presione la tecla F5 para implementar y ejecutar la aplicación.
 4. En la aplicación, escriba texto significativo, como *Realice el tutorial*, en el cuadro de texto **Insertar un TodoItem** y, a continuación, haga clic en **Guardar**.
-   
+
     ![Inicio rápido de Windows completo - Escritorio](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
-   
+
     Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil hospedado en Azure.
 5. (Opcional) Detenga la aplicación y reiníciela en un dispositivo diferente o un emulador de dispositivos móviles.
-   
+
     ![Inicio rápido de Windows completo - Teléfono](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
-   
-    Tenga en cuenta que los datos guardados en el paso anterior se cargan desde Azure después de que se inicie la aplicación para UWP. 
+
+    Tenga en cuenta que los datos guardados en el paso anterior se cargan desde Azure después de que se inicie la aplicación para UWP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Incorporación de autenticación a la aplicación](app-service-mobile-windows-store-dotnet-get-started-users.md)  

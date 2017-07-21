@@ -4,7 +4,7 @@ description: "Use Power BI para visualizar datos de temperatura y humedad que se
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "visualización de datos en tiempo real, visualización de datos en directo, visualización de datos de sensor"
 ms.assetid: e67c9c09-6219-4f0f-ad42-58edaaa74f61
@@ -20,7 +20,6 @@ ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 404ab1682d9b77f22e60888340ffb70a101ed5d4
 ms.contentlocale: es-es
 ms.lasthandoff: 06/15/2017
-
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI

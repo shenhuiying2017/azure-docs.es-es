@@ -1,14 +1,14 @@
 ---
 title: "Ejemplo de script de Azure PowerShell: creación de un disco administrado a partir de una instantánea | Microsoft Docs"
 description: "Ejemplo de script de Azure PowerShell: creación de un disco administrado a partir de una instantánea"
-services: managed-disks-windows
+services: virtual-machines-windows
 documentationcenter: storage
-author: ramankum
+author: ramankumarlive
 manager: kavithag
-editor: ramankum
+editor: tysonn
 tags: azure-service-management
 ms.assetid: 
-ms.service: managed-disks-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows

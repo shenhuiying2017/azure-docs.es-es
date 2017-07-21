@@ -3,8 +3,8 @@ title: "Solución del problema en el que la VPN de sitio a sitio de Azure se des
 description: "Obtenga información acerca de cómo solucionar el problema en el que la conexión de la VPN de sitio a sitio se desconecta regularmente."
 services: vpn-gateway
 documentationcenter: na
-author: genlin
-manager: willchen
+author: chadmath
+manager: cshepard
 editor: 
 tags: 
 ms.service: vpn-gateway

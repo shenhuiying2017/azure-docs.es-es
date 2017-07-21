@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: abd55399ef780df945a2d643940a71425d085692
+ms.contentlocale: es-es
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="azure-app-service-web-app-advanced-config-and-extensions"></a>Configuración avanzada y extensiones de aplicación web del Servicio de aplicaciones de Azure
@@ -27,26 +27,27 @@ Con las declaraciones de [XML Document Transformation](http://msdn.microsoft.com
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-idtransformaadvanced-configuration-through-applicationhostconfig"></a><a id="transform"></a>Configuración avanzada mediante ApplicationHost.config
+## <a id="transform"></a>Configuración avanzada mediante ApplicationHost.config
 La plataforma del Servicio de aplicaciones proporciona flexibilidad y control para la configuración de la aplicación web. Aunque el archivo de configuración ApplicationHost.config de IIS estándar no está disponible para la edición directa en el Servicio de aplicaciones, la plataforma es compatible con un modelo de transformación ApplicationHost.config declarativo basado en XML Document Transformation (XDT).
 
 Para sacar provecho de esta funcionalidad de transformación, cree un archivo ApplicationHost.xdt con contenido XDT y colóquelo en la raíz del sitio (d:\home\site) en la [consola Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console). Puede que necesite reiniciar la aplicación web para que los cambios surtan efecto.
 
 El siguiente ejemplo de applicationHost.xdt muestra cómo agregar una nueva variable de entorno personalizada en una aplicación web que use PHP 5.4.
 
-    <?xml version="1.0"?>
-    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-          <system.webServer>
-                <fastCgi>
-                      <application>
-                         <environmentVariables>
-                                <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
-                         </environmentVariables>
-                      </application>
-                </fastCgi>
-          </system.webServer>
-    </configuration>
-
+```xml
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <fastCgi>
+      <application>
+        <environmentVariables>
+          <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
+        </environmentVariables>
+      </application>
+    </fastCgi>
+  </system.webServer>
+</configuration>
+```
 
 Hay un archivo de registro con información y estado de trasformación disponible en la raíz del FTP en LogFiles\Transform.
 
@@ -55,8 +56,8 @@ Para ejemplos adicionales, vea [https://github.com/projectkudu/kudu/wiki/Xdt-tra
 **Nota:**<br />
 Los elementos de la lista de módulos en `system.webServer` no pueden quitarse o reordenarse, aunque sí es posible agregar elementos a la lista.
 
-## <a name="a-idextenda-extend-your-web-app"></a><a id="extend"></a> Ampliación de la aplicación web
-### <a name="a-idoverviewa-overview-of-private-web-app-extensions"></a><a id="overview"></a> Información general de las extensiones de aplicación web privada
+## <a id="extend"></a> Ampliación de la aplicación web
+### <a id="overview"></a> Información general de las extensiones de aplicación web privada
 El Servicio de aplicaciones es compatible con extensiones de aplicación web como punto de extensibilidad para acciones administrativas. De hecho, algunas características de la plataforma del Servicio de aplicaciones se implementan como extensiones preinstaladas. Cuando las extensiones preinstaladas de la plataforma no se puedan modificar, puede crear y configurar extensiones privadas para su propia aplicación web. Esta funcionalidad también se basa en declaraciones XDT. Los pasos clave para la creación de una extensión de la aplicación web privada son los siguientes:
 
 1. **Contenido**de la extensión de la aplicación web: crear todas las aplicaciones web compatibles con el Servicio de aplicaciones
@@ -69,10 +70,10 @@ Los vínculos internos para la aplicación web deben apuntar a una ruta relacion
 
 Se incluye un ejemplo detallado para mostrar los pasos para la creación y habilitación de una extensión de aplicación web privada. El código fuente para el administrador PHP siguiente puede descargarse en [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager).
 
-### <a name="a-idsitesamplea-web-app-extension-example-php-manager"></a><a id="SiteSample"></a> Ejemplo de extensión de aplicación web:
+### <a id="SiteSample"></a> Ejemplo de extensión de aplicación web:
 El administrador PHP es una extensión de la aplicación web que permite a los administradores de la aplicación web ver y configurar fácilmente su configuración PHP con una interfaz web en lugar de tener que modificar archivos .ini PHP directamente. Los archivos de configuración comunes para PHP incluyen el archivo php.ini ubicado en Archivos de programa y el archivo .user.ini ubicado en la carpeta raíz de la aplicación web. Puesto que el archivo php.ini no es directamente editable en la plataforma del Servicio de aplicaciones, la extensión del administrador PHP usa el archivo .user.ini para aplicar los cambios de configuración.
 
-#### <a name="a-idphpwebappa-the-php-manager-web-application"></a><a id="PHPwebapp"></a> Aplicación web del administrador PHP
+#### <a id="PHPwebapp"></a> Aplicación web del administrador PHP
 A continuación se muestra la página principal de la implementación del administrador PHP:
 
 ![TransformSitePHPUI][TransformSitePHPUI]
@@ -85,19 +86,21 @@ La extensión del administrador PHP se creó mediante la plantilla de la aplicac
 
 La única lógica especial necesaria para la E/S del archivo es indicar dónde se encuentra el directorio wwwroot de la aplicación web. Puesto que se muestra el siguiente ejemplo de código, la variable de entorno "HOME" indica la ruta raíz de la aplicación web y la ruta wwwroot puede construirse anexando "site\wwwroot":
 
-    /// <summary>
-    /// Gives the location of the .user.ini file, even if one doesn't exist yet
-    /// </summary>
-    private static string GetUserSettingsFilePath()
-    {
-            var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
-            if (rootPath == null)
-            {
-                rootPath = System.IO.Path.GetTempPath(); // For testing purposes
-            };
-            var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
-            return userSettingsFile;
-    }
+```csharp
+/// <summary>
+/// Gives the location of the .user.ini file, even if one doesn't exist yet
+/// </summary>
+private static string GetUserSettingsFilePath()
+{
+  var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
+  if (rootPath == null)
+  {
+    rootPath = System.IO.Path.GetTempPath(); // For testing purposes
+  };
+  var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
+  return userSettingsFile;
+}
+```
 
 
 Una vez que disponga de la ruta de acceso al directorio, puede usar las operaciones de E/S del archivo normal para leer y escribir en los archivos.
@@ -112,53 +115,58 @@ Cuando el vínculo forma parte de una extensión de la aplicación web, el vínc
 
 Puede satisfacer este requisito usando solo rutas relativas en la aplicación web o, en caso de aplicaciones ASP.NET, usando el método `@Html.ActionLink` que crea los vínculos apropiados para usted.
 
-#### <a name="a-idxdta-the-applicationhostxdt-file"></a><a id="XDT"></a> Archivo applicationHost.xdt
+#### <a id="XDT"></a> Archivo applicationHost.xdt
 El código de la extensión de la aplicación web se encuentra en %HOME%\SiteExtensions\[nombre-extensión]. Llamaremos a esto raíz de extensión.  
 
 Para registrar la extensión de la aplicación web con el archivo applicationHost.config, tendrá que colocar un archivo denominado ApplicationHost.xdt en la raíz de extensión. El contenido del archivo ApplicationHost.xdt debe ser el siguiente:
 
-    <?xml version="1.0"?>
-    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-          <system.applicationHost>
-                <sites>
-                      <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
-                        <!-- NOTE: Add your extension name in the application paths below -->
-                        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
-                        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
-                              <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
-                        </application>
-                      </site>
-                </sites>
-          </system.applicationHost>
-    </configuration>
+```xml
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.applicationHost>
+    <sites>
+      <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
+        <!-- NOTE: Add your extension name in the application paths below -->
+        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
+        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
+          <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
+        </application>
+      </site>
+    </sites>
+  </system.applicationHost>
+</configuration>
+```
 
 El nombre que seleccione como nombre de extensión debe tener el mismo nombre que la carpeta raíz de extensión.
 
 Esto provoca la suma de una nueva ruta de aplicación a la lista de sitios `system.applicationHost` en el sitio SCM. El sitio SCM es un punto final de administración que especifica credenciales de acceso. Dispone de la dirección URL `https://[your-site-name].scm.azurewebsites.net`.  
 
-    <system.applicationHost>
-          ...
-          <site name="~1[your-website]" id="1716402716">
-                  <bindings>
-                    <binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
-                    <binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
-                  </bindings>
-                  <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
-                  <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
-                  <logFile logSiteId="false" />
-                  <application path="/" applicationPool="[your-website]">
-                    <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
-                  </application>
-                <!-- Note the custom changes that go here -->
-                  <application path="/[your-extension-name]" applicationPool="[your-website]">
-                    <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
-                  </application>
-            </site>
-      </sites>
-      ...
-    </system.applicationHost>
+```xml
+<system.applicationHost>
+  ...       
+  <sites>
+    <site name="~1[your-website]" id="1716402716">
+      <bindings>
+        <binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
+        <binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
+      </bindings>
+      <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
+      <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
+      <logFile logSiteId="false" />
+      <application path="/" applicationPool="[your-website]">
+        <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
+      </application>
+      <!-- Note the custom changes that go here -->
+      <application path="/[your-extension-name]" applicationPool="[your-website]">
+        <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
+      </application>
+    </site>
+  </sites>
+  ... 
+</system.applicationHost>
+```
 
-### <a name="a-iddeploya-web-app-extension-deployment"></a><a id="deploy"></a> Implementación de extensión de aplicación web
+### <a id="deploy"></a> Implementación de extensión de aplicación web
 Para instalar la extensión de la aplicación web, puede usar FTP para copiar todos los archivos de la aplicación web en la carpeta `\SiteExtensions\[your-extension-name]` de la aplicación web en la que desea instalar la extensión.  Asegúrese de copiar el archivo ApplicationHost.xdt en la ubicación también. Reinicie la aplicación web para habilitar la extensión.
 
 Debe poder ver la extensión de la aplicación web en:

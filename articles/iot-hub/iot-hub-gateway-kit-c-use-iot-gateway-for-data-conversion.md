@@ -4,7 +4,7 @@ description: "Use la puerta de enlace de IoT para convertir el formato de los da
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "conversión de datos de puerta de enlace de iot, transformación de datos de puerta de enlace de iot"
 ms.assetid: 75f2573d-500b-4405-bff7-61021c4c3500
@@ -20,7 +20,6 @@ ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: 5f5151c9e250fb8a19a953c6212dd2675004dc55
 ms.contentlocale: es-es
 ms.lasthandoff: 06/26/2017
-
 
 ---
 # <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>Uso de la puerta de enlace de IoT para la transformación de datos de sensor con Azure IoT Edge

@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 07/11/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: c1485205f49dae28adbddbf679fc120a6e52bff6
 ms.contentlocale: es-es
 ms.lasthandoff: 06/07/2017
-
 
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Data Factory

@@ -20,7 +20,6 @@ ms.openlocfilehash: ca5ee2733df51faa5025c4d8eb687c81df4a3b4f
 ms.contentlocale: es-es
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>Uso de las propiedades deseadas para configurar dispositivos
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -47,6 +46,7 @@ Si ha seguido el tutorial [Introducción a los dispositivos gemelos][lnk-twin-tu
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
+<a id="#create-the-simulated-device-app"></a>
 ## <a name="create-the-simulated-device-app"></a>Creación de la aplicación de dispositivo simulado
 En esta sección, creará una aplicación de consola de Node.js que se conecta a su centro como **myDeviceId**, espera por una actualización de la configuración deseada y, a continuación, informa de las actualizaciones en el proceso de actualización de configuración simulada.
 
@@ -275,5 +275,5 @@ Use los siguientes recursos para obtener información sobre cómo:
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-[lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+[lnk-how-to-configure-createapp]: iot-hub-csharp-node-twin-how-to-configure.md#create-the-simulated-device-app
 

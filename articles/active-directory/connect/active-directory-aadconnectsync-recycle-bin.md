@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 9778db69e94e9f1d033cc8c16fdb9554df3eddcc
+ms.contentlocale: es-es
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect Sync: Habilitación de la papelera de reciclaje de AD
@@ -47,3 +47,4 @@ Esta característica ayuda a restaurar objetos de usuario de Azure AD mediante l
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+

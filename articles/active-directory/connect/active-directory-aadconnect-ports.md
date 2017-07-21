@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: adf358a130fd20674cbf2585de93005a9e1cb3ec
 ms.contentlocale: es-es
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>La identidad híbrida requería puertos y protocolos
@@ -80,7 +79,7 @@ Las siguientes tablas describen los puertos y protocolos que son necesarios para
 |Protocol|Número de puerto|Descripción
 | --- | --- | ---
 |HTTP|80|Habilita el tráfico HTTP saliente para la validación de seguridad, como SSL. También se necesita para que la funcionalidad de actualización automática del conector se lleve a cabo correctamente.
-|HTTPS|443|    Habilite el tráfico HTTPS saliente para operaciones como habilitar y deshabilitar la característica, registrar conectores, descargar actualizaciones de conector y controlar todas las solicitudes de inicio de sesión de usuario.
+|HTTPS|443| Habilite el tráfico HTTPS saliente para operaciones como habilitar y deshabilitar la característica, registrar conectores, descargar actualizaciones de conector y controlar todas las solicitudes de inicio de sesión de usuario.
 
 Además, Azure AD Connect debe ser capaz de establecer conexiones directas de IP con [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
@@ -88,7 +87,7 @@ Además, Azure AD Connect debe ser capaz de establecer conexiones directas de IP
 
 |Protocol|Número de puerto|Descripción
 | --- | --- | ---
-|HTTPS|443|    Habilita el registro de SSO (solo es necesario para el proceso de registro de SSO).
+|HTTPS|443| Habilita el registro de SSO (solo es necesario para el proceso de registro de SSO).
 
 Además, Azure AD Connect debe ser capaz de establecer conexiones directas de IP con [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Una vez más, esto solo es necesario para el proceso de registro SSO.
 

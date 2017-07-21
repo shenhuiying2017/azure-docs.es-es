@@ -2,7 +2,7 @@
 title: "Métricas de Azure Monitor admitidas por tipo de recurso | Microsoft Docs"
 description: "Lista de métricas disponibles para cada tipo de recurso con Azure Monitor."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: b034251438c65dd13d9ca0bb116699532e3960ef
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor

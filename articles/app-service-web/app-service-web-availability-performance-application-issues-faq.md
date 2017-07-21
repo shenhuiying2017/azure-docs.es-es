@@ -3,7 +3,7 @@ title: "Preguntas más frecuentes sobre el rendimiento de aplicaciones para apli
 description: "Conozca las respuestas a las preguntas más frecuentes sobre la disponibilidad, rendimiento y problemas de la aplicación en la característica Web Apps de Azure App Service."
 services: app-service\web
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,14 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 5/16/2017
-ms.author: v-six
+ms.date: 7/10/2017
+ms.author: genli
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 5c3e0a7f731fa3f7b34902c93bae8f67a0e8153d
 ms.contentlocale: es-es
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre el rendimiento de aplicaciones para aplicaciones web de Azure

@@ -1,14 +1,14 @@
 ---
 title: "Ejemplo de script de CLI de Azure: copia (transferencia) de discos administrados en la misma suscripción o en otra | Microsoft Docs"
 description: "Ejemplo de script de CLI de Azure: copia (transferencia) de discos administrados en la misma suscripción o en otra"
-services: managed-disks-linux
+services: virtual-machines-linux
 documentationcenter: storage
-author: ramankum
+author: ramankumarlive
 manager: kavithag
-editor: ramankum
+editor: tysonn
 tags: azure-service-management
 ms.assetid: 
-ms.service: managed-disks-linux
+ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux

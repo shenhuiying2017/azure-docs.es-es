@@ -21,7 +21,6 @@ ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios
 
@@ -74,8 +73,10 @@ Use los pasos siguientes para configurar las claves del Registro para realizar u
    * **Ignore** (omitir los vínculos simbólicos durante las recursiones para no incluir los archivos/directorios a los que se hace referencia)
    * **Follow** (seguir los vínculos simbólicos durante las recursiones para incluir también los archivos/directorios a los que se hace referencia)
    * **Manage** (seguir los vínculos simbólicos y modificar el tratamiento del contenido devuelto) 
+   
    > [!NOTE]   
    > No se recomienda la opción de vínculos "Manage" debido a que actualmente no se admite la recuperación de contenido de archivos.
+   
 3. **Recurse** (recorrer los niveles de carpeta y hacer seguimiento de todos los archivos que cumplen con la instrucción path)
 4. **Sudo** (habilitar el acceso a los archivos o directorios que requieren el privilegio sudo)
 
