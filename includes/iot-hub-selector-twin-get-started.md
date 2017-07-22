@@ -2,10 +2,8 @@
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
 > * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
-> 
-> 
+> * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 
-## <a name="introduction"></a>Introducción
 Los dispositivos gemelos son documentos JSON que almacenan información sobre el estado de los dispositivos (metadatos, configuraciones y condiciones). IoT Hub conserva un dispositivo gemelo por cada dispositivo que se conecta a él.
 
 Use los dispositivos gemelos para:
@@ -17,8 +15,6 @@ Use los dispositivos gemelos para:
 
 > [!NOTE]
 > Los dispositivos gemelos están diseñados para la sincronización y para consultar las condiciones y configuraciones del dispositivo. Para más información sobre cuándo usar dispositivos gemelos, consulte [Introducción a los dispositivos gemelos][lnk-twins].
-> 
-> 
 
 Los dispositivos gemelos se almacenan en un IoT Hub y contienen:
 
@@ -33,8 +29,6 @@ Consulte [Introducción a los dispositivos gemelos][lnk-twins] para más informa
 
 > [!NOTE]
 > En la actualidad, solo se puede acceder a los dispositivos gemelos desde dispositivos conectados a IoT Hub mediante el protocolo MQTT. Para instrucciones acerca de cómo convertir la aplicación de dispositivo existente para usar MQTT, consulte el artículo sobre [compatibilidad con MQTT][lnk-devguide-mqtt].
-> 
-> 
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 

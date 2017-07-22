@@ -28,14 +28,15 @@
     Esto le permite tener acceso a la instancia de cliente de Servicios móviles desde el proceso del servicio del controlador de inserciones.
 4. Agregue el código siguiente al método **OnCreate** después de crear **MobileServiceClient**:
    
-     // Establece la instancia actual de TodoActivity.
-     instance = this;
+       // Set the current instance of TodoActivity.
+       instance = this;
    
-     // Asegúrese de que el cliente GCM está configurado correctamente.
-     GcmClient.CheckDevice(this); GcmClient.CheckManifest(this);
+       // Make sure the GCM client is set up correctly.
+       GcmClient.CheckDevice(this);
+       GcmClient.CheckManifest(this);
    
-     // Registre la aplicación para notificaciones push.
-     GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
+       // Register the app for push notifications.
+       GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
 Ahora la **ToDoActivity** estará preparada para agregar notificaciones de inserción.
 
