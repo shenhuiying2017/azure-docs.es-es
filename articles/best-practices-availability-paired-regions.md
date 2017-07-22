@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 32bff438c2e56b1c21aa907b6bff6c1d1e879de3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8a1e5333e893e2a3a205f08223f103793df452cd
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -38,11 +38,8 @@ Ilustración 1: Diagrama de pareja regional de Azure
 |:--- |:--- |:--- |
 | Asia |Asia oriental |Sudeste asiático |
 | Australia |Australia Oriental |Sudeste de Australia |
-| Brasil |Sur de Brasil (1) |Centro-Sur de EE. UU |
 | Canadá |Centro de Canadá |Este de Canadá |
 | China |Norte de China |Este de China|
-| Europa |Europa del Norte |Europa occidental |
-| Alemania |Centro de Alemania |Noreste de Alemania |
 | India |India Central |Sur de la India |
 | Japón |Este de Japón |Oeste de Japón |
 | Corea |Corea Central |Corea del Sur |
@@ -51,16 +48,13 @@ Ilustración 1: Diagrama de pareja regional de Azure
 | Norteamérica |Este de EE. UU. 2 |Central EE. UU.: |
 | Norteamérica |Oeste de EE. UU. 2 |Centro occidental de EE.UU. |
 | Europa |Europa del Norte |Europa occidental |
-| Asia |Sudeste asiático |Asia oriental |
-| China |Este de China |Norte de China |
 | Japón |Este de Japón |Oeste de Japón |
 | Brasil |Sur de Brasil (1) |Centro-Sur de EE. UU |
-| Australia |Australia Oriental |Sudeste de Australia |
 | Gobierno de Estados Unidos |Gobierno de EE. UU. - Iowa |Gobierno de EE. UU. - Virginia |
-| India |India Central |Sur de la India |
-| Canadá |Centro de Canadá |Este de Canadá |
+| Gobierno de Estados Unidos |Gobierno de EE. UU. - Virginia |Gobierno de EE. UU.: Texas |
+| Gobierno de Estados Unidos |Gobierno de EE. UU.: Texas |Gobierno de EE. UU.: Arizona |
+| Gobierno de Estados Unidos |Gobierno de EE. UU.: Arizona |Gobierno de EE. UU.: Texas |
 | Reino Unido |Oeste de Reino Unido |Sur del Reino Unido 2 |
-| Corea |Corea Central |Corea del Sur |
 | Alemania |Centro de Alemania |Noreste de Alemania |
 
 Tabla 1: Asignación de las parejas regionales de Azure

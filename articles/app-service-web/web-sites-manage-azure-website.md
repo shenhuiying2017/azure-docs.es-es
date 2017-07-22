@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 08a84ace63465e7c058add69a25687fe46c7ea07
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9e19618a1b24bbdf3163ddfc3423c5c932dcd7af
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-a-web-app-in-azure-app-service"></a>Administración de una aplicación web en Servicio de aplicaciones de Azure
@@ -78,10 +77,6 @@ Si no ha habilitado las copias de seguridad automáticas, puede crear una [copia
 
 Puede usar una [implementación de ensayo](web-sites-staged-publishing.md). Esta opción le permite publicar actualizaciones en una implementación provisional que se ejecuta en paralelo a su implementación de producción. 
 
-Si usa Visual Studio Team Services, puede configurar una implementación continua desde el control de código fuente:
-
-* [Uso del control de versiones de Team Foundation (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
-* [Uso de Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
 
 <!-- Anchors. -->
 

@@ -17,10 +17,10 @@ ms.date: 03/01/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 21ce246fab787e06576a295ec4ea45ae3fdfc379
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d35232cdb9d7076c27e98f7c2300ec910479e8d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Correlación de eventos que llegan a diferentes horas con Storm y HBase
@@ -41,7 +41,7 @@ En este documento, obtendrá información sobre cómo crear una topología bási
 * Apache HBase en un clúster de HDInsight (basado en Linux o Windows).
 
   > [!IMPORTANT]
-  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Java](https://java.com) 1.7 o superior en el entorno de desarrollo. Java se utiliza para empaquetar la topología cuando se envía al clúster de HDInsight.
 

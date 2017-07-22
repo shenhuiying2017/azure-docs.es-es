@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 590e2bc759567cf3d679e261592dff1e699ba295
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 746cad19093fd2a1ad23ddd9412394f8d9da331c
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-azure-ad-into-an-android-app"></a>Integración de Azure AD en una aplicación Android
@@ -174,7 +173,7 @@ Puede obtener el archivo JAR desde el repositorio de Maven y colocarlo en la car
             ....
         <application/>
 
-4. Cree una instancia de AuthenticationContext en la actividad principal. Los detalles de esta llamada quedan fuera del ámbito de este tema, pero puede empezar a trabajar examinando el [ejemplo del cliente nativo de Android](https://github.com/AzureADSamples/NativeClient-Android). En el ejemplo siguiente, SharedPreferences es la memoria caché predeterminada y Authority se presenta con el formato de `https://login.windows.net/yourtenant.onmicrosoft.com`:
+4. Cree una instancia de AuthenticationContext en la actividad principal. Los detalles de esta llamada quedan fuera del ámbito de este tema, pero puede empezar a trabajar examinando el [ejemplo del cliente nativo de Android](https://github.com/AzureADSamples/NativeClient-Android). En el ejemplo siguiente, SharedPreferences es la memoria caché predeterminada y Authority se presenta con el formato de `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`:
 
     `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
 
@@ -264,7 +263,7 @@ El manifiesto de aplicación debe tener los siguientes permisos para usar cuenta
 ### <a name="authority-url-and-ad-fs"></a>AD FS y URL de la autoridad
 Active Directory Federation Services (AD FS) no se reconoce como STS de producción, por lo que debe desactivar el descubrimiento de la instancia y pasar el valor "false" al constructor de AuthenticationContext.
 
-La dirección URL de la autoridad necesita la instancia de STS y un [nombre de inquilino](https://login.windows.net/yourtenant.onmicrosoft.com).
+La dirección URL de la autoridad necesita la instancia de STS y un [nombre de inquilino](https://login.microsoftonline.com/yourtenant.onmicrosoft.com).
 
 ### <a name="querying-cache-items"></a>Consulta de los elementos en caché
 ADAL proporciona memoria caché predeterminada en SharedPreferences con algunas características sencillas para hacer consultas sobre los elementos en caché. Puede obtener la memoria caché actual de AuthenticationContext mediante:

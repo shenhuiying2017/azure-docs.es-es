@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 63ad1dcc5a069a9958e56c8260f9aa208fafc645
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cbb5d3598ef91512991d7d1e9f854eb12980752b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -30,7 +30,7 @@ En la tabla se resumen los requisitos previos.
 **Requisito previo** | **Detalles** 
 --- | --- 
 **Las tablas de Azure** | Obtenga información sobre los [requisitos de Azure](site-recovery-prereq.md#azure-requirements)
-**Servidores locales** | [Más información](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager) sobre los requisitos de los hosts de Hyper-V locales.
+**Servidores locales** | [Más información](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-to-azure-no-vmm) sobre los requisitos de los hosts de Hyper-V locales.
 **Máquinas virtuales de Hyper-V locales** | Las máquinas virtuales que desee replicar deben ejecutar un [sistema operativo compatible](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) y cumplir los [requisitos previos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 **Direcciones URL de Azure** | Los hosts de Hyper-V necesitan tener acceso a estas direcciones URL:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> Si tiene reglas de firewall basadas en direcciones IP, asegúrese de que permitan la comunicación con Azure.<br/></br> Permita los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el puerto HTTPS (443).<br/></br> Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).
 

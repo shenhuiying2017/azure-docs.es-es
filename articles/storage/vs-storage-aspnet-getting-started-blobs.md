@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 5840ec74f6af2e373d9ebb34b0f6e13094c33f19
-ms.openlocfilehash: 003ca36c80274c4cad430ac67cf8cf3551d4137a
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 8fd13efdbdd98c6d7dff1b88a6b232a08aa5a13d
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Blob Storage y los servicios conectados de Visual Studio (ASP.NET)
@@ -31,7 +32,7 @@ Este tutorial muestra cómo escribir código ASP.NET para algunos escenarios com
 
 ##<a name="prerequisites"></a>Requisitos previos
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Cuenta de Azure Storage](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
@@ -166,7 +167,7 @@ Una vez que haya [creado un contenedor de blobs](#create-a-blob-container), pued
     }
     ```
  
-1. Dentro del método **UploadBlob**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name> * por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
+1. Dentro del método **UploadBlob**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name>*  por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -235,7 +236,7 @@ Esta sección explica cómo enumerar los blobs de un contenedor de blobs. El có
     }
     ```
  
-1. Dentro del método **ListBlobs**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name> * por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
+1. Dentro del método **ListBlobs**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name>*  por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -358,7 +359,7 @@ La sección siguiente muestra cómo descargar un blob y conservarlo en el almace
     }
     ```
  
-1. Dentro del método **DownloadBlob**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name> * por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
+1. Dentro del método **DownloadBlob**, obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name>*  por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -423,7 +424,7 @@ Los siguientes pasos muestran cómo eliminar un blob:
     }
     ```
 
-1. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name> * por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
+1. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Utilice el código siguiente para obtener la información de cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure: (cambie *&lt;storage-account-name>*  por el nombre de la cuenta de Azure Storage a la que está obteniendo acceso.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -469,8 +470,4 @@ Consulte más guías de características para obtener información acerca de otr
 
   * [Introducción a Azure Table Storage y a Servicios conectados de Visual Studio (ASP.NET)](./vs-storage-aspnet-getting-started-tables.md)
   * [Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET)](./vs-storage-aspnet-getting-started-queues.md)
-
-
-<!--HONumber=Jan17_HO1-->
-
 

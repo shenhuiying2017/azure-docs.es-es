@@ -2,8 +2,8 @@
 title: "Activación de la sincronización sin conexión para una aplicación móvil de Azure (Cordova) | Microsoft Docs"
 description: "Obtenga información acerca de cómo usar la aplicación móvil de Servicios de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Cordova"
 documentationcenter: cordova
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 services: app-service\mobile
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 425ad7581ec92aed306d4a1c22fbc00e7105a1c1
-ms.openlocfilehash: af80f8fac043f3c0f4c666fffd60b89c2b43818d
-ms.lasthandoff: 12/01/2016
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 45e80ca672dfdb6defc6e5c1aac3d29f5479125c
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Activación de la sincronización sin conexión para una aplicación móvil Cordova
@@ -173,7 +173,7 @@ En esta sección, modificará el proyecto de cliente para simular un escenario s
 
 5. (Opcional) Use Visual Studio para ver la tabla de base de datos SQL de Azure y observar que los datos de la base de datos de back-end no han cambiado.
 
-    En Visual Studio, abra el **Explorador de servidores**. Vaya a la base de datos en **Azure**->**SQL Databases**. Haga clic con el botón derecho en la base de datos y seleccione  **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido.
+    En Visual Studio, abra el **Explorador de servidores**. Vaya a la base de datos en **Azure**->**SQL Databases**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido.
 
 ## <a name="optional-test-the-reconnection-to-your-mobile-backend"></a>(Opcional) Prueba de la reconexión a un back-end móvil
 

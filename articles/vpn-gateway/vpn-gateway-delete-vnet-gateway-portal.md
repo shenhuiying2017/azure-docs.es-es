@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 5dab5330ec286872fae8a880f0afec4b2ff88f8c
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 1d289c09465cb8d5e4bfa569441dffcbf562b3bf
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminación de una puerta de enlace de red virtual mediante el portal
@@ -35,6 +34,8 @@ Hay un par de enfoques que puede adoptar cuando desee eliminar una puerta de enl
 - Si quiere eliminar todo el contenido y volver a empezar, como en el caso de un entorno de prueba, puede eliminar el grupo de recursos. Cuando se elimina un grupo de recursos, se quitan todos los recursos de él. Este método solo se recomienda si no desea conservar los recursos del grupo en cuestión. Con este enfoque no podrá eliminar de forma selectiva solo unos pocos recursos.
 
 - Si desea mantener algunos de los recursos en el grupo de recursos, será algo más complicado eliminar una puerta de enlace de red virtual. Antes de poder eliminar la puerta de enlace de red virtual, primero debe quitar todos los recursos que dependen de la puerta de enlace. Los pasos que seguirá dependerán del tipo de conexiones que creó y de los recursos dependientes de cada conexión.
+
+## <a name="delete-a-vpn-gateway"></a>Eliminación de una instancia de VPN Gateway
 
 Para eliminar una puerta de enlace de red virtual, primero debe eliminar cada recurso que pertenece a la puerta de enlace de red virtual. Los recursos deben eliminarse en un orden determinado debido a las dependencias.
 

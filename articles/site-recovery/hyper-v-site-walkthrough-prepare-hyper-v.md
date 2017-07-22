@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: e61708f4af0715eaa7147e9cd17113d5979dcdf7
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f9bcaa8e55be6e8fddaf88ebc3f18f5dbb2811e4
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -31,7 +31,7 @@ Cuando haya terminado de leer este artículo, publique cualquier comentario o pr
 
 ## <a name="prepare-hosts"></a>Preparar los hosts
 
-- Asegúrese de que los hosts de Hyper-V cumplen los [requisitos previos](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager).
+- Asegúrese de que los hosts de Hyper-V cumplen los [requisitos previos](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-to-azure-no-vmm).
 - Asegúrese de que los hosts pueden acceder a las direcciones URL necesarias:
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
@@ -44,6 +44,6 @@ Durante la implementación de Site Recovery, se agregan hosts de Hyper-V que con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vaya al [paso 7: creación de un almacén](hyper-v-site-walkthrough-create-vault.md)
+Vaya al [paso 7: Creación de un almacén](hyper-v-site-walkthrough-create-vault.md)
 
 

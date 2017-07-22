@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 96c46b2c01272abfaf1dd2667a45e3818cbe49a0
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 805106c0a5cdbff1f143f22a2ae59f6d2a0bf126
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referencia de scripting JSON
@@ -3322,7 +3321,7 @@ Un sistema de archivos local se puede vincular a una factoría de datos de Azure
 #### <a name="sample-folder-path-definitions"></a>Definiciones de ruta de acceso a la carpeta de ejemplo 
 | Escenario | Host en definición de servicio vinculado | folderPath en definición de conjunto de datos |
 | --- | --- | --- |
-| Carpeta local en la máquina de Data Management Gateway::  <br/><br/>Ejemplos: D:\\\* o D:\folder\subfolder\\* |D:\\\\ (para Data Management Gateway 2.0 y versiones posteriores) <br/><br/> localhost (para versiones anteriores a Data Management Gateway 2.0) |.\\\\ o la carpeta\\\\subcarpeta (Data Management Gateway 2.0 y versiones posteriores) <br/><br/>D:\\\\ o D:\\\\carpeta\\\\subcarpeta (para versiones de la puerta de enlace interiores a 2.0) |
+| Carpeta local en la máquina de Data Management Gateway::  <br/><br/>Ejemplos: D:\\\* o D:\folder\subfolder\\* |D:\\\\ (para Data Management Gateway 2.0 y versiones posteriores) <br/><br/> localhost (para versiones anteriores a Data Management Gateway 2.0) |\\\\ o la carpeta\\\\subcarpeta (Data Management Gateway 2.0 y versiones posteriores) <br/><br/>D:\\\\ o D:\\\\carpeta\\\\subcarpeta (para versiones de la puerta de enlace interiores a 2.0) |
 | Carpeta compartida remota:  <br/><br/>Ejemplos: \\\\myserver\\share\\\* o \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\ |.\\\\ o carpeta\\\\subcarpeta |
 
 
@@ -4849,9 +4848,10 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "clusterSize": 4,
+            "version": "3.5",
+            "clusterSize": 1,
             "timeToLive": "00:05:00",
-            "osType": "linux",
+            "osType": "Linux",
             "linkedServiceName": "StorageLinkedService"
         }
     }
@@ -5383,7 +5383,7 @@ Tenga en cuenta los siguientes puntos:
 - La propiedad de **tipo** se establece en **HDInsightSpark**.
 - El valor de **rootPath** se establece en **adfspark\\pyFiles**, donde adfspark es el contenedor de Azure Blob y pyFiles es la carpeta adecuada en ese contenedor. En este ejemplo, la instancia de Azure Blob Storage es la que está asociada con el clúster de Spark. Puede cargar el archivo en un almacenamiento de Azure diferente. Si lo hace, cree un servicio vinculado de Azure Storage para vincular esa cuenta de almacenamiento con la factoría de datos. A continuación, especifique el nombre del servicio vinculado como un valor de la propiedad **sparkJobLinkedService**. Consulte las [propiedades de la actividad de Spark](#spark-activity-properties) para más detalles sobre esta y otras propiedades que admite la actividad de Spark.
 - El valor de **entryFilePath** se establece en **test.py**, que es el archivo de Python. 
-- La propiedad **getDebugInfo** está establecida en **Siempre**, lo que significa que siempre se generan archivos de registro (acierto o error).    
+- La propiedad **getDebugInfo** está establecida en **Siempre**, lo que significa que siempre se generan archivos de registro (acierto o error).  
 
     > [!IMPORTANT]
     > Se recomienda que no establezca esta propiedad como Siempre en un entorno de producción, a menos que esté solucionando un problema. 

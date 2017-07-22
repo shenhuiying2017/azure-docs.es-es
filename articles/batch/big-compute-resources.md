@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: big-compute
 ms.date: 03/17/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: aff11fe3d7e4cea3580f73d54a53d9624e4f3ac9
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 18be9f503b57117a7e8f5f0a4e9c93614cc7755b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="big-compute-in-azure-technical-resources-for-batch-and-high-performance-computing"></a>Big Compute en Azure: Recursos técnicos para informática de alto rendimiento y computación por lotes
@@ -77,7 +77,7 @@ Use estas plantillas de Azure para implementar clústeres de HPC de Linux.
 * [Foro de MPI](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
 
 ## <a name="compute-intensive-instances"></a>Instancias de proceso intensivo
-Azure ofrece un [rango de tamaños de VM](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), que incluye instancias de [serie H con un proceso intensivo](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) con capacidad para conectarse a una red RDMA de back-end, para ejecutar cargas de trabajo HPC de Linux y Windows. 
+Azure ofrece un [rango de tamaños de VM](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), que incluye instancias de [serie H con un proceso intensivo](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) con capacidad para conectarse a una red RDMA de back-end, para ejecutar cargas de trabajo HPC de Linux y Windows. 
 
 * [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](../virtual-machines/linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](../virtual-machines/windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
