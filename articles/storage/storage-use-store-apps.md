@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff0c9f9c800b0e4764efb88e43087bd96fa820e9
-ms.openlocfilehash: 7b02809da6082886b4e2982a698cef09212b6862
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 43d38584270fbbbe6fa4e4ff8cef72ca44e14acc
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-use-azure-storage-in-windows-store-apps"></a>Uso de Almacenamiento de Azure en las aplicaciones de la Tienda Windows
@@ -27,7 +26,7 @@ ms.lasthandoff: 07/06/2017
 Esta guía le muestra cómo comenzar con el desarrollo de una aplicación de la Tienda Windows que haga uso del almacenamiento de Azure.
 
 ## <a name="download-required-tools"></a>Descarga de las herramientas necesarias
-* [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) hace que sea fácil compilar, depurar, localizar, empaquetar e implementar aplicaciones de la Tienda Windows. Se requiere Visual Studio 2012 o posterior.
+* [Visual Studio](https://www.visualstudio.com/downloads/) hace que sea fácil compilar, depurar, localizar, empaquetar e implementar aplicaciones de la Tienda Windows. Se requiere Visual Studio 2012 o posterior.
 * La [Biblioteca de cliente de Almacenamiento de Azure](https://www.nuget.org/packages/WindowsAzure.Storage) proporciona una biblioteca de clases en tiempo de ejecución de Windows para trabajar con Almacenamiento de Azure.
 * [Herramientas de servicios de datos WCF para aplicaciones de la Tienda Windows](http://www.microsoft.com/download/details.aspx?id=30714) amplía la experiencia de incorporación de referencias de servicios gracias a la compatibilidad de OData del lado cliente en aplicaciones de la Tienda Windows en Visual Studio.
 

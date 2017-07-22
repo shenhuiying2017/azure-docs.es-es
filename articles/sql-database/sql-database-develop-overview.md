@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 50024fdb487e859b870a1025b23790f1cc5d1a18
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 94257b68b3a0f62f4ade727277a904ceec082c05
 ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-database-application-development-overview"></a>Introducción al desarrollo de aplicaciones en SQL Database
@@ -36,7 +35,7 @@ Existen ejemplos de código para diferentes lenguajes de programación y platafo
 * Más información: [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
 
 ## <a name="tools"></a>Herramientas 
-Puede aprovechar herramientas de código abierto como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) o [VS Code](https://code.visualstudio.com/). Además, Azure SQL Database funciona con herramientas de Microsoft como [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) y [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  También puede usar el Portal de administración de Azure, PowerShell y API de REST, que le ayudan a obtener más productividad.
+Puede aprovechar herramientas de código abierto como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) o [VS Code](https://code.visualstudio.com/). Además, Azure SQL Database funciona con herramientas de Microsoft como [Visual Studio](https://www.visualstudio.com/downloads/) y [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  También puede usar el Portal de administración de Azure, PowerShell y API de REST, que le ayudan a obtener más productividad.
 
 ## <a name="resource-limitations"></a>Limitaciones de recursos
 Base de datos SQL de Azure administra los recursos disponibles para una base de datos mediante dos mecanismos diferentes: Regulación de recursos y Aplicación de límites.

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 91b138ee9590a66c63e2055eaeace82b4e719ae5
-ms.lasthandoff: 01/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0aeb02c8a07728cd17aa937614c5c20dd0bf102b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Soporte de AMQP 1.0 en el Bus de servicio
@@ -90,16 +90,12 @@ En este momento las siguientes bibliotecas de cliente están trabajando con el B
 
 * [Uso de Service Bus desde .NET con AMQP]
 * [Uso de Service Bus desde Java con AMQP]
-* [Uso de Service Bus desde Python con AMQP]
-* [Uso de Service Bus desde PHP con AMQP]
 * [Instalación de Apache Qpid Proton-C en una VM Linux de Azure]
 * [AMQP de Service Bus para Windows Server]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Uso de Service Bus desde .NET con AMQP]: service-bus-amqp-dotnet.md
 [Uso de Service Bus desde Java con AMQP]: service-bus-amqp-java.md
-[Uso de Service Bus desde Python con AMQP]: service-bus-amqp-python.md
-[Uso de Service Bus desde PHP con AMQP]: service-bus-amqp-php.md
 [Instalación de Apache Qpid Proton-C en una VM Linux de Azure]: service-bus-amqp-apache.md
 [AMQP de Service Bus para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 

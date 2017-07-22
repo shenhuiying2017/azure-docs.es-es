@@ -4,7 +4,7 @@ description: Describe los diodos emisores de luz (LED) y alarmas audibles que se
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 06/05/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0b8efafadee9bb7636bb204b55758f18a86cf049
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d44f94719bff0cb58b3727050598e55f4774e66
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -107,7 +109,7 @@ El estado del PCM se indica en el panel de LED. El panel de LED de PCM del dispo
 ## <a name="pcm-leds-for-the-ebod-enclosure"></a>LED de PCM del revestimiento de EBOD
 El revestimiento de EBOD tiene un PCM de 580 W sin batería adicional. El panel del PCM del revestimiento de EBOD tiene LED únicamente para las fuentes de alimentación y el ventilador. En la siguiente ilustración se muestran estos indicadores.
 
-   ![ LED de PCM del revestimiento de EBOD][3] 
+   ![LED de PCM del revestimiento de EBOD][3] 
 
 Use la siguiente tabla para conocer el estado del PCM.  
 
@@ -135,7 +137,7 @@ Use la siguiente tabla para saber si el módulo del controlador está funcionand
 ### <a name="controller-indicator-leds"></a>Indicadores LED de controlador
 | LED | Description |
 | --- | --- |
-| LED de identificación (azul) |Indica que el módulo se está identificando. Si el LED azul parpadea en un controlador en funcionamiento, quiere decir que es el controlador activo y el otro, el controlador en modo de espera. Para más información, consulte [Identificar el controlador activo en el dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| LED de identificación (azul) |Indica que el módulo se está identificando. Si el LED azul parpadea en un controlador en funcionamiento, quiere decir que es el controlador activo y el otro, el controlador en modo de espera. Para más información, consulte [Identificar el controlador activo en el dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de error (ámbar) |Indica un error en el controlador. |
 | LED correcto (verde) |Un color verde fijo indica que el controlador funciona correctamente. La intermitencia en verde indica un error de configuración de VPD del controlador. |
 | LED de actividad SAS (verde) |Un color verde fijo señala una conexión sin ninguna actividad actual. La intermitencia en verde indica que la conexión tiene una actividad en curso. |
@@ -209,12 +211,11 @@ En la siguiente tabla se describen los distintos estados de alarma.
 > * Si en el estado de alarma S1 no presiona Silenciar en los siguientes 2 minutos, pasará automáticamente a S2 o S3.  
 > * Los estados de alarma S1 a S4 vuelven a S0 una vez resuelta la condición de error.  
 > * Se puede pasar a un estado de error crítico S4 desde cualquier otro estado.  
-> 
-> 
 
-Puede desactivar la alarma audible presionando el botón Silencio del panel de operaciones. La alarma se silenciará automáticamente transcurridos dos minutos si el botón de silencio no se acciona manualmente. Cuando la alarma está silenciada, seguirá sonando con pitidos intermitentes breves para indicar que aún existe un problema. La alarma se silenciará por completo cuando no haya más problemas.  
 
-En la siguiente tabla se describen las diversas condiciones de alarma.  
+Puede desactivar la alarma audible presionando el botón Silencio del panel de operaciones. La alarma se silenciará automáticamente transcurridos dos minutos si el botón de silencio no se acciona manualmente. Cuando la alarma está silenciada, seguirá sonando con pitidos intermitentes breves para indicar que aún existe un problema. La alarma se silenciará por completo cuando no haya más problemas.
+
+En la siguiente tabla se describen las diversas condiciones de alarma.
 
 ### <a name="alarm-conditions"></a>Condiciones de alarma
 | Estado | Gravedad | Alarma | LED del panel de operaciones |
@@ -240,7 +241,7 @@ En la siguiente tabla se describen las diversas condiciones de alarma.
 | Alimentación insuficiente disponible |Warning (Advertencia) |None |Error de módulo |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre los [componentes de hardware de StorSimple y su estado](storsimple-monitor-hardware-status.md).
+Obtenga más información sobre los [componentes de hardware de StorSimple y su estado](storsimple-8000-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
@@ -249,10 +250,5 @@ Obtenga más información sobre los [componentes de hardware de StorSimple y su 
 [5]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE05.png
 [6]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE06.png
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

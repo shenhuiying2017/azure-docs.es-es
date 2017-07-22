@@ -4,7 +4,7 @@ description: "Describe cómo instalar y configurar o quitar el adaptador de Stor
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 36c20b75-f2e5-4184-a6b5-9c5e618f79b2
 ms.service: storsimple
@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/11/2016
+ms.date: 06/06/2017
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
-ms.openlocfilehash: 8c7bcc959c15399e8be96eb8f37634d2763a3115
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8910471e09b9ecc797005818538ccfc6a91c68a9
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,8 +30,7 @@ El adaptador de StorSimple para SharePoint funciona como un proveedor de almacen
 
 > [!NOTE]
 > El adaptador de StorSimple para SharePoint admite el almacenamiento remoto de blobs (RBS) de SharePoint Server 2010. No admite el almacenamiento externo de blobs (EBS) de SharePoint Server 2010.
-> 
-> 
+
 
 * Para descargar el adaptador de StorSimple para SharePoint, vaya a [Adaptador de StorSimple para SharePoint][1] en el Centro de descarga de Microsoft.
 * Para obtener información sobre planeación de RBS y sus limitaciones, vaya a [Optar por usar RBS en SharePoint 2013][2] o [Planeación de RBS (SharePoint Server 2010)][3].
@@ -85,11 +86,9 @@ Revise lo siguiente antes de configurar RBS:
 
 > [!WARNING]
 > Si no tiene RBS habilitado, no es recomendable mover la base de datos de contenido al dispositivo StorSimple. Se trata de una configuración no probada.
-> 
-> 
 
 ## <a name="storsimple-adapter-for-sharepoint-installation"></a>Instalación del adaptador de StorSimple para SharePoint
-Antes de instalar al adaptador de StorSimple para SharePoint, debe configurar el dispositivo StorSimple y asegurarse de que la granja de servidores de SharePoint y la creación de instancias de SQL Server cumplen todos los requisitos previos. En este tutorial se describen los requisitos de configuración, así como los procedimientos de instalación y actualización del adaptador de StorSimple para SharePoint. 
+Antes de instalar al adaptador de StorSimple para SharePoint, debe configurar el dispositivo StorSimple y asegurarse de que la granja de servidores de SharePoint y la creación de instancias de SQL Server cumplen todos los requisitos previos. En este tutorial se describen los requisitos de configuración, así como los procedimientos de instalación y actualización del adaptador de StorSimple para SharePoint.
 
 ## <a name="configure-prerequisites"></a>Configuración de los requisitos previos
 Antes de instalar al adaptador de StorSimple para SharePoint, asegúrese de que el dispositivo StorSimple, la granja de servidores de SharePoint y la creación de instancias de SQL Server cumplen los siguientes requisitos previos.
@@ -97,47 +96,44 @@ Antes de instalar al adaptador de StorSimple para SharePoint, asegúrese de que 
 ### <a name="system-requirements"></a>Requisitos del sistema
 El adaptador de StorSimple para SharePoint funciona con el siguiente hardware y software:
 
-* Sistema operativo compatible: Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2. 
+* Sistema operativo compatible: Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2.
 * Versiones de SharePoint compatibles: SharePoint Server 2010 o SharePoint Server 2013
 * Versiones de SQL Server compatibles: SQL Server 2008 Enterprise Edition, SQL Server 2008 R2 Enterprise Edition o SQL Server 2012 Enterprise Edition 
 * Dispositivos StorSimple compatibles: serie StorSimple 8000, serie StorSimple 7000 o serie StorSimple 5000.
 
 ### <a name="storsimple-device-configuration-prerequisites"></a>Requisitos previos de configuración del dispositivo StorSimple
-El dispositivo StorSimple es un dispositivo de bloques y, como tal, requiere un servidor de archivos en el que se pueden hospedar los datos. Recomendamos utilizar un servidor independiente en lugar de un servidor existente de la granja de servidores de SharePoint. Este servidor de archivos debe estar en la misma red de área local (LAN) que el equipo con SQL Server que hospeda las bases de datos de contenido. 
+El dispositivo StorSimple es un dispositivo de bloques y, como tal, requiere un servidor de archivos en el que se pueden hospedar los datos. Recomendamos utilizar un servidor independiente en lugar de un servidor existente de la granja de servidores de SharePoint. Este servidor de archivos debe estar en la misma red de área local (LAN) que el equipo con SQL Server que hospeda las bases de datos de contenido.
 
 > [!TIP]
 > * Si configura su granja de SharePoint para alta disponibilidad, también debe implementar el servidor de archivos para alta disponibilidad.
 > * Si no almacena la base de datos de contenido en el dispositivo StorSimple, utilice los procedimientos recomendados de alta disponibilidad tradicionales compatibles con RB. La agrupación en clústeres de SQL Server admite RBS, mientras que la creación de reflejos de SQL Server no es compatible. 
-> 
-> 
 
-Asegúrese de configurar correctamente su dispositivo StorSimple y de configurar los volúmenes apropiados para respaldar la implementación de SharePoint de modo que sean accesibles desde su equipo con SQL Server. Vaya a [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md) si todavía no ha implementado ni configurado su dispositivo StorSimple. Anote la dirección IP del dispositivo StorSimple ya que la necesitará durante la instalación del adaptador de StorSimple para SharePoint. 
+
+Asegúrese de configurar correctamente su dispositivo StorSimple y de configurar los volúmenes apropiados para respaldar la implementación de SharePoint de modo que sean accesibles desde su equipo con SQL Server. Vaya a [Implementar el dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md) si todavía no ha implementado ni configurado su dispositivo StorSimple. Anote la dirección IP del dispositivo StorSimple ya que la necesitará durante la instalación del adaptador de StorSimple para SharePoint.
 
 Además, asegúrese de que el volumen que se utilizará para la externalización de BLOBs cumple los siguientes requisitos:
 
 * El volumen debe formatearse con un tamaño de unidad de asignación de 64 KB.
-* Los servidores front-end web (WFE) y de aplicaciones deben tener la capacidad de obtener acceso al volumen a través de la ruta de acceso UNC (convención de nomenclatura universal). 
+* Los servidores front-end web (WFE) y de aplicaciones deben tener la capacidad de obtener acceso al volumen a través de la ruta de acceso UNC (convención de nomenclatura universal).
 * La granja de servidores de SharePoint debe configurarse para escribir en el volumen.
 
 > [!NOTE]
 > Después de instalar y configurar el adaptador, toda la externalización de BLOBs debe pasar por el dispositivo StorSimple (el dispositivo presentará los volúmenes a SQL Server y administrará las capas de almacenamiento). No puede utilizar ningún otro destino para la externalización de BLOBs.
-> 
-> 
 
-Si planea utilizar el Administrador de instantáneas StorSimple para tomar instantáneas de los datos de bases de datos y de BLOB, asegúrese de instalar el Administrador de instantáneas StorSimple en el servidor de bases de datos, de modo que pueda utilizar el servicio del objeto de escritura de SQL para implementar el servicio de instantáneas de volumen (VSS) de Windows. 
+
+Si planea utilizar el Administrador de instantáneas StorSimple para tomar instantáneas de los datos de bases de datos y de BLOB, asegúrese de instalar el Administrador de instantáneas StorSimple en el servidor de bases de datos, de modo que pueda utilizar el servicio del objeto de escritura de SQL para implementar el servicio de instantáneas de volumen (VSS) de Windows.
 
 > [!IMPORTANT]
-> El Administrador de instantáneas StorSimple no admite el objeto de escritura del VSS de SharePoint y no puede tomar instantáneas coherentes con la aplicación de los datos de SharePoint. En un escenario de SharePoint, el Administrador de instantáneas StorSimple proporciona solo copias de seguridad preparadas para bloqueos. 
-> 
-> 
+> El Administrador de instantáneas StorSimple no admite el objeto de escritura del VSS de SharePoint y no puede tomar instantáneas coherentes con la aplicación de los datos de SharePoint. En un escenario de SharePoint, el Administrador de instantáneas StorSimple proporciona solo copias de seguridad preparadas para bloqueos.
+
 
 ## <a name="sharepoint-farm-configuration-prerequisites"></a>Requisitos previos de configuración de la granja de SharePoint
 Asegúrese de que su granja de servidores de SharePoint está configurada correctamente, de la siguiente manera:
 
-* Verifique que la granja de servidores de SharePoint esté en buen estado y compruebe lo siguiente: 
+* Verifique que la granja de servidores de SharePoint esté en buen estado y compruebe lo siguiente:
 * Todos los servidores de aplicaciones y WFE de SharePoint registrados en la granja están en funcionamiento y se les puede hacer ping desde el servidor en el que instalará el adaptador de StorSimple para SharePoint.
 * El servicio de temporizador de SharePoint (SPTimerV3 o SPTimerV4) está en ejecución en cada servidor WFE y servidor de aplicaciones.
-* El servicio de temporizador de SharePoint y el grupo de aplicaciones de IIS en que se ejecuta el sitio de administración central de SharePoint tienen privilegios administrativos. 
+* El servicio de temporizador de SharePoint y el grupo de aplicaciones de IIS en que se ejecuta el sitio de administración central de SharePoint tienen privilegios administrativos.
 * Asegúrese de que Internet Explorer Enhanced Security Context (IE ESC) está deshabilitado. Siga estos pasos para deshabilitar IE ESC:
   
   1. Cierre todas las instancias de Internet Explorer.
@@ -168,8 +164,7 @@ Después de instalar el adaptador de StorSimple para SharePoint, configure RBS s
 
 > [!TIP]
 > El adaptador de StorSimple para SharePoint se conecta a la página Administración central de SharePoint, lo que permite habilitar o deshabilitar RBS en cada base de datos de contenido de la granja de SharePoint. Sin embargo, habilitar o deshabilitar RBS en la base de datos de contenido causa el restablecimiento de IIS, el cual, según la configuración de la granja, puede interrumpir momentáneamente la disponibilidad del front-end web (WFE) de SharePoint. (Factores como el uso de un equilibrador de carga front-end, la carga de trabajo actual del servidor, etc., pueden limitar o eliminar tal interrupción). Para proteger a los usuarios de las interrupciones, recomendamos habilitar o deshabilitar RBS solo durante una ventana de mantenimiento planificada.
-> 
-> 
+
 
 [!INCLUDE [storsimple-sharepoint-adapter-configure-rbs](../../includes/storsimple-sharepoint-adapter-configure-rbs.md)]
 
@@ -182,8 +177,7 @@ Para obtener información sobre cómo configurar y usar el programa de mantenimi
 
 > [!IMPORTANT]
 > El programa del mantenedor de RBS realiza un uso intensivo de recursos. Debe programarlo para que se ejecute solo durante periodos de poca actividad en la granja de SharePoint.
-> 
-> 
+
 
 ### <a name="delete-orphaned-blobs-immediately"></a>Elimine los BLOBS huérfanos de inmediato
 Si necesita eliminar BLOBS huérfanos inmediatamente, puede utilizar las siguientes instrucciones. Tenga en cuenta que estas instrucciones son un ejemplo de cómo se puede hacer esto en un entorno de SharePoint 2013 con los siguientes componentes:
@@ -195,7 +189,7 @@ Si necesita eliminar BLOBS huérfanos inmediatamente, puede utilizar las siguien
 [!INCLUDE [storsimple-sharepoint-adapter-garbage-collection](../../includes/storsimple-sharepoint-adapter-garbage-collection.md)]
 
 ## <a name="upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint"></a>Actualización o reinstalación del adaptador de StorSimple para SharePoint
-Utilice el siguiente procedimiento para actualizar el servidor de SharePoint y luego reinstalar el adaptador StorSimple para SharePoint, o simplemente para actualizar o reinstalar el adaptador en una granja de servidores de SharePoint existente. 
+Utilice el siguiente procedimiento para actualizar el servidor de SharePoint y luego reinstalar el adaptador StorSimple para SharePoint, o simplemente para actualizar o reinstalar el adaptador en una granja de servidores de SharePoint existente.
 
 > [!IMPORTANT]
 > Revise la siguiente información antes de intentar actualizar su software de SharePoint y/o actualizar o reinstalar el adaptador de StorSimple para SharePoint:
@@ -204,8 +198,7 @@ Utilice el siguiente procedimiento para actualizar el servidor de SharePoint y l
 > * El tiempo necesario para la actualización o reinstalación puede variar en función del número total de bases de datos de SharePoint contenidas en la granja de servidores de SharePoint.
 > * Una vez completada la actualización o reinstalación, debe habilitar RBS para las bases de datos de contenido. Para obtener más información, vea [Configuración de RBS](#configure-rbs) .
 > * Si va a configurar RBS para una granja de SharePoint que contiene un gran número de bases de datos (más de 200), podría agotarse el tiempo de espera de la página **Administración central de SharePoint** . Si esto sucede, actualice la página. Esto no afecta al proceso de configuración.
-> 
-> 
+
 
 [!INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
 
@@ -213,9 +206,8 @@ Utilice el siguiente procedimiento para actualizar el servidor de SharePoint y l
 En lo siguientes procedimientos se describe cómo devolver los BLOBs a las bases de datos de contenido de SQL Server y luego desinstalar el adaptador de StorSimple para SharePoint. 
 
 > [!IMPORTANT]
-> Tiene que devolver los BLOB a las bases de datos de contenido antes de desinstalar el software del adaptador. 
-> 
-> 
+> Tiene que devolver los BLOB a las bases de datos de contenido antes de desinstalar el software del adaptador.
+
 
 ### <a name="before-you-begin"></a>Antes de empezar
 Recopile la siguiente información antes de devolver los datos a las bases de datos de contenido de SQL Server y comenzar el proceso de eliminación del adaptador:
@@ -230,7 +222,7 @@ Antes de desinstalar el adaptador de StorSimple para el software de SharePoint, 
 
 #### <a name="to-move-the-blobs-back-to-the-content-databases"></a>Para devolver los blobs a las bases de datos de contenido
 1. Descargue cada objeto externalizado.
-2. Abra la página **Administración central de SharePoint** y vaya a **Configuración del sistema**. 
+2. Abra la página **Administración central de SharePoint** y vaya a **Configuración del sistema**.
 3. En **Azure StorSimple**, haga clic en **Configurar el adaptador de StorSimple**.
 4. En la página **Configurar el adaptador de StorSimple**, haga clic en el botón **Deshabilitar** debajo de cada una de las bases de datos de contenido que quiere quitar del almacenamiento de blobs externo. 
 5. Elimine los objetos de SharePoint y luego vuelva a cargarlos.
@@ -260,7 +252,7 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 
 #### <a name="to-use-the-control-panel-to-uninstall-the-adapter"></a>Para usar el Panel de Control para desinstalar el adaptador
 1. Abra el Panel de Control y luego haga clic en **Programas y características**.
-2. Seleccione **Adaptador de StorSimple para SharePoint** y luego haga clic en **Desinstalar**. 
+2. Seleccione **Adaptador de StorSimple para SharePoint** y luego haga clic en **Desinstalar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Obtenga más información sobre StorSimple](storsimple-overview.md).
@@ -272,9 +264,4 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
