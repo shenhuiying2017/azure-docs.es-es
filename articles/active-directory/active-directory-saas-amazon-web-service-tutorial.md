@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 07/20/2017
 ms.author: jeedes
+ms.reviewer: jeedes
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 61999ebea05371c53e5ff27644a68039db1aef96
 ms.contentlocale: es-es
 ms.lasthandoff: 05/18/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: integración de Azure Active Directory con Amazon Web Service (AWS)
@@ -133,7 +133,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | Nombre del atributo  | Valor de atributo | Espacio de nombres |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | Rol               | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+    | Rol            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Debe configurar el aprovisionamiento de usuarios en Azure AD para capturar todos los roles de la consola de AWS. Consulte los pasos de aprovisionamiento a continuación.
@@ -172,13 +172,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Configurar inicio de sesión único][14]
  
-      a. En **Tipo de proveedor**, seleccione **SAML**.
+    a. En **Tipo de proveedor**, seleccione **SAML**.
 
-      b. En el cuadro de texto **Provider Name** (Nombre de proveedor), escriba un nombre de proveedor (por ejemplo, *WAAD*).
+    b. En el cuadro de texto **Provider Name** (Nombre de proveedor), escriba un nombre de proveedor (por ejemplo, *WAAD*).
 
-      c. Haga clic en **Elegir archivo**para cargar el archivo de metadatos descargado.
+    c. Haga clic en **Elegir archivo**para cargar el archivo de metadatos descargado.
 
-      d. Haga clic en **Siguiente paso**.
+    d. Haga clic en **Siguiente paso**.
 
 13. En la página de diálogo **Verify Provider Information** (Comprobar la información del proveedor), haga clic en **Crear**. 
     
@@ -192,25 +192,25 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Configurar inicio de sesión único][17] 
 
-      a. En el cuadro de texto **Nombre de rol**, escriba un nombre de rol (por ejemplo, *TestUser*). 
+    a. En el cuadro de texto **Nombre de rol**, escriba un nombre de rol (por ejemplo, *TestUser*). 
 
-      b. Haga clic en **Siguiente paso**.
+    b. Haga clic en **Siguiente paso**.
 
 16. En el cuadro de diálogo **Select Role Type** (Seleccionar tipo de rol), realice los siguientes pasos: 
     
     ![Configurar inicio de sesión único][18] 
 
-      a. Seleccione **Rol de acceso del proveedor de identidades**. 
+    a. Seleccione **Rol de acceso del proveedor de identidades**. 
 
-      b. En la sección **Conceder acceso de inicio de sesión único web (WebSSO)** a los proveedores de SAML, haga clic en **Seleccionar**.
+    b. En la sección **Conceder acceso de inicio de sesión único web (WebSSO)** a los proveedores de SAML, haga clic en **Seleccionar**.
 
 17. En el cuadro de diálogo **Establecer confianza** , realice los siguientes pasos:  
     
     ![Configurar inicio de sesión único][19] 
 
-      a. Como proveedor de SAML, seleccione el proveedor de SAML que ha creado antes (por ejemplo, *WAAD*).
+    a. Como proveedor de SAML, seleccione el proveedor de SAML que ha creado antes (por ejemplo, *WAAD*).
   
-      b. Haga clic en **Siguiente paso**.
+    b. Haga clic en **Siguiente paso**.
 
 18. En el diálogo **Verify Role Trust** (Comprobar la confianza del rol), haga clic en **Paso siguiente**.
     
@@ -224,7 +224,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Configurar inicio de sesión único][34]
  
-      a. Haga clic en **Crear rol**.
+    a. Haga clic en **Crear rol**.
 
     b. Cree tantos roles como sea necesario y asígnelos al proveedor de identidades.
 

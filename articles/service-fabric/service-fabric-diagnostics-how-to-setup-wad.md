@@ -3,7 +3,7 @@ title: "Recopilación de registros con Diagnósticos de Azure | Microsoft Docs"
 description: "En este artículo se describe cómo configurar Diagnósticos de Azure para recopilar registros de un clúster de Service Fabric que se ejecute en Azure."
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: 9f7e1fa5-6543-4efd-b53f-39510f18df56
@@ -13,18 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
-ms.author: dekapur
+ms.author: ryanwi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: e8b6709d4b2cbb71fdf2d83c9a95998ab147b4ba
 ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
-
 ---
-<a id="collect-logs-by-using-azure-diagnostics" class="xliff"></a>
-
-# Recopilación de registros con Diagnósticos de Azure
+# <a name="collect-logs-by-using-azure-diagnostics"></a>Recopilación de registros con Diagnósticos de Azure
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 > * [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
@@ -35,9 +32,7 @@ Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar 
 
 Uno de los métodos para cargar y recopilar registros es usar la extensión Diagnósticos de Azure, que carga registros en Azure Storage, Azure Application Insights o Azure Event Hubs. Los registros no son tan útiles directamente en Storage o en Event Hubs. No obstante, puede usar un proceso externo para leer los eventos desde el almacenamiento y colocarlos en un producto como [Log Analytics](../log-analytics/log-analytics-service-fabric.md) u otra solución de análisis de registros. [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) tiene integrado un servicio integral de análisis y búsqueda de registros.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Use estas herramientas para realizar algunas de las operaciones que se describen en este documento:
 
 * [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (relacionado con Azure Cloud Services, aunque con información y ejemplos adecuados)
@@ -46,23 +41,17 @@ Use estas herramientas para realizar algunas de las operaciones que se describen
 * [Cliente de Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<a id="log-sources-that-you-might-want-to-collect" class="xliff"></a>
-
-## Orígenes de registros que puede recopilar
+## <a name="log-sources-that-you-might-want-to-collect"></a>Orígenes de registros que puede recopilar
 * **Registros de Service Fabric:** emitidos por la plataforma a los canales EventSource y Seguimiento de eventos para Windows (ETW) estándar. Los registros pueden ser de uno de los varios tipos que hay:
   * Eventos operativos: se trata de registros para las operaciones realizadas por la plataforma Service Fabric. Algunos ejemplos son la creación de aplicaciones y servicios, los cambios de estado de nodo y la información sobre la actualización.
   * [Eventos del modelo de programación de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
   * [Eventos del modelo de programación de Reliable Services](service-fabric-reliable-services-diagnostics.md)
 * **Eventos de aplicaciones:** son los eventos que se emiten desde el código de los servicios y que se escriben mediante la clase auxiliar EventSource proporcionada en las plantillas de Visual Studio. Para obtener más información sobre cómo escribir registros de la aplicación, vea [Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
-<a id="deploy-the-diagnostics-extension" class="xliff"></a>
-
-## Implementación de la extensión de Diagnósticos
+## <a name="deploy-the-diagnostics-extension"></a>Implementación de la extensión de Diagnósticos
 El primer paso para recopilar registros será implementar la extensión WAD en cada una de las máquinas virtuales del clúster de Service Fabric. La extensión de Diagnósticos recopila registros en cada máquina virtual y los carga a la cuenta de almacenamiento que especifique. Los pasos varían ligeramente en función de si se utiliza Azure Portal o Azure Resource Manager. Los pasos varían también en función de si la implementación forma parte de la creación del clúster o si es para un clúster que ya existe. Echemos un vistazo a los pasos para cada escenario.
 
-<a id="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-the-portal" class="xliff"></a>
-
-### Implementación de la extensión de Diagnósticos como parte de la creación del clúster a través del portal
+### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-the-portal"></a>Implementación de la extensión de Diagnósticos como parte de la creación del clúster a través del portal
 Para implementar la extensión de Diagnósticos en las máquinas virtuales del clúster como parte de la creación de dicho clúster, se usa el panel Configuración de diagnóstico que se muestra en la imagen siguiente. Para habilitar la recopilación de eventos de Reliable Actors o Reliable Services, asegúrese de que Diagnósticos esté definido en **Activado** (se trata de la configuración predeterminada). Después de crear el clúster, no puede cambiar esta configuración mediante el portal.
 
 ![Configuración de Diagnósticos de Azure en el portal para crear un clúster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
@@ -91,9 +80,7 @@ Para usar la plantilla descargada para actualizar una configuración, siga estos
 3. Inicie PowerShell y cambie a la carpeta donde extrajo el contenido.
 4. Ejecute **deploy.ps1** y rellene el id. de suscripción, el nombre del grupo de recursos (use el mismo nombre para actualizar la configuración) y un nombre de implementación exclusivo.
 
-<a id="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager" class="xliff"></a>
-
-### Implementación de la extensión de Diagnósticos como parte de la creación del clúster a través del Administrador de recursos de Azure
+### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Implementación de la extensión de Diagnósticos como parte de la creación del clúster a través del Administrador de recursos de Azure
 Para crear un clúster mediante el Resource Manager, tiene que agregar el JSON de la configuración de Diagnósticos a la plantilla de Resource Manager del clúster completo antes de crear el clúster. Dentro de los ejemplos de plantillas del Administrador de recursos, proporcionamos una plantilla de ejemplo del Administrador de recursos de clúster de cinco máquinas virtuales con la configuración de Diagnósticos añadida. Puede verlo en: [Ejemplo de plantilla de clúster de cinco nodos con el Administrador de recursos de Diagnósticos](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)en la galería de ejemplos de Azure.
 
 Para ver la configuración de Diagnósticos en la plantilla de Resource Manager, abra el archivo azuredeploy.json y busque **IaaSDiagnostics**. Para crear un clúster con esta plantilla, presione el botón **Deploy to Azure** (Implementar en Azure) disponible en el vínculo anterior.
@@ -105,9 +92,7 @@ También puede descargar el ejemplo de Resource Manager, modificarlo y crear un 
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
-<a id="deploy-the-diagnostics-extension-to-an-existing-cluster" class="xliff"></a>
-
-### Implementación de la extensión de Diagnósticos en un clúster existente
+### <a name="deploy-the-diagnostics-extension-to-an-existing-cluster"></a>Implementación de la extensión de Diagnósticos en un clúster existente
 Si tiene un clúster existente que no tiene implementada la extensión Diagnósticos, o bien quiere modificar una configuración existente, puede agregarla o actualizarla. Modifique la plantilla de Resource Manager usada para crear el clúster existente o descargue la plantilla desde el portal, tal como se describió anteriormente. Modifique el archivo template.json mediante la realización de las siguientes tareas.
 
 Agregue un nuevo recurso de almacenamiento a la plantilla mediante una adición en la sección de recursos.
@@ -209,9 +194,7 @@ Luego, actualice la sección `VirtualMachineProfile` del archivo template.json. 
 
 Después de modificar el archivo template.json tal como se indicó, vuelva a publicar la plantilla de Resource Manager. En caso de que la plantilla se haya exportado, si ejecuta el archivo deploy.ps1 , se vuelve a publicar dicha plantilla. Después de realizar la implementación, asegúrese de que el estado **ProvisioningState** sea **Correcto**.
 
-<a id="update-diagnostics-to-collect-health-and-load-events" class="xliff"></a>
-
-## Actualización de diagnósticos para la recopilación de eventos de carga y estado de mantenimiento
+## <a name="update-diagnostics-to-collect-health-and-load-events"></a>Actualización de diagnósticos para la recopilación de eventos de carga y estado de mantenimiento
 
 A partir de la versión 5.4 de Service Fabric, los eventos de métricas de carga y estado de mantenimiento están disponibles para su recopilación. Estos eventos reflejan los eventos generados por el sistema o por el código mediante las API de generación de informes de estado de mantenimiento o carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Esto permite agregar y ver el estado de mantenimiento del sistema en el tiempo, y generar alertas basadas en eventos de estado de mantenimiento o carga. Para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000008" a la lista de proveedores de ETW.
 
@@ -230,9 +213,7 @@ Para recopilar los eventos, modifique la plantilla de Resource Manager para incl
     }
 ```
 
-<a id="update-diagnostics-to-collect-and-upload-logs-from-new-eventsource-channels" class="xliff"></a>
-
-## Actualización de Diagnósticos para recopilar y cargar registros desde nuevos canales EventSource
+## <a name="update-diagnostics-to-collect-and-upload-logs-from-new-eventsource-channels"></a>Actualización de Diagnósticos para recopilar y cargar registros desde nuevos canales EventSource
 Para actualizar Diagnósticos de forma que recopile registros de canales EventSource nuevos que representan una nueva aplicación que vaya a implementar, siga los mismos pasos que en la [sección anterior](#deploywadarm) para configurar Diagnósticos para un clúster existente.
 
 Actualice la sección `EtwEventSourceProviderConfiguration` del archivo template.json para agregar entradas para los canales EventSource nuevos antes de aplicar la actualización de la configuración mediante el comando `New-AzureRmResourceGroupDeployment` de PowerShell. El nombre del origen del evento se define como parte del código en el archivo generado en Visual Studio ServiceEventSource.cs.
@@ -251,14 +232,10 @@ Por ejemplo, si el origen del evento se denomina My-Eventsource, agregue el cód
 
 Para recopilar registros de eventos o contadores de rendimiento, modifique la plantilla de Resource Manager con los ejemplos proporcionados en [Creación de una máquina virtual de Windows con supervisión y diagnóstico mediante una plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Luego, vuelva a publicar la plantilla de Resource Manager.
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Revise los eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) y [Reliable Services](service-fabric-reliable-services-diagnostics.md) para comprender más a fondo qué eventos debería examinar durante la solución de problemas.
 
-<a id="related-articles" class="xliff"></a>
-
-## Artículos relacionados
+## <a name="related-articles"></a>Artículos relacionados
 * [Información sobre cómo recopilar registros o contadores de rendimiento mediante la extensión de Diagnósticos](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Service Fabric solution in Log Analytics](../log-analytics/log-analytics-service-fabric.md) (Solución de Service Fabric en Log Analytics)
 

@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/20/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.reviewer: jeedes
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 8b0417d131bc25225e777285b9e4bfbaa97aad8f
+ms.contentlocale: es-es
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integración de Azure Active Directory con GitHub
@@ -126,10 +127,10 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 4. En la sección **Atributos de usuario**, seleccione user.mail como **Identificador de usuario**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
-     
+    
 5. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
 
-     ![Configurar inicio de sesión único](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
+    ![Configurar inicio de sesión único](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
 6. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
 
@@ -167,9 +168,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     a. **Sign on URL** (URL de inicio de sesión): escriba la **URL de servicio de inicio de sesión único de SAML** de la sección **Configurar GitHub** en Azure AD
 
-      b. **Issuer** (Emisor): escriba el **id. de entidad de SAML** de la sección **Configurar GitHub** en Azure AD
+    b. **Issuer** (Emisor): escriba el **id. de entidad de SAML** de la sección **Configurar GitHub** en Azure AD
 
-       c. **Certificado público**: abra el certificado que se descargó de Azure AD en un bloc de notas y copie el contenido, incluido "BEGIN CERTIFICATE" y "END CERTIFICATE"
+    c. **Certificado público**: abra el certificado que se descargó de Azure AD en un bloc de notas y copie el contenido, incluido "BEGIN CERTIFICATE" y "END CERTIFICATE"
 
     ![Configuración](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
 
