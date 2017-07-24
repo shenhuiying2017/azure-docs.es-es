@@ -20,6 +20,7 @@
 ### [Supervisión de máquinas virtuales con la extensión de diagnóstico de máquinas virtuales v2.x](diagnostic-extension-v2.md)
 ### [Inyección de datos personalizados](inject-custom-data.md)
 ### [Restablecimiento de contraseñas o claves de Linux, corrección de SSH y comprobación de discos](reset-access.md)
+### [Mantenimiento](planned-maintenance-schedule.md)
 ### [Creación de un host de Docker mediante la CLI](cli-use-docker.md)
 ### [Creación de un host de Docker mediante el portal](portal-use-docker.md)
 ### [Uso de Docker con Swarm](../../virtual-machines-linux-docker-swarm.md)

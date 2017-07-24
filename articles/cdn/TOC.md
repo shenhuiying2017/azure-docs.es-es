@@ -14,8 +14,9 @@
 ### [Introducción a la optimización](cdn-optimization-overview.md)
 ####[Optimización de archivos grandes](cdn-large-file-optimization.md)
 ####[Optimización de streaming multimedia](cdn-media-streaming-optimization.md)
+####[Aceleración de sitios dinámicos](cdn-dynamic-site-acceleration.md)
  
-## Administrar
+## administración
 ### [Habilitación de HTTPS en un dominio personalizado](cdn-custom-ssl.md)
 ### [Administración con PowerShell](cdn-manage-powershell.md)
 ### Configuración del período de vida
@@ -58,6 +59,9 @@
 
 # Recursos
 ##  [Referencia del motor de reglas](cdn-rules-engine-reference.md)
+### [Expresiones condicionales del motor de reglas](cdn-rules-engine-reference-conditional-expressions.md)
+### [Características del motor de reglas](cdn-rules-engine-reference-features.md)
+### [Condiciones de coincidencia del motor de reglas](cdn-rules-engine-reference-match-conditions.md)
 ## [Ubicaciones POP de la red CDN de Azure](cdn-pop-locations.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -65,6 +69,4 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
-### [Expresiones condicionales del motor de reglas](cdn-rules-engine-reference-conditional-expressions.md)
-### [Características del motor de reglas](cdn-rules-engine-reference-features.md)
-### [Condiciones de coincidencia del motor de reglas](cdn-rules-engine-reference-match-conditions.md)
+

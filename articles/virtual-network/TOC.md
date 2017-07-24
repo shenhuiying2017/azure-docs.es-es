@@ -4,9 +4,10 @@
 ## [Emparejamiento de redes virtuales](virtual-network-peering-overview.md)
 ## [Continuidad del negocio](virtual-network-disaster-recovery-guidance.md)
 ## [Preguntas más frecuentes](virtual-networks-faq.md)
-## Direcciones IP
-### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
-### [Clásico](virtual-network-ip-addresses-overview-classic.md)
+## [Direccionamiento IP](virtual-network-ip-addresses-overview-arm.md)
+## Clásico
+### [Direccionamiento IP](virtual-network-ip-addresses-overview-classic.md)
+### [Listas de control de acceso](virtual-networks-acl.md)
 
 # Introducción
 ## [Creación de su primera red virtual](virtual-network-get-started-vnet-subnet.md)
@@ -43,7 +44,11 @@
 ##### [PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [CLI](virtual-network-create-udr-classic-cli.md)
 
-### [Emparejamiento de redes virtuales](virtual-network-create-peering.md)
+### Emparejamiento de redes virtuales de Azure
+#### [Mismo modelo de implementación, misma suscripción](virtual-network-create-peering.md)
+#### [Mismo modelo de implementación, diferentes suscripciones](create-peering-different-subscriptions.md)
+#### [Diferentes modelos de implementación, misma suscripción](create-peering-different-deployment-models.md)
+#### [Diferentes modelos de implementación, diferentes suscripciones](create-peering-different-deployment-models-subscriptions.md)
 
 ### Máquinas virtuales
 #### Creación de una máquina virtual con una dirección IP pública estática
@@ -95,17 +100,17 @@
 ##### [Aplicación de ejemplo](virtual-networks-sample-app.md)
 
 ## Configuración
-
-### Listas de control de acceso
-#### [Portal clásico](virtual-networks-acl.md)
-#### [PowerShell](virtual-networks-acl-powershell.md)
 ### Máquinas virtuales
 #### [Adición o eliminación de interfaces de red](virtual-network-network-interface-vm.md)
 #### [Resolución de nombres para las máquinas virtuales y servicios en la nube](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 #### [Optimización del rendimiento de la red](virtual-network-optimize-network-bandwidth.md)
 #### [Visión y modificación de nombres de host](virtual-networks-viewing-and-modifying-hostnames.md)
+### Clásico
+#### Listas de control de acceso
+##### [Portal](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [PowerShell](virtual-networks-acl-powershell.md)
 
-## Administrar
+## administración
 ### [Redes virtuales](virtual-network-manage-network.md)
 #### [Subredes](virtual-network-manage-subnet.md)
 #### [Emparejamientos](virtual-network-manage-peering.md)
@@ -132,6 +137,7 @@
 #### [Portal](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Pruebas de rendimiento](virtual-network-bandwidth-testing.md)
+### [No se pueden eliminar redes virtuales](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Referencia
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)

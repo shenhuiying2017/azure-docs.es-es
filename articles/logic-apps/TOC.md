@@ -62,14 +62,14 @@
 
 ## Administración y supervisión
 ### [Administración de aplicaciones lógicas con Visual Studio](logic-apps-manage-from-vs.md)
-### [Supervisión de aplicaciones lógicas](logic-apps-monitor-your-logic-apps.md)
 ### [Administración de cuentas de integración](logic-apps-enterprise-integration-accounts.md)
+### [Supervisión del estado de las aplicaciones lógicas](logic-apps-monitor-your-logic-apps.md)
 ### [Supervisión de mensajes B2B](logic-apps-monitor-b2b-message.md)
+#### [Seguimiento de mensajes B2B en OMS](logic-apps-track-b2b-messages-omsportal.md)
+#### [Consulta de OMS para mensajes B2B](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 #### [Esquema de seguimiento de AS2](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [Esquemas de seguimiento de X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Esquema de seguimiento personalizado](logic-apps-track-integration-account-custom-tracking-schema.md)
-#### [Seguimiento de mensajes B2B en OMS](logic-apps-track-b2b-messages-omsportal.md)
-#### [Consulta de OMS para mensajes](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
 ## Ejemplos, escenarios y tutoriales
 ### [Información general](logic-apps-examples-and-scenarios.md)
@@ -81,7 +81,6 @@
 ## Precios y facturación
 ### [Precios](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Medición de uso](logic-apps-pricing.md)
-
 
 # Sin servidor
 ## Información general

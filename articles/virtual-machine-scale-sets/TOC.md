@@ -14,6 +14,7 @@
 ### [Más información acerca de las plantillas de conjunto de escalado](virtual-machine-scale-sets-mvss-start.md)
 ### [Uso de una red virtual existente](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [Uso de una imagen personalizada](virtual-machine-scale-sets-mvss-custom-image.md)
+### [Uso del escalado automático basado en invitado con una plantilla del conjunto de escalado de Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Implementación
 ### [Creación con el portal](virtual-machine-scale-sets-portal-create.md)
@@ -32,10 +33,11 @@
 ## administración
 ### [Conjunto de escalado de Windows con PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Escalado automático y conjuntos de escalado](virtual-machine-scale-sets-autoscale-overview.md)
+### [Escalado automático avanzado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Escalado vertical en un conjunto de escalado](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Actualizaciones para conjuntos de escalado](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Escalado automático avanzado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Uso de DSC y conjuntos de escalado](virtual-machine-scale-sets-dsc.md)
+### [Redes para conjuntos de escalado](virtual-machine-scale-sets-networking.md)
 ### [Conversión de una plantilla en discos administrados](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Solución de problemas

@@ -1,58 +1,60 @@
-- name: Content Moderator Documentation
+- name: Documentación de Content Moderator
   href: ../index.md
-- name: Overview
+- name: Información general
   items: 
-  - name: Learn about the Content Moderator API
+  - name: Información acerca de Content Moderator API
     href: overview.md
-- name: Get started
+- name: Primeros pasos
   items: 
-  - name: Get started with Content Moderator
+  - name: Introducción a Content Moderator
     href: quick-start.md
-- name: How to
+- name: Procedimientos
   items: 
-  - name: Review tool user guide
+  - name: Guía del usuario de la herramienta de revisión
     items:
-    - name: Human in the loop
+    - name: Usuarios del bucle
       href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Create team
-      href: Review-Tool-User-Guide/Sign-up.md
-    - name: Upload images
-      href: Review-Tool-User-Guide/Upload-Images.md
-    - name: Image reviews
-      href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: Text reviews
-      href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Team and subteams
-      href: Review-Tool-User-Guide/SubTeams.md
-    - name: Using workflows
-      href: Review-Tool-User-Guide/Workflows.md
-    - name: Settings
+    - name: Configuración
       href: Review-Tool-User-Guide/Configure.md
-    - name: View dashboard
+    - name: Equipo y subequipos
+      href: Review-Tool-User-Guide/SubTeams.md
+    - name: Acerca de las etiquetas
+      href: Review-Tool-User-Guide/Tags.md
+    - name: Revisiones de imágenes
+      href: Review-Tool-User-Guide/Review-Moderated-Images.md
+    - name: Revisiones del texto
+      href: Review-Tool-User-Guide/Text-Reviews.md
+    - name: Comprobación de credenciales
+      href: Review-Tool-User-Guide/Credentials.md
+    - name: Acerca de los conectores
+      href: Review-Tool-User-Guide/Connectors.md
+    - name: Uso de flujos de trabajo
+      href: Review-Tool-User-Guide/Workflows.md
+    - name: Visualización del panel
       href: Review-Tool-User-Guide/View-Dashboard.md
-- name: Reference
+- name: Referencia
   items: 
-  - name: API Reference Guide
+  - name: Guía de referencia de API
   
     href: api-reference.md
     items:
-  - name: Review APIs
+  - name: Revisión de las API
     href: review-api.md
-  - name: Image moderation
+  - name: Moderación de imágenes
     href: image-moderation-api.md
-  - name: Text moderation
+  - name: Moderación de texto
     href: text-moderation-api.md
-  - name: Text moderation - languages
+  - name: 'Moderación de texto: idiomas'
     href: Text-Moderation-API-Languages.md
-  - name: Video moderation
+  - name: Moderación de vídeo
     href: video-moderation-api.md
-- name: Resources
+- name: Recursos
   items:  
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Windows SDK
     href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
-  - name: Samples
+  - name: Muestras
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
-  - name: FAQ
+  - name: Preguntas más frecuentes
     href: FAQs.md

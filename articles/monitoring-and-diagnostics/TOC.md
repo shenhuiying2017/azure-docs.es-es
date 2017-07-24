@@ -74,3 +74,4 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Ejemplos de PowerShell](insights-powershell-samples.md)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=monitor)
+## [Plantillas de inicio rápido](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

@@ -28,12 +28,15 @@
 ### [Extensiones de R de U-SQL](data-lake-analytics-u-sql-r-extensions.md)
 ### [Extensiones cognitivas de U-SQL](data-lake-analytics-u-sql-cognitive.md)
 ### [Análisis de registros de sitios web](data-lake-analytics-analyze-weblogs.md)
+### [U-SQL para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 
 ## Depuración de programas U-SQL
 ### [Trabajos de supervisión y solución de problemas](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 ### [Depuración de código C# en U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Uso de un explorador y una vista de trabajo](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Uso de la vista de ejecución de vértices](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+### [Ejecución local y depuración local en VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
+### [Guía de programación de U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Referencia
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)

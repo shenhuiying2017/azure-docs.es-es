@@ -122,6 +122,7 @@
 ### [Administración de servidores de procesos de escalado horizontal](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Administración de servidores vCenter](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Quitar servidores y deshabilitar la protección](site-recovery-manage-registration-and-protection.md)
+### [Eliminación del almacén de Recovery Services](delete-vault.md)
 
 ## Supervisión y solución de problemas
 ### [Problemas de replicación de Azure en Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)

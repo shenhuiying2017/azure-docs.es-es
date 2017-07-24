@@ -43,8 +43,9 @@
 ### [Instalación y configuración de Trend Micro Deep Security como servicio](install-trend.md)
 ### [Configuración de un conjunto de disponibilidad](configure-availability.md)
 ### [Cambio de tamaño de una VM con Windows creada en el modelo de implementación clásica](resize-vm.md)
+### [Mantenimiento](planned-maintenance-schedule.md)
 
-## Administrar
+## administración
 ### [Migración de implementaciones clásicas a Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 ### [Administración de las VM con Azure PowerShell](manage-psh.md)
 ### [Acerca del agente de VM y extensiones](agents-and-extensions.md)
@@ -55,7 +56,6 @@
 ## Plan
 ### [Acerca de las imágenes](about-images.md)
 ### [Tamaños de VM](../../virtual-machines-windows-sizes.md)
-#### [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Planeamiento del mantenimiento de VM de Azure](../../virtual-machines-windows-planned-maintenance.md)
 ### [Instrucciones de implementación de los servicios de infraestructura de Azure](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
@@ -70,11 +70,7 @@
 #### [Envío de trabajos desde una instancia local a Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Configuración de la protección de datos de Oracle para Azure](configure-oracle-data-guard.md)
-####[Configuración de Oracle GoldenGate para Azure](configure-oracle-goldengate.md)
-####[Consideraciones variadas para las imágenes](oracle-considerations.md)
-####[Lista de imágenes de máquina virtual de Oracle](oracle-images.md)
+### [Oracle](../../workloads/oracle/oracle-considerations.md)
 ### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)

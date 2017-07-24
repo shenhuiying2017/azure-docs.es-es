@@ -3,16 +3,19 @@
 ## [¿Qué es Container Registry?](container-registry-intro.md)
 
 # Introducción
-## [Creación de un registro en el portal](container-registry-get-started-portal.md)
-## [Creación de un registro con la CLI de Azure 2.0](container-registry-get-started-azure-cli.md)
-## [Creación de un registro con Azure PowerShell](container-registry-get-started-powershell.md)
-## [Inserción y extracción de una imagen](container-registry-get-started-docker-cli.md)
-## [Visualización de repositorios](container-registry-repositories.md)
+## [Creación de un registro: portal](container-registry-get-started-portal.md)
+## [Creación de un registro administrado: portal](container-registry-managed-get-started-portal.md)
+## [Creación de un registro: CLI](container-registry-get-started-azure-cli.md)
+## [Creación de un registro administrado: CLI](container-registry-managed-get-started-azure-cli.md)
+## [Creación de un registro: PowerShell](container-registry-get-started-powershell.md)
 
 # Procedimientos
 
+## [Inserción y extracción de una imagen](container-registry-get-started-docker-cli.md)
+## [Visualización de repositorios](container-registry-repositories.md)
 ## [Creación de una entidad de servicio](../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json)
 ## [Autenticación con un registro](container-registry-authentication.md)
+## [Uso de webhooks de ACR](./container-registry-webhook.md)
 
 # Referencia
 

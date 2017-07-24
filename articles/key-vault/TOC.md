@@ -17,6 +17,7 @@
 ### Introducciones
 #### [Introducción a los espacios de seguridad](key-vault-ovw-security-worlds.md)
 #### [Introducción a la eliminación temporal](key-vault-ovw-soft-delete.md)
+#### [Introducción a las claves de cuenta de almacenamiento](key-vault-ovw-storage-keys.md)
 #### [Introducción a la limitación](key-vault-ovw-throttling.md)
 
 ## Administrar

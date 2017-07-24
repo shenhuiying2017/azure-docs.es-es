@@ -195,6 +195,7 @@
 ## Integrate
 ### [Acceso a recursos locales mediante conexiones híbridas](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Envío de correos electrónicos mediante SendGrid con Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Exportación a PowerApps y Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Solución de problemas
 ### Solución de problemas generales de Mobile Apps

@@ -7,6 +7,7 @@
 ## [Vista de grupo de seguridad](network-watcher-security-group-view-overview.md)
 ## [Próximo salto](network-watcher-next-hop-overview.md)
 ## [Solución de problemas de conectividad VPN](network-watcher-troubleshoot-overview.md)
+## [Comprobación de conectividad](network-watcher-connectivity-overview.md)
 ## [Límites de servicio](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Introducción
 ## [Configuración de Network Watcher](network-watcher-create.md)
@@ -44,6 +45,10 @@
 ### [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [CLI 2.0](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
+## Comprobación de la conectividad
+### [PowerShell](network-watcher-connectivity-powershell.md)
+### [CLI 2.0](network-watcher-connectivity-cli.md)
+### [REST](network-watcher-connectivity-rest.md)
 ## Configuración de registros de flujo para NSG
 ### [Portal](network-watcher-nsg-flow-logging-portal.md)
 ### [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
