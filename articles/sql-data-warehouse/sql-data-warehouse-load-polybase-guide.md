@@ -121,7 +121,7 @@ WHERE
     AND DateRequested < '01/01/2015';
 ```
 ## <a name="isolate-loading-users"></a>Aislar la carga de usuarios
-A menudo, es necesario tener varios usuarios que puedan cargar datos en un almacén de datos de SQL. Dado que [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] requiere permisos de CONTROL en la base de datos, existirán múltiples usuarios con acceso de control en todos los esquemas. Para limitar esto, puede usar la instrucción DENY CONTROL.
+A menudo, es necesario tener varios usuarios que puedan cargar datos en un almacén de datos de SQL. Dado que [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requiere permisos de CONTROL en la base de datos, existirán múltiples usuarios con acceso de control en todos los esquemas. Para limitar esto, puede usar la instrucción DENY CONTROL.
 
 Ejemplo: tenemos los esquemas de base de datos schema_A para el departamento A, schema_B para el departamento B y los usuarios de PolyBase user_A y user_B con cargas en los departamentos A y B respectivamente. A ambos se les ha concedido permiso de CONTROL sobre la base de datos.
 Ahora, los creadores de los esquemas A y B bloquean dichos esquemas utilizando DENY:

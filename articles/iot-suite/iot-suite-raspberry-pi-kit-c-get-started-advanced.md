@@ -12,14 +12,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: 971f23a01b53ed6d7d19438567392e0b43b57120
 ms.contentlocale: es-es
 ms.lasthandoff: 05/03/2017
-
 
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>Conexión de Raspberry Pi 3 a la solución de supervisión remota y habilitación de las actualizaciones de firmware remotas mediante C
@@ -33,17 +32,17 @@ Este tutorial muestra cómo usar el Starter Kit de IoT de Microsoft Azure para R
 
 El tutorial usa:
 
-- El SO Raspbian, el lenguaje de programación C y el SDK de IoT de Microsoft Azure para C para implementar un dispositivo de ejemplo.
-- La solución preconfigurada de supervisión remota del Conjunto de aplicaciones de IoT como el back-end basado en la nube.
+* El SO Raspbian, el lenguaje de programación C y el SDK de IoT de Microsoft Azure para C para implementar un dispositivo de ejemplo.
+* La solución preconfigurada de supervisión remota del Conjunto de aplicaciones de IoT como el back-end basado en la nube.
 
 ## <a name="overview"></a>Información general
 
 En este tutorial, va a completar los siguientes pasos:
 
-- Implemente una instancia de la solución preconfigurada de supervisión remota en su suscripción de Azure. Este paso implementa y configura varios servicios de Azure automáticamente.
-- Configure el dispositivo y los sensores para que se comunique con el equipo y la solución de supervisión remota.
-- Actualice el código del dispositivo de ejemplo para que se conecte a la solución de supervisión remota y envíe telemetría que aparezca en el panel de soluciones.
-- Use el código de dispositivo de ejemplo para actualizar la aplicación cliente.
+* Implemente una instancia de la solución preconfigurada de supervisión remota en su suscripción de Azure. Este paso implementa y configura varios servicios de Azure automáticamente.
+* Configure el dispositivo y los sensores para que se comunique con el equipo y la solución de supervisión remota.
+* Actualice el código del dispositivo de ejemplo para que se conecte a la solución de supervisión remota y envíe telemetría que aparezca en el panel de soluciones.
+* Use el código de dispositivo de ejemplo para actualizar la aplicación cliente.
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites](../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
 
@@ -64,15 +63,18 @@ Ahora puede descargar y configurar la aplicación de cliente de supervisión rem
 
 Si aún no lo ha hecho, clone los repositorios necesarios mediante la ejecución de los siguientes comandos en Pi:
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git
+```
 
 ### <a name="update-the-device-connection-string"></a>Actualización de la cadena de conexión de dispositivo
 
 Abra el archivo de configuración de ejemplo en el editor **nano** con el comando siguiente:
 
-`nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/config/deviceinfo`
+```sh
+nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/config/deviceinfo
+```
 
 Reemplace los valores de marcador de posición por el identificador de dispositivo y la información de IoT Hub que creó y guardó al principio de este tutorial.
 
@@ -89,19 +91,23 @@ Guarde los cambios (**Ctrl-O**, **ENTRAR**) y salga del editor (**Ctrl-X**).
 
 Si todavía no lo ha hecho, instale los paquetes de requisitos previos para el SDK de dispositivo IoT de Microsoft Azure para C ejecutando los comandos siguientes en un terminal en Raspberry Pi:
 
-`sudo apt-get update`
-
-`sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev`
+```sh
+sudo apt-get update
+sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev
+```
 
 Ahora puede compilar la solución de ejemplo en Raspberry Pi:
 
-`chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh`
-
-`~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh`
+```sh
+chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
+~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
+```
 
 Ahora puede ejecutar el programa de ejemplo en Raspberry Pi. Escriba el comando:
 
-  `sudo ~/cmake/remote_monitoring/remote_monitoring`
+  ```sh
+  sudo ~/cmake/remote_monitoring/remote_monitoring
+  ```
 
 La salida de ejemplo siguiente es un ejemplo de la salida que se ve en el símbolo del sistema en Raspberry Pi:
 
