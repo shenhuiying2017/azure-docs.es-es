@@ -1,0 +1,60 @@
+- name: Documentación de Content Moderator
+  href: ../index.md
+- name: Información general
+  items: 
+  - name: Información acerca de Content Moderator API
+    href: overview.md
+- name: Primeros pasos
+  items: 
+  - name: Introducción a Content Moderator
+    href: quick-start.md
+- name: Procedimientos
+  items: 
+  - name: Guía del usuario de la herramienta de revisión
+    items:
+    - name: Usuarios del bucle
+      href: Review-Tool-User-Guide/human-in-the-loop.md
+    - name: Configuración
+      href: Review-Tool-User-Guide/Configure.md
+    - name: Equipo y subequipos
+      href: Review-Tool-User-Guide/SubTeams.md
+    - name: Acerca de las etiquetas
+      href: Review-Tool-User-Guide/Tags.md
+    - name: Revisiones de imágenes
+      href: Review-Tool-User-Guide/Review-Moderated-Images.md
+    - name: Revisiones del texto
+      href: Review-Tool-User-Guide/Text-Reviews.md
+    - name: Comprobación de credenciales
+      href: Review-Tool-User-Guide/Credentials.md
+    - name: Acerca de los conectores
+      href: Review-Tool-User-Guide/Connectors.md
+    - name: Uso de flujos de trabajo
+      href: Review-Tool-User-Guide/Workflows.md
+    - name: Visualización del panel
+      href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Referencia
+  items: 
+  - name: Guía de referencia de API
+  
+    href: api-reference.md
+    items:
+  - name: Revisión de las API
+    href: review-api.md
+  - name: Moderación de imágenes
+    href: image-moderation-api.md
+  - name: Moderación de texto
+    href: text-moderation-api.md
+  - name: 'Moderación de texto: idiomas'
+    href: Text-Moderation-API-Languages.md
+  - name: Moderación de vídeo
+    href: video-moderation-api.md
+- name: Recursos
+  items:  
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Windows SDK
+    href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
+  - name: Muestras
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
+  - name: Preguntas más frecuentes
+    href: FAQs.md

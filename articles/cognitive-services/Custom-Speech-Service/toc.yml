@@ -1,0 +1,41 @@
+- name: Documentación sobre el Servicio de voz personalizado
+  href: ../index.md
+- name: Información general
+  items:
+    - name: Más información sobre el Servicio de voz personalizado
+      href: cognitive-services-custom-speech-home.md
+    - name: 'Medidores, cuotas y escalado'
+      href: cognitive-services-custom-speech-meters.md
+- name: Introducción
+  items:
+    - name: Exploración de las características principales
+      href: cognitive-services-custom-speech-get-started.md
+    - name: Aprenda a crear un modelo acústico personalizado
+      href: >-
+        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md
+    - name: Aprenda a crear un modelo de lenguaje personalizado
+      href: >-
+        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model.md
+    - name: Adaptación de las pronunciaciones a sus necesidades
+      href: >-
+        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-custom-pronunciation.md
+    - name: Creación de un punto de conexión personalizado de voz a texto
+      href: >-
+        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md
+    - name: Uso de un punto de conexión personalizado de voz a texto
+      href: >-
+        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md
+    - name: Migración de implementaciones a un nuevo plan de tarifa
+      href: >-
+        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-migrate-tiers.md
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Directrices de transcripción
+      href: >-
+        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-transcription-guidelines.md
+    - name: Preguntas más frecuentes
+      href: cognitive-services-custom-speech-faq.md
+    - name: Glosario
+      href: cognitive-services-custom-speech-glossary.md
