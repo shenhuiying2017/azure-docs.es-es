@@ -11,12 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 05/05/2017
 ms.author: markscu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 5f37bc9dc3b754e7900883263a2b8fdcbf4b707f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0f839072d9603e83b0ca493c9a7bab0e71a682c5
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -30,7 +29,7 @@ La ventaja en el uso de máquinas virtuales de prioridad baja es que esas máqui
 
 Las máquinas virtuales de prioridad baja son significativamente menos caras que las máquinas virtuales dedicadas. Para más información sobre precios, consulte [Precios de Batch](https://azure.microsoft.com/pricing/details/batch/).
 
-Para obtener una explicación adicional sobre máquinas virtuales de prioridad baja, consulte el anuncio de entrada de blog: [Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/preview/) (Computación por lotes a un precio reducido).
+Para obtener una explicación adicional sobre máquinas virtuales de prioridad baja, consulte el anuncio de entrada de blog: [Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/) (Computación por lotes a un precio reducido).
 
 > [!IMPORTANT]
 > Las máquinas virtuales de prioridad baja se encuentran actualmente en versión preliminar y solo están disponibles para cargas de trabajo que se ejecutan en Batch. 
