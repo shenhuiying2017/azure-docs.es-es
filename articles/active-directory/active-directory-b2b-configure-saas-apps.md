@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 42f93a638ea0bb5139063b76b223fd811ba58fb4
-ms.openlocfilehash: 98bf824831f60a70877e8c41f8b60c339df173d6
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -81,7 +82,7 @@ Puede permitir que los usuarios autentiquen usuarios invitados de Box con su cue
 
 1. Agregue la aplicación Box desde las aplicaciones empresariales.
 
-2. Configure el inicio de sesión único, para lo que debe seguir estos pasos:
+2. Configure el inicio de sesión único en el orden siguiente:
 
   ![Configuración del inicio de sesión único de Box](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
@@ -94,7 +95,7 @@ Puede permitir que los usuarios autentiquen usuarios invitados de Box con su cue
 
  d. Para empezar a configurar el inquilino de Box.com para que use Azure AD como proveedor de identidades, descargue el archivo de metadatos y guárdelo en una unidad local.
 
- e. Reenvíe el archivo de metadatos al equipo de soporte técnico de Box para que configure el inicio de sesión único.
+ e. Reenvíe el archivo de metadatos al equipo de soporte técnico de Box para que configuren el inicio de sesión único.
 
 3. Para la instalación automática de usuarios de Azure AD, en el panel izquierdo, seleccione **Aprovisionamiento**y, después, **Autorizar**.
 

@@ -27,7 +27,7 @@ Una instancia de Azure App Service Environment (ASE) es una implementación de A
 - con una dirección IP virtual en una dirección IP externa, a menudo denominado un _ASE externo_.
 - con la dirección VIP en una dirección IP interna, llamada a menudo un _ASE con un ILB_ porque el punto de conexión interno es un equilibrador de carga interno (ILB). 
 
-Este artículo muestra cómo crear un _ASE con un ILB_.  Para obtener información general sobre los ASE, puede empezar con [Introducción a App Service Environment] [ Intro] y, si desea obtener información sobre cómo crear un ASE externo, comience con [Creación de un ASE externo][MakeExternalASE].
+Este artículo muestra cómo crear un _ASE con un ILB_.  Para obtener información general sobre los ASE, puede empezar con [Introducción a App Service Environment][Intro] y, si desea obtener información sobre cómo crear un ASE externo, comience con [Creación de un ASE externo][MakeExternalASE].
 
 ## <a name="overview"></a>Información general ##
 

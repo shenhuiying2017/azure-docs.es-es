@@ -1,6 +1,6 @@
 ---
-title: "Administración de capturas de paquetes con Azure Network Watcher: CLI de Azure | Microsoft Docs"
-description: "En esta página se explica cómo administrar la característica de captura de paquetes de Network Watcher mediante la CLI de Azure"
+title: "Administración de capturas de paquetes con Azure Network Watcher: CLI de Azure 2.0 | Microsoft Docs"
+description: "En esta página se explica cómo administrar la característica de captura de paquetes de Network Watcher mediante la CLI de Azure 2.0"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,24 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 89e58686dcefb784a865f7842e78ef4d00f5783c
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c94eb46f31f2f19b843ccd7bf77b8a39943a07d4
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 ---
 
-# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli"></a>Administración de capturas de paquetes con Azure Network Watcher mediante la CLI de Azure
+# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Administración de capturas de paquetes con Azure Network Watcher mediante la CLI de Azure 2.0
 
 > [!div class="op_single_selector"]
 > - [Portal de Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI](network-watcher-packet-capture-manage-cli.md)
+> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
 > - [API de REST de Azure](network-watcher-packet-capture-manage-rest.md)
 
 La captura de paquetes de Network Watcher permite crear sesiones de captura para realizar el seguimiento del tráfico hacia y desde una máquina virtual. La sesión de captura cuenta con filtros para asegurarse de capturar solo el tráfico que se desea. La captura de paquetes ayuda a diagnosticar anomalías de la red, tanto de forma activa como reactiva. Otros usos son la recopilación de estadísticas de red, la obtención de información sobre las intrusiones de red y la depuración de las comunicaciones cliente-servidor, entre otros. Esta funcionalidad permite desencadenar capturas de paquetes de forma remota, lo que reduce la carga de tener que ejecutar una captura de paquetes manualmente y en el equipo deseado, y permite ahorrar tiempo.
 
-En este artículo, se utiliza la multiplataforma Azure CLI 1.0, que está disponible para Windows, Mac y Linux. Network Watcher usa actualmente Azure CLI 1.0 para la compatibilidad con CLI.
+En este artículo se usa la CLI de próxima generación para el modelo de implementación de Resource Manager, la CLI de Azure 2.0, que está disponible para Windows, Mac y Linux.
+
+Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 Este artículo le guiará por las diferentes tareas de administración que están actualmente disponibles para la captura de paquetes.
 
@@ -54,18 +58,18 @@ En este artículo se da por hecho que tiene los siguientes recursos:
 
 ### <a name="step-1"></a>Paso 1
 
-Ejecute el cmdlet `azure vm extension set` para instalar el agente de captura de paquetes en la máquina virtual invitada.
+Ejecute el cmdlet `az vm extension set` para instalar el agente de captura de paquetes en la máquina virtual invitada.
 
 En las máquinas virtuales Windows:
 
 ```azurecli
-azure vm extension set -g resourceGroupName -m virtualMachineName -p Microsoft.Azure.NetworkWatcher -r AzureNetworkWatcherExtension -n NetworkWatcherAgentWindows -o 1.4
+az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentWindows --version 1.4
 ```
 
 En las máquinas virtuales Linux:
 
 ```azurecli
-azure vm extension set -g resourceGroupName -m virtualMachineName -p Microsoft.Azure.NetworkWatcher -r AzureNetworkWatcherExtension -n NetworkWatcherAgentLinux -o 1.4
+az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux--version 1.4
 ````
 
 ### <a name="step-2"></a>Paso 2
@@ -73,18 +77,29 @@ azure vm extension set -g resourceGroupName -m virtualMachineName -p Microsoft.A
 Para asegurarse de que el agente está instalado, ejecute el cmdlet `vm extension get` y pásele el nombre de la máquina virtual y del grupo de recursos. Compruebe la lista resultante para asegurarse de que el agente está instalado.
 
 ```azurecli
-azure vm extension get -g resourceGroupName -m virtualMachineName
+az vm extension show -resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
 ```
 
-El siguiente es un ejemplo de la respuesta de la ejecución de `azure vm extension get`.
+El siguiente es un ejemplo de la respuesta de la ejecución de `az vm extension show`.
 
-```
-info:    Executing command vm extension get
-+ Looking up the VM "virtualMachineName"
-data:    Publisher                       Name                     Version  State
-data:    ------------------------------  -----------------------  -------  ---------
-data:    Microsoft.Azure.NetworkWatcher  NetworkWatcherAgentTest  1.4      Succeeded
-info:    vm extension get command OK
+```json
+{
+  "autoUpgradeMinorVersion": true,
+  "forceUpdateTag": null,
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/NetworkWatcherAgentWindows",
+  "instanceView": null,
+  "location": "westcentralus",
+  "name": "NetworkWatcherAgentWindows",
+  "protectedSettings": null,
+  "provisioningState": "Succeeded",
+  "publisher": "Microsoft.Azure.NetworkWatcher",
+  "resourceGroup": "{resourceGroupName}",
+  "settings": null,
+  "tags": null,
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "typeHandlerVersion": "1.4",
+  "virtualMachineExtensionType": "NetworkWatcherAgentWindows"
+}
 ```
 
 ## <a name="start-a-packet-capture"></a>Inicio de una captura de paquetes
@@ -93,10 +108,10 @@ Una vez completados los pasos anteriores, el agente de captura de paquetes está
 
 ### <a name="step-1"></a>Paso 1
 
-El siguiente paso es recuperar la instancia de Network Watcher. Esta variable se pasa al cmdlet `network watcher show` en el paso 4.
+El siguiente paso es recuperar la instancia de Network Watcher. El nombre de la instancia de Network Watcher se pasa al cmdlet `az network watcher show` en el paso 4.
 
 ```azurecli
-azure network watcher show -g resourceGroup -n networkWatcherName
+az network watcher show -resource-group resourceGroup -name networkWatcherName
 ```
 
 ### <a name="step-2"></a>Paso 2
@@ -112,86 +127,128 @@ azure storage account list
 Se pueden usar filtros para limitar los datos que se almacenan en la captura de paquetes. En el ejemplo siguiente se configura una captura de paquetes con varios filtros.  Los tres primeros filtros recopilan el tráfico TCP saliente solo de la dirección IP local 10.0.0.3 a los puertos de destino 20, 80 y 443.  El último filtro recopila solo el tráfico UDP.
 
 ```azurecli
-azure network watcher packet-capture create -g resourceGroupName -w networkWatcherName -n packetCaptureName -t targetResourceId -o storageAccountResourceId -f "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
+az network watcher packet-capture create --resource-group {resoureceurceGroupName} --vm {vmName} --name packetCaptureName --storage-account gwteststorage123abc --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
-Se pueden definir varios filtros para una captura de paquetes. Si se usa una estructura de filtros compleja, es mejor usar filtros como un archivo json para evitar errores de sintaxis. Por ejemplo, use el indicador "-r" (en lugar de "-f") y pase la ubicación de un archivo json que contiene los siguientes filtros:
+El ejemplo siguiente es la salida esperada de la ejecución del cmdlet `az network watcher packet-capture create`.
 
 ```json
-[
+{
+  "bytesToCapturePerPacket": 0,
+  "etag": "W/\"b8cf3528-2e14-45cb-a7f3-5712ffb687ac\"",
+  "filters": [
     {
-        "protocol":"TCP",
-        "remoteIPAddress":"1.1.1.1-255.255.255",
-        "localIPAddress":"10.0.0.3",
-        "remotePort":"20"
+      "localIpAddress": "10.0.0.3",
+      "localPort": "",
+      "protocol": "TCP",
+      "remoteIpAddress": "1.1.1.1-255.255.255",
+      "remotePort": "20"
     },
     {
-        "protocol":"TCP",
-        "remoteIPAddress":"1.1.1.1-255.255.255",
-        "localIPAddress":"10.0.0.3",
-        "remotePort":"80"
+      "localIpAddress": "10.0.0.3",
+      "localPort": "",
+      "protocol": "TCP",
+      "remoteIpAddress": "1.1.1.1-255.255.255",
+      "remotePort": "80"
     },
     {
-        "protocol":"TCP",
-        "remoteIPAddress":"1.1.1.1-255.255.255",
-        "localIPAddress":"10.0.0.3",
-        "remotePort":"443"
+      "localIpAddress": "10.0.0.3",
+      "localPort": "",
+      "protocol": "TCP",
+      "remoteIpAddress": "1.1.1.1-255.255.255",
+      "remotePort": "443"
     },
     {
-        "protocol":"UDP"
+      "localIpAddress": "",
+      "localPort": "",
+      "protocol": "UDP",
+      "remoteIpAddress": "",
+      "remotePort": ""
     }
-]
-```
-
-
-El ejemplo siguiente es la salida esperada de la ejecución del cmdlet `network watcher packet-capture create`.
-
-```
-data:    Name                            : packetCaptureName
-data:    Etag                            : W/"d59bb2d2-dc95-43da-b740-e0ef8fcacecb"
-data:    Target                          : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/testVM
-data:    Bytes To Capture Per Packet     : 0
-data:    Total Bytes Per Session         : 1073741824
-data:    Time Limit In Seconds           : 18000
-data:    Storage Location:
-data:      Storage Id                    : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Storage/storageAccounts/testStorage
-data:      Storage Path                  : https://testStorage.blob.core.windows.net/network-watcher-logs/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/testRG/providers/microsoft.compute/virtualmachines/testVM/2017/02/17/packetcapture_01_21_18_145.cap
-data:    Filters                         : []
-data:    Provisioning State              : Succeeded
-info:    network watcher packet-capture create command OK
+  ],
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/pa
+cketCaptures/packetCaptureName",
+  "name": "packetCaptureName",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "NetworkWatcherRG",
+  "storageLocation": {
+    "filePath": null,
+    "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/gwteststorage123abc",
+    "storagePath": "https://gwteststorage123abc.blob.core.windows.net/network-watcher-logs/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/{resourceGroupName}/p
+roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_22_34_630.cap"
+  },
+  "target": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}",
+  "timeLimitInSeconds": 18000,
+  "totalBytesPerSession": 1073741824
+}
 ```
 
 ## <a name="get-a-packet-capture"></a>Obtención de una captura de paquetes
 
-Al ejecutar el cmdlet `network watcher packet-capture show` se recupera el estado de una captura de paquetes que se está ejecutando o se ha completado.
+Al ejecutar el cmdlet `az network watcher packet-capture show` se recupera el estado de una captura de paquetes que se está ejecutando o se ha completado.
 
 ```azurecli
-azure network watcher packet-capture show -g resourceGroupName -w networkWatcherName -n packetCaptureName
+az network watcher packet-capture show --name packetCaptureName --location westcentralus
 ```
 
-El ejemplo siguiente es la salida del cmdlet `network watcher packet-capture show`. El ejemplo siguiente es una vez completada la captura. El valor de PacketCaptureStatus es Stopped, con un valor de StopReason de TimeExceeded. Este valor muestra que la captura de paquetes fue correcta y agotó su tiempo.
+El ejemplo siguiente es la salida del cmdlet `az network watcher packet-capture show`. El ejemplo siguiente es una vez completada la captura. El valor de PacketCaptureStatus es Stopped, con un valor de StopReason de TimeExceeded. Este valor muestra que la captura de paquetes fue correcta y agotó su tiempo.
 
 ```
-data:    Name                            : packetCaptureName
-data:    Etag                            : W/"d59bb2d2-dc95-43da-b740-e0ef8fcacecb"
-data:    Target                          : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/testVM
-data:    Bytes To Capture Per Packet     : 0
-data:    Total Bytes Per Session         : 1073741824
-data:    Time Limit In Seconds           : 18000
-data:    Storage Location:
-data:      Storage Id                    : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Storage/storageAccounts/testStorage
-data:      Storage Path                  : https://testStorage.blob.core.windows.net/network-watcher-logs/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/testRG/providers/microsoft.compute/virtualmachines/testVM/2017/02/17/packetcapture_01_21_18_145.cap
-data:    Filters                         : []
-data:    Provisioning State              : Succeeded
-info:    network watcher packet-capture show command OK
+{
+  "bytesToCapturePerPacket": 0,
+  "etag": "W/\"b8cf3528-2e14-45cb-a7f3-5712ffb687ac\"",
+  "filters": [
+    {
+      "localIpAddress": "10.0.0.3",
+      "localPort": "",
+      "protocol": "TCP",
+      "remoteIpAddress": "1.1.1.1-255.255.255",
+      "remotePort": "20"
+    },
+    {
+      "localIpAddress": "10.0.0.3",
+      "localPort": "",
+      "protocol": "TCP",
+      "remoteIpAddress": "1.1.1.1-255.255.255",
+      "remotePort": "80"
+    },
+    {
+      "localIpAddress": "10.0.0.3",
+      "localPort": "",
+      "protocol": "TCP",
+      "remoteIpAddress": "1.1.1.1-255.255.255",
+      "remotePort": "443"
+    },
+    {
+      "localIpAddress": "",
+      "localPort": "",
+      "protocol": "UDP",
+      "remoteIpAddress": "",
+      "remotePort": ""
+    }
+  ],
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/packetCaptures/packetCaptureName",
+  "name": "packetCaptureName",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "NetworkWatcherRG",
+  "storageLocation": {
+    "filePath": null,
+    "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/gwteststorage123abc",
+    "storagePath": "https://gwteststorage123abc.blob.core.windows.net/network-watcher-logs/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/{resourceGroupName}/providers/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapt
+ure_16_22_34_630.cap"
+  },
+  "target": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}",
+  "timeLimitInSeconds": 18000,
+  "totalBytesPerSession": 1073741824
+}
 ```
 
 ## <a name="stop-a-packet-capture"></a>Detención de una captura de paquetes
 
-Al ejecutar el cmdlet `network watcher packet-capture stop` se detiene una sesión si está en curso.
+Al ejecutar el cmdlet `az network watcher packet-capture stop` se detiene una sesión si está en curso.
 
 ```azurecli
-azure network watcher packet-capture stop -g resourceGroupName -w networkWatcherName -n packetCaptureName
+az network watcher packet-capture stop --name packetCaptureName --location westcentralus
 ```
 
 > [!NOTE]
@@ -200,7 +257,7 @@ azure network watcher packet-capture stop -g resourceGroupName -w networkWatcher
 ## <a name="delete-a-packet-capture"></a>Eliminación de una captura de paquetes
 
 ```azurecli
-azure network watcher packet-capture delete -g resourceGroupName -w networkWatcherName -n packetCaptureName
+az network watcher packet-capture delete --name packetCaptureName --location westcentralus
 ```
 
 > [!NOTE]

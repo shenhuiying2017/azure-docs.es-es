@@ -14,13 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e6749bdf73acc9c05e71c85410bb3d95c57a0a9f
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 10726bdaf1aa0a98276747868771999625ccf5e5
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,7 +32,7 @@ Aprenda a usar Apache Oozie para definir un flujo de trabajo y a ejecutarlo en H
 
 Oozie de Apache es un sistema de coordinación o flujo de trabajo que administra trabajos de Hadoop. Se integra con la pila de Hadoop y es compatible con los trabajos de Hadoop para MapReduce, Pig, Hive y Sqoop de Apache. También puede usarse para programar trabajos específicos de un sistema, como scripts de shell o programas Java.
 
-El flujo de trabajo que implementará siguiendo las instrucciones de este tutorial contiene dos acciones:
+El flujo de trabajo que implementa siguiendo las instrucciones de este tutorial contiene dos acciones:
 
 ![Diagrama de flujo de trabajo][img-workflow-diagram]
 
@@ -60,7 +61,7 @@ El flujo de trabajo que implementará siguiendo las instrucciones de este tutori
 > 
 
 ### <a name="prerequisites"></a>Requisitos previos
-Antes de empezar este tutorial, debe contar con lo siguiente:
+Antes de empezar este tutorial, debe contar con el elemento siguiente:
 
 * **Una estación de trabajo con Azure PowerShell**. 
   
@@ -69,7 +70,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
   
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Definición del flujo de trabajo de Oozie y el script de HiveQL relacionado
-Las definiciones de los flujos de trabajo de Oozie se escriben en hPDL (un lenguaje de definición de proceso XML). El nombre de archivo de flujo de trabajo predeterminado es *workflow.xml*. El siguiente es el archivo del flujo de trabajo que usará en este tutorial.
+Las definiciones de los flujos de trabajo de Oozie se escriben en hPDL (un lenguaje de definición de proceso XML). El nombre de archivo de flujo de trabajo predeterminado es *workflow.xml*. El siguiente es el archivo del flujo de trabajo que usa en este tutorial.
 
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
@@ -128,13 +129,13 @@ Las definiciones de los flujos de trabajo de Oozie se escriben en hPDL (un lengu
 
 Existen dos acciones definidas en el flujo de trabajo. La acción de inicio es *RunHiveScript*. Si la acción se ejecuta correctamente, la acción siguiente es *RunSqoopExport*.
 
-RunHiveScript tiene distintas variables. Pasará los valores cuando envíe el trabajo de Oozie desde la estación de trabajo con Azure PowerShell.
+RunHiveScript tiene distintas variables. Pasa los valores cuando envíe el trabajo de Oozie desde la estación de trabajo con Azure PowerShell.
 
 <table border = "1">
 <tr><th>Variables de flujo de trabajo</th><th>Description</th></tr>
 <tr><td>${jobTracker}</td><td>Especifica la dirección URL del seguimiento de trabajo de Hadoop. Use <strong>jobtrackerhost: 9010</strong> en HDInsight versión 3.0 y 2.1.</td></tr>
 <tr><td>${nameNode}</td><td>Especifica la dirección URL del nombre de nodo de Hadoop. Use la dirección del sistema de archivos predeterminado, por ejemplo, <i>wasbs://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Especifica el nombre de cola al que se enviará el trabajo. Use el <strong>valor predeterminado</strong>.</td></tr>
+<tr><td>${queueName}</td><td>Especifica el nombre de cola al que se envía el trabajo. Use el <strong>valor predeterminado</strong>.</td></tr>
 </table>
 
 <table border = "1">
@@ -147,7 +148,7 @@ RunHiveScript tiene distintas variables. Pasará los valores cuando envíe el tr
 <table border = "1">
 <tr><th>Variable de acción de Sqoop</th><th>Description</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>Especifica la cadena de conexión de la base de datos SQL de Azure.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Especifica la tabla de base de datos SQL de Azure donde se exportarán los datos.</td></tr>
+<tr><td>${sqlDatabaseTableName}</td><td>Especifica la tabla de base de datos SQL de Azure donde se exportan los datos.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Especifica la carpeta de salida para la instrucción INSERT OVERWRITE de Hive. Se trata de la misma carpeta para la exportación de Sqoop (export-dir).</td></tr>
 </table>
 
@@ -171,7 +172,7 @@ Existen tres variables que se usan en el script:
 
 El archivo de definición de flujo de trabajo (workflow.xml en este tutorial) pasa estos valores a este script de HiveQL en tiempo de ejecución.
 
-Tanto el archivo del flujo de trabajo como el archivo de HiveQL se almacenan en un contenedor de blobs.  El script de PowerShell que usará más adelante en este tutorial va a copiar ambos archivos a la cuenta de almacenamiento predeterminada. 
+Tanto el archivo del flujo de trabajo como el archivo de HiveQL se almacenan en un contenedor de blobs.  El script de PowerShell que usa más adelante en este tutorial copia ambos archivos en la cuenta de almacenamiento predeterminada. 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>Enviar trabajos de Oozie mediante PowerShell
 Azure PowerShell no proporciona actualmente cmdlets para la definición de trabajos de Oozie. Puede usar el cmdlet **Invoke-RestMethod** para invocar los servicios web de Oozie. La API de servicios web de Oozie es una API HTTP REST JSON. Para obtener más información sobre la API de servicios web de Oozie, consulte la [documentación de Oozie 4.0 de Apache (en inglés)][apache-oozie-400] (para HDInsight versión 3.0) o la [documentación de Oozie 3.3.2 de Apache (en inglés)][apache-oozie-332] (para HDInsight versión 2.1).
@@ -581,7 +582,7 @@ Este es el script.  Puede ejecutar el script desde Windows PowerShell ISE. Solo 
 
 **Para volver a ejecutar el tutorial**
 
-Para volver a ejecutar el flujo de trabajo, debe eliminar lo siguiente:
+Para volver a ejecutar el flujo de trabajo, debe eliminar los siguientes elementos:
 
 * El archivo de salida del script de Hive
 * Los datos de la tabla log4jLogsCount

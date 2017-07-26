@@ -16,20 +16,15 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ca7a62338740e39647b39f2221bc5ac7321ba4fd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introducción al conector de Informix
 Microsoft Connector para Informix permite conectar Logic Apps a los recursos almacenados en una base de datos de IBM Informix. Este conector de Informix incluye un cliente de Microsoft para comunicarse con equipos de servidor de Informix remotos a través de una red TCP/IP. Este incluye bases de datos en la nube, como IBM Informix para Windows para Windows que se ejecuta en virtualización en Azure y bases de datos locales con la puerta de enlace de datos locales. Consulte la [lista compatible](connectors-create-api-informix.md#supported-informix-platforms-and-versions) de versiones y plataformas de IBM Informix (en este tema).
-
-> [!NOTE]
-> Esta versión del artículo se aplica a la disponibilidad general de las aplicaciones lógicas. 
-> 
-> 
 
 El conector admite las siguientes operaciones de base de datos:
 
@@ -278,8 +273,9 @@ Este conector admite estas versiones de IBM Informix siguientes, cuando se confi
 * IBM Informix 12.1
 * IBM Informix 11.7
 
-## <a name="view-the-swagger"></a>Visualización de Swagger
-Vea los [detalles de Swagger](/connectors/informix/). 
+## <a name="connector-specific-details"></a>Detalles específicos del conector
+
+Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/informix/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).

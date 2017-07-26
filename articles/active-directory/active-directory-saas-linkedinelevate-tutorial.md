@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: c175d54fcc7e55bae5057adbb4b9dba0a8843fe2
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 5949ae254233aa32384aab50b188fdd6527787a0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -140,11 +140,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
-    a. Haga clic en Agregar atributo para abrir la página de detalles del atributo y agregue el atributo department tal como se muestra a continuación:
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
 
-    b. Haga clic en **Aceptar** para guardar el atributo.
+       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+
+       b. Click on **Ok** to save the attribute.
+
+    c. Cambie el nombre del atributo **emailaddress** a **email**.
+
 
 10. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
 
@@ -237,6 +240,7 @@ Al hacer clic en el icono de LinkedIn Elevate en el Panel de acceso, debe abrirs
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
+* [Tutorial: configuración de LinkedIn Elevate para el aprovisionamiento automático de usuarios con Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -254,4 +258,3 @@ Al hacer clic en el icono de LinkedIn Elevate en el Panel de acceso, debe abrirs
 [201]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_203.png
-

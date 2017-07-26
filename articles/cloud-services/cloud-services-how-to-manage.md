@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 76f59384db37967a9210ba5efa49b25788d21cdc
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: e66a3390c08b66e0f2f38725425cd78a36004118
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -112,7 +113,7 @@ El siguiente procedimiento describe cómo vincular una instancia de Base de dato
     ![Vincular página1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
 4. Haga clic en **Crear un nuevo recurso** o **Vincular un recurso existente**.
-5. Seleccione el tipo de recurso que desea vincular. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Base de datos SQL**. (El Portal de vista previa de Azure clásico no admite la vinculación de una cuenta de almacenamiento con un servicio en la nube).
+5. Seleccione el tipo de recurso que desea vincular. En el [Portal de Azure clásico](http://manage.windowsazure.com/), haga clic en **Base de datos SQL** (solo el Portal de Azure clásico admite la vinculación de una cuenta de almacenamiento con un servicio en la nube).
 6. Para completar la configuración de la base de datos, siga las instrucciones de ayuda para el área **Bases de datos SQL** del Portal de Azure clásico.
 
     Puede seguir el progreso de la operación de vinculación en el área de mensajes.

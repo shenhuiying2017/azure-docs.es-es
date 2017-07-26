@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 8f979875dc2dd53f290fe827d8c7a6ba024b16b3
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: f0e3613d4a3fd5478787c0365eb7a0bcde886c81
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -41,9 +41,9 @@ Al agregar este conector a las aplicaciones lógicas, debe iniciar sesión en su
 Después de crear la conexión, especifique las propiedades del vídeo de Office 365, como el nombre de inquilino o el identificador del canal. 
 
 
-## <a name="view-the-swagger"></a>Visualización de Swagger
+## <a name="connector-specific-details"></a>Detalles específicos del conector
 
-Consulte los [detalles sobre Swagger](/connectors/office365videoconnector/).
+Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/office365videoconnector/).
 
 ## <a name="more-connectors"></a>Más conectores
 Volver a la [lista de API](apis-list.md).

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 05/08/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: baf984be59e19f7503c36b12d2b90570ce957edf
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 75366abafa551d21630b0edddb65db23b9ea9d42
 ms.contentlocale: es-es
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -224,7 +224,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD.
 
-Regístrese en la aplicación a través de cualquier dirección URL anexada previamente (por ejemplo, `https://safe.menlosecurity.com/http://www.cnn.com/`) y escriba las credenciales de Azure AD. Después se le remitirá al sitio web apropiado tras realizar la autenticación correctamente.
+Abra una ventana del explorador en modo "InPrivate" o "Incognito" para desencadenar una nueva autenticación.  En Internet Explorer, utilice Ctrl + Mayús + P.  En Chrome, utilice Ctrl + Mayús + N.  En la ventana de exploración privada, vaya a un recurso protegido e inicie sesión en Azure AD.  Cuando inicie sesión correctamente, se le llevará al sitio solicitado en una sesión de aislamiento.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -6,21 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: end-user
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: bd0175558a94a146a365e8c1a32522f1e54c184e
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 485dfa067bd64312f6ae68a533117db1556318ed
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="register-for-self-service-password-reset"></a>Registro para el autoservicio de restablecimiento de contraseñas
@@ -45,6 +45,16 @@ Como usuario final, puede restablecer su contraseña o desbloquear su cuenta sin
 Los datos que escriba en el número de teléfono o en el correo electrónico de autenticación no serán visibles en el directorio global. Las únicas personas que pueden ver estos datos son el propio usuario y los administradores. Solo el propio usuario puede ver las respuestas a las preguntas de seguridad.
 
 Los administradores pueden requerir que confirme los métodos de autenticación después de un período de tiempo para asegurarse de que todavía tiene los métodos adecuados registrados.
+
+## <a name="common-problems-and-their-solutions"></a>problemas comunes y sus soluciones
+
+ A continuación se presentan algunos casos terror comunes y sus soluciones:
+
+| Caso de error| ¿Qué tipo de error aparece?| Solución |
+| --- | --- | --- |
+| Al escribir mi identificador de usuario, aparece una página "Póngase en contacto con su administrador" | Póngase en contacto con el administrador <br> <br> Hemos detectado que la contraseña de su cuenta de usuario no está administrada por Microsoft. Como consecuencia, no podemos restablecer automáticamente su contraseña. <br> <br> Debe ponerse en contacto con su personal de TI para obtener ayuda adicional. | Está viendo este mensaje porque su personal de TI administra su contraseña en el entorno local y no le permite restablecerla desde el vínculo No se puede tener acceso a su cuenta. <br> <br> Para restablecer la contraseña, póngase en contacto directamente con su personal de TI para solicitar ayuda y hágales saber que quiere restablecer la contraseña para que le puedan habilitar esta característica.|
+| Después de escribir mi identificador de usuario, recibo el error "Su cuenta no está habilitada para el restablecimiento de contraseña". | La cuenta no está habilitada para restablecer la contraseña <br> <br> Su personal de TI no ha configurado la cuenta para utilizarla con este servicio. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Está viendo este mensaje porque su personal de TI no ha habilitado el restablecimiento de contraseña para su organización desde el vínculo No se puede tener acceso a su cuenta, o bien no le ha autorizado para usar la característica. <br> <br> Para restablecer la contraseña, haga clic en el vínculo Póngase en contacto con el administrador para enviar un mensaje de correo electrónico al personal de TI de su empresa para que sepan que quiere restablecer su contraseña y le puedan habilitar esta característica. |
+| Después de escribir mi identificador de usuario, recibo el error "No se pudo comprobar su cuenta". | No se ha podido comprobar su cuenta. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Esta viendo este mensaje porque está habilitado para el restablecimiento de contraseña, pero no se ha registrado para usar el servicio. Para registrarse para el restablecimiento de contraseña, vaya a http://aka.ms/ssprsetup después de haber recuperado el acceso a su cuenta. <br> <br> Para restablecer la contraseña, haga clic en el vínculo Póngase en contacto con un administrador para enviar un correo electrónico al personal de TI de su empresa. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

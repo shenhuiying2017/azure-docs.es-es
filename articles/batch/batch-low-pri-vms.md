@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/05/2017
 ms.author: markscu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 69e26eaf4aedaf17b58091420430ca996c01cf69
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 5f37bc9dc3b754e7900883263a2b8fdcbf4b707f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -29,6 +29,8 @@ Las máquinas virtuales de prioridad baja aprovechan la capacidad sobrante en Az
 La ventaja en el uso de máquinas virtuales de prioridad baja es que esas máquinas virtuales se pueden reemplazar cuando no se encuentre disponible ninguna capacidad sobrante en Azure. Por este motivo, estas máquinas son las más adecuadas para determinados tipos de cargas de trabajo. Use máquinas virtuales de prioridad baja para cargas de trabajo de procesamiento por lotes y asincrónicas en las que el tiempo de finalización del trabajo sea flexible y el trabajo se distribuya entre muchas máquinas virtuales.
 
 Las máquinas virtuales de prioridad baja son significativamente menos caras que las máquinas virtuales dedicadas. Para más información sobre precios, consulte [Precios de Batch](https://azure.microsoft.com/pricing/details/batch/).
+
+Para obtener una explicación adicional sobre máquinas virtuales de prioridad baja, consulte el anuncio de entrada de blog: [Batch computing at a fraction of the price](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/preview/) (Computación por lotes a un precio reducido).
 
 > [!IMPORTANT]
 > Las máquinas virtuales de prioridad baja se encuentran actualmente en versión preliminar y solo están disponibles para cargas de trabajo que se ejecutan en Batch. 
@@ -72,6 +74,9 @@ Azure Batch ofrece varias funcionalidades que facilitan el consumo y que se bene
 -   Los grupos de Batch buscan automáticamente el número objetivo de máquinas virtuales de prioridad baja. Si las máquinas virtuales se reemplazan, entonces Batch intenta reemplazar la capacidad perdida y volver al objetivo.
 
 -   En el caso de que se interrumpan las tareas, Batch lo detectará y las pondrá automáticamente en cola para que se ejecuten de nuevo.
+
+-   Las máquinas virtuales de prioridad baja tienen una cuota de núcleos que difiere de la de las máquinas virtuales dedicadas. 
+    La cuota para las máquinas virtuales de prioridad baja es mayor que la de las máquinas virtuales dedicadas, ya que las primeras tienen un precio inferior. Consulte [Límites y cuotas del servicio Batch](batch-quota-limit.md#resource-quotas) para más información.    
 
 > [!NOTE]
 > Las máquinas virtuales de prioridad baja no se admiten actualmente para cuentas de Batch donde se establece el modo de asignación de grupo en [Suscripción del usuario](batch-account-create-portal.md#user-subscription-mode).

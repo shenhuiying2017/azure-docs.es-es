@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 77030e3e6375682c416d99ef22d754b908ad484d
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 00cb963e85111274c36c3a84489894811ad2dabd
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -48,7 +49,7 @@ Seleccione el hipervínculo para ver la notificaciones del usuario. Esto le llev
 | Asunto| {Firmante}|Cadena que identifica de forma única el inicio de sesión de usuario en la web|
 | Id. de inquilino| {Guid}| *guid* que representa de forma única la organización de Azure Active Directory del usuario.|
 
-Además, verá una tabla con todas las notificaciones de usuario incluidas en la solicitud de autenticación. Para obtener una lista de todas las notificaciones de un token de identificador y una explicación, vea este [artículo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Además, verá una tabla con todas las notificaciones de usuario incluidas en la solicitud de autenticación. Para obtener una lista de todas las notificaciones de un token de identificador y una explicación, consulte este [artículo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "Lista de notificaciones en token de identificador").
 
 
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Probar el acceso a un método que tiene un atributo *[Authorize]* (opcional)
@@ -82,6 +83,6 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 > Para solo permitir usuarios de una lista de organizaciones específicas, establezca `ValidateIssuer` en true y use el parámetro `ValidIssuers` para especificar una lista de las organizaciones.
 
-> Otra posibilidad es implementar un método personalizado para validar los emisores con el parámetro IssuerValidator. Para más información sobre `TokenValidationParameters`, consulte [este](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) artículo de MSDN.
+> Otra posibilidad es implementar un método personalizado para validar los emisores con el parámetro IssuerValidator. Para más información acerca de `TokenValidationParameters`, consulte [este](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "Artículo de MSDN acerca de TokenValidationParameters") artículo de MSDN.
 
 

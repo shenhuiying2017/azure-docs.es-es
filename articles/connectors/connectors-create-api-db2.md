@@ -16,20 +16,15 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2dc4c912f018f5d71d8c874763f204cf6c2c415b
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introducción al conector de DB2
 Microsoft Connector para DB2 permite conectar Logic Apps a los recursos almacenados en una base de datos de IBM DB2. Este conector incluye un cliente de Microsoft para comunicarse con equipos de servidor de DB2 remotos a través de una red TCP/IP. Este incluye bases de datos en la nube, como IBM Bluemix dashDB o IBM DB2 para Windows que se ejecuta en virtualización en Azure y bases de datos locales con la puerta de enlace de datos locales. Consulte la [lista compatible](connectors-create-api-db2.md#supported-db2-platforms-and-versions) de versiones y plataformas de IBM DB2 (en este tema).
-
-> [!NOTE]
-> Esta versión del artículo se aplica a la disponibilidad general de las aplicaciones lógicas. 
-> 
-> 
 
 El conector de DB2 admite las siguientes operaciones de base de datos:
 
@@ -283,8 +278,9 @@ Este conector admite las siguientes plataformas y versiones de IBM DB2, así com
 * IBM DB2 para LUW 11
 * IBM DB2 para LUW 10.5
 
-## <a name="view-the-swagger"></a>Visualización de Swagger
-Vea los [detalles de Swagger](/connectors/db2/). 
+## <a name="connector-specific-details"></a>Detalles específicos del conector
+
+Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/db2/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).

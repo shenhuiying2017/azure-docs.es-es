@@ -33,7 +33,7 @@ Almacenamiento de datos SQL admite los tipos de datos usados más frecuentemente
 Minimizar el tamaño de los tipos de datos acorta la longitud de fila, lo que conduce a un mejor rendimiento de las consultas. Utilice el tipo de datos más pequeño que sirva para los datos. 
 
 - Evite definir las columnas de caracteres con una longitud predeterminada de gran tamaño. Por ejemplo, si el valor más largo es de 25 caracteres, defina la columna como VARCHAR(25). 
-- Evite el uso de [NVARCHAR] [ NVARCHAR] cuando solo necesite VARCHAR.
+- Evite el uso de [NVARCHAR][NVARCHAR] cuando solo necesite VARCHAR.
 - Utilice NVARCHAR(4000) o VARCHAR(8000) cuando sea posible en lugar de NVARCHAR(MAX) o VARCHAR(MAX).
 
 Si usa Polybase para cargar las tablas, la longitud definida para la fila de la tabla no puede superar 1 MB. Cuando una fila con datos de longitud variable supera 1 MB, puede cargar la fila con BCP, pero no con PolyBase.

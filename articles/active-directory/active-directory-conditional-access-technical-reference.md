@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2017
+ms.date: 05/25/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 4296bbc7123f6571ad564351612864a6315d8abf
-ms.openlocfilehash: 450f3e001a0bc4a45fea4c4f0a81e676e9a80cc4
-ms.lasthandoff: 03/02/2017
-
+ms.reviewer: calebb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: db7d8b6b2cbe1604fc1b02cc36780ddd83a4d350
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Referencia técnica del acceso condicional de Azure Active Directory
@@ -37,7 +38,8 @@ Las reglas de acceso condicional se admiten en varios tipos de aplicaciones de A
 * Microsoft Office 365 SharePoint Online (incluye OneDrive para la Empresa)
 * Microsoft Power BI 
 * Aplicaciones de inicio de sesión único con contraseña de la Galería de aplicaciones de Azure AD
-* Visual Studio Online
+* Visual Studio Team Services
+* Equipos de Microsoft
 
 
 
