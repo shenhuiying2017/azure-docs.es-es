@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/31/2016
-ms.author: elbutter; barbkess
+ms.date: 07/25/2017
+ms.author: elbutter
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: e250fa59204be14614a4c91fb5a0c1af5a8d5281
 ms.contentlocale: es-es
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-rest"></a>Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)
@@ -42,7 +41,7 @@ ms.lasthandoff: 06/01/2017
 Para cambiar las DWU, utilice la API de REST [Create or Update Database][Create or Update Database]. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW que se hospeda en el servidor MyServer. El servidor está en un grupo de recursos de Azure denominado ResourceGroup1.
 
 ```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
+PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
 Content-Type: application/json; charset=UTF-8
 
 {
