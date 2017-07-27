@@ -25,7 +25,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Redes virtuales |50 |500 |
 | Subredes por red virtual |1000 |ponerse en contacto con el servicio de soporte técnico |
 | Servidores DNS por red virtual |9 |25 |
-| Direcciones IP privadas por red virtual |4096 |4096 |
+| Direcciones IP privadas por red virtual |4096 |8192 |
 | Direcciones IP privadas por interfaz de red |50 |ponerse en contacto con el servicio de soporte técnico |
 | Conexiones TCP concurrentes para una máquina virtual o instancia de rol |500 KB |500 KB |
 | Interfaces de red (NIC) |300 |10000 |
