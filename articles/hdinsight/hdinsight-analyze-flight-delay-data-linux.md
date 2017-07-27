@@ -1,5 +1,5 @@
 ---
-title: "Análisis de datos de retraso de vuelos con Hive en HDInsight basado en Linux | Microsoft Docs"
+title: "Análisis de datos de retraso de vuelos con Hive en HDInsight: Azure | Microsoft Docs"
 description: Aprenda a usar Hive para analizar datos de vuelos en HDInsight basado en Linux y luego exporte los datos a la Base de datos SQL con Sqoop.
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 05/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6c92292a67d14ac43c0fe5dbe7e14672c74b216b
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 88031b3698ec575eb48531b118c45f11ef7f19c0
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Análisis de datos de retraso de vuelos mediante Hive en HDInsight basado en Linux
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/11/2017
 Aprenda a analizar datos de retrasos de vuelos con Hive en HDInsight basado en Linux y luego exportar los datos a Azure SQL Database mediante Sqoop.
 
 > [!IMPORTANT]
-> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### <a name="prerequisites"></a>Requisitos previos
 
@@ -76,7 +77,7 @@ Aprenda a analizar datos de retrasos de vuelos con Hive en HDInsight basado en L
     unzip FILENAME.zip
     ```
 
-    Este comando extrae un archivo .csv que tiene un tamaño aproximado de 60 MB.
+    Este comando extrae un archivo .csv que tiene un tamaño aproximado de 60 MB.
 
 4. Use el siguiente comando para crear un directorio en el almacenamiento para HDInsight y luego copie el archivo en el directorio:
 
@@ -157,9 +158,9 @@ Siga estos pasos para importar datos desde el archivo CSV en una tabla de Hive d
     FROM delays_raw;
     ```
 
-2. Use **Ctrl+X** y luego **Y** para guardar el archivo.
+2. Para guardar el archivo, use **Ctrl+X** y luego **Y**.
 
-3. Use el comando siguiente para iniciar Hive y ejecutar el archivo **flightdelays.hql** :
+3. Para iniciar Hive y ejecutar el archivo **flightdelays.hql**, use el siguiente comando:
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
@@ -194,7 +195,7 @@ Siga estos pasos para importar datos desde el archivo CSV en una tabla de Hive d
 
 Si ya tiene una base de datos SQL, debe obtener el nombre del servidor. Puede encontrar el nombre del servidor en [Azure Portal](https://portal.azure.com) seleccionando **SQL Database** y, después, filtrando por el nombre de la base de datos que desee usar. El nombre del servidor aparece en la columna **SERVIDOR** .
 
-Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos](../sql-database/sql-database-get-started.md) . Tiene que guardar el nombre del servidor usado para la base de datos.
+Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos](../sql-database/sql-database-get-started.md) . Guarde el nombre del servidor usado para la base de datos.
 
 ## <a name="create-a-sql-database-table"></a>Creación de una tabla de Base de datos SQL
 
@@ -237,16 +238,16 @@ Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de d
     GO
     ```
 
-    Cuando se haya especificado la instrucción `GO`, se evaluarán las instrucciones anteriores. Se creará una tabla denominada **delays** con un índice agrupado.
+    Cuando se haya especificado la instrucción `GO`, se evaluarán las instrucciones anteriores. Se crea una tabla denominada **delays** con un índice agrupado.
 
-    Para comprobar que se ha creado la tabla, utilice lo siguiente:
+    Use la siguiente consulta para comprobar que se ha creado la tabla:
 
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    La salida será similar a la siguiente:
+    La salida será similar al siguiente texto:
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE

@@ -20,6 +20,7 @@
 ### [Supervisión de máquinas virtuales con la extensión de diagnóstico de máquinas virtuales v2.x](diagnostic-extension-v2.md)
 ### [Inyección de datos personalizados](inject-custom-data.md)
 ### [Restablecimiento de contraseñas o claves de Linux, corrección de SSH y comprobación de discos](reset-access.md)
+### [Mantenimiento](planned-maintenance-schedule.md)
 ### [Creación de un host de Docker mediante la CLI](cli-use-docker.md)
 ### [Creación de un host de Docker mediante el portal](portal-use-docker.md)
 ### [Uso de Docker con Swarm](../../virtual-machines-linux-docker-swarm.md)
@@ -65,6 +66,7 @@
 ## Solución de problemas
 ### [Implementaciones de máquina virtual](troubleshoot-deployment-new-vm.md)
 ### [Reinicio o cambio del tamaño de una máquina virtual](restart-resize-error-troubleshooting.md)
+### [Conexión de un disco duro virtual para solucionar problemas de máquina virtual](troubleshoot-recovery-disks-portal.md)
 
 # Referencia
 ## [PowerShell](/powershell/azure/overview)
@@ -78,7 +80,7 @@
 
 
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Precios](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Disponibilidad regional](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

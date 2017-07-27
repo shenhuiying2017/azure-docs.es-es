@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 05/30/2017
 ms.author: sethm;clemensv
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 31bf24034558582eb138251207580e8f7fd7ddaf
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 5abdbf70d4fdb2c7feb0f3537ecc0f2abf0775a0
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -40,7 +41,8 @@ Aunque no se recomienda, es posible equipar los dispositivos con tokens que conc
 Todos los tokens se firman con una clave de SAS. Normalmente, todos los tokens se firman con la misma clave. Los clientes no conocen la clave; esto evita que los clientes produzcan tokens.
 
 ### <a name="create-the-sas-key"></a>Creación de la clave SAS
-Cuando se crea un espacio de nombres de Event Hubs de Azure, el servicio genera una clave SAS de 256 bits llamada **RootManageSharedAccessKey**. Esta clave permite enviar, escuchar y administrar los derechos del espacio de nombres. Puede crear claves adicionales. Se recomienda que genere una clave que conceda permisos de envío para el centro de eventos concreto. En el resto de este tema, se presupone que esta clave tiene el nombre **EventHubSendKey**.
+
+Cuando se crea un espacio de nombres de Event Hubs, el servicio genera una clave SAS de 256 bits llamada **RootManageSharedAccessKey**. Esta clave permite enviar, escuchar y administrar los derechos del espacio de nombres. También puede crear claves adicionales. Se recomienda que genere una clave que conceda permisos de envío para el centro de eventos concreto. En el resto de este tema, se presupone que esta clave tiene el nombre **EventHubSendKey**.
 
 En el ejemplo siguiente se crea una clave solo de envío cuando se crea el centro de eventos:
 
@@ -63,6 +65,7 @@ nm.CreateEventHub(ed);
 ```
 
 ### <a name="generate-tokens"></a>Generación de tokens
+
 Puede generar tokens con la clave de SAS. Solo debe generar un token por cliente. Los tokens se pueden producir con el método siguiente. Todos los tokens se generan con la clave **EventHubSendKey** . A cada token se le asigna un URI único.
 
 ```csharp
@@ -88,15 +91,14 @@ Normalmente, los tokens tienen una duración que se parece o supera la duración
 ### <a name="sending-data"></a>Envío de datos
 Cuando se han creado los tokens, cada cliente se aprovisiona con su propio token único.
 
-Cuando el cliente envía datos a un centro de eventos, el dispositivo etiqueta su token con la solicitud de envío. Para evitar que un atacante use la técnica de eavesdropping y robe el token, la comunicación entre el cliente y el centro de eventos debe realizarse a través de un canal cifrado.
+Cuando el cliente envía datos a un centro de eventos, se etiqueta la solicitud de envío con el token. Para evitar que un atacante use la técnica de eavesdropping y robe el token, la comunicación entre el cliente y el centro de eventos debe realizarse a través de un canal cifrado.
 
 ### <a name="blacklisting-clients"></a>Incorporación de clientes a la lista negra
 Si un atacante roba un token, el atacante puede suplantar el cliente al que se ha robado el token. Al incorporar al cliente a la lista negra el cliente queda inutilizable hasta que recibe un token nuevo que usa un publicador diferente.
 
 ## <a name="authentication-of-back-end-applications"></a>Autenticación de aplicaciones de back-end
 
-Para autenticar aplicaciones de back-end que consumen los datos que generan los clientes de Event Hubs, Event Hubs emplea un modelo de seguridad similar al que se usa en los temas de Service Bus. Un grupo de consumidores de Centros de eventos equivale a una suscripción a un tema de Bus de servicio. Un cliente puede crear un grupo de consumidores si la solicitud para crear el grupo de consumidores viene acompañada de un token que concede privilegios de administración para el centro de eventos o para el espacio de nombres al que pertenece. Se permite que un cliente pueda consumir datos de un grupo de consumidores si la solicitud de recepción está acompañada de un token que conceda derechos de recepción en ese grupo de consumidores, centro de eventos o espacio de nombres al que pertenece el centro de eventos.
-
+Para autenticar aplicaciones de back-end que consumen los datos que generan los clientes de Event Hubs, Event Hubs emplea un modelo de seguridad similar al que se usa en los temas de Service Bus. Un grupo de consumidores de Centros de eventos equivale a una suscripción a un tema de Bus de servicio. Un cliente puede crear un grupo de consumidores si la solicitud para ello viene acompañada de un token que concede privilegios de administración para el centro de eventos o para el espacio de nombres al que pertenece. Se permite que un cliente pueda consumir datos de un grupo de consumidores si la solicitud de recepción está acompañada de un token que conceda derechos de recepción en ese grupo de consumidores, centro de eventos o espacio de nombres al que pertenece el centro de eventos.
 
 La versión actual de Bus de servicio no admite reglas SAS para suscripciones individuales. Lo mismo sucede con los grupos de consumidores de los Centros de eventos. La compatibilidad con SAS se agregará para ambas características en el futuro.
 

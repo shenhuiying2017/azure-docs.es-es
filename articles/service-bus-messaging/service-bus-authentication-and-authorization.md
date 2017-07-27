@@ -1,6 +1,6 @@
 ---
 title: "Autenticación y autorización de Azure Service Bus | Microsoft Docs"
-description: "Información general de la autenticación de Firma de acceso compartido (SAS)."
+description: "Autentique aplicaciones en Service Bus con la autenticación de firma de acceso compartido (SAS)."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 06/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4eaae725c62f66de1b50fd2c7094f3e6e89281be
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 5ed7558cfff9991734e909e06e8bac9181131381
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticación y autorización de Bus de servicio
+
 Las aplicaciones pueden autenticarse en Bus de servicio de Azure mediante autenticación de Firma de acceso compartido (SAS) o Servicio de control de acceso de Azure Active Directory (también conocido como Servicio de control de acceso o ACS). La autenticación de Firma de acceso compartido permite a las aplicaciones autenticarse en Bus de servicio mediante una clave de acceso configurada en el espacio de nombres o la entidad al que se asocian derechos específicos. A continuación, puede usar esta clave para generar un token de Firma de acceso compartido que los clientes pueden usar para autenticarse en Bus de servicio.
 
 > [!IMPORTANT]
@@ -32,7 +34,7 @@ Las aplicaciones pueden autenticarse en Bus de servicio de Azure mediante autent
 
 Puede configurar claves para SAS en un espacio de nombres de Bus de servicio. La clave se aplica a todas las entidades de mensajes de ese espacio de nombres. También puede configurar claves en temas y colas de Bus de servicio. SAS también es compatible con [Azure Relay](../service-bus-relay/relay-authentication-and-authorization.md).
 
-Para usar SAS, puede configurar un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en un espacio de nombres, cola o tema que consta de lo siguiente:
+Para usar SAS, puede configurar un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en un espacio de nombres, cola o tema. Esta regla está formada por los siguientes elementos:
 
 * *KeyName* que identifica la regla.
 * *PrimaryKey* es una clave criptográfica usada para firmar o validar tokens SAS.
@@ -67,6 +69,7 @@ Para obtener acceso a una entidad, el cliente solicita un token SWT de ACS con l
 La compatibilidad de la autenticación de ACS con Bus de servicio se incluye en el SDK .NET de Azure 2.0 y versiones posteriores. Esta autenticación incluye compatibilidad con un objeto [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). Todas las API que aceptan una cadena de conexión como parámetro incluyen compatibilidad con cadenas de conexión ACS.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Continúe leyendo [Autenticación en Service Bus con Firmas de acceso compartido](service-bus-sas.md) para obtener más información sobre SAS.
 
 Para obtener la información correspondiente a la autenticación y autorización de Azure Relay, consulte [Azure Relay authentication and authorization](../service-bus-relay/relay-authentication-and-authorization.md) (Autenticación y autorización de Azure Relay). 

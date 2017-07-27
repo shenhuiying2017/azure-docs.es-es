@@ -3,7 +3,7 @@ title: "Referencia de la API de informes de actividad de inicio de sesión de Az
 description: "Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 077c39d1a6f61aba7b184ee616a93f30cdb7d12c
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d83f1a899ba38dab2c1c1661adede87db6f88c20
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory
@@ -29,10 +29,9 @@ El objetivo de este tema es ofrecer información de referencia sobre la **API de
 
 Consulte:
 
-* [Actividades de inicio de sesión](active-directory-reporting-azure-portal.md#sign-in-activities) para obtener más información
+* [Actividades de inicio de sesión](active-directory-reporting-azure-portal.md#activity-reports) para obtener más información
 * [Introducción a la API de generación de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md) para obtener más información sobre esta API
 
-Para ver preguntas, problemas o comentarios, póngase en contacto con el equipo de [ayuda de informes de AAD](mailto:aadreportinghelp@microsoft.com).
 
 ## <a name="who-can-access-the-api-data"></a>¿Quién puede acceder a los datos de la API?
 * Usuarios y entidades de seguridad de los roles de administrador o lector de seguridad

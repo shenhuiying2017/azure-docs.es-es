@@ -72,13 +72,16 @@
 ### Ejemplos
 #### [Etiquetas](resource-manager-policy-tags.md)
 #### [Convenciones de nomenclatura](resource-manager-policy-naming-convention.md)
+#### [Red](resource-manager-policy-network.md)
 #### [Storage](resource-manager-policy-storage.md)
 #### [Máquina virtual Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Máquina virtual Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Uso de aplicaciones administradas
-### [Publicación de una aplicación administrada](managed-application-publishing.md)
-### [Consumo de una aplicación administrada](managed-application-consumption.md)
+### [Publicación de la aplicación de catálogo de servicios](managed-application-publishing.md)
+### [Consumo de la aplicación de catálogo de servicios](managed-application-consumption.md)
+### [Publicación de la aplicación Marketplace](managed-application-author-marketplace.md)
+### [Consumo de la aplicación Marketplace](managed-application-consume-marketplace.md)
 ### [Creación de definiciones de interfaz de usuario](managed-application-createuidefinition-overview.md)
 
 ## Auditoría
@@ -87,6 +90,11 @@
 
 ## Solución de problemas
 ### [Errores de implementación frecuentes](resource-manager-common-deployment-errors.md)
+### [Descripción de los errores de implementación](resource-manager-troubleshoot-tips.md)
+### [Error RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Errores de implementación de máquinas virtuales
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Referencia
 ## [Formato de plantilla](/azure/templates/)
@@ -120,7 +128,7 @@
 ## [REST](/rest/api/resources/)
 
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Solicitudes de limitación](resource-manager-request-limits.md)

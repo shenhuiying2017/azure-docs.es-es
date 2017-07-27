@@ -6,20 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 02826ffad9838c3e22721cc3c189e8cc13020059
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 44426571e3fd8aed090ccccc0dcc46dca8098906
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
@@ -57,7 +58,7 @@ Lea los pasos siguientes para obtener información sobre la lógica de la págin
 
 ## <a name="authentication-methods"></a>Métodos de autenticación
 
-Si Autoservicio de restablecimiento de contraseña (SSPR) está habilitado, debe seleccionar al menos una de las opciones siguientes para los métodos de autenticación. Se recomienda encarecidamente elegir al menos dos métodos de autenticación para que los usuarios tengan más flexibilidad.
+Si Autoservicio de restablecimiento de contraseña (SSPR) está habilitado, tiene que seleccionar al menos una de las opciones siguientes para los métodos de autenticación. Se recomienda encarecidamente elegir al menos dos métodos de autenticación para que los usuarios tengan más flexibilidad.
 
 * Email
 * Teléfono móvil
@@ -75,9 +76,9 @@ Si Autoservicio de restablecimiento de contraseña (SSPR) está habilitado, debe
 
 De forma predeterminada, solo los atributos de la nube Teléfono de la oficina y Teléfono móvil se sincronizan con su directorio en la nube desde el directorio local para los datos de autenticación.
 
-Los usuarios solo podrán restablecer su contraseña si tienen datos en los métodos de autenticación que el administrador haya habilitado y requiera.
+Los usuarios solo pueden restablecer su contraseña si tienen datos en los métodos de autenticación que el administrador haya habilitado y requiera.
 
-Si los usuarios no desea que su número de teléfono móvil esté visible en el directorio, pero desean usarlo para el restablecimiento de la contraseña, los administradores no deben rellenarlo en el directorio y el usuario debe rellenar su atributo **Teléfono de autenticación** a través del [portal de registro de restablecimiento de contraseña](http://aka.ms/ssprsetup). Los administradores podrán ver esta información en el perfil del usuario, pero no se publicará en ningún otro lugar. Si una cuenta de administrador de Azure registra su número de teléfono de autenticación, este se rellena en el campo de teléfono móvil y está visible.
+Si los usuarios no desea que su número de teléfono móvil esté visible en el directorio, pero desean usarlo para el restablecimiento de la contraseña, los administradores no deben rellenarlo en el directorio y el usuario debe rellenar su atributo **Teléfono de autenticación** a través del [portal de registro de restablecimiento de contraseña](http://aka.ms/ssprsetup). Los administradores pueden ver esta información en el perfil del usuario, pero no se publica en ningún otro lugar. Si una cuenta de administrador de Azure registra su número de teléfono de autenticación, este se rellena en el campo de teléfono móvil y está visible.
 
 ### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticación requeridos
 
@@ -243,7 +244,12 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
 4. En la pestaña Permisos, haga clic en Agregar
 5. Elija la cuenta a la que se van a aplicar los permisos (en el programa de instalación de Azure AD Connect)
 6. En la lista desplegable Se aplica a, seleccione Descendent User objects (Objetos de usuario descendiente)
-7. En Permisos, active las casillas para restablecer contraseña, cambiar contraseña, escribir lockoutTime y escribir pwdLastSet
+7. En permisos, active las casillas para los siguientes elementos
+    * Contraseña sin expiración
+    * Restablecimiento de contraseña
+    * Cambiar contraseña
+    * Escribir lockoutTime
+    * Escribir pwdLastSet
 8. Haga clic en Aplicar o Aceptar para aplicar los cambios y salir de los cuadros de diálogo abiertos.
 
 ## <a name="how-does-password-reset-work-for-b2b-users"></a>¿Cómo funciona el restablecimiento de contraseña para usuarios B2B?
@@ -259,7 +265,7 @@ Para probarlo, vaya a http://passwordreset.microsoftonline.com con uno de estos 
 
 Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
 
-* [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para la administración de contraseñas autoservicio de Azure AD 
+* [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD 
 * [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
 * [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
 * [**Implementación**](active-directory-passwords-best-practices.md): planeamiento e implementación de SSPR para los usuarios con las directrices que aquí se proporcionan

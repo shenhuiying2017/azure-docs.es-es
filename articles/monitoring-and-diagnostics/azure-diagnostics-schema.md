@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 8075ab1f36f66a718b2a53d5f42f0c267d58050f
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="list-of-azure-diagnostics-versions"></a>Lista de versiones de Diagnósticos de Azure
+# <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Historial y versiones del esquema de configuración de la extensión Azure Diagnostics
 Esta página es un índice de las versiones del esquema de la extensión Azure Diagnostics que se incluyen como parte de Microsoft Azure SDK.  
 
 > [!NOTE]
@@ -131,7 +131,7 @@ Se agregó StorageType a PublicConfig. Puede ser *Table*, *Blob* y *TableAndBlob
 ### <a name="diagnostics-extension-17"></a>Extensión Diagnostics 1.7 
 Se agregó la capacidad de enrutar a EventHub.
 
-### <a name="diagnostics-extention-15"></a>Extensión Diagnostics 1.5
+### <a name="diagnostics-extension-15"></a>Extensión Diagnostics 1.5
 Se agregaron el elemento Sinks y la capacidad de enviar datos de diagnóstico a [Application Insights](../application-insights/app-insights-cloudservices.md), lo que permitió diagnosticar de forma más sencilla los problemas tanto en la aplicación como en la infraestructura y el sistema.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 y extensión Diagnostics 1.3 

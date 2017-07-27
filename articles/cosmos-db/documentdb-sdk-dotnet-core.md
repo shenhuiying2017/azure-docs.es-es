@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/12/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c851e01fb8884b2f601986207d730efb338422a8
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: c1f0bbfd1bea292eedaaf8904a2f60e9415dcbcf
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Descarga del SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
 
-<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de API de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de API de .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Ejemplos**</td><td>[Ejemplos de código de .NET](documentdb-dotnet-samples.md)</td></tr>
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Tutorial de la aplicación web**</td><td>[Desarrollo de aplicaciones web con DocumentDB](documentdb-dotnet-application.md)</td></tr>
 
-<tr><td>**Plataforma admitida actualmente**</td><td>[.NET Standard 1.6](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
+<tr><td>**Plataforma admitida actualmente**</td><td>[.NET Standard 1.6 y .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
@@ -56,16 +56,24 @@ ms.lasthandoff: 05/31/2017
 El SDK de .NET Core para DocumentDB .NET Core SDK incluye paridad de características con la última versión del [SDK de .NET para DocumentDB](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> El SDK de .NET Core para DocumentDB aún no es compatible con aplicaciones de la Plataforma universal de Windows (UWP). Si quiere que el SDK de .NET Core que admita aplicaciones de UWP, envíe un correo electrónico a [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+> El SDK de .NET Core para DocumentDB aún no es compatible con aplicaciones de la Plataforma universal de Windows (UWP). Si quiere que el SDK de .NET Core que admita aplicaciones de UWP, envíe un correo electrónico a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+
+*   Compatibilidad con .NET Standard 1.5 como una de las siguientes plataformas de destino.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+
+*   Se corrigió un problema que afectaba a las máquinas x64 que no admiten instrucciones SSE4 y que producía una excepción SEHException al ejecutar consultas de DocumentDB.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-*    Se agregó compatibilidad con la característica Unidad de solicitud por minuto (RU/m).
-*    Se agregó compatibilidad con un nuevo nivel de coherencia denominado ConsistentPrefix.
-*    Se agregó compatibilidad con métricas de consulta para particiones individuales.
-*    Se agregó compatibilidad para limitar el tamaño del token de continuación para las consultas.
-*    Se agregó compatibilidad para un seguimiento más detallado de las solicitudes con error.
-*    Se hicieron algunas mejoras de rendimiento en el SDK.
+*   Se agregó compatibilidad con la característica Unidad de solicitud por minuto (RU/m).
+*   Se agregó compatibilidad con un nuevo nivel de coherencia denominado ConsistentPrefix.
+*   Se agregó compatibilidad con métricas de consulta para particiones individuales.
+*   Se agregó compatibilidad para limitar el tamaño del token de continuación para las consultas.
+*   Se agregó compatibilidad para un seguimiento más detallado de las solicitudes con error.
+*   Se hicieron algunas mejoras de rendimiento en el SDK.
 
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
@@ -117,6 +125,8 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en los foros de [Stac
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |12 de junio de 2017 |--- |
+| [1.3.1](#1.3.1) |23 de mayo de 2017 |--- |
 | [1.3.0](#1.3.0) |10 de mayo de 2017 |--- |
 | [1.2.2](#1.2.2) |19 de abril de 2017 |--- |
 | [1.2.1](#1.2.1) |29 de marzo de 2017 |--- |

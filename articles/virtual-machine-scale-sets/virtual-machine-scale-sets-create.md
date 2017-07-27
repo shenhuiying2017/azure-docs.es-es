@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 05/23/2017
 ms.author: adegeo
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
@@ -50,11 +50,11 @@ Login-AzureRmAccount
 En primer lugar, debe crear un grupo de recursos con el que esté asociado el conjunto de escalado de máquinas virtuales.
 
 ```azurecli
-az group create --location westus2 --name vmss-test-1
+az group create --location westus2 --name MyResourceGroup1
 ```
 
 ```powershell
-New-AzureRmResourceGroup -Location westus2 -Name vmss-test-1
+New-AzureRmResourceGroup -Location westus2 -Name MyResourceGroup1
 ```
 
 ## <a name="create-from-azure-cli"></a>Creación desde la CLI de Azure
@@ -95,13 +95,13 @@ Para crear un conjunto de escalado de máquinas virtuales, se debe especificar l
 En el ejemplo siguiente se crea un conjunto de escalado de máquinas virtuales básico (este paso puede demorar unos minutos).
 
 ```azurecli
-az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
+az vmss create --resource-group MyResourceGroup1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
 ```
 
 Cuando finaliza el comando, se habrá creado el conjunto de escalado de máquinas virtuales. Debe obtener la dirección IP de la máquina virtual para que pueda conectarse a ella. Puede obtener información variada acerca de la máquina virtual (incluyendo la dirección IP) con el siguiente comando. 
 
 ```azurecli
-az vmss list-instance-connection-info --resource-group vmss-test-1 --name MyScaleSet
+az vmss list-instance-connection-info --resource-group MyResourceGroup1 --name MyScaleSet
 ```
 
 ## <a name="create-from-powershell"></a>Creación desde PowerShell
@@ -142,8 +142,12 @@ El flujo de trabajo para crear un conjunto de escalado de máquinas virtuales es
 En este ejemplo se crean un conjunto de escalado básico de dos instancias con Windows Server 2016 instalado.
 
 ```powershell
+# Resource group name from above
+$rg = "MyResourceGroup1"
+$location = "WestUS2"
+
 # Create a config object
-$vmssConfig = New-AzureRmVmssConfig -Location WestUS2 -SkuCapacity 2 -SkuName Standard_A0  -UpgradePolicyMode Automatic
+$vmssConfig = New-AzureRmVmssConfig -Location $location -SkuCapacity 2 -SkuName Standard_A0  -UpgradePolicyMode Automatic
 
 # Reference a virtual machine image from the gallery
 Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWindowsServer -ImageReferenceOffer WindowsServer -ImageReferenceSku 2016-Datacenter -ImageReferenceVersion latest
@@ -152,15 +156,29 @@ Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWind
 Set-AzureRmVmssOsProfile $vmssConfig -AdminUsername azureuser -AdminPassword P@ssw0rd! -ComputerNamePrefix myvmssvm
 
 # Create the virtual network resources
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "my-subnet" -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork -Name "my-network" -ResourceGroupName "vmss-test-1" -Location "westus2" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-$ipConfig = New-AzureRmVmssIpConfig -Name "my-ip-address" -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-# Attach the virtual network to the config object
+## Basics
+$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "my-subnet" -AddressPrefix 10.0.0.0/24
+$vnet = New-AzureRmVirtualNetwork -Name "my-network" -ResourceGroupName $rg -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+
+## Load balancer
+$publicIP = New-AzureRmPublicIpAddress -Name "PublicIP" -ResourceGroupName $rg -Location $location -AllocationMethod Static -DomainNameLabel "myuniquedomain"
+$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name "LB-Frontend" -PublicIpAddress $publicIP
+$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
+$probe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+$inboundNATRule1= New-AzureRmLoadBalancerRuleConfig -Name "webserver" -FrontendIpConfiguration $frontendIP -Protocol Tcp -FrontendPort 80 -BackendPort 80 -IdleTimeoutInMinutes 15 -Probe $probe -BackendAddressPool $backendPool
+$inboundNATPool1 = New-AzureRmLoadBalancerInboundNatPoolConfig -Name "RDP" -FrontendIpConfigurationId $frontendIP.Id -Protocol TCP -FrontendPortRangeStart 53380 -FrontendPortRangeEnd 53390 -BackendPort 3389
+
+New-AzureRmLoadBalancer -ResourceGroupName $rg -Name "LB1" -Location $location -FrontendIpConfiguration $frontendIP -LoadBalancingRule $inboundNATRule1 -InboundNatPool $inboundNATPool1 -BackendAddressPool $backendPool -Probe $probe
+
+## IP address config
+$ipConfig = New-AzureRmVmssIpConfig -Name "my-ipaddress" -LoadBalancerBackendAddressPoolsId $backendPool.Id -SubnetId $vnet.Subnets[0].Id -LoadBalancerInboundNatPoolsId $inboundNATPool1.Id
+
+# Attach the virtual network to the IP object
 Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig -Name "network-config" -Primary $true -IPConfiguration $ipConfig
 
 # Create the scale set with the config object (this step might take a few minutes)
-New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachineScaleSet $vmssConfig
+New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleSet $vmssConfig
 ```
 
 ## <a name="create-from-a-template"></a>Creación desde una plantilla

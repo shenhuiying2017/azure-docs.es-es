@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 26732369241c9d922b50f4a72808b9bdb8497e6e
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 46de91881f84183d0359755f49a115e712a7033b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -39,9 +39,9 @@ Para crear aplicaciones lógicas con MailChimp, primero debe crear una **conexi�
 > 
 
 
-## <a name="view-the-swagger"></a>Visualización de Swagger
+## <a name="connector-specific-details"></a>Detalles específicos del conector
 
-Consulte los [detalles sobre Swagger](/connectors/mailchimp/).
+Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/mailchimp/).
 
 ## <a name="more-connectors"></a>Más conectores
 Volver a la [lista de API](apis-list.md).

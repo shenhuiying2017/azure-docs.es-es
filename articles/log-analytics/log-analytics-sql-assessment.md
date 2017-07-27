@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c07e7fd218f2ec696e280f0cc6f199a090f424e6
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 13453a831c3d42a9e291976a4d5cc80ced5c4755
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Optimización del entorno de SQL Server con la solución de evaluación de SQL en Log Analytics
+
+![Símbolo de SQL Assessment](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
 
 Puede usar periódicamente la solución de evaluación de SQL para evaluar el riesgo y el estado de los entornos de servidor. Este artículo le ayudará a instalar la solución para que puede tomar acciones correctivas para posibles problemas.
 
@@ -62,7 +65,7 @@ La evaluación de SQL recopila datos WMI, datos del registro, datos de rendimien
 
 En la siguiente tabla se muestran los métodos de recopilación de datos para agentes, si se necesita Operations Manager (SCOM) y la frecuencia con la que un agente recopila datos.
 
-| plataforma | Agente directo | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| plataforma | Agente directo | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Sí](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![Sí](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![No](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![No](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![Sí](./media/log-analytics-sql-assessment/oms-bullet-green.png) |7 días |
 

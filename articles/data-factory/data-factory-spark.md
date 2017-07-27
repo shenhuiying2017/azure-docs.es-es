@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 124f04eb39296899af501d506476ad966442fc3d
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: dbee3f1d0aae885325ef9efe9c2f48961495e8b9
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -299,7 +299,7 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 | className | Clase principal de Spark o Java de la aplicación. | No |
 | argumentos | Lista de argumentos de línea de comandos del programa de Spark. | No |
 | proxyUser | Cuenta de usuario de suplantación para ejecutar el programa de Spark. | No |
-| sparkConfig | Propiedades de configuración de Spark. | No |
+| sparkConfig | Especifique valores para propiedades de configuración de Spark indicados en el tema [Spark Configuration: Application properties](https://spark.apache.org/docs/latest/configuration.html#available-properties) (Configuración de Spark: Propiedades de aplicación). | No |
 | getDebugInfo | Especifica si se copian los archivos de registro de Spark en el almacenamiento de Azure que usa el clúster de HDInsight que especifica sparkJobLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | No |
 | sparkJobLinkedService | El servicio vinculado de Azure Storage que contiene los registros, las dependencias y los archivos de trabajos de Spark.  Si no especifica un valor para esta propiedad, se usa el almacenamiento asociado con el clúster de HDInsight. | No |
 
@@ -310,7 +310,7 @@ Cree la siguiente estructura de carpetas en la instancia de Azure Blob Storage a
 
 | Ruta de acceso | Descripción | Obligatorio | Escriba |
 | ---- | ----------- | -------- | ---- |
-| .    | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento.    | Sí | Carpeta |
+| . | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento.  | Sí | Carpeta |
 | &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | Sí | Archivo |
 | ./jars | Todos los archivos de esta carpeta se cargan y se colocan en la ruta CLASSPATH de Java del clúster. | No | Carpeta |
 | ./pyFiles | Todos los archivos de esta carpeta se cargan y se colocan en la ruta PYTHONPATH del clúster. | No | Carpeta |

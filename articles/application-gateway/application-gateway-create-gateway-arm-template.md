@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 0786e54c288f30b0039c1d0b88f5c5b5965eecef
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 46a036c5f1646197522874b1302b95947e90cdd8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/02/2017
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-gateway-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-create-gateway-arm.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure](application-gateway-create-gateway-cli.md)
@@ -210,8 +210,15 @@ Clic para implementar es otra forma de usar las plantillas de Azure Resource Man
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>Proporciona datos de certificado a las plantillas de Resource Manager
 
-Cuando se usa SSL con una plantilla, el certificado debe proporcionarse en una cadena en base 64 en lugar de cargarse. Para convertir un archivo .pfx o .cer a una cadena en base 64, ejecute el siguiente comando de PowerShell. Este fragmento de código convierte el certificado en una cadena en base 64 que se puede proporcionar a la plantilla. El resultado esperado es una cadena que se puede almacenar en una variable y pegarse en la plantilla.
+Cuando se usa SSL con una plantilla, el certificado debe proporcionarse en una cadena en base 64 en lugar de cargarse. Para convertir un archivo .pfx o .cer a una cadena en base 64, use alguno de los siguientes comandos. Los siguientes comandos convierten el certificado a una cadena en base 64 que se puede proporcionar a la plantilla. El resultado esperado es una cadena que se puede almacenar en una variable y pegarse en la plantilla.
 
+### <a name="macos"></a>macOS
+```bash
+cert=$( base64 <certificate path and name>.pfx )
+echo $cert
+```
+
+### <a name="windows"></a>Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```

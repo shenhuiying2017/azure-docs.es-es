@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/25/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4ae08f16db8c0b8cd2e918d25aa546f1da615af1
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 42229b338063634480551f26896963d8add5e071
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -34,12 +35,13 @@ En los casos donde los usuarios externos no se rellenan en la lista, el objeto p
 
 ## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Un usuario invitado de B2B no aparece en el selector de personas de SharePoint Online/OneDrive 
  
-La capacidad de buscar usuarios invitados existentes en el selector de personas de SharePoint Online está desactivada de manera predeterminada para así coincidir con el comportamiento heredado.
-Para habilitarla, use la configuración "ShowPeoplePickerSuggestionsForGuestUsers" en el nivel de inquilino y colección de sitios. Para hacerlo, use los cmdlets Set-SPOTenant y Set-SPOSite, que permiten que los miembros busquen a todos los usuarios invitados existentes en el directorio. Los cambios en el ámbito del inquilino no afectan los sitios de SPO que ya se aprovisionaron.
+La posibilidad de buscar usuarios invitados existentes en el selector de personas de SharePoint Online (SPO) está desactivada de manera predeterminada para así coincidir con el comportamiento heredado.
+
+Para habilitarla, use la configuración "ShowPeoplePickerSuggestionsForGuestUsers" en el nivel de inquilino y colección de sitios. Para configurarla, use los cmdlets Set-SPOTenant y Set-SPOSite, que permiten que los miembros busquen a todos los usuarios invitados existentes en el directorio. Los cambios en el ámbito del inquilino no afectan los sitios de SPO que ya se aprovisionaron.
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>Las invitaciones se han deshabilitado para el directorio
 
-Si recibe un mensaje de error que indica que no tiene permisos para invitar a usuarios, compruebe que la cuenta de usuario está autorizada para invitar a usuarios externos. Esto puede hacerse en Configuración de usuario:
+Si recibe una notificación de que no tiene permisos para invitar a usuarios, vaya a User Settings (Configuración de usuario) y compruebe que la cuenta de usuario está autorizada para invitar a usuarios externos.
 
 ![](media/active-directory-b2b-troubleshooting/external-user-settings.png)
 
@@ -57,13 +59,13 @@ Cuando se invita a usuarios cuya organización usa Azure Active Directory, pero 
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>El usuario externo no se encuentra ya en un dominio federado
 
-No se puede invitar al usuario en los casos donde el usuario externo esté usando un solución de federación en la que se realiza la autenticación local y el usuario aún no se encuentra en Azure Active Directory.
+Si va a usar la autenticación de federación y el usuario no existe en Azure Active Directory, no se puede invitar al usuario.
 
 Para resolver este problema, el administrador del usuario externo debe sincronizar la cuenta del usuario con Azure Active Directory.
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>¿Cómo "\#", que habitualmente no es un carácter válido, se sincroniza con Azure AD?
 
-“\#” es un carácter reservado en los UPN para usuarios externos o de colaboración B2B de Azure AD (es decir, el invitado user@contoso.com se convierte en user_contoso.com#EXT@fabrikam.onmicrosoft.com). Por lo tanto, no se permite usar \# en los UPN procedentes de entornos locales para iniciar sesión en Azure Portal.
+"\#" es un carácter reservado en los UPN para la colaboración B2B de Azure AD o los usuarios externos, porque la cuenta de invitado user@contoso.com se convierte en user_contoso.com#EXT@fabrikam.onmicrosoft.com. Por lo tanto, los UPN con \# que proceden del entorno local no tienen permiso para iniciar sesión en Azure Portal. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>Recibo un error al agregar los usuarios externos a un grupo sincronizado
 
@@ -75,7 +77,12 @@ El invitado debe ponerse en contacto con su ISP o comprobar su filtro de correo 
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Tenga en cuenta que, en ocasiones, el mensaje personalizado no se incluye en los mensajes de invitación
 
-Para cumplir con las leyes de privacidad, nuestra API no incluye mensajes personalizados en la invitación de correo electrónico cuando el autor de la invitación no tiene una dirección de correo electrónico de la organización propietaria de los recursos (también conocida como el inquilino anfitrión) o cuando una entidad de servicio de una aplicación envía la invitación. Si se trata de un escenario importante para usted, puede hacer que nuestra API no envíe el correo electrónico de invitación y enviarlo a través de un mecanismo de correo electrónico de su elección. Recuerde que puede consultar al asesor legal de su organización para asegurarse de que cualquier correo electrónico que envíe que esta forma también cumple las leyes de privacidad.
+Para cumplir con las leyes de privacidad, nuestras API no incluye mensajes personalizados en la invitación por correo electrónico cuando:
+
+- El invitador no tiene una dirección de correo electrónico en el inquilino que invita.
+- Cuando una entidad de seguridad de App Service envía la invitación
+
+Si este escenario es importante para usted, puede suprimir nuestro correo electrónico de invitación de API y enviarlo a través del mecanismo de correo electrónico de su elección. Consulte al asesor legal de su organización para asegurarse de que cualquier correo electrónico que envíe de esta forma también cumple las leyes de privacidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -87,7 +94,7 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Los elementos del correo electrónico de invitación de colaboración B2B](active-directory-b2b-invitation-email.md)
 * [Canje de invitación de colaboración B2B](active-directory-b2b-redemption-experience.md)
 * [Concesión de licencias de colaboración B2B de Azure AD](active-directory-b2b-licensing.md)
-* [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory](active-directory-b2b-faq.md)
+* [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](active-directory-b2b-faq.md)
 * [Personalización y API de colaboración B2B de Azure Active Directory](active-directory-b2b-api.md)
 * [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)

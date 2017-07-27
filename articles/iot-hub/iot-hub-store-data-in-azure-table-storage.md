@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4918648906212ea9708b6c6f0e89d1f4bb7bdcc5
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: c1f5d737b9718ead9c59794dae23798ef26aa42a
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -48,7 +48,7 @@ Aprenderá a crear una cuenta de Azure Storage y una aplicación de función de 
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
-1. En Azure Portal, haga clic en **Nuevo** > **Storage** > **Cuenta de Storage**.
+1. En [Azure Portal](https://portal.azure.com/), haga clic en **Nuevo** > **Storage** > **Cuenta de Storage**.
 1. Escriba la información necesaria para la cuenta de almacenamiento:
 
    ![Creación de una cuenta de almacenamiento en Azure Portal](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
@@ -115,6 +115,8 @@ IoT Hub expone un punto de conexión integrado compatible con Event Hub para per
 1. Cree una nueva función en la aplicación de función.
    1. Haga clic en **Nueva función**.
    1. Seleccione **JavaScript** para **Lenguaje** y **Procesamiento de datos** para **Escenario**.
+   1. Haga clic en **Crear esta función**, a continuación, haga clic en **Nueva función**.
+   1. Seleccione **JavaScript** para el lenguaje y **Procesamiento de datos** para el escenario.
    1. Haga clic en la plantilla **EventHubTrigger-JavaScript**.
    1. Escriba la información necesaria para la plantilla.
 
@@ -134,7 +136,8 @@ IoT Hub expone un punto de conexión integrado compatible con Event Hub para per
       
       **Nombre de la tabla**: use `deviceData` para el nombre.
 
-      **Conexión de cuenta de Storage**: haga clic en **Nueva** y seleccione o escriba la cuenta de almacenamiento.
+      **Conexión de cuenta de Storage**: haga clic en **Nueva** y seleccione o escriba la cuenta de almacenamiento. Si no puede ver la cuenta de almacenamiento, consulte [Requisitos de la cuenta de almacenamiento](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+      
    1. Haga clic en **Guardar**.
 1. En **Desencadenadores**, haga clic en **Azure Event Hub (myEventHubTrigger)**.
 1. En **Grupo de consumidores del Centro de eventos**, escriba el nombre del grupo de consumidores que creó y haga clic en **Guardar**.

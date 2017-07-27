@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 06/29/2017
 ms.author: mikerou
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 8d7052fabeb348b4bba744b43d9af78f058175a8
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 46b0b62f92abbac57bc27bbcdd5821eafedf5519
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -41,7 +42,7 @@ Hay algunas API de Azure que permiten que las aplicaciones trabajen de forma pro
 
 Un enfoque para implementar esta funcionalidad de escalado automático "casero" consiste en agregar un nuevo servicio sin estado a la aplicación de Service Fabric para administrar las operaciones de escalado. Dentro del método `RunAsync` del servicio, un conjunto de desencadenadores puede determinar si es necesario el escalado (incluyendo la comprobación de parámetros como el tamaño máximo del clúster y las recuperaciones de escalado).   
 
-La API que se utiliza para las interacciones de conjunto de escalado de máquinas virtuales (tanto para comprobar el número actual de instancias de máquina virtual como para modificarlo) es la fluida [Azure Compute Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/1.0.0-beta50). Esta biblioteca de proceso fluida proporciona una API fácil de usar para interactuar con los conjuntos de escalado de máquinas virtuales.
+La API que se utiliza para las interacciones de conjunto de escalado de máquinas virtuales (tanto para comprobar el número actual de instancias de máquina virtual como para modificarlo) es la fluida [Azure Compute Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). Esta biblioteca de proceso fluida proporciona una API fácil de usar para interactuar con los conjuntos de escalado de máquinas virtuales.
 
 Para interactuar con el clúster de Service Fabric propiamente dicho, utilice [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
 
@@ -57,10 +58,13 @@ Una entidad de servicio se puede crear con los pasos siguientes:
     1. Anote el appId (denominado "ID de cliente" en otros lugares), el nombre, la contraseña y el inquilino para su uso posterior.
     2. También necesitará el identificador de suscripción, que se puede ver con `az account list`
 
-La biblioteca de proceso fluida puede iniciar sesión con estas credenciales como sigue:
+Se puede iniciar sesión en la biblioteca de proceso fluida puede con estas credenciales de la siguiente forma (tenga en cuenta que los tipos de Azure fluidos principales como `IAzure` se encuentran en el paquete [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)):
 
 ```C#
-var credentials = AzureCredentials.FromServicePrincipal(AzureClientId, AzureClientKey, AzureTenantId, AzureEnvironment.AzureGlobalCloud);
+var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
+                ClientId = AzureClientId,
+                ClientSecret = 
+                AzureClientKey }, AzureTenantId, AzureEnvironment.AzureGlobalCloud);
 IAzure AzureClient = Azure.Authenticate(credentials).WithSubscription(AzureSubscriptionId);
 
 if (AzureClient?.SubscriptionId == AzureSubscriptionId)
@@ -79,40 +83,12 @@ Una vez iniciada la sesión, el recuento de instancias de conjunto de escalado s
 Con SDK de proceso fluido de Azure, se pueden agregar instancias al conjunto de escalado de máquinas virtuales con unas pocas llamadas.
 
 ```C#
-var scaleSet = AzureClient?.VirtualMachineScaleSets.GetById(ScaleSetId);
-var newCapacity = Math.Min(MaximumNodeCount, NodeCount.Value + 1);
+var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
+var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-**Actualmente hay [un error](https://github.com/Azure/azure-sdk-for-net/issues/2716) que impide que este código funcione**, pero se ha conseguido una corrección, por lo que el problema se solucionará pronto en las versiones publicadas de Microsoft.Azure.Management.Compute.Fluent. El error es que al cambiar las propiedades (como la capacidad) del conjunto de escalado de máquinas virtuales con la API de proceso fluida, se pierden los ajustes protegidos de la plantilla de Resource Manager del conjunto de escalado. Estos ajustes que se pierden provocan (entre otras cosas) que los servicios de Service Fabric no se configuren correctamente en nuevas instancias de máquina virtual.
-
-Como solución temporal, se puede invocar los cmdlets de PowerShell desde el servicio de escalado para establecer el mismo cambio (aunque esta ruta significa que las herramientas de PowerShell tienen que estar presentes):
-
-```C#
-using (var psInstance = PowerShell.Create())
-{
-    psInstance.AddScript($@"
-        $clientId = ""{AzureClientId}""
-        $clientKey = ConvertTo-SecureString -String ""{AzureClientKey}"" -AsPlainText -Force
-        $Credential = New-Object -TypeName ""System.Management.Automation.PSCredential"" -ArgumentList $clientId, $clientKey
-        Login-AzureRmAccount -Credential $Credential -ServicePrincipal -TenantId {AzureTenantId}
-        
-        $vmss = Get-AzureRmVmss -ResourceGroupName {ResourceGroup} -VMScaleSetName {NodeTypeToScale}
-        $vmss.sku.capacity = {newCapacity}
-        Update-AzureRmVmss -ResourceGroupName {ResourceGroup} -Name {NodeTypeToScale} -VirtualMachineScaleSet $vmss
-    ");
-
-    psInstance.Invoke();
-
-    if (psInstance.HadErrors)
-    {
-        foreach (var error in psInstance.Streams.Error)
-        {
-            ServiceEventSource.Current.ServiceMessage(Context, $"ERROR adding node: {error.ToString()}");
-        }
-    }                
-}
-```
+Como alternativa, el tamaño del conjunto de escalado de máquinas virtuales también puede administrarse con cmdlets de PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmss) puede recuperar el objeto del conjunto de escalado de máquinas virtuales. La capacidad actual se almacenará en la propiedad `.sku.capacity`. Después de cambiarla capacidad al valor deseado, el conjunto de escalado de máquinas virtuales en Azure puede actualizarse con el comando [`Update-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermvmss).
 
 Tal y como cuando se agrega manualmente un nodo, agregar una instancia de conjunto de escalado debe ser todo lo que se necesita para iniciar un nuevo nodo de Service Fabric, ya que la plantilla de conjunto de escalado incluye extensiones para unir automáticamente nuevas instancias al clúster de Service Fabric. 
 
@@ -137,7 +113,7 @@ Tenga en cuenta que lo nodos *raíz* no parece que sigan siempre la convención 
 Cuando se encuentre el nodo que se va a quitar, puede desactivarse y eliminarse utilizando la misma instancia `FabricClient` y la `IAzure` que se usó anteriormente.
 
 ```C#
-var scaleSet = AzureClient?.VirtualMachineScaleSets.GetById(ScaleSetId);
+var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
 ServiceEventSource.Current.ServiceMessage(Context, $"Disabling node {mostRecentLiveNode.NodeName}");
@@ -154,18 +130,16 @@ while ((mostRecentLiveNode.NodeStatus == System.Fabric.Query.NodeStatus.Up || mo
 }
 
 // Decrement VMSS capacity
-var newCapacity = Math.Max(MinimumNodeCount, NodeCount.Value - 1); // Check min count 
+var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Check min count 
 
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Una vez que se ha eliminado la instancia de máquina virtual, se puede quitar el estado del nodo de Service Fabric.
+Como con el escalado, los cmdlets de PowerShell para la capacidad de modificación del conjunto de escalado de máquinas virtuales pueden usarse aquí si es preferible un enfoque de scripting. Una vez que se ha eliminado la instancia de máquina virtual, se puede quitar el estado del nodo de Service Fabric.
 
 ```C#
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
-
-Como anteriormente, tiene que buscar una solución alternativa al no funcionamiento de `IVirtualMachineScaleSet.Update()` hasta que se solucione el problema [Azure/azure-sdk-de-net #2716](https://github.com/Azure/azure-sdk-for-net/issues/2716).
 
 ## <a name="potential-drawbacks"></a>Desventajas potenciales
 
@@ -180,3 +154,4 @@ Para empezar a implementar su propia lógica de escalado automático, familiarí
 - [Escalado manual o con reglas de escalado automático](./service-fabric-cluster-scale-up-down.md)
 - [Bibliotecas fluidas de administración de Azure para .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (resulta útil para interactuar con los conjuntos de escalado de máquinas virtuales subyacentes de un clúster de Service Fabric)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (resulta útil para interactuar con un clúster de Service Fabric y sus nodos)
+

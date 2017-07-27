@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/11/2017
+ms.date: 06/01/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8c40a0d44463c75e92444b393336db1daf270ee1
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: acd2ee7fb94c43493ffd9ffee157f2c3e795b63e
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -61,7 +61,7 @@ Use una plantilla de inicio rápido de Azure para implementar rápidamente un cl
    
    a. En la página **Parámetros** , escriba o modifique los valores de los parámetros de la plantilla. (haga clic en el icono junto a cada valor para obtener información de ayuda). En la pantalla siguiente se muestran valores de ejemplo. En este ejemplo se crea un clúster denominado *hpc01* en el dominio *hpc.local* que consta de un nodo principal y 2 nodos de proceso. Los nodos de proceso se crean a partir de una imagen de VM de HPC Pack que incluye Microsoft Excel.
    
-   ![Escribir parámetros][parameters]
+   ![Escribir parámetros][parameters-new-portal]
    
    > [!NOTE]
    > La VM del nodo principal se crea automáticamente a partir de la [imagen de Marketplace más reciente](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) de HPC Pack 2012 R2 en Windows Server 2012 R2. Actualmente, la imagen se basa en HPC Pack 2012 R2 Update 3.
@@ -79,9 +79,9 @@ Use una plantilla de inicio rápido de Azure para implementar rápidamente un cl
    e. En la página **Términos legales** , revise los términos. Si está de acuerdo, haga clic en **Comprar**. Luego, cuando termine de establecer los valores de la plantilla, haga clic en **Crear**.
 4. Cuando se completa la implementación (normalmente tarda unos 30 minutos), exporte el archivo de certificado del clúster desde el nodo principal del clúster. En un paso posterior, importa este certificado público en el equipo cliente para proporcionar la autenticación del lado servidor para el enlace HTTP seguro.
    
-   a. Conéctese al nodo principal mediante el Escritorio remoto desde el Portal de Azure.
+   a. En Azure Portal, vaya al panel, seleccione el nodo principal y haga clic en **Conectar** en la parte superior de la página para conectarse mediante Escritorio remoto.
    
-    ![Conexión al nodo principal][connect]
+    <!-- ![Connect to the head node][connect] -->
    
    b. Siga los procedimientos estándar en Administrador de certificados para exportar el certificado del nodo principal (que se encuentra en Cert:\LocalMachine\My) sin la clave privada. En este ejemplo, exporte *CN = hpc01.eastus.cloudapp.azure.com*.
    
@@ -333,12 +333,12 @@ Para usar el enlace Http sin una cola de Almacenamiento de Azure, establezca de 
 ```
 
 ### <a name="use-nettcp-binding"></a>Uso del enlace NetTcp
-Para usar el enlace NetTcp, la configuración es similar que al conectarse a un clúster local. Debe abrir algunos puntos de conexión en la VM del nodo principal. Por ejemplo, si usó el script de implementación de HPC Pack IaaS para crear el clúster, establezca los puntos de conexión del Portal de Azure clásico como se indica a continuación.
+Para usar el enlace NetTcp, la configuración es similar que al conectarse a un clúster local. Debe abrir algunos puntos de conexión en la VM del nodo principal. Por ejemplo, si usó el script de implementación de HPC Pack IaaS para crear el clúster, establezca los puntos de conexión en Azure Portal como se indica a continuación.
 
 1. Pare la VM.
 2. Agregue los puertos TCP 9090, 9087, 9091, 9094 para Sesión, Agente, Trabajo de agente y Servicios de datos, respectivamente.
    
-    ![Configuración de extremos][endpoint]
+    ![Configuración de extremos][endpoint-new-portal]
 3. Inicie la máquina virtual.
 
 La aplicación cliente de SOA no requiere cambios excepto modificar el nombre principal por el nombre completo del clúster de IaaS.
@@ -352,6 +352,7 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [github]: ./media/excel-cluster-hpcpack/github.png
 [template]: ./media/excel-cluster-hpcpack/template.png
 [parameters]: ./media/excel-cluster-hpcpack/parameters.png
+[parameters-new-portal]: ./media/excel-cluster-hpcpack/parameters-new-portal.png
 [create]: ./media/excel-cluster-hpcpack/create.png
 [connect]: ./media/excel-cluster-hpcpack/connect.png
 [cert]: ./media/excel-cluster-hpcpack/cert.png
@@ -360,5 +361,6 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [options]: ./media/excel-cluster-hpcpack/options.png
 [run]: ./media/excel-cluster-hpcpack/run.png
 [endpoint]: ./media/excel-cluster-hpcpack/endpoint.png
+[endpoint-new-portal]: ./media/excel-cluster-hpcpack/endpoint-new-portal.png
 [udf]: ./media/excel-cluster-hpcpack/udf.png
 

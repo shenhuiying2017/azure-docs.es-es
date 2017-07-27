@@ -1,5 +1,5 @@
 ---
-title: "Solución de errores de puerta de enlace incorrecta (502) en el servicio Application Gateway | Microsoft Docs"
+title: "Solución de errores de puerta de enlace incorrecta (502) en el servicio Azure Application Gateway | Microsoft Docs"
 description: "Obtenga información sobre cómo solucionar errores 502 en el servicio Puerta de enlace de aplicaciones."
 services: application-gateway
 documentationcenter: na
@@ -13,27 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 05/09/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 178cd0e1c20947c952a2abb4bad253272da9fcd4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
 
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
 
+Aprenda a solucionar problemas de errores de puerta de enlace incorrecta (502) recibidos al usar Application Gateway.
+
 ## <a name="overview"></a>Información general
 
-Después de configurar una instancia de Puerta de enlace de aplicaciones de Azure, uno de los errores que se pueden encontrar los usuarios es "Error de servidor 502: el servidor web recibió una respuesta no válida mientras actuaba como puerta de enlace o servidor proxy". Este error puede ocurrir debido a los siguientes motivos principales:
+Después de configurar una instancia de Azure Application Gateway, uno de los errores que se pueden encontrar los usuarios es "Error de servidor 502: el servidor web recibió una respuesta no válida mientras actuaba como puerta de enlace o servidor proxy". Este error puede ocurrir debido a los siguientes motivos principales:
 
-* El grupo back-end de la instancia de Application Gateway de Azure no está configurado o está vacío.
-* Ninguna de las máquinas virtuales o instancias del conjunto de escalas de máquina virtual está en buen estado.
-* Las máquinas virtuales de back-end o instancias del conjunto de escalas de máquina virtual no responden a la sonda de estado predeterminada.
-* La configuración de las sondas de estado personalizadas no es válida o adecuada.
-* El tiempo de espera de solicitud se superó o hay problemas de conectividad con las solicitudes de usuario.
+* [El grupo back-end de la instancia de Azure Application Gateway no está configurado o está vacío](#empty-backendaddresspool).
+* Ninguna de las máquinas virtuales o instancias del [conjunto de escalado de máquina virtual está en buen estado](#unhealthy-instances-in-backendaddresspool).
+* Las máquinas virtuales de back-end o instancias del conjunto de escalado de máquina virtual [no responden a la sonda de estado predeterminada](#problems-with-default-health-probe.md).
+* [La configuración de las sondas de estado personalizadas](#problems-with-custom-health-probe.md) no es válida o adecuada.
+* [El tiempo de espera de solicitud se superó o hay problemas de conectividad](#request-time-out) con las solicitudes de usuario.
 
 ## <a name="empty-backendaddresspool"></a>Valor de BackendAddressPool vacío
 

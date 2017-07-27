@@ -12,17 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 06/30/2017
 ms.author: mfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ce1291261cd8f65d44873217345ae6efaa515534
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="configure-security-policies-for-your-application"></a>Configuración de directivas de seguridad para la aplicación
-Azure Service Fabric permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. Service Fabric también protege los recursos que usan las aplicaciones en el momento de la implementación con la cuenta de usuario; por ejemplo, archivos, directorios y certificados. Esto aumenta la seguridad entre aplicaciones en ejecución, incluso en un entorno hospedado compartido.
+Azure Service Fabric le permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. Service Fabric también protege los recursos que usan las aplicaciones en el momento de la implementación con la cuenta de usuario; por ejemplo, archivos, directorios y certificados. Esto aumenta la seguridad entre aplicaciones en ejecución, incluso en un entorno hospedado compartido.
 
 De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. Service Fabric también permite ejecutar aplicaciones en una cuenta de usuario local o una cuenta de sistema local especificada en el manifiesto de la aplicación. Los tipos de cuenta de sistema local compatibles son **LocalUser**, **NetworkService**, **LocalService** y **LocalSystem**.
 
@@ -202,7 +203,7 @@ Echo "Test console redirection which writes to the application log folder on the
 En los pasos anteriores se explicaba cómo aplicar la directiva RunAs a SetupEntryPoint. Ahora se explicará más detalladamente cómo crear diferentes entidades de seguridad que se pueden aplicar como directivas de servicio.
 
 ### <a name="create-local-user-groups"></a>Creación de grupos de usuarios locales
-Se pueden definir y crear grupos de usuarios que permitan agregar uno o varios usuarios a un grupo. Esto es especialmente útil si hay varios usuarios para distintos puntos de entrada de servicio y deben tener ciertos privilegios comunes disponibles en el nivel de grupo. En el ejemplo siguiente se muestra un grupo local denominado **LocalAdminGroup** con privilegios de administrador. Dos usuarios, Customer1 y Customer2, se convierten en miembros de este grupo local.
+Se pueden definir y crear grupos de usuarios que permitan agregar uno o varios usuarios a un grupo. Esto es útil si hay varios usuarios para distintos puntos de entrada de servicio y es preciso que tengan ciertos privilegios comunes disponibles en el nivel de grupo. En el ejemplo siguiente se muestra un grupo local denominado **LocalAdminGroup** con privilegios de administrador. Dos usuarios, Customer1 y Customer2, se convierten en miembros de este grupo local.
 
 ```xml
 <Principals>
@@ -239,7 +240,7 @@ Puede crear un usuario local para proteger un servicio dentro de la aplicación.
 </Principals>
 ```
 
-Si una aplicación requiere que la cuenta de usuario y la contraseña coincidan en todas las máquinas (por ejemplo, para habilitar la autenticación NTLM), el manifiesto de clúster debe establecer NTLMAuthenticationEnabled en true. El manifiesto de clúster también debe especificar un NTLMAuthenticationPasswordSecret que se usará para generar la misma contraseña en todas las máquinas.
+Si una aplicación requiere que la cuenta de usuario y la contraseña coincidan en todas las máquinas (por ejemplo, para habilitar la autenticación NTLM), el manifiesto de clúster debe establecer NTLMAuthenticationEnabled en true. El manifiesto de clúster también debe especificar un NTLMAuthenticationPasswordSecret que se use para generar la misma contraseña en todos los equipos.
 
 ```xml
 <Section Name="Hosting">
@@ -270,7 +271,7 @@ La sección **DefaultRunAsPolicy** se usa para especificar una cuenta de usuario
 </Policies>
 ```
 ### <a name="use-an-active-directory-domain-group-or-user"></a>Uso de un usuario o un grupo de dominios de Active Directory
-Para una instancia de Service Fabric que se instale en Windows Server mediante el instalador independiente, puede ejecutar el servicio con las credenciales de una cuenta de grupo o usuario de Active Directory. Tenga en cuenta que esto se aplica a Active Directory local dentro del dominio y no para Azure Active Directory (AAD). Mediante el uso de un grupo o usuario de dominio puede tener acceso a otros recursos del dominio (por ejemplo, recursos compartidos de archivos) para los que se han concedido permisos.
+Para una instancia de Service Fabric que se instale en Windows Server mediante el instalador independiente, puede ejecutar el servicio con las credenciales de una cuenta de grupo o usuario de Active Directory. Esto se aplica a Active Directory local dentro del dominio y no a Azure Active Directory (AAD). Mediante el uso de un grupo o usuario de dominio puede tener acceso a otros recursos del dominio (por ejemplo, recursos compartidos de archivos) para los que se han concedido permisos.
 
 El ejemplo siguiente muestra un usuario de Active Directory denominado *TestUser* con la contraseña de dominio cifrada mediante un certificado llamado *MyCert*. Puede usar el comando de PowerShell `Invoke-ServiceFabricEncryptText` para crear el texto cifrado secreto. Vea [Administración de secretos en aplicaciones de Service Fabric](service-fabric-application-secret-management.md) | Microsoft Azure.
 
@@ -304,7 +305,7 @@ En el ejemplo siguiente se muestra cómo crear una cuenta gMSA denominada *svc-T
 ```
 New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
 ```
-2. En cada uno de los nodos del clúster de Service Fabric (p. ej. `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`), instale y pruebe la gMSA.
+2. En cada uno de los nodos del clúster de Service Fabric (por ejemplo, `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`), instale y pruebe la gMSA.
 ```
 Add-WindowsFeature RSAT-AD-PowerShell
 Install-AdServiceAccount svc-Test$
@@ -330,7 +331,7 @@ Test-AdServiceAccount svc-Test$
 ```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Asignación de una directiva de acceso de seguridad a los puntos de conexión HTTP y HTTPS
-Si se aplica una directiva RunAs a un servicio y el manifiesto de servicio declara que hay recursos de puntos de conexión con el protocolo HTTP, es preciso especificar una directiva **SecurityAccessPolicy** para asegurarse de que los puertos asignados a dichos puntos de conexión aparezcan correctamente en la lista de control de acceso de la cuenta de usuario RunAs en la que se ejecuta el servicio. En caso contrario, **http.sys** no tendrá acceso al servicio y aparecerán errores en las llamadas del cliente. En el ejemplo siguiente se aplica la cuenta Customer3 a un punto de conexión denominado **ServiceEndpointName**, que le concede derechos de acceso completos.
+Si se aplica una directiva RunAs a un servicio y el manifiesto de servicio declara que hay recursos de puntos de conexión con el protocolo HTTP, es preciso especificar una directiva **SecurityAccessPolicy** para asegurarse de que los puertos asignados a dichos puntos de conexión aparezcan correctamente en la lista de control de acceso de la cuenta de usuario RunAs en la que se ejecuta el servicio. En caso contrario, **http.sys** no tendrá acceso al servicio y aparecerán errores en las llamadas del cliente. En el ejemplo siguiente se aplica la cuenta Customer1 a un punto de conexión denominado **EndpointName**, que le concede derechos de acceso total.
 
 ```xml
 <Policies>
@@ -351,7 +352,12 @@ En el caso del punto de conexión HTTPS, también es preciso indicar el nombre d
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Actualización de varias aplicaciones con puntos de conexión https
+Debe tener cuidado de no usar el **mismo puerto** para distintas instancias de la misma aplicación cuando use http**s**. El motivo es que Service Fabric no podrá actualizar el certificado para una de las instancias de la aplicación. Por ejemplo, si la aplicación 1 o 2 desean actualizar sus certificados 1 a 2. Una vez realizada la actualización, es posible que Service Fabric borre el registro del certificado 1 con http.sys, aunque la otra aplicación lo siga utilizando. Para evitar esto, Service Fabric detecta que hay ya otra instancia de la aplicación registrada en el puerto con el certificado (debido a http.sys) y se produce un error en la operación.
 
+Por lo tanto, Service Fabric no admite la actualización de dos servicios diferentes que usen **el mismo puerto** en diferentes instancias de la aplicación. En otras palabras, no puede utilizar el mismo certificado en diferentes servicios en el mismo puerto. Si necesita tener un certificado compartido en el mismo puerto, tiene que asegurarse de que los servicios se encuentren en distintos equipos con restricciones de posición. También puede considerar la posibilidad de utilizar puertos dinámicos de Service Fabric para cada servicio en cada instancia de la aplicación. 
+
+Si visualiza un error de actualización con https, aparecerá una advertencia de error que indica que "La API de servidor HTTP de Windows no admite varios certificados para las aplicaciones que comparten un puerto".
 
 ## <a name="a-complete-application-manifest-example"></a>Ejemplo completo de un manifiesto de aplicación
 El siguiente manifiesto de aplicación muestra muchos de los diferentes valores:

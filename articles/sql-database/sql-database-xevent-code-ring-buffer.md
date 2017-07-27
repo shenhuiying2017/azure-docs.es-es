@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: a49be9d5037af120e429a9cc7ae77ceda5e03236
 ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -39,7 +39,7 @@ En este tema, se presenta un ejemplo de código de Transact-SQL que:
    * Elige enviar la salida del evento a un destino de tipo búfer en anillo, es decir, **package0.ring_buffer**.
 3. Inicia la sesión de eventos.
 4. Emite un par de instrucciones SQL UPDATE simple.
-5. Emite una instrucción SQL SELECT para recuperar la salida de evento del Búfer de anillo.
+5. Emite una instrucción SQL SELECT para recuperar la salida de evento del búfer en anillo.
    
    * Se unen **sys.dm_xe_database_session_targets** y otras vistas de administración dinámica (DMV).
 6. Detiene la sesión de eventos.

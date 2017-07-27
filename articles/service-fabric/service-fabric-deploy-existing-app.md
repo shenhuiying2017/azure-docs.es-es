@@ -12,17 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/07/2016
+ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 16000dcb751bd96fba247c6209e85c581833681d
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: a1db3dda674ffe43587333d88f3816549af3019c
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>Implementación de un ejecutable invitado en Service Fabric
-Puede ejecutar cualquier tipo de aplicación, como Node.js, Java o aplicaciones nativas, en Azure Service Fabric. Service Fabric hace referencia a estos tipos de aplicaciones como aplicaciones ejecutables invitadas.
+Puede ejecutar cualquier tipo de código, como Node.js, Java o C++ en Azure Service Fabric como servicio. Service Fabric hace referencia a estos tipos de servicios como ejecutables invitados.
+
 Los ejecutables invitados se tratan por Service Fabric como servicios sin estado. Por ello, se colocan en los nodos de un clúster, en función de la disponibilidad y otras métricas. En este artículo se describe cómo empaquetar e implementar un ejecutable invitado en un clúster de Service Fabric con Visual Studio o una utilidad de línea de comandos.
 
 En este artículo se describen los pasos para empaquetar un ejecutable invitado e implementarlo en Service Fabric.  
@@ -34,16 +36,17 @@ Hay diversas ventajas inherentes a la ejecución de un ejecutable invitado en un
 * Supervisión del estado. La supervisión del mantenimiento de Service Fabric detecta si hay una aplicación en funcionamiento y proporciona información de diagnóstico si se produce un error.   
 * Administración del ciclo de vida de las aplicaciones. Además de actualizaciones sin tiempo de inactividad, Service Fabric proporciona reversión automática a la versión anterior, en caso de que se notifique un evento de mantenimiento incorrecto durante una actualización.    
 * Densidad. Se pueden ejecutar varias aplicaciones en el clúster, lo que elimina la necesidad de que cada aplicación se ejecute en su propio hardware.
+* Detectabilidad: con REST puede llamar al servicio de nombres de Service Fabric para buscar otros servicios en el clúster. 
 
 ## <a name="samples"></a>Muestras
 * [Ejemplo para empaquetar e implementar un archivo ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Ejemplo de dos archivos ejecutables invitados (C# y Node.js) comunicándose a través del servicio de nomenclatura mediante REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Ejemplo de dos ejecutables invitados (C# y Node.js) que se comunican a través del servicio de nombres con REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>Información general de los archivos de manifiesto de servicio y aplicación
 Como parte de la implementación de un ejecutable invitado, resulta útil comprender el modelo de implementación y empaquetado de Service Fabric tal como se describe en el [modelo de aplicación](service-fabric-application-model.md). El modelo de empaquetado de Service Fabric se basa en dos archivos XML: los manifiestos de aplicación y de servicio. La definición de esquema para los archivos ApplicationManifest.xml y ServiceManifest.xml se instala con el SDK de Service Fabric en *C:\Archivos de programa\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 * **Manifiesto de aplicación** El manifiesto de aplicación se usa para describir la aplicación. Muestra en una lista los servicios que la componen junto con otros parámetros, como el número de instancias, que se usan para definir cómo se deben implementar uno o más servicios.
-  
+
   En Service Fabric, una aplicación es una unidad de implementación y actualización. Una aplicación se puede actualizar como una sola unidad donde se administran los posibles errores y reversiones. Service Fabric garantiza que el proceso de actualización es correcto, o bien, si se produce un error en la actualización, no deja a la aplicación en un estado desconocido o inestable.
 * **Manifiesto de servicio** El manifiesto de servicio describe los componentes de un servicio. Incluye datos, como el nombre y el tipo de servicio, así como su código y configuración. El manifiesto de servicio también incluye algunos parámetros adicionales que pueden usarse para configurar el servicio una vez que se implementa.
 
@@ -70,18 +73,17 @@ ApplicationPackageRoot contiene el archivo ApplicationManifest.xml que define la
 
 > [!NOTE]
 > No tiene que crear los directorios `config` y `data` si no los necesita.
-> 
-> 
+>
+>
 
 ## <a name="package-an-existing-executable"></a>Empaquetado de un ejecutable existente
 Al empaquetar un ejecutable invitado, puede usar una plantilla de proyecto de Visual Studio o [crear el paquete de aplicación manualmente](#manually). Con Visual Studio, la estructura del paquete de aplicación y los archivos de manifiesto se crean mediante la plantilla para nuevos proyectos.
 
 > [!TIP]
-> La forma más sencilla de empaquetar un ejecutable de Windows existente en un servicio es mediante Visual Studio.
-> 
-> 
+> La forma más sencilla de empaquetar un ejecutable de Windows existente en un servicio es usar Visual Studio y, en Linux, usar Yeoman.
+>
 
-## <a name="use-visual-studio-to-package-an-existing-executable"></a>Uso de Visual Studio para empaquetar un ejecutable existente
+## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>Uso de Visual Studio para empaquetar e implementar un ejecutable existente
 Visual Studio proporciona una plantilla de servicio de Service Fabric para ayudarle a implementar un ejecutable invitado en un clúster de Service Fabric.
 
 1. Seleccione **Archivo** > **Nuevo proyecto** y cree una aplicación de Service Fabric.
@@ -98,6 +100,16 @@ Visual Studio proporciona una plantilla de servicio de Service Fabric para ayuda
 5. Si el servicio necesita un punto de conexión para establecer comunicación, ahora podrá agregar el protocolo, el puerto y el tipo al archivo ServiceManifest.xml. Por ejemplo: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Ya puede utilizar el paquete y publicar la acción en el clúster local mediante la depuración de la solución en Visual Studio. Cuando esté listo puede publicar la aplicación en un clúster remoto o comprobar la solución en el control de código fuente.
 7. Vaya al final de este artículo para saber cómo ver el servicio ejecutable invitado que se ejecuta en Service Fabric Explorer.
+
+## <a name="use-yoeman-to-package-and-deploy-an-existing-executable-on-linux"></a>Uso de Yoeman para empaquetar e implementar un ejecutable existente en Linux
+
+El procedimiento para crear e implementar un invitado ejecutable en Linux es el mismo que con una aplicación de csharp o Java.
+
+1. En un terminal, escriba `yo azuresfguest`.
+2. Asigne un nombre a la aplicación.
+3. Asigne un nombre al servicio y especifique los detalles, lo que incluye la ruta de acceso del ejecutable y los parámetros con los que se debe invocar.
+
+Yeoman crea un paquete de aplicación con la aplicación correspondiente y los archivos de manifiesto junto con los scripts de instalación y desinstalación.
 
 <a id="manually"></a>
 
@@ -123,8 +135,8 @@ Service Fabric hace una `xcopy` del contenido del directorio raíz de la aplicac
 
 > [!NOTE]
 > Asegúrese de incluir todos los archivos y dependencias que necesite la aplicación. Service Fabric copia el contenido del paquete de aplicación en todos los nodos del clúster en los que se implementarán los servicios de la aplicación. El paquete debe contener todo el código que la aplicación necesita para ejecutarse. No dé por hecho que las dependencias ya están instaladas.
-> 
-> 
+>
+>
 
 ### <a name="edit-the-service-manifest-file"></a>Edición del archivo de manifiesto de servicio
 El siguiente paso consiste en editar el archivo de manifiesto de servicio para incluir la siguiente información:
@@ -268,8 +280,8 @@ Se puede configurar el redireccionamiento de la consola en el archivo `ServiceMa
 
 > [!WARNING]
 > No use nunca la directiva de redirección de la consola en una aplicación implementada en producción, ya que esto puede afectar a la capacidad de conmutación por error de la aplicación. *Solo* debe usarla con fines de depuración y desarrollo local.  
-> 
-> 
+>
+>
 
 ```xml
 <EntryPoint>
@@ -331,26 +343,15 @@ Si navega hasta el nodo y accede a la aplicación, ve la información esencial d
 
 ![Ubicación en el disco](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
-Si examina el directorio mediante el Explorador de servidores, puede encontrar el directorio de trabajo y la carpeta de registros del servicio, tal y como se muestra en la captura de pantalla siguiente.
+Si va al directorio mediante el Explorador de servidores, puede encontrar el directorio de trabajo y la carpeta de registros del servicio, tal y como se muestra en la captura de pantalla siguiente: 
 
 ![Ubicación del registro](./media/service-fabric-deploy-existing-app/loglocation.png)
-
-## <a name="creating-a-guest-executable-using-yeoman-for-service-fabric-on-linux"></a>Creación de un invitado aplicación ejecutable mediante Yeoman para Service Fabric en Linux
-
-El procedimiento para crear e implementar un invitado ejecutable en Linux es el mismo que con una aplicación de csharp o Java. 
-
-1. En un terminal, escriba `yo azuresfguest`.
-2. Asigne un nombre a la aplicación.
-3. Elija el tipo del primer servicio y asígnele un nombre. Elija **Archivo binario invitado** para un ejecutable invitado (y **Archivo ejecutable de invitado** para un contenedor) y proporcione los detalles, como la ruta de acceso del archivo ejecutable y los parámetros con los que se debe invocar.
-
-Yeoman habría creado un paquete de aplicación con la aplicación correspondiente y los archivos de manifiesto junto con lo scripts de instalación y desinstalación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a empaquetar un ejecutable invitado y a implementarlo en Service Fabric. Consulte los artículos siguientes para obtener información relacionada y tareas.
 
 * [Ejemplo para empaquetar e implementar un ejecutable invitado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), que incluye un vínculo a la versión preliminar de la herramienta de empaquetado
-* [Ejemplo de dos archivos ejecutables invitados (C# y Node.js) comunicándose a través del servicio de nomenclatura mediante REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Ejemplo de dos ejecutables invitados (C# y Node.js) que se comunican a través del servicio de nombres con REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [Implementación de varios ejecutables invitados](service-fabric-deploy-multiple-apps.md)
 * [Creación de la primera aplicación de Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
-
 

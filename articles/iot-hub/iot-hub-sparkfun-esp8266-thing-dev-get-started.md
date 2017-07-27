@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: be140e86047cae304bfb5c32c5cdd9135413df82
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 0b7ce531c73d991897f1c35932e795a97dd33162
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -53,6 +54,7 @@ Para completar esta operación, necesita las siguientes piezas del kit de inicio
 
 También necesitará lo siguiente para el entorno de desarrollo:
 
+* Una suscripción de Azure activa. Si no tiene ninguna cuenta de Azure, [cree una cuenta de evaluación gratuita de Azure](https://azure.microsoft.com/free/) en solo unos minutos.
 * Un equipo PC o Mac que ejecute Windows o Ubuntu.
 * Red inalámbrica a la que se pueda conectar Sparkfun ESP8266 Thing Dev.
 * Conexión a Internet para descargar la herramienta de configuración.
@@ -64,79 +66,7 @@ Los elementos siguientes son opcionales en caso de que no tenga un sensor. Tambi
 * La placa de pruebas.
 * Cables de puente M/M.
 
-## <a name="create-an-iot-hub-and-register-a-device-for-sparkfun-esp8266-thing-dev"></a>Creación de un centro de IoT y registro de un dispositivo para Sparkfun ESP8266 Thing Dev
-
-### <a name="create-your-azure-iot-hub-in-the-azure-portal"></a>Cree su centro IoT de Azure en el portal de Azure.
-
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-1. Haga clic en **Nuevo** > **Internet de las cosas** > **IoT Hub**.
-
-   ![crear centro de iot](media/iot-hub-sparkfun-thing-dev-get-started/3_iot-hub-creation.png)
-
-1. En el panel **Centro de IoT**, escriba la información necesaria para su centro de IoT:
-
-   ![información básica para creación de centro de iot](media/iot-hub-sparkfun-thing-dev-get-started/4_iot-hub-provide-basic-info.png)
-
-   * **Nombre**: el nombre de su centro de IoT. Si el nombre que escribe es válido, aparece una marca de verificación verde.
-   * **Nivel de precios y de escala**: seleccione el nivel F1 gratuito, será suficiente para esta demostración. Seleccione un [nivel de precios y de escala](https://azure.microsoft.com/pricing/details/iot-hub/).
-   * **Grupo de recursos**: cree un grupo de recursos para hospedar el centro de IoT o use uno existente. Consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-portal.md).
-   * **Ubicación**: seleccione la ubicación más cercana a usted donde se crea el centro de IoT.
-   * **Anclar al panel**: marque esta opción para facilitar el acceso al centro de IoT desde el panel.
-1. Haga clic en **Crear**. La creación del centro de IoT puede tardar unos minutos. Puede ver el progreso en el panel **Notificaciones**.
-
-   ![supervisar el progreso de creación del centro de iot en el panel de notificaciones](media/iot-hub-sparkfun-thing-dev-get-started/5_iot-hub-monitor-creation-progress-notification-pane.png)
-
-1. Después de crear el centro de IoT, haga clic en él desde el panel. Anote el **nombre de host** y haga clic en **Directivas de acceso compartido**.
-
-   ![obtener nombre de host de su centro de IoT](media/iot-hub-sparkfun-thing-dev-get-started/6_iot-hub-get-hostname.png)
-
-1. En el panel **Directivas de acceso compartido**, haga clic en la directiva **iothubowner** y, luego, copie y anote la **cadena de conexión** de su centro de IoT para usarla más adelante. Para más información, consulte [Control del acceso a IoT Hub](iot-hub-devguide-security.md).
-
-   ![obtener cadena de conexión de centro de iot](media/iot-hub-sparkfun-thing-dev-get-started/7_iot-hub-get-connection-string.png)
-
-Ahora ha creado su Centro de IoT. El nombre de host y la cadena de conexión que anotó antes se usarán más adelante.
-
-### <a name="register-a-device-for-sparkfun-esp8266-thing-dev-in-your-iot-hub"></a>Registro de un dispositivo para Sparkfun ESP8266 Thing Dev en su centro de IoT
-
-Cada centro de IoT tiene un registro de identidad que almacena información acerca de los dispositivos que pueden conectarse al centro de IoT. Antes de que un dispositivo pueda conectarse a un centro de IoT, debe haber una entrada para ese dispositivo en el registro de identidad del centro de IoT.
-
-En esta sección, usará un explorador iothub de la herramienta CLI para registrar un dispositivo para ESP8266 Thing Dev en el Registro de identidades de su centro de IoT.
-
-> [!NOTE]
-> El explorador iothub requiere Node.js 4.x o una versión superior para que funcione correctamente.
-
-Para registrar un dispositivo para ESP8266 Thing Dev, siga estos pasos:
-
-1. [Descargue](https://nodejs.org/en/download/) e instale la versión más reciente de LTS de Node.js, incluido NPM.
-1. Instale el explorador iothub mediante NPM.
-
-   * Windows 7 o posterior: inicie un símbolo del sistema como administrador. Instale el explorador iothub mediante la ejecución del siguiente comando:
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-   * Ubuntu 16.04 o posterior: abra un terminal mediante el método abreviado de teclado Ctrl + Alt + T, y luego ejecute el siguiente comando:
-
-     ```bash
-     sudo npm install -g iothub-explorer
-     ```
-   * macOS 10.1 o posterior: abra un terminal y luego ejecute el siguiente comando:
-
-     ```bash
-     npm install -g iothub-explorer
-     ```
-1. Inicie sesión en su centro de IoT mediante la ejecución del siguiente comando:
-
-   ```bash
-   iothub-explorer login [your iot hub connection string]
-   ```
-1. Registre un nuevo dispositivo, donde `deviceID` sea `new-device` y ejecute el siguiente comando para obtener su cadena de conexión.
-
-   ```bash
-   iothub-explorer create new-device --connection-string
-   ```
-
-Anote la cadena de conexión del dispositivo registrado, la necesitará más adelante.
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-esp8266-thing-dev-with-the-sensor-and-your-computer"></a>Conexión de ESP8266 Thing Dev con el sensor y el equipo
 
@@ -232,7 +162,7 @@ Instale el paquete para Sparkfun ESP8266 Thing Dev en Arduino IDE:
 
    ![se instala el paquete esp8266](media/iot-hub-sparkfun-thing-dev-get-started/12_arduino-ide-esp8266-installed.png)
 
-1. Haga clic en **Tools** >  (Herramientas) **Board** >  (Placa) **Adafruit HUZZAH ESP8266**.
+1. Haga clic en **Tools** (Herramientas)  > **Board** (Placa)  > **Sparkfun ESP8266 Thing Dev**.
 
 ### <a name="install-necessary-libraries"></a>Instalación de las bibliotecas necesarias
 

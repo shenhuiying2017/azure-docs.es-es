@@ -3,8 +3,8 @@ title: Control de versiones del SDK de cliente y servidor en Mobile Apps y Mobil
 description: "Lista de SDK de cliente y compatibilidad con versiones de SDK de servidor para Servicios móviles y Aplicaciones móviles de Azure"
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
+ms.author: glenga
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
 ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
+ms.contentlocale: es-es
 ms.lasthandoff: 03/09/2017
-
 
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Control de versiones de cliente y servidor en Aplicaciones móviles y Servicios móviles
@@ -47,8 +47,8 @@ Para anular la comprobación de la versión, establezca el valor **true** en la 
 
 > [!NOTE]
 > Hay una serie de cambios de comportamiento entre Servicios móviles y Aplicaciones móviles, especialmente en las áreas de sincronización sin conexión, autenticación y notificaciones push. Solo debe anular la comprobación de versión después de realizar pruebas exhaustivas para asegurarse de que estos cambios de comportamiento no impiden la funcionalidad de la aplicación.
-> 
-> 
+>
+>
 
 ## <a name="summary-of-compatibility-for-all-versions"></a>Resumen de compatibilidad para todas las versiones
 En la tabla siguiente se muestra la compatibilidad entre todos los tipos de cliente y servidor. Los back-ends se clasifican como Mobile **Services** o Mobile **Apps** en función del SDK de servidor que usan.
@@ -130,5 +130,4 @@ La comprobación de versión se incluye en las siguientes versiones del SDK de s
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrate your existing Azure mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-
 

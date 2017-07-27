@@ -1,6 +1,6 @@
 ---
-title: Enlaces de Centro de eventos de Azure Functions | Microsoft Docs
-description: "Descubra cómo utilizar los enlaces del Centro de eventos de Azure en Funciones de Azure."
+title: Enlaces de Event Hubs de Azure Functions | Microsoft Docs
+description: "Descubra cómo usar los enlaces de Azure Event Hubs de Azure Functions."
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -14,39 +14,39 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 06/20/2017
 ms.author: wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 04a8563a0035992cfa4b7d25a4edc14e1db80e44
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: eaa97e31fbc2ffb8464b5ec2bd1f0eb5c59fdbd2
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="azure-functions-event-hub-bindings"></a>Enlaces de Centro de eventos de funciones de Azure
+# <a name="azure-functions-event-hubs-bindings"></a>Enlaces de Event Hubs de Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-En este artículo se explica cómo configurar y codificar enlaces de [Centro de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md) para Funciones de Azure.
+En este artículo se explica cómo configurar y usar enlaces de [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) para Azure Functions.
 Azure Functions admite enlaces de desencadenador y salida para Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Si no está familiarizado con Event Hubs de Azure, consulte la [información general de Event Hubs de Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
+Si no está familiarizado con Azure Event Hubs, consulte la [introducción a Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
-## <a name="event-hub-trigger"></a>Desencadenador de Centro de eventos
-Use el desencadenador de Centro de eventos para responder a un evento enviado a una secuencia de eventos del centro de eventos. Debe tener acceso de lectura al centro de eventos para configurar el desencadenador.
+## <a name="event-hub-trigger"></a>Desencadenador de centro de eventos
+Use el desencadenador de Event Hubs para responder a un evento enviado a una secuencia de eventos de centro de eventos. Debe tener acceso de lectura al centro de eventos para configurar el desencadenador.
 
-El desencadenador de un centro de eventos para una función usa el siguiente objeto JSON en la matriz `bindings` de function.json:
+El desencadenador de funciones de Event Hubs usa el siguiente objeto JSON en la matriz `bindings` de function.json:
 
 ```json
 {
     "type": "eventHubTrigger",
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
-    "path": "<Name of the Event Hub>",
+    "path": "<Name of the event hub>",
     "consumerGroup": "Consumer group to use - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
@@ -56,17 +56,17 @@ El desencadenador de un centro de eventos para una función usa el siguiente obj
 `connection` debe ser el nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres del centro de eventos.
 Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.
 
-Se pueden proporcionar [opciones de configuración adicionales](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) en un archivo host.json para ajustar aún más los desencadenadores del Centro de eventos.  
+Se pueden proporcionar [opciones de configuración adicionales](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) en un archivo host.json para ajustar aún más los desencadenadores de Event Hubs.  
 
 <a name="triggerusage"></a>
 
 ## <a name="trigger-usage"></a>Uso del desencadenador
-Cuando se activa una función de desencadenador del Centro de eventos, el mensaje que lo activa se pasa a la función como una cadena.
+Cuando se activa una función de desencadenador de Event Hubs, el mensaje que la activa se pasa a la función como una cadena.
 
 <a name="triggersample"></a>
 
 ## <a name="trigger-sample"></a>Ejemplo de desencadenador
-Suponga que tiene el siguiente desencadenador de Centro de eventos en la matriz `bindings` de function.json:
+Suponga que tiene el siguiente desencadenador de Event Hubs en la matriz `bindings` de function.json:
 
 ```json
 {
@@ -119,8 +119,8 @@ module.exports = function (context, myEventHubMessage) {
 
 <a name="output"></a>
 
-## <a name="event-hub-output-binding"></a>Enlace de salida del centro de eventos
-Use el enlace de salida del centro de eventos para escribir eventos en una secuencia de eventos del centro de eventos. Debe tener permiso de envío a un centro de eventos para escribir eventos en él.
+## <a name="event-hubs-output-binding"></a>Enlace de salida de Event Hubs
+Use el enlace de salida de Event Hubs para escribir eventos en una secuencia de eventos de centro de eventos. Debe tener permiso de envío a un centro de eventos para escribir eventos en él.
 
 El enlace de salida usa el siguiente objeto JSON en la matriz `bindings` de function.json:
 
@@ -138,7 +138,7 @@ El enlace de salida usa el siguiente objeto JSON en la matriz `bindings` de func
 Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener permisos de envío para enviar el mensaje a la secuencia de eventos.
 
 ## <a name="output-usage"></a>Uso de salidas
-En esta sección se muestra cómo utilizar el enlace de salida de Event Hub en el código de función.
+En esta sección se muestra cómo usar el enlace de salida de Event Hub en el código de función.
 
 Puede generar mensajes para el centro de eventos configurado con los siguientes tipos de parámetro:
 
@@ -149,7 +149,7 @@ Puede generar mensajes para el centro de eventos configurado con los siguientes 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Ejemplo de salida
-Suponga que tiene el siguiente enlace de salida de centro de eventos en la matriz `bindings` de function.json:
+Suponga que tiene el siguiente enlace de salida de Event Hubs en la matriz `bindings` de function.json:
 
 ```json
 {

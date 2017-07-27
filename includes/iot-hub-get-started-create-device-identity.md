@@ -14,6 +14,8 @@ En esta sección, se usa una herramienta de Node.js llamada [iothub-explorer][io
 
     `iothub-explorer create myDeviceId --connection-string`
 
+   [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
+
 Anote la cadena de conexión de dispositivo del resultado. La aplicación de dispositivo usa esta cadena de conexión de dispositivo para conectarse a su instancia de IoT Hub como un dispositivo.
 
 ![][img-identity]

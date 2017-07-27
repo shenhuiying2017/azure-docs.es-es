@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 06/29/2017
 ms.author: abhisram
-translationtype: Human Translation
-ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
-ms.openlocfilehash: 1a8a36d3b6f14c75965afca970be808015059dbb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 1c53a6bbe0152f6f2b9666e6059af7c6d02e481f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -116,7 +118,7 @@ El tiempo de ejecución de Reliable Actors publica los siguientes contadores de 
 
 | Nombre de la categoría | Nombre del contador | Descripción |
 | --- | --- | --- |
-| Actor de Service Fabric |# Número de llamadas de actor en espera de un bloqueo de actor |Número de llamadas de actor en espera para adquirir el bloqueo por actor que exige la simultaneidad basada en turnos |
+| Actor de Service Fabric |Número de llamadas de actor en espera de un bloqueo de actor |Número de llamadas de actor en espera para adquirir el bloqueo por actor que exige la simultaneidad basada en turnos |
 | Actor de Service Fabric |Tiempo de espera promedio de bloqueos en milisegundos |Tiempo necesario (en milisegundos) para adquirir el bloqueo por actor que exige la simultaneidad basada en turnos |
 | Actor de Service Fabric |Duración promedia del bloqueo por actor en milisegundos |Tiempo (en milisegundos) que dura el bloqueo por actor |
 
@@ -162,7 +164,7 @@ Cuando un cliente invoca un método a través de un objeto de proxy de actor, se
 
 | Nombre de la categoría | Nombre del contador | Descripción |
 | --- | --- | --- |
-| Actor de Service Fabric |# Número de solicitudes pendientes |Número de solicitudes que se procesan en el servicio |
+| Actor de Service Fabric |Número de solicitudes pendientes |Número de solicitudes que se procesan en el servicio |
 | Actor de Service Fabric |Promedio de milisegundos por solicitud |Tiempo que tarda el servicio (en milisegundos) en procesar una solicitud |
 | Actor de Service Fabric |Promedio de milisegundos para la deserialización de una solicitud |Tiempo necesario (en milisegundos) para deserializar el mensaje de solicitud de actor cuando se recibe en el servicio |
 | Actor de Service Fabric |Promedio de milisegundos para la deserialización de una respuesta |Tiempo necesario (en milisegundos) para serializar el mensaje de respuesta de actor en el servicio antes de que la respuesta se envíe al cliente |
@@ -172,9 +174,4 @@ Cuando un cliente invoca un método a través de un objeto de proxy de actor, se
 * [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 * [Proveedores de EventSource en PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

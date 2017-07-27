@@ -1,6 +1,6 @@
 ---
-title: "Traslado de datos hacia Azure SQL Data Warehouse y desde él | Microsoft Docs"
-description: "Obtenga información acerca de cómo mover los datos hacia y desde Almacenamiento de datos SQL de Azure mediante Factoría de datos de Azure"
+title: "Copia de datos hacia Azure SQL Data Warehouse y desde él | Microsoft Docs"
+description: Aprenda a copiar datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 02c5b7c8932a08bac4bc9e89bd7df3b3e5c57f94
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: bf4c327804e0e9d40512adacd7f13db56b799508
 ms.contentlocale: es-es
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="move-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Movimiento de datos hacia y desde SQL Data Warehouse mediante Azure Data Factory
+# <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copia de datos hacia y desde SQL Data Warehouse mediante Azure Data Factory
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos con Azure SQL Data Warehouse como origen o destino. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).  
 
 > [!TIP]
@@ -328,13 +328,13 @@ Data Factory crea la tabla en el almacén de destino con el mismo nombre de tabl
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
-### <a name="type-mapping-for-azure-sql-data-warehouse"></a>Asignación de tipos para Almacenamiento de datos SQL de Azure
+## <a name="type-mapping-for-azure-sql-data-warehouse"></a>Asignación de tipos para Almacenamiento de datos SQL de Azure
 Como se mencionó en el artículo sobre [actividades del movimiento de datos](data-factory-data-movement-activities.md) , la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
 
-Al mover datos a y desde SQL de Azure, SQL Server y Sybase, se usarán las siguientes asignaciones del tipo SQL al tipo .NET, y viceversa.
+Al migrar datos a Azure SQL Data Warehouse y en sentido contrario, se usarán las siguientes asignaciones del tipo SQL al tipo .NET, y viceversa.
 
 La asignación es igual que la asignación de [tipo de datos de SQL Server para ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
 

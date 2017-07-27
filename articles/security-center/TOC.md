@@ -19,6 +19,7 @@
 
 ## Prevención
 ### [Configuración de directivas de seguridad](security-center-policies.md)
+### [Acceso justo a tiempo](security-center-just-in-time.md)
 ### [Implementación de recomendaciones de seguridad](security-center-recommendations.md)
 
 ### [Recomendaciones sobre aplicaciones](security-center-application-recommendations.md)

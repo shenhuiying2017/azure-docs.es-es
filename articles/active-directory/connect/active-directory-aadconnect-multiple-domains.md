@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fa1c3d9cb07d417f5dbde41d6269fb1d157c3104
 ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Compatibilidad con varios dominios para la federación con Azure AD
@@ -162,10 +163,5 @@ Siga los pasos indicados a continuación para agregar una notificación personal
     ![Reemplazar notificación](./media/active-directory-multiple-domains/sub2.png)
 
 5. Haga clic en Aceptar.  Haga clic en Aplicar.  Haga clic en Aceptar.  Cierre Administración de AD FS.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

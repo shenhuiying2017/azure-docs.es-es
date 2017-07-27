@@ -3,7 +3,7 @@ title: "Descripción detallada de la creación de un par de claves SSH para máq
 description: "Descripción detallada sobre cómo crear un par de claves SSH pública y privada para máquinas virtuales Linux en Azure junto con los certificados específicos para distintos casos de uso."
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: dlepow
 manager: timlt
 editor: 
 tags: 
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 2/6/2016
-ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f452e8b3802bef5dc61bff64a8ac9ec5bb2a5bd9
-ms.lasthandoff: 04/03/2017
-
+ms.date: 6/28/2017
+ms.author: danlep
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0cb70d36bd6e8d4cf5fcd5ed4a3e85c42f3cf81d
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 ---
 
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Tutorial detallado sobre la creación de un par de claves SSH y certificados adicionales para una máquina virtual Linux en Azure
-Con un par de claves SSH, puede crear máquinas virtuales en Azure que usen claves SSH para autenticación de forma predeterminada, lo que elimina la necesidad de usar contraseñas para iniciar sesión. Las contraseñas se pueden adivinar y dejan las máquinas virtuales expuestas a intentos constantes de adivinarlas. Las máquinas virtuales creadas con la CLI de Azure o con plantillas de Resource Manager pueden incluir la clave SSH pública como parte de la implementación, por lo que no es necesario deshabilitar el inicio de sesión con contraseña después de configurar la implementación. Este artículo proporciona pasos detallados y ejemplos adicionales de la generación de certificados como los que se usan en el portal clásico. Si desea crear y utilizar rápidamente un par de claves SSH, consulte [Creación de un par de claves SSH pública y privada para máquinas virtuales Linux](mac-create-ssh-keys.md).
+Con un par de claves SSH, puede crear máquinas virtuales en Azure que usen claves SSH para autenticación de forma predeterminada, lo que elimina la necesidad de usar contraseñas para iniciar sesión. Las contraseñas se pueden adivinar y dejan las máquinas virtuales expuestas a intentos constantes de adivinarlas. Las máquinas virtuales creadas con la CLI de Azure o con plantillas de Resource Manager pueden incluir la clave SSH pública como parte de la implementación, por lo que no es necesario deshabilitar el inicio de sesión con contraseña después de configurar la implementación. En este artículo se proporcionan pasos detallados y otros ejemplos de generación de certificados, como los que se usan con las máquinas virtuales Linux. Si desea crear y utilizar rápidamente un par de claves SSH, consulte [Creación de un par de claves SSH pública y privada para máquinas virtuales Linux](mac-create-ssh-keys.md).
 
 ## <a name="understanding-ssh-keys"></a>Descripción de las claves SSH
 
@@ -36,7 +36,7 @@ En este artículo se describe la creación de un par de archivos de clave públi
 
 ## <a name="ssh-keys-use-and-benefits"></a>Uso y ventajas de las claves SSH
 
-Azure necesita como mínimo claves públicas y privadas en formato RSA versión 2 del protocolo SSH de 2048 bits. El archivo de clave pública tiene el formato de contenedor `.pub`. (El portal clásico usa el formato de archivo `.pem`. Para crear las claves, use `ssh-keygen`, que realiza una serie de preguntas y después escribe una clave privada y una clave pública correspondiente. Cuando se crea una máquina virtual de Azure, Azure copia la clave pública en la carpeta `~/.ssh/authorized_keys` de la máquina virtual. Las claves SSH en `~/.ssh/authorized_keys` se utilizan para presentar un desafío al cliente, que debe proporcionar la clave privada correspondiente en una conexión de inicio de sesión SSH.  Cuando se crea una máquina virtual Linux de Azure que usa claves SSH para la autenticación, Azure configura el servidor SSHD para no permitir inicios de sesión con contraseña, solo las claves SSH.  Por lo tanto, mediante la creación de máquinas virtuales Linux de Azure con claves SSH, puede ayudar a proteger la implementación de la máquina virtual y a ahorrarse el paso de configuración que es habitual después de la implementación para deshabilitar las contraseñas en el archivo **sshd_config**.
+Azure necesita como mínimo claves públicas y privadas en formato RSA versión 2 del protocolo SSH de 2048 bits. El archivo de clave pública tiene el formato de contenedor `.pub`. Para crear las claves, use `ssh-keygen`, que realiza una serie de preguntas y después escribe una clave privada y una clave pública correspondiente. Cuando se crea una máquina virtual de Azure, Azure copia la clave pública en la carpeta `~/.ssh/authorized_keys` de la máquina virtual. Las claves SSH en `~/.ssh/authorized_keys` se utilizan para presentar un desafío al cliente, que debe proporcionar la clave privada correspondiente en una conexión de inicio de sesión SSH.  Cuando se crea una máquina virtual Linux de Azure que usa claves SSH para la autenticación, Azure configura el servidor SSHD para no permitir inicios de sesión con contraseña, solo las claves SSH.  Por lo tanto, mediante la creación de máquinas virtuales Linux de Azure con claves SSH, puede ayudar a proteger la implementación de la máquina virtual y a ahorrarse el paso de configuración que es habitual después de la implementación para deshabilitar las contraseñas en el archivo **sshd_config**.
 
 ## <a name="using-ssh-keygen"></a>Uso de ssh-keygen
 
@@ -63,21 +63,6 @@ ssh-keygen \
 
 `-C "azureuser@myserver"` = comentario que se anexa al final del archivo de clave pública para identificarlo fácilmente.  Normalmente se usa un correo electrónico como comentario, pero puede utilizar lo que mejor le vaya para su infraestructura.
 
-## <a name="classic-portal-and-x509-certs"></a>Portal clásico y certificados X.509
-
-Si usa el [Portal de Azure clásico](https://manage.windowsazure.com/), este requiere archivos .pem de certificados X.509 para las claves SSH.  No se permite ningún otro tipo de claves públicas SSH, *deben* ser certificados X.509.
-
-Para crear un certificado X.509 a partir de la clave privada SSH-RSA existente:
-
-```bash
-openssl req -x509 \
--key ~/.ssh/id_rsa \
--nodes \
--days 365 \
--newkey rsa:2048 \
--out ~/.ssh/id_rsa.pem
-```
-
 ## <a name="classic-deploy-using-asm"></a>Implementación clásica mediante `asm`
 
 Si usa el modelo de implementación clásica (modo `asm` de la CLI), puede usar una clave pública SSH-RSA o una clave con formato RFC4716 en un contenedor pem.  La clave pública SSH-RSA es la que se creó anteriormente en este artículo mediante `ssh-keygen`.
@@ -96,7 +81,7 @@ ssh-keygen \
 ```bash
 ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/azureuser/.ssh/id_rsa): 
+Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 Your identification has been saved in /home/azureuser/.ssh/id_rsa.

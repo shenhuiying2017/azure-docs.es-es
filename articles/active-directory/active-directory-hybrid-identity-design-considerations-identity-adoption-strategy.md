@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 47fb1724ac72df8b83012bcacdc435ea847547da
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
@@ -50,7 +51,7 @@ La tabla siguiente le ayudará a determinar las ventajas y desventajas de cada u
 
 | Estrategia | Ventajas | Desventajas |
 | --- | --- | --- |
-| **Identidades en la nube** |Fáciles de administrar para organizaciones pequeñas. <br> No hay nada que instalar en local. No se necesita hardware adicional.<br>Se deshabilitan fácilmente si el usuario abandona la compañía. |Los usuarios tendrán que iniciar sesión al acceder a las cargas de trabajo en la nube  <br>  Las contraseñas puede ser las mismas, o no, para las entidades identidades de nube y locales. |
+| **Identidades en la nube** |Fáciles de administrar para organizaciones pequeñas. <br> No hay nada que instalar en local. No se necesita hardware adicional.<br>Se deshabilitan fácilmente si el usuario abandona la compañía. |Los usuarios tendrán que iniciar sesión al acceder a las cargas de trabajo en la nube  <br> Las contraseñas puede ser las mismas, o no, para las entidades identidades de nube y locales. |
 | **Sincronizada** |La contraseña local se autenticará localmente y en directorios en la nube. <br>Más fácil de administrar para organizaciones pequeñas, medianas o grandes. <br>Los usuarios pueden tener el inicio de sesión único (SSO) en algunos recursos. <br> Método preferido de Microsoft para la sincronización <br> Más fácil de administrar |Algunos clientes pueden ser reacios a sincronizar sus directorios con la nube debido  a las directivas de la compañía. |
 | **Federada** |Los usuarios pueden tener el inicio de sesión único (SSO). <br>Si un usuario es cesado o abandona, la cuenta puede deshabilitarse inmediatamente y revocarse el acceso.<br> Admite escenarios avanzados que no se pueden lograr con la sincronizada. |Más pasos para instalar y configurar <br> Mayor mantenimiento <br> Puede requerir hardware adicional para la infraestructura de STS. <br> Puede requerir hardware adicional para instalar el servidor de federación. Es necesario software adicional si se utiliza AD FS. <br> Necesita una configuración amplia de SSO. <br> Punto crítico de error si el servidor de federación está inactivo, los usuarios no podrán autenticarse. |
 
@@ -212,10 +213,5 @@ La autenticación multifactor está disponible de forma predeterminada para los 
 
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

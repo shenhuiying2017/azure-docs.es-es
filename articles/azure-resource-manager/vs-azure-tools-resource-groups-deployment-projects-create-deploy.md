@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 07/10/2017
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
+ms.contentlocale: es-es
 ms.lasthandoff: 03/14/2017
-
 
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
@@ -90,16 +90,18 @@ Tenga en cuenta que no solo se agregó el recurso, sino que también se agregó 
 
 El parámetro **storageType** está predefinido con los tipos permitidos y un tipo predeterminado. Puede dejar estos valores o modificarlos para su escenario específico. Si no desea que cualquiera pueda implementar una cuenta de almacenamiento **Premium_LRS** a través de esta plantilla, quítela de los tipos permitidos. 
 
-    "storageType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS"
-      ]
-    }
+```json
+"storageType": {
+  "type": "string",
+  "defaultValue": "Standard_LRS",
+  "allowedValues": [
+    "Standard_LRS",
+    "Standard_ZRS",
+    "Standard_GRS",
+    "Standard_RAGRS"
+  ]
+}
+```
 
 Visual Studio también proporciona IntelliSense para ayudarle a entender qué propiedades están disponibles al editar la plantilla. Por ejemplo, para editar las propiedades de su plan de App Service, navegue al recurso **HostingPlan** y agregue un valor a las **propiedades**. Observe que IntelliSense muestra los valores disponibles y proporciona una descripción de cada valor.
 
@@ -107,10 +109,12 @@ Visual Studio también proporciona IntelliSense para ayudarle a entender qué pr
 
 Puede establecer **numberOfWorkers** en 1.
 
-    "properties": {
-      "name": "[parameters('hostingPlanName')]",
-      "numberOfWorkers": 1
-    }
+```json
+"properties": {
+  "name": "[parameters('hostingPlanName')]",
+  "numberOfWorkers": 1
+}
+```
 
 ## <a name="deploy-the-resource-group-project-to-azure"></a>Implementación del proyecto de grupo de recursos en Azure
 Ahora está preparado para implementar el proyecto. Cuando implementa un proyecto de grupo de recursos de Azure, lo implementa en un grupo de recursos de Azure. El grupo de recursos es una agrupación lógica de recursos que comparten un ciclo de vida común.

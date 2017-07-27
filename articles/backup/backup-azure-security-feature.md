@@ -12,12 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 06/08/2017
 ms.author: pajosh
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 41a7024b51bc7a3c9cf34dba97255ea61fd27924
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 1400fe83bec85a7ab1b4c96fb38abdaf6c944845
+ms.contentlocale: es-es
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -71,10 +72,10 @@ En el caso de los usuarios del **agente de Azure Recovery Services**:
 1. Si el equipo en el que se realizaron las copias de seguridad aún está disponible, use [Recuperar los datos en la misma máquina](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) en Azure Recovery Services para realizar la recuperación desde todos los puntos de recuperación antiguos.
 2. Si este equipo no está disponible, utilice [Recuperar en una máquina alternativa](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) para usar otro equipo de Azure Recovery Services para obtener estos datos.
 
-Para los usuarios del **servidor de copia de seguridad de Azure**:
+Para los usuarios de **Azure Backup Server**:
 
 1. Si el servidor en el que se realizaron las copias de seguridad está aún disponible, vuelva a proteger los orígenes de datos eliminados y use la característica **Recuperar datos** para realizar la recuperación desde todos los puntos de recuperación antiguos.
-2. Si este servidor no está disponible, utilice [Recuperación de datos de otro servidor de copia de seguridad de Azure](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) para usar otra instancia de Azure Backup Server para obtener estos datos.
+2. Si este servidor no está disponible, utilice [Recuperación de datos de otra instancia de Azure Backup Server](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) para usar otra instancia de Azure Backup Server para obtener estos datos.
 
 En el caso de los usuarios de **Data Protection Manager**:
 
@@ -106,6 +107,13 @@ Para asegurarse de que siempre hay un número válido de puntos de recuperación
 Normalmente, al realizarse una operación crítica, se envía una notificación por correo electrónico al administrador de suscripciones con detalles sobre la operación. Puede configurar destinatarios de correo electrónico adicionales para estas notificaciones con Azure Portal.
 
 Las características de seguridad que se mencionan en este artículo proporcionan mecanismos de defensa contra ataques dirigidos. Lo que es más importante, en caso de producirse un ataque, es que estas características permiten recuperar los datos.
+
+## <a name="troubleshooting-errors"></a>Solución de errores
+| Operación | Detalles del error | Resolución |
+| --- | --- | --- |
+| Cambio de directiva |No se ha podido modificar la directiva de copia de seguridad. Error: no se pudo realizar la operación actual debido a un error de servicio interno [0x29834]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. |**Causa:**<br/>Este error se genera cuando está habilitada la configuración de seguridad, intenta reducir la duración de retención por debajo de los valores mínimos especificados anteriormente y se encuentra en una versión no admitida (las versiones admitidas se especifican en la primera nota de este artículo). <br/>**Acción recomendada:**<br/> En este caso, debe establecer el período de retención por encima el período de retención mínimo (siete días para un valor diario, cuatro semanas para uno semanal, tres semanas para mensual o un año para la copia anual) para continuar con las actualizaciones relacionadas con la directiva. Si lo desea, el enfoque preferido sería actualizar el agente de copia de seguridad y Azure Backup Server o DPM UR para aprovechar todas las actualizaciones de seguridad. |
+| Cambiar la frase de contraseña |El PIN de seguridad escrito no es correcto. (ID: 100130) Proporcione el PIN de seguridad correcto para completar esta operación. |**Causa:**<br/> Este error se genera cuando se escribe un PIN de seguridad no válido o caducado mientras se realiza una operación crítica (por ejemplo, cambiar la frase de contraseña). <br/>**Acción recomendada:**<br/> Para completar la operación, debe escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta el almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
+| Cambiar la frase de contraseña |Error en la operación ID: 120002 |**Causa:**<br/>Este error se genera cuando está habilitada la configuración de seguridad, intenta cambiar la frase de contraseña y se encuentra en una versión no compatible (las versiones válidas se especifican en la primera nota de esta artículo).<br/>**Acción recomendada:**<br/> Para cambiar la frase de contraseña, primero debe actualizar el agente de copia de seguridad a la versión mínima 2.0.9052, Azure Backup Server a la actualización mínima 1 o DPM a la actualización mínima DPM 2012 R2 UR12 o DPM 2016 UR2 (los enlaces de descarga se encuentran después) y, finalmente escriba el PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta el almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Comience a usar el almacén de Azure Recovery Services](backup-azure-vms-first-look-arm.md) para habilitar estas características.

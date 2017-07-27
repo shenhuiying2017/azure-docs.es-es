@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 07/05/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 61054d9e118a3c90dec3330004625a25102a08cc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 207a6562965b4913416bd4dbf3eb132b42938dc9
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Uso del cliente Windows en Azure para escenarios de desarrollo y pruebas
@@ -28,10 +27,10 @@ Puede usar Windows 7, Windows 8 o Windows 10 en Azure para escenarios de desarro
 ## <a name="subscription-eligibility"></a>Idoneidad de la suscripción
 Los suscriptores activos de Visual Studio (es decir, las personas que adquirieron una licencia de suscripción de Visual Studio) pueden usar el cliente Windows para desarrollo y pruebas. El cliente Windows se puede usar en su propio hardware y en máquinas virtuales de Azure que se ejecutan en cualquier tipo de suscripción de Azure. El cliente Windows no se puede implementar ni usar en Azure para un uso de producción normal. Tampoco lo pueden usar quienes no son suscriptores activos de Visual Studio.
 
-Para su comodidad, pusimos a su disposición ciertas imágenes de Windows 10 de la galería de Azure dentro de las [ofertas de desarrollo y pruebas a las que puede tener acceso](#eligible-offers). Los suscriptores de Visual Studio dentro de cualquier tipo de oferta también pueden [preparar y crear apropiadamente](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) una imagen de Windows 7, Windows 8 o Windows 10 de 64 bits y, luego, [cargarla en Azure](upload-generalized-managed.md). El uso sigue limitado a desarrollo y pruebas por parte de los suscriptores activos de Visual Studio.
+Para su comodidad, pusimos a su disposición ciertas imágenes de Windows 10 de la galería de Azure dentro de las [ofertas de desarrollo y pruebas a las que puede tener acceso](#eligible-offers). Los suscriptores de Visual Studio dentro de cualquier tipo de oferta también pueden [preparar y crear apropiadamente](prepare-for-upload-vhd-image.md) una imagen de Windows 7, Windows 8 o Windows 10 de 64 bits y, luego, [cargarla en Azure](upload-generalized-managed.md). El uso sigue limitado a desarrollo y pruebas por parte de los suscriptores activos de Visual Studio.
 
 ## <a name="eligible-offers"></a>Ofertas a las que se puede tener acceso
-La tabla siguiente muestra los detalles de los id. de oferta idóneos para implementar Windows 10 a través de la galería de Azure. Las imágenes de Windows 10 solo son visibles para las ofertas siguientes. Los suscriptores de Visual Studio que deban ejecutar el cliente Windows en un tipo de oferta distinto necesitan que [prepare y cree apropiadamente](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) una imagen de Windows 7, Windows 8 o Windows 10 de 64 bits y, [luego, la cargue en Azure](upload-generalized-managed.md).
+La tabla siguiente muestra los detalles de los id. de oferta idóneos para implementar Windows 10 a través de la galería de Azure. Las imágenes de Windows 10 solo son visibles para las ofertas siguientes. Los suscriptores de Visual Studio que deban ejecutar el cliente Windows en un tipo de oferta distinto necesitan que [prepare y cree apropiadamente](prepare-for-upload-vhd-image.md) una imagen de Windows 7, Windows 8 o Windows 10 de 64 bits y, [luego, la cargue en Azure](upload-generalized-managed.md).
 
 | Nombre de la oferta | Número de la oferta | Imágenes de cliente disponibles |
 |:--- |:---:|:---:|
@@ -58,6 +57,6 @@ También puede ver el id. de la oferta en la pestaña ["Suscripciones"](http://a
 ![Detalles del id. de oferta desde el portal de la cuenta de Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora puede implementar las máquinas virtuales con [PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), [plantillas de Resource Manager](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Ahora puede implementar las máquinas virtuales con [PowerShell](quick-create-powershell.md), [plantillas de Resource Manager](ps-template.md) o [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 

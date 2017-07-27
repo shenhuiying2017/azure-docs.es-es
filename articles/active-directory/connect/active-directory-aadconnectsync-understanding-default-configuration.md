@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6ad01761f7498512bbce82d85e9e5a3db618191e
 ms.openlocfilehash: 16bf75f97e735d3d5feab4d0d1446ca34c00ccfa
-
+ms.contentlocale: es-es
+ms.lasthandoff: 02/06/2017
 
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronización de Azure AD Connect: descripción de la configuración predeterminada
@@ -236,10 +237,5 @@ Ahora conocemos lo suficiente de las reglas de sincronización para poder compre
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

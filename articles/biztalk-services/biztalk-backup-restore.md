@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 589b95fdd05478305fa8ef629fc6758bdd716da6
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="biztalk-services-backup-and-restore"></a>Servicios de BizTalk: copias de seguridad y restauración
-Servicios de BizTalk de Azure incluye las capacidades de copia de seguridad y restauración. En este tema se describe cómo realizar la copia de seguridad y la restauración de los servicios de BizTalk con el Portal de Azure clásico.
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+Azure BizTalk Services incluye las capacidades de copia de seguridad y restauración. En este tema se describe cómo realizar la copia de seguridad y la restauración de los servicios de BizTalk con el Portal de Azure clásico.
 
 También puede realizar la copia de seguridad de los Servicios de BizTalk mediante la [API REST de Servicios de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
 
 > [!NOTE]
 > NO se realiza ninguna copia de seguridad de las conexiones híbridas, independientemente de la edición. Debe volver a crear las conexiones híbridas.
-> 
-> 
+
 
 ## <a name="before-you-begin"></a>Introducción
 * Puede que las copias de seguridad y restauración no estén disponible para todas las ediciones. Consulte [Servicios de BizTalk: gráfico de ediciones](biztalk-editions-feature-chart.md).
@@ -130,7 +133,7 @@ Se incluyen los elementos siguientes al crear una copia de seguridad:
 </tr> 
 <tr>
 <td colspan="2">
- <strong>Portal de BizTalk Services de Azure</strong></td>
+ <strong>Portal de Azure BizTalk Services</strong></td>
 </tr> 
 <tr>
 <td>Configuración y tiempo de ejecución</td> 
@@ -153,7 +156,7 @@ Se incluyen los elementos siguientes al crear una copia de seguridad:
 
 <tr>
 <td colspan="2">
- <strong>Servicio de BizTalk de Azure</strong></td>
+ <strong>Servicio Azure BizTalk</strong></td>
 </tr> 
 <tr>
 <td>Certificado SSL</td> 

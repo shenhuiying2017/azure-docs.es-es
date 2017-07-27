@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 0ce6114073b80c1d9bb719654ab8cebc30dfefac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/19/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -55,7 +55,7 @@ Site Recovery puede replicar cualquier aplicación que se ejecute en una máquin
 | System Center Operations Manager |Y |Y |Y |Y |
 | SharePoint |Y |Y |Y |Y |
 | SAP<br/><br/>Replicación de un sitio de SAP en Azure para no clúster |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |
-| Exchange (no DAG) |Y |Próximamente |Y |Y |
+| Exchange (no DAG) |Y |Y |Y |Y |
 | Escritorio remoto/VDI |Y |Y |Y |N/D |
 | Linux (sistema operativo y aplicaciones) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |
 | Dynamics AX |Y |Y |Y |Y |
@@ -138,11 +138,11 @@ Use Site Recovery para proteger una implementación de IIS como se indica a cont
 
 Azure Site Recovery proporciona la función de recuperación ante desastres mediante la replicación de los componentes críticos de su entorno en un sitio remoto inactivo o en una nube pública, como Microsoft Azure. Dado que la máquina virtual con el servidor web y la base de datos se replica en el sitio de recuperación, no es preciso realizar copias de seguridad de los archivos de configuración o de los certificados por separado. Los enlaces y las asignaciones de las aplicaciones que dependen de las variables de entorno que se cambian después de la conmutación por error se pueden actualizar a través de los scripts integrados en los planes de la recuperación ante desastres. Las máquinas virtuales solo se muestran en el sitio de recuperación en caso de conmutación por error. Y no solo esto, Azure Site Recovery también le ayuda a orquestar la conmutación por error de un extremo a otro a través de las siguientes funcionalidades:
 
--    Secuenciación del apagado e inicio de las máquinas virtuales en los distintos niveles.
--    Incorporación de scripts que permiten la actualización de las dependencias y los enlaces de las aplicaciones después de que se hayan iniciado. Los scripts también se pueden utilizar para actualizar el servidor DNS para que apunte al sitio de recuperación.
--    Asignación de direcciones IP a máquinas virtuales antes de la conmutación por error mediante la asignación de las redes principal y de recuperación y, por consiguiente, el uso de scripts que no es preciso actualizarlos después de la conmutación por error.
--    Funcionalidad de conmutación por error con un solo clic para varias aplicaciones web en los servidores web, con lo que se elimina el alcance de una confusión en caso de desastre.
--    Funcionalidad de probar los planes de recuperación en un entorno aislado en los simulacros de recuperación ante desastres.
+-   Secuenciación del apagado e inicio de las máquinas virtuales en los distintos niveles.
+-   Incorporación de scripts que permiten la actualización de las dependencias y los enlaces de las aplicaciones después de que se hayan iniciado. Los scripts también se pueden utilizar para actualizar el servidor DNS para que apunte al sitio de recuperación.
+-   Asignación de direcciones IP a máquinas virtuales antes de la conmutación por error mediante la asignación de las redes principal y de recuperación y, por consiguiente, el uso de scripts que no es preciso actualizarlos después de la conmutación por error.
+-   Funcionalidad de conmutación por error con un solo clic para varias aplicaciones web en los servidores web, con lo que se elimina el alcance de una confusión en caso de desastre.
+-   Funcionalidad de probar los planes de recuperación en un entorno aislado en los simulacros de recuperación ante desastres.
 
 [Más información](https://aka.ms/asr-iis) acerca de cómo una granja de servidores web de IIS.
 

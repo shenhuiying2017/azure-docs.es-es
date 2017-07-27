@@ -12,24 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/27/2017
+ms.date: 06/23/2017
 ms.author: rajanaki
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5ff598af73b6be727753ecac5b99f28bae19a417
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 1ed0bfe4f1b77db00dc858f010f72e084e77039e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 ---
 
-#  <a name="prerequisites-for-replication-to-azure-by-using-azure-site-recovery"></a>Requisitos previos para la replicación en Azure con Azure Site Recovery
+#  <a name="prerequisites-for-replication-from-on-premises-to-azure-using-azure-site-recovery"></a>Requisitos previos para replicación desde el entorno local a Azure con Azure Site Recovery
 
+> [!div class="op_single_selector"]
+> * [Replicación de Azure a Azure](site-recovery-azure-to-azure-prereq.md)
+> * [Replicación del entorno local a Azure](site-recovery-prereq.md)
 
-El servicio Azure Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR) al organizar la replicación de servidores físicos y máquinas virtuales locales en la nube (Azure) o en un centro de datos secundario. Cuando se producen interrupciones en la ubicación principal, podrá realizar la conmutación por error a una ubicación secundaria para mantener disponibles las aplicaciones y cargas de trabajo. Puede realizar la conmutación por recuperación a la ubicación principal cuando vuelva a su funcionamiento normal. Consulte [¿Qué es Site Recovery?](site-recovery-overview.md) para más información sobre Site Recovery.
+El servicio Azure Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR) al organizar la replicación de la máquina virtual de Azure en otra región de Azure y de servidores físicos y máquinas virtuales locales en la nube (Azure) o en un centro de datos secundario. Cuando se producen interrupciones en la ubicación principal, podrá realizar la conmutación por error a una ubicación secundaria para mantener disponibles las aplicaciones y cargas de trabajo. Puede realizar la conmutación por recuperación a la ubicación principal cuando vuelva a su funcionamiento normal. Consulte [¿Qué es Site Recovery?](site-recovery-overview.md) para más información sobre Site Recovery.
 
-En este artículo se resumen los requisitos previos necesarios para comenzar la replicación de Site Recovery en Azure.
+En este artículo se resumen los requisitos previos necesarios para comenzar la replicación de Site Recovery del entorno local a Azure.
 
 Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
 
 ## <a name="azure-requirements"></a>Requisitos de Azure
 
@@ -44,7 +47,7 @@ Publique cualquier comentario o pregunta que tenga en la parte inferior de este 
 **Asignación de red** | Si replica máquinas virtuales de Hyper-V en nubes de Virtual Machine Manager, es preciso que configure la asignación de red, de forma que las máquinas virtuales de Azure se conecten a las redes apropiadas cuando se creen después de la conmutación por error.
 
 >[!NOTE]
->En las siguientes secciones se describen los requisitos previos para los distintos componentes del entorno del cliente. Para más información sobre la compatibilidad con configuraciones específicas, lea la [matriz de compatibilidad](site-recovery-support-matrix.md).
+>En las siguientes secciones se describen los requisitos previos para los distintos componentes del entorno del cliente. Para obtener más información sobre la compatibilidad con configuraciones específicas, lea la [matriz de compatibilidad](site-recovery-support-matrix.md).
 >
 
 ## <a name="disaster-recovery-of-vmware-virtual-machines-or-physical-windows-or-linux-servers-to-azure"></a>Recuperación ante desastres de máquinas virtuales de VMware o servidores físicos de Windows o Linux en Azure
@@ -67,7 +70,7 @@ A continuación, se muestran los componentes necesarios para la recuperación an
 | --- | --- |
 | **Locales** (máquinas virtuales de VMware) | Las máquinas virtuales replicadas deben tener las herramientas de VMware instaladas y en ejecución.<br/><br/> Las máquinas virtuales deben cumplir los [requisitos previos de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) para crear máquinas virtuales de Azure.<br/><br/>La capacidad de disco individual en máquinas protegidas no debe ser superior a 1023 GB. <br/><br/>Se necesitan como mínimo 2 GB de espacio disponible en la unidad de instalación para instalar los componentes.<br/><br/>El puerto 20004 se debe abrir en el firewall local de la máquina virtual si desea habilitar la coherencia de múltiples máquinas virtuales.<br/><br/>Los nombres de las máquinas deben tener entre 1 y 63 caracteres (letras, números y guiones). El nombre debe comenzar con una letra o un número y terminar con una letra o un número. Después de haber habilitado la replicación de una máquina, puede modificar el nombre de Azure.<br/><br/> |
 | **Máquinas Windows** (físicas o de VMware) | El equipo debe ejecutar un sistema operativo de 64 bits compatible: Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con SP1 como mínimo.<br/><br/> El sistema operativo debe instalarse en la unidad C. El disco del sistema operativo debe ser un disco básico de Windows y no ser dinámico. El disco de datos puede ser dinámico.<br/><br/>|
-| **Equipos con Linux** (físicos o VMware) | Necesita un sistema operativo de 64 bits compatible: Red Hat Enterprise Linux 6.7, 6.8, 7.1 o 7.2; Centos 6.5, 6.6, 6.7, 6.8, 7.0, 7.1 o 7.2; Oracle Enterprise Linux 6.4 o 6.5 con un kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3 y SUSE Linux Enterprise Server 11 SP4.<br/><br/>Los archivos /etc/hosts de las máquinas protegidas deben contener entradas que asignen el nombre de host local a direcciones IP asociadas con todos los adaptadores de red.<br/><br/>Si desea conectarse a la máquina virtual de Azure con Linux después de la conmutación por error mediante un cliente Secure Shell (ssh), asegúrese de que el servicio de Secure Shell en la máquina protegida esté configurado para iniciarse automáticamente con el arranque del sistema y que las reglas de firewall permitan un conexión ssh con ella.<br/><br/>El nombre del host, los puntos de montaje, los nombres de dispositivo, las rutas de acceso de sistema de Linux y los nombres de archivo (por ejemplo, /etc/, /usr) deben estar en inglés únicamente.<br/><br/>Todos los directorios siguientes (si se configuran como sistemas de archivos o particiones independientes) deben ubicarse en el mismo disco (el disco de sistema operativo) del servidor de origen: / (root), /boot, /usr, /usr/local, /var, /etc.<br/><br/>ASR no admite las características de XFS v5, como la suma de comprobación de metadatos, en sistemas de archivos XFS. Asegúrese de que los sistemas de archivos XFS no usan ninguna característica de v5. Puede usar la utilidad xfs_info para comprobar el superbloque XFS para la partición. Si ftype está establecido en 1, entonces se usan las características de XFSv5.<br/><br/>En servidores Red Hat Enterprise Linux 7 y CentOS 7, la utilidad lsof debe estar instalada y disponible.<br/><br/>
+| **Equipos con Linux** (físicos o VMware) | Necesita un sistema operativo de 64 bits compatible: Red Hat Enterprise Linux 6.7, 6.8, 7.1 o 7.2; Centos 6.5, 6.6, 6.7, 6.8, 7.0, 7.1 o 7.2; servidor Ubuntu 14.04 LTS (para obtener una lista de las versiones de kernel compatibles con Ubuntu consulte los [sistemas operativos compatibles](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)); Oracle Enterprise Linux 6.4 o 6.5 con un kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3 y SUSE Linux Enterprise Server 11 SP4.<br/><br/>Los archivos /etc/hosts de las máquinas protegidas deben contener entradas que asignen el nombre de host local a direcciones IP asociadas con todos los adaptadores de red.<br/><br/>Si desea conectarse a la máquina virtual de Azure con Linux después de la conmutación por error mediante un cliente Secure Shell (ssh), asegúrese de que el servicio de Secure Shell en la máquina protegida esté configurado para iniciarse automáticamente con el arranque del sistema y que las reglas de firewall permitan un conexión ssh con ella.<br/><br/>El nombre del host, los puntos de montaje, los nombres de dispositivo, las rutas de acceso de sistema de Linux y los nombres de archivo (por ejemplo, /etc/, /usr) deben estar en inglés únicamente.<br/><br/>Todos los directorios siguientes (si se configuran como sistemas de archivos o particiones independientes) deben ubicarse en el mismo disco (el disco de sistema operativo) del servidor de origen: / (root), /boot, /usr, /usr/local, /var, /etc.<br/><br/>ASR no admite las características de XFS v5, como la suma de comprobación de metadatos, en sistemas de archivos XFS. Asegúrese de que los sistemas de archivos XFS no usan ninguna característica de v5. Puede usar la utilidad xfs_info para comprobar el superbloque XFS para la partición. Si ftype está establecido en 1, entonces se usan las características de XFSv5.<br/><br/>En servidores Red Hat Enterprise Linux 7 y CentOS 7, la utilidad lsof debe estar instalada y disponible.<br/><br/>
 
 
 ## <a name="disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager"></a>Recuperación ante desastres de máquinas virtuales de Hyper-V en Azure (sin Virtual Machine Manager)

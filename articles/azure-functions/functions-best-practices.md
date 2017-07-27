@@ -14,29 +14,28 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 53dcaea155471d47eb61317c52d38524c05e4600
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 5408bf986b67d420d4d1359961ec83510c97cd05
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
 
-# <a name="tips-for-improving-the-performance-and-reliability-of-azure-functions"></a>Sugerencias para mejorar el rendimiento y la confiabilidad de Azure Functions
+# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
 
-##<a name="overview"></a>Información general
-
-En este artículo se proporciona una colección de prácticas recomendadas para tener en cuenta al implementar aplicaciones de funciones. Tenga en cuenta que su aplicación de función es una aplicación de Azure App Service. Por lo tanto, también se aplican los procedimientos recomendados de App Service.
+En este artículo se proporcionan instrucciones para mejorar el rendimiento y la confiabilidad de sus aplicaciones de función. 
 
 
-## <a name="avoid-large-long-running-functions"></a>Evitar funciones grandes de ejecución prolongada
+## <a name="avoid-long-running-functions"></a>Evitar funciones de ejecución prolongada
 
-Las funciones grandes de ejecución prolongada pueden causar problemas de tiempo de espera inesperados. Una función puede ser grande debido a sus numerosas dependencias de Node.js. La importación de estas dependencias puede provocar mayores tiempos de carga que dan lugar a tiempos de espera inesperados. Las dependencias de Node.js se podrían cargar explícitamente mediante varias instrucciones `require()` en el código. También podrían ser implícitas según un único módulo cargado por el código que tiene sus propias dependencias internas.  
+Las funciones grandes de ejecución prolongada pueden causar problemas de tiempo de espera inesperados. Una función puede ser grande debido a numerosas dependencias de Node.js. La importación de las dependencias también puede provocar mayores tiempos de carga que dan lugar a tiempos de expiración inesperados. Las dependencias se cargan explícita e implícitamente. Un módulo único cargado por el código puede cargar sus propios módulos adicionales.  
 
-Siempre que sea posible, refactorice funciones grandes en conjuntos más pequeños de funciones que trabajen juntos y devuelvan respuestas rápidas. Por ejemplo, un webhook o una función de desencadenador HTTP podría requerir una respuesta de confirmación en un determinado período de tiempo. Puede pasar la carga útil de desencadenador HTTP a una cola para ser procesada por una función de desencadenador de cola. Este enfoque permite aplazar el trabajo real y devolver una respuesta inmediata. Es habitual que los webhooks requieran una respuesta inmediata.
+Siempre que sea posible, refactorice funciones grandes en conjuntos más pequeños de funciones que trabajen juntos y devuelvan respuestas rápidas. Por ejemplo, un webhook o una función de desencadenador HTTP podría requerir una respuesta de confirmación en un determinado período de tiempo. Es habitual que los webhooks requieran una respuesta inmediata. Puede pasar la carga útil de desencadenador HTTP a una cola para ser procesada por una función de desencadenador de cola. Este enfoque permite aplazar el trabajo real y devolver una respuesta inmediata.
 
 
 ## <a name="cross-function-communication"></a>Comunicación entre funciones
@@ -48,7 +47,6 @@ Los mensajes individuales de una cola de almacenamiento tienen un límite de tam
 Temas de Service Bus son útiles si necesita filtrado de mensajes antes del procesamiento.
 
 Los concentradores de eventos son útiles para admitir comunicaciones de gran volumen.
-
 
 
 ## <a name="write-functions-to-be-stateless"></a>Escritura de funciones para que no tengan estado 
@@ -92,18 +90,15 @@ No utilice el registro detallado en el código de producción. Tiene un impacto 
 
 ## <a name="use-async-code-but-avoid-taskresult"></a>Usar código asincrónico pero evitar Task.Result
 
-La programación asincrónica es una práctica recomendada. Sin embargo, evite siempre hacer referencia a la propiedad `Task.Result`. Este enfoque básicamente realiza una espera activa en un bloqueo de otro subproceso. El mantenimiento de un bloqueo crea la posibilidad de interbloqueos.
+La programación asincrónica es una práctica recomendada. Sin embargo, evite siempre hacer referencia a la propiedad `Task.Result`. Este enfoque puede provocar el agotamiento de subprocesos.
 
 
-
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
-* [Referencia para desarrolladores de Funciones de Azure](functions-reference.md)
-* [Referencia para desarrolladores de C# de Funciones de Azure](functions-reference-csharp.md)
-* [Referencia para desarrolladores de F# de Azure Functions](functions-reference-fsharp.md)
-* [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
-* [Patterns and Practices HTTP Performance Optimizations](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md) (Patrones y procedimientos de optimización del rendimiento de HTTP)
+Como Azure Functions usa Azure App Service, también debe conocer las guías de App Service.
+* [Patterns and Practices HTTP Performance Optimizations](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/) (Patrones y procedimientos de optimización del rendimiento de HTTP)
 
 

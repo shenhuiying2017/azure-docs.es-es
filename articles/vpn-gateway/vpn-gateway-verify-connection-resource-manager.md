@@ -13,108 +13,47 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 05/16/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a67ea630cc8b5a3e9deab7733aa5cd2055949ec0
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: b2d702ecdd5e1fca342e7c84c6e75339097f0bcd
+ms.contentlocale: es-es
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verificación de una conexión de VPN Gateway
 
-En este artículo se muestra cómo comprobar la conexión de VPN Gateway para los modelos de implementación de Resource Manager y clásica.
+En este artículo se muestra cómo comprobar una conexión de puerta de enlace de VPN para los modelos de implementación clásico y de Resource Manager.
 
-## <a name="verify-using-the-azure-portal"></a>Comprobación con Azure Portal
+## <a name="azure-portal"></a>Portal de Azure
 
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
-## <a name="verify-using-powershell"></a>Comprobar mediante PowerShell
+## <a name="powershell"></a>PowerShell
 
-Para realizar la verificación con PowerShell, instale la última versión de los cmdlets de PowerShell para Azure Resource Manager. Para obtener información sobre la instalación de cmdlets de PowerShell, vea [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview). Para obtener más información sobre los cmdlets de Resource Manager, consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
-
-### <a name="log-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure
-1. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta.
-
-  ```powershell
-  Login-AzureRmAccount
-  ```
-2. Compruebe las suscripciones para la cuenta.
-
-  ```powershell
-  Get-AzureRmSubscription
-  ``` 
-3. Especifique la suscripción que desea usar.
-
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
-
-### <a name="verify-your-connection"></a>Comprobación de la conexión
+Para comprobar el modelo de implementación de Resource Manager usado en una conexión de puerta de enlace de VPN con PowerShell, instale la versión más reciente de los [cmdlets de PowerShell de Azure Resource Manager](/powershell/azure/overview).
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="verify-using-the-azure-cli"></a>Comprobar mediante CLI de Azure
+## <a name="azure-cli"></a>CLI de Azure
 
-Para comprobar mediante la CLI de Azure, instale la versión más reciente de los comandos CLI (2.0 o posterior). Para más información sobre la instalación de los comandos CLI, vea [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Instalar CLI de Azure 2.0).
-
-### <a name="log-in-to-your-azure-account"></a>Inicie sesión en la cuenta de Azure.
-
-1. Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla.
-
-  ```azurecli
-  az login
-  ```
-2. Si tiene más de una suscripción de Azure, enumere las suscripciones de la cuenta.
-
-  ```azurecli
-  Az account list --all
-  ```
-3. Especifique la suscripción que desea usar.
-
-  ```azurecli
-  Az account set --subscription
-  <replace_with_your_subscription_id>
-  ```
-
-### <a name="verify-your-connection"></a>Comprobación de la conexión
+Para comprobar el modelo de implementación de Resource Manager usado en una conexión de puerta de enlace de VPN con la CLI de Azure, instale la versión más reciente de los [comandos de CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 o posterior).
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
-## <a name="verify-using-the-azure-portal-classic"></a>Verificación con Azure Portal (clásico)
+
+## <a name="azure-portal-classic"></a>Azure Portal (clásico)
+
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
+## <a name="powershell-classic"></a>PowerShell (clásico)
 
-## <a name="verify-using-powershell-classic"></a>Verificación con PowerShell (clásico)
-Para realizar la verificación con PowerShell, instale la última versión de los cmdlets de Azure PowerShell. Asegúrese de descargar e instalar las versiones de Resource Manager y Service Management (SM). Para obtener información sobre la instalación de cmdlets de PowerShell, vea [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview). 
+Para comprobar el modelo de implementación clásico usado en la conexión de puerta de enlace de VPN con PowerShell, instale las versiones más reciente de los cmdlets de Azure PowerShell. Asegúrese de descargar e instalar el módulo de [Service Management](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0). Use "Add-AzureAccount" para iniciar sesión en el modelo de implementación clásica.
 
-### <a name="log-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure
-1. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta.
-
-  ```powershell
-  Login-AzureRmAccount
-  ```
-2. Compruebe las suscripciones para la cuenta.
-
-  ```powershell
-  Get-AzureRmSubscription 
-  ```
-3. Especifique la suscripción que desea usar.
-
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
-4. Inicie sesión para usar los cmdlets de Service Management para el modelo de implementación clásica.
-
-  ```powershell
-  Add-AzureAccount
-  ```
-
-### <a name="verify-your-connection"></a>Comprobación de la conexión
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ver los pasos.
-
-

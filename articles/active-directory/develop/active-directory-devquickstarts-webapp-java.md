@@ -21,7 +21,6 @@ ms.openlocfilehash: a20017a63ebed745e2d101d556e93594325533dc
 ms.contentlocale: es-es
 ms.lasthandoff: 03/18/2017
 
-
 ---
 # <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Inicio y cierre de sesión de aplicación web de Java con Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -186,7 +185,7 @@ En este paso, configuraremos la aplicación web de Java para usar el protocolo d
         <display-name>Archetype Created Web Application</display-name>
         <context-param>
             <param-name>authority</param-name>
-            <param-value>https://login.windows.net/</param-value>
+            <param-value>https://login.microsoftonline.com/</param-value>
         </context-param>
         <context-param>
             <param-name>tenant</param-name>

@@ -1,5 +1,5 @@
 ---
-title: "Uso de la tunelización de SSH para acceder a servicios de Azure HDInsight | Microsoft Docs"
+title: "Uso de la tunelización de SSH para acceder a Azure HDInsight | Microsoft Docs"
 description: "Obtenga información acerca de cómo usar un túnel SSH para ir con seguridad a los recursos web alojados en los nodos de HDInsight basados en Linux."
 services: hdinsight
 documentationcenter: 
@@ -13,24 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/06/2017
+ms.date: 05/30/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 4d9471fcdff26ac76312fcecdb427dca842f7ee3
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9f13e6300f77e2d9e84b0f7ce7f3cf289c327157
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Uso de la tunelación SSH para tener acceso a la interfaz de usuario Ambari Web, JobHistory, NameNode, Oozie y otras interfaces de usuario web
+# <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Uso de la tunelización SSH para tener acceso a la interfaz de usuario Ambari Web, JobHistory, NameNode, Oozie y otras interfaces de usuario web
 
 Los clústeres de HDInsight basados en Linux proporcionan acceso a la interfaz de usuario web de Ambari en Internet, pero no a algunas características de la interfaz de usuario. Por ejemplo, la interfaz de usuario web para otros servicios que se muestran en Ambari. Para usar la funcionalidad completa de la interfaz de usuario web de Ambari, use un túnel SSH para el nodo principal del clúster.
 
 ## <a name="why-use-an-ssh-tunnel"></a>¿Por qué usar un túnel SSH?
 
-Algunos de los menús de Ambari no se rellenan totalmente sin un túnel SSH, ya que se basan en sitios web y servicios expuestos por otros servicios de Hadoop que se ejecutan en el clúster. A menudo, estos sitios web no están protegidos, por lo que no es seguro exponerlos directamente en internet. A veces, el servicio ejecuta el sitio web en otro nodo del clúster como un nodo de Zookeeper.
+Algunos de los menús de Ambari solo funcionan a través de un túnel SSH. Estos menús se basan en sitios web y servicios que se ejecutan en otros tipos de nodo, como nodos de trabajo. A menudo, estos sitios web no están protegidos, por lo que no es seguro exponerlos directamente en internet.
 
-Los siguientes son servicios usados por la interfaz de usuario web de Ambari a los que no se puede tener acceso sin un túnel SSH:
+Las siguientes interfaces de usuario web requieren un túnel SSH:
 
 * Historial de trabajos
 * NameNode
@@ -42,22 +43,17 @@ Si usa las acciones de script para personalizar el clúster, todos los servicios
 
 ## <a name="what-is-an-ssh-tunnel"></a>¿Qué es un túnel SSH?
 
-[Túnel Shell seguro (SSH)](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) enruta el tráfico enviado a un puerto en su estación de trabajo local, a través de una conexión SSH con el nodo principal del clúster de HDInsight, donde la solicitud se resuelve como si se hubiera originado en el nodo principal. A continuación, la respuesta se enruta a través del túnel a la estación de trabajo.
+[Secure Shell (SSH) tunneling](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) (Tunelización de Secure Shell [SSH]) enruta el tráfico enviado a un puerto en la estación de trabajo local. El tráfico se enruta a través de una conexión SSH al nodo principal del clúster de HDInsight. La solicitud se resuelve como si se originara en el nodo principal. A continuación, la respuesta se enruta a través del túnel a la estación de trabajo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Cuando se usa un túnel SSH para el tráfico web, debe tener lo siguiente:
-
-* Un cliente SSH. Para las distribuciones de Linux y Unix, Macintosh OS X y Bash en Windows 10, el comando `ssh` se proporciona con el sistema operativo. Para las versiones de Windows que no incluyen el comando `ssh`, se recomienda [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-  
-  > [!NOTE]
-  > Si desea usar un cliente SSH distinto de `ssh` o PuTTY, vea la documentación de su cliente sobre cómo establecer un túnel SSH.
+* Un cliente SSH. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Un explorador web que se puede configurar para usar un proxy SOCKS5.
 
     > [!WARNING]
-    > La compatibilidad con el proxy SOCKS integrada en Windows no incluye SOCKS5 y no funcionará con los pasos descritos en este documento. Los siguientes exploradores se basan en la configuración de proxy de Windows y actualmente no funcionan con los pasos descritos en este documento:
-    > 
+    > La compatibilidad con el proxy SOCKS integrada en Windows no incluye SOCKS5 y no funciona con los pasos descritos en este documento. Los siguientes exploradores se basan en la configuración de proxy de Windows y actualmente no funcionan con los pasos descritos en este documento:
+    >
     > * Microsoft Edge
     > * Microsoft Internet Explorer
     >
@@ -65,13 +61,13 @@ Cuando se usa un túnel SSH para el tráfico web, debe tener lo siguiente:
 
 ## <a name="usessh"></a>Creación de un túnel con el comando SSH
 
-Use el siguiente comando para crear un túnel SSH con el comando `ssh` . Reemplace **USERNAME** por un usuario SSH para su clúster de HDInsight y reemplace **CLUSTERNAME** por el nombre de su clúster de HDInsight
+Use el siguiente comando para crear un túnel SSH con el comando `ssh` . Reemplace **USERNAME** por un usuario SSH para su clúster de HDInsight y reemplace **CLUSTERNAME** por el nombre de su clúster de HDInsight:
 
-```
+```bash
 ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 ```
 
-Con esto se crea una conexión que enruta el tráfico al puerto local 9876 al clúster sobre SSH. Las opciones son:
+Este comando crea una conexión que enruta el tráfico al puerto local 9876 al clúster a través de SSH. Las opciones son:
 
 * **D 9876** : el puerto local que enruta el tráfico a través del túnel.
 * **C** : comprimir todos los datos, debido a que el tráfico web es principalmente texto.
@@ -82,13 +78,11 @@ Con esto se crea una conexión que enruta el tráfico al puerto local 9876 al cl
 * **N** : no ejecutar un comando remoto, debido a que solo estamos desviando un puerto.
 * **f** : ejecutar en segundo plano.
 
-Si ha configurado el clúster con una clave SSH, es posible que tenga que usar el parámetro `-i` y especificar la ruta de acceso a la clave SSH privada.
-
-Una vez que se completa el comando, el tráfico enviado al puerto 9876 del equipo local se enruta sobre Capa de sockets seguros (SSL) al nodo principal del clúster y aparece como originado ahí.
+Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la máquina local se enruta al nodo principal del cluster.
 
 ## <a name="useputty"></a>Creación de un túnel mediante PuTTY
 
-Use los siguientes pasos para crear un túnel SSH con PuTTY.
+[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) es un cliente SSH gráfico para Windows. Use los siguientes pasos para crear un túnel SSH con PuTTY:
 
 1. Abra PuTTY y escriba la información de conexión. Si no está familiarizado con PuTTY, consulte la [documentación de PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
 
@@ -106,7 +100,7 @@ Use los siguientes pasos para crear un túnel SSH con PuTTY.
 
 4. Haga clic en **Add** (Agregar) para agregar la configuración y, a continuación, en **Open** (Abrir) para abrir una conexión SSH.
 
-5. Cuando se le solicite, inicie sesión en el servidor. Esto establece una sesión SSH y habilita el túnel.
+5. Cuando se le solicite, inicie sesión en el servidor.
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Uso del túnel desde el explorador
 
@@ -118,44 +112,42 @@ Use los siguientes pasos para crear un túnel SSH con PuTTY.
     ![imagen de la configuración de Firefox](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
    > [!NOTE]
-   > La selección de **DNS remoto** resuelve las solicitudes del sistema de nombres de dominio (DNS) mediante el uso del clúster de HDInsight. Si no se selecciona, el DNS se resuelve de manera local.
+   > La selección de **DNS remoto** resuelve las solicitudes del sistema de nombres de dominio (DNS) mediante el uso del clúster de HDInsight. Esta configuración resuelve el DNS con el nodo principal del clúster.
 
-2. Compruebe que el tráfico se enruta a través del túnel en un sitio como [http://www.whatismyip.com/](http://www.whatismyip.com/) con la configuración del proxy habilitada y deshabilitada en Firefox. Cuando la configuración está habilitada, la dirección IP se devuelve desde una máquina del centro de datos de Microsoft Azure.
+2. Compruebe que el túnel funciona, para ello, visite un sitio como [http://www.whatismyip.com/](http://www.whatismyip.com/). Si el proxy está correctamente configurado, la dirección IP se devuelve desde una máquina del centro de datos de Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Compruebe con la interfaz de usuario web de Ambari
 
 Una vez que se ha establecido el clúster, siga estos pasos para comprobar que puede tener acceso a las interfaces de usuario web del servicio desde la web de Ambari:
 
 1. En el explorador, vaya a http://headnodehost:8080. La dirección `headnodehost` se envía al clúster a través del túnel y se resuelve en el nodo principal en el que se ejecuta Ambari. Cuando se le solicite, escriba el nombre de usuario administrador (admin) y la contraseña del clúster. Es posible que se le pida una segunda vez mediante la interfaz de usuario web de Ambari. Si es así, vuelva a escribir la información.
-   
+
    > [!NOTE]
-   > Cuando se usa la dirección http://headnodehost:8080 para conectarse al clúster, se estará conectando directamente, a través del túnel, al nodo principal en el que se está ejecutando Ambari mediante HTTP (la comunicación se protege usando el túnel SSH). Si se conecta a través de Internet sin utilizar un túnel, la comunicación se protegerá mediante HTTPS. Para conectarse a través de Internet mediante HTTPS, use https://CLUSTERNAME.azurehdinsight.net, donde **CLUSTERNAME** es el nombre del clúster.
+   > Si utiliza la dirección de http://headnodehost:8080 para conectarse al clúster, se está conectando a través del túnel. La comunicación se protege si usa el túnel SSH en lugar de HTTPS. Para conectarse a través de Internet mediante HTTPS, use https://CLUSTERNAME.azurehdinsight.net, donde **CLUSTERNAME** es el nombre del clúster.
 
 2. En la interfaz de usuario de Ambari Web, seleccione HDFS en la lista de la izquierda de la página.
-   
+
     ![Imagen con HDFS seleccionado](./media/hdinsight-linux-ambari-ssh-tunnel/hdfsservice.png)
+
 3. Cuando se muestra la información del servicio HDFS, seleccione **Vínculos rápidos**. Aparece una lista de los nodos del clúster principal. Seleccione uno de los nodos principales y luego seleccione **IU de NameNode**.
-   
+
     ![Imagen con el menú Vínculos rápidos expandido](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
-   
+
    > [!NOTE]
-   > Si tiene una conexión a Internet lenta o el nodo principal está muy ocupado, es posible que obtenga un indicador de espera en lugar de un menú al seleccionar **Vínculos rápidos**. Si es así, espere un minuto o dos hasta que se reciban los datos del servidor e intente de nuevo la lista.
-   > 
-   > Si tiene un monitor con una resolución inferior o no se maximiza la ventana del explorador, algunas entradas del menú **Vínculos rápidos** puede aparecer cortadas por el lado derecho de la pantalla. Si es así, expanda el menú con el mouse, use la tecla de flecha derecha para desplazarse por la pantalla hacia la derecha para ver el resto del menú.
-   > 
-   > 
-4. Debería ver una página similar a la siguiente:
-   
+   > Al seleccionar __Vínculos rápidos__, es posible que obtenga un indicador de espera. Esto puede ocurrir si tiene una conexión lenta a Internet. Espere un minuto o dos hasta que se reciban los datos del servidor e intente de nuevo la lista.
+   >
+   > Algunas entradas en el menú **Vínculos rápidos** pueden quedar cortadas en el lado derecho de la pantalla. Si es así, expanda el menú con el mouse y use la tecla de dirección derecha para desplazarse por la pantalla hacia la derecha para ver el resto del menú.
+
+4. Aparece una página similar a la siguiente imagen:
+
     ![Imagen de la interfaz de usuario de NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
-   
+
    > [!NOTE]
-   > Observe la dirección URL de esta página, debe ser similar a **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Esto usa el nombre de dominio completo interno (FQDN) del nodo y no es accesible sin usar un túnel SSH.
-   > 
-   > 
+   > Observe la dirección URL de esta página, debe ser similar a **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Este identificador URI usa el nombre de dominio completo interno (FQDN) del nodo y solo es accesible si se usa un túnel SSH.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a crear y usar un túnel SSH, consulte lo siguiente para obtener información sobre supervisión y administración del clúster con Ambari:
+Ahora que ha aprendido a crear y usar un túnel SSH, consulte el documento siguiente para conocer otras formas de usar Ambari:
 
 * [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md)
 

@@ -12,19 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 06/27/2017
 ms.author: ramankum
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 1040027de1df88544bd7a0c4ba6565d5599a54ab
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c905bfe672d1027916d7f273ab5ac79ceec9a4d9
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Discos administrados y Premium Storage de alto rendimiento para VM
 Azure Premium Storage le ofrece soporte de disco de alto rendimiento y latencia baja para máquinas virtuales (VM) con cargas de trabajo intensivas de entrada/salida (E/S). Los discos de VM que usan Premium Storage almacenan los datos en unidades de estado sólido (SSD). Para aprovechar la ventaja de la velocidad y el rendimiento de discos de Premium Storage, puede migrar los discos de VM existentes a Premium Storage.
 
-En Azure, puede conectar varios discos de Premium Storage a una VM. Usar varios discos proporciona a las aplicaciones hasta 64 TB de almacenamiento por VM. Con Premium Storage, las aplicaciones pueden lograr 80 000 operaciones de E/S por segundo (IOPS) por VM, y un rendimiento de disco de hasta 2000 megabytes por segundo (MB/s) por VM. Las operaciones de lectura proporcionan latencias muy bajas.
+En Azure, puede conectar varios discos de Premium Storage a una VM. Usar varios discos proporciona a las aplicaciones hasta 256 TB de almacenamiento por máquina virtual. Con Premium Storage, las aplicaciones pueden lograr 80 000 operaciones de E/S por segundo (IOPS) por VM, y un rendimiento de disco de hasta 2000 megabytes por segundo (MB/s) por VM. Las operaciones de lectura proporcionan latencias muy bajas.
 
 Con Premium Storage, Azure ofrece la capacidad de levantar y mover realmente sus exigentes aplicaciones empresariales como Dynamics AX, Dynamics CRM, Exchange Server, SAP Business Suite y granjas de SharePoint en la nube. Puede ejecutar cargas de trabajo de bases de datos de rendimiento intensivo como SQL Server, Oracle, MongoDB, MySQL y Redis, que requieren una baja latencia y un alto rendimiento de forma coherente.
 
@@ -58,11 +59,11 @@ Aquí se muestran algunas de las características de Premium Storage:
 
 * **Discos de Premium Storage**
 
-    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage es compatible con las máquinas virtuales de las series DS, DSv2, GS y Fs. Tiene la opción de tres tamaños de disco: P10 (128 GB), P20 (512 GB) y P30 (1024 GB). Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#premium-storage-scalability-and-performance-targets) se describen las especificaciones más detalladamente.
+    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage es compatible con las máquinas virtuales de las series DS, DSv2, GS y Fs. Tiene la opción de siete tamaños de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Los tamaños de disco P4 y P6 siguen admitiéndose solo para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#premium-storage-scalability-and-performance-targets) se describen las especificaciones más detalladamente.
 
 * **Blobs en páginas Premium**
 
-    Premium Storage admite blobs en páginas. Utilice blobs en páginas para almacenar discos persistentes y no administrados para las VM en Premium Storage. A diferencia de Azure Storage estándar, Premium Storage no admite blobs en bloques, blobs en anexos, archivos, tablas o colas.
+    Premium Storage admite blobs en páginas. Utilice blobs en páginas para almacenar discos persistentes y no administrados para las VM en Premium Storage. A diferencia de Azure Storage estándar, Premium Storage no admite blobs en bloques, blobs en anexos, archivos, tablas o colas. Blobs en páginas Premium admite seis tamaños de P10 a P50 y P60 (8191GiB). Blob en páginas Premium P60 no se admite para estar conectado como discos de máquina virtual. 
 
     Cualquier objeto que se coloque en una cuenta de Premium Storage será un blob en páginas. El blob en páginas se ajusta a uno de los tamaños de aprovisionamiento admitidos. Ese es el motivo por el que las cuentas de Premium Storage no están pensadas para el almacenamiento de blobs muy pequeños.
 
@@ -83,11 +84,11 @@ Aquí se muestran algunas de las características de Premium Storage:
     Azure usa la cuenta de almacenamiento como contenedor para discos no administrados. Cuando crea una máquina virtual de Azure de las series DS, DSv2, GS o Fs con discos no administrados y selecciona una cuenta de Premium Storage, tanto el disco del sistema operativo como el de datos se almacenan en dicha cuenta de almacenamiento.
 
 ## <a name="supported-vms"></a>VM admitidas
-Premium Storage es compatible con las máquinas virtuales de las series DS, DSv2, GS y Fs. Con estos tipos de VM puede usar discos de Premium Storage y Standard Storage. No puede utilizar discos de Premium Storage con series de VM que no sean compatibles con Premium Storage.
+Premium Storage es compatible con máquinas virtuales de las series DS, DSv2, GS, Ls y Fs. Con estos tipos de VM puede usar discos de Premium Storage y Standard Storage. No puede utilizar discos de Premium Storage con series de VM que no sean compatibles con Premium Storage.
 
 Para más información sobre los tamaños y tipos de VM en Azure para Windows, vea [Tamaños de VM para Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para más información sobre los tamaños y tipos de VM en Azure para Linux, vea [Tamaños de VM para Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-A continuación, se muestran algunas de las características de las VM de las series DS, DSv2, GS y Fs:
+A continuación, se muestran algunas de las características de las máquinas virtuales de las series DS, DSv2, GS, Ls y Fs:
 
 * **Servicio en la nube**
 
@@ -148,13 +149,13 @@ Para más información, consulte [Objetivos de escalabilidad y rendimiento de Az
 Si usa cuentas de Premium Storage para los discos no administrados y la aplicación supera los objetivos de escalabilidad de una cuenta de almacenamiento individual, es posible que quiera migrar a Managed Disks. Si no desea migrar a Managed Disks, compile la aplicación para que use varias cuentas de almacenamiento. A continuación, divida los datos en esas cuentas de almacenamiento. Por ejemplo, si desea asociar discos de 51 TB entre varias VM, distribúyalos entre dos cuentas de almacenamiento. 35 TB es el límite de una cuenta de Premium Storage única. Asegúrese de que una sola cuenta de Premium Storage nunca tenga más de 35 TB de discos aprovisionados.
 
 ### <a name="premium-storage-disk-limits"></a>Límites de discos de Premium Storage
-Cuando se aprovisiona un disco de Premium Storage, el tamaño del disco determina los valores máximos de IOPS y rendimiento (ancho de banda). Azure ofrece tres tipos de discos de Premium Storage: P10, P20 y P30. Cada tipo de disco de Premium Storage tiene límites específicos de E/S por segundo y rendimiento. Los límites de los tipos de disco se describen en la siguiente tabla.
+Cuando se aprovisiona un disco de Premium Storage, el tamaño del disco determina los valores máximos de IOPS y rendimiento (ancho de banda). Azure ofrece siete tipos de discos de Premium Storage: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P20, P30, P40 y P50. Cada tipo de disco de Premium Storage tiene límites específicos de E/S por segundo y rendimiento. Los límites de los tipos de disco se describen en la siguiente tabla.
 
-|Tipo de disco de Premium Storage | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| Tamaño del disco | 128 GB | 512 GB | 1024 GB (1 TB) |
-| IOPS por disco | 500 | 2,300 | 5.000 |
-Rendimiento de disco | 100 MB/s | 150 MB/s | 200 MB/s |
+| Tipo de discos Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| Tamaño del disco           | 32 GB| 64 GB| 128 GB| 512 GB            | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS por disco       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
+| Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
 
 > [!NOTE]
 > Asegúrese de que haya ancho de banda suficiente disponible en la VM para el tráfico de disco de unidad, como se describe en [Máquinas virtuales compatibles con Premium Storage](#premium-storage-supported-vms). En caso contrario, el rendimiento del disco y la E/S por segundo estarán restringidos a valores inferiores. El rendimiento y la E/S por segundo máximos se basan en los límites de la VM, no en los límites de disco descritos en la tabla anterior.  
@@ -165,7 +166,7 @@ Estos son algunos aspectos importantes que debe conocer sobre los objetivos de e
 
 * **Rendimiento y capacidad aprovisionados**
 
-    Cuando se aprovisiona un disco de Premium Storage, a diferencia de Standard Storage, se garantizan la capacidad, las E/S por segundo y el rendimiento del mismo. Por ejemplo, si crea un disco P30, Azure aprovisiona una capacidad de almacenamiento de 1024 GB, 5000 E/S por segundo y un rendimiento de 200 MB/s para él. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos.
+    Cuando se aprovisiona un disco de Premium Storage, a diferencia de Standard Storage, se garantizan la capacidad, las E/S por segundo y el rendimiento del mismo. Por ejemplo, si crea un disco P50, Azure aprovisiona una capacidad de almacenamiento de 4095 GB, 7500 E/S por segundo y un rendimiento de 250 MB/s para él. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos.
 
 * **Tamaño del disco**
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/08/2016
 ms.author: jucoriol
-translationtype: Human Translation
-ms.sourcegitcommit: c5e05a8693bd000010013922ed6f2a127e998efe
-ms.openlocfilehash: db58703f573c09ba45abed87547c5e80ef58638b
-ms.lasthandoff: 12/14/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 86472a523b457d6fe06940accba0794e2d37395e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -166,7 +167,7 @@ Deberá agregar dos pasos de Docker para cada imagen, uno para compilar la image
 
 4. Después de configurar los pasos de compilación e inserción para cada una de las cinco imágenes, agregue dos pasos más en el flujo de trabajo de compilación.
 
-    a. Una tarea de línea de comandos que usa un script de bash para reemplazar la aparición de *BuildNumber* en el archivo docker-compose.yml por el id. de compilación actual. Consulte la siguiente pantalla para más información.
+    a. Una tarea de la línea de comandos que usa un script de bash para reemplazar la aparición de *BuildNumber* en el archivo docker-compose.yml por el identificador de la compilación actual. Consulte la siguiente pantalla para más información.
 
     ![Visual Studio Team Services: actualización de archivo de Compose](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 
@@ -230,3 +231,4 @@ Ahora que ha terminado con la configuración, es hora de probar esta nueva canal
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre CI/CD con Visual Studio Team Services, consulte la [introducción a la compilación de VSTS](https://www.visualstudio.com/docs/build/overview).
+

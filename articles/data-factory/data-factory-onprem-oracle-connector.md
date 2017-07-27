@@ -1,6 +1,6 @@
 ---
-title: Traslado de datos con Oracle como origen o destino mediante Data Factory | Microsoft Docs
-description: "Obtenga información acerca de cómo mover los datos hacia y desde la base de datos de Oracle local mediante Azure Data Factory."
+title: Copia de datos con Oracle como origen o destino mediante Data Factory | Microsoft Docs
+description: Aprenda a copiar datos con una base de datos de Oracle local como origen o destino mediante Azure Data Factory.
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 18fffb6cae9107b9301ff702d483b598836ac180
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: bb6af719fe6f1a30c5933ce4342a4c0c072f3ff4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Transferencia de datos desde o hacia la base de datos de Oracle local mediante Azure Data Factory
+# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copia de datos con una instancia local Oracle como origen o destino mediante Azure Data Factory
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos con una base de datos de Oracle local como origen o destino. Se basa en la información general ofrecida en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
@@ -570,15 +570,15 @@ Al mover datos de Oracle, se usan las siguientes asignaciones del tipo de datos 
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| FLOAT |Decimal |
-| INTEGER |Decimal |
+| FLOAT |Decimal, String (si la precisión > 28) |
+| INTEGER |Decimal, String (si la precisión > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
 | INTERVAL DAY TO SECOND |timespan |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal |
+| NUMBER |Decimal, String (si la precisión > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

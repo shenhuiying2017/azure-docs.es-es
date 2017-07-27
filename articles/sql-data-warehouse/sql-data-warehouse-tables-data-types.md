@@ -1,6 +1,6 @@
 ---
-title: Tipos de datos de tablas en el SQL Data Warehouse | Microsoft Docs
-description: "Introducción a los tipos de datos de Almacenamiento de datos SQL de Azure."
+title: "Guía de tipos de datos - Azure SQL Data Warehouse | Microsoft Docs"
+description: Recomendaciones para definir tipos de datos compatibles con SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
@@ -13,66 +13,33 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+ms.date: 06/02/2017
 ms.author: shigu;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7757de96601c426ff07e94cfa0c12d4dec8f06f5
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
 ms.contentlocale: es-es
-ms.lasthandoff: 03/22/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
-# <a name="data-types-for-tables-in-sql-data-warehouse"></a>Tipos de datos de las tablas en el Almacenamiento de datos SQL
-> [!div class="op_single_selector"]
-> * [Información general][Overview]
-> * [Tipos de datos][Data Types]
-> * [Distribución][Distribute]
-> * [Índice][Index]
-> * [Partición][Partition]
-> * [Estadísticas][Statistics]
-> * [Temporal][Temporary]
-> 
-> 
+# <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Guía para definir los tipos de datos para las tablas en SQL Data Warehouse
+Siga estas recomendaciones para definir los tipos de datos para tablas compatibles con SQL Data Warehouse. Además de compatibilidad, minimizar el tamaño de los tipos de datos mejora el rendimiento de las consultas.
 
-Almacenamiento de datos SQL admite los tipos de datos usados más frecuentemente.  A continuación, se muestra una lista de los tipos de datos admitidos por el Almacenamiento de datos SQL.  Para obtener más información sobre la compatibilidad de tipos de datos, consulte [create table][create table].
+Almacenamiento de datos SQL admite los tipos de datos usados más frecuentemente. Para obtener una lista de los tipos de datos admitidos, consulte [tipos de datos](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) en la instrucción CREATE TABLE. 
 
-| **Tipos de datos admitidos** |  |  |
-| --- | --- | --- |
-| [bigint][bigint] |[decimal][decimal] |[smallint][smallint] |
-| [binary][binary] |[float][float] |[smallmoney][smallmoney] |
-| [bit][bit] |[int][int] |[sysname][sysname] |
-| [char][char] |[money][money] |[time][time] |
-| [date][date] |[nchar][nchar] |[tinyint][tinyint] |
-| [datetime][datetime] |[nvarchar][nvarchar] |[uniqueidentifier][uniqueidentifier] |
-| [datetime2][datetime2] |[real][real] |[varbinary][varbinary] |
-| [datetimeoffset][datetimeoffset] |[smalldatetime][smalldatetime] |[varchar][varchar] |
 
-## <a name="data-type-best-practices"></a>Procedimientos recomendados para los tipos de datos
- Al definir los tipos de columnas, usar el tipo de datos mínimo compatible con los datos mejorará el rendimiento de la consulta. Esto tiene especial importancia para las columnas CHAR y VARCHAR. Si el valor mayor máximo de una columna es 25 caracteres, defina la columna como VARCHAR(25). Evite definir todas las columnas de caracteres con una longitud predeterminada de gran tamaño. Defina las columnas como VARCHAR en lugar de [NVARCHAR][NVARCHAR] cuando no se necesite nada más.  Utilice NVARCHAR(4000) o VARCHAR(8000) cuando sea posible en lugar de NVARCHAR(MAX) o VARCHAR(MAX).
+## <a name="minimize-row-length"></a>Minimizar la longitud de fila
+Minimizar el tamaño de los tipos de datos acorta la longitud de fila, lo que conduce a un mejor rendimiento de las consultas. Utilice el tipo de datos más pequeño que sirva para los datos. 
 
-## <a name="polybase-limitation"></a>Limitación de Polybase
-Si usa PolyBase para cargar las tablas, asegúrese de que la longitud de los datos no supera 1 MB.  Aunque puede definir una fila con datos de longitud variable que superen esta anchura, así como cargar filas con BCP, no podrá usar PolyBase para cargar estos datos.  
+- Evite definir las columnas de caracteres con una longitud predeterminada de gran tamaño. Por ejemplo, si el valor más largo es de 25 caracteres, defina la columna como VARCHAR(25). 
+- Evite el uso de [NVARCHAR][NVARCHAR] cuando solo necesite VARCHAR.
+- Utilice NVARCHAR(4000) o VARCHAR(8000) cuando sea posible en lugar de NVARCHAR(MAX) o VARCHAR(MAX).
 
-## <a name="unsupported-data-types"></a>Tipos de datos no admitidos
-Si va a migrar la base de datos desde otra plataforma SQL como Base de datos SQL de Azure, a medida que se realiza la migración, puede encontrar algunos tipos de datos que el Almacenamiento de datos SQL no admite.  A continuación se muestran algunos tipos de datos no admitidos así como algunas alternativas que puede utilizar en vez de ellos.
+Si usa Polybase para cargar las tablas, la longitud definida para la fila de la tabla no puede superar 1 MB. Cuando una fila con datos de longitud variable supera 1 MB, puede cargar la fila con BCP, pero no con PolyBase.
 
-| Tipo de datos | Solución alternativa |
-| --- | --- |
-| [geometry][geometry] |[varbinary][varbinary] |
-| [geography][geography] |[varbinary][varbinary] |
-| [hierarchyid][hierarchyid] |[nvarchar][nvarchar](4000) |
-| [image][ntext,text,image] |[varbinary][varbinary] |
-| [text][ntext,text,image] |[varchar][varchar] |
-| [ntext][ntext,text,image] |[nvarchar][nvarchar] |
-| [sql_variant][sql_variant] |Divida la columna en varias columnas fuertemente tipadas. |
-| [table][table] |Convierta en tablas temporales. |
-| [timestamp][timestamp] |Vuelva a procesar el código para que use [datetime2][datetime2] y la función `CURRENT_TIMESTAMP`.  Solo se admiten las constantes como valores predeterminados, por lo tanto, current_timestamp no se puede definir como una restricción predeterminada. Si tiene que migrar valores rowversion de una columna con tipo timestamp, use [BINARY][BINARY](8) o [VARBINARY][BINARY](8) para valores de versión de fila NOT NULL o NULL. |
-| [xml][xml] |[varchar][varchar] |
-| [tipos definidos por el usuario][user defined types] |vuelva a convertirlos a sus tipos nativos siempre que sea posible |
-| valores predeterminados |los valores predeterminados solo admiten literales y constantes.  No se admiten funciones ni expresiones no deterministas, tales como `GETDATE()` o `CURRENT_TIMESTAMP`. |
-
-La instrucción SQL siguiente se puede ejecutar en la Base de datos SQL actual para identificar las columnas no admitidas en el Almacenamiento de datos SQL de Azure:
+## <a name="identify-unsupported-data-types"></a>Identificar los tipos de datos no admitidos
+Si va a migrar la base de datos desde otra base de datos SQL, puede encontrar tipos de datos no admitidos en SQL Data Warehouse. Utilice esta consulta para detectar tipos de datos no admitidos en el esquema de SQL existente.
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
@@ -83,8 +50,37 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
  AND  y.[is_user_defined] = 1;
 ```
 
+
+## <a name="unsupported-data-types"></a>Usar soluciones alternativas para los tipos de datos no admitidos
+
+La lista siguiente muestra los tipos de datos que SQL Data Warehouse no admite y proporciona alternativas que puede usar en lugar de los tipos de datos no admitidos.
+
+| Tipo de datos no admitido | Solución alternativa |
+| --- | --- |
+| [geometry][geometry] |[varbinary][varbinary] |
+| [geography][geography] |[varbinary][varbinary] |
+| [hierarchyid][hierarchyid] |[nvarchar][nvarchar](4000) |
+| [image][ntext,text,image] |[varbinary][varbinary] |
+| [text][ntext,text,image] |[varchar][varchar] |
+| [ntext][ntext,text,image] |[nvarchar][nvarchar] |
+| [sql_variant][sql_variant] |Divida la columna en varias columnas fuertemente tipadas. |
+| [table][table] |Convierta en tablas temporales. |
+| [timestamp][timestamp] |Vuelva a procesar el código para que use [datetime2][datetime2] y la función `CURRENT_TIMESTAMP`.  Solo se admiten las constantes como valores predeterminados, por lo tanto, current_timestamp no se puede definir como una restricción predeterminada. Si tiene que migrar valores de la versión de fila de una columna de tipo timestamp, use [BINARY][BINARY](8) o [VARBINARY][BINARY](8) para valores de versión de fila NOT NULL o NULL. |
+| [xml][xml] |[varchar][varchar] |
+| [tipo definido por el usuario][user defined types] |Volver a convertir el tipo de datos nativo cuando sea posible. |
+| valores predeterminados | Los valores predeterminados solo admiten literales y constantes.  No se admiten funciones ni expresiones no deterministas, tales como `GETDATE()` o `CURRENT_TIMESTAMP`. |
+
+
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información, consulte los artículos sobre [información general de tablas][Overview], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones de una tabla][Partition], [mantenimiento de estadísticas de tabla][Statistics] y [tablas temporales][Temporary].  Para obtener más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para SQL Data Warehouse de Azure][SQL Data Warehouse Best Practices].
+Para obtener más información, consulte:
+
+- [Procedimientos recomendados para SQL Data Warehouse][SQL Data Warehouse Best Practices]
+- [Información general sobre las tablas][Overview]
+- [Distribución de una tabla][Distribute]
+- [Indexación de una tabla][Index]
+- [Creación de particiones de una tabla][Partition]
+- [Mantenimiento de las estadísticas de tabla][Statistics]
+- [Tablas temporales][Temporary]
 
 <!--Image references-->
 

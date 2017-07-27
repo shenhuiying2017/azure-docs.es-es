@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/21/2017
+ms.date: 5/21/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: 578059c397319147c8716e2152901dfdc15a28cd
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -35,9 +36,9 @@ Si se observa cualquiera de las situaciones siguientes,sus servicios en la nube 
 
 1. Se especifica de manera explícita el valor "osFamily = "1" en el archivo ServiceConfiguration.cscfg del servicio en la nube.
 2. No se especifica ningún valor explícitamente para osFamily en el archivo ServiceConfiguration.cscfg del servicio en la nube. Actualmente, el sistema usa el valor predeterminado de "1" en este caso.
-3. El Portal de Azure clásico indica el valor de la familia del sistema operativo invitado como "Windows Server 2008".
+3. Azure Portal muestra el valor de la familia del sistema operativo invitado como "Windows Server 2008".
 
-Para determinar la familia de SO que ejecuta cada servicio en la nube, puede ejecutar el script siguiente en Azure PowerShell, aunque debe [configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) antes. Para obtener más detalles acerca del script, consulte [Final de la vida de la familia 1 del SO invitado de Azure: junio de 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
+Para determinar la familia de SO que ejecuta cada servicio en la nube, puede ejecutar el siguiente script en Azure PowerShell, aunque antes debe [configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). Para más información acerca del script, consulte [Azure Guest OS Family 1 End of Life: June 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx) (Final de la vida de la familia 1 del SO invitado de Azure: junio de 2014).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -70,9 +71,8 @@ Se recomienda migrar los roles de los servicios en la nube a una de las familias
 2. Establezca el atributo osFamily en "2" en el archivo ServiceConfiguration.cscfg y vuelva a implementar el servicio en la nube.
 
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>El soporte extendido para la familia 1 del SO invitado finalizó el 3 de noviembre de 2014.
-Los servicios en la nube de la familia 1 del SO invitado ya no son compatibles. Migre la familia 1 tan pronto como sea posible para evitar la interrupción del servicio.  
+Los servicios en la nube de la familia 1 del SO invitado ya no son compatibles. Migre la familia 1 lo antes posible para evitar la interrupción del servicio.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md)más recientes.
-
 

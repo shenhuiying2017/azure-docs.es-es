@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2016
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 3598f490752fa275d7c9c5a7d924c315e92f5b33
-ms.openlocfilehash: e1f1dc43af2096fb9affc1d12433f091dd28c69c
-ms.lasthandoff: 12/13/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3470473e1b2aa107c32643a66092b68bfafd1a37
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -52,7 +53,7 @@ El dispositivo consume 1 mensaje * 60 minutos * 24 horas = 1440 mensajes por dí
 
 ## <a name="example-2"></a>Ejemplo 2
 
-Un dispositivo envía un mensaje del dispositivo a la nube de 100 KB cada hora. También actualiza su dispositivo gemelo con cargas de 1 KB cada 4 horas. El back-end de solución, una vez al día, lee el dispositivo gemelo de 14 kB y lo actualiza con cargas útiles de 512 bytes para cambiar las configuraciones.
+Un dispositivo envía un mensaje del dispositivo a la nube de 100 KB cada hora. También actualiza su dispositivo gemelo con cargas útiles de 1 KB cada cuatro horas. El back-end de solución, una vez al día, lee el dispositivo gemelo de 14 KB y lo actualiza con cargas útiles de 512 bytes para cambiar las configuraciones.
 
 El dispositivo consume 25 mensajes (100 KB / 4 KB) * 24 horas para los mensajes del dispositivo a la nube, además de 1 mensaje * 6 veces al día para las actualizaciones del dispositivo gemelo, con un total de 156 mensajes al día.
 El back-end de solución consume 28 mensajes (14 kB/0,5 kB) para leer el dispositivo gemelo, además de 1 mensaje para actualizarlo, con un total de 29 mensajes.
@@ -61,5 +62,5 @@ En total, el dispositivo y el back-end de solución consumen 185 mensajes al dí
 
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-message-size]: iot-hub-devguide-messaging.md#message-size
+[lnk-message-size]: iot-hub-devguide-messages-construct.md
 

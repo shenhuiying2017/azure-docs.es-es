@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/04/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 9bed9392502dae01724c4ca86b8c735ab60a2882
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 76de1d40e8c24abda33e99a137f4a6c263f60a8b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -28,9 +30,9 @@ ms.openlocfilehash: 9bed9392502dae01724c4ca86b8c735ab60a2882
 > 
 > 
 
-Este tema es útil para los clientes que tienen un **punto de conexión de streaming** de tipo **Premium**. Para obtener más información acerca de los puntos de conexión de streaming y la configuración de la red CDN, vea el tema [Streaming Endpoint overview](media-services-portal-manage-streaming-endpoints.md) (Información general de puntos de conexión de streaming).
+Los puntos de conexión de streaming **Premium** son adecuados para cargas de trabajo avanzadas y proporcionan una capacidad de ancho de banda dedicada y escalable. Los clientes que tienen un punto de conexión de streaming **Premium**, de forma predeterminada, obtienen una unidad de streaming (SU). El punto de conexión de streaming puede ampliarse agregando unidades de streaming. Cada unidad de streaming proporciona capacidad de ancho de banda adicional a la aplicación. Para obtener más información acerca de los puntos de conexión de streaming y la configuración de la red CDN, vea el tema [Streaming Endpoint overview](media-services-portal-manage-streaming-endpoints.md) (Información general de puntos de conexión de streaming).
  
-Si tiene un tipo **Premium**, de forma predeterminada obtendrá 1 unidad de transmisión por secuencias (SU). Si necesita escalar su punto de conexión de streaming, siga los pasos descritos en este tema.
+Este tema muestra cómo escalar un punto de conexión de streaming.
 
 Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
@@ -41,9 +43,12 @@ Para crear y cambiar el número de unidades de streaming, haga lo siguiente:
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
 2. En la ventana **Configuración**, haga clic en **Extremos de streaming**.
 3. Haga clic en el punto de conexión de streaming que desea modificar. 
+
+    [!NOTE] Solo puede escalar puntos de conexión de streaming **Premium**.
+
 4. Mueva el control deslizante para especificar el número de unidades de streaming.
 
-![punto de conexión de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
+    ![punto de conexión de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte las rutas de aprendizaje de Servicios multimedia.
@@ -52,10 +57,5 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

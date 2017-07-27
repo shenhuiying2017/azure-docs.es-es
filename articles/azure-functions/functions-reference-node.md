@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: chrande, glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: ff8a92c66303c81075c8a42baaa841301d65daf1
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: fb0925f2d6eb8edede67cf208c735b7b2a0221ac
 ms.contentlocale: es-es
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -136,6 +136,21 @@ En el ejemplo siguiente se escribe en la consola en el nivel de seguimiento de a
 context.log.warn("Something has happened."); 
 ```
 Puede establecer el umbral de nivel de seguimiento de los registros en el archivo host.json o desactivarlo.  Para obtener más información sobre cómo escribir en los registros, vea la sección siguiente.
+
+## <a name="binding-data-type"></a>Tipo de datos de enlace
+
+Para definir el tipo de datos para un enlace de entrada, use la propiedad `dataType` de la definición del enlace. Por ejemplo, para leer el contenido de una solicitud HTTP en formato binario, use el tipo `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Otras opciones para `dataType` son `stream` y `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>Escribir las salidas de seguimiento en la consola 
 

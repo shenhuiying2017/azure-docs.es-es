@@ -5,17 +5,16 @@ services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
+ms.custom: mvc
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
 ms.topic: overview
-ms.date: 05/10/2017
+ms.date: 07/05/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 8aae9994f8fc6bb8e4e5368a1495dd257be0417f
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 30ab79ed40381aaa7a8cf88193fac8d59ecbbced
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>¿Qué es Azure Database for PostgreSQL?
@@ -42,16 +41,17 @@ Para obtener ejemplos de la CLI de Azure y de PowerShell, consulte:
 El servicio Azure Database for PostgreSQL actualmente ofrece dos niveles de servicio: Básico y Estándar. Cada nivel de servicio ofrece [diferentes niveles de rendimiento, garantías de IOPS y funcionalidades](concepts-service-tiers.md) para admitir todos los tipos de cargas de trabajo de bases de datos, de ligeras a pesadas. Puede compilar su primera aplicación en un servidor pequeño por poco dinero al mes y, después, [cambiar el nivel de rendimiento](scripts/sample-scale-server-up-or-down.md) dentro del servicio, ya sea manualmente o mediante programación, en cualquier momento para adecuarla a las necesidades de su solución. Y todo esto se puede hacer que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
-
 ¿Cómo se decide cuándo adaptar la velocidad? Utilice las características de supervisión y alertas de rendimiento integradas, combinadas con la clasificación de rendimiento basada en las unidades de proceso. Con estas herramientas puede evaluar rápidamente el impacto de escalar y reducir verticalmente unidades de proceso en función de sus necesidades de rendimiento actuales o futuras. Para más información, consulte [Opciones y rendimiento de Azure Database for PostgreSQL: información sobre lo que está disponible en cada nivel de servicio](./concepts-service-tiers.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenimiento de la aplicación y el negocio en funcionamiento
-
 El Acuerdo de Nivel de Servicio (SLA) de Azure, con una disponibilidad del 99,99 % líder del sector (no disponible en la versión preliminar) y con la tecnología de una red global de centros de datos administrados por Microsoft, ayuda a mantener las aplicaciones en funcionamiento de forma ininterrumpida. Con cada servidor de Azure Database for PostgreSQL, se saca provecho de las ventajas de la seguridad integrada, la tolerancia a errores y la protección de datos, algo que de lo contrario tendría que adquirir o diseñar, compilar y administrar. Con Azure Database for PostgreSQL, cada nivel de servicio ofrece un conjunto completo de opciones y características de continuidad empresarial que puede usar para empezar a trabajar y seguir haciéndolo. Puede usar la [restauración a un momento dado](howto-restore-server-portal.md) para devolver una base de datos a un estado anterior, con un plazo máximo de 35 días. Además, si el centro de datos que hospeda las bases de datos sufre una interrupción, puede restaurar las bases de datos a partir de copias con redundancia geográfica de copias de seguridad recientes.
 
 ## <a name="secure-your-data"></a>Protección de los datos
-
 Los servicios de bases de datos de Azure tienen una tradición de seguridad de datos que conserva Azure Database for PostgreSQL con características que limitan el acceso, protegen los datos en reposo y en movimiento, y le ayudan a supervisar la actividad. Para más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
+
+La base de datos de Azure para el servicio PostgreSQL usa el cifrado de almacenamiento de los datos en reposo. Todos los datos, incluidas las copias de seguridad, se cifran en el disco. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de almacenamiento de Azure y las claves están administradas por el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
+
+De forma predeterminada, la base de datos de Azure para el servicio MySQL está configurada para requerir la [seguridad de la conexión SSL](./concepts-ssl-connection-security.md) para los datos en movimiento en la red. Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.  Tiene la opción de deshabilitar el requisito de SSL para conectar el servicio de base de datos en caso de que la aplicación cliente no admita la conectividad SSL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte la [página de precios](https://azure.microsoft.com/pricing/details/postgresql/) para ver comparaciones de costos y calculadoras.

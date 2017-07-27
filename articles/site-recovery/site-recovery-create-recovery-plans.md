@@ -1,10 +1,10 @@
 ---
 title: "Creación de planes de recuperación para conmutación por error y recuperación en Azure Site Recovery | Microsoft Docs"
-description: "Describe cómo crear y personalizar planes de recuperación para conmutar por error y recuperar máquinas virtuales y servidores físicos en Azure Site Recovery"
+description: "Se describe cómo crear y personalizar planes de recuperación en Azure Site Recovery para conmutar por error y recuperar máquinas virtuales y servidores físicos."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/14/2017
+ms.date: 07/23/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 9ab51cb8e11df43ba2157b11e25a1f29b19e4da9
-ms.openlocfilehash: e36f19e9c429c0e4b42e96b28b1ba995bd1bf167
-ms.lasthandoff: 02/15/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 618c6fead3dbad385c4ded39352eea0cfcf1b134
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="create-recovery-plans"></a>Creación de planes de recuperación
@@ -26,13 +26,13 @@ ms.lasthandoff: 02/15/2017
 
 En este artículo se proporciona información sobre cómo crear y personalizar planes de recuperación en [Azure Site Recovery](site-recovery-overview.md).
 
-Publique cualquier comentario o pregunta que tenga al final del artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
- Los planes de recuperación realizan las siguientes operaciones:
+ Cree planes de recuperación para realizar las siguientes tareas:
 
 * Definen grupos de máquinas que conmutan por error juntas y también se inician juntas.
 * Modelan dependencias entre máquinas, agrupándolas en un grupo de planes de recuperación. Por ejemplo, para conmutar por error y abrir una aplicación específica, agrupe todas las máquinas virtuales de dicha aplicación en el mismo grupo de planes de recuperación.
-* Llevan a cabo la conmutación por error. Puede ejecutar una conmutación por error de prueba, planeada o no planeada en un plan de recuperación.
+* Ejecutar una conmutación por error. Puede ejecutar una conmutación por error de prueba, planeada o no planeada en un plan de recuperación.
 
 
 ## <a name="create-a-recovery-plan"></a>Creación de un plan de recuperación
@@ -71,7 +71,7 @@ Puede usar scripts de PowerShell en los planes de recuperación.
 Si utiliza VMM en la implementación:
 
 * Los scripts de los planes de recuperación se ejecutan en el contexto de la cuenta de servicio de VMM. Asegúrese de que esta cuenta tenga permisos de lectura para el recurso compartido remoto donde se encuentra el script. Pruebe a ejecutar el script en el nivel de privilegios de cuenta del servicio VMM.
-* Los cmdlets de VMM se entregan en un módulo de Windows PowerShell. El módulo se instala al mismo tiempo que la consola VMM. Se puede cargar en el script usando este comando en el script: 
+* Los cmdlets de VMM se entregan en un módulo de Windows PowerShell. El módulo se instala al mismo tiempo que la consola VMM. Se puede cargar en el script usando este comando en el script:
    - Import-Module -Name virtualmachinemanager. [Más información](https://technet.microsoft.com/library/hh875013.aspx).
 * Asegúrese de que tiene al menos un servidor de biblioteca en la implementación de VMM. De forma predeterminada, la ruta de acceso del recurso compartido de biblioteca para un servidor VMM se encuentra localmente en el servidor VMM, con el nombre de carpeta MSCVMMLibrary.
     * Si la ruta de acceso del recurso compartido de biblioteca es remota (o local pero no se comparte con MSCVMMLibrary), configure el recurso compartido como se indica a continuación (por ejemplo, con \\\libserver2.contoso.com\share\):
@@ -93,7 +93,7 @@ Puede agregar un script al grupo de planes de recuperación predeterminado despu
 6. Realice una conmutación por error del plan de recuperación para asegurarse de que el script funcione según lo previsto.
 
 
-### <a name="vmm-script"></a>Script de VMM
+### <a name="add-a-vmm-script"></a>Adición de un script de VMM
 
 Si tiene un sitio de origen VMM, puede crear un script en el servidor VMM e incluirlo en el plan de recuperación.
 

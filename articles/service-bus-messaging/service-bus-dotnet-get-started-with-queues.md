@@ -20,16 +20,11 @@ ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
 ms.contentlocale: es-es
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="get-started-with-service-bus-queues" class="xliff"></a>
-
-# Introducción a las colas de Service Bus
+# <a name="get-started-with-service-bus-queues"></a>Introducción a las colas de Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Lo que se logrará
+## <a name="what-will-be-accomplished"></a>Lo que se logrará
 En este tutorial se describen los pasos siguientes:
 
 1. Creación de un espacio de nombres de Service Bus mediante Azure Portal
@@ -37,50 +32,36 @@ En este tutorial se describen los pasos siguientes:
 3. Escritura de una aplicación de consola para enviar un mensaje
 4. Escritura de una aplicación de consola para recibir los mensajes enviados en el paso anterior.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 1. [Visual Studio 2015 o posterior](http://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2017.
 2. Una suscripción de Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Creación de un espacio de nombres mediante Azure Portal
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Creación de un espacio de nombres mediante Azure Portal
 Si ya ha creado un espacio de nombres de mensajería de Service Bus, vaya a la sección [Creación de una cola mediante Azure Portal](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-queue-using-the-azure-portal" class="xliff"></a>
-
-## 2. Creación de una cola mediante Azure Portal
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Creación de una cola mediante Azure Portal
 Si ya ha creado una cola de Service Bus, vaya a la sección [Envío de mensajes a la cola](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-<a id="3-send-messages-to-the-queue" class="xliff"></a>
-
-## 3. Envío de mensajes a la cola
+## <a name="3-send-messages-to-the-queue"></a>3. Envío de mensajes a la cola
 Para enviar mensajes a la cola, se escribe una aplicación de consola en C# mediante Visual Studio.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Creación de una aplicación de consola
+### <a name="create-a-console-application"></a>Creación de una aplicación de consola
 
 Inicie Visual Studio y cree un nuevo proyecto **Console app (.NET Framework)**.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Agregar el paquete NuGet de Service Bus
+### <a name="add-the-service-bus-nuget-package"></a>Agregar el paquete NuGet de Service Bus
 1. Haga clic con el botón derecho en el proyecto recién creado y seleccione **Administrar paquetes NuGet**.
 2. Haga clic en la pestaña **Examinar**, busque **Microsoft Azure Service Bus** y seleccione el elemento **WindowsAzure.ServiceBus**. Haga clic en **Instalar** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
    
     ![Seleccionar un paquete NuGet][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-queue" class="xliff"></a>
-
-### Escritura de código para enviar un mensaje a la cola
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Escritura de código para enviar un mensaje a la cola
 1. Agregue la siguiente instrucción `using` al principio del archivo Program.cs.
    
     ```csharp
@@ -95,7 +76,6 @@ Inicie Visual Studio y cree un nuevo proyecto **Console app (.NET Framework)**.
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
 
-    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
     client.Send(message);
@@ -126,7 +106,6 @@ Inicie Visual Studio y cree un nuevo proyecto **Console app (.NET Framework)**.
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
 
-                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
                 client.Send(message);
@@ -141,9 +120,7 @@ Inicie Visual Studio y cree un nuevo proyecto **Console app (.NET Framework)**.
    
       ![Tamaño del mensaje][queue-message]
 
-<a id="4-receive-messages-from-the-queue" class="xliff"></a>
-
-## 4. Recepción de mensajes de la cola
+## <a name="4-receive-messages-from-the-queue"></a>4. Recepción de mensajes de la cola
 
 1. Para recibir los mensajes que acaba de enviar, cree una nueva aplicación de consola y agregue una referencia al paquete NuGet de Service Bus, similar a la aplicación de remitente anterior.
 2. Agregue la siguiente instrucción `using` al principio del archivo Program.cs.
@@ -204,9 +181,7 @@ Inicie Visual Studio y cree un nuevo proyecto **Console app (.NET Framework)**.
 
 ¡Enhorabuena! Ha creado una cola, ha enviado un mensaje y ha recibido un mensaje.
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Consulte nuestro [repositorio de GitHub con ejemplos](https://github.com/Azure/azure-service-bus/tree/master/samples), donde se muestran algunas de las características más avanzadas de la mensajería de Service Bus.
 

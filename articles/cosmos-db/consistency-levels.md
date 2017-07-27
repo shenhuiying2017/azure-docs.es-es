@@ -3,7 +3,7 @@ title: Niveles de coherencia en Azure Cosmos DB | Documentos de Microsoft
 description: Azure Cosmos DB tiene cinco niveles de coherencia para ayudar a equilibrar la coherencia, la disponibilidad y la latencia finales.
 keywords: coherencia final, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 documentationcenter: 
@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
-ms.author: syamk
+ms.date: 06/16/2017
+ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b4f4a32a19c2145a18557a54d5a495ef0c8dec75
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: abca1eff9d0b79420e70da5a4c551eceda478491
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia de datos optimizables en Azure Cosmos DB
-El diseño de Azure Cosmos DB se llevó a cabo desde el principio pensando en la distribución global de cada modelo de datos. Se ha diseñado para que ofrezca garantías de una baja latencia predecible, un Acuerdo de Nivel de Servicio (SLA) con un 99,99 % de disponibilidad y varios modelos de coherencia moderada bien definidos. Actualmente, Azure Cosmos DB ofrece cinco niveles de coherencia: fuerte, de obsolescencia limitada, de sesión y final. 
+El diseño de Azure Cosmos DB se llevó a cabo desde el principio pensando en la distribución global de cada modelo de datos. Se ha diseñado para que ofrezca garantías de una baja latencia predecible, un Acuerdo de Nivel de Servicio (SLA) con un 99,99 % de disponibilidad y varios modelos de coherencia moderada bien definidos. Actualmente, Azure Cosmos DB ofrece cinco niveles de coherencia: fuerte, de obsolescencia limitada, de sesión, de prefijo coherente y final. 
 
 Además de los modelos de **coherencia fuerte** y **final** que proporcionan habitualmente las bases de datos distribuidas, Azure Cosmos DB ofrece tres modelos de coherencia codificados y operacionalizados de forma cuidadosa. Además, tiene su utilidad validada en casos de uso reales. Estos son los niveles de coherencia **obsolescencia limitada**, **de sesión** y **de prefijo coherente**. De forma colectiva, estos cinco niveles de coherencia permiten lograr equilibrios bien razonados entre la coherencia, la disponibilidad y la latencia. 
 
@@ -40,13 +40,13 @@ En la tabla siguiente se muestran las garantías específicas que ofrece cada ni
  
 **Niveles de coherencia y garantías**
 
-| Nivel de coherencia    | Garantías |
+| Nivel de coherencia | Garantías |
 | --- | --- |
 | Alta | Linealidad |
-| De obsolescencia entrelazada    | Prefijo coherente. Los prefijos k y los intervalos t retrasan las lecturas tras las escrituras |
-| Sesión    | Prefijo coherente. Lecturas monótonas, escrituras monótonas, lectura de la escritura, escritura tras las lecturas |
-| De prefijo coherente    | Las actualizaciones devueltas son prefijos de todas las actualizaciones, sin espacios |
-| Ocasional    | Lecturas sin orden |
+| De obsolescencia entrelazada | Prefijo coherente. Los prefijos k y los intervalos t retrasan las lecturas tras las escrituras |
+| Sesión   | Prefijo coherente. Lecturas monótonas, escrituras monótonas, lectura de la escritura, escritura tras las lecturas |
+| De prefijo coherente | Las actualizaciones devueltas son prefijos de todas las actualizaciones, sin espacios |
+| Ocasional  | Lecturas sin orden |
 
 Puede establecer la coherencia predeterminada en la cuenta de Cosmos DB (y después reemplazar la para una solicitud de lectura concreta). Internamente, la coherencia predeterminada se aplica a los datos de los conjuntos de particiones que pueden ser intervalos de regiones. Aproximadamente un 73 % de nuestros inquilinos usan la coherencia de sesión y un 20 % prefiere la obsolescencia limitada. Observamos que aproximadamente el 3 % de nuestros clientes experimentan con distintos niveles de coherencia inicialmente antes de fijar una opción de coherencia específica para su aplicación. También observamos que solo un 2 % de nuestros inquilinos reemplazan los niveles de coherencia por solicitud. 
 

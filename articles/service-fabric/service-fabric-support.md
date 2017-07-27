@@ -1,6 +1,6 @@
 ---
 title: "Información acerca las opciones de soporte técnico de Azure Service Fabric | Microsoft Docs"
-description: "Versiones de clúster de Azure Service Fabric compatibles y vínculos para presentar incidencias de soporte técnico."
+description: "Versiones de clúster de Azure Service Fabric compatibles y vínculos para presentar incidencias de soporte técnico"
 services: service-fabric
 documentationcenter: .net
 author: pkc
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 06/15/2017
 ms.author: pkc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: f87aec3698addae135d4c934bb7217d9fae0e571
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: de5795d4781d8c01bce7313ae53ad801a0e48149
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -78,13 +78,13 @@ Consulte los documentos siguientes para ver detalles sobre cómo hacer que el cl
  
 A continuación, aparece una lista con las versiones compatibles de Service Fabric y las fechas de finalización del soporte técnico.
 
-| **Clúster de tiempo de ejecución de Service Fabric** | **Fecha de finalización de soporte técnico** |
-| --- | --- |
-| Todas las versiones de clústeres anteriores a 5.3.121 |20 de enero de 2017 |
-| 5.3* |24 de febrero de 2017 |
-| 5.4.* |10 de mayo de 2017     |
-| 5.5.* |10 de julio de 2017    |
-| 5.6.* |Versión actual y, por lo tanto, sin fecha de finalización
+| **Clúster de tiempo de ejecución de Service Fabric** | **Versiones del SDK o paquete de NuGet compatibles** | **Fecha de finalización de soporte técnico** |
+| --- | --- | --- |
+| Todas las versiones de clústeres anteriores a 5.3.121 |Versión 2.3 o anterior |20 de enero de 2017 |
+| 5.3* |Versión 2.3 o anterior |24 de febrero de 2017 |
+| 5.4.* |Versión 2.4 o anterior |10 de mayo de 2017     |
+| 5.5.* |Versión 2.5 o anterior |10 de agosto de 2017    |
+| 5.6.* |Versión 2.6 o anterior |Versión actual y, por lo tanto, sin fecha de finalización
 
 <a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versiones de vista previa de Service Fabric: no admitidas para su uso en producción.

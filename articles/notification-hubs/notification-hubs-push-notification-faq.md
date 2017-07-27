@@ -15,10 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 029401a1884aebf0625ad8d68410dcdcd491d0ad
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: c8592ea38d62213327549583a1e931ea682ee56e
+ms.contentlocale: es-es
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -46,7 +47,7 @@ Características del nivel Estándar:
 En el caso de los niveles Básico y Estándar de Notification Hubs, las aplicaciones configuradas correctamente pueden enviar notificaciones push o realizar operaciones de administración de registros al menos un 99,9 por ciento del tiempo. Para más información sobre el Acuerdo de Nivel de Servicio, vaya a la página [Contrato de nivel de servicio para Notification Hubs](https://azure.microsoft.com/support/legal/sla/notification-hubs/).
 
 > [!NOTE]
-> Dado que las notificaciones push dependen de Sistemas de notificación de plataforma de terceros (como APNs de Apple y FCM de Google), no hay ninguna garantía de Acuerdo de Nivel de Servicio para la entrega de estos mensajes. Una vez que Notification Hubs procesa por lotes los envíos a los Sistemas de notificación de plataforma (Acuerdo de Nivel de Servicio garantizado), entregar las notificaciones es responsabilidad de los Sistemas de notificación de plataforma (no se garantiza ningún Acuerdo de Nivel de Servicio).
+> Dado que las notificaciones push dependen de Sistemas de notificación de plataforma de terceros (como APNs de Apple y FCM de Google), no hay ninguna garantía de Acuerdo de Nivel de Servicio para la entrega de estos mensajes. Una vez que Notification Hubs envía los lotes a los Sistemas de notificación de plataforma (Acuerdo de Nivel de Servicio garantizado), entregar las notificaciones es responsabilidad de los Sistemas de notificación de plataforma (no se garantiza ningún Acuerdo de Nivel de Servicio).
 
 ### <a name="which-customers-are-using-notification-hubs"></a>¿Qué clientes utilizan los Centros de notificaciones?
 Muchos clientes usan Notification Hubs. Los siguientes son algunos clientes destacados:

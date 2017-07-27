@@ -1,87 +1,71 @@
 ---
-title: Niveles de servicio de Azure Database for MySQL | Microsoft Docs
-description: Niveles de servicio de Azure Database for MySQL
+title: Planes de tarifa de Azure Database for MySQL | Microsoft Docs
+description: Planes de tarifa de Azure Database for MySQL
 services: mysql
-author: v-chenyh
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
-editor: jasonh
+editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/16/2017
-ms.author: v-chenyh
+ms.date: 05/23/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 9ae42c9b151c53a1f57d6856bc29cd7f71a7f9be
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 20ca0abab5e17f82b94a31c1b2c9a0942ba9508a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/25/2017
 
 ---
-# <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opciones y rendimiento de Azure Database for MySQL: información sobre lo que está disponible en cada nivel de servicio
-Azure Database for MySQL ofrece los niveles de servicio Básico y Estándar. Premium no está disponible todavía.
+# <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opciones y rendimiento de Azure Database for MySQL: información sobre el contenido disponible en cada plan de tarifa
+Al crear un servidor de Azure Database for MySQL, tiene que elegir entre tres opciones principales para configurar los recursos asignados a dicho servidor. Estas opciones afectan al rendimiento y la escala del servidor.
+- Nivel de precios
+- Unidades de proceso
+- Almacenamiento (GB)
 
-Cada nivel de servicio tiene varios niveles de rendimiento para controlar los diferentes tipos de requisitos de las cargas de trabajo. Unos niveles de rendimiento más altos ofrecen recursos adicionales diseñados para proporcionar un mayor rendimiento. Puede cambiar los niveles de rendimiento dentro de un nivel de servicio de forma dinámica sin que la aplicación experimente tiempos de inactividad.
-
-En el futuro, será posible actualizar o degradar de un nivel de servicio a otro. 
+Cada plan de tarifa permite elegir entre diferentes niveles de rendimiento (unidades de proceso), en función de los requisitos de su carga de trabajo. Unos niveles de rendimiento más altos ofrecen recursos adicionales para el servidor que se han diseñado para proporcionar un mayor rendimiento. Puede cambiar el nivel de rendimiento del servidor dentro de un mismo plan de tarifa sin prácticamente ningún tiempo de inactividad para las aplicaciones.
 
 > [!IMPORTANT]
-> El servicio se encuentra disponible actualmente como versión preliminar pública, por lo que aún no se ofrece ningún Acuerdo de Nivel de Servicio (SLA).
+> Mientras el servicio se encuentre en versión preliminar pública, no se garantiza ningún Acuerdo de Nivel de Servicio (SLA).
 
-Puede crear un único servidor de Azure Database for MySQL con recursos dedicados en un nivel de servicio con un nivel de rendimiento específico. También puede crear de una a varias bases de datos en un servidor en el que los recursos se comparten entre varias bases de datos. Los recursos disponibles para un único servidor de Azure Database for MySQL se expresan en términos de unidades de proceso y de unidades de almacenamiento. Para más información sobre las unidades de proceso y el almacenamiento, vea [Explicación de las unidades de proceso y las unidades de almacenamiento](concepts-compute-unit-and-storage.md).
+En un servidor de Azure Database for MySQL, puede tener una o varias bases de datos. Puede optar por crear una sola base de datos por servidor para que use todos los recursos, o bien crear varias para que los compartan. 
 
-## <a name="choosing-a-service-tier"></a>Selección de un nivel de servicio
+## <a name="choose-a-pricing-tier"></a>Elija un plan de tarifa.
+Mientras se encuentre en versión preliminar, el servicio Azure Database for MySQL ofrece dos planes de tarifa: Básico y Estándar. El plan Premium no está disponible todavía, pero lo estará pronto. 
 
-En la tabla siguiente se proporcionan ejemplos de los niveles más adecuados para las diferentes cargas de trabajo de las aplicaciones.
+En la tabla siguiente se proporcionan ejemplos de los planes de tarifa más adecuados para diferentes cargas de trabajo de aplicaciones.
 
-| Nivel de servicio | Carga de trabajo objetivo |
+| Nivel de precios | Carga de trabajo objetivo |
 | :----------- | :----------------|
 | Básica | Opción más conveniente para pequeñas cargas de trabajo que requieren almacenamiento y proceso escalables sin garantía de IOPS. Algunos ejemplos son los servidores utilizados para desarrollo o prueba, o las aplicaciones a pequeña escala que se emplean con poca frecuencia. |
-| Estándar | La opción deseada para aplicaciones de nube que necesitan garantía de IOPS con la capacidad de escalar a unidades de proceso y almacenamiento más grandes, con independencia de que el rendimiento sea alto. Como ejemplos destacan las aplicaciones web y analíticas. |
-| Premium | Opción más conveniente para cargas de trabajo que precisan de latencias muy breves para transacciones y E/S, además de un rendimiento alto de E/S y cargas de trabajo. Proporciona la mejor compatibilidad para muchos usuarios simultáneos. Se aplica a las bases de datos que admiten aplicaciones críticas.<br />El nivel de servicio Premium no está disponible en la versión preliminar. |
+| Standard | La opción ideal para aplicaciones en la nube que necesiten de un valor de E/S por segundo garantizado con un alto rendimiento. Como ejemplos destacan las aplicaciones web y analíticas. |
+| Premium | La opción idónea para cargas de trabajo que necesiten de una baja latencia para transacciones y E/S. Proporciona la mejor compatibilidad para muchos usuarios simultáneos. Se aplica a las bases de datos que admitan aplicaciones críticas para la actividad de la empresa.<br />El plan de tarifa Premium no está disponible en la versión preliminar. |
 
+Para decidirse por un plan de tarifa, empiece por determinar si la carga de trabajo necesita un valor garantizado de E/S por segundo. Si es así, seleccione el plan de tarifa Estándar.
 
-Para decidir un nivel de servicio, empiece por determinar si la carga de trabajo necesita garantías de E/S por segundo. Después, determine las características mínimas que necesita:
+| **Características del plan de tarifa** | **Básico** | **Estándar** |
+| :------------------------ | :-------- | :----------- |
+| Unidades de proceso máximas | 100 | 800 | 
+| Almacenamiento total máximo | 1 TB | 1 TB | 
+| Garantía de IOPS de almacenamiento | N/D | Sí | 
+| IOPS de almacenamiento máximas | N/D | 3000 | 
+| Período de retención de copias de seguridad de base de datos | 7 días | 35 días | 
 
-| **Características del nivel de servicio** | **Básico** | **Standard** | **Premium** * |
-| :------------------------ | :-------- | :----------- | :------------ |
-| Unidades de proceso máximas | 100 | 2.000 | No disponible en versión preliminar |
-| Almacenamiento total máximo | 1050 GB | 10 000 GB | No disponible en versión preliminar |
-| Garantía de IOPS de almacenamiento | N/D | Sí | No disponible en versión preliminar |
-| IOPS de almacenamiento máximas | N/D | 3000 | No disponible en versión preliminar |
-| Período de retención de copias de seguridad de base de datos | 7 días | 35 días | 35 días |
+Durante el período de versión preliminar, no es posible cambiar el plan de tarifa una vez que se haya creado el servidor. En el futuro, será posible actualizar el servidor de un plan de tarifa a otro o cambiarlo a un plan anterior.
 
-> [!NOTE]
-> El nivel de servicio Estándar en la versión preliminar actualmente admite hasta 800 unidades de proceso y un máximo de 1000 GB de almacenamiento.
+## <a name="choose-a-performance-level-compute-units"></a>Selección de un nivel de rendimiento (unidades de proceso)
+Cuando haya determinado el plan de tarifa para su servidor de Azure Database for MySQL, ya podrá calcular el nivel de rendimiento. Para ello, seleccione el número de unidades de proceso necesarias. Un buen punto de partida son 200 o 400 unidades de proceso para aplicaciones que necesiten más simultaneidad de usuarios para cargas de trabajo web o analíticas. Esta cantidad se puede incrementar en función de las necesidades correspondientes. 
 
-Cuando haya determinado el nivel de servicio mínimo, ya puede determinar el nivel de rendimiento del servidor de Azure Database for MySQL, es decir, las unidades de proceso. Las 200 y 400 unidades de proceso estándar suelen ser un buen punto de partida para las aplicaciones que necesitan más simultaneidad de usuarios para las cargas de trabajo web o analíticas. 
+Las unidades de proceso son una medida del rendimiento de procesamiento de la CPU cuya disponibilidad está garantizada para un único servidor de Azure Database for MySQL. Una unidad de proceso es una medida combinada de recursos de CPU y memoria.  Para obtener más información, consulte [Explicación de las unidades de proceso](concepts-compute-unit-and-storage.md).
 
-Sin embargo, puede escalar o reducir verticalmente las unidades de proceso con independencia de las unidades de almacenamiento, en función de los requisitos de la carga de trabajo. Si la carga de trabajo necesita un ajuste de recursos de proceso, puede aumentar o reducir las unidades de proceso de forma dinámica. Si la carga de trabajo precisa de más E/S por segundo o almacenamiento, entonces puede escalar el almacenamiento.
-
-> [!NOTE]
-> En la versión preliminar, los niveles Estándar y Básico no admiten actualmente el escalado dinámico de almacenamiento. Se prevé agregar la característica en el futuro.
-
-> [!NOTE]
-> En el nivel de servicio Estándar, las E/S por segundo se escalan en proporción con el tamaño de almacenamiento aprovisionado, con una relación fija de 3:1. El almacenamiento incluido de 125 GB garantiza 375 IOPS aprovisionadas, cada una de ellas con un tamaño de IOPS de hasta 256 KB. Si aprovisiona 1000 GB, obtendrá 3000 IOPS aprovisionadas. Debe supervisar el consumo de unidades de proceso de servidor y escalar verticalmente para poder utilizar todas las IOPS aprovisionadas disponibles.
-
-## <a name="service-tiers-and-performance-levels"></a>Niveles de servicio y niveles de rendimiento
-
-Azure Database for MySQL ofrece varios niveles de rendimiento en cada nivel de servicio. Tiene la flexibilidad de elegir el nivel más adecuado a las exigencias de su carga de trabajo, mediante alguna de las siguientes opciones:
-- [Portal de Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [CLI de Azure](quickstart-create-mysql-server-database-using-azure-cli.md)
-
-Independientemente de la cantidad de bases de datos hospedadas en cada servidor MySQL, la base de datos recibe un conjunto de recursos garantizado, y las características de rendimiento previstas del servidor no se verán afectadas.
-
-### <a name="basic-service-tier"></a>Nivel de servicio Básico:
+### <a name="basic-pricing-tier-performance-levels"></a>Niveles de rendimiento del plan de tarifa Básico:
 
 | **Nivel de rendimiento** | **50** | **100** |
 | :-------------------- | :----- | :------ |
 | Unidades de proceso máximas | 50 | 100 |
 | Tamaño de almacenamiento incluido | 50 GB | 50 GB |
-| Tamaño máximo de almacenamiento en servidor\* | 1050 GB | 1050 GB |
+| Tamaño máximo de almacenamiento en servidor\* | 1 TB | 1 TB |
 
-\* El tamaño máximo de almacenamiento en servidor se refiere al tamaño máximo de almacenamiento aprovisionado para el servidor.
-
-
-### <a name="standard-service-tier"></a>Nivel de servicio Estándar:
+### <a name="standard-pricing-tier-performance-levels"></a>Niveles de rendimiento del plan de tarifa Estándar:
 
 | **Nivel de rendimiento** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
@@ -93,24 +77,28 @@ Independientemente de la cantidad de bases de datos hospedadas en cada servidor 
 
 \* El tamaño máximo de almacenamiento en servidor se refiere al tamaño máximo de almacenamiento aprovisionado para el servidor.
 
-## <a name="scaling-up-or-down-a-single-server"></a>Escalado o reducción vertical de un único servidor
+## <a name="storage"></a>Storage 
+La configuración de almacenamiento define la cantidad de capacidad de almacenamiento disponible para un servidor de Azure Database for MySQL. El almacenamiento usado por el servicio incluye los archivos de base de datos, los registros de transacciones y los registros de servidor de MySQL. Tenga en cuenta el tamaño de almacenamiento necesario para hospedar las bases de datos y los requisitos de rendimiento (E/S por segundo) al seleccionar la configuración de almacenamiento.
 
-Después de elegir inicialmente un nivel de servicio y un nivel de rendimiento, puede escalar o reducir verticalmente de forma dinámica, en función de los requisitos de la carga de trabajo. Si necesita escalar o reducir verticalmente, puede cambiar fácilmente el nivel de la base de datos con la utilización de Azure Portal o de la CLI de Azure.
+Se incluye cierta capacidad de almacenamiento mínima con cada plan de tarifa, denominada en la tabla anterior "Tamaño de almacenamiento incluido". Es posible agregar capacidad de almacenamiento adicional al crear el servidor en incrementos de 125 GB y hasta el valor máximo permitido. La capacidad de almacenamiento adicional puede configurarse con independencia de la configuración de las unidades de proceso. Los precios varían en función de la cantidad de almacenamiento seleccionada.
 
-Al cambiar el nivel de servicio o de rendimiento de una base de datos, se crea una réplica de la base de datos original en el nuevo nivel de rendimiento y, a continuación, se cambian las conexiones a la réplica. Durante este proceso, no se pierde ningún dato; sin embargo, durante el breve momento en que se cambie a la réplica, las conexiones a la base de datos estarán deshabilitadas, por tanto, es posible que se reviertan algunas transacciones en curso. Este intervalo varía, pero de media dura menos de 4 segundos, y en más del 99 % de los casos es inferior a 30 segundos. Si el número de transacciones en curso es elevado mientras las conexiones están deshabilitadas, este intervalo puede ser superior.
+La configuración de E/S por segundo de cada nivel de rendimiento está relacionada con el plan de tarifa y el tamaño de almacenamiento que se seleccionen. El plan Básico no garantiza ningún valor de E/S por segundo. En el plan de tarifa Estándar, las E/S por segundo escalan de forma proporcional al tamaño de almacenamiento máximo en una proporción fija de 3:1. El almacenamiento incluido de 125 GB garantiza 375 IOPS aprovisionadas, cada una de ellas con un tamaño de IOPS de hasta 256 KB. Puede seleccionar almacenamiento adicional hasta un valor máximo de 1 TB para garantizar una provisión de 3000 E/S por segundo.
 
-La duración de todo el proceso de escalado vertical depende del nivel de servicio y del tamaño del servidor antes y después del cambio. Por ejemplo, el cambio de unidades de proceso de un servidor de o a un nivel de servicio Estándar o dentro de dicho nivel debe tardar unos minutos en completarse. Las nuevas propiedades del servidor no se aplican hasta que se completan los cambios.
+Supervise el grafo de métricas de Azure Portal o escriba comandos de CLI de Azure para medir el consumo de almacenamiento y E/S por segundo. Las métricas pertinentes que se deben supervisar son el límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S por segundo.
 
-### <a name="documentation-about-the-steps-for-scaling-up-or-down"></a>Documentación sobre los pasos de escalado o reducción vertical
-[Supervisión y escalado de un servidor de Azure Database for MySQL (Base de datos de Azure para MySQL) mediante la CLI de Azure](scripts/sample-scale-server.md)
+>[!IMPORTANT]
+> Mientras use la versión preliminar, seleccione la cantidad de almacenamiento en el momento de crear el servidor. Todavía no es posible cambiar el tamaño del almacenamiento en un servidor existente. 
 
+## <a name="scaling-a-server-up-or-down"></a>Escalado o reducción verticales de un servidor
+Primeramente, se eligen el plan de tarifa y el nivel de rendimiento al crear la instancia de Azure Database for MySQL. Más adelante, puede escalar las unidades de proceso o reducirlas verticalmente de forma dinámica, dentro del rango del mismo plan de tarifa. En Azure Portal, deslice las unidades de proceso por la hoja de plan de tarifa del servidor, o bien cree un script conforme al siguiente ejemplo: [Supervisión y escalado de un servidor de Azure Database for MySQL (Base de datos de Azure para MySQL) mediante la CLI de Azure](scripts/sample-scale-server.md).
 
-### <a name="details-about-scaling-up-or-down"></a>Información sobre el escalado o la reducción vertical
+El escalado de las unidades de proceso se realiza con independencia del tamaño de almacenamiento máximo seleccionado.
 
-- Para degradar un servidor, las unidades de almacenamiento del servidor deben ser más pequeñas que el tamaño máximo permitido del nivel de servicio de destino.
-- Las ofertas del servicio de restauración son diferentes para los distintos niveles de servicio. Si cambia a un nivel inferior, puede perder la capacidad de restaurar a un momento dado o tener un período de retención de copias de seguridad más breve. Para más información, vea [Copia de seguridad y restauración de un servidor de Azure Database for MySQL en Azure Portal](howto-restore-server-portal.md).
-- Las nuevas propiedades del servidor no se aplican hasta que se completan los cambios.
+En segundo plano, al cambiar el nivel de rendimiento de una base de datos, se crea una réplica de la base de datos original en el nuevo nivel de rendimiento y, a continuación, se cambian las conexiones a la réplica. Durante este proceso no se pierde ningún dato. Sin embargo, durante el breve momento en el que se produzca el cambio a la réplica, las conexiones a la base de datos estarán deshabilitadas. Por ello, es posible que se reviertan algunas transacciones en curso. Este intervalo varía, pero de media dura menos de 4 segundos, y en más del 99 % de los casos es inferior a 30 segundos. Si el número de transacciones en curso es elevado mientras las conexiones están deshabilitadas, este intervalo puede ser superior.
+
+La duración de todo el proceso de escalado depende tanto del tamaño como del plan de tarifa del servidor antes y después del cambio. Por ejemplo, el cambio de unidades de proceso de un servidor dentro del plan de tarifa Estándar debería tardar unos pocos minutos en completarse. Las nuevas propiedades del servidor no se aplican hasta que se completan los cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Explicación de las unidades de proceso y las unidades de almacenamiento](concepts-compute-unit-and-storage.md)
+- Para obtener más información sobre unidades de proceso, consulte [Explicación de las unidades de proceso](concepts-compute-unit-and-storage.md).
+- Obtenga información sobre cómo realizar las tareas de [Supervisión y escalado de un servidor de Azure Database for MySQL (Base de datos de Azure para MySQL) mediante la CLI de Azure](scripts/sample-scale-server.md).
 

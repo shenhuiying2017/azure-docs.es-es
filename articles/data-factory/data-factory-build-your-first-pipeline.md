@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 590d8e7c90381c455e0145a9016bd888ab0dda2c
-ms.lasthandoff: 02/03/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: b01a03fa362f8a9677e625945a2864c77d49f1bb
+ms.contentlocale: es-es
+ms.lasthandoff: 06/14/2017
 
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/03/2017
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [API de REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 En este tutorial, se crea una instancia de Azure Data Factory con una canalización de datos. La canalización transforma los datos de entrada mediante la ejecución de un script de Hive en un clúster de Azure HDInsight (Hadoop) para generar datos de salida.  
 
@@ -49,7 +49,7 @@ En este tutorial, realizará los siguientes pasos:
     En este tutorial se crean dos servicios vinculados: **Azure Storage** y **Azure HDInsight**. El servicio vinculado Azure Storage vincula una cuenta de Azure Storage que contiene los datos de entrada/salida con la factoría de datos. El servicio vinculado Azure HDInsight vincula un clúster de Azure HDInsight que se utiliza para transformar los datos con la factoría de datos. 
 3. Crear **conjuntos de datos**de entrada y salida. Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad.
 
-    En este tutorial, los conjuntos de datos de entrada y salida especifican las ubicaciones de los datos de entrada y salida en Azure Blob Storage. El servicio vinculado Azure Storage especifica qué cuenta de Azure Storage se usa. Un conjunto de datos de entrada especifica el lugar en que se encuentran los archivos de entrada, mientras que un conjunto de datos de salida especifica el lugar en que se colocarán los archivos de salida. 
+    En este tutorial, los conjuntos de datos de entrada y salida especifican las ubicaciones de los datos de entrada y salida en Azure Blob Storage. El servicio vinculado Azure Storage especifica qué cuenta de Azure Storage se usa. Un conjunto de datos de entrada especifica el lugar en que se encuentran los archivos de entrada, mientras que un conjunto de datos de salida especifica el lugar en que se colocan los archivos de salida. 
 
 
 Para obtener información general detallada de Azure Data Factory, consulte el artículo [Introducción a Azure Data Factory](data-factory-introduction.md).
@@ -82,7 +82,7 @@ Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 1. **Suscripción de Azure** : si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) sobre cómo puede obtener una cuenta de evaluación gratuita.
 2. **Almacenamiento de Azure** : para almacenar los datos de este tutorial usará una cuenta de Almacenamiento de Azure. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) . Después de haber creado la cuenta de almacenamiento, anote el **nombre de la cuenta** y la **clave de acceso**. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
-3. Descargue y revise el archivo de consulta de Hive (**HQL**), que se encuentra en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Se trata de la consulta que transforma los datos de entrada para generar datos de salida. 
+3. Descargue y revise el archivo de consulta de Hive (**HQL**), que se encuentra en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma los datos de entrada para generar datos de salida. 
 4. Descargue y revise el archivo de entrada de ejemplo (**input.log**), que se encuentra en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
 5. Crear un contenedor de blobs denominado **adfgetstarted** en Azure Blob Storage. 
 6. Cargue el archivo **partitionweblogs.hql** en la carpeta **script** del contenedor **adfgetstarted**. Use herramientas como el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/). 
@@ -94,7 +94,7 @@ Una vez que se cumplan los requisitos previos, seleccione uno de los siguientes 
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Plantilla de Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [API de REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 Azure Portal y Visual Studio proporcionan una forma de generar factorías de datos mediante GUI. Mientras que las opciones de PowerShell, la plantilla de Resource Manager y la API de REST proporcionan una forma de generar factorías de datos mediante scripts/programación.
 
@@ -108,3 +108,4 @@ Azure Portal y Visual Studio proporcionan una forma de generar factorías de dat
 
 
   
+

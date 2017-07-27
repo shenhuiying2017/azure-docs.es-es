@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -25,7 +27,8 @@ ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](dns-operations-recordsets-portal.md)
-> * [CLI de Azure](dns-operations-recordsets-cli.md)
+> * [CLI de Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [CLI de Azure 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 En este artículo se explica cómo administrar conjuntos de registros y registros para la zona DNS mediante el Portal de Azure.
@@ -89,7 +92,7 @@ Puede usar el Portal de Azure para quitar registros de un conjunto de registros.
 3. Haga clic en **Guardar** en la parte superior de la hoja para guardar la configuración.
 4. Una vez quitado el registro, los valores del registro de la hoja **Zona DNS** reflejarán la eliminación.
 
-## <a name="a-namedeleteadelete-a-record-set"></a><a name="delete"></a>Eliminación de un conjunto de registros
+## <a name="delete"></a>Eliminación de un conjunto de registros
 
 1. En la hoja **Record set properties** (Propiedades del conjunto de registros) correspondiente al conjunto de registros, haga clic en **Eliminar**.
 
@@ -109,20 +112,19 @@ No puede agregar ni eliminar registros del conjunto de registros SOA creado auto
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificación de los registros NS en el vértice de zona
 
-No puede agregar, eliminar ni modificar los registros del conjunto de registros NS creado automáticamente en el vértice de zona (nombre = "@")). El único cambio permitido es la modificación del TTL del conjunto de registros.
+El conjunto de registros NS en el vértice de zona se crea automáticamente con cada zona DNS. Este conjunto de registros contiene los nombres de los servidores de nombres de Azure DNS asignados a la zona.
+
+Puede agregar más servidores de nombres a este conjunto de registros NS, para admitir dominios de hospedaje conjunto con más de un proveedor DNS. También puede modificar el TTL y los metadatos de este conjunto de registros. Sin embargo, no puede quitar ni modificar los servidores de nombres de Azure DNS rellenados previamente.
+
+Tenga en cuenta que esto solo se aplica al conjunto de registros NS en el vértice de zona. Otros conjuntos de registros NS de su zona (como los que se usan para delegar zonas secundarias) se pueden modificar sin restricciones.
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Eliminación de conjuntos de registros SOA o NS
 
-No se pueden eliminar conjuntos de registros SOA ni NS en el vértice de zona (nombre = "@")) que se crean automáticamente cuando se crea la zona. Se eliminan automáticamente al eliminar la zona.
+No puede eliminar conjuntos de registros SOA ni NS en el vértice de zona (nombre = @) que se crean automáticamente cuando se crea la zona. Se eliminan automáticamente al eliminar la zona.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información acerca de DNS de Azure, consulte la [Introducción a DNS de Azure](dns-overview.md).
 * Para más información acerca de la automatización de DNS, consulte [Creación de conjuntos de registros y zonas DNS con el SDK de .NET](dns-sdk.md).
-* Para más información acerca de los registros DNS inversos, consulte [Administración de registros de DNS inversos para los servicios mediante PowerShell](dns-reverse-dns-record-operations-ps.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Para más información acerca de los registros de DNS inversos, consulte [Introducción a DNS inverso y compatibilidad en Azure](dns-reverse-dns-overview.md).
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 704403704bd52ba1fe1815345708ab4d2d2547af
-ms.lasthandoff: 04/04/2017
+ms.custom: H1Hack27Feb2017, mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 981b87540070dff18a01d6bf3dce24a675b451aa
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
@@ -51,7 +52,6 @@ Las máquinas virtuales de Azure permiten implementar una amplia gama de solucio
 Cuando se implementa una máquina virtual en Azure, se selecciona un tamaño de máquina virtual de nuestras series de tamaños que sea adecuado para la carga de trabajo. El tamaño también afecta a la capacidad de procesamiento, memoria y almacenamiento de la máquina virtual. Se le facturará según la cantidad de tiempo que la máquina virtual se esté ejecutando y consumiendo los recursos asignados. Consulte una lista completa de [tamaños de máquina virtual](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Estas son algunas directrices básicas para seleccionar un tamaño de máquina virtual desde una de nuestras series (A, D, DS, G y GS).
-
 * Las máquinas virtuales de la serie A son las más económicas para empezar con cargas de trabajo ligeras y escenarios de desarrollo y pruebas. Están ampliamente disponibles en todas las regiones y puede conectarse a todos los recursos estándar disponibles para máquinas virtuales, y usarlos.
 * Los tamaños de la serie A (A8 - A11) son configuraciones especiales para procesos intensivos adecuadas para aplicaciones de clúster de proceso de alto rendimiento.
 * Las máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco temporal.
@@ -93,7 +93,7 @@ En Microsoft trabajamos estrechamente con nuestros asociados para garantizar que
 * Docker: [Azure Marketplace - Azure Container Service with Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins: [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
-## <a name="getting-setup-on-azure"></a>Configuración en Azure
+## <a name="getting-started-with-linux-on-azure"></a>Introducción a Linux en Azure
 Para empezar a usar Azure, necesita una cuenta de Azure, la CLI de Azure instalada y un par de claves SSH públicas y privadas.
 
 ### <a name="sign-up-for-an-account"></a>Registro para obtener una cuenta

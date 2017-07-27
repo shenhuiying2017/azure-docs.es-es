@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 9c780d89093a6d29a22cd1e5504dcc36b39056ea
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: 0ebed0c2605862426384c0e219e52c9d626b6246
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -31,7 +31,7 @@ La integración de ScaleX Enterprise con Azure AD proporciona las siguientes ven
 - Puede permitir que los usuarios inicien sesión automáticamente en ScaleX Enterprise (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-Si quiere conocer más detalles sobre la integración de aplicaciones SaaS con Azure AD, vea: [¿En qué consisten el acceso a la aplicación y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si quiere conocer más detalles sobre la integración de aplicaciones SaaS con Azure AD, vea: ¿Qué es el acceso a aplicaciones y el inicio de sesión único con [Azure Active Directory](active-directory-appssoaccess-whatis.md)?
 
 ## <a name="prerequisites"></a>Requisitos previos
 

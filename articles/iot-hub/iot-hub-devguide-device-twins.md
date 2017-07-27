@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/09/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: e72fcd696a4f21aa4b2cff7ae7178dbc372f1929
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9c1d1ba1ad70fee3db6dc6c2170b171e06f804d9
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -145,7 +146,7 @@ Se pueden usar los dispositivos gemelos para sincronizar operaciones de larga du
 ## <a name="back-end-operations"></a>Operaciones de back-end
 Para trabajar en el back-end de la solución, el dispositivo gemelo usa las siguientes operaciones atómicas expuestas mediante HTTP:
 
-1. **Recuperación del dispositivo gemelo por el id.**. Esta operación devuelve el documento del dispositivo gemelo, incluidas las etiquetas y las propiedades del sistema, deseadas y notificadas.
+1. **Recuperación del dispositivo gemelo por el id**. Esta operación devuelve el documento del dispositivo gemelo, incluidas las etiquetas y las propiedades del sistema, deseadas y notificadas.
 2. **Actualización parcial de los dispositivos gemelos**. Esta operación permite que el back-end de la solución actualice parcialmente las etiquetas o las propiedades deseadas del dispositivo gemelo. La actualización parcial se expresa como un documento JSON que agrega o actualiza cualquier propiedad. Las propiedades establecidas en `null` se quitan. El ejemplo siguiente crea una nueva propiedad deseada con el valor `{"newProperty": "newValue"}`, sobrescribe el valor existente de `existingProperty` con `"otherNewValue"`, y quita `otherOldProperty`. No se realiza ningún cambio en otras etiquetas o propiedades deseadas existentes:
    
         {
@@ -161,6 +162,45 @@ Para trabajar en el back-end de la solución, el dispositivo gemelo usa las sigu
         }
 3. **Reemplazar propiedades deseadas**. Esta operación permite que el back-end de la solución sobrescriba completamente todas las propiedades deseadas y sustituya un nuevo documento JSON para `properties/desired`.
 4. **Reemplazar etiquetas**. Esta operación permite que el back-end de la solución sobrescriba completamente todas las etiquetas y sustituya un nuevo documento JSON para `tags`.
+5. **Recibir notificaciones gemelas**. Esta operación permite que el back-end de la solución reciba una notificación cuando se modifique la gemela. Para ello, la solución de IoT debe crear una ruta y establecer el origen de datos igual a *twinChangeEvents*. De forma predeterminada, no se envían notificaciones gemelas, es decir, no existen previamente tales rutas. Si la tasa de cambio es demasiado alta, o por otras razones, como errores internos, IoT Hub podría enviar una sola notificación que contiene todos los cambios. Por lo tanto, si la aplicación necesita registro y auditoría confiables de todos los estados intermedios, la recomendación sigue siendo usar mensajes D2C. El mensaje de notificaciones gemelas incluye propiedades y el cuerpo.
+
+    - Propiedades
+
+    | Nombre | Valor |
+    | --- | --- |
+    $content-type | application/json |
+    $iothub-enqueuedtime |  Hora de envío de la notificación |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
+    deviceId | Id. del dispositivo |
+    hubName | Nombre de IoT Hub |
+    operationTimestamp | Marca de tiempo ISO8601 de operación |
+    iothub-message-schema | deviceLifecycleNotification |
+    opType | "replaceTwin" o "updateTwin" |
+
+    Las propiedades del sistema de mensajes tienen como prefijo el símbolo `'$'`.
+
+    - Cuerpo
+        
+    Esta sección incluye todos los cambios gemelos en formato JSON. Se usa el mismo formato que una revisión, con la diferencia de que puede contener todas las secciones gemelas: etiquetas, propiedades notificadas, propiedades deseadas, y que contiene los elementos "$metadata". Por ejemplo,
+    ```
+    {
+        "properties": {
+            "desired": {
+                "$metadata": {
+                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                },
+                "$version": 1
+            },
+            "reported": {
+                "$metadata": {
+                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                },
+                "$version": 1
+            }
+        }
+    }
+    ``` 
 
 Todas las operaciones anteriores admiten la [simultaneidad optimista][lnk-concurrency] y requieren el permiso **ServiceConnect**, tal y como se define en el artículo sobre [seguridad][lnk-security].
 
@@ -297,7 +337,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 * En el artículo [Puntos de conexión de IoT Hub][lnk-endpoints] se describen los diferentes puntos de conexión que expone cada centro de IoT Hub para las operaciones en tiempo de ejecución y de administración.
 * En el artículo [Cuotas y limitación][lnk-quotas], se describen las cuotas que se aplican al servicio IoT Hub y el comportamiento de limitación esperado al usar el servicio.
 * En el artículo sobre [SDK de dispositivos y servicio de Azure IoT][lnk-sdks] se muestran los SDK de los diferentes lenguajes que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.
-* En el artículo [Lenguaje de consulta de IoT Hub para dispositivos gemelos y trabajos][lnk-query], se describe el lenguaje de consulta de IoT Hub que se puede usar para recuperar información de IoT Hub sobre los dispositivos gemelos y trabajos.
+* En el artículo [Referencia: Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes][lnk-query], se describe el lenguaje de consulta de IoT Hub que se puede usar para recuperar información de IoT Hub sobre los dispositivos gemelos y trabajos.
 * En el artículo sobre la [compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -319,7 +359,7 @@ Si desea probar algunos de los conceptos descritos en este artículo, puede inte
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-security]: iot-hub-devguide-security.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md

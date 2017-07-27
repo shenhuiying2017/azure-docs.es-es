@@ -14,11 +14,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7e18325426bac86d89ff0235e18ddca9fd21e8de
-ms.openlocfilehash: 41a58493c8931e8ce241ce31ecb1ca20b5a82cb3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: cbdc964b16cbc6cf291dbc4b6f60b20d67d9fc41
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -54,10 +56,10 @@ Para obtener más información, consulte a continuación la sección **Comparar 
 
 Los usuarios que disponen de cuentas de AMS anteriores a la versión del 10 de enero de 2017 tienen un punto de conexión de streaming de tipo **clásico**. Este tipo forma parte de la versión "1.0" de los puntos de conexión de streaming.
 
-Si el punto de conexión de streaming de la **versión "1.0"** tiene al menos&1; unidad de streaming premium, será un punto de conexión de streaming premium y ofrecerá todas las características de AMS (al igual que el tipo **Estándar o Premium**) sin ningún paso de configuración adicional.
+Si el punto de conexión de streaming de la **versión "1.0"** tiene al menos 1 unidad de streaming premium, será un punto de conexión de streaming premium y ofrecerá todas las características de AMS (al igual que el tipo **Estándar o Premium**) sin ningún paso de configuración adicional.
 
 >[!NOTE]
->Los puntos de conexión de streaming **clásicos** (versión "1.0" y 0 unidades de streaming) ofrecen características limitadas y no incluyen un Acuerdo de Nivel de Servicio. Se recomienda migrar al tipo **Estándar** para disfrutar de una mejor experiencia y para usar características como el empaquetado dinámico, el cifrado y otras que se ofrecen con el tipo **Estándar**. Para migrar al tipo **Estándar**, vaya a [Azure Portal](https://portal.azure.com/) y seleccione **Opt-in to Standard** (Participar en Estándar). Para obtener más información acerca de la migración, consulte la sección [Migración](#migration-between-types).
+>Los puntos de conexión de streaming **clásicos** (versión "1.0" y 0 unidades de streaming) ofrecen características limitadas y no incluyen un Acuerdo de Nivel de Servicio. Se recomienda migrar al tipo **Estándar** para disfrutar de una mejor experiencia y usar características como el empaquetado dinámico, el cifrado y otras que se ofrecen con dicho tipo. **** Para migrar al tipo **Estándar**, vaya a [Azure Portal](https://portal.azure.com/) y seleccione **Opt-in to Standard** (Participar en Estándar). Para obtener más información acerca de la migración, consulte la sección [Migración](#migration-between-types).
 >
 >Tenga en cuenta que esta operación no se puede revertir y afectará al precio.
 >
@@ -112,10 +114,5 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

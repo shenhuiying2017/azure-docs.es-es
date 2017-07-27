@@ -1,0 +1,209 @@
+---
+title: "Instalación y configuración de Ansible para uso con máquinas virtuales de Azure | Microsoft Docs"
+description: "Obtenga información sobre cómo instalar Ansible y configurarlo para administrar recursos de Azure en Ubuntu, CentOS y SLES."
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: iainfoulds
+manager: timlt
+editor: na
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 05/25/2017
+ms.author: iainfou
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 52b763274437961dccfc862c8a45fbd57ea9fc4e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
+
+---
+
+# <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Instalación y configuración de Ansible para la administración de máquinas virtuales en Azure
+En este artículo se indica cómo instalar Ansible y los módulos de SDK de Python de Azure para algunas de las distribuciones más habituales de Linux. Es posible instalar Ansible en otras distribuciones ajustando los paquetes instalados para adaptarlos a la plataforma en concreto. Para crear recursos de Azure de forma segura, también obtendrá información sobre cómo crear credenciales y definirlos para uso en Ansible. 
+
+Para ver más opciones de instalación y pasos para plataformas adicionales, consulte la [guía de instalación de Ansible](https://docs.ansible.com/ansible/intro_installation.html).
+
+
+## <a name="install-ansible"></a>Instalación de Ansible
+En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#create). En el siguiente ejemplo se crea un grupo de recursos llamado *myResourceGroupAnsible* en la ubicación *eastus*:
+
+```azurecli
+az group create --name myResourceGroupAnsible --location eastus
+```
+
+Seguidamente, cree una VM e instale Ansible para una de las siguientes distribuciones:
+
+- [Ubuntu 16.04 LTS](#ubuntu1604-lts)
+- [CentOS 7.3](#centos-73)
+- [SLES 12.2 SP2](#sles-122-sp2)
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+Cree la máquina virtual con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual llamada *myVMAnsible*:
+
+```bash
+az vm create \
+    --name myVMAnsible \
+    --resource-group myResourceGroupAnsible \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
+```
+
+Conecte SSH a la VM con el elemento `publicIpAddress` indicado en el resultado de la operación de creación de la VM:
+
+```bash
+ssh azureuser@<publicIpAddress>
+```
+
+En la VM, instale los paquetes necesarios para los módulos de SDK de Python de Azure y Ansible de la siguiente forma:
+
+```bash
+## Install pre-requisite packages
+sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip
+
+## Install Azure SDKs via pip
+pip install "azure==2.0.0rc5" msrestazure
+
+## Install Ansible via apt
+sudo apt-get install -y software-properties-common
+sudo apt-add-repository -y ppa:ansible/ansible
+sudo apt-get update && sudo apt-get install -y ansible
+```
+
+Seguidamente, pase a [Creación de credenciales de Azure](#create-azure-credentials).
+
+
+### <a name="centos-73"></a>CentOS 7.3
+Cree la máquina virtual con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual llamada *myVMAnsible*:
+
+```bash
+az vm create \
+    --name myVMAnsible \
+    --resource-group myResourceGroupAnsible \
+    --image CentOS \
+    --admin-username azureuser \
+    --generate-ssh-keys
+```
+
+Conecte SSH a la VM con el elemento `publicIpAddress` indicado en el resultado de la operación de creación de la VM:
+
+```bash
+ssh azureuser@<publicIpAddress>
+```
+
+En la VM, instale los paquetes necesarios para los módulos de SDK de Python de Azure y Ansible de la siguiente forma:
+
+```bash
+## Install pre-requisite packages
+sudo yum check-update; sudo yum install -y gcc libffi-devel python-devel openssl-devel epel-release
+sudo yum install -y python-pip python-wheel
+
+## Install Azure SDKs via pip
+sudo pip install "azure==2.0.0rc5" msrestazure
+
+## Install Ansible via yum
+sudo yum install -y ansible
+```
+
+Seguidamente, pase a [Creación de credenciales de Azure](#create-azure-credentials).
+
+
+### <a name="sles-122-sp2"></a>SLES 12.2 SP2
+Cree la máquina virtual con [az vm create](/cli/azure/vm#create). En el ejemplo siguiente se crea una máquina virtual llamada *myVMAnsible*:
+
+```bash
+az vm create \
+    --name myVMAnsible \
+    --resource-group myResourceGroupAnsible \
+    --image SLES \
+    --admin-username azureuser \
+    --generate-ssh-keys
+```
+
+Conecte SSH a la VM con el elemento `publicIpAddress` indicado en el resultado de la operación de creación de la VM:
+
+```bash
+ssh azureuser@<publicIpAddress>
+```
+
+En la VM, instale los paquetes necesarios para los módulos de SDK de Python de Azure y Ansible de la siguiente forma:
+
+```bash
+## Install pre-requisite packages
+sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
+    libopenssl-devel python-pip python-setuptools python-azure-sdk
+
+## Install Ansible via zypper
+sudo zypper addrepo http://download.opensuse.org/repositories/systemsmanagement/SLE_12_SP2/systemsmanagement.repo
+sudo zypper refresh && sudo zypper install ansible
+```
+
+Seguidamente, pase a [Creación de credenciales de Azure](#create-azure-credentials).
+
+
+## <a name="create-azure-credentials"></a>Creación de credenciales de Azure
+Ansible se comunica con Azure mediante un nombre de usuario y una contraseña, o a través de una entidad de servicio. Las entidades de servicio de Azure son identidades de seguridad que pueden usarse con aplicaciones, servicios y herramientas de automatización como Ansible. El usuario controla los permisos y los define con respecto a cuáles son las operaciones que la entidad de servicio puede realizar en Azure. Para incrementar la seguridad más allá de un nombre de usuario y una contraseña, en este ejemplo se crea una entidad de servicio básica.
+
+Cree una entidad de servicio con [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) y produzca las credenciales necesarios para Ansible:
+
+```azurecli
+az ad sp create-for-rbac --query [appId,password,tenant]
+```
+
+Un ejemplo de resultado de los comandos anteriores es el siguiente:
+
+```json
+[
+  "eec5624a-90f8-4386-8a87-02730b5410d5",
+  "531dcffa-3aff-4488-99bb-4816c395ea3f",
+  "72f988bf-86f1-41af-91ab-2d7cd011db47"
+]
+```
+
+Para autenticarse en Azure, también necesita obtener el identificador de la suscripción de Azure con [az account show](/cli/azure/account#show):
+
+```azurecli
+az account show --query [id] --output tsv
+```
+
+Usará el resultado de estos dos comandos en el siguiente paso.
+
+
+## <a name="create-ansible-credentials-file"></a>Creación de un archivo de credenciales de Ansible
+Para proporcionar unos credenciales a Ansible, debe definir variables de entorno o crear un archivo de credenciales local. Para obtener más información sobre cómo definir credenciales de Ansible, consulte [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules) (Provisión de credenciales a módulos de Azure). 
+
+Para entornos de desarrollo, cree un archivo *credentials* para Ansible en la VM de host de la siguiente forma:
+
+```bash
+mkdir ~/.azure
+vi ~/.azure/credentials
+```
+
+El propio archivo *credentials* combina el identificador de la suscripción con el resultado de la creación de una entidad de servicio. El resultado del anterior comando [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) está en el mismo orden necesario para los elementos *client_id*, *secret* y *tenant*. En el siguiente ejemplo, estos valores, que coinciden con el anterior resultado, se muestran en el archivo *credentials*. Escriba sus propios valores, como se indica a continuación:
+
+```bash
+[default]
+subscription_id=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+client_id=66cf7166-dd13-40f9-bca2-3e9a43f2b3a4
+secret=b8326643-f7e9-48fb-b0d5-952b68ab3def
+tenant=72f988bf-86f1-41af-91ab-2d7cd011db47
+```
+
+
+## <a name="use-ansible-environment-variables"></a>Uso de variables de entorno de Ansible
+Si va a usar herramientas como Ansible Tower o Jenkins, puede definir variables de entorno de la siguiente forma. Estas variables combinan el identificador de la suscripción con el resultado de la creación de una entidad de servicio. El resultado del anterior comando [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) está en el mismo orden necesario para los elementos *AZURE_CLIENT_ID*, *AZURE_SECRET* y *AZURE_TENANT*. 
+
+```bash
+export AZURE_SUBSCRIPTION_ID=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+export AZURE_CLIENT_ID=66cf7166-dd13-40f9-bca2-3e9a43f2b3a4
+export AZURE_SECRET=8326643-f7e9-48fb-b0d5-952b68ab3def
+export AZURE_TENANT=72f988bf-86f1-41af-91ab-2d7cd011db47
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+Ya ha instalado Ansible y los módulos de SDK de Python de Azure, y ha definido las credenciales para usarlos con Ansible. Obtenga información sobre cómo [crear una VM con Ansible](ansible-create-vm.md). También puede obtener información sobre cómo [crear una VM completa de Azure y recursos de apoyo con Ansible](ansible-create-complete-vm.md).

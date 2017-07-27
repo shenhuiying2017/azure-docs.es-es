@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 7d82c86662467979b11b87434707946c30cd8cfa
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -32,9 +32,9 @@ Conéctese a Box y cree y elimine archivos, entre muchas otras cosas. Con Box, p
 
 Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="view-the-swagger"></a>Visualización de Swagger
+## <a name="connector-specific-details"></a>Detalles específicos del conector
 
-Consulte los [detalles sobre Swagger](/connectors/box/).
+Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/box/).
 
 ## <a name="more-connectors"></a>Más conectores
 Volver a la [lista de API](apis-list.md).

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
-translationtype: Human Translation
-ms.sourcegitcommit: 541dd7bed5a4a9e306642b2c36dd7c9d45aec690
-ms.openlocfilehash: fcaff51b2897b1b0bce8b1c503adfd9425c9fbb4
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: b562e8cbc84fc3a1e7e6dab1845022dfcce692a3
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -162,7 +163,7 @@ Después de crear o migrar el sitio de WordPress, use la siguiente información 
 | --- | --- |
 | **Establecer el tamaño y el modo del plan de Servicio de aplicaciones y habilitar el escalado** |[Escalado de una aplicación web en Azure App Service][websitescale]. |
 | **Habilitar conexiones de base de datos persistentes** |De forma predeterminada, WordPress no usa conexiones de base de datos persistentes, lo que puede provocar que la conexión con la base de datos se limite después de varias conexiones. Para habilitar las conexiones persistentes, instale el complemento [Persistent database connection updater](https://wordpress.org/plugins/persistent-database-connection-updater/installation/). |
-| **Mejorar el rendimiento** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Deshabilitar la cookie ARR</a> puede mejorar el rendimiento cuando WordPress se ejecuta en varias instancias de Web Apps.</p></li><li><p>Activación del almacenamiento en caché. Se puede usar <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Redis Cache</a> (versión preliminar) con el <a href="https://wordpress.org/plugins/redis-object-cache/">complemento de WordPress para caché de objetos en Redis</a>, o se puede usar una de las otras ofertas de almacenamiento en caché de <a href="/gallery/store/">Azure Store</a>.</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Agilizar WordPress con Wincache</a>. Wincache está habilitado de forma predeterminada para aplicaciones web.</p></li><li><p>[Escalar una aplicación web en Azure App Service][websitescale] y usar <a href="http://www.cleardb.com/developers/cdbr/introduction">Enrutamiento de alta disponibilidad ClearDB</a> o <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a>.</p></li></ul> |
+| **Mejorar el rendimiento** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Deshabilitar la cookie ARR</a> puede mejorar el rendimiento cuando WordPress se ejecuta en varias instancias de Web Apps.</p></li><li><p>Activación del almacenamiento en caché. Se puede usar <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Redis Cache</a> (versión preliminar) con el <a href="https://wordpress.org/plugins/redis-object-cache/">complemento de WordPress para caché de objetos en Redis</a>, o se puede usar una de las otras ofertas de almacenamiento en caché de <a href="/gallery/store/">Azure Store</a>.</p></li><li><p>[Agilizar WordPress con Wincache](https://wordpress.org/plugins/w3-total-cache/). Wincache está habilitado de forma predeterminada para aplicaciones web. Cuando se usan conjuntamente WinCache y memoria caché dinámica, desactive la memoria caché de archivos de WinCache, pero deje el usuario y la caché de sesión habilitados. Para desactivar la memoria caché de archivos, en un archivo .ini de nivel de sistema, establezca el valor siguiente:<br/><code>wincache.fcenabled = 0</code></p></li><li><p>[Escalar una aplicación web en Azure App Service][websitescale] y usar <a href="http://www.cleardb.com/developers/cdbr/introduction">Enrutamiento de alta disponibilidad ClearDB</a> o <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a>.</p></li></ul> |
 | **Usar blobs para almacenamiento** |<ol><li><p>[Creación de una cuenta de almacenamiento de Azure](../storage/storage-create-storage-account.md).</p></li><li><p>Obtenga información acerca del [Uso de la Red de entrega de contenido](../cdn/cdn-create-new-endpoint.md) para distribuir geográficamente datos almacenados en blobs.</p></li><li><p>Instale y configure el <a href="https://wordpress.org/plugins/windows-azure-storage/">complemento Azure Storage para WordPress</a>.</p><p>Para más información detallada acerca de la instalación y configuración del complemento, consulte la <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">guía del usuario</a>.</p> </li></ol> |
 | **Habilitar correo electrónico** |Habilitar <a href="https://azure.microsoft.com/en-us/marketplace/partners/sendgrid/sendgrid-azure/">SendGrid</a> mediante Azure Store. Instalar el <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">complemento SendGrid</a> para WordPress. |
 | **Configuración de un nombre de dominio personalizado** |[Configuración de un nombre de dominio personalizado en Azure App Service][customdomain]. |
@@ -211,7 +212,7 @@ Para obtener una guía del cambio de Websites a App Service, consulte [Azure App
 [storageplugin]: https://wordpress.org/plugins/windows-azure-storage/
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
 [phpwebsite]: web-sites-php-configure.md
-[customdomain]: web-sites-custom-domain-name.md
+[customdomain]: app-service-web-tutorial-custom-domain.md
 [trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
@@ -223,7 +224,7 @@ Para obtener una guía del cambio de Websites a App Service, consulte [Azure App
 [staging]: web-sites-staged-publishing.md
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
-[httpscustomdomain]: web-sites-configure-ssl-certificate.md
+[httpscustomdomain]: app-service-web-tutorial-custom-ssl.md
 [mysqlwindows]:../virtual-machines/windows/classic/mysql-2008r2.md
 [mysqllinux]:../virtual-machines/linux/classic/mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/

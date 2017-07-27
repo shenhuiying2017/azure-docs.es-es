@@ -9,24 +9,24 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 8567061a98ec5a0619a8e10cb44501dd88d8166c
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 547851972f13ec69a8f65d01290874ad7d07f192
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="restore-a-single-tenant-database"></a>Restauración de una base de datos de inquilino único
+# <a name="restore-a-wingtip-saas-tenants-sql-database"></a>Restaurar una base de datos SQL de inquilinos de SaaS Wingtip
 
-La aplicación SaaS Wingtip Tickets se compila con un modelo de base de datos por inquilino, donde cada inquilino tiene su propia base de datos. Una de las ventajas de este modelo es que resulta fácil restaurar los datos de un inquilino único de manera aislada sin afectar a otros inquilinos.
+La aplicación SaaS Wingtip se compila con un modelo de base de datos por inquilino, donde cada inquilino tiene su propia base de datos. Una de las ventajas de este modelo es que resulta fácil restaurar los datos de un inquilino único de manera aislada sin afectar a otros inquilinos.
 
 En este tutorial, conocerá dos patrones de recuperación de datos:
 
@@ -42,9 +42,9 @@ En este tutorial, conocerá dos patrones de recuperación de datos:
 | **Restauración de inquilino en contexto** | Este patrón se usa habitualmente para recuperar un inquilino a un momento dado anterior, después de que un inquilino elimina datos por accidente. La base de datos original se deja sin conexión y se reemplaza por la base de datos restaurada. |
 |||
 
-Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
+Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
 
-* La aplicación WTP está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [Implementación y exploración de la aplicación SaaS WTP](sql-database-saas-tutorial.md).
+* Se implementa la aplicación SaaS de Wingtip. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de Wingtip](sql-database-saas-tutorial.md).
 * Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-saas-tenant-restore-pattern"></a>Introducción al patrón de restauración de inquilino de SaaS
@@ -55,13 +55,13 @@ En el primer patrón, los datos se restauran en una base de datos nueva. Luego, 
 
 En el segundo patrón, que supone que el inquilino sufrió una pérdida o daños en los datos, la base de datos de producción del inquilino se restaura a un momento dado anterior. En el patrón de restauración en contexto, el inquilino se deja sin conexión durante un tiempo breve mientras la base de datos se restaura y se vuelve a poner en línea. La base de datos original se elimina, pero de todos modos se puede hacer la restauración a partir de ella si necesita volver a un momento dado incluso anterior. Una variación de este patrón podría cambiar el nombre de la base de datos en lugar de eliminar, a pesar de que cambiar el nombre no ofrece ninguna ventaja adicional en términos de la seguridad de los datos.
 
-## <a name="get-the-wingtip-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip
+## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
 
-Los scripts de Wingtip Tickets y el código fuente de la aplicación están disponibles en el repositorio de github [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Los archivos de los scripts se encuentran en la [carpeta Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Descargue la carpeta **Learning Modules** en el equipo local, conservando su estructura de carpetas.
+Los scripts SaaS de Wingtip y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Pasos para descargar los scripts SaaS de Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simulación de la eliminación accidental de los datos de un inquilino
 
-Para mostrar estos escenarios de recuperación, es necesario eliminar *accidentalmente* algunos datos en una de las bases de datos del inquilino. Aunque puede eliminar cualquier registro, en el paso siguiente la demostración se configura para que no se bloquee por infracciones a la integridad referencial. También se agregan algunos datos de compra de entradas que puede usar más adelante en los *tutoriales de WTP Analytics*.
+Para mostrar estos escenarios de recuperación, es necesario eliminar *accidentalmente* algunos datos en una de las bases de datos del inquilino. Aunque puede eliminar cualquier registro, en el paso siguiente la demostración se configura para que no se bloquee por infracciones a la integridad referencial. También se agregan algunos datos de compra de entradas que puede usar más adelante en los *tutoriales de Analytics de SaaS Wingtip*.
 
 Ejecute el script del generador de entradas y cree datos adicionales. De manera intencional, el generador de entradas no compra entradas para el último evento de cada inquilino.
 
@@ -148,6 +148,7 @@ En este tutorial aprendió lo siguiente:
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Otros tutoriales basados en la implementación de la aplicación inicial Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* Otros [tutoriales basados en la aplicación SaaS de Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Introducción a la continuidad empresarial con Base de datos SQL de Azure](sql-database-business-continuity.md)
 * [Más información sobre las copias de seguridad de SQL Database](sql-database-automated-backups.md)
+

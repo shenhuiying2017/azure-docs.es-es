@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/25/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 045dfff9a439674c220a962907d2fe91f2fe0b35
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 072efdccaa8df5d430314d753a437b524986b53c
+ms.contentlocale: es-es
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -92,7 +93,7 @@ Para crear una lista blanca con los intervalos de IP de centro de datos de Azure
 Cuando se realiza una copia de seguridad de una máquina virtual, la extensión de copia de seguridad de dicha máquina envía los comandos de administración de instantáneas a Azure Storage mediante una API de HTTPS. Enrute el tráfico de extensión de copia de seguridad a través del proxy HTTP, ya que es el único componente configurado para el acceso a la red pública de Internet.
 
 > [!NOTE]
-> No hay ninguna recomendación que deba usarse para el software de proxy. Asegúrese de que selecciona un proxy que sea compatible con los pasos de configuración que se mencionan a continuación.
+> No hay ninguna recomendación que deba usarse para el software de proxy. Asegúrese de que selecciona un proxy que tenga permanencia de salida y que sea compatible con los pasos de configuración que se indican a continuación. Asegúrese de que los programas de software de terceros no modifican la configuración del proxy
 >
 >
 

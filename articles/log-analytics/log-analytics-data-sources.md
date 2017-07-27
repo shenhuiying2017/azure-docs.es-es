@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: cec0ceb0da57150e4bdd9f9a0f6d3e751c108523
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -44,10 +46,13 @@ Los orígenes de datos se configuran en el menú **Datos** en **Configuración**
 
 ![Configurar eventos de Windows](./media/log-analytics-data-sources/configure-events.png)
 
-1. En la consola de OMS, seleccione el icono **Configuración** .
+1. En la consola de OMS, haga clic en el icono **Configuración** o en el botón **Configuración** que aparece en la parte superior de la pantalla.
 2. Seleccione **Datos**.
 3. Haga clic en el origen de datos que se va a configurar.
 4. Siga el vínculo a la documentación correspondiente a cada origen de datos de la tabla anterior para obtener detalles sobre su configuración.
+
+> [!NOTE]
+> Actualmente no puede configurar los orígenes de datos de Log Analytics en Azure Portal.
 
 ## <a name="data-collection"></a>Colección de datos
 Las configuraciones de orígenes de datos se entregan en cuestión de minutos a los agentes que están directamente conectados con Log Analytics.  Los datos especificados se recopilan desde el agente y se entregan directamente a Log Analytics a intervalos específicos a cada origen de datos.  Consulte la documentación de cada origen de datos para ver estas especificaciones.
@@ -63,9 +68,4 @@ Todos los datos que recopila Log Analytics se almacenan en el repositorio de OMS
 * Obtenga información sobre las [soluciones](log-analytics-add-solutions.md) que agregan funcionalidad a Log Analytics y que también recopilan datos en el repositorio de OMS.
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados desde soluciones y orígenes de datos.  
 * Configure [alertas](log-analytics-alerts.md) que le notifiquen de manera proactiva acerca de los datos críticos recopilados de soluciones y orígenes de datos.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

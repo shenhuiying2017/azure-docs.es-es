@@ -20,7 +20,6 @@ ms.openlocfilehash: a9023448c4ced1edf54c84bb103454cbd76fbfba
 ms.contentlocale: es-es
 ms.lasthandoff: 04/12/2017
 
-
 ---
 
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de administración de Event Hubs
@@ -49,7 +48,7 @@ El patrón para manipular los recursos de Event Hubs sigue un protocolo común:
 
 1. Obtenga un token de Azure Active Directory mediante la biblioteca `Microsoft.IdentityModel.Clients.ActiveDirectory`.
     ```csharp
-    var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
         "https://management.core.windows.net/",

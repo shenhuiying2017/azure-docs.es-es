@@ -37,13 +37,18 @@
 ### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-## File Storage
-### [Windows, .NET y PowerShell](storage-dotnet-how-to-use-files.md)
+## [File Storage](storage-files-introduction.md)
+### [Portal](storage-file-how-to-use-files-portal.md)
+### [.NET](storage-dotnet-how-to-use-files.md)
+### [PowerShell](storage-file-how-to-use-files-powershell.md)
+### [Windows](storage-file-how-to-use-files-windows.md)
 ### [Linux](storage-how-to-use-files-linux.md)
+### [Mac](storage-file-how-to-use-files-mac.md)  
 ### [Java](storage-java-how-to-use-file-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
-
+### [Creación de un recurso compartido de archivos](storage-file-how-to-create-file-share.md)
+### [Preguntas más frecuentes](storage-files-faq.md)
 ## Almacenamiento en disco 
 ### [Creación de una máquina virtual con Resource Manager y PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 ### [Creación de una máquina virtual con Linux desde cero con la CLI de Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
@@ -122,17 +127,16 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Supervisión y solución de problemas
+### [Guía de recuperación ante desastres](storage-disaster-recovery-guidance.md)
+### [Copia de seguridad y recuperación ante desastres para discos IAAS](storage-backup-and-disaster-recovery-for-azure-iaas-disks.md)
 ### [Solución de problemas del Explorador de almacenamiento](storage-explorer-troubleshooting.md)
 ### Métricas y registro
 #### [Análisis de almacenamiento](storage-analytics.md)
 #### [Habilitación y visualización de métrica](storage-enable-and-view-metrics.md)
 #### [Supervisión, diagnóstico y solución de problemas](storage-monitoring-diagnosing-troubleshooting.md)
 #### [Tutorial de solución de problemas](storage-e2e-troubleshooting.md)
-### Solución de errores de eliminación de disco
-#### [En una implementación de Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [En una implementación clásica](storage-cannot-delete-storage-account-container-vhd.md)
+### [Solución de errores de eliminación de disco](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 ### [Solución de problemas de File Storage](storage-troubleshoot-file-connection-problems.md)
-### [Guía de recuperación ante desastres](storage-disaster-recovery-guidance.md)
 ## Transferencia de datos
 ### [Movimiento de datos hacia Storage y desde este](storage-moving-data.md)
 ### [AzCopy en Windows](storage-use-azcopy.md)
@@ -202,7 +206,7 @@
 ### [Tutorial de solución de problemas](storage-e2e-troubleshooting-classic-portal.md)
 
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Herramientas de cliente de Azure Storage](storage-explorers.md)
 ## [Foro](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Precios](https://azure.microsoft.com/pricing/details/storage/blobs/)

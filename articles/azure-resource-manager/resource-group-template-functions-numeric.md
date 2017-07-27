@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 66984bef9e82df80818eea31bd37de524b567b33
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: ae0261134b8d4a934048f58d6c679a48a904950b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funciones numéricas para las plantillas de Azure Resource Manager
@@ -51,7 +50,11 @@ Devuelve la suma de los dos enteros especificados.
 |operand1 |Sí |int |Primer número que se agregará. |
 |operand2 |Sí |int |Segundo número que se agregará. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+
+Un entero que contiene la suma de los parámetros.
+
+### <a name="example"></a>Ejemplo
 
 El ejemplo siguiente agrega dos parámetros.
 
@@ -62,12 +65,14 @@ El ejemplo siguiente agrega dos parámetros.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to add"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to add"
             }
@@ -84,9 +89,11 @@ El ejemplo siguiente agrega dos parámetros.
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Un entero que contiene la suma de los parámetros.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| addResult | int | 8 |
 
 <a id="copyindex" />
 
@@ -110,7 +117,7 @@ La propiedad **loopName** le permite especificar si copyIndex hace referencia a 
  
 Para ver una descripción completa de cómo usar **copyIndex**, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md).
 
-### <a name="examples"></a>Ejemplos
+### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra un bucle de copia y el valor de índice incluido en el nombre. 
 
@@ -146,7 +153,11 @@ Devuelve la división de enteros de los dos enteros especificados.
 | operand1 |Sí |int |Número que se va a dividir. |
 | operand2 |Sí |int |Número que se usa para dividir. No puede ser 0. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+
+Un entero que representa la división.
+
+### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se divide un parámetro por otro.
 
@@ -157,12 +168,14 @@ En el ejemplo siguiente se divide un parámetro por otro.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 8,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -179,9 +192,11 @@ En el ejemplo siguiente se divide un parámetro por otro.
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Un entero que representa la división.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| divResult | int | 2 |
 
 <a id="float" />
 
@@ -196,7 +211,10 @@ Convierte el valor en un número de punto flotante. Solo use esta función al pa
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o entero |El valor para convertir en número de punto flotante. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+Un número de punto flotante.
+
+### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra cómo usar float para pasar parámetros a una aplicación lógica:
 
@@ -214,9 +232,6 @@ En el ejemplo siguiente se muestra cómo usar float para pasar parámetros a una
         },
 ```
 
-### <a name="return-value"></a>Valor devuelto
-Un número de punto flotante.
-
 <a id="int" />
 
 ## <a name="int"></a>int
@@ -230,7 +245,11 @@ Convierte el valor especificado en un entero.
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sí |cadena o entero |Valor que se convierte en entero. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+
+Un entero del valor convertido.
+
+### <a name="example"></a>Ejemplo
 
 En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario en entero.
 
@@ -239,25 +258,28 @@ En el siguiente ejemplo se convierte el valor del parámetro proporcionado por e
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appId": { "type": "string" }
-    },
-    "variables": { 
-        "intValue": "[int(parameters('appId'))]"
+        "stringToConvert": { 
+            "type": "string",
+            "defaultValue": "4"
+        }
     },
     "resources": [
     ],
     "outputs": {
-        "divResult": {
+        "intResult": {
             "type": "int",
-            "value": "[variables('intValue')]"
+            "value": "[int(parameters('stringToConvert'))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Un entero.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| intResult | int | 4 |
+
 
 <a id="min" />
 
@@ -272,7 +294,11 @@ Devuelve el valor mínimo de una matriz de enteros o una lista separada por coma
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor mínimo. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+
+Un entero que representa el valor mínimo de la colección.
+
+### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra cómo utilizar min con una matriz y una lista de enteros:
 
@@ -300,9 +326,12 @@ En el ejemplo siguiente se muestra cómo utilizar min con una matriz y una lista
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Un entero que representa el valor mínimo de la colección.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -317,7 +346,11 @@ Devuelve el valor máximo de una matriz de enteros o una lista separada por coma
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor máximo. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+
+Un entero que representa el valor máximo de la colección.
+
+### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se muestra cómo utilizar max con una matriz y una lista de enteros:
 
@@ -345,9 +378,12 @@ En el ejemplo siguiente se muestra cómo utilizar max con una matriz y una lista
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Un entero que representa el valor máximo de la colección.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 <a id="mod" />
 
@@ -363,7 +399,10 @@ Devuelve el resto de la división de enteros de los dos enteros especificados.
 | operand1 |Sí |int |Número que se va a dividir. |
 | operand2 |Sí |int |Número que se usa para dividir; no puede ser 0. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+Un entero que representa el resto.
+
+### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se devuelve el resultado de dividir un parámetro por otro.
 
@@ -374,12 +413,14 @@ En el ejemplo siguiente se devuelve el resultado de dividir un parámetro por ot
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -396,8 +437,11 @@ En el ejemplo siguiente se devuelve el resultado de dividir un parámetro por ot
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
-Un entero que representa el resto.
+La salida del ejemplo anterior con los valores predeterminados es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| modResult | int | 1 |
 
 <a id="mul" />
 
@@ -413,7 +457,11 @@ Devuelve la multiplicación de los dos enteros especificados.
 | operand1 |Sí |int |Primer número que se va a multiplicar. |
 | operand2 |Sí |int |Segundo número que se va a multiplicar. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+
+Un entero que representa la multiplicación.
+
+### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se multiplica un parámetro por otro.
 
@@ -424,12 +472,14 @@ En el ejemplo siguiente se multiplica un parámetro por otro.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to multiply"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to multiply"
             }
@@ -446,9 +496,11 @@ En el ejemplo siguiente se multiplica un parámetro por otro.
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con los valores predeterminados es:
 
-Un entero que representa la multiplicación.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| mulResult | int | 15 |
 
 <a id="sub" />
 
@@ -464,7 +516,10 @@ Devuelve la resta de los dos enteros especificados.
 | operand1 |Sí |int |Número del que se resta. |
 | operand2 |Sí |int |Número que se resta. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+Un entero que representa la resta.
+
+### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se resta un parámetro de otro.
 
@@ -475,12 +530,14 @@ En el ejemplo siguiente se resta un parámetro de otro.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer subtracted from"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer to subtract"
             }
@@ -497,8 +554,11 @@ En el ejemplo siguiente se resta un parámetro de otro.
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
-Un entero que representa la resta.
+La salida del ejemplo anterior con los valores predeterminados es:
+
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| subResult | int | 4 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).

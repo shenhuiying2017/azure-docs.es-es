@@ -1,6 +1,6 @@
 ---
 title: "Notas de la versión de Azure BizTalk Services | Microsoft Docs"
-description: Enumera los problemas conocidos de Servicios de BizTalk de Azure
+description: Enumera los problemas conocidos de Azure BizTalk Services
 services: biztalk-services
 documentationcenter: 
 author: msftman
@@ -14,23 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 84ad965ed6ef1711fda983220cf004fdd48d290d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 698f2d520933d423f88066fd1f86409fc2e82661
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="release-notes-for-azure-biztalk-services"></a>Notas de la versión de Servicios de BizTalk de Azure
-Las notas de la versión de los Servicios de BizTalk de Microsoft Azure contienen los problemas conocidos de esta versión.
+# <a name="release-notes-for-azure-biztalk-services"></a>Notas de la versión de Azure BizTalk Services
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+Las notas de la versión de Microsoft Azure BizTalk Services contienen los problemas conocidos de esta versión.
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>Novedades de la actualización de noviembre de Servicios de BizTalk
-* El cifrado en reposo se puede habilitar en el Portal de Servicios de BizTalk. Consulte [Habilitación del cifrado en reposo en el Portal de Servicios de BizTalk](https://msdn.microsoft.com/library/azure/dn874052.aspx).
+* El cifrado en reposo se puede habilitar en el Portal de BizTalk Services. Consulte [Habilitación del cifrado en reposo en el Portal de Servicios de BizTalk](https://msdn.microsoft.com/library/azure/dn874052.aspx).
 
 ## <a name="update-history"></a>Historial de actualizaciones
 ### <a name="october-update"></a>Actualización de octubre
 * Se admiten cuentas de la organización:  
-  * **Escenario**: ha registrado una implementación de un servicio de BizTalk con una cuenta Microsoft (como user@live.com).). En este escenario, solo los usuarios con una cuenta Microsoft pueden administrar el servicio de BizTalk con el portal de BizTalk Services. No se puede usar una cuenta de la organización.  
-  * **Escenario**: ha registrado una implementación de un servicio de BizTalk con una cuenta de la organización en Azure Active Directory (como user@fabrikam.com o user@contoso.com).). En este escenario, solo los usuarios de Azure Active Directory dentro de la misma organización pueden administrar el servicio de BizTalk con el portal de BizTalk Services. No se puede usar una cuenta Microsoft.  
+  * **Escenario**: ha registrado la implementación de un servicio de BizTalk mediante una cuenta Microsoft (como user@live.com). En este escenario, solo los usuarios de cuentas Microsoft pueden administrar el servicio BizTalk mediante el portal de BizTalk Services. No se puede usar una cuenta de la organización.  
+  * **Escenario**: ha registrado la implementación de un servicio de BizTalk mediante una cuenta de organización en Azure Active Directory (como user@fabrikam.com o user@contoso.com). En este escenario, solo los usuarios de Azure Active Directory de la misma organización pueden administrar el servicio BizTalk mediante el portal de BizTalk Services. No se puede usar una cuenta Microsoft.  
 * Cuando se crea un servicio de BizTalk en el Portal de Azure clásico, se registra automáticamente en el Portal de Servicios de BizTalk.
   * **Escenario**: inicia sesión en el Portal de Azure clásico, crea un servicio de BizTalk y luego selecciona **Administrar** por primera vez. Cuando se abre el Portal de Servicios de BizTalk, el servicio de BizTalk se registra automáticamente y está listo para sus implementaciones.  
     Consulte [Registrar y actualizar una implementación del servicio de BizTalk en el Portal de servicios de BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
@@ -134,7 +139,7 @@ Al usar tipos de datos definidos por el usuario, copie los archivos (.dll) en la
 > 
 
 ### <a name="restarting-the-biztalk-adapter-service-web-site"></a>Reinicio del sitio web de servicios BizTalk Adapter
-Al instalar el **tiempo de ejecución de servicios de adaptadores de BizTalk*** se crea el sitio web de **Servicio de adaptadores de BizTalk** en IIS que contiene la aplicación **BAService**. La aplicación **BAService** usa internamente el enlace de retransmisión para ampliar el alcance del punto de conexión de servicio local a la nube. En un servicio hospedado local, el punto de conexión de retransmisión correspondiente se registrará en el Bus de servicio solamente cuando se inicia el servicio local.  
+Al instalar el **runtime del servicio BizTalk Adapter*** se crea en IIS el sitio web del **servicio BizTalk Adapter** que contiene la aplicación **BAService**. La aplicación **BAService** usa internamente los enlaces de retransmisión para ampliar el alcance del punto de conexión de servicio local hasta la nube. En un servicio hospedado local, el punto de conexión de retransmisión correspondiente se registrará en el Bus de servicio solamente cuando se inicia el servicio local.  
 
 Si detiene e inicia una aplicación, no se respeta su configuración de inicio automático. Así que, cuando se detenga **BAService**, siempre necesita reiniciar en su lugar el sitio web de **servicios BizTalk Adapter**. No inicie ni detenga la aplicación **BAService** .
 
@@ -170,7 +175,7 @@ Considere el siguiente escenario:
 Considere los siguientes escenarios:  
 
 **Escenario 1: Uso de certificados basados en huella digital para garantizar la transferencia de mensajes de un puente a un punto de conexión de servicio**  
- Considere un escenario donde usa certificados basados en huella digital en el proyecto de servicio de BizTalk. Actualiza el certificado en el Portal de Servicios de BizTalk con el mismo nombre pero con una huella digital diferente, pero no actualiza el proyecto de servicio de BizTalk de acuerdo con esa modificación. En este escenario, el puente puede seguir procesando los mensajes porque es posible que los datos de certificado más antiguos estén aún en la memoria caché del canal. Después de eso, el procesamiento de mensajes da error.  
+Considere un escenario donde usa certificados basados en huella digital en el proyecto de servicio de BizTalk. Actualiza el certificado en el Portal de Servicios de BizTalk con el mismo nombre pero con una huella digital diferente, pero no actualiza el proyecto de servicio de BizTalk de acuerdo con esa modificación. En este escenario, el puente puede seguir procesando los mensajes porque es posible que los datos de certificado más antiguos estén aún en la memoria caché del canal. Después de eso, el procesamiento de mensajes da error.  
 
 **Solución alternativa**: actualice el certificado en el proyecto de servicio de BizTalk y vuelva a implementar el proyecto.  
 
@@ -218,10 +223,5 @@ En este documento los términos "canalizaciones" y "puentes" se usan indistintam
 
 ### <a name="concepts"></a>Conceptos
 [Servicios de BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

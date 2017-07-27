@@ -1,5 +1,5 @@
 ---
-title: Restringir el acceso de HDInsight a datos mediante firmas de acceso compartido
+title: "Restricción del acceso mediante firmas de acceso compartido - Azure HDInsight | Microsoft Docs"
 description: "Obtener información acerca de cómo usar firmas de acceso compartido para restringir el acceso de HDInsight a datos almacenados en blobs de Almacenamiento de Azure."
 services: hdinsight
 documentationcenter: 
@@ -13,21 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
+ms.date: 05/22/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 758a7e3792869d532d1667277d230f5f5b9d38ca
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5cd05743425069925e71e85a616967c812bd3491
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-with-hdinsight"></a>Uso de firmas de acceso compartido de Almacenamiento de Azure para restringir el acceso a datos con HDInsight
-HDInsight usa blobs de Almacenamiento de Azure para el almacenamiento de datos. Aunque HDInsight debe tener acceso completo al blob que se utiliza como almacenamiento predeterminado para el clúster, puede restringir los permisos a los datos almacenados en otros blobs que usa el clúster. Por ejemplo, quizá desee que algunos datos sean de solo lectura. Puede hacerlo mediante firmas de acceso compartido.
+# <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
 
-Las firmas de acceso compartido (SAS) son una característica de las cuentas de Almacenamiento de Azure que permite limitar el acceso a los datos. Por ejemplo, al proporcionar acceso de solo lectura a los datos. En este documento, obtendrá información sobre cómo usar SAS para habilitar el acceso de solo lista y lectura a un contenedor de blobs desde HDInsight.
+HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociadas con el clúster. Puede usar firmas de acceso compartido en el contenedor de blobs para restringir el acceso a los datos. Por ejemplo, para proporcionar acceso de solo lectura a los datos. Las firmas de acceso compartido (SAS) son una característica de las cuentas de Almacenamiento de Azure que permite limitar el acceso a los datos. Por ejemplo, al proporcionar acceso de solo lectura a los datos.
+
+> [!IMPORTANT]
+> Para una solución con Apache Ranger, considere la posibilidad de usar HDInsight unido a un dominio. Para más información, consulte el documento [Configuración de clústeres de HDInsight unidos a un dominio](hdinsight-domain-joined-configure.md).
+
+> [!WARNING]
+> HDInsight debe tener acceso total al almacenamiento predeterminado para el clúster.
 
 ## <a name="requirements"></a>Requisitos
+
 * Una suscripción de Azure
 * C# o Python. El código de ejemplo de C# se proporciona como una solución de Visual Studio.
 
@@ -37,7 +44,7 @@ Las firmas de acceso compartido (SAS) son una característica de las cuentas de 
 * Un clúster de HDInsight basado en Linux o [Azure PowerShell][powershell]: si ya tiene un clúster basado en Linux, puede usar Ambari para agregar una firma de acceso compartido al clúster. Si no es así, puede usar Azure PowerShell para crear un clúster y agregar una firma de acceso compartido durante la creación del clúster.
 
     > [!IMPORTANT]
-    > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+    > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Los archivos de ejemplo de [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Este repositorio contiene los siguientes elementos:
 
@@ -46,39 +53,46 @@ Las firmas de acceso compartido (SAS) son una característica de las cuentas de 
   * Un script de PowerShell que puede crear un clúster de HDInsight y configurarlo para que use la SAS.
 
 ## <a name="shared-access-signatures"></a>Las firmas de acceso compartido
+
 Hay dos formas de firmas de acceso compartido:
 
 * Ad-hoc: la hora de inicio, la hora de expiración y los permisos para la SAS se especifican todos en el URI de SAS (o se encuentran implícitos en el caso en el que se omita la hora de inicio).
-* Directiva de acceso almacenada: se define una directiva de acceso almacenada en un contenedor de recursos, como un contenedor de blobs, tabla, cola o recurso compartido de archivos. Una directiva puede usarse para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada.
+
+* Directiva de acceso almacenada: se define una directiva de acceso almacenada en un contenedor de recursos, como un contenedor de blobs. Una directiva puede usarse para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada.
 
 La diferencia entre las dos formas es importante para un escenario principal: revocación. Una SAS es una dirección URL, por lo que cualquier persona que obtenga la SAS puede usarla, independientemente de quién la solicitó para comenzar. Si una SAS se encuentra disponible públicamente, cualquier persona del mundo puede usarla. Una SAS distribuida es válida hasta que se produzca una de las cuatro situaciones:
 
 1. Se alcanza el tiempo de expiración especificado en la SAS.
-2. Se alcanza el tiempo de expiración especificado en la directiva de acceso almacenada al que hace referencia la SAS (si se hace referencia a una directiva de acceso almacenada y si especifica una hora de expiración). Esto puede producirse porque transcurra el intervalo o porque haya modificado la directiva de acceso almacenado para tener una hora de expiración pasada, que es una forma de revocar la SAS.
-3. Se elimina la directiva de acceso almacenada a la que hace referencia la SAS, que es otra forma de revocar la SAS. Si se vuelve a crear la directiva de acceso almacenada con exactamente el mismo nombre, todos los tokens de SAS de la directiva anterior serán válidos (si la SAS no ha caducado). Si prevé revocar la SAS, asegúrese de usar un nombre distinto si vuelve a crear la directiva de acceso con una hora de caducidad futura.
-4. Se vuelve a generar la clave de cuenta que se usó para crear la SAS. Regenerar la clave hace que todos los componentes de la aplicación que usan la clave anterior no se puedan autenticar hasta que actualicen la nueva clave.
+
+2. Se alcanza la hora de expiración especificada en la directiva de acceso almacenada a la que hace referencia la SAS. Esto puede producirse porque transcurra el intervalo o porque haya modificado la directiva de acceso almacenado para tener una hora de expiración pasada, que es una forma de revocar la SAS.
+
+3. Se elimina la directiva de acceso almacenada a la que hace referencia la SAS, que es otra forma de revocar la SAS. Si se vuelve a crear la directiva de acceso almacenada con el mismo nombre, todos los tokens de SAS de la directiva anterior son válidos (si la SAS no ha caducado). Si prevé revocar la SAS, asegúrese de usar un nombre distinto si vuelve a crear la directiva de acceso con una hora de expiración futura.
+
+4. Se vuelve a generar la clave de cuenta que se usó para crear la SAS. Regenerar la clave hace que todas las aplicaciones que usan la clave anterior no se puedan autenticar. Debe actualizar todos los componentes con la nueva clave.
 
 > [!IMPORTANT]
 > Los URI de firma de acceso compartido están asociados a la clave de la cuenta que se utiliza para crear la firma y a la directiva de acceso almacenada correspondiente (en su caso). Si no se especifica una directiva de acceso almacenada, la única forma de revocar una firma de acceso compartido es cambiar la clave de la cuenta.
->
->
 
-Se recomienda usar siempre las directivas de acceso almacenadas, para que pueda revocar las firmas o ampliar la fecha de caducidad según sea necesario. Los pasos descritos en este documento utilizan directivas de acceso almacenadas para generar las SAS.
+Se recomienda usar siempre las directivas de acceso almacenadas, para que pueda revocar las firmas o ampliar la fecha de expiración según sea necesario. Los pasos descritos en este documento utilizan directivas de acceso almacenadas para generar las SAS.
 
 Para más información sobre firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md)
 
-## <a name="create-a-stored-policy-and-generate-a-sas"></a>Creación de una directiva almacenada y generación de una SAS
-Ahora, debe crear una directiva almacenada mediante programación. Puede encontrar el ejemplo de C# y Python de creación de una directiva almacenada y SAS en [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature).
+### <a name="create-a-stored-policy-and-sas-using-c"></a>Creación de una directiva almacenada y una SAS mediante C\#
 
-### <a name="create-a-stored-policy-and-sas-using-c"></a>Creación de una directiva almacenada y una SAS mediante C\
 1. Abra la solución en Visual Studio.
+
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **SASToke**n y seleccione **Propiedades**.
+
 3. Seleccione **Configuración** y agregue valores para las siguientes entradas:
 
    * StorageConnectionString: la cadena de conexión de la cuenta de almacenamiento para la que desea crear una directiva almacenada y una SAS. El formato debe ser `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` donde `myaccount` es el nombre de la cuenta de almacenamiento y `mykey` es la clave para la cuenta de almacenamiento.
+
    * ContainerName: el contenedor de la cuenta de almacenamiento a la que desea restringir el acceso.
+
    * SASPolicyName: el nombre que se usará para la directiva almacenada que se va a crear.
+
    * FileToUpload: la ruta de acceso a un archivo que se carga en el contenedor.
+
 4. Ejecute el proyecto. Aparece una ventana de consola y, una vez generada la SAS, se mostrará información similar al texto siguiente:
 
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
@@ -86,13 +100,19 @@ Ahora, debe crear una directiva almacenada mediante programación. Puede encontr
     Guarde el token de directiva de SAS, el nombre de la cuenta de almacenamiento y el nombre del contenedor. Estos valores se usan al asociar la cuenta de almacenamiento con el clúster de HDInsight.
 
 ### <a name="create-a-stored-policy-and-sas-using-python"></a>Creación de una directiva almacenada y una SAS mediante Python
+
 1. Abra el archivo SASToken.py y cambie los valores siguientes:
 
    * policy\_name: el nombre que se usará para la directiva almacenada que se va a crear.
+
    * storage\_account\_name: el nombre de su cuenta de almacenamiento.
+
    * storage\_account\_key: la clave de su cuenta de almacenamiento.
+
    * storage\_container\_name: el contenedor de la cuenta de almacenamiento al que desea restringir el acceso.
-   * example\_file\_path: la ruta de acceso a un archivo que se carga en el contenedor
+
+   * example\_file\_path: la ruta de acceso a un archivo que se carga en el contenedor.
+
 2. Ejecute el script. Cuando finalice el script, muestra un token de SAS similar al texto siguiente:
 
         sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
@@ -100,6 +120,7 @@ Ahora, debe crear una directiva almacenada mediante programación. Puede encontr
     Guarde el token de directiva de SAS, el nombre de la cuenta de almacenamiento y el nombre del contenedor. Estos valores se usan al asociar la cuenta de almacenamiento con el clúster de HDInsight.
 
 ## <a name="use-the-sas-with-hdinsight"></a>Uso de las SAS con HDInsight
+
 Al crear un clúster de HDInsight, debe especificar una cuenta de almacenamiento principal y puede especificar, opcionalmente, cuentas de almacenamiento adicionales. Estos dos métodos para agregar almacenamiento requieren tener un acceso total a las cuentas de almacenamiento y los contenedores que se utilizan.
 
 Para usar una firma de acceso compartido a fin de limitar el acceso a un contenedor, agregue una entrada personalizada a la configuración **core-site** para el clúster.
@@ -108,6 +129,7 @@ Para usar una firma de acceso compartido a fin de limitar el acceso a un contene
 * Para clústeres de HDInsight **basados en Linux**, cambie la configuración después de crear el clúster con Ambari.
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Crear un clúster que usa la SAS
+
 Se incluye un ejemplo de creación de un clúster de HDInsight que usa la SAS en el directorio `CreateCluster` del repositorio. Para ello, siga estos pasos:
 
 1. Abra el archivo `CreateCluster\HDInsightSAS.ps1` en un editor de texto y modifique los valores siguientes al principio del documento.
@@ -157,8 +179,6 @@ Se incluye un ejemplo de creación de un clúster de HDInsight que usa la SAS en
    > * Debe contener al menos un dígito.
    > * Debe incluir al menos un carácter no alfanumérico.
    > * Debe contener al menos una mayúscula o una minúscula.
-   >
-   >
 
 Este script tarda un tiempo en completarse, normalmente unos 15 minutos. Una vez finalizado el script sin errores, se creará el clúster.
 
@@ -167,22 +187,25 @@ Este script tarda un tiempo en completarse, normalmente unos 15 minutos. Una vez
 Si tiene un clúster existente basado en Linux, puede agregar las SAS para la configuración **core-site** mediante los pasos siguientes:
 
 1. Abra la interfaz de usuario web Ambari del clúster. La dirección de esta página es https://NOMBREDESUCLÚSTER.azurehdinsight.net. Cuando se le solicite, autentíquese en el clúster con el nombre de administrador (admin) y la contraseña que usó al crear el clúster.
+
 2. En el lado izquierdo de la interfaz de usuario web Ambari, seleccione **HDFS** y, a continuación, seleccione la pestaña **Configs** (Configuraciones) en el centro de la página.
+
 3. Seleccione la pestaña **Advanced** (Avanzadas) y, a continuación, desplácese hasta encontrar la sección **Custom core-site** (Sitio principal personalizado).
+
 4. Expanda la sección **Custom core-site** (Sitio principal personalizado), desplácese hasta el final y seleccione el vínculo **Add property...** (Agregar propiedad...). Utilice los siguientes valores para los campos **Key** (Clave) y **Value** (Valor):
 
    * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Value**: la SAS devuelta por la aplicación de C# o Python ejecutada anteriormente.
 
      Reemplace **CONTAINERNAME** por el nombre del contenedor utilizado con la aplicación de C# o de SAS. Reemplace **STORAGEACCOUNTNAME** por el nombre de la cuenta de almacenamiento utilizada.
+
 5. Haga clic en el botón **Add** (Agregar) para guardar esta clave y este valor y, a continuación, haga clic en el botón **Save** (Guardar) para guardar los cambios de configuración. Cuando se le solicite, agregue una descripción del cambio ("Agregar acceso de almacenamiento de SAS", por ejemplo) y haga clic en **Save** (Guardar).
 
     Haga clic en **OK** (Aceptar) cuando se hayan completado los cambios.
 
    > [!IMPORTANT]
    > Debe reiniciar varios servicios para que el cambio surta efecto.
-   >
-   >
+
 6. En la interfaz de usuario web Ambari, seleccione **HDFS** en la lista de la izquierda y, a continuación, seleccione **Restart All** (Reiniciar todos) en la lista desplegable **Service Actions** (Acciones del servicio) de la derecha. Cuando se le solicite, seleccione **Turn on maintenance mode** (Activar modo de mantenimiento) y, a continuación, "Confirm Restart All" ("Confirmar reiniciar todo").
 
     Repita este proceso para MapReduce2 y YARN.
@@ -190,6 +213,7 @@ Si tiene un clúster existente basado en Linux, puede agregar las SAS para la co
 7. Una vez reiniciados los servicios, seleccione cada uno de ellos y deshabilite el modo de mantenimiento en la lista desplegable **Service Actions** (Acciones del servicio).
 
 ## <a name="test-restricted-access"></a>Prueba de acceso restringido
+
 Para comprobar que tiene el acceso restringido, utilice los métodos siguientes:
 
 * Para clústeres de HDInsight **basados en Windows** , use el Escritorio remoto para conectarse al clúster. Para más información, vea [Connect to HDInsight using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp) (Conectarse a HDInsight mediante RDP).
@@ -204,16 +228,19 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
         hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
 
     Este comando muestra el contenido del contenedor, que debe incluir el archivo que se cargó al crear el contenedor y la SAS.
+
 2. Use el siguiente comando para comprobar que puede leer el contenido del archivo. Reemplace **SASCONTAINER** y **SASACCOUNTNAME** tal como lo ha hecho en el paso anterior. Reemplace **FILENAME** por el nombre de archivo que aparece en el comando anterior:
 
         hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
 
     Este comando muestra el contenido del archivo.
+
 3. Use el siguiente comando para descargar el archivo en el sistema de archivos local:
 
         hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
 
     Este comando descarga el archivo en un archivo local denominado **testfile.txt**.
+
 4. Use el siguiente comando para cargar el archivo local en un nuevo archivo denominado **testupload.txt** en el almacenamiento de SAS:
 
         hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
@@ -229,7 +256,9 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
     Esta vez, la operación debe completarse correctamente.
 
 ## <a name="troubleshooting"></a>Solución de problemas
+
 ### <a name="a-task-was-canceled"></a>Se ha cancelado una tarea
+
 **Síntomas**: al crear un clúster mediante el script de PowerShell, puede recibir el mensaje de error siguiente:
 
     New-AzureRmHDInsightCluster : A task was canceled.
@@ -249,6 +278,7 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
 * Debe contener al menos una mayúscula o una minúscula.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster de HDInsight, obtenga información acerca de otras maneras de trabajar con datos en el clúster:
 
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)

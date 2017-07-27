@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/01/2017
+ms.date: 06/08/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 6d5563d06d9097134715f8885521c85e987a3acd
-ms.lasthandoff: 05/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 56e8f5cf3886c740853a40781c42b3e36144134b
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -163,7 +164,7 @@ Tenga en cuenta los siguientes procedimientos recomendadas al aprovisionar recur
 * Para casos de uso de recuperación ante desastres, cuando el número de recursos compartidos o volúmenes permitidos es 16 y el número máximo de volúmenes o recursos compartidos que se pueden procesar en paralelo también es 16, el número de recursos compartidos o volúmenes no tiene una incidencia en el RTO y los RPO.
 
 #### <a name="volumeshare-type"></a>Tipo de volumen o recurso compartido
-StorSimple admite dos tipos de volúmenes o recursos compartidos en función del uso: anclados localmente y en capas. Los volúmenes o recursos compartidos anclados localmente tienen aprovisionamiento grueso, mientras que los volúmenes o recursos compartidos en capas tienen aprovisionamiento fino. 
+StorSimple admite dos tipos de volúmenes o recursos compartidos en función del uso: anclados localmente y en capas. Los volúmenes o recursos compartidos anclados localmente tienen aprovisionamiento grueso, mientras que los volúmenes o recursos compartidos en capas tienen aprovisionamiento fino. No se puede convertir un volumen o recurso compartido anclado localmente en uno en capas o *viceversa* una vez creado.
 
 Al configurar volúmenes o recursos compartidos de StoreSimple, se recomienda implementar los siguientes procedimientos recomendados:
 

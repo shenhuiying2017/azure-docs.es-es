@@ -1,6 +1,6 @@
 ---
 title: "Modelos de diseño para aplicaciones SaaS multiinquilino con Azure SQL Database | Microsoft Docs"
-description: "En este artículo se explican los requisitos y modelos de arquitectura de datos comunes de las aplicaciones de base de datos multiinquilino que se ejecutan en un entorno de nube que debe tener en cuenta y las distintas ventajas e inconvenientes de estos modelos. También se explica cómo ayuda Base de datos SQL de Azure con sus grupos elásticos y herramientas elásticas a afrontar estos requisitos de forma garantizada."
+description: "En este artículo se describen los requisitos y modelos de arquitectura de datos comunes de las aplicaciones de base de datos multiinquilino que se ejecutan en un entorno de nube. Es necesario que los tenga en cuenta, así como las distintas ventajas e inconvenientes de estos modelos. También se explica cómo ayuda Base de datos SQL de Azure con sus grupos elásticos y herramientas elásticas a afrontar estos requisitos de forma garantizada."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -9,28 +9,29 @@ manager: jhubbard
 editor: 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
-ms.custom: development
+ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
-translationtype: Human Translation
-ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
-ms.openlocfilehash: c30f1d879f46805cf802679613089a16dc47ad40
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="design-patterns-for-multitenant-saas-applications-and-azure-sql-database"></a>Modelos de diseño para las aplicaciones SaaS multiinquilino y Base de datos SQL de Azure
+# <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Modelos de diseño para las aplicaciones SaaS multiinquilino y Azure SQL Database
 En este artículo aprenderá sobre los requisitos y modelos de arquitectura de datos comunes de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino que se ejecutan en un entorno de nube. También se explican los factores que debe tener en cuenta, así como las ventajas y desventajas de los distintos modelos de diseño. Los grupos y herramientas elásticos de Base de datos SQL de Azure pueden ayudarle a satisfacer necesidades específicas sin poner en peligro otros objetivos.
 
 A veces, los desarrolladores toman decisiones que van en contra de sus intereses a largo plazo al diseñar los modelos de arrendamiento para las capas de datos de las aplicaciones multiinquilino. Inicialmente, al menos, un desarrollador puede percibir la facilidad de desarrollo y el menor costo del proveedor de servicios en la nube como algo más importante que el aislamiento de inquilinos o la escalabilidad de una aplicación. Esta opción puede provocar problemas de insatisfacción en los clientes y generar una costosa corrección del proceso posteriormente.
 
 Una aplicación multiinquilino es una aplicación que se hospeda en un entorno de nube y proporciona el mismo conjunto de servicios a cientos o miles de inquilinos que no comparten ni ven los datos de los demás. Un ejemplo es una aplicación SaaS que proporciona servicios a los inquilinos en un entorno hospedado en la nube.
 
-## <a name="multitenant-applications"></a>Aplicaciones multiinquilino
+## <a name="multi-tenant-applications"></a>Aplicaciones multiinquilino
 En aplicaciones multiinquilino, se pueden particionar fácilmente los datos y la carga de trabajo. Se pueden particionar los datos y la carga de trabajo, por ejemplo, a lo largo de los límites del inquilino puesto que la mayoría de las solicitudes se refieren a un inquilino. En este artículo se analiza qué propiedad es inherente en los datos y la carga de trabajo, y favorece a los modelos de aplicación.
 
 Los desarrolladores utilizan este tipo de aplicación en todo el espectro de aplicaciones basadas en la nube, incluidas:
@@ -48,7 +49,7 @@ No todas las aplicaciones se particionan fácilmente a lo largo de una sola prop
 
 Ninguna estrategia de partición única se puede aplicar a todas las tablas ni puede funcionar con la carga de trabajo de una aplicación. Este artículo se centra en las aplicaciones multiinquilino que tienen cargas de trabajo y datos que se pueden particionar fácilmente.
 
-## <a name="multitenant-application-design-trade-offs"></a>Diseño de aplicación multiinquilino: ventajas y desventajas
+## <a name="multi-tenant-application-design-trade-offs"></a>Ventajas y desventajas del diseño de las aplicaciones multiinquilino
 El modelo de diseño que suele elegir un desarrollador de aplicaciones multiinquilino debe tener en cuenta los siguientes factores:
 
 * **Aislamiento de inquilinos**. El desarrollador debe garantizar que ningún inquilino obtenga un acceso no deseado a los datos de otros inquilinos. Este requisito de aislamiento se extiende a otras propiedades como protección contra vecinos ruidosos, capacidad de restaurar los datos de un inquilino, implementación de personalizaciones específicas de inquilino, etc.
@@ -60,12 +61,12 @@ Cada uno de estos factores presenta ventajas y desventajas en comparación con l
 
 Un modelo de desarrollo conocido es empaquetar varios inquilinos en una o varias bases de datos. Las ventajas de este enfoque son un costo más bajo, porque se paga por un pequeño número de bases de datos, y la sencillez relativa de trabajar con un número limitado de bases de datos. Pero con el tiempo, un desarrollador de aplicaciones multiinquilino SaaS se dará cuenta de que esta opción presenta grandes inconvenientes en lo relativo a aislamiento de inquilinos y escalabilidad. Si el aislamiento de inquilinos es importante, se requiere un mayor esfuerzo para proteger los datos de inquilinos en el almacenamiento compartido contra el acceso no autorizado o vecinos ruidosos. Este esfuerzo adicional puede aumentar de forma significativa los esfuerzos de desarrollo y los costos de mantenimiento del aislamiento. De igual forma, si es necesario agregar inquilinos, este modelo de diseño suele requerir conocimientos para redistribuir los datos de inquilinos en todas las bases de datos correctamente a fin de escalar la capa de datos de una aplicación.  
 
-A menudo el aislamiento de inquilinos es un requisito fundamental en las aplicaciones multiinquilino SaaS dirigidas a empresas y organizaciones. A un desarrollador pueden seducirle más las ventajas percibidas con respecto a la sencillez y el costo que el aislamiento de inquilinos y la escalabilidad. Esta opción resulta compleja y costosa, según crece el servicio y los requisitos de aislamiento de inquilinos se vuelven más importantes y necesitan administrarse a nivel de aplicación. Para las aplicaciones multiinquilino que proporcionan un servicio orientado al consumidor directo para los clientes, el aislamiento de inquilinos puede perder prioridad frente a la optimización del costo de los recursos en la nube.
+A menudo el aislamiento de inquilinos es un requisito fundamental en las aplicaciones multiinquilino SaaS dirigidas a empresas y organizaciones. A un desarrollador pueden seducirle más las ventajas percibidas con respecto a la sencillez y el costo que el aislamiento de inquilinos y la escalabilidad. Esta opción resulta compleja y costosa, según crece el servicio y los requisitos de aislamiento de inquilinos se vuelven más importantes y necesitan administrarse a nivel de aplicación. Sin embargo, para las aplicaciones multiinquilino que proporcionan un servicio orientado al consumidor directo para los clientes, el aislamiento de inquilinos puede perder prioridad frente a la optimización del costo de los recursos en la nube.
 
-## <a name="multitenant-data-models"></a>Modelos de datos multiinquilino
+## <a name="multi-tenant-data-models"></a>Modelos de datos multiinquilino
 Las prácticas de diseño comunes para colocar los datos del inquilino siguen tres modelos distintos que se muestran en la Figura 1.
 
-![Modelos de datos de aplicación multiinquilino](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
+![Modelos de datos de aplicaciones multiinquilino](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
 
 Figura 1: Prácticas de diseño comunes para los modelos de datos multiinquilino
 
@@ -78,7 +79,7 @@ Figura 1: Prácticas de diseño comunes para los modelos de datos multiinquilino
 > 
 > 
 
-## <a name="popular-multitenant-data-models"></a>Modelos de datos multiinquilino populares
+## <a name="popular-multi-tenant-data-models"></a>Modelos de datos multiinquilino más conocidos
 Es importante evaluar los distintos tipos de modelos de datos multiinquilino en cuanto a ventajas y desventajas del diseño de la aplicación que ya se han identificado. Estos factores ayudan a caracterizar los tres modelos de datos multiinquilino más comunes descritos anteriormente y su uso de la base de datos tal como se muestra en la Figura 2.
 
 * **Aislamiento**. El grado de aislamiento entre los inquilinos puede ser una medida de cuánto aislamiento logra un modelo de datos.
@@ -87,9 +88,9 @@ Es importante evaluar los distintos tipos de modelos de datos multiinquilino en 
 
 En la Figura 2, el eje Y muestra el nivel de aislamiento de los inquilinos. El eje X muestra el nivel de uso compartido de recursos. La flecha diagonal gris en medio indica la dirección de los costos de DevOps que tienden a aumentar o disminuir.
 
-![Modelos de diseño de aplicación multiinquilino populares](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png)
+![Modelos de diseño de aplicaciones multiinquilino más conocidos](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png)
 
-Figure 2: Modelos de datos multiinquilino populares
+Figure 2: Modelos de datos multiinquilino más conocidos
 
 El cuadrante inferior derecho en la Figura 2 muestra un modelo de aplicación que utiliza una única base de datos compartida potencialmente grande y el enfoque de tabla compartida (o esquema independiente). Se recomienda para el uso compartido de recursos porque todos los inquilinos utilizan los mismos recursos de base de datos (CPU, memoria, entrada y salida) en una única base de datos. Sin embargo, el aislamiento de inquilinos es limitado. Tendrá que realizar otros pasos para proteger los inquilinos unos de otros en la capa de aplicación. Estos pasos adicionales pueden aumentar significativamente el costo de las operaciones de DevOps de desarrollo y administración de la aplicación. La escalabilidad está limitada por la escala del hardware que hospeda la base de datos.
 
@@ -105,15 +106,15 @@ Estos factores también influyen en el modelo de diseño que elige un cliente:
 
 Dadas las ventajas y desventajas del diseño que se muestran en la Figura 2, un modelo multiinquilino ideal debe incorporar unas buenas propiedades de aislamiento de inquilinos con un uso compartido óptimo de recursos entre inquilinos. Se trata de un modelo que se ajusta a la categoría descrita en el cuadrante superior derecho de la Figura 2.
 
-## <a name="multitenancy-support-in-azure-sql-database"></a>Compatibilidad con la arquitectura multiinquilino con Base de datos SQL de Azure
-La Base de datos SQL de Azure es compatible con todos los modelos de aplicación multiinquilino descritos en la Figura 2. Con los grupos elásticos, también admite un modelo de aplicación que combina un uso compartido excelente de los recursos y las ventajas de aislamiento del enfoque de base de datos por inquilino (consulte el cuadrante superior derecho en la Figura 3). Las herramientas de bases de datos elásticas y las funcionalidades de Base de datos SQL pueden ayudar a reducir el costo de desarrollo y funcionamiento de una aplicación que tiene numerosas bases de datos (mostrada en el área sombreada de la Figura 3). Estas herramientas pueden ayudarle a crear y administrar aplicaciones que usan cualquiera de los modelos de bases de datos multiinquilino.
+## <a name="multi-tenancy-support-in-azure-sql-database"></a>Compatibilidad con la arquitectura multiinquilino en Azure SQL Database
+Azure SQL Database es compatible con todos los modelos de aplicaciones multiinquilino descritos en la Figura 2. Con los grupos elásticos, también admite un modelo de aplicación que combina un uso compartido excelente de los recursos y las ventajas de aislamiento del enfoque de base de datos por inquilino (consulte el cuadrante superior derecho en la Figura 3). Las herramientas de bases de datos elásticas y las funcionalidades de Base de datos SQL pueden ayudar a reducir el costo de desarrollo y funcionamiento de una aplicación que tiene numerosas bases de datos (mostrada en el área sombreada de la Figura 3). Estas herramientas pueden ayudarle a crear y administrar aplicaciones que usan cualquiera de los modelos de bases de datos multiinquilino.
 
 ![Modelos de Base de datos SQL de Azure](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
 
-Figura 3: Modelos de aplicación multiinquilino con Base de datos SQL de Azure
+Figura 3: Modelos de aplicaciones multiinquilino en Azure SQL Database
 
 ## <a name="database-per-tenant-model-with-elastic-pools-and-tools"></a>Modelo de base de datos por inquilino con grupos elásticos y herramientas
-Los grupos elásticos de Base de datos SQL combinan el aislamiento de inquilinos con recursos compartidos entre las bases de datos de los inquilinos para mejorar la compatibilidad con el enfoque de base de datos por inquilino. La Base de datos SQL es una solución de capa de datos para los proveedores de SaaS que crean aplicaciones multiinquilino. La carga del uso compartido de recursos entre inquilinos se desplaza desde la capa de la aplicación a la capa de servicio de base de datos. La complejidad de administración y de consulta a escala entre bases de datos se simplifica con trabajos, consultas y transacciones elásticos, y la biblioteca de cliente de base de datos elástica.
+Los grupos elásticos de Base de datos SQL combinan el aislamiento de inquilinos con recursos compartidos entre las bases de datos de los inquilinos para mejorar la compatibilidad con el enfoque de base de datos por inquilino. SQL Database es una solución de capa de datos para los proveedores de SaaS que crean aplicaciones multiinquilino. La carga del uso compartido de recursos entre inquilinos se desplaza desde la capa de la aplicación a la capa de servicio de base de datos. La complejidad de administración y de consulta a escala entre bases de datos se simplifica con trabajos, consultas y transacciones elásticos, y la biblioteca de cliente de base de datos elástica.
 
 | Requisitos de la aplicación | Funcionalidades de Base de datos SQL |
 | --- | --- |
@@ -142,7 +143,7 @@ Los requisitos de aislamiento de inquilinos son importantes para la mayoría de 
 
 Aunque estos aspectos pueden ser obstáculos importantes para la mayoría de proveedores de servicios de bases de datos en la nube, la Base de datos SQL de Azure elimina las barreras con sus funcionalidades de bases de datos elásticas y grupos elásticos. Los desarrolladores de SaaS pueden combinar las características de aislamiento del modelo de base de datos por inquilino y optimizar el uso compartido de recursos y las mejoras de administración de un gran número de bases de datos mediante grupos elásticos y herramientas asociadas.
 
-Los proveedores de aplicaciones multiinquilino sin requisitos de aislamiento de inquilinos y que pueden empaquetar los inquilinos de una base de datos a alta densidad pueden considerar que los modelos de datos compartidos aportan eficacia al uso compartido de recursos y reducen el costo total. Las herramientas de bases de datos elásticas de Base de datos SQL de Azure, las bibliotecas de particionamiento y las características de seguridad ayudan a los proveedores de SaaS a crear y administrar las aplicaciones multiinquilino.
+Los proveedores de aplicaciones multiinquilino sin requisitos de aislamiento de inquilinos y que pueden empaquetar los inquilinos de una base de datos a alta densidad, podrían encontrarse con que los modelos de datos compartidos proporcionan eficacia adicional en el uso compartido de recursos y reducen el costo total. Las herramientas de bases de datos elásticas de Azure SQL Database, las bibliotecas de particionamiento y las características de seguridad ayudan a los proveedores de SaaS a crear y administrar las aplicaciones multiinquilino.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md) para ver una aplicación de ejemplo que demuestra la biblioteca de cliente.
@@ -156,14 +157,17 @@ Para crear y administrar un grupo elástico mediante Azure Portal, consulte [có
 Aprenda a [supervisar y administrar un grupo elástico](sql-database-elastic-pool-manage-portal.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
+
+* [Implementación y exploración de una aplicación SaaS multiinquilino que usa Azure SQL Database](sql-database-saas-tutorial.md)
 * [¿Qué es un grupo elástico de Azure?](sql-database-elastic-pool.md)
 * [Escalado horizontal con Base de datos SQL de Azure](sql-database-elastic-scale-introduction.md)
-* [Aplicaciones multiinquilino con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-* [Authentication in multitenant apps by using Azure Active Directory and OpenID Connect (Autenticación en aplicaciones multiinquilino con Azure Active Directory y OpenID Connect)](../guidance/guidance-multitenant-identity-authenticate.md)
+* [Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+* [Autenticación en aplicaciones multiinquilino mediante Azure Active Directory y OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Aplicación Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características
+
 Si tiene preguntas, nos encontrará en el [foro de Base de datos SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Agregue una solicitud de característica en el [foro de comentarios de Base de datos SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 

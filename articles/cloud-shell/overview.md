@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 63f1c468b5f8f4b0bb298cb67adea8c01b065427
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 6b4bbb13dbb86f82dd6a70acaccfcf38eec951c6
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Introducción a Azure Cloud Shell (versión preliminar)
@@ -77,4 +77,11 @@ El equipo que hospeda Cloud Shell es gratis, con un requisito previo de un recur
 
 ## <a name="supported-browsers"></a>Exploradores compatibles
 Se recomienda Cloud Shell para Chrome, Edge y Safari. Aunque se admite Cloud Shell para Chrome, Firefox, Safari, Internet Explorer y Edge, Cloud Shell está sujeto a la configuración específica del explorador.
+
+## <a name="troubleshooting"></a>Solución de problemas
+* Cuando se crea el almacenamiento, se recibe el error: 409 MissingSubscriptionRegistration.
+  * Este error indica que la suscripción no se ha registrado para el espacio de nombres de almacenamiento. Siga [estas instrucciones paso a paso](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#noregisteredproviderfound) e inténtelo de nuevo cuando las haya terminado.
+* Cuando se utiliza una suscripción de Azure Active Directory, no se puede crear almacenamiento debido al error: 400 DisallowedOperation.
+  * Las suscripciones de AD no tienen acceso para crear recursos de Azure, use una suscripción de Azure capaz de crear recursos de almacenamiento.
+
 Para conocer las limitaciones conocidas específicas, consulte las [limitaciones de Cloud Shell](limitations.md).

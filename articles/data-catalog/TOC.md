@@ -20,6 +20,8 @@
 ## [Administración de recursos de datos](data-catalog-how-to-manage.md)
 ## [Guardado de búsquedas y anclado de recursos de datos](data-catalog-how-to-save-pin.md)
 ## [Configuración del glosario empresarial](data-catalog-how-to-business-glossary.md)
+## [Acceso seguro al catálogo de datos](data-catalog-how-to-secure-catalog.md)
+## [Visualización de los recursos de datos relacionados](data-catalog-how-to-view-related-data-assets.md) 
 
 # Referencia
 ## [REST](/rest/api/datacatalog/)

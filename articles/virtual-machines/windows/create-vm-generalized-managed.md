@@ -13,22 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/7/2017
+ms.date: 05/22/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: e308b75581ca5372a4de168895f2eeb140a69a78
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 527f3f33e2b5996c6fa7b7dc874123bba5ab39dd
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="create-a-vm-from-a-generalized-managed-vm-image"></a>Creación de una VM a partir de una imagen de VM administrada generalizada
+# <a name="create-a-vm-from-a-managed-image"></a>Creación de una máquina virtual a partir de una imagen administrada
 
 Puede crear varias VM a partir de una imagen de VM administrada en Azure. Una imagen de VM administrada contiene la información necesaria para crear una VM, incluidos los discos del SO y de datos. Los VHD que componen la imagen, incluidos los discos del SO y los discos de datos, se almacenan como discos administrados. 
-
-La información de cuenta personal se ha eliminado de una VM generalizada mediante [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Puede crear una VM generalizada mediante la ejecución de Sysprep en una VM local, la [carga del VHD en Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o la ejecución de Sysprep en una VM de Azure existente y, luego, la [captura de una imagen de la VM](capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 
 
 ## <a name="prerequisites"></a>Requisitos previos

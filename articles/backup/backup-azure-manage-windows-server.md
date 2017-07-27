@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/9/2017
 ms.author: markgal
-translationtype: Human Translation
-ms.sourcegitcommit: 767e3b2e8330b4c52576c90e8ef090e1abc69b42
-ms.openlocfilehash: 20e486be706c6fc02ced8343c050379ceff99d82
-ms.lasthandoff: 01/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 70ea11a7ee273d8c8497a6f12693ddb41ac7cb77
+ms.contentlocale: es-es
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -187,7 +188,7 @@ La hoja Servidores de producción muestra todos los servidores de producción di
 
 
 ## <a name="open-the-azure-backup-agent"></a>Apertura del agente de Azure Backup
-Abra el **agente de Copia de seguridad de Microsoft Azure** (puede encontrarlo si busca en su equipo *Copia de seguridad de Microsoft Azure*).
+Abra el **agente de Microsoft Azure Backup** (puede encontrarlo si busca en su equipo *Microsoft Azure Backup*).
 
 ![Programar una copia de seguridad de Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
@@ -198,7 +199,7 @@ Con las **acciones** disponibles en la parte derecha de la consola del agente de
 * Realizar una copia de seguridad en ese momento
 * Cambiar propiedades
 
-![Acciones de la consola del agente de Copia de seguridad de Microsoft Azure](./media/backup-azure-manage-windows-server/console-actions.png)
+![Acciones de la consola del agente de Microsoft Azure Backup](./media/backup-azure-manage-windows-server/console-actions.png)
 
 > [!NOTE]
 > Para **recuperar datos**, consulte [Restauración de archivos en una máquina de Windows Server o del cliente de Windows](backup-azure-restore-windows-server.md).
@@ -206,7 +207,7 @@ Con las **acciones** disponibles en la parte derecha de la consola del agente de
 >
 
 ## <a name="modify-the-backup-schedule"></a>Modificación de la programación de copias de seguridad
-1. En el agente de Copia de seguridad de Microsoft Azure, haga clic en **Programar copia de seguridad**.
+1. En el agente de Microsoft Azure Backup, haga clic en **Programar copia de seguridad**.
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
 2. En el **Asistente para programar copias de seguridad**, deje activada la opción **Cambiar la hora o las horas de las copias de seguridad** y haga clic en **Siguiente**.
@@ -214,7 +215,7 @@ Con las **acciones** disponibles en la parte derecha de la consola del agente de
     ![Programar una copia de seguridad de Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
 3. Si quiere agregar o cambiar elementos, en la pantalla **Seleccionar elementos de los que realizar copia de seguridad**, haga clic en **Agregar elementos**.
 
-    También puede establecer preferencias en **Configuración de exclusión** , en esta página del asistente. Si quiere excluir archivos o tipos de archivos, lea el procedimiento para agregar [configuración de exclusión](#exclusion-settings).
+    También puede establecer preferencias en **Configuración de exclusión** , en esta página del asistente. Si quiere excluir archivos o tipos de archivos, lea el procedimiento para agregar [configuración de exclusión](#manage-exclusion-settings).
 4. Seleccione los archivos y las carpetas de los que quiere realizar la copia de seguridad y haga clic en **Aceptar**.
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-azure-manage-windows-server/add-items-modify.png)
@@ -238,12 +239,12 @@ Con las **acciones** disponibles en la parte derecha de la consola del agente de
 
 ## <a name="enable-network-throttling"></a>Habilitación de la limitación de la red
 
-En el agente de Copia de seguridad de Azure se incluye la pestaña Limitación, donde podrá controlar cómo se utiliza el ancho de banda de red durante la transferencia de datos. Este control puede resultar de ayuda si necesita realizar una copia de seguridad de los datos durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación de la transferencia de datos se aplica a las actividades de copia de seguridad y restauración.  
+En el agente de Azure Backup se incluye la pestaña Limitación, donde podrá controlar cómo se utiliza el ancho de banda de red durante la transferencia de datos. Este control puede resultar de ayuda si necesita realizar una copia de seguridad de los datos durante las horas de trabajo, pero no quiere que el proceso interfiera con otro tráfico de Internet. La limitación de la transferencia de datos se aplica a las actividades de copia de seguridad y restauración.  
 
 Para habilitar la limitación, siga estos pasos:
 
 1. En el **agente de Backup**, haga clic en **Cambiar propiedades**.
-2. En la pestaña **Limitación, seleccione la opción **Habilitar el límite de uso del ancho de banda de Internet para operaciones de copia de seguridad**.
+2. En la pestaña **Limitación, seleccione la opción **Habilitar límite de uso del ancho de banda de Internet para las operaciones de copia de seguridad**.
 
     ![Limitación de la red](./media/backup-azure-manage-windows-server/throttling-dialog.png)
 
@@ -253,10 +254,10 @@ Para habilitar la limitación, siga estos pasos:
 3. Haga clic en **Aceptar**.
 
 ## <a name="manage-exclusion-settings"></a>Administración de la configuración de exclusión
-1. Abra el **agente de Copia de seguridad de Microsoft Azure** (puede encontrarlo si busca en su equipo *Copia de seguridad de Microsoft Azure*).
+1. Abra el **agente de Microsoft Azure Backup** (puede encontrarlo si busca en su equipo *Microsoft Azure Backup*).
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
-2. En el agente de Copia de seguridad de Microsoft Azure, haga clic en **Programar copia de seguridad**.
+2. En el agente de Microsoft Azure Backup, haga clic en **Programar copia de seguridad**.
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
 3. En el Asistente para programar copias de seguridad deje activada la opción **Cambiar la hora o las horas de las copias de seguridad** y haga clic en **Siguiente**.
@@ -288,13 +289,13 @@ Para habilitar la limitación, siga estos pasos:
     ![Programar una copia de seguridad de Windows Server](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-**P1. El estado del trabajo de copia de seguridad aparece como completado en el agente de Copia de seguridad de Azure, ¿por qué no se ve reflejado inmediatamente en el portal?**
+**P1. El estado del trabajo de copia de seguridad aparece como completado en el agente de Azure Backup, ¿por qué no se ve reflejado inmediatamente en el portal?**
 
-R1. Hay un retraso máximo de 15 minutos entre que el estado del trabajo de copia de seguridad se refleja en el agente de Copia de seguridad de Azure y en el Portal de Azure.
+R1. Hay un retraso máximo de 15 minutos entre que el estado del trabajo de copia de seguridad se refleja en el agente de Azure Backup y en Azure Portal.
 
 **P.2 Cuando se produce un error en un trabajo de copia de seguridad, ¿cuánto tiempo se tarda en generar una alerta?**
 
-R.2 Se genera una alerta en menos de 20 minutos desde que se produce el error de Copia de seguridad de Azure.
+R.2 Se genera una alerta en menos de 20 minutos desde que se produce el error de copia de seguridad de Azure.
 
 **P3. ¿Hay algún caso en el que no se envíe ningún correo electrónico si se configuran las notificaciones?**
 
@@ -319,6 +320,6 @@ R3. A continuación figuran los casos en los que no se enviará la notificación
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
-* Para obtener más información sobre Copia de seguridad de Azure, consulte [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
-* Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+* Para obtener más información sobre Azure Backup, consulte [Información general de Azure Backup](backup-introduction-to-azure-backup.md)
+* Visite el [Foro de Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 

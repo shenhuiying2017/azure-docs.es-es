@@ -9,36 +9,40 @@ editor:
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-migrate
+ms.custom: mvc,load & move data
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/07/2017
+ms.date: 06/27/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: cf128e84cfa69a259ff529caebb910840dcbaede
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 375d3ea0230e7d3fd0fc02ca7e0b8a7a76c24a27
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migración de su base de datos SQL Server a Azure SQL Database
 
-El movimiento de una base de datos de SQL Server a Azure SQL Database es un proceso que consta de tres partes: preparar, exportar e importar la base de datos. En este tutorial, aprenderá a:
+El movimiento de una base de datos de SQL Server a Azure SQL Database es un proceso que consta de tres partes: primero se prepara la base de datos, después se exporta y finalmente se importa. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Preparar una base de datos en un servidor SQL Server para migrarla a Azure SQL Database mediante [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA)
 > * Exportar la base de datos a un archivo BACPAC
 > * Importar el archivo BACPAC en Azure SQL Database
 
-Antes de empezar, asegúrese de que dispone de los siguientes elementos:
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-- La versión más reciente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Al instalar SSMS, también se instala la versión más reciente de SQLPackage, una utilidad de línea de comandos que puede utilizarse para automatizar diversas tareas de desarrollo de bases de datos. 
-- [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
-- Una base de datos que desee migrar. Este tutorial se usa la [base de datos OLTP AdventureWorks de SQL Server 2008R2](https://msftdbprodsamples.codeplex.com/releases/view/59211) en una instancia de SQL Server 2008R2 o versiones más recientes, pero se puede usar cualquier base de datos de su elección. Para solucionar problemas de compatibilidad, use [Visual Studio Data Tools ](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
+## <a name="prerequisites"></a>Requisitos previos
+
+Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
+
+- Se ha instalado la versión más reciente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Al instalar SSMS, también se instala la versión más reciente de SQLPackage, una utilidad de línea de comandos que puede utilizarse para automatizar diversas tareas de desarrollo de bases de datos. 
+- Se ha instalado [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
+- Se ha identificado y obtenido acceso a una base de datos para migrar. Este tutorial se usa la [base de datos OLTP AdventureWorks de SQL Server 2008R2](https://msftdbprodsamples.codeplex.com/releases/view/59211) en una instancia de SQL Server 2008R2 o versiones más recientes, pero se puede usar cualquier base de datos de su elección. Para solucionar problemas de compatibilidad, use [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 
 ## <a name="prepare-for-migration"></a>Preparación para la migración
 
@@ -72,11 +76,11 @@ Está listo para preparar la migración. Siga estos pasos para usar  **[Data Mig
 
      ![resultado de evaluación de la nueva migración de datos compatible](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results-compatible.png)
 
-8. Revise los resultados, comenzando con la **paridad de características de SQL Server**. En concreto, revise la información sobre las características no compatibles y parcialmente compatibles, y la información proporcionada acerca de las acciones recomendadas. 
+8. Consulte los resultados. Los resultados de **paridad de características de SQL Server** que se muestran son los predeterminados para la revisión. En concreto, revise la información sobre las características no compatibles y parcialmente compatibles, y la información proporcionada acerca de las acciones recomendadas. 
 
      ![evaluación de la nueva migración de datos paridad](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-assessment-results-parity.png)
 
-9. Haga clic en **Problemas de compatibilidad**. En concreto, revise la información acerca de bloqueos de la migración, los cambios de comportamiento y características en desuso para cada nivel de compatibilidad. Para la base de datos AdventureWorks2008R2, revise los cambios en la búsqueda de texto completo desde SQL Server 2008 y los cambios realizados en SERVERPROPERTY('LCID') desde SQL Server 2000. Para obtener información sobre estos cambios, se proporcionan vínculos para obtener más información. Muchas opciones de búsqueda y la configuración de búsqueda de texto completo han cambiado. 
+9. Revise los **Problemas de compatibilidad** haciendo clic en esa opción en la parte superior izquierda. En concreto, revise la información acerca de bloqueos de la migración, los cambios de comportamiento y características en desuso para cada nivel de compatibilidad. Para la base de datos AdventureWorks2008R2, revise los cambios en la búsqueda de texto completo desde SQL Server 2008 y los cambios realizados en SERVERPROPERTY('LCID') desde SQL Server 2000. Para obtener información sobre estos cambios, se proporcionan vínculos para obtener más información. Muchas opciones de búsqueda y la configuración de búsqueda de texto completo han cambiado. 
 
    > [!IMPORTANT] 
    > Después de migrar la base de datos a Azure SQL Database, puede decidir utilizar la base de datos en su nivel de compatibilidad actual (nivel 100 para la base de datos AdventureWorks2008R2) o en un nivel superior. Para más información acerca de las implicaciones y las opciones para la utilización de una base de datos en un nivel de compatibilidad específico, consulte [ALTER DATABASE (Transact-SQL) Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) [Nivel de compatibilidad de ALTER DATABASE (Transact-SQL)]. Vea también [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) para obtener información sobre los valores de nivel de base de datos adicionales relacionados con los niveles de compatibilidad.
@@ -101,19 +105,19 @@ Siga estos pasos para usar la utilidad de línea de comandos SQLPackage para exp
 
     ![exportación de sqlpackage](./media/sql-database-migrate-your-sql-server-database/sqlpackage-export.png)
 
-Una vez completada la ejecución, se almacena el archivo BCPAC generado en el directorio donde se encuentra el archivo ejecutable sqlpackage. En este ejemplo, C:\Program Files (x86) \Microsoft SQL Server\130\DAC\bin. 
+Una vez completada la ejecución, se almacena el archivo BACPAC generado en el directorio donde se encuentra el archivo ejecutable sqlpackage. En este ejemplo, C:\Program Files (x86) \Microsoft SQL Server\130\DAC\bin. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en el portal de Azure
 
 Inicie sesión en el [Portal de Azure](https://portal.azure.com/). Al inicia sesión desde el equipo desde el que se ejecuta la utilidad de línea de comandos SQLPackage, se facilita la creación de la regla de firewall del paso 5.
 
-## <a name="create-a-sql-database-logical-server"></a>Creación de un servidor lógico de SQL Database
+## <a name="create-a-sql-server-logical-server"></a>Crear un servidor lógico de SQL Server
 
-Un [servidor lógico de Azure SQL Database](sql-database-features.md) actúa como el punto central de administración de varias bases de datos. Siga estos pasos para crear un servidor lógico de SQL Database de tal forma que contenga la base de datos OLTP AdventureWorks de SQL Server. 
+Un [servidor lógico de SQL Server](sql-database-features.md) actúa como el punto central de administración de varias bases de datos. Siga estos pasos para crear un servidor lógico de SQL Server de tal forma que contenga la base de datos OLTP Adventure Works de SQL Server. 
 
 1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
 
-2. Escriba **servidor** en la ventana de búsqueda de la página **Nuevo** y seleccione **SQL Server (servidor lógico)** en la lista filtrada.
+2. Escriba **servidor sql** en la ventana de búsqueda de la página **Nuevo** y seleccione **Base de datos SQL (servidor lógico)** en la lista filtrada.
 
     ![seleccionar servidor lógico](./media/sql-database-migrate-your-sql-server-database/logical-server.png)
 
@@ -123,21 +127,28 @@ Un [servidor lógico de Azure SQL Database](sql-database-features.md) actúa com
 
 4. Rellene el formulario de SQL Server (servidor lógico) con la siguiente información, como se muestra en la imagen anterior:     
 
-   - Nombre del servidor: especifique un nombre de servidor único global.
-   - Inicio de sesión del administrador del servidor: proporcione un nombre para la cuenta de inicio de sesión del administrador del servidor.
-   - Contraseña: especifique la contraseña que desee.
-   - Grupo de recursos: seleccione **Crear nuevo** y especifique **myResourceGroup**.
-   - Ubicación: seleccione una ubicación de centro de datos
+   | Configuración       | Valor sugerido | Descripción | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Nombre del servidor** | Escriba un nombre único global. | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
+   | **Inicio de sesión del administrador del servidor** | Escriba cualquier nombre válido. | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
+   | **Password** | Escriba cualquier contraseña válida. | La contraseña debe tener un mínimo de 8 caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
+   | **Suscripción** | Selección de una suscripción | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
+   | **Grupos de recursos** | Elija un grupo de recursos existente o cree uno nuevo, como **myResourceGroup** |  Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+   | **Ubicación** | Escriba una ubicación válida para el nuevo servidor | Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |
 
-    ![formulario de creación de servidor lógico completado](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
+   ![formulario de creación de servidor lógico completado](./media/sql-database-migrate-your-sql-server-database/logical-server-create-completed.png)
 
 5. Haga clic en **Crear** para aprovisionar el servidor lógico. El aprovisionamiento tarda unos minutos. 
 
+> [!IMPORTANT]
+> Recuerde el nombre del servidor, el nombre de inicio de sesión del administrador del servidor y la contraseña. Necesitará estos valores más adelante en el tutorial.
+>
+
 ## <a name="create-a-server-level-firewall-rule"></a>Crear una regla de firewall de nivel de servidor
 
-El servicio SQL Database crea un [firewall en el nivel de servidor](sql-database-firewall-configure.md), lo que impide que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos del servidor, a menos que se cree una regla de firewall para abrir el firewall para direcciones IP concretas. Siga estos pasos para crear una regla de firewall de nivel de servidor de SQL Database para la dirección IP del equipo desde el que se ejecuta la utilidad de línea de comandos SQLPackage. Esto permite que SQLPackage se conecte con el servidor lógico de SQL Database a través del firewall Azure SQL Database. 
+El servicio SQL Database crea un [firewall en el nivel de servidor](sql-database-firewall-configure.md), lo que impide que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos del servidor, a menos que se cree una regla de firewall para abrir el firewall para direcciones IP concretas. Siga estos pasos para crear una regla de firewall de nivel de servidor de SQL Database para la dirección IP del equipo desde el que se ejecuta la utilidad de línea de comandos SQLPackage. Esto permite que SQLPackage se conecte con el servidor lógico de base de datos de SQL Server a través del firewall de Azure SQL Database. 
 
-1. Haga clic en **Todos los recursos** en el menú de la izquierda y haga clic en el nuevo servidor en la página **Todos los recursos**. Se abre la página de información general del servidor, que muestra el nombre completo del servidor (por ejemplo, **mynewserver20170403.database.windows.net**) y proporciona opciones para otras configuraciones.
+1. Haga clic en **Todos los recursos** en el menú de la izquierda y haga clic en el nuevo servidor en la página **Todos los recursos**. Se abrirá la página de información general del servidor, en la que se proporcionan opciones para continuar la configuración.
 
      ![información general del servidor lógico](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
 
@@ -152,30 +163,30 @@ El servicio SQL Database crea un [firewall en el nivel de servidor](sql-database
 Ahora puede conectarse todas las bases de datos de este servidor mediante SQL Server Management Studio o cualquier otra herramienta que elija desde esta dirección IP usando la cuenta de administrador del servidor creada con anterioridad.
 
 > [!NOTE]
-> SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. Si es así, no podrá conectarse al servidor de Azure SQL Database, a menos que el departamento de TI abra el puerto 1433.
+> SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
 >
 
-## <a name="import-bacpac-file-to-azure-sql-database"></a>Importación de un archivo BACPAC a Azure SQL Database 
+## <a name="import-a-bacpac-file-to-azure-sql-database"></a>Importar un archivo BACPAC a Azure SQL Database 
 
 Las versiones más recientes de la utilidad de línea de comandos SQLPackage proporcionan compatibilidad para crear una base de datos de Azure SQL Database en un determinado [nivel de servicio y nivel rendimiento](sql-database-service-tiers.md). Para obtener un rendimiento óptimo durante la importación, seleccione un nivel de alto rendimiento y servicio y, luego, redúzcalo verticalmente después de la importación si el nivel de rendimiento y de nivel de servicio es mayor de lo que necesita inmediatamente.
 
-Siga estos pasos para usar la utilidad de línea de comandos SQLPackage para importar la base de datos AdventureWorks2008R2 a Azure SQL Database.
+Siga estos pasos para usar la utilidad de línea de comandos SQLPackage para importar la base de datos AdventureWorks2008R2 a Azure SQL Database. Aunque puede usar SQL Server Management Studio para esta tarea, SQLPackage es el método preferido para la mayoría de entornos de producción para obtener la máxima flexibilidad y un rendimiento óptimo. Vea [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migración desde SQL Server a Azure SQL Database mediante archivos BACPAC).
 
-- Ejecute el siguiente comando de SQLPackage en la línea de comandos para importar la base de datos **AdventureWorks2008R2** desde el almacenamiento local al servidor lógico de Azure SQL Database que creó anteriormente con el nombre de base de datos **myMigratedDatabase**, un nivel de servicio **Premium** y un objetivo de servicio **P6**. Modifique cualquiera de estos tres valores según sea apropiado para su entorno.
+- Ejecute el siguiente comando de SQLPackage en la línea de comandos para importar la base de datos **AdventureWorks2008R2** desde el almacenamiento local al servidor lógico de SQL Server que creó anteriormente a nueva base de datos, un nivel de servicio **Premium** y un objetivo de servicio **P6**. Reemplace los valores entre corchetes angulares con los valores adecuados para el servidor lógico de SQL Server y especifique un nombre para la nueva base de datos (remplace también los corchetes angulares). También puede elegir cambiar los valores de la edición de la base de datos y el objetivo de servicio según corresponda a su entorno. Para este tutorial, la base de datos migrada se denomina **myMigratedDatabase**.
 
     ```
-    SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=<change_to_your_admin_user_account>;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
+    SqlPackage.exe /a:import /tcs:"Data Source=<your_server_name>.database.windows.net;Initial Catalog=<your_new_database_name>;User Id=<change_to_your_admin_user_account>;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
     ```
 
    ![importación de sqlpackage](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
 
 > [!IMPORTANT]
-> Un servidor lógico de Azure SQL Database escucha en el puerto 1433. Si intenta conectarse a un servidor lógico de Azure SQL Database desde dentro de un firewall corporativo, este puerto debe estar abierto en el firewall corporativo para poder conectarse correctamente.
+> Un servidor lógico de SQL Server escucha en el puerto 1433. Si intenta conectarse a un servidor lógico de SQL Server desde dentro de un firewall corporativo, este puerto debe estar abierto en el firewall corporativo para poder conectarse correctamente.
 >
 
 ## <a name="connect-using-sql-server-management-studio-ssms"></a>Conexión con SQL Server Management Studio (SSMS)
 
-Use SQL Server Management Studio para establecer una conexión con un servidor de Azure SQL Database y la base de datos migrada. Si está ejecutando SQL Server Management Studio en un equipo diferente del que ejecutó SQLPackage, cree una regla de firewall para este equipo usando los pasos del procedimiento anterior.
+Use SQL Server Management Studio para establecer una conexión con el servidor de Azure SQL Database y la nueva base de datos migrada, denominada **myMigratedDatabase** en este tutorial. Si está ejecutando SQL Server Management Studio en un equipo diferente del que ejecutó SQLPackage, cree una regla de firewall para este equipo usando los pasos del procedimiento anterior.
 
 1. Abra SQL Server Management Studio.
 
@@ -194,7 +205,7 @@ Use SQL Server Management Studio para establecer una conexión con un servidor d
 
 ## <a name="change-database-properties"></a>Modificación de las propiedades de la base de datos
 
-Puede modificar el nivel de servicio, el nivel de rendimiento y el nivel de compatibilidad con SQL Server Management Studio.
+Puede modificar el nivel de servicio, el nivel de rendimiento y el nivel de compatibilidad con SQL Server Management Studio. Durante la fase de importación, se recomienda importar a una base de datos de nivel superior de rendimiento para mejorar el rendimiento, pero reducir verticalmente una vez finalizada la importación para ahorrar dinero hasta que esté listo para usar de forma activa la base de datos importada. Al cambiar el nivel de compatibilidad se puede obtener un mejor rendimiento y tener acceso a las funcionalidades más recientes del servicio Azure SQL Database. Cuando se migra una base de datos anterior, el nivel de compatibilidad de base de datos se mantiene en el nivel más bajo admitido que es compatible con la base de datos que se va a importar. Para más información, vea [Improved query performance with compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md) (Rendimiento mejorado de consultas con el nivel de compatibilidad 130 en Azure SQL Database).
 
 1. En el Explorador de objetos, haga clic con el botón derecho en **myMigratedDatabase** y, luego, en **Nueva consulta**. Se abre una ventana de consulta conectada a la base de datos.
 

@@ -7,13 +7,18 @@
 ## [Software de terceros compatible](active-directory-ds-compatible-software.md)
 
 # Introducción
-## [Creación de un grupo administrativo](active-directory-ds-getting-started-create-group.md)
-## [Creación o selección de una red virtual](active-directory-ds-getting-started-vnet.md)
-## [Habilitación de Azure AD DS](active-directory-ds-getting-started-enableaadds.md)
-## [Actualización de la configuración de DNS](active-directory-ds-getting-started-update-dns.md)
-## Habilitación de la sincronización de contraseñas
-### [Inquilino solo en la nube](active-directory-ds-getting-started-password-sync.md)
-### [Inquilino sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+## Portal de Azure clásico
+### [Tarea 1: Creación del grupo de administradores](active-directory-ds-getting-started-create-group.md)
+### [Tarea 2: Creación o selección de red virtual](active-directory-ds-getting-started-vnet.md)
+### [Tarea 3: Habilitación de Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
+### [Tarea 4: Actualización de la configuración DNS para la red virtual](active-directory-ds-getting-started-update-dns.md)
+### [Tarea 5: Habilitación de la sincronización de contraseña](active-directory-ds-getting-started-password-sync.md)
+## Azure Portal (versión preliminar)
+### [Tarea 1: Configuración básica](active-directory-ds-getting-started.md)
+### [Tarea 2: Configuración de red](active-directory-ds-getting-started-network.md)
+### [Tarea 3: Configuración del grupo de administradores y habilitación de Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
+### [Tarea 4: Actualización de la configuración DNS para la red virtual](active-directory-ds-getting-started-dns.md)
+### [Tarea 5: Habilitación de la sincronización de contraseña](active-directory-ds-getting-started-password-sync.md)
 
 # Procedimientos
 ## Unirse a un dominio administrado
@@ -23,7 +28,12 @@
 ## Administrar un dominio administrado
 ### [Administrar un dominio administrado](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrar DNS en un dominio administrado](active-directory-ds-admin-guide-administer-dns.md)
-### [Configurar LDAP seguro para un dominio administrado](active-directory-ds-admin-guide-configure-secure-ldap.md)
+### Configurar LDAP seguro para un dominio administrado
+#### [Tarea 1: Obtención de un certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
+#### [Tarea 2: Exportación del certificado LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+#### [Tarea 3: Habilitación de LDAP seguro para el dominio administrado mediante el Portal de Azure clásico](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
+#### [Tarea 3: Habilitación de LDAP seguro para el dominio administrado mediante Azure Portal (versión preliminar)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+
 ### [Crear una unidad organizativa en un dominio administrado](active-directory-ds-admin-guide-create-ou.md)
 ### [Administración de directivas de grupo en un dominio administrado](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Seleccionar una red virtual](active-directory-ds-networking.md)
@@ -34,6 +44,8 @@
 ## Solución de problemas
 ### [Preguntas más frecuentes](active-directory-ds-faqs.md)
 ### [Guía de solución de problemas](active-directory-ds-troubleshooting.md)
+### [Habilitación de la versión preliminar de la experiencia de Azure Portal](active-directory-ds-azure-portal-enable-preview-access.md)
+### [Resolución de errores de inquilinos que no coinciden](active-directory-ds-mismatched-tenant-error.md)
 
 # Temas relacionados
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
@@ -42,7 +54,7 @@
 
 # Recursos
 ## [Foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Ponerse en contacto con nosotros](active-directory-ds-contact-us.md)
 ## [Precios](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=active-directory-ds)

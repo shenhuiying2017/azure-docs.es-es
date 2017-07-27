@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: f445983a5f9b2e83b51771fac763df478412de17
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -32,9 +32,9 @@ Conéctese a Búsqueda de Bing para buscar noticias, vídeos y mucho más. Con B
 
 Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="view-the-swagger"></a>Visualización de Swagger
+## <a name="connector-specific-details"></a>Detalles específicos del conector
 
-Consulte los [detalles sobre Swagger](/connectors/bingsearch/).
+Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/bingsearch/).
 
 ## <a name="more-connectors"></a>Más conectores
 Volver a la [lista de API](apis-list.md).

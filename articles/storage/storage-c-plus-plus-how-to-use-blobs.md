@@ -20,7 +20,6 @@ ms.openlocfilehash: 8571011cac1182a5bfdfe722c194fcd681712a02
 ms.contentlocale: es-es
 ms.lasthandoff: 11/17/2016
 
-
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Cómo usar el almacenamiento de blobs de C++
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
@@ -57,8 +56,8 @@ Para instalar la biblioteca de cliente de almacenamiento de Azure para C++, pued
 Agregue las siguientes instrucciones include en la parte superior del archivo C++ en el que desea usar las API de almacenamiento de Azure para obtener acceso a los blobs:  
 
 ```cpp
-include <was/storage_account.h>
-include <was/blob.h>
+#include <was/storage_account.h>
+#include <was/blob.h>
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configuración de una cadena de conexión de almacenamiento de Azure

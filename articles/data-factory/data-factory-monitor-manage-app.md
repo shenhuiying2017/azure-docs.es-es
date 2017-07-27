@@ -12,11 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 05/18/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 1d35fbbe14d1597c23d8521bc21c683b520f0ea6
-ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d5a2d1f3d85b8a2212326cfcfd0ba5d80356b769
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -27,14 +29,16 @@ ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
 >
 >
 
-En este artículo se describe cómo usar la aplicación de supervisión y administración para supervisar, administrar y depurar las canalizaciones de Azure Data Factory, y crear alertas para recibir notificaciones de los errores. También puede ver el siguiente vídeo para aprender a usar la aplicación de supervisión y administración.
+En este artículo se describe cómo usar la aplicación de supervisión y administración para supervisar, administrar y depurar las canalizaciones de Data Factory. También proporciona información acerca de cómo crear alertas para recibir notificaciones cuando se produzcan errores. Para empezar a usar la aplicación, vea el vídeo siguiente:
+
+> [!NOTE]
+> La interfaz de usuario que se muestra en el vídeo puede no coincidir exactamente con la que se ve en el portal. Es algo anterior, pero los conceptos siguen siendo los mismos. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
->
 
-## <a name="open-the-monitoring-and-management-app"></a>Inicio de la aplicación de supervisión y administración
-Para abrir la aplicación de supervisión y administración, haga clic en el icono **Monitoring & Manage** (Supervisión y administración), de la hoja **Factoría de datos** de su factoría de datos.
+## <a name="launch-the-monitoring-and-management-app"></a>Inicio de la aplicación de supervisión y administración
+Para iniciar la aplicación de supervisión y administración, haga clic en el icono **Monitoring & Manage** (Supervisión y administración), de la hoja **Factoría de datos** de su factoría de datos.
 
 ![Icono de supervisión en la página de inicio de Factoría de datos](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
@@ -45,7 +49,13 @@ La aplicación de supervisión y administración debería abrirse en una ventana
 > [!NOTE]
 > Si ve que el explorador web está atascado en "Autorizando...", desactive la casilla **Block third party cookies and site data** (Bloquear cookies y datos de sitios de terceros), o déjela activada y cree una excepción para **login.microsoftonline.com** e intente volver a abrir la aplicación.
 
-Si no ve las ventanas de actividad en la lista de la parte inferior, haga clic en el botón **Actualizar** de la barra de herramientas para actualizarla. Además, establezca los valores correctos en los filtros **Hora de inicio** y **Hora de finalización**.  
+
+En la lista Activity Windows (Ventanas de actividad) del panel central, verá una ventana de actividad cada vez que se ejecuta una actividad. Por ejemplo, si la actividad está programada para ejecutarse cada hora durante cinco horas, verá cinco ventanas de actividad asociadas a cinco segmentos de datos. Si no ve las ventanas de actividad en la parte inferior de la lista, haga lo siguiente:
+ 
+- Actualice los filtros de **hora de inicio** y **hora de finalización** en la parte superior para que coincidan con las horas de inicio y finalización de la canalización y, después, haga clic en el botón **Aplicar**.  
+- La lista Activity Windows (Ventanas de actividad) no se actualiza automáticamente. Haga clic en el botón **Refresh** (Actualizar) de la barra de herramientas de la lista **Activity Windows** (Ventanas de actividad).  
+
+Si no tiene una aplicación de Data Factory con la que probar estos pasos, realice el tutorial: [Copia de datos de Blob Storage en SQL Database mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Descripción de la aplicación de supervisión y administración
 Hay tres pestañas a la izquierda: **Explorador de recursos**, **Vistas de supervisión de** y **Alertas**. La primera pestaña (**Explorador de recursos**) está activada de forma predeterminada.
@@ -54,9 +64,9 @@ Hay tres pestañas a la izquierda: **Explorador de recursos**, **Vistas de super
 Verá lo siguiente:
 
 * La **vista de árbol** del Explorador de recursos en el panel izquierdo.
-* La **vista de diagrama** en la parte superior.
+* El **vista de diagrama** en la parte superior del panel central.
 * La lista **Activity Windows** (Ventanas de actividad) en la parte inferior del panel central.
-* Las pestañas de **Propiedades** y **Activity Window Explorer** (Explorador de ventanas de actividad) en el panel derecho.
+* Las pestañas **Properties** (Propiedades), **Activity Window Explorer** (Explorador de ventanas de actividad) y **Script** en el panel derecho.
 
 En el Explorador de recursos, aparecen todos los recursos (canalizaciones, conjuntos de datos, servicios vinculados) de la factoría de datos en una vista de árbol. Al seleccionar un objeto en el Explorador de recursos:
 
@@ -80,23 +90,31 @@ Si la canalización está habilitada (es decir, no en estado de pausa), se indic
 
 ![Canalización en ejecución](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-En la vista de diagrama hay tres botones en la barra de comandos para la canalización. Puede usar el segundo botón para pausar la canalización. La pausa no termina las actividades que se estén ejecutando, estas continúan hasta su finalización. El tercer botón pausa la canalización y termina las actividades que se están ejecutando. El primer botón reanuda la canalización. Cuando la canalización está en pausa, su color cambia a amarillo:
-
-![Icono de pausa/reanudación](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
-
-También puede realizar una selección múltiple de dos o más canalizaciones con la tecla Ctrl. Puede utilizar los botones de la barra de comandos para pausar y reanudar varias canalizaciones a la vez.
+Para pausar, reanudar o terminar una canalización, selecciónela en la vista de diagrama y utilice los botones de la barra de comandos.
 
 ![Pausa/reanudación en la barra de comandos](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+ 
+En la vista de diagrama hay tres botones en la barra de comandos para la canalización. Puede usar el segundo botón para pausar la canalización. La pausa no termina las actividades que se estén ejecutando, estas continúan hasta su finalización. El tercer botón pausa la canalización y termina las actividades que se están ejecutando. El primer botón reanuda la canalización. Cuando la canalización está en pausa, su color cambia. Por ejemplo, la siguiente imagen muestra una canalización en pausa: 
 
-Para ver todas las actividades de la canalización, haga clic con el botón derecho en el icono de canalización y después, en **Abrir canalización**.
+![Canalización en pausa](./media/data-factory-monitor-manage-app/PipelinePaused.png)
+
+Con la tecla Ctrl puede realizar una selección múltiple de dos o más canalizaciones. Puede utilizar los botones de la barra de comandos para pausar y reanudar varias canalizaciones a la vez.
+
+También puede hacer clic con el botón derecho en una canalización y seleccionar las opciones apropiadas para suspender, reanudar o terminar una canalización. 
+
+![Menú contextual de la canalización](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
+
+Haga clic en la opción **Abrir canalización** para ver todas las actividades de la canalización. 
 
 ![Menú Abrir canalización](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-En la vista de canalización que se abre, verá todas las actividades de la canalización. En este ejemplo, solamente hay una actividad: la actividad de copia. Para volver a la vista anterior, haga clic en el nombre de la factoría de datos en el menú de la ruta de navegación en la parte superior.
+En la vista de canalización que se abre, verá todas las actividades de la canalización. En este ejemplo, solamente hay una actividad: la actividad de copia. 
 
 ![Canalización abierta](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-En la vista de canalización, al hacer clic en un conjunto de datos de salida o pasar el mouse por él, verá la ventana emergente Activity Windows (Ventanas de actividad) de ese conjunto de datos.
+Para volver a la vista anterior, haga clic en el nombre de la factoría de datos en el menú de la ruta de navegación en la parte superior.
+
+En la vista de canalización, cuando se selecciona un conjunto de datos de salida o cuando se pasa el mouse sobre él, se ve la ventana emergente Activity Windows (Ventanas de actividad) de dicho conjunto de datos.
 
 ![Ventana emergente Activity Windows (Ventanas de actividad)](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
@@ -316,9 +334,4 @@ En la tabla siguiente se ofrece una lista de los eventos y los estados (y subest
 Utilice los siguientes botones (resaltados en rojo) para editar, eliminar o deshabilitar una alerta.
 
 ![Botones de alertas](./media/data-factory-monitor-manage-app/AlertButtons.png)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

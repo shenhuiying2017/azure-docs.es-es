@@ -1,6 +1,6 @@
 ---
-title: "Planeamiento de la capacidad y el escalado para la replicación de VMware en Azure | Microsoft Docs"
-description: "Use este artículo para planear la capacidad y escala cuando replique VM de VMware en Azure"
+title: "Planeamiento de la capacidad y el escalado para la replicación de VMware en Azure con Azure Site Recovery | Microsoft Docs"
+description: "Use este artículo para planear la capacidad y escala cuando replique VM de VMware en Azure con Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/05/2017
+ms.date: 05/24/2017
 ms.author: rayne
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 86366359e065c9a9b4a52136254588e67125fb5f
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 8b580ac239bfb6d7b633fb03d4cfb91b168b0610
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -27,7 +28,7 @@ Use este artículo para averiguar cómo planear la capacidad y el escalado cuand
 
 ## <a name="how-do-i-start-capacity-planning"></a>¿Cómo se puede iniciar el planeamiento de la capacidad?
 
-Recopile información sobre el entorno de replicación mediante [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc). Esto incluye información sobre el número de máquinas virtuales que son compatibles y no compatibles, los discos por máquina virtual y la actividad de datos por disco. También trata el requisito de ancho de banda de red y la infraestructura de Azure necesaria para una replicación y conmutación por error de prueba correctas.
+Recopile información sobre el entorno de replicación ejecutando [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) para la replicación de VMware. [Más información](site-recovery-deployment-planner.md) sobre esta herramienta. Podrá recopilar información sobre máquinas virtuales compatibles e incompatibles, discos por máquina virtual y la actividad de datos por disco. Esta herramienta también se encarga de los requisitos de ancho de banda de red y de la infraestructura de Azure necesaria para una replicación y conmutación por error de prueba correctas.
 
 ## <a name="capacity-considerations"></a>Consideraciones de capacidad
 
@@ -79,7 +80,7 @@ La manera en la que escalará los servidores depende de su preferencia con respe
 
 ## <a name="control-network-bandwidth"></a>Ancho de banda de red de control
 
-Puede utilizar [la herramienta de planeación de implementación](https://aka.ms/asr-deployment-planner-doc) para calcular el ancho de banda necesario para la replicación (incluida la replicación inicial y, a continuación, la diferencial). Para controlar el uso de ancho de banda de la replicación tiene varias opciones:
+Después de utilizar la [herramienta de planeamiento de implementación](site-recovery-deployment-planner.md) para calcular el ancho de banda necesario para la replicación (la replicación inicial y la delta), puede controlar la cantidad de ancho de banda utilizado para la replicación mediante un par de opciones:
 
 * **Limitar ancho de banda**: el tráfico de VMware que se replica en Azure pasa a través de un servidor de procesos específico. También puede limitar el ancho de banda en las máquinas que se ejecutan como servidores de procesos.
 * **Influir en el ancho de banda**: puede influir en el ancho de banda utilizado para la replicación mediante un par de claves del Registro:
@@ -87,6 +88,7 @@ Puede utilizar [la herramienta de planeación de implementación](https://aka.ms
   * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** especifica el número de subprocesos usados para la transferencia de datos durante la conmutación por recuperación.
 
 ### <a name="throttle-bandwidth"></a>Limitar ancho de banda
+
 1. Abra el complemento MMC de Azure Backup en la máquina que actúa como el servidor de procesos. De manera predeterminada, hay disponible un acceso directo para Backup en el escritorio o en la siguiente carpeta: C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
 2. En el complemento, haga clic en **Cambiar propiedades**.
 
@@ -140,9 +142,7 @@ Si debe escalar horizontalmente la implementación a más de 200 máquinas de or
 3. En **Seleccionar servidor de procesos de destino**, elija el nuevo servidor de procesos que desee usar y elija las máquinas virtuales que controlará el servidor. Haga clic en el icono de información para obtener detalles sobre el servidor. Aparece el espacio promedio que se necesita para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos para ayudarlo a tomar decisiones relacionadas con la carga. Haga clic en la marca de verificación para comenzar a replicar en el nuevo servidor de procesos.
 
 
+## <a name="next-steps"></a>Pasos siguientes
 
-
-
-
-
+Descargue y ejecute [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).
 

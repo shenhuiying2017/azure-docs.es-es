@@ -13,10 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 587a8e225b18ae2a07d766f1a0d75623e44aec9f
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e3952c6be537e28f7f2cde8f33750b1894fde8e4
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -36,7 +37,7 @@ SAP HANA ofrece una API de copia de seguridad, que permite que las herramientas 
 
 SAP HANA es compatible oficialmente con máquinas virtuales de Azure tipo GS5 como instancia única con una restricción adicional para las cargas de trabajo OLAP (vea [Buscar plataformas de IaaS certificadas](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) en el sitio web de SAP). En este artículo se actualizará a medida que estén disponibles nuevas ofertas para SAP HANA en Azure.
 
-También hay una solución híbrida de SAP HANA en Azure, donde SAP HANA ejecuta elementos no virtualizados en servidores físicos. Sin embargo, esta guía de copia de seguridad de Azure para SAP HANA cubre un entorno puro de Azure donde se ejecuta SAP HANA en una máquina virtual de Azure, no SAP HANA en &quot;instancias de gran tamaño.&quot; Vea [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](hana-overview-architecture.md) para obtener más información sobre esta solución de copia de seguridad en &quot;instancias grandes&quot; basada en instantáneas de almacenamiento.
+También hay una solución híbrida de SAP HANA en Azure, donde SAP HANA ejecuta elementos no virtualizados en servidores físicos. Sin embargo, esta guía de Azure Backup para SAP HANA cubre un entorno puro de Azure donde se ejecuta SAP HANA en una máquina virtual de Azure, no SAP HANA en &quot;instancias de gran tamaño.&quot; Vea [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](hana-overview-architecture.md) para obtener más información sobre esta solución de copia de seguridad en &quot;instancias grandes&quot; basada en instantáneas de almacenamiento.
 
 Puede obtener información general sobre productos SAP admitidos en Azure en la [nota 1928533 de SAP](https://launchpad.support.sap.com/#/notes/1928533).
 
@@ -122,7 +123,7 @@ El servicio Azure Backup usa las extensiones de máquina virtual de Azure para c
 El artículo de SAP HANA [Planeación de su estrategia de copia de seguridad y recuperación](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm) indica un plan básico para realizar copias de seguridad:
 
 - Instantánea del almacenamiento (diaria)
-- Copia de seguridad de datos completa con archivos o respaldo (una vez a la semana)
+- Copia de seguridad de datos completa con formato de archivo o backint (una vez a la semana)
 - Copias de seguridad de registro automáticas
 
 Opcionalmente, puede realizar el proceso completo sin instantáneas de almacenamiento; se reemplazarán por copias de seguridad diferenciales de HANA, como copias de seguridad incrementales o diferenciales (vea [Copias de seguridad diferenciales](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm)).

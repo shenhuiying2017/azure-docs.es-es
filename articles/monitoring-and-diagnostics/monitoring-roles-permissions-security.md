@@ -2,7 +2,7 @@
 title: "Introducción a roles, permisos y seguridad con Azure Monitor | Microsoft Docs"
 description: "Obtenga información sobre cómo utilizar los permisos y los roles integrados de Azure Monitor para restringir el acceso a los recursos de supervisión."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
@@ -169,10 +170,5 @@ Se puede seguir un patrón similar con los centros de eventos, pero primero debe
 ## <a name="next-steps"></a>Pasos siguientes
 * [Consulte información sobre RBAC y permisos en Resource Manager](../active-directory/role-based-access-control-what-is.md)
 * [Lea la información general sobre supervisión en Azure](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,13 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
-ms.openlocfilehash: 6dafec65b2e8091954cae39994d0013d9fd06558
-ms.lasthandoff: 12/22/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 58ddf3913a5d00ee9a89a1fa112f3d55d9a815ed
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configuración de mi cuenta para la comprobación en dos pasos
@@ -27,12 +28,17 @@ La comprobación en dos pasos es un paso adicional de seguridad que ayuda a prot
 
 Este artículo le ayudará a configurar su **cuenta profesional o educativa**. Si desea habilitar la comprobación en dos pasos para su propia cuenta personal de Microsoft, consulte [Acerca de la comprobación en dos pasos](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-## <a name="determine-how-you-will-use-multi-factor-authentication"></a>Decisión sobre cómo va a utilizar la autenticación multifactor
-La comprobación en dos pasos funciona solicitándole dos unidades de identificación cuando inicie sesión. En primer lugar, le pedimos su nombre de usuario y la contraseña como de costumbre. A continuación, llamamos a un teléfono que sabemos que es suyo y usted confirma que el intento de inicio de sesión es legítimo.  
+## <a name="set-up-your-account"></a>Configuración de la cuenta
 
-Para comenzar con el proceso de configuración, intente iniciar sesión en su cuenta como suele hacerlo. Si su administrador ha configurado la cuenta para una comprobación en dos pasos, se le solicitará que inicie el proceso de inscripción automática. Puede comenzar este proceso haciendo clic en **Configurar ahora**.
+Cuando el departamento de TI requiera que empiece a usar la verificación de dos pasos, aparecerá una pantalla con el mensaje **El administrador requiere que configure esta cuenta para realizar una comprobación de seguridad adicional**:
 
 ![Configuración](./media/multi-factor-authentication-end-user-first-time/first.png)
+
+Para empezar, seleccione **Configurar ahora**.
+
+Si no ve una pantalla similar a la siguiente al iniciar sesión, siga las instrucciones especificadas en [Administración de la configuración de la comprobación en dos pasos](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) para buscar la página de configuración donde puede administrar las opciones de verificación. 
+
+## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Decisión de cómo desea verificar los inicios de sesión
 
 La primera pregunta en el proceso de inscripción es cómo desea ponerse en contacto con nosotros. Eche un vistazo a las opciones de la tabla y utilice los vínculos para ir a los pasos de configuración para cada método.
 
@@ -48,16 +54,19 @@ Con este método se requiere que instale una aplicación de autenticador en el t
 1. Seleccione **Aplicación móvil** en la lista desplegable.
 2. Seleccione **Recibir notificaciones de comprobación** o **Usar código de comprobación** y, luego, seleccione **Configurar**.
 
-    ![Pantalla Comprobación de seguridad adicional](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
+   ![Pantalla Comprobación de seguridad adicional](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
+
 3. En el teléfono o tableta, abra la aplicación y seleccione **+** para agregar una cuenta. (En dispositivos Android, seleccione los tres puntos y, luego **Agregar cuenta**).
 4. Especifique que quiere agregar una cuenta profesional o educativa. Se abre el analizador de código QR en su teléfono. Si la cámara no funciona correctamente, puede seleccionar escribir la información de su compañía manualmente. Para más información, consulte [Incorporación manual de una cuenta](#add-an-account-manually).  
 5. Digitalice la imagen de código QR que apareció con la pantalla para configurar la aplicación móvil.  Seleccione **Listo** para cerrar la pantalla de código QR.  
 
-    ![Pantalla de código QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
+   ![Pantalla de código QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
+
 6. Cuando termine la activación por teléfono, seleccione **Contact me**(Contacto).  Con este paso se envía una notificación o un código de verificación al teléfono. Seleccione **Comprobar**.  
 7. Si su empresa requiere un PIN para aprobar la comprobación de inicio de sesión, escríbalo.
 
-    ![Cuadro para escribir un NIP](./media/multi-factor-authentication-end-user-first-time/scan3.png)
+   ![Cuadro para escribir un NIP](./media/multi-factor-authentication-end-user-first-time/scan3.png)
+
 8. Cuando haya terminado de escribir el PIN, seleccione **Cerrar**. A estas alturas, la verificación debería haberse realizado correctamente.
 9. Lo recomendable es introducir el número de teléfono móvil por si perdiera el acceso a la aplicación móvil. Especifique el país en la lista desplegable y escriba su número de teléfono móvil en la casilla junto al país. Seleccione **Siguiente**.
 10. En este momento, deberá configurar contraseñas de aplicación para las aplicaciones sin explorador como Outlook 2010 o anterior, o la aplicación de correo electrónico nativa en dispositivos de Apple. Esto es porque algunas aplicaciones no admiten la comprobación en dos pasos. Si no utiliza estas aplicaciones, haga clic en **Hecho** y omita el resto de los pasos.

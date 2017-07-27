@@ -6,20 +6,21 @@ keywords: "cliente de multi-factor authentication, problema de autenticación, i
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 06/15/2017
 ms.author: kgremban
+ms.reviewer: yossib
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
-ms.openlocfilehash: 2eab76ba42955616ae4d6909c1568f03da0c1819
-ms.lasthandoff: 12/22/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 10b63a859c67b965734e32ec979b26a1ea6cc516
+ms.contentlocale: es-es
+ms.lasthandoff: 06/22/2017
 
 ---
 # <a name="having-trouble-with-two-step-verification"></a>¿Tiene problemas con la comprobación en dos pasos?
@@ -28,10 +29,10 @@ En este artículo se habla de algunos problemas que puede experimentar con la co
 ## <a name="i-lost-my-phone-or-it-was-stolen"></a>Perdí el teléfono o me lo robaron
 Hay dos formas de volver a tener acceso a su cuenta. La primera consiste en iniciar sesión con su número de teléfono de autenticación alternativo, en caso de tener uno configurado. La segunda consiste en pedir al administrador que borre la configuración.
 
-Si perdió el teléfono o se lo robaron, también recomendamos que solicite al administrador que restablezca las contraseñas de la aplicación y que borre todos los dispositivos recordados. Si el administrador no está seguro de cómo hacerlo, diríjale a este artículo: [Administrar usuarios y dispositivos](../multi-factor-authentication-manage-users-and-devices.md).
+Si perdió el teléfono o se lo robaron, también recomendamos que solicite al administrador que restablezca las contraseñas de la aplicación y que borre todos los dispositivos recordados. Si el administrador no está seguro de cómo llevar a cabo esta tarea, diríjale a este artículo: [Administrar usuarios y dispositivos](../multi-factor-authentication-manage-users-and-devices.md).
 
 ### <a name="use-an-alternate-phone-number"></a>Usar un número de teléfono alternativo
-Si ha configurado varias opciones de comprobación, incluidos un número de teléfono secundario o una aplicación autenticadora de un dispositivo diferente, puede usar una ellas para iniciar sesión.
+Si ha configurado varias opciones de comprobación, incluidos un número de teléfono secundario o una aplicación autenticadora de un dispositivo diferente, puede usar una de ellas para iniciar sesión.
 
 Para iniciar sesión con el número de teléfono alternativo, siga estos pasos:
 
@@ -48,7 +49,7 @@ Para iniciar sesión con el número de teléfono alternativo, siga estos pasos:
 > Es importante configurar un número de teléfono de autenticación secundario. Si su número de teléfono principal y la aplicación móvil se encuentran en el mismo teléfono, necesita una tercera opción si pierde el teléfono o se lo roban.   
 
 ### <a name="clear-your-settings"></a>Borrar su configuración
-Si no ha configurado un número de teléfono de autenticación secundario, deberá ponerse en contacto con el administrador para que le ayude. Pídale que borre su configuración. De este modo, la próxima vez que inicie sesión, se le pedirá de nuevo que [configure su cuenta](multi-factor-authentication-end-user-first-time.md).
+Si no ha configurado un número de teléfono de autenticación secundario, debe ponerse en contacto con el administrador para que le ayude. Pídale que borre su configuración. De este modo, la próxima vez que inicie sesión, se le pedirá de nuevo que [configure su cuenta](multi-factor-authentication-end-user-first-time.md).
 
 ## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>No recibo ningún mensaje o llamada en el teléfono
 Hay varios motivos por los que es posible que intente iniciar sesión y no reciba el mensaje o llamada de teléfono. Si ha recibido mensajes o llamadas en su teléfono anteriormente, es probable que se trate de un problema con el proveedor del teléfono y no de un problema con la cuenta. Asegúrese de que la señal es buena y, si intenta recibir un mensaje de texto, asegúrese de que el teléfono y el plan de servicio admiten mensajes de texto.
@@ -60,14 +61,14 @@ Si ha esperado varios minutos la recepción de un mensaje o llamada, la forma m�
     ![Comprobación distinta](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 2. Seleccione el número de teléfono o el método de entrega que desea usar.
    
-    Si recibió varios códigos de comprobación, solo funcionará el más reciente.
+    Si recibió varios códigos de comprobación, use el más reciente.
 
 Si no tiene otro método configurado, póngase en contacto con el administrador y pídale que borre su configuración. La próxima vez que inicie sesión, se le pedirá de nuevo que [configure la autenticación multifactor](multi-factor-authentication-end-user-first-time.md).
 
 Si suele tener retrasos debido a una mala calidad de la señal, recomendamos que use la [aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md) en su smartphone. La aplicación puede generar códigos de seguridad aleatorios que usa para iniciar sesión, los cuales no requieren señal telefónica ni conexión a Internet.
 
 ## <a name="app-passwords-are-not-working"></a>Las contraseñas de la aplicación no funcionan
-En primer lugar, asegúrese de haber escrito correctamente la contraseña de la aplicación.  Si sigue sin funcionar, vuelva a intentar el inicio de sesión y [cree una contraseña de aplicación nueva](multi-factor-authentication-end-user-app-passwords.md).  Si esto no funciona, póngase en contacto con el administrador y pídale que [elimine sus contraseñas de aplicación existentes](../multi-factor-authentication-manage-users-and-devices.md) y luego puede crear una nueva.
+En primer lugar, asegúrese de haber escrito correctamente la contraseña de la aplicación. Si sigue sin funcionar, vuelva a intentar el inicio de sesión y [cree una contraseña de aplicación](multi-factor-authentication-end-user-app-passwords.md).  Si aún no funciona, póngase en contacto con el administrador, pídale que [elimine sus contraseñas de aplicación existentes](../multi-factor-authentication-manage-users-and-devices.md) y luego puede crear otra.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>No encuentro una respuesta a mi problema.
 Si ha probado estos pasos para solucionar los problemas y estos persisten, póngase en contacto con el administrador o con la persona responsable de la configuración de la autenticación multifactor. Deberían poder ayudarle.

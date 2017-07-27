@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 07/19/2017
 ms.author: juliako;johndeu;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 74916c9da0c1d71395a087a729513110b663738b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Creación de flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo
@@ -41,7 +42,7 @@ Esta herramienta también se puede usar para modificar cualquiera de nuestros [f
 
 Una vez que creado un archivo de flujo de trabajo, se puede cargar como un activo y, a continuación, usarse para la codificación de archivos multimedia. Para más información sobre cómo codificar con el **Flujo de trabajo del Codificador multimedia premium** mediante **.NET**, consulte [Codificación avanzada con el Flujo de trabajo del Codificador multimedia premium](media-services-encode-with-premium-workflow.md).
 
-## <a name="a-idexistingworkflowsamodify-existing-workflows"></a><a id="existing_workflows"></a>Modificación de flujos de trabajo existentes
+## <a id="existing_workflows"></a>Modificación de flujos de trabajo existentes
 Los [flujos de trabajo predeterminados](media-services-workflow-designer.md#existing_workflows) pueden modificarse con la herramienta de diseñador. Puede obtener los archivos de flujo de trabajo predeterminados [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). La carpeta también contiene la descripción de estos archivos.
 
 Los vídeos siguientes muestran cómo usar el diseñador.
@@ -91,10 +92,5 @@ Si necesita soporte o tiene alguna pregunta sobre cómo crear flujos de trabajo 
 
 ## <a name="see-also"></a>Otras referencias
 [Azure Premium Encoder Workflow Designer Training Videos (Vídeos de aprendizaje del Diseñador de flujo de trabajo del codificador de Azure Premium)](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

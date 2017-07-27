@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 06/01/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: eaac5300292e328bcff9ddf5447bea0e53075179
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 7bd0c5549a2e1f592681760d5ef464b9570ca4ab
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -26,13 +27,13 @@ ms.lasthandoff: 04/03/2017
 En este tema se ofrece información general acerca de algunos aspectos relacionados con el uso de las máquinas virtuales con Linux en la nube de Azure. La implementación de una máquina virtual con Linux es un proceso sencillo cuando se usa una imagen de la galería.
 
 ## <a name="authentication-usernames-passwords-and-ssh-keys"></a>Autenticación: Nombres de usuario, contraseñas y claves SSH.
-Al crear una máquina virtual Linux con el Portal de Azure clásico, se le pedirá que facilite un nombre de usuario, una contraseña o una clave pública SSH. La elección de un nombre de usuario para implementar una máquina virtual Linux en Azure está sujeta a la siguiente limitación: no se admiten los nombres de cuentas del sistema (UID <100) ya existentes en la máquina virtual, como por ejemplo, "root".
+Al crear una máquina virtual Linux con Azure Portal, se le pedirá que facilite un nombre de usuario, una contraseña o una clave pública SSH. La elección de un nombre de usuario para implementar una máquina virtual Linux en Azure está sujeta a la siguiente limitación: no se admiten los nombres de cuentas del sistema (UID <100) ya existentes en la máquina virtual, como por ejemplo, "root".
 
 * Consulte [Creación de una máquina virtual que ejecuta Linux](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Consulte [Utilización de SSH con Linux en Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="obtaining-superuser-privileges-using-sudo"></a>Obtención de privilegios de superusuario con el uso de `sudo`
-La cuenta de usuario especificada durante la implementación de la instancia de máquina virtual en Azure es una cuenta con privilegios. El Agente de Linux de Azure configura esta cuenta para elevar privilegios a root (cuenta de superusuario) con la utilidad `sudo` . Después de iniciar sesión con esta cuenta de usuario, podrá ejecutar comandos como root con el uso del la sintaxis de comando
+La cuenta de usuario especificada durante la implementación de la instancia de máquina virtual en Azure es una cuenta con privilegios. El Agente de Linux de Azure configura esta cuenta para elevar privilegios a root (cuenta de superusuario) con la utilidad `sudo` . Después de iniciar sesión con esta cuenta de usuario, podrá ejecutar comandos como root con la sintaxis de comando:
 
     # sudo <COMMAND>
 
@@ -41,7 +42,7 @@ También puede obtener un shell root con **sudo -s**.
 * Consulte [Uso de privilegios raíz en máquinas virtuales con Linux en Azure](use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="firewall-configuration"></a>Configuración del firewall
-Azure ofrece un filtro de paquetes de entrada que restringe la conectividad a los puertos especificados en el Portal de Azure clásico. De forma predeterminada, el único puerto permitido es SSH. Puede abrir el acceso a puertos adicionales de la máquina virtual con Linux con la configuración de puntos de conexión en el Portal de Azure clásico:
+Azure ofrece un filtro de paquetes de entrada que restringe la conectividad a los puertos especificados en Azure Portal. De forma predeterminada, el único puerto permitido es SSH. Puede abrir el acceso a puertos adicionales de la máquina virtual Linux mediante la configuración de puntos de conexión en Azure Portal:
 
 * Consulte [Configuración de puntos de conexión en una máquina virtual](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -71,7 +72,7 @@ Azure ofrece la capacidad de capturar el estado de una máquina virtual existent
 
 1. Ejecute **waagent -deprovision** para deshacer la personalización del aprovisionamiento. O ejecute **waagent -deprovision+user** para eliminar opcionalmente la cuenta de usuario especificada durante el aprovisionamiento y todos los datos asociados.
 2. Cierre o apague la máquina virtual.
-3. Haga clic en *Capturar* en el Portal de Azure clásico o use Powershell o las herramientas de la CLI para capturar la máquina virtual como una imagen.
+3. Haga clic en **Capturar** en Azure Portal o use PowerShell o las herramientas de la CLI para capturar la máquina virtual como una imagen.
    
    * Consulte: [Captura de una máquina virtual Linux para usar como plantilla](classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

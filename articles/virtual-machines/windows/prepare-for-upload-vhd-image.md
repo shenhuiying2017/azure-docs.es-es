@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2017
+ms.date: 5/26/2017
 ms.author: glimoli;genli
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 104063500a33dfe55c56467517a5002c562772df
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4d8972e5a18cbe471ec4c5baa53992cc23fad129
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -260,20 +261,31 @@ Instale las actualizaciones más recientes de Windows. Si no es posible, asegúr
    * [KB3115224](https://support.microsoft.com/kb/3115224) Mejoras en la confiabilidad para las máquinas virtuales que se ejecutan en un host de Windows Server 2012 R2 o Windows Server 2012
    * [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: Actualización de seguridad para Microsoft Windows para solucionar la elevación de privilegios: 8 de marzo de 2016
    * [KB3063075](https://support.microsoft.com/kb/3063075) Se registran muchos eventos con el ID 129 al ejecutar una máquina virtual de Windows Server 2012 R2 en Microsoft Azure
-   * [KB3137061](https://support.microsoft.com/kb/3137061) Las máquinas virtuales de Microsoft Azure no se recuperan de una interrupción de la red y se producen problemas de corrupción de datos
    * [KB3114025](https://support.microsoft.com/kb/3114025) Rendimiento lento cuando tiene acceso al almacenamiento de archivos de Azure desde Windows 8.1 o Server 2012 R2
    * [KB3033930](https://support.microsoft.com/kb/3033930) La revisión aumenta el límite de 64 K en búferes RIO por proceso para servicios de Azure en Windows
    * [KB3004545](https://support.microsoft.com/kb/3004545) No se puede tener acceso a máquinas virtuales que se hospedan en servicios de hospedaje de Azure a través de una conexión VPN en Windows
    * [KB3082343](https://support.microsoft.com/kb/3082343) Se pierde la conectividad de VPN entre entornos cuando los túneles de VPN de sitio a sitio de Azure usan RRAS de Windows Server 2012 R2
-   * [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: Actualización de seguridad para Microsoft Windows para solucionar la elevación de privilegios: 8 de marzo de 2016
    * [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Descripción de la actualización de seguridad para CSRSS: 12 de abril de 2016
    * [KB2904100](https://support.microsoft.com/kb/2904100) El sistema se bloquea durante la E/S del disco en Windows
      
 ## Ejecute Sysprep  <a id="step23"></a>    
-Si quiere crear una imagen para implementar a varias máquinas virtuales, debe [generalizar la imagen mediante la ejecución de Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de cargar el VHD en Azure. No es necesario ejecutar Sysprep para usar un VHD especializado. Para más información, consulte los siguientes artículos.
+Si quiere crear una imagen para implementarla en varias máquinas virtuales, debe generalizar la imagen mediante la ejecución de Sysprep antes de cargar el VHD en Azure. No es necesario ejecutar Sysprep para usar un VHD especializado. 
+
+Entre otras características, Sysprep elimina toda la información personal de la cuenta y prepara, entre otras cosas, la máquina para usarse como imagen. Para obtener más información sobre Sysprep, vea [Uso de Sysprep: Introducción](http://technet.microsoft.com/library/bb457073.aspx).
+
+Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
+1. Inicie sesión en la máquina virtual de Windows.
+2. Abra una ventana del símbolo del sistema como administrador. Cambie el directorio a **%windir%\system32\sysprep** y, después, ejecute `sysprep.exe`.
+3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está activada.
+4. En **Opciones de apagado**, seleccione **Apagar**.
+5. Haga clic en **Aceptar**.
    
-   * [Generalización de una máquina virtual de Windows con Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-   * [Compatibilidad de Sysprep con los roles de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+    ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. Cuando Sysprep finaliza, apaga la máquina virtual. No reinicie la VM.
+
+
+
 
 ## <a name="complete-recommended-configurations"></a>Realice las configuraciones recomendadas
 Los siguientes valores de configuración no afectan a la carga de discos duros virtuales. Sin embargo, se recomienda firmemente que los tenga configurados.
@@ -299,6 +311,6 @@ Los siguientes valores de configuración no afectan a la carga de discos duros v
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Carga de una imagen de máquina virtual de Windows en Azure para implementaciones de Resource Manager](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Carga de una imagen de máquina virtual de Windows en Azure para implementaciones de Resource Manager](upload-generalized-managed.md)
 
 

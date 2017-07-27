@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 06/13/2017
 ms.author: yuemlu
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 37a22be9fba7b245b2c1ea3ca6e495601d63b611
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 01597767a03a5959c4c0cde994b6a7b8a34bfb7e
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -31,7 +32,7 @@ Este artículo se centrará en el uso del almacenamiento estándar para discos d
 
 Hay dos maneras de crear discos estándar para máquinas virtuales de Azure:
 
-**Discos no administrados**: este es el método original, en el que se administran las cuentas de almacenamiento que se utilizan para almacenar los archivos VHD que se corresponden con los discos de máquina virtual. Los archivos VHD se almacenan como blobs en páginas en las cuentas de almacenamiento. Los discos no administrados se pueden conectar a máquina virtual de Azure de cualquier tamaño, incluidas aquellas que usan principalmente Premium Storage, como las series DSv2 y GS. Las máquinas virtuales de Azure admiten la conexión de varios discos estándar, lo que permite un máximo de 64 TB de almacenamiento por máquina virtual.
+**Discos no administrados**: este es el método original, en el que se administran las cuentas de almacenamiento que se utilizan para almacenar los archivos VHD que se corresponden con los discos de máquina virtual. Los archivos VHD se almacenan como blobs en páginas en las cuentas de almacenamiento. Los discos no administrados se pueden conectar a máquina virtual de Azure de cualquier tamaño, incluidas aquellas que usan principalmente Premium Storage, como las series DSv2 y GS. Las VM de Azure admiten la conexión de varios discos estándar, lo que permite un máximo de 256 TB de almacenamiento por máquina virtual.
 
 [**Azure Managed Disks**](storage-managed-disks-overview.md): esta característica administra las cuentas de almacenamiento que se usan automáticamente para los discos de máquina virtual. Especifique el tipo (premium o estándar) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente. No tiene que preocuparse de colocar los discos en varias cuentas de almacenamiento para estar seguro de que permanece dentro de los límites de escalabilidad de las cuentas de almacenamiento: Azure se encarga de ello.
 
@@ -85,7 +86,7 @@ A diferencia de los discos Premium, las operaciones de entrada/salida por segund
 
 | **Nivel de máquina virtual**            | **Máquina virtual de nivel Básico** | **Máquina virtual de nivel Estándar** |
 |------------------------|-------------------|----------------------|
-| Tamaño máx. de disco          | 1023 GB           | 1023 GB              |
+| Tamaño máx. de disco          | 4095 GB           | 4095 GB              |
 | Máximo de 8 KB de IOPS por disco | Hasta 300         | Hasta 500            |
 | Ancho de banda máx. por disco | Hasta 60 MB/s     | Hasta 60 MB/s        |
 
@@ -121,7 +122,7 @@ Al usar el almacenamiento estándar, se aplican las siguientes consideraciones d
 * Transferencias de datos de salida
 * Transacciones
 
-**Tamaño de disco y datos de almacenamiento no administrado:** en el caso de discos no administrados y otros datos (blobs, tablas, colas y archivos), se cobra solo para la cantidad de espacio que se usa. Por ejemplo, si tiene una máquina virtual cuyo blob en páginas se aprovisiona como 127 GB, pero en realidad solo usa 10 GB de espacio, eso es lo que se le facturará. 
+**Tamaño de disco y datos de almacenamiento no administrado:** en el caso de discos no administrados y otros datos (blobs, tablas, colas y archivos), se cobra solo para la cantidad de espacio que se usa. Por ejemplo, si tiene una máquina virtual cuyo blob en páginas se aprovisiona como 127 GB, pero en realidad solo usa 10 GB de espacio, eso es lo que se le facturará. Se admite almacenamiento Estándar de hasta 8191 GB y discos no administrados estándar de hasta 4095 GB. 
 
 **Discos administrados:** los discos administrados se facturan por el tamaño aprovisionado. Si un disco se aprovisiona como un disco de 10 GB, pero se usan solo 5 GB, se cobrará el tamaño del aprovisionamiento, es decir, 10 GB.
 
@@ -154,3 +155,4 @@ El servicio Azure Backup también se puede usar con Managed Disks para crear un 
 * [Creación de una máquina virtual con Resource Manager y PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
 * [Creación de una máquina virtual Linux desde cero con la CLI de Azure 2.0](../virtual-machines/linux/quick-create-cli.md)
+

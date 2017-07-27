@@ -12,11 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 4ab1f83e88b262b1752300b2786340d9abca8154
+ms.contentlocale: es-es
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -26,7 +28,7 @@ Este artículo describe cómo migrar los roles web y de trabajo de los Servicios
 ## <a name="cloud-service-project-to-service-fabric-application-project"></a>Proyecto de Servicios en la nube en comparación con proyecto de la aplicación de Service Fabric
  Un proyecto de Servicio en la nube y un proyecto de la aplicación de Service Fabric tienen una estructura similar y ambos representan la unidad de implementación para la aplicación, es decir, cada uno de ellos define el paquete completo que se implementa para ejecutar la aplicación. Un proyecto de Servicio en la nube contiene uno o varios roles web o de trabajo. De igual forma, un proyecto de la aplicación de Service Fabric contiene uno o más servicios. 
 
-La diferencia es que el proyecto de Servicio en la nube une la implementación de la aplicación con una implementación de máquina virtual y, por tanto, contiene valores de configuración de máquina virtual, mientras que el proyecto de la aplicación de Service Fabric solo define una aplicación que se va a implementar en un conjunto de máquinas virtuales existentes en un clúster de Service Fabric. El propio clúster de Service Fabric solo se implementa una vez, a través de una plantilla ARM o a través del Portal de Azure y se pueden implementar varias aplicaciones de Service Fabric en él.
+La diferencia es que el proyecto de Servicio en la nube une la implementación de la aplicación con una implementación de máquina virtual y, por tanto, contiene valores de configuración de máquina virtual, mientras que el proyecto de la aplicación de Service Fabric solo define una aplicación que se va a implementar en un conjunto de máquinas virtuales existentes en un clúster de Service Fabric. El propio clúster de Service Fabric solo se implementa una vez, a través de una plantilla de Resource Manager o a través de Azure Portal y se pueden implementar varias aplicaciones de Service Fabric en él.
 
 ![Comparación de proyectos de Service Fabric y de Servicios en la nube][3]
 
@@ -110,7 +112,7 @@ Ambos tienen un reemplazo principal "Run" en el que se va a iniciar el procesami
 Hay varias diferencias claves entre el ciclo de vida y la duración de los servicios de roles de trabajo y los de Service Fabric:
 
 * **Ciclo de vida:** la principal diferencia es que un rol de trabajo es una máquina virtual y, por tanto, su ciclo de vida está asociado al de la máquina virtual e incluye eventos para cuando se inicia y detiene dicha máquina virtual. Un servicio de Service Fabric tiene un ciclo de vida que es independiente del ciclo de vida de la máquina virtual, por lo que no incluye eventos para cuando el equipo o máquina virtual host se inicia y se detiene, ya que no están relacionados.
-* **Duración:`Run` Una instancia de rol de trabajo se reciclará si se sale del método **. No obstante, el método `RunAsync` en un servicio de Service Fabric se puede ejecutar hasta su finalización y la instancia de servicio permanecerá disponible. 
+* **Duración:`Run` Una instancia de rol de trabajo se reciclará si se sale del método** . No obstante, el método `RunAsync` en un servicio de Service Fabric se puede ejecutar hasta su finalización y la instancia de servicio permanecerá disponible. 
 
 Service Fabric ofrece un punto de entrada de configuración de comunicación opcional para servicios que atienden las solicitudes de cliente. Tanto RunAsync como el punto de entrada de comunicación son reemplazos opcionales en los servicios de Service Fabric. El servicio puede elegir entre solo atender a las solicitudes de cliente o solo ejecutar un bucle de procesamiento o ambas cosas, razón por la cual se permite al método RunAsync salir sin necesidad de reiniciar la instancia de servicio, ya que puede continuar atendiendo a las solicitudes de cliente.
 
@@ -260,9 +262,4 @@ Conozca más información sobre Reliable Services de Service Fabric y las difere
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

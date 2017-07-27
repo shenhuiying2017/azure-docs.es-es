@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/03/2017
+ms.date: 05/31/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 59ca9514c4cac97e8dd6dafc7a59406925b7b2df
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
+ms.contentlocale: es-es
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -31,7 +32,7 @@ Este tutorial supone que tiene lo siguiente:
 
 * Una suscripción de Azure activa. Puede [suscribirse a una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un grupo de disponibilidad AlwaysOn local existente. Para más información sobre los grupos de disponibilidad, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
-* Conectividad entre la red local y la red virtual de Azure. Para obtener más información sobre la creación de esta red virtual, consulte [Configurar una VPN de sitio a sitio en el Portal de Azure clásico](../../../vpn-gateway/vpn-gateway-site-to-site-create.md).
+* Conectividad entre la red local y la red virtual de Azure. Para más información sobre cómo crear esta red virtual, consulte [Creación de una conexión de sitio a sitio mediante Azure Portal (clásico)](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
 > [!IMPORTANT] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.

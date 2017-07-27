@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: true
 title: "Documentación de Microsoft Azure"
 description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 235bc72f9e72ba44c872bc3a3f8dc2abef7454c5
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 7a642506b97fcf4d3426b9205f4b5e420b0bec59
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 <div id="main" class="v2">
@@ -15,7 +15,7 @@ ms.lasthandoff: 06/28/2017
         <h1 class="screenReader">Documentación de Microsoft Azure</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
-                <a href="http://aka.ms/azuredevgetstarted/">
+                <a href="/azure/guides/developer/azure-developer-guide">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -140,7 +140,9 @@ ms.lasthandoff: 06/28/2017
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Funciones sin servidor</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/">Kubernetes</a></li>
+                                                        <li><a class="barLink" href="/azure/container-instances/">Azure Container Instances</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Orquestación de contenedores con Kubernetes</a></li>
+                                                        <li><a class="barLink" href="/azure/service-fabric/">Microservicios con Service Fabric</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -351,6 +353,12 @@ ms.lasthandoff: 06/28/2017
                                     </ul>
                                     <h3>Contenedores</h3>
                                     <ul>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Azure Container Instances</p>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
@@ -704,7 +712,7 @@ ms.lasthandoff: 06/28/2017
                                         </li>
                                         <li>
                                             <a href="/azure/data-lake-store/">
-                                                <img src="media/index/DataLakeStore.svg" alt="" />
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
@@ -755,13 +763,13 @@ ms.lasthandoff: 06/28/2017
                                         </li>
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
-                                                <img src="media/index/DataLakeStore.svg" alt="" />
+                                                <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
                                                 <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/data-lake-store/">
-                                                <img src="media/index/DataLakeStore.svg" alt="" />
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
@@ -1035,9 +1043,9 @@ ms.lasthandoff: 06/28/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/resource-health">
+                                            <a href="/azure/service-health">
                                                 <img src="media/index/resource-health.svg" alt="" />
-                                                <p>Azure Resource Health</p>
+                                                <p>Azure Service Health</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1450,7 +1458,7 @@ ms.lasthandoff: 06/28/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/DataLakeStore.svg" alt="" />
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1739,18 +1747,18 @@ ms.lasthandoff: 06/28/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-fabric/">
+                                <a href="/azure/container-instances/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                        <img src="media/index/ContainerInstances.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>Desarrollo de microservicios y orquestación de contenedores en Windows o Linux</p>
+                                                    <h3>Azure Container Instances</h3>
+                                                    <p>Ejecución fácil de contenedores con un solo comando</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1789,6 +1797,25 @@ ms.lasthandoff: 06/28/2017
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
                                                     <p>Ejecución de trabajos de proceso con contenedores</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Fabric</h3>
+                                                    <p>Desarrollo de microservicios y orquestación de contenedores en Windows o Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2197,7 +2224,7 @@ ms.lasthandoff: 06/28/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/DataLakeStore.svg" alt="" />
+                                                        <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2216,7 +2243,7 @@ ms.lasthandoff: 06/28/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/DataLakeStore.svg" alt="" />
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3014,7 +3041,7 @@ ms.lasthandoff: 06/28/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/resource-health/">
+                                <a href="/azure/service-health/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3024,8 +3051,8 @@ ms.lasthandoff: 06/28/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Resource Health</h3>
-                                                    <p>Le ayuda a diagnosticar y obtener soporte técnico cuando un problema de Azure afecta a sus recursos</p>
+                                                    <h3>Azure Service Health</h3>
+                                                    <p>Proporciona información orientativa y soporte técnico personalizados cuando surgen problemas en los servicios de Azure que le afectan.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3043,7 +3070,7 @@ ms.lasthandoff: 06/28/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Resource Manager</h3>
+                                                    <h3>Administrador de recursos de Azure</h3>
                                                     <p>Implementación y administración de recursos de Azure</p>
                                                 </div>
                                             </div>

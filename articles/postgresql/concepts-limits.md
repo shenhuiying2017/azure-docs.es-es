@@ -5,17 +5,16 @@ services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
+ms.custom: mvc
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/01/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2df8d6e3d3629ad0e383aa80ba7fee02f8862410
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: a4ddb9d4f672de6cf1ebe137bf06e5e2c8b7796f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitaciones en Azure Database for PostgreSQL
@@ -45,23 +44,24 @@ Hay un número máximo de conexiones, unidades de proceso y almacenamiento en ca
 Cuando se alcanzan demasiadas conexiones, puede recibir el error siguiente:
 > FATAL:  sorry, too many clients already
 
-## <a name="preview-functional-limitations"></a>Limitaciones funcionales de versión preliminar:
-### <a name="scale-operations"></a>Operaciones de escalado:
-1.    El escalado dinámico de servidores entre niveles de servicio no se admite en este momento. Es decir, el cambio entre los niveles de servicio Básico y Estándar.
-2.    El aumento dinámico bajo demanda del almacenamiento en un servidor creado previamente no se admite en este momento.
-3.    La reducción del tamaño de almacenamiento del servidor no se admite.
+## <a name="preview-functional-limitations"></a>Limitaciones funcionales de la versión preliminar
+### <a name="scale-operations"></a>Operaciones de escalado
+1.  El escalado dinámico de servidores entre niveles de servicio no se admite en este momento. Es decir, el cambio entre los niveles de servicio Básico y Estándar.
+2.  El aumento dinámico bajo demanda del almacenamiento en un servidor creado previamente no se admite en este momento.
+3.  La reducción del tamaño de almacenamiento del servidor no se admite.
 
-### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor:
+### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor
 - La migración automatizada entre las principales versiones del motor de base de datos no se admite en este momento.
 
-### <a name="subscription-management"></a>Administración de suscripciones:
+### <a name="subscription-management"></a>Administración de suscripciones
 - El movimiento dinámico de servidores creados previamente entre grupo de suscripciones y recursos no se admite en este momento.
 
-### <a name="point-in-time-restore"></a>Restauración a un momento dado:
-1.    La restauración a un nivel de servicio o unidades de proceso y tamaño de almacenamiento diferente no se admite.
-2.    La restauración a un servidor que se ha quitado no se admite en este momento.
+### <a name="point-in-time-restore"></a>Restauración a un momento dado
+1.  La restauración a un nivel de servicio o unidades de proceso y tamaño de almacenamiento diferente no se admite.
+2.  La restauración a un servidor que se ha quitado no se admite en este momento.
 
-## <a name="next-steps"></a>Pasos siguientes:
-- Comprenda lo que [hay disponible en cada nivel de servicio](concepts-service-tiers.md).
+## <a name="next-steps"></a>Pasos siguientes
+- Comprenda lo que [hay disponible en cada plan de tarifa](concepts-service-tiers.md).
 - Conozca las [versiones de base de datos de PostgreSQL admitidas](concepts-supported-versions.md).
 - Revise [cómo hacer una copia de seguridad de un servidor y restaurarlo en Azure Database for PostgreSQL mediante Azure Portal](howto-restore-server-portal.md)
+

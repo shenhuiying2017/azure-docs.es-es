@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
 ms.contentlocale: es-es
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/07/2017
 
 ---
 
@@ -731,7 +731,7 @@ La acción Compose permite construir un objeto arbitrario. El resultado de la ac
 
 ## <a name="table-action"></a>Acción Table
 
-`table` permite convertir una matriz de elementos en una tabla **CVS** o **HTML**.
+`table` permite convertir una matriz de elementos en una tabla **CSV** o **HTML**.
 
 Si @triggerBody() es
 
@@ -789,7 +789,7 @@ Si el valor de la propiedad `from` es una matriz vacía, el resultado es una tab
 |Nombre|Obligatorio|Tipo|Descripción|
 |--------|------------|--------|---------------|
 |De|Sí|Matriz|La matriz de origen.|
-|formato|Sí|String|El formato, ya sea **CVS** o **HTML**.|
+|formato|Sí|String|El formato, ya sea **CSV** o **HTML**.|
 |columnas|No|Matriz|Las columnas. Permite reemplazar la forma predeterminada de la tabla.|
 |column header|No|String|Encabezado de la columna.|
 |column value|Sí|String|Valor de la columna.|

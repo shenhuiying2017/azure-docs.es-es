@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/17/2017
+ms.date: 7/02/2017
 ms.author: mfussell
-translationtype: Human Translation
-ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
-ms.openlocfilehash: feeba5c8e663b9ea571e4410a2d3ad3505394127
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 69c517da6c23df1708f94ef7486b8c3b5b4edcaa
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -30,7 +31,6 @@ La plataforma Service Fabric de Azure es ideal para las siguientes categorías d
 * **Servicios escalables**: los servicios individuales pueden tener particiones, permitiendo que el estado se escale horizontalmente en el clúster. Además, pueden crearse y eliminarse servicios individuales sobre la marcha. Los servicios se pueden escalar horizontalmente de forma rápida y fácil en unas pocas instancias de unos cuantos nodos hasta miles de instancias en muchos nodos y, a continuación, reducir horizontalmente otra vez, dependiendo de sus necesidades de recursos. Puede usar Service Fabric para crear estos servicios y administrar su ciclo de vida completo.
 * **Cálculo de datos no estáticos**: Service Fabric le permite generar aplicaciones de datos, de entrada/salida y con estado de proceso intensivo. Service Fabric permite la colocación de los datos y el procesamiento (cálculo) en las aplicaciones. Normalmente, cuando la aplicación requiere acceso a datos, hay una latencia de red que está asociada con un nivel de caché o almacenamiento de datos externos. Con servicios Service Fabric con estado, esa latencia se elimina, lo que permite unas lecturas y escrituras de mayor rendimiento. Por ejemplo, supongamos que tiene una aplicación que realiza una selección de recomendaciones en tiempo real para los clientes con un requisito de tiempo de ida y vuelta inferior a 100 milisegundos. Las características de latencia y rendimiento de los servicios Service Fabric (en el que el cálculo de la selección de la recomendación se combina con los datos y las reglas) proporciona una experiencia con capacidad de respuesta al usuario en comparación con el modelo de implementación estándar de tener que recuperar los datos necesarios del almacenamiento remoto.  
 * **Aplicaciones interactivas basadas en sesión**: Service Fabric es útil si sus aplicaciones, como juegos en línea o mensajería instantánea, requieren lecturas y escrituras de baja latencia. Service Fabric le permite crear estas aplicaciones con estado interactivas sin tener que crear un almacén o memoria caché independientes necesarios para las aplicaciones sin estado. (Esto aumenta la latencia y es posible que presente problemas de coherencia).
-* **Procesamiento gráfico distribuido**: el crecimiento de las redes sociales ha aumentado en gran medida la necesidad de analizar gráficos a gran escala en paralelo. El escalado rápido y el procesamiento de carga paralelo convierten Service Fabric en una plataforma natural para el procesamiento de gráficos a gran escala. Service Fabric le permite crear servicios altamente escalables para grupos como redes sociales, inteligencia empresarial e investigación científica.
 * **Análisis y flujos de trabajo de datos**: las lecturas y escrituras rápidas de Service Fabric permiten las aplicaciones que deben procesar de forma confiable eventos o secuencias de datos. Service Fabric también permite aplicaciones que describen las canalizaciones de procesamiento, donde los resultados deben ser confiables y pasar a la siguiente fase de procesamiento sin pérdida. Estos incluyen sistemas transaccionales y financieros, donde las garantías de procesamiento y coherencia de datos son fundamentales.
 * **Recopilación de datos, procesamiento e IoT**: como Service Fabric controla conjuntos a gran escala y tiene una latencia baja gracias sus servicios con estado, es idóneo para el procesamiento de datos de millones de dispositivos en los que los datos para el dispositivo y el cálculo se ubican conjuntamente.
 Hemos visto varios clientes que han desarrollado sistemas IoT con Service Fabric incluido [BMW](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/24/service-fabric-customer-profile-bmw-technology-corporation/), [Schneider Electric](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/05/service-fabric-customer-profile-schneider-electric/) y [Mesh Systems](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/20/service-fabric-customer-profile-mesh-systems/).
@@ -53,10 +53,13 @@ Los microservicios con estado simplifican los diseños de la aplicación porque 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
+
+* Escucha de [casos prácticos de clientes](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
+)
+* Información sobre [casos prácticos de clientes](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/)
+* Más información sobre [patrones y escenarios](service-fabric-patterns-and-scenarios.md)
+
 * Empiece a crear servicios sin y con estado con los modelos de programación [Reliable Services](service-fabric-reliable-services-quick-start.md) y [Reliable Actors](service-fabric-reliable-actors-get-started.md) de Service Fabric.
-* Obtenga más información sobre los [patrones y escenarios](service-fabric-patterns-and-scenarios.md).
-* Obtenga información sobre los [casos prácticos de los clientes](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
-).
 * Vea también los siguientes temas:
   * [Quiero información acerca de los microservicios](service-fabric-overview-microservices.md)
   * [Estado de servicio](service-fabric-concepts-state.md)

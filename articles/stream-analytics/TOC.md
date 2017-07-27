@@ -28,7 +28,7 @@
 ### [Uso de Data Lake Store como destino](stream-analytics-data-lake-output.md)
 ### [Uso de DocumentDB como destino](stream-analytics-documentdb-output.md)
 
-## Supervisión de la optimización de &amp;
+## Supervisión y optimización
 ### [Adición de alertas](stream-analytics-set-up-alerts.md)
 ### [Supervisión de trabajos](stream-analytics-monitoring.md)
 ### [Supervisión de trabajos mediante programación](stream-analytics-monitor-jobs.md)

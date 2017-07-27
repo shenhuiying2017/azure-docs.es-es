@@ -1,6 +1,6 @@
 ---
-title: "Problemas con el sitio web del panel de acceso de la aplicación o con aplicaciones móviles&quot;"
-description: "Problemas con el sitio web del panel de acceso de la aplicación o con aplicaciones móviles&quot;"
+title: "Problemas con el sitio web del panel de acceso de la aplicación o con aplicaciones móviles\""
+description: "Problemas con el sitio web del panel de acceso de la aplicación o con aplicaciones móviles\""
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 97d3485030b0f9f2a6036cdae14e3c37ca89fd6e
+ms.contentlocale: es-es
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Problemas al configurar el acceso condicional a una de mis aplicaciones&quot;
-description: Problemas al configurar el acceso condicional a una de mis aplicaciones&quot;
+title: Problemas al configurar el acceso condicional a una de mis aplicaciones"
+description: Problemas al configurar el acceso condicional a una de mis aplicaciones"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 65d970651aec2afaa80c7b82fd58a8fc16e5b42c
+ms.contentlocale: es-es
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

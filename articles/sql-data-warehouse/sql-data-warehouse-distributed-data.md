@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+ms.date: 06/29/2017
 ms.author: jrj;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: ec9b3cc391a75b4f3a75f95a2ff9613c0317bfa2
 ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -65,12 +65,10 @@ Una distribución es la unidad básica para almacenar datos distribuidos y proce
 ### <a name="can-i-view-the-compute-nodes"></a>¿Se pueden ver los nodos de ejecución?
 Cada nodo de ejecución tiene un Id. de nodo y es visible en las vistas del sistema que pertenecen a SQL Data Warehouse y Almacenamiento de datos paralelos.  Para ver el nodo de ejecución, busque la columna node_id en las vistas del sistema cuyos nombres comiencen por sys.pdw_nodes. Para obtener una lista de las vistas del sistema, consulte la [vista del sistema de MPP](sql-data-warehouse-reference-tsql-statements.md).
 
-## <a name="Replicated"></a>Tablas replicadas para Almacenamiento de datos paralelos
-Se aplica a: Almacenamiento de datos paralelos
+## <a name="Replicated"></a>Tablas replicadas
+Una tabla que se replica tiene una copia completa de la tabla almacenada en cada nodo de proceso. Al replicar una tabla se elimina la necesidad de transferir sus datos de un nodo de proceso a otro antes de una combinación o agregación. Las tablas replicadas solo son viables si son pequeñas, debido a que requieren más espacio para almacenarlas enteras en cada nodo de ejecución.  
 
-Además de utilizar tablas distribuidas, Almacenamiento de datos paralelos ofrece la opción de replicar tablas. Una *tabla replicada* es aquella que se almacena completa en cada nodo de ejecución. Al replicar una tabla se elimina la necesidad de transferir sus filas de un nodo de ejecución a otro antes de usarla en una combinación o agregación. Las tablas replicadas solo son viables si son pequeñas, debido a que requieren más espacio para almacenarlas enteras en cada nodo de ejecución.  
-
-En el diagrama siguiente se muestra una tabla replicada que se ha almacenado en cada nodo de ejecución. La tabla replicada se almacena en todos los discos asignados al nodo de ejecución. Esta estrategia de disco se implementa mediante el uso de grupos de archivos de SQL Server.  
+En el diagrama siguiente se muestra una tabla replicada que se ha almacenado en cada nodo de ejecución. En el caso de SQL Data Warehouse, la tabla replicada se mantiene en una tabla round robin y se copia completa en la primera base de datos de distribución en cada nodo de proceso. En el caso de Almacenamiento de datos paralelo, la tabla replicada se almacena en todos los discos asignados al nodo de proceso.  Esta estrategia de disco se implementa mediante el uso de grupos de archivos de SQL Server.  
 
 ![Tabla replicada](media/sql-data-warehouse-distributed-data/replicated-table.png "Tabla replicada") 
 

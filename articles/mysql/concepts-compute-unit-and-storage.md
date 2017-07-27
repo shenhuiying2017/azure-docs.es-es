@@ -1,85 +1,48 @@
 ---
-title: "Explicación de las unidades de proceso y las unidades de almacenamiento de Azure Database for MySQL | Microsoft Docs"
-description: "Se explican las unidades de proceso y las unidades de almacenamiento y lo que sucede cuando se alcanza el número máximo de tales unidades."
+title: "Explicación de las unidades de proceso en Azure Database for MySQL | Microsoft Docs"
+description: "Azure Database for MySQL: en este artículo se explica el concepto de unidades de proceso y lo que sucede cuando se alcanza el número máximo de tales unidades en la carga de trabajo."
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
-ms.service: mysql - database
-ms.tgt_pltfrm: portal
+editor: jasonwhowell
+ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/23/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2c10253698864b5e1964fbf15b3484752a551c3b
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 5f804920e85bf3aecee93ed486dea8f03d561f08
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 ---
-# <a name="explaining-compute-unit-and-storage-unit"></a>Explicación de las unidades de proceso y las unidades de almacenamiento
-En este artículo se explican las unidades de proceso y las unidades de almacenamiento y lo que sucede cuando se alcanza el número máximo de tales unidades.
+# <a name="explaining-compute-units-in-azure-database-for-mysql"></a>Explicación de las unidades de proceso en Azure Database for MySQL
+En este artículo se explica el concepto de unidades de proceso y lo que sucede cuando se alcanza el número máximo de tales unidades en la carga de trabajo.
 
 ## <a name="what-are-compute-units"></a>¿Qué son las unidades de proceso?
-Las unidades de proceso son una medida de la capacidad de proceso de la CPU que se garantiza que está disponible para un único servidor de Azure Database for MySQL. Una unidad de proceso es una medida combinada de recursos de CPU y memoria. En general, 50 unidades de proceso equivalen a medio núcleo, 100 unidades de proceso equivalen a un núcleo y 2000 unidades de proceso equivalen a veinte núcleos de capacidad de proceso garantizada disponible para su servidor.
+Las unidades de proceso son una medida del rendimiento de procesamiento de la CPU cuya disponibilidad está garantizada para un único servidor de Azure Database for MySQL. Una unidad de proceso es una medida combinada de recursos de CPU y memoria. Por lo general, 50 unidades de proceso equivalen a medio núcleo. 100 unidades de proceso equivalen a un núcleo. 2000 unidades de proceso equivalen a una disponibilidad de rendimiento de procesamiento de veinte núcleos garantizada para el servidor.
 
-La cantidad de memoria por unidad de proceso está optimizada para los niveles de servicio Básico, Estándar y Premium. Duplicar las unidades de proceso mediante el aumento del nivel de rendimiento equivale a duplicar el conjunto de recursos disponibles para ese único servidor de Azure Database for MySQL.
+La cantidad de memoria por unidad de proceso está optimizada para los planes de tarifa Básico y Estándar. Duplicar las unidades de proceso aumentando el nivel de rendimiento equivale a duplicar el conjunto de recursos disponibles para ese único servidor de Azure Database for MySQL.
 
-Por ejemplo, un nivel Estándar de 2000 unidades de proceso proporciona 20 veces más rendimiento de CPU y memoria que un nivel Estándar configurado con 100 unidades de proceso. Sin embargo, mientras que 100 unidades de proceso de nivel Estándar proporcionan el mismo rendimiento de CPU en comparación con 100 unidades de proceso de nivel Básico, la cantidad de memoria preconfigurada en el nivel Estándar es el doble de la cantidad de memoria configurada para el nivel Básico y, por lo tanto, ofrece un mejor rendimiento de la carga de trabajo y una menor latencia en las transacciones.
-
->[!IMPORTANT]
->Para conseguir un rendimiento predecible de la carga de trabajo y una elevada simultaneidad de usuarios, se recomienda firmemente la elección del nivel de servicio Estándar.
-
-En cualquier momento puede cambiar los [niveles de servicio](./concepts-service-tiers.md) sin prácticamente tiempo de inactividad de las aplicaciones. Para muchas empresas y aplicaciones, el hecho de poder crear entre una y muchas bases de datos dentro de cada servidor único de Azure Database for MySQL y aumentar o reducir el rendimiento a petición, proporciona la flexibilidad necesaria para administrar los costos.
-
->[!IMPORTANT]
->Actualmente se admiten el escalado y la reducción vertical de los niveles de rendimiento dentro de un nivel de servicio. Por ejemplo, puede escalar verticalmente de 100 unidades de proceso Estándar a 400 unidades de proceso Estándar. Igualmente, puede reducir verticalmente de 400 unidades de proceso Estándar a 100 unidades de proceso Estándar. La característica para poder escalar o reducir verticalmente entre niveles de servicio, por ejemplo, entre el nivel Básico y Estándar, estará disponible en el futuro.
-
-## <a name="what-are-storage-units"></a>¿Qué son las unidades de almacenamiento?
-Las unidades de almacenamiento son una medida de capacidad de almacenamiento aprovisionado que se garantiza que está disponible para un único servidor de Azure Database for MySQL. Cada nivel de servicio tiene una cantidad fija de almacenamiento aprovisionado que se incluye en el precio del nivel de servicio seleccionado.
-
-Opcionalmente, las unidades de almacenamiento se pueden escalar con independencia de las unidades de proceso, en incrementos de 125 GB, hasta el almacenamiento máximo permitido, como se describe en la tabla siguiente.
-
-| **Características del nivel de servicio** | **Básico** | **Standard** | **Premium\*** |
-|---------------------------|-----------|--------------|---------------|
-| Unidades de almacenamiento incluidas | 50 GB | 125 GB | 250 GB |
-| Almacenamiento total máximo | 1050 GB | 10 000 GB | 4000 GB |
-| Garantía de IOPS de almacenamiento | N/D | Sí | Sí |
-| IOPS de almacenamiento máximas | N/D | 30 000 | 40.000 |
-
-Los niveles de servicio Estándar y Premium también proporcionan garantía de IOPS aprovisionada. La cantidad de IOPS aprovisionada disponible depende del nivel de servicio y de la capacidad de almacenamiento configurada. Para los servidores implementados en el nivel Estándar, la IOPS se fija en 3 veces el almacenamiento aprovisionado. 
-
-Por ejemplo, si tiene 125 GB de almacenamiento aprovisionado, hay 375 IOPS aprovisionadas disponibles para el servidor. El nivel Premium proporciona una latencia muy baja y un elevado almacenamiento de IOPS. Para servidores implementados en el nivel Premium , la IOPS de baja latencia aprovisionada se puede escalar entre cinco y diez veces el almacenamiento aprovisionado.
-
->[!IMPORTANT]
->Si la carga de trabajo forma un cuello de botella debido a las unidades de proceso configuradas, puede que no sea capaz de obtener la IOPS aprovisionada disponible. Se recomienda supervisar las unidades de proceso y considerar la posibilidad de escalarlas si no puede explotar completamente la IOPS aprovisionada disponible.
-
-Escalar las unidades de almacenamiento aumentando el almacenamiento aprovisionado equivale a aumentar proporcionalmente la IOPS aprovisionada para los niveles Estándar y Premium.
-
->[!IMPORTANT]
->El nivel Básico no proporciona garantía de IOPS.
+Por ejemplo, 800 unidades de proceso de un plan Estándar proporcionan 8 veces más rendimiento de CPU y memoria que una configuración Estándar con 100 unidades de proceso. Sin embargo, mientras que 100 unidades de proceso de un plan Estándar proporcionan el mismo rendimiento de CPU que 100 unidades de proceso de uno Básico, la cantidad de memoria preconfigurada en el plan de tarifa Estándar es el doble de la configurada para el Básico. Por tanto, el plan de tarifa Estándar ofrece un mejor rendimiento para cargas de trabajo y una menor latencia en las transacciones que el Básico con las mismas unidades de proceso seleccionadas.
 
 ## <a name="how-can-i-determine-the-number-of-compute-units-needed-for-my-workload"></a>¿Cómo puedo determinar el número de unidades de proceso necesarias para la carga de trabajo?
-Si lo que busca es migrar un entorno local existente o un servidor MySQL que se ejecuta en una máquina virtual, puede determinar el número de unidades de proceso mediante la estimación de cuántos núcleos de capacidad de proceso necesita su carga de trabajo. 
+Si lo que quiere es migrar un servidor de MySQL que se esté ejecutando en un entorno local o una máquina virtual, puede calcular de forma estimada cuántos núcleos de rendimiento de procesamiento necesita su carga de trabajo para determinar el número de unidades de proceso. 
 
-Si el entorno local o la máquina virtual usan actualmente 4 núcleos (sin contar el hiperproceso de CPU), puede comenzar configurando 400 unidades de proceso para Azure Database for MySQL. Las unidades de proceso se pueden escalar o reducir verticalmente en función de las necesidades de su carga de trabajo, y de forma dinámica, sin apenas tiempo de inactividad de las aplicaciones. También puede supervisar el consumo de unidades de proceso a través del portal o de la CLI para conocer el tamaño correcto de los recursos para el servidor MySQL.
+Si el servidor del entorno local o la máquina virtual está usando actualmente 4 núcleos (sin contar el hiperproceso de CPU), empiece por configurar 400 unidades de proceso para el servidor de Azure Database for MySQL. Las unidades de proceso se pueden escalar o reducir verticalmente y de forma dinámica en función de las necesidades de la carga de trabajo sin apenas tiempo de inactividad de las aplicaciones. 
 
-## <a name="how-can-i-determine-the-number-of-storage-units-needed-for-my-workload"></a>¿Cómo puedo determinar el número de unidades de almacenamiento necesarias para la carga de trabajo?
-Para estimar la cantidad de unidades de almacenamiento necesarias, determine primero la cantidad de capacidad de almacenamiento que necesita. Los niveles Básico, Estándar y Premium incluyen almacenamiento integrado en la SKU.
-
-El segundo factor importante consiste en determinar la IOPS necesaria. El nivel Básico proporciona IOPS variable sin ninguna garantía. En el nivel Estándar el escalado sigue una relación fija de tres IOPS por GB de almacenamiento aprovisionado y se proporciona garantía de IOPS. También puede supervisar el consumo de IOPS aprovisionada mediante el portal o la CLI para determinar el uso.
+Supervise el grafo de métricas de Azure Portal o escriba comandos de CLI de Azure para medir las unidades de proceso. Las métricas pertinentes que se deben supervisar son el porcentaje de unidades de proceso y el límite de unidades de proceso.
 
 >[!IMPORTANT]
->Una vez aprovisionadas las unidades de almacenamiento, no se pueden reducir verticalmente de forma dinámica.
+> Si detecta que las E/S por segundo del almacenamiento no se usan a máxima capacidad, considere supervisar también la utilización de las unidades de proceso. Aumentar el número de unidades de proceso puede incrementar el rendimiento de E/S reduciendo los cuellos de botella de rendimiento que se producen debido a limitaciones en la CPU o la memoria.
 
-## <a name="what-happens-when-i-hit-my-maximum-compute-units-andor-storage-units"></a>¿Qué sucede si llego al número máximo de unidades de proceso o unidades de almacenamiento?
-Los niveles de rendimiento se calibran y rigen para proporcionar los recursos necesarios para ejecutar la carga de trabajo de la base de datos hasta los límites máximos permitidos para el nivel de rendimiento o de servicio seleccionado.
+## <a name="what-happens-when-i-hit-my-maximum-compute-units"></a>¿Qué ocurre cuando se alcanza el número máximo de unidades de proceso?
+Los niveles de rendimiento se calibran y regulan para proporcionar recursos para ejecutar la carga de trabajo de la base de datos hasta los límites máximos del plan de tarifa y el nivel de rendimiento seleccionados. 
 
-Si la carga de trabajo alcanza los límites de IOPS aprovisionada/unidades de proceso, seguirá recibiendo los recursos en el nivel máximo permitido, pero es probable que perciba un aumento de las latencias en las consultas. Alcanzar uno de estos límites no provocará errores, sino una ralentización de la carga de trabajo, a menos que la ralentización sea tan severa que las consultas empiecen a agotar el tiempo de espera.
+Si la carga de trabajo alcanza los límites máximos de unidades de proceso o de E/S por segundo provistas, puede continuar usando los recursos al nivel máximo permitido, pero es probable que perciba un aumento de las latencias de las consultas. Alcanzar estos límites no provocará errores, sino una ralentización de la carga de trabajo, a menos que esta ralentización sea tan grave que empiece a agotarse el tiempo de espera de las consultas. 
 
-Si alcanza los límites de conexiones máximas permitidas, verá errores explícitos. Consulte [Límites de recursos de Azure Database for MySQL](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits) para más información sobre los límites en recursos. <Need to write about the behavior if a user reaches the storage capacity limits>
+Si la carga de trabajo alcanza los límites máximos de número de conexiones, se producen errores explícitos. Para obtener más información sobre los límites de los recursos, consulte [Limitaciones en Azure Database for MySQL](concepts-limits.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Niveles de servicio de Azure Database for MySQL](./concepts-service-tiers.md) 
+Para obtener más información sobre los planes de tarifa, consulte [Planes de tarifa de Azure Database for MySQL](./concepts-service-tiers.md).
 

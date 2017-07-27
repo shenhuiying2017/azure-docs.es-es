@@ -14,13 +14,13 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 06/13/2017
 ms.author: daleche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 608cbc0fd1cc1d73d28056909ed06618457bd9c0
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ae081fc0432e36bf9f4d4f06f289386ddce37990
 ms.contentlocale: es-es
-ms.lasthandoff: 04/10/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -53,10 +53,10 @@ Si el programa se comunica con la Base de datos SQL de Azure a través de un mid
 
 #### <a name="principles-for-retry"></a>Principios de reintento
 * Se debe volver a intentar abrir una conexión si el error es un error transitorio.
-* No se debe volver a intentar directamente una instrucción SELECT de SQL con un error transitorio.
+* No se debe volver a intentar directamente una instrucción SELECT de SQL que haya fallado con un error transitorio.
   
   * En su lugar, establezca una conexión nueva y, después, vuelva a intentar la instrucción SELECT.
-* Cuando se produce un error en una instrucción UPDATE de SQL con un error transitorio, se debe establecer una conexión nueva antes de volver a intentar dicha instrucción.
+* Cuando una instrucción UPDATE de SQL falla con un error transitorio, se debe establecer una conexión nueva antes de volver a intentar dicha instrucción.
   
   * La lógica de reintento debe asegurar que se completó toda la transacción de base de datos o que toda la transacción se revirtió.
 
@@ -157,14 +157,14 @@ Supongamos que su aplicación tiene una lógica de reintento personalizada. Pued
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### <a name="connection-connection-string"></a>Conexión: cadena de conexión
-La cadena de conexión necesaria para conectarse a Base de datos SQL de Azure es ligeramente diferente de la cadena de conexión a Microsoft SQL Server. Puede copiar la cadena de conexión para la base de datos en el [Portal de Azure](https://portal.azure.com/).
+La cadena de conexión necesaria para conectarse a Base de datos SQL de Azure es ligeramente diferente de la cadena de conexión a Microsoft SQL Server. Puede copiar la cadena de conexión para la base de datos en [Azure Portal](https://portal.azure.com/).
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
 ### <a name="connection-ip-address"></a>Conexión: Dirección IP
-Debe configurar el servidor de Base de datos SQL para que acepte la comunicación de la dirección IP del equipo que hospeda el programa cliente. Para ello, edite la configuración del firewall a través del [Portal de Azure](https://portal.azure.com/).
+Debe configurar el servidor de Base de datos SQL para que acepte la comunicación de la dirección IP del equipo que hospeda el programa cliente. Para ello, edite la configuración del firewall a través de [Azure Portal](https://portal.azure.com/).
 
 Si olvida configurar la dirección IP, el programa fallará con un mensaje de error que indica la dirección IP necesaria.
 

@@ -11,23 +11,18 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1c56a7f16361ac4fae97be6c9f21c959723b396c
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 622604dc3ce69085feff6705168d58ad9938c429
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Conmutación por recuperación de Azure a un sitio local
-
-> [!div class="op_single_selector"]
-> * [Máquinas de VMware o físicas desde Azure](site-recovery-failback-azure-to-vmware.md)
-> * [Máquinas virtuales de Hyper-V desde Azure](site-recovery-failback-from-azure-to-hyper-v.md)
-
 
 En este artículo se describe cómo conmutar por recuperación máquinas virtuales de Azure Virtual Machines al sitio local. Siga las instrucciones que se describen en este artículo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que se hayan conmutado por error del sitio local a Azure según el tutorial [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 
@@ -76,7 +71,7 @@ Si no existe máquina virtual local antes de volver a proteger la máquina virtu
 
 Cuando una máquina física conmuta por error en Azure, solo puede conmutar por recuperación como una máquina virtual de VMware (conocida también como P2A2V). Este flujo se enmarca en la recuperación de ubicación alternativa.
 
-* No se puede realizar la conmutación por recuperación de servidores Windows Server 2008 R2 SP1 si están protegidos y conmutados por error a Azure.
+* Un servidor físico Windows Server 2008 R2 SP1, si está protegido y se ha realizado la conmutación por error a Azure, no se puede recuperar.
 * Asegúrese detectar al menos un servidor de destino principal junto con los hosts ESX/ESXi necesarios para la conmutación por recuperación.
 
 ## <a name="have-you-completed-reprotection"></a>¿Ha completado la reprotección?
@@ -112,7 +107,7 @@ Tenga en cuenta que los puntos de recuperación coherentes con la aplicación pu
 
 ### <a name="what-happens-to-vmware-tools-post-failback"></a>¿Qué ocurre con las herramientas de VMware después de la conmutación por recuperación?
 
-Durante la conmutación por error a Azure, no pueden ejecutar las herramientas de VMware en la máquina virtual de Azure. Si se trata de una máquina virtual Windows, ASR deshabilita las herramientas de VMware durante la conmutación por error. Si es una máquina virtual Linux, ASR desinstala las herramientas de VMware durante la conmutación por error. 
+Durante la conmutación por error a Azure, no pueden ejecutar las herramientas de VMware en la máquina virtual de Azure. Si se trata de una máquina virtual Windows, ASR deshabilita las herramientas de VMware durante la conmutación por error. Si es una máquina virtual Linux, ASR desinstala las herramientas de VMware durante la conmutación por error.
 
 Durante la conmutación por recuperación de la máquina virtual Windows, se vuelven a habilitar las herramientas de VMware. De forma similar, para una máquina virtual Linux, las herramientas de VMware se vuelven a instalar en la máquina durante la conmutación por recuperación.
 

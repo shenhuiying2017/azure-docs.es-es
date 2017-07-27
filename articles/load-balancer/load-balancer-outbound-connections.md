@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2016
+ms.date: 5/31/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 3d2ba1d63f4bb89ff51275044922fb86b5f70365
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: bb490e7ba64f4db454e1bd7171d600ed9dd9e257
+ms.contentlocale: es-es
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -45,7 +46,9 @@ Puede usar [Log Analytics para Load Balancer](load-balancer-monitor-log.md) y [R
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Máquina virtual de carga equilibrada sin ninguna dirección IP pública a nivel de instancia
 
-En este escenario, la máquina virtual forma parte de un grupo de Azure Load Balancer. La máquina virtual no tiene ninguna dirección IP pública asignada. Cuando la máquina virtual de carga equilibrada crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP pública del front-end público de Load Balancer. Azure usa la traducción de direcciones de red de origen (SNAT) para realizar esta función. Se utilizan puertos efímeros de la dirección IP pública de Load Balancer para distinguir flujos individuales que la máquina virtual originó. SNAT asigna dinámicamente puertos efímeros cuando se crean flujos de salida. En este contexto, los puertos efímeros utilizados para SNAT se conocen como puertos SNAT.
+En este escenario, la máquina virtual forma parte de un grupo de Azure Load Balancer.  La máquina virtual no tiene ninguna dirección IP pública asignada. El recurso Equilibrador de carga debe configurarse con una regla que vincule el front-end de dirección IP pública con el grupo de back-end.  Si no lleva a cabo esta configuración, el comportamiento es tal y como se describe en la sección anterior para [Máquina virtual independiente con ninguna dirección IP pública a nivel de instancia](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+
+Cuando la máquina virtual de carga equilibrada crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP pública del front-end público de Load Balancer. Azure usa la traducción de direcciones de red de origen (SNAT) para realizar esta función. Se utilizan puertos efímeros de la dirección IP pública de Load Balancer para distinguir flujos individuales que la máquina virtual originó. SNAT asigna dinámicamente puertos efímeros cuando se crean flujos de salida. En este contexto, los puertos efímeros utilizados para SNAT se conocen como puertos SNAT.
 
 Los puertos SNAT son un recurso finito que puede agotarse. Es importante entender cómo se consumen. Se consume un puerto SNAT por cada flujo a una sola dirección IP de destino. En el caso de varios flujos a la misma dirección IP de destino, cada flujo consume un solo puerto SNAT. Esto garantiza que los flujos son únicos si se han originado desde la misma dirección IP pública y se dirigen a la misma dirección IP de destino. En el caso de varios flujos, cada uno de ellos dirigido a una dirección IP de destino diferente, se consume un solo puerto SNAT por cada destino. La dirección IP de destino hace que los flujos sean únicos.
 

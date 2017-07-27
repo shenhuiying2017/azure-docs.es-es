@@ -11,12 +11,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/09/2017
+ms.date: 06/30/2017
 ms.author: pakunapa
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 11e300b3b1d0433bd4790332593ada2d3eede883
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: dc4a362b5737bb424ca2c196c85f4c51b6ee5e30
+ms.contentlocale: es-es
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -86,6 +87,23 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 ```
 
 El marco de trabajo de comunicación remota propaga las excepciones generadas en el servicio al cliente. Por lo tanto, la lógica de control de excepciones en el cliente mediante `ServiceProxyBase` puede controlar excepciones directamente que el servicio genera.
+
+## <a name="service-proxy-lifetime"></a>Duración del proxy de servicio
+La creación de ServiceProxy es una operación ligera, por lo que el usuario puede crearla todas las veces que lo necesite. El proxy de servicio puede volver a usarse siempre que el usuario lo necesite. El usuario puede volver a usar el mismo proxy en caso de excepción. Cada ServiceProxy contiene un cliente de comunicación que se usa para enviar mensajes a través de la conexión. Al invocar la API, se establece una comprobación interna para ver si el cliente de comunicación usado es válido. En función de ese resultado, volvemos a crear el cliente de comunicación. Por lo tanto, el usuario no tiene que volver a crear serviceproxy en caso de excepción.
+
+### <a name="serviceproxyfactory-lifetime"></a>Duración de ServiceProxyFactory
+[FabricServiceProxyFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) es un tejido que crea un proxy para distintas interfaces remotas. Si usa la API `ServiceProxyBase.create` para crear el proxy, el marco crea un `FabricServiceProxyFactory`.
+Resulta útil crear uno manualmente cuando necesite invalidar las propiedades [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory).
+Factory es una operación costosa. `FabricServiceProxyFactory` mantiene la memoria caché de los clientes de comunicación.
+El procedimiento recomendado consiste en almacenar `FabricServiceProxyFactory` en caché lo más posible.
+
+## <a name="remoting-exception-handling"></a>Control de excepciones remota
+Toda la excepción remota generada por la API de servicio se vuelve a enviar al cliente como RuntimeException o como FabricException.
+
+ServiceProxy controla todas las excepciones de conmutación por error para la partición de servicio para la que se crea. Vuelve a resolver los puntos de conexión si existen excepciones de conmutación por error (excepciones no transitorias) y recupera la llamada con el punto de conexión correcto. El número de reintentos para la excepción de conmutación por error es indefinido.
+En el caso de TransientExceptions, solo recupera la llamada.
+
+[OperationRetrySettings] proporciona los parámetros de reintento predeterminados. (https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) El usuario puede configurar estos valores pasando el objeto OperationRetrySettings al constructor ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Protección de la comunicación para Reliable Services](service-fabric-reliable-services-secure-communication.md)

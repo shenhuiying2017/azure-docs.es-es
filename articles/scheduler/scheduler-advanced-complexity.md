@@ -14,9 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e329d152ea6a95c8cdfa6a507504601d4e0957cd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
+ms.contentlocale: es-es
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -128,7 +130,7 @@ En la siguiente tabla se describen los elementos de *schedule* con detalle:
 | **minutes** |Minutos de la hora en la que se ejecuta el trabajo |<ul><li>Entero o</li><li>Matriz de enteros</li></ul> |
 | **hours** |Horas del día en las que se ejecuta el trabajo |<ul><li>Entero o</li><li>Matriz de enteros</li></ul> |
 | **weekDays** |Días de la semana en los que se ejecutará el trabajo Solo se puede especificar con una frecuencia semanal. |<ul><li>Lunes, martes, miércoles, jueves, viernes, sábado o domingo</li><li>Matriz de cualquiera de los valores anteriores (tamaño de la matriz máx. 7)</li></ul>*No* distingue mayúsculas de minúsculas |
-| **monthlyOccurrences** |Determina los días del mes en los que se ejecutará el trabajo. Solo se puede especificar con una frecuencia mensual. |<ul><li>Matriz de objetos de monthlyOccurence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurence*<br />}</pre><p> *day* es el día de la semana en el que se ejecutará el trabajo; por ejemplo, {Sunday} es cada domingo del mes. Necesario.</p><p>El valor de *occurrence* es la repetición del día durante el mes, por ejemplo, {domingo, -1} es el último domingo del mes. Opcional.</p> |
+| **monthlyOccurrences** |Determina los días del mes en los que se ejecutará el trabajo. Solo se puede especificar con una frecuencia mensual. |<ul><li>Matriz de objetos de monthlyOccurence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *day* es el día de la semana en el que se ejecutará el trabajo; por ejemplo, {Sunday} es cada domingo del mes. Necesario.</p><p>El valor de *occurrence* es la repetición del día durante el mes, por ejemplo, {domingo, -1} es el último domingo del mes. Opcional.</p> |
 | **monthDays** |Día del mes en el que se ejecutará el trabajo. Solo se puede especificar con una frecuencia mensual. |<ul><li>Cualquier valor < = -1 y > = -31.</li><li>Cualquier valor > = 1 y < = 31.</li><li>Una matriz de valores por encima</li></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Ejemplos: Programaciones de periodicidad
@@ -188,10 +190,5 @@ En las siguientes programaciones se supone que *interval* está establecido en 1
  [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/25/2016
+ms.date: 05/22/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 226e86703843b026d20123543cf5311a5355aad4
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: 333d2f26ce043a167fb84858c8327cb39e868ffa
+ms.contentlocale: es-es
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -25,17 +26,17 @@ ms.lasthandoff: 03/25/2017
 Consulte [Introducción a Diagnósticos de Azure](../azure-diagnostics.md) para obtener información sobre Diagnósticos de Azure.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Habilitación de Diagnósticos en un rol de trabajo
-En este tutorial se describe cómo implementar un rol de trabajo de Azure que emite datos de telemetría con la clase EventSource de .NET. Diagnósticos de Azure se usa para recopilar datos de telemetría y almacenarla en una cuenta de almacenamiento de Azure. Al crear un rol de trabajo, Visual Studio habilita automáticamente Diagnósticos 1.0 como parte de la solución en los SDK de Azure para .NET 2.4 y versiones anteriores. En las instrucciones siguientes se describe el proceso para crear el rol de trabajo, deshabilitar Diagnósticos 1.0 de la solución e implementar Diagnósticos 1.2 o 1.3 en el rol de trabajo.
+En este tutorial se describe cómo implementar un rol de trabajo de Azure que emite datos de telemetría mediante la clase EventSource de .NET. Diagnósticos de Azure se usa para recopilar datos de telemetría y almacenarla en una cuenta de almacenamiento de Azure. Al crear un rol de trabajo, Visual Studio habilita automáticamente Diagnósticos 1.0 como parte de la solución en los SDK de Azure para .NET 2.4, y las versiones anteriores. En las instrucciones siguientes se describe el proceso para crear el rol de trabajo, deshabilitar Diagnósticos 1.0 de la solución e implementar Diagnósticos 1.2 o 1.3 en el rol de trabajo.
 
 ### <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que tiene una suscripción a Azure y usa Visual Studio con Azure SDK. Si no tiene una suscripción de Azure, puede registrarse para obtener una [prueba gratuita][Free Trial]. Asegúrese de [instalar y configurar Azure PowerShell versión 0.8.7 o posterior][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Paso 1: crear roles de trabajo
 1. Inicie **Visual Studio**.
-2. Cree un nuevo proyecto de **Azure Cloud Services** desde la plantilla **Nube** que tiene como destino .NET Framework 4.5.  Asigne al proyecto el nombre "WadExample" y haga clic en Aceptar.
+2. Cree un proyecto en **Azure Cloud Services** desde la plantilla **Nube** cuyo destino sea .NET Framework 4.5.  Asigne al proyecto el nombre "WadExample" y haga clic en Aceptar.
 3. Seleccione **Rol de trabajo** y haga clic en Aceptar. Se creará el proyecto.
 4. En el **Explorador de soluciones**, haga doble clic en el archivo de propiedades **WorkerRole1**.
-5. En la pestaña **Configuración**, desactive **Habilitar Diagnósticos** para deshabilitar Diagnósticos 1.0 (SDK de Azure SDK 2.4 y anteriores).
+5. En la pestaña **Configuración**, desactive la opción **Habilitar Diagnostics** para deshabilitar Diagnostics 1.0 (SDK de Azure 2.4 y las versiones anteriores).
 6. Compile la solución para comprobar que no hay errores.
 
 ### <a name="step-2-instrument-your-code"></a>Paso 2: instrumentar el código
@@ -129,10 +130,10 @@ namespace WorkerRole1
 1. Implemente su rol de trabajo en Azure desde Visual Studio seleccionando el proyecto **WadExample** en el Explorador de soluciones y luego **Publicar** en el menú **Compilar**.
 2. Elija su suscripción.
 3. En el cuadro de diálogo **Configuración de publicación de Microsoft Azure**, seleccione **Crear nuevo…**.
-4. En el cuadro de diálogo **Crear servicio en la nube y cuenta de almacenamiento**, escriba un **Nombre** (por ejemplo, "WadExample") y seleccione una región o un grupo de afinidad.
+4. En el cuadro de diálogo **Crear servicio en la nube y cuenta de almacenamiento**, escriba un **nombre** (por ejemplo, "WadExample") y seleccione una región o un grupo de afinidad.
 5. Establezca el **Entorno** en **Ensayo**.
 6. Modifique cualquier otro parámetro de **Configuración** según sea necesario y haga clic en **Publicar**.
-7. Una vez finalizada la implementación, compruebe en el Portal de Azure clásico que el servicio en la nube está en el estado **En ejecución** .
+7. Una vez finalizada la implementación, compruebe en Azure Portal que el servicio en la nube está en estado **En ejecución**.
 
 ### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Paso 4: crear el archivo de configuración de Diagnósticos e instalar la extensión
 1. Descargue la definición del esquema del archivo de configuración público ejecutando el comando de PowerShell siguiente:
@@ -186,7 +187,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ```
 
 ### <a name="step-6-look-at-your-telemetry-data"></a>Paso 6: consultar los datos de telemetría
-En el **Explorador de servidores** de Visual Studio, vaya a la cuenta de almacenamiento wadexample. Cuando el servicio en la nube lleve ejecutándose unos 5 minutos, debería ver las tablas **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** y **WADSetOtherTable**. Haga doble clic en una de las tablas para ver la telemetría que se ha recopilado.
+En el **Explorador de servidores** de Visual Studio, navegue hasta la cuenta de almacenamiento wadexample. Cuando el servicio en la nube lleve en ejecución unos cinco (5) minutos, debería ver las tablas **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** y **WADSetOtherTable**. Haga doble clic en cualquiera de ellas para ver la telemetría que se ha recopilado.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
@@ -197,7 +198,7 @@ El archivo de configuración de Diagnósticos define valores que se usan para in
 Si tiene problemas, consulte [Solución de problemas de Diagnósticos de Azure](../azure-diagnostics-troubleshooting.md) para obtener ayuda relacionada con problemas comunes.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Vea una lista de artículos sobre Diagnósticos de Azure relacionados con máquinas virtuales](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) para cambiar los datos que se van a recopilar, solucionar problemas u obtener más información sobre los diagnósticos en general.
+[Vea una lista de artículos relacionados con el diagnóstico de máquinas virtuales de Azure](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) para cambiar los datos que se recopilan, solucionar problemas u obtener más información acerca de los diagnósticos en general.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

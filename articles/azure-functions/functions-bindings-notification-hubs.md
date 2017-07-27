@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: a64af1a9f969c5ce5a7e2f18ca23451ac96f1a13
-ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
-ms.lasthandoff: 02/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: fa3d37b963c1bb6b58127b9180cd657d7b1dabcc
+ms.contentlocale: es-es
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -44,7 +45,7 @@ El archivo function.json ofrece las siguientes propiedades:
 * `connection` : esta cadena de conexión debe ser una cadena de conexión de la **configuración de la aplicación** establecida en el valor *DefaultFullSharedAccessSignature* para el centro de notificaciones.
 * `direction` : debe establecerse en *out*. 
 * `platform`: la propiedad de plataforma indica la plataforma de notificación donde se enviará la notificación. Debe ser uno de los siguientes valores: 
-  * `template`: se trata de la plataforma predeterminada si se omite la propiedad de la plataforma en el enlace de salida. Las notificaciones de plantillas se pueden enviar a cualquier plataforma configurada en el Centro de notificaciones de Azure. Para obtener más información sobre cómo utilizar plantillas en general para enviar notificaciones multiplataforma con un Centro de notificaciones de Azure, consulte [Templates](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) (Plantillas).
+  * De forma predeterminada, si se omite la propiedad de plataforma desde el enlace de salida, las notificaciones de plantilla se pueden usar para tener como destino cualquier plataforma configurada en el centro de notificaciones de Azure. Para obtener más información sobre cómo utilizar plantillas en general para enviar notificaciones multiplataforma con un Centro de notificaciones de Azure, consulte [Templates](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) (Plantillas).
   * `apns`: Apple Push Notification Service. Para obtener más información sobre cómo configurar el Centro de notificaciones para APNS y recibir la notificación en una aplicación cliente, consulte [Envío de notificaciones push a iOS con Notification Hubs de Azure](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md). 
   * `adm`: [Amazon Device Messaging](https://developer.amazon.com/device-messaging). Para obtener más información sobre cómo configurar el Centro de notificaciones para ADM y recibir la notificación en una aplicación de Kindle, consulte [Introducción a Notification Hubs para aplicaciones Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md). 
   * `gcm`: [Google Cloud Messaging](https://developers.google.com/cloud-messaging/). También se admite Firebase Cloud Messaging, que es la nueva versión de GCM. Para obtener más información sobre cómo configurar el Centro de notificaciones para GCM o FCM y recibir la notificación en una aplicación cliente, consulte [Envío de notificaciones push a Android con Notification Hubs de Azure](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).

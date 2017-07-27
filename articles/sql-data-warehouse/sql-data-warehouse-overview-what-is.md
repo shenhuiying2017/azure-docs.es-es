@@ -16,10 +16,10 @@ ms.custom: overview
 ms.date: 2/28/2017
 ms.author: jrj;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 70e0cb62ff9da5486e956a59a110e12093e90f5d
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 575c49f83c8845edcea984459f3907490c62d269
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -144,7 +144,7 @@ Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia d
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Casos de éxito de clientes]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse
+[Casos de éxito de clientes]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blogs de Customer Advisory Team]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Solicitud de función]: https://feedback.azure.com/forums/307516-sql-data-warehouse

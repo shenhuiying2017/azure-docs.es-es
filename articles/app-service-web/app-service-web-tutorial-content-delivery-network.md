@@ -1,27 +1,31 @@
 ---
-title: "Incorporación de una red de entrega de contenido a Azure App Service | Microsoft Docs"
+title: "Adición de una red CDN a una instancia de Azure App Service | Microsoft Docs"
 description: "Agregue una red de entrega de contenido a Azure App Service para almacenar en memoria caché y entregar archivos estáticos desde servidores próximos a sus clientes en todo el mundo."
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
-ms.date: 05/01/2017
+ms.date: 05/31/2017
 ms.topic: article
 ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7208abc0e6eaa9067c5bb36a09e1bfd276fe0b0c
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: a4f5113c4cc0ffb5fdd072e9a59743c83154c38c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Incorporación de una red de entrega de contenido a Azure App Service
 
 [Azure Content Delivery Network](../cdn/cdn-overview.md) almacena en caché contenido web estático en ubicaciones colocadas estratégicamente para obtener el máximo rendimiento a la hora de proporcionar contenido a los usuarios. CDN también reduce la carga del servidor en la aplicación web. Este tutorial muestra cómo agregar Azure CDN a una [aplicación web de Azure App Service](app-service-web-overview.md). 
 
-En este tutorial, aprenderá a:
+Esta es la página de inicio del ejemplo del sitio HTML estático que se utilizará:
+
+![Página de inicio de la aplicación de ejemplo](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
+
+Temas que se abordarán:
 
 > [!div class="checklist"]
 > * Crear un punto de conexión de CDN.
@@ -29,19 +33,22 @@ En este tutorial, aprenderá a:
 > * Utilizar cadenas de consulta para controlar las versiones en caché.
 > * Utilizar un dominio personalizado para el punto de conexión de CDN.
 
-Esta es la página de inicio del ejemplo del sitio HTML estático que se utilizará:
+## <a name="prerequisites"></a>Requisitos previos
 
-![Página de inicio de la aplicación de ejemplo](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
+Para completar este tutorial:
+
+- [Instalación de Git](https://git-scm.com/)
+- [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-web-app"></a>Creación de la aplicación web
 
-Para crear la aplicación web con la que va a trabajar, siga el tutorial [Creación de una aplicación web HTML estática en Azure en cinco minutos](app-service-web-get-started-html.md), pero no realice el paso **Limpieza de recursos**.
-
-Cuando haya terminado el tutorial, mantenga el símbolo del sistema abierto para implementar cambios adicionales a la aplicación web más adelante.
+Para crear la aplicación web con la que va a trabajar, siga el [tutorial de inicio rápido de HTML estático](app-service-web-get-started-html.md) mediante el paso de **búsqueda de la aplicación**.
 
 ### <a name="have-a-custom-domain-ready"></a>Tenga listo un dominio personalizado
 
-Para realizar el paso de dominio personalizado de este tutorial, necesitará tener acceso al registro DNS del proveedor de dominios (por ejemplo, GoDaddy). Por ejemplo, para agregar entradas DNS para `contoso.com` y `www.contoso.com`, debe tener acceso para configurar las opciones de configuración DNS del dominio raíz `contoso.com`.
+Para realizar el paso de dominio personalizado de este tutorial, debe tener un dominio personalizado y tener acceso al Registro DNS del proveedor de dominios (por ejemplo, GoDaddy). Por ejemplo, para agregar entradas DNS para `contoso.com` y `www.contoso.com`, debe tener acceso para configurar las opciones de configuración DNS del dominio raíz `contoso.com`.
 
 Si aún no tiene un nombre de dominio, puede seguir el tutorial [Comprar y configurar un nombre de dominio personalizado en Azure App Service](custom-dns-web-site-buydomains-web-app.md) para comprar un dominio mediante Azure Portal. 
 
@@ -65,8 +72,8 @@ En la página **Azure Content Delivery Network**, proporcione la configuración 
 
 | Configuración | Valor sugerido | Descripción |
 | ------- | --------------- | ----------- |
-| **Perfil de CDN** | myCDNProfile | Seleccione **Crear nuevo** para crear un nuevo perfil de CDN. Un perfil de CDN es una colección de puntos de conexión de CDN con el mismo plan de tarifa. |
-| **Plan de tarifa** | Estándar de Akamai | El [plan de tarifa](../cdn/cdn-overview.md#azure-cdn-features) especifica el proveedor y las características disponibles. En este tutorial utilizamos Akamai estándar. |
+| **Perfil de CDN** | myCDNProfile | Seleccione **Crear nuevo** para crear un nuevo perfil de red CDN. Un perfil de CDN es una colección de puntos de conexión de CDN con el mismo plan de tarifa. |
+| **Plan de tarifa** | Estándar de Akamai | El [plan de tarifa](../cdn/cdn-overview.md#azure-cdn-features) especifica el proveedor y las características disponibles. En este tutorial, usamos Akamai estándar. |
 | **Nombre del punto de conexión de CDN** | Cualquier nombre que sea único en el dominio azureedge.net | Accederá a los recursos en caché en el dominio  *\<nombrePuntoConexión>.azureedge.net*.
 
 Seleccione **Crear**.
@@ -89,7 +96,7 @@ http://<appname>.azurewebsites.net/css/bootstrap.css
 http://<endpointname>.azureedge.net/css/bootstrap.css
 ```
 
-Vaya a la siguiente dirección URL y verá la misma página que anteriormente ejecutó en la aplicación web de Azure, pero ahora servida desde la red CDN.
+Mediante un explorador, vaya la dirección URL siguiente:
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -97,7 +104,7 @@ http://<endpointname>.azureedge.net/index.html
 
 ![Página de inicio de la aplicación de ejemplo servida desde la red CDN](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
-Esto muestra que Azure CDN ha recuperado los recursos de la aplicación web original y los sirve desde el punto de conexión de CDN. 
+ Verá la misma página que ejecutó anteriormente en una aplicación web de Azure. Azure CDN ha recuperado los recursos de la aplicación web original y los sirve desde el punto de conexión de CDN.
 
 Para asegurarse de que esta página se almacena en caché en la red CDN, actualice la página. En ocasiones se necesitan dos solicitudes del mismo recurso para que la red CDN almacene en memoria caché el contenido solicitado.
 
@@ -105,7 +112,7 @@ Para más información acerca de cómo crear perfiles y puntos de conexión de A
 
 ## <a name="purge-the-cdn"></a>Purga de la red CDN
 
-La red CDN actualiza periódicamente los recursos desde la aplicación web original en función de la configuración del período de vida (TTL). El valor predeterminado de TTL es 7 días.
+La red CDN actualiza periódicamente los recursos desde la aplicación web original en función de la configuración del período de vida (TTL). El TTL predeterminado es siete días.
 
 En ocasiones podría necesitar actualizar la red CDN antes de la expiración del TTL; por ejemplo, al implementar contenido actualizado en la aplicación web. Para desencadenar una actualización, puede purgar manualmente los recursos de la red CDN. 
 
@@ -188,7 +195,7 @@ Azure CDN ofrece las siguientes opciones de comportamiento de almacenamiento en 
 * Omitir el almacenamiento en caché de cadenas de consulta
 * Almacenar en caché todas las URL únicas 
 
-El primero de ellos es el comportamiento predeterminado, lo que significa que solo hay una versión almacenada en caché de un recurso, independientemente de la cadena de consulta utilizada en la dirección URL de acceso. 
+El primero de ellos es el comportamiento predeterminado, lo que significa que solo hay una versión almacenada en caché de un recurso, independientemente de la cadena de consulta utilizada en la dirección URL. 
 
 En esta sección del tutorial, cambiará el comportamiento de almacenamiento en caché para almacenar en caché todas las direcciones URL únicas.
 
@@ -235,7 +242,10 @@ http://<endpointname>.azureedge.net/index.html?q=1
 
 ![V2 en el título en la red CDN, cadena de consulta 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
 
-Esta salida muestra que cada cadena de consulta se trata de manera diferente: q = 1 se utilizó antes, por lo que se devuelve el contenido almacenado en caché (V2), mientras q = 2 es nuevo, por lo que se recupera y se devuelve el contenido de la aplicación web más reciente (V3).
+Este resultado muestra que cada cadena de consulta se trata de manera diferente:
+
+* q = 1 se usó antes, por lo que se devuelve contenido almacenado en caché (V2).
+* q = 2 es nuevo, por lo que se recupera y se devuelve el contenido de aplicación web más reciente (V3).
 
 Para más información, consulte [Control del comportamiento del almacenamiento en caché de Azure CDN con cadenas de consulta](../cdn/cdn-query-string.md).
 
@@ -269,7 +279,7 @@ Vuelva a la página **Agregar un dominio personalizado** y escriba su dominio pe
    
 Azure comprobará que el registro CNAME existe para el nombre de dominio que ha escrito. Si el registro CNAME es correcto, el dominio personalizado se valida.
 
-La propagación del registro CNAME en los servidores de nombres de Internet puede llevar cierto tiempo. Si el dominio no se valida inmediatamente y cree que el registro CNAME es correcto, espere unos minutos e inténtelo de nuevo.
+La propagación del registro CNAME en los servidores de nombres de Internet puede llevar cierto tiempo. Si el dominio no se valida inmediatamente, espere unos minutos e inténtelo de nuevo.
 
 ### <a name="test-the-custom-domain"></a>Prueba del dominio personalizado
 
@@ -283,7 +293,7 @@ Para más información, consulte [Asignación del contenido de la red CDN de Azu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+¿Qué ha aprendido?
 
 > [!div class="checklist"]
 > * Crear un punto de conexión de CDN.
@@ -291,12 +301,11 @@ En este tutorial, ha aprendido cómo:
 > * Utilizar cadenas de consulta para controlar las versiones en caché.
 > * Utilizar un dominio personalizado para el punto de conexión de CDN.
 
-Encontrará más información acerca de cómo optimizar el rendimiento de CDN en los siguientes artículos.
+Aprenda cómo optimizar el rendimiento de CDN en los siguientes artículos:
 
 > [!div class="nextstepaction"]
 > [Mejora del rendimiento comprimiendo archivos en la red CDN de Azure](../cdn/cdn-improve-performance.md)
 
 > [!div class="nextstepaction"]
 > [Carga previa de activos en un punto de conexión de CDN de Azure](../cdn/cdn-preload-endpoint.md)
-
 

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2017
+ms.date: 06/06/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 06fe033be4df07d8c691733016bc7c44dd49f51c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: e0c44f6aabb56dfc97188bafa5e54ce2a0183e11
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -37,20 +38,16 @@ Si quiere conectar los sitios locales de manera a una red virtual de manera segu
 * ¿Qué tipo de puerta de enlace de VPN se necesita para la solución que desea crear?
 * ¿Qué SKU de puerta de enlace se debe usar?
 
+
+### <a name="planning-table"></a>Tabla de planeación
 La tabla siguiente puede ayudarle a decidir la mejor opción de conectividad para su solución.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gwrequire"></a>Requisitos de puerta de enlace por tipo de VPN y SKU
-[!INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-Para más información acerca de las SKU de puerta de enlace, consulte [Configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-
-#### <a name="aggregate-throughput-by-sku-and-vpn-type"></a>Rendimiento agregado por el tipo de VPN y SKU
+### <a name="gateway-skus"></a>SKU de puerta de enlace
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-#### <a name="supported-configurations-by-sku-and-vpn-type"></a>Configuraciones admitidas por el tipo de VPN y SKU
-[!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ### <a name="wf"></a>Flujo de trabajo
 La lista siguiente describe el flujo de trabajo común para la conectividad en la nube:

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 2cdfbadfc4cc28afe34b4d558f40bba6451f7388
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: bf45f4c80c73ab47698a39e310324e34a3e21e67
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -144,6 +145,7 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
    1. Seleccione la cola que ha creado y escriba `175` en **Recuento máximo de mensajes**.
 
       ![Especificar el recuento máximo de mensajes de la conexión de Service Bus en la aplicación lógica](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
+   1. Haga clic en el botón "Guardar" para guardar los cambios.
 
 1. Cree una conexión de servicio SMTP.
    1. Haga clic en **Nuevo paso** > **Agregar una acción**.
@@ -175,3 +177,4 @@ La aplicación lógica está funcionando al guardarse.
 Ha creado correctamente una aplicación lógica que conecta IoT Hub y el buzón de correo para la supervisión de temperatura y las notificaciones.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

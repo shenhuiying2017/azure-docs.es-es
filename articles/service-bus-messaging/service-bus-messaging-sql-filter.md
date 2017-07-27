@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: c5127a457e99772a52b76e28e7fd3a3e4dd861b0
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 3aaec8f9b6a3bbcf814f771405c3b589de6f7ae0
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
 
 # <a name="sqlfilter-syntax"></a>Sintaxis de SQLFilter
 
-*SqlFilter* es una instancia de [Clase SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) y representa una expresión de filtro en lenguaje SQL que se evalúa con respecto a un objeto [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). SqlFilter admite un subconjunto del estándar SQL-92.  
+*SqlFilter* es una instancia de la [clase SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) y representa una expresión de filtro en basada en lenguaje SQL que se evalúa con respecto a un objeto [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). SqlFilter admite un subconjunto del estándar SQL-92.  
   
  En este tema se ofrece información sobre la gramática de SqlFilter.  
   
@@ -61,7 +62,7 @@ ms.lasthandoff: 03/24/2017
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` es una cadena opcional que indica el ámbito de `<property_name>`. Los valores válidos son `sys` o `user`. El valor `sys` indica el ámbito del sistema, donde `<property_name>` es un nombre de propiedad pública de [Clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica el ámbito de usuario, donde `<property_name>` es una clave del diccionario [Clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). El ámbito de `user` es el predeterminado si no se especifica `<scope>`.  
+-   `<scope>` es una cadena opcional que indica el ámbito de `<property_name>`. Los valores válidos son `sys` o `user`. El valor `sys` indica el ámbito del sistema, donde `<property_name>` es un nombre de propiedad pública de la [clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica el ámbito de usuario, donde `<property_name>` es una clave del diccionario de la [clase BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). El ámbito de `user` es el predeterminado si no se especifica `<scope>`.  
   
 ## <a name="remarks"></a>Comentarios
 
@@ -87,7 +88,7 @@ Un intento de acceso a una propiedad de sistema que no existe es un error, mient
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
 ```  
   
-Es decir, cualquier cadena que empieza por una letra y va seguida de uno o varios dígitos, letras o guiones bajo.  
+Esta gramática significa cualquier cadena que empiece por una letra y vaya seguida de uno o varios dígitos, letras o guiones bajo.  
   
 `[:IsLetter:]` significa cualquier carácter Unicode que se clasifica como una letra Unicode. `System.Char.IsLetter(c)` devuelve `true` si `c` es una letra Unicode.  
   
@@ -224,7 +225,7 @@ Tenga en cuenta la siguiente semántica de [SqlFilter](/dotnet/api/microsoft.ser
   
 ### <a name="property-evaluation-semantics"></a>Semántica de evaluación de propiedades  
   
--   Un intento para evaluar una propiedad de sistema que no existe producirá una excepción [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception).  
+-   Un intento de evaluar una propiedad no existente del sistema genera una excepción [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception).  
   
 -   Una propiedad que no existe se evalúa internamente como **valor desconocido**.  
   
@@ -240,11 +241,11 @@ Tenga en cuenta la siguiente semántica de [SqlFilter](/dotnet/api/microsoft.ser
   
  Evaluación desconocida en `[NOT] LIKE`:  
   
--   Si cualquier operando se evalúa como **desconocido**, el resultado será **desconocido**.  
+-   Si cualquier operando se evalúa como **desconocido**, el resultado es **desconocido**.  
   
  Evaluación desconocida en `[NOT] IN`:  
   
--   Si el operando izquierdo se evalúa como **desconocido**, el resultado será **desconocido**.  
+-   Si el operando izquierdo se evalúa como **desconocido**, el resultado es **desconocido**.  
   
  Evaluación desconocida en el operador **AND**:  
   

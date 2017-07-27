@@ -13,12 +13,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 06/01/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1c1591079bf09da6fbe50d848b05ec7791657e04
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 43175672c81373b5c9cc1bddc8ce27bcaaf5ec14
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -28,14 +29,14 @@ ms.lasthandoff: 04/03/2017
 
 La extensión CustomScript de Microsoft Azure para Linux ofrece una manera de personalizar sus máquinas virtuales mediante la ejecución de código arbitrario escrito en cualquier lenguaje de scripting compatible con la máquina virtual (por ejemplo, Python y Bash). Esto proporciona una forma muy flexible de automatizar la implementación de aplicaciones en varios equipos.
 
-Puede implementar la extensión CustomScript mediante el Portal de Azure clásico, Windows PowerShell o la interfaz de la línea de comandos de Azure (CLI de Azure).
+Puede implementar la extensión CustomScript mediante Azure Portal, Windows PowerShell o la interfaz de la línea de comandos de Azure (CLI de Azure).
 
 En este artículo usaremos la CLI de Azure para implementar una aplicación LAMP sencilla en una máquina virtual Ubuntu creada mediante el modelo de implementación clásica.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para este ejemplo, cree primero dos máquinas virtuales de Azure con Ubuntu 14.04 o una versión posterior. Las máquinas virtuales se denominan *script-vm* y *lamp-vm*. Use nombres únicos cuando cree las máquinas virtuales. Una se usa para ejecutar los comandos de CLI y la otra, para implementar la aplicación LAMP.
 
-También necesita una cuenta de Almacenamiento de Azure y una clave para tener acceso a ella (se puede obtener desde el Portal de Azure clásico).
+También necesita una cuenta de Azure Storage y una clave para acceder a ella (se puede obtener desde Azure Portal).
 
 Si necesita ayuda para crear máquinas virtuales Linux en Azure, consulte [Creación de una máquina virtual Linux](createportal.md).
 

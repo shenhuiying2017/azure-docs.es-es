@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f4bf4138ce3a9a2495a0a0fd46e149f6ac96d82d
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 49091d4a85bed23927850f9c0bbc5ea8b6e8c9e1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -47,7 +47,7 @@ Una vez que haya creado la aplicación, puede cambiar la pila de aplicaciones de
 ![Configuración de la aplicación][3]
 
 ## <a name="deploy-your-web-app"></a>Implementación de la aplicación web
-Elegir **Opciones de implementación** de Management Portal permite implementar la aplicación en un repositorio de Git o GitHub local. El resto de las instrucciones son similares a las de una aplicación web que no es de Linux. Puede seguir las instrucciones descritas en [implementación de Git local](app-service-deploy-local-git.md) o [implementación continua](app-service-continuous-deployment.md) para implementar la aplicación.
+La elección de las **opciones de implementación** en el portal de administración brinda la opción de usar un repositorio de Git o GitHub local para implementar la aplicación. El resto de las instrucciones son similares a las de una aplicación web que no es de Linux. Puede seguir las instrucciones descritas en [implementación de Git local](app-service-deploy-local-git.md) o [implementación continua](app-service-continuous-deployment.md) para implementar la aplicación.
 
 También puede usar FTP para cargar la aplicación al sitio. En la sección de registros de diagnóstico puede obtener el punto de conexión FTP para la aplicación web, como se muestra en la siguiente imagen:
 

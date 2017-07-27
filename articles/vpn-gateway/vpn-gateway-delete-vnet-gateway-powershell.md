@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 06/20/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f3b464350f027bb1966638542fcc64d6fdc00a71
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 4d0f085423d5bd60b24d88649ee1d77bcd1d009f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/21/2017
 
 
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager: Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-> * [Clásico: PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+> * [Portal de Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+> * [PowerShell (clásico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
 >
 
@@ -39,9 +40,11 @@ Hay un par de enfoques que puede adoptar cuando desee eliminar una puerta de enl
 ## <a name="before-beginning"></a>Antes de comenzar
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Descargue la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager.
+
 Descargue e instale la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para obtener más información sobre cómo instalar y configurar los cmdlets de PowerShell.
 
-### <a name="2-connect-to-your-azure-account"></a>2. Conéctese a su cuenta de Azure. 
+### <a name="2-connect-to-your-azure-account"></a>2. Conéctese a su cuenta de Azure.
+
 Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para conectarse:
 
 ```powershell
@@ -84,57 +87,59 @@ $Conns=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | whe
 ```
 
 ### <a name="3-delete-all-connections"></a>3. Elimine todas las conexiones.
+
 Se le pedirá que confirme la eliminación de cada una de las conexiones.
 
 ```powershell
 $Conns | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 ```
 
-### <a name="4-get-the-list-of-the-corresponding-local-network-gateways"></a>4. Obtenga la lista de las puertas de enlace de red locales correspondientes.
+### <a name="4-delete-the-virtual-network-gateway"></a>4. Elimine la puerta de enlace de red virtual.
 
-```powershell
-$LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
-```
-    
-### <a name="5-delete-the-local-network-gateways"></a>5. Elimine las puertas de enlace de red locales.
-Se le pedirá que confirme la eliminación de cada una de las puertas de enlace de red locales.
+Se le pedirá que confirme la eliminación de la puerta de enlace. Si tiene una configuración P2S en esta red virtual además de la configuración S2S, eliminando la puerta de enlace de red virtual se desconectarán automáticamente todos los clientes P2S sin previo aviso.
 
-```powershell
-$LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
-```
-
-### <a name="6-delete-the-virtual-network-gateway"></a>6. Elimine la puerta de enlace de red virtual.
-Se le pedirá que confirme la eliminación de la puerta de enlace.
-
->[!NOTE]
-> Si tiene una configuración P2S en esta red virtual además de la configuración S2S, eliminando la puerta de enlace de red virtual se desconectarán automáticamente todos los clientes P2S sin previo aviso.
->
->
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### <a name="7-get-the-ip-configurations-of-the-virtual-network-gateway"></a>7. Obtenga las configuraciones de direcciones IP de la puerta de enlace de red virtual.
+En este momento, la puerta de enlace de virtual se ha eliminado. Puede usar los pasos siguientes para eliminar los recursos que ya no se usan.
+
+### <a name="5-delete-the-local-network-gateways"></a>5. Elimine las puertas de enlace de red locales.
+
+Obtenga la lista de las puertas de enlace de red locales correspondientes.
+
+```powershell
+$LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
+```
+
+Elimine las puertas de enlace de red locales. Se le pedirá que confirme la eliminación de cada una de las puertas de enlace de red locales.
+
+```powershell
+$LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
+```
+
+### <a name="6-delete-the-public-ip-address-resources"></a>6. Elimine los recursos de dirección IP pública.
+
+Obtenga las configuraciones de direcciones IP de la puerta de enlace de red virtual.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-### <a name="8-get-the-list-of-public-ip-addresses-used-for-this-virtual-network-gateway"></a>8. Obtenga la lista de direcciones IP públicas que se usan para esta puerta de enlace de red virtual. 
-Si la puerta de enlace de red virtual era activa-activa, verá dos direcciones IP públicas.
+Obtenga la lista de recursos de direcciones IP públicas que se usan para esta puerta de enlace de red virtual. Si la puerta de enlace de red virtual era activa-activa, verá dos direcciones IP públicas.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-### <a name="9-delete-the-public-ips"></a>9. Elimine las direcciones IP públicas.
+Elimine los recursos de IP pública.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
 ```
 
-### <a name="10-delete-the-gateway-subnet-and-set-the-configuration"></a>10. Elimine la subred de puerta de enlace y establezca la configuración.
+### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Elimine la subred de puerta de enlace y establezca la configuración.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -170,6 +175,7 @@ get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-obje
 ```
 
 ### <a name="3-get-the-list-of-connections-in-both-directions"></a>3. Obtenga la lista de conexiones en ambas direcciones.
+
 Como se trata de una configuración de red virtual a red virtual, necesita la lista de conexiones en ambas direcciones.
 
 ```powershell
@@ -183,6 +189,7 @@ En este ejemplo, vamos a comprobar las conexiones desde RG2. Ejecute este comand
  ```
 
 ### <a name="4-delete-all-connections"></a>4. Elimine todas las conexiones.
+
 Se le pedirá que confirme la eliminación de cada una de las conexiones.
 
 ```powershell
@@ -191,39 +198,36 @@ $ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_
 ```
 
 ### <a name="5-delete-the-virtual-network-gateway"></a>5. Elimine la puerta de enlace de red virtual.
-Se le pedirá que confirme la eliminación de la puerta de enlace de red virtual.
 
->[!NOTE]
-> Si tiene una configuración P2S en esta red virtual además de la configuración V2V, eliminando la puerta de enlace de red virtual se desconectarán automáticamente todos los clientes P2S sin previo aviso.
->
->
-
+Se le pedirá que confirme la eliminación de la puerta de enlace de red virtual. Si tiene una configuración P2S en esta red virtual además de la configuración V2V, eliminando la puerta de enlace de red virtual se desconectarán automáticamente todos los clientes P2S sin previo aviso.
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### <a name="6-get-the-ip-configurations-of-the-virtual-network-gateway"></a>6. Obtenga las configuraciones de direcciones IP de la puerta de enlace de red virtual.
+En este momento, la puerta de enlace de virtual se ha eliminado. Puede usar los pasos siguientes para eliminar los recursos que ya no se usan.
+
+### <a name="6-delete-the-public-ip-address-resources"></a>6. Elimine los recursos de dirección IP pública.
+
+Obtenga las configuraciones de direcciones IP de la puerta de enlace de red virtual.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-### <a name="7-get-the-list-of-public-ip-addresses-used-for-this-virtual-network-gateway"></a>7. Obtenga la lista de direcciones IP públicas que se usan para esta puerta de enlace de red virtual. 
-Si la puerta de enlace de red virtual era activa-activa, verá dos direcciones IP públicas.
+Obtenga la lista de recursos de direcciones IP públicas que se usan para esta puerta de enlace de red virtual. Si la puerta de enlace de red virtual era activa-activa, verá dos direcciones IP públicas.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-### <a name="8-delete-the-public-ips"></a>8. Elimine las direcciones IP públicas.
-Se le pedirá que confirme la eliminación de la dirección IP pública.
+Elimine los recursos de IP pública. Se le pedirá que confirme la eliminación de la dirección IP pública.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
-### <a name="9-delete-the-gateway-subnet-and-set-the-configuration"></a>9. Elimine la subred de puerta de enlace y establezca la configuración.
+### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. Elimine la subred de puerta de enlace y establezca la configuración.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -253,33 +257,36 @@ $Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-delete-the-virtual-network-gateway"></a>2. Elimine la puerta de enlace de red virtual.
+
 Se le pedirá que confirme la eliminación de la puerta de enlace de red virtual.
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### <a name="3-get-the-ip-configurations-of-the-virtual-network-gateway"></a>3. Obtenga las configuraciones de direcciones IP de la puerta de enlace de red virtual.
+En este momento, la puerta de enlace de virtual se ha eliminado. Puede usar los pasos siguientes para eliminar los recursos que ya no se usan.
+
+### <a name="3-delete-the-public-ip-address-resources"></a>3. Elimine los recursos de dirección IP pública.
+
+Obtenga las configuraciones de direcciones IP de la puerta de enlace de red virtual.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-### <a name="4-get-the-list-of-public-ip-addresses-used-for-this-virtual-network-gateway"></a>4. Obtenga la lista de direcciones IP públicas que se usan para esta puerta de enlace de red virtual. 
-Si la puerta de enlace de red virtual era activa-activa, verá dos direcciones IP públicas.
+Obtenga la lista de direcciones IP públicas que se usan para esta puerta de enlace de red virtual. Si la puerta de enlace de red virtual era activa-activa, verá dos direcciones IP públicas.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-### <a name="5-delete-the-public-ips"></a>5. Elimine las direcciones IP públicas.
-Se le pedirá que confirme la eliminación de la dirección IP pública.
+Elimine las direcciones IP públicas. Se le pedirá que confirme la eliminación de la dirección IP pública.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
-### <a name="6-delete-the-gateway-subnet-and-set-the-configuration"></a>6. Elimine la subred de puerta de enlace y establezca la configuración.
+### <a name="4-delete-the-gateway-subnet-and-set-the-configuration"></a>4. Elimine la subred de puerta de enlace y establezca la configuración.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -297,6 +304,7 @@ Get-AzureRmResourceGroup
 ```
 
 ### <a name="2-locate-the-resource-group-that-you-want-to-delete"></a>2. Localice el grupo de recursos que desea eliminar.
+
 Localice el grupo de recursos que quiera eliminar y vea la lista de recursos de dicho grupo. En el ejemplo, el nombre del grupo de recursos es RG 1. Modifique el ejemplo para recuperar una lista de todos los recursos.
 
 ```powershell
@@ -304,9 +312,11 @@ Find-AzureRmResource -ResourceGroupNameContains RG1
 ```
 
 ### <a name="3-verify-the-resources-in-the-list"></a>3. Compruebe los recursos de la lista.
+
 Cuando se devuelve la lista, revísela para comprobar que desea eliminar todos los recursos del grupo de recursos, así como dicho grupo. Si desea mantener algunos de los recursos del grupo de recursos, utilice los pasos de las secciones anteriores de este artículo para eliminar la puerta de enlace.
 
 ### <a name="4-delete-the-resource-group-and-resources"></a>4. Elimine el grupo de recursos y los recursos.
+
 Para eliminar el grupo de recursos y todos los recursos de este, modifique el ejemplo y ejecútelo.
 
 ```powershell
@@ -314,6 +324,7 @@ Remove-AzureRmResourceGroup -Name RG1
 ```
 
 ### <a name="5-check-the-status"></a>5. Compruebe el estado.
+
 Azure tarda unos minutos en eliminar todos los recursos. Puede comprobar el estado de su grupo de recursos con este cmdlet.
 
 ```powershell
@@ -322,7 +333,8 @@ Get-AzureRmResourceGroup -ResourceGroupName RG1
 
 El resultado que se devuelve se muestra "Correcto".
 
-    ResourceGroupName : RG1
-    Location          : eastus
-    ProvisioningState : Succeeded
-
+```
+ResourceGroupName : RG1
+Location          : eastus
+ProvisioningState : Succeeded
+```

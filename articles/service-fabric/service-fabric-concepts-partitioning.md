@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/17/2017
+ms.date: 06/30/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 0379cd02fe663fbe9f024bc2f786186b0ea1358b
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 3c1e80305cb65f41a6981b99f69e8b87f89599ac
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -130,8 +131,10 @@ Puesto que literalmente queremos tener una partición por cada letra, podemos us
 2. En el cuadro de diálogo **Nuevo proyecto** , elija la aplicación de Service Fabric.
 3. Llame al proyecto AlphabetPartitions.
 4. En el cuadro de diálogo **Crear un servicio**, elija el servicio **Con estado** y llámelo Alphabet.Processing, tal y como se muestra en la imagen siguiente.
-   
-    ![Captura de pantalla de servicio con estado](./media/service-fabric-concepts-partitioning/createstateful.png)
+       ![Cuadro de diálogo de servicio nuevo en Visual Studio][1]
+
+  <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
+
 5. Establezca el número de particiones. Abra el archivo Applicationmanifest.xml de la carpeta ApplicationPackageRoot del proyecto AlphabetPartitions y actualice el parámetro Processing_PartitionCount con el valor 26, tal y como se muestra a continuación.
    
     ```xml
@@ -371,3 +374,4 @@ Para obtener información sobre los conceptos de Service Fabric, vea lo siguient
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
+[1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog-2.png

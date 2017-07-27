@@ -16,15 +16,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 89117c59ae8948eeb32b51a0ecd4fdf0a3a2edd7
-ms.openlocfilehash: d026d6d901374a91864edf9f6ee38d5450e7f179
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: fd51bf9e965d2efd5a6bea9de142ab2ec8d27836
+ms.contentlocale: es-es
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry en Azure
 
-Cloud Foundry es una plataforma como-servicio (PaaS) de código abierto para compilar, implementar y operar aplicaciones de 12 factores desarrolladas en diversos lenguajes y marcos. En este documento, se describen las opciones disponibles para ejecutar Cloud Foundry en Azure y cómo puede comenzar a trabajar.
+Cloud Foundry es una plataforma como servicio (PaaS) de código abierto para compilar, implementar y operar aplicaciones de factor 12 desarrolladas en diversos lenguajes y marcos. En este documento, se describen las opciones disponibles para ejecutar Cloud Foundry en Azure y cómo puede comenzar a trabajar.
 
 ## <a name="cloud-foundry-offerings"></a>Ofertas de Cloud Foundry
 
@@ -45,7 +47,7 @@ Microsoft se esfuerza al máximo en ofrecer asistencia para OSS CF a través de 
 
 ### <a name="pivotal-cloud-foundry"></a>Pivotal Cloud Foundry
 
-Pivotal Cloud Foundry incluye la misma plataforma central que la distribución OSS, además de un conjunto de herramientas de administración propias y soporte técnico empresarial. Para ejecutar PCF en Azure, debe adquirir una licencia a Pivotal. La oferta PCF de Azure Marketplace incluye una licencia de prueba de 90 días.
+Pivotal Cloud Foundry incluye la misma plataforma central que la distribución OSS, además de un conjunto de herramientas de administración propias y soporte técnico empresarial. Para ejecutar PCF en Azure, debe comprar una licencia a Pivotal. La oferta PCF de Azure Marketplace incluye una licencia de prueba de 90 días.
 
 Entre las herramientas, se incluyen [Pivotal Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/), una aplicación web que simplifica la implementación y la administración de una fundación de Cloud Foundry, y [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/), una aplicación web para administrar usuarios y aplicaciones.
 
@@ -66,9 +68,4 @@ Cloud Foundry se adapta perfectamente al desarrollo ágil de software, incluido 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Implementar Pivotal Cloud Foundry desde Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+- [Implementar una aplicación en Cloud Foundry en Azure](./cloudfoundry-deploy-your-first-app.md)

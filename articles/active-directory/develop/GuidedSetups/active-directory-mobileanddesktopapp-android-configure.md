@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 9b23f34300248ff87ed4a6abbeb6cfdda6570581
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 945b09ccdb7537987da33d32d94a3ccacd829ffd
 ms.contentlocale: es-es
 
 
@@ -35,7 +35,7 @@ Ahora tiene que registrar la aplicación en el *Portal de registro de aplicacion
 1. Vaya al [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar una aplicación.
 2. Escriba el nombre de la aplicación y su correo electrónico. 
 3. Asegúrese de que está desactivada la opción de configuración paso a paso.
-4. Haga clic en `Add Platforms`, a continuación, seleccione `Native Application` y haga clic en Guardar.
+4. Haga clic en `Add Platform`, a continuación, seleccione `Native Application` y haga clic en Guardar.
 5.  Abra `MainActivity` (en `app` > `java` > *`{host}.{namespace}`*)
 6.  Reemplace *[escriba el id. de aplicación aquí]* en la línea que empieza con `final static String CLIENT_ID` por el identificador de aplicación que acaba de registrar:
 

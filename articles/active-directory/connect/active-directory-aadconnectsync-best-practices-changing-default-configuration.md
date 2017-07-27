@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 08ec09275bbcaffaf25cf45a0f2f466fdeb60dc5
 ms.openlocfilehash: 954923e699ef2160b0a16cb369f8a86b3beacd39
-
+ms.contentlocale: es-es
+ms.lasthandoff: 02/07/2017
 
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect Sync: procedimientos recomendados de cambio de la configuración predeterminada
@@ -70,9 +71,4 @@ En esta regla clonada, realice los cambios necesarios en el ámbito, la combinac
 
 * [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

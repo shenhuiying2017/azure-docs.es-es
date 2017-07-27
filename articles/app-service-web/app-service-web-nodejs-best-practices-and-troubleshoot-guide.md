@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: ranjithr;wadeh
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 79e5329332c457c738c082277ee7b79eb8ead049
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 656c5b3e363bd2eaa7550ffc673606d26f7d06de
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -114,7 +115,7 @@ Este [archivo de esquema](https://github.com/Azure/iisnode/blob/master/src/confi
 ### <a name="my-node-application-is-making-too-many-outbound-calls"></a>Mi aplicación Node realiza demasiadas llamadas salientes.
 Muchas aplicaciones van a establecer conexiones salientes como parte de su funcionamiento normal. Por ejemplo, cuando llega una solicitud, la aplicación Node va a establecer contacto con una API de REST en otro lugar y así obtener información para procesar la solicitud. Debería utilizar un agente de conexión persistente al realizar llamadas HTTP o HTTPS. Por ejemplo, podría utilizar el módulo agentKeepAlive como agente de conexión persistente cuando realice estas llamadas salientes. Esto garantiza que se reutilicen los sockets en la máquina virtual de su aplicación web de Azure, por lo que se reducirá la sobrecarga que supone crear sockets para cada solicitud saliente. Además, garantiza que se usen menos sockets para realizar muchas solicitudes salientes y, por tanto, no se supere el valor maxSockets asignado para cada máquina virtual. La recomendación en Aplicaciones web de Azure es establecer el valor maxSockets de agentKeepAlive en un total de 160 sockets por máquina virtual. Esto significa que, si tiene cuatro procesos node.exe en ejecución en la máquina virtual, debería establecer el valor maxSockets de agentKeepAlive en 40 por node.exe, es decir, un total de 160 por máquina virtual.
 
-Ejemplo de configuración de agentKeepALive:
+Ejemplo de configuración de [agentKeepALive](https://www.npmjs.com/package/agentkeepalive):
 
 ```
 var keepaliveAgent = new Agent({    

@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 07/20/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 382913f0501c692cc1ee460d2264118414ad20c3
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Códecs y formatos de Media Encoder Standard
@@ -111,10 +112,5 @@ La siguiente tabla enumera los códecs y los formatos de archivo compatibles par
 [Codificación de contenido a petición con Servicios multimedia de Azure](media-services-encode-asset.md)
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -13,18 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 06a97b48fed8f80679632f5c0320d4dd73b8e1e2
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 6032263848c469ce2f416306e5c91c29f4cb30e4
+ms.contentlocale: es-es
+ms.lasthandoff: 06/01/2017
 
 
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Capture una imagen de una máquina virtual Windows de Azure creada con el modelo de implementación clásica.
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para más información sobre el modelo de Resource Manager, consulte [Create a copy Windows VM running in Azure](../../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creación de una copia de una máquina virtual Windows que se ejecuta en Azure).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para obtener información del modelo de Resource Manager, vea [Capturar una imagen administrada de una máquina virtual generalizada en Azure](../capture-image-resource.md).
 
 En este artículo se muestra cómo puede capturar una máquina virtual de Azure con Windows para usarla como imagen en la creación de otras máquinas virtuales. Esta imagen incluye el disco del sistema operativo y los discos de datos que están conectados a la máquina virtual. No incluye configuraciones de red, por lo que deberá establecerlas cuando cree las otras máquinas virtuales que usan la imagen.
 
@@ -50,12 +51,12 @@ Antes de capturar una imagen de una máquina virtual de Azure, se recomienda hac
 3. Cambie el directorio a `%windir%\system32\sysprep`y después ejecute sysprep.exe.
 4. Aparecerá el cuadro de diálogo **Herramienta de preparación del sistema** . Haga lo siguiente:
 
-   * En **Acción de limpieza del sistema**, seleccione **Iniciar la configuración rápida (OOBE) del sistema** y asegúrese de que la opción **Generalizar** está marcada. Para obtener más información sobre el uso de Sysprep, consulte [Uso de Sysprep: Introducción][How to Use Sysprep: An Introduction].
+   * En **Acción de limpieza del sistema**, seleccione **Iniciar la configuración rápida (OOBE) del sistema**  y asegúrese de que la opción **Generalizar** está marcada. Para obtener más información sobre el uso de Sysprep, consulte [Uso de Sysprep: Introducción][How to Use Sysprep: An Introduction].
    * En **Opciones de apagado**, seleccione **Apagar**.
    * Haga clic en **Aceptar**.
 
    ![Ejecute Sysprep](./media/capture-image/SysprepGeneral.png)
-5. Sysprep apaga la máquina virtual, lo que cambia su estado en el Portal de Azure clásico a **Detenido**.
+5. Sysprep apaga la máquina virtual, lo que cambia su estado en Azure Portal a **Detenido**.
 6. En Azure Portal, haga clic en **Máquinas virtuales (clásico)** y seleccione las máquinas virtuales que desea capturar. El grupo **Imágenes de la VM (clásico)** aparece en **Proceso** en la vista de **Más servicios**.
 
 7. En la barra de comandos, haga clic en **Capturar**.
