@@ -1,72 +1,72 @@
 ---
-title: Compatibilidad de Azure Application Insights con varios roles, microservicios y contenedores | Microsoft Docs
+title: Compatibilidad de Azure Application Insights con varios componentes, microservicios y contenedores | Microsoft Docs
 description: "Supervisión de aplicaciones que constan de varios componentes o roles para uso y rendimiento."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 05/17/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: dad17277452081427a01d077128a3a137b2190f5
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 9b26ade6c3a90e6ebe49bfbc6f3fa801dc7f8d20
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
-# <a name="monitor-multi-role-applications-with-application-insights-preview"></a>Supervisión de aplicaciones de varios roles con Application Insights (versión preliminar)
+# <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Supervisión de aplicaciones de varios componentes con Application Insights (versión preliminar)
 
-Puede supervisar aplicaciones que constan de varios componentes, roles o servicios con [Azure Application Insights](app-insights-overview.md). El mantenimiento de los roles y las relaciones entre ellos se muestran en una sola asignación de aplicaciones. Puede realizar el seguimiento de operaciones individuales por medio de varios roles con correlación HTTP automática. El diagnóstico de contenedor se puede integrar y correlacionar con telemetría de la aplicación. Utilice un único recurso de Application Insights para todos los roles de la aplicación. 
+Puede supervisar aplicaciones que consten de varios componentes, roles o servicios de servidor con [Azure Application Insights](app-insights-overview.md). El mantenimiento de los componentes y las relaciones entre ellos se muestran en una sola asignación de aplicaciones. Puede realizar el seguimiento de ciertas operaciones por medio de varios componentes con correlación HTTP automática. El diagnóstico de contenedor se puede integrar y correlacionar con telemetría de la aplicación. Use un único recurso de Application Insights para todos los componentes de la aplicación. 
 
-![Asignación de aplicaciones de varios roles](./media/app-insights-monitor-multi-role-apps/app-map.png)
+![Asignación de aplicaciones de varios componentes](./media/app-insights-monitor-multi-role-apps/app-map.png)
 
-Aquí se usa "rol" en un sentido amplio para indicar cualquier componente de aplicación o servicio que se compila como proyecto independiente. Por ejemplo, una aplicación empresarial típica puede constar de varios roles que se comunican a través de una API de REST. Los roles se pueden hospedar en contenedores como Docker o Service Fabric, o en hosts en la nube o locales. 
+El término "componente" se usa aquí para hacer referencia a cualquier parte funcional de una aplicación grande. Por ejemplo, una aplicación empresarial típica puede constar de código de cliente que se ejecuta en exploradores web y que se comunica con uno o varios servicios de aplicaciones web, que a su vez usan servicios back-end. Los componentes del servidor pueden estar hospedados de forma local o en la nube, puede ser roles de trabajo o roles web de Azure, o bien pueden ejecutarse en contenedores como Docker o Service Fabric. 
 
 ### <a name="sharing-a-single-application-insights-resource"></a>Uso compartido de un único recurso de Application Insights 
 
-La técnica clave aquí es enviar telemetría desde cada rol de la aplicación al mismo recurso de Application Insights, pero usar la propiedad `cloud_RoleName` para distinguir entre roles cuando sea necesario. 
+La técnica clave aquí es enviar telemetría desde cada componente de la aplicación al mismo recurso de Application Insights, pero usar la propiedad `cloud_RoleName` para distinguir entre componentes cuando sea necesario. 
 
-En algunos casos, puede que esto no sea adecuado y quizás prefiera usar recursos independientes para distintos grupos de roles. Por ejemplo, podría tener que usar recursos diferentes para administración o facturación. El uso de recursos independientes significa que no ve todos los roles en una sola asignación de aplicaciones y que no puede consultar en todos los roles de [Analytics](app-insights-analytics.md). También tendrá que configurar los recursos independientes.
+En algunos casos, puede que esto no sea adecuado y quizás prefiera usar recursos independientes para distintos grupos de componentes. Por ejemplo, podría tener que usar recursos diferentes para administración o facturación. El uso de recursos independientes significa que no verá todos los componentes en una sola asignación de aplicaciones y que no puede realizar consultas entre componentes de [Analytics](app-insights-analytics.md). También tendrá que configurar los recursos independientes.
 
-Con dicha advertencia, se da por supuesto en el resto de este documento que desea enviar datos desde varios roles a un recurso de Application Insights.
+Con dicha advertencia, se da por supuesto en el resto de este documento que quiere enviar datos desde varios componentes a un recurso de Application Insights.
 
-## <a name="configure-multi-role-applications"></a>Configuración de aplicaciones de varios roles
+## <a name="configure-multi-component-applications"></a>Configuración de aplicaciones de varios componentes
 
-Para obtener una asignación de aplicaciones de varios roles, debe lograr estos objetivos:
+Para obtener una asignación de aplicaciones de varios componentes, debe lograr estos objetivos:
 
-* **Instale la versión preliminar más reciente** del paquete de Application Insights en cada rol de la aplicación. 
-* **Comparta un único recurso de Application Insights** para todos los roles de la aplicación.
+* **Instale la versión preliminar más reciente** del paquete de Application Insights en cada componente de la aplicación. 
+* **Comparta un único recurso de Application Insights** para todos los componentes de la aplicación.
 * **Habilite Asignación de aplicaciones de varios roles** en la hoja Versiones preliminares.
 
-Configure cada rol de la aplicación con el método adecuado para su tipo. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md))
+Configure cada componente de la aplicación con el método adecuado para el tipo correspondiente. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md) o [JavaScript](app-insights-javascript.md)).
 
 ### <a name="1-install-the-latest-pre-release-package"></a>1. Instalación del paquete de versión preliminar más reciente
 
-Actualice o instale los paquetes de Appication Insights en el proyecto para cada rol. Si usa Visual Studio:
+Actualice los paquetes de Application Insights o instálelos en el proyecto para cada componente del servidor. Si usa Visual Studio:
 
 1. Haga clic con el botón derecho en un proyecto y seleccione **Administrar paquetes NuGet**. 
 2. Seleccione **Incluir versión preliminar**.
 3. Si los paquetes de Application Insights aparecen en Actualizaciones, selecciónelos. 
 
-    De lo contrario, busque e instale el paquete adecuado:
+    De lo contrario, busque el paquete adecuado e instálelo:
     
     * Microsoft.ApplicationInsights.WindowsServer
-    * Microsoft.ApplicationInsights.ServiceFabric: para los roles que se ejecutan como archivos ejecutables invitados y contenedores de Docker que se ejecutan en una aplicación de Service Fabric
+    * Microsoft.ApplicationInsights.ServiceFabric: para aquellos componentes que se ejecutan como archivos ejecutables invitados y contenedores de Docker que se ejecutan en una aplicación de Service Fabric
     * Microsoft.ApplicationInsights.ServiceFabric.Native: para instancias de Reliable Services en las aplicaciones de Service Fabric
-    * Microsoft.ApplicationInsights.Kubernetes: para roles que se ejecutan en Docker en Kubernetes
+    * Microsoft.ApplicationInsights.Kubernetes: para componentes que se ejecutan en Docker en Kubernetes
 
 ### <a name="2-share-a-single-application-insights-resource"></a>2. Uso compartido de un único recurso de Application Insights
 
 * En Visual Studio, haga clic con el botón derecho en un proyecto y elija **Configurar Application Insights** o **Application Insights > Configurar**. Para el primer proyecto, use el asistente para crear un recurso de Application Insights. Para proyectos posteriores, seleccione el mismo recurso.
 * Si no hay ningún menú Application Insights, configúrelo manualmente:
 
-   1. En [Azure Portal](https://portal,azure.com), abra el recurso de Application Insights que ya creó para otro rol.
+   1. En [Azure Portal](https://portal,azure.com), abra el recurso de Application Insights que ya creó para otro componente.
    2. En la hoja Información general, abra la pestaña desplegable Essentials y copie el valor de **Clave de instrumentación**.
    3. En el proyecto, abra ApplicationInsights.config e inserte: `<InstrumentationKey>your copied key</InstrumentationKey>`
 
@@ -79,7 +79,7 @@ En Azure Portal, abra el recurso de la aplicación. En la hoja Versiones prelimi
 
 ### <a name="4-enable-docker-metrics-optional"></a>4. Habilitación de las métricas de Docker (opcional) 
 
-Si un rol se ejecuta en un contenedor de Docker hospedado en una máquina virtual Windows de Azure, puede recopilar estadísticas adicionales desde el contenedor. Inserte esto en el archivo de configuración de [Azure Diagnostics](../monitoring-and-diagnostics/azure-diagnostics.md):
+Si un componente se ejecuta en un elemento de Docker hospedado en una máquina virtual Windows de Azure, puede recopilar métricas adicionales a partir del contenedor. Inserte esto en el archivo de configuración de [Azure Diagnostics](../monitoring-and-diagnostics/azure-diagnostics.md):
 
 ```
 "DiagnosticMonitorConfiguration": {
@@ -105,24 +105,24 @@ Si un rol se ejecuta en un contenedor de Docker hospedado en una máquina virtua
 
 ```
 
-## <a name="use-cloudrolename-to-separate-roles"></a>Uso de cloud_RoleName para separar roles
+## <a name="use-cloudrolename-to-separate-components"></a>Uso de cloud_RoleName para separar componentes
 
-La propiedad `cloud_RoleName` está conectada a toda la telemetría. Identifica el rol o servicio que origina la telemetría. (No es lo mismo que cloud_RoleInstance, que separa roles idénticos que se ejecutan en paralelo en varios procesos de servidor o máquinas).
+La propiedad `cloud_RoleName` está conectada a toda la telemetría. Identifica el componente (el rol o servicio) que origina la telemetría. (No es lo mismo que cloud_RoleInstance, que separa roles idénticos que se ejecutan en paralelo en varios procesos de servidor o máquinas).
 
 En el portal, puede filtrar o segmentar la telemetría mediante esta propiedad. En este ejemplo, la hoja Errores se filtra para mostrar solo información del servicio web front-end y oculta errores de la API de CRM de back-end:
 
 ![Gráfico de métricas segmentadas por Nombre del rol en la nube](./media/app-insights-monitor-multi-role-apps/cloud-role-name.png)
 
-## <a name="trace-operations-between-roles"></a>Seguimiento de operaciones entre roles
+## <a name="trace-operations-between-components"></a>Seguimiento de operaciones entre componentes
 
-Puede realizar el seguimiento de las llamadas de un servicio a otro realizadas durante el procesamiento de una operación individual.
+Puede realizar el seguimiento de las llamadas realizadas durante el procesamiento de una operación concreta de un componente a otro.
 
 
 ![Mostrar telemetría para la operación](./media/app-insights-monitor-multi-role-apps/show-telemetry-for-operation.png)
 
 Haga clic para acceder a una lista correlacionada de telemetría para esta operación en el servidor web front-end y la API de back-end:
 
-![Búsqueda en roles](./media/app-insights-monitor-multi-role-apps/search-across-components.png)
+![Búsqueda entre componentes](./media/app-insights-monitor-multi-role-apps/search-across-components.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

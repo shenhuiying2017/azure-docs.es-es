@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 07/26/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
@@ -20,17 +20,12 @@ ms.openlocfilehash: 5efb78c2c514bd0b21be842ddee5465fe4e4dcf9
 ms.contentlocale: es-es
 ms.lasthandoff: 05/04/2017
 
-
 ---
-<a id="connect-your-microsoft-azure-iot-raspberry-pi-3-starter-kit-to-the-remote-monitoring-solution" class="xliff"></a>
-
-# Conexión de su Starter Kit de Raspberry Pi 3 de IoT de Microsoft Azure a la solución de supervisión remota
+# <a name="connect-your-microsoft-azure-iot-raspberry-pi-3-starter-kit-to-the-remote-monitoring-solution"></a>Conexión de su Starter Kit de Raspberry Pi 3 de IoT de Microsoft Azure a la solución de supervisión remota
 
 Los tutoriales de esta sección le ayudan a obtener información sobre cómo conectar un dispositivo Raspberry Pi 3 a la solución de supervisión remota. Elija el tutorial adecuado para su lenguaje de programación preferido y si tiene el hardware de sensor disponible para su uso con Raspberry Pi.
 
-<a id="the-tutorials" class="xliff"></a>
-
-## Los tutoriales
+## <a name="the-tutorials"></a>Los tutoriales
 
 | Tutorial | Notas | Idiomas |
 | -------- | ----- | --------- |
@@ -38,9 +33,7 @@ Los tutoriales de esta sección le ayudan a obtener información sobre cómo con
 | Sensor real (intermedio) | Usa datos de un sensor BME280 conectado a su Raspberry Pi. | [C][lnk-c-basic], [Node.js][lnk-node-basic] |
 | Implementación de la actualización de firmware (avanzado)| Usa datos de un sensor BME280 conectado a su Raspberry Pi. Habilita las actualizaciones de firmware remotas en su Raspberry Pi. | [C][lnk-c-advanced], [Node.js][lnk-node-advanced] |
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Visite el [Centro para desarrolladores de IoT de Azure](https://azure.microsoft.com/develop/iot/) para obtener más ejemplos y la documentación de IoT de Azure.
 

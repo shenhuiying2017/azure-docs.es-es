@@ -16,10 +16,10 @@ ms.date: 05/15/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 1199840da725afdae3ee69a26db9ceedb2ab37e3
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 74809ce12a2a273a18ff3e0559aefd79fb4d2da7
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/17/2017
 Aprenda a usar acciones de script para agregar cuentas de almacenamiento de Azure adicionales a un clúster de HDInsight existente que usa Linux como sistema operativo.
 
 > [!IMPORTANT]
-> La información de este documento trata sobre cómo agregar almacenamiento adicional a un clúster después de que se ha creado. Para más información sobre cómo agregar cuentas de almacenamiento adicionales durante la creación del clúster, consulte la sección __Uso de almacenamiento adicional__ del documento [Creación de clústeres de HDInsight basados en Linux](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage).
+> La información de este documento trata sobre cómo agregar almacenamiento adicional a un clúster después de que se ha creado. Para más información sobre cómo agregar cuentas de almacenamiento durante la creación del clúster, consulte [Configuración de clústeres de HDInsight con Hadoop, Spark, Kafka y mucho más](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Cómo funciona
 
@@ -122,7 +122,7 @@ Para solucionar este problema, debe quitar la entrada existente para la cuenta d
 
 2. En la lista de servicios situada a la izquierda de la página, seleccione __HDFS__. A continuación, seleccione la pestaña __Configs__ (Configuraciones) en el centro de la página.
 
-3. En el campo __Filter...__ (Filtro), escriba un valor de __fs.azure.account__. Esta acción devolverá entradas para las cuentas de almacenamiento adicionales que se hayan agregado al clúster. Hay dos tipos de entradas; __keyprovider__ y __key__. Ambas contendrán el nombre de la cuenta de almacenamiento como parte del nombre de clave. 
+3. En el campo __Filter...__ (Filtro), escriba un valor de __fs.azure.account__. Esta acción devolverá entradas para las cuentas de almacenamiento adicionales que se hayan agregado al clúster. Hay dos tipos de entradas; __keyprovider__ y __key__. Ambas contendrán el nombre de la cuenta de almacenamiento como parte del nombre de clave.
 
     Los siguientes son entradas de ejemplo para una cuenta de almacenamiento denominada __mystorage__:
 
@@ -150,3 +150,4 @@ Si la cuenta de almacenamiento se encuentra en una región distinta a la del cl�
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento ha aprendido a agregar más cuentas de almacenamiento a un clúster de HDInsight. Para más información sobre las acciones de script, consulte [Personalización de clústeres de HDInsight basados en Linux mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
+

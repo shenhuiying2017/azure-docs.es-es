@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
-ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 97ef8d2693296fc2692be46afcedfd01b07d743f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -115,6 +116,12 @@ Para obtener instrucciones detalladas sobre cómo configurar su aplicación para
 En el Servicio de aplicaciones, Aplicaciones web, Aplicaciones de API y WebJobs de Azure se pueden generar perfiles de forma remota. Si el proceso se ejecuta más lento de lo esperado o la latencia de las solicitudes HTTP es superior a la normal y el uso de CPU del proceso es también elevado, puede generar un perfil para su proceso de forma remota y obtener las pilas de llamada de muestreo de CPU para analizar la actividad del proceso y las rutas de acceso activas del código.
 
 Para obtener más información, consulte [Compatibilidad con la generación remota de perfiles en el Servicio de aplicaciones de Azure](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
+
+#### <a name="use-application-insights-profiler"></a>Uso de Application Insights Profiler
+
+En ocasiones, la aplicación de App Service es lenta porque determinado código no está escrito pensando en el rendimiento. Por ejemplo, código secuencial que se puede ejecutar en paralelo y contenciones de bloqueo de base de datos no deseadas. La eliminación de estos cuellos de botella en el código aumenta el rendimiento de la aplicación, pero son difíciles de detectar sin configurar elaborados registros y seguimientos. Application Insights Profiler ayuda a superar esta dificultad en las aplicaciones de App Service. 
+
+Con una configuración mínima, Application Insights Profiler proporciona estadísticas sobre el tiempo de respuesta de cada llamada web y seguimiento que indican cuál es la línea de código que provocó las respuestas lentas. Para más información, consulte [Generación de perfiles de aplicaciones web activas de Azure con Application Insights](../application-insights/app-insights-profiler.md). 
 
 #### <a name="use-the-azure-app-service-support-portal"></a>Uso del Portal de soporte técnico del Servicio de aplicaciones de Azure
 El servicio Aplicaciones web ofrece la posibilidad de solucionar los problemas relacionados con su aplicación web con solo examinar los registros HTTP, los registros de eventos, los volcados de proceso, etc. Puede tener acceso a toda esta información con nuestro Portal de soporte técnico en **http://&lt;Nombre de la aplicación>.scm.azurewebsites.net/Support**.

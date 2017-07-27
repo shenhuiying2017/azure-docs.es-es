@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: 4c9f2bb57e3669327d8704b93fa56e2ace1e8b35
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 482726c1dae5385964e08b720e529817d5907537
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -54,7 +55,7 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo [Exportar dato
    * En **Especifique el tipo de autenticación**, seleccione "Cuenta".
    * Escriba la información de cuenta para el almacenamiento de blobs de Azure. 
      <p />
-3. Haga clic en el icono situado a la derecha de la **ruta de acceso que comienza con el parámetro de contenedor de blobs**. Su aspecto es similar a este:
+3. Haga clic en el icono situado a la derecha del **parámetro Ruta de acceso que comienza con el contenedor de blobs**. Su aspecto es similar a este:
    
    ![Icono de parámetro del servicio web][icon]
    
@@ -76,7 +77,7 @@ El usuario del servicio web puede especificar ahora un nuevo destino para el mó
 ## <a name="more-information"></a>Más información
 Para obtener un ejemplo más detallado, vea la entrada [Parámetros del servicio web](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) en el [Blog de Machine Learning](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
-Para más información sobre el acceso a un servicio web de Aprendizaje automático, vea [Cómo consumir un servicio web de Aprendizaje automático publicado](machine-learning-consume-web-services.md).
+Para más información sobre el acceso a un servicio web Machine Learning, consulte [Cómo consumir un servicio web Azure Machine Learning](machine-learning-consume-web-services.md).
 
 <!-- Images -->
 [icon]: ./media/machine-learning-web-service-parameters/icon.png

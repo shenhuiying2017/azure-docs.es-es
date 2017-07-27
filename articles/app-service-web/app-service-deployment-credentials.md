@@ -13,15 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
-ms.openlocfilehash: 43cf4dad58ee0e12a233125049ab4e62411459fe
-ms.lasthandoff: 01/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
+ms.contentlocale: es-es
+ms.lasthandoff: 06/23/2017
 
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configuración de credenciales de implementación para Azure App Service
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) admite dos tipos de credenciales para la [implementación de GIT local](app-service-deploy-local-git.md) y la [implementación FTP/S](app-service-deploy-ftp.md).
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) admite dos tipos de credenciales para la [implementación de GIT local](app-service-deploy-local-git.md) y la [implementación FTP/S](app-service-deploy-ftp.md). Estas credenciales no son las mismas que las de Azure Active Directory.
 
 * **Credenciales de nivel de usuario**: un conjunto de credenciales para toda la cuenta de Azure. Se puede utilizar para implementar App Service en cualquier aplicación o suscripción para la que la cuenta de Azure tenga permiso de acceso. Este es el conjunto de credenciales predeterminado que se configura en **App Services** > **&lt;nombre_aplicación>** > **Credenciales de implementación**. Este es también el conjunto predeterminado que aparece en la interfaz gráfica de usuario del portal (como la **Información general** y las **Propiedades** de la [hoja de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de la aplicación).
 
@@ -31,6 +32,11 @@ ms.lasthandoff: 01/06/2017
     >
 
 * **Credenciales de nivel de aplicación**: un conjunto de credenciales para cada aplicación. Se puede utilizar para implementar únicamente en esa aplicación. Las credenciales para cada aplicación se generan automáticamente al crear la aplicación y se encuentran en el perfil de publicación de la aplicación. Las credenciales no se pueden configurar manualmente, pero se pueden restablecer para una aplicación en cualquier momento.
+
+    > [!NOTE]
+    > Para dar a alguien acceso a estas credenciales a través de Control de acceso basado en roles (RBAC), es preciso convertirlo en colaborador, o cualquier rol superior, en la aplicación web. A los lectores no se les permite publicar, por lo que no pueden acceder a dichas credenciales.
+    >
+    >
 
 ## <a name="userscope"></a>Establecimiento y restablecimiento de credenciales de nivel de usuario
 
@@ -89,3 +95,4 @@ Para restablecer las credenciales de nivel de aplicación:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo usar estas credenciales para implementar la aplicación desde [GIT local](app-service-deploy-local-git.md) o con [FTP/S](app-service-deploy-ftp.md).
+

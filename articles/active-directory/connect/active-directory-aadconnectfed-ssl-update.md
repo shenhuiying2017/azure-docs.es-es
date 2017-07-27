@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2016
+ms.date: 07/17/2017
 ms.author: anandy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9bb29624324305f5295e0a50ef79d8f4c6d063c0
+ms.contentlocale: es-es
 ms.lasthandoff: 03/21/2017
-
 
 ---    
 
@@ -65,10 +65,10 @@ Después de confirmar la información sobre los servidores de la granja de AD FS
 
 Después de proporcionar el certificado, Azure AD Connect pasa por una serie de requisitos previos. Compruebe el certificado para asegurarse de que es correcto para la granja de AD FS:
 
--    El nombre de sujeto o el nombre alternativo de sujeto para el certificado es igual que el nombre del servicio de federación o es un certificado comodín.
--    El certificado es válido durante más de 30 días.
--    La cadena de confianza del certificado es válida.
--    El certificado está protegido con contraseña.
+-   El nombre de sujeto o el nombre alternativo de sujeto para el certificado es igual que el nombre del servicio de federación o es un certificado comodín.
+-   El certificado es válido durante más de 30 días.
+-   La cadena de confianza del certificado es válida.
+-   El certificado está protegido con contraseña.
 
 ## <a name="step-3-select-servers-for-the-update"></a>Paso 3: Seleccionar los servidores para la actualización
 

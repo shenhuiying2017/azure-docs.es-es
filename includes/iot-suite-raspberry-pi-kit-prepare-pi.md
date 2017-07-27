@@ -69,19 +69,21 @@ Para compartir una carpeta con Windows, configure un servidor Samba en Raspberry
 
 Para poder ejecutar la aplicación de ejemplo, debe habilitar el bus de interfaz de periféricos en serie (SPI) en Raspberry Pi. Raspberry Pi se comunica con el dispositivo de sensor de BME280 a través del bus SPI. Use el comando siguiente para editar el archivo de configuración:
 
-`sudo nano /boot/config.txt`
+```sh
+sudo nano /boot/config.txt
+```
 
 Busque la línea:
 
-```
-#dtparam=spi=on
-```
+`#dtparam=spi=on`
 
 - Para quitar la marca de comentario de la línea, elimine `#` al principio.
 - Guarde los cambios (**Ctrl-O**, **ENTRAR**) y salga del editor (**Ctrl-X**).
 - Para habilitar SPI, reinicie Raspberry Pi. Al reiniciarlo, se desconecta el terminal. Debe iniciar sesión de nuevo cuando se reinicia Raspberry Pi:
 
-  `sudo reboot`
+  ```sh
+  sudo reboot
+  ```
 
 
 [img-connection-diagram]: media/iot-suite-raspberry-pi-kit-prepare-pi/rpi2_remote_monitoring.png

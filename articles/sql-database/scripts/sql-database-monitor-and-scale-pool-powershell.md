@@ -1,6 +1,6 @@
 ---
-title: "Script de Azure PowerShell: supervisión y escalado de un grupo elástico de SQL | Microsoft Docs"
-description: "Ejemplo de script de Azure PowerShell: supervisión y escalado de un grupo elástico de SQL Database mediante PowerShell"
+title: "Ejemplo de PowerShell para supervisar y escalar un grupo elástico de SQL en Azure SQL Database | Microsoft Docs"
+description: "Script de ejemplo de Azure PowerShell para supervisar y escalar un grupo elástico de SQL en Azure SQL Database"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 5231f5b13c3502a5a45ceea0b329f30a2e1c311c
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 6536158d4fc2e2c8fbb4e78305d28d063eb12696
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="monitor-and-scale-a-sql-database-elastic-pool-using-powershell"></a>Supervisión y escalado de un grupo elástico de SQL Database mediante PowerShell
+# <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Uso de PowerShell para supervisar y escalar un grupo elástico de SQL en Azure SQL Database
 
-Este script de PowerShell de ejemplo supervisa las métricas de rendimiento de un grupo elástico, lo escala a un nivel de rendimiento superior y crea una regla de alerta en una de las métricas de rendimiento. 
+Este ejemplo de script de PowerShell supervisa las métricas de rendimiento de un grupo elástico, lo escala a un nivel de rendimiento superior y crea una regla de alertas en una de las métricas de rendimiento. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

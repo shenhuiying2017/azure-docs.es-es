@@ -17,6 +17,7 @@
 ### Introducciones
 #### [Introducción a los espacios de seguridad](key-vault-ovw-security-worlds.md)
 #### [Introducción a la eliminación temporal](key-vault-ovw-soft-delete.md)
+#### [Introducción a las claves de cuenta de almacenamiento](key-vault-ovw-storage-keys.md)
 #### [Introducción a la limitación](key-vault-ovw-throttling.md)
 
 ## Administrar
@@ -49,7 +50,7 @@
 
 # Recursos
 ## [Información acerca de claves, secretos y certificados](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Ejemplos de código](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Foros](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 2372d9d4dc190e7583bcc513042a85e970325e14
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: aa2a6bf3d7d9ec22020036851fc0f2bca37e31bf
 ms.contentlocale: es-es
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticación con un registro de contenedor privado de Docker
@@ -53,7 +53,7 @@ El acceso anónimo no está disponible en los registros de contenedor de Azure. 
 
 Puede asignar varias entidades de servicio a un registro, lo que le permite definir el acceso a distintos usuarios o aplicaciones. Las entidades de servicio también habilitan la conectividad "desatendida" a un registro en escenarios de desarrollador o DevOps como los siguientes ejemplos:
 
-  * Las implementaciones de contenedor desde un registro a sistemas de orquestación incluyen DC/OS, Docker Swarm y Kubernetes. También puede extraer registros de contenedor para los servicios de Azure relacionados, como [Container Service](../container-service/index.yml), [App Service](../app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) y otros.
+  * Las implementaciones de contenedor desde un registro a sistemas de orquestación incluyen DC/OS, Docker Swarm y Kubernetes. También puede extraer registros de contenedor para los servicios de Azure relacionados, como [Container Service](../container-service/index.yml), [App Service](../app-service/index.md), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/) y otros.
 
   * Soluciones de integración e implementación continua (por ejemplo, Visual Studio Team Services o Jenkins) que crean imágenes de contenedor y las insertan en un registro.
 

@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 06/08/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: e9601830a2444772dd268160c9ad821a772bc1b4
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 9820cef564e291d1c8aee7c360198de1dc05379e
+ms.contentlocale: es-es
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -28,7 +29,7 @@ El emulador de almacenamiento de Microsoft Azure proporciona un entorno local qu
 ## <a name="get-the-storage-emulator"></a>Obtención del emulador de almacenamiento
 El emulador de almacenamiento se encuentra disponible con el [SDK de Microsoft Azure](https://azure.microsoft.com/downloads/). También puede instalar el emulador de almacenamiento mediante el [instalador independiente](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (descarga directa). Para instalar el emulador de almacenamiento, debe tener privilegios de administrador en el equipo.
 
-El emulador de almacenamiento solo se ejecuta actualmente en Windows.
+El emulador de almacenamiento solo se ejecuta actualmente en Windows. Para quienes consideran un emulador de almacenamiento para Linux, una opción es el emulador de código abierto [Azurite](https://github.com/arafato/azurite), mantenido por la comunidad.
 
 > [!NOTE]
 > No se garantiza que los datos que se crean en una versión del emulador de almacenamiento estén disponibles cuando se utilice una versión diferente. Si necesita conservar los datos a largo plazo, es recomendable que almacene esos datos en una cuenta de almacenamiento de Azure y no en el mismo emulador de almacenamiento.
@@ -259,6 +260,7 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Evaluación del emulador de almacenamiento de código abierto multiplataforma [Azurite](https://github.com/arafato/azurite), mantenido por la comunidad. 
 * [Ejemplos de Azure Storage mediante .NET](storage-samples-dotnet.md) contiene vínculos a varios ejemplos de código que puede usar al desarrollar su aplicación.
 * Puede usar el [Explorador de Microsoft Azure Storage](http://storageexplorer.com) para trabajar con recursos de su cuenta de nube de Storage y del emulador de almacenamiento.
 

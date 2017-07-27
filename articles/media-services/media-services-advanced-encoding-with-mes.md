@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 01448fcff64e99429e2ee7df916b110c869307fb
-ms.openlocfilehash: 7776ac35f1a8a30c959286a9e31beb666f5fc799
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 25a13ad3738286795f45bbdec681614356bd3db8
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -27,6 +28,10 @@ ms.lasthandoff: 03/02/2017
 ## <a name="overview"></a>Información general
 
 Este tema muestra cómo personalizar los valores preestablecidos de Media Encoder Standard. El tema [Encoding with Media Encoder Standard using custom presets](media-services-custom-mes-presets-with-dotnet.md) (Codificación con Media Encoder Standard mediante valores preestablecidos personalizados) muestra cómo usar .NET para crear una tarea de codificación y un trabajo que ejecuta esta tarea. Después de personalizar un valor preestablecido, proporcione los valores preestablecidos personalizados a la tarea de codificación. 
+
+>[!NOTE]
+>Si utiliza un ajuste preestablecido XML, asegúrese de conservar el orden de los elementos, como se muestra en los ejemplos XML siguientes (por ejemplo, KeyFrameInterval debe preceder a SceneChangeDetection).
+>
 
 En este tema se muestran los valores preestablecidos personalizados que realizan las siguientes tareas de codificación.
 
@@ -235,8 +240,8 @@ Se aplican las siguientes consideraciones:
 * El uso de marcas de tiempo explícitas para inicio/paso/intervalo asume que el origen de la entrada tiene al menos 1 minuto de duración.
 * Los elementos Jpg/Png/BmpImage tienen atributos de cadena Start, Step y Range, que se pueden interpretar como:
 
-  * Número de marco si son enteros no negativos, por ejemplo, Start:&120;
-  * Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, Start:&15;
+  * Número de marco si son enteros no negativos, por ejemplo, Start: 120
+  * Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, Start: 15
   * Marca de tiempo si se por ejemplo, "Start" : "00:01:00"
 
     Puede mezclar y hacer coincidir notaciones a su conveniencia.
@@ -909,15 +914,16 @@ Actualice el valor preestablecido personalizado con los identificadores de los r
 Consulte el tema [Recorte de vídeos con Codificador multimedia estándar](media-services-crop-video.md) .
 
 ## <a id="no_video"></a>Inserción de una pista de vídeo cuando la entrada cuando no tiene vídeo
+
 De forma predeterminada, si envía una entrada al codificador que solo contenga audio, y no vídeo, el recurso de salida contendrá archivos que solo contienen datos de audio. Algunos reproductores, incluidos el Reproductor multimedia de Azure (consulte [esta página](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) no pueden controlar estas secuencias. Puede usar este ajuste para forzar al codificador a agregar una pista de vídeo monocromática a la salida en ese escenario.
 
 > [!NOTE]
 > Al forzar que el codificador inserte una pista de vídeo de salida se aumenta el tamaño del recurso de salida, y, por tanto, el costo por la tarea de codificación. Debe ejecutar pruebas para comprobar que el aumento resultante solo tenga solo un leve impacto en los cargos mensuales.
 >
->
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Inserción de vídeo solo con la velocidad de bits mínima
-Supongamos que utiliza un valor preestablecido de codificación de varias velocidades de bits como [H264 Multiple Bitrate 720p](media-services-mes-preset-h264-multiple-bitrate-720p.md) con el fin de codificar el catálogo de entrada completo para el proceso de streaming, que contiene una combinación de archivos de vídeo y archivos de solo audio. En este escenario, cuando la entrada no tiene ningún vídeo, puede forzar que el codificador inserte una pista de vídeo monocromática solo con la velocidad de bits mínima, en lugar de hacerlo con cada velocidad de bits de salida. Para ello, debe especificar la marca InsertBlackIfNoVideoBottomLayerOnly.
+
+Supongamos que utiliza un valor preestablecido de codificación de varias velocidades de bits como [H264 Multiple Bitrate 720p](media-services-mes-preset-h264-multiple-bitrate-720p.md) con el fin de codificar el catálogo de entrada completo para el proceso de streaming, que contiene una combinación de archivos de vídeo y archivos de solo audio. En este escenario, cuando la entrada no tiene ningún vídeo, puede forzar que el codificador inserte una pista de vídeo monocromática solo con la velocidad de bits mínima, en lugar de hacerlo con cada velocidad de bits de salida. Para conseguir esto, debe usar la marca **InsertBlackIfNoVideoBottomLayerOnly**.
 
 Puede usar cualquiera de los valores preestablecidos de MES que se documentan en [esta](media-services-mes-presets-overview.md) sección y realizar los cambios siguientes:
 
@@ -932,9 +938,30 @@ Puede usar cualquiera de los valores preestablecidos de MES que se documentan en
     }
 
 #### <a name="xml-preset"></a>Valor preestablecido XML
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+Al usar XML, utilice Condition="InsertBlackIfNoVideoBottomLayerOnly" como atributo del elemento **H264Video** y Condition="InsertSilenceIfNoAudio" como atributo de **AACAudio**.
+    
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>Inserción de vídeo con todas las velocidades de bits de salida
 Supongamos que utiliza un valor preestablecido de codificación de varias velocidades de bits como [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) con el fin de codificar el catálogo de entrada completo para el proceso de streaming, que contiene una combinación de archivos de vídeo y archivos de solo audio. En este escenario, cuando la entrada no tiene ningún vídeo, puede forzar que el codificador inserte una pista de vídeo monocromática con todas las velocidades de bits de salida. Esto garantiza que los recursos de salida sean homogéneos con respecto al número de pistas de vídeo y de audio. Para ello, debe especificar la marca InsertBlackIfNoVideo.
@@ -952,9 +979,30 @@ Puede usar cualquiera de los valores preestablecidos de MES que se documentan en
     }
 
 #### <a name="xml-preset"></a>Valor preestablecido XML
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideo</Condition>
+
+Al usar XML, utilice Condition="InsertBlackIfNoVideo" como atributo del elemento **H264Video** y Condition="InsertSilenceIfNoAudio" como atributo de **AACAudio**.
+
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideo">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .  
 
 ## <a id="rotate_video"></a>Girar un vídeo
 [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) admite ángulos de rotación de 0, 90, 180 o 270 grados. El comportamiento predeterminado es "Auto", en el que se intentan detectar los metadatos de rotación del archivo de vídeo entrante y la compensación. Incluya el siguiente elemento **Sources** en uno de los valores preestablecidos definidos en [esta](media-services-mes-presets-overview.md) sección:

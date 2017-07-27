@@ -1,6 +1,6 @@
 ---
 title: "Implementación y administración de copia de seguridad de VM de Azure mediante PowerShell | Microsoft Docs"
-description: "Obtenga información sobre cómo implementar y administrar Copia de seguridad de Azure mediante PowerShell."
+description: "Obtenga información sobre cómo implementar y administrar Azure Backup mediante PowerShell."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,13 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 06/14/2017
 ms.author: markgal;trinadhk;jimpark
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
-ms.openlocfilehash: aa1934447b53b725a08cebb47da9171a136b76ff
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: f7474aac1cd70243de25c4a2a73332d94b7bcaea
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -29,13 +30,19 @@ ms.lasthandoff: 03/02/2017
 >
 >
 
-En este artículo se muestra cómo usar Azure PowerShell para realizar copias de seguridad de máquinas virtuales de Azure y recuperarlas. Azure tiene dos modelos de implementación diferentes para crear recursos y utilizarlos: Resource Manager y clásica. En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+En este artículo se muestra cómo usar Azure PowerShell para realizar copias de seguridad de máquinas virtuales de Azure y recuperarlas. Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: Resource Manager y el clásico. Este artículo trata el uso del modelo de implementación clásico para hacer copia de seguridad de datos en un almacén de Backup. Si no ha creado un almacén de Backup en su suscripción, consulte el artículo en el que se explica el uso del modelo de Resource Manager, [Uso de los cmdlets AzureRM.RecoveryServices.Backup para realizar copias de seguridad de máquinas virtuales](backup-azure-vms-automation.md). Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+
+> [!IMPORTANT]
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **A partir del 1 de noviembre de 2017**:
+>- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
+>- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
+>
 
 ## <a name="concepts"></a>Conceptos
 En este artículo se ofrece información específica de los cmdlets de PowerShell que se usan para realizar copias de seguridad de máquinas virtuales. Para ver una introducción a la protección de máquinas virtuales de Azure, consulte [Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure](backup-azure-vms-introduction.md).
 
 > [!NOTE]
-> Antes de comenzar, lea los [requisitos previos](backup-azure-vms-prepare.md) necesarios para utilizar Copia de seguridad de Azure y las [limitaciones](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm) de la solución actual de copia de seguridad de máquina virtual.
+> Antes de comenzar, lea los [requisitos previos](backup-azure-vms-prepare.md) necesarios para utilizar Azure Backup y las [limitaciones](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm) de la solución actual de copia de seguridad de máquina virtual.
 >
 >
 
@@ -49,7 +56,7 @@ Los dos flujos más importantes son habilitar la protección para una máquina v
 Para empezar:
 
 1. [Descargue la versión de PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es: 1.0.0)
-2. Para buscar los cmdlets de PowerShell de Copia de seguridad de Azure disponibles, escriba el siguiente comando:
+2. Para buscar los cmdlets de PowerShell de Azure Backup disponibles, escriba el siguiente comando:
 
 ```
 PS C:\> Get-Command *azurermbackup*
@@ -103,7 +110,7 @@ PS C:\> $backupvault = New-AzureRmBackupVault –ResourceGroupName “test-rg”
 Para obtener una lista de todos los almacenes de copia de seguridad de una suscripción dada, use el cmdlet **Get-AzureRmBackupVault** .
 
 > [!NOTE]
-> Es conveniente almacenar el objeto de almacén de copia de seguridad en una variable. Dicho objeto de almacén se necesita como entrada en muchos de los cmdlets de Copia de seguridad de Azure.
+> Es conveniente almacenar el objeto de almacén de copia de seguridad en una variable. Dicho objeto de almacén se necesita como entrada en muchos de los cmdlets de Azure Backup.
 >
 >
 
@@ -172,7 +179,7 @@ testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01
 >
 
 ### <a name="monitoring-a-backup-job"></a>Supervisión de trabajos de copia de seguridad
-La mayor parte de las operaciones de ejecución prolongada en Copia de seguridad de Azure se modelan como un trabajo. Esto facilita el seguimiento del progreso sin tener que mantener el Portal de Azure abierto constantemente.
+La mayor parte de las operaciones de ejecución prolongada en Azure Backup se modelan como un trabajo. Esto facilita el seguimiento del progreso sin tener que mantener el Portal de Azure abierto constantemente.
 
 Para obtener el estado más reciente de un trabajo en curso, use el cmdlet **Get-AzureRmBackupJob** .
 
@@ -305,7 +312,7 @@ Transfer data to Backup vault                               InProgress
 ```
 
 ### <a name="2-create-a-dailyweekly-report-of-backup-jobs"></a>2. Crear un informe diario o semanal de los trabajos de copia de seguridad
-Normalmente, los administradores desean saber qué trabajos de copia de seguridad se ejecutaron en las últimas 24 horas y cuál es su estado. Además, la cantidad de datos transferidos ofrece a los administradores una manera de calcular el uso mensual de los datos. El script siguiente extrae los datos sin procesar desde el servicio Copia de seguridad de Azure y muestra la información en la consola de PowerShell.
+Normalmente, los administradores desean saber qué trabajos de copia de seguridad se ejecutaron en las últimas 24 horas y cuál es su estado. Además, la cantidad de datos transferidos ofrece a los administradores una manera de calcular el uso mensual de los datos. El script siguiente extrae los datos sin procesar desde el servicio Azure Backup y muestra la información en la consola de PowerShell.
 
 ```
 param(  [Parameter(Mandatory=$True,Position=1)]

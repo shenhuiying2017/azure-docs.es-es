@@ -87,6 +87,7 @@
 ### Uso de métodos directos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-direct-methods.md)
+#### [Back-end de .NET/Dispositivo de .NET](iot-hub-csharp-csharp-direct-methods.md)
 #### [Back-end de Java/Dispositivo de Java](iot-hub-java-java-direct-methods.md)
 ### Introducción a la administración de dispositivos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-device-management-get-started.md)
@@ -95,6 +96,7 @@
 ### Uso de propiedades gemelas
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
+#### [Back-end de .NET/Dispositivo de .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
 ### Uso de trabajos de dispositivos para actualizar el firmware del dispositivo
 #### [Back-end de Node/Dispositivo de Node](iot-hub-node-node-firmware-update.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-firmware-update.md)
@@ -171,7 +173,7 @@
 # Recursos
 ## [Catálogo de dispositivos de Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 ## [Centro para desarrolladores de Azure IoT](https://azure.microsoft.com/develop/iot/)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [herramienta DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [herramienta iothub-diagnostics](https://github.com/Azure/iothub-diagnostics)
 ## [herramienta iothub-explorer](https://github.com/Azure/iothub-explorer)

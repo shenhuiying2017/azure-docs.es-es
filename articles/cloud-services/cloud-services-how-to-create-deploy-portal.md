@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 542817c562e10ff32c62afd186cf012abbe82ac5
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
+ms.contentlocale: es-es
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -55,33 +56,27 @@ Antes de implementar un servicio en la nube, debe crear el paquete de servicio e
 Hay tres características del servicio en la nube que requieren configuraciones especiales antes de exportar un paquete de servicio:
 
 * Si desea implementar un servicio en la nube que utilice Capa de sockets seguros (SSL) para el cifrado de datos, [configure la aplicación](cloud-services-configure-ssl-certificate-portal.md#modify) para SSL.
-* Si desea configurar una conexión de Escritorio remoto a instancias de rol, [configure los roles](cloud-services-role-enable-remote-desktop.md) para Escritorio remoto. Solo puede realizarse en el portal clásico.
+* Si desea configurar una conexión de Escritorio remoto a instancias de rol, [configure los roles](cloud-services-role-enable-remote-desktop-new-portal.md) para Escritorio remoto.
 * Si desea configurar una supervisión exhaustiva para su servicio en la nube, habilite Diagnósticos de Azure para el servicio en la nube. *Supervisión mínima* (nivel predeterminado de supervisión) usa contadores de rendimiento recopilados de los sistemas operativos host para las instancias de rol (máquinas virtuales). *supervisión detallada* recopila métricas adicionales basadas en los datos del rendimiento dentro de las instancias de rol para permitir un análisis más profundo de los problemas que se producen durante el procesamiento de la aplicación. Para obtener información acerca de cómo habilitar Diagnósticos de Azure, consulte [Habilitación de Diagnósticos en Azure](cloud-services-dotnet-diagnostics.md).
 
 Para crear un servicio en la nube con implementaciones de roles web o de trabajo, debe [crear el paquete de servicio](cloud-services-model-and-package.md#servicepackagecspkg).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 * Si no ha instalado el SDK de Azure, haga clic en **Instalación de SDK de Azure** para abrir la [página Descargas de Azure](https://azure.microsoft.com/downloads/)y, a continuación, descargue el SDK en el idioma en que prefiera desarrollar el código. (Tendrá la oportunidad de hacer esto más tarde).
-* Si hay instancias de rol que necesitan certificados, créelos. Los servicios en la nube requieren un archivo .pfx con una clave privada. [Puede cargar los certificados en Azure]() mientras crea e implementa el servicio en la nube.
-* Si tiene pensado implementar el servicio en la nube en un grupo de afinidad, cree dicho grupo. Puede usar un grupo de afinidad para implementar su servicio en la nube y otros servicios de Azure en la misma ubicación de una región. Puede crear el grupo de afinidad en el área **Redes** del Portal de Azure clásico, en la página **Grupos de afinidad**.
+* Si hay instancias de rol que necesitan certificados, créelos. Los servicios en la nube requieren un archivo .pfx con una clave privada. Puede cargar los certificados en Azure al crear e implementar el servicio en la nube.
 
 ## <a name="create-and-deploy"></a>Creación e implementación
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **Nuevo > Compute**, luego desplácese hacia abajo y haga clic en **Servicio en la nube**.
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. En la parte inferior de la página de información que se muestra, haga clic en **Crear**.
-4. En la nueva hoja **Servicio en la nube**, escriba un valor para **Nombre DNS**.
-5. Cree un nuevo **Grupo de recursos** o seleccione uno existente.
-6. Seleccione una **ubicación**.
-7. Haga clic en **Paquete**. Se abrirá la hoja **Upload a package** (Cargar un paquete). Rellene todos los campos obligatorios. Si cualquiera de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** esté seleccionada.
-
-    > [!IMPORTANT]
-    > Cloud Services solo puede estar asociado con [cuentas de almacenamiento clásicas](../azure-resource-manager/resource-manager-deployment-model.md). Si ve un mensaje que le indica que no se encontraron cuentas de almacenamiento para su suscripción y ubicación, asegúrese de que ha creado una cuenta de almacenamiento clásica para el servicio en la nube de esa ubicación.
-
-8. Asegúrese de que la opción **Iniciar implementación** esté seleccionada.
-9. Haga clic en **Aceptar** para cerrar la hoja **Cargar un paquete**.
-10. Si no tiene ningún certificado para agregar, haga clic en **Crear**.
+3. En la nueva hoja **Servicio en la nube**, escriba un valor para **Nombre DNS**.
+4. Cree un nuevo **Grupo de recursos** o seleccione uno existente.
+5. Seleccione una **ubicación**.
+6. Haga clic en **Paquete**. Se abrirá la hoja **Upload a package** (Cargar un paquete). Rellene todos los campos obligatorios. Si cualquiera de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** esté seleccionada.
+7. Asegúrese de que la opción **Iniciar implementación** esté seleccionada.
+8. Haga clic en **Aceptar** para cerrar la hoja **Cargar un paquete**.
+9. Si no tiene ningún certificado para agregar, haga clic en **Crear**.
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 

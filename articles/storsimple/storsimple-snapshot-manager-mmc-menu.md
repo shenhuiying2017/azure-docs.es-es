@@ -36,7 +36,7 @@ En Administrador de instantáneas StorSimple, verá las siguientes acciones en t
 Estas acciones son parte de Microsoft Management Console (MMC) y no son específicas de Administrador de instantáneas StorSimple. Este tutorial describe estas acciones y explica cómo usar cada una de ellas en Administrador de instantáneas StorSimple.
 
 ## <a name="view"></a>Ver
-Puede usar la opción **Ver** para cambiar la vista de panel **Resultados ** y cambiar la vista de la ventana de consola. 
+Puede usar la opción **Ver** para cambiar la vista de panel **Resultados** y cambiar la vista de la ventana de consola. 
 
 #### <a name="to-change-the-results-pane-view"></a>Para cambiar la vista del panel de resultados
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.

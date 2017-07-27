@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 9962766b0a1fdfe313b70ea65e08785ec8a97996
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: d55cfc354ad5a9fc0f06b671f441ba4a0616bb9a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -94,7 +94,10 @@ Para cambiar de una imagen personalizada a una incorporada:
 
 ## <a name="troubleshooting"></a>Solución de problemas ##
 
-Cuando la aplicación no se inicia con la imagen de Docker personalizada, compruebe que el Docker registra en el directorio LogFiles/docker. A este directorio se accede a través del sitio SCM o a través de FTP. 
+Cuando la aplicación no se inicia con la imagen de Docker personalizada, compruebe que el Docker registra en el directorio LogFiles/docker. A este directorio se accede a través del sitio SCM o a través de FTP.
+Para registrar `stdout` y `stderr` del contenedor, debe habilitar **Registros de servidor web** en **Registros de diagnóstico**.
+
+![Habilitación del registro][8]
 
 ![Uso de Kudu para ver registros de Docker][7]
 
@@ -120,4 +123,5 @@ Puede publicar preguntas y problemas en [nuestro foro](https://social.msdn.micro
 [5]: ./media/app-service-linux-using-custom-docker-image/existingapp-configure-builtin.png
 [6]: ./media/app-service-linux-using-custom-docker-image/setting-port.png
 [7]: ./media/app-service-linux-using-custom-docker-image/kudu-docker-logs.png
+[8]: ./media/app-service-linux-using-custom-docker-image/logging.png
 

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
-ms.author: vakarand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: d270d7cc3ceeef29aaaf1c9f984e69984049f815
+ms.date: 07/17/2017
+ms.author: billmath
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5a319de69c4e142414ab8f2be980a6576acbf8bb
 ms.contentlocale: es-es
-ms.lasthandoff: 04/29/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
@@ -44,7 +43,7 @@ Los errores que se producen durante la exportación a Azure AD indican que la op
 #### <a name="description"></a>Descripción
 * Cuando Azure AD Connect \(motor de sincronización\) indica a Azure Active Directory que agregue o actualice objetos, Azure AD hace coincidir el objeto entrante que utiliza el atributo **sourceAnchor** con el atributo **immutableId** de los objetos de Azure AD. Esta se denomina una **coincidencia exacta**.
 * Cuando Azure AD **no encuentra** ningún objeto que hace coincidir con el atributo **immutableId** con el atributo **sourceAnchor** del objeto entrante, antes de aprovisionar un nuevo objeto, recurre al uso de los atributos ProxyAddresses y UserPrincipalName para encontrar una coincidencia. Esta se denomina **coincidencia parcial**. La coincidencia parcial está diseñada para hacer coincidir objetos que ya están presentes en Azure AD (cuyo origen en Azure AD) con los nuevos que se van a agregar o actualizar durante la sincronización de objetos que representan la misma entidad (usuarios, grupos) de forma local.
-* El error **InvalidSoftMatch** se produce cuando la coincidencia exacta no encuentra ningún objeto coincidente **Y la**  coincidencia parcial encuentra un objeto coincidente, pero cuyo atributo *immutableId* tiene un valor diferente que el atributo *SourceAnchor* del objeto de entrada, lo que sugiere que el objeto coincidente se sincronizó con otro objeto de una versión local de Active Directory.
+* El error **InvalidSoftMatch** se produce cuando la coincidencia exacta no encuentra ningún objeto coincidente **Y la** coincidencia parcial encuentra un objeto coincidente, pero cuyo atributo *immutableId* tiene un valor diferente que el atributo *SourceAnchor* del objeto de entrada, lo que sugiere que el objeto coincidente se sincronizó con otro objeto de una versión local de Active Directory.
 
 En otras palabras, para que la coincidencia parcial funcione, el objeto con el que se va a realizar no debe tener ningún valor en el atributo *immutableId*. Si algún objeto cuyo atributo *immutableId* tenga un valor genera errores de coincidencia exacta, pero satisface los criterios de coincidencia parcial, la operación provocará un error de sincronización InvalidSoftMatch.
 

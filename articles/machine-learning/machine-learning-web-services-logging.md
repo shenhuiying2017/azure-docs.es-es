@@ -12,43 +12,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 06/15/2017
 ms.author: raymondl;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f307a26bfbb55b395f4073f4368432ae69b867ae
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 7d0b2db01427430d6b0a317cdfefc265dd4b06e2
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Habilitar el registro para los servicios web de Aprendizaje automático
-Este documento aporta información sobre la función de registro de los servicios web clásicos. Habilitar el registro en los servicios web ofrece información adicional, más allá de simplemente un número de error y un mensaje, que puede ayudarle a solucionar problemas con las llamadas a las API de Machine Learning.  
+Este documento proporciona información sobre la funcionalidad de registro de los servicios web Machine Learning. El registro ofrece información adicional, más allá de simplemente un número de error y un mensaje, que puede ayudarle a solucionar problemas con las llamadas a las API de Machine Learning.  
 
-Para habilitar el registro en los servicios web del Portal de Azure clásico:   
+## <a name="how-to-enable-logging-for-a-web-service"></a>Habilitación del registro para un servicio web
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/).
-2. En la columna de características de la izquierda, haga clic en **MACHINE LEARNING**.
-3. Haga clic en el nombre del área de trabajo y luego en **SERVICIOS WEB**.
-4. En la lista de servicios web, haga clic en el nombre del servicio web.
-5. En la lista de puntos de conexión, haga clic en el nombre del punto de conexión.
-6. Haga clic en **CONFIGURAR**.
-7. Establezca **NIVEL DE SEGUIMIENTO DE DIAGNÓSTICO** en *Error* o *Todos* y luego haga clic en **GUARDAR**.
+El registro se habilita desde el portal de [servicios web de Azure Machine Learning](https://services.azureml.net). 
 
-Instrucciones para habilitar el registro en el portal Servicios web Azure Machine Learning.
+1. Inicie sesión en el portal de servicios web de Machine Learning en [https://services.azureml.net](https://services.azureml.net). Para servicios web clásicos, también puede llegar al portal si hace clic en **New Web Services Experience** (Nueva experiencia de servicios web) en la página de servicios web de Machine Learning en Machine Learning Studio.
 
-1. Inicie sesión en el portal [Servicios web Azure Machine Learning](https://services.azureml.net).
-2. Haga clic en Classic Web Services (Servicios web clásicos).
-3. En la lista de servicios web, haga clic en el nombre del servicio web.
-4. En la lista de puntos de conexión, haga clic en el nombre del punto de conexión.
-5. Haga clic en **Configurar**.
-6. Establezca **Registro** en *Error* o *Todos* y luego haga clic en **GUARDAR**.
+   ![Nuevo vínculo a la experiencia de servicios web](media/machine-learning-web-services-logging/new-web-services-experience-link.png)
+
+2. En la barra de menús superior, haga clic en **Servicios web** si es un nuevo servicio web o en **Classic Web Services** (Servicios web clásicos) si es un servicio web clásico.
+
+   ![Selección de servicios web nuevos o clásicos](media/machine-learning-web-services-logging/select-web-service.png)
+
+3. Si es un nuevo servicio web, haga clic en el nombre del servicio web. Si es un servicio web clásico, haga clic en el nombre del servicio web y, a continuación, en la siguiente página, haga clic en el punto de conexión adecuado.
+
+4. En la barra de menús superior, haga clic en **Configurar**.
+
+5. Establezca la opción **Habilitar registro** en *Error* (para registrar solo los errores) o en *Todo* (para realizar un registro completo).
+
+   ![Selección del nivel de registro](media/machine-learning-web-services-logging/enable-logging.png)
+
+6. Haga clic en **Guardar**.
+
+7. En servicios web clásicos, cree el contenedor **ml-diagnostics**.
+
+   Todos los registros de servicios web se mantienen en un contenedor de blobs llamado **ml-diagnostics** en la cuenta de almacenamiento asociada con el servicio web. En nuevos servicios web, este contenedor se crea la primera vez que se accede al servicio web. En servicios web clásicos, debe crear el contenedor si aún no existe. 
+
+   1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento asociada con el servicio web.
+
+   2. En **Blob service**, haga clic en **Contenedores**.
+
+   3. Si el contenedor **ml-diagnostics** no existe, haga clic en **+Contenedor**, proporcione al contenedor el nombre "ml-diagnostics" y seleccione "Blob" como el **Tipo de acceso**. Haga clic en **Aceptar**.
+
+      ![Selección del nivel de registro](media/machine-learning-web-services-logging/create-ml-diagnostics-container.png)
+
+> [!TIP]
+>
+> En servicios web clásicos, el panel de servicios web de Machine Learning Studio tiene también un conmutador para habilitar el registro. Sin embargo, puesto que el registro se administra ahora mediante el portal de servicios web, deberá habilitarlo en dicho portal, como se describe en este artículo. Si ya habilitó el registro en Studio, en el portal de servicios web deshabilítelo y vuelva a habilitarlo.
+
 
 ## <a name="the-effects-of-enabling-logging"></a>Consecuencias de habilitar el registro
-Cuando el registro está habilitado, todos los diagnósticos y errores del punto de conexión seleccionado se registran en la cuenta de almacenamiento de Azure Storage vinculada al área de trabajo del usuario. Puede ver esta cuenta de almacenamiento en la vista de panel del Portal de Azure clásico (parte inferior de la sección Vista rápida) de su área de trabajo.  
+Cuando el registro está habilitado, el diagnóstico y los errores del punto de conexión de servicio Web se registran en el contenedor de blobs **ml-diagnostics** en la cuenta de Azure Storage vinculada al área de trabajo del usuario. Este contenedor incluye toda la información de diagnóstico de todos los puntos de conexión de servicio Web relativos a todas las áreas de trabajo asociadas a esta cuenta de almacenamiento.
 
-Los registros pueden verse mediante cualquiera de las diversas herramientas disponibles para "explorar" una cuenta de almacenamiento de Azure Storage. Lo más sencillo puede ser simplemente ir a la cuenta de almacenamiento en el Portal de Azure clásico y luego hacer clic en **CONTENEDORES**. A continuación, verá un contenedor denominado **ml-diagnostics**. Este contenedor contiene toda la información de diagnóstico de todos los puntos de conexión de servicio web relativos a todas las áreas de trabajo asociadas a esta cuenta de almacenamiento. 
+Los registros pueden verse mediante cualquiera de las diversas herramientas disponibles para explorar una cuenta de Azure Storage. Lo más sencillo puede ser desplazarse a la cuenta de almacenamiento en el portal de Azure, hacer clic en **Contenedores** y luego en el contenedor **ml-diagnostics**.  
 
 ## <a name="log-blob-detail-information"></a>Información detallada sobre el blob de registro
-Cada blob del contenedor contiene la información de diagnóstico para exactamente uno de los siguientes elementos:
+Cada blob del contenedor incluye la información de diagnóstico de exactamente una de las siguientes acciones:
 
 * Una ejecución del método Batch-Execution  
 * Una ejecución del método Request-Response  
@@ -56,17 +78,14 @@ Cada blob del contenedor contiene la información de diagnóstico para exactamen
 
 El nombre de cada blob tiene un prefijo con la forma siguiente: 
 
-{Id. del área de trabajo}-{id. del servicio web}-{id. del punto de conexión}/{tipo de registro}  
 
-Donde el tipo de registro es uno de los valores siguientes:  
+`{Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type}`
 
-* lote  
+
+Donde el _tipo de registro_ es uno de los valores siguientes:  
+
+* proceso por lotes  
 * puntuación/solicitudes  
 * puntuación/inic  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

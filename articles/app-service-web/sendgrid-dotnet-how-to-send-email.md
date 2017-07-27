@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 534397378a4d83414bfe62f2dd2c57678f09c429
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 126bc0658af3a27643bc0da2848545546f158f0c
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Envío de correos electrónicos con SendGrid y Azure
 ## <a name="overview"></a>Información general
-Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en C\#
-y admiten .NET Standard 1.3. Entre los escenarios descritos se incluyen creación de correos electrónicos, envío de correos electrónicos, incorporación de datos adjuntos y habilitación de varias configuraciones de correo y seguimiento. Para más información sobre SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes][Next steps].
+Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en C\# y admiten .NET Standard 1.3. Entre los escenarios descritos se incluyen creación de correos electrónicos, envío de correos electrónicos, incorporación de datos adjuntos y habilitación de varias configuraciones de correo y seguimiento. Para más información sobre SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes][Next steps].
 
 ## <a name="what-is-the-sendgrid-email-service"></a>¿Qué es el servicio de correo electrónico SendGrid?
 SendGrid es un [servicio de correo electrónico basado en la nube] que ofrece un sistema confiable de [entrega de correo electrónico transaccional], escalabilidad y análisis en tiempo real junto, con API flexibles que facilitan la integración personalizada. A continuación se indican casos de uso comunes de SendGrid:
@@ -70,7 +70,7 @@ La biblioteca de clases .NET de SendGrid se llama **SendGrid**. Contiene los sig
 Agregue las siguientes declaraciones de espacio de nombres de código en la parte superior de todo archivo C# en el que desee obtener acceso al servicio de correo electrónico SendGrid mediante programación:
 
     using SendGrid;
-    using SendGrid.Helpers.Mail
+    using SendGrid.Helpers.Mail;
 
 ## <a name="how-to-create-an-email"></a>Creación de un correo electrónico
 Use el objeto **SendGridMessage** para crear un mensaje de correo. Una vez creado el objeto de mensaje, establecer propiedades y métodos, incluidos el remitente, el destinatario, el asunto y el cuerpo del correo electrónico.

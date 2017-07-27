@@ -4,22 +4,21 @@ description: "En este artículo se analizan las preguntas más frecuentes acerca
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
+manager: carmonm
 editor: 
 ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
-ms.service: get-started-article
+ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/21/2017
+ms.date: 05/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: d3351e4a480caa1bf02e82545f130b14bf6f0910
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4ed866cf83ff1d38147c9aecf337fd05b025f01a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: preguntas más frecuentes (P+F)
@@ -27,20 +26,19 @@ En este artículo se incluyen las preguntas más frecuentes sobre Azure Site Rec
 
 ## <a name="general"></a>General
 ### <a name="what-does-site-recovery-do"></a>¿Qué hace Site Recovery?
-Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres mediante la coordinación y la automatización de la replicación desde máquinas virtuales locales y servidores físicos a Azure o a un centro de datos secundario. [Más información](site-recovery-overview.md).
+Site Recovery contribuye a su estrategia de continuidad empresarial (BCDR por su sigla en inglés) y recuperación ante desastres mediante la coordinación y la automatización de la replicación de máquinas virtuales de Azure entre regiones, máquinas virtuales locales y servidores físicos a Azure, y máquinas locales a un centro de datos secundario. [Más información](site-recovery-overview.md).
 
 ### <a name="what-can-site-recovery-protect"></a>¿Qué se puede proteger con Site Recovery?
+* **Máquinas virtuales de Azure**: Site Recovery puede replicar cualquier carga de trabajo que se ejecute en una máquina virtual de Azure compatible.
 * **Máquinas virtuales de Hyper-V**: Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de Hyper-V.
 * **Servidores físicos**: Site Recovery puede proteger servidores físicos con Windows o Linux.
 * **Máquinas virtuales de VMware**: Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de VMware.
 
 ### <a name="does-site-recovery-support-the-azure-resource-manager-model"></a>¿Site Recovery admite el modelo de Azure Resource Manager?
-Además de Site Recovery en el Portal de Azure clásico, Site Recovery está disponible en el Portal de Azure con compatibilidad para Resource Manager. Para la mayoría de los escenarios de implementación, Site Recovery en el Portal de Azure ofrece una experiencia de implementación optimizada y puede replicar las máquinas virtuales y los servidores físicos en el almacenamiento clásico o el almacenamiento de Resource Manager. Estas son las implementaciones compatibles:
+Site Recovery está disponible en Azure Portal y es compatible con Resource Manager. Site Recovery admite implementaciones heredadas en el Portal de Azure clásico. No se puede crear almacenes nuevos en el portal clásico y no se admiten nuevas características.
 
-* [Replicación de servidores físicos o máquinas virtuales de VMware en Azure en el Portal de Azure](site-recovery-vmware-to-azure.md)
-* [Replicación de máquinas virtuales de Hyper-V en nubes VMM en Azure en el Portal de Azure](site-recovery-vmm-to-azure.md)
-* [Replicación de máquinas virtuales de Hyper-V (sin VMM) en Azure en el Portal de Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Replicación de máquinas virtuales de Hyper-V en nubes VMM en un sitio secundario en el Portal de Azure](site-recovery-vmm-to-vmm.md)
+### <a name="can-i-replicate-azure-vms"></a>¿Puedo replicar máquinas virtuales de Azure?
+Sí, puede replicar máquinas virtuales de Azure compatibles entre regiones de Azure. [Más información](site-recovery-azure-to-azure.md).
 
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>¿Qué necesito en Hyper-V para orquestar la replicación con Site Recovery?
 Los requisitos para el servidor host de Hyper-V dependen del escenario de implementación. Revise los requisitos previos de Hyper-V en:
@@ -87,6 +85,10 @@ La licencia de Site Recovery es para cada instancia protegida, y una instancia e
 
 - Si un disco de máquina virtual se replica en una cuenta de almacenamiento estándar, Azure Storage cobra por el consumo de almacenamiento. Por ejemplo, si el tamaño del disco de origen es 1 TB y se usan 400 GB, Site Recovery crea un disco duro virtual de 1 TB en Azure, pero se cobra por un almacenamiento de 400 GB (más la cantidad de espacio de almacenamiento que se usa para los registros de replicación).
 - Si un disco de máquina virtual se replica en una cuenta de almacenamiento premium, Azure Storage cobra por el tamaño de almacenamiento aprovisionado, redondeado a la opción de disco de almacenamiento premium más cercana. Por ejemplo, si el tamaño del disco de origen es de 50 GB, Site Recovery crea un disco de 50 GB en Azure y Azure lo asigna al disco de almacenamiento premium (P10) más cercano.  Los costes se calculan sobre P10 y no sobre el tamaño de disco de 50 GB.  [Más información](https://aka.ms/premium-storage-pricing).  Si usa almacenamiento premium, también se necesita una cuenta de almacenamiento estándar para el registro de la replicación, y también se factura la cantidad de espacio de almacenamiento estándar usado para estos registros.
+- No se crean discos hasta que se produce una conmutación por error de prueba o una conmutación por error. En el estado de replicación, se incurre en los cargos de almacenamiento en la categoría de "Disco y blob en páginas" según la [Calculadora de precios de Storage](https://azure.microsoft.com/en-in/pricing/calculator/). Estos cargos se basan en el tipo almacenamiento premium o estándar y en el tipo de redundancia de datos (LRS, GRS, RA-GRS, etc.).
+- Si se selecciona la opción para usar discos administrados al producirse una conmutación por error, se aplican los [cargos por discos administrados](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) después de una conmutación por error o una conmutación por error de prueba. No se aplican los cargos por discos administrados durante la replicación.
+- Si no se selecciona la opción para usar discos administrados al producirse una conmutación por error, tras la conmutación por error se incurre en los cargos de almacenamiento en la categoría de "Disco y blob en páginas" según la [Calculadora de precios de almacenamiento](https://azure.microsoft.com/en-in/pricing/calculator/). Estos cargos se basan en el tipo almacenamiento premium o estándar y en el tipo de redundancia de datos (LRS, GRS, RA-GRS, etc.).
+- Las transacciones de almacenamiento se cargan durante la replicación en estado estable y por las operaciones normales de máquina virtual después de una conmutación por error o conmutación por error de prueba. Pero estos cargos son insignificantes.
 
 También se incurre en costes durante la conmutación por error de prueba, y se aplicarán los costes de las transacciones de VM, almacenamiento, salida y almacenamiento.
 
@@ -160,7 +162,7 @@ Sí. Puede leer más acerca de la limitación de ancho de banda en los artículo
 
 * [Capacity planning for replicating VMware VMs and physical servers](site-recovery-plan-capacity-vmware.md)
 * [Capacity planning for replicating Hyper-V VMs in VMM clouds](site-recovery-vmm-to-azure.md#capacity-planning)
-* [Capacity planning for replicating Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md#capacity-planning)
+* [Capacity planning for replicating Hyper-V VMs without VMM](site-recovery-hyper-v-site-to-azure.md)
 
 ## <a name="failover"></a>Conmutación por error
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Si se realiza una conmutación por error a Azure, ¿cómo se puede tener acceso a las máquinas virtuales de Azure tras este proceso?

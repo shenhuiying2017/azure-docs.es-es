@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 859f9a1ca9dbe166fd514c8eba868b466dbc4d2c
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 41fcccae7b3d306c25f4429d47e81884d88cd83e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -101,6 +101,8 @@ Son los límites de una definición de aplicación lógica.
 |Niveles de anidamiento de acciones permitidos|5|Puede agregar flujos de trabajo anidados para ampliar esta función, según sea necesario.|
 |Flujos de trabajo por región y suscripción|1000||
 |Desencadenadores por flujo de trabajo|10||
+|Límite de cambio de ámbito de casos|25||
+|Número de variables por flujo de trabajo|250||
 |Número máximo de caracteres por expresión|8192||
 |Tamaño máximo de `trackedProperties` expresado en caracteres|16 000|
 |`action`/`trigger` |80||

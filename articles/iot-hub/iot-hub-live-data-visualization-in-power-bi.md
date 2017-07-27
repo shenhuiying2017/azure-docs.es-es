@@ -4,7 +4,7 @@ description: "Use Power BI para visualizar datos de temperatura y humedad que se
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "visualización de datos en tiempo real, visualización de datos en directo, visualización de datos de sensor"
 ms.assetid: e67c9c09-6219-4f0f-ad42-58edaaa74f61
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: ba25cdee46ce4ceb5acd5ff9da683a057f2bd733
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 404ab1682d9b77f22e60888340ffb70a101ed5d4
+ms.contentlocale: es-es
+ms.lasthandoff: 06/15/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI
@@ -51,7 +51,7 @@ Aprenderá a visualizar los datos del sensor en tiempo real que recibe el centro
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>Creación, configuración y ejecución de un trabajo de Stream Analytics
 
-### <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
+### <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Análisis de transmisiones
 
 1. En Azure Portal, haga clic en Nuevo > Internet de las cosas > Trabajo de Stream Analytics.
 1. Escriba la siguiente información para el trabajo.
@@ -112,7 +112,7 @@ Aprenderá a visualizar los datos del sensor en tiempo real que recibe el centro
 
    ![Adición de una consulta a un trabajo de Stream Analytics en Azure](media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 
-### <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Stream Analytics
+### <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Análisis de transmisiones
 
 En el trabajo de Stream Analytics, haga clic en **Iniciar** > **Ahora** > **Iniciar**. Una vez que el trabajo se inicia correctamente, su estado cambia de **Detenido** a **En ejecución**.
 
@@ -120,11 +120,7 @@ En el trabajo de Stream Analytics, haga clic en **Iniciar** > **Ahora** > **Inic
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Creación y publicación de un informe de Power BI para visualizar los datos
 
-1. Compruebe que la aplicación de ejemplo se está ejecutando. Si no es así, ejecute el comando siguiente para ejecutar la aplicación en Pi:
-
-   ```bash
-   gulp run
-   ```
+1. Asegúrese de que la aplicación de ejemplo se ejecuta en el dispositivo. Si no es así, puede hacer referencia a los tutoriales en [Configurar su dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
 1. Inicie sesión en su cuenta de [Power BI](https://powerbi.microsoft.com/en-us/).
 1. Vaya al área de trabajo de grupo que estableció en el momento de crear la salida para el trabajo de Stream Analytics.
 1. Haga clic en **Conjuntos de datos de streaming**.
@@ -164,3 +160,4 @@ Ha utilizado correctamente Power BI para visualizar datos de sensor en tiempo re
 Hay otra manera de visualizar datos desde Azure IoT Hub. Consulte [Use Azure Web Apps to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md) (Uso de Azure Web Apps para visualizar datos del sensor en tiempo real desde Azure IoT Hub).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

@@ -2,323 +2,327 @@
   href: index.yml
 - name: Información general
   items:
-  - name: Información acerca de Azure Cosmos DB
-    href: introduction.md
-  - name: Página principal de clientes de DocumentDB
-    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
+    - name: Información acerca de Azure Cosmos DB
+      href: introduction.md
+    - name: Página principal de clientes de DocumentDB
+      href: >-
+        https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Inicios rápidos
   expanded: true
   items:
-  - name: DocumentDB
-    items:
-    - name: .NET
-      href: create-documentdb-dotnet.md
-    - name: Java
-      href: create-documentdb-java.md
-    - name: Node.js
-      href: create-documentdb-nodejs.md
-    - name: Python
-      href: create-documentdb-python.md
-    - name: Xamarin
-      href: create-documentdb-xamarin-dotnet.md
-  - name: MongoDB
-    items:
-    - name: Node.js
-      href: create-mongodb-nodejs.md
-    - name: .NET
-      href: create-mongodb-dotnet.md
-    - name: Java
-      href: create-mongodb-java.md
-    - name: Golang
-      href: create-mongodb-golang.md
-  - name: Gráfico
-    items:
-    - name: .NET
-      href: create-graph-dotnet.md
-    - name: Consola de Gremlin
-      href: create-graph-gremlin-console.md
-    - name: Java
-      href: create-graph-java.md
-    - name: Node.js
-      href: create-graph-nodejs.md
-  - name: Tabla
-    items:
-    - name: .NET
-      href: create-table-dotnet.md
+    - name: DocumentDB
+      items:
+        - name: .NET
+          href: create-documentdb-dotnet.md
+        - name: Java
+          href: create-documentdb-java.md
+        - name: Node.js
+          href: create-documentdb-nodejs.md
+        - name: Python
+          href: create-documentdb-python.md
+        - name: Xamarin
+          href: create-documentdb-xamarin-dotnet.md
+    - name: MongoDB
+      items:
+        - name: Node.js
+          href: create-mongodb-nodejs.md
+        - name: .NET
+          href: create-mongodb-dotnet.md
+        - name: Java
+          href: create-mongodb-java.md
+        - name: Golang
+          href: create-mongodb-golang.md
+    - name: Gráfico
+      items:
+        - name: .NET
+          href: create-graph-dotnet.md
+        - name: Consola de Gremlin
+          href: create-graph-gremlin-console.md
+        - name: Java
+          href: create-graph-java.md
+        - name: Node.js
+          href: create-graph-nodejs.md
+    - name: Tabla
+      items:
+        - name: .NET
+          href: create-table-dotnet.md
 - name: Tutoriales
   items:
-  - name: 1 - Creación
-    items:
-    - name: DocumentDB
-      href: tutorial-develop-documentdb-dotnet.md
-    - name: MongoDB
-      href: tutorial-develop-mongodb.md
-    - name: Tabla
-      href: tutorial-develop-table-dotnet.md
-    - name: Gráfico
-      href: tutorial-develop-graph-dotnet.md
-  - name: 2 - Importación
-    items:
-    - name: DocumentDB
-      href: import-data.md
-    - name: MongoDB
-      href: mongodb-migrate.md
-  - name: 3 - Consulta
-    items:
-    - name: DocumentDB
-      href: tutorial-query-documentdb.md
-    - name: MongoDB
-      href: tutorial-query-mongodb.md
-    - name: Tabla
-      href: tutorial-query-table.md
-    - name: Gráfico
-      href: tutorial-query-graph.md
-  - name: 4 - Distribución global
-    items:
-    - name: DocumentDB
-      href: tutorial-global-distribution-documentdb.md
-    - name: MongoDB
-      href: tutorial-global-distribution-mongodb.md
-    - name: Tabla
-      href: tutorial-global-distribution-table.md
-    - name: Gráfico
-      href: tutorial-global-distribution-graph.md
-  - name: 5 - Desarrollo local
-    items:
-    - name: Uso del emulador
-      href: local-emulator.md
-    - name: Exportación de certificados
-      href: local-emulator-export-ssl-certificates.md
+    - name: 1 - Creación
+      items:
+        - name: DocumentDB
+          href: tutorial-develop-documentdb-dotnet.md
+        - name: MongoDB
+          href: tutorial-develop-mongodb.md
+        - name: Tabla
+          href: tutorial-develop-table-dotnet.md
+        - name: Gráfico
+          href: tutorial-develop-graph-dotnet.md
+    - name: 2 - Importación
+      items:
+        - name: DocumentDB
+          href: import-data.md
+        - name: MongoDB
+          href: mongodb-migrate.md
+    - name: 3 - Consulta
+      items:
+        - name: DocumentDB
+          href: tutorial-query-documentdb.md
+        - name: MongoDB
+          href: tutorial-query-mongodb.md
+        - name: Tabla
+          href: tutorial-query-table.md
+        - name: Gráfico
+          href: tutorial-query-graph.md
+    - name: 4 - Distribución global
+      items:
+        - name: DocumentDB
+          href: tutorial-global-distribution-documentdb.md
+        - name: MongoDB
+          href: tutorial-global-distribution-mongodb.md
+        - name: Tabla
+          href: tutorial-global-distribution-table.md
+        - name: Gráfico
+          href: tutorial-global-distribution-graph.md
+    - name: 5 - Desarrollo local
+      items:
+        - name: Uso del emulador
+          href: local-emulator.md
+        - name: Exportación de certificados
+          href: local-emulator-export-ssl-certificates.md
 - name: Muestras
   items:
-  - name: CLI de Azure 2.0
-    href: cli-samples.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
+    - name: CLI de Azure 2.0
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Conceptos
   items:
-  - name: Distribución global
-    href: distribute-data-globally.md
-  - name: Creación de particiones
-    href: partition-data.md
-  - name: Coherencia
-    href: consistency-levels.md
-  - name: Rendimiento
-    href: request-units.md
-    items:
-    - name: Unidades de solicitud por minuto
-      href: request-units-per-minute.md
-  - name: API de varios modelos
-    items:
-    - name: DocumentDB
-      href: documentdb-introduction.md
-    - name: MongoDB
-      href: mongodb-introduction.md
-    - name: Tabla
-      href: table-introduction.md
-    - name: Gráfico
-      href: graph-introduction.md
-  - name: Seguridad
-    href: database-security.md
-  - name: TCO
-    href: https://aka.ms/documentdb-tco-paper
-  - name: Casos de uso
-    href: use-cases.md
-    items:
-      - name: Aplicaciones de redes sociales
-        href: social-media-apps.md
+    - name: Distribución global
+      href: distribute-data-globally.md
+    - name: Creación de particiones
+      href: partition-data.md
+    - name: Coherencia
+      href: consistency-levels.md
+    - name: Rendimiento
+      href: request-units.md
+      items:
+        - name: Unidades de solicitud por minuto
+          href: request-units-per-minute.md
+    - name: API de varios modelos
+      items:
+        - name: DocumentDB
+          href: documentdb-introduction.md
+        - name: MongoDB
+          href: mongodb-introduction.md
+        - name: Tabla
+          href: table-introduction.md
+        - name: Gráfico
+          href: graph-introduction.md
+    - name: Seguridad
+      href: database-security.md
+    - name: TCO
+      href: 'https://aka.ms/documentdb-tco-paper'
+    - name: Casos de uso
+      href: use-cases.md
+      items:
+        - name: Aplicaciones de redes sociales
+          href: social-media-apps.md
 - name: Guías de procedimientos
   items:
-  - name: Desarrollo
-    items:
-    - name: DocumentDB API
+    - name: Desarrollo
       items:
-      - name: Recursos
-        href: documentdb-resources.md
-      - name: Consultas SQL
-        href: documentdb-sql-query.md
-      - name: Área de juegos de SQL
-        href: https://www.documentdb.com/sql/demo
-      - name: Creación de particiones
-        href: documentdb-partition-data.md
-      - name: 'procedimientos almacenados, desencadenadores y UDF'
-        href: programming.md
-      - name: Pruebas de rendimiento
-        href: performance-testing.md
-      - name: Consejos de rendimiento
-        href: performance-tips.md
-      - name: Configuración de varios maestros
-        href: multi-region-writers.md
-      - name: DateTimes
-        href: working-with-dates.md
-      - name: Modelado de datos del documento
- 
-        href: modeling-data.md 
-      - name: Tutoriales
-        items:
-        - name: Escritura de la primera aplicación
+        - name: DocumentDB API
           items:
-          - name: .NET
-            href: documentdb-get-started.md
-          - name: .NET Core
-            href: documentdb-dotnetcore-get-started.md
-          - name: Java
-            href: documentdb-java-get-started.md
-          - name: Node.js
-            href: documentdb-nodejs-get-started.md
-          - name: C++
-            href: documentdb-cpp-get-started.md
-        - name: Compilación de una aplicación web
+            - name: Recursos
+              href: documentdb-resources.md
+            - name: Consultas SQL
+              href: documentdb-sql-query.md
+            - name: Área de juegos de SQL
+              href: 'https://www.documentdb.com/sql/demo'
+            - name: Creación de particiones
+              href: documentdb-partition-data.md
+            - name: 'procedimientos almacenados, desencadenadores y UDF'
+              href: programming.md
+            - name: Pruebas de rendimiento
+              href: performance-testing.md
+            - name: Consejos de rendimiento
+              href: performance-tips.md
+            - name: Configuración de varios maestros
+              href: multi-region-writers.md
+            - name: DateTimes
+              href: working-with-dates.md
+            - name: Modelado de datos del documento
+              href: modeling-data.md
+            - name: Tutoriales
+              items:
+                - name: Escritura de la primera aplicación
+                  items:
+                    - name: .NET
+                      href: documentdb-get-started.md
+                    - name: .NET Core
+                      href: documentdb-dotnetcore-get-started.md
+                    - name: Java
+                      href: documentdb-java-get-started.md
+                    - name: Node.js
+                      href: documentdb-nodejs-get-started.md
+                    - name: C++
+                      href: documentdb-cpp-get-started.md
+                - name: Compilación de una aplicación web
+                  items:
+                    - name: .NET
+                      href: documentdb-dotnet-application.md
+                    - name: Xamarin
+                      href: mobile-apps-with-xamarin.md
+                    - name: Node.js
+                      href: documentdb-nodejs-application.md
+                    - name: Java
+                      href: documentdb-java-application.md
+                    - name: Python Flask
+                      href: documentdb-python-application.md
+            - name: Muestras
+              items:
+                - name: Ejemplos de .NET
+                  href: documentdb-dotnet-samples.md
+                - name: Ejemplos de Node.js
+                  href: documentdb-nodejs-samples.md
+                - name: Ejemplos de Python
+                  href: documentdb-python-samples.md
+            - name: Recursos
+              items:
+                - name: Hoja de referencia rápida de gramática de SQL
+                  href: documentdb-sql-query-cheat-sheet.md
+                - name: Stackoverflow
+                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
+                - name: Vídeos
+                  href: >-
+                    https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
+                - name: Actualizaciones del servicio
+                  href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
+                - name: Portal de la Comunidad
+                  href: community.md
+                - name: Documento sobre indexación independiente del esquema
+                  href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
+                - name: 'Retirada de S1, S2, S3'
+                  href: performance-levels.md
+        - name: MongoDB API
           items:
-          - name: .NET
-            href: documentdb-dotnet-application.md
-          - name: Xamarin
-            href: mobile-apps-with-xamarin.md
-          - name: Node.js
-            href: documentdb-nodejs-application.md
-          - name: Java
-            href: documentdb-java-application.md
-          - name: Python Flask
-            href: documentdb-python-application.md
-      - name: Muestras
-        items:
-        - name: Ejemplos de .NET
-          href: documentdb-dotnet-samples.md
-        - name: Ejemplos de Node.js
-          href: documentdb-nodejs-samples.md
-        - name: Ejemplos de Python
-          href: documentdb-python-samples.md
-      - name: Recursos
-        items:
-        - name: Hoja de referencia rápida de gramática de SQL
-          href: documentdb-sql-query-cheat-sheet.md
-        - name: Stackoverflow
-          href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
-        - name: Vídeos
-          href: https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
-        - name: Actualizaciones del servicio
-          href: https://azure.microsoft.com/updates/?product=cosmos-db
-        - name: Portal de la Comunidad
-          href: community.md
-        - name: Documento sobre indexación independiente del esquema
-          href: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
-        - name: 'Retirada de S1, S2, S3'
-          href: performance-levels.md
-    - name: MongoDB API
+            - name: Conexión a una cuenta de MongoDB
+              href: connect-mongodb-account.md
+            - name: Uso de MongoChef
+              href: mongodb-mongochef.md
+            - name: Uso de Robomongo
+              href: mongodb-robomongo.md
+            - name: Tutoriales
+              items:
+                - name: Aplicación de consola de Node.js
+                  href: mongodb-samples.md
+        - name: API Graph
+          items:
+            - name: Compatibilidad con Gremlin
+              href: gremlin-support.md
+        - name: Table API
+          items:
+            - name: Almacenamiento de tablas
+              href: >-
+                https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+        - name: Fuente de cambios
+          href: change-feed.md
+        - name: Geoespaciales
+          href: geospatial.md
+        - name: Indización
+          href: indexing-policies.md
+    - name: administración
       items:
-      - name: Conexión a una cuenta de MongoDB
-        href: connect-mongodb-account.md
-      - name: Uso de MongoChef
-        href: mongodb-mongochef.md
-      - name: Uso de Robomongo
-        href: mongodb-robomongo.md
-      - name: Tutoriales
-        items:
-        - name: Aplicación de consola de Node.js
-          href: mongodb-samples.md
-    - name: API Graph
+        - name: Escrituras y lecturas rentables
+          href: key-value-store-cost.md
+        - name: Expiración automática de los datos
+          href: time-to-live.md
+        - name: Creación de copias de seguridad y restauración de datos
+          href: online-backup-and-restore.md
+        - name: Conmutación por error regional
+          href: regional-failover.md
+        - name: Establecimiento del rendimiento
+          href: set-throughput.md
+        - name: Supervisión del Acuerdo de Nivel de Servicio
+          href: monitor-accounts.md
+        - name: Administración de claves y coherencia
+          href: manage-account.md
+        - name: Seguridad
+          items:
+            - name: Cifrado en reposo
+              href: database-encryption-at-rest.md
+            - name: Funcionalidad de firewall
+              href: firewall-support.md
+            - name: Protección del acceso a los datos
+              href: secure-access-to-data.md
+    - name: Integrate
       items:
-      - name: Compatibilidad con Gremlin
-        href: gremlin-support.md
-    - name: Table API
-      items:
-      - name: Almacenamiento de tablas
-        href: https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
-    - name: Fuente de cambios
-      href: change-feed.md
-    - name: Geoespaciales
-      href: geospatial.md
-    - name: Indización
-      href: indexing-policies.md
-  - name: administración
-    items:
-    - name: Escrituras y lecturas rentables
-      href: key-value-store-cost.md
-    - name: Expiración automática de los datos
-      href: time-to-live.md
-    - name: Creación de copias de seguridad y restauración de datos
-      href: online-backup-and-restore.md
-    - name: Conmutación por error regional
-      href: regional-failover.md
-    - name: Establecimiento del rendimiento
-      href: set-throughput.md
-    - name: Supervisión del Acuerdo de Nivel de Servicio
-      href: monitor-accounts.md
-    - name: Administración de claves y coherencia
-      href: manage-account.md
-    - name: Seguridad
-      items:
-      - name: Cifrado en reposo
-        href: database-encryption-at-rest.md
-      - name: Funcionalidad de firewall
-        href: firewall-support.md
-      - name: Protección del acceso a los datos
-        href: secure-access-to-data.md
-  - name: Integrate
-    items:
-    - name: Conexión a Spark
-      href: spark-connector.md
-    - name: Conexión a Spark GraphX
-      href: spark-connector-graph.md      
-    - name: Implementación de un sitio web en Azure App Service
-      href: create-website.md
-    - name: Registro de aplicaciones con Logic Apps
-      href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
-    - name: Enlazado con Azure Functions
-      href: ../azure-functions/functions-bindings-documentdb.md
-    - name: Análisis de datos con Hadoop
-      href: run-hadoop-with-hdinsight.md
-    - name: Integración con Azure Search
-      href: ../search/search-howto-index-documentdb.md
-    - name: Traslado de datos con Azure Data Factory
-      href: ../data-factory/data-factory-azure-documentdb-connector.md
-    - name: Análisis de datos en tiempo real con Azure Stream Analytics
-      href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
-    - name: Cambio del registro HL7 FHIR mediante Logic Apps
-      href: change-feed-hl7-fhir-logic-apps.md
-    - name: Procesamiento de datos de sensores en tiempo real
-      href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
-    - name: Visualización de datos con Power BI
-      href: powerbi-visualize.md
-    - name: Aprovechamiento del controlador ODBC para la visualización de datos
-      href: odbc-driver.md
+        - name: Conexión a Spark
+          href: spark-connector.md
+        - name: Conexión a Spark GraphX
+          href: spark-connector-graph.md
+        - name: Implementación de un sitio web en Azure App Service
+          href: create-website.md
+        - name: Registro de aplicaciones con Logic Apps
+          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+        - name: Enlazado con Azure Functions
+          href: ../azure-functions/functions-bindings-documentdb.md
+        - name: Análisis de datos con Hadoop
+          href: run-hadoop-with-hdinsight.md
+        - name: Integración con Azure Search
+          href: ../search/search-howto-index-documentdb.md
+        - name: Traslado de datos con Azure Data Factory
+          href: ../data-factory/data-factory-azure-documentdb-connector.md
+        - name: Análisis de datos en tiempo real con Azure Stream Analytics
+          href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+        - name: Cambio del registro HL7 FHIR mediante Logic Apps
+          href: change-feed-hl7-fhir-logic-apps.md
+        - name: Procesamiento de datos de sensores en tiempo real
+          href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+        - name: Visualización de datos con Power BI
+          href: powerbi-visualize.md
+        - name: Aprovechamiento del controlador ODBC para la visualización de datos
+          href: odbc-driver.md
 - name: Referencia
   items:
-  - name: DocumentDB API
-    items:
-    - name: Java
-      href: documentdb-sdk-java.md
-    - name: .NET
-      href: documentdb-sdk-dotnet.md
-    - name: .NET Core
-      href: documentdb-sdk-dotnet-core.md
-    - name: Node.js
-      href: documentdb-sdk-node.md
-    - name: Python
-      href: documentdb-sdk-python.md
-    - name: REST
-      href: /rest/api/documentdb/
-    - name: Proveedor de recursos de REST
-      href: /rest/api/documentdbresourceprovider/
-    - name: SQL
-      href: documentdb-sql-query-reference.md
-  - name: Table API
-    items:
-    - name: .NET
-      href: table-sdk-dotnet.md
-  - name: API Graph
-    items:
-    - name: .NET
-      href: graph-sdk-dotnet.md
+    - name: DocumentDB API
+      items:
+        - name: Java
+          href: documentdb-sdk-java.md
+        - name: .NET
+          href: documentdb-sdk-dotnet.md
+        - name: Fuente de cambios de .NET
+          href: documentdb-sdk-dotnet-changefeed.md
+        - name: .NET Core
+          href: documentdb-sdk-dotnet-core.md
+        - name: Node.js
+          href: documentdb-sdk-node.md
+        - name: Python
+          href: documentdb-sdk-python.md
+        - name: REST
+          href: /rest/api/documentdb/
+        - name: Proveedor de recursos de REST
+          href: /rest/api/documentdbresourceprovider/
+        - name: SQL
+          href: documentdb-sql-query-reference.md
+    - name: Table API
+      items:
+        - name: .NET
+          href: table-sdk-dotnet.md
+    - name: API Graph
+      items:
+        - name: .NET
+          href: graph-sdk-dotnet.md
 - name: Recursos
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/cosmos-db/
-  - name: P+F
-    href: faq.md
-  - name: Stackoverflow
-    href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
-  - name: Coherencia de los datos explicada a través del béisbol
-    href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
+    - name: P+F
+      href: faq.md
+    - name: Stackoverflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
+    - name: Coherencia de los datos explicada a través del béisbol
+      href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'

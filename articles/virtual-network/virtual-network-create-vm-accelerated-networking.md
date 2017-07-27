@@ -17,16 +17,16 @@ ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 43663ed8becfa69c06699709a18623652df28ed6
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 0d74a13968338d5dc88eab3353316c77c7544615
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual con Accelerated Networking
 
-En este tutorial, obtendrá información sobre cómo crear una máquina virtual de Azure con Accelerated Networking. Accelerated Networking habilita la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual (VM), lo que mejora significativamente su rendimiento en la red. Esta ruta de alto rendimiento omite el host de la ruta de acceso de datos, lo que reduce la latencia, la inestabilidad y la utilización de la CPU para su uso con las cargas de trabajo de red más exigentes en tipos de máquina virtual compatibles. En la siguiente imagen, se muestra la comunicación entre dos máquinas virtuales (VM) con y sin Accelerated Networking:
+En este tutorial, obtendrá información sobre cómo crear una máquina virtual de Azure con Accelerated Networking. Las redes aceleradas están en disponibilidad general para Windows y en versión preliminar pública para distribuciones de Linux específicas. Accelerated Networking habilita la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual (VM), lo que mejora significativamente su rendimiento en la red. Esta ruta de alto rendimiento omite el host de la ruta de acceso de datos, lo que reduce la latencia, la inestabilidad y la utilización de la CPU para su uso con las cargas de trabajo de red más exigentes en tipos de máquina virtual compatibles. En la siguiente imagen, se muestra la comunicación entre dos máquinas virtuales (VM) con y sin Accelerated Networking:
 
 ![De comparación](./media/virtual-network-create-vm-accelerated-networking/image1.png)
 
@@ -48,8 +48,8 @@ Cuando se utiliza esta funcionalidad, existen las siguientes limitaciones:
 
 * **Creación de interfaz de red:** Accelerated Networking solo se puede habilitar para una nueva interfaz de red. No se puede habilitar para una NIC existente.
 * **Creación de máquina virtual:** una NIC con Accelerated Networking habilitado solo se puede asociar a una máquina virtual cuando esta se crea. La NIC no puede asociarse a una máquina virtual existente.
-* **Regiones:** la mayoría de las regiones de Azure ofrecen máquinas virtuales de Windows con Accelerated Networking. Las máquinas virtuales de Linux con Accelerated Networking se ofrecen solo en dos regiones: centro-sur de EE. UU. y Oeste de EE. UU. 2. En el futuro el número de regiones en las que esta funcionalidad está disponible aumentará.
-* **Sistemas operativos compatibles:** para Windows, Microsoft Windows Server 2012 R2 Datacenter y Windows Server 2016. Linux: Ubuntu Server 16.04 LTS con kernel 4.4.0-77 o superior. Pronto se agregarán distribuciones adicionales.
+* **Regiones:** la mayoría de las regiones de Azure ofrecen máquinas virtuales de Windows con Accelerated Networking. En numerosas regiones se ofrecen máquinas virtuales de Linux con redes aceleradas. El número de regiones en las que esta funcionalidad está disponible va en aumento. Consulte más abajo el blog de actualizaciones de redes virtuales de Azure para ver la información más reciente.   
+* **Sistemas operativos compatibles:** para Windows, Microsoft Windows Server 2012 R2 Datacenter y Windows Server 2016. Para Linux, Ubuntu Server 16.04 LTS con kernel 4.4.0-77 o superior, SLES 12 SP2, RHEL 7.3 y CentOS 7.3 (publicado por Rogue Wave Software).
 * **Tamaño de máquina virtual:** instancias de uso general y de proceso optimizado con ocho o más núcleos. Para más información, consulte los artículos sobre los tamaños de máquina virtual de [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y de [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). El conjunto de tamaños de instancia de máquina virtual compatibles se ampliará en el futuro.
 
 Los cambios en estas limitaciones se anunciarán a través de la página de [actualizaciones para Azure Virtual Networking](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
@@ -72,7 +72,7 @@ Puede usar Azure Portal o Azure [PowerShell](#windows-powershell) para crear la 
 
     Si no está familiarizado con Azure, consulte más información sobre [grupos de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [suscripciones](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) y [ubicaciones](https://azure.microsoft.com/regions) (también denominadas regiones).
 5. En la hoja **Elegir un tamaño** que aparece, escriba *8* en el cuadro **Minimum cores** (cantidad mínima de núcleos), a continuación, haga clic en **Ver todos**.
-6. Haga clic en **DS4_V2 Standard** y después en el botón **Seleccionar**.
+6. Haga clic en **DS4_V2 Standard** o en cualquier máquina virtual compatible y, después, en el botón **Seleccionar**.
 7. En el hoja **Configuración** que aparece, deje todos los valores como están excepto **Habilitado**, haga clic en esta opción en **Accelerated Networking**, a continuación, haga clic en el botón **Aceptar**. **Nota:** Si en los pasos anteriores, seleccionó valores de tamaño de máquina virtual, sistema operativo o ubicación que no aparecen en la sección [Limitaciones](#Limitations) de este artículo, **Accelerated Networking** no estará visible.
 8. En la hoja **Resumen** que aparece, haga clic en el botón **Aceptar**. Azure comienza a crear la máquina virtual. La creación tarda unos minutos.
 9. Para instalar el controlador de Accelerated Networking para Windows, complete los pasos descritos en la sección [Configuración de Windows](#configure-windows) de este artículo.
@@ -157,28 +157,20 @@ Una vez creada la máquina virtual en Azure, tiene que instalar al controlador d
 5. Haga clic en el botón **Conectar** en el cuadro **Conexión a Escritorio remoto** que aparece notificándole que el publicador de esta conexión remota no se puede identificar.
 6. En el cuadro **Seguridad de Windows** que aparece, haga clic en **Más opciones**, a continuación, haga clic en **Usar otra cuenta**. Escriba el nombre de usuario y la contraseña que escribió en el paso 4, a continuación, haga clic en el botón **Aceptar**.
 7. Haga clic en el botón **Sí** en el cuadro Conexión a Escritorio remoto que le informa de que no se puede comprobar la identidad del equipo remoto.
-8. En la máquina virtual MyVm, haga clic en el botón Inicio de Windows y luego en **Internet Explorer**.
-9. En el cuadro de **Internet Explorer 11** que aparece, haga clic en **Usar la configuración recomendada de compatibilidad, privacidad y seguridad** y haga clic en **Aceptar**.
-10. En la barra de direcciones de Internet Explorer, escriba https://gallery.technet.microsoft.com/Azure-Accelerated-471b5d84 y pulse la tecla ENTRAR.
-11. En el cuadro **Alerta de seguridad** que aparece, haga clic en **Aceptar**.
-12. En el cuadro de **Internet Explorer** que aparece, haga clic en **Agregar**, luego en el botón **Agregar** del cuadro **Sitios de confianza** y a continuación, haga clic en el botón **Cerrar**. Siga estos pasos para los cuadros siguientes que aparecen.
-13. Para descargar el archivo haga clic en él.
-14. Cuando aparezca el cuadro de **Licencia, Términos de uso**, haga clic en **Acepto**.
-15. Permita que Internet Explorer guarde el archivo haciendo clic en el botón **Guardar** en el cuadro que aparece en la parte inferior de la pantalla, a continuación, haga clic en el botón **Abrir carpeta**.
-16. Para instalar al controlador de Accelerated Networking, haga doble clic en el archivo. En el Asistente de instalación, acepte todos los valores predeterminados y haga clic en el botón **Sí** al final del Asistente para reiniciar la máquina virtual.
-17. Una vez que se reinicia la máquina virtual, vuelva a completar los pasos de 9 al 12 para conectarse a la máquina virtual.
-18. Haga clic con el botón derecho en el botón Inicio de Windows y haga clic en **Administrador de dispositivos**. Expanda el nodo **Adaptadores de red**. Compruebe que el **Adaptador Ethernet de función virtual ConnectX-3 de Mellanox** aparezca como se muestra en la siguiente imagen:
+8. Haga clic con el botón derecho en el botón Inicio de Windows y haga clic en **Administrador de dispositivos**. Expanda el nodo **Adaptadores de red**. Compruebe que el **Adaptador Ethernet de función virtual ConnectX-3 de Mellanox** aparezca como se muestra en la siguiente imagen:
    
     ![Administrador de dispositivos](./media/virtual-network-create-vm-accelerated-networking/image2.png)
 
+9. Las redes aceleradas ya están habilitadas para su máquina virtual.
+
 ## <a name="create-a-linux-vm"></a>Creación de una máquina virtual Linux
-Puede usar Azure Portal o Azure [PowerShell](#linux-powershell) para crear la máquina virtual.
+Puede usar Azure Portal o Azure [PowerShell](#linux-powershell) para crear una máquina virtual Ubuntu o SLES. En el caso de las máquinas virtuales RHEL y CentOS, el flujo de trabajo es diferente.  Vea las instrucciones que se describen a continuación.
 
 ### <a name="linux-portal"></a>Portal
 1. Regístrese para Accelerated Networking para la versión preliminar de Linux siguiendo los pasos del 1 al 5 de la sección [Creación de una máquina virtual Linux: PowerShell](#linux-powershell) de este artículo.  No se puede registrar para versión preliminar en el portal.
 2. Complete los pasos del 1 al 8 en la sección [Creación de una máquina virtual Windows: Portal](#windows-portal) de este artículo. En el paso 2, haga clic en **Ubuntu Server 16.04 LTS** en lugar de **Windows Server 2016 Datacenter**. Para este tutorial, elija utilizar una contraseña en lugar de una clave SSH, aunque para las implementaciones de producción, puede usar cualquiera de las dos opciones. Si **Accelerated Networking** no aparece cuando se completa el paso 7 de la sección [Creación de una máquina virtual Windows: Portal](#windows-portal) de este artículo, es probable que sea por uno de los siguientes motivos:
     - No se ha registrado para la versión preliminar. Confirme que su estado de registro es **Registrado**, tal como se describe en el paso 4 de la sección [Creación de una máquina virtual Linux: PowerShell](#linux-powershell) de este artículo. **Nota:** Si participó en la versión preliminar de Accelerated Networking para máquinas virtuales de Windows (ya no es necesario registrarse para usar Accelerated Networking para máquinas virtuales de Windows), no se registrará automáticamente para la versión preliminar de Accelerated Networking para máquinas virtuales de Linux. Para poder participar en la versión preliminar de Accelerated Networking para máquinas virtuales de Linux, tiene que registrarse.
-    - No ha seleccionado el tamaño de máquina virtual, el sistema operativo o la ubicación que se enumeran en la sección [Limitaciones](#simitations) de este artículo.
+    - No ha seleccionado el tamaño de máquina virtual, el sistema operativo o la ubicación que se enumeran en la sección [Limitaciones](#limitations) de este artículo.
 3. Para instalar el controlador de Accelerated Networking para Linux, complete los pasos descritos en la sección [Configuración de Linux](#configure-linux) de este artículo.
 
 ### <a name="linux-powershell"></a>PowerShell
@@ -191,28 +183,26 @@ Puede usar Azure Portal o Azure [PowerShell](#linux-powershell) para crear la m�
 2. Inicie una sesión de PowerShell haciendo clic en el botón Inicio de Windows, luego escriba **Powershell** y, a continuación, en los resultados de búsqueda, haga clic en **PowerShell**.
 3. En la ventana de PowerShell, escriba el comando `login-azurermaccount` para iniciar sesión con su [cuenta](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) de Azure. Si aún no dispone de una cuenta, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Regístrese para la versión preliminar de Accelerated Networking para Azure siguiendo los pasos a continuación:
-    - Escriba los siguientes comandos:
-
-        ```powershell
-        Register-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingFeature -ProviderNamespace Microsoft.Network
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-        ```
-    - Envíe un correo electrónico a [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con su identificador de suscripción de Azure y el uso previsto. 
+    - Envíe un correo electrónico a [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con su identificador de suscripción de Azure y el uso previsto. Espere a recibir una confirmación por correo electrónico de Microsoft que le indique que la suscripción está habilitada.
     - Escriba el siguiente comando para confirmar que está registrado para la versión preliminar:
     
-        `Get-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingFeature -ProviderNamespace Microsoft.Network`
+        ```powershell
+        Get-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingForLinux -ProviderNamespace Microsoft.Network
+        ```
 
         No continúe con el paso 5 hasta que aparezca **Registrado** en la salida después de escribir el comando anterior. El resultado debe ser similar a la salida siguiente antes de continuar:
     
+        ```powershell
+        FeatureName                        ProviderName      RegistrationState
+        -----------                        ------------      -----------------
+        AllowAcceleratedNetworkingForLinux Microsoft.Network Registered
         ```
-        FeatureName                       ProviderName      RegistrationState
-        -----------                       ------------      -----------------
-        AllowAcceleratedNetworkingFeature Microsoft.Network Registered
-        ```
+        
       >[!NOTE]
       >Si participó en la versión preliminar de Accelerated Networking para máquinas virtuales de Windows (ya no es necesario registrarse para usar Accelerated Networking para máquinas virtuales de Windows), no se registrará automáticamente para la versión preliminar de Accelerated Networking para máquinas virtuales de Linux. Para poder participar en la versión preliminar de Accelerated Networking para máquinas virtuales de Linux, tiene que registrarse.
       >
-5. En su explorador, copie el siguiente script:
+5. En el explorador, copie el script siguiente y sustituya Ubuntu o SLES según sea necesario.  Redhat y CentOS tienen un flujo de trabajo diferente, que se describe a continuación:
+
     ```powershell
     $RgName="MyResourceGroup"
     $Location="westus2"
@@ -251,6 +241,14 @@ Puede usar Azure Portal o Azure [PowerShell](#linux-powershell) para crear la m�
       -PublicIpAddressId $Pip.Id `
       -EnableAcceleratedNetworking
      
+    # Create a new Storage account and define the new VM’s OSDisk name and its URI
+    # Must end with ".vhd" extension
+    $OSDiskName = "MyOsDiskName.vhd"
+    # Storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    $OSDiskSAName = "thestorageaccountname"  
+    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $RgName -Name $OSDiskSAName -Type "Standard_GRS" -Location $Location
+    $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName
+ 
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
 
@@ -266,15 +264,18 @@ Puede usar Azure Portal o Azure [PowerShell](#linux-powershell) para crear la m�
       -Offer UbuntuServer `
       -Skus 16.04-LTS `
       -Version latest | `
-    Add-AzureRmVMNetworkInterface -Id $Nic.Id 
+    Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
+    Set-AzureRmVMOSDisk -Name $OSDiskName `
+      -VhdUri $OSDiskUri `
+      -CreateOption FromImage 
 
     # Create the virtual machine.    
     New-AzureRmVM `
       -ResourceGroupName $RgName `
       -Location $Location `
       -VM $VmConfig
-    #
     ```
+    
 6. En la ventana de PowerShell, haga clic con el botón derecho para pegar el script y empezar a ejecutarlo. Se le pide un nombre de usuario y una contraseña. Use estas credenciales para iniciar sesión en la máquina virtual cuando se conecte a ella en el paso siguiente. Si se produce un error en el script, confirme que:
     - Se registró para la versión preliminar, tal como se describe en el paso 4
     - Si ha cambiado los valores de tamaño de máquina virtual, tipo de sistema operativo o ubicación en el script antes de ejecutarlo, confirme que los valores que ha utilizado se muestran en la sección [Limitaciones](#Limitations) de este artículo.
@@ -291,19 +292,161 @@ Una vez creada la máquina virtual en Azure, tiene que instalar al controlador d
 5. Azure abre un cuadro que le pide que escriba la `ssh adminuser@<ipaddress>`. Escriba este comando en Cloud Shell (o cópielo en el cuadro que aparece en el paso 4 y péguelo en Cloud Shell) y luego presione ENTRAR.
 6. Seleccione **Sí** como respuesta a la pregunta de si desea seguir conectado, luego presione ENTRAR.
 7. Escriba la contraseña que especificó al crear la máquina virtual. Una vez iniciada sesión correctamente en la máquina virtual, verá un símbolo del sistema adminuser@MyVm:~$. Ahora tiene iniciada sesión en la máquina virtual a través de la sesión de Cloud Shell. **Nota:** Las sesiones de Cloud Shell agotan el tiempo de espera tras 10 minutos de inactividad.
-8. En el símbolo del sistema, escriba `uname -r` y confirme que la salida coincide con la siguiente versión: "4.4.0-77-generic".
-9.    Cree un bond entre la vNIC de redes estándar y la vNIC de Accelerated Networking mediante la ejecución de los comandos que siguen. El tráfico de red utiliza la vNIC de Accelerated Networking que tiene mayor rendimiento, mientras el bond garantiza que el tráfico de redes no se interrumpe en determinados cambios de configuración. 
-    - `wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh`
-    - `chmod +x ./bondvf.sh`
-    - `sudo ./bondvf.sh`
-    - `sudo mv ~/bondvf.sh /etc/init.d`
-    - `sudo update-rc.d bondvf.sh defaults`Nota: Si recibe un error que dice *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides* (insserv: advertencia: al script 'bondvf.sh' le faltan las invalidaciones y etiquetas LSB), puede pasarlo por alto.
-    - `sudo nano /etc/network/interfaces.d/50-cloud-init.cfg` abre el editor nano GNU para editar el archivo.
-    - En el editor, comente las líneas *auto etho0* y *iface eth0 inet dhcp* agregando *#* al principio de cada línea. Después de agregar *#* a cada línea, las líneas tienen un aspecto similar al ejemplo siguiente:
-        - #<a name="auto-eth0"></a>auto eth0
-        - #<a name="iface-eth0-inet-dhcp"></a>iface eth0 inet dhcp
-10. Mantenga presionadas las teclas **Ctrl+X**, escriba **Y** y, a continuación, presione la tecla **ENTRAR** para guardar el archivo.
-11. Reinicie la máquina virtual mediante la especificación del comando `sudo shutdown -r now`.
-12. Una vez que se reinicia la máquina virtual, vuelva a conectarse a ello completando de nuevo los pasos del 5 al 7.
-13.    Ejecute el comando `ifconfig` y confirme que sale bond0 y se muestra la interfaz como UP. **Nota:** Las aplicaciones que utilicen Accelerated Networking tienen que comunicarse a través de la interfaz *bond0*, no de la interfaz *eth0*.  El nombre de la interfaz puede cambiar antes de que Accelerated Networking alcance la disponibilidad general.
+
+Llegados a este punto, las instrucciones difieren en función de la distribución que se use. 
+
+#### <a name="ubuntusles"></a>Ubuntu/SLES
+
+1. En el símbolo del sistema, escriba `uname -r` y confirme la versión para:
+
+    * Ubuntu: "4.4.0-77-generic," o superior
+    * SLES: "4.4.59-92.20-default" o superior
+
+2. Cree un bond entre la vNIC de redes estándar y la vNIC de Accelerated Networking mediante la ejecución de los comandos que siguen. El tráfico de red utiliza la vNIC de Accelerated Networking que tiene mayor rendimiento, mientras el bond garantiza que el tráfico de redes no se interrumpe en determinados cambios de configuración.
+          
+     ```bash
+     wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/configure_hv_sriov.sh
+     chmod +x ./configure_hv_sriov.sh
+     sudo ./configure_hv_sriov.sh
+     ```
+3. Después de ejecutar el script, la máquina virtual se reiniciará al cabo de una pausa de 60 segundos.
+4. Una vez que se reinicia la máquina virtual, vuelva a conectarse a ello completando de nuevo los pasos del 5 al 7.
+5. Ejecute el comando `ifconfig` y confirme que sale bond0 y se muestra la interfaz como UP. 
+ 
+ >[!NOTE]
+      >Las aplicaciones que usen redes aceleradas deben comunicarse a través de la interfaz *bond0*, no de la interfaz *eth0*.  El nombre de la interfaz puede cambiar antes de que Accelerated Networking alcance la disponibilidad general.
+
+#### <a name="rhelcentos"></a>RHEL/CentOS
+
+Para crear una máquina virtual de Red Hat Enterprise Linux o CentOS 7.3, debe seguir algunos pasos adicionales para cargar los controladores más recientes necesarios para SR-IOV y el controlador de función virtual (VF) de la tarjeta de red. En la primera fase de las instrucciones se prepara una imagen que puede usarse para crear una o varias máquinas virtuales que tengan los controladores precargados.
+
+##### <a name="phase-one-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>Fase uno: preparar una imagen base de Red Hat Enterprise Linux o CentOS 7.3. 
+
+1.  Aprovisione una máquina virtual que no sea SRIOV CentOS 7.3 en Azure.
+
+2.  Instale LIS 4.2.1.
+    
+    ```bash
+    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
+    tar -xvf lis-rpms-4.2.1-1.tar.gz
+    cd LISISO && sudo ./install.sh
+    ```
+
+3.  Descargue los archivos de configuración.
+    
+    ```bash
+    cd /etc/udev/rules.d/  
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/60-hyperv-vf-name.rules 
+    cd /usr/sbin/
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/hv_vf_name 
+    sudo chmod +x hv_vf_name
+    cd /etc/sysconfig/network-scripts/
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/ifcfg-vf1   
+    ```
+
+4.  Desaprovisione esta máquina virtual.
+
+    ```bash
+    sudo waagent -deprovision+user 
+    ```
+
+5.  Desde Azure Portal, detenga esta máquina virtual, vaya a "Discos" en la máquina virtual y capture el URI de VHD de OSDisk. Este URI contiene el nombre de VHD de la imagen base y su cuenta de almacenamiento. 
+ 
+##### <a name="phase-two-provision-new-vms-on-azure"></a>Fase 2: aprovisionar nuevas máquinas virtuales en Azure
+
+1.  Aprovisione nuevas máquinas virtuales con New-AzureRMVMConfig por medio del VHD de la imagen base capturado en la fase uno, con AcceleratedNetworking habilitado en la vNIC:
+
+    ```powershell
+    $RgName="MyResourceGroup"
+    $Location="westus2"
+    
+    # Create a resource group
+    New-AzureRmResourceGroup `
+     -Name $RgName `
+     -Location $Location
+
+    # Create a subnet
+    $Subnet = New-AzureRmVirtualNetworkSubnetConfig `
+     -Name MySubnet `
+     -AddressPrefix 10.0.0.0/24
+
+    # Create a virtual network
+    $Vnet=New-AzureRmVirtualNetwork `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -Name MyVnet `
+     -AddressPrefix 10.0.0.0/16 `
+     -Subnet $Subnet
+    
+    # Create a public IP address
+    $Pip = New-AzureRmPublicIpAddress `
+     -Name MyPublicIp `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -AllocationMethod Static
+    
+    # Create a virtual network interface and associate the public IP address to it
+    $Nic = New-AzureRmNetworkInterface `
+     -Name MyNic `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -SubnetId $Vnet.Subnets[0].Id `
+     -PublicIpAddressId $Pip.Id `
+     -EnableAcceleratedNetworking
+    
+    # Specify the base image's VHD URI (from phase one step 5). 
+    # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
+    # See more from here: https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption
+    # This is just an example URI, you will need to replace this when running this script
+    $sourceUri="https://myexamplesa.blob.core.windows.net/vhds/CentOS73-Base-Test120170629111341.vhd" 
+
+    # Specify a URI for the location from which the new image binary large object (BLOB) is copied to start the virtual machine. 
+    # Must end with ".vhd" extension
+    $destOsDiskName = "MyOsDiskName.vhd" 
+    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $destOsDiskName
+    
+    # Define a credential object for the VM. PowerShell prompts you for a username and password.
+    $Cred = Get-Credential
+    
+    # Create a custom virtual machine configuration
+    $VmConfig = New-AzureRmVMConfig `
+     -VMName MyVM -VMSize Standard_DS4_v2 | `
+    Set-AzureRmVMOperatingSystem `
+     -Linux `
+     -ComputerName myVM `
+     -Credential $Cred | `
+    Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
+    Set-AzureRmVMOSDisk `
+     -Name $OSDiskName `
+     -SourceImageUri $sourceUri `
+     -VhdUri $destOsDiskUri `
+     -CreateOption FromImage `
+     -Linux
+    
+    # Create the virtual machine.    
+    New-AzureRmVM `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -VM $VmConfig
+    ```
+
+2.  Una vez que las máquinas virtuales hayan arrancado, compruebe el dispositivo de función virtual mediante el comando "lspci" y consulte la entrada Mellanox. Por ejemplo, debería ver este elemento en la salida de lspci:
+    
+    ```
+    0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
+    ```
+    
+3.  Ejecute el script de unión:
+
+    ```bash
+    sudo bondvf.sh
+    ```
+
+4.  Reinicie las máquinas virtuales nuevas:
+
+    ```bash
+    sudo reboot
+    ```
+
+La máquina virtual debe arrancar con bond0 configurado y la ruta de acceso de las redes aceleradas habilitada.  Ejecute `ifconfig` para confirmarlo.
 

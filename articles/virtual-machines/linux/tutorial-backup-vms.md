@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/05/2017
 ms.author: cynthn
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 8ec31be4c2cdd634a0e45b58a6afaeaca1c4896e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 4dcfad63fdc610160bd47a3b900591fb06585005
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Copia de seguridad de máquinas virtuales Linux en Azure
@@ -94,7 +95,7 @@ En este ejemplo, se muestra cómo recuperar la página web predeterminada de ngi
 6. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 
 7. En la lista, seleccione la máquina virtual.
 8. En la hoja de la máquina virtual, en la sección **Configuración**, haga clic en **Copia de seguridad**. Se abre la hoja **Copia de seguridad**. 
-9. En el menú en la parte superior de la hoja, seleccione **Recuperación de archivos (versión preliminar)**. Se abrirá la hoja **Recuperación de archivos (versión preliminar).
+9. En el menú en la parte superior de la hoja, seleccione **Recuperación de archivos (versión preliminar)**. Se abrirá la hoja **Recuperación de archivos (versión preliminar)**.
 10. En **Paso 1: Seleccionar punto de recuperación**, seleccione un punto de recuperación en la lista desplegable.
 11. En **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Download Executable** (Descargar ejecutable). Guarde el archivo descargado en un equipo local.
 7. Haga clic en **Descargar script** para descargar el archivo de script localmente.

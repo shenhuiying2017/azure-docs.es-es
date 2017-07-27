@@ -1,9 +1,9 @@
 ---
-title: "Implementación de una aplicación en conjuntos de escalado de máquinas virtuales| Microsoft Docs"
-description: "Implementación de una aplicación en conjuntos de escalado de máquinas virtuales"
+title: "Implementación de una aplicación en conjuntos de escalado de máquinas virtuales"
+description: "Use extensiones para implementar una aplicación en conjuntos de escalado de máquinas virtuales de Azure."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
+author: thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,58 +13,220 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
-ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f39840ab2fb31775c9703799393d8c386a8451ee
-ms.lasthandoff: 03/31/2017
-
+ms.date: 05/26/2017
+ms.author: adegeo
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: e6a5e3a378a5661c09f770a202c10d270f324447
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 ---
-# <a name="deploy-an-app-on-virtual-machine-scale-sets"></a>Implementación de una aplicación en conjuntos de escalado de máquinas virtuales
-Una aplicación que se ejecuta en un conjunto de escalado de máquina virtual normalmente se implementa en una de tres maneras:
 
-* Instalación de software nuevo en una imagen de plataforma en el momento de la implementación
-* Creación de una imagen de máquina virtual personalizada que incluya tanto el sistema operativo como la aplicación en un solo disco duro virtual
-* Implementación de una plataforma o una imagen personalizada como un host de contenedor y la aplicación como uno o varios contenedores
+# <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
 
-## <a name="install-new-software-on-a-platform-image-at-deployment-time"></a>Instalación de software nuevo en una imagen de plataforma en el momento de la implementación
-Una imagen de plataforma en este contexto es una imagen del sistema operativo de Azure Marketplace, como Ubuntu 16.04, Windows Server 2012 R2, etc.
+En este artículo se describen diferentes formas de instalar software en el momento de aprovisionar el conjunto de escalado.
 
-Puede instalar un nuevo software en una imagen de plataforma utilizando una [extensión de máquina virtual](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Una extensión de máquina virtual es software que se ejecuta cuando se implementa una máquina virtual. Puede ejecutar cualquier código que desee en el momento de la implementación usando una extensión de script personalizada. [Esto](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) es una plantilla de Azure Resource Manager de ejemplo que usa una [extensión de configuración de estado deseado (DSC) de Azure](virtual-machine-scale-sets-dsc.md) para instalar IIS y una aplicación integrada de .NET MVC con el escalado automático de Azure.
+Es recomendable revisar el artículo sobre [introducción al diseño de conjuntos de escalado](virtual-machine-scale-sets-design-overview.md), en el que se describen algunos de los límites impuestos por los conjuntos de escalado de máquinas virtuales.
 
-Una ventaja de este enfoque es que ofrece un nivel de separación entre el código de aplicación y el sistema operativo, y permite mantener la aplicación por separado. Por supuesto esto significa que también hay más piezas móviles, y el tiempo de implementación de la máquina virtual puede ser mayor si el script tiene mucho que descargar y configurar.
+## <a name="capture-and-reuse-an-image"></a>Captura y reutilización de una imagen
 
->[!NOTE]
->Si pasa información confidencial en el comando de extensión de script personalizado (por ejemplo, una contraseña), asegúrese de especificar `commandToExecute` en el atributo `protectedSettings` de la extensión de script personalizado en lugar del atributo `settings`.
+Puede usar una máquina virtual que tenga en Azure para preparar una imagen base para el conjunto de escalado. Mediante este proceso se crea un disco administrado en la cuenta de almacenamiento, al que puede hacerse referencia como imagen base para el conjunto de escalado. 
 
-## <a name="create-a-custom-vm-image-that-includes-both-the-os-and-the-application-in-a-single-vhd"></a>Creación de una imagen de máquina virtual personalizada que incluya tanto el sistema operativo como la aplicación en un solo disco duro virtual 
-Aquí el conjunto de escalado consta de un conjunto de máquinas virtuales que se copian desde una imagen creada por el usuario, y que este tiene que mantener. Este enfoque no requiere ninguna configuración adicional en momento de la implementación de máquina virtual. De todas formas, en la versión `2016-03-30` de los conjuntos de escalado de máquina virtual (y versiones anteriores), los discos del sistema operativo para las máquinas virtuales en el conjunto de escalado se limitan a una única cuenta de almacenamiento. Por lo tanto, puede tener un máximo de 40 máquinas virtuales en un conjunto de escalado, en lugar del límite de 100 máquinas virtuales por escalado de las imágenes de plataforma. Consulte [Introducción al diseño de conjuntos de escalado](virtual-machine-scale-sets-design-overview.md) para obtener más información.
+Siga estos pasos:
 
->[!NOTE]
->La versión `2016-04-30-preview` de la API de conjuntos de escalado de máquinas virtuales admite el uso de Azure Managed Disks para el disco del sistema operativo y los discos de datos adicionales. Para obtener más información, consulte [Managed Disks Overview](../storage/storage-managed-disks-overview.md) (Información general de Managed Disks) y [Use Attached Data Disks](virtual-machine-scale-sets-attached-disks.md) (Uso de datos de discos conectados). 
+1. Cree una máquina virtual de Azure.
+   * [Linux][linux-vm-create]
+   * [Windows][windows-vm-create]
 
-## <a name="deploy-a-platform-or-a-custom-image-as-a-container-host-and-your-app-as-one-or-more-containers"></a>Implementación de una plataforma o una imagen personalizada como un host de contenedor y la aplicación como uno o varios contenedores
-Una plataforma o una imagen personalizada es básicamente un host de contenedor, por lo que puede instalar la aplicación como uno o varios contenedores.  Puede administrar los contenedores de la aplicación con un orquestador o una herramienta de administración de configuraciones. La ventaja de este enfoque es que se abstrae la infraestructura de nube de la capa de aplicación, y se pueden mantener por separado.
+2. Acceda de forma remota a la máquina virtual y personalice el sistema a su gusto.
 
-## <a name="what-happens-when-a-vm-scale-set-scales-out"></a>¿Qué pasa cuando un conjunto de escalado de máquina virtual escala horizontalmente?
-Cuando se agregan una o más máquinas virtuales a un conjunto de escalado aumentando la capacidad, ya sea manualmente o mediante el escalado automático, la aplicación se instala automáticamente. Por ejemplo, si el conjunto de escalado tiene extensiones definidas, estas se ejecutan en una máquina virtual nueva cada vez que aquel se crea. Si el conjunto de escalado se basa en una imagen personalizada, cualquier nueva máquina virtual es una copia de la imagen personalizada de origen. Si las máquinas virtuales de conjunto de escalado son hosts de contenedor, podría tener código de inicio para cargar los contenedores en una extensión de script personalizado, o una extensión puede instalar un agente que se registra con un orquestador de clúster (por ejemplo, Azure Container Service).
+   Si quiere, puede instalar la aplicación ahora. Sin embargo, sepa que si instala la aplicación ahora, puede hacer que resulte más complicada de actualizar, ya que puede tener que eliminarla primero. En su lugar, puede seguir este paso para instalar cualquier requisito previo que la aplicación pudiera tener, como un entorno en tiempo de ejecución específico o una función de sistema operativo.
 
-## <a name="how-do-you-manage-application-updates-in-vm-scale-sets"></a>¿Cómo administrar las actualizaciones de aplicación en conjuntos de escalado de máquina virtual?
-Para las actualizaciones en los conjuntos de escalado de máquina virtual, hay tres enfoques principales que se derivan de los tres métodos de implementación de aplicación anteriores:
+3. Siga el tutorial de captura de máquinas para [Linux][linux-vm-capture] o [Windows][windows-vm-capture].
 
-* Actualización con extensiones de máquina virtual. Cualquiera de las extensiones de máquina virtual que están definidas para un conjunto de escalado de máquina virtual se ejecuta cada vez que se implementa una nueva máquina virtual, se restablece la imagen inicial de una máquina virtual ya existente o se actualiza una extensión de máquina virtual. Si necesita actualizar la aplicación, una solución viable es actualizar una aplicación directamente a través de extensiones: simplemente actualice la definición de la extensión. Una forma sencilla de hacerlo es cambiar el fileUris para que apunte al nuevo software.
+4. Cree un [conjunto de escalado de máquinas virtuales][vmss-create] con el URI de la imagen que capturó en el paso anterior.
 
-* El enfoque de la imagen personalizada inmutable. Al integrar la aplicación (o los componentes de la aplicación) en una imagen de máquina virtual, se puede centrar en crear una canalización confiable para automatizar la compilación, prueba e implementación de las imágenes. Puede diseñar la arquitectura para facilitar el intercambio rápido de un conjunto de escalado de ensayo a producción. Un buen ejemplo de este enfoque es el [trabajo de controlador Azure Spinnaker](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
+Para obtener más información sobre los discos, consulte [Información general de Managed Disks](../storage/storage-managed-disks-overview.md) y [Uso de datos de discos conectados](virtual-machine-scale-sets-attached-disks.md).
 
-Packer y Terraform también son compatibles con Azure Resource Manager, por lo que también puede definir sus imágenes "como código" y compilarlas en Azure, luego usar el disco duro virtual en el conjunto de escalado. Sin embargo, hacerlo así sería problemático para las imágenes de Marketplace, donde los scripts de extensiones o los personalizados se vuelven más importantes ya que los bits de Marketplace no se manipulan directamente.
+## <a name="install-when-the-scale-set-is-provisioned"></a>Instalación cuando el conjunto de escalado está aprovisionado
 
-* Actualización de contenedores. Abstraer la administración del ciclo de vida de la aplicación a un nivel por encima de la infraestructura de nube, por ejemplo mediante la encapsulación de aplicaciones, y los componentes de aplicación en contenedores y administrar estos contenedores a través de orquestradores de contenedor y administradores de configuración como Chef o Puppet.
+Es posible aplicar extensiones de máquina virtual al conjunto de escalado de máquinas virtuales. Con una extensión de máquina virtual, puede personalizar las máquinas virtuales de un conjunto de escalado como grupo completo. Para obtener más información sobre extensiones, consulte [Extensiones de máquinas virtuales](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Las máquinas virtuales de conjunto de escalado, se convierten así en un sustrato estable para los contenedores y solo requieren seguridad ocasional así como actualizaciones relacionadas con el sistema operativo. Como se ha mencionado, Azure Container Service es un buen ejemplo de la adopción de este enfoque y la creación de un servicio a su alrededor.
+Hay tres extensiones principales que puede usar en función de si el sistema operativo está basado en Linux o Windows.
+
+### <a name="windows"></a>Windows
+
+En los sistemas operativos basados en Windows, use la extensión **Custom Script v1.8**, o bien la extensión **PowerShell DSC**.
+
+#### <a name="custom-script"></a>Script personalizado
+
+La extensión Custom Script se ejecuta como script en cada instancia de máquina virtual del conjunto de escalado. Un archivo de configuración o una variable indican qué archivos se descargan en la máquina virtual y, seguidamente, qué comando se ejecuta. Podría usarlo para ejecutar, por ejemplo, un instalador, un script, un archivo por lotes o cualquier archivo ejecutable.
+
+PowerShell usa una tabla hash para la configuración. En este ejemplo se configura la extensión de script personalizado para ejecutar un script de PowerShell que instale IIS.
+
+```powershell
+# Setup extension configuration hashtable variable
+$customConfig = @{
+  "fileUris" = @("https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/temp/install-iis.ps1");
+  "commandToExecute" = "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> `"%TEMP%\StartupLog.txt`" 2>&1";
+};
+
+# Add the extension to the config
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Compute -Type CustomScriptExtension -TypeHandlerVersion 1.8 -Name "customscript1" -Setting $customConfig
+
+# Send the new config to Azure
+Update-AzureRmVmss -ResourceGroupName $rg -Name "MyVmssTest143"  -VirtualMachineScaleSet $vmssConfig
+```
+
+>[!IMPORTANT]
+>Use el conmutador `-ProtectedSetting` para cualquier valor de configuración que pudiera contener información confidencial.
+
+---------
+
+
+La CLI de Azure usa un archivo json para la configuración. En este ejemplo se configura la extensión de script personalizado para ejecutar un script de PowerShell que instale IIS. Guarde el siguiente archivo json como _settings.json_.
+
+```json
+{
+  "fileUris": [
+    "https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/temp/install-iis.ps1"
+  ],
+  "commandToExecute": "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> \"%TEMP%\StartupLog.txt\" 2>&1"
+}
+```
+
+A continuación, ejecute este comando de CLI de Azure.
+
+```azurecli
+az vmss extension set --publisher Microsoft.Compute --version 1.8 --name CustomScriptExtension --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+```
+
+>[!IMPORTANT]
+>Use el conmutador `--protected-settings` para cualquier valor de configuración que pudiera contener información confidencial.
+
+### <a name="powershell-dsc"></a>PowerShell DSC
+
+Puede usar PowerShell DSC para personalizar las instancias de vm del conjunto de escalado. La extensión **DSC** publicada por **Microsoft.Powershell** implementa la configuración de DSC proporcionada y la ejecuta en todas las instancias de máquinas virtuales. Un archivo de configuración o una variable indica a la extensión dónde se encuentra el paquete *.zip* y qué combinación de _script-función_ ejecutar.
+
+PowerShell usa una tabla hash para la configuración. En este ejemplo se implementa un paquete DSC que instala IIS.
+
+```powershell
+# Setup extension configuration hashtable variable
+$dscConfig = @{
+  "wmfVersion" = "latest";
+  "configuration" = @{
+    "url" = "https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/dsc.zip";
+    "script" = "configure-http.ps1";
+    "function" = "WebsiteTest";
+  };
+}
+
+# Add the extension to the config
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Powershell -Type DSC -TypeHandlerVersion 2.24 -Name "dsc1" -Setting $dscConfig
+
+# Send the new config to Azure
+Update-AzureRmVmss -ResourceGroupName $rg -Name "myscaleset1"  -VirtualMachineScaleSet $vmssConfig
+```
+
+>[!IMPORTANT]
+>Use el conmutador `-ProtectedSetting` para cualquier valor de configuración que pudiera contener información confidencial.
+
+-----------
+
+La CLI de Azure usa un archivo json para la configuración. En este ejemplo se implementa un paquete DSC que instala IIS. Guarde el siguiente archivo json como _settings.json_.
+
+```json
+{
+  "wmfVersion": "latest",
+  "configuration": {
+    "url": "https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/dsc.zip",
+    "script": "configure-http.ps1",
+    "function": "WebsiteTest"
+  }
+}
+```
+
+A continuación, ejecute este comando de CLI de Azure.
+
+```azurecli
+az vmss extension set --publisher Microsoft.Powershell --version 2.24 --name DSC --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+```
+
+>[!IMPORTANT]
+>Use el conmutador `--protected-settings` para cualquier valor de configuración que pudiera contener información confidencial.
+
+### <a name="linux"></a>Linux
+
+En Linux pueden usarse la extensión **Custom Script v2.0** o **cloud-init** durante la creación.
+
+Custom Script es una extensión sencilla que descarga archivos a las instancias de máquinas virtuales y ejecuta un comando.
+
+#### <a name="custom-script"></a>Script personalizado
+
+Guarde el siguiente archivo json como _settings.json_.
+
+```json
+{
+  "fileUris": [
+    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
+    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
+  ],
+  "commandToExecute": "bash installserver.sh"
+}
+```
+
+Use la CLI de Azure para agregar esta extensión a un conjunto de escalado de máquinas virtuales existente. Cada máquina virtual del conjunto de escalado ejecuta la extensión de forma automática.
+
+```azurecli
+az vmss extension set --publisher Microsoft.Azure.Extensions --version 2.0 --name CustomScript --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+```
+
+>[!IMPORTANT]
+>Use el conmutador `--protected-settings` para cualquier valor de configuración que pudiera contener información confidencial.
+
+#### <a name="cloud-init"></a>Cloud-Init
+
+Cloud-Init se usa al crear el conjunto de escalado. En primera lugar, cree un archivo local llamado _cloud-init.txt_ y agréguele su configuración. Por ejemplo, consulte [este gist](https://gist.github.com/Thraka/27bd66b1fb79e11904fb62b7de08a8a6#file-cloud-init-txt).
+
+Use la CLI de Azure para crear un conjunto de escalado. El campo `--custom-data` acepta el nombre de archivo de un script de cloud-init.
+
+```azurecli
+az vmss create \
+  --resource-group myResourceGroupScaleSet \
+  --name myScaleSet \
+  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --upgrade-policy-mode automatic \
+  --custom-data cloud-init.txt \
+  --admin-username azureuser \
+  --generate-ssh-keys      
+```
+
+## <a name="how-do-i-manage-application-updates"></a>Instrucciones de administración de actualizaciones de aplicaciones
+
+Si implementó la aplicación por medio de una extensión, altere la definición de la extensión de algún modo. Este cambio hace que la extensión vuelva a implementarse en todas las instancias de máquinas virtuales. **Es necesario** cambiar algún elemento de la extensión, por ejemplo, el nombre de un archivo al que se hace referencia, o Azure no detectará el cambio de la extensión.
+
+Si incorporó la aplicación a su propia imagen de sistema operativo, use una canalización de implementación automatizada para las actualizaciones de aplicaciones. Diseñe la arquitectura para facilitar introducir un conjunto de escalado de ensayo en producción con rapidez. Un buen ejemplo de este enfoque es el [trabajo de controlador Azure Spinnaker](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
+
+[Packer](https://www.packer.io/) y [Terraform](https://www.terraform.io/) también son compatibles con Azure Resource Manager, por lo que también puede definir sus imágenes "como código" y compilarlas en Azure, para, a continuación, usar el disco duro virtual en el conjunto de escalado. Sin embargo, hacerlo así sería problemático para las imágenes de marketplace, donde los scripts de extensiones o los personalizados se vuelven más importantes ya que no manipula directamente los bits de marketplace.
+
+## <a name="what-happens-when-a-scale-set-scales-out"></a>¿Qué pasa cuando un conjunto de escalado escala horizontalmente?
+Al agregar una o varias máquinas virtuales a un conjunto de escalado, la aplicación se instala automáticamente. Por ejemplo, si el conjunto de escalado tiene extensiones definidas, estas se ejecutan en una máquina virtual nueva cada vez que se crea el conjunto. Si el conjunto de escalado se basa en una imagen personalizada, cualquier máquina virtual nueva es una copia de la imagen personalizada de origen. Si las máquinas virtuales del conjunto de escalado son hosts de contenedor, podría hacer que hubiera código de inicio que cargara los contenedores en una extensión Custom Script. O bien podría haber una extensión que instalara un agente que se registre con un orquestador de clúster, como Azure Container Service.
+
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>¿Cómo aplicar una actualización de sistema operativo a través de dominios de actualización?
-Suponga que desea actualizar la imagen de sistema operativo al tiempo que mantiene el conjunto de escalado de máquina virtual en ejecución. Una manera de hacerlo es actualizar las imágenes de máquina virtual en las máquinas virtuales una por una. Puede hacerlo con PowerShell o la CLI de Azure. Hay comandos diferentes para actualizar el modelo de conjunto de escalado de máquinas virtuales (cómo se define su configuración) y para emitir llamadas de "actualización manual" en máquinas virtuales concretas. En el documento de Azure [Actualización de un conjunto de escalado de máquinas virtuales](./virtual-machine-scale-sets-upgrade-scale-set.md) también se proporciona más información sobre qué opciones hay disponibles para realizar actualizaciones del sistema operativo en un conjunto de escalado de máquinas virtuales.
+Suponga que quiere actualizar la imagen de sistema operativo al tiempo que mantiene el conjunto de escalado de máquinas virtuales en ejecución. PowerShell y la CLI de Azure pueden actualizar las imágenes de las máquinas virtuales, una máquina virtual cada vez. En el artículo [Actualización de un conjunto de escalado de máquinas virtuales](./virtual-machine-scale-sets-upgrade-scale-set.md) también se proporciona más información sobre qué opciones hay disponibles para realizar actualizaciones del sistema operativo en un conjunto de escalado de máquinas virtuales.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Uso de PowerShell para administrar un conjunto de escalado](virtual-machine-scale-sets-windows-manage.md).
+* [Creación de una plantilla de conjunto de escalado](virtual-machine-scale-sets-mvss-start.md).
+
+
+[linux-vm-create]: ../virtual-machines/linux/tutorial-manage-vm.md
+[windows-vm-create]: ../virtual-machines/windows/tutorial-manage-vm.md
+[linux-vm-capture]: ../virtual-machines/linux/capture-image.md
+[windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
+[vmss-create]: virtual-machine-scale-sets-create.md
 
 

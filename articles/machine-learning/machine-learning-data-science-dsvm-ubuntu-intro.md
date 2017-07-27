@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: aaf3e9daca2fb810aa32b1b58acdade6ddfc1744
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 548b4af7619521e4b61b99b94c1d40f835e6efdb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -153,7 +153,7 @@ Para obtener más información, consulte la sección sobre CNTK de [GitHub](http
 Caffe es un entorno de aprendizaje profundo de Berkeley Vision and Learning Center. Está disponible en /opt/caffe. Puede encontrar ejemplos en /opt/caffe/examples.
 
 #### <a name="h2o"></a>H2O
-H2O es una plataforma de análisis predictivo y aprendizaje automático rápida, distribuida y en memoria. Se instala un paquete Python en el entorno raíz y en el entorno py35 Anaconda. También se instala un paquete de R. La UI Flow Web se puede iniciar con "java -jar /dsvm/tools/h2o/current/h2o.jar". Vaya a http://localhost:54321 para comenzar. En JupyterHub también hay disponibles cuadernos de ejemplo.
+H2O es una plataforma de análisis predictivo y aprendizaje automático rápida, distribuida y en memoria. Se instala un paquete Python en el entorno raíz y en el entorno py35 Anaconda. También se instala un paquete de R. Para iniciar H2O desde la línea de comandos, ejecute `java -jar /dsvm/tools/h2o/current/h2o.jar`; hay diversas [opciones de línea de comandos](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que podría configurar. Se puede acceder a la interfaz de usuario web de Flow desde http://localhost:54321 para empezar. En JupyterHub también hay disponibles cuadernos de ejemplo.
 
 #### <a name="keras"></a>Keras
 Keras es una API de red neuronal de alto nivel en Python capaz de ejecutarse en Tensorflow o Theano. Está disponible en los entornos raíz y py35 Python. 

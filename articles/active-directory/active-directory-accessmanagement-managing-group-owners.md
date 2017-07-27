@@ -1,5 +1,5 @@
 ---
-title: "Pasos siguientes para la administración de acceso mediante grupos| Microsoft Docs"
+title: "Pasos siguientes para la administración de acceso mediante grupos | Microsoft Docs"
 description: Procedimientos avanzados para administrar grupos de seguridad y uso de estos grupos para administrar el acceso a un recurso.
 services: active-directory
 documentationcenter: 
@@ -12,24 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 04/26/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 8c4920107b5d05716021bcef80d3c52c25f6eade
+ms.translationtype: HT
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 6b448b4fac56d4b5debcf4fb3a545dd538929aff
 ms.contentlocale: es-es
-ms.lasthandoff: 12/28/2016
-
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="managing-owners-for-a-group" class="xliff"></a>
-
-# Administración de propietarios de un grupo
+# <a name="managing-owners-for-a-group"></a>Administración de propietarios de un grupo
 Una vez que un propietario de recursos haya asignado acceso a un recurso a un grupo de Azure AD, el propietario del grupo será quien administre los miembros del grupo. El propietario del recursos delega de manera eficaz el permiso para asignar usuarios al recurso al propietario del grupo.
 
-<a id="assigning-group-ownership" class="xliff"></a>
-
-## Asignación de la propiedad de un grupo
+## <a name="assigning-group-ownership"></a>Asignación de la propiedad de un grupo
 **Para agregar un propietario a un grupo**
 
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory**y luego abra el directorio de su organización.
@@ -44,9 +39,7 @@ Una vez que un propietario de recursos haya asignado acceso a un recurso a un gr
 3. Seleccione la pestaña **Propietarios** .
 4. Seleccione el propietario que desea quitar del grupo y luego seleccione **Quitar**.
 
-<a id="additional-information" class="xliff"></a>
-
-## Información adicional
+## <a name="additional-information"></a>Información adicional
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
@@ -54,5 +47,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 * [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
-
 

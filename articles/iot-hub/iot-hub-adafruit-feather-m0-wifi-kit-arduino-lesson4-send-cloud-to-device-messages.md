@@ -4,7 +4,7 @@ description: "Una aplicación de ejemplo se ejecuta en Adafruit Feather M0 WiFi 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "control de led de arduino desde web, control de led de arduino a través de web"
 ROBOTS: NOINDEX
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
 ms.openlocfilehash: 63113841ca836681232e0aa43b15b444f8bb92e2
+ms.contentlocale: es-es
 ms.lasthandoff: 01/28/2017
-
 
 ---
 # <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>Ejecución de una aplicación de ejemplo para recibir mensajes de la nube al dispositivo

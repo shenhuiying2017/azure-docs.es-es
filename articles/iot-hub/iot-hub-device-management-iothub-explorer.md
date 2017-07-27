@@ -13,12 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 06/15/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 480f0544f155365d94b325bbf799bb999268dc31
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 2234924251447bb32d7cca0623a4e8d4f8d4e7ff
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -46,7 +47,7 @@ Para obtener una explicación más detallada acerca de las diferencias y orienta
 
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
-Aprenderá a usar iothub-explorer con distintas opciones de administración.
+Aprenderá a usar iothub-explorer con distintas opciones de administración en su máquina de desarrollo.
 
 ## <a name="what-you-do"></a>Qué debe hacer
 
@@ -58,7 +59,7 @@ Ejecute iothub-explorer con distintas opciones de administración.
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
-- iothub-explorer ([instalación de iothub-explorer](https://github.com/azure/iothub-explorer)).
+- iothub-explorer ([Instalar iothub-explorer](https://github.com/azure/iothub-explorer) en la máquina de desarrollo)
 
 ## <a name="connect-to-your-iot-hub"></a>Conexión a IoT Hub
 
@@ -87,7 +88,7 @@ iothub-explorer device-method <your device Id> stop
 Establezca un intervalo de propiedad deseada = 3000 mediante la ejecución del comando siguiente:
 
 ```bash
-iothub-explorer update-twin mydevice {\"properties\":{\"desired\":{\"interval\":3000}}}
+iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"interval\":3000}}}
 ```
 
 El dispositivo puede leer esta propiedad.
@@ -145,3 +146,4 @@ iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperatur
 Ha aprendido a usar iothub-explorer con distintas opciones de administración.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

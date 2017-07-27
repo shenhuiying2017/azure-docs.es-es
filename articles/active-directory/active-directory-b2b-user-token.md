@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 807c80b397abe6ff4dfebc2aa7e443c7c5e84e99
-ms.openlocfilehash: 313118740815de02a9f0797ab334eb7f6f900c58
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 57b170539513953bd6a01ab4dd362a65cf905496
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 03/02/2017
 
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Información sobre los tokens de usuario de la colaboración B2B de Azure Active Directory
 
-Si le interesa conocer el aspecto del token de la colaboración B2B, estos son los detalles del token de portador y el contenido del token de Azure Active Directory (Azure AD) invitado y cuenta Microsoft invitado del inquilino de recursos (para el identificador de inquilino:04dcc6ab-388a-4559-b527-fbec656300ea). Puede usar [https://jwt.io/](https://jwt.io/) o [http://calebb.net](http://calebb.net/)/ para ver el contenido del token de JSON Web Token (JWT).
+Si le interesa conocer el aspecto del token de un usuario de colaboración B2B, estos son los detalles del token de portador y el contenido del token para un invitado de Azure Active Directory (Azure AD) y un invitado de una cuenta de Microsoft en el inquilino de recursos (para el identificador de inquilino: 04dcc6ab-388a-4559-b527-fbec656300ea). Puede usar [https://jwt.io/](https://jwt.io/) o [http://calebb.net](http://calebb.net/)/ para ver el contenido del token de JSON Web Token (JWT).
 
 ## <a name="azure-ad-guest-token"></a>Token de invitado de Azure AD
 ```

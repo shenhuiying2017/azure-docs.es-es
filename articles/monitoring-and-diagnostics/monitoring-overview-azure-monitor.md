@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 726a33b5cad8b44c520d6c59d418fec1bbfc6fa5
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 72b0c11f8bea24fc8777e3e0d7712577fab8ef97
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -31,7 +31,7 @@ Las aplicaciones de nube son complejas y tienen muchas partes móviles. La super
 
 
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure Monitor y otros productos de supervisión de Microsoft
-Azure Monitor ofrece registros y métricas de infraestructuras a nivel básico para la mayoría de los servicios de Microsoft Azure. Los servicios de Azure que aún no han colocado sus datos en Azure Monitor lo harán en un futuro. 
+Azure Monitor ofrece registros y métricas de infraestructuras a nivel básico para la mayoría de los servicios de Microsoft Azure. Los servicios de Azure que aún no han colocado sus datos en Azure Monitor lo harán allí en un futuro.
 
 Microsoft entrega productos y servicios adicionales que ofrecen funcionalidades de supervisión adicionales para desarrolladores, DevOps u operaciones de TI que también tienen instalaciones locales. Para obtener una introducción e información sobre cómo estos distintos productos y servicios funcionan de forma conjunta, vea [Supervisión en Microsoft Azure](monitoring-overview.md).
 
@@ -138,7 +138,7 @@ En general, puede manipular el seguimiento, el enrutamiento y la recuperación d
 * [PowerShell](insights-powershell-samples.md)  
 * [Interfaz de línea de comandos (CLI) multiplataforma](insights-cli-samples.md)
 * [API DE REST](https://docs.microsoft.com/rest/api/monitor/)
-* [.NET SDK](https://msdn.microsoft.com/library/dn802153.aspx)
+* [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información acerca de

@@ -1,6 +1,6 @@
 ---
-title: "Script de la CLI de Azure: supervisión y escalado de una instancia única de SQL Database | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: supervisión y escalado de una instancia única de SQL Database mediante la CLI de Azure"
+title: Ejemplo de la CLI para supervisar y escalar una instancia de Azure SQL Database | Microsoft Docs
+description: Script de ejemplo de la CLI de Azure para supervisar y escalar una instancia de Azure SQL Database
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -9,40 +9,40 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: mvc
+ms.custom: monitor & tune
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: f29da889f90968a82dccaeb1fa7e3c20e6b44458
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 01911b85268244a8fddb32aa726f8a870abbaf77
 ms.contentlocale: es-es
-ms.lasthandoff: 03/30/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="monitor-and-scale-a-single-sql-database-using-the-azure-cli"></a>Supervisión y escalado de una sola base de datos SQL mediante la CLI de Azure
+# <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Uso de la CLI para supervisar y escalar una instancia de SQL Database
 
-Este ejemplo de script de la CLI permite escalar una instancia única de Azure SQL Database a un nivel de rendimiento diferente después de consultar la información de tamaño de la base de datos. 
-
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Este ejemplo de script de la CLI de Azure escala una sola instancia de Azure SQL Database a un nivel de rendimiento distinto después de consultar la información del tamaño de la base de datos. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-azurecli[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Supervisión y escalado de una instancia única de SQL Database")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Supervisión y escalado de una instancia única de SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
 Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

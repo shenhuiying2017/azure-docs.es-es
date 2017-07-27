@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2017
+ms.date: 05/12/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: bb58d485a7ae805489b468cfffd72654914f63f1
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: fe804cc01925cee58a1d694bdb94b85a8f994cef
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -62,7 +62,7 @@ En esta sección, creará una aplicación de consola de Java que responda a un m
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.24</version>
+      <version>1.3.30</version>
     </dependency>
     ```
 
@@ -209,7 +209,7 @@ En esta sección, creará una aplicación de consola de Java que invoca a un mé
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.5.22</version>
       <type>jar</type>
     </dependency>
     ```
@@ -250,10 +250,10 @@ En esta sección, creará una aplicación de consola de Java que invoca a un mé
     import java.util.concurrent.TimeUnit;
     ```
 
-1. Agregue las siguientes variables de nivel de clase a la clase **App** . Reemplace **{youriothubname}** por el nombre de la instancia de IoT Hub y **{yourhubkey}** por el valor de la clave de dispositivo que ha generado en la sección *Creación de una identidad de dispositivo*:
+1. Agregue las siguientes variables de nivel de clase a la clase **App** . Reemplace **{youriothubconnectionstring}** por la cadena de conexión de IoT Hub que anotó en la sección *Creación de un IoT Hub*:
 
     ```java
-    public static final String iotHubConnectionString = "HostName={youriothubname}.azure-devices.net;SharedAccessKeyName=owner;SharedAccessKey={yourhubkey}";
+    public static final String iotHubConnectionString = "{youriothubconnectionstring}";
     public static final String deviceId = "myDeviceId";
 
     public static final String methodName = "writeLine";
@@ -288,11 +288,15 @@ En esta sección, creará una aplicación de consola de Java que invoca a un mé
     System.out.println("Shutting down sample...");
     ```
 
+1. Guarde y cierre el archivo invoke-direct-method\src\main\java\com\mycompany\app\App.java.
+
+1. Compile la aplicación **invoke-direct-method** y corrija los errores. En el símbolo del sistema, vaya a la carpeta invoke-direct-method y ejecute el comando siguiente:
+
+    `mvn clean package -DskipTests`
+
 ## <a name="run-the-apps"></a>Ejecución de las aplicaciones
 
 Ya está preparado para ejecutar las aplicaciones de consola.
-
-Ya está preparado para ejecutar las aplicaciones.
 
 1. En un símbolo del sistema, en la carpeta simulated-device, ejecute el comando siguiente para empezar a escuchar las llamadas de método desde la instancia de IoT Hub:
 
@@ -325,7 +329,7 @@ Para información sobre cómo ampliar la solución de IoT y programar llamadas d
 
 <!-- Links -->
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md
-
+[lnk-maven]: https://maven.apache.org/what-is-maven.html
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md

@@ -2,7 +2,7 @@
 title: "Información general sobre las alertas en Microsoft Azure y Azure Monitor | Microsoft Docs"
 description: "Las alertas permiten supervisar los registros, los eventos o las métricas de recursos de Azure y recibir una notificación cuando se cumple una condición especificada."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 76c8feb077cca27dc96f43e708cdef4fbb0f824c
+ms.contentlocale: es-es
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>¿Qué son las alertas en Microsoft Azure?

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 06/02/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 90b67cf3d136882d59ed7fe4210f93fb694e96a6
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 6098216f7dd901ea48fb3ab969c7934cc288b247
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -257,7 +257,8 @@ az storage blob upload \
 
  Para obtener más información sobre los distintos tipos de blobs, consulte [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) (Descripción de los blobs en bloques, en anexos y en páginas).
 
-### <a name="download-blobs-from-a-container"></a>Descarga  de blobs de un contenedor
+
+### <a name="download-a-blob-from-a-container"></a>Descarga de un blob de un contenedor
 En el siguiente ejemplo se muestra cómo descargar blobs de un contenedor:
 
 ```azurecli
@@ -267,35 +268,47 @@ az storage blob download \
     --file ~/mydownloadedblob.png
 ```
 
+### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
+
+Enumere los blobs de un contenedor con el comando [az storage blob list](/cli/azure/storage/blob#list).
+
+```azurecli
+az storage blob list \
+    --container-name mycontainer \
+    --output table
+```
+
 ### <a name="copy-blobs"></a>Copia de blobs
 Los blobs se pueden copiar dentro de las cuentas de almacenamiento y regiones, o entre ellas, de forma asincrónica.
 
-En el siguiente ejemplo se muestra cómo copiar blobs de una cuenta de almacenamiento a otra. Primero se crea un contenedor en otra cuenta, especificando que los blobs que contiene son de acceso público y anónimo. Después cargamos un archivo en el contenedor y, por último, copiamos el blob del contenedor en el contenedor **micontenedor** de la cuenta actual.
+En el siguiente ejemplo se muestra cómo copiar blobs de una cuenta de almacenamiento a otra. Primero creamos un contenedor en la cuenta de almacenamiento de origen, especificando el acceso de lectura público para sus blobs. Después cargamos un archivo en el contenedor y, por último, copiamos el blob del contenedor en un contenedor de la cuenta de almacenamiento de destino.
 
 ```azurecli
-# Create container in second account
+# Create container in source account
 az storage container create \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --name mycontainer2 \
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --name sourcecontainer \
     --public-access blob
 
-# Upload blob to container in second account
+# Upload blob to container in source account
 az storage blob upload \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --file ~/Images/HelloWorld.png \
-    --container-name mycontainer2 \
-    --name myBlockBlob2
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --container-name sourcecontainer \
+    --file ~/Pictures/sourcefile.png \
+    --name sourcefile.png
 
-# Copy blob from second account to current account
+# Copy blob from source account to destination account (destcontainer must exist)
 az storage blob copy start \
-    --source-uri https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 \
-    --destination-blob myBlobBlob \
-    --destination-container mycontainer
+    --account-name destaccountname \
+    --account-key destaccountkey \
+    --destination-blob destfile.png \
+    --destination-container destcontainer \
+    --source-uri https://sourceaccountname.blob.core.windows.net/sourcecontainer/sourcefile.png
 ```
 
-La dirección URL del blob de origen (especificada mediante `--source-uri`) debe ser de acceso público o incluir un token de firma de acceso compartido (SAS).
+En el ejemplo anterior, el contenedor de destino ya debe existir en la cuenta de almacenamiento de destino para que la operación de copia se realice correctamente. Además, el blob de origen especificado en el argumento `--source-uri` debe incluir un token de firma de acceso compartido (SAS), o ser accesible públicamente, como en este ejemplo.
 
 ### <a name="delete-a-blob"></a>Eliminar un blob
 Para eliminar un blob, use el comando `blob delete`:

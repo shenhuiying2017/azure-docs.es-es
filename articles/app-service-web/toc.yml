@@ -2,345 +2,347 @@
   href: index.yml
 - name: Información general
   items:
-  - name: Acerca de Web Apps
-    href: app-service-web-overview.md
-  - name: Comparación entre opciones de hospedaje
-    href: choose-web-site-cloud-service-vm.md
+    - name: Acerca de Web Apps
+      href: app-service-web-overview.md
+    - name: Comparación entre opciones de hospedaje
+      href: choose-web-site-cloud-service-vm.md
 - name: Inicios rápidos
   expanded: true
   items:
-  - name: Creación de aplicaciones .NET
-    href: app-service-web-get-started-dotnet.md
-  - name: Creación de aplicaciones de Node.js
-    href: app-service-web-get-started-nodejs.md
-  - name: Creación de aplicaciones PHP
-    href: app-service-web-get-started-php.md
-  - name: Creación de aplicaciones Java
-    href: app-service-web-get-started-java.md
-  - name: Creación de aplicaciones Python
-    href: app-service-web-get-started-python.md
-  - name: Creación de sitio HTML estático
-    href: app-service-web-get-started-html.md
+    - name: Creación de aplicaciones .NET
+      href: app-service-web-get-started-dotnet.md
+    - name: Creación de aplicaciones de Node.js
+      href: app-service-web-get-started-nodejs.md
+    - name: Creación de aplicaciones PHP
+      href: app-service-web-get-started-php.md
+    - name: Creación de aplicaciones Java
+      href: app-service-web-get-started-java.md
+    - name: Creación de aplicaciones Python
+      href: app-service-web-get-started-python.md
+    - name: Creación de sitio HTML estático
+      href: app-service-web-get-started-html.md
 - name: Tutoriales
   items:
-  - name: 1 - .NET con SQL DB
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: 1 - Node.js con MongoDB
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: 1 - PHP con MySQL
-    href: app-service-web-tutorial-php-mysql.md 
-  - name: 1 - WordPress con MySQL
-    href: app-service-web-create-web-app-from-marketplace.md
-  - name: 1 - Python con PostgreSQL
-    href: app-service-web-tutorial-docker-python-postgresql-app.md
-  - name: 2 - Asignación de dominios personalizados
-    href: app-service-web-tutorial-custom-domain.md
-  - name: 3 - Enlace de certificado SSL
-    href: app-service-web-tutorial-custom-ssl.md
-  - name: 4 - Incorporación de CDN
-    href: app-service-web-tutorial-content-delivery-network.md
-#  - name: 5 - Monitor your app
-#    href: app-service-web-tutorial-monitoring.md
+    - name: 1 - .NET con SQL DB
+      href: app-service-web-tutorial-dotnet-sqldatabase.md
+    - name: 1 - Node.js con MongoDB
+      href: app-service-web-tutorial-nodejs-mongodb-app.md
+    - name: 1 - PHP con MySQL
+      href: app-service-web-tutorial-php-mysql.md
+    - name: 1 - WordPress con MySQL
+      href: app-service-web-create-web-app-from-marketplace.md
+    - name: 1 - Python con PostgreSQL
+      href: app-service-web-tutorial-docker-python-postgresql-app.md
+    - name: 2 - Asignación de dominios personalizados
+      href: app-service-web-tutorial-custom-domain.md
+    - name: 3 - Enlace de certificado SSL
+      href: app-service-web-tutorial-custom-ssl.md
+    - name: 4 - Incorporación de CDN
+      href: app-service-web-tutorial-content-delivery-network.md
 - name: Muestras
   items:
-  - name: CLI de Azure
-    href: app-service-cli-samples.md
-  - name: PowerShell
-    href: app-service-powershell-samples.md
+    - name: CLI de Azure
+      href: app-service-cli-samples.md
+    - name: PowerShell
+      href: app-service-powershell-samples.md
 - name: Conceptos
   items:
-  - name: Funcionamiento de App Service
-    href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: Planes del Servicio de aplicaciones
-    href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: Entorno de App Service
-    href: ../app-service/app-service-environment/intro.md
-  - name: Autenticación y autorización
-    href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: Autenticación con AD local
-    href: web-sites-authentication-authorization.md
+    - name: Funcionamiento de App Service
+      href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: Planes del Servicio de aplicaciones
+      href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: Entorno de App Service
+      href: ../app-service/app-service-environment/intro.md
+    - name: Autenticación y autorización
+      href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: Autenticación con AD local
+      href: web-sites-authentication-authorization.md
 - name: Guías de procedimientos
   items:
-  - name: Desarrollo de su aplicación
-    items:
-    - name: ASP.NET
+    - name: Desarrollo de su aplicación
       items:
-      - name: Aplicación ASP.NET con SQL Database
-        href: web-sites-dotnet-get-started.md
-      - name: Desarrollo de una aplicación ASP.NET Core con código de VS
-        href: web-sites-create-web-app-using-vscode.md
-    - name: PHP
+        - name: ASP.NET
+          items:
+            - name: Aplicación ASP.NET con SQL Database
+              href: web-sites-dotnet-get-started.md
+            - name: Desarrollo de una aplicación ASP.NET Core con código de VS
+              href: web-sites-create-web-app-using-vscode.md
+        - name: PHP
+          items:
+            - name: Aplicación Laravel con MySQL
+              href: app-service-web-php-get-started.md
+            - name: Configuración del proyecto PHP
+              href: web-sites-php-configure.md
+            - name: Configuración de una instancia de WordPress Multisite
+              href: web-sites-php-convert-wordpress-multisite.md
+        - name: Node.js
+          items:
+            - name: Aplicación Sails.js con NOSQL DB
+              href: app-service-web-nodejs-sails.md
+            - name: Uso de io.js
+              href: web-sites-nodejs-iojs.md
+            - name: Depuración de aplicaciones de Node.js
+              href: web-sites-nodejs-debug.md
+        - name: Java
+          items:
+            - name: Aplicación Java con Eclipse
+              href: app-service-web-eclipse-create-hello-world-web-app.md
+            - name: Aplicación Java con IntelliJ
+              href: app-service-web-intellij-create-hello-world-web-app.md
+            - name: Uso de Azure SDK para Java
+              href: java-create-azure-website-using-java-sdk.md
+            - name: Carga de la aplicación existente
+              href: web-sites-java-add-app.md
+        - name: Python
+          items:
+            - name: Aplicación Django con MySQL
+              href: web-sites-python-ptvs-django-mysql.md
+        - name: Envío de correos electrónicos con SendGrid
+          href: sendgrid-dotnet-how-to-send-email.md
+        - name: Configuración del tiempo de ejecución
+          items:
+            - name: PHP en Windows
+              href: web-sites-php-configure.md
+            - name: Java
+              href: web-sites-java-add-app.md
+            - name: Python
+              href: web-sites-python-configure.md
+        - name: Configuración de la aplicación
+          items:
+            - name: Uso de la configuración de aplicaciones
+              href: web-sites-configure.md
+        - name: Aplicación web en Linux
+          items:
+            - name: Información general
+              href: app-service-linux-intro.md
+            - name: Creación de una aplicación web en Linux
+              href: app-service-linux-how-to-create-web-app.md
+            - name: Aplicación web de Ruby en Linux
+              href: app-service-linux-ruby-get-started.md
+            - name: Aplicación web de Node.js en Linux
+              href: app-service-linux-using-nodejs-pm2.md
+            - name: Aplicación web de .NET Core en Linux
+              href: app-service-linux-using-dotnetcore.md
+            - name: Aplicación web personalizada de Docker en Linux
+              href: app-service-linux-using-custom-docker-image.md
+            - name: Conexión a través de SSH
+              href: app-service-linux-ssh-support.md
+            - name: Implementación continua
+              href: app-service-linux-ci-cd.md
+            - name: Preguntas más frecuentes sobre aplicaciones web en Linux
+              href: app-service-linux-faq.md
+    - name: Implementar en Azure
+      href: web-sites-deploy.md
       items:
-      - name: Aplicación Laravel con MySQL
-        href: app-service-web-php-get-started.md
-      - name: Configuración del proyecto PHP
-        href: web-sites-php-configure.md
-      - name: Configuración de una instancia de WordPress Multisite
-        href: web-sites-php-convert-wordpress-multisite.md
-    - name: Node.js
+        - name: Implementación a través de FTP
+          href: app-service-deploy-ftp.md
+        - name: Implementación a través de la sincronización en la nube
+          href: app-service-deploy-content-sync.md
+        - name: Implementación continuada
+          href: app-service-continuous-deployment.md
+        - name: Implementación en entorno de ensayo
+          href: web-sites-staged-publishing.md
+        - name: Implementación desde Git local
+          href: app-service-deploy-local-git.md
+        - name: Implementación con plantilla
+          href: app-service-deploy-complex-application-predictably.md
+        - name: Implementación de Agile
+          href: app-service-agile-software-development.md
+        - name: Pruebas beta
+          href: app-service-web-test-in-production-controlled-test-flight.md
+        - name: Configurar credenciales de implementación
+          href: app-service-deployment-credentials.md
+        - name: Asignación de dominios personalizados
+          items:
+            - name: Comprar dominio
+              href: custom-dns-web-site-buydomains-web-app.md
+            - name: Asignación de dominios con Traffic Manager
+              href: web-sites-traffic-manager-custom-domain-name.md
+            - name: Migración de un dominio activo
+              href: app-service-custom-domain-name-migrate.md
+        - name: Migrar desde IIS
+          href: web-sites-migration-from-iis-server.md
+        - name: Pruebas de producción
+          href: app-service-web-test-in-production-get-start.md
+        - name: Adición de funcionalidad a una aplicación web
+          href: app-service-web-get-started-2.md
+    - name: Conexión a recursos y a base de datos
       items:
-      - name: Aplicación Sails.js con NOSQL DB
-        href: app-service-web-nodejs-sails.md
-      - name: Uso de io.js
-        href: web-sites-nodejs-iojs.md
-      - name: Depuración de aplicaciones de Node.js
-        href: web-sites-nodejs-debug.md
-    - name: Java
+        - name: Conectarse a datos locales
+          href: web-sites-hybrid-connection-get-started.md
+        - name: Conexión a Azure VNet
+          href: web-sites-integrate-with-vnet.md
+        - name: Conexión a Azure VNet con PowerShell
+          href: app-service-vnet-integration-powershell.md
+        - name: Conexión a MongoDB en la máquina virtual de Azure
+          href: web-sites-dotnet-store-data-mongodb-vm.md
+    - name: Protección de la aplicación
       items:
-      - name: Aplicación Java con Eclipse
-        href: app-service-web-eclipse-create-hello-world-web-app.md
-      - name: Aplicación Java con IntelliJ
-        href: app-service-web-intellij-create-hello-world-web-app.md
-      - name: Uso de Azure SDK para Java
-        href: java-create-azure-website-using-java-sdk.md
-      - name: Carga de la aplicación existente
-        href: web-sites-java-add-app.md
-    - name: Python
+        - name: usuarios
+          items:
+            - name: Autenticación mediante Azure Active Directory
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Autenticación con Facebook
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Autenticación con Google
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Autenticación con la cuenta de Microsoft
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Autenticación con Twitter
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Autenticación mediante AD local
+              href: web-sites-authentication-authorization.md
+            - name: Aplicación con una base de datos multiinquilino
+              href: web-sites-dotnet-entity-framework-row-level-security.md
+        - name: Aplicación de HTTPS
+          href: 'web-sites-configure-ssl-certificate.md#enforce-https-on-your-app'
+        - name: Configuración de la autenticación mutua TLS
+          href: app-service-web-configure-tls-mutual-auth.md
+    - name: Escalado de aplicación
       items:
-      - name: Aplicación Django con MySQL
-        href: web-sites-python-ptvs-django-mysql.md
-    - name: Envío de correos electrónicos con SendGrid
-      href: sendgrid-dotnet-how-to-send-email.md
-    - name: Configuración del tiempo de ejecución
+        - name: Escalado vertical
+          href: web-sites-scale.md
+        - name: Escalado horizontal
+          href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        - name: Equilibrio de carga con Traffic Manager
+          href: web-sites-traffic-manager.md
+        - name: Escalado elevado con entornos de App Service
+          href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        - name: Uso de la red CDN de Azure para alcance global
+          href: cdn-websites-with-cdn.md
+        - name: Conexión con Redis Cache mediante Memcache
+          href: web-sites-connect-to-redis-using-memcache-protocol.md
+        - name: Creación de una caché en Redis
+          href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        - name: Administrar el estado de sesión con Azure Redis Cache
+          href: web-sites-dotnet-session-state-caching.md
+    - name: Supervisión
       items:
-      - name: PHP en Windows
-        href: web-sites-php-configure.md
-      - name: Java
-        href: web-sites-java-add-app.md
-      - name: Python
-        href: web-sites-python-configure.md
-    - name: Configuración de la aplicación
+        - name: Supervisión de aplicaciones
+          href: web-sites-monitor.md
+        - name: Habilitamiento de registros
+          href: web-sites-enable-diagnostic-log.md
+        - name: Transmisión de registros
+          href: web-sites-streaming-logs-and-console.md
+    - name: Realización de copia de seguridad del contenido
       items:
-      - name: Uso de la configuración de aplicaciones
-        href: web-sites-configure.md
-    - name: Aplicación web en Linux
+        - name: Realización de una copia de seguridad de la aplicación
+          href: web-sites-backup.md
+        - name: Restauración de la aplicación desde una copia de seguridad
+          href: web-sites-restore.md
+        - name: Realización de una copia de seguridad con la API de REST
+          href: websites-csm-backup.md
+    - name: Administración de recursos de aplicación
       items:
-      - name: Información general
-        href: app-service-linux-intro.md
-      - name: Creación de una aplicación web en Linux
-        href: app-service-linux-how-to-create-web-app.md
-      - name: Aplicación web de Ruby en Linux
-        href: app-service-linux-ruby-get-started.md
-      - name: Aplicación web de Node.js en Linux
-        href: app-service-linux-using-nodejs-pm2.md
-      - name: Aplicación web de .NET Core en Linux
-        href: app-service-linux-using-dotnetcore.md
-      - name: Aplicación web personalizada de Docker en Linux
-        href: app-service-linux-using-custom-docker-image.md
-      - name: Conexión a través de SSH
-        href: app-service-linux-ssh-support.md
-      - name: Implementación continua
-        href: app-service-linux-ci-cd.md
-      - name: Preguntas más frecuentes sobre aplicaciones web en Linux
-        href: app-service-linux-faq.md
-  - name: Implementar en Azure
-    href: web-sites-deploy.md
-    items:
-    - name: Implementación a través de FTP
-      href: app-service-deploy-ftp.md
-    - name: Implementación a través de la sincronización en la nube
-      href: app-service-deploy-content-sync.md
-    - name: Implementación continuada
-      href: app-service-continuous-deployment.md
-    - name: Implementación en entorno de ensayo
-      href: web-sites-staged-publishing.md
-    - name: Implementación desde Git local
-      href: app-service-deploy-local-git.md
-    - name: Implementación con plantilla
-      href: app-service-deploy-complex-application-predictably.md
-    - name: Implementación de Agile
-      href: app-service-agile-software-development.md
-    - name: Pruebas beta
-      href: app-service-web-test-in-production-controlled-test-flight.md
-    - name: Configurar credenciales de implementación
-      href: app-service-deployment-credentials.md
-    - name: Asignación de dominios personalizados
+        - name: Clonación de aplicaciones con PowerShell
+          href: app-service-web-app-cloning.md
+        - name: Clonación de aplicaciones con el portal
+          href: app-service-web-app-cloning-portal.md
+        - name: Traslado de recursos
+          href: app-service-move-resources.md
+        - name: Uso de Azure Resource Manager con PowerShell
+          href: app-service-web-app-azure-resource-manager-powershell.md
+        - name: Administración de aplicaciones con Azure Automation
+          href: automation-manage-web-app.md
+    - name: Integrate
       items:
-      - name: Comprar dominio
-        href: custom-dns-web-site-buydomains-web-app.md
-      - name: Asignación de dominios con Traffic Manager
-        href: web-sites-traffic-manager-custom-domain-name.md
-      - name: Asignación de dominios GoDaddy
-        href: web-sites-godaddy-custom-domain-name.md
-      - name: Migración de un dominio activo
-        href: app-service-custom-domain-name-migrate.md
-    - name: Migrar desde IIS
-      href: web-sites-migration-from-iis-server.md
-    - name: Pruebas de producción
-      href: app-service-web-test-in-production-get-start.md
-    - name: Adición de funcionalidad a una aplicación web
-      href: app-service-web-get-started-2.md
-  - name: Conexión a recursos y a base de datos
-    items:
-    - name: Conectarse a datos locales
-      href: web-sites-hybrid-connection-get-started.md
-    - name: Conexión a Azure VNet
-      href: web-sites-integrate-with-vnet.md
-    - name: Conexión a Azure VNet con PowerShell
-      href: app-service-vnet-integration-powershell.md
-    - name: Conexión a MongoDB en la máquina virtual de Azure
-      href: web-sites-dotnet-store-data-mongodb-vm.md
-  - name: Protección de la aplicación
-    items:
-    - name: usuarios
+        - name: Exportación a PowerApps y Microsoft Flow
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: Entorno de App Service
       items:
-      - name: Autenticación mediante Azure Active Directory
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Autenticación con Facebook
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Autenticación con Google
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Autenticación con la cuenta de Microsoft
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Autenticación con Twitter
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Autenticación mediante AD local
-        href: web-sites-authentication-authorization.md
-      - name: Aplicación con una base de datos multiinquilino
-        href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Aplicación de HTTPS
-      href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
-    - name: Configuración de la autenticación mutua TLS
-      href: app-service-web-configure-tls-mutual-auth.md
-  - name: Escalado de aplicación
-    items:
-    - name: Escalado vertical
-      href: web-sites-scale.md
-    - name: Escalado horizontal
-      href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: Equilibrio de carga con Traffic Manager
-      href: web-sites-traffic-manager.md
-    - name: Escalado elevado con entornos de App Service
-      href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: Uso de la red CDN de Azure para alcance global
-      href: cdn-websites-with-cdn.md
-    - name: Conexión con Redis Cache mediante Memcache
-      href: web-sites-connect-to-redis-using-memcache-protocol.md
-    - name: Creación de una caché en Redis
-      href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: Administrar el estado de sesión con Azure Redis Cache
-      href: web-sites-dotnet-session-state-caching.md
-  - name: Supervisión
-    items:
-    - name: Supervisión de aplicaciones
-      href: web-sites-monitor.md
-    - name: Habilitamiento de registros
-      href: web-sites-enable-diagnostic-log.md
-    - name: Transmisión de registros
-      href: web-sites-streaming-logs-and-console.md
-  - name: Realización de copia de seguridad del contenido
-    items:
-    - name: Realización de una copia de seguridad de la aplicación
-      href: web-sites-backup.md
-    - name: Restauración de la aplicación desde una copia de seguridad
-      href: web-sites-restore.md
-    - name: Realización de una copia de seguridad con la API de REST
-      href: websites-csm-backup.md
-  - name: Administración de recursos de aplicación
-    items:
-    - name: Clonación de aplicaciones con PowerShell
-      href: app-service-web-app-cloning.md
-    - name: Clonación de aplicaciones con el portal
-      href: app-service-web-app-cloning-portal.md
-    - name: Traslado de recursos
-      href: app-service-move-resources.md
-    - name: Uso de Azure Resource Manager con PowerShell
-      href: app-service-web-app-azure-resource-manager-powershell.md
-    - name: Administración de aplicaciones con Azure Automation
-      href: automation-manage-web-app.md
-  - name: Entorno de App Service
-    items:
-    - name: Uso de una instancia de App Service Environment
-      href: ../app-service/app-service-environment/using-an-ase.md
-    - name: Creación de una instancia externa de App Service Environment
-      href: ../app-service/app-service-environment/create-external-ase.md
-    - name: Creación mediante Azure Resource Manager
-      href: ../app-service/app-service-environment/create-from-template.md
-    - name: Creación con un equilibrador de carga interno
-      href: ../app-service/app-service-environment/create-ilb-ase.md
-    - name: Consideraciones sobre redes
-      href: ../app-service/app-service-environment/network-info.md
-    - name: Configuración personalizada
-      href: ./app-service-app-service-environment-custom-settings.md
-    - name: Integración con firewall de aplicaciones web
-      href: ./app-service-app-service-environment-web-application-firewall.md
-    - name: Escalado distribuido geográficamente
-      href: ./app-service-app-service-environment-geo-distributed-scale.md
+        - name: Uso de una instancia de App Service Environment
+          href: ../app-service/app-service-environment/using-an-ase.md
+        - name: Creación de una instancia externa de App Service Environment
+          href: ../app-service/app-service-environment/create-external-ase.md
+        - name: Creación mediante Azure Resource Manager
+          href: ../app-service/app-service-environment/create-from-template.md
+        - name: Creación con un equilibrador de carga interno
+          href: ../app-service/app-service-environment/create-ilb-ase.md
+        - name: Consideraciones sobre redes
+          href: ../app-service/app-service-environment/network-info.md
+        - name: Configuración personalizada
+          href: ./app-service-app-service-environment-custom-settings.md
+        - name: Integración con firewall de aplicaciones web
+          href: ./app-service-app-service-environment-web-application-firewall.md
+        - name: Escalado distribuido geográficamente
+          href: ./app-service-app-service-environment-geo-distributed-scale.md
+        - name: Lista de direcciones de administración
+          href: ../app-service/app-service-environment/management-addresses.md
 - name: Referencia
   items:
-  - name: CLI 2.0
-    href: /cli/azure/appservice
-  - name: PowerShell
-    href: /powershell
-  - name: API de REST
-    href: /rest/api/appservice/
-  - name: Entorno de App Service
-    href: ../app-service/app-service-environment/readme.md
+    - name: CLI 2.0
+      href: /cli/azure/appservice
+    - name: PowerShell
+      href: /powershell
+    - name: API de REST
+      href: /rest/api/appservice/
+    - name: Entorno de App Service
+      href: ../app-service/app-service-environment/readme.md
 - name: Recursos
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Solución de problemas
-    items:
-    - name: Solución de problemas con Visual Studio
-      href: web-sites-dotnet-troubleshoot-visual-studio.md
-    - name: Solución de problemas de aplicaciones Node.js
-      href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
-    - name: Solución de problemas HTTP 502 & 503
-      href: app-service-web-troubleshoot-http-502-http-503.md
-    - name: Solución de problemas de rendimiento
-      href: app-service-web-troubleshoot-performance-degradation.md
-    - name: Preguntas más frecuentes
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Solución de problemas
       items:
-      - name: 'Disponibilidad, rendimiento y preguntas más frecuentes sobre aplicaciones'
-        href: app-service-web-availability-performance-application-issues-faq.md
-      - name: Preguntas más frecuentes sobre la implementación
-        href: app-service-web-deployment-faq.md
-      - name: Preguntas más frecuentes sobre las tecnologías de código abierto
-        href: app-service-web-open-source-technologies-faq.md
-      - name: Preguntas más frecuentes sobre la configuración y administración
-        href: app-service-web-configuration-and-management-faq.md
-  - name: App Service Environment v1
-    items:
-    - name: Información general
-      href: app-service-app-service-environment-intro.md
-    - name: Creación de App Service Environment
-      href: app-service-web-how-to-create-an-app-service-environment.md
-    - name: Creación de una aplicación web en un entorno del Servicio de aplicaciones
-      href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-    - name: Uso de un equilibrador de carga interno
-      href: app-service-environment-with-internal-load-balancer.md
-    - name: Configuración de una instancia de App Service Environment
-      href: app-service-web-configure-an-app-service-environment.md
-    - name: Escalado de aplicaciones en un entorno del Servicio de aplicaciones
-      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
-    - name: Introducción a la arquitectura de red
-      href: app-service-app-service-environment-network-architecture-overview.md
-    - name: Implementación de una arquitectura de seguridad por niveles
-      href: app-service-app-service-environment-layered-security.md
-    - name: Control del tráfico entrante
-      href: app-service-app-service-environment-control-inbound-traffic.md
-    - name: Conexión de forma segura con recursos de back-end
-      href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
-    - name: Detalles de configuración de red con ExpressRoute
-      href: app-service-app-service-environment-network-configuration-expressroute.md
-    - name: Escalado automático en App Service Environment
-      href: ../app-service/app-service-environment-auto-scale.md
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/app-service/
-  - name: Información de cuota
-    href: ../azure-subscription-service-limits.md#app-service-limits
-  - name: Actualizaciones de servicio y notas de la versión
-    href: https://azure.microsoft.com/updates/?product=app-service
-  - name: Prácticas recomendadas
-    href: app-service-best-practices.md
-  - name: Muestras
-    href: https://azure.microsoft.com/resources/samples/?service=app-service
-  - name: Vídeos
-    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
-  - name: Libros de cocina
-    items:
-    - name: Arquitecturas de referencia
-      href: ../guidance/guidance-ra-app-service.md
-    - name: Scripts de implementación
-      href: https://azure.microsoft.com/documentation/scripts/
+        - name: Solución de problemas con Visual Studio
+          href: web-sites-dotnet-troubleshoot-visual-studio.md
+        - name: Solución de problemas de aplicaciones Node.js
+          href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
+        - name: Solución de problemas HTTP 502 & 503
+          href: app-service-web-troubleshoot-http-502-http-503.md
+        - name: Solución de problemas de rendimiento
+          href: app-service-web-troubleshoot-performance-degradation.md
+        - name: Preguntas más frecuentes
+          items:
+            - name: 'Disponibilidad, rendimiento y preguntas más frecuentes sobre aplicaciones'
+              href: app-service-web-availability-performance-application-issues-faq.md
+            - name: Preguntas más frecuentes sobre la implementación
+              href: app-service-web-deployment-faq.md
+            - name: Preguntas más frecuentes sobre las tecnologías de código abierto
+              href: app-service-web-open-source-technologies-faq.md
+            - name: Preguntas más frecuentes sobre la configuración y administración
+              href: app-service-web-configuration-and-management-faq.md
+    - name: App Service Environment v1
+      items:
+        - name: Información general
+          href: app-service-app-service-environment-intro.md
+        - name: Creación de App Service Environment
+          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: Creación de una aplicación web en un entorno del Servicio de aplicaciones
+          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+        - name: Uso de un equilibrador de carga interno
+          href: app-service-environment-with-internal-load-balancer.md
+        - name: Configuración de una instancia de App Service Environment
+          href: app-service-web-configure-an-app-service-environment.md
+        - name: Escalado de aplicaciones en un entorno del Servicio de aplicaciones
+          href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+        - name: Introducción a la arquitectura de red
+          href: app-service-app-service-environment-network-architecture-overview.md
+        - name: Implementación de una arquitectura de seguridad por niveles
+          href: app-service-app-service-environment-layered-security.md
+        - name: Control del tráfico entrante
+          href: app-service-app-service-environment-control-inbound-traffic.md
+        - name: Conexión de forma segura con recursos de back-end
+          href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
+        - name: Detalles de configuración de red con ExpressRoute
+          href: app-service-app-service-environment-network-configuration-expressroute.md
+        - name: Escalado automático en App Service Environment
+          href: ../app-service/app-service-environment-auto-scale.md
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/app-service/'
+    - name: Información de cuota
+      href: '../azure-subscription-service-limits.md#app-service-limits'
+    - name: Actualizaciones de servicio y notas de la versión
+      href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Prácticas recomendadas
+      href: app-service-best-practices.md
+    - name: Muestras
+      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
+    - name: Libros de cocina
+      items:
+        - name: Arquitecturas de referencia
+          href: ../guidance/guidance-ra-app-service.md
+        - name: Scripts de implementación
+          href: 'https://azure.microsoft.com/documentation/scripts/'

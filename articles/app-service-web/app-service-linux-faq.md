@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dcce8d855f8c37d40fe8f09ef0a97e46b342e3cf
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 3fb0f6b26f36ef4044c9733ace05c4f59909ddda
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -62,6 +62,10 @@ Si tiene alguna pregunta, comente el artículo y le responderemos en cuanto sea 
 
 **R:** Sí.
 
+**P:** ¿Puedo usar **Web Deploy** para implementar mi aplicación web?
+
+**R:** Sí, tiene que establecer una configuración de aplicación denominada `UseWebDeployScm` en `false`.
+
 ## <a name="language-support"></a>Compatibilidad con idiomas
 
 **P.:** ¿Se admiten aplicaciones de .NET Core sin compilar?
@@ -70,7 +74,7 @@ Si tiene alguna pregunta, comente el artículo y le responderemos en cuanto sea 
 
 **P.:** ¿Admite un compositor como un administrador de dependencias para aplicaciones PHP?
 
-**R**: No. Debe implementar las aplicaciones de PHP con todas las dependencias. Planeamos una experiencia de implementación completa en una futura versión.
+**R:** Sí. Durante una implementación de Git, Kudu debe detectar que va a implementar una aplicación PHP (gracias a la presencia de un archivo composer.json) y que se va a desencadenar una instalación de compositor automáticamente.
 
 ## <a name="custom-containers"></a>Contenedores personalizados
 

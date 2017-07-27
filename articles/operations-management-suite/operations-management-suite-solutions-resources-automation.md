@@ -4,7 +4,7 @@ description: "Normalmente, las soluciones de OMS incluyen runbooks en Azure Auto
 services: operations-management-suite
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
 ms.service: operations-management-suite
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: a86a20e1e83f412a06f54bb195180b9d2af98ca6
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
+ms.contentlocale: es-es
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Incorporación de recursos de Azure Automation a una solución de administración de OMS (versión preliminar)
 > [!NOTE]
 > La versión de la documentación para crear soluciones de administración de OMS está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.   
-> 
-> 
+
 
 [Normalmente, las soluciones de administración de OMS](operations-management-suite-solutions.md) incluyen runbooks en Azure Automation para automatizar procesos como la recopilación y el procesamiento de datos de supervisión.  Además de los runbooks, las cuentas de Automation incluyen recursos como variables y programaciones que admiten los runbooks que se usan en la solución.  En este artículo se describe cómo incluir runbooks y sus recursos relacionados en una solución.
 
@@ -273,8 +273,20 @@ En la tabla siguiente se describen las propiedades para los recursos de variable
 |:--- |:--- |
 | Description | Descripción opcional de la variable. |
 | isEncrypted | Especifica si se debe cifrar la variable. |
-| type | Tipo de datos de la variable. |
+| type | Esta propiedad no tiene actualmente ningún efecto.  El tipo de datos de la variable se determinará por el valor inicial. |
 | value | Valor de la variable. |
+
+> [!NOTE]
+> La propiedad **type** no tiene actualmente ningún efecto en la variable que se está creando.  El tipo de datos de la variable se determinará por el valor.  
+
+Si establece el valor inicial de la variable, este debe configurarse con el tipo de datos correcto.  La tabla siguiente muestra los tipos de datos permitidos y su sintaxis.  Tenga en cuenta que es previsible que los valores en formato JSON vayan siempre entre comillas, incluyendo todos los caracteres especiales.  Por ejemplo, un valor de cadena se especificaría con comillas alrededor de la cadena (mediante el carácter de escape [\\]) mientras que un valor numérico se especificaría con un conjunto de comillas.
+
+| Tipo de datos | Descripción | Ejemplo | Se resuelve como |
+|:--|:--|:--|:--|
+| cadena   | Incluya el valor entre comillas dobles.  | "\"Hello world\"" | "Hello world" |
+| numeric  | Valor numérico con comillas simples.| "64" | 64 |
+| boolean  | **true** o **false** entre comillas.  Tenga en cuenta que este valor debe ir en minúsculas. | "true" | true |
+| datetime | Valor de fecha serializado.<br>Puede usar el cmdlet ConvertTo-Json de PowerShell para generar este valor para una fecha determinada.<br>Ejemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
 La solución de administración no necesita definir los [módulos globales](../automation/automation-integration-modules.md) que usan los runbooks porque siempre estarán disponibles en la cuenta de Automation.  Debe incluir un recurso para cualquier otro módulo usado por los runbooks.

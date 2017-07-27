@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/29/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3a2166fefc8d0b1602562b753e0413be458fae98
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: e9a858addb768ce051fccce0eaf83e49a83da21b
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="assign-and-manage-resource-policies"></a>Asignación y administración de directivas de recursos
 
-Para implementar una directiva, debe realizar tres pasos:
+Para implementar una directiva, debe realizar estos pasos:
 
-1. Definir la regla de directiva con JSON.
-2. Crear una definición de directiva en su suscripción a partir del código JSON que creó en el paso anterior. Este paso hace que la directiva esté disponible para la asignación, pero no aplica las reglas a la suscripción.
-3. Asigne la directiva a un ámbito (por ejemplo, una suscripción o un grupo de recursos). Ahora se exige el cumplimiento de las reglas de la directiva.
-
-Azure proporciona algunas directivas predefinidas que pueden reducir el número de directivas que tiene que definir. Si una directiva definida previamente funciona para su escenario, omita los dos primeros pasos y asigne dicha directiva a un ámbito.
+1. Compruebe las definiciones de directiva (incluidas las directivas integradas proporcionadas por Azure) para ver si ya existe una en la suscripción que cumpla sus requisitos.
+2. Si existe una, obtenga el nombre.
+3. Si no existe, defina la regla de directiva con JSON y agréguela como una definición de directiva en su suscripción. Este paso hace que la directiva esté disponible para la asignación, pero no aplica las reglas a la suscripción.
+4. En cada caso, asigne la directiva a un ámbito (por ejemplo, una suscripción o un grupo de recursos). Ahora se exige el cumplimiento de las reglas de la directiva.
 
 Este artículo se centra en los pasos necesarios para crear una definición de directiva y asignarla a un ámbito mediante la API de REST, PowerShell o la CLI de Azure. Si prefiere usar el portal para asignar directivas, consulte [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Uso de Azure Portal para asignar y administrar directivas de recursos). El artículo no se centra en la sintaxis para crear la definición de la directiva. Para información sobre la sintaxis de directivas, consulte [Uso de directivas para administrar los recursos y controlar el acceso](resource-manager-policy.md).
 
@@ -144,30 +144,55 @@ En el ejemplo siguiente se muestra una definición de un alias. Como puede ver, 
 
 Antes de continuar con los ejemplos de PowerShell, asegúrese de que tiene [instalada la última versión](/powershell/azure/install-azurerm-ps) de Azure PowerShell. Se agregaron parámetros de directiva en la versión 3.6.0. Si tiene una versión anterior, los ejemplos devuelven un error que indica que no se encuentra el parámetro.
 
-### <a name="create-policy-definition"></a>Creación de definición de directiva
-Puede crear una definición de directiva con el cmdlet `New-AzureRmPolicyDefinition`. En los ejemplos siguientes se crea una definición de directiva para permitir recursos solo en Europa del Norte y Europa Occidental.
+### <a name="view-policy-definitions"></a>Visualización de definiciones de directiva
+Para ver todas las definiciones de directiva en su suscripción, utilice el siguiente comando:
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{
-   "if": {
-     "not": {
-       "field": "location",
-       "in": "[parameters(''allowedLocations'')]"
-     }
-   },
-   "then": {
-     "effect": "deny"
-   }
- }' -Parameter '{
-     "allowedLocations": {
-       "type": "array",
-       "metadata": {
-         "description": "An array of permitted locations for resources.",
-         "strongType": "location",
-         "displayName": "List of locations"
-       }
-     }
- }'
+Get-AzureRmPolicyDefinition
+```
+
+Devuelve todas las definiciones de directiva disponibles, incluidas las directivas integradas. Cada directiva se devuelve con el formato siguiente:
+
+```powershell
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+Antes de continuar con la creación de la definición de la directiva, observe las directivas integradas. Si encuentra una directiva integrada que se aplica a los límites que necesita, puede omitir la creación de una definición de directiva. En su lugar, asigne la directiva integrada al ámbito deseado.
+
+### <a name="create-policy-definition"></a>Creación de definición de directiva
+Puede crear una definición de directiva con el cmdlet `New-AzureRmPolicyDefinition`.
+
+```powershell
+$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
 ```            
 
 La salida se almacena en un objeto `$policy`, que se usa durante la asignación de directivas. 
@@ -175,39 +200,41 @@ La salida se almacena en un objeto `$policy`, que se usa durante la asignación 
 En vez de especificar JSON como un parámetro, puede proporcionar la ruta de acceso a un archivo .json que contiene la regla de directiva.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy "c:\policies\storageskupolicy.json"
+$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
 ```
 
 ### <a name="assign-policy"></a>Asignación de directiva
 
-Aplique la directiva al ámbito que desee mediante el cmdlet `New-AzureRmPolicyAssignment`:
+Aplique la directiva al ámbito deseado mediante el cmdlet `New-AzureRmPolicyAssignment`. En el ejemplo siguiente se asigna la directiva a un grupo de recursos.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $policy
+```
+
+Para asignar una directiva que requiera parámetros, realice la creación y establezca el objeto con esos valores. En el ejemplo siguiente se recupera una directiva integrada y se pasan los valores de parámetros:
+
+```powershell
+$rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+$policy = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
 $array = @("West US", "West US 2")
-$param = @{"allowedLocations"=$array}
-New-AzureRMPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
+$param = @{"listOfAllowedLocations"=$array}
+New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
 ```
 
-### <a name="view-policies"></a>Visualización de directivas
+### <a name="view-policy-assignment"></a>Visualización de la asignación de directiva
 
-Para obtener todas las asignaciones de directivas, use:
-
-```powershell
-Get-AzureRmPolicyAssignment
-```
-
-Para obtener una directiva específica, use:
+Para obtener una asignación de directiva específica, use:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
-(Get-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId
+(Get-AzureRmPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId
 ```
 
 Para ver la regla de directiva de una definición de directiva, use:
 
 ```powershell
-(Get-AzureRmPolicyDefinition -Name regionPolicyDefinition).Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Name coolAccessTier).Properties.policyRule | ConvertTo-Json
 ```
 
 ### <a name="remove-policy-assignment"></a>Eliminación de la asignación de directiva 
@@ -218,39 +245,70 @@ Para quitar una asignación de directiva, use lo siguiente:
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## <a name="azure-cli-20"></a>CLI de Azure 2.0
+## <a name="azure-cli"></a>CLI de Azure
+
+### <a name="view-policy-definitions"></a>Visualización de definiciones de directiva
+Para ver todas las definiciones de directiva en su suscripción, utilice el siguiente comando:
+
+```azurecli
+az policy definition list
+```
+
+Devuelve todas las definiciones de directiva disponibles, incluidas las directivas integradas. Cada directiva se devuelve con el formato siguiente:
+
+```azurecli
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",                                                                                                                "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                 "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                                                                    "policyRule": {                                                                                                                                      "if": {                                                                                                                                              "not": {                                                                                                                                             "field": "location",                                                                                                                               "in": "[parameters('listOfAllowedLocations')]"                                                                                                   }                                                                                                                                                },                                                                                                                                                 "then": {                                                                                                                                            "effect": "Deny"                                                                                                                                 }                                                                                                                                                },                                                                                                                                                 "policyType": "BuiltIn"
+}
+```
+
+Antes de continuar con la creación de la definición de la directiva, observe las directivas integradas. Si encuentra una directiva integrada que se aplica a los límites que necesita, puede omitir la creación de una definición de directiva. En su lugar, asigne la directiva integrada al ámbito deseado.
 
 ### <a name="create-policy-definition"></a>Creación de definición de directiva
 
-Puede crear una definición de directiva mediante la CLI de Azure 2.0 con el comando de definición de directiva. En los ejemplos siguientes se crea una directiva para permitir los recursos solo en Europa del Norte y Europa occidental.
+Puede crear una definición de directiva mediante la CLI de Azure con el comando de definición de directiva.
 
 ```azurecli
-az policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --rules '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
+az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
   },
-  "then" : {
-    "effect" : "deny"
+  "then": {
+    "effect": "deny"
   }
 }'    
 ```
 
 ### <a name="assign-policy"></a>Asignación de directiva
 
-Puede aplicar la directiva en el ámbito que quiera mediante el comando de asignación de directiva:
+Puede aplicar la directiva en el ámbito que quiera mediante el comando de asignación de directiva. En el ejemplo siguiente se asigna la directiva a un grupo de recursos.
 
 ```azurecli
-az policy assignment create --name regionPolicyAssignment --policy regionPolicyDefinition --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+az policy assignment create --name coolAccessTierAssignment --policy coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-### <a name="view-policy-definition"></a>Visualización de definición de directiva
-Para obtener una definición de directiva, use el siguiente comando:
+### <a name="view-policy-assignment"></a>Visualización de la asignación de directiva
+
+Para ver una asignación de directiva, proporcione el nombre de la asignación de directiva y el ámbito:
 
 ```azurecli
-az policy definition show --name regionPolicyAssignment
+az policy assignment show --name coolAccessTierAssignment --scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}"
 ```
 
 ### <a name="remove-policy-assignment"></a>Eliminación de la asignación de directiva 
@@ -258,62 +316,7 @@ az policy definition show --name regionPolicyAssignment
 Para quitar una asignación de directiva, use lo siguiente:
 
 ```azurecli
-az policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-## <a name="azure-cli-10"></a>CLI de Azure 1.0
-
-### <a name="create-policy-definition"></a>Creación de definición de directiva
-
-Puede crear una definición de directiva mediante la CLI de Azure con el comando de definición de directiva. En los ejemplos siguientes se crea una directiva para permitir los recursos solo en Europa del Norte y Europa occidental.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}'    
-```
-
-Se puede proporcionar la ruta de acceso a un archivo .json que contenga la directiva, en lugar de especificarla en línea.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
-```
-
-### <a name="assign-policy"></a>Asignación de directiva
-
-Puede aplicar la directiva en el ámbito que quiera mediante el comando de asignación de directiva:
-
-```azurecli
-azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/{subscription-id}/providers/Microsoft.Authorization/policyDefinitions/{policy-name} --scope    /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-En este caso, el ámbito es el nombre del grupo de recursos que especifique. Si no se conoce el valor del parámetro policy-definition-id, se puede obtener con la CLI de Azure. 
-
-```azurecli
-azure policy definition show {policy-name}
-```
-
-### <a name="view-policy"></a>Visualización de directiva
-Para obtener una directiva, use el siguiente comando:
-
-```azurecli
-azure policy definition show {definition-name} --json
-```
-
-### <a name="remove-policy-assignment"></a>Eliminación de la asignación de directiva 
-
-Para quitar una asignación de directiva, use lo siguiente:
-
-```azurecli
-azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

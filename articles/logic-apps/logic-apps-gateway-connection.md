@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/5/2017
+ms.date: 06/9/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8446790af6af160c4b2d463191405faaed68bf0e
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 4b6f21c7949493ac1f95e7c0f255e5c96613adf1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -56,9 +56,9 @@ Para obtener más información sobre las puertas de enlace de datos para otros s
 
 * Debe tener [instalada la puerta de enlace de datos local en un equipo local](logic-apps-gateway-install.md).
 
-* Necesita la cuenta de Azure que tiene la dirección de correo electrónico profesional o educativa que se usó para [instalar la puerta de enlace de datos local](logic-apps-gateway-install.md#requirements).
+* Al iniciar sesión en Azure Portal, tiene que usar la misma cuenta profesional o educativa que se usó para [instalar la puerta de enlace de datos local](logic-apps-gateway-install.md#requirements). Además, su cuenta de inicio de sesión debe tener una suscripción de Azure que se usará cuando cree un recurso de puerta de enlace en Azure Portal para la instalación de la puerta de enlace.
 
-* Ningún otro recurso de puerta de enlace de Azure puede notificar la instalación de la puerta de enlace. Solo puede asociar la instalación de la puerta de enlace a un recurso de puerta de enlace. La notificación se produce al crear el recurso de puerta de enlace, de modo que la instalación no está disponible para otros recursos.
+* No puede haber ningún recurso de puerta de enlace de Azure que ya haya solicitado la instalación de la puerta de enlace. Solo puede asociar la instalación de la puerta de enlace a un recurso de puerta de enlace de Azure. La notificación se produce al crear el recurso de puerta de enlace, de modo que la instalación no está disponible para otros recursos.
 
 ## <a name="set-up-the-data-gateway-connection"></a>Configuración de una conexión de puerta de enlace de datos
 

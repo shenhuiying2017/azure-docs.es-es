@@ -7,6 +7,7 @@
 ## [Vista de grupo de seguridad](network-watcher-security-group-view-overview.md)
 ## [Próximo salto](network-watcher-next-hop-overview.md)
 ## [Solución de problemas de conectividad VPN](network-watcher-troubleshoot-overview.md)
+## [Comprobación de conectividad](network-watcher-connectivity-overview.md)
 ## [Límites de servicio](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Introducción
 ## [Configuración de Network Watcher](network-watcher-create.md)
@@ -44,6 +45,10 @@
 ### [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [CLI 2.0](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
+## Comprobación de la conectividad
+### [PowerShell](network-watcher-connectivity-powershell.md)
+### [CLI 2.0](network-watcher-connectivity-cli.md)
+### [REST](network-watcher-connectivity-rest.md)
 ## Configuración de registros de flujo para NSG
 ### [Portal](network-watcher-nsg-flow-logging-portal.md)
 ### [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
@@ -59,6 +64,7 @@
 ## [Visualización de registros de flujo con herramientas de código abierto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ## [Visualización de patrones de tráfico de red mediante herramientas de código abierto](network-watcher-using-open-source-tools.md)
 ## [Realización de auditoría y comprobación del cumplimiento en la red con PowerShell](network-watcher-nsg-auditing-powershell.md)
+## [Lectura de registros de flujo de NSG](network-watcher-read-nsg-flow-logs.md)
 ## [Realización de la detección de intrusiones mediante herramientas de código abierto](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Análisis de los registros de Application Gateway en Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # Referencia

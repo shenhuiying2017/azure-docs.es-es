@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/14/2017
+ms.date: 06/14/2017
 ms.author: markgal;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 28f8ed91cd2305fdad5105428e50d1d9b3370dd9
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d8be07fe4cd3fd50827fb7021a75eb05b6f075e0
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -32,12 +33,17 @@ El servicio Azure Backup tiene dos tipos de almacenes: el almacén de Backup y e
 > [!NOTE]
 > Los almacenes de copia de seguridad no pueden proteger soluciones implementadas con Resource Manager. Sin embargo, puede usar un almacén de Recovery Services para proteger los servidores y las máquinas virtuales implementados con el modelo clásico.  
 >
+
+> [!IMPORTANT]
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **A partir del 1 de noviembre de 2017**:
+>- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
+>- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 >
 
 En este artículo, utilizaremos el término almacén para referirnos de forma genérica al almacén de Backup o al almacén de Recovery Services. Usamos el nombre formal, el almacén de Backup o el almacén de Recovery Services cuando es necesario distinguir entre los almacenes.
 
 ## <a name="deleting-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
-Eliminar un almacén de Recovery Services es un proceso en un paso, *siempre y cuando el almacén no contenga ningún recurso*. Antes de poder eliminar un almacén de Recovery Services, debe quitar o eliminar todos los recursos del almacén. Si intenta eliminar un almacén que contiene recursos, obtendrá un error similar a la siguiente imagen:
+Eliminar un almacén de Recovery Services es un proceso en un paso, *siempre y cuando el almacén no contenga ningún recurso*. Antes de poder eliminar un almacén de Recovery Services, debe quitar o eliminar todos los recursos del almacén. Si intenta eliminar un almacén que contiene recursos, obtendrá un error similar al de la siguiente imagen:
 
 ![Error de eliminación del almacén](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
 

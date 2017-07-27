@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 8ecc5208237d846d0e81914eee8874ea97744bc3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 450c60abeaaf96c7d82152d425265a6b6714f689
+ms.contentlocale: es-es
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -177,20 +179,29 @@ Se trata de una sencilla aplicación cliente de prueba que puede ejecutar por se
 Por último, los paquetes de aplicación que el servicio de actor y otros servicios puedan agregar en el futuro para la implementación. Contiene el archivo *ApplicationManifest.xml* y marcadores de posición para el paquete del servicio de actor.
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
-El scaffolding de Yeoman incluye un script de Gradle para compilar la aplicación y scripts de Bash para implementar y anular la implementación de la aplicación. Para ejecutar la aplicación, primero hay que compilarla con Gradle:
+
+El scaffolding de Yeoman incluye un script de Gradle para compilar la aplicación y scripts de Bash para implementarla y quitarla. Para volver a implementar la aplicación, primero hay que compilarla con Gradle:
 
 ```bash
 $ gradle
 ```
 
-Esto creará un paquete de aplicación de Service Fabric que puede implementarse mediante la CLI de Azure para Service Fabric. El script install.sh contiene los comandos de la CLI de Azure necesarios para implementar el paquete de aplicación. Simplemente ejecute el script install.sh para implementar:
+Esto creará un paquete de aplicación de Service Fabric que puede implementarse mediante las herramientas de CLI de Service Fabric.
 
-```bask
+### <a name="deploy-with-xplat-cli"></a>Implementación con la CLI de XPlat
+
+Si usa la CLI de XPlat, el script install.sh contiene los comandos de la CLI de Azure necesarios para implementar el paquete de aplicación. Ejecute el script install.sh para implementar la aplicación.
+
+```bash
 $ ./install.sh
 ```
 
+### <a name="deploy-with-azure-cli-20"></a>Implementación con la CLI de Azure 2.0
 
+Si usa la CLI de Azure 2.0, consulte la documentación de referencia sobre la administración de un [ciclo de vida de aplicación mediante la CLI de Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
-<!--HONumber=Jan17_HO4-->
+## <a name="related-articles"></a>Artículos relacionados
 
+* [Introducción a Service Fabric y la CLI de Azure 2.0](service-fabric-azure-cli-2-0.md)
+* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md) (Introducción a la CLI de XPlat de Service Fabric)
 

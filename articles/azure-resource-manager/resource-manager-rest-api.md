@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
-translationtype: Human Translation
-ms.sourcegitcommit: 76864bfc1b59cfc4e6f39094c08394fe32482d17
-ms.openlocfilehash: b7957c52877b262506013a422cd1511dd0ee79a4
-ms.lasthandoff: 01/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -36,7 +37,7 @@ En este artículo no se describen todas las API que se muestran en Azure, sino q
 
 ## <a name="authentication"></a>Autenticación
 La autenticación para Resource Manager se controla mediante Azure Active Directory (AD). Para conectarse a cualquier API, primero debe autenticarse con Azure AD para recibir un token de autenticación que pueda pasar a cada solicitud. Como se describe una llamada pura directamente a las API de REST, se asume que no desea autenticar por medio de una solicitud de nombre de usuario y contraseña. También se supone que no usa dos mecanismos de autenticación en dos fases. Por tanto, creamos lo que se denomina una aplicación de Azure AD y una entidad de servicio que se usan para iniciar la sesión. Pero recuerde que Azure AD admite varios procedimientos de autenticación y todos ellos podrían usarse para recuperar el token de autenticación que se necesita para las solicitudes posteriores de API.
-Siga las instrucciones paso a paso que encontrará en [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](resource-group-create-service-principal-portal.md).
+Siga las instrucciones paso a paso disponibles en [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](resource-group-create-service-principal-portal.md).
 
 ### <a name="generating-an-access-token"></a>Generación de un token de acceso
 La autenticación en Azure AD se realiza llamando a Azure AD, ubicado en login.microsoftonline.com. Para realizar la autenticación, se necesita la información siguiente:

@@ -1,34 +1,36 @@
 ---
-title: "Solución de errores de Azure Backup: Se agotó el tiempo de espera de la subtarea de instantánea de máquina virtual | Microsoft Docs"
-description: "Síntomas, causas y soluciones para los errores de Azure Backup relacionados con no poder comunicarse con el agente de máquina virtual para el estado de la instantánea: Se agotó el tiempo de espera de la subtarea de instantánea de máquina virtual"
+title: "Solución del error de Azure Backup: no está disponible el estado del agente invitado | Documentos de Microsoft"
+description: "Síntomas, causas y soluciones de otros errores de Azure Backup relacionados con el error: no es posible establecer comunicación con el agente de máquina virtual"
 services: backup
 documentationcenter: 
 author: genlin
 manager: cshepard
 editor: 
+keywords: "Azure Backup; Agente de máquina virtual; Conectividad de red;"
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 06/13/2017
 ms.author: genli;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d7924d8aade1ea582faa0f319f8c1d16d5461fbc
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: dd4ac14a703663175bb477de587da8f4ad510c7c
+ms.contentlocale: es-es
+ms.lasthandoff: 06/14/2017
 
 ---
 
-# <a name="troubleshoot-azure-backup-failure-snapshot-vm-sub-task-timed-out"></a>Solución de errores de Azure Backup: Se agotó el tiempo de espera de la subtarea de instantánea de máquina virtual
+# <a name="troubleshoot-azure-backup-failure-vm-agent-unable-to-communicate-with-azure-backup"></a>Solución del error de Azure Backup: el agente de máquina virtual no puede comunicarse con Azure Backup
 ## <a name="summary"></a>Resumen
-Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las cuatro condiciones puede impedir que la instantánea se desencadene, lo que a su vez puede dar lugar a errores de Backup. Este artículo proporciona pasos para solucionar problemas que le ayudan a resolver errores de Backup relacionados con los errores de tiempo de espera de instantánea agotado.
+Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las cuatro condiciones puede impedir que la instantánea se desencadene, lo que a su vez puede dar lugar a errores de Backup. En este artículo se proporcionan los pasos necesarios para ayudarle a resolver errores de Backup relacionados con los errores de comunicación con el agente de la máquina virtual y la extensión.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="symptom"></a>Síntoma
-Se produce un error en Azure Backup para la máquina virtual de infraestructura como servicio (IaaS), devuelve el siguiente mensaje de error en los detalles del error de trabajo en [Azure Portal](https://portal.azure.com/): "No se pudo comunicar con el agente de máquina virtual para obtener el estado de instantánea. Se agotó el tiempo de espera de la subtarea de instantánea de máquina virtual".
+Se produce un error en Azure Backup para una máquina virtual de infraestructura como servicio (IaaS) y se devuelve el siguiente mensaje de error en los detalles del error de trabajo en [Azure Portal](https://portal.azure.com/): "El agente de VM no puede comunicarse con el servicio Azure Backup ", "Se produjo un error en el funcionamiento de las instantáneas por que la máquina virtual no tiene conectividad de red".
 
 ## <a name="cause-1-the-vm-has-no-internet-access"></a>Causa 1: La máquina virtual no tiene acceso a Internet
 Según los requisitos de implementación, la máquina virtual no tiene ningún acceso a Internet o tiene restricciones vigentes que impiden el acceso a la infraestructura de Azure.
@@ -49,6 +51,8 @@ Para solucionar este problema, pruebe uno de los métodos siguientes:
 2. Para permitir el acceso a Internet desde el servidor proxy HTTP, agregue las reglas al grupo de seguridad de red, si dispone de uno.
 
 Para aprender a cómo configurar un proxy HTTP para las copias de seguridad de la máquina virtual, consulte [Preparación del entorno de copia de seguridad de Azure Virtual Machines](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+
+En caso de que use Managed Disks, puede que necesite un puerto adicional (8443) que se abra en los firewalls.
 
 ## <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 2: El agente instalado en la máquina virtual está obsoleto (en el caso de máquinas virtuales Linux)
 
@@ -77,10 +81,24 @@ La mayoría de los errores relacionados con el agente o la extensión de máquin
 Si se requiere el registro detallado para waagent, siga estos pasos:
 
 1. En el archivo /etc/waagent.conf, localice la línea siguiente: **Enable verbose logging (y|n)** (Habilitar registro detallado [s/n]).
-2. Cambie el valor de **Logs.Verbose** de *n* a *y*.
+2. Cambie el valor de **Logs.Verbose** de *n* a  *y* .
 3. Guarde los cambios y reinicie waagent siguiendo los pasos anteriores de esta sección.
 
-## <a name="cause-3-the-backup-extension-fails-to-update-or-load"></a>Causa 3: No se puede actualizar ni cargar la extensión de copia de seguridad.
+## <a name="cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 3: El agente está instalado en la máquina virtual, pero no responde (para máquinas virtuales de Windows)
+
+### <a name="solution"></a>Solución
+Es posible que el agente de máquina virtual se haya dañado o que el servicio se haya detenido. Si vuelve a instalar al agente tendrá la versión más reciente y se reiniciará la comunicación.
+
+1. Compruebe si puede ver el servicio Windows Guest Agent en los servicios del equipo (services.msc)
+2. Si no lo ve, compruebe en Programas y características si el servicio Windows Guest Agent está instalado.
+3. Si lo ve en Programas y características, desinstale el servicio.
+4. Descargue e instale el [MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador.
+5. A partir de ese momento debería poder ver Windows Guest Agent en los servicios
+6. Pruebe a ejecutar una copia de seguridad ad hoc o a petición, para lo que debe hacer clic en "Realizar copia de seguridad ahora" en el portal.
+
+Compruebe también si **.NET 4.5 está instalado en el sistema**, ya que se requiere para que el agente de máquina virtual se comunique con el servicio.
+
+## <a name="cause-4-the-backup-extension-fails-to-update-or-load"></a>Causa 4: La extensión de la copia de seguridad no se puede actualizar ni cargar
 Si no se pueden cargar las extensiones, Backup producirá un error porque no se puede tomar una instantánea.
 
 ### <a name="solution"></a>Solución
@@ -106,7 +124,7 @@ Para desinstalar la extensión, haga lo siguiente:
 
 Este procedimiento hace que la extensión se vuelva a instalar durante la siguiente copia de seguridad.
 
-## <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: No se puede recuperar el estado de las instantáneas o no se pueden sacar las mismas.
+## <a name="cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 5: No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas
 La copia de seguridad de máquina virtual se basa en la emisión de comandos de instantánea para la cuenta del almacenamiento subyacente. Backup puede producir un error porque no tiene ningún acceso a la cuenta de almacenamiento o porque se retrasa la ejecución de la tarea de instantáneas.
 
 ### <a name="solution"></a>Solución

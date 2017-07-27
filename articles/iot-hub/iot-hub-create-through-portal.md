@@ -20,7 +20,6 @@ ms.openlocfilehash: 7a68a2764d17b53164ded5096ddee68ab8c723ed
 ms.contentlocale: es-es
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -42,6 +41,8 @@ Puede crear un IoT Hub con los métodos siguientes:
 
 ### <a name="choose-the-name-of-the-iot-hub"></a>Elección del nombre del Centro de IoT
 Para crear un centro de IoT, debe asignar un nombre al centro. Tenga en cuenta que este nombre debe distinguirlo de todos los centros. La duplicación de centros no está permitida en el back-end de solución, por lo que se recomienda asignar a este centro un nombre lo más único posible.
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 ### <a name="choose-the-pricing-tier"></a>Elección del plan de tarifa
 Puede elegir entre cuatro niveles: **Gratis**, **Estándar 1**, **Estándar 2** y **Estándar S3**. El nivel Gratis permite solo la conexión de 500 dispositivos con el Centro de IoT y hasta 8000 mensajes al día.

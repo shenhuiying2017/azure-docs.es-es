@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a3d958e1a37ddf6821d41afe7427faec1b8259b2
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios
+
+![Símbolo de Change Tacking](./media/log-analytics-change-tracking/change-tracking-symbol.png)
 
 Este artículo le ayudará a usar la solución de seguimiento de cambios de Log Analytics para identificar fácilmente los cambios del entorno. La solución realiza un seguimiento de los cambios efectuados en el software de Windows y Linux, en los archivos y las claves del Registro de Windows, en los servicios de Windows y en los demonios de Linux. Identificar los cambios de configuración puede ayudarle a localizar problemas operativos.
 
@@ -33,6 +35,17 @@ Utilice la siguiente información para instalar y configurar la solución.
 
 * Debe tener un agente [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md) o [Linux](log-analytics-linux-agents.md) en cada equipo en el que desee supervisar los cambios.
 * Agregue la solución Change Tracking (seguimiento de cambios) al área de trabajo de OMS desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Log Analytics desde la Galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
+
+### <a name="configure-linux-files-to-track"></a>Configuración de los archivos de Linux de los que se realizará un seguimiento
+Use los pasos siguientes para configurar los archivos de los que se realizará un seguimiento en los equipos Linux.
+
+1. En el portal de OMS, haga clic en **Configuración** (el símbolo de engranaje).
+2. En la página **Configuración**, haga clic en **Datos** y, luego, en **Seguimiento de archivos de Linux**.
+3. En Change Tracking de archivos de Linux, escriba toda la ruta de acceso, incluido el nombre del archivo del que desea realizar un seguimiento y, a continuación, haga clic en el símbolo **Agregar**. Por ejemplo: "/etc/*.conf"
+4. Haga clic en **Guardar**.  
+  
+> [!NOTE]
+> El seguimiento de archivos de Linux tiene funcionalidades adicionales, incluido el seguimiento de directorios, recursión de los directorios y seguimiento de comodines.
 
 ### <a name="configure-windows-files-to-track"></a>Configuración de los archivos de Windows de los que se realizará un seguimiento
 Use los pasos siguientes para configurar los archivos de los que se realizará un seguimiento en los equipos Windows.
@@ -52,14 +65,30 @@ Use los pasos siguientes para configurar las claves del Registro para realizar u
 4. Haga clic en **Guardar**.  
    ![Seguimiento de cambios del Registro de Windows](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
+### <a name="explanation-of-linux-file-collection-properties"></a>Explicación de las propiedades de la colección de archivos de Linux
+1. **Tipo**
+   * **File** (metadatos del archivo de informe: tamaño, fecha de modificación, hash, etc.)
+   * **Directory** (metadatos del directorio de informe: tamaño, fecha de modificación, etc.)
+2. **Links** (control de referencias de vínculo simbólico de Linux a otros archivos o directorios)
+   * **Ignore** (omitir los vínculos simbólicos durante las recursiones para no incluir los archivos/directorios a los que se hace referencia)
+   * **Follow** (seguir los vínculos simbólicos durante las recursiones para incluir también los archivos/directorios a los que se hace referencia)
+   * **Manage** (seguir los vínculos simbólicos y modificar el tratamiento del contenido devuelto) 
+   
+   > [!NOTE]   
+   > No se recomienda la opción de vínculos "Manage" debido a que actualmente no se admite la recuperación de contenido de archivos.
+   
+3. **Recurse** (recorrer los niveles de carpeta y hacer seguimiento de todos los archivos que cumplen con la instrucción path)
+4. **Sudo** (habilitar el acceso a los archivos o directorios que requieren el privilegio sudo)
+
 ### <a name="limitations"></a>Limitaciones
 Actualmente, la solución de seguimiento de cambios no admite nada de lo siguiente:
 
-* carpetas (directorios)
-* recursión
-* caracteres comodín
-* variables de ruta de acceso
-* sistemas de archivos de red
+* Carpetas (directorios) para seguimiento de archivos de Windows
+* Recursión para seguimiento de archivos de Windows
+* Comodines para seguimiento de archivos de Windows
+* Variables de ruta de acceso
+* Sistemas de archivos de red
+* Contenido del archivo
 
 Otras limitaciones:
 

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: fa9e86552f61693b953f636bff3cd9d869feba23
-ms.openlocfilehash: 14c179d76664876695f2974de44e6bc000942184
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 635affebf9130c2bfb38e84cc144ee4838504777
+ms.contentlocale: es-es
+ms.lasthandoff: 05/25/2017
 
 ---
 
@@ -43,7 +44,7 @@ Antes de empezar a realizar cambios en el filtrado, asegúrese de [deshabilitar 
 
 Como el filtrado puede quitar varios objetos al mismo tiempo, querrá asegurarse de que los nuevos filtros sean correctos antes de exportar los cambios a Azure AD. Después de completar los pasos de configuración, se recomienda encarecidamente seguir los [pasos de comprobación](#apply-and-verify-changes) antes de exportar y realizar cambios en Azure AD.
 
-Para evitar eliminar muchos objetos por error, la característica para [evitar eliminaciones por error](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) está activada de forma predeterminada. Si elimina muchos objetos debido al filtrado (de forma predeterminada,&500;), debe seguir los pasos descritos en este artículo para permitir que las eliminaciones se reflejen en Azure AD.
+Para evitar eliminar muchos objetos por error, la característica para [evitar eliminaciones por error](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) está activada de forma predeterminada. Si elimina muchos objetos debido al filtrado (de forma predeterminada, 500), debe seguir los pasos descritos en este artículo para permitir que las eliminaciones se reflejen en Azure AD.
 
 Si usa una compilación anterior a la de noviembre de 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), realiza un cambio en la configuración de filtro y usa la sincronización de contraseñas, deberá desencadenar una sincronización completa de todas las contraseñas una vez terminada la configuración. Para conocer los pasos para desencadenar una sincronización completa de las contraseñas, consulte [Desencadenamiento de una sincronización completa de todas las contraseñas](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Si usa la compilación 1.0.9125 o una posterior, la acción de **sincronización completa** normal también calcula si se deben sincronizar las contraseñas, por lo que no se requiere este paso adicional.
 
@@ -76,7 +77,7 @@ Después de completar todos los cambios de filtrado, no olvide volver a seleccio
 ## <a name="filtering-options"></a>Opciones de filtrado
 Puede aplicar los siguientes tipos de configuración de filtrado a la herramienta de sincronización de directorios:
 
-* [**Por grupo**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): el filtrado por grupo único solo se puede configurar durante la instalación inicial con el Asistente para instalación. En este artículo no se habla más de él.
+* [**Por grupo**](#group-based-filtering): el filtrado por grupo único solo se puede configurar durante la instalación inicial con el Asistente para instalación.
 * [**Por dominio**](#domain-based-filtering): esta opción permite seleccionar los dominios que se sincronizarán con Azure AD. También permite agregar y quitar dominios de la configuración del motor de sincronización al realizar cambios en la infraestructura local después de instalar la sincronización de Azure AD Connect.
 * [**Por unidad organizativa (OU)**](#organizational-unitbased-filtering): esta opción permite seleccionar las unidades organizativas que se sincronizarán con Azure AD. Esta opción está en todos los tipos de objeto de las unidades organizativas seleccionadas.
 * [**Por atributo**](#attribute-based-filtering): esta opción permite filtrar objetos en función de los valores de sus atributos. También puede tener filtros diferentes para distintos tipos de objetos.
@@ -253,7 +254,7 @@ En este ejemplo, se cambia el filtrado de manera que se sincronicen solo los usu
 1. Inicie sesión en el servidor donde se ejecuta la sincronización de Azure AD Connect con una cuenta que pertenezca al grupo de seguridad **ADSyncAdmins** .
 2. Inicie el **Synchronization Rules Editor** (Editor de reglas de sincronización) del menú **Inicio**.
 3. En **Rules Type** (Tipo de reglas), haga clic en **Saliente**.
-4. Busque la regla **Out to AAD – User Join SOAInAD** y haga clic en **Editar**.
+4. Busque la regla llamada **Out to AAD – User Join** y haga clic en **Editar**.
 5. En el elemento emergente, responda **Sí** para crear una copia de la regla.
 6. En la página **Descripción**, cambie la **Precedencia** a un valor sin usar, como 50.
 7. Haga clic en **Scoping filter** (Filtro de ámbito) en el panel de navegación izquierdo y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **mail**. En **Operador**, seleccione **ENDSWITH**. En **Valor**, escriba **@contoso.com** y haga clic en **Agregar cláusula**. En **Atributo**, seleccione **userPrincipalName**. En **Operador**, seleccione **ENDSWITH**. En **Valor**, escriba **@contoso.com**.
@@ -295,7 +296,7 @@ Ahora es el momento de volver a habilitar el programador.
 2. Directamente en **Biblioteca del Programador de tareas**, busque la tarea **Programador de Sincronización de Azure AD**, haga clic con el botón derecho en ella y seleccione **Habilitar**.
 
 ## <a name="group-based-filtering"></a>Filtrado basado en grupo
-Puede configurar el filtrado por grupo la primera vez que instale Azure AD Connect con la instalación personalizada. Se ha diseñado para una implementación piloto donde se vaya a sincronizar solo un pequeño conjunto de objetos. Cuando deshabilite el filtrado por grupo, no lo podrá volver a habilitar. El filtrado por grupo *no es compatible* con la configuración personalizada. Solo se admite para configurar esta característica con el Asistente para instalación. Cuando haya completado la prueba piloto, utilice una de las opciones de filtrado de este tema.
+Puede configurar el filtrado por grupo la primera vez que instale Azure AD Connect con la [instalación personalizada](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Se ha diseñado para una implementación piloto donde se vaya a sincronizar solo un pequeño conjunto de objetos. Cuando deshabilite el filtrado por grupo, no lo podrá volver a habilitar. El filtrado por grupo *no es compatible* con la configuración personalizada. Solo se admite para configurar esta característica con el Asistente para instalación. Cuando haya completado la prueba piloto, utilice una de las opciones de filtrado de este tema. Si se usa el filtrado por UO junto con el filtrado basado en grupo, se deben incluir las unidades organizativas donde se encuentran el grupo y sus miembros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).

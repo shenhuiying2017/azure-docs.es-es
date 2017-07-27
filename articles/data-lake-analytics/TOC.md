@@ -18,6 +18,7 @@
 ### [SDK de Java](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Acceso a los registros de diagnóstico](data-lake-analytics-diagnostic-logs.md)
+### [Ajuste de los límites de cuota](data-lake-analytics-quota-limits.md)
 
 ## Desarrollo de programas U-SQL
 ### [Conceptos básicos de U-SQL](data-lake-analytics-u-sql-get-started.md)
@@ -28,12 +29,15 @@
 ### [Extensiones de R de U-SQL](data-lake-analytics-u-sql-r-extensions.md)
 ### [Extensiones cognitivas de U-SQL](data-lake-analytics-u-sql-cognitive.md)
 ### [Análisis de registros de sitios web](data-lake-analytics-analyze-weblogs.md)
+### [U-SQL para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 
 ## Depuración de programas U-SQL
 ### [Trabajos de supervisión y solución de problemas](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 ### [Depuración de código C# en U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Uso de un explorador y una vista de trabajo](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Uso de la vista de ejecución de vértices](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+### [Ejecución local y depuración local en VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
+### [Guía de programación de U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Referencia
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
@@ -45,7 +49,7 @@
 
 # Recursos
 ## [Blog de Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Comentarios sobre UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Precios](https://azure.microsoft.com/pricing/details/data-lake-analytics/)

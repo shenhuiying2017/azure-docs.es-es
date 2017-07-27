@@ -2,145 +2,146 @@
   href: index.yml
 - name: Información general
   items:
-  - name: Acerca de Functions
-    href: functions-overview.md
-  - name: 'Elección entre Flow, Logic Apps, Functions y WebJobs'
-    href: functions-compare-logic-apps-ms-flow-webjobs.md
+    - name: Acerca de Functions
+      href: functions-overview.md
+    - name: 'Elección entre Flow, Logic Apps, Functions y WebJobs'
+      href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Inicios rápidos
   expanded: true
   items:
-  - name: 'Creación de función: Portal'
-    href: functions-create-first-azure-function.md
-  - name: 'Creación de función: CLI de Azure'
-    href: functions-create-first-azure-function-azure-cli.md
-  - name: 'Creación de función: Visual Studio'
-    href: functions-create-your-first-function-visual-studio.md
-  - name: Desencadenadores
-    items:
-    - name: Temporizador
-      href: functions-create-scheduled-function.md
-    - name: Webhook de GitHub
-      href: functions-create-github-webhook-triggered-function.md
-    - name: Almacenamiento de blobs
-      href: functions-create-storage-blob-triggered-function.md
-    - name: Queue Storage
-      href: functions-create-storage-queue-triggered-function.md
-  - name: Integrate
-    items:
-    - name: Almacenamiento
-      href: functions-integrate-storage-queue-output-binding.md
-    - name: Cosmos DB
-      href: functions-integrate-store-unstructured-data-cosmosdb.md
+    - name: 'Creación de función: Portal'
+      href: functions-create-first-azure-function.md
+    - name: 'Creación de función: CLI de Azure'
+      href: functions-create-first-azure-function-azure-cli.md
+    - name: 'Creación de función: Visual Studio'
+      href: functions-create-your-first-function-visual-studio.md
+    - name: Desencadenadores
+      items:
+        - name: Temporizador
+          href: functions-create-scheduled-function.md
+        - name: Webhook de GitHub
+          href: functions-create-github-webhook-triggered-function.md
+        - name: Almacenamiento de blobs
+          href: functions-create-storage-blob-triggered-function.md
+        - name: Queue Storage
+          href: functions-create-storage-queue-triggered-function.md
+    - name: Integrate
+      items:
+        - name: Almacenamiento
+          href: functions-integrate-storage-queue-output-binding.md
+        - name: Cosmos DB
+          href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Tutoriales
   items:
-  - name: 1 - Functions con Logic Apps
-    href: functions-twitter-email.md
-  - name: 2 - Creación de una API sin servidor
-    href: functions-create-serverless-api.md
+    - name: 1 - Functions con Logic Apps
+      href: functions-twitter-email.md
+    - name: 2 - Creación de una API sin servidor
+      href: functions-create-serverless-api.md
 - name: Muestras
   items:
-  - name: Azure CLI
-    href: functions-cli-samples.md
+    - name: Azure CLI
+      href: functions-cli-samples.md
 - name: Conceptos
   items:
-  - name: Planes de consumo y plan de App Service
-    href: functions-scale.md
-  - name: Desencadenadores y enlaces
-    href: functions-triggers-bindings.md
-  - name: Idiomas
-    items:
-    - name: 'Script de C#'
- 
-      href: functions-reference-csharp.md
-    - name: Biblioteca de clases .NET
-      href: functions-dotnet-class-library.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md    
-  - name: Consideraciones sobre rendimiento
-    href: functions-best-practices.md 
-  - name: Proxy de funciones
-    href: functions-proxies.md 
-  - name: Sistema en tiempo de ejecución de Functions
-    href: functions-runtime-overview.md
+    - name: Planes de consumo y plan de App Service
+      href: functions-scale.md
+    - name: Desencadenadores y enlaces
+      href: functions-triggers-bindings.md
+    - name: Idiomas
+      items:
+        - name: 'Script de C#'
+          href: functions-reference-csharp.md
+        - name: Biblioteca de clases .NET
+          href: functions-dotnet-class-library.md
+        - name: 'F#'
+          href: functions-reference-fsharp.md
+        - name: JavaScript
+          href: functions-reference-node.md
+    - name: Consideraciones sobre rendimiento
+      href: functions-best-practices.md
+    - name: Proxy de funciones
+      href: functions-proxies.md
+    - name: Sistema en tiempo de ejecución de Functions
+      href: functions-runtime-overview.md
 - name: Guías de procedimientos
   items:
-  - name: Desarrollo
-    items: 
-     - name: Guía del desarrollador
-       href: functions-reference.md
-     - name: Funciones de prueba
-       href: functions-test-a-function.md
-     - name: Desarrollo y depuración locales
-       href: functions-run-local.md
-     - name: Desarrollo de Visual Studio
-       href: functions-develop-vs.md
-  - name: Implementación
-    items:
-    - name: Implementación continua
-      href: functions-continuous-deployment.md
-    - name: Automatización de la implementación de recursos
-      href: functions-infrastructure-as-code.md
-    - name: Funciones locales
-      href: functions-runtime-install.md
-  - name: Configuración
-    href: functions-how-to-use-azure-function-app-settings.md
-  - name: Supervisión
-    href: functions-monitoring.md
-  - name: Integrate
-    items:   
-    - name: Conectarse a Base de datos SQL
-      href: functions-scenario-database-table-cleanup.md
-    - name: Creación de una definición de OpenAPI 2.0
-      href: functions-api-definition-getting-started.md         
+    - name: Desarrollo
+      items:
+        - name: Guía del desarrollador
+          href: functions-reference.md
+        - name: Funciones de prueba
+          href: functions-test-a-function.md
+        - name: Desarrollo y depuración locales
+          href: functions-run-local.md
+        - name: Desarrollo de Visual Studio
+          href: functions-develop-vs.md
+    - name: Implementación
+      items:
+        - name: Implementación continua
+          href: functions-continuous-deployment.md
+        - name: Automatización de la implementación de recursos
+          href: functions-infrastructure-as-code.md
+        - name: Funciones locales
+          href: functions-runtime-install.md
+    - name: Configuración
+      href: functions-how-to-use-azure-function-app-settings.md
+    - name: Supervisión
+      href: functions-monitoring.md
+    - name: Integrate
+      items:
+        - name: Conectarse a Base de datos SQL
+          href: functions-scenario-database-table-cleanup.md
+        - name: Creación de una definición de OpenAPI 2.0
+          href: functions-api-definition-getting-started.md
+        - name: Exportación a PowerApps y Microsoft Flow
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Referencia
   items:
-  - name: Enlaces
-    items:
-    - name: Almacenamiento de blobs
-      href: functions-bindings-storage-blob.md
-    - name: Cosmos DB
-      href: functions-bindings-documentdb.md
-    - name: Event Hubs
-      href: functions-bindings-event-hubs.md
-    - name: Archivo externo
-      href: functions-bindings-external-file.md
-    - name: HTTP y webhooks
-      href: functions-bindings-http-webhook.md
-    - name: Mobile Apps
-      href: functions-bindings-mobile-apps.md
-    - name: Notification Hubs
-      href: functions-bindings-notification-hubs.md
-    - name: Queue Storage
-      href: functions-bindings-storage-queue.md
-    - name: SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Service Bus
-      href: functions-bindings-service-bus.md
-    - name: Almacenamiento de tablas
-      href: functions-bindings-storage-table.md
-    - name: Temporizador
-      href: functions-bindings-timer.md
-    - name: Twilio
-      href: functions-bindings-twilio.md
-  - name: Referencia de OpenAPI
-    href: functions-api-definition.md     
+    - name: Enlaces
+      items:
+        - name: Almacenamiento de blobs
+          href: functions-bindings-storage-blob.md
+        - name: Cosmos DB
+          href: functions-bindings-documentdb.md
+        - name: Event Hubs
+          href: functions-bindings-event-hubs.md
+        - name: Archivo externo
+          href: functions-bindings-external-file.md
+        - name: HTTP y webhooks
+          href: functions-bindings-http-webhook.md
+        - name: Mobile Apps
+          href: functions-bindings-mobile-apps.md
+        - name: Notification Hubs
+          href: functions-bindings-notification-hubs.md
+        - name: Queue Storage
+          href: functions-bindings-storage-queue.md
+        - name: SendGrid
+          href: functions-bindings-sendgrid.md
+        - name: Service Bus
+          href: functions-bindings-service-bus.md
+        - name: Almacenamiento de tablas
+          href: functions-bindings-storage-table.md
+        - name: Temporizador
+          href: functions-bindings-timer.md
+        - name: Twilio
+          href: functions-bindings-twilio.md
+    - name: Referencia de OpenAPI
+      href: functions-api-definition.md
 - name: Recursos
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/functions/
-  - name: Disponibilidad regional
-    href: https://azure.microsoft.com/regions/services/
-  - name: Foro de MSDN
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
-  - name: Stackoverflow
-    href: http://stackoverflow.com/questions/tagged/azure-functions
-  - name: Twitter
-    href: https://twitter.com/azurefunctions
-  - name: Repositorio de GitHub de Azure Functions
-    href: https://github.com/Azure/Azure-Functions/
-  - name: Actualizaciones del servicio
-    href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/functions/'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Foro de MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
+    - name: Stackoverflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-functions'
+    - name: Twitter
+      href: 'https://twitter.com/azurefunctions'
+    - name: Repositorio de GitHub de Azure Functions
+      href: 'https://github.com/Azure/Azure-Functions/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform='

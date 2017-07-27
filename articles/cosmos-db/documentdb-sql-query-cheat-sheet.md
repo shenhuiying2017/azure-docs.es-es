@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/05/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: e714d3585b78d28aba069464a444162103739657
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 04810ffa33d90d31003d0919c3edb2710fed453c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>PDF de la hoja de referencia de consultas SQL de Azure Cosmos DB
-La **Hoja de referencia rápida de consultas SQL de Azure Cosmos DB** ayuda a escribir rápidamente consultas para datos de Azure Cosmos DB ya que se muestran las consultas de base de datos comunes, las palabras clave, las funciones integradas y los operadores en una hoja de referencia PDF fácil de imprimir. 
+# <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: PDF de la hoja de referencia de consultas SQL de la API de DocumentDB
+La **Hoja de referencia rápida de consultas SQL de la API de DocumentDB de Azure Cosmos DB** ayuda a escribir consultas para datos de la API de DocumentDB rápidamente al mostrar las consultas de base de datos comunes, las palabras clave, las funciones integradas y los operadores en una hoja de referencia PDF fácil de imprimir. 
 
 Cosmos DB admite consultas relacionales, jerárquicas y espaciales de documentos JSON mediante [SQL](documentdb-sql-query.md) sin especificar un esquema o índices secundarios. Además de las palabras clave y los operadores estándar de SQL ANSI, Cosmos DB admite funciones JavaScript definidas por el usuario (UDF), operadores JavaScript y una multitud de funciones integradas.
 

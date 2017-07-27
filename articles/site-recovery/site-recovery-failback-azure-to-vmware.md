@@ -14,12 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 795dd0c05daf560e5a271fef5356eb83d72a6112
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dde0bb6b4f6bc10afdd7d40adc6689d42b37de81
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos al sitio local
@@ -70,7 +69,7 @@ Cuando se conmuta por recuperación a una ubicación alternativa, los datos se r
 ## <a name="prerequisites"></a>Requisitos previos
 * Para conmutar por recuperación máquinas virtuales de VMware y servidores físicos, necesita un entorno de VMware. No se admite la conmutación por recuperación a un servidor físico.
 * Para realizar la conmutación por recuperación, debe haber creado una red de Azure cuando configuró inicialmente la protección. La conmutación por recuperación necesita una conexión VPN o ExpressRoute desde la red de Azure, en la que se encuentran las máquinas virtuales de Azure, hasta el sitio local.
-* Si las máquinas virtuales que desea conmutar por recuperación las administra un servidor vCenter, asegúrese de tener los permisos necesarios para la detección de máquinas virtuales en servidores vCenter. Para obtener más información, consulte [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+* Si las máquinas virtuales que desea conmutar por recuperación las administra un servidor vCenter, asegúrese de tener los permisos necesarios para la detección de máquinas virtuales en servidores vCenter. Para obtener más información, consulte [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 * Si existen instantáneas en una máquina virtual, la reprotección dará error. Puede eliminar las instantáneas o los discos.
 * Antes de realizar conmutación por recuperación, cree estos componentes:
   * **Cree un servidor de procesos en Azure**. Este componente es una máquina virtual de Azure que creará y mantendrá en ejecución durante la conmutación por recuperación. Puede eliminar la máquina virtual una vez completada la operación.
@@ -110,7 +109,7 @@ Si ha protegido las máquinas virtuales como recursos clásicos (es decir, la m�
  * El nombre de la imagen es *Microsoft Azure Site Recovery Process Server V2*(Servidor de procesos de Microsoft Azure Site Recovery, versión 2). Seleccione **Clásico** como el modelo de implementación.
 
        ![Select "Classic" as the Process Server deployment model](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
- * Instale el servidor de procesos siguiendo las instrucciones de [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
+ * Instale el servidor de procesos siguiendo las instrucciones de [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 7. Si selecciona la red de Azure *Resource Manager*, implemente el servidor de procesos indicando la siguiente información:
 
   * El nombre del grupo de recursos en el que desea implementar el servidor.
@@ -123,7 +122,7 @@ Si ha protegido las máquinas virtuales como recursos clásicos (es decir, la m�
 
     ![Escribir la información en el cuadro de diálogo "Agregar servidor de procesos"](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 
-8. Haga clic en **Aceptar**. Esta acción desencadena un trabajo que crea una máquina virtual con el tipo de implementación de Resource Manager durante la instalación del servidor de procesos. Para registrar el servidor en el servidor de configuración, ejecute el programa de instalación dentro de la máquina virtual siguiendo las instrucciones de [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). Se desencadenará también un trabajo para implementar el servidor de procesos.
+8. Haga clic en **Aceptar**. Esta acción desencadena un trabajo que crea una máquina virtual con el tipo de implementación de Resource Manager durante la instalación del servidor de procesos. Para registrar el servidor en el servidor de configuración, ejecute el programa de instalación dentro de la máquina virtual siguiendo las instrucciones de [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md). Se desencadenará también un trabajo para implementar el servidor de procesos.
 
   El servidor de procesos aparece en la pestaña **Servidores de configuración** > **Servidores asociados** > **Servidores de procesos**.
 
@@ -142,7 +141,7 @@ El servidor de destino maestro recibe los datos de conmutación por recuperació
 1. Si está configurando el servidor de destino principal en Windows, abra la página de inicio rápido de la máquina virtual en la que está instalando el servidor de destino principal.
 2. Descargue el archivo de instalación del Asistente para instalación unificada de Azure Site Recovery.
 3. Ejecute el programa de instalación y, en **Antes de comenzar**, seleccione **Add additional process servers to scale out deployment** (Agregar servidores de procesos adicionales para el escalado horizontal de la implementación).
-4. Complete el asistente tal y como hizo cuando [instaló el servidor de administración](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). En la página **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP de este servidor de destino principal y una frase de contraseña para acceder a la máquina virtual.
+4. Complete el asistente tal y como hizo cuando [instaló el servidor de administración](site-recovery-vmware-to-azure-classic.md). En la página **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP de este servidor de destino principal y una frase de contraseña para acceder a la máquina virtual.
 
 ### <a name="set-up-a-linux-vm-as-the-master-target-server"></a>Configuración de una máquina virtual de Linux como servidor de destino maestro
 Para configurar el servidor de administración que ejecuta el servidor de destino principal como una máquina virtual de Linux, instale el sistema operativo mínimo CentOS 6.6. A continuación, recupere los identificadores de SCSI para todos los discos duros SCSI, instale paquetes adicionales y aplique cambios personalizados.
@@ -232,7 +231,7 @@ Una vez completada la confirmación, los datos deberían volver al sitio local, 
 Una vez completada la reprotección, la máquina virtual se vuelve a replicar en Azure y puede realizar una conmutación por error.
 
 ### <a name="resolve-common-failback-issues"></a>Resolución de problemas habituales de la conmutación por recuperación
-* Si realiza la detección de usuarios de solo lectura de vCenter y protege las máquinas virtuales, se ejecutará correctamente y la conmutación por error funcionará. Durante la reprotección, se produce un error de conmutación por error porque no se pueden detectar los almacenes de datos. El síntoma de este problema es que no se ven los almacenes de datos enumerados durante la reprotección. Para resolverlo, puede actualizar las credenciales de vCenter con la cuenta adecuada que tenga permisos y tratar de realizar el trabajo de nuevo. Para obtener más información, consulte [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+* Si realiza la detección de usuarios de solo lectura de vCenter y protege las máquinas virtuales, se ejecutará correctamente y la conmutación por error funcionará. Durante la reprotección, se produce un error de conmutación por error porque no se pueden detectar los almacenes de datos. El síntoma de este problema es que no se ven los almacenes de datos enumerados durante la reprotección. Para resolverlo, puede actualizar las credenciales de vCenter con la cuenta adecuada que tenga permisos y tratar de realizar el trabajo de nuevo. Para obtener más información, consulte [Replicación de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 * Cuando conmuta por recuperación una máquina virtual de Linux y la ejecuta localmente, verá que se ha desinstalado el paquete del administrador de red de la máquina. Esto se debe a que el paquete del administrador de red se elimina cuando se recupera la VM en Azure.
 * Cuando una máquina virtual se configura con una dirección IP estática y se conmuta por error a Azure, se adquiere la dirección IP mediante DHCP. Al conmutar por error a un entorno local, la VM seguirá utilizando DHCP para obtener la dirección IP. Inicie sesión manualmente en el equipo y vuelva a establecer la dirección IP en una dirección estática si es necesario.
 * Si utiliza las ediciones gratuitas de ESXi 5.5 o vSphere Hypervisor 6, la conmutación por error se llevará a cabo correctamente, pero la conmutación por recuperación, no. Para habilitar la conmutación por recuperación, tendrá que actualizar los programas con una licencia de evaluación.

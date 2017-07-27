@@ -2,7 +2,7 @@
 title: Notificaciones de estado del servicio | Microsoft Docs
 description: Las notificaciones de estado del servicio permiten ver los mensajes que publica Microsoft Azure acerca del estado de un servicio.
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: c7ea129346c5fddcff9f824dc69478cf6fb1c67a
+ms.contentlocale: es-es
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="service-health-notifications"></a>Notificaciones de estado del servicio
@@ -50,7 +50,7 @@ resourceProviderName | Nombre del proveedor de recursos del recurso afectado.
 resourceType| El tipo del recurso afectado
 subStatus | Por lo general, el código de estado HTTP de la llamada de REST correspondiente, pero también puede incluir otras cadenas que describen un subestado, como estos valores habituales: OK (código de estado HTTP: 200), Created (código de estado HTTP: 201), Accepted (código de estado HTTP: 202), No Content (código de estado HTTP: 204), Bad Request (código de estado HTTP: 400), Not Found (código de estado HTTP: 404), Conflict (código de estado HTTP: 409), Internal Server Error (código de estado HTTP: 500), Service Unavailable (código de estado HTTP: 503) y Gateway Timeout (código de estado HTTP: 504).
 eventTimestamp | Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento.
-submissionTimestamp |     Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas.
+submissionTimestamp |   Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas.
 subscriptionId | La suscripción de Azure en la que se registró la este evento
 status | Cadena que describe el estado de la operación. Algunos valores habituales son: Started, In Progress, Succeeded, Failed, Active y Resolved.
 operationName | Nombre de la operación.
@@ -68,15 +68,15 @@ Properties.communicationId | La comunicación de este evento está asociada.
 
 
 ## <a name="viewing-your-service-health-notifications-in-the-azure-portal"></a>Visualización de las notificaciones de estado del servicio en Azure Portal
-1.    En el [portal](https://portal.azure.com), navegue hasta el servicio **Monitor**.
+1.  En el [portal](https://portal.azure.com), navegue hasta el servicio **Monitor**.
 
     ![Supervisión](./media/monitoring-service-notifications/home-monitor.png)
-2.    Haga clic en la opción **Monitor** para abrir la hoja Monitor. En esta hoja se encuentran toda la configuración de supervisión y los datos en una sola vista consolidada. Primero se abre la sección **Registro de actividades** .
+2.  Haga clic en la opción **Monitor** para abrir la hoja Monitor. En esta hoja se encuentran toda la configuración de supervisión y los datos en una sola vista consolidada. Primero se abre la sección **Registro de actividades** .
 
-3.    Ahora, haga clic en la sección **Notificaciones del servicio**
+3.  Ahora, haga clic en la sección **Notificaciones del servicio**
 
     ![Supervisión](./media/monitoring-service-notifications/service-health-summary.png)
-4.    Haga clic en cualquiera de los elementos de línea para ver más detalles
+4.  Haga clic en cualquiera de los elementos de línea para ver más detalles
 
 5. Haga clic en la operación **+ Agregar alerta de registro de actividad** para recibir notificaciones para asegurarse de que se recibe las futuras notificaciones del servicio de este tipo. Para más información acerca de cómo configurar alertas en las notificaciones del servicio [haga clic aquí](monitoring-activity-log-alerts-on-service-notifications.md)
 

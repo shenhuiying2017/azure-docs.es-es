@@ -18,12 +18,15 @@
 | Sur del Reino Unido 2            | 2                       |
 | Oeste de Reino Unido             | 2                       |
 |                     |                         |
-| Asia oriental           | 3                       |
+| Asia oriental           | 2                       |
 | Sudeste de Asia     | 2                       |
 | Este de Japón          | 2                       |
 | Oeste de Japón          | 2                       |
 | Sur de la India         | 2                       |
 | India Central       | 2                       |
+| Oeste de la India          | 2                       |
+| Corea Central       | 2                       |
+| Corea del Sur         | 2                       |
 |                     |                         |
 | Australia Oriental      | 2                       |
 | Sudeste de Australia | 2                       |

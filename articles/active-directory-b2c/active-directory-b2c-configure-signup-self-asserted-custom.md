@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory B2C: modificación de la suscripción en las directivas personalizadas y configuración de un proveedor autoafirmado"
-description: "Un tutorial sobre cómo agregar notificaciones para suscribirse y configurar la entrada del usuario"
+title: "Azure Active Directory B2C: modificación del registro en las directivas personalizadas y configuración de un proveedor autoafirmado"
+description: "Un tutorial sobre cómo agregar notificaciones para registrarse y configurar la entrada del usuario"
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 9f7ee61c9c2ee3c68b215dde81e718db183d3870
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 8731ff3a42e12d145bc259597812aded8333a095
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/23/2017
 
 ---
-# <a name="azure-active-directory-b2c-modify-signup-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: modificación de la suscripción para agregar nuevas notificaciones y configurar la entrada del usuario.
+# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: modificación del registro para agregar nuevas notificaciones y configuración de la entrada del usuario.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -37,61 +37,62 @@ La recopilación de los datos iniciales de los usuarios se logra a través de la
 
 ## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>Definición de la notificación, su nombre para mostrar y el tipo de entrada del usuario
 Vamos a pedir al usuario que indique su ciudad.  Agregue el siguiente elemento al elemento `<ClaimsSchema>` del archivo de directiva TrustFrameWorkExtensions:
-```
-        <ClaimType Id="city">
-            <DisplayName>city</DisplayName>
-            <DataType>string</DataType>
-            <UserHelpText>Your city</UserHelpText>
-            <UserInputType>TextBox</UserInputType>
-        </ClaimType>
+
+```xml
+<ClaimType Id="city">
+  <DisplayName>city</DisplayName>
+  <DataType>string</DataType>
+  <UserHelpText>Your city</UserHelpText>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
 ```
 Aquí puede elegir otras opciones para personalizar la notificación.  Para ver todo el esquema, consulte la guía **Identity Experience Framework Technical Reference Guide** (Guía de referencia técnica del marco de experiencia de identidad).  Esta guía se publicará pronto en la sección de referencias.
 
-* <DisplayName> es una cadena que define la *etiqueta* a nivel de usuario
+* `<DisplayName>` es una cadena que define la *etiqueta* a nivel de usuario
 
-* <UserHelpText> ayuda al usuario a saber lo que se requiere
+* `<UserHelpText>` ayuda al usuario a saber lo que se requiere
 
-* <UserInputType> tiene las cuatro opciones siguientes resaltadas:
+* `<UserInputType>` tiene las cuatro opciones siguientes resaltadas:
     * `TextBox`
-```
-        <ClaimType Id="city">
-            <DisplayName>city where you work</DisplayName>
-            <DataType>string</DataType>
-            <UserHelpText>Your city</UserHelpText>
-            <UserInputType>TextBox</UserInputType>
-        </ClaimType>
-```
-
-    * `RadioSingleSelectduration` Exige una sola selección.
-```
-    <ClaimType Id="city">
-      <DisplayName>city where you work</DisplayName>
-      <DataType>string</DataType>
-      <UserInputType>RadioSingleSelect</UserInputType>
-      <Restriction>
-        <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-        <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-        <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-      </Restriction>
-    </ClaimType>
+```xml
+<ClaimType Id="city">
+  <DisplayName>city where you work</DisplayName>
+  <DataType>string</DataType>
+  <UserHelpText>Your city</UserHelpText>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
 ```
 
-    * `DropdownSingleSelect` Permite la selección del único valor válido.
+    * `RadioSingleSelectduration`: exige una sola selección.
+```xml
+<ClaimType Id="city">
+  <DisplayName>city where you work</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>RadioSingleSelect</UserInputType>
+  <Restriction>
+    <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
+    <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
+    <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
+  </Restriction>
+</ClaimType>
+```
+
+    * `DropdownSingleSelect`: permite la selección del único valor válido.
 
 ![Captura de pantalla de la opción de la lista desplegable](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 
-```
+```xml
 <ClaimType Id="city">
-       <DisplayName>city where you work</DisplayName>
-       <DataType>string</DataType>
-       <UserInputType>DropdownSingleSelect</UserInputType>
-       <Restriction>
-         <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-         <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-         <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-       </Restriction>
-     </ClaimType>
+  <DisplayName>city where you work</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>DropdownSingleSelect</UserInputType>
+  <Restriction>
+    <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
+    <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
+    <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
+  </Restriction>
+</ClaimType>
 ```
 
 
@@ -100,133 +101,126 @@ Aquí puede elegir otras opciones para personalizar la notificación.  Para ver 
 ![Captura de pantalla de una opción con selección múltiple](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 
-```
+```xml
 <ClaimType Id="city">
-        <DisplayName>Receive updates from which cities?</DisplayName>
-        <DataType>string</DataType>
-        <UserInputType>CheckboxMultiSelect</UserInputType>
-        <Restriction>
-          <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-          <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-          <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-        </Restriction>
-      </ClaimType>
+  <DisplayName>Receive updates from which cities?</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>CheckboxMultiSelect</UserInputType>
+  <Restriction>
+    <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
+    <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
+    <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
+  </Restriction>
+</ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-singupsign-user-journey"></a>Incorporación de la notificación al recorrido del usuario de registro o inicio de sesión
+## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>Adición de la notificación al recorrido del usuario de registro o inicio de sesión
 
 1. Agregue la notificación como `<OutputClaim ClaimTypeReferenceId="city"/>` a TechnicalProfile `LocalAccountSignUpWithLogonEmail` (que se encuentra en el archivo de directiva TrustFrameworkBase).  Tenga en cuenta que TechnicalProfile utiliza SelfAssertedAttributeProvider.
 
-```xml
-<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-          <DisplayName>Email signup</DisplayName>
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-          <Metadata>
-            <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-            <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-            <Item Key="language.button_continue">Create</Item>
-          </Metadata>
-          <CryptographicKeys>
-            <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
-          </CryptographicKeys>
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="email" />
-          </InputClaims>
-          <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="objectId" />
-            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-            <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-            <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
-            <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-            <OutputClaim ClaimTypeReferenceId="newUser" />
-<!-- Optional claims, to be collected from the user -->
-            <OutputClaim ClaimTypeReferenceId="givenName" />
-            <OutputClaim ClaimTypeReferenceId="surName" />
-
-            <OutputClaim ClaimTypeReferenceId="city"/>
-
-          </OutputClaims>
-          <ValidationTechnicalProfiles>
-            <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
-          </ValidationTechnicalProfiles>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-        </TechnicalProfile>
-```
+  ```xml
+  <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+    <DisplayName>Email signup</DisplayName>
+    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Metadata>
+      <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
+      <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
+      <Item Key="language.button_continue">Create</Item>
+    </Metadata>
+    <CryptographicKeys>
+      <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
+    </CryptographicKeys>
+    <InputClaims>
+      <InputClaim ClaimTypeReferenceId="email" />
+    </InputClaims>
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="objectId" />
+      <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
+      <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
+      <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+      <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
+      <OutputClaim ClaimTypeReferenceId="authenticationSource" />
+      <OutputClaim ClaimTypeReferenceId="newUser" />
+      <!-- Optional claims, to be collected from the user -->
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surName" />
+      <OutputClaim ClaimTypeReferenceId="city"/>
+    </OutputClaims>
+    <ValidationTechnicalProfiles>
+      <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+    </ValidationTechnicalProfiles>
+    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+  </TechnicalProfile>
+  ```
 
 2. Agregue la notificación a AAD-UserWriteUsingLogonEmail como `<PersistedClaim ClaimTypeReferenceId="city" />` para escribir la notificación en el directorio de AAD después de recopilarla del usuario. Este paso se puede omitir si se prefiere no conservar la notificación en el directorio para usarla en el futuro.
 
-```xml
-<!-- Technical profiles for local accounts -->
-        <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
-          <Metadata>
-            <Item Key="Operation">Write</Item>
-            <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
-          </Metadata>
-          <IncludeInSso>false</IncludeInSso>
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
-          </InputClaims>
-          <PersistedClaims>
-            <!-- Required claims -->
-            <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
-            <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
-            <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
-            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
-            <!-- Optional claims. -->
-            <PersistedClaim ClaimTypeReferenceId="givenName" />
-            <PersistedClaim ClaimTypeReferenceId="surname" />
-
-            <PersistedClaim ClaimTypeReferenceId="city" />
-
-          </PersistedClaims>
-          <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="objectId" />
-            <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-            <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-          </OutputClaims>
-          <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-        </TechnicalProfile>
-```
+  ```xml
+  <!-- Technical profiles for local accounts -->
+  <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+    <Metadata>
+      <Item Key="Operation">Write</Item>
+      <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+    </Metadata>
+    <IncludeInSso>false</IncludeInSso>
+    <InputClaims>
+      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
+    </InputClaims>
+    <PersistedClaims>
+      <!-- Required claims -->
+      <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
+      <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
+      <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
+      <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
+      <!-- Optional claims. -->
+      <PersistedClaim ClaimTypeReferenceId="givenName" />
+      <PersistedClaim ClaimTypeReferenceId="surname" />
+      <PersistedClaim ClaimTypeReferenceId="city" />
+    </PersistedClaims>
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="objectId" />
+      <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
+      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+    </OutputClaims>
+    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+  </TechnicalProfile>
+  ```
 
 3. Agregue la notificación a la instancia de TechnicalProfile que lee del directorio cuando un usuario inicia sesión como `<OutputClaim ClaimTypeReferenceId="city" />`
 
-```xml
-<TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
-  <Metadata>
-    <Item Key="Operation">Read</Item>
-    <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-    <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
-  </Metadata>
-  <IncludeInSso>false</IncludeInSso>
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
-  </InputClaims>
-  <OutputClaims>
-    <!-- Required claims -->
-    <OutputClaim ClaimTypeReferenceId="objectId" />
-    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-    <!-- Optional claims -->
-    <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-    <OutputClaim ClaimTypeReferenceId="displayName" />
-    <OutputClaim ClaimTypeReferenceId="otherMails" />
-    <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-
-    <OutputClaim ClaimTypeReferenceId="city" />
-
-  </OutputClaims>
-  <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-</TechnicalProfile>
-```
+  ```xml
+  <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
+    <Metadata>
+      <Item Key="Operation">Read</Item>
+      <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+    </Metadata>
+    <IncludeInSso>false</IncludeInSso>
+    <InputClaims>
+      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
+    </InputClaims>
+    <OutputClaims>
+      <!-- Required claims -->
+      <OutputClaim ClaimTypeReferenceId="objectId" />
+      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+      <!-- Optional claims -->
+      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="otherMails" />
+      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+      <OutputClaim ClaimTypeReferenceId="city" />
+    </OutputClaims>
+    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+  </TechnicalProfile>
+  ```
 
 4. Agregue `<OutputClaim ClaimTypeReferenceId="city" />` al archivo de directiva de RP SignUporSignIn.xml, con el fin de que esta notificación se envíe a la aplicación en el token después de un recorrido correcto del usuario.
 
-
-```xml
-<RelyingParty>
+  ```xml
+  <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
@@ -238,9 +232,7 @@ Aquí puede elegir otras opciones para personalizar la notificación.  Para ver 
         <OutputClaim ClaimTypeReferenceId="email" />
         <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
         <OutputClaim ClaimTypeReferenceId="identityProvider" />
-
         <OutputClaim ClaimTypeReferenceId="city" />
-
       </OutputClaims>
       <SubjectNamingInfo ClaimType="sub" />
     </TechnicalProfile>
@@ -249,14 +241,16 @@ Aquí puede elegir otras opciones para personalizar la notificación.  Para ver 
 
 ## <a name="test-the-custom-policy-using-run-now"></a>Prueba de la directiva personalizada con "Ejecutar ahora"
 
-       1. Open the **Azure AD B2C Blade** and navigate to **Identity Experience Framework > Custom policies**.
-       2. Select the custom policy that you uploaded, and click the **Run now** button.
-       3. You should be able to sign up using an email address.
+1. Abra la **hoja de Azure AD B2C** y vaya a **Marco de experiencia de identidad > Directivas personalizadas**.
+2. Seleccione la directiva personalizada que cargó y, luego, haga clic en el botón **Ejecutar ahora**.
+3. Debe poder registrarse con una dirección de correo electrónico.
 
-En el modo de prueba, la pantalla de registro debe ser similar a la siguiente: ![Captura de pantalla de opción de inscripción modificada](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
+La pantalla de registro en modo de prueba debe parecerse a la siguiente:
+
+![Captura de pantalla de la opción de registro modificada](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
   El token que vuelve a la aplicación incluirá la notificación `city`, como se muestra a continuación
-```
+```json
 {
   "exp": 1493596822,
   "nbf": 1493593222,
@@ -281,16 +275,15 @@ En el modo de prueba, la pantalla de registro debe ser similar a la siguiente: !
 Para omitir la comprobación del correo electrónico, el autor de la directiva puede elegir quitar `PartnerClaimType="Verified.Email"`. La dirección de correo electrónico será necesaria pero no se comprobará, salvo que se quite "Required" = true.  Considere cuidadosamente si esta opción es adecuada para sus casos de uso.
 
 El correo electrónico comprobado está habilitado de forma predeterminada en el `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` del archivo de directiva TrustFrameworkBase del módulo de inicio:
+```xml
+<OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
-            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-            ```
 
-## Next steps
+## <a name="next-steps"></a>Pasos siguientes
 
-
-Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed below. These are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator.
-```
-  <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-  <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
+Agregue la nueva notificación a los flujos de inicios de sesión de cuentas sociales cambiando las instancias de TechnicalProfiles que se enumeran a continuación. Estas dos instancias se usan en los inicios de sesión de cuentas sociales o federadas para leer y escribir los datos de usuario con alternativeSecurityId como localizador.
+```xml
+<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
 ```
 

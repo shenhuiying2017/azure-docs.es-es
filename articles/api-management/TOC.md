@@ -46,6 +46,10 @@
 ### [Configuración mediante Git](api-management-configuration-repository-git.md)
 ### [Supervisión mediante Azure Monitor](api-management-howto-use-azure-monitor.md)
 ### [Uso del control de acceso basado en rol](api-management-role-based-access-control.md)
+### Integración con Service Fabric
+#### [Información general](../service-fabric/service-fabric-api-management-overview.md)
+#### [Inicio rápido](../service-fabric/service-fabric-api-management-quick-start.md)
+
 # Referencia
 ## [PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)

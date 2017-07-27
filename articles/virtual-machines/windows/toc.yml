@@ -2,431 +2,464 @@
   href: index.yml
 - name: Información general
   items:
-  - name: Acerca de Virtual Machines
-    href: overview.md
+    - name: Acerca de Virtual Machines
+      href: overview.md
 - name: Inicios rápidos
   expanded: true
   items:
-  - name: 'Creación de una máquina virtual: Azure Portal'
-    href: quick-create-portal.md
-  - name: 'Creación de una máquina virtual: PowerShell'
-    href: quick-create-powershell.md
-  - name: 'Creación de una máquina virtual: CLI de Azure'
-    href: quick-create-cli.md
+    - name: 'Creación de una máquina virtual: Azure Portal'
+      href: quick-create-portal.md
+    - name: 'Creación de una máquina virtual: PowerShell'
+      href: quick-create-powershell.md
+    - name: 'Creación de una máquina virtual: CLI de Azure'
+      href: quick-create-cli.md
 - name: Tutoriales
   items:
-  - name: 1 - Creación y administración de una máquina virtual
-    href: tutorial-manage-vm.md
-  - name: 2 - Creación y administración de discos
-    href: tutorial-manage-data-disk.md
-  - name: 3 - Automatización de la configuración
-    href: tutorial-automate-vm-deployment.md
-  - name: 4 - Creación de imágenes de máquina virtual
-    href: tutorial-custom-images.md
-  - name: 5 - Máquinas virtuales de alta disponibilidad
-    href: tutorial-availability-sets.md
-  - name: 6 - Creación de un conjunto de escalado de máquina virtual
-    href: tutorial-create-vmss.md
-  - name: 7 - Equilibrio de carga de máquinas virtuales
-    href: tutorial-load-balancer.md
-  - name: 8 - Administración de redes
-    href: tutorial-virtual-network.md
-  - name: 9 - Copia de seguridad de máquinas virtuales
-    href: tutorial-backup-vms.md
-  - name: 10 - Supervisión de máquinas virtuales
-    href: tutorial-monitoring.md
-  - name: 11 - Administración de la seguridad de la máquina virtual
-    href: tutorial-azure-security.md
-  - name: 12 - CI/CD de Team Services
-    href: tutorial-vsts-iis-cicd.md
+    - name: 1 - Creación y administración de una máquina virtual
+      href: tutorial-manage-vm.md
+    - name: 2 - Creación y administración de discos
+      href: tutorial-manage-data-disk.md
+    - name: 3 - Automatización de la configuración
+      href: tutorial-automate-vm-deployment.md
+    - name: 4 - Creación de imágenes de máquina virtual
+      href: tutorial-custom-images.md
+    - name: 5 - Máquinas virtuales de alta disponibilidad
+      href: tutorial-availability-sets.md
+    - name: 6 - Creación de un conjunto de escalado de máquina virtual
+      href: tutorial-create-vmss.md
+    - name: 7 - Equilibrio de carga de máquinas virtuales
+      href: tutorial-load-balancer.md
+    - name: 8 - Administración de redes
+      href: tutorial-virtual-network.md
+    - name: 9 - Copia de seguridad de máquinas virtuales
+      href: tutorial-backup-vms.md
+    - name: 10 - Supervisión de máquinas virtuales
+      href: tutorial-monitoring.md
+    - name: 11 - Administración de la seguridad de la máquina virtual
+      href: tutorial-azure-security.md
+    - name: 12 - CI/CD de Team Services
+      href: tutorial-vsts-iis-cicd.md
 - name: Muestras
   items:
-  - name: PowerShell
-    href: powershell-samples.md
-  - name: CLI de Azure
-    href: cli-samples.md
+    - name: PowerShell
+      href: powershell-samples.md
+    - name: CLI de Azure
+      href: cli-samples.md
 - name: Conceptos
   items:
-  - name: Regiones y disponibilidad
-    href: regions-and-availability.md
-  - name: Almacenamiento
-    href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Redes
-    href: network-overview.md
-  - name: Conjuntos de escalas de máquina virtual
-    href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Servicio de metadatos de instancia
- 
-    href: ../virtual-machines-instancemetadataservice-overview.md
-  - name: Contenedores
-    href: containers.md
-  - name: Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    items:
-    - name: Modelos de implementación
-      href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Plantillas para máquinas virtuales
-      href: template-description.md
-  - name: Agente de Windows de Azure
-    href: agent-user-guide.md
-  - name: Azure Security Center
-    href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Recuperación ante desastres
-    href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Mantenimiento planeado
-    href: planned-maintenance.md
-    items:
-    - name: Continuación del mantenimiento
-      href: preserving-maintenance.md
-    - name: Reinicio del mantenimiento
-      href: impactful-maintenance.md
-    - name: Schedule
-      href: planned-maintenance-schedule.md
-  - name: Tamaños de VM
-    href: sizes.md
-    items:
-    - name: Uso general
-      href: sizes-general.md
-    - name: Proceso optimizado
-      href: sizes-compute.md
-    - name: Memoria optimizada
-      href: sizes-memory.md
-    - name: Almacenamiento optimizado
-      href: sizes-storage.md
-    - name: GPU optimizada
-      href: sizes-gpu.md
-    - name: Proceso de alto rendimiento
-      href: sizes-hpc.md
-      items:
-      - name: Tamaños de proceso intensivo
-        href: a8-a9-a10-a11-specs.md
-    - name: Unidades de proceso de Azure (ACU)
-      href: acu.md
-    - name: Puntuaciones de pruebas comparativas de proceso
-      href: compute-benchmark-scores.md
-    - name: Procedimientos recomendados para ejecutar una máquina virtual Windows
-      href: guidance-compute-single-vm.md
-  - name: Consideraciones de la implementación
-    items:
-    - name: Directrices de infraestructura
-      href: infrastructure-virtual-machine-guidelines.md
-    - name: 'Suscripciones y cuentas '
-      href: infrastructure-subscription-accounts-guidelines.md
-    - name: Nomenclatura
-      href: infrastructure-naming-guidelines.md
-    - name: Grupos de recursos
-      href: infrastructure-resource-groups-guidelines.md
+    - name: Regiones y disponibilidad
+      href: regions-and-availability.md
     - name: Almacenamiento
-      href: infrastructure-storage-solutions-guidelines.md
+      href: >-
+        ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Redes
-      href: infrastructure-networking-guidelines.md
-    - name: Conjuntos de disponibilidad
-      href: infrastructure-availability-sets-guidelines.md
-    - name: Ejemplo de infraestructura
-      href: infrastructure-example.md
+      href: network-overview.md
+    - name: Conjuntos de escalas de máquina virtual
+      href: >-
+        ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Servicio de metadatos de instancia
+      href: ../virtual-machines-instancemetadataservice-overview.md
+    - name: Contenedores
+      href: containers.md
+    - name: Resource Manager
+      href: >-
+        ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      items:
+        - name: Modelos de implementación
+          href: >-
+            ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Plantillas para máquinas virtuales
+          href: template-description.md
+    - name: Agente de Windows de Azure
+      href: agent-user-guide.md
+    - name: Azure Security Center
+      href: >-
+        ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Recuperación ante desastres
+      href: >-
+        ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Mantenimiento planeado
+      href: planned-maintenance.md
+      items:
+        - name: Continuación del mantenimiento
+          href: preserving-maintenance.md
+        - name: Reinicio del mantenimiento
+          href: impactful-maintenance.md
+    - name: Tamaños de VM
+      href: sizes.md
+      items:
+        - name: Uso general
+          href: sizes-general.md
+        - name: Proceso optimizado
+          href: sizes-compute.md
+        - name: Memoria optimizada
+          href: sizes-memory.md
+        - name: Almacenamiento optimizado
+          href: sizes-storage.md
+        - name: GPU optimizada
+          href: sizes-gpu.md
+          items:
+            - name: Controladores de GPU
+              href: n-series-driver-setup.md
+        - name: Proceso de alto rendimiento
+          href: sizes-hpc.md
+        - name: Unidades de proceso de Azure (ACU)
+          href: acu.md
+        - name: Puntuaciones de pruebas comparativas de proceso
+          href: compute-benchmark-scores.md
+        - name: >-
+            Procedimientos recomendados para ejecutar una máquina virtual
+            Windows
+          href: guidance-compute-single-vm.md
+    - name: Consideraciones de la implementación
+      items:
+        - name: Directrices de infraestructura
+          href: infrastructure-virtual-machine-guidelines.md
+        - name: 'Suscripciones y cuentas '
+          href: infrastructure-subscription-accounts-guidelines.md
+        - name: Nomenclatura
+          href: infrastructure-naming-guidelines.md
+        - name: Grupos de recursos
+          href: infrastructure-resource-groups-guidelines.md
+        - name: Almacenamiento
+          href: infrastructure-storage-solutions-guidelines.md
+        - name: Redes
+          href: infrastructure-networking-guidelines.md
+        - name: Conjuntos de disponibilidad
+          href: infrastructure-availability-sets-guidelines.md
+        - name: Ejemplo de infraestructura
+          href: infrastructure-example.md
 - name: Guías de procedimientos
   items:
-  - name: Crear máquinas virtuales
-    items:
-    - name: Introducción a la creación de máquinas virtuales
-      href: creation-choices.md
-    - name: Creación de máquinas virtuales a partir de un disco duro virtual especializado
-      href: create-vm-specialized.md
-    - name: Creación de una máquina virtual con una plantilla
-      href: ps-template.md
-    - name: 'Creación y administración de una máquina virtual con C#'
-      href: csharp.md
-    - name: 'Creación de una máquina virtual con C# y una plantilla'
-      href: csharp-template.md
-    - name: Creación de una máquina virtual con Chef
-      href: chef-automation.md
-    - name: Creación y administración de una máquina virtual con Phyton
-      href: python.md
-    - name: Creación de una máquina virtual con Terraform
+    - name: Crear máquinas virtuales
       items:
-      - name: Instalación y configuración
-        href: ../terraform-install-configure.md
-      - name: Creación de la infraestructura básica
-        href: ../terraform-create-complete-vm.md      
-    - name: Creación de una máquina virtual que ejecuta marcos de aplicaciones populares
-      href: app-frameworks.md
-    - name: Mover una máquina virtual de una suscripción a otra
-      href: move-vm.md
-  - name: Configuración de máquinas virtuales
-    items:
-    - name: Cambiar el tamaño de una máquina virtual
-      href: resize-vm.md
-    - name: Usar etiquetas
-      href: ../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Introducción a la creación de máquinas virtuales
+          href: creation-choices.md
+        - name: >-
+            Creación de máquinas virtuales a partir de un disco duro virtual
+            especializado
+          href: create-vm-specialized.md
+        - name: Creación de una máquina virtual con una plantilla
+          href: ps-template.md
+        - name: 'Creación y administración de una máquina virtual con C#'
+          href: csharp.md
+        - name: 'Creación de una máquina virtual con C# y una plantilla'
+          href: csharp-template.md
+        - name: Creación de una máquina virtual con Chef
+          href: chef-automation.md
+        - name: Creación y administración de una máquina virtual con Phyton
+          href: python.md
+        - name: Creación de una máquina virtual con Terraform
+          items:
+            - name: Instalación y configuración
+              href: ../terraform-install-configure.md
+            - name: Creación de la infraestructura básica
+              href: ../terraform-create-complete-vm.md
+        - name: >-
+            Creación de una máquina virtual que ejecuta marcos de aplicaciones
+            populares
+          href: app-frameworks.md
+        - name: Mover una máquina virtual de una suscripción a otra
+          href: move-vm.md
+    - name: Configuración de máquinas virtuales
       items:
-      - name: Etiquetar una máquina virtual
-        href: tag.md
-    - name: Copia de seguridad mediante Recovery Services
-      href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Administración de copias de seguridad con PowerShell
-      href: ../../backup/backup-azure-vms-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Descarga de plantillas de máquinas virtuales
-      href: download-template.md
-    - name: Tareas comunes de PowerShell
-      href: ps-common-ref.md
-    - name: Tareas comunes de CLI
-      href: cli-manage.md
-    - name: Administrar máquinas virtuales mediante la CLI
-      href: cli-deploy-templates.md
-  - name: Conexión con RDP
-    items:
-    - name: Inicio de sesión en una máquina virtual
-      href: connect-logon.md
-  - name: Administración de imágenes de máquinas virtuales
-    items:
-    - name: Búsqueda de imágenes de máquinas virtuales de Marketplace
-      href: cli-ps-findimage.md
-    - name: Licencias para la ventaja de uso híbrido de Azure
-      href: hybrid-use-benefit-licensing.md
-    - name: Uso de imágenes de cliente de Windows
-      href: client-images.md
-    - name: Descarga de un disco duro virtual
-      href: download-vhd.md
-    - name: Preparación de un disco duro virtual para la carga
-      href: prepare-for-upload-vhd-image.md
-    - name: Creación de una imagen de disco administrado
-      href: capture-image-resource.md
-    - name: Creación de una máquina virtual a partir de una imagen de disco administrado generalizada
-      href: create-vm-generalized-managed.md
-    - name: Creación de imagen con Packer
-      href: build-image-with-packer.md
-  - name: Administración del almacenamiento de máquinas virtuales
-    items:
-    - name: Creación de discos administrados
-      href: create-managed-disk-ps.md
-    - name: Migración de máquinas virtuales a Managed Disks
-      href: migrate-to-managed-disks.md
+        - name: Cambiar el tamaño de una máquina virtual
+          href: resize-vm.md
+        - name: Usar etiquetas
+          href: >-
+            ../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          items:
+            - name: Etiquetar una máquina virtual
+              href: tag.md
+        - name: Copia de seguridad mediante Recovery Services
+          href: >-
+            ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Administración de copias de seguridad con PowerShell
+          href: >-
+            ../../backup/backup-azure-vms-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Descarga de plantillas de máquinas virtuales
+          href: download-template.md
+        - name: Tareas comunes de PowerShell
+          href: ps-common-ref.md
+        - name: Tareas comunes de CLI
+          href: cli-manage.md
+        - name: Administrar máquinas virtuales mediante la CLI
+          href: cli-deploy-templates.md
+    - name: Conexión con RDP
       items:
-      - name: Conversión de discos no administrados a Managed Disks
-        href: convert-unmanaged-to-managed-disks.md
-      - name: Migración de una máquina virtual clásica a Managed Disks
-        href: migrate-single-classic-to-resource-manager.md
-    - name: Instantánea de un disco administrado
-      href: snapshot-copy-managed-disk.md
-    - name: Acoplar disco de datos
+        - name: Inicio de sesión en una máquina virtual
+          href: connect-logon.md
+    - name: Administración de imágenes de máquinas virtuales
       items:
-      - name: Azure PowerShell
-        href: attach-disk-ps.md
-      - name: Portal de Azure
-        href: attach-managed-disk-portal.md
-    - name: Desacoplamiento de un disco de datos
-      href: detach-disk.md
-    - name: Expansión del disco del sistema operativo
-      href: expand-os-disk.md
-    - name: Expansión del disco de datos
-      href: expand-data-disks.md
-    - name: Uso de un recurso compartido de archivos
-      href: mount-azure-file-storage.md
-    - name: 'Uso de la unidad D: como disco de datos'
-      href: change-drive-letter.md
-  - name: Redes de máquinas virtuales
-    href: ps-common-network-ref.md
-    items:
-    - name: Creación de redes virtuales
-      href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Creación de una máquina virtual con varias NIC
-      href: multiple-nics.md
-    - name: Creación de una IP pública estática
-      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: 'Configuración de puertos, puntos de conexión y seguridad'
-      href: endpoints-in-resource-manager.md
-    - name: Permiso de acceso a una máquina virtual
+        - name: Búsqueda de imágenes de máquinas virtuales de Marketplace
+          href: cli-ps-findimage.md
+        - name: Licencias para la ventaja de uso híbrido de Azure
+          href: hybrid-use-benefit-licensing.md
+        - name: Uso de imágenes de cliente de Windows
+          href: client-images.md
+        - name: Descarga de un disco duro virtual
+          href: download-vhd.md
+        - name: Preparación de un disco duro virtual para la carga
+          href: prepare-for-upload-vhd-image.md
+        - name: Creación de una imagen de disco administrado
+          href: capture-image-resource.md
+        - name: >-
+            Creación de una máquina virtual a partir de una imagen de disco
+            administrado generalizada
+          href: create-vm-generalized-managed.md
+        - name: Creación de imagen con Packer
+          href: build-image-with-packer.md
+    - name: Administración del almacenamiento de máquinas virtuales
       items:
-      - name: Azure PowerShell
-        href: nsg-quickstart-powershell.md
-      - name: Portal de Azure
-        href: nsg-quickstart-portal.md
-    - name: Opciones de resolución de nombres DNS
-      href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Creación de FDQN mediante el portal
-      href: portal-create-fqdn.md
-  - name: Escalado y disponibilidad
-    items:
-    - name: Disponibilidad de máquinas virtuales
-      href: manage-availability.md
-    - name: Crear un conjunto de disponibilidad
-      href: create-availability-set.md
-    - name: Cambio del conjunto de disponibilidad para una máquina virtual
-      href: change-availability-set.md
-    - name: Introducción al equilibrador de carga
-      href: load-balance.md
+        - name: Creación de discos administrados
+          href: create-managed-disk-ps.md
+        - name: Migración de máquinas virtuales a Managed Disks
+          href: migrate-to-managed-disks.md
+          items:
+            - name: Conversión de discos no administrados a Managed Disks
+              href: convert-unmanaged-to-managed-disks.md
+            - name: Migración de una máquina virtual clásica a Managed Disks
+              href: migrate-single-classic-to-resource-manager.md
+        - name: Instantánea de un disco administrado
+          href: snapshot-copy-managed-disk.md
+        - name: Acoplar disco de datos
+          items:
+            - name: Azure PowerShell
+              href: attach-disk-ps.md
+            - name: Portal de Azure
+              href: attach-managed-disk-portal.md
+        - name: Desacoplamiento de un disco de datos
+          href: detach-disk.md
+        - name: Expansión del disco del sistema operativo
+          href: expand-os-disk.md
+        - name: Expansión del disco de datos
+          href: expand-data-disks.md
+        - name: Uso de un recurso compartido de archivos
+          href: mount-azure-file-storage.md
+        - name: 'Uso de la unidad D: como disco de datos'
+          href: change-drive-letter.md
+    - name: Redes de máquinas virtuales
+      href: ps-common-network-ref.md
       items:
-      - name: Crear un equilibrador de carga
-        href: ../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Escalado de varias máquinas virtuales con VMSS
-      href: vmss-powershell-creating.md
-    - name: Creación de varias máquinas virtuales de Azure
-      href: multiple-vms.md
-    - name: Escalado vertical de las máquinas virtuales con Azure Automation
-      href: vertical-scaling-automation.md
-    - name: Creación de una máquina virtual con supervisión y diagnóstico
-      href: extensions-diagnostics-template.md
-    - name: Información general sobre Automatización de Azure
-      href: manage-using-azure-automation.md
-  - name: Administración de la seguridad de la máquina virtual
-    items:
-    - name: Restablecer contraseña
-      href: reset-local-password-without-agent.md
-    - name: Creación de una identidad profesional o educativa en Azure AD
-      href: create-aad-work-id.md
-    - name: Administración del acceso
-      href: ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Cifrado de un disco
-      href: encrypt-disks.md
-    - name: Aplicación de directivas a máquinas virtuales
-      href: policy.md
-    - name: Configuración del Almacén de claves
-      href: key-vault-setup.md
-    - name: Configuración de WinRM
-      href: winrm.md
-  - name: Uso de extensiones de máquinas virtuales
-    items:
-    - name: Introducción a las extensiones de máquinas virtuales
-      href: extensions-features.md
-    - name: Extensión Custom Script
-      href: extensions-customscript.md
-    - name: Extensión del agente de OMS
-      href: extensions-oms.md
-    - name: Extensión PowerShell DSC
-      href: extensions-dsc-overview.md
+        - name: Creación de redes virtuales
+          href: >-
+            ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Creación de una máquina virtual con varias NIC
+          href: multiple-nics.md
+        - name: Creación de una IP pública estática
+          href: >-
+            ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: 'Configuración de puertos, puntos de conexión y seguridad'
+          href: endpoints-in-resource-manager.md
+        - name: Permiso de acceso a una máquina virtual
+          items:
+            - name: Azure PowerShell
+              href: nsg-quickstart-powershell.md
+            - name: Portal de Azure
+              href: nsg-quickstart-portal.md
+        - name: Opciones de resolución de nombres DNS
+          href: >-
+            ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Creación de FDQN mediante el portal
+          href: portal-create-fqdn.md
+    - name: Escalado y disponibilidad
       items:
-      - name: Control de credenciales de las extensiones PowerShell DSC
-        href: extensions-dsc-credentials.md
-      - name: DSC y VMSS con plantillas
-        href: extensions-dsc-template.md
-    - name: Extensión de compilador de registros de Azure
-      href: log-collector-extension.md
-    - name: Extensión de Diagnósticos de Azure
-      href: ps-extensions-diagnostics.md
-    - name: Extensiones en plantillas
-      href: extensions-authoring-templates.md
-    - name: Exportación de las extensiones de máquinas virtuales
-      href: extensions-export-templates.md
-    - name: Ejemplos de configuración
-      href: extensions-configuration-samples.md
-    - name: Extensiones de solución de problemas
-      href: extensions-troubleshoot.md
-  - name: Ejecución de aplicaciones
-    items:
-    - name: SQL Server
-      href: ./sql/virtual-machines-windows-sql-server-iaas-overview.md
-    - name: SharePoint
-      href: sharepoint-farm.md
-    - name: Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas
-      href: ps-hybrid-cloud-test-env-lob.md
-    - name: Configuración de un entorno de nube híbrida simulado para pruebas
-      href: ps-hybrid-cloud-test-env-sim.md
-    - name: MongoDB
-      href: install-mongodb.md
-    - name: Informática de alto rendimiento (HPC)
-      href: hpcpack-cluster-options.md
-    - name: MATLAB
-      href: matlab-mdcs-cluster.md
-    - name: SAP en Azure
-      href: ../workloads/sap/get-started.md
-  - name: Migración de máquinas virtuales
-    items:
-    - name: Introducción a la migración de AWS y máquinas virtuales locales a Azure
-      href: on-prem-to-azure.md
+        - name: Disponibilidad de máquinas virtuales
+          href: manage-availability.md
+        - name: Crear un conjunto de disponibilidad
+          href: create-availability-set.md
+        - name: Cambio del conjunto de disponibilidad para una máquina virtual
+          href: change-availability-set.md
+        - name: Introducción al equilibrador de carga
+          href: load-balance.md
+          items:
+            - name: Crear un equilibrador de carga
+              href: >-
+                ../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Escalado de varias máquinas virtuales con VMSS
+          href: vmss-powershell-creating.md
+        - name: Creación de varias máquinas virtuales de Azure
+          href: multiple-vms.md
+        - name: Escalado vertical de las máquinas virtuales con Azure Automation
+          href: vertical-scaling-automation.md
+        - name: Creación de una máquina virtual con supervisión y diagnóstico
+          href: extensions-diagnostics-template.md
+        - name: Información general sobre Automatización de Azure
+          href: manage-using-azure-automation.md
+    - name: Administración de la seguridad de la máquina virtual
       items:
-      - name: Migración de Amazon Web Services (AWS) a Azure
-        href: aws-to-azure.md
-      - name: Carga y creación de máquinas virtuales desde un disco duro virtual generalizado
-        href: upload-generalized-managed.md
-    - name: Migración del modelo clásico a Azure Resource Manager
-      href: migration-classic-resource-manager-overview.md
+        - name: Restablecer contraseña
+          href: reset-local-password-without-agent.md
+        - name: Creación de una identidad profesional o educativa en Azure AD
+          href: create-aad-work-id.md
+        - name: Administración del acceso
+          href: >-
+            ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Cifrado de un disco
+          href: encrypt-disks.md
+        - name: Aplicación de directivas a máquinas virtuales
+          href: policy.md
+        - name: Configuración del Almacén de claves
+          href: key-vault-setup.md
+        - name: Configuración de WinRM
+          href: winrm.md
+    - name: Uso de extensiones de máquinas virtuales
       items:
-      - name: Análisis a fondo de la migración
-        href: migration-classic-resource-manager-deep-dive.md
-      - name: Planear la migración
-        href: migration-classic-resource-manager-plan.md
-      - name: Migrar mediante PowerShell
-        href: migration-classic-resource-manager-ps.md
-      - name: Errores comunes en la migración
-        href: migration-classic-resource-manager-errors.md
-      - name: Herramientas de la comunidad para la migración
-        href: migration-classic-resource-manager-community-tools.md
-      - name: P+F
-        href: migration-classic-resource-manager-faq.md
-  - name: Solución de problemas
-    items:
-    - name: Descripción de un reinicio del sistema
-      href: understand-vm-reboot.md
-    - name: Conexiones del Escritorio remoto
-      href: troubleshoot-rdp-connection.md
+        - name: Introducción a las extensiones de máquinas virtuales
+          href: extensions-features.md
+        - name: Extensión Custom Script
+          href: extensions-customscript.md
+        - name: Extensión del agente de OMS
+          href: extensions-oms.md
+        - name: Extensión PowerShell DSC
+          href: extensions-dsc-overview.md
+          items:
+            - name: Control de credenciales de las extensiones PowerShell DSC
+              href: extensions-dsc-credentials.md
+            - name: DSC y VMSS con plantillas
+              href: extensions-dsc-template.md
+        - name: Extensión de compilador de registros de Azure
+          href: log-collector-extension.md
+        - name: Extensión de Diagnósticos de Azure
+          href: ps-extensions-diagnostics.md
+        - name: Extensiones en plantillas
+          href: extensions-authoring-templates.md
+        - name: Exportación de las extensiones de máquinas virtuales
+          href: extensions-export-templates.md
+        - name: Ejemplos de configuración
+          href: extensions-configuration-samples.md
+        - name: Extensiones de solución de problemas
+          href: extensions-troubleshoot.md
+    - name: Ejecución de aplicaciones
       items:
-      - name: Pasos detallados
-        href: detailed-troubleshoot-rdp.md
-      - name: mensajes de error
-        href: troubleshoot-specific-rdp-errors.md
-    - name: Restablecer contraseña de RDP
-      href: reset-rdp.md
-    - name: Restablecimiento de NIC
-      href: reset-network-interface.md
-    - name: Diagnósticos de arranque
- 
-      href: boot-diagnostics.md
-    - name: Creación de una máquina virtual
-      href: troubleshoot-deployment-new-vm.md
-    - name: Problemas de implementación
- 
-      href: troubleshoot-deploy-vm.md
-    - name: Reinicio o cambio de tamaño de una máquina virtual
-      href: restart-resize-error-troubleshooting.md
-    - name: Acceso a las aplicaciones
-      href: troubleshoot-app-connection.md
-    - name: Problemas de activación
-      href: troubleshoot-activation-problems.md
-    - name: Errores de asignación
-      href: allocation-failure.md
-    - name: Reimplementación de una máquina virtual
-      href: redeploy-to-new-node.md
-    - name: Mensajes comunes de error
-      href: error-messages.md
-    - name: Conexión de un disco duro virtual para solucionar problemas de máquina virtual
+        - name: SQL Server
+          href: ./sql/virtual-machines-windows-sql-server-iaas-overview.md
+        - name: SharePoint
+          href: sharepoint-farm.md
+        - name: >-
+            Configuración de una aplicación de LOB basada en web en una nube
+            híbrida para pruebas
+          href: ps-hybrid-cloud-test-env-lob.md
+        - name: Configuración de un entorno de nube híbrida simulado para pruebas
+          href: ps-hybrid-cloud-test-env-sim.md
+        - name: MongoDB
+          href: install-mongodb.md
+        - name: Informática de alto rendimiento (HPC)
+          href: hpcpack-cluster-options.md
+        - name: MATLAB
+          href: matlab-mdcs-cluster.md
+        - name: SAP en Azure
+          href: ../workloads/sap/get-started.md
+    - name: Migración de máquinas virtuales
       items:
-      - name: Azure PowerShell
-        href: troubleshoot-recovery-disks.md
-      - name: Portal de Azure
-        href: troubleshoot-recovery-disks-portal.md
+        - name: >-
+            Introducción a la migración de AWS y máquinas virtuales locales a
+            Azure
+          href: on-prem-to-azure.md
+          items:
+            - name: Migración de Amazon Web Services (AWS) a Azure
+              href: aws-to-azure.md
+            - name: >-
+                Carga y creación de máquinas virtuales desde un disco duro
+                virtual generalizado
+              href: upload-generalized-managed.md
+        - name: Migración del modelo clásico a Azure Resource Manager
+          href: migration-classic-resource-manager-overview.md
+          items:
+            - name: Análisis a fondo de la migración
+              href: migration-classic-resource-manager-deep-dive.md
+            - name: Planear la migración
+              href: migration-classic-resource-manager-plan.md
+            - name: Migrar mediante PowerShell
+              href: migration-classic-resource-manager-ps.md
+            - name: Errores comunes en la migración
+              href: migration-classic-resource-manager-errors.md
+            - name: Herramientas de la comunidad para la migración
+              href: migration-classic-resource-manager-community-tools.md
+            - name: P+F
+              href: migration-classic-resource-manager-faq.md
+    - name: Solución de problemas
+      items:
+        - name: >-
+            Compatibilidad a la hora de agregar máquinas virtuales de Azure a un
+            conjunto de disponibilidad existente
+          href: ../virtual-machines-availability-set-supportability.md
+        - name: Descripción de un reinicio del sistema
+          href: understand-vm-reboot.md
+        - name: Conexiones del Escritorio remoto
+          href: troubleshoot-rdp-connection.md
+          items:
+            - name: Pasos detallados
+              href: detailed-troubleshoot-rdp.md
+            - name: mensajes de error
+              href: troubleshoot-specific-rdp-errors.md
+        - name: Restablecer contraseña de RDP
+          href: reset-rdp.md
+        - name: Restablecimiento de NIC
+          href: reset-network-interface.md
+        - name: Diagnósticos de arranque
+          href: boot-diagnostics.md
+        - name: Creación de una máquina virtual
+          href: troubleshoot-deployment-new-vm.md
+        - name: Problemas de implementación
+          href: troubleshoot-deploy-vm.md
+        - name: Reinicio o cambio de tamaño de una máquina virtual
+          href: restart-resize-error-troubleshooting.md
+        - name: Acceso a las aplicaciones
+          href: troubleshoot-app-connection.md
+        - name: Problemas de activación
+          href: troubleshoot-activation-problems.md
+        - name: Errores de asignación
+          href: allocation-failure.md
+        - name: Reimplementación de una máquina virtual
+          href: redeploy-to-new-node.md
+        - name: Mensajes comunes de error
+          href: error-messages.md
+        - name: >-
+            Conexión de un disco duro virtual para solucionar problemas de
+            máquina virtual
+          items:
+            - name: Azure PowerShell
+              href: troubleshoot-recovery-disks.md
+            - name: Portal de Azure
+              href: troubleshoot-recovery-disks-portal.md
+        - name: Uso de PerfInsights para solucionar problemas de rendimiento
+          href: how-to-use-perfInsights.md
 - name: Referencia
   items:
-  - name: CLI de Azure
-    href: /cli/azure/vm
-  - name: PowerShell
-    href: /powershell/azureps-cmdlets-docs
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.compute
-  - name: Java
-    href: /java/api
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: REST de Compute
-    href: /rest/api/compute
-  - name: REST de Managed Disks
-    href: /rest/api/manageddisks
+    - name: CLI de Azure
+      href: /cli/azure/vm
+    - name: PowerShell
+      href: /powershell/azureps-cmdlets-docs
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.compute
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST de Compute
+      href: /rest/api/compute
+    - name: REST de Managed Disks
+      href: /rest/api/manageddisks
 - name: Recursos
   items:
-  - name: Creación de plantillas
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Plantillas de la comunidad
-    href: https://azure.microsoft.com/documentation/templates
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/#Linux
-  - name: Disponibilidad regional
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stackoverflow
-    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
-  - name: Vídeos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
-  - name: P+F
-    href: faq.md
+    - name: Creación de plantillas
+      href: >-
+        ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Plantillas de la comunidad
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stackoverflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
+    - name: Vídeos
+      href: >-
+        https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+    - name: P+F
+      href: faq.md

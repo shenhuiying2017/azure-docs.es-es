@@ -9,6 +9,8 @@
 ## Supervisión de uso y costos
 ### [Obtención de factura y uso](billing-download-azure-invoice-daily-usage-date.md)
 ### [Descripción de la factura](billing-understand-your-bill.md)
+### [Descripción de los términos de la factura](billing-understand-your-invoice.md)
+### [Descripción de los términos de uso](billing-understand-your-usage.md)
 ### [Descripción de los cargos de servicios externos](billing-understand-your-azure-marketplace-charges.md)
 ### [Descripción del límite de gasto](billing-spending-limit.md)
 ### [Configurar alertas de facturación](billing-set-up-alerts.md)

@@ -4,7 +4,7 @@ description: "Se describe cómo implementar Azure Site Recovery en un entorno mu
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
-manager: jwhit
+manager: rochakm
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 06/23/2017
 ms.author: manayar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: ed484afc59bbf48490e3ff4389e8e28c71a5e471
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: 801eb19a2c1601653f229a5175fc71d6551ebe08
 ms.contentlocale: es-es
-ms.lasthandoff: 01/30/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -38,7 +38,7 @@ Existen tres modelos principales multiinquilino:
 ## <a name="shared-hosting-multi-tenant-guidance"></a>Guía para entornos multiinquilino: hospedaje compartido
 Esta guía trata detalladamente el escenario de hospedaje compartido. Los otros dos escenarios son subconjuntos del escenario de hospedaje compartido y usan los mismos principios. Al final de la guía de hospedaje compartido se describen las diferencias.
 
-El requisito básico en un escenario multiinquilino es aislar los diferentes inquilinos; es decir, un inquilino no podrá observar lo que otro inquilino haya hospedado. En un entorno completamente administrado por un asociado, este requisito no es tan importante como en el entorno de autoservicio, donde puede ser crítico. En esta guía se da por supuesto que se requiere el aislamiento de inquilinos.
+El requisito básico en un escenario multiinquilino es aislar los diferentes inquilinos: un inquilino no podrá observar lo que otro inquilino haya hospedado. En un entorno completamente administrado por un asociado, este requisito no es tan importante como en el entorno de autoservicio, donde puede ser crítico. En esta guía se da por supuesto que se requiere el aislamiento de inquilinos.
 
 La arquitectura es la siguiente:
 
@@ -46,7 +46,7 @@ La arquitectura es la siguiente:
 
 **Figura 1: Escenario de hospedaje compartido con un vCenter**
 
-Tal como se puede ver por la presentación anterior, cada cliente tendrá un servidor de administración independiente. Esto se hace para limitar el acceso del inquilino a máquinas virtuales específicas de inquilino a fin de habilitar el aislamiento de inquilinos. En el escenario de replicación de máquinas virtuales de VMware, se usa el servidor de configuración para administrar las cuentas con el fin de detectar máquinas virtuales y agentes de instalación. Los mismos principios se siguen para entornos multiinquilinos, junto con la restricción de la detección de máquinas virtuales mediante el control de acceso a vCenter.
+Tal como se puede ver por la presentación anterior, cada cliente tendrá un servidor de administración independiente. Esto limita el acceso del inquilino a máquinas virtuales específicas de inquilino y habilita el aislamiento de inquilinos. En el escenario de replicación de máquinas virtuales de VMware, se usa el servidor de configuración para administrar las cuentas con el fin de detectar máquinas virtuales y agentes de instalación. Los mismos principios se siguen para entornos multiinquilinos, junto con la restricción de la detección de máquinas virtuales mediante el control de acceso a vCenter.
 
 El requisito de aislamiento de datos necesita que toda la información confidencial de infraestructura (por ejemplo, credenciales de acceso) siga siendo relevada por los inquilinos. Por este motivo, es recomendable que todos los componentes del servidor de administración (servidor de configuración [CS], servidor de proceso [PS] y servidor de destino maestro [MT]) permanezcan bajo el estricto el control del asociado. Esto incluye el PS de escalado horizontal.
 
@@ -57,7 +57,7 @@ El requisito de aislamiento de datos necesita que toda la información confidenc
 
 ### <a name="requirements-for-vcenter-access-account"></a>Requisitos para la cuenta de acceso de vCenter
 
-Como se ha detallado en la sección anterior, es necesario que el CS esté configurado con una cuenta que tenga asignado un rol especial. Es importante advertir que esta asignación de rol se debe realizar a la cuenta de acceso de vCenter en cada objeto de vCenter y no propagarse a los objetos secundarios. El objetivo es garantizar el aislamiento de los inquilinos puesto que la propagación de acceso puede dar lugar también al acceso accidental a otros objetos.
+Como se ha detallado en la sección anterior, es necesario que el CS esté configurado con una cuenta que tenga asignado un rol especial. Es importante advertir que esta asignación de rol se debe realizar a la cuenta de acceso de vCenter en cada objeto de vCenter y no propagarse a los objetos secundarios. Esto asegura el aislamiento de los inquilinos puesto que la propagación de acceso puede dar lugar también al acceso accidental a otros objetos.
 
 ![permissions-without-propagation](./media/site-recovery-multi-tenant-support-vmware-using-csp/assign-permissions-without-propagation.png)
 
@@ -91,9 +91,9 @@ El procedimiento de acceso a la cuenta de vCenter es el siguiente:
 | Servidor de administración | Azure_Site_Recovery | Incluye el acceso a todos los componentes, CS, PS y MT, si alguno está fuera de la máquina de CS. |
 | Máquinas virtuales de inquilinos | Azure_Site_Recovery | Asegúrese de que las nuevas máquinas virtuales de inquilino de un inquilino determinado obtengan también este acceso o no se podrán detectar a través de Azure Portal. |
 
-El acceso a la cuenta de vCenter ha finalizado ahora y se cumplen los requisitos mínimos de permisos para realizar las operaciones de conmutación por recuperación. Tenga en cuenta que estos permisos de acceso también pueden usarse con las directivas existentes. Solo tiene que modificar el conjunto de permisos existente para incluir los permisos de rol del punto 2 detallado anteriormente.
+El acceso a la cuenta de vCenter ha finalizado ahora y se cumplen los requisitos mínimos de permisos para realizar las operaciones de conmutación por recuperación. Estos permisos de acceso también pueden utilizarse con las directivas existentes. Solo tiene que modificar el conjunto de permisos existente para incluir los permisos de rol del punto 2 detallado anteriormente.
 
-Para restringir las operaciones de recuperación ante desastres hasta el estado de conmutación por error, es decir, sin funcionalidades de conmutación por recuperación, siga el procedimiento anterior, pero en lugar de asignar el rol "Azure_Site_Recovery" a la cuenta de acceso de vCenter, asigne solo un rol de "Solo lectura" a esa cuenta. Este conjunto de permisos permite la replicación de máquinas virtuales y la conmutación por error no permite la conmutación por recuperación. Tenga en cuenta que todo lo demás del proceso anterior permanece igual. Cada permiso se sigue asignando solamente en el nivel de objeto y no se propaga a los objetos secundarios para garantizar el aislamiento de inquilinos y restringir la detección de máquinas virtuales.
+Para restringir las operaciones de recuperación ante desastres hasta el estado de conmutación por error, es decir, sin funcionalidades de conmutación por recuperación, siga el procedimiento anterior, pero en lugar de asignar el rol "Azure_Site_Recovery" a la cuenta de acceso de vCenter, asigne solo un rol de "Solo lectura" a esa cuenta. Este conjunto de permisos permite la replicación de máquinas virtuales y la conmutación por error no permite la conmutación por recuperación. Todo lo demás en el proceso anterior permanece igual. Cada permiso se sigue asignando solamente en el nivel de objeto y no se propaga a los objetos secundarios para garantizar el aislamiento de inquilinos y restringir la detección de máquinas virtuales.
 
 ## <a name="other-multi-tenant-environments"></a>Otros entornos multiinquilino
 
@@ -119,7 +119,7 @@ Aquí la diferencia en la arquitectura es que la infraestructura de cada inquili
 ## <a name="csp-program-overview"></a>Información general del programa CSP
 El [programa](https://partner.microsoft.com/en-US/cloud-solution-provider) del Proveedor de soluciones en la nube (CSP) de Microsoft promueve los casos de trabajo conjunto con los asociados en la oferta de todos los servicios en la nube de Microsoft, como O365, EMS y Microsoft Azure. Permite que nuestros asociados tengan una relación completa con los clientes y se ha convertido en el principal punto de contacto de la relación. Mediante CSP, un asociado puede implementar suscripciones de Azure para los clientes y combinarlas con sus propias ofertas personalizadas de valor añadido.
 
-En el caso de Azure Site Recovery, los asociados pueden administrar la solución completa de recuperación ante desastres para los clientes directamente a través de CSP o usar CSP para configurar los entornos de Azure Site Recovery y permitir que los clientes administren sus propias necesidades de recuperación ante desastres en modo de autoservicio. En ambos escenarios, el asociado es el enlace entre Azure Site Recovery y los clientes finales, se ocupa de las relaciones con los clientes y les factura por el uso de Azure Site Recovery.
+Con Azure Site Recovery, los asociados pueden administrar la solución completa de recuperación ante desastres para los clientes directamente a través de CSP o usar CSP para configurar los entornos de Azure Site Recovery y permitir que los clientes administren sus propias necesidades de recuperación ante desastres en modo de autoservicio. En ambos escenarios, el asociado es el enlace entre Azure Site Recovery y los clientes finales, se ocupa de las relaciones con los clientes y les factura por el uso de Azure Site Recovery.
 
 ## <a name="creating-and-managing-tenant-accounts"></a>Creación y administración de cuentas de inquilino
 
@@ -137,7 +137,7 @@ Los requisitos previos de la máquina virtual son los mismos que los descritos e
 
     ![add-customer](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-new-customer.png)
 
-3.  En la página New Customer (Nuevo cliente), rellene todos los detalles de la información de la cuenta del inquilino y haga clic en "Next:Subscriptions" (Siguiente:Suscripciones).
+3.  En la página Nuevo cliente, rellene todos los detalles de la información de la cuenta del inquilino y haga clic en "Siguiente: Suscripciones".
 
     ![fill-details](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-add-filled.png)
 
@@ -153,7 +153,7 @@ Los requisitos previos de la máquina virtual son los mismos que los descritos e
 
 ### <a name="step-2-access-tenant-account"></a>Paso 2: Acceso a la cuenta de inquilino
 
-1.  Puede acceder a la suscripción del inquilino desde la página "Customers" (Clientes) mediante el Panel, como se describe en el paso 1. Vaya hasta aquí y haga clic en el nombre de la cuenta de inquilino que acaba de crear.
+1.  Puede acceder a la suscripción del inquilino desde la página "Customers" (Clientes) mediante el Panel, como se describe en el paso 1. Vaya hasta aquí y haga clic en el nombre de la cuenta de inquilino creada.
 2.  Se abre la sección de suscripciones de dicha cuenta y, desde aquí, puede supervisar las suscripciones existentes de la cuenta y agregar más suscripciones si es necesario. Para administrar las operaciones de recuperación ante desastres del inquilino, seleccione la ' opción All de recursos (portal de Azure) en el lado derecho de la página.
 
     ![all-resources](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)
@@ -171,7 +171,7 @@ Ahora puede realizar todas las operaciones de Site Recovery para el inquilino me
 
     ![config-accounts](./media/site-recovery-multi-tenant-support-vmware-using-csp/config-server-account-display.png)
 
-### <a name="step-4-register-site-recovery-infrastructure-to-recovery-services-vault"></a>Paso 4: Registro de la infraestructura de Site Recovery en el almacén de Recovery Services
+### <a name="step-4-register-site-recovery-infrastructure-to-recovery-services-vault"></a>Paso 4: registro de la infraestructura de Site Recovery en el almacén de Recovery Services
 1.  Abra Azure Portal y, en el almacén creado anteriormente, registre el servidor de vCenter en el CS registrado en el paso anterior. Para ello, use la cuenta de acceso de vCenter.
 2.  Finalice el proceso de preparación de la infraestructura de Site Recovery del modo habitual.
 3.  Las máquinas virtuales ahora están listas para replicarse. Compruebe que solo están visibles las máquinas virtuales del inquilino en la hoja de selección de máquinas virtuales situada bajo la opción de replicación.
@@ -180,7 +180,7 @@ Ahora puede realizar todas las operaciones de Site Recovery para el inquilino me
 
 ### <a name="step-5-assign-tenant-access-to-subscription"></a>Paso 5: Asignación de acceso al inquilino a la suscripción
 
-En el caso de que se use el modo de autoservicio para la recuperación ante desastres, se deben proporcionar al inquilino los detalles de la cuenta mencionados en el punto 6 del paso 1. Esto debe hacerse una vez que el asociado configure la infraestructura de recuperación ante desastres. Con independencia del tipo de recuperación ante desastres (administrada o autoservicio), el asociado debe acceder a las suscripciones de inquilino únicamente mediante el portal de CSP y configurar el almacén y registrar la infraestructura de su propiedad en las suscripciones de inquilino.
+En el modo de autoservicio para la recuperación ante desastres, se deben proporcionar al inquilino los detalles de la cuenta mencionados en el punto 6 del paso 1. Esto debe hacerse una vez que el asociado configure la infraestructura de recuperación ante desastres. Con independencia del tipo de recuperación ante desastres (administrada o autoservicio), el asociado debe acceder a las suscripciones de inquilino únicamente mediante el portal de CSP y configurar el almacén y registrar la infraestructura de su propiedad en las suscripciones del inquilino.
 
 El asociado también puede agregar un nuevo usuario a la suscripción de inquilino mediante el portal de CSP, de la manera siguiente:
 

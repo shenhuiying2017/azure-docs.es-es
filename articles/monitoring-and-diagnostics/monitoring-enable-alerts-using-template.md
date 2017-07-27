@@ -2,7 +2,7 @@
 title: "Creación de una alerta de métrica con una plantilla de Resource Manager | Microsoft Docs"
 description: "Obtenga información sobre cómo utilizar una plantilla de Resource Manager para crear una alerta de métrica con el fin de recibir notificaciones por correo electrónico o webhook."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
 ms.contentlocale: es-es
 ms.lasthandoff: 12/22/2016
-
 
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager

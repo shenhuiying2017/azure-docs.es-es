@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 424889a00a20c8daf770098a43576783b813340c
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar Azure Cosmos DB y Azure App Service Web Apps con una plantilla de Azure Resource Manager
-En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para implementar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), una aplicación web de [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
+En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para implementar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), una aplicación web de [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
 
 Con las plantillas de Azure Resource Manager, puede automatizar fácilmente la implementación y la configuración de sus recursos de Azure.  En este tutorial se muestra cómo implementar una aplicación web y configurar automáticamente la información de conexión de la cuenta de Azure Cosmos DB.
 
@@ -85,7 +85,7 @@ Ahora vamos a implementar nuestra primera plantilla.
    
    ![Aplicación de tareas pendientes de ejemplo](./media/create-website/image2.png)
 9. Siga adelante y cree un par de tareas en la aplicación web, luego vuelva a la hoja Grupo de recursos en el Portal de Azure. Haga clic en el recurso de la cuenta de Azure Cosmos DB en la lista Recursos y luego, en **Explorador de consultas**.
-    ![Captura de pantalla del modo de resumen con la aplicación web myotherdocumentdbwebapp resaltada](./media/create-website/TemplateDeployment8.png)  
+    ![Captura de pantalla del modo de resumen con la aplicación web resaltada](./media/create-website/TemplateDeployment8.png)  
 10. Ejecute la consulta predeterminada, "SELECT * FROM c" e inspeccione los resultados.  Observe que la consulta ha recuperado la representación JSON de los elementos todo creados en el paso 7 anterior.  No dude en experimentar con las consultas. Por ejemplo, pruebe a ejecutar SELECT * FROM c WHERE c.isComplete = true para devolver todos los elementos marcados como completos.
     
     ![Captura de pantalla de las hojas del Explorador de consultas y Resultados en la que se muestran los resultados de la consulta](./media/create-website/image5.png)

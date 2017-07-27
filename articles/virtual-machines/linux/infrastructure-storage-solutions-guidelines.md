@@ -13,13 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5cce2dec867478707457a5e1390980129421ae75
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 771e3d1e728f6c85d9f63111b2483d08396ef530
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -34,7 +35,7 @@ Decisiones:
 
 * ¿Va a usar Azure Managed Disks o discos no administrados?
 * ¿Necesita usar el almacenamiento Estándar o Premium para la carga de trabajo?
-* ¿Necesita crear bandas en los discos para crear discos de más de 1023 GB?
+* ¿Necesita crear bandas en los discos para crear discos de más de 4 TB?
 * ¿Necesita crear bandas en los discos para lograr un rendimiento óptimo de E/S para la carga de trabajo?
 * ¿Qué conjunto de cuentas de almacenamiento necesita para hospedar su infraestructura o carga de trabajo de TI?
 
@@ -63,7 +64,7 @@ El entorno de Azure Storage subyacente proporciona alta disponibilidad y durabil
 
 Puede leer [más información acerca de las opciones de replicación para una alta disponibilidad](../../storage/storage-introduction.md#replication-for-durability-and-high-availability).
 
-Los discos de datos y del sistema operativo tienen un tamaño máximo de 1023 gigabytes (GB). El tamaño máximo de un blob es de 1024 GB y debe contener los metadatos (pie de página) del archivo VHD (un GB son 1024<sup>3</sup> bytes). Puede usar el Administrador de volúmenes lógicos (LVM) para superar este límite mediante la agrupación de discos de datos para presentar volúmenes lógicos de más de 1023 GB a la máquina virtual.
+Los discos de datos y del sistema operativo tienen un tamaño máximo de 4 TB. Puede usar el Administrador de volúmenes lógicos (LVM) para superar este límite mediante la agrupación de discos de datos para presentar volúmenes lógicos de más de 1023 GB a la máquina virtual.
 
 Existen algunos límites de escalabilidad que se aplican a la hora de diseñar las implementaciones de Azure Storage. Consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-subscription-service-limits.md#storage-limits) para obtener más información. Consulte también [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](../../storage/storage-scalability-targets.md).
 
@@ -72,16 +73,15 @@ En cuanto al almacenamiento de aplicaciones, puede guardar datos de objetos no e
 ## <a name="striped-disks"></a>Discos con bandas
 Además de ofrecer la posibilidad de crear discos de más de 1023 GB, en muchos casos, la creación de bandas en los discos de datos mejorará el rendimiento, ya que permite que varios blobs respalden el almacenamiento de un solo volumen. Con la creación de bandas, las operaciones de E/S necesarias para escribir y leer datos de un único disco lógico se realizan en paralelo.
 
-Azure impone límites en la cantidad de discos de datos y la cantidad de ancho de banda disponible en función del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure impone límites en la cantidad de discos de datos y la cantidad de ancho de banda disponible en función del tamaño de la máquina virtual. Para detalles, consulte [Tamaños de máquinas virtuales](sizes.md
 
 Si usa la creación de bandas en discos de datos de Azure, tenga en cuenta las siguientes directrices:
 
-* Los discos de datos siempre deben tener el tamaño máximo (1023 GB).
 * Conecte los discos de datos máximos que se permiten para el tamaño de la VM.
 * Use LVM.
 * Evite el uso de opciones de almacenamiento en caché del disco de datos de Azure (directiva de almacenamiento en caché = ninguna).
 
-Para más información, consulte [Configuración del LVM en una máquina virtual Linux en Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para más información, consulte [Configuración del LVM en una máquina virtual Linux en Azure](configure-lvm.md).
 
 ## <a name="multiple-storage-accounts"></a>Cuentas de almacenamiento múltiples
 En esta sección no se aplica a [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), ya que no creará cuentas de almacenamiento independientes. 

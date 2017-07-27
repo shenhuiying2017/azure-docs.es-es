@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 12c89a6fcbb6d299b64e6b0ec9d1dba29bb41d16
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1dfaa7ade664e43dcb9aa788b0197ca17e6ec4cc
 ms.contentlocale: es-es
 
 
@@ -35,7 +35,7 @@ Ahora tiene que registrar la aplicación en el *Portal de registro de aplicacion
 1. Vaya al [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar una aplicación.
 2. Escriba el nombre de la aplicación y su correo electrónico. 
 3. Asegúrese de que está desactivada la opción de configuración paso a paso.
-4. Haga clic en `Add Platforms`, a continuación, seleccione `Native Application` y haga clic en Guardar.
+4. Haga clic en `Add Platform`, a continuación, seleccione `Native Application` y haga clic en Guardar.
 5. Copie el GUID en Id. de aplicación, vuelva a Visual Studio, abra `App.xaml.cs` y reemplace `your_client_id_here` por el identificador de aplicación que acaba de registrar:
 
 ```csharp

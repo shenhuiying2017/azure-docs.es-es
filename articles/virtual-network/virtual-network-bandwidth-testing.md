@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2017
+ms.date: 07/21/2017
 ms.author: steveesp
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: d05bed3b92836bf496804c9d40b5a62a96ffbc3d
-ms.lasthandoff: 03/06/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: a2cbb6ca9197c7af0d1d30e87d58b0314507a531
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -128,6 +128,38 @@ ntttcp -s10.0.0.4 -t 300
 ```
  
 Los valores predeterminados de duración de prueba están establecidos en 60 segundos si no hay ningún parámetro de tiempo.
+
+## <a name="testing-between-vms-running-windows-and-linux"></a>Pruebas entre máquinas virtuales que ejecutan Windows y Linux:
+
+En estos escenarios, se debería habilitar el modo sin sincronización para que la prueba pueda ejecutarse. Para ello, use **-N flag** para Linux y **-ns flag** para Windows.
+
+#### <a name="from-linux-to-windows"></a>De Linux a Windows:
+
+Receptor<Windows>:
+
+``` bash
+ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
+```
+
+Remitente<Linux> :
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
+```
+
+#### <a name="from-windows-to-linux"></a>De Windows a Linux:
+
+Receptor<Linux>:
+
+``` bash
+ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
+```
+
+Remitente<Windows>:
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Dependiendo de los resultados, puede que haya espacio para [optimizar máquinas de rendimiento de red](virtual-network-optimize-network-bandwidth.md) para su escenario.

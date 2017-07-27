@@ -13,7 +13,12 @@
 
 # Introducción
 ## [Inicio con Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Inicio con Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+## Inicio con Spark
+### [Creación de un clúster de Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+### [Ejecución de consultas en un clúster de Spark](hdinsight-apache-spark-load-data-run-query.md)
+### [Análisis de datos mediante herramientas de inteligencia empresarial](hdinsight-apache-spark-use-bi-tools.md)
+### [Administración de recursos de clúster](hdinsight-apache-spark-resource-manager.md)
+### [Depuración de trabajos de Spark](hdinsight-apache-spark-job-debugging.md)
 ## [Inicio con R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Inicio con HBase y NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Inicio con Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
@@ -59,7 +64,6 @@
 ### [ScaleR y SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Uso de Spark para el procesamiento en memoria
 ### [Con Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Con herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)
 ### [Creación de una aplicación independiente](hdinsight-apache-spark-create-standalone-application.md)
 ### [Creación de aplicaciones mediante Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Creación de aplicaciones con IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
@@ -76,8 +80,6 @@
 ### [Uso de Jupyter Notebook local](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Trabajos remotos con Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Depuración remota de trabajos con IntelliJ a través de VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-### [Administración de recursos](hdinsight-apache-spark-resource-manager.md)
-### [Trabajos de seguimiento y depuración](hdinsight-apache-spark-job-debugging.md)
 ### [Problemas conocidos](hdinsight-apache-spark-known-issues.md)
 ## Uso de HBase
 ### [Uso de Phoenix y SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
@@ -137,6 +139,7 @@
 ## Extensión de los clústeres
 ### [Personalización de clústeres con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Personalización de clústeres mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md)
+### [Conexión de HDInsight a la red local](connect-on-premises-network.md)
 ### [Desarrollo acciones de script](hdinsight-hadoop-script-actions-linux.md)
 ### [Instalación y uso de Presto](hdinsight-hadoop-install-presto.md)
 ### [Instalación o actualización de Mono](hdinsight-hadoop-install-mono.md)
@@ -185,21 +188,27 @@
 ### [Disponibilidad y confiabilidad](hdinsight-high-availability-linux.md)
 ### [Actualización de un clúster de HDInsight a una versión más reciente](hdinsight-upgrade-cluster.md)
 ### [Aplicación de revisión del SO para un clúster de HDInsight](hdinsight-os-patching.md)
-## Solución de problemas
-### [Sugerencias para Linux](hdinsight-hadoop-linux-information.md)
-### [Analizar los registros de HDInsight](hdinsight-debug-jobs.md)
-### [Depuración de aplicaciones con registros YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-### [Habilitación de los volcados de montón](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-### [Corrección de errores de WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
-### [Uso de vistas de Ambari para depurar trabajos de Tez](hdinsight-debug-ambari-tez-view.md)
-### [Más solución de problemas](hdinsight-hadoop-stack-trace-error-messages.md)
+## [Solución de problemas](hdinsight-troubleshoot-guide.md)
+### [Solución de problemas de HBASE](hdinsight-troubleshoot-hbase.md)
+### [Solución de problemas de HDFS](hdinsight-troubleshoot-hdfs.md)
+### [Solución de problemas de HIVE](hdinsight-troubleshoot-hive.md)
+### [Solución de problemas de Spark](hdinsight-troubleshoot-spark.md)
+### [Solución de problemas de STORM](hdinsight-troubleshoot-storm.md)
+### [Solución de problemas de YARN](hdinsight-troubleshoot-yarn.md)
+### Recursos
+#### [Información sobre el uso de HDInsight en Linux](hdinsight-hadoop-linux-information.md)
+#### [Rendimiento y memoria de Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)
+#### [Acceso a registros de aplicaciones de YARN en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+#### [Habilitación de volcados del montón para servicios de Hadoop](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+#### [Analizar los registros de HDInsight](hdinsight-debug-jobs.md)
+#### [Descripción y resolución de errores de WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [La configuración de Hive corrige un error de memoria insuficiente](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
+#### [Uso de vistas de Ambari para depurar trabajos de Tez](hdinsight-debug-ambari-tez-view.md)
 #### [Optimización de consultas de Hive](hdinsight-hadoop-optimize-hive-query.md)
-#### [Rendimiento de consultas de Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Referencia
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
-## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET (Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
 ## [REST](/rest/api/hdinsight/)
@@ -227,7 +236,7 @@
 ### [Supervisión de clústeres con la API de Ambari](hdinsight-monitor-use-ambari-api.md)
 
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Obtención de ayuda en el foro](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Programa profesional de Microsoft para macrodatos](https://academy.microsoft.com/en-us/professional-program/big-data/)

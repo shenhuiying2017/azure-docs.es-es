@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 54277a39601cd7f986a8ff8f517ab02eac77309b
-ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: c9eb4bad1c0069b3f8ed2df30ef72b2c530ffab3
+ms.contentlocale: es-es
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -168,16 +169,16 @@ A continuación, se muestra una comparación de las características de direccio
 
 |  | Recurso | Clásico | Resource Manager |
 | --- | --- | --- | --- |
-| **Dirección IP pública** |máquina virtual |Se denomina ILPIP (sólo dinámica). |Se denomina dirección IP pública (dinámica o estática). |
-|  |Se asigna a una VM IaaS o una instancia de rol de PaaS. |Se asocia a la NIC de la VM. | |
-| Equilibrador de carga accesible desde Internet |Se denomina VIP (dinámica) o dirección IP reservada (estática). |Se denomina dirección IP pública (dinámica o estática). | |
-|  |Se asigna a un servicio en la nube. |Se asocia a la configuración de front-end del equilibrador de carga. | |
+| **Dirección IP pública** |***VM*** |Se denomina ILPIP (sólo dinámica). |Se denomina dirección IP pública (dinámica o estática). |
+|  ||Se asigna a una VM IaaS o una instancia de rol de PaaS. |Se asocia a la NIC de la VM. | |
+|  |***Equilibrador de carga accesible desde Internet*** |Se denomina VIP (dinámica) o dirección IP reservada (estática). |Se denomina dirección IP pública (dinámica o estática). | |
+|  ||Se asigna a un servicio en la nube. |Se asocia a la configuración de front-end del equilibrador de carga. | |
 |  | | | |
-| **Dirección IP privada** |máquina virtual |Se denomina DIP. |Se denomina dirección IP privada. |
-|  |Se asigna a una VM IaaS o una instancia de rol de PaaS. |Se asigna a la NIC de la VM. | |
-| Equilibrador de carga interno (ILB) |Se asigna al ILB (dinámico o estático). |Se asigna a la configuración de front-end del ILB (dinámico o estático). | |
+| **Dirección IP privada** |***VM*** |Se denomina DIP. |Se denomina dirección IP privada. |
+|  ||Se asigna a una VM IaaS o una instancia de rol de PaaS. |Se asigna a la NIC de la VM. | |
+|  |***Equilibrador de carga interno (ILB)*** |Se asigna al ILB (dinámico o estático). |Se asigna a la configuración de front-end del ILB (dinámico o estático). | |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Implemente una máquina virtual con una dirección IP privada estática](virtual-networks-static-private-ip-classic-pportal.md) mediante el portal clásico.
+* [Implementación de una máquina virtual con una dirección IP privada estática](virtual-networks-static-private-ip-classic-pportal.md) con Azure Portal.
 
 

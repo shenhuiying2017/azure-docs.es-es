@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 06/15/2017
 ms.author: robinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: e36deaeba611896e793f40cf0e05b8771841816f
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 292a93bd1d355b8a39c59d220352ad465df46629
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -27,14 +27,11 @@ ms.lasthandoff: 05/03/2017
 
 Azure Managed Disks simplifica la administración de discos para las máquinas virtuales de Azure IaaS, ya que administra las [cuentas de almacenamiento](storage-introduction.md) asociadas a los discos de la máquina virtual. Solo tiene que especificar el tipo ([premium](storage-premium-storage.md) o [estándar](storage-standard-storage.md)) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente.
 
->[!NOTE]
->Las máquinas virtuales con Managed Disks requieren que el tráfico saliente en el puerto 8443 informe del estado de las [extensiones de máquina virtual](../virtual-machines/windows/extensions-features.md) instaladas en la plataforma Azure. Si no está disponible ese puerto, se producirá un error de aprovisionamiento de una máquina virtual. Además, el estado de implementación de una extensión será desconocido si está instalada en una máquina virtual en ejecución. Si no se puede desbloquear el puerto 8443, debe usar discos no administrados. Estamos trabajando activamente para solucionar este problema. Consulte las [preguntas más frecuentes sobre discos de máquina virtual de IaaS](storage-faq-for-disks.md#managed-disks-and-port-8443) para obtener más información. 
->
->
-
 ## <a name="benefits-of-managed-disks"></a>Ventajas de los discos administrados
 
-Examinemos varios de los beneficios que reporta el uso de discos administrados.
+Vea algunas de las ventajas que obtendrá al usar discos administrados, comenzando con este vídeo de Channel 9, [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency) (Mejorar la resistencia de las máquinas virtuales de Azure con discos administrados).
+<br/>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
 ### <a name="simple-and-scalable-vm-deployment"></a>La implementación de las máquina virtuales es simple y escalable
 
@@ -44,16 +41,16 @@ Managed Disks le permitirá crear un máximo de 10 000 **discos** de máquina vi
 
 ### <a name="better-reliability-for-availability-sets"></a>Mayor confiabilidad para los conjuntos de disponibilidad
 
-Managed Disks proporciona una mayor confiabilidad para los conjuntos de disponibilidad, ya que garantiza que los discos de las máquinas virtuales de un conjunto de disponibilidad están suficientemente aislados entre sí para evitar puntos únicos de error. Para hacerlo, coloca automáticamente los discos en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que, si se produce un error en una, no se detiene la ejecución de las restantes instancias de la aplicación.
+Managed Disks proporciona una mayor confiabilidad para los conjuntos de disponibilidad, ya que garantiza que los discos de las [máquinas virtuales de un conjunto de disponibilidad](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) están suficientemente aislados entre sí para evitar puntos únicos de error. Para hacerlo, coloca automáticamente los discos en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que, si se produce un error en una, no se detiene la ejecución de las restantes instancias de la aplicación.
 
 ### <a name="granular-access-control"></a>Control de acceso pormenorizado
 
 Puede usar el [control de acceso basado en rol de Azure (RBAC)](../active-directory/role-based-access-control-what-is.md) para asignar permisos concretos a un disco administrado a uno o varios usuarios. Managed Disks expone varias operaciones, entre las que se incluyen la lectura, escritura (creación o actualización), eliminación y recuperación de un [identificador URI de la firma de acceso compartido (SAS) URI](storage-dotnet-shared-access-signature-part-1.md) para el disco. Puede conceder acceso solo a las operaciones necesarias para que una persona pueda realizar su trabajo. Por ejemplo, si no desea que una persona copie un disco administrado a una cuenta de almacenamiento, puede decidir no conceder acceso a la acción de exportación de dicho disco administrado. De igual forma, si no desea que una persona use URI de SAS para copiar un disco administrado, puede elegir no conceder dicho permiso al disco administrado.
 
-### <a name="azure-backup-service-support"></a>Soporte técnico del servicio Azure Backup 
-Utilice el servicio Azure Backup con Managed Disks para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad. Managed Disks solo admite el almacenamiento con redundancia local (LRS) como opción de replicación, lo que significa que mantiene tres copias de los datos en una única región. Para recuperación ante desastres regionales, debe realizar una copia de los discos de máquina virtual en una región distinta con el [servicio Azure Backup](../backup/backup-introduction-to-azure-backup.md) y una cuenta de almacenamiento GRS como almacén de copia de seguridad. En [Uso del servicio de Azure Backup para máquinas virtuales con Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) puede encontrar más información al respecto. 
+### <a name="azure-backup-service-support"></a>Soporte técnico del servicio Azure Backup
+Utilice el servicio Azure Backup con Managed Disks para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad. Managed Disks solo admite el almacenamiento con redundancia local (LRS) como opción de replicación, lo que significa que mantiene tres copias de los datos en una única región. Para recuperación ante desastres regionales, debe realizar una copia de los discos de máquina virtual en una región distinta con el [servicio Azure Backup](../backup/backup-introduction-to-azure-backup.md) y una cuenta de almacenamiento GRS como almacén de copia de seguridad. En [Uso del servicio de Azure Backup para máquinas virtuales con Managed Disks](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) puede encontrar más información al respecto.
 
-## <a name="pricing-and-billing"></a>Precios y facturación 
+## <a name="pricing-and-billing"></a>Precios y facturación
 
 Al usar Managed Disks, se aplican las siguientes consideraciones de facturación:
 
@@ -76,15 +73,17 @@ Veámoslas más detalladamente.
 
 Estos son los tamaños de disco disponibles para un disco administrado premium:
 
-| **Tipo de disco <br>administrado premium**  | **P10** | **P20** | **P30**        |
-|------------------|---------|---------|----------------|
-| Tamaño del disco        | 128 GB  | 512 GB  | 1.024 GB (1 TB) |
+| **Tipo de disco <br>administrado premium** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Tamaño del disco        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1.024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
-Estos son los tamaños de disco disponibles para un disco administrado estándar: 
 
-| **Tipo de disco <br>administrado estándar** | **S4**  | **S6**  | **S10**        | **S20** | **S30**        |
-|------------------|---------|---------|----------------|---------|----------------|
-| Tamaño del disco        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1.024 GB (1 TB) |
+Estos son los tamaños de disco disponibles para un disco administrado estándar:
+
+| **Tipo de disco <br>administrado estándar** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
+| Tamaño del disco        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1.024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+
 
 **Número de transacciones**: se le factura por el número de transacciones que realiza en un disco administrado estándar. Las transacciones de un disco administrado premium no tienen coste.
 
@@ -120,15 +119,12 @@ Una instantánea es una copia de un disco en un momento dado. Solo se aplica a u
 
 ## <a name="managed-disks-and-encryption"></a>Managed Disks y cifrado
 
-Hay dos tipos de cifrado que comentar en referencia a Managed Disks. El primero de ellos es el cifrado de servicio de almacenamiento (SSE), que se realiza mediante el servicio Storage. El segundo es Azure Disk Encryption, que se puede habilitar en los discos de datos y del sistema operativo de las máquinas virtuales. 
+Hay dos tipos de cifrado que comentar en referencia a Managed Disks. El primero de ellos es el cifrado de servicio de almacenamiento (SSE), que se realiza mediante el servicio Storage. El segundo es Azure Disk Encryption, que se puede habilitar en los discos de datos y del sistema operativo de las máquinas virtuales.
 
 ### <a name="storage-service-encryption-sse"></a>cifrado del servicio de almacenamiento (SSE)
 
-Azure Storage admite el cifrado automático los datos escritos en una cuenta de almacenamiento. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](storage-service-encryption.md). ¿Qué ocurre con los datos de los discos administrados? Actualmente, no es posible habilitar el cifrado del servicio Storage para Managed Disks. Sin embargo, se publicará en el futuro. Mientras tanto, debe saber cómo usar un archivo de VHD que reside en una cuenta de almacenamiento cifrada y se ha cifrado. 
+[Cifrado del servicio Azure Storage](storage-service-encryption.md) proporciona cifrado en reposo y protege sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. SSE está habilitado de forma predeterminada para todos los discos administrados, instantáneas e imágenes en todas las regiones donde hay discos administrados. Desde el 10 de junio de 2017, todos los nuevos discos administrados, instantáneas e imágenes, así como los datos nuevos que se escriban en discos administrados existentes, se cifran automáticamente en reposo con claves administradas por Microsoft.  Visite la [página de preguntas más frecuentes sobre discos administrados](storage-faq-for-disks.md#managed-disks-and-storage-service-encryption) para obtener más detalles.
 
-SSE cifra los datos a medida que se escriban en la cuenta de almacenamiento. Si tiene un archivo VHD que alguna vez se ha cifrado con SSE, no se puede usar para crear una máquina virtual que utiliza Managed Disks. Un disco cifrado no administrado no se puede convertir en un disco administrado. Y, por último, si deshabilita el cifrado en dicha cuenta de almacenamiento, no volverá y descifrará el archivo VHD. 
-
-Para usar un disco que se ha cifrado, primero debe copiar el archivo VHD a una cuenta de almacenamiento que nunca se haya cifrado. A continuación, puede crear una máquina virtual con Managed Disks y especificar dicho archivo VHD durante la creación, o bien adjuntar el archivo VHD copiado a una máquina virtual en ejecución con Managed Disks. 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
 
@@ -138,7 +134,7 @@ Azure Disk Encryption le permite cifrar los discos de datos y del sistema operat
 
 Para más información acerca de Managed Disks, consulte los siguientes artículos.
 
-### <a name="get-started-with-managed-disks"></a>Introducción a Managed Disks 
+### <a name="get-started-with-managed-disks"></a>Introducción a Managed Disks
 
 * [Creación de una máquina virtual con Resource Manager y PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
@@ -150,7 +146,9 @@ Para más información acerca de Managed Disks, consulte los siguientes artícul
 
 * [Scripts d ejemplo de PowerShell de Managed Disks](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
 
-### <a name="compare-managed-disks-storage-options"></a>Comparación de las opciones de almacenamiento de Managed Disks 
+* [Usar Managed Disks en plantillas de Azure Resource Manager](storage-using-managed-disks-template-deployments.md)
+
+### <a name="compare-managed-disks-storage-options"></a>Comparación de las opciones de almacenamiento de Managed Disks
 
 * [Discos y Premium Storage](storage-premium-storage.md)
 

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/13/2017
+ms.date: 06/09/2017
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 3c7c972cdc395e2e20e7f6a296a2ffab6efad66d
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b4d575587eec1bcf43c33c7faeb8360ec67b5214
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solución de recuperación ante desastres automatizada con Azure Site Recovery para recursos compartidos de archivos alojados en StorSimple
@@ -89,7 +89,7 @@ Para llevar a cabo este paso, debe preparar el entorno del servidor de archivos 
       > El nombre del archivo puede cambiar según la versión.
       >
       >
-3. Haga clic en **Next**.
+3. Haga clic en **Siguiente**.
 4. Acepte los **Terms of Agreement** (Términos del contrato) y, después, haga clic en **Siguiente**.
 5. Haga clic en **Finalizar**
 6. Cree recursos compartidos de archivos con volúmenes extraídos del almacenamiento de StorSimple. Para obtener más información, consulte [Uso del servicio StorSimple Manager para administrar volúmenes](storsimple-manage-volumes.md).
@@ -123,7 +123,7 @@ Consulte la [documentación de Azure Site Recovery](../site-recovery/site-recove
    > Esto provocará que los recursos compartidos de archivos no estén disponibles temporalmente.
    >
    >
-2. Seleccione [Habilitar protección de máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication) de la máquina virtual de servidor de archivos desde el portal de Azure Site Recovery.
+2. Seleccione [Habilitar protección de máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md) de la máquina virtual de servidor de archivos desde el portal de Azure Site Recovery.
 3. Cuando comience la sincronización inicial, podrá volver a conectar el destino. Vaya al iniciador iSCSI, seleccione el dispositivo StorSimple y haga clic en **Conectar**.
 4. Cuando la sincronización se haya completado y el estado de la máquina virtual sea **Protegido**, seleccione la máquina virtual, seleccione la pestaña **Configurar** y actualice la red de la máquina virtual del mismo modo (esta es la red de la que formarán parte las máquinas virtuales conmutadas por error). Si la red no aparece, significa que la sincronización todavía está en curso.
 
@@ -140,9 +140,18 @@ Puede seleccionar la VM en la pestaña **Elementos replicados** para configurar 
 ## <a name="create-a-recovery-plan"></a>Creación de un plan de recuperación
 Puede crear un plan de recuperación en ASR para automatizar el proceso de conmutación por error de los recursos compartidos de archivos. Si se produce una interrupción, puede poner los recursos compartidos de archivos en funcionamiento en minutos con un solo clic. Para habilitar esta automatización, necesitará una cuenta de Automatización de Azure.
 
-#### <a name="to-create-the-account"></a>Para crear la cuenta
+#### <a name="to-create-an-automation-account"></a>Para crear una cuenta de Automation
 1. Vaya a Azure Portal, sección &gt; **Automation**.
-2. Cree una nueva cuenta de automatización. Manténgala en la misma geoárea o región en la que se crearon las cuentas de almacenamiento y el StorSimple Cloud Appliance.
+2. Haga clic en el botón **+Agregar**, se abre la hoja siguiente.
+
+   ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image11.png)
+
+   * Nombre: escriba una nueva cuenta de Automation.
+   * Suscripción: elija la suscripción.
+   * Grupo de recursos: seleccione un grupo de recursos existente o cree uno nuevo.
+   * Ubicación: seleccione la ubicación y manténgala en la misma geoárea o región en la que se crearon las cuentas de almacenamiento y StorSimple Cloud Appliance.
+   * Crear cuenta de ejecución de Azure: seleccione la opción **Sí**.
+
 3. Vaya a la cuenta de Automation y haga clic en **Runbooks** &gt; **Examinar galería** para importar todos los runbooks necesarios en la cuenta de automatización.
 4. Agregue los siguientes runbooks buscando la etiqueta **Recuperación ante desastres** de la galería:
 
@@ -153,13 +162,12 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
    * Inicio de StorSimple Virtual Appliance
 
      ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image3.png)
+
 5. Publique todos los scripts seleccionando el runbook en la cuenta de Automation y haga clic en **Editar** &gt; **Publicar** y, a continuación, en **Sí** en el mensaje de comprobación. Después de este paso, aparecerá la pestaña **Runbooks** de la siguiente forma:
 
     ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image4.png)
-6. En la cuenta de Automation, vaya a la pestaña **Recursos** &gt; haga clic en **Credenciales** &gt; **+ Agregar credenciales** y agregue sus credenciales de Azure. Asigne al recurso el nombre credencialAzure.
 
-   Utilice la credencial de Windows PowerShell. Debe tratarse de una credencial que contenga un nombre de usuario de identificador de organización y una contraseña con acceso a esta suscripción de Azure y con la autenticación multifactor deshabilitada. Esto resulta necesario para realizar la autenticación en nombre del usuario durante las conmutaciones por error y para que aparezcan los volúmenes del servidor de archivos en el sitio de recuperación ante desastres.
-7. En la cuenta de Automation, seleccione la pestaña **Recursos** &gt; haga clic en **Variables** &gt; **Agregar variable** y agregue las siguientes variables. Puede elegir cifrar estos activos. Estas variables son específicas del plan de recuperación. Si el plan de recuperación (que creará en el paso siguiente) se denomina planDePrueba, las variables deben ser planDePrueba-StorSimClaveReg, planDePrueba-nombreDeSuscripciónDeAzure y así sucesivamente.
+6. En la cuenta de Automation, seleccione la pestaña **Recursos** &gt; haga clic en **Variables** &gt; **Agregar variable** y agregue las siguientes variables. Puede elegir cifrar estos activos. Estas variables son específicas del plan de recuperación. Si el plan de recuperación (que creará en el paso siguiente) se denomina planDePrueba, las variables deben ser planDePrueba-StorSimClaveReg, planDePrueba-nombreDeSuscripciónDeAzure y así sucesivamente.
 
    * *nombreDelPlanDeRecuperación***-StorSimRegKey**: la clave de registro para el servicio StorSimple Manager.
    * *nombreDelPlanDeRecuperación***-AzureSubscriptionName**: el nombre de la suscripción de Azure.
@@ -178,8 +186,8 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
 
    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
-8. Vaya a la sección **Servicios de recuperación** y seleccione el almacén de Azure Site Recovery que creó anteriormente.
-9. Seleccione la opción **Planes de recuperación (Site Recovery)** del grupo **Administrar** y cree un nuevo plan de recuperación de la siguiente forma:
+7. Vaya a la sección **Servicios de recuperación** y seleccione el almacén de Azure Site Recovery que creó anteriormente.
+8. Seleccione la opción **Planes de recuperación (Site Recovery)** del grupo **Administrar** y cree un nuevo plan de recuperación de la siguiente forma:
 
    a.  Haga clic en el botón **+ Plan de recuperación** y se abrirá la hoja siguiente.
 
@@ -291,7 +299,7 @@ El planeamiento de capacidad se compone de al menos dos procesos importantes:
 
   > [!IMPORTANT]
   > Ejecute la copia de seguridad manualmente desde el portal de Azure y, después, ejecute de nuevo el plan de recuperación.
-  
+
 * Tiempo de espera del trabajo de clonación: se agotará el tiempo de espera del script de StorSimple si la clonación de los volúmenes tarda más que el límite de Azure Site Recovery por script (actualmente, 120 minutos).
 * Error de sincronización de la hora: se produce un error en los scripts de StorSimple que afirma que las copias de seguridad no se realizaron correctamente, aunque se hayan llevado a cabo de forma correcta en el portal. Esto puede deberse a que la hora del aparato StorSimple no esté sincronizada con la hora actual de la zona horaria.
 

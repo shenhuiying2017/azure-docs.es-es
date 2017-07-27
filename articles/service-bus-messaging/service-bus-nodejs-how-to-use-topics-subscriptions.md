@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 4e145740f8485e4a02c70f2c9d3a9fa6057da635
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: ef14dbaecf5675fa92c91cb5df58b65f59764fa7
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -64,11 +64,11 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Configuración de una conexión del Bus de servicio
 El módulo Azure lee las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY para obtener la información necesaria para conectarse al espacio de nombres. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio en la nube de Azure, consulte [Servicio de nube de Node.js con Storage][Node.js Cloud Service with Storage].
+Para ver un ejemplo de configuración de las variables de entorno para un servicio en la nube de Azure, consulte [Servicio en la nube de Node.js con Storage][Node.js Cloud Service with Storage].
 
-Para ver un ejemplo de configuración de las variables de entorno en el [Portal de Azure clásico][Portal de Azure clásico] para un sitio web de Azure, vea [Aplicación web Node.js con Storage][Node.js Web Application with Storage].
+Para ver un ejemplo de configuración de las variables de entorno para un sitio web de Azure, consulte [Aplicación web Node.js con Storage][Node.js Web Application with Storage].
 
-## <a name="create-a-topic"></a>de un tema
+## <a name="create-a-topic"></a>Creación de un tema
 El objeto **ServiceBusService** le permite trabajar con temas. El siguiente código crea un objeto **ServiceBusService**. Agréguelo cerca de la parte superior del archivo **server.js** , tras la instrucción para importar el módulo azure:
 
 ```javascript

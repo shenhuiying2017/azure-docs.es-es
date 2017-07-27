@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 07/21/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: e22a16c0929b28c475aa4caa0465651603713112
-
+ms.contentlocale: es-es
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Lógica de reintento en el SDK de Media Services para .NET
@@ -47,7 +48,7 @@ En la tabla siguiente se describen las excepciones que administra el SDK de Medi
 | StorageException |No |Sí |No |No |
 | IOException |No |Sí |No |No |
 
-### <a name="a-namewebexceptionstatusa-webexception-status-codes"></a><a name="WebExceptionStatus"></a> Códigos de estado WebException
+### <a name="WebExceptionStatus"></a> Códigos de estado WebException
 La tabla siguiente se muestra para qué códigos de error de WebException se implementa la lógica de reintento. La enumeración [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) define los códigos de estado.  
 
 | Estado | Solicitud web | Almacenamiento | Consultar | SaveChanges |
@@ -65,7 +66,7 @@ La tabla siguiente se muestra para qué códigos de error de WebException se imp
 | Tiempo de espera |Sí |Sí |Sí |No |
 | ProtocolError <br/>El reintento de ProtocolError se controla mediante la administración del código de estado HTTP. Para obtener más información, consulte [Códigos de estado de error HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |yes |Sí |Sí |Sí |
 
-### <a name="a-namehttpstatuscodea-http-error-status-codes"></a><a name="HTTPStatusCode"></a> Códigos de estado de error HTTP
+### <a name="HTTPStatusCode"></a> Códigos de estado de error HTTP
 Cuando las operaciones Query y SaveChanges producen DataServiceClientException, DataServiceQueryException o DataServiceQueryException, se devuelve el código de estado de error HTTP en la propiedad StatusCode.  La tabla siguiente se muestra para qué códigos de error se implementa la lógica de reintento.  
 
 | Estado | Solicitud web | Almacenamiento | Consultar | SaveChanges |
@@ -86,10 +87,5 @@ Si desea echar un vistazo a la implementación real del SDK de Media Services pa
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

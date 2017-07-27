@@ -17,10 +17,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 32a5cfdb520c745dbd0fa5c433849bd3783a364e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -32,9 +32,9 @@ Para crear puntos de conexión HTTP, puede agregar estos desencadenadores para q
 
 * [Solicitud](../connectors/connectors-native-reqres.md)
 
-* [Webhook de conexión de API](logic-apps-workflow-actions-triggers.md#api-connection)
+* [Webhook de conexión de API](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
 
-* [Webhook HTTP](../connectors/connectors-native-http.md)
+* [Webhook HTTP](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
    > Aunque en los ejemplos se usa el desencadenador **Request**, puede usar cualquiera de los desencadenadores HTTP indicados, y todos los principios se aplican exactamente igual a los otros tipos de desencadenadores.
@@ -211,7 +211,7 @@ Una vez que haya creado el punto de conexión HTTP, puede desencadenar la aplica
 
 ## <a name="reference-content-from-an-incoming-request"></a>Referencia al contenido de una solicitud entrante
 
-Si el tipo de contenido es `application/json`, puede hacer referencia a las propiedades desde la solicitud entrante. En caso contrario, el contenido se trata como una sola unidad binaria que se puede pasar a otras API. No se puede hacer referencia a este contenido dentro del flujo de trabajo sin convertir ese contenido. Por ejemplo, si pasa contenido de `application/xml`, puede usar `@xpath()` para una extracción de XPath, o bien `@json()` para convertir de XML a JSON. Obtenga información sobre cómo [trabajar con tipos de contenido](../logic-apps/logic-apps-content-type.md).
+Si el tipo de contenido es `application/json`, puede hacer referencia a las propiedades desde la solicitud entrante. En caso contrario, el contenido se trata como una sola unidad binaria que se puede pasar a otras API. Para hacer referencia a este contenido dentro del flujo de trabajo, debe convertir ese contenido. Por ejemplo, si pasa contenido de `application/xml`, puede usar `@xpath()` para una extracción de XPath, o bien `@json()` para convertir de XML a JSON. Obtenga información sobre cómo [trabajar con tipos de contenido](../logic-apps/logic-apps-content-type.md).
 
 Para obtener la salida de una solicitud entrante, puede usar la función `@triggerOutputs()`. La salida podría parecerse a este ejemplo:
 
@@ -277,9 +277,11 @@ A continuación se presenta el aspecto del esquema JSON ahora para la acción **
 
 R: Azure genera direcciones URL de devolución de llamada de la aplicación lógica de manera segura con una firma de acceso compartido (SAS). Esta firma pasa como un parámetro de consulta y debe validarse antes de que se pueda activar la aplicación lógica. Azure genera la firma mediante una combinación única de una clave secreta por aplicación lógica, el nombre del desencadenador y la operación que se realiza. Por tanto, a menos que alguien tenga acceso a la clave de aplicación lógica secreta, no se puede generar una firma válida.
 
-   > [!NOTE]
-   > En los sistemas de producción/seguros, se recomienda llamar a la aplicación lógica directamente desde el explorador debido a que se ha incluido una clave de acceso compartido en la dirección URL y a la incapacidad de administrar directivas de contenido seguras debido a que los dominios se comparten entre los clientes de la aplicación lógica.
-
+   > [!IMPORTANT]
+   > Para sistemas seguros y de producción, no se recomienda que llame a su aplicación lógica directamente desde el explorador por los siguientes motivos:
+   > 
+   > * La clave de acceso compartido aparece en la dirección URL.
+   > * No puede administrar las directivas de contenido seguro debido a los dominios compartidos entre los clientes de Logic App.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>P: ¿Puedo configurar más puntos de conexión HTTP?
 

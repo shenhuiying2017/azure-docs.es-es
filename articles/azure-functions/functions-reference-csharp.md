@@ -1,9 +1,9 @@
 ---
-title: Referencia para desarrolladores de Azure Functions | Microsoft Docs
+title: Referencia para desarrolladores de scripts de C# de Azure Functions | Microsoft Docs
 description: "Cómo desarrollar funciones de Azure con C#."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: lindydonna
 manager: erikre
 editor: 
 tags: 
@@ -14,33 +14,35 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/04/2017
-ms.author: chrande
+ms.date: 06/07/2017
+ms.author: donnam
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f054539e49d6df4c28c98a3051c90199cecf9b3d
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 1d0143d72ab18deeba7a32cc732445cc7ba64019
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Funciones de Azure
+# <a name="azure-functions-c-script-developer-reference"></a>Referencia para desarrolladores de scripts de C# de Azure Functions
 > [!div class="op_single_selector"]
 > * [Script de C#](functions-reference-csharp.md)
 > * [Script de F#](functions-reference-fsharp.md)
 > * [Node.js](functions-reference-node.md)
-> 
-> 
+>
+>
 
-La experiencia en C# para las Funciones de Azure se basa en el SDK de WebJobs de Azure. Los datos fluyen en la función de C# a través de los argumentos de método. Los nombres de los argumentos se especifican en `function.json`, y hay nombres predefinidos para acceder a cosas como el registrador de funciones y los tokens de cancelación.
+La experiencia de scripts de C# para Azure Functions se basa en el SDK de WebJobs de Azure. Los datos fluyen en la función de C# a través de los argumentos de método. Los nombres de los argumentos se especifican en `function.json`, y hay nombres predefinidos para acceder a cosas como el registrador de funciones y los tokens de cancelación.
 
 En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md).
 
+Para obtener información sobre el uso de las bibliotecas de clases de C#, vea [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md) (Uso de bibliotecas de clases de .NET con Azure Functions).
+
 ## <a name="how-csx-works"></a>Funcionamiento de .csx
-El formato `.csx` permite escribir menos "texto reutilizable" y centrarse en escribir solo una función de C#. En Azure Functions, incluya solo las referencias a ensamblados y espacios de nombres que necesite, como de costumbre, y en lugar de ajustar todo en un espacio de nombres y una clase, simplemente defina el método `Run` . Si necesita incluir todas las clases, por ejemplo para definir objetos CRL estándar (POCO), se puede incluir una clase dentro del mismo archivo.   
+El formato `.csx` permite escribir menos "texto reutilizable" y centrarse en escribir solo una función de C#. Incluya las referencias a ensamblados y los espacios de nombres al principio del archivo como de costumbre. En lugar de encapsular todo en un espacio de nombres y una clase, defina solamente un método `Run`. Si necesita incluir todas las clases, por ejemplo para definir objetos CRL estándar (POCO), se puede incluir una clase dentro del mismo archivo.   
 
 ## <a name="binding-to-arguments"></a>Enlace a argumentos
-Los distintos enlaces se vinculan a una función de C# mediante la propiedad `name` de la configuración de *function.json*. Cada enlace tiene sus propios tipos admitidos que se documentan por enlace. Por ejemplo, un desencadenador de blob puede admitir una cadena, un objeto POCO o algunos otros tipos. Puede utilizar el tipo que mejor se adapte a sus necesidades. Un objeto POCO debe tener un captador y establecedor definidos para cada propiedad. 
+Los distintos enlaces se vinculan a una función de C# mediante la propiedad `name` de la configuración de *function.json*. Cada enlace tiene sus propios tipos admitidos; por ejemplo, un desencadenador de blob puede admitir una cadena, un objeto POCO o un CloudBlockBlob. Los tipos admitidos se documentan en la referencia de cada enlace. Un objeto POCO debe tener un captador y establecedor definidos para cada propiedad.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -55,13 +57,47 @@ public class MyClass
 }
 ```
 
-> [!TIP]
->
-> Si tiene pensado usar los enlaces HTTP o webhook, le sugerimos que lea este documento de procedimientos recomendados en [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md).
->
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+## <a name="using-method-return-value-for-output-binding"></a>Uso del valor devuelto del método para el enlace de salida
+
+Puede usar el valor devuelto de un método para un enlace de salida, mediante el nombre `$return` en *function.json*:
+
+```json
+{
+    "type": "queue",
+    "direction": "out",
+    "name": "$return",
+    "queueName": "outqueue",
+    "connection": "MyStorageConnectionString",
+}
+```
+
+```csharp
+public static string Run(string input, TraceWriter log)
+{
+    return input;
+}
+```
+
+## <a name="writing-multiple-output-values"></a>Escribir varios valores de salida
+
+Para escribir varios valores en un enlace de salida, use los tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Estos tipos son colecciones de solo escritura que se escriben en el enlace de salida cuando se completa el método.
+
+En este ejemplo se escriben varios mensajes en cola mediante `ICollector`:
+
+```csharp
+public static void Run(ICollector<string> myQueueItem, TraceWriter log)
+{
+    myQueueItem.Add("Hello");
+    myQueueItem.Add("World!");
+}
+```
 
 ## <a name="logging"></a>Registro
-Para registrar la salida en sus registros de streaming en C#, puede incluir un argumento con tipo `TraceWriter` . Es recomendable que lo denomine `log`. Le recomendamos que evite `Console.Write` en Azure Functions.
+Para registrar la salida en sus registros de streaming en C#, incluya un argumento de tipo `TraceWriter`. Es recomendable que lo denomine `log`. Evite el uso de `Console.Write` en Azure Functions. 
+
+`TraceWriter` se define en el [SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). El nivel de registro para `TraceWriter` puede configurarse en [host\.json].
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -75,20 +111,20 @@ Para convertir una función en asincrónica, use la palabra clave `async` y devu
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
-        string blobName, 
+        string blobName,
         Stream blobInput,
         Stream blobOutput)
-    {
-        await blobInput.CopyToAsync(blobOutput, 4096, token);
-    }
+{
+    await blobInput.CopyToAsync(blobOutput, 4096, token);
+}
 ```
 
 ## <a name="cancellation-token"></a>Token de cancelación
-En algunos casos, puede que tenga operaciones que son sensibles al cierre. Aunque siempre es mejor escribir código para controlar los bloqueos, en los casos donde desee controlar las solicitudes de cierre estable, defina un argumento con tipo [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx).  Se proporcionará un `CancellationToken` si se desencadena un cierre del host. 
+Algunas operaciones requieren un cierre estable. Aunque siempre es mejor escribir código que pueda controlar los bloqueos, en los casos donde quiera controlar las solicitudes de cierre estable, defina un argumento con tipo [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx).  Se proporciona un `CancellationToken` para indicar que se desencadena un cierre del host.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
-        string blobName, 
+        string blobName,
         Stream blobInput,
         Stream blobOutput,
         CancellationToken token)
@@ -133,7 +169,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 El entorno de hospedaje de las Funciones de Azure agrega automáticamente los siguientes ensamblados:
 
-* `mscorlib`,
+* `mscorlib`
 * `System`
 * `System.Core`
 * `System.Xml`
@@ -144,7 +180,7 @@ El entorno de hospedaje de las Funciones de Azure agrega automáticamente los si
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-Además, en los siguientes ensamblados se hace un uso especial de las mayúsculas y minúsculas y se puede hacer referencia a ellos con SimpleName (por ejemplo, `#r "AssemblyName"`):
+Se puede hacer referencia a los ensamblados siguientes con nombre simple (por ejemplo, `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -153,9 +189,19 @@ Además, en los siguientes ensamblados se hace un uso especial de las mayúscula
 * `Microsoft.AspNet.WebHooks.Common`
 * `Microsoft.Azure.NotificationHubs`
 
-Si necesita hacer referencia a un ensamblado privado, puede cargar el archivo de ensamblado en una carpeta `bin` relacionada con la función y hacer referencia a él mediante el nombre de archivo (por ejemplo, `#r "MyAssembly.dll"`). Para más información acerca de cómo cargar archivos en su carpeta de función, consulte la sección siguiente sobre administración de paquetes.
+## <a name="referencing-custom-assemblies"></a>Hacer referencia a ensamblados personalizados
 
-## <a name="package-management"></a>Administración de paquetes
+Para hacer referencia a un ensamblado personalizado, puede usar un ensamblado *compartido* o un ensamblado *privado*:
+- Los ensamblados compartidos se comparten en todas las funciones dentro de una aplicación de función. Para hacer referencia a un ensamblado personalizado, cargue el ensamblado en la aplicación de función, por ejemplo en una carpeta `bin` en la raíz de la aplicación de función. 
+- Los ensamblados privados forman parte del contexto de una función determinada y admiten la instalación de prueba de versiones diferentes. Los ensamblados privados se deben cargar en una carpeta `bin` en el directorio de la función. Se hace referencia a ellos con el nombre de archivo, como `#r "MyAssembly.dll"`. 
+
+Para más información acerca de cómo cargar archivos en su carpeta de función, consulte la sección siguiente sobre administración de paquetes.
+
+### <a name="watched-directories"></a>Directorios inspeccionados
+
+El directorio que contiene el archivo de script de función se inspecciona automáticamente para buscar cambios en los ensamblados. Para inspeccionar los cambios de ensamblado en otros directorios, agréguelos a la lista `watchDirectories` en [host\.json].
+
+## <a name="using-nuget-packages"></a>Uso de paquetes NuGet
 Para usar paquetes NuGet en una función de C#, cargue un archivo *project.json* en la carpeta de la función del sistema de archivos de la aplicación de función. Este es un ejemplo de archivo *project.json* que agrega una referencia a la versión 1.1.0 de Microsoft.ProjectOxford.Face:
 
 ```json
@@ -172,15 +218,15 @@ Para usar paquetes NuGet en una función de C#, cargue un archivo *project.json*
 
 Solo se admite .NET Framework 4.6, así que asegúrese de que su archivo *project.json`net46` especifique*  como se muestra aquí.
 
-Al cargar un archivo *project.json* , el sistema en tiempo de ejecución obtiene los paquetes y agrega automáticamente las referencias a sus ensamblados. No es necesario agregar directivas `#r "AssemblyName"` . Basta con agregar las instrucciones `using` necesarias al archivo *run.csx* para que use los tipos definidos en los paquetes NuGet.
+Al cargar un archivo *project.json* , el sistema en tiempo de ejecución obtiene los paquetes y agrega automáticamente las referencias a sus ensamblados. No es necesario agregar directivas `#r "AssemblyName"` . Para usar los tipos definidos en los paquetes NuGet, agregue las instrucciones `using` necesarias al archivo *run.csx*. 
 
-En el tiempo de ejecución de funciones, la restauración de NuGet funciona comparando `project.json` y `project.lock.json`. Si las marcas de fecha y hora de los archivos no coinciden, se ejecuta una restauración de NuGet y se descargan los paquetes actualizados. Sin embargo, si coincide con las marcas de fecha y hora de los archivos, NuGet no realiza una restauración. Por lo tanto, `project.lock.json` no debe implementarse, ya que hace que NuGet pasa por alto la restauración y la función no tendrá los paquetes necesarios. Para evitar la implementación del archivo de bloqueo, agregue `project.lock.json` al archivo `.gitignore`.
+En el tiempo de ejecución de funciones, la restauración de NuGet funciona comparando `project.json` y `project.lock.json`. Si las marcas de fecha y hora de los archivos **no coinciden**, se ejecuta una restauración de NuGet y se descargan los paquetes actualizados. Pero si las marcas de fecha y hora de los archivos **coinciden**, NuGet no realiza una restauración. Por tanto, no debe implementarse `project.lock.json`, ya que hace que NuGet omita la restauración del paquete. Para evitar la implementación del archivo de bloqueo, agregue `project.lock.json` al archivo `.gitignore`.
 
-### <a name="how-to-upload-a-projectjson-file"></a>Cómo cargar un archivo project.json
-1. En primer lugar, asegúrese de que la aplicación de la función se está ejecutando, lo que puede hacer abriéndola en el Portal de Azure. 
-   
-    Esto también proporciona acceso a los registros de streaming donde se mostrará la salida de la instalación del paquete. 
-2. Para cargar un archivo project.json, use uno de los métodos descritos en la sección **Actualización de los archivos de la aplicación de función** del [tema Referencia para desarrolladores de Azure Functions](functions-reference.md#fileupdate). 
+Para usar una fuente NuGet personalizada, especifique la fuente en un archivo *Nuget.Config* en la raíz de la aplicación la función. Para más información, vea [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior) (Configuración del comportamiento de NuGet).
+
+### <a name="using-a-projectjson-file"></a>Uso de un archivo project.json
+1. Abra la función en Azure Portal. La pestaña de registros muestra el resultado de la instalación del paquete.
+2. Para cargar un archivo project.json, use uno de los métodos descritos en [Actualización de los archivos de aplicación de función](functions-reference.md#fileupdate) en el tema de referencia para desarrolladores de Azure Functions.
 3. Una vez cargado el archivo *project.json* , verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
 
 ```
@@ -190,13 +236,13 @@ En el tiempo de ejecución de funciones, la restauración de NuGet funciona comp
 2016-04-04T19:02:50.261 Feeds used:
 2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
 2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
-2016-04-04T19:02:50.261 
+2016-04-04T19:02:50.261
 2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
 2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
 2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
 2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.
-2016-04-04T19:02:57.189 
-2016-04-04T19:02:57.189 
+2016-04-04T19:02:57.189
+2016-04-04T19:02:57.189
 2016-04-04T19:02:57.455 Packages restored.
 ```
 
@@ -213,13 +259,13 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 public static string GetEnvironmentVariable(string name)
 {
-    return name + ": " + 
+    return name + ": " +
         System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
 }
 ```
 
 ## <a name="reusing-csx-code"></a>Reutilización del código .csx
-Puede usar las clases y los métodos definidos en otros archivos *.csx* con el archivo *run.csx*. Para ello, utilice directivas `#load` en el archivo *run.csx*. En el siguiente ejemplo, una rutina de registro denominada `MyLogger` se comparte en *myLogger.csx* y se carga en *run.csx* mediante la directiva `#load`: 
+Puede usar las clases y los métodos definidos en otros archivos *.csx* con el archivo *run.csx*. Para ello, utilice directivas `#load` en el archivo *run.csx*. En el siguiente ejemplo, una rutina de registro denominada `MyLogger` se comparte en *myLogger.csx* y se carga en *run.csx* mediante la directiva `#load`:
 
 Archivo *run.csx*de ejemplo:
 
@@ -228,7 +274,7 @@ Archivo *run.csx*de ejemplo:
 
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
-    log.Verbose($"Log by run.csx: {DateTime.Now}"); 
+    log.Verbose($"Log by run.csx: {DateTime.Now}");
     MyLogger(log, $"Log by MyLogger: {DateTime.Now}");
 }
 ```
@@ -238,11 +284,11 @@ Archivo *mylogger.csx*de ejemplo:
 ```csharp
 public static void MyLogger(TraceWriter log, string logtext)
 {
-    log.Verbose(logtext); 
+    log.Verbose(logtext);
 }
 ```
 
-El uso de un *.csx* compartido es un patrón común para asignar rigurosamente los argumentos entre funciones mediante un objeto POCO. En el siguiente ejemplo simplificado, un desencadenador HTTP y un desencadenador de cola comparten un objeto POCO denominado `Order` para asignar rigurosamente los datos del pedido:
+El uso de un *.csx* compartido es un patrón común para asignar rigurosamente los argumentos entre funciones mediante un objeto POCO. En el siguiente ejemplo simplificado, un desencadenador HTTP y un desencadenador de cola comparten un objeto POCO denominado `Order` para tipar fuertemente los datos del pedido:
 
 Por ejemplo, *run.csx* para el desencadenador HTTP:
 
@@ -285,7 +331,7 @@ public static void Run(Order myQueueItem, out Order outputQueueItem,TraceWriter 
 }
 ```
 
-Por ejemplo, *order.csx*: 
+Por ejemplo, *order.csx*:
 
 ```cs
 public class Order
@@ -298,7 +344,7 @@ public class Order
 
     public override String ToString()
     {
-        return "\n{\n\torderId : " + orderId + 
+        return "\n{\n\torderId : " + orderId +
                   "\n\tcustName : " + custName +             
                   "\n\tcustAddress : " + custAddress +             
                   "\n\tcustEmail : " + custEmail +             
@@ -313,33 +359,18 @@ Puede usar una ruta de acceso relativa con la directiva `#load` :
 * `#load "loadedfiles\mylogger.csx"` carga un archivo ubicado en una carpeta dentro de la carpeta de la función.
 * `#load "..\shared\mylogger.csx"` carga un archivo ubicado en una carpeta del mismo nivel que la carpeta de la función, es decir, directamente en *wwwroot*.
 
-La directiva `#load` solo funciona con archivos *.csx* (script de C#), no con archivos *.cs*. 
+La directiva `#load` solo funciona con archivos *.csx* (script de C#), no con archivos *.cs*.
 
-## <a name="versioning"></a>Control de versiones
+<a name="imperative-bindings"></a> 
 
-El entorno en tiempo de ejecución de Functions se ejecuta como una extensión de sitio para la Function App. Las extensiones de sitio son puntos de extensibilidad que permiten agregar funciones a un servicio Azure App Service, sitio web o Function App. `Kudu` y `Monaco` son dos ejemplos de extensiones de sitio. Asimismo, puede crear y usar extensiones personalizadas. Puede configurar la versión de las extensiones mediante el ajuste de configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`.
+## <a name="binding-at-runtime-via-imperative-bindings"></a>Enlace en tiempo de ejecución a través de enlaces imperativos
 
-El ajuste `FUNCTIONS_EXTENSION_VERSION` solo establece la versión principal del entorno en tiempo de ejecución. Por ejemplo, el valor "~1" indica que la Function App utilizará 1 como versión principal. Las Function App se actualizan a las nuevas versiones secundarias a medida que se lanzan. Gracias a ello, puede administrar cuándo actualizar a las distintas versiones a fin de evitar cambios bruscos.
-
-Además, es posible que quiera actualizar el entorno en tiempo de ejecución antes de que se convierta en la versión predeterminada en el portal. No obstante, no se preocupe. Puede revertir el cambio en cualquier momento volviendo a establecer el valor anterior en el ajuste `FUNCTIONS_EXTENSION_VERSION`.
-
-*Para determinar la versión del entorno en tiempo de ejecución de la Azure Function App, siga estas instrucciones:*
-
-Busque el archivo `applicationhost.config` ubicado en la carpeta `D:\local\Config` de Kudu. En la entrada `virtualDirectory`, podrá encontrar la versión exacta del entorno en tiempo de ejecución de Functions: 
-
-```xml
-<virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Functions\0.8.10564" />
-```
-Puede usar este valor para establecer una versión principal y secundaria específicas del entorno en tiempo de ejecución de la Function App. Cada vez que cambie la versión de una Function App, deberá reiniciarla.
-
-## <a name="advanced-binding-at-runtime-imperative-binding"></a>Enlace avanzado en tiempo de ejecución (enlace imperativo)
-
-En C# y otros lenguajes .NET, puede usar un patrón de enlace [imperativo](https://en.wikipedia.org/wiki/Imperative_programming), en contraposición a los enlaces [*declarativos*](https://en.wikipedia.org/wiki/Declarative_programming) de *function.json*. Los enlaces imperativos resultan útiles cuando los parámetros de enlace tienen que calcularse en tiempo de ejecución, en lugar de en el tiempo de diseño. Con este patrón, se puede enlazar a cualquier número de enlaces compatibles de entrada y salida sobre la marcha en el código de función.
+En C# y otros lenguajes .NET, puede usar un patrón de enlace [imperativo](https://en.wikipedia.org/wiki/Imperative_programming), en contraposición a los enlaces [*declarativos*](https://en.wikipedia.org/wiki/Declarative_programming) de *function.json*. Los enlaces imperativos resultan útiles cuando los parámetros de enlace tienen que calcularse en tiempo de ejecución, en lugar de en el tiempo de diseño. Con este patrón, se puede enlazar a enlaces compatibles de entrada y salida sobre la marcha en el código de función.
 
 Defina un enlace imperativo como se indica a continuación:
 
 - **No** incluya una entrada en *function.json* para los enlaces imperativos deseados.
-- Pase un parámetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
+- Pase un parámetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
 - Utilice el siguiente patrón de C# para realizar el enlace de datos.
 
 ```cs
@@ -350,8 +381,8 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 ```
 
 donde `BindingTypeAttribute` es el atributo de .NET que define el enlace y `T` es el tipo de entrada o de salida compatible con ese tipo de enlace. `T` no puede ser también un tipo de parámetro `out` (como `out JObject`). Por ejemplo, el enlace de salida de la tabla de Mobile Apps admite [seis tipos de salida](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), pero solo se puede utilizar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
-    
-El ejemplo de código siguiente crea un [enlace de salida al blob de almacenamiento](functions-bindings-storage-blob.md#storage-blob-output-binding) con la ruta de acceso al blob definida en tiempo de ejecución y, a continuación, escribe una cadena en el blob.
+
+El ejemplo de código siguiente crea un [enlace de salida al blob de almacenamiento](functions-bindings-storage-blob.md#using-a-blob-output-binding) con la ruta de acceso al blob definida en tiempo de ejecución y, a continuación, escribe una cadena en el blob.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -388,7 +419,7 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-En la tabla siguiente, aparecen los atributos de .NET para cada tipo de enlace, así como los paquetes en los que se definen. 
+En la tabla siguiente, aparecen los atributos de .NET para cada tipo de enlace, así como los paquetes en los que se definen.
 
 > [!div class="mx-codeBreakAll"]
 | Enlace | Atributo | Agregar referencia |
@@ -414,4 +445,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
 * [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
 
-
+[host\.json]: https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json

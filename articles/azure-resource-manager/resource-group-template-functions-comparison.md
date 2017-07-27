@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 7f19efa7e09b0dce43851019f94285b2887c46d5
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: d993bd5cae5fa2f0a6eda999c95b10bd1c268be2
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funciones de comparación para las plantillas de Azure Resource Manager
@@ -46,7 +45,30 @@ Comprueba si dos valores son iguales.
 | arg1 |Sí |entero, cadena, matriz u objeto |El primer valor en el que comprobar la igualdad. |
 | arg2 |Sí |entero, cadena, matriz u objeto |El segundo valor en el que comprobar la igualdad. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+
+Devuelve **True** si los valores son iguales; en caso contrario, **False**.
+
+### <a name="remarks"></a>Comentarios
+
+La función equals se suele usar con el elemento `condition` para comprobar si está implementado un recurso.
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+### <a name="example"></a>Ejemplo
 
 La plantilla de ejemplo comprueba diferentes tipos de valores para la igualdad. Todos los valores predeterminados devuelven True.
 
@@ -111,9 +133,14 @@ La plantilla de ejemplo comprueba diferentes tipos de valores para la igualdad. 
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con el valor predeterminado es:
 
-Devuelve **True** si los valores son iguales; en caso contrario, **False**.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Booleano | True |
+| checkStrings | Booleano | True |
+| checkArrays | Booleano | True |
+| checkObjects | Booleano | True |
 
 <a id="less" />
 
@@ -129,7 +156,11 @@ Comprueba si el primer valor es menor que el segundo.
 | arg1 |Sí |entero o cadena |El primer valor de la comparación menor. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación menor. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+
+Devuelve **True** si el primer valor es menor que el segundo; en caso contrario, **False**.
+
+### <a name="example"></a>Ejemplo
 
 La plantilla de ejemplo comprueba si un valor es menor que el otro.
 
@@ -139,16 +170,20 @@ La plantilla de ejemplo comprueba si un valor es menor que el otro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -166,9 +201,12 @@ La plantilla de ejemplo comprueba si un valor es menor que el otro.
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con el valor predeterminado es:
 
-Devuelve **True** si el primer valor es menor que el segundo; en caso contrario, **False**.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Booleano | True |
+| checkStrings | Booleano | False |
 
 <a id="lessorequals" />
 
@@ -184,7 +222,11 @@ Comprueba si el primer valor es menor o igual que el segundo.
 | arg1 |Sí |entero o cadena |El primer valor de la comparación menor o igual. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación menor o igual. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+
+Devuelve **True** si el primer valor es menor o igual que el segundo; en caso contrario, **False**.
+
+### <a name="example"></a>Ejemplo
 
 La plantilla de ejemplo comprueba si un valor es menor o igual que el otro.
 
@@ -194,16 +236,20 @@ La plantilla de ejemplo comprueba si un valor es menor o igual que el otro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -221,9 +267,12 @@ La plantilla de ejemplo comprueba si un valor es menor o igual que el otro.
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con el valor predeterminado es:
 
-Devuelve **True** si el primer valor es menor o igual que el segundo; en caso contrario, **False**.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Booleano | True |
+| checkStrings | Booleano | False |
 
 <a id="greater" />
 
@@ -239,7 +288,11 @@ Comprueba si el primer valor es mayor que el segundo.
 | arg1 |Sí |entero o cadena |El primer valor de la comparación mayor. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación mayor. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+
+Devuelve **True** si el primer valor es mayor que el segundo; en caso contrario, **False**.
+
+### <a name="example"></a>Ejemplo
 
 La plantilla de ejemplo comprueba si un valor es mayor que el otro.
 
@@ -249,16 +302,20 @@ La plantilla de ejemplo comprueba si un valor es mayor que el otro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -276,9 +333,12 @@ La plantilla de ejemplo comprueba si un valor es mayor que el otro.
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con el valor predeterminado es:
 
-Devuelve **True** si el primer valor es mayor que el segundo; en caso contrario, **False**.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Booleano | False |
+| checkStrings | Booleano | True |
 
 <a id="greaterorequals" />
 
@@ -294,7 +354,11 @@ Comprueba si el primer valor es mayor o igual que el segundo.
 | arg1 |Sí |entero o cadena |El primer valor de la comparación mayor o igual. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación mayor o igual. |
 
-### <a name="examples"></a>Ejemplos
+### <a name="return-value"></a>Valor devuelto
+
+Devuelve **True** si el primer valor es mayor o igual que el segundo; en caso contrario, **False**.
+
+### <a name="example"></a>Ejemplo
 
 La plantilla de ejemplo comprueba si un valor es mayor o igual que el otro.
 
@@ -304,16 +368,20 @@ La plantilla de ejemplo comprueba si un valor es mayor o igual que el otro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -331,9 +399,13 @@ La plantilla de ejemplo comprueba si un valor es mayor o igual que el otro.
 }
 ```
 
-### <a name="return-value"></a>Valor devuelto
+La salida del ejemplo anterior con el valor predeterminado es:
 
-Devuelve **True** si el primer valor es mayor o igual que el segundo; en caso contrario, **False**.
+| Nombre | Tipo | Valor |
+| ---- | ---- | ----- |
+| checkInts | Booleano | False |
+| checkStrings | Booleano | True |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).

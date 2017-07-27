@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: rajram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a0a420adc57a0bcbb3779183324ab7bfafcb5bf1
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 4faccae708b5407d1eb64e746824a23688bc5834
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -39,7 +39,7 @@ Puede detectar todos los recursos a los que se aplica el escalado automático en
 
 Puede utilizar el panel de filtro de la parte superior para limitar la lista a los recursos seleccionados de un grupo de recursos específico, seleccionar tipos de recursos concretos o seleccionar un recurso determinado.
 
-Para cada recurso puede encontrar el recuento de instancias actual y su estado de escalado automático. El estado de escalado automático puede ser:
+Para cada recurso, encontrará el recuento de instancias actual y su estado de escalado automático. El estado de escalado automático puede ser:
 
 - No configurado: aún no se ha habilitado la configuración de escalado automático para este recurso.
 - Habilitado: se ha habilitado la configuración de escalado automático para este recurso.
@@ -99,7 +99,7 @@ Puede realizar cambios en JSON directamente, si es necesario. Estos cambios se r
 ## <a name="disable-autoscale-and-manually-scale-your-instances"></a>Deshabilitar el escalado automático y escalar manualmente las instancias
 Pueden darse ocasiones en que desee deshabilitar la configuración actual de escalado y escalar los recursos manualmente.
 
-Haga clic en el botón "Disable autocale" (Deshabilitar escalado automático) en la parte superior.
+Haga clic en el botón "Deshabilitar escalado automático" en la parte superior.
 ![Deshabilitar escalado automático][13]
 
 Tenga en cuenta que esta opción deshabilita la configuración, pero puede recuperarla al habilitar el escalado automático de nuevo. Ahora puede establecer el número de instancias a las que desea escalar manualmente.
@@ -123,3 +123,4 @@ Siempre se puede volver al escalado automático; para ello, haga clic en "Enable
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
+

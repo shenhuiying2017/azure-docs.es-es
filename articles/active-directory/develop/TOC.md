@@ -85,11 +85,11 @@
 ### [Comparación de v1-v2](active-directory-v2-compare.md)
 ## Introducción
 ### Aplicaciones móviles y de escritorio
-#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
 ### Aplicaciones web
-#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [Servidor web de ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [Aplicación web de NodeJS](active-directory-v2-devquickstarts-node-web.md)
 ## Guías
@@ -106,4 +106,4 @@
 #### [Credenciales de certificados](active-directory-certificate-credentials.md)
 ### [Ámbitos](active-directory-v2-scopes.md)
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)

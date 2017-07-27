@@ -21,17 +21,12 @@ ms.openlocfilehash: bfcf1f8c1aeb30df13a82470bb4fa0161204d8ee
 ms.contentlocale: es-es
 ms.lasthandoff: 07/04/2017
 
-
 ---
-<a id="programmatically-create-a-stream-analytics-job-monitor" class="xliff"></a>
-
-# Creación de supervisión de trabajos de Análisis de transmisiones mediante programación
+# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creación de supervisión de trabajos de Análisis de transmisiones mediante programación
 
 En este artículo se demuestra cómo habilitar la supervisión de un trabajo de Análisis de transmisiones. Los trabajos de Stream Analytics creados a través de las API de REST, el SDK de Azure o PowerShell no tienen habilitada la supervisión de forma predeterminada. Puede habilitarla manualmente en Azure Portal dirigiéndose a la página Supervisión del trabajo y haciendo clic en el botón Habilitar, o bien puede automatizar este proceso siguiendo los pasos que se describen en este artículo. Los datos de supervisión se mostrarán en el área Métricas de Azure Portal para el trabajo de Stream Analytics.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este proceso, debe tener lo siguiente:
 
@@ -39,9 +34,7 @@ Antes de empezar este proceso, debe tener lo siguiente:
 * [SDK de .NET para Azure](https://azure.microsoft.com/downloads/) descargado e instalado
 * Un trabajo de Stream Analytics existente que requiera la habilitación de supervisión
 
-<a id="create-a-project" class="xliff"></a>
-
-## Creación de un proyecto
+## <a name="create-a-project"></a>Creación de un proyecto
 
 1. Cree una aplicación de consola .NET de Visual Studio C#.
 2. En la consola del administrador de paquetes, ejecute los siguientes comandos para instalar los paquetes NuGet. El primero es el SDK de .NET de administración de Análisis de transmisiones de Azure. El segundo es el SDK de Azure Monitor que se usará para habilitar la supervisión. El último es el cliente de Azure Active Directory que se usará para autenticación.
@@ -59,7 +52,7 @@ Antes de empezar este proceso, debe tener lo siguiente:
      <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
      <add key="JobName" value="YOUR JOB NAME" />
      <add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
-     <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+     <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
      <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
      <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
      <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
@@ -125,9 +118,7 @@ Antes de empezar este proceso, debe tener lo siguiente:
              throw new InvalidOperationException("Failed to acquire token");
      }
 
-<a id="create-management-clients" class="xliff"></a>
-
-## Creación de clientes de administración
+## <a name="create-management-clients"></a>Creación de clientes de administración
 
 El código siguiente configurará las variables y los clientes de administración necesarios.
 
@@ -149,9 +140,7 @@ El código siguiente configurará las variables y los clientes de administració
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
 
-<a id="enable-monitoring-for-an-existing-stream-analytics-job" class="xliff"></a>
-
-## Habilitación de supervisión para un trabajo de Stream Analytics existente
+## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Habilitación de supervisión para un trabajo de Stream Analytics existente
 
 El código siguiente habilitará la supervisión de un trabajo de Stream Analytics **existente**. La primera parte del código realiza una solicitud GET en el servicio Análisis de transmisiones para recuperar información sobre el trabajo de Análisis de transmisiones en concreto. Usa la propiedad *Id* (recuperada de la solicitud GET) como parámetro del método Put en la segunda mitad del código que envía una solicitud PUT al servicio Insights para habilitar la supervisión para el trabajo de Stream Analytics.
 
@@ -185,15 +174,11 @@ El código siguiente habilitará la supervisión de un trabajo de Stream Analyti
 
 
 
-<a id="get-support" class="xliff"></a>
-
-## Obtención de soporte técnico
+## <a name="get-support"></a>Obtención de soporte técnico
 
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)

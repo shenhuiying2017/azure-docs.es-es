@@ -12,12 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 06/29/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 71e3d130f22515d22dc7f486f3dede936b874049
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 32d39e2c19348bc4a1ba218cfc411a70f9f212e3
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -30,7 +31,7 @@ Jenkins es una herramienta popular para la integración e implementación contin
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Configuración de Jenkins en un clúster de Service Fabric
 
-Jenkins se puede configurar dentro o fuera de un clúster de Service Fabric. En las secciones siguientes se muestra cómo se configura dentro de un clúster.
+Jenkins se puede configurar dentro o fuera de un clúster de Service Fabric. En las secciones siguientes se muestra cómo configurarlo dentro de un clúster mientras se usa una cuenta de Azure Storage para guardar el estado de la instancia de contenedor.
 
 ### <a name="prerequisites"></a>Requisitos previos
 1. Tenga preparado un clúster Linux de Service Fabric. En los clústeres de Service Fabric creados desde Azure Portal ya está Docker instalado. Si el clúster se ejecuta localmente, para comprobar si Docker está instalado, use el comando ``docker info``. Si no está instalado, instálelo con los siguientes comandos:
@@ -42,8 +43,24 @@ Jenkins se puede configurar dentro o fuera de un clúster de Service Fabric. En 
 2. Implemente la aplicación de contenedor de Service Fabric en el clúster, para lo que debe seguir estos pasos:
 
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker
+git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
+```
+
+3. Necesita los detalles de la opción de conexión del recurso compartido de archivos de Azure Storage donde quiere guardar el estado de la instancia del contenedor Jenkins. Si está usando Microsoft Azure Portal para lo mismo, siga los pasos de Crear una cuenta de almacenamiento de Azure, por ejemplo ``sfjenkinsstorage1``. Cree un **recurso compartido de archivos** en esa cuenta de almacenamiento, por ejemplo ``sfjenkins``. Haga clic en **Conectar** para el recurso compartido de archivos y anote los valores que se muestran bajo **Conectando desde Linux**, que por ejemplo tendría el siguiente aspecto:
+```sh
+sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777
+```
+
+4. Actualice los valores de marcador de posición en el script ```setupentrypoint.sh``` con los detalles de almacenamiento de Azure correspondientes.
+```sh
+vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
+```
+Reemplace ``[REMOTE_FILE_SHARE_LOCATION]`` con el valor ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` de la salida de la conexión en el punto 3 anterior.
+Reemplace ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` con el valor ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` del punto 3 anterior.
+
+5. Conéctese al clúster e instale la aplicación contenedora.
+```sh
 azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
 bash Scripts/install.sh
 ```
@@ -102,7 +119,7 @@ Ahora, cuando ejecute ``docker info`` en el terminal, verá en la salida que el 
   5. Configure GitHub para que funcione con Jenkins, para lo que debe seguir los pasos que se indican en [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Generación de una clave SSH nueva y su adición al agente de SSH).
         * Use las instrucciones que proporciona GitHub para generar la clave SSH y agregar la clave SSH a la cuenta de GitHub que hospeda el repositorio.
         * Ejecute los comandos que se mencionan en el vínculo anterior en el shell de Docker para Jenkins (no en el host).
-        * Para iniciar sesión en el shell de Jenkins desde un host, use los siguientes comandos:
+      * Para iniciar sesión en el shell de Jenkins desde un host, use los siguientes comandos:
 
       ```sh
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash

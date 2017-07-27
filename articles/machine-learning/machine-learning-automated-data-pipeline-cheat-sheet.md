@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: d109c50be94a227efd39f151c01070a8e30b237d
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 22f9369d18edae34f51f20712c3f92e0a57700f2
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -40,7 +41,7 @@ Descargar aquí la hoja de referencia rápida: **[hoja de referencia rápida de 
 ## <a name="more-help-with-machine-learning-studio"></a>Más ayuda con Estudio de aprendizaje automático
 * Para información general sobre Aprendizaje automático de Microsoft Azure, vea [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md).
 * Para una explicación de cómo implementar un servicio web de puntuación, vea [Implementación de un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md).
-* Para una discusión de cómo consumir un servicio web de puntuación, vea [Cómo consumir un servicio web de Aprendizaje automático de Azure implementado en un experimento de Aprendizaje automático](machine-learning-consume-web-services.md).
+* Para obtener una explicación de cómo utilizar un servicio web de puntuación, vea [Cómo consumir un servicio web Azure Machine Learning](machine-learning-consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

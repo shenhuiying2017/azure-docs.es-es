@@ -1,6 +1,6 @@
 ---
-title: "Problemas al configurar y aprovisionar usuarios en una aplicación&quot;"
-description: "Problemas al configurar y aprovisionar usuarios en una aplicación&quot;"
+title: "Problemas al configurar y aprovisionar usuarios en una aplicación\""
+description: "Problemas al configurar y aprovisionar usuarios en una aplicación\""
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 4d33237833f34495e6049e348ad4518a2b70ee51
+ms.contentlocale: es-es
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

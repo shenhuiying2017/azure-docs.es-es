@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 717f4969a91209576a504c94c31993b938770432
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 96921f4be8aabb6d960ee4f66acd6c07d7ba7f95
+ms.contentlocale: es-es
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -64,7 +65,11 @@ Puede comprobar la instalación del controlador en el Administrador de dispositi
 
 ![Propiedades del controlador de GPU](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-Para consultar el estado del dispositivo de GPU, ejecute la utilidad de línea de comandos [smi nvidia](https://developer.nvidia.com/nvidia-system-management-interface) que se instala con el controlador. 
+Para consultar el estado del dispositivo de GPU, ejecute la utilidad de línea de comandos [smi nvidia](https://developer.nvidia.com/nvidia-system-management-interface) que se instala con el controlador.
+
+1. Abra un símbolo del sistema y cambie al directorio **C:\Program Files\NVIDIA Corporation\NVSMI**.
+
+2. Ejecute **nvidia-smi**. Si el controlador está instalado, obtendrá un resultado parecido al siguiente. Tenga en cuenta que **GPU-Util** mostrará **0 %** a no ser que esté ejecutando actualmente una carga de trabajo de la GPU en la máquina virtual.
 
 ![Estado del dispositivo de NVIDIA](./media/n-series-driver-setup/smi.png)  
 

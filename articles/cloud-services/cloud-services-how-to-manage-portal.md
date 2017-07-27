@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a8f1bf660c44f7716767d3244a7d6e7f7acf8a83
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: c4ec436df17926114e3e27eabc8ed12761c9614e
+ms.contentlocale: es-es
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="how-to-manage-cloud-services"></a>Administración de servicios en la nube
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/27/2017
 >
 >
 
-El servicio en la nube se administra en el área **Servicios en la nube (clásico)** de Azure Portal. En este artículo se describen algunas acciones comunes que se deben realizar al administrar servicios en la nube; por ejemplo, actualizar, eliminar, escalar y promover una implementación de ensayo a producción.
+En el área **Cloud Services (clásico)** de Azure Portal, puede actualizar un rol de servicio o una implementación, promover una implementación de ensayo en producción, vincular recursos con su servicio en la nube para que pueda ver las dependencias de estos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
 
 Para obtener más información sobre cómo escalar un servicio en la nube, haga clic [aquí](cloud-services-how-to-scale-portal.md).
 
@@ -47,7 +47,7 @@ Si necesita actualizar el código de la aplicación para su servicio en la nube,
 4. **Opcionalmente** puede actualizar la etiqueta de implementación y la cuenta de almacenamiento.
 5. Si uno de los roles solo tiene una instancia de rol, seleccione **Implementar aunque uno o varios roles contengan una sola instancia** para permitir que la actualización continúe.
 
-    Azure solo puede garantizar un 99,95 % de disponibilidad del servicio durante una actualización del servicio en la nube si cada rol tiene al menos dos instancias de rol (máquinas virtuales). Con dos instancias de rol, una máquina virtual procesará las solicitudes de cliente mientras la otra se actualiza.
+    Azure solo puede garantizar un 99,95 % de disponibilidad del servicio durante una actualización del servicio en la nube si cada rol tiene al menos dos instancias de rol (máquinas virtuales). Con dos instancias de rol, una máquina virtual procesa las solicitudes de cliente mientras la otra se actualiza.
 
 6. Active **Iniciar implementación** si quiere que la actualización se aplique cuando termine de cargarse el paquete.
 7. Haga clic en **Aceptar** para iniciar la actualización del servicio.
@@ -78,15 +78,15 @@ Puede intercambiar implementaciones desde la página **Servicios en la nube** o 
 
 Existen principalmente dos requisitos previos para que el intercambio de implementación se realice de manera correcta:
 
-- Si quiere usar una dirección IP estática para su ranura de producción, debe reservar también una para su ranura de ensayo. Si no, el intercambio dará error.
+- Si quiere usar una dirección IP estática para su ranura de producción, debe reservar también una para su ranura de ensayo. Si no lo hace así, se producirá un error en el intercambio.
 
-- Todas las instancias de los roles se deben estar ejecutando para poder realizar el intercambio. Puede comprobar el estado de las en la hoja de información general del portal de Azure o mediante el [comando Get-AzureRole de Windows PowerShell](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0).
+- Todas las instancias de los roles se deben estar ejecutando para poder realizar el intercambio. El estado de las instancias se puede comprobar de la hoja de información general de Azure Portal. Como alternativa, puede usar el comando [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) de Windows PowerShell.
 
-Tenga en cuenta que las actualizaciones del SO invitado y las operaciones de recuperación de servicios pueden hacer que los intercambios de implementación den error. Consulte [Solución de problemas de implementación de servicios en la nube](cloud-services-troubleshoot-deployment-problems.md) para más información.
+Tenga en cuenta que las actualizaciones del SO invitado y las operaciones de recuperación de servicios también pueden provocar errores en los intercambios de implementación. Para más información, consulte [Solución de problemas de implementación de servicios en la nube](cloud-services-troubleshoot-deployment-problems.md).
 
 **¿Un intercambio conlleva tiempo de inactividad de mi aplicación? ¿Cómo puedo controlarlo?**
 
-Como se describe en la última sección, un intercambio de implementación suele ser muy rápido ya que es un cambio de configuración en el equilibrador de carga de Azure. Sin embargo, en algunos casos, puede tardar diez o más segundos y dar lugar a errores de conexión transitorios. Para limitar el impacto en los clientes, considere la posibilidad de implementar la [lógica de reintento del cliente](../best-practices-retry-general.md).
+Como se ha descrito en la última sección, un intercambio de implementación suele ser rápido, ya que no es más que un cambio de configuración en Azure Load Balancer. Sin embargo, en algunos casos, puede tardar diez o más segundos y dar lugar a errores de conexión transitorios. Para limitar el impacto en los clientes, considere la posibilidad de implementar la [lógica de reintento del cliente](../best-practices-retry-general.md).
 
 ## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Vinculación de un recurso a un servicio en la nube
 El Portal de Azure no vincula recursos entre sí como el Portal de Azure clásico actual. En su lugar, implemente más recursos en el mismo grupo de recursos que está usando el servicio en la nube.
@@ -112,8 +112,14 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 
 > [!NOTE]
 > Cuando se elimina un servicio en la nube y se configura una supervisión detallada, debe eliminar manualmente los datos de la cuenta de almacenamiento. Para obtener información sobre dónde buscar las tablas métricas, consulte [este](cloud-services-how-to-monitor.md) artículo.
->
->
+
+
+## <a name="how-to-find-more-information-about-failed-deployments"></a>Búsqueda de más información acerca de las implementaciones con errores
+La hoja **Información general** tiene una barra de estado en la parte superior. Al hacer clic en ella, se abre una nueva hoja que muestra la información de cualquier error. Si la implementación no contiene errores, la hoja de información está en blanco.
+
+![Intercambio de servicios en la nube](./media/cloud-services-how-to-manage-portal/status-info.png)
+
+
 
 [Azure portal]: https://portal.azure.com
 

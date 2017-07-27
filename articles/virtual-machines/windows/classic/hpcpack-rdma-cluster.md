@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 12/29/2016
+ms.date: 06/01/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e542ea6431933668d96f7028431826bceb9f337
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 2ec31c5444f72c7255d8925bdb3ea85854cfaf1a
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -58,7 +59,7 @@ A continuación, se presentan consideraciones y pasos para enviar ráfagas a ins
     Configure un certificado para proteger la conexión entre el nodo principal y Azure. Para ver las opciones y los procedimientos, consulte [Escenarios para configurar el certificado de administración de Azure para HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). Para las implementaciones de prueba, HPC Pack instale un certificado de administración predeterminado de Microsoft HPC Azure que puede cargar rápidamente a su suscripción de Azure.
 3. **Crear un nuevo servicio en la nube y una cuenta de almacenamiento**
    
-    Use el Portal de Azure clásico para crear un servicio en la nube y una cuenta de almacenamiento para la implementación en una región donde haya disponibles instancias compatibles con RDMA.
+    Use Azure Portal para crear un servicio en la nube y una cuenta de almacenamiento para la implementación en una región donde haya disponibles instancias compatibles con RDMA.
 4. **Crear una plantilla de nodo de Azure**
    
     Use el Asistente para crear plantillas de nodo en el Administrador de clústeres de HPC. Para conocer los pasos, consulte [Crear una plantilla de nodo de Azure](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) en "Pasos para implementar nodos de Azure con Microsoft HPC Pack".

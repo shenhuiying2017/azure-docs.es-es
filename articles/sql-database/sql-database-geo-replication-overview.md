@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 07/05/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 867cc69e18e5b31f707c1942e7aa1b691403e3e0
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 7166c4428398015c0570b048dff0005b5061eadb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -125,11 +125,10 @@ Debido a la elevada latencia de las redes de área extensa, la copia continua us
 ## <a name="programmatically-managing-active-geo-replication"></a>Administración mediante programación de la replicación geográfica activa
 Como se dijo antes, los grupos de conmutación por error automática (en versión preliminar) y la replicación geográfica activa también pueden administrarse mediante programación con Azure PowerShell y la API de REST. En las tablas siguientes se describe el conjunto de comandos disponibles.
 
-**API de Azure Resource Manager y seguridad basada en roles**: la replicación geográfica activa incluye un conjunto de [API de Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) para la administración, en el que se incluyen [cmdlets de PowerShell basados en Azure Resource Manager](scripts/sql-database-setup-geodr-and-failover-database-powershell.md). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
+**API de Azure Resource Manager y seguridad basada en roles**: la replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API de REST de Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) y los [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-what-is.md).
 
 > [!NOTE]
 > Muchas de las nuevas características de la replicación geográfica activa solo se admiten con [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), que se basa en la [API de REST de Azure SQL](https://msdn.microsoft.com/library/azure/mt163571.aspx) y los [cmdlets de PowerShell de Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084.aspx). La [API de REST (clásica)](https://msdn.microsoft.com/library/azure/dn505719.aspx) y los [cmdlets de Azure SQL Database (clásicos)](https://msdn.microsoft.com/library/azure/dn546723.aspx) se admiten por compatibilidad con versiones anteriores, por lo que se recomienda usar las API basadas en Azure Resource Manager. 
-> 
 > 
 
 ### <a name="transact-sql"></a>Transact-SQL
@@ -147,39 +146,49 @@ Como se dijo antes, los grupos de conmutación por error automática (en versió
 ### <a name="powershell"></a>PowerShell
 | Cmdlet | Descripción |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase?view=azurermps-3.7.0) |Obtiene una o más bases de datos. |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Crea una base de datos secundaria para una base de datos existente e inicia la replicación de datos. |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Convierte una base de datos secundaria en principal para iniciar la conmutación por error. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Finaliza una replicación de datos entre una base de datos SQL y la base de datos secundaria especificada. |
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink?view=azurermps-3.7.0) |Obtiene los vínculos de replicación geográfica entre una Base de datos SQL de Azure y un grupo de recursos o SQL Server. |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) |    Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Quita el grupo de conmutación por error del servidor y elimina todas las bases de datos secundarias incluidas en el grupo |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Recupera la configuración del grupo de conmutación por error |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) |    Modifica la configuración del grupo de conmutación por error |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario |
+| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtiene una o más bases de datos. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Crea una base de datos secundaria para una base de datos existente e inicia la replicación de datos. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Convierte una base de datos secundaria en principal para iniciar la conmutación por error. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Finaliza una replicación de datos entre una base de datos SQL y la base de datos secundaria especificada. |
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Obtiene los vínculos de replicación geográfica entre una Base de datos SQL de Azure y un grupo de recursos o SQL Server. |
+| [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
+| [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Quita el grupo de conmutación por error del servidor y elimina todas las bases de datos secundarias incluidas en el grupo |
+| [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Recupera la configuración del grupo de conmutación por error |
+| [Set-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Modifica la configuración del grupo de conmutación por error |
+| [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario |
 |  | |
+
+> [!IMPORTANT]
+> Para los scripts de ejemplo, vea [Configuración y conmutación por error de una única base de datos mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md) y [Configuración y conmutación por error de un grupo de conmutación por error para una única base de datos (versión preliminar)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md.
+>
 
 ### <a name="rest-api"></a>API de REST
 | API | Description |
 | --- | --- |
 | [Crear o actualizar base de datos (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Crea, actualiza o restaura una base de datos principal o secundaria. |
-| [Obtener el estado de creación o actualización de la base de datos](https://docs.microsoft.com/rest/api/sql/databases#Databases) |Devuelve el estado durante una operación de creación. |
-| [Establecer la base de datos secundaria como principal (conmutación por error planeada)](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLink) |Promueve una base de datos secundaria en una asociación de replicación geográfica para convertirla en la nueva base de datos principal. |
-| [Establecer la base de datos secundaria como principal (conmutación por error no planeada)](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Forzar una conmutación por error a la base de datos secundaria y establecer la base de datos secundaria como principal. |
-| [Obtener vínculos de replicación](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_ListReplicationLinks) |Obtiene todos los vínculos de replicación para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
-| [Obtener vínculo de replicación](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_GetReplicationLink) |Obtiene un vínculo de replicación específico para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
-| [Crear grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) | Crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario. |
-| [Quitar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) | Quita el grupo de conmutación por error del servidor. |
-| [Obtener grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/databases#Databases) | Recupera la configuración del grupo de conmutación por error |
-| [Establecer grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) | Modifica la configuración del grupo de conmutación por error |
-| [Conmutación por error](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) | Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario |
+| [Obtener el estado de creación o actualización de la base de datos](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Devuelve el estado durante una operación de creación. |
+| [Establecer la base de datos secundaria como principal (conmutación por error planeada)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLink) |Define qué base de datos de réplica es la principal mediante la conmutación por error desde la base de datos de réplica principal actual. |
+| [Establecer la base de datos secundaria como principal (conmutación por error no planeada)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Define qué base de datos de réplica es la principal mediante la conmutación por error desde la base de datos de réplica principal actual. Esta operación puede ocasionar pérdida de datos. |
+| [Obtener vínculo de replicación](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Obtiene un vínculo de replicación específico para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
+| [Enumerar vínculos de replicación](https://docs.microsoft.com/en-us/rest/api/sql/databases%20-%20replicationlinks#Databases_GetReplicationLink) | Obtiene todos los vínculos de replicación para una Base de datos SQL determinada en una asociación de replicación geográfica. Recupera la información visible en la vista de catálogo sys.geo_replication_links. |
+| [Eliminar vínculo de replicación](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_DeleteReplicationLink) | Elimina un vínculo de replicación de base de datos. No se puede realizar durante la conmutación por error. |
+| [Crear o actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_CreateOrUpdate) | Crea o actualiza un grupo de conmutación por error. |
+| [Eliminar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Delete) | Quita el grupo de conmutación por error del servidor. |
+| [Conmutación por error (planeada)](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Failover) | Conmuta por error desde el servidor principal actual en este servidor. |
+| [Forzar la conmutación por error ocasiona la pérdida de datos](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ForceFailoverAllowDataLoss) |Conmuta por error desde el servidor principal actual en este servidor. Esta operación puede ocasionar pérdida de datos. |
+| [Obtener grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Get) | Obtiene un grupo de conmutación por error. |
+| [Enumerar grupos de conmutación por error por servidor](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ListByServer) | Enumera los grupos de conmutación por error de un servidor. |
+| [Actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Update) | Actualiza un grupo de conmutación por error. |
 |  | |
 
 ## <a name="next-steps"></a>Pasos siguientes
+* Para los scripts de ejemplo, vea:
+   - [Configuración y conmutación por error de una base de datos única mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+   - [Configuración y conmutación por error de una base de datos agrupada mediante la replicación geográfica activa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+   - [Configurar y conmutar por error un grupo de conmutación por error para una sola base de datos (versión preliminar)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 * Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md)
 * Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
 * Si quiere saber cómo usar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recuperación de una base de datos a partir de copias de seguridad iniciadas por un servicio](sql-database-recovery-using-backups.md).
-* Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el procedimiento para [copiar una base de datos](sql-database-copy.md).
 * Para obtener información acerca de los requisitos de autenticación para un nuevo servidor principal y la base de datos, consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
 
 

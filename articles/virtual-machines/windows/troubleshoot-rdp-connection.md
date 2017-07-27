@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/26/2017
+ms.date: 06/14/2017
 ms.author: genli
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ed9945ae007d22c18d259984ee68f9c669927f9a
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -37,10 +37,11 @@ Después de cada paso de solución de problemas, intente volver a conectarse a l
 1. Restablezca la configuración de Escritorio remoto.
 2. Compruebe las reglas de grupo de seguridad de red/puntos de conexión de Cloud Services.
 3. Revise los registros de la consola de máquina virtual.
-4. Compruebe el estado del recurso de la máquina virtual.
-5. Restablezca la contraseña de la máquina virtual.
-6. Reinicie la máquina virtual.
-7. Vuelva a implementar la máquina virtual.
+4. Restablezca el NIC para la máquina virtual.
+5. Compruebe el estado del recurso de la máquina virtual.
+6. Restablezca la contraseña de la máquina virtual.
+7. Reinicie la máquina virtual.
+8. Vuelva a implementar la máquina virtual.
 
 Si necesita instrucciones más detalladas y explicaciones, siga leyendo. Compruebe que el equipo de red local, como enrutadores y firewalls, no están bloqueando el puerto TCP 3389 saliente, como se indicó en [los escenarios de solución de problemas de RDP detallados](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -87,23 +88,25 @@ Después de cada paso de solución de problemas, intente conectarse de nuevo a l
     Si no dispone de una regla que permita el tráfico RDP, [cree una regla de grupo de seguridad de red](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Permita el puerto TCP 3389.
 3. **Revise los diagnósticos de arranque de la máquina virtual**. En este paso para solucionar problemas se revisan los registros de la consola de la máquina virtual para determinar si la máquina virtual está notificando de un problema. No todas las máquinas virtuales tienen diagnósticos de arranque habilitados, por lo que este paso para solucionar problemas puede ser opcional.
    
-    Los pasos para solucionar problemas específicos quedan fuera del ámbito de este artículo, pero pueden indicar un problema más amplio que está afectando a la conectividad RDP. Para más información acerca de cómo revisar los registros de la consola y la captura de pantalla de la máquina virtual, consulte la entrada del blog [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) (Diagnósticos de arranque para máquinas virtuales).
-4. **Compruebe el estado del recurso de la máquina virtual**. En este paso para solucionar problemas se comprueba que no hay ningún problema conocido con la plataforma Azure que pueda afectar a la conectividad de la máquina virtual.
+    Los pasos para solucionar problemas específicos quedan fuera del ámbito de este artículo, pero pueden indicar un problema más amplio que está afectando a la conectividad RDP. Para más información acerca de cómo revisar los registros de la consola y la captura de pantalla de la máquina virtual, consulte la entrada del blog [Boot Diagnostics for VMs](boot-diagnostics.md) (Diagnósticos de arranque para máquinas virtuales).
+
+4. **Restablezca el NIC para la máquina virtual**. Para más información, consulte [Procedimiento para establecer el NIC para la máquina virtual de Windows Azure](reset-network-interface.md).
+5. **Compruebe el estado del recurso de la máquina virtual**. En este paso para solucionar problemas se comprueba que no hay ningún problema conocido con la plataforma Azure que pueda afectar a la conectividad de la máquina virtual.
    
     Seleccione la máquina virtual en Azure Portal. Desplácese hacia abajo en el panel de configuración a la sección **Soporte y solución de problemas** cerca de la parte inferior de la lista. Haga clic en el botón **Estado de los recursos**. Una máquina virtual correcta se notifica como **Disponible**:
    
     ![Comprobación del estado del recurso de máquina virtual en Azure Portal](./media/troubleshoot-rdp-connection/check-resource-health.png)
-5. **Restablezca las credenciales de usuario**. En este paso para solucionar problemas se restablece la contraseña en una cuenta de administrador local cuando no está seguro de las credenciales o las ha olvidado.
+6. **Restablezca las credenciales de usuario**. En este paso para solucionar problemas se restablece la contraseña en una cuenta de administrador local cuando no está seguro de las credenciales o las ha olvidado.
    
     Seleccione la máquina virtual en Azure Portal. Desplácese hacia abajo en el panel de configuración a la sección **Soporte y solución de problemas** cerca de la parte inferior de la lista. Haga clic en el botón **Restablecer contraseña**. Asegúrese de que el **Modo** está establecido en **Restablecer contraseña** y, después, escriba su nombre de usuario y una nueva contraseña. Finalmente, haga clic en el botón **Actualizar**:
    
     ![Restablecimiento de las credenciales de usuario en Azure Portal](./media/troubleshoot-rdp-connection/reset-password.png)
-6. **Reinicie la máquina virtual**. En este paso para solucionar problemas se puede corregir cualquier problema subyacente que tenga la misma máquina virtual.
+7. **Reinicie la máquina virtual**. En este paso para solucionar problemas se puede corregir cualquier problema subyacente que tenga la misma máquina virtual.
    
     Seleccione la máquina virtual en Azure Portal y haga clic en la pestaña **Información general**. Haga clic en el botón **Reiniciar**:
    
     ![Reinicio de máquina virtual en Azure Portal](./media/troubleshoot-rdp-connection/restart-vm.png)
-7. **Vuelva a implementar la máquina virtual**. En este paso para solucionar problemas se vuelve a implementar la máquina virtual en otro host dentro de Azure para corregir cualquier problema de red o de plataforma subyacente.
+8. **Vuelva a implementar la máquina virtual**. En este paso para solucionar problemas se vuelve a implementar la máquina virtual en otro host dentro de Azure para corregir cualquier problema de red o de plataforma subyacente.
    
     Seleccione la máquina virtual en Azure Portal. Desplácese hacia abajo en el panel de configuración a la sección **Soporte y solución de problemas** cerca de la parte inferior de la lista. Haga clic en el botón **Volver a implementar** y, después, haga clic en **Volver a implementar**:
    

@@ -1,5 +1,6 @@
 # [Información general](media-services-overview.md)
-## [Conceptos ](media-services-concepts.md)
+## [Escenarios y disponibilidad](scenarios-and-availability.md)
+## [Conceptos](media-services-concepts.md)
 
 # Introducción
 ## [Creación y administración de cuentas](media-services-portal-create-account.md)
@@ -107,7 +108,7 @@
 #### [Cifrado y empaquetado estático](media-services-static-packaging.md)
 
 ## [Streaming en vivo](media-services-manage-channels-overview.md)
-### [Codificadores locales](media-services-live-streaming-with-onprem-encoders.md)
+### [codificadores locales](media-services-live-streaming-with-onprem-encoders.md)
 #### [Portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
@@ -130,16 +131,15 @@
 ### [Introducción a las plantillas de licencias de Widevine](media-services-widevine-license-template-overview.md)
 ### [Entrega de licencia DRM](media-services-deliver-keys-and-licenses.md)
 ### [Uso de asociados para entregar licencias de Widevine a Azure Media Services](media-services-licenses-partner-integration.md)
+#### [Uso de Axinom para entregar licencias de Widevine a Media Services](media-services-axinom-integration.md)
+#### [Uso de castLabs para entregar licencias de Widevine a Media Services](media-services-castlabs-integration.md)
 ### [Uso de cifrado dinámico común de PlayReady o Widevine.](media-services-protect-with-drm.md)
 ### [Transmisión de contenido HLS protegido con Apple FairPlay](media-services-protect-hls-with-fairplay.md)
+### [Diseño híbrido del subsistema de DRM](hybrid-design-drm-sybsystem.md)
 ### [CENC with Multi-DRM and Access Control (CENC con DRM múltiple y Control de acceso)](media-services-cenc-with-multidrm-access-control.md)
-### [Uso de Axinom para entregar licencias de Widevine a Media Services](media-services-axinom-integration.md)
-### [Uso de castLabs para entregar licencias de Widevine a Media Services](media-services-castlabs-integration.md)
-
-### Entrega de recursos
-#### Configuración de directivas de entrega de recursos
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-##### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### Configuración de directivas de entrega de recursos
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Creación de claves de contenido
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
@@ -152,6 +152,7 @@
 ### [Análisis multimedia mediante el portal](media-services-portal-analyze.md)
 ### [Proceso con Indexer 2](media-services-process-content-with-indexer2.md)
 ### [Proceso con Indexer](media-services-index-content.md)
+#### [Valor predefinido de tarea](indexer-task-preset.md)
 ### [Proceso con Hyperlapse](media-services-hyperlapse-content.md)
 ### [Proceso con Face Detector](media-services-face-and-emotion-detection.md)
 ### [Proceso con Motion Detector](media-services-motion-detection.md)
@@ -221,7 +222,7 @@
 
 # Recursos
 ## [Comunidad de Azure Media Services](media-services-community.md)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Precios](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Notas de la versión](media-services-release-notes.md)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=media-services)

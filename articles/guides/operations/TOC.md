@@ -74,8 +74,8 @@
 
 ### [Almacenamiento de blobs de Azure](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Introducción al Almacenamiento de blobs de Azure mediante .NET](../../storage/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Introducción a Almacenamiento de archivos de Azure en Windows](../../storage/storage-dotnet-how-to-use-files.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
-### [Uso del almacenamiento de archivos de Azure con Linux](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Introducción a Azure File Storage en Windows](../../storage/storage-file-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### [Uso de Azure File Storage con Linux](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Introducción al Almacenamiento de tablas de Azure](../../storage/storage-dotnet-how-to-use-tables.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Introducción a Azure Queue Storage](../../storage/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Cree una cuenta de almacenamiento](../../storage/storage-create-storage-account.md#create-a-storage-account)

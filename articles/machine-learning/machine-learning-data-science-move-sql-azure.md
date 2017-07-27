@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 642f3369bedc54c9067ae5520bc94da97b5e36b2
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: ae7977f756fc83cf07109b6aa5b5a27b6b401dba
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover datos a una base de datos de SQL de Azure para Aprendizaje automático de Azure
-En este tema se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de datos almacenados en un servidor de SQL Server local a una base de datos SQL de Azure. Estas tareas para mover datos a la nube forman parte del proceso de ciencia de datos en equipos.
+En este tema se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de datos almacenados en un servidor de SQL Server local a Azure SQL Database. Estas tareas para mover datos a la nube forman parte del proceso de ciencia de datos en equipos.
 
 Para ver un tema que describa las opciones para mover datos a un servidor de SQL Server local para Machine Learning, vea [Mover datos a un servidor SQL Server en una máquina virtual de Azure](machine-learning-data-science-move-sql-server-virtual-machine.md).
 
@@ -35,7 +36,7 @@ En la tabla siguiente se resumen las opciones para mover datos a una base de dat
 | <b>ORIGEN</b> | <b>DESTINO: Base de datos SQL de Azure</b> |
 | --- | --- |
 | <b>Archivo plano (formatos CSV o TSV)</b> |<a href="#bulk-insert-sql-query">Consulta SQL de inserción masiva |
-| <b>Servidor SQL Server local</b> |1. <a href="#export-flat-file">Exportación a un archivo plano<br> 2. <a href="#insert-tables-bcp">Asistente para migración de base de datos de SQL<br> 3. <a href="#db-migration">Copia de seguridad y restauración de una base de datos<br> 4. <a href="#adf">Factoría de datos de Azure |
+| <b>SQL Server local</b> |1. <a href="#export-flat-file">Exportación a un archivo plano<br> 2. <a href="#insert-tables-bcp">Asistente para migración de base de datos de SQL<br> 3. <a href="#db-migration">Copia de seguridad y restauración de una base de datos<br> 4. <a href="#adf">Factoría de datos de Azure |
 
 ## <a name="prereqs"></a>Requisitos previos
 El procedimiento aquí descrito requiere disponer de:
@@ -47,7 +48,7 @@ El procedimiento aquí descrito requiere disponer de:
 
 **Datos**: los procesos de migración se demuestran con el [conjunto de datos de taxis de Nueva York](http://chriswhong.com/open-data/foil_nyc_taxi/). El conjunto de datos de taxis de Nueva York contiene información sobre los datos de carreras y las tarifas, y está disponible en Azure Blob Storage: [Datos de taxis de Nueva York](http://www.andresmh.com/nyctaxitrips/). En [Descripción del conjunto de datos de carreras de taxi de Nueva York](machine-learning-data-science-process-sql-walkthrough.md#dataset), se ofrece un ejemplo y una descripción de estos archivos.
 
-Puede adaptar los procedimientos que se describen aquí para un conjunto de datos propios o seguir los pasos descritos para el uso del conjunto de datos de taxis de Nueva York. Para cargar el conjunto de datos de taxis de Nueva York en la base de datos de SQL Server local, siga el procedimiento descrito en [Importación masiva de datos en una base de datos de SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Estas instrucciones son para un servidor SQL Server en una máquina virtual de Azure, pero el procedimiento para realizar la carga en el servidor SQL Server local es el mismo.
+Puede adaptar los procedimientos que se describen aquí para un conjunto de datos propios o seguir los pasos descritos para el uso del conjunto de datos de taxis de Nueva York. Para cargar el conjunto de datos de taxis de Nueva York en la base de datos de SQL Server local, siga el procedimiento descrito en [Importación masiva de datos en una base de datos de SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Estas instrucciones corresponden a un servidor SQL Server en una máquina virtual de Azure, pero el procedimiento para realizar la carga en SQL Server local es el mismo.
 
 ## <a name="file-to-azure-sql-database"></a> Mover datos desde un origen de archivo plano a una base de datos SQL de Azure
 Los datos de archivos planos (formatos CSV o TSV) se pueden mover a una base de datos de SQL de Azure mediante una consulta SQL de inserción masiva.
@@ -56,7 +57,7 @@ Los datos de archivos planos (formatos CSV o TSV) se pueden mover a una base de 
 Los pasos del procedimiento en el que se usa la consulta SQL de inserción masiva son similares a los descritos en las secciones en las que se explica el movimiento de datos desde un origen de archivo plano a un servidor SQL Server en una máquina virtual de Azure. Para detalles, vea [Consulta SQL de inserción masiva](machine-learning-data-science-move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
 ## <a name="sql-on-prem-to-sazure-sql-database"></a> Mover datos desde un servidor SQL Server local a una base de datos SQL de Azure
-Si los datos de origen están almacenados en un servidor SQL Server local, hay varias alternativas para mover los datos a una base de datos de SQL de Azure:
+Si los datos de origen están almacenados en un servidor SQL Server local, hay varias alternativas para mover los datos a una instancia de Azure SQL Database:
 
 1. [Exportación a un archivo plano](#export-flat-file)
 2. [Asistente para migración de Base de datos SQL](#insert-tables-bcp)
@@ -75,7 +76,7 @@ Los pasos para usar el Asistente para migración de SQL Database son similares a
 Los pasos para usar la copia de seguridad y restauración de la base de datos son similares a los que se explican en [Copia de seguridad y restauración de la base de datos](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-backup).
 
 ### <a name="adf"></a>Factoría de datos de Azure
-El procedimiento para mover datos a una instancia de Azure SQL Database con Azure Data Factory (ADF) se explica en el tema [Mover datos desde un servidor SQL Server local a SQL Azure con Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). En este tema se muestra cómo mover datos desde una base de datos local de SQL Server a una instancia de Azure SQL Database a través de Azure Blob Storage mediante Azure Data Factory (ADF).
+El procedimiento para mover datos a una instancia de Azure SQL Database con Azure Data Factory (ADF) se explica en el tema [Mover datos desde un servidor SQL Server local a SQL Azure con Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). En este tema se muestra cómo mover datos desde una base de datos local de SQL Server a una instancia de Azure SQL Database a través de Azure Blob Storage con Azure Data Factory (ADF).
 
-Considere el uso de ADF cuando los datos deban migrarse continuamente en un escenario híbrido en el que se tenga acceso a recursos locales y de nube, y cuando los datos se transfieran o deban modificarse o tener lógica de negocios agregada mientras se migran. La ADF permite la programación y supervisión de trabajos mediante scripts JSON sencillos que administran el movimiento de datos de forma periódica. La ADF también tiene otras capacidades como la compatibilidad con operaciones complejas.
+Considere el uso de ADF cuando los datos deban migrarse continuamente en un escenario híbrido con acceso a recursos locales y de nube, y cuando los datos se transfieran o deban modificarse o tener lógica de negocios agregada mientras se migran. La ADF permite la programación y supervisión de trabajos mediante scripts JSON sencillos que administran el movimiento de datos de forma periódica. La ADF también tiene otras capacidades como la compatibilidad con operaciones complejas.
 

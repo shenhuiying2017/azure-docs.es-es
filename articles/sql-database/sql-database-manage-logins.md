@@ -18,10 +18,10 @@ ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: f29b2c1da0d9b761634370f5f08ea942b66d9f1f
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
 ms.contentlocale: es-es
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -34,7 +34,7 @@ Cuando se hayan configurado las reglas de firewall, los usuarios pueden conectar
 >
 
 > [!TIP]
-> Para ver un tutorial sobre la autenticación de SQL Server, consulte [Tutorial: autenticación de SQL Server](sql-database-control-access-sql-authentication-get-started.md). Para ver un tutorial sobre la autenticación de Azure Active Directory, consulte [Tutorial: autenticación de AAD](sql-database-control-access-aad-authentication-get-started.md).
+> Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md).
 >
 
 
@@ -191,9 +191,7 @@ Al administrar los inicios de sesión y los usuarios en SQL Database, tenga en c
 
 - Para más información acerca de las reglas de firewall, consulte [Firewall de Azure SQL Database](sql-database-firewall-configure.md).
 - Para una información general de las características de seguridad de SQL Database, consulte [SQL security overview](sql-database-security-overview.md) (Información general acerca de la seguridad de SQL).
-- Para obtener un tutorial, consulte [Introducción a la seguridad de SQL](sql-database-control-access-sql-authentication-get-started.md)
+- Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md).
 - Para obtener información acerca de las vistas y los procedimientos almacenados, consulte [Creación de vistas y procedimientos almacenados](https://msdn.microsoft.com/library/ms365311.aspx)
 - Para obtener información acerca de cómo otorgar acceso a un objeto de base de datos, consulte [Conceder acceso a un objeto de base de datos](https://msdn.microsoft.com/library/ms365327.aspx)
-- Para ver un tutorial sobre la autenticación de SQL Server, consulte [Tutorial: autenticación de SQL Server](sql-database-control-access-sql-authentication-get-started.md).
-- Para ver un tutorial sobre la autenticación de Azure Active Directory, consulte [Tutorial: autenticación de AAD](sql-database-control-access-aad-authentication-get-started.md).
 

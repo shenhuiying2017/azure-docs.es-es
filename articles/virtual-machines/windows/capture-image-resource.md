@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 4ffbe7e28d8b4c7d421bec477455a94609cd127a
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: e428b755f6696bd6d4047ad77579a8e9665dfbd8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="capture-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
+# <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
-Se puede crear un recurso de imagen administrado a partir de una VM generalizada que se almacena como un disco administrado o como discos no administrados en una cuenta de almacenamiento. Se puede utilizar la imagen para crear varias VM que usan discos administrados para almacenamiento. 
+Se puede crear un recurso de imagen administrado a partir de una máquina virtual generalizada que se almacena como un disco administrado o como un disco no administrado en una cuenta de almacenamiento. A partir de ese momento, la imagen se puede utilizar para crear varias máquinas virtuales. 
 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalización de VM con Windows mediante Sysprep
@@ -117,7 +117,7 @@ Para más información, consulte [Azure PowerShell Versioning](/powershell/azure
 
     ```powershell
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
-    ```    
+    ``` 
 
 
 
@@ -144,7 +144,7 @@ Cree una imagen administrada con el VHD del SO generalizado.
 3. Marque la VM como generalizada.
 
     ```powershell
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized    
+    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
     ```
 4.  Cree la imagen con el VHD del SO generalizado.
 
@@ -185,10 +185,10 @@ También puede crear una imagen administrada a partir de una instantánea del VH
 
     ```powershell
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```    
+    ``` 
     
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Ahora puede [crear una VM a partir de la imagen administrada generalizada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
+- Ahora puede [crear una VM a partir de la imagen administrada generalizada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 
 

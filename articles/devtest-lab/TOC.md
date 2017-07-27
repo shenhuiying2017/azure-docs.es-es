@@ -3,6 +3,7 @@
 ## [Conceptos](devtest-lab-concepts.md)
 ## Escenarios
 ### [Uso de laboratorios para desarrolladores](devtest-lab-developer-lab.md)
+### [Uso de laboratorios para entornos de prueba](devtest-lab-test-env.md)
 ### [Uso de laboratorios para entrenamiento](devtest-lab-training-lab.md)
 
 # Introducción
@@ -40,6 +41,7 @@
 
 ## Administración de plantillas reutilizables
 ### [Adición de un repositorio de Git de artefactos y plantillas](devtest-lab-add-artifact-repo.md)
+### [Uso de una plantilla de Resource Manager](devtest-lab-use-resource-manager-template.md)
 ### [Creación de artefactos personalizados](devtest-lab-artifact-author.md)
 ### [Administración de fórmulas](devtest-lab-manage-formulas.md)
 
@@ -65,5 +67,7 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 ## [Precios](https://azure.microsoft.com/pricing/details/devtest-lab/)
+
+
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)

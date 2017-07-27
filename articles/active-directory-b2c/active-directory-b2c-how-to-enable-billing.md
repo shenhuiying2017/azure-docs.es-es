@@ -12,10 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
-translationtype: Human Translation
-ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
-ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
+ms.contentlocale: es-es
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -29,17 +30,17 @@ Los cargos por el uso continuo de Azure Active Directory B2C (o Azure AD B2C) se
 https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 ## <a name="step-1---create-an-azure-ad-b2c-tenant"></a>Paso 1: Crear un inquilino de Azure AD B2C
-
-Primero se debe completar la creación de un inquilino de B2C. Este paso se puede omitir si ya se ha creado un inquilino de B2C de destino. [Introducción a Azure AD B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started/)
+Primero se debe completar la creación de un inquilino de B2C. Este paso se puede omitir si ya se ha creado un inquilino de B2C de destino. [Introducción a Azure AD B2C](active-directory-b2c-get-started.md)
 
 ## <a name="step-2---open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Paso 2: Abrir Azure Portal en el inquilino de Azure AD que muestra su suscripción de Azure
-Vaya a portal.azure.com. Cambie al inquilino de Azure AD que muestra la suscripción de Azure que desea usar. Este inquilino de Azure AD no es el inquilino de B2C. En Azure Portal, haga clic en el nombre de cuenta de la esquina superior derecha del panel para seleccionar al inquilino de Azure AD. Para continuar, se necesita una suscripción de Azure. [Obtención de una suscripción de Azure](https://account.windowsazure.com/signup?showCatalog=True)
+Acceda a [Azure Portal](https://portal.azure.com). Cambie al inquilino de Azure AD que muestra la suscripción de Azure que desea usar. Este inquilino de Azure AD no es el inquilino de B2C. En Azure Portal, haga clic en el nombre de cuenta de la esquina superior derecha del panel para seleccionar al inquilino de Azure AD. Para continuar, se necesita una suscripción de Azure. [Obtención de una suscripción de Azure](https://account.windowsazure.com/signup?showCatalog=True)
 
 ![Cambio a un inquilino de Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
 ## <a name="step-3---create-a-b2c-tenant-resource-in-azure-marketplace"></a>Paso 3: Crear un recurso B2C Tenant en Azure Marketplace
 Abra Marketplace, para lo que debe hacer clic en el icono de Marketplace, o bien seleccionar el signo "+" verde de en la esquina superior izquierda del panel.  Busque y seleccione Azure Active Directory B2C. Seleccione Crear.
-![Seleccionar Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
+
+![Seleccione Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
 
 ![Buscar en AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
 
@@ -75,12 +76,5 @@ Al hacer clic en el recurso del inquilino de B2C, es posible
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez que se han completados estos pasos en cada uno de los inquilinos B2C, la suscripción de Azure se factura según los detalles del Contrato Enterprise o directo de Azure.
 - Revisión del uso y facturación en la suscripción de Azure seleccionada
-- Revisión de los informes detallados de [uso diario mediante la API de Informes de uso](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
-
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
+- Revisión de los informes detallados de [uso diario mediante la API de Informes de uso](active-directory-b2c-reference-usage-reporting-api.md)
 

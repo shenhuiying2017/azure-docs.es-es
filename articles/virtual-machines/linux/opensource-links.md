@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/27/2016
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0b273631d3d725aded0e92bbe0be0479484cb3bd
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1cdd0e68368d2dc376ee45df67bf5e75288d4ca3
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="linux-and-open-source-computing-on-azure"></a>Informática de código abierto y Linux en Azure
@@ -73,7 +73,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 * [Instrucciones de implementación de los servicios de infraestructura de Azure](../windows/infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [selección de los nombres de usuario de Linux](usernames.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Configuración de un conjunto de disponibilidad para máquinas virtuales en el modelo de implementación clásica](../windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Programación del mantenimiento planeado en VM de Azure](planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Programación del mantenimiento planeado en VM de Azure](classic/planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Administración de la disponibilidad de las máquinas virtuales](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Mantenimiento planeado de máquinas virtuales Linux en Azure](planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

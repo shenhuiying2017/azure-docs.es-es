@@ -12,26 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a26b1f6c13b11d0fb6b47599fee43f955cbf7b7a
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: bb89bed9778056c52e47d984e5d559a4abf864a2
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Con la solución Capacidad y rendimiento (versión preliminar) puede planear la capacidad de máquinas virtuales de Hyper-V.
 
-![Solución Capacidad y rendimiento](./media/log-analytics-capacity/capacity-solution.png) La solución Capacidad y rendimiento se puede usar en Log Analytics para conocer la capacidad de los servidores de Hyper-V. La solución proporciona información sobre el entorno de Hyper-V, ya que muestra el uso general (CPU, memoria y disco) de los hosts y las máquinas virtuales que se ejecutan en esos hosts de Hyper-V. Se recopilan métricas de la CPU, la memoria y los discos en todos los hosts y en las máquinas virtuales que se ejecutan en ellos.
+![Símbolo de capacidad y rendimiento](./media/log-analytics-capacity/capacity-solution.png)
+
+La solución Capacidad y rendimiento se puede usar en Log Analytics para conocer la capacidad de los servidores de Hyper-V. La solución proporciona información sobre el entorno de Hyper-V, ya que muestra el uso general (CPU, memoria y disco) de los hosts y las máquinas virtuales que se ejecutan en esos hosts de Hyper-V. Se recopilan métricas de la CPU, la memoria y los discos en todos los hosts y en las máquinas virtuales que se ejecutan en ellos.
 
 La solución consigue lo siguiente:
 
--    Muestra los hosts con el uso máximo y mínimo de la CPU y de la memoria
--    Muestra las máquinas virtuales con el uso máximo y mínimo de la CPU y de la memoria
--    Muestra las máquinas virtuales con el uso máximo y mínimo de las IOPS y del rendimiento
--    Muestra qué máquinas virtuales se ejecutan en los hosts
--    Muestra los discos con mayor rendimiento, IOPS y latencia en volúmenes compartidos de clúster
+-   Muestra los hosts con el uso máximo y mínimo de la CPU y de la memoria
+-   Muestra las máquinas virtuales con el uso máximo y mínimo de la CPU y de la memoria
+-   Muestra las máquinas virtuales con el uso máximo y mínimo de las IOPS y del rendimiento
+-   Muestra qué máquinas virtuales se ejecutan en los hosts
+-   Muestra los discos con mayor rendimiento, IOPS y latencia en volúmenes compartidos de clúster
 - Permite personalizar y filtrar por grupos
 
 > [!NOTE]

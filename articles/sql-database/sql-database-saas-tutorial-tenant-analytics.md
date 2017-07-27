@@ -1,6 +1,6 @@
 ---
 title: "Ejecución de consultas de análisis en varias bases de datos de Azure SQL | Microsoft Docs"
-description: "Ejecución de consultas distribuidas entre varias bases de datos de Azure SQL"
+description: "Extracción de datos de las bases de datos de inquilino en una base de datos de análisis para el análisis sin conexión"
 keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/16/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5331f9a7b46f1dd31d4aa246ad9d188b5a5afc19
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Ejecución de consultas distribuidas entre varias bases de datos de Azure SQL
+# <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Extracción de datos de las bases de datos de inquilino en una base de datos de análisis para el análisis sin conexión
 
-En este tutorial, se ejecutan consultas de análisis en cada inquilino del catálogo y se crea un trabajo elástico que ejecuta las consultas. El trabajo recupera los datos y los carga en una base de datos de análisis independiente creada en el servidor de catálogo. Es posible consultar esta base de datos para extraer la información que se encuentra oculta entre los datos de las operaciones diarias de todos los inquilinos. Como salida del trabajo, se crea una tabla a partir de las consultas que devuelven resultados dentro de la base de datos de análisis de inquilinos.
+En este tutorial, se usará un trabajo elástico para ejecutar consultas en cada base de datos de inquilinos. El trabajo extrae los datos de ventas de vale y los carga en una base de datos de análisis (o almacenamiento de datos) para su análisis. A continuación, se consulta la base de datos de análisis para extraer las perspectivas de estos datos operativos del día a día de todos los inquilinos.
 
 
 En este tutorial, aprenderá a:
@@ -47,7 +47,7 @@ Una de las grandes oportunidades que ofrecen las aplicaciones SaaS es el uso de 
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
 
-Los scripts SaaS de Wingtip y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Pasos para descargar los scripts SaaS de Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+Los scripts SaaS de Wingtip y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Pasos para descargar los scripts SaaS de Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Implementar una base de datos para resultados de análisis de inquilino
 
@@ -121,3 +121,4 @@ En este tutorial, ha aprendido cómo:
 
 * Otros [tutoriales basados en la aplicación SaaS de Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Trabajos elásticos](sql-database-elastic-jobs-overview.md)
+

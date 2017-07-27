@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e3a8bc6b11cccf7f6b277e800dbcedcd90e87006
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 5a6e4431ef25c66e1863a679f0db1363a83f4769
 ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -44,11 +44,12 @@ En este tutorial, aprenderá a:
 1. [Descarga e instalación de Git](https://git-scm.com/)
 1. [Descarga e instalación de Java 7 JDK o superior](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [Descarga, instalación e inicio de MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-1. [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-local-mysql"></a>Preparación de MySQL local 
 
@@ -56,7 +57,7 @@ En este paso, creará una base de datos en un servidor MySQL local para usarlo a
 
 ### <a name="connect-to-mysql-server"></a>Conexión a un servidor MySQL
 
-Conéctese al servidor MySQL local desde la línea de comandos:
+En una ventana de terminal, conéctese al servidor MySQL local. Esta ventana de terminal se puede usar para ejecutar todos los comandos de este tutorial.
 
 ```bash
 mysql -u root -p
@@ -86,7 +87,7 @@ En este paso, va a clonar una aplicación de Spring Boot de ejemplo, la va a con
 
 ### <a name="clone-the-sample"></a>Clonación del ejemplo
 
-Desde el símbolo del sistema, vaya a un directorio de trabajo y clone el repositorio de ejemplo. 
+En la ventana de terminal, vaya a un directorio de trabajo y clone el repositorio de ejemplo. 
 
 ```bash
 git clone https://github.com/azure-samples/mysql-spring-boot-todo
@@ -94,7 +95,7 @@ git clone https://github.com/azure-samples/mysql-spring-boot-todo
 
 ### <a name="configure-the-app-to-use-the-mysql-database"></a>Configuración de la aplicación para que use la base de datos de MySQL
 
-Actualice el valor `spring.datasource.password` en *spring-boot-mysql-todo/src/main/resources/application.properties* con la misma contraseña raíz usada para abrir el símbolo del sistema del comando de MySQL:
+Actualice el valor `spring.datasource.password` en *spring-boot-mysql-todo/src/main/resources/application.properties* con la misma contraseña raíz usada para abrir el símbolo del sistema de MySQL:
 
 ```
 spring.datasource.password=mysqlpass
@@ -116,7 +117,7 @@ use testdb;
 select * from todo_item;
 ```
 
-Detenga la aplicación presionando `Ctrl` + `C` en el símbolo del sistema. 
+Detenga la aplicación presionando `Ctrl`+`C` en el terminal. 
 
 ## <a name="create-an-azure-mysql-database"></a>Creación de una base de datos MySQL de Azure
 

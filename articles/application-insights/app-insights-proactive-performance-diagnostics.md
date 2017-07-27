@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 5/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 080b732d78731e6281e82ddc28a3e84ae8755ffa
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 0e9c10b77110efe90239863ee603acbd54b17ead
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -63,7 +63,7 @@ Las notificaciones de Detección inteligentes se habilitan de forma predetermina
   
   ![Configuración de Detección inteligente](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
   
-  * El vínculo **cancelar suscripción** del mensaje correo electrónico de Detección inteligente también 
+  * Para dejar de recibir notificaciones por correo electrónico, puede usar el vínculo de **cancelación de suscripción** del correo electrónico de Detección inteligente .
 
 Los mensajes de correo electrónico de las anomalías de rendimiento de Detección inteligente tienen una limitación de un correo electrónico al día por recurso de Application Insights. El mensaje de correo electrónico solo se enviará si se ha detectado, como mínimo, un problema nuevo ese día. No obtendrá repeticiones de ningún mensaje. 
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
+ms.date: 06/30/2017
 ms.author: steveesp
-translationtype: Human Translation
-ms.sourcegitcommit: 50be31e179bf52e009596fbc68339dfb5a1aa1e4
-ms.openlocfilehash: d53b1cae9845be32bd053ef196203ea83df06b10
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 1340048d5d518caff3397f671d0c75caaab4b5ac
+ms.contentlocale: es-es
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ Las máquinas virtuales que usan el ajuste de escala en lado de recepción (RSS)
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : False
+    Enabled              : False
     ```
 2. Escriba el siguiente comando para habilitar RSS:
 
@@ -48,7 +49,7 @@ Las máquinas virtuales que usan el ajuste de escala en lado de recepción (RSS)
     ```powershell
     Name                    :Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : True
+    Enabled              : True
     ```
 
 ## <a name="linux-vm"></a>Máquina virtual de Linux
@@ -57,7 +58,7 @@ De manera predeterminada, en las máquinas virtuales Linux de Azure RSS está si
 
 ### <a name="ubuntu"></a>Ubuntu
 
-Para obtener la optimización, primero realice la actualización a la última versión compatible en enero de 2017, que es:
+Para obtener la optimización, primero realice la actualización a la última versión compatible que, desde junio de 2017, es:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -80,7 +81,7 @@ Comando opcional:
 
 ### <a name="centos"></a>CentOS
 
-Para obtener la optimización, primero realice la actualización a la última versión compatible en enero de 2017, que es:
+Para obtener la optimización, primero realice la actualización a la última versión compatible que, desde mayo de 2017, es:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
@@ -88,7 +89,7 @@ Para obtener la optimización, primero realice la actualización a la última ve
 "Version": "latest"
 ```
 Una vez que la actualización se complete, instale los servicios de integración de Linux (LIS) más recientes.
-La optimización del rendimiento se realiza en LIS a partir de la versión 4.1.3. Escriba los siguientes comandos para instalar LIS:
+La optimización del rendimiento se realiza en LIS a partir de la versión 4.2. Escriba los siguientes comandos para instalar LIS:
 
 ```bash
 sudo yum update
@@ -99,20 +100,27 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 Para obtener la optimización, primero realice la actualización a la última versión compatible en enero de 2017, que es:
-
-"Publisher": "RedHat" "Offer": "RHEL" "Sku": "7.3" "Version": "7.3.20161104"
-
+```json
+"Publisher": "RedHat"
+"Offer": "RHEL"
+"Sku": "7.3"
+"Version": "7.3.2017062722"
+```
 Una vez que la actualización se complete, instale los servicios de integración de Linux (LIS) más recientes.
-La optimización del rendimiento se realiza en LIS a partir de la versión 4.1.3. Escriba los siguientes comandos para descargar e instalar LIS:
+La optimización del rendimiento se realiza en LIS a partir de la versión 4.2. Escriba los siguientes comandos para descargar e instalar LIS:
 
 ```bash
-mkdir lis4.1.3
-cd lis4.1.3
-wget https://download.microsoft.com/download/7/6/B/76BE7A6E-E39F-436C-9353-F4B44EF966E9/lis-rpms-4.1.3.tar.gz
-tar xvzf lis-rpms-4.1.3.tar.gz
+mkdir lis4.2.1
+cd lis4.2.1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
+tar xvzf lis-rpms-4.2.1-1.tar.gz
 cd LISISO
-install.sh #or upgrade.sh if previous LIS was previously installed
+install.sh #or upgrade.sh if prior LIS was previously installed
 ```
- 
-Para más información acerca de la versión 4.1 de los servicios de integración de Linux para Hyper-V, consulte la [página de descarga](https://www.microsoft.com/download/details.aspx?id=51612).
+
+Para más información sobre la versión 4.2 de Linux Integration Services para Hyper-V, vea la [página de descarga](https://www.microsoft.com/download/details.aspx?id=55106).
+
+## <a name="next-steps"></a>Pasos siguientes
+* Ahora que la máquina virtual está optimizada, vea el resultado con [pruebas de ancho de banda y rendimiento (NTTTCP)](virtual-network-bandwidth-testing.md) para su escenario.
+* Obtenga más información con las [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](virtual-networks-faq.md)
 

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2017
+ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 52d83b21f2f2346bfeb8d469a9bfb1b64dd4ba23
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: e9bb11645a0f45449bfc102e1d0cefd6fbf3ffd9
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -74,7 +74,7 @@ Para conjuntos de escala de máquina virtual, la configuración de extensión se
 
 La propiedad *publisher* con el valor de **Microsoft.Azure.Diagnostics** y la propiedad *type* con el valor **IaaSDiagnostics** identifican de forma única la extensión de Diagnósticos de Azure.
 
-El valor de la propiedad *name* se puede usar para hacer referencia a la extensión en el grupo de recursos. Al establecerla específicamente en **Microsoft.Insights.VMDiagnosticsSettings** será posible identificarla fácilmente mediante el Portal de Azure clásico, lo que garantiza que los gráficos de supervisión se muestran correctamente en dicho portal.
+El valor de la propiedad *name* se puede usar para hacer referencia a la extensión en el grupo de recursos. Al establecerla específicamente en **Microsoft.Insights.VMDiagnosticsSettings** será posible identificarla fácilmente mediante Azure Portal, lo que garantiza que los gráficos de supervisión se muestran correctamente en Azure Portal.
 
 *typeHandlerVersion* especifica la versión de la extensión que quiere usar. Establecer la versión secundaria de *autoUpgradeMinorVersion* en **true** garantiza que obtiene la versión secundaria más reciente de la extensión que está disponible. Se recomienda establecer siempre *autoUpgradeMinorVersion* en **true** para que siempre obtenga la extensión de diagnósticos más reciente disponible con todas las nuevas características y soluciones de errores. 
 

@@ -1,5 +1,5 @@
 ---
-title: " Administración de un servidor VMware vCenter en Azure Site Recovery | Microsoft Docss"
+title: " Administración de un servidor VMware vCenter en Azure Site Recovery | Microsoft Docs"
 description: "En este artículo se describe como agregar y administrar VMware vCenter en Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: 5578dea457f3eeda72e3a1e4e61382cdf0de285d
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 091f0884417535427c52beee7bcdc5ed1dd83315
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -26,9 +27,9 @@ En este artículo se describen las diversas operaciones de Site Recovery que se 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-**Compatibilidad con un host de VMware vCenter y VMware vSphere ESX** | **Detalles**
---- | ---
-**Servidores de VMware locales** | Uno o más servidores de VMware vSphere, con 6.0, 5.5 o 5.1 y las últimas actualizaciones. Los servidores se deberían encontrar en la misma red que el servidor de configuración (o en un servidor de procesos independiente).<br/><br/> Se recomienda un servidor vCenter para administrar hosts, con 6.0 o 5.5 con las últimas actualizaciones. Solo se admiten las características que estén disponibles en 5.5 cuando se implementa la versión 6.0.
+**Compatibilidad con un host de VMware vCenter y VMware vSphere ESX** | **Detalles** |
+|--- | --- |
+|**Servidores de VMware locales** | Uno o más servidores de VMware vSphere, con 6.0, 5.5 o 5.1 y las últimas actualizaciones. Los servidores se deberían encontrar en la misma red que el servidor de configuración (o en un servidor de procesos independiente).<br/><br/> Se recomienda un servidor vCenter para administrar hosts, con 6.0 o 5.5 con las últimas actualizaciones. Solo se admiten las características que estén disponibles en 5.5 cuando se implementa la versión 6.0.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparación de una cuenta de detección automática
 Site Recovery necesita acceso a VMware para que el servidor de procesos detecte automáticamente máquinas virtuales, así como para la conmutación por error y por recuperación de máquinas virtuales.

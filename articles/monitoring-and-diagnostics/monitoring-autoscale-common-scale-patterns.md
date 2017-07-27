@@ -1,8 +1,8 @@
 ---
 title: "Información general sobre los patrones comunes de escalado automático | Microsoft Docs"
 description: "Obtenga información sobre algunos de los patrones comunes de escalado automático de recursos en Azure."
-author: rajram
-manager: rboucher
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: rajram
+ms.author: ancav
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: c697b49769ffbbb4aee7a482bb067990b893490c
 ms.contentlocale: es-es
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Información general sobre los patrones comunes de escalado automático

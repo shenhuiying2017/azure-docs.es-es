@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: a50b4fb4b19acf270aaf94fea613e745ec2af649
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 647509ea36e487aca5db661adb3268e845988f78
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Solucionar problemas de inicio de suscripción para Azure
@@ -38,14 +39,17 @@ Utilice los pasos siguientes para actualizar la configuración de las cookies de
 3. Actualice la página de registro en Azure y compruebe si se ha resuelto el problema.
 4. Si la actualización no soluciona el problema, salga y reinicie el explorador e inténtelo de nuevo.
 
-## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>No hay mensajes de texto o llamadas durante la comprobación de la cuenta de suscripción
-Si ha seleccionado **Enviar mensaje de texto**, la entrega del código de texto en el teléfono puede tardar hasta cuatro minutos. Obviamente, para la verificación de identidad, escriba un número de teléfono que pueda recibir mensajes SMS o, para la opción **Llamarme**, un número de teléfono que pueda recibir llamadas. El número de teléfono especificado solo se utiliza a efectos de verificación de identidad y no se guarda como un número de contacto para la cuenta.
+## <a name="credit-card-form-doesnt-support-my-billing-address"></a>Incompatibilidad del formulario de tarjeta de crédito con la dirección de facturación
+La dirección de facturación debe estar en el país que seleccionó en la sección **Acerca de usted**. Asegúrese de seleccionar el país correcto.
 
-A continuación se incluyen algunas sugerencias:
+## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>No hay mensajes de texto o llamadas durante la comprobación de la cuenta de suscripción
+Aunque suele ser mucho más rápido, la entrega del código de verificación puede tardar hasta cuatro minutos. El número de teléfono especificado a efectos de verificación no se guarda como un número de contacto para la cuenta.
+
+Estas son algunas sugerencias adicionales:
 * Para el proceso de verificación telefónica no se puede usar un número de teléfono VoIP.
 * Revise el número de teléfono especificado, incluido el código de país seleccionado en el menú desplegable.
-* Si el teléfono no recibe mensajes de texto (SMS), use la opción **Llamarme**.
-* Si se produce algún error en el paso de la verificación telefónica al probar las dos opciones **Enviar mensaje de texto** y **Llamarme**, use otro número de teléfono.
+* Si el teléfono no recibe mensajes de texto (SMS), pruebe la opción **Llamarme**.
+* Asegúrese de que su teléfono puede recibir llamadas o mensajes SMS desde un número de Estados Unidos.
 
 Cuando reciba el mensaje de texto o la llamada telefónica, escriba en el cuadro de texto el código proporcionado.
 
@@ -55,6 +59,9 @@ Las tarjetas de crédito o débito virtuales o de prepago no se aceptan como opc
 ## <a name="free-trial-is-not-available"></a>"La prueba gratuita no está disponible."
 ¿Ha utilizado una suscripción de Azure en el pasado? El contrato de términos de uso de Azure limita la activación de la evaluación gratuita solo para un usuario que es nuevo en Azure. Si tiene cualquier otro tipo de suscripción de Azure, no puede activar una evaluación gratuita. Considere la posibilidad de suscribirse a una [suscripción de pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
+## <a name="i-saw-a-charge-on-my-free-trial-account"></a>Hay un cargo reflejado en la cuenta de evaluación gratuita
+Es posible que vea reflejado un cargo de verificación mínimo en la tarjeta de crédito después de registrarse, que desaparecerá en un plazo de 3 a 5 días. Si le preocupan los costos de administración, lea más información en la página sobre [prevención de costos inesperados](https://docs.microsoft.com/azure/billing/billing-getting-started).
+
 ## <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>No se puede activar un plan de prestaciones de Azure como MSDN, BizSpark, BizSparkPlus o MPN
 Asegúrese de usar las credenciales de inicio de sesión correctas. A continuación, compruebe el programa de beneficios para asegurarse de que puede optar a él. 
 
@@ -63,7 +70,7 @@ Asegúrese de usar las credenciales de inicio de sesión correctas. A continuaci
   * Si no puede verificar su estado, póngase en contacto con los [Centros de servicio al cliente de Suscripciones a MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx).
 * BizSpark
   * Inicie sesión en el [portal de BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) y compruebe su estado de idoneidad para BizSpark y BizSpark Plus.
-  * Si no puede verificar el estado, puede [ponerse en contacto con el equipo de BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team).
+  * Si no puede verificar su estado, puede [obtener ayuda en los foros de BizSpark](http://aka.ms/bzforums).
 * MPN
   * Inicie sesión en el [portal de MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) y compruebe su estado de idoneidad. Si tiene las [competencias de la plataforma de nube](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx) pertinentes, puede ser apto para obtener más ventajas.
   * Si no puede verificar el estado, póngase en contacto con el [soporte técnico de MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).

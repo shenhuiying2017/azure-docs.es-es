@@ -7,7 +7,7 @@ author: chaosrealm
 manager: pablocas
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: search
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 333f8320820a1729a14ffc2e29446e7452aa768e
 ms.contentlocale: es-es
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Conexión de Cosmos DB con Azure Search mediante indexadores
@@ -285,3 +284,4 @@ En el ejemplo siguiente se crea un origen de datos con una directiva de eliminac
 
 * Para más información acerca de Azure Cosmos DB, consulte la [página de servicio de Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 * Para más información sobre Azure Search, vea la [página del servicio Search](https://azure.microsoft.com/services/search/).
+

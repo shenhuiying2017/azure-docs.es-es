@@ -12,14 +12,14 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 06/07/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 117b949d4f8b84fe5ce43fc1dc38e3326bcfcfba
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 5db39bab8e31a8e7026b34e72b4614b0f6f57772
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -27,65 +27,59 @@ ms.lasthandoff: 05/18/2017
 
 [!INCLUDE [iot-hub-iot-edge-getstarted-selector](../../includes/iot-hub-iot-edge-getstarted-selector.md)]
 
-## <a name="how-to-build-the-sample"></a>Compilación del ejemplo
-
-Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] para poder trabajar con el SDK de Windows.
-
-1. Abra un **símbolo del sistema para desarrolladores de VS2015** o un **símbolo del sistema para desarrolladores de VS2017**.
-1. Vaya a la carpeta raíz en la copia local del repositorio **iot-edge**.
-1. Ejecute el script **tools\\build.cmd**. Este script crea un archivo de solución de Visual Studio y compila la solución. Puede encontrar la solución de Visual Studio en la carpeta **build** de su copia local del repositorio **iot-edge**. Se pueden pasar parámetros adicionales al script para compilar y ejecutar pruebas unitarias de un extremo a otro. Estos parámetros son **--run-unittests** y **--run-e2e-tests**, respectivamente.
+[!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
 ## <a name="how-to-run-the-sample"></a>Ejecución del ejemplo
 
-1. El script **build.cmd** crea una carpeta llamada **build** en la copia local del repositorio. Esta carpeta contiene los dos módulos de IoT Edge que se usan en este ejemplo.
+El script **build.cmd** genera su salida en la carpeta **build** de la copia local del repositorio **iot-edge**. Esta salida incluye los dos módulos de IoT Edge utilizados en este ejemplo.
 
-    El script de compilación coloca **logger.dll** en la carpeta **build\\modules\\logger\\Debug** y **hello\_world.dll** en la carpeta **build\\modules\\hello_world\\Debug**. Utilice estas rutas de acceso para los valores de **ruta de acceso del módulo**, tal y como se muestra en el archivo de configuración JSON siguiente.
-1. El proceso de hello\_world\_sample toma la ruta de acceso a un archivo de configuración JSON como argumento de línea de comandos. El siguiente archivo JSON de ejemplo se encuentra en el repositorio de SDK, en **samples\\hello\_world\\src\\hello\_world\_win.json**. Este archivo de configuración funcionará tal y como está, a menos que se modifique el script de compilación para colocar los módulos o los ejecutables de ejemplo en ubicaciones que no sean las predeterminadas.
+El script de compilación coloca **logger.dll** en la carpeta **build\\modules\\logger\\Debug** y **hello\_world.dll** en la carpeta **build\\modules\\hello_world\\Debug**. Utilice estas rutas de acceso para los valores de **ruta de acceso del módulo**, tal y como se muestra en el archivo de configuración JSON siguiente.
 
-   > [!NOTE]
-   > Las rutas de acceso del módulo son relativas al directorio en el que se encuentra hello\_world\_sample.exe. De manera predeterminada, el archivo de configuración JSON de ejemplo escribe "log.txt" en el directorio de trabajo actual.
+El proceso de hello\_world\_sample toma la ruta de acceso a un archivo de configuración JSON como argumento de línea de comandos. El siguiente archivo JSON de ejemplo se encuentra en el repositorio de SDK, en **samples\\hello\_world\\src\\hello\_world\_win.json**. Este archivo de configuración funcionará tal y como está, a menos que se modifique el script de compilación para colocar los módulos de IoT Edge o los ejecutables de ejemplo en ubicaciones que no sean las predeterminadas.
 
-    ```json
+> [!NOTE]
+> Las rutas de acceso del módulo son relativas al directorio en el que se encuentra hello\_world\_sample.exe. De manera predeterminada, el archivo de configuración JSON de ejemplo escribe "log.txt" en el directorio de trabajo actual.
+
+```json
+{
+  "modules": [
     {
-      "modules": [
-        {
-          "name": "logger",
-          "loader": {
-            "name": "native",
-            "entrypoint": {
-              "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
-            }
-          },
-          "args": { "filename": "log.txt" }
-        },
-        {
-          "name": "hello_world",
-          "loader": {
-            "name": "native",
-            "entrypoint": {
-              "module.path": "..\\..\\..\\modules\\hello_world\\Debug\\hello_world.dll"
-            }
-          },
-          "args": null
-          }
-      ],
-      "links": [
-        {
-          "source": "hello_world",
-          "sink": "logger"
+      "name": "logger",
+      "loader": {
+        "name": "native",
+        "entrypoint": {
+          "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
         }
-      ]
+      },
+      "args": { "filename": "log.txt" }
+    },
+    {
+      "name": "hello_world",
+      "loader": {
+        "name": "native",
+        "entrypoint": {
+          "module.path": "..\\..\\..\\modules\\hello_world\\Debug\\hello_world.dll"
+        }
+      },
+      "args": null
+      }
+  ],
+  "links": [
+    {
+      "source": "hello_world",
+      "sink": "logger"
     }
-    ```
+  ]
+}
+```
 
-1. Vaya a la carpeta raíz de la copia local del repositorio **iot-edge**.
+1. Vaya a la carpeta **build** en la raíz de la copia local del repositorio **iot-edge**.
 
 1. Ejecute el siguiente comando:
 
-   `build\samples\hello_world\Debug\hello_world_sample.exe samples\hello_world\src\hello_world_win.json`
+    ```cmd
+    samples\hello_world\Debug\hello_world_sample.exe ..\samples\hello_world\src\hello_world_win.json
+    ```
 
 [!INCLUDE [iot-hub-iot-edge-getstarted-code](../../includes/iot-hub-iot-edge-getstarted-code.md)]
-
-<!-- Links -->
-[lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md
 

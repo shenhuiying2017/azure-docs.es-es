@@ -1,10 +1,12 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
-> * [C#](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md)
 > 
 > 
 
 ## <a name="introduction"></a>Introducción
+
 En [Introducción a los dispositivos gemelos de IoT Hub][lnk-twin-tutorial], ha aprendido a establecer metadatos del dispositivo desde el back-end de la solución mediante *etiquetas*, a informar de las condiciones del dispositivo desde una aplicación de dispositivo mediante *propiedades notificadas* y a consultar esta información con un lenguaje similar a SQL.
 
 En este tutorial, aprenderá a usar las *propiedades deseadas* del dispositivo gemelo, además de las *propiedades notificadas*, para configurar aplicaciones de dispositivo de forma remota. Más concretamente, este tutorial muestra la forma en que las propiedades notificadas y deseadas de un dispositivo gemelo permiten configurar una aplicación de dispositivo en varios pasos, y proporcionan al back-end de la solución visibilidad sobre el estado de esta operación en todos los dispositivos. Puede encontrar más información sobre el rol de las configuraciones de dispositivo en [Información general sobre la administración de dispositivos con IoT Hub][lnk-dm-overview].
