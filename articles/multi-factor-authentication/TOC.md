@@ -50,4 +50,4 @@
 ### [Formular pregunta](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Errores de extensión NPS](multi-factor-authentication-nps-errors.md)
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)

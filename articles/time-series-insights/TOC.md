@@ -28,5 +28,5 @@
 ## [Análisis de transmisiones de Azure](/azure/stream-analytics/)
 
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Precios](https://azure.microsoft.com/pricing/details/time-series-insights/)

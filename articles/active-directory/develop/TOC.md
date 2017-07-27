@@ -106,4 +106,4 @@
 #### [Credenciales de certificados](active-directory-certificate-credentials.md)
 ### [Ámbitos](active-directory-v2-scopes.md)
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)

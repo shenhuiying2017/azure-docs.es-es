@@ -60,7 +60,7 @@
 
 # Recursos
 ## [Creación de plantillas](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Plantillas de la comunidad](https://azure.microsoft.com/resources/templates/)
 ## [Blog de redes](http://azure.microsoft.com/blog/topics/networking)
 ## [Precios](https://azure.microsoft.com/pricing)

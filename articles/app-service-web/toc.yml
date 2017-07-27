@@ -48,16 +48,13 @@
 - name: Conceptos
   items:
     - name: Funcionamiento de App Service
-      href: >-
-        ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Planes del Servicio de aplicaciones
-      href: >-
-        ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Entorno de App Service
       href: ../app-service/app-service-environment/intro.md
     - name: Autenticación y autorización
-      href: >-
-        ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Autenticación con AD local
       href: web-sites-authentication-authorization.md
 - name: Guías de procedimientos
@@ -161,8 +158,6 @@
               href: custom-dns-web-site-buydomains-web-app.md
             - name: Asignación de dominios con Traffic Manager
               href: web-sites-traffic-manager-custom-domain-name.md
-            - name: Asignación de dominios GoDaddy
-              href: web-sites-godaddy-custom-domain-name.md
             - name: Migración de un dominio activo
               href: app-service-custom-domain-name-migrate.md
         - name: Migrar desde IIS
@@ -186,20 +181,15 @@
         - name: usuarios
           items:
             - name: Autenticación mediante Azure Active Directory
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Autenticación con Facebook
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Autenticación con Google
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Autenticación con la cuenta de Microsoft
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Autenticación con Twitter
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Autenticación mediante AD local
               href: web-sites-authentication-authorization.md
             - name: Aplicación con una base de datos multiinquilino
@@ -213,20 +203,17 @@
         - name: Escalado vertical
           href: web-sites-scale.md
         - name: Escalado horizontal
-          href: >-
-            ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Equilibrio de carga con Traffic Manager
           href: web-sites-traffic-manager.md
         - name: Escalado elevado con entornos de App Service
-          href: >-
-            ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Uso de la red CDN de Azure para alcance global
           href: cdn-websites-with-cdn.md
         - name: Conexión con Redis Cache mediante Memcache
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: Creación de una caché en Redis
-          href: >-
-            ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Administrar el estado de sesión con Azure Redis Cache
           href: web-sites-dotnet-session-state-caching.md
     - name: Supervisión
@@ -260,8 +247,7 @@
     - name: Integrate
       items:
         - name: Exportación a PowerApps y Microsoft Flow
-          href: >-
-            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Entorno de App Service
       items:
         - name: Uso de una instancia de App Service Environment
@@ -308,11 +294,8 @@
           href: app-service-web-troubleshoot-performance-degradation.md
         - name: Preguntas más frecuentes
           items:
-            - name: >-
-                Disponibilidad, rendimiento y preguntas más frecuentes sobre
-                aplicaciones
-              href: >-
-                app-service-web-availability-performance-application-issues-faq.md
+            - name: 'Disponibilidad, rendimiento y preguntas más frecuentes sobre aplicaciones'
+              href: app-service-web-availability-performance-application-issues-faq.md
             - name: Preguntas más frecuentes sobre la implementación
               href: app-service-web-deployment-faq.md
             - name: Preguntas más frecuentes sobre las tecnologías de código abierto
@@ -325,9 +308,7 @@
           href: app-service-app-service-environment-intro.md
         - name: Creación de App Service Environment
           href: app-service-web-how-to-create-an-app-service-environment.md
-        - name: >-
-            Creación de una aplicación web en un entorno del Servicio de
-            aplicaciones
+        - name: Creación de una aplicación web en un entorno del Servicio de aplicaciones
           href: app-service-web-how-to-create-a-web-app-in-an-ase.md
         - name: Uso de un equilibrador de carga interno
           href: app-service-environment-with-internal-load-balancer.md
@@ -342,11 +323,9 @@
         - name: Control del tráfico entrante
           href: app-service-app-service-environment-control-inbound-traffic.md
         - name: Conexión de forma segura con recursos de back-end
-          href: >-
-            app-service-app-service-environment-securely-connecting-to-backend-resources.md
+          href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: Detalles de configuración de red con ExpressRoute
-          href: >-
-            app-service-app-service-environment-network-configuration-expressroute.md
+          href: app-service-app-service-environment-network-configuration-expressroute.md
         - name: Escalado automático en App Service Environment
           href: ../app-service/app-service-environment-auto-scale.md
     - name: Precios

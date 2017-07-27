@@ -67,7 +67,7 @@
 ## [Equilibrador de carga](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Precios](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=application-gateway)

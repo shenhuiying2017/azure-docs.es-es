@@ -56,7 +56,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
 
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Precios](https://azure.microsoft.com/pricing/details/cache/)
 ## [Ejemplos de Redis Cache](cache-redis-samples.md)
 

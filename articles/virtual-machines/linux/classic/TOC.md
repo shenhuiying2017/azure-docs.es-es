@@ -66,6 +66,7 @@
 ## Solución de problemas
 ### [Implementaciones de máquina virtual](troubleshoot-deployment-new-vm.md)
 ### [Reinicio o cambio del tamaño de una máquina virtual](restart-resize-error-troubleshooting.md)
+### [Conexión de un disco duro virtual para solucionar problemas de máquina virtual](troubleshoot-recovery-disks-portal.md)
 
 # Referencia
 ## [PowerShell](/powershell/azure/overview)
@@ -79,7 +80,7 @@
 
 
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Precios](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Disponibilidad regional](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

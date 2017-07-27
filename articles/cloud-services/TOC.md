@@ -112,7 +112,7 @@
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Precios](https://azure.microsoft.com/pricing/details/cloud-services/)

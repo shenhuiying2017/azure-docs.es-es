@@ -141,7 +141,7 @@
 ## [Cmdlets de PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Foro](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
 ## [Precios](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=sql-data-warehouse)

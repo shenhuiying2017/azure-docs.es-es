@@ -54,7 +54,7 @@
 
 # Recursos
 ## [Foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Ponerse en contacto con nosotros](active-directory-ds-contact-us.md)
 ## [Precios](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=active-directory-ds)
