@@ -25,7 +25,7 @@ ms.lasthandoff: 06/26/2017
 ## <a name="overview"></a>Información general
 Las instancias de App Service Environment (ASE) pueden crearse con un punto de conexión accesible de Internet o un punto de conexión en una dirección interna en Azure Virtual Network (VNet).  Cuando se crea con un punto de conexión interno, ese punto de conexión siempre lo proporciona un componente de Azure denominado equilibrador de carga interno (ILB).  El ASE con un punto de conexión público se denomina ASE externo y el ASE en una dirección IP interna se denomina ASE con un ILB.  
 
-Un ASE puede crearse con Azure Portal o con plantillas Azure Resource Manager.  Este artículo le guía por los pasos y la sintaxis necesarios para crear un ASE externo o uno con ILB con plantillas de Azure Resource Manager.  Para más información sobre cómo crear un ASE en el portal, puede empezar por [crear un ASE externo] [ MakeExternalASE] o [crear un ASE con un ILB][MakeILBASE].
+Un ASE puede crearse con Azure Portal o con plantillas Azure Resource Manager.  Este artículo le guía por los pasos y la sintaxis necesarios para crear un ASE externo o uno con ILB con plantillas de Azure Resource Manager.  Para más información sobre cómo crear un ASE en el portal, puede empezar por [crear un ASE externo][MakeExternalASE] o [crear un ASE con un ILB][MakeILBASE].
 
 Cuando se crea un ASE en el portal, puede elegir crear la red virtual al mismo tiempo o seleccionar una red virtual existente en donde implementarlo.  Cuando se crea desde una plantilla, debe comenzar por: 
 * Una red virtual de Resource Manager
