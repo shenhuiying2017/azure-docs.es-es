@@ -1,5 +1,6 @@
 # [Información general](azure-security.md)
 ## [Seguridad de las redes](security-network-overview.md)
+## [Seguridad de bases de datos](azure-database-security-overview.md)
 ## [Seguridad de Storage](security-storage-overview.md)
 ## [Seguridad de Compute](security-virtual-machines-overview.md)
 ## [Administración y supervisión de seguridad](security-management-and-monitoring-overview.md)
@@ -12,6 +13,7 @@
 ### [Aislamiento en la nube pública](azure-isolation.md)
 ### [Funcionalidades técnicas de seguridad](azure-security-technical-capabilities.md)
 ### [Gobierno en Azure](governance-in-azure.md)
+### [Cifrado de datos en reposo](azure-security-encryption-atrest.md)
 
 # Introducción
 ## [Introducción a la seguridad de Azure](azure-security-getting-started.md)
@@ -51,6 +53,7 @@
 ## Servicios de PaaS
 ### [Protección de implementaciones de PaaS](security-paas-deployments.md)
 #### [Protección de aplicaciones web y móviles PaaS con SQL](security-paas-applications-using-sql.md)
+#### [Procedimientos recomendados de SQL Database](azure-database-security-best-practices.md)
 #### [Protección de aplicaciones web y móviles PaaS con App Services](security-paas-applications-using-app-services.md)
 
 ## Internet de las cosas
@@ -73,7 +76,7 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Programa MVP de seguridad de Azure](azure-security-mvp.md)
 ## [Consultoría de ciberseguridad](azure-security-cyber-services.md)
 ## [Blog sobre seguridad y cumplimiento](http://blogs.msdn.com/b/azuresecurity/)

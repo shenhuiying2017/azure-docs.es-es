@@ -1,0 +1,37 @@
+- name: Azure Container Instances
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Azure Container Instances
+      href: container-instances-overview.md
+- name: Inicios rápidos
+  expanded: true
+  items:
+    - name: Creación de instancia de contenedor
+      href: container-instances-quickstart.md
+- name: Tutoriales
+  items:
+    - name: Compilación e implementación de un contenedor
+      items:
+        - name: 1 - Creación de una imagen de contenedor
+          href: container-instances-tutorial-prepare-app.md
+        - name: 2 - Creación de un registro de contenedor
+          href: container-instances-tutorial-prepare-acr.md
+        - name: 3 - Implementación de una aplicación
+          href: container-instances-tutorial-deploy-app.md
+- name: Conceptos
+  items:
+    - name: Relación con los orquestadores
+      href: container-instances-orchestrator-relationship.md
+- name: Guías de procedimientos
+  items:
+    - name: Grupos de varios contenedores
+      href: container-instances-multi-container-group.md
+    - name: Administración de estados con recursos compartidos de archivos de Azure
+      href: container-instances-mounting-azure-files-volume.md
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Disponibilidad en regiones
+      href: 'https://azure.microsoft.com/regions/services/'

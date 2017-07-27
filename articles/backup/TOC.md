@@ -17,7 +17,7 @@
 ### Copia de seguridad de máquinas virtuales
 #### [Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services](backup-azure-arm-vms.md)
 #### [Copia de seguridad de máquinas virtuales cifradas](backup-azure-vms-encryption.md)
-#### [Copia de seguridad de instancias de Azure Virtual Machines en el almacén de Backup](backup-azure-vms.md)
+#### [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms.md)
 ### Administración y supervisión de máquinas virtuales
 #### [Administración de copias de seguridad de VM de Azure en Azure Portal](backup-azure-manage-vms.md)
 #### [Supervisión de alertas para copias de seguridad de VM de Azure en Azure Portal](backup-azure-monitor-vms.md)
@@ -57,7 +57,7 @@
 ### [Preparación de cargas de trabajo DPM en Azure Portal](backup-azure-dpm-introduction.md)
 ### [Preparación de cargas de trabajo DPM en el portal clásico](backup-azure-dpm-introduction-classic.md)
 ### [Uso de System Center DPM para hacer copias de seguridad de un servidor Exchange](backup-azure-backup-exchange-server.md)
-### [Recuperación de datos en el almacén de copia de seguridad en un servidor DPM alternativo](backup-azure-alternate-dpm-server.md)
+### [Recuperación de datos en un servidor DPM alternativo](backup-azure-alternate-dpm-server.md)
 ### [Uso de DPM para hacer copias de seguridad de cargas de trabajo de SQL Server](backup-azure-backup-sql.md)
 ### [Uso de DPM para hacer copias de seguridad de una granja de SharePoint](backup-azure-backup-sharepoint.md)
 
@@ -90,11 +90,12 @@
 # Conceptos
 ## [Introducción a los almacenes de Recovery Services](backup-azure-recovery-services-vault-overview.md)
 ## [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Eliminación de un almacén de Azure Backup](backup-azure-delete-vault.md)
+## [Eliminación de un almacén de Recovery Services](backup-azure-delete-vault.md)
 ## [Control de acceso basado en roles](backup-rbac-rs-vault.md)
 ## [Seguridad para copias de seguridad híbridas](backup-azure-security-feature.md)
 ## [Configuración de informes de Azure Backup](backup-azure-configure-reports.md)
 ## [Modelo de datos para informes de Azure Backup](backup-azure-reports-data-model.md)
+## [Modelo de datos de Log Analytics para Azure Backup](backup-azure-log-analytics-data-model.md)
 ## [Configuración de copias de seguridad sin conexión](backup-azure-backup-import-export.md)
 ## [Reemplazo de la biblioteca de cintas](backup-azure-backup-cloud-as-tape.md)
 ## [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux](backup-azure-linux-app-consistent.md)

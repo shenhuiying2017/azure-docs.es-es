@@ -64,6 +64,7 @@
 ## [Visualización de registros de flujo con herramientas de código abierto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ## [Visualización de patrones de tráfico de red mediante herramientas de código abierto](network-watcher-using-open-source-tools.md)
 ## [Realización de auditoría y comprobación del cumplimiento en la red con PowerShell](network-watcher-nsg-auditing-powershell.md)
+## [Lectura de registros de flujo de NSG](network-watcher-read-nsg-flow-logs.md)
 ## [Realización de la detección de intrusiones mediante herramientas de código abierto](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Análisis de los registros de Application Gateway en Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # Referencia

@@ -4,10 +4,10 @@ hide_bc: true
 title: "Documentación de Microsoft Azure"
 description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7c1971abc2b71f6f23d8be2950aae8b56b4ceba1
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 7a642506b97fcf4d3426b9205f4b5e420b0bec59
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 <div id="main" class="v2">
@@ -140,7 +140,8 @@ ms.lasthandoff: 07/21/2017
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Funciones sin servidor</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/">Containers con Kubernetes</a></li>
+                                                        <li><a class="barLink" href="/azure/container-instances/">Azure Container Instances</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Orquestación de contenedores con Kubernetes</a></li>
                                                         <li><a class="barLink" href="/azure/service-fabric/">Microservicios con Service Fabric</a></li>
                                                     </ul>
                                                 </div>
@@ -352,6 +353,12 @@ ms.lasthandoff: 07/21/2017
                                     </ul>
                                     <h3>Contenedores</h3>
                                     <ul>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Azure Container Instances</p>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
@@ -1740,18 +1747,18 @@ ms.lasthandoff: 07/21/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-fabric/">
+                                <a href="/azure/container-instances/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                        <img src="media/index/ContainerInstances.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>Desarrollo de microservicios y orquestación de contenedores en Windows o Linux</p>
+                                                    <h3>Azure Container Instances</h3>
+                                                    <p>Ejecución fácil de contenedores con un solo comando</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1790,6 +1797,25 @@ ms.lasthandoff: 07/21/2017
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
                                                     <p>Ejecución de trabajos de proceso con contenedores</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Fabric</h3>
+                                                    <p>Desarrollo de microservicios y orquestación de contenedores en Windows o Linux</p>
                                                 </div>
                                             </div>
                                         </div>
