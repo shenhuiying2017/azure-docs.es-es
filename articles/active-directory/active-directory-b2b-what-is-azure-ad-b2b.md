@@ -13,12 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
-ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 9cd8edf47059a5f574489a604156890d157c8b1a
-ms.lasthandoff: 04/13/2017
+ms.date: 06/27/2017
+ms.author: curtand
+ms.custom: aaddev
+ms.reviewer: sasubram
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: fbc12a52555b190d43b5e953fd4d19923a25b0ed
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -29,13 +32,13 @@ ms.lasthandoff: 04/13/2017
 
 Las funcionalidades de colaboración de Azure AD negocio a negocio (B2B) permiten que cualquier organización con Azure AD funcione de forma segura con usuarios de cualquier otra organización, pequeña o grande; con o sin Azure AD; de hecho, con o sin una organización de TI. 
 
-Las organizaciones que utilizan Azure AD pueden proporcionar acceso a documentos, recursos y aplicaciones a sus asociados, mientras mantienen un control total sobre los datos corporativos. Los desarrolladores pueden usar las API de negocio a negocio de Azure AD para escribir aplicaciones que unen a dos organizaciones de una manera segura, lo que también resulta útil e intuitivo para navegar a los usuarios finales.
+Las organizaciones que usan Azure AD pueden proporcionar acceso a documentos, recursos y aplicaciones a sus asociados, mientras mantienen un control total sobre sus propios datos corporativos. Los desarrolladores pueden usar las API de negocio a negocio de Azure AD para escribir aplicaciones que unan a dos organizaciones de una manera más segura. Además, la navegación resulta bastante sencilla para los usuarios finales.
 
-Un increíble porcentaje del **97 %** de nuestros clientes nos ha comentado que la colaboración B2B de Azure AD es muy importante para ellos.
+El 97 % de nuestros clientes nos ha comentado que la colaboración B2B en Azure AD es muy importante para ellos.
 
 ![gráfico circular](media/active-directory-b2b-what-is-azure-ad-b2b/97-percent-support.png)
 
-Desde comienzos de abril de 2017, aproximadamente 3 millones de usuarios ya están usando las funcionalidades de colaboración B2B de Azure AD. Y más del 23 % de organizaciones de Azure AD que tienen más de 10 usuarios ya se benefician de estas funcionalidades.
+Desde comienzos de abril de 2017, aproximadamente 3 millones de usuarios ya usan las funcionalidades de colaboración B2B en Azure AD. Y más del 23 % de organizaciones de Azure AD que tienen más de 10 usuarios ya se benefician de estas funcionalidades.
 
 ## <a name="the-key-benefits-of-azure-ad-b2b-collaboration-to-your-organization"></a>Entre las principales ventajas de la colaboración B2B de Azure AD para su organización, se encuentran las siguientes:
 
@@ -51,7 +54,7 @@ Desde comienzos de abril de 2017, aproximadamente 3 millones de usuarios ya est�
 
 * Proporciona acceso a cualquier aplicación o datos corporativos, al aplicar avanzadas directivas de autorización con tecnología de Azure AD.
 
-* Experiencias de usuario sin problemas.
+* Fácil para los usuarios
 
 * Seguridad de nivel empresarial para aplicaciones y datos.
 
@@ -67,11 +70,11 @@ Desde comienzos de abril de 2017, aproximadamente 3 millones de usuarios ya est�
 
 Los administradores pueden agregar usuarios de colaboración (invitados) de B2B en [Azure Portal](https://portal.azure.com).
 
-![gráfico circular](media/active-directory-b2b-what-is-azure-ad-b2b/adding-b2b-users-admin.png)
+![agregar usuarios invitados](media/active-directory-b2b-what-is-azure-ad-b2b/adding-b2b-users-admin.png)
 
 ### <a name="enable-your-collaborators-to-bring-their-own-identity"></a>Permiso a los colaboradores para que traigan su propia identidad
 
-Los colaboradores de B2B pueden iniciar sesión con la identidad que elijan. Si el usuario no tiene una cuenta de Microsoft o una cuenta de Azure AD, se crea una en su nombre en el momento del canje de la oferta.
+Los colaboradores de B2B pueden iniciar sesión con la identidad que elijan. Si el usuario no tiene una cuenta de Microsoft o de Azure AD, se crea una en su nombre en el momento del canje de la oferta.
 
 ![opción de identidad inicio de sesión](media/active-directory-b2b-what-is-azure-ad-b2b/sign-in-identity-choice.png)
 
@@ -84,14 +87,17 @@ Los propietarios de aplicaciones y grupos pueden agregar usuarios de B2B directa
 
 ### <a name="authorization-policies-protect-your-corporate-content"></a>Protección de las directivas de autorización al contenido corporativo
 
-Los administradores pueden establecer directivas de acceso condicional, como Multi-Factor Authentication, que se pueden aplicar en el nivel de inquilino, el nivel de aplicación o para usuarios específicos con el fin de proteger los datos y las aplicaciones corporativos.
+Las directivas de acceso condicional, como la autenticación multifactor, se pueden aplicar:
+- En el nivel de inquilino
+- En el nivel de aplicación
+- A usuarios específicos para proteger los datos y las aplicaciones empresariales.
 
 ![agregar miembro](media/active-directory-b2b-what-is-azure-ad-b2b/add-member.png)
 
 ### <a name="use-our-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>Uso de nuestras API y código de ejemplo para crear fácilmente aplicaciones para realizar una incorporación
 Incorpore a los asociados externos de manera personalizada según las necesidades de su organización.
 
-Mediante las [API de invitación B2B de Azure AD](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation), las organizaciones pueden personalizar profundamente sus experiencias de incorporación, incluida la creación de portales de suscripción de autoservicio, código de ejemplo que se proporciona en Github: <https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web>
+Con las [API de invitación de colaboración B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) puede personalizar sus experiencias de incorporación, incluida la creación de portales de suscripción de autoservicio. Proporcionamos código de ejemplo para un portal de autoservicio [en Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
 ![portal de suscripción](media/active-directory-b2b-what-is-azure-ad-b2b/sign-up-portal.png)
 
