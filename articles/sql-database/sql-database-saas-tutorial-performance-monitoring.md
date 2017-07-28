@@ -210,7 +210,7 @@ En este ejercicio se simula el efecto de una carga elevada en Contoso Concert Ha
 1. En [Azure Portal](https://portal.azure.com) abra **Pool1**.
 1. Inspeccione el gráfico **Supervisión de grupo elástico** y busque el aumento de uso de eDTU en el grupo. Pasado un minuto o dos, la carga mayor entrará en vigor rápidamente y verá que el grupo alcanza el 100 % de uso.
 1. Observe la pantalla **Supervisión de bases de datos elásticas** que muestra las bases de datos principales de la última hora. La base de datos *contosoconcerthall* pronto debería aparecer como una de las cinco bases de datos principales.
-1. **Haga clic en el **gráfico** Supervisión de bases de datos elásticas** y se abre la página **Uso de recursos de base de datos** donde puede supervisar cualquier base de datos. Esto le permite aislar la presentación de la base de datos *contosoconcerthall*.
+1. **Haga clic en el gráfico Supervisión de bases de datos elásticas** y se abre la **página** **Uso de recursos de base de datos** donde puede supervisar cualquier base de datos. Esto le permite aislar la presentación de la base de datos *contosoconcerthall*.
 1. En la lista de bases de datos, haga clic en **contosoconcerthall**.
 1. Haga clic en **Plan de tarifa (escalar DTU)** para abrir la página **Configurar rendimiento** donde puede establecer un nivel de rendimiento independiente para la base de datos.
 1. Haga clic en la pestaña **Estándar** para abrir las opciones de escalado del nivel Estándar.

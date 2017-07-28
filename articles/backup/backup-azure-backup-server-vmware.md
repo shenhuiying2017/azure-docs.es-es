@@ -223,7 +223,7 @@ Después de configurar el rol con privilegios, cree una cuenta de usuario. La cu
 
     Haga clic en **Aceptar** para agregar los usuarios seleccionados al cuadro de diálogo **Agregar permiso**.
 
-7. Ahora que ha identificado al usuario, asígnelo al rol. *En el área **Rol asignado**, en el menú desplegable, seleccione **BackupAdminRole** y haga clic en **Aceptar**.
+7. Ahora que ha identificado al usuario, asígnelo al rol. En el área **Rol asignado**, en el menú desplegable, seleccione **BackupAdminRole** y haga clic en **Aceptar**.
 
     ![Asignar el usuario al rol](./media/backup-azure-backup-server-vmware/vmware-choose-role.png)
 
