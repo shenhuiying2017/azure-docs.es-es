@@ -59,7 +59,7 @@ Los usuarios que disponen de cuentas de AMS anteriores a la versión del 10 de e
 Si el punto de conexión de streaming de la **versión "1.0"** tiene al menos 1 unidad de streaming premium, será un punto de conexión de streaming premium y ofrecerá todas las características de AMS (al igual que el tipo **Estándar o Premium**) sin ningún paso de configuración adicional.
 
 >[!NOTE]
->Los puntos de conexión de streaming **clásicos** (versión "1.0" y 0 unidades de streaming) ofrecen características limitadas y no incluyen un Acuerdo de Nivel de Servicio. Se recomienda migrar al tipo **Estándar** para disfrutar de una mejor experiencia y usar características como el empaquetado dinámico, el cifrado y otras que se ofrecen con dicho tipo. **** Para migrar al tipo **Estándar**, vaya a [Azure Portal](https://portal.azure.com/) y seleccione **Opt-in to Standard** (Participar en Estándar). Para obtener más información acerca de la migración, consulte la sección [Migración](#migration-between-types).
+>Los puntos de conexión de streaming **clásicos** (versión "1.0" y 0 unidades de streaming) ofrecen características limitadas y no incluyen un Acuerdo de Nivel de Servicio. Se recomienda migrar al tipo **Estándar** para disfrutar de una mejor experiencia y usar características como el empaquetado dinámico, el cifrado y otras que se ofrecen con **dicho** tipo.  Para migrar al tipo **Estándar**, vaya a [Azure Portal](https://portal.azure.com/) y seleccione **Opt-in to Standard** (Participar en Estándar). Para obtener más información acerca de la migración, consulte la sección [Migración](#migration-between-types).
 >
 >Tenga en cuenta que esta operación no se puede revertir y afectará al precio.
 >
