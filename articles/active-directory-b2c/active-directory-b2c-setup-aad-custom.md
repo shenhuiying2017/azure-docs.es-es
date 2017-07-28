@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory B2C: adición de un proveedor de Azure AD mediante directivas personalizadas | Microsoft Docs"
-description: Un tema acerca de las directivas personalizadas de Azure Active Directory B2C
+title: 'Azure Active Directory B2C: agregar un proveedor de Azure AD mediante directivas personalizadas | Microsoft Docs'
+description: "Obtenga información sobre las directivas personalizadas de Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,78 +14,78 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 652a2eb0db0e41c4706e06cd0cb2e97ce1eb6ab2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 976c4752cc3c3cc1c74adf7d57c3539d39aef556
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="azure-active-directory-b2c-log-in-using-azure-ad-accounts"></a>Azure Active Directory B2C: inicio de sesión con cuentas de Azure AD
+# <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: inicio de sesión con cuentas de Azure AD
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios de una organización de Azure AD concreta mediante el uso de [directivas personalizadas](active-directory-b2c-overview-custom.md).
+En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios de una organización de Azure Active Directory (Azure AD) concreta mediante el uso de [directivas personalizadas](active-directory-b2c-overview-custom.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Asegúrese de que ha completado todos los pasos que le muestran cómo [empezar a trabajar con directivas personalizadas](active-directory-b2c-get-started-custom.md).
+Complete los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
-En ella se incluye:
+Estos pasos incluyen:
 
-1. Creación de un inquilino de Azure AD B2C.
-1. Creación de una aplicación de Azure AD B2C.
-1. Registro de dos aplicaciones de motor de directivas.
-1. Configuración de claves.
-1. Configurar el paquete de inicio.
+1. Creación de un inquilino de Azure Active Directory B2C (Azure AD B2C).
+2. Creación de una aplicación de Azure AD B2C.
+3. Registro de dos aplicaciones de motor de directivas.
+4. Configuración de claves.
+5. Configurar el paquete de inicio.
 
 ## <a name="create-an-azure-ad-app"></a>Creación de una aplicación de Azure AD
 
 Para habilitar el inicio de sesión para los usuarios de una organización específica de Azure AD, es preciso registrar una aplicación en el inquilino de Azure AD de la organización.
 
 >[!NOTE]
-> El inquilino de Azure AD de la organización será `contoso.com`, mientras que el inquilino de Azure AD B2C será `fabrikamb2c.onmicrosoft.com`.
+> En las instrucciones siguientes, usamos "contoso.com" para el inquilino de Azure AD de la organización y "fabrikamb2c.onmicrosoft.com" como inquilino de Azure AD B2C.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-1. En la barra superior, haga clic en su cuenta y, en la lista **Directorio**, elija el inquilino de Azure AD de la organización en el que desea registrar la aplicación (p. ej., contoso.com).
-1. Haga clic en **More services** (Más servicios) en el panel de navegación izquierdo y busque **Registros de aplicaciones**.
-1. Elija **Nuevo registro de aplicaciones**.
-1. Escriba el **nombre** de la aplicación (por ejemplo, Aplicación de Azure AD B2C)
+1. En la barra superior, seleccione su cuenta. En la lista **Directorio**, elija el inquilino de Azure AD de la organización donde quiere registrar la aplicación (contoso.com).
+1. Seleccione **Más servicios** en el panel izquierdo y busque "Registros de aplicaciones".
+1. Seleccione **Nuevo registro de aplicaciones**.
+1. Escriba el nombre de la aplicación (por ejemplo, `Azure AD B2C App`).
 1. En Tipo de aplicación, seleccione **Aplicación web o API**.
-1. En "URL de inicio de sesión", escriba la dirección URL siguiente, donde `yourtenant` se debe reemplazar por el nombre de un inquilino de Azure AD B2C (es decir, fabrikamb2c.onmicrosoft.com).
+1. En **Dirección URL de inicio de sesión**, escriba la dirección URL siguiente, donde `yourtenant` se sustituye por el nombre del inquilino de Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
 
     ```
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Guarde el **identificador de la aplicación**.
-1. Haga clic en la aplicación recién creada.
-1. En la hoja Configuración, haga clic en **Claves**.
-1. Cree una clave nueva y guárdela para la sección siguiente.
+1. Guarde el identificador de la aplicación.
+1. Seleccione la aplicación recién creada.
+1. En la hoja **Configuración**, seleccione **Claves**.
+1. Cree una clave y guárdela. La usará en los pasos de la sección siguiente.
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Adición de la clave de Azure AD a Azure AD B2C
 
-La clave de aplicación `contoso.com` debe almacenarla en su inquilino de Azure AD B2C. Para ello, siga estos pasos:
-
-1. Vaya a su inquilino de Azure AD B2C y abra B2C Settings (Configuración B2C) > Identity Experience Framework (Marco de experiencia de identidad) > Policy Keys (Claves de directiva).
-1. Haga clic en + Agregar.
-1. Opciones:
- * Seleccione la opción > `Manual`
- * Nombre: > `ContosoAppSecret`. Elija un nombre que coincida con el nombre del inquilino de Azure AD.  Se agregará el prefijo B2C_1A_ automáticamente al nombre de su clave.
- * Pegue la clave de su aplicación en el cuadro de texto `Secret`.
- * Seleccione Firma.
-1. Haga clic en `Create`
-1. Confirme que ha creado la clave: `B2C_1A_ContosoAppSecret`.
+Debe almacenar la clave de aplicación contoso.com en su inquilino de Azure AD B2C. Para ello, siga estos pasos:
+1. Vaya a su inquilino de Azure AD B2C y abra **B2C Settings (Configuración de B2C)** > **Marco de experiencia de identidad** > **Claves de directiva**.
+1. Seleccione **+Agregar**.
+1. Seleccione o especifique estas opciones:
+   * Seleccione **Manual**.
+   * En **Nombre**, elija un nombre que coincida con el nombre del inquilino de Azure AD (por ejemplo, `ContosoAppSecret`).  Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+   * Pegue la clave de la aplicación en el cuadro **Secreto**.
+   * Seleccione **Firma**.
+1. Seleccione **Crear**.
+1. Confirme que ha creado la clave `B2C_1A_ContosoAppSecret`.
 
 
 ## <a name="add-a-claims-provider-in-your-base-policy"></a>Adición de un proveedor de notificaciones a una directiva de base
 
-Para permitir que los usuarios inicien sesión con Azure AD, es preciso definir Azure AD como proveedor de notificaciones. En otras palabras, se debe especificar el punto de conexión con el que Azure AD B2C se va a comunicar. El punto de conexión *proporcionará* un conjunto de *notificaciones* que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado. Para ello, agregue Azure AD como `<ClaimsProvider>` en el archivo de extensión de la directiva.
+Si quiere que los usuarios inicien sesión con Azure AD, es preciso definir Azure AD como proveedor de notificaciones. En otras palabras, se debe especificar el punto de conexión con el que Azure AD B2C se va a comunicar. El punto de conexión proporcionará un conjunto de notificaciones que Azure AD B2C usa para comprobar que un usuario concreto se ha autenticado. 
 
-1. Abra el archivo de extensión desde el directorio de trabajo (TrustFrameworkExtensions.xml).
+Puede definir Azure AD como proveedor de notificaciones. Para ello, agregue Azure AD al nodo `<ClaimsProvider>` en el archivo de extensión de la directiva:
+
+1. Abra el archivo de extensión (TrustFrameworkExtensions.xml) desde el directorio de trabajo.
 1. Busque la sección `<ClaimsProviders>`. Si no existe, agréguela debajo del nodo raíz.
-1. Agregue una instancia nueva de `<ClaimsProvider>` como se indica a continuación:
+1. Agregue un nuevo nodo `<ClaimsProvider>` como se indica a continuación:
 
     ```XML
     <ClaimsProvider>
@@ -98,7 +98,7 @@ Para permitir que los usuarios inicien sesión con Azure AD, es preciso definir 
                 <Protocol Name="OpenIdConnect"/>
                 <OutputTokenFormat>JWT</OutputTokenFormat>
                 <Metadata>
-                    <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
+                    <Item Key="METADATA">https://login.microsoftonline.com/contoso.com/.well-known/openid-configuration</Item>
                     <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
                     <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
                     <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
@@ -129,56 +129,55 @@ Para permitir que los usuarios inicien sesión con Azure AD, es preciso definir 
     </ClaimsProvider>
     ```
 
-1. En el nodo `<ClaimsProvider>`, actualice el valor de `<Domain>` a un valor único que pueda utilizarse para distinguirse de otros proveedores de identidad.
+1. En el nodo `<ClaimsProvider>`, actualice el valor de `<Domain>` a un valor único que pueda usarse para distinguirlo de otros proveedores de identidades.
 1. En el nodo `<ClaimsProvider>`, actualice el valor de `<DisplayName>` a un nombre descriptivo del proveedor de notificaciones. Este valor no se utiliza actualmente.
 
 ### <a name="update-the-technical-profile"></a>Actualización del perfil técnico
 
-Para obtener un token del punto de conexión de Azure AD es preciso definir los protocolos que Azure AD B2C debe usar para comunicarse con Azure AD. Esto se realiza dentro del elemento `<TechnicalProfile>` de `<ClaimsProvider>`.
-
+Para obtener un token del punto de conexión de Azure AD es preciso definir los protocolos que Azure AD B2C debe usar para comunicarse con Azure AD. Esto se hace dentro del elemento `<TechnicalProfile>` de `<ClaimsProvider>`.
 1. Actualice el identificador del nodo `<TechnicalProfile>`. Este identificador se usa para hacer referencia a este perfil técnico desde otras partes de la directiva.
 1. Actualice el valor de `<DisplayName>`. Este valor se mostrará en el botón de inicio de sesión de la pantalla de inicio de sesión.
 1. Actualice el valor de `<Description>`.
-1. Azure AD usa el protocolo OpenID Connect, por lo que debe asegurarse de que el valor de `<Protocol>` es "OpenIDConnect".
+1. Azure AD usa el protocolo OpenID Connect, por lo que debe asegurarse de que el valor de `<Protocol>` es `"OpenIdConnect"`.
 
-Debe actualizar la sección `<Metadata>` del XML anterior para reflejar la configuración de su inquilino de Azure AD específico. En el XML, actualice los valores de los metadatos como se indica a continuación:
+Debe actualizar la sección `<Metadata>` del archivo XML al que se ha hecho referencia anteriormente para reflejar la configuración de su inquilino de Azure AD específico. En el archivo XML, actualice los valores de los metadatos como se indica a continuación:
 
-1. Establezca `<Item Key="METADATA">` en `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, donde `yourAzureADtenant` es el nombre del inquilino de Azure AD (por ejemplo, contoso.com).
-1. Abra el explorador y navegue hasta la dirección URL `Metadata` que acaba de actualizar.
-1. En el explorador, busque el objeto "issuer" y copie su valor. Debería ser como el siguiente `https://sts.windows.net/{tenantId}/`.
-1. Pegue el valor de `<Item Key="ProviderName">` en el XML.
-1. Establezca `<Item Key="client_id">` en `Application ID` desde el registro de aplicaciones.
-1. Establezca `<Item Key="IdTokenAudience">` en `Application ID` desde el registro de aplicaciones.
+1. Establezca `<Item Key="METADATA">` en `https://login.microsoftonline.com/yourAzureADtenant/.well-known/openid-configuration`, donde `yourAzureADtenant` es el nombre del inquilino de Azure AD (contoso.com).
+1. Abra el explorador y vaya a la dirección URL `METADATA` que acaba de actualizar.
+1. En el explorador, busque el objeto "issuer" y copie su valor. Debería ser similar a lo siguiente: `https://sts.windows.net/{tenantId}/`.
+1. Pegue el valor de `<Item Key="ProviderName">` en el archivo XML.
+1. Establezca `<Item Key="client_id">` en el identificador de aplicación desde el registro de aplicaciones.
+1. Establezca `<Item Key="IdTokenAudience">` en el identificador de aplicación desde el registro de aplicaciones.
 1. Asegúrese de que `<Item Key="response_types">` está establecido en `id_token`.
 1. Asegúrese de que `<Item Key="UsePolicyInRedirectUri">` está establecido en `false`.
 
-También es preciso que vincule el secreto de Azure AD que registró en el inquilino de Azure AD B2C a `<ClaimsProvider>` de Azure AD.
+También es preciso que vincule el secreto de Azure AD que ha registrado en el inquilino de Azure AD B2C a la información de `<ClaimsProvider>` de Azure AD:
 
-* En la sección `<CryptographicKeys>` del XML anterior, actualice el valor de `StorageReferenceId` al identificador de referencia del secreto que definió (p. ej., ContosoAppSecret).
+* En la sección `<CryptographicKeys>` del archivo XML anterior, actualice el valor de `StorageReferenceId` al identificador de referencia del secreto que ha definido (por ejemplo, `ContosoAppSecret`).
 
 ### <a name="upload-the-extension-file-for-verification"></a>Carga del archivo de extensión para su comprobación
 
-Hasta ahora, ha configurado la directiva para que Azure AD B2C sepa cómo comunicarse con su directorio de Azure AD. Pruebe a cargar el archivo de extensión de la directiva para confirmar que no tiene problemas. Para ello:
+Por el momento, ha configurado la directiva para que Azure AD B2C sepa cómo comunicarse con su directorio de Azure AD. Pruebe a cargar el archivo de extensión de la directiva para confirmar que no tiene problemas. Para ello:
 
-1. Vaya a la hoja **All Policies** (Todas las directivas) en el inquilino de Azure AD B2C.
+1. Vaya a la hoja **Todas las directivas** en el inquilino de Azure AD B2C.
 1. Active la casilla **Sobrescribir la directiva si existe**.
-1. Cargue el archivo de extensión (TrustFrameworkExtensions.xml) y asegúrese de que no se produce ningún error en la comprobación.
+1. Cargue el archivo de extensión (TrustFrameworkExtensions.xml) y asegúrese de que no se produce ningún error en la validación.
 
-## <a name="register-the-azure-ad-claims-provider-to-a-user-journey"></a>Registro del proveedor de notificaciones de Azure AD en un recorrido del usuario
+## <a name="register-the-azure-ad-claims-provider-to-a-user-journey"></a>Registrar el proveedor de notificaciones de Azure AD en un recorrido del usuario
 
-Ahora es preciso agregar el proveedor de identidades de Azure AD a uno de los recorridos del usuario. El proveedor de identidades ya se ha configurado, pero no está disponible en ninguna de las pantallas de registro/inicio de sesión. Para ello, se creará un duplicado de un recorrido del usuario existente y, a continuación, se modificará para que también tenga el proveedor de identidades de Azure AD.
+Ahora es preciso agregar el proveedor de identidades de Azure AD a uno de los recorridos del usuario. El proveedor de identidades ya se ha configurado, pero no está disponible en ninguna de las pantallas de registro/inicio de sesión. Para que esté disponible, crearemos un duplicado de un recorrido del usuario de plantilla existente y, después, lo modificaremos para que también tenga el proveedor de identidades de Azure AD:
 
-1. Abra el archivo base de la directiva (por ejemplo, TrustFrameworkBase.xml)
-1. Busque el elemento `<UserJourneys>` y copie todo `<UserJourney>` con Id = "SignUpOrSignIn".
+1. Abra el archivo base de la directiva (por ejemplo, TrustFrameworkBase.xml).
+1. Busque el elemento `<UserJourneys>` y copie todo el nodo `<UserJourney>` que incluye `Id="SignUpOrSignIn"`.
 1. Abra el archivo de extensión (por ejemplo, TrustFrameworkExtensions.xml) y busque el elemento `<UserJourneys>`. Si el elemento no existe, agréguelo.
-1. Pegue todo el elemento `<UserJourney>` que copió como elemento secundario de `<UserJourneys>`.
-1. Cambiar el nombre del identificador del nuevo elemento `<UserJourney>` (es decir, SignUpOrSignUsingContoso).
+1. Pegue todo el nodo `<UserJourney>` que ha copiado como elemento secundario de `<UserJourneys>`.
+1. Cambie el nombre del identificador del nuevo recorrido del usuario (por ejemplo, cambie el nombre a `SignUpOrSignUsingContoso`).
 
 ### <a name="display-the-button"></a>Incorporación del "botón"
 
-El elemento `<ClaimsProviderSelection>` es análogo a un botón del proveedor de identidades en una pantalla de registro o inicio de sesión. Al agregar un elemento `<ClaimsProviderSelection>` para Azure AD, se mostrará un botón nuevo cuando a un usuario accede a la página. Para ello, siga estos pasos:
+El elemento `<ClaimsProviderSelection>` es análogo a un botón del proveedor de identidades en una pantalla de registro o inicio de sesión. Si agrega un elemento `<ClaimsProviderSelection>` para Azure AD, se mostrará un botón nuevo cuando un usuario llega a la página. Para agregar este elemento:
 
-1. Busque `<OrchestrationStep>` con `Order="1"` en el elemento `<UserJourney>` que acaba de crear.
+1. Busque el nodo `<OrchestrationStep>` que incluye `Order="1"` en el recorrido del usuario que acaba de crear.
 1. Agregue la siguiente línea de código:
 
     ```XML
@@ -187,38 +186,38 @@ El elemento `<ClaimsProviderSelection>` es análogo a un botón del proveedor de
 
 1. Establezca `TargetClaimsExchangeId` en valor apropiado. Se recomienda seguir la misma convención que otros:  *\[ClaimProviderName\]Exchange*.
 
-### <a name="link-the-button-to-an-action"></a>Vincule el "botón" a una acción
+### <a name="link-the-button-to-an-action"></a>Vincular el botón a una acción
 
-Ahora que hay un "botón" colocado, es preciso vincularlo a una acción. En este caso, la acción es para que Azure AD B2C se comunique con Azure AD para recibir un token. Para ello, vincule el perfil técnico del proveedor de notificaciones de Azure AD.
+Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este caso, la acción es para que Azure AD B2C se comunique con Azure AD para recibir un token. Para vincular un botón a una acción, vincule el perfil técnico del proveedor de notificaciones de Azure AD:
 
-1. Busque `<OrchestrationStep>` con `Order="2"` en el nodo `<UserJourney>`
+1. Busque el nodo `<OrchestrationStep>` que incluye `Order="2"` en el nodo `<UserJourney>`.
 1. Agregue la siguiente línea de código:
 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
     ```
 
-1. Actualice `Id` para que tenga al mismo valor que `TargetClaimsExchangeId`.
-1. Actualice `TechnicalProfileReferenceId` al valor `Id` del perfil técnico que creó anteriormente (p. ej. ContosoProfile).
+1. Actualice `Id` con el mismo valor que el de `TargetClaimsExchangeId` en la sección anterior.
+1. Actualice `TechnicalProfileReferenceId` con el identificador del perfil técnico que ha creado anteriormente (ContosoProfile).
 
 ### <a name="upload-the-updated-extension-file"></a>Cargar el archivo de extensión actualizado
 
-Ya ha terminado la modificación del archivo de extensión. Guarde y cargue el archivo y asegúrese de que el resultado de todas las comprobaciones es satisfactorio.
+Ya ha terminado la modificación del archivo de extensión. Guarde y cargue el archivo y asegúrese de que el resultado de todas las validaciones es satisfactorio.
 
 ### <a name="update-the-rp-file"></a>Actualización del archivo de RP
 
-Ahora es preciso actualizar el archivo de RP que iniciará el recorrido del usuario que acaba de crear.
+Ahora es preciso actualizar el archivo del usuario de confianza (RP) que iniciará el recorrido del usuario que acaba de crear:
 
 1. Realice una copia de SignUpOrSignIn.xml en el directorio de trabajo y cambie su nombre (por ejemplo, SignUpOrSignInWithAAD.xml).
-1. Abra el archivo nuevo y actualice el atributo `PolicyId` de `<TrustFrameworkPolicy>` con un valor único (por ejemplo, SignUpOrSignInWithAAD). Este será el nombre de la directiva (por ejemplo, B2C\_1A\_SignUpOrSignInWithAAD).
-1. Modifique el atributo `ReferenceId` de `<DefaultUserJourney>` para que coincida con el identificador del nuevo recorrido del usuario que ha creado (por ejemplo, SignUpOrSignUsingContoso).
+1. Abra el archivo nuevo y actualice el atributo `PolicyId` de `<TrustFrameworkPolicy>` con un valor único (por ejemplo, SignUpOrSignInWithAAD). <br> Este será el nombre de la directiva (por ejemplo, B2C\_1A\_SignUpOrSignInWithAAD).
+1. Modifique el atributo `ReferenceId` de `<DefaultUserJourney>` para que coincida con el identificador del nuevo recorrido del usuario que ha creado (SignUpOrSignUsingContoso).
 1. Guarde los cambios y cargue el archivo.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Pruebe la directiva personalizada que acaba de cargar, para lo que debe abrir su hoja y hacer clic en "Ejecutar ahora". Si se produce algún error, consulte cómo [solucionarlo](active-directory-b2c-troubleshoot-custom.md).
+Pruebe la directiva personalizada que acaba de cargar. Para ello, abra su hoja y haga clic en **Ejecutar ahora**. Para diagnosticar problemas, obtenga información sobre la [solución de problemas](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Envíe sus comentarios a AADB2CPreview@microsoft.com.
+Envíe sus comentarios a [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).
 

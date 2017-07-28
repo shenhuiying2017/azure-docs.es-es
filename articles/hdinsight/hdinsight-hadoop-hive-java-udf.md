@@ -1,6 +1,6 @@
 ---
-title: "Uso de una función de Java definida por el usuario (UDF) con Hive en HDInsight | Microsoft Docs"
-description: "Aprenda a crear y utilizar una función de Java definida por el usuario (UDF) con Hive en HDInsight."
+title: "Uso de una función definida por el usuario (UDF) de Java con Hive en HDInsight - Azure | Microsoft Docs"
+description: "Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) que funcione con Hive. Esta función de ejemplo definida por el usuario convierte una tabla de cadenas de texto en minúsculas."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -8,33 +8,33 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 229bebe16b619f61f2dd4acb73602b97e64cb294
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6fe228ee8967c1d290e9bd515733d8207a721466
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilización de una función definida por el usuario de Java con Hive en HDInsight
 
-Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) que funcione con Hive.
+Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) que funcione con Hive. La función de Java definida por el usuario de este ejemplo convierte una tabla de cadenas de texto a caracteres en minúscula.
 
 ## <a name="requirements"></a>Requisitos
 
-* Un clúster de HDInsight (Windows o Linux)
+* Un clúster de HDInsight. 
 
     > [!IMPORTANT]
-    > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-    La mayoría de los pasos descritos en este documento funciona en ambos tipos de clúster. Sin embargo, los pasos utilizados para cargar la función definida por el usuario compilada al clúster y ejecutarla son específicos de los clústeres basados en Linux. Se proporcionan vínculos a información que puede utilizarse con clústeres basados en Windows.
+    La mayoría de los pasos de este documento funcionan tanto en clústeres basados en Windows como en Linux. Sin embargo, los pasos utilizados para cargar la función definida por el usuario compilada al clúster y ejecutarla son específicos de los clústeres basados en Linux. Se proporcionan vínculos a información que puede utilizarse con clústeres basados en Windows.
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 o posterior (o un equivalente como OpenJDK).
 
@@ -43,9 +43,9 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
 * Un editor de texto o IDE de Java
 
     > [!IMPORTANT]
-    > Si está utilizando un servidor HDInsight basado en Linux, pero creará los archivos de Python en un cliente Windows, debe utilizar un editor que utilice LF como final de línea. Si no está seguro de si el editor utiliza LF o CRLF, consulte la sección [Solución de problemas](#troubleshooting) para conocer los pasos que debe realizar para quitar el carácter CR con las utilidades del clúster de HDInsight.
+    > Si crea los archivos de Python en un cliente Windows, debe usar un editor que emplee LF como final de línea. Si no está seguro de si el editor usa LF o CRLF, vea la sección [Solución de problemas](#troubleshooting) para conocer los pasos a seguir para quitar el carácter CR.
 
-## <a name="create-an-example-udf"></a>Creación de una función definida por el usuario de ejemplo
+## <a name="create-an-example-java-udf"></a>Crear una función de Java definida por el usuario de ejemplo 
 
 1. Desde una línea de comandos, utilice lo siguiente para crear un nuevo proyecto de Maven:
 
@@ -60,7 +60,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
 
 2. Una vez creado el proyecto, elimine el directorio **exampleudf/src/test** que se creó como parte del proyecto.
 
-3. Abra el archivo **exampleudf/pom.xml** y reemplace la entrada `<dependencies>` ya existente con lo siguiente:
+3. Abra **exampleudf/pom.xml** y sustituya la entrada `<dependencies>` existente por el XML siguiente:
 
     ```xml
     <dependencies>
@@ -81,7 +81,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
 
     Estas entradas especifican la versión de Hadoop y Hive incluida con el clúster de HDInsight 3.5. Puede encontrar información sobre las versiones de Hadoop y Hive proporcionadas con HDInsight en el artículo [¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?](hdinsight-component-versioning.md) .
 
-    Agregue una sección `<build>` antes de la línea `</project>` al final del archivo. Esta sección debe contener lo siguiente:
+    Agregue una sección `<build>` antes de la línea `</project>` al final del archivo. Esta sección debe contener el siguiente XML:
 
     ```xml
     <build>
@@ -178,7 +178,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
     mvn compile package
     ```
 
-    Este compilará y empaquetará la UDF en **exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar**.
+    Este comando compila y empaqueta la función definida por el usuario en el archivo `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar`.
 
 2. Utilice el comando `scp` para copiar el archivo en el clúster de HDInsight.
 
@@ -186,7 +186,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
     ```
 
-    Reemplace **myuser** por la cuenta de usuario SSH del clúster. Reemplace **mycluster** por el nombre del clúster. Si usa una contraseña para proteger la cuenta SSH, se le solicita que escriba la contraseña. Si utilizó un certificado, tal vez tenga que usar el parámetro `-i` para especificar el archivo de claves privadas.
+    Sustituya `myuser` por la cuenta de usuario SSH del clúster. Reemplace `mycluster` por el nombre del clúster. Si usa una contraseña para proteger la cuenta SSH, se le solicita que escriba la contraseña. Si utilizó un certificado, tal vez tenga que usar el parámetro `-i` para especificar el archivo de claves privadas.
 
 3. Conéctese al clúster con SSH.
 
@@ -228,7 +228,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
     SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
     ```
 
-    Esta consulta seleccionará la plataforma del dispositivo (Android, Windows, iOS, etc.) de la tabla, convertirá la cadena a minúsculas y, a continuación, las mostrará. El resultado es similar al siguiente.
+    Esta consulta seleccionará la plataforma del dispositivo (Android, Windows, iOS, etc.) de la tabla, convertirá la cadena a minúsculas y, a continuación, las mostrará. La salida es similar al siguiente texto:
 
         +----------+--+
         |   _c0    |
