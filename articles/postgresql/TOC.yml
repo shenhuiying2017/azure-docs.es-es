@@ -104,7 +104,7 @@
     - name: CLI de Azure
       href: /cli/azure/postgres
     - name: API de REST
-      href: /rest/api/postgres
+      href: /rest/api/postgresql
 - name: Recursos
   items:
     - name: Azure Roadmap
