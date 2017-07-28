@@ -14,19 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 775b83b9643e278b6252c52cb1de3f265e0545b4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f18605ec638a628805f5bd1c7207e9d874f104f3
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Entrega continua para Servicios en la nube de Azure
 El proceso que se describe en este artículo muestra cómo se configura la entrega continua para las aplicaciones en la nube de Azure. Este proceso le permite crear automáticamente paquetes e implementar el paquete en Azure cada vez que se proteja el código. El proceso de compilación del paquete que se describe en este artículo es equivalente al comando **Package** en Visual Studio y los pasos de publicación son equivalentes al comando **Publish** en Visual Studio.
 El artículo abarca los métodos que usaría para crear un servidor de compilación con instrucciones de línea de comandos de MSBuild y scripts de Windows PowerShell; además, demuestra también cómo configurar de manera opcional las definiciones de Visual Studio Team Foundation Server - Team Build para usar los comandos de MSBuild y los scripts de PowerShell. El proceso se puede personalizar para su entorno de compilación y los entornos de destino de Azure.
 
-Para hacerlo de manera más fácil, puede también usar Visual Studio Team Services, una versión de TFS que se hospeda en Azure. Para más información, consulte el artículo sobre la [entrega continua a Azure con Visual Studio Team Services][Continuous Delivery to Azure by Using Visual Studio Team Services].
+Para hacerlo de manera más fácil, puede también usar Visual Studio Team Services, una versión de TFS que se hospeda en Azure. 
 
 Antes de comenzar, debe publicar su aplicación desde Visual Studio.
 Esto asegurará que todos los recursos estén disponibles e inicializados cuando intente automatizar el proceso de publicación.
@@ -517,7 +516,6 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 ## <a name="next-steps"></a>Pasos siguientes
 Para habilitar la depuración remota cuando se usa la entrega continua, consulte [Habilitación de la depuración remota al usar la entrega continua para publicar en Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
-[Continuous Delivery to Azure by Using Visual Studio Team Services]: cloud-services-continuous-delivery-use-vso.md
 [Team Foundation Build Service]: https://msdn.microsoft.com/library/ee259687.aspx
 [.NET Framework 4]: https://www.microsoft.com/download/details.aspx?id=17851
 [.NET Framework 4.5]: https://www.microsoft.com/download/details.aspx?id=30653
