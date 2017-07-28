@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 06/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 12d4282082b3318bd14535a49e25c8d606d1bd7f
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 8af9d70965c1c9ad8c49b7d2bb04244fc207058d
 ms.contentlocale: es-es
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -51,7 +51,10 @@ Inicie Visual Studio. En el menú **Archivo**, haga clic en **Nuevo** y en **Pro
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Agregue el paquete NuGet de Event Hubs.
 
-Agregue el paquete NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) al proyecto.
+Agregue el paquete NuGet de la biblioteca estándar .NET [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) a su proyecto siguiendo estos pasos: 
+
+1. Haga clic con el botón derecho en el proyecto recién creado y seleccione **Administrar paquetes NuGet**.
+2. Haga clic en la pestaña **Examinar** y, después, busque "Microsoft.Azure.EventHubs" y seleccione el paquete **Microsoft.Azure.EventHubs**. Haga clic en **Instalar** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
 
 ## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Escritura de código para enviar mensajes al centro de eventos
 

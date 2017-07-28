@@ -13,10 +13,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 7134467421927e9a26e23f89684eeb6864a2f9a3
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 03c65775d7fe7eee0d14ca4551ae8a332dbc39b2
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -25,17 +25,17 @@ ms.lasthandoff: 05/11/2017
 >[!NOTE] 
 >Esta característica está en versión preliminar pública.  Se recomienda usar un inquilino de prueba cuando se utilice esta característica.  Aunque no tenemos pensado realizar ningún cambio importante entre la versión preliminar y la versión de disponibilidad general, nos reservamos el derecho de realizar dichos cambios para mejorar la característica.  Cuando haya tenido la oportunidad de probar la característica, envíenos sus comentarios sobre sus experiencias y cómo podemos mejorarla.  Puede proporcionar comentarios a través del portal de Azure con la herramienta de cara sonriente de la esquina superior derecha.   Si existe el requisito empresarial de trabajar con esta característica durante la fase de versión preliminar, coméntenos su situación y le podremos proporcionar las instrucciones y ayuda que necesita.  Puede ponerse en contacto con nosotros en [aadb2cpreview@microsoft.com](mailto:aadb2cpreview@microsoft.com).
 
-La personalización de idioma le permite cambiar su recorrido de usuario por un idioma diferente para adaptarlo a las necesidades de su cliente.  Proporcionamos traducciones en 37 idiomas (consulte [Información adicional](#additional-information)).  Incluso si su experiencia solo se proporciona para un idioma, puede personalizar cualquier texto de las páginas para adaptarlo a sus necesidades.  
+La personalización de idioma le permite cambiar su recorrido de usuario por un idioma diferente para adaptarlo a las necesidades de su cliente.  Proporcionamos traducciones en 36 idiomas (vea [Información adicional](#additional-information)).  Incluso si su experiencia solo se proporciona para un idioma, puede personalizar cualquier texto de las páginas para adaptarlo a sus necesidades.  
 
 ## <a name="how-does-language-customization-work"></a>¿Cómo funciona la personalización de idioma?
-La personalización de idioma le permite seleccionar los idiomas en los que está disponible el recorrido de usuario.  Una vez que la característica está habilitada, puede proporcionar el parámetro de cadena de consulta, ui_locales, desde la aplicación.  Al llamar en Azure AD B2C, la página se traduce a la configuración regional que haya indicado.  El uso del tipo de configuración le proporciona un control completo sobre los idiomas del recorrido de usuario y omite la configuración de idioma del explorador del cliente.  Como alternativa, quizás no necesite ese nivel de control sobre los idiomas que ve el cliente.  Si no proporciona un parámetro ui_locales, la experiencia del cliente está determinada por la configuración de su explorador.  Aun así, puede controlar los idiomas a los que se traduce el recorrido de usuario si los agrega como idioma admitido.  Si el explorador del cliente está establecido para mostrar un idioma que no desea admitir, se muestra en su lugar el idioma que ha seleccionado como predeterminado en las referencias culturales admitidas.
+La personalización de idioma le permite seleccionar los idiomas en los que está disponible el recorrido de usuario.  Una vez que la característica está habilitada, puede proporcionar el parámetro de cadena de consulta, ui_locales, desde la aplicación.  Al llamar en Azure AD B2C, la página se traduce a la configuración regional que haya indicado.  El uso del tipo de configuración le proporciona un control completo sobre los idiomas del recorrido de usuario y omite la configuración de idioma del explorador del cliente. Como alternativa, quizás no necesite ese nivel de control sobre los idiomas que ve el cliente.  Si no proporciona un parámetro ui_locales, la experiencia del cliente está determinada por la configuración de su explorador.  Aun así, puede controlar los idiomas a los que se traduce el recorrido de usuario si los agrega como idioma admitido.  Si el explorador del cliente está establecido para mostrar un idioma que no desea admitir, se muestra en su lugar el idioma que ha seleccionado como predeterminado en las referencias culturales admitidas.
 
 1. **Idioma especificado por ui-locales**: una vez que habilita la personalización de idioma, el recorrido de usuario se traduce al idioma especificado aquí.
 2. **Idioma solicitado por el explorador**: si no se ha especificado ui-locales, se traduce al idioma solicitado por el explorador, **si se incluyó entre los idiomas admitidos**.
-3. **Idioma predeterminado de directiva**: si no se especifica un idioma, o se especifica uno que no se admite, se traduce al idioma predeterminado de la directiva.
+3. **Idioma predeterminado de directiva**: si el explorador no especifica un idioma, o si especifica uno que no se admite, se traduce al idioma predeterminado de la directiva.
 
 >[!NOTE]
->Si va a usar atributos de usuario personalizados, debe proporcionar sus propias traducciones.  Consulte "[Personalización de las cadenas](#customize-your-strings)" para más información.
+>Si va a usar atributos de usuario personalizados, debe proporcionar sus propias traducciones. Consulte "[Personalización de las cadenas](#customize-your-strings)" para más información.
 >
 
 ## <a name="support-uilocales-requested-languages"></a>Compatibilidad con idiomas solicitados de ui_locales 
@@ -51,7 +51,7 @@ La habilitación de la personalización de idioma en una directiva le permite co
 Cree una lista de idiomas permitidos para la traducción de su recorrido de usuario cuando no se proporcione el parámetro ui_locales.
 1. Asegúrese de que la directiva tenga habilitada la personalización de idioma según las instrucciones anteriores.
 2. En la hoja **Editar directiva**, seleccione **Personalización de idioma**.
-3. Esta acción le llevará a la hoja **Idiomas admitidos**.  Desde aquí, puede seleccionar **Agregar recurso**.
+3. Esta acción le llevará a la hoja **Idiomas admitidos**.  Desde aquí, puede seleccionar **Agregar idioma**.
 4. Seleccione todos los idiomas que le gustaría admitir.  
 
 >[!NOTE]
@@ -151,6 +151,8 @@ Se recomienda colocar solo entradas para los recursos de idioma de las cadenas q
 Cuando se habilita la personalización de idioma, las ediciones anteriores de etiquetas que usan la personalización de IU de página se quitan, excepto para los atributos de usuario personalizados.  Este cambio se realiza para evitar conflictos allí donde puede editar las cadenas.  Para seguir cambiando las etiquetas y otras cadenas, cargue los recursos de idioma en "Personalización de idioma".
 ### <a name="microsoft-is-committed-to-provide-the-most-up-to-date-translations-for-your-use"></a>Microsoft se compromete a proporcionar las traducciones más actualizadas para que haga uso de ellas.
 Mejoraremos continuamente las traducciones y garantizaremos su cumplimiento.  Identificaremos errores y cambios en la terminología global y crearemos actualizaciones que funcionen perfectamente en su recorrido de usuario.
+### <a name="support-for-right-to-left-languages"></a>Compatibilidad con idiomas que se leen de derecha a izquierda
+No hay compatibilidad con los idiomas que se leen de derecha a izquierda. Si necesita esta característica, vótela en [Comentarios de Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traducciones de proveedores de identidades sociales
 Aunque proporcionamos el parámetro ui_locales de OIDC para los inicios de sesión sociales, algunos proveedores de identidades sociales, como Facebook y Google, no lo respetan. 
 ### <a name="browser-behavior"></a>Comportamiento del explorador
@@ -175,7 +177,6 @@ Tenemos previsto proporcionar una extensión de esta característica que permita
 | Finés               | fi            |
 | Francés                | fr            |
 | Gujarati              | gu            |
-| Hebreo                | he            |
 | Hindi                 | hi            |
 | Croata              | hr            |
 | Húngaro             | hu            |
