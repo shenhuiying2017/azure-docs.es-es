@@ -16,11 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: bc1b22b6269dc42add45a63d12c6c733e9d8c6ab
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 9a588a28312388a524d91df7363234e0f609660e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Uso de cuadernos de Zeppelin con un clúster Apache Spark en Azure HDInsight
@@ -28,8 +27,7 @@ ms.lasthandoff: 05/18/2017
 Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que se pueden utilizar para ejecutar trabajos de Spark. En este artículo, aprenderá a usar Zeppelin Notebook en un clúster de HDInsight.
 
 > [!NOTE]
-> De forma predeterminada, solo hay cuadernos de Zeppelin disponibles para Spark 1.6.2 en la versión 3.5 del clúster de HDInsight. Si quiere usar Zeppeling en otras versiones de clústeres de Spark de HDInsight, puede instalarlo mediante la acción de script. Para obtener instrucciones, consulte [Instalación de cuadernos de Zeppelin con un clúster Apache Spark en HDInsight Linux](hdinsight-apache-spark-use-zeppelin-notebook.md).
-> 
+> Los notebooks de Zeppelin están disponibles solo para Spark 1.6.3 en HDInsight 3.5 y Spark 2.1.0 en HDInsight 3.6.
 >
 
 **Requisitos previos:**
@@ -62,7 +60,7 @@ Los clústeres Spark de HDInsight contienen cuadernos de Zeppelin Notebook que s
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
-        val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        val hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
    
         // Define a schema
         case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)

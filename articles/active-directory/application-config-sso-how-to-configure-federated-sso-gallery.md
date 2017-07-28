@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: d08db952bcfb6af3b5f175f9bedd8811543cff7d
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 76078566c93f2b0359c1157cdcdb5b15a1402996
+ms.contentlocale: es-es
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -54,7 +54,7 @@ Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
 5.  Haga clic en el botón **Agregar** situado en la esquina superior derecha de la hoja **Aplicaciones empresariales**.
 
-6.  En el cuadro de texto **Escribir un nombre** de la sección **Agregar desde la galería**, escriba el nombre de la aplicación.
+6.  En el cuadro de texto **Escriba un nombre** de la sección **Agregar desde la galería**, escriba el nombre de la aplicación.
 
 7.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
@@ -171,11 +171,11 @@ Azure AD no proporciona una dirección URL para obtener los metadatos. Solo se p
 
 ## <a name="assign-users-to-the-application"></a>Asignación de usuarios a la aplicación
 
-Para asignar uno o varios usuarios a una aplicación directamente, siga estos pasos:
+Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -185,7 +185,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga estos pa
 
   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione en la lista la aplicación que desea asignar a un usuario.
+6.  Seleccione la aplicación que desea asignar a un usuario de la lista.
 
 7.  Cuando se cargue la aplicación, haga clic en **Usuarios y grupos** desde el menú de navegación izquierdo de la aplicación.
 
@@ -206,6 +206,10 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga estos pa
 15. Haga clic en el botón **Asignar** para asignar la aplicación a los usuarios seleccionados.
 
 Tras un breve período de tiempo, los usuarios seleccionados podrán iniciar estas aplicaciones mediante los métodos descritos en la sección de descripción de la solución.
+
+## <a name="customizing-the-saml-claims-sent-to-an-application"></a>Personalización de las notificaciones SAML que se han enviado a una aplicación
+
+Para obtener información sobre cómo personalizar las notificaciones de atributo SAML que se han enviado a su aplicación, vea [Asignación de notificaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)

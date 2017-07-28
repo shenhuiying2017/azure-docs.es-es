@@ -12,11 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 06/12/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 14212dd4b9eff135d379a7431d0aaa0e396a6f7f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 775b83b9643e278b6252c52cb1de3f265e0545b4
+ms.contentlocale: es-es
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -24,7 +26,7 @@ ms.openlocfilehash: 14212dd4b9eff135d379a7431d0aaa0e396a6f7f
 El proceso que se describe en este artículo muestra cómo se configura la entrega continua para las aplicaciones en la nube de Azure. Este proceso le permite crear automáticamente paquetes e implementar el paquete en Azure cada vez que se proteja el código. El proceso de compilación del paquete que se describe en este artículo es equivalente al comando **Package** en Visual Studio y los pasos de publicación son equivalentes al comando **Publish** en Visual Studio.
 El artículo abarca los métodos que usaría para crear un servidor de compilación con instrucciones de línea de comandos de MSBuild y scripts de Windows PowerShell; además, demuestra también cómo configurar de manera opcional las definiciones de Visual Studio Team Foundation Server - Team Build para usar los comandos de MSBuild y los scripts de PowerShell. El proceso se puede personalizar para su entorno de compilación y los entornos de destino de Azure.
 
-Para hacerlo de manera más fácil, puede también usar Visual Studio Team Services, una versión de TFS que se hospeda en Azure. Para obtener más información, consulte [Entrega continua a Azure con Visual Studio Team Services][Continuous Delivery to Azure by Using Visual Studio Team Services].
+Para hacerlo de manera más fácil, puede también usar Visual Studio Team Services, una versión de TFS que se hospeda en Azure. Para más información, consulte el artículo sobre la [entrega continua a Azure con Visual Studio Team Services][Continuous Delivery to Azure by Using Visual Studio Team Services].
 
 Antes de comenzar, debe publicar su aplicación desde Visual Studio.
 Esto asegurará que todos los recursos estén disponibles e inicializados cuando intente automatizar el proceso de publicación.
@@ -45,7 +47,7 @@ No es necesario instalar Visual Studio en el servidor de compilación. Si desea 
 ## <a name="2-build-a-package-using-msbuild-commands"></a>2 Compilación de un paquete con comandos de MSBuild
 En esta sección se describe cómo construir un comando de MSBuild que compila un paquete de Azure. Ejecute este paso en el servidor de compilación para comprobar que todo está configurado correctamente y que el comando MSBuild hace lo que usted quiere. Puede agregar esta línea de comandos a scripts de compilación existentes en el servidor de compilación, o puede usar la línea de comandos en una definición de compilación de TFS, tal como se describe en la sección siguiente. Para obtener más información acerca de los parámetros de línea de comandos y MSBuild, consulte [Referencia de la línea de comandos de MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
-1. Si Visual Studio está instalado en el servidor de compilación, ubique y elija **Símbolo del sistema de Visual Studio** en la carpeta **Visual Studio Tools** en Windows.
+1. Si Visual Studio está instalado en el servidor de compilación, ubique y elija **Símbolo del sistema de Visual Studio** en la carpeta **Visual Studio Tools** de Windows.
 
    Si Visual Studio no está instalado en el servidor de compilación, abra un símbolo del sistema y asegúrese de que se pueda tener acceso a MSBuild.exe en la ruta. MSBuild se instala con .NET Framework en la ruta %WINDIR%\\Microsoft.NET\\Framework\\*Version*. Por ejemplo, para agregar MSBuild.exe a la variable de entorno PATH cuando tiene instalado .NET Framework 4, escriba el siguiente comando en el símbolo del sistema:
 
@@ -115,10 +117,10 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 6. Revise la sección de parámetros del script. Agregue o modifique cualquiera de los valores predeterminados. Estos valores siempre pueden omitirse al pasar parámetros explícitos.
 7. Asegúrese de que haya cuentas de almacenamiento y de servicio en la nube válidas creadas en su suscripción que se puedan abordar mediante el script de publicación. Se usará la cuenta de almacenamiento (almacenamiento de blobs) para cargar y almacenar temporalmente el paquete de implementación y el archivo de configuración mientras se crea la implementación.
 
-   * Para crear un servicio en la nube, puede llamar a este script o usar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). El nombre del servicio en la nube se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único.
+   * Para crear un servicio en la nube, puede llamar a este script o usar [Azure Portal](https://portal.azure.com). El nombre del servicio en la nube se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único.
 
          New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
-   * Para crear una nueva cuenta de almacenamiento, puede llamar a este script o usar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885). El nombre de la cuenta de almacenamiento se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único. Puede intentar usar el mismo nombre que el servicio en la nube.
+   * Para crear una nueva cuenta de almacenamiento, puede llamar a este script o usar [Azure Portal](https://portal.azure.com). El nombre de la cuenta de almacenamiento se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único. Puede intentar usar el mismo nombre que el servicio en la nube.
 
          New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 8. Llame al script directamente desde Azure PowerShell, o conecte este script a su automatización de compilación de host que se produce después de la compilación del paquete.
@@ -132,7 +134,7 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
-   A esto le sigue generalmente una verificación de ejecución de prueba y un intercambio de VIP. El intercambio de VIP se puede realizar mediante el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885) o con el cmdlet Move-Deployment.
+   A esto le sigue generalmente una verificación de ejecución de prueba y un intercambio de VIP. El intercambio de VIP se puede realizar mediante [Azure Portal](https://portal.azure.com) o con el cmdlet Move-Deployment.
 
    **Escenario de ejemplo 2:** implementación continua en el entorno de producción de un servicio de prueba dedicado
 
@@ -156,7 +158,7 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
        Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-   Si lo prefiere, puede exportar el archivo de certificado PFX con una clave privada y cargar los certificados en cada servicio en la nube de destino mediante el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
+   Si lo prefiere, puede exportar el archivo de certificado PFX con una clave privada y cargar los certificados en cada servicio en la nube de destino mediante [Azure Portal](https://portal.azure.com).
 
    <!---
    Fixing broken links for Azure content migration from ACOM to DOCS. I'm unable to find a replacement links, so I'm commenting out this reference for now. The author can investigate in the future. "Read the following article to learn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
@@ -530,9 +532,4 @@ Para habilitar la depuración remota cuando se usa la entrega continua, consulte
 [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
 [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
 [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

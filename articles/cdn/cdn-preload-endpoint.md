@@ -3,7 +3,7 @@ title: "Carga previa de recursos en un punto de conexión de Azure CDN | Microso
 description: "Aprenda a precargar el contenido almacenado en caché en un punto de conexión de la red CDN de Azure."
 services: cdn
 documentationcenter: 
-author: zhangmanling
+author: smcevoy
 manager: erikre
 editor: 
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 242c3a6bf656da9b029a780e8b80667405b7b92f
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 1f2dcd9a91bb6e883cbef06373c1acd98bf8d45f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -64,11 +65,11 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
     ![Botón Cargar](./media/cdn-preload-endpoint/cdn-load-button.png)
 
 > [!NOTE]
-> Hay una limitación de 10 solicitudes de carga por minuto por perfil de red CDN.
+> Hay una limitación de 10 solicitudes de carga por minuto por perfil de red CDN. Se admiten 50 rutas por solicitud. Cada ruta de acceso tiene un límite de longitud de 1024 caracteres.
 > 
 > 
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Purgar un punto de conexión de red CDN de Azure](cdn-purge-endpoint.md)
 * [Referencia de la API de REST de red de CDN de Azure - purgar o cargar previamente un punto de conexión](https://msdn.microsoft.com/library/mt634451.aspx)
 

@@ -1,6 +1,6 @@
 ---
 title: "Preguntas más frecuentes sobre el acceso condicional de Azure Active Directory | Microsoft Docs"
-description: "Preguntas más frecuentes sobre el acceso condicional  "
+description: "Obtenga respuestas a las preguntas más frecuentes sobre el acceso condicional en Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,44 +11,54 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 07/05/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: dee29df176389f39907d302cedc6143c0d3e3322
-ms.lasthandoff: 04/12/2017
-
+ms.reviewer: calebb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 62e8cecf3177d08f2614bd76956b45da75af0947
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="azure-active-directory-conditional-access-faq"></a>Preguntas más frecuentes acerca del acceso condicional de Azure Active Directory
+# <a name="azure-active-directory-conditional-access-faqs"></a>Preguntas más frecuentes sobre el acceso condicional de Azure Active Directory
 
 ## <a name="which-applications-work-with-conditional-access-policies"></a>¿Qué aplicaciones funcionan con directivas de acceso condicional?
 
-**A:** Consulte [Aplicaciones y navegadores que usan reglas de acceso condicional en Azure Active Directory](active-directory-conditional-access-supported-apps.md).
-
----
+Para obtener información sobre las aplicaciones que funcionan con directivas de acceso condicional, consulte [Aplicaciones y navegadores que usan reglas de acceso condicional en Azure Active Directory](active-directory-conditional-access-supported-apps.md).
 
 ## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users"></a>¿Se aplican directivas de acceso condicional a usuarios de colaboración B2B o invitados?
-**R:** se exigen las directivas a usuarios de la colaboración B2B. Sin embargo, en algunos casos, puede que un usuario no sea capaz de cumplir los requisitos de la directiva si, por ejemplo, una organización no admite la autenticación multifactor. Actualmente, la directiva no se exige a los usuarios invitados de SharePoint. La relación de invitado se mantiene dentro de SharePoint. Las cuentas de usuarios invitados no están sujetas a las directivas de acceso del servidor de autenticación. El acceso de invitado se puede administrar en SharePoint.
 
----
+Se exigen directivas a los usuarios de la colaboración de negocio a negocio (B2B), pero en algunos casos un usuario podría no satisfacer los requisitos de las directivas. Por ejemplo, la organización de un usuario invitado podría no admitir la autenticación multifactor. 
+
+
 
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>¿Se aplica la directiva de SharePoint Online también a OneDrive para la Empresa?
-**R:** Sí.
 
----
+Sí. Las directivas de SharePoint Online también se aplican a OneDrive para la Empresa.
+
 
 ## <a name="why-cant-i-set-a-policy-on-client-apps-like-word-or-outlook"></a>¿Por qué no se puede establecer una directiva en las aplicaciones cliente, como Word o Outlook?
-**R:** una directiva de acceso condicional establece los requisitos de acceso a un servicio y se exige cuando se realiza la autenticación en dicho servicio. La directiva no se establece directamente en una aplicación cliente, sino que se aplica cuando llama a un servicio. Por ejemplo, una directiva establecida en SharePoint se aplicará a los clientes que llamen a SharePoint, mientras que una directiva establecida en Exchange se aplicará a Outlook.
 
---- 
+Una directiva de acceso condicional establece los requisitos para obtener acceso a un servicio. Se aplica cuando se produce la autenticación con ese servicio. La directiva no se establece directamente en una aplicación cliente. En su lugar, se aplica cuando un cliente llama a un servicio. Por ejemplo, una directiva establecida en SharePoint se aplicará a los clientes que llamen a SharePoint. Una directiva establecida en Exchange se aplica a Outlook.
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>¿Se aplica una directiva de acceso condicional a las cuentas de servicio?
-**R:** las directivas de acceso condicional se aplican a todas las cuentas de servicio. Aquí se incluyen las cuentas de usuario que se utilizan como cuentas de servicio. En muchos casos, una cuenta de servicio que se ejecuta en modo desatendido no puede satisfacer una directiva. Por ejemplo, esto sucede cuando se requiere MFA. En estos casos, las cuentas de los servicios se pueden excluir de una directiva, para lo que se usa la configuración de administración de directivas de acceso condicional. Aquí encontrará más información acerca de cómo aplicar una directiva a los usuarios.
 
----
+Las directivas de acceso condicional se aplican a todas las cuentas de usuario. Aquí se incluyen las cuentas de usuario que se usan como cuentas de servicio. A menudo sucede que una cuenta de servicio que se ejecuta de forma desatendida no puede satisfacer los requisitos de una directiva de acceso condicional. Por ejemplo, se podría requerir una autenticación multifactor. Las cuentas de servicio se pueden excluir de una directiva mediante la configuración de administración de directivas de acceso condicional. 
 
-## <a name="are-graph-apis-available-to-configure-configure-conditional-access-policies"></a>¿Están disponibles instancias de API Graph para configurar directivas de acceso condicional?
-**A:** Todavía no. 
+## <a name="are-graph-apis-available-for-configuring-conditional-access-policies"></a>¿Están disponibles las API Graph para configurar directivas de acceso condicional?
 
----
+Actualmente no. 
+
+## <a name="what-is-the-default-exclusion-policy-for-unsupported-device-platforms"></a>¿Qué es la directiva de exclusión predeterminada para plataformas de dispositivos no compatibles?
+
+Actualmente, las directivas de acceso condicional se aplican de forma selectiva a los usuarios de dispositivos iOS y Android. De forma predeterminada, las aplicaciones de otras plataformas de dispositivos no se ven afectadas por la directiva de acceso condicional para dispositivos iOS y Android. Un administrador de inquilinos puede optar por invalidar la directiva global para impedir el acceso a los usuarios en las plataformas no compatibles.
+
+
+## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>¿Cómo funcionan las directivas de acceso condicional para Microsoft Teams?  
+
+Microsoft Teams se basa principalmente en Exchange Online y SharePoint Online para los principales escenarios de productividad, como las reuniones, los calendarios y el uso compartido de archivos. Las directivas de acceso condicional que se establecen para estas aplicaciones de nube se aplican a Microsoft Teams cuando un usuario inicia sesión.
+
+Microsoft Teams también se admite por separado como aplicación de nube en las directivas de acceso condicional de Azure Active Directory. Las directivas de entidad de certificación que se establecen para una aplicación de nube se aplican a Microsoft Teams cuando un usuario inicia sesión.
+
+Los clientes de escritorio de Microsoft Teams para Windows y Mac admiten la autenticación moderna. La autenticación moderna proporciona un inicio de sesión basado en la biblioteca de autenticación de Azure Active Directory (ADAL) para las aplicaciones cliente de Microsoft Office en distintas plataformas. 

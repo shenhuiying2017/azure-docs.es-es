@@ -1,5 +1,5 @@
 ---
-title: "Instalar y usar Giraph en clústeres de Hadoop en HDInsight | Microsoft Docs"
+title: "Instalar y usar Giraph en clústeres de Hadoop en HDInsight - Azure | Microsoft Docs"
 description: "Obtenga información sobre cómo personalizar el clúster de HDInsight con Giraph y cómo usar Giraph."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 1eda530368170be7cd99c5860e72f5700c015248
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: b0648e6be551fd4f19b202255e3f814f8591053b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---

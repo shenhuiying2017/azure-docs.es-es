@@ -14,52 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 06/07/2017
 ms.author: juliens
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 6d40821327a9df47bb85ea12ecd33e4a0f49e39e
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: b4c81845b521eb1e8003ad399b466e911582b348
+ms.contentlocale: es-es
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Creación y montaje de un recurso compartido de archivos en un clúster de DC/OS
-En este artículo, se explica cómo crear un recurso compartido de archivos en Azure y cómo montarlo en cada agente y patrón del clúster de DC/OS. La configuración de un recurso compartido de archivos facilita el uso compartido de estos recursos entre el clúster, como la configuración, el acceso, los registros y mucho más.
+En este tutorial se detalla la creación de un recurso compartido de archivos en Azure y cómo montarlo en cada agente y patrón del clúster de DC/OS. La configuración de un recurso compartido de archivos facilita el uso compartido de estos recursos entre el clúster, como la configuración, el acceso, los registros y mucho más. En este tutorial se realizan las siguientes tareas:
 
-Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado en Azure Container Service. Vea [Implementación de un clúster de Azure Container Service](container-service-deployment.md).
+> [!div class="checklist"]
+> * Creación de una cuenta de Azure Storage
+> * Creación de un recurso compartido de archivos
+> * Montaje del recurso compartido en el clúster de DC/OS
+
+Necesita un clúster de ACS con DC/OS para completar los pasos de este tutorial. Si es necesario, este [script de ejemplo](./scripts/container-service-cli-deploy-dcos.md) puede crear uno.
+
+Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-file-share-on-microsoft-azure"></a>Creación de un recurso compartido de archivos en Microsoft Azure
-### <a name="using-the-portal"></a>Uso del portal
 
-1. Inicie sesión en el portal.
-2. Cree una cuenta de almacenamiento.
-   
-  ![Azure Container Service crea una cuenta de almacenamiento](media/container-service-dcos-fileshare/createSA.png)
+Antes de usar un recurso compartido de archivos de Azure con un clúster de ACS con DC/OS, es necesario crear el recurso compartido de cuentas de almacenamiento y archivos. Ejecute el script siguiente para crear el recurso compartido de almacenamiento y archivos. Actualice los parámetros con los de su entorno.
 
-3. Cuando la cree, haga clic en **Archivos** en la sección **Servicios**.
-   
-  ![Sección Archivos de Azure Container Service](media/container-service-dcos-fileshare/filesServices.png)
-
-4. Haga clic en **+ Recurso compartido de archivos** y escriba un nombre para el nuevo recurso compartido de archivos (la **cuota** no es obligatoria).
-   
-  ![+ Recurso compartido de archivos en Azure Container Service](media/container-service-dcos-fileshare/newFileShare.png)  
-
-### <a name="using-azure-cli-20"></a>Uso de la CLI de Azure 2.0
-
-Si resulta necesario, [instale y configure la CLI de Azure](/cli/azure/install-azure-cli.md).
-
-```azurecli
-################# Change these four parameters ##############
-DCOS_PERS_STORAGE_ACCOUNT_NAME=anystorageaccountname
-DCOS_PERS_RESOURCE_GROUP=AnyResourceGroupName
+```azurecli-interactive
+# Change these four parameters
+DCOS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
+DCOS_PERS_RESOURCE_GROUP=myResourceGroup
 DCOS_PERS_LOCATION=eastus
-DCOS_PERS_SHARE_NAME=demoshare
-#############################################################
+DCOS_PERS_SHARE_NAME=dcosshare
 
 # Create the storage account with the parameters
 az storage account create -n $DCOS_PERS_STORAGE_ACCOUNT_NAME -g $DCOS_PERS_RESOURCE_GROUP -l $DCOS_PERS_LOCATION --sku Standard_LRS
 
-# Export the connection string as an environment variable
+# Export the connection string as an environment variable, this is used when creating the Azure file share
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $DCOS_PERS_STORAGE_ACCOUNT_NAME -g $DCOS_PERS_RESOURCE_GROUP -o tsv`
 
 # Create the share
@@ -68,91 +61,101 @@ az storage share create -n $DCOS_PERS_SHARE_NAME
 
 ## <a name="mount-the-share-in-your-cluster"></a>Montaje del recurso compartido en el clúster
 
-A continuación, es necesario montar este recurso compartido en cada máquina virtual del clúster mediante el protocolo o la herramienta cifs. Para ello, ejecute la siguiente línea de comandos: `mount -t cifs`.
+A continuación, el recurso compartido de archivos debe montarse en todas las máquinas virtuales del clúster. Esta tarea se completa con el protocolo o la herramienta cifs. La operación de montaje puede realizarse manualmente en cada nodo del clúster o al ejecutar un script en cada nodo del clúster.
 
-A continuación se muestra un ejemplo que usa:
-* El nombre de la cuenta de almacenamiento **`anystorageaccountname`**
-* La clave de cuenta ficticia **`P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==`** 
-* El punto de montaje **`/mnt/share/demoshare`**
+En este ejemplo, se ejecutan dos scripts, uno para montar el recurso compartido de archivos de Azure y otro para ejecutar este script en cada nodo del clúster de DC/OS.
 
-```bash
-sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
+En primer lugar, se necesitan el nombre de la cuenta de almacenamiento de Azure y la clave de acceso. Ejecute los siguientes comandos para obtener esta información. Tome nota de los valores, se usan en un paso posterior.
+
+Nombre de la cuenta de almacenamiento:
+
+```azurecli-interactive
+STORAGE_ACCT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
+echo $STORAGE_ACCT
 ```
 
-Este comando se ejecutará en cada máquina virtual del clúster (nodos maestro y agente). Si tiene un gran número de agentes, se recomienda automatizar este proceso mediante la creación de script.  
+Clave de acceso de la cuenta de almacenamiento:
 
-### <a name="set-up-scripts"></a>Configuración de script
+```azurecli-interactive
+az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCT --query "[0].value" -o tsv
+```
 
-1. En primer lugar, SSH para el maestro (o el primer maestro) del clúster basado en DC/OS. Por ejemplo, `ssh userName@masterFQDN –A –p 22`, donde el nombre de dominio completo (FQDN) maestro es el mismo que el de la máquina virtual maestra.
+A continuación, obtenga el FQDN del patrón de DC/OS y guárdelo en una variable.
 
-2. Copie la clave privada en el directorio de trabajo (~) del maestro.
+```azurecli-interactive
+FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
+```
 
-3. Cambie los permisos con el comando siguiente: `chmod 600 yourPrivateKeyFile`.
+Copie la clave privada en el nodo principal. Esta clave es necesaria para crear una conexión ssh con todos los nodos del clúster. Actualice el nombre de usuario si se utilizó un valor no predeterminado al crear el clúster. 
 
-4. Importe la clave privada con el comando `ssh-add yourPrivateKeyFile`. Puede que tenga que ejecutar `eval ssh-agent -s` si no funciona la primera vez.
+```azurecli-interactive
+scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh
+```
 
-5. Desde el maestro, cree dos archivos con su editor favorito, como vi, nano o vim: 
-  
-  * Uno con el script para ejecutarlo en cada máquina virtual, denominado **cifsMount.sh** 
-  * Otro para iniciar todas las conexiones ssh que llamarán al primer script, denominado **mountShares.sh**
+Cree una conexión SSH para el patrón (o el primer patrón) del clúster basado en DC/OS. Actualice el nombre de usuario si se utilizó un valor no predeterminado al crear el clúster.
 
+```azurecli-interactive
+ssh azureuser@$FQDN
+```
 
-```bash
-# cifsMount.sh
+Cree un archivo denominado **cifsMount.sh** y copie en él el contenido siguiente. 
+
+Este script sirve para montar el recurso compartido de archivos de Azure. Actualice las variables `STORAGE_ACCT_NAME` y `ACCESS_KEY` con la información recopilada anteriormente.
+
+```azurecli-interactive
+#!/bin/bash
+
+# Azure storage account name and access key
+STORAGE_ACCT_NAME=mystorageaccount
+ACCESS_KEY=mystorageaccountKey
 
 # Install the cifs utils, should be already installed
 sudo apt-get update && sudo apt-get -y install cifs-utils
 
 # Create the local folder that will contain our share
-if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
+if [ ! -d "/mnt/share/dcosshare" ]; then sudo mkdir -p "/mnt/share/dcosshare" ; fi
 
 # Mount the share under the previous local folder created
-sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/dcosshare /mnt/share/dcosshare -o vers=3.0,username=$STORAGE_ACCT_NAME,password=$ACCESS_KEY,dir_mode=0777,file_mode=0777
 ```
-  
-```bash
-# mountShares.sh
+Cree un segundo archivo denominado **getNodesRunScript.sh** y copie el siguiente contenido en él. 
+
+Este script detecta todos los nodos de clúster y ejecuta el script **cifsMount.sh** para montar el recurso compartido de archivos en cada uno de ellos.
+
+```azurecli-interactive
+#!/bin/bash
 
 # Install jq used for the next command
-sudo apt-get install jq
-
-# Create the local folder that will contain our share
-if [ ! -d "/mnt/share/demoshare" ]; then sudo mkdir -p "/mnt/share/demoshare" ; fi
-
-# Mount the share on the current vm (master)
-sudo mount -t cifs //anystorageaccountname.file.core.windows.net/demoshare /mnt/share/demoshare -o vers=3.0,username=anystorageaccountname,password=P/GuXXXuoRtIVsV+faSfLhuNyZDrTzPmZDm3RyCL4XS6ghyiHYriN12gl+w5JMN2gXGtOhCzxFf2JuGqXXXX1w==,dir_mode=0777,file_mode=0777
+sudo apt-get install jq -y
 
 # Get the IP address of each node using the mesos API and store it inside a file called nodes
 curl http://leader.mesos:1050/system/health/v1/nodes | jq '.nodes[].host_ip' | sed 's/\"//g' | sed '/172/d' > nodes
-  
+
 # From the previous file created, run our script to mount our share on each node
 cat nodes | while read line
-  do
-    ssh `whoami`@$line -o StrictHostKeyChecking=no -i yourPrivateKeyFile < ./cifsMount.sh
-    done
+do
+  ssh `whoami`@$line -o StrictHostKeyChecking=no < ./cifsMount.sh
+  done
+```
+
+Ejecute el script para montar el recurso compartido de archivos de Azure en todos los nodos del clúster.
+
+```azurecli-interactive
+sh ./getNodesRunScript.sh
 ```  
-> [!IMPORTANT]
-> Debe cambiar el comando **'mount'** con su propia configuración, como el nombre de la cuenta de almacenamiento y la contraseña.
->  
 
-La carpeta donde creó los script anteriores debe contener ahora 3 archivos:  
-
-* **cifsMount.sh**
-* **mountShares.sh**
-* **yourPrivateKeyFile** 
-
-### <a name="run-the-scripts"></a>Ejecución de los scripts
-
-Ejecute el archivo **mountShares.sh** con el comando siguiente: `sh mountShares.sh`.
-
-Debería ver la impresión de resultados en el terminal. Después de que el script se completa, puede usar el recurso compartido de archivos en el clúster.
-
-Puede optimizar los scripts, pero se trata de un ejemplo sencillo, cuya finalidad es proporcionar orientación.
-
-> [!NOTE] 
-> Este método no se recomienda para escenarios que requieren un número elevado de E/S por segundo, pero resulta muy útil para compartir documentos e información en el clúster.
->
+Ahora se puede acceder al recurso compartido de archivos en `/mnt/share/dcosshare` en cada nodo del clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Lea sobre cómo [administrar los contenedores de DC/OS](container-service-mesos-marathon-ui.md).
-* Administración de contenedores de DC/OS a través de la [API de REST de Marathon](container-service-mesos-marathon-rest.md).
+
+En este tutorial se puso a disposición un recurso compartido de archivos de Azure para un clúster de DC/OS mediante los pasos:
+
+> [!div class="checklist"]
+> * Creación de una cuenta de Azure Storage
+> * Creación de un recurso compartido de archivos
+> * Montaje del recurso compartido en el clúster de DC/OS
+
+Avance hasta el siguiente tutorial para aprender a integrar Azure Container Registry con DC/OS en Azure.  
+
+> [!div class="nextstepaction"]
+> [Aplicaciones de equilibrio de carga](./container-service-dcos-acr.md)

@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 7c13931aa6d17036e59674cdd917e3ca221ac57f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -39,16 +41,11 @@ En este tema se enumeran las ubicaciones POP actuales para **Azure CDN de Verizo
 | Sur de Europa |Madrid, España<br />Milán, Italia |**&#x2713;**\* |
 | Asia oriental |Tokio, Japón<br />Osaka, Japón<br />Batam, Indonesia<br />Yakarta, Indonesia<br />Hong Kong<br />Kaohsiung, Taiwán<br />Seúl, Corea del Sur<br />Singapur |**&#x2713;**\* |
 | Asia meridional y central |Bangalore, India<br />Chennai, India<br />Delhi, India<br />Bombay, India |**&#x2713;**\* |
-| Asia occidental y Oriente medio |Muscat, Omán |**&#x2713;**\* |
+| Asia occidental y Oriente medio |Muscat, Omán <br /> Fujirah, Emiratos Árabes Unidos |**&#x2713;**\* |
 | África | |**&#x2713;**\* |
 | Australia y Nueva Zelanda |Melbourne, Australia<br />Sídney, Australia |**&#x2713;**\* |
 
 ## <a name="see-also"></a>Otras referencias
 * [Azure CDN Edge Nodes API to get latest IP addresses for whitelisting](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes) (API de nodos perimetrales de la red CDN de Azure para obtener las direcciones IP más recientes para la creación de listas de direcciones permitidas)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
