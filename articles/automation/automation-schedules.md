@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 06/13/2016
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 823d1155bc011466d0f3bd0ccd8650be161fd28b
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 140bea93c4563666e8cfdf356eaf87500c1aca8e
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Programación de un runbook en Automatización de Azure
-Para programar un runbook en Automatización de Azure para que se inicie en un momento determinado, vincúlelo a una o más programaciones. Puede configurar una programación para que se ejecute una vez o de forma periódica, cada hora o a diario, para Runbooks en el Portal de Azure clásico y Runbooks en Azure Portal. Además, puede programarlos semanalmente, mensualmente, para determinados días de la semana o del mes, o en un día concreto del mes.  Un runbook puede vincularse a varias programaciones y una programación puede tener varios runbooks vinculados a ella.
+Para programar un runbook en Automatización de Azure para que se inicie en un momento determinado, vincúlelo a una o más programaciones. Puede configurar una programación para que se ejecute una vez o de forma periódica, cada hora o a diario, para runbooks en el Portal de Azure clásico y runbooks en Azure Portal. Además, puede programarlos semanal o mensualmente, para determinados días de la semana o del mes, o en un día concreto del mes.  Un runbook puede vincularse a varias programaciones y una programación puede tener varios runbooks vinculados a ella.
 
 > [!NOTE]
 > Las programaciones no admiten actualmente las configuraciones de DSC de Automatización de Azure.
@@ -56,19 +56,19 @@ Los cmdlets de la siguiente tabla se usan para crear y administrar programacione
 Puede crear una programación para runbooks en el Portal de Azure, en el Portal de Azure clásico o con Windows PowerShell. También tiene la opción de crear una programación cuando vincule un runbook a una programación mediante el Portal de Azure clásico o el Portal de Azure.
 
 > [!NOTE]
-> Cuando asocia una programación a un Runbook, Automatización almacena las versiones actuales de los módulos en su cuenta y las vincula a esa programación.  Esto significa que si tenía un módulo de la versión 1.0 en su cuenta cuando creó una programación y, después, actualizó el módulo a la versión 2.0, la programación seguirá usando 1.0.  Para usar la versión actualizada del módulo, debe crear una nueva programación. 
-> 
-> 
+> Azure Automation utilizará los módulos más recientes en su cuenta de Automation cuando se ejecuta un nuevo trabajo programado.  Para evitar afectar a los runbooks y a los procesos que automatizan, primero debe probar los runbooks que tengan programaciones vinculadas con una cuenta de Automation dedicada para realizar pruebas.  De este modo validará que los runbooks programados sigan funcionando correctamente y, si no es así, puede seguir investigando para solucionar el problema y aplicar los cambios necesarios antes de migrar la versión actualizada del runbook al entorno de producción.  
+>  Su cuenta de Automation no obtendrá automáticamente las nuevas versiones de los módulos, a menos que los actualizara manualmente seleccionando la opción [Actualizar módulos de Azure](automation-update-azure-modules.md) desde la hoja **Módulos**. 
+>  
 
 ### <a name="to-create-a-new-schedule-in-the-azure-portal"></a>Para crear una programación en el Portal de Azure
 1. En Azure Portal, desde la cuenta de Automation, haga clic en el icono **Recursos** para abrir la hoja **Recursos**.
 2. Haga clic en el icono **Programaciones** para abrir la hoja **Programaciones**.
 3. Haga clic en **Agregar una programación** en la parte superior de la hoja.
 4. En la hoja **Nueva programación**, escriba un valor en **Nombre** y, opcionalmente, en **Descripción**, para la nueva programación.
-5. Seleccione si la programación se ejecutará una vez o de forma periódica seleccionando **Una vez** o **Periodicidad**.  Si selecciona **Una vez**, especifique una hora en **Hora de inicio** y haga clic en **Crear**.  Si selecciona **Periodicidad**, especifique un valor en **Hora de inicio** y la frecuencia con que quiere que se repita el Runbook: cada **hora**, **día**, **semana** o **mes**.  Si selecciona **semana** o **mes** en la lista desplegable, la opción **Periodicidad** aparecerá en la hoja. Tras la selección, aparecerá la hoja de la opción **Periodicidad**, donde puede seleccionar el día de la semana si seleccionó **semana**.  Si seleccionó **mes**, puede elegir **días de la semana** o días específicos del mes en el calendario y, por último, si quiere ejecutarla el último día del mes o no. Después, haga clic en **Aceptar**.   
+5. Seleccione si la programación se ejecutará una vez o de forma periódica seleccionando **Una vez** o **Periodicidad**.  Si selecciona **Una vez**, especifique una hora en **Hora de inicio** y haga clic en **Crear**.  Si selecciona **Periodicidad**, especifique un valor en **Hora de inicio** y la frecuencia con que quiere que se repita el Runbook: cada **hora**, **día**, **semana** o **mes**.  Si selecciona **semana** o **mes** en la lista desplegable, la opción **Periodicidad** aparecerá en la hoja. Tras la selección, aparecerá la hoja de la opción **Periodicidad**, donde puede seleccionar el día de la semana si seleccionó **semana**.  Si seleccionó **mes**, puede elegir **días de la semana** o días específicos del mes en el calendario y, por último, si desea ejecutarlo el último día del mes o no. Después, haga clic en **Aceptar**.   
 
 ### <a name="to-create-a-new-schedule-in-the-azure-classic-portal"></a>Para crear una programación en el Portal de Azure clásico
-1. En el Portal de Azure clásico, seleccione Automatización y después elija el nombre de una cuenta de Automatización.
+1. En el Portal de Azure clásico, seleccione Automation y después elija el nombre de una cuenta de Automation.
 2. Seleccione la pestaña **Recursos** .
 3. En la parte inferior de la ventana, haga clic en **Agregar configuración**.
 4. Haga clic en **Agregar programación**.
@@ -103,7 +103,7 @@ Un runbook puede vincularse a varias programaciones y una programación puede te
 4. Si el Runbook tiene parámetros, puede seleccionar la opción **Modificar la configuración de ejecución (Predeterminada: Azure)**; aparece la hoja **Parámetros**, donde puede especificar la información según corresponda.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-classic-portal"></a>Para vincular una programación a un runbook con el Portal de Azure clásico
-1. En el Portal de Azure clásico, seleccione **Automatización** y haga clic en el nombre de una cuenta de Automatización.
+1. En el Portal de Azure clásico, seleccione **Automation** y haga clic en el nombre de una cuenta de Automation.
 2. Seleccione la pestaña **Runbooks** .
 3. Haga clic en el nombre del runbook que se va a programar.
 4. Haga clic en la pestaña **Programar** .
@@ -143,7 +143,7 @@ Cuando se deshabilita una programación, los runbooks vinculados a ella no se ej
 ### <a name="to-disable-a-schedule-from-the-azure-classic-portal"></a>Para deshabilitar una programación desde el Portal de Azure clásico
 Puede deshabilitar una programación en el Portal de Azure clásico en su página Detalles de programación.
 
-1. En el Portal de Azure clásico, seleccione Automatización y haga clic en el nombre de una cuenta de Automatización.
+1. En el Portal de Azure clásico, seleccione Automation y haga clic en el nombre de una cuenta de Automation.
 2. Seleccione la pestaña Recursos.
 3. Haga clic en el nombre de una programación para abrir la página de detalles.
 4. Cambie **Habilitado** a **No**.

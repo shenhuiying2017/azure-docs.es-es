@@ -1,5 +1,5 @@
 ---
-title: Tareas comunes en el panel de acceso | Microsoft Docs
+title: "¿Necesita ayuda con el portal MyApps en Azure Active Directory | Microsoft Docs"
 description: Obtenga instrucciones para realizar tareas comunes al trabajar con el panel de acceso.
 services: active-directory
 documentationcenter: 
@@ -12,82 +12,104 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/22/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 53ec54def52a6d0659dc12286148213d88e9ae24
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: 2f28a63b2c3310523fb85d5aba9602359c7c2d87
+ms.contentlocale: es-es
+ms.lasthandoff: 06/23/2017
 
 
 ---
-# <a name="do-you-need-help-with-myapps"></a>¿Necesita ayuda con MyApps?
+# <a name="do-you-need-help-with-the-myapps-portal"></a>¿Necesita ayuda con el portal MyApps?
 
-Probablemente haya llegado a esta página porque lamentablemente se encontró con un problema cuando usaba el portal MyApps. Aunque habrá casos en los que deba ponerse en contacto con el departamento de soporte técnico o con su administrador para resolver un problema, en este tema hemos recopilado pasos a preguntas comunes que puede intentar primero por su cuenta.
+Es probable que haya llegado a esta página porque lamentablemente se encontró con un problema cuando usaba el portal My Apps. Aunque hay casos que requieren ponerse en contacto con el departamento de soporte técnico o con el administrador para resolver un problema, aquí se tratan algunos temas que podrían servirle de ayuda primero.
 
-Si busca ayuda relacionada con la administración de contraseñas, pruebe [esto](active-directory-passwords-update-your-own-password.md).
+## <a name="i-cannot-sign-in-to-myappsmicrosoftcom"></a>No puedo iniciar sesión en myapps.microsoft.com
 
+Algunas cuestiones generales que se deben comprobar primero son:
 
-## <a name="what-is-the-myapps-portal"></a>¿Qué es el portal MyApps?
+- Asegúrese de que el usuario inicia sesión en la dirección URL correcta: [https://myapps.microsoft.com](https://myapps.microsoft.com)
 
+- Intente agregar la dirección URL a los sitios de confianza de su explorador.
 
-MyApps es un portal web que le permite:
+- Asegúrese de que el usuario no haya olvidado la contraseña o esta haya expirado. Consulte [aquí](active-directory-passwords-update-your-own-password.md) más detalles sobre cómo actualizar la contraseña.
 
-- Administrar e iniciar aplicaciones basadas en la nube
-- Administrar la pertenencia a grupos
-- Administrar la configuración del perfil
+- Compruebe si la información de contacto de autenticación está actualizada y no le impide el acceso. Consulte [este artículo](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) para más información sobre cómo configurar la información de autenticación.
 
-![Panel de acceso][1]
+- Intente borrar las cookies del explorador y volver a iniciar sesión.
 
-
-
-
-## <a name="how-can-i-change-my-password"></a>¿Cómo puedo cambiar mi contraseña?
-
-1.    En **MyApps**, haga clic en el control de usuario en la parte superior derecha y, a continuación, haga clic en **Perfil**.
-2.    En **Administrar cuenta**, haga clic en **Cambiar contraseña**.
-3.    Escriba la contraseña anterior y luego escriba una nueva contraseña y confírmela.
-4.    Haga clic en **Submit**(Enviar).
-
-Para más información, consulte [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md).
+Si se siguen produciendo problemas, póngase en contacto con el administrador para obtener ayuda.
 
 
-## <a name="how-do-i-setup-password-reset"></a>¿Cómo configuro el restablecimiento de contraseña?
+## <a name="how-do-i-update-my-password"></a>¿Cómo puedo actualizar mi contraseña?
 
-1.    En **MyApps**, haga clic en el control de usuario en la parte superior derecha y, a continuación, haga clic en **Perfil**.
-2.    En **Administrar cuenta**, haga clic en **Configurar autoservicio de restablecimiento de contraseña**.
-3.    Siga los pasos descritos en el cuadro de diálogo y envíe.
+Si ha olvidado la contraseña, nunca ha recibido ninguna de su equipo de TI, está bloqueado fuera de su cuenta o si desea cambiarla, consulte [Ayuda, he olvidado mi contraseña de Azure AD](active-directory-passwords-update-your-own-password.md) para más información.
 
-Para más información, consulte [Restablecimiento de la contraseña](active-directory-passwords-update-your-own-password.md).
+##<a name="how-do-i-register-for-password-reset"></a>¿Cómo puedo registrarme para restablecer la contraseña?
+
+Como usuario final, puede restablecer su contraseña o desbloquear su cuenta sin necesidad de hablar con una persona que use el autoservicio de restablecimiento de contraseña (SSPR). Para poder usar esta funcionalidad, debe registrar los métodos de autenticación o confirmar los métodos de autenticación predefinidos que ha rellenado el administrador. Para más información, consulte [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md).
 
 
-## <a name="how-can-i-add-a-new-app"></a>¿Cómo puedo agregar una nueva aplicación?
+## <a name="i-am-having-trouble-installing-the-my-apps-portal-browser-extension"></a>Tengo problemas para instalar la extensión de explorador del portal My Apps
 
-1.    En **MyApps**, haga clic en **Agregar aplicación**.
-2.    Busque una aplicación que desee agregar y, a continuación, haga clic en **Agregar**.
+Compruebe si se cumplen los requisitos del explorador:
+
+- El portal requiere un explorador compatible con JavaScript y que tenga habilitado CSS. Si usa aplicaciones de inicio de sesión único basado en contraseña, también debe instalarse la extensión que lo acompaña. Esta extensión se descarga automáticamente cuando inicia una aplicación que está configurada para usar inicio de sesión único basado en contraseña.
+
+- Los requisitos del explorador para la extensión son los siguientes:
+    - Internet Explorer 8, 9, 10, 11 en Windows 7 o posterior
+    - Edge en Windows 10 Anniversary Edition o posterior
+    - Chrome en Windows 7 o posterior, y en Mac OS X o posterior
+    - Firefox 26.0 o posterior en Windows XP SP2 o posterior, y en Mac OS X 10.6 o posterior
+
+También puede descargar la extensión para Chrome, Edge y Firefox desde los siguientes vínculos directos:
+
+- [Extensión para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+
+- [Extensión para Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+
+- [Extensión para Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+
+Después de la instalación, intente los pasos siguientes, si se están produciendo problemas:
+
+- Compruebe en la configuración de la extensión del explorador que la extensión está habilitada.
+
+- Intente reiniciar el explorador e inicie sesión en el portal My Apps.
+
+- Intente borrar las cookies del explorador y volver a iniciar sesión.
+
+## <a name="how-do-i-add-a-new-app"></a>¿Cómo puedo agregar una nueva aplicación?
+
+1.  En la página **Aplicaciones**, haga clic en **Agregar aplicación**.
+
+2.  Busque la aplicación que desee agregar y, a continuación, haga clic en **Agregar**.
 
 **Comentarios:**
 
 - Solo tiene acceso a esta opción si el administrador la ha habilitado para su cuenta.
-- Si la aplicación requiere permiso debe esperar la aprobación del administrador.
+
+- Si la aplicación requiere permiso, debe esperar la aprobación del administrador.
 
 
+## <a name="how-do-i-manage-my-group-memberships"></a>¿Cómo puedo administrar la pertenencia a grupos?
 
-## <a name="how-can-i-manage-group-memberships"></a>¿Cómo puedo administrar la pertenencia a grupos?
-
-1.    En **MyApps**, haga clic en el icono de aplicación **Grupos**.
-2.    Para crear un grupo, en **Grupos de mi propiedad**, haga clic en **Crear grupo** y, a continuación, siga las instrucciones.
-3.    Para unirse a un grupo, en **Grupos de mi propiedad**, haga clic en **Unirse al grupo** y, a continuación, siga las instrucciones.
+1. Haga clic en el icono de aplicación Grupos. 
+2. Para crear un grupo, en Grupos de mi propiedad, haga clic en Crear grupo y, a continuación, siga las instrucciones.
+3. Para unirse a un grupo, en Grupos de mi propiedad, haga clic en Unirse al grupo y, a continuación, siga las instrucciones.
 
 **Comentarios:**
 
-- Al hacer clic en un grupo del que es miembro se le permite ver los detalles y abandonar el grupo.
-- Al hacer clic en un grupo del que es propietario se le permite ver los detalles, agregar o quitar miembros y abandonar el grupo.
+- Solo tiene acceso a esta opción si el administrador la ha habilitado para su cuenta.
+
+- En los grupos de los que es miembro, se le permite ver los detalles y abandonarlos.
+
+- En los grupos de los que es propietario, se le permite ver los detalles, agregar o quitar miembros, y abandonarlos.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información relacionada con la solución de problemas, consulte [Problemas con el sitio web del panel de acceso de la aplicación o con aplicaciones móviles](active-directory-application-access-panel-content-map.md).
 
-<!--Image references-->
-[1]: ./media/active-directory-saas-access-panel-user-help/01.png
 

@@ -13,18 +13,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: e47fa44d87ad29054b833ee4bf201ac4d72e1e6e
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: f8c9e9ab8b8728202ec3f049b309d96d883022f4
 ms.contentlocale: es-es
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="on-premises-data-gateway"></a>Puerta de enlace de datos local
 La puerta de enlace de datos local actúa como un puente, proporcionando una transferencia de datos segura entre orígenes de datos locales y el servidor de Azure Analysis Services en la nube.
+
+La versión más reciente de la puerta de enlace es compatible con los modelos tabulares 1400 conectados a orígenes de datos locales mediante las consultas M y Get Data en SSDT. 
+
+Para obtener más información sobre los orígenes de datos compatibles, consulte [Conexiones a origen de datos](analysis-services-datasource.md).
 
 La puerta de enlace se instala en un equipo de la red. Debe instalarse una puerta de enlace para cada servidor de Azure Analysis Services que tenga en la suscripción de Azure. Por ejemplo, si tiene dos servidores en la suscripción de Azure que se conectan a orígenes de datos locales, deberá instalar una puerta de enlace en dos equipos independientes de la red.
 
@@ -49,14 +53,6 @@ La puerta de enlace se instala en un equipo de la red. Debe instalarse una puert
 * Para cambiar el nombre del servidor de una puerta de enlace que ya se ha configurado, debe volver a instalar y configurar una nueva puerta de enlace.
 * En algunos casos, los modelos tabulares se conectan a orígenes de datos mediante proveedores nativos como SQL Server Native Client (SQLNCLI11) pueden devolver un error. Para más información, consulte [Datasource connections](analysis-services-datasource.md) (Conexiones de orígenes de datos).
 
-## <a name="supported-on-premises-data-sources"></a>Orígenes de datos locales admitidos
-La puerta de enlace admite las conexiones entre el servidor de Azure Analysis Services y los siguientes orígenes de datos locales:
-
-* SQL Server
-* Almacenamiento de datos SQL
-* APS
-* Oracle
-* Teradata
 
 ## <a name="download"></a>Descargar
  [Descargar la puerta de enlace](https://aka.ms/azureasgateway)
@@ -129,7 +125,7 @@ Internamente, la puerta de enlace de datos local usada para conectar Azure Analy
 
 Si tiene problemas al instalar y configurar una puerta de enlace, no deje de consultar [Solución de problemas con la puerta de enlace de datos local](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/). Si cree que existe algún problema con el firewall, consulte las secciones relativas a firewall o proxy.
 
-Si cree que existen problemas relacionados con el proxy o con la puerta de enlace, consulte [Configuración de proxy para la puerta de enlace de datos local](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
+Si cree que existen problemas relacionados con el proxy o con la puerta de enlace, consulte [Configuración de proxy para la puerta de enlace de datos local](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy).
 
 ### <a name="telemetry"></a>Telemetría
 La telemetría puede usarse para tareas de supervisión y solución de problemas. 

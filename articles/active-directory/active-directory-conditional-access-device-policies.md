@@ -1,9 +1,9 @@
 ---
-title: Directivas de dispositivo de acceso condicional para servicios de Office 365 | Microsoft Docs
-description: "Detalles sobre cómo las condiciones basadas en el dispositivo controlan el acceso a los servicios de Office 365. Mientras que los trabajadores de la información desean tener acceso a servicios de Office 365 como Exchange y SharePoint Online en el trabajo o en la escuela desde sus dispositivos personales, los administradores de TI desean que el acceso sea seguro. Los administradores de TI pueden aprovisionar directivas de dispositivos de acceso condicional para proteger los recursos corporativos, al mismo tiempo que permiten que los trabajadores de la información con dispositivos compatibles tengan acceso a los servicios."
+title: Directivas de dispositivos de acceso condicional de Azure Active Directory para servicios de Office 365 | Microsoft Docs
+description: "Obtenga información sobre cómo aprovisionar directivas de dispositivos de acceso condicional para que los recursos corporativos sean más seguros, a la vez que mantiene el cumplimiento del usuario y el acceso a los servicios."
 services: active-directory
 documentationcenter: 
-author: femila
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: 8664c0bb-bba1-4012-b321-e9c8363080a0
@@ -12,41 +12,39 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 05/18/2017
 ms.author: markvi
+ms.reviewer: calebb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 613e2447c1e47fcd80f2e9ded9ad2669f8283c3d
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 2d0794781946195fc6fbab413299012e6949a4bc
 ms.contentlocale: es-es
-ms.lasthandoff: 12/28/2016
-
+ms.lasthandoff: 06/03/2017
 
 ---
-# <a name="conditional-access-device-policies-for-office-365-services"></a>Directivas de dispositivo de acceso condicional para servicios de Office 365
-El término "acceso condicional" conlleva numerosas condiciones, como un usuario autenticado mediante Multi-Factor Authentication, un dispositivo autenticado, un dispositivo compatible, etc. En este tema, nos centraremos principalmente en las condiciones basadas en el dispositivo para controlar el acceso a los servicios de Office 365. Mientras que los trabajadores de la información desean tener acceso a servicios de Office 365 como Exchange y SharePoint Online en el trabajo o en la escuela desde sus dispositivos personales, los administradores de TI desean que el acceso sea seguro. Los administradores de TI pueden aprovisionar directivas de dispositivos de acceso condicional para proteger los recursos corporativos, al mismo tiempo que permiten que los trabajadores de la información con dispositivos compatibles tengan acceso a los servicios. Las directivas de acceso condicional a Office 365 pueden configurarse desde el portal de acceso condicional de Microsoft Intune.
+# <a name="active-directory-conditional-access-device-policies-for-office-365-services"></a>Directivas de dispositivos de acceso condicional de Active Directory para servicios de Office 365
 
-Azure Active Directory aplica las directivas de acceso condicional para proteger el acceso a los servicios de Office 365. Un administrador de inquilinos puede crear una directiva de acceso condicional que impide que un usuario con un dispositivo no compatible tenga acceso a un servicio de Office 365. El usuario debe cumplir las directivas de dispositivos de la empresa para que se le conceda acceso al servicio. Como alternativa, el administrador puede crear una directiva que requiere que los usuarios simplemente inscriban sus dispositivos para tener acceso a un servicio de Office 365. Las directivas pueden aplicarse a todos los usuarios de una organización, o bien limitarse a algunos grupos de destino y mejorarse con el tiempo para incluir otros grupos de destino.
+El acceso condicional necesita varios elementos para su funcionamiento. Implica un usuario con autenticación multifactor, un dispositivo autenticado y un dispositivo compatible, entre otros factores. Este artículo se centra principalmente en las condiciones basadas en los dispositivos que puede usar su organización para que pueda controlar el acceso a los servicios de Office 365. 
 
-Como requisito previo para la aplicación de directivas de dispositivos, los usuarios deben registrar sus dispositivos con el servicio de registro de dispositivos de Azure Active Directory. Puede optar por habilitar Multi-Factor Authentication (MFA) para registrar los dispositivos con el servicio de registro de dispositivos de Azure Active Directory. Se recomienda el uso de MFA para el servicio de registro de dispositivos de Azure Active Directory. Cuando MFA está habilitado, los usuarios que registran sus dispositivos con el servicio de registro de dispositivos de Azure Active Directory deben someterse a una autenticación de segundo factor.
+Los usuarios corporativos quieren tener acceso a servicios de Office 365 como Exchange y SharePoint Online en el trabajo o en la escuela desde sus dispositivos personales, mientras que usted quiere que el acceso sea seguro. Puede aprovisionar directivas de dispositivos de acceso condicional para que los recursos corporativos sean más seguros, a la vez que concede acceso a servicios para los usuarios que usen dispositivos compatibles. Puede establecer directivas de acceso condicional a Office 365 en el portal de acceso condicional de Microsoft Intune.
 
-## <a name="how-does-conditional-access-policy-work"></a>¿Cómo funciona la directiva de acceso condicional?
-Cuando un usuario solicita acceso a un servicio de Office 365 desde una plataforma de dispositivos compatible, Azure Active Directory autentica el usuario y el dispositivo desde el que el usuario inicia la solicitud, y concede acceso al servicio solo cuando el usuario cumple la directiva establecida para el servicio. Los usuarios cuyos dispositivos no están inscritos reciben instrucciones en las que se les explica cómo inscribirse y ser compatibles para tener acceso a los servicios corporativos de Office 365. Los usuarios de dispositivos iOS y Android deben inscribir sus dispositivos mediante la aplicación del portal de empresa. Cuando un usuario inscribe su dispositivo, este se registra con Azure Active Directory y se inscribe para el cumplimiento de normas y la administración de dispositivos. Los clientes deben usar el servicio de registro de dispositivos de Azure Active Directory junto con Microsoft Intune para habilitar la administración de dispositivos móviles para el servicio de Office 365. La inscripción de dispositivos es un requisito previo para que los usuarios tengan acceso a servicios de Office 365 cuando se aplican directivas de dispositivos.
+Azure Active Directory (Azure AD) aplica las directivas de acceso condicional para proteger el acceso a los servicios de Office 365. Puede crear una directiva de acceso condicional que impida que un usuario que tenga un dispositivo no compatible pueda obtener acceso a un servicio de Office 365. El usuario debe cumplir las directivas de dispositivos de la empresa para que se le conceda acceso al servicio. Como alternativa, puede crear una directiva que requiera que los usuarios inscriban sus dispositivos para obtener acceso a un servicio de Office 365. Las directivas se pueden aplicar a todos los usuarios de una organización, o bien se pueden limitar a algunos grupos de destino. Con el tiempo puede agregar más grupos de destino a una directiva.
 
-Cuando un usuario inscribe correctamente su dispositivo, este pasa a ser de confianza. Azure Active Directory ofrece el inicio de sesión único para tener acceso a aplicaciones de empresa y aplica la directiva de acceso condicional para conceder acceso a un servicio no solo la primera vez que el usuario lo solicite, sino cada vez que solicite renovar el acceso. El usuario no tendrá acceso a los servicios cuando se cambien las credenciales de inicio de sesión, cuando pierda o le roben el dispositivo o cuando no se cumpla la directiva en el momento de solicitar una renovación.
+Como requisito previo para la aplicación de directivas de dispositivos, los usuarios deben registrar sus dispositivos en el servicio de registro de dispositivos de Azure AD. Puede optar por activar la autenticación multifactor para los dispositivos registrados en el servicio de registro de dispositivos de Azure AD. Se recomienda el uso de la autenticación multifactor para el servicio de registro de dispositivos de Azure Active Directory. Al activar la autenticación multifactor, los usuarios que registren sus dispositivos en el servicio de registro de dispositivos de Azure AD deben someterse a la autenticación de segundo factor.
 
-## <a name="deployment-considerations"></a>Consideraciones de la implementación:
-Debe utilizar el servicio de registro de dispositivos de Azure Active Directory para registrar los dispositivos.
+## <a name="how-does-a-conditional-access-policy-work"></a>¿Cómo funcionan las directivas de acceso condicional?
 
-Cuando los usuarios se autentiquen en las instalaciones, se requieren los Servicios de federación de Active Directory (AD FS) (1.0 y superior). Se producirá un error en Multi-Factor Authentication para la unión al área de trabajo cuando el proveedor de identidades no sea capaz de realizar Multi-Factor Authentication. Por ejemplo, AD FS 2.0 no permite Multi-Factor Authentication. El administrador de inquilinos debe asegurarse de que AD FS local permite MFA y de que se ha habilitado un método de MFA válido antes de habilitar MFA en el servicio de registro de dispositivos de Azure Active Directory. Por ejemplo, AD FS en Windows Server 2012 R2 tiene capacidades de MFA. También debe habilitar otro método de autenticación válido (MFA) en el servidor de AD FS antes de habilitar MFA en el servicio de registro de dispositivos de Azure Active Directory. Para obtener más información sobre los métodos de MFA admitidos en AD FS, consulte Configurar métodos de autenticación adicionales de AD FS.
+Cuando un usuario solicita acceso a un servicio de Office 365 desde una plataforma de dispositivos compatible, Azure AD autentica el usuario y el dispositivo. Azure AD concede acceso al servicio únicamente si el usuario cumple la directiva establecida para el servicio. Los usuarios cuyos dispositivos no estén inscritos reciben instrucciones en las que se explica cómo inscribirse y obtener compatibilidad para tener acceso a los servicios corporativos de Office 365. Los usuarios de dispositivos iOS y Android deben inscribir sus dispositivos mediante la aplicación del portal de empresa de Intune. Cuando un usuario inscribe un dispositivo, este se registra en Azure AD y se inscribe para el cumplimiento y la administración de dispositivos. Debe usar el servicio de registro de dispositivos de Azure AD junto con Microsoft Intune para habilitar la administración de dispositivos móviles para los servicios de Office 365. La inscripción de dispositivos es necesaria para que los usuarios tengan acceso a los servicios de Office 365 cuando se aplican directivas de dispositivos.
 
-## <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
-Q: ¿Qué es la directiva de exclusión predeterminada para plataformas de dispositivos no compatibles?
+Cuando un usuario inscribe correctamente un dispositivo, este pasa a ser de confianza. Azure AD proporciona al usuario autenticado acceso de inicio de sesión único a las aplicaciones de empresa. Azure AD aplica una directiva de acceso condicional para conceder acceso a un servicio no solo la primera vez que el usuario solicita acceso, sino cada vez que el usuario renueva una solicitud de acceso. Al usuario se le deniega el acceso a los servicios cuando se cambian las credenciales de inicio de sesión, cuando pierda o le roben el dispositivo o cuando no se cumplan las condiciones de la directiva en el momento de solicitar una renovación.
 
-R: Actualmente, las directivas de acceso condicional se aplican de forma selectiva a los usuarios de dispositivos iOS y Android. De forma predeterminada, las aplicaciones de otras plataformas de dispositivos no se ven afectadas por la directiva de acceso condicional para dispositivos iOS y Android. Sin embargo, el administrador de inquilinos puede invalidar la directiva global para impedir el acceso a los usuarios en plataformas no compatibles.
-Se ha previsto ampliar la directiva de acceso condicional a los usuarios de otras plataformas, incluido Windows.
+## <a name="deployment-considerations"></a>Consideraciones de la implementación
 
-P: ¿Cuándo se ampliará la directiva de acceso condicional a los servicios de Office 365 para las aplicaciones basadas en el explorador? (Por ejemplo, OWA, SharePoint basado en el explorador).
+Debe usar el servicio de registro de dispositivos de Azure AD para registrar dispositivos.
 
-R: En este momento, el acceso condicional a los servicios de Office365 se limita a las aplicaciones enriquecidas en el dispositivo. Se ha previsto ampliar la directiva de acceso condicional a los usuarios que tengan acceso a los servicios desde exploradores.
+Si se van a autenticar usuarios locales, se necesita la versión 1.0 o versiones posteriores de Servicios de federación de Active Directory (AD FS). Se producirá un error en la autenticación multifactor para Workplace Join si el proveedor de identidades no es capaz de llevar a cabo la autenticación multifactor. Por ejemplo, no puede usar la autenticación multifactor con AD FS 2.0. Asegúrese de que AD FS local funcione con la autenticación multifactor y de que haya en vigor un método de autenticación multifactor válido antes de activar la autenticación multifactor para el servicio de registro de dispositivos de Azure AD. Por ejemplo, AD FS en Windows Server 2012 R2 tiene capacidades de autenticación multifactor. También debe establecer un método de autenticación válido adicional (autenticación multifactor) en el servidor de AD FS antes de activar la autenticación multifactor para el servicio de registro de dispositivos de Azure AD. Para obtener más información sobre los métodos de autenticación multifactor admitidos en AD FS, consulte [Configurar los métodos de autenticación adicional de AD FS](/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs).
 
+## <a name="next-steps"></a>Pasos siguientes
+
+*   Para obtener respuesta a preguntas frecuentes, consulte [Preguntas más frecuentes acerca del acceso condicional de Azure Active Directory](active-directory-conditional-faqs.md).
 

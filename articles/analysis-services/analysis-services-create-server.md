@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 06/14/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1782c7e5f7cd710d6e17a26197f9fcc84c967902
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 458459e9bed5ebee6188b5f282e66df1e2a988a8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -39,8 +39,8 @@ Para empezar, necesitará lo siguiente:
 > 
 
 ## <a name="to-create-a-server-in-azure-portal"></a>Creación de un servidor de Azure Portal
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. Haga clic en **+ Nuevo** > **Inteligencia y análisis** > **Analysis Services**.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).  
+2. Haga clic en **+ Nuevo** > **Datos y análisis** > **Analysis Services**.
 3. En la hoja de **Analysis Services**, rellene los campos obligatorios y, a continuación, presione **Crear**.
    
     ![Crear un servidor](./media/analysis-services-create-server/aas-create-server-blade.png)

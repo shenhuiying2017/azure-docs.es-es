@@ -1,6 +1,6 @@
 ---
-title: Conexiones a origen de datos | Microsoft Docs
-description: "Describe las conexiones a orígenes de datos para los modelos de datos en Azure Analysis Services."
+title: "Orígenes de datos admitidos en Azure Analysis Services | Microsoft Docs"
+description: "Describe los orígenes de datos admitidos para los modelos de datos en Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,22 +13,49 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: aebabd15e781e726def545960ce3c1ec7674c530
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: a0fe91568d747148b3940e9c90db15481c765a9c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
-# <a name="datasource-connections"></a>Conexiones a origen de datos
+# <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
+Los servidores de Azure Analysis Services admiten la conexión a orígenes de datos en la nube y de forma local en su organización. Con el tiempo se van agregando más orígenes de datos compatibles, por lo que se recomienda consultarlos con asiduidad. 
+
+Actualmente se admiten los siguientes orígenes de datos:
+
+| Nube  |
+|---|
+| Azure Blob Storage*  |
+| Base de datos SQL de Azure  |
+| Almacenamiento de datos de Azure |
+
+
+| Local  |   |   |   |
+|---|---|---|---|
+| Base de datos de Access  | Carpeta* | Base de datos de Oracle  | Base de datos de Teradata |
+| Active Directory*  | Documento JSON*  | Base de datos de Postgre SQL*  |Tabla XML* |
+| Analysis Services  | Líneas de archivo binario*  | SAP HANA*  |
+| Analytics Platform System  | Base de datos MySQL  | SAP Business Warehouse*  | |
+| Dynamics CRM*  | Fuente OData*  | SharePoint*  |
+| Libro de Excel  | Consulta ODBC  | SQL Database  |
+| Exchange*  | OLE DB  | Base de datos de Sybase  |
+
+\* Solo modelos tabulares 1400. 
+
+> [!IMPORTANT]
+> Para establecer conexión con orígenes de datos locales se debe instalar una [puerta de enlace de datos locales](analysis-services-gateway.md) en un equipo de su entorno.
+
+## <a name="data-providers"></a>Proveedores de datos
+
 Los modelos de datos de Azure Analysis Services pueden requerir distintos proveedores de datos al conectarse a algunos orígenes de datos. En algunos casos, los modelos tabulares se conectan a orígenes de datos mediante proveedores nativos como SQL Server Native Client (SQLNCLI11) pueden devolver un error.
 
-Para modelos de datos en memoria o DirectQuery que se conectan a un origen de datos en la nube, como Azure SQL Database, si usa proveedores nativos que no sean SQLOLEDB, puede ver el mensaje de error: **"El proveedor 'SQLNCLI11.1' no está registrado"**. O bien, si tiene un modelo DirectQuery conectarse a orígenes de datos locales, si utiliza los proveedores nativos, puede ver el mensaje de error: **"Error al crear el conjunto de filas OLE DB. Sintaxis incorrecta cerca de 'LIMIT'”**.
+Para los modelos de datos que se conectan a un origen de datos en la nube, como Azure SQL Database, si usa proveedores nativos que no sean SQLOLEDB, puede ver el mensaje de error: **"El proveedor 'SQLNCLI11.1' no está registrado"**. O bien, si tiene un modelo DirectQuery conectarse a orígenes de datos locales, si utiliza los proveedores nativos, puede ver el mensaje de error: **"Error al crear el conjunto de filas OLE DB. Sintaxis incorrecta cerca de 'LIMIT'”**.
 
-## <a name="data-source-providers"></a>Proveedores de orígenes de datos
 Los siguientes proveedores de orígenes de datos se admiten en los modelos de datos en memoria o DirectQuery cuando se conectan a orígenes de datos locales o en la nube:
 
 ### <a name="cloud"></a>Nube

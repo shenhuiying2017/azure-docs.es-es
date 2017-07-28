@@ -3,7 +3,7 @@ title: "Administración de datos de Azure Automation | Microsoft Docs"
 description: "Este artículo contiene varios temas para administrar un entorno de Automatización de Azure.  Actualmente incluye la retención de datos y la realización de copias de seguridad de la recuperación ante desastres en Automatización de Azure."
 services: automation
 documentationcenter: 
-author: SnehaGunda
+author: mgoedtel
 manager: stevenka
 editor: tysonn
 ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2016
-ms.author: bwren;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d8ac93de19685c11dd25fd746e69ba1066fb35af
+ms.date: 06/02/201
+ms.author: magoedte;bwren;sngun
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 92893edc4e02de148f6585e83c6861fd751401bb
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -42,6 +44,8 @@ La tabla siguiente resume la directiva de retención para distintos recursos.
 | Informes de nodo |Se quitan de forma permanente 90 días después de que se genere un nuevo informe para ese nodo. |
 
 La directiva de retención se aplica a todos los usuarios y, por el momento, no se puede personalizar.
+
+Sin embargo, si tiene que conservar los datos durante un periodo de tiempo mayor, puede reenviar los registros de trabajos del runbook a Log Analytics.  Para más información, consulte [Reenvío de datos del trabajo de Azure Automation a Log Analytics de OMS](automation-manage-send-joblogs-log-analytics.md)   
 
 ## <a name="backing-up-azure-automation"></a>Copia de seguridad de Automatización de Azure
 Cuando se elimina una cuenta de automatización en Microsoft Azure, se eliminan todos los objetos de la cuenta, incluidos runbooks, módulos, configuraciones, trabajos y recursos. No es posible recuperar los objetos una vez eliminada la cuenta.  Puede usar la información siguiente para crear una copia de seguridad de los contenidos de la cuenta de automatización antes de eliminarla. 
@@ -78,10 +82,5 @@ La siguiente tabla muestra los emparejamientos de la región primaria y secundar
 | Este de Japón |Oeste de Japón |
 
 En el improbable caso de que se pierdan datos de una región primaria, Microsoft intenta recuperarlos. Cuando no es posible recuperar los datos principales, se lleva a cabo la conmutación por error geográfica y se notificará a los clientes afectados al respecto a través de su suscripción.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

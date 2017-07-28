@@ -1,177 +1,282 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con ShiftPlanning | Microsoft Docs"
-description: "Aprenda cómo usar ShiftPlanning con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+title: "Tutorial: Integración de Azure Active Directory con Humanity | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Humanity."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/22/2017
+ms.date: 06/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1477ba08b35a853ef7c26f74a4d9e86b3bf6d850
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 327cc1e3d0836e79376e0a3cd5a4422a967f5943
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shiftplanning"></a>Tutorial: Integración de Azure Active Directory con ShiftPlanning
-El objetivo de este tutorial es mostrar la integración de Azure y ShiftPlanning.
+# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: Integración de Azure Active Directory con Humanity
 
-En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+En este tutorial, aprenderá a integrar Humanity con Azure Active Directory (Azure AD).
 
-* Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único (SSO) en ShiftPlanning
+La integración de Humanity con Azure AD le proporciona las siguientes ventajas:
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a ShiftPlanning podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de ShiftPlanning (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+- Puede controlar en Azure AD quién tiene acceso a Humanity.
+- Puede permitir que los usuarios inicien sesión automáticamente en Humanity (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-1. Habilitación de la integración de aplicaciones para ShiftPlanning
-2. Configuración del inicio de sesión único (SSO)
-3. Configuración del aprovisionamiento de usuario
-4. Asignación de usuarios
+## <a name="prerequisites"></a>Requisitos previos
 
-![Escenario](./media/active-directory-saas-shiftplanning-tutorial/IC786612.png "Escenario")
+Para configurar la integración de Azure AD con Humanity, se necesitan los siguientes elementos:
 
-## <a name="enable-the-application-integration-for-shiftplanning"></a>Habilitación de la integración de aplicaciones para ShiftPlanning
-El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para ShiftPlanning.
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en Humanity
 
-**Siga estos pasos con el fin de habilitar la integración de aplicaciones para ShiftPlanning:**
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
-1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
+
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+
+1. Adición de Humanity desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
+
+## <a name="adding-humanity-from-the-gallery"></a>Adición de Humanity desde la galería
+Para configurar la integración de Humanity en Azure AD, deberá agregar Humanity desde la galería a la lista de aplicaciones SaaS administradas.
+
+**Para agregar Humanity desde la galería, realice los pasos siguientes:**
+
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+
+    ![Aplicaciones][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
+    ![Aplicaciones][3]
+
+4. En el cuadro de búsqueda, escriba **Humanity**.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_search.png)
+
+5. En el panel de resultados, seleccione **Humanity** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Humanity con un usuario de prueba llamado "Britta Simon".
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Humanity para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario correspondiente de Humanity.
+
+Para establecer la relación de vínculo, en Humanity, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario**.
+
+Para configurar y probar el inicio de sesión único de Azure AD con Humanity, es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Humanity](#creating-a-humanity-test-user)**: el objetivo es tener un homólogo de Britta Simon en Humanity que esté vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Humanity.
+
+**Para configurar el inicio de sesión único de Azure AD con Humanity, realice los pasos siguientes:**
+
+1. En la página de integración de la aplicación **Humanity** de Azure Portal, haga clic en **Inicio de sesión único**.
+
+    ![Configurar inicio de sesión único][4]
+
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_samlbase.png)
+
+3. En la sección **Dominio y direcciones URL de Humanity**, lleve a cabo los pasos siguientes:
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_url.png)
+
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://company.humanity.com/includes/saml/`.
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://company.humanity.com/app/`
+
+    > [!NOTE] 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Humanity](https://www.humanity.com/support/) para obtener estos valores. 
+ 
+4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_certificate.png) 
+
+5. Haga clic en el botón **Guardar** .
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_400.png)
+
+6. En la sección **Configuración de Humanity**, haga clic en **Configurar Humanity** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL del servicio de inicio de sesión único de SAML y la URL de cierre de sesión** de la **sección de referencia rápida**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_configure.png) 
+
+7. En otra ventana del explorador web, inicie sesión en el sitio de **Humanity** de la compañía como administrador.
+
+8. En el menú de la parte superior, haga clic en **Administrador**.
    
-    ![Active Directory](./media/active-directory-saas-shiftplanning-tutorial/IC700993.png "Active Directory")
+    ![Administración](./media/active-directory-saas-shiftplanning-tutorial/iC786619.png "Administración")
 
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
+9. En **Integración**, haga clic en **Inicio de sesión único**.
    
-    ![Aplicaciones](./media/active-directory-saas-shiftplanning-tutorial/IC700994.png "Aplicaciones")
+    ![Inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/iC786620.png "Inicio de sesión único")
 
-4. Haga clic en **Agregar** en la parte inferior de la página.
+10. En la sección **Inicio de sesión único** , siga estos pasos:
    
-    ![Agregar aplicaciones](./media/active-directory-saas-shiftplanning-tutorial/IC749321.png "Agregar aplicaciones")
-
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
+    ![Inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/iC786905.png "Inicio de sesión único")
    
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-shiftplanning-tutorial/IC749322.png "Agregar una aplicación de la galería")
+    a. Seleccione **SAML habilitado**.
 
-6. En el **cuadro de búsqueda**, escriba **ShiftPlanning**.
+    b. Seleccione **Allow Password Login** (Permitir inicio de sesión de contraseña).
+
+    c. Pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML** en el cuadro de texto **SAML Issuer URL** (URL de emisor de SAML).
+
+    d. Peque el valor de **URL de cierre de sesión** en el cuadro de texto **Remote Logout URL** (URL de cierre de sesión remoto).
    
-    ![Galería de aplicaciones](./media/active-directory-saas-shiftplanning-tutorial/IC786613.png "Galería de aplicaciones")
+    e. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509** .
 
-7. En el panel de resultados, seleccione **ShiftPlanning** y haga clic en **Completar** para agregar la aplicación.
-   
-    ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.png "ShiftPlanning")
-   
-## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
+11. Haga clic en **Guardar configuración**.
 
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en ShiftPlanning con su cuenta de Azure AD usando el protocolo SAML basado en la federación.
+> [!TIP]
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
+![Creación de un usuario de Azure AD][100]
 
-**Siga estos pasos para configurar el inicio de sesión único:**
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **ShiftPlanning**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configurar inicio de sesión único")
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en ShiftPlanning?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/IC786616.png "Configurar inicio de sesión único")
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_01.png) 
 
-3. En la página **Configurar dirección URL de la aplicació**n, en el cuadro de texto **URL de inicio de sesión de ShiftPlanning**, escriba su dirección URL con el siguiente patrón "*https://company.shiftplanning.com/includes/saml/*" y haga clic en **Siguiente**.
-   
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-shiftplanning-tutorial/IC786617.png "Configurar dirección URL de la aplicación")
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_02.png) 
 
-4. En la página **Configuración de inicio de sesión único en ShiftPlanning**, para descargar el certificado, haga clic en **Descargar certificado** y guarde el archivo de certificado en el equipo.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/IC786618.png "Configurar inicio de sesión único")
+3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_03.png) 
 
-5. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de **ShiftPlanning** como administrador.
-6. En el menú de la parte superior, haga clic en **Administrador**.
-   
-    ![Administración](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Administración")
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_04.png) 
 
-7. En **Integración**, haga clic en **Inicio de sesión único**.
-   
-    ![Inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/IC786620.png "Inicio de sesión único")
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
-8. En la sección **Inicio de sesión único** , siga estos pasos:
-   
-    ![Inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/IC786905.png "Inicio de sesión único")
-   
-   1. Seleccione **SAML habilitado**.
-   2. Seleccione **Allow Password Login** (Permitir inicio de sesión de contraseña).
-   3. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ShiftPlanning**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de emisor de SAML**.
-   4. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ShiftPlanning**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión remoto**.
-   5. Cree un archivo **codificado en base 64** a partir del certificado descargado.  
-       
-     >[!TIP]
-     >Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
-     > 
-     > 
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
-   6. Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509** .
-   7. Haga clic en **Guardar configuración**.
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-9. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configurar inicio de sesión único")
-   
-## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
+    d. Haga clic en **Crear**.
+ 
+### <a name="creating-a-humanity-test-user"></a>Creación de un usuario de prueba de Humanity
 
-Para permitir que los usuarios de Azure AD inicien sesión en ShiftPlanning, deben aprovisionarse en ShiftPlanning.  
+Para permitir que los usuarios de Azure AD inicien sesión en Humanity, deben aprovisionarse en Humanity. En el caso de Humanity, el aprovisionamiento es una tarea manual.
 
-En el caso de ShiftPlanning, el aprovisionamiento es una tarea manual.
+**Para aprovisionar una cuenta de usuario, realice estos pasos:**
 
-**Para aprovisionar cuentas de usuario, realice estos pasos:**
+1. Inicie sesión en su sitio de la compañía de **Humanity** como administrador.
 
-1. Inicie sesión en su sitio de la compañía de **ShiftPlanning** como administrador.
 2. Haga clic en **Administrador**.
    
-    ![Administración](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Administración")
+    ![Administración](./media/active-directory-saas-shiftplanning-tutorial/iC786619.png "Administración")
+
 3. Haga clic en **Personal**.
    
-    ![Personal](./media/active-directory-saas-shiftplanning-tutorial/IC786623.png "Personal")
-4. En **Acciones**, haga clic en **Agregar empleado**.
+    ![Personal](./media/active-directory-saas-shiftplanning-tutorial/ic786623.png "Personal")
+
+4. En **Acciones**, haga clic en **Agregar empleados**.
    
-    ![Agregar empleados](./media/active-directory-saas-shiftplanning-tutorial/IC786624.png "Agregar empleados")
+    ![Agregar empleados](./media/active-directory-saas-shiftplanning-tutorial/iC786624.png "Agregar empleados")
+
 5. En la sección **Agregar empleados** , lleve a cabo estos pasos:
    
-    ![Guardar empleados](./media/active-directory-saas-shiftplanning-tutorial/IC786625.png "Guardar empleados")
+    ![Guardar empleados](./media/active-directory-saas-shiftplanning-tutorial/iC786625.png "Guardar empleados")
    
-   1. Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **Nombre**, **Apellidos** y **Correo electrónico**.
-   2. Haga clic en **Guardar empleados**.
+    a. Escriba los datos de una cuenta de AAD válida que desee aprovisionar en los cuadros de texto correspondientes: **Nombre**, **Apellidos** y **Correo electrónico**.
+
+    b. Haga clic en **Guardar empleados**.
 
 >[!NOTE]
->Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ShiftPlanning ofrecida por ShiftPlanning para aprovisionar cuentas de usuario de AAD.
-> 
-> 
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Humanity que proporcione Humanity para aprovisionar cuentas de usuario de AAD.
 
-## <a name="assign-users"></a>Asignar usuarios
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-**Para asignar usuarios a ShiftPlanning, lleve a cabo los siguientes pasos:**
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Humanity.
 
-1. En el Portal de Azure clásico, cree una cuenta de prueba.
+![Asignar usuario][200] 
 
-2. En la página de integración de aplicaciones de **ShiftPlanning**, haga clic en **Asignar usuarios**.
-   
-    ![Asignar usuarios](./media/active-directory-saas-shiftplanning-tutorial/IC786626.png "Asignar usuarios")
+**Para asignar a Britta Simon a Humanity, realice los pasos siguientes:**
 
-3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
-   
-    ![Sí](./media/active-directory-saas-shiftplanning-tutorial/IC767830.png "Sí")
- 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones, seleccione **Humanity**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_app.png) 
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Asignar usuario][202] 
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Asignar usuario][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono de Humanity en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Humanity.
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_203.png
 
 

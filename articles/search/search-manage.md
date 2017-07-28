@@ -13,12 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/05/2017
+ms.date: 06/18/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: ab914153df01c6d8135732bc772b78066e14d1d1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
+ms.contentlocale: es-es
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -37,17 +38,18 @@ Azure Search es un servicio basado en la nube totalmente administrado que se uti
 
 **Fuera del ámbito** 
 
-*Administración del contenido* (o administración de índices) hace referencia a operaciones tales como el análisis del tráfico de búsqueda para entender el volumen de consultas, la detección de los términos que se buscan y lo satisfactorios que son los resultados de las búsquedas para guiar a los clientes a documentos concretos del índice. La administración del contenido está fuera del ámbito de este artículo. Para obtener instrucciones acerca de cómo obtener información sobre las operaciones internas en el nivel del índice, consulte [Análisis de tráfico de búsqueda para Azure Search](search-traffic-analytics.md).
+*Administración del contenido* (o administración de índices) hace referencia a operaciones tales como el análisis del tráfico de búsqueda para entender el volumen de consultas, la detección de los términos que se buscan y lo satisfactorios que son los resultados de las búsquedas para guiar a los clientes a documentos concretos del índice. Para obtener ayuda en esta área, visite [Análisis de tráfico de búsqueda para Azure Search](search-traffic-analytics.md).
 
 *rendimiento de las consultas* también está fuera del ámbito de este artículo. Para más información, vea [Supervisar el uso y las métricas de consultas](search-monitor-usage.md) y [Rendimiento y optimización](search-performance-optimization.md).
 
+La *actualización* no es una tarea administrativa. Dado que los recursos se asignan cuando se aprovisiona el servicio, mover a otro nivel requiere un nuevo servicio. Consulte [Creación de un servicio Azure Search](search-create-service-portal.md) para más información.
 
 <a id="admin-rights"></a>
 
 ## <a name="administrator-rights"></a>Derechos de administrador
 El aprovisionamiento o la retirada del propio servicio los puede realizar un administrador o coadministrador de una suscripción de Azure.
 
-En un servicio, cualquiera que tenga acceso a la dirección URL del servicio y una clave de API de administración tendrá acceso de lectura y escritura al servicio, con capacidad proporcional para agregar, eliminar o modificar objetos de servidor, como claves de API, índices, indexadores, orígenes de datos, programaciones y asignaciones de roles, cuando se implementan a través de [roles definidos por RBAC](#rbac).
+Dentro de un servicio, cualquier persona con acceso a la dirección URL del servicio y una clave de API de administración tiene acceso de lectura y escritura al servicio. El acceso de lectura y escritura ofrece capacidad para agregar, eliminar o modificar objetos de servidor, incluidos claves de API, índices, indizadores, orígenes de datos, programaciones y asignaciones de roles, tal y como se implementa a través de [roles definidos por RBAC](#rbac).
 
 Toda la interacción del usuario con Azure Search se encuadra en de uno de estos modos: acceso de lectura y escritura al servicio (derechos de administrador) o acceso de solo lectura al servicio (derechos de consulta). Para más información, consulte [Administración de las claves de API](#manage-keys).
 
@@ -64,7 +66,7 @@ En Azure Search, los permisos RBAC determinan las siguientes tareas administrati
 | Colaborador |El mismo nivel de acceso que Propietario, menos el administración de roles RBAC. Por ejemplo, un usuario con el rol Colaborador puede ver y regenerar `api-key`, pero no puede modificar pertenencias a roles. |
 | Lector |Ver las claves de estado y consulta de servicio. Los miembros de este rol no pueden cambiar la configuración de un servicio, ni pueden ver claves de administrador. |
 
-Tenga en cuenta que los roles no otorgan derechos de acceso al extremo de servicio. Las operaciones del servicio de búsqueda, como la administración de índices, el rellenado del índice y las consultas en datos de búsqueda, se controlan mediante claves de API, no a través de roles. Para más información, consulte "Autorización para administración frente a operaciones de datos" en [¿Qué es el control de acceso basado en roles?](../active-directory/role-based-access-control-what-is.md)
+Los roles no otorgan derechos de acceso al punto de conexión de servicio. Las operaciones del servicio de búsqueda, como la administración de índices, el rellenado del índice y las consultas en datos de búsqueda, se controlan mediante claves de API, no a través de roles. Para más información, consulte "Autorización para administración frente a operaciones de datos" en [¿Qué es el control de acceso basado en roles?](../active-directory/role-based-access-control-what-is.md)
 
 <a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Registro e información del sistema
@@ -81,7 +83,7 @@ En términos de información general acerca del servicio, hay varias formas de o
 ## <a name="manage-api-keys"></a>Administración de las claves de API
 Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una clave de API generada de forma específica para el servicio. Dicha clave de API es el único mecanismo para autenticar el acceso del punto de conexión de su servicio de búsqueda. 
 
-Una clave de API es una cadena que se compone de letras y números generados aleatoriamente. La genera su servicio de forma exclusiva. A través de los [permisos RBAC](#rbac)puede eliminar o leer las claves, pero no puede reemplazar una clave generada por una cadena definida por el usuario (en concreto, si tiene contraseñas que utilice habitualmente, no puede sustituir una clave de API por una contraseña definida por el usuario). 
+Una clave de API es una cadena que se compone de letras y números generados aleatoriamente. Mediante [permisos RBAC](#rbac), puede eliminar o leer las claves pero no puede reemplazar una clave con una contraseña definida por el usuario. 
 
 Se usan dos tipos de claves para obtener acceso a su servicio de búsqueda:
 
@@ -127,9 +129,11 @@ Al usar la API del servicio de búsqueda, podrá obtener una recuento de los doc
 
 Aunque podemos recuperar los datos, Azure Search no proporciona conmutación por error instantánea del servicio si se produce una interrupción en centro de datos o el clúster. Si se produce un error en un clúster del centro de datos, el equipo de operaciones lo detectará y trabajará para restaurar el servicio. Experimentará un tiempo de inactividad durante la restauración del servicio. Puede solicitar créditos del servicio para compensar la falta de disponibilidad de servicio según el [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Para garantizar la continuidad del servicio, incluidos los errores catastróficos fuera de control de Microsoft, debe [aprovisionar un servicio adicional](search-create-service-portal.md) en una región diferente e implementar una estrategia de replicación geográfica para asegurarse de que los índices son totalmente redundantes en todos los servicios.
+Si se requiera continuidad del servicio, en caso de errores catastróficos fuera de control de Microsoft, debe [aprovisionar un servicio adicional](search-create-service-portal.md) en una región diferente e implementar una estrategia de replicación geográfica para asegurarse de que los índices sean totalmente redundantes en todos los servicios.
 
-Los clientes que usen los indizadores para rellenar y actualizar índices controlan la recuperación ante desastres mediante indizadores geográficos que aprovechan el mismo origen de datos. En lugar de los indizadores, usaría el código de aplicación para enviar objetos y datos a distintos servicios en paralelo. Para más información, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md).
+Los clientes que usen [indizadores](search-indexer-overview.md) para rellenar y actualizar índices pueden controlar la recuperación ante desastres mediante indizadores geográficos que aprovechan el mismo origen de datos. Dos servicios en regiones diferentes y que cada uno ejecute un indizador pueden indexar desde el mismo origen de datos para lograr redundancia geográfica. Si indexa desde orígenes de datos que también tienen redundancia geográfica, tenga en cuenta que los indizadores de Azure Search solo pueden realizar una indización incremental a partir de las réplicas principales. En un evento de conmutación por error, asegúrese de que el indizador apunte de nuevo a la nueva réplica principal. 
+
+Si no utiliza indizadores, usaría el código de aplicación para enviar objetos y datos a distintos servicios de búsqueda en paralelo. Para más información, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md).
 
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
@@ -141,9 +145,9 @@ Para volver a generar un índice, elimínelo (si existe), vuelva a crear el índ
 <a id="scale"></a>
 
 ## <a name="scale-up-or-down"></a>Escalado o reducción vertical
-Cada uno de los servicios de búsqueda se inicia con una cantidad mínima de una réplica y una partición. Si se registró para obtener recursos dedicados con los [planes de tarifa Básico o Estándar](search-limits-quotas-capacity.md), puede hacer clic en el icono **ESCALA** en el panel de servicios para ajustar el número de particiones y réplicas que usa su servicio.
+Cada uno de los servicios de búsqueda se inicia con una cantidad mínima de una réplica y una partición. Si ha iniciado sesión en un [nivel que proporciona recursos dedicados](search-limits-quotas-capacity.md), haga clic en el icono **ESCALA** del panel de servicios para ajustar el uso de recursos.
 
-Al agregar una capacidad mediante cualquiera de los recursos, el servicio los usa automáticamente. No es necesario que haga nada más, pero habrá un ligero retraso antes de materializarse el impacto del nuevo recurso. El aprovisionamiento de los recursos adicionales puede tardar 15 minutos, o más.
+Al agregar una capacidad mediante cualquiera de los recursos, el servicio los usa automáticamente. No es necesario que haga nada más, pero hay un ligero retraso antes de materializarse el impacto del nuevo recurso. El aprovisionamiento de los recursos adicionales puede tardar 15 minutos, o más.
 
  ![][10]
 
@@ -160,7 +164,7 @@ La mayoría de las aplicaciones de servicio tienen una necesidad integrada de m�
 En el nivel Estándar, las particiones se agregan en múltiplos de 12 (concretamente 1, 2, 3, 4, 6 o 12). Se trata de un artefacto de particionamiento. Un índice se crea en 12 particiones de base de datos, que pueden almacenarse en su totalidad en una partición o dividirse equitativamente en 2, 3, 4, 6 o 12 particiones (una partición de base de datos por partición).
 
 ### <a name="remove-replicas"></a>Eliminación de réplicas
-Tras períodos de elevados volúmenes de consultas, es muy probable que reduzca las réplicas después de que se hayan normalizado las cargas de consultas de búsqueda (por ejemplo, tras finalizar las ventas navideñas).
+Tras períodos de elevados volúmenes de consultas, puede reducir las réplicas después de que se hayan normalizado las cargas de consultas de búsqueda (por ejemplo, tras finalizar las ventas navideñas).
 
 Para ello, vuelva a mover el control deslizante de la réplica a un número inferior. No es necesario que haga nada más. Al reducir el recuento de réplicas, las máquinas virtuales se abandonan en el centro de datos. Ahora, sus operaciones de ingesta de consultas y datos se ejecutarán en menos VM que antes. El límite mínimo es una réplica.
 
@@ -183,11 +187,11 @@ En este vídeo de 30 minutos se analizan las prácticas recomendadas para escena
 <a id="next-steps"></a>
 
 ## <a name="next-steps"></a>Pasos siguientes
-Una vez que conozca los tipos de operaciones relativas a la administración de servicios, considere los distintos enfoques para la administración de servicios:
+Una vez que comprenda los conceptos de administración del servicio, considere la posibilidad de utilizar [PowerShell](search-manage-powershell.md) para automatizar las tareas.
 
-* [PowerShell](search-manage-powershell.md)
+También se recomienda revisar el [artículo sobre rendimiento y optimización](search-performance-optimization.md).
 
-Además, si aún no lo ha hecho, lea el [artículo sobre rendimiento y optimización](search-performance-optimization.md)y, opcionalmente, vea el vídeo que se ha indicado en la sección anterior para más información y ver demostraciones de las técnicas recomendadas.
+Otra recomendación es ver el vídeo que se indica en la sección anterior. Proporciona cobertura más detallada de las técnicas mencionadas en esta sección.
 
 <!--Image references-->
 [7]: ./media/search-manage/rbac-icon.png

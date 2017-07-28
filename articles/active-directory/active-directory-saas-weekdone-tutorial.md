@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4172a4e4c7add3fc75d1c83e32e41ea9a596b647
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 1e99bdc4509d8cbab9012d36207f21be2cc75e5e
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -118,14 +119,14 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_06.png) 
    
-   1. En el cuadro de texto **URL inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Weekdone con el siguiente patrón: **"https://weekdone.com/a/azure"**.
+   1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Weekdone con el siguiente patrón: **"https://weekdone.com/a/azure"**.
    2. En el cuadro de texto **Identificador**, escriba la dirección URL en el siguiente patrón:  **"https://weekdone.com/a/azure/metadata"** .
-   3. Haga clic en **Next**.
+   3. Haga clic en **Siguiente**.
 2. En la página **Configurar inicio de sesión único en Weekdone**, realice los pasos siguientes y haga clic en **Siguiente**:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_05.png) 
    1. Haga clic en **Descargar certificado**y luego guarde el archivo de certificado en el equipo.
-   2. Haga clic en **Next**.
+   2. Haga clic en **Siguiente**.
     
 3. Para configurar el inicio de sesión único para la aplicación, póngase en contacto con el equipo de soporte de Weekdone mediante hello@weekdone.com. 
 4. Adjunte el archivo de certificado descargado a su correo y comparta las direcciones URL de metadatos (URL DEL EMISOR, DIRECCIÓN URL DE INICIO DE SESIÓN ÚNICO DE SAML y DIRECCIÓN URL DEL SERVICIO DE CIERRE DE SESIÓN ÚNICO) con el equipo de Weekdone para configurar en su parte el inicio de sesión único.

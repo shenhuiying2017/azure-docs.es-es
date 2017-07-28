@@ -1,126 +1,192 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Thirdlight | Microsoft Docs"
-description: "Aprenda cómo usar Thirdlight con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+title: "Tutorial: integración de Azure Active Directory con ThirdLight | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ThirdLight."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 168aae9a-54ee-4c2b-ab12-650a2c62b901
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 3/07/2017
+ms.date: 06/16/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 0ed8c8a24fd5125690c8fadee4918c25498b6693
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: ee7710cfea3a13907c0cc940a98c875bf83607a9
+ms.contentlocale: es-es
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutorial: integración de Azure Active Directory con Thirdlight
-El objetivo de este tutorial es mostrar la integración de Azure y Thirdlight.  
+# <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutorial: integración de Azure Active Directory con ThirdLight
 
-En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+En este tutorial, aprenderá a integrar ThirdLight con Azure Active Directory (Azure AD).
 
-* Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Thirdlight
+La integración de ThirdLight con Azure AD proporciona las siguientes ventajas:
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Thirdlight podrán iniciar sesión en la aplicación mediante SSO en el sitio de la compañía de Thirdlight (inicio de sesión iniciado por el proveedor de servicios) o mediante el procedimiento explicado en la [introducción al panel de acceso](active-directory-saas-access-panel-introduction.md).
+- En Azure AD se puede controlar quién tiene acceso a ThirdLight
+- Puede permitir que los usuarios inicien sesión automáticamente en ThirdLight (inicio de sesión único) con sus cuentas de Azure AD
+- Puede administrar las cuentas en una sola ubicación central: Azure Portal.
 
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-1. Habilitación de la integración de aplicaciones para Thirdlight
-2. Configuración del inicio de sesión único (SSO)
-3. Configuración del aprovisionamiento de usuario
-4. Asignación de usuarios
+## <a name="prerequisites"></a>Requisitos previos
 
-![Escenario](./media/active-directory-saas-thirdlight-tutorial/IC805836.png "Escenario")
+Para configurar la integración de Azure AD con ThirdLight, necesita los siguientes elementos:
 
-## <a name="enable-the-application-integration-for-thirdlight"></a>Habilitación de la integración de aplicaciones para Thirdlight
-El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para Thirdlight.
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en ThirdLight
 
-**Siga estos pasos con el fin de habilitar la integración de aplicaciones para Thirdlight:**
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
-1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
+
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+
+1. Incorporación de ThirdLight desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
+
+## <a name="adding-thirdlight-from-the-gallery"></a>Incorporación de ThirdLight desde la galería
+Para configurar la integración de ThirdLight en Azure AD, es preciso agregar ThirdLight desde la galería a la lista de aplicaciones SaaS administradas.
+
+**Para agregar ThirdLight desde la galería, siga estos pasos:**
+
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+
+    ![Aplicaciones][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
+    ![Aplicaciones][3]
+
+4. En el cuadro de búsqueda, escriba **ThirdLight**.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_search.png)
+
+5. En el panel de resultados, seleccione **ThirdLight** y haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con ThirdLight con un usuario de prueba llamado Britta Simon.
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de ThirdLight para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario asociado de ThirdLight.
+
+Para establecer esta relación de vínculo, se asigna el valor del **nombre de usuario** en Azure AD como valor de **Nombre de usuario** en ThirdLight.
+
+Para configurar y probar el inicio de sesión único de Azure AD con ThirdLight, es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de ThirdLight](#creating-a-thirdlight-test-user)**: para tener un homólogo de Britta Simon en ThirdLight vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación ThirdLight.
+
+**Para configurar el inicio de sesión único de Azure AD con ThirdLight, realice los pasos siguientes:**
+
+1. En Azure Portal, en la página de integración de la aplicación **ThirdLight**, haga clic en **Inicio de sesión único**.
+
+    ![Configurar inicio de sesión único][4]
+
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_samlbase.png)
+
+3. En la sección de **ThirdLight Domain and URLs** (Dominio y direcciones URL de ThirdLight), lleve a cabo los pasos siguientes:
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_url.png)
+
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.thirdlight.com/`.
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.thirdlight.com/saml/sp`
+
+    > [!NOTE] 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de ThirdLight](https://www.thirdlight.com/support) para obtener estos valores. 
+ 
+4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_certificate.png) 
+
+5. Haga clic en el botón **Guardar** .
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-thirdlight-tutorial/tutorial_general_400.png)
+
+6. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de ThirdLight como administrador.
+
+7. Vaya a **Configuración \> Administración del sistema** y luego haga clic en **SAML2**.
    
-    ![Active Directory](./media/active-directory-saas-thirdlight-tutorial/IC700993.png "Active Directory")
+    ![Administración del sistema](./media/active-directory-saas-thirdlight-tutorial/ic805843.png "Administración del sistema")
 
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
+8. En la sección de configuración de SAML2, realice los pasos siguientes:
    
-    ![Aplicaciones](./media/active-directory-saas-thirdlight-tutorial/IC700994.png "Aplicaciones")
+    ![Inicio de sesión único SAML](./media/active-directory-saas-thirdlight-tutorial/ic805844.png "Inicio de sesión único SAML")   
 
-4. Haga clic en **Agregar** en la parte inferior de la página.
-   
-    ![Agregar aplicaciones](./media/active-directory-saas-thirdlight-tutorial/IC749321.png "Agregar aplicaciones")
+     a. Seleccione **Habilitar inicio de sesión único de SAML2**.
+ 
+     b. Como **Origen para los metadatos de IdP**, seleccione **Cargar metadatos de IdP desde XML**.
+ 
+     c. Abra el archivo de metadatos descargado, copie el contenido y luego péguelo en el cuadro de texto **XML de metadatos de IdP** . 
+     
+     d. Haga clic en **Guardar configuración de SAML2**.
 
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-   
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-thirdlight-tutorial/IC749322.png "Agregar una aplicación de la galería")
+> [!TIP]
+> Ahora puede leer una versión concisa de estas instrucciones en [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-6. En el **cuadro de búsqueda**, escriba **Thirdlight**.
-   
-    ![Galería de aplicaciones](./media/active-directory-saas-thirdlight-tutorial/IC805837.png "Galería de aplicaciones")
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-7. En el panel de resultados, seleccione **Thirdlight** y, luego, haga clic en **Completar** para agregar la aplicación.
-   
-    ![ThirdLight](./media/active-directory-saas-thirdlight-tutorial/IC805838.png "ThirdLight")
+![Creación de un usuario de Azure AD][100]
 
-## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Thirdlight con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-La configuración del SSO para Thirdlight requiere la recuperación de un valor de huella digital de un certificado.
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
-Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-thirdlight-tutorial/create_aaduser_01.png) 
 
-**Siga estos pasos para configurar el inicio de sesión único:**
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-thirdlight-tutorial/create_aaduser_02.png) 
 
-1. En el Portal de Azure clásico, en la página de integración de la aplicación **Thirdlight**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-thirdlight-tutorial/IC805839.png "Configurar inicio de sesión único")
+3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-thirdlight-tutorial/create_aaduser_03.png) 
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Thirdlight?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Configurar inicio de sesión único")
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-thirdlight-tutorial/create_aaduser_04.png) 
 
-3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Thirdlight**, escriba la dirección URL usada por los usuarios para iniciar sesión en su aplicación Thirdlight (por ejemplo: "*http://azuresso2.thirdlight.com/*") y, luego, haga clic en **Siguiente**.
-   
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-thirdlight-tutorial/IC805841.png "Configurar dirección URL de la aplicación")
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
-4. En la página **Configuración de inicio de sesión único en Thirdlight**, para descargar sus metadatos, haga clic en **Descargar metadatos** y, luego, guarde el archivo de metadatos localmente en el equipo.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-thirdlight-tutorial/IC805842.png "Configurar inicio de sesión único")
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
-5. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de Thirdlight como administrador.
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-6. Vaya a **Configuración \> Administración del sistema** y luego haga clic en **SAML2**.
-   
-    ![Administración del sistema](./media/active-directory-saas-thirdlight-tutorial/IC805843.png "Administración del sistema")
+    d. Haga clic en **Crear**.
+ 
+### <a name="creating-a-thirdlight-test-user"></a>Creación de un usuario de prueba ThirdLight
 
-7. En la sección de configuración de SAML2, realice los pasos siguientes:
-   
-    ![Inicio de sesión único SAML](./media/active-directory-saas-thirdlight-tutorial/IC805844.png "Inicio de sesión único SAML")   
- 1. Seleccione **Habilitar inicio de sesión único de SAML2**. 
- 2. Como **Origen para los metadatos de IdP**, seleccione **Cargar metadatos de IdP desde XML**. 
- 3. Abra el archivo de metadatos descargado, copie el contenido y luego péguelo en el cuadro de texto **XML de metadatos de IdP** . 
- 4. Haga clic en **Guardar configuración de SAML2**.
+Para permitir que los usuarios de Azure AD inicien sesión en ThirdLight, deben aprovisionarse en ThirdLight.  
+En el caso de ThirdLight, el aprovisionamiento es una tarea manual.
 
-8. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-thirdlight-tutorial/IC805845.png "Configurar inicio de sesión único")
+**Para aprovisionar una cuenta de usuario, realice estos pasos:**
 
-## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
-Para permitir que los usuarios de Azure AD inicien sesión en Thirdlight, deben aprovisionarse en Thirdlight.  
-
-* En el caso de Thirdlight, el aprovisionamiento es una tarea manual.
-
-**Siga estos pasos para configurar el aprovisionamiento de usuario:**
-
-1. Inicie sesión en su sitio de la compañía de **Thirdlight** como administrador.
+1. Inicie sesión en su sitio de la compañía de **ThirdLight** como administrador.
 
 2. Vaya a la pestaña **Usuarios** .
 
@@ -134,23 +200,61 @@ Para permitir que los usuarios de Azure AD inicien sesión en Thirdlight, deben 
 
 >[!NOTE]
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Thirdlight ofrecida por Thirdlight para aprovisionar cuentas de usuario de AAD. 
-> 
 
-## <a name="assign-users"></a>Asignar usuarios
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-**Para asignar usuarios a Thirdlight, lleve a cabo los siguientes pasos:**
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a ThirdLight.
 
-1. En el Portal de Azure clásico, cree una cuenta de prueba.
+![Asignar usuario][200] 
 
-2. En la página de integración de la aplicación **Thirdlight**, haga clic en **Asignar usuarios**.
-   
-    ![Asignar usuarios](./media/active-directory-saas-thirdlight-tutorial/IC805846.png "Asignar usuarios")
+**Para asignar Britta Simon a ThirdLight, realice los pasos siguientes:**
 
-3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
-   
-    ![Sí](./media/active-directory-saas-thirdlight-tutorial/IC767830.png "Sí")
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones, seleccione **ThirdLight**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_app.png) 
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Asignar usuario][202] 
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Asignar usuario][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono de ThirdLight en el panel de acceso, iniciará sesión automáticamente en la aplicación ThirdLight.
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-thirdlight-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-thirdlight-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-thirdlight-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-thirdlight-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-thirdlight-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-thirdlight-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-thirdlight-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-thirdlight-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-thirdlight-tutorial/tutorial_general_203.png
 
 

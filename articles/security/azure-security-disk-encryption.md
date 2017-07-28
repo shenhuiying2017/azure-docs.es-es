@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 35a86a91ee60a81b5c743067fcd97da0f2dcc8f1
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: e9c1868f978616eb71410171faed6d5a60030258
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -214,14 +214,23 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
   * Para instalar la CLI de Azure y asociarla a una suscripción de Azure, consulte [Instalación de la CLI de Azure](../cli-install-nodejs.md).
   * Para utilizar la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager, vea [Comandos de la CLI de Azure en el modo de Resource Manager](../virtual-machines/azure-cli-arm-commands.md).
 
-* Debe usar el parámetro -skipVmBackup cuando use el comando CLI o Set-AzureRmVMDiskEncryptionExtension cmdlet de PS de Azure Disk Encryption para habilitar el cifrado en la máquina virtual del disco administrado de Azure.
+* Cuando se cifra un disco administrado, es requisito previo obligatorio tomar una instantánea o hacer una copia de seguridad del disco fuera de Azure Disk Encryption antes de habilitar el cifrado.  Sin una copia de seguridad, cualquier error inesperado durante el cifrado puede provocar que el disco y la máquina virtual queden inaccesibles sin ninguna opción de recuperación.  Set-AzureRmVMDiskEncryptionExtension no realiza actualmente la copia de seguridad de los discos administrados y se generará un error si se utiliza en un disco administrado, a menos que se haya especificado el parámetro -skipVmBackup.  No es seguro usar este parámetro a menos que ya se haya hecho una copia de seguridad fuera de Azure Disk Encryption.   Cuando se especifique el parámetro -skipVmBackup, el cmdlet no realizará una copia de seguridad del disco administrado antes del cifrado.  Por este motivo, se considera un requisito previo obligatorio asegurarse de que hay disponible una copia de seguridad de la máquina virtual del disco administrado antes de habilitar Azure Disk Encryption por si más adelante fuera necesaria la recuperación.  
 > [!NOTE]
- > Si no especifica el parámetro -skipVmBackup, se producirá un error al habilitar el cifrado.
+ > El parámetro -skipVmBackup nunca debería utilizarse a menos que ya se haya realizado una copia de seguridad o una instantánea fuera de Azure Disk Encryption. 
 
 * La solución Azure Disk Encryption usa el protector de claves externas de BitLocker para máquinas virtuales IaaS con Windows. Para las máquinas virtuales unidas en un dominio, NO cree ninguna directiva de grupo que exija protectores de TPM. Para obtener información acerca de la directiva de grupo para "Permitir BitLocker sin un TPM compatible", consulte la [Referencia de la directiva de grupo de BitLocker](https://technet.microsoft.com/library/ee706521).
-* Para crear una aplicación de Azure AD, crear un nuevo almacén de claves o configurar el ya existente y habilitar el cifrado, consulte [Azure Disk Encryption prerequisite PowerShell script](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1) (Script de PowerShell de requisito previo de Azure Disk Encryption).
+* La directiva de BitLocker en las máquinas virtuales unidas a un dominio con una directiva de grupo personalizada debe incluir la siguiente configuración: `Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key` Azure Disk Encryption producirá un error cuando la configuración de directiva de grupo personalizada para Bitlocker no sea compatible. En los equipos que no tengan la configuración de directiva correcta, al aplicar la nueva directiva, se obligará a que la nueva directiva se actualice (gpupdate.exe /force) y, a continuación, podría ser necesario reiniciar.  
+* Para crear una aplicación de Azure AD, crear un nuevo almacén de claves o configurar el ya existente y habilitar el cifrado, consulte [Azure Disk Encryption prerequisite PowerShell script](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1) (Script de PowerShell de requisito previo de Azure Disk Encryption).
 * Para configurar los requisitos previos del cifrado del disco mediante la CLI de Azure, consulte [este script de Bash](https://github.com/ejarvi/ade-cli-getting-started).
 * Para usar el servicio Azure Backup para hacer copias de seguridad y restaurar las máquinas virtuales cifradas, cuando esté habilitado el cifrado con Azure Disk Encryption, cifre las máquinas virtuales mediante la configuración de claves de Azure Disk Encryption. El servicio Backup es compatible con las máquinas virtuales cifradas mediante el uso únicamente de la configuración de KEK. Vea [Procedimiento de realización de copias de seguridad y restauración de máquinas virtuales cifradas con Azure Backup Encryption](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+
+* Cuando se cifra un volumen de sistema operativo Linux, tenga en cuenta que actualmente se requiere reiniciar la máquina virtual al final del proceso. Esto puede hacerse mediante el portal, Powershell o CLI.   Para realizar un seguimiento del progreso del cifrado, sondee periódicamente el mensaje de estado devuelto por Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Cuando se complete el cifrado, el mensaje de estado devuelto por este comando lo indicará.  Por ejemplo, "ProgressMessage: disco del sistema operativo cifrado correctamente, reinicie la máquina virtual". En este momento, la máquina virtual se puede reiniciar y usar.  
+
+* Azure Disk Encryption para Linux requiere que los discos de datos tengan un sistema de archivos montado en Linux antes del cifrado
+
+* Los discos de datos montados de forma recursiva no son compatibles con Azure Disk Encryption para Linux. Por ejemplo, si el sistema de destino ha montado un disco en/foo/barra y, a continuación, otro en /foo/barra/baz, el cifrado de /foo/barra/baz se realizará correctamente, pero se producirá un error de cifrado de /foo/barra. 
+
+* Azure Disk Encryption solo es compatible con las imágenes de la galería que cumplen los requisitos previos mencionados anteriormente.  Las imágenes personalizadas no se admiten debido a los comportamientos de los procesos y los esquemas de las particiones personalizadas que puedan existir en estas imágenes.  Además, incluso pueden no ser compatibles las máquinas virtuales basadas en imágenes de la galería que inicialmente cumplieran los requisitos previos, pero fueran modificadas después de su creación.  Por ello, el procedimiento sugerido para cifrar una VM de Linux es partir de una imagen limpia de la galería, cifrar la máquina virtual y, a continuación, agregarle los datos o el software personalizado según sea necesario.  
 
 > [!NOTE]
 > La copia de seguridad y restauración de las máquinas virtuales cifradas solo se admite para las máquinas virtuales que se cifran mediante la configuración de KEK. No se admite en máquinas virtuales cifradas sin KEK. KEK es un parámetro opcional que habilita las máquinas virtuales.
@@ -734,10 +743,8 @@ Use la plantilla de ARM del disco administrado de Azure para crear una máquina 
  [Crear una máquina virtual IaaS de disco administrado cifrado de Windows nueva a partir de una imagen de la galería] (https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
 
   > [!NOTE]
-  >Debe usar el parámetro -skipVmBackup cuando use el comando CLI o Set-AzureRmVMDiskEncryptionExtension cmdlet de PS de Azure Disk Encryption para habilitar el cifrado en la máquina virtual del disco administrado de Azure.
-  >
-  >Se recomienda realizar copias de seguridad de su instancia de máquina virtual en ejecución antes de habilitar el cifrado mediante el cmdlet de PS Set-AzureRmVMDiskEncryptionExtension en la máquina virtual de disco administrado de Linux.
-
+  >Es obligatorio crear una instantánea o una copia de seguridad de una instancia de la máquina virtual basada en un disco administrado fuera de Azure Disk Encryption y antes de habilitar esta característica.  Puede tomar una instantánea del disco administrado desde el portal o se puede usar Azure Backup.  Las copias de seguridad garantizan que es posible disponer de una opción de recuperación en el caso de que se produzca un error inesperado durante el cifrado.  Una vez que se realiza una copia de seguridad, el cmdlet Set-AzureRmVMDiskEncryptionExtension puede utilizarse para cifrar los discos administrados especificando el parámetro -skipVmBackup.  Este comando producirá un error en las máquinas virtuales basadas en un disco administrado hasta que se realice una copia de seguridad y se especifique este parámetro.    
+ 
 ### <a name="update-encryption-settings-of-an-existing-encrypted-non-premium-vm"></a>Actualización de la configuración del cifrado de una máquina virtual cifrada no premium existente
   Utilice las interfaces existentes permitidas de Azure Disk Encryption para ejecutar máquinas virtuales [cmdlets de PS, plantillas de CLI o ARM] para actualizar la configuración del cifrado, como ID de cliente AAD/secreto de cliente, clave de cifrado de clave [KEK], clave de cifrado de BitLocker para VM de Windows o la frase de contraseña para VM de Linux, etc. La configuración de cifrado de la actualización solo se admite para las máquinas virtuales respaldadas por almacenamiento que no sea Premium Storage. NO está admitido para máquinas virtuales respaldadas por Premium Storage.
 

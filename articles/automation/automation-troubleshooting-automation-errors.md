@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 06/26/2017
 ms.author: sngun; v-reagie
-translationtype: Human Translation
-ms.sourcegitcommit: a8ecffbc5f9c7e2408708d59459a0d39e59d6e1e
-ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
+ms.contentlocale: es-es
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -64,6 +66,22 @@ Este artículo proporciona ayuda para solucionar los errores comunes que puede e
 **Sugerencias para solucionar el problema**: para usar un certificado con los cmdlets de Azure Service Management, consulte el artículo sobre [cómo crear y agregar un certificado para administrar los servicios de Azure](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Para usar una entidad de servicio con los cmdlets de Azure Resource Manager, consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) y [Autenticación de una entidad de servicio con Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Errores comunes al trabajar con runbooks
+### <a name="scenario-the-runbook-job-start-was-attempted-three-times-but-it-failed-to-start-each-time"></a>Escenario: se intentó iniciar el trabajo de runbook tres veces, pero las tres se produjo un error
+**Error:** el runbook genera el error "El trabajo se ha intentado realizar tres veces, pero se produjo un error".
+
+**Motivo del error:** este error puede deberse a las siguientes razones:  
+
+1. Límite de memoria.  Se han documentado límites en la cantidad de memoria asignada a un espacio aislado con los [límites del servicio Automation](../azure-subscription-service-limits.md#automation-limits), de modo que un trabajo puede producir un error, si está utilizando más de 400 MB de memoria. 
+
+2. Módulo incompatible.  Puede ocurrir si las dependencias del módulo no son correctas. En este caso, el runbook normalmente devolverá un mensaje similar a "Comando no encontrado" o "No se puede enlazar el parámetro". 
+
+**Sugerencias para solucionar el problema:** cualquiera de las siguientes alternativas solucionará este problema:  
+
+* Algunos métodos sugeridos para trabajar dentro del límite de memoria son dividir la carga de trabajo entre varios runbooks, no procesar tantos datos en la memoria, no escribir el resultado innecesario de los runbooks o considerar cuántos puntos de control se escriben en los runbooks de flujo de trabajo de PowerShell.  
+
+* Debe actualizar los módulos de Azure siguiendo los pasos [Actualización de módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md).  
+
+
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Escenario: error en runbook debido a un objeto deserializado
 **Error**: El runbook falla y recibe el error "No se puede enlazar el parámetro ``<ParameterName>``. No se puede convertir el valor ``<ParameterType>`` de tipo deserializado ``<ParameterType>`` a tipo ``<ParameterType>``".
 
@@ -172,9 +190,4 @@ Si ha seguido los pasos de solución de problemas anteriores y no puede encontra
 * Registrar un incidente de soporte técnico de Azure. Vaya al [Sitio del soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico** en **Soporte técnico y facturación**.
 * Si está buscando una solución de Runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/) .
 * Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

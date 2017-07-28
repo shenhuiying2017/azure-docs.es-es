@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0e2bbb2a94986ca93035aa553db0f9b54af635d5
-ms.lasthandoff: 04/27/2017
-
+ms.reviewer: nigu
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 58733a36e1753c219df51e1fbe845a2f2a0fdbdc
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticación basada en certificados de Azure Active Directory en Android
@@ -30,7 +31,9 @@ La autenticación basada en certificados (CBA) le permite autenticarse mediante 
 
 Al configurar esta función, no tendrá que escribir una combinación de nombre de usuario y contraseña en determinadas aplicaciones de correo electrónico y Microsoft Office de su dispositivo móvil. 
 
-En este tema se proporcionan los requisitos y los escenarios admitidos para configurar CBA en un dispositivo Android para usuarios de inquilinos de Office 365 Enterprise, Business, Education y US Government. 
+En este tema se proporcionan los requisitos y los escenarios admitidos para configurar CBA en un dispositivo Android para usuarios de inquilinos de planes de Office 365 Enterprise, Empresa, Educación, US Government y China.
+
+
 
 Esta característica se encuentra disponible como versión preliminar en los planes Office 365 US Government Defense y US Government Federal.
 
@@ -45,6 +48,8 @@ Esta característica se encuentra disponible como versión preliminar en los pla
 | Yammer |![Comprobar][1] |
 | Skype Empresarial |![Comprobar][1] |
 | Aplicación Azure Information Protection |![Comprobar][1] |
+| Equipos de Microsoft |![Comprobar][1] |
+
 
 
 ### <a name="implementation-requirements"></a>Requisitos de implementación

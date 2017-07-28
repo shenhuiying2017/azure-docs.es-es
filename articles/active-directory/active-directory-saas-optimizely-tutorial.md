@@ -2,247 +2,197 @@
 title: "Tutorial: integración de Azure Active Directory con Optimizely | Microsoft Docs"
 description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Optimizely."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: 28ef03e1-9aad-4301-af97-d94e853edc74
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 06/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 1d9aa0e5da9b0bd659b8057739c81b318023cf44
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: 4d6f6da6bace09fbd6ab105530a1162653675c99
+ms.contentlocale: es-es
+ms.lasthandoff: 06/23/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: integración de Azure Active Directory con Optimizely
+
 En este tutorial, obtendrá información sobre cómo integrar Optimizely con Azure Active Directory (Azure AD).
 
 La integración de Optimizely con Azure AD le proporciona las siguientes ventajas:
 
-* Puede controlar en Azure AD quién tiene acceso a Optimizely.
-* Puede permitir que los usuarios inicien sesión automáticamente en Optimizely mediante inicio de sesión único (SSO) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
+- Puede controlar en Azure AD quién tiene acceso a Optimizely.
+- Puede permitir que los usuarios inicien sesión automáticamente en Optimizely (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar las cuentas en una sola ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Para configurar la integración de Azure AD con Optimizely, se necesitan los siguientes elementos:
 
-* Una suscripción de Azure AD
-* Una suscripción habilitada para el SSO en **Optimizely**
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en Optimizely
 
->[!NOTE]
->Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-> 
-
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-* No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único (SSO) de Azure AD en un entorno de prueba. 
-
-La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Optimizely desde la galería
-2. Configuración y prueba del inicio de sesión único de Azure AD
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="add-optimizely-from-the-gallery"></a>Adición de Optimizely desde la galería
+## <a name="adding-optimizely-from-the-gallery"></a>Adición de Optimizely desde la galería
 Para configurar la integración de Optimizely en Azure AD, es preciso agregar Optimizely desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Optimizely desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
-   
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+
     ![Active Directory][1]
 
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
-   
-    ![Applications][2]
+    ![Aplicaciones][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-4. Haga clic en **Agregar** en la parte inferior de la página.
-   
     ![Aplicaciones][3]
 
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-   
-    ![Aplicaciones][4]
+4. En el cuadro de búsqueda, escriba **Optimizely**.
 
-6. En el cuadro de búsqueda, escriba **Optimizely**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_01.png)
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_search.png)
 
-7. En el panel de resultados, seleccione **Optimizely** y, después, haga clic en **Completar** para agregar la aplicación.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_02.png)
+5. En el panel de resultados, seleccione **Optimizely** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-En esta sección, configurará y probará el SSO de Azure AD con Optimizely mediante un usuario de prueba llamado "Britta Simon".
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_addfromgallery.png)
 
-Para que el SSO funcione, Azure AD debe saber cuál es el usuario homólogo en Optimizely de un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Optimizely.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Optimizely con un usuario de prueba llamado "Britta Simon".
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Optimizely para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Optimizely.
 
 Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como valor del **nombre de usuario** en Optimizely.
 
-Para configurar y probar el SSO de Azure AD con Optimizely, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Optimizely, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Optimizely](#creating-an-optimizely-test-user)** : para tener un homólogo de Britta Simon en Optimizely que esté vinculado a la representación de ella en Azure AD.
+3. **[Creación de un usuario de prueba de Optimizely](#creating-an-optimizely-test-user)**: el objetivo es tener un homólogo de Britta Simon en Optimizely que esté vinculado a la representación del usuario en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-El objetivo de esta sección es habilitar el SSO de Azure AD en el Portal de Azure clásico y configurarlo en la aplicación Optimizely.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-La aplicación de Optimizely espera que las aserciones SAML contengan un atributo denominado "email". El valor de "email" debe ser un correo electrónico reconocido de Optimizely autenticado mediante Azure AD. Configure las notificaciones "email" para esta aplicación. 
-
-Puede administrar el valor de estos atributos desde la pestaña **"Atributo"** de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto. 
-
-![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_03.png) 
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Optimizely.
 
 **Para configurar el inicio de sesión único de Azure AD con Optimizely, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, en la página de integración de la aplicación **Optimizely**, en el menú de la parte superior, haga clic en **Atributos**.
-   
-    ![Configurar inicio de sesión único][5]
+1. En la página de integración de la aplicación **Optimizely** de Azure Portal, haga clic en **Inicio de sesión único**.
 
-2. En el cuadro de diálogo de atributos de token SAML, agregue el atributo "email".
-  1. Haga clic en **add user attribute** to open the **Agregar atributo de usuario** . 
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_05.png)
-  2. En el cuadro de texto **Nombre de atributo** , escriba el nombre de atributo "email".
-  3. En la lista **Valor de atributo** , seleccione el valor de atributo "userprincipalname" o cualquier otro que contenga un correo electrónico reconocido de Azure AD y Optimizely.
-  4. Haga clic en **Completo**.
+    ![Configurar inicio de sesión único][4]
 
-3. En el menú de la parte superior, haga clic en **Inicio rápido**.
-   
-    ![Configurar inicio de sesión único][6]
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_samlbase.png)
 
-4. En el portal clásico, en la página de integración de la aplicación de **Optimizely**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-    ![Configurar inicio de sesión único][7] 
+3. En la sección **Dominio y direcciones URL de Optimizely**, lleve a cabo los pasos siguientes:
 
-5. En la página **¿Cómo desea que los usuarios inicien sesión en Optimizely?**, seleccione **Inicio de sesión único de Azure AD** y haga clic en **Siguiente**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_06.png)
+    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_url.png)
 
-6. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes: 
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png)
-  1. En el cuadro de texto **URL de inicio de sesión**, escriba: `https://app.optimizely.net/contoso`
-  2. En el cuadro de texto **Identificador**, escriba: `urn:auth0:optimizely:contoso`
-  3. Haga clic en **Siguiente**. 
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.optimizely.net/<instance name>`.
 
-     >[!NOTE] 
-     >Los valores de **URL de inicio de sesión** e **Identificador** solo son marcadores de posición de los valores reales. Más adelante en este tutorial podrá encontrar instrucciones para obtener los valores reales de Optimizely.
-     >
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `urn:auth0:optimizely:contoso`
 
-1. En la página **Configurar inicio de sesión único en Optimizely** , siga estos pasos:
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_08.png)
- 1. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
- 2. Copie la **Dirección URL del servicio de inicio de sesión único**.
+    > [!NOTE] 
+    > Estos valores no son reales. El valor se actualizará con la dirección URL de inicio de sesión y el identificador reales, que se explican más adelante en el tutorial. 
 
-2. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el administrador de cuentas de Optimizely y proporcione la siguiente información:
-   
-  * El certificado descargado 
-  * La dirección URL del servicio de inicio de sesión único
-     
-  En respuesta a su correo electrónico, Optimizely proporciona la URL de inicio de sesión (SSO iniciado por el proveedor de servicios) y los valores de Identificador (Id. de entidad del proveedor de servicios).
+4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
-3. Vaya a la página de diálogo **Configurar las opciones de la aplicación** y realice los pasos siguientes:
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png) 
- 1. En el cuadro de texto **URL de inicio de sesión**, escriba la **dirección URL de inicio de sesión único iniciada por el proveedor de servicios** que proporciona Optimizely.  
- 2. En el cuadro de texto **Identificador**, escriba el **id. de entidad del proveedor de servicios** que proporciona Optimizely.  
- 3. Haga clic en **Siguiente**.
+    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_certificate.png) 
 
-4. En la página **Configurar inicio de sesión único en Optimizely** , siga estos pasos:
-   
-    ![Inicio de sesión único de Azure AD ][10] 
- 1. Seleccione la confirmación de la configuración de inicio de sesión único.  
- 2. Haga clic en **Siguiente**.
+5. Haga clic en el botón **Guardar** .
 
-5. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
-   
-    ![Inicio de sesión único de Azure AD ][11]
+    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_general_400.png)
 
-6. En una ventana de explorador diferente, inicie sesión en su aplicación de Optimizely como administrador.
+6. En la sección **Configuración de Optimizely**, haga clic en **Configurar Optimizely** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
 
-7. Haga clic en el nombre de la cuenta de la parte superior derecha y, después, en **Configuración de la cuenta**.
+    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_configure.png) 
+
+7. Para configurar el inicio de sesión único en **Optimizely**, póngase en contacto con el administrador de su cuenta de Optimizely y proporcione el **certificado (Base64)** descargado y la **dirección URL del servicio de inicio de sesión único de SAML**. 
+
+8. En respuesta a su correo electrónico, Optimizely proporciona la URL de inicio de sesión (SSO iniciado por el proveedor de servicios) y los valores de Identificador (Id. de entidad del proveedor de servicios).
+
+    a. Copie la **URL de inicio de sesión único iniciado por SP** que proporciona Optimizely y péguela en el cuadro de texto **URL de inicio de sesión** en la sección **Dominio y direcciones URL de Optimizely** de Azure Portal. 
+
+    b. Copie el **identificador de entidad del proveedor de servicios** que proporciona Optimizely y péguelo en el cuadro de texto **Identificador** de la sección **Dominio y direcciones URL de Optimizely** de Azure Portal. 
+
+9. En una ventana de explorador diferente, inicie sesión en su aplicación de Optimizely como administrador.
+
+10. Haga clic en el nombre de la cuenta de la parte superior derecha y, después, en **Configuración de la cuenta**.
    
     ![Inicio de sesión único de Azure AD ](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_09.png)
 
-8. En la pestaña Cuenta, active la casilla **Habilitar SSO** que se encuentra debajo de Inicio de sesión único en la sección **Información general**.
+11. En la pestaña Cuenta, active la casilla **Habilitar SSO** que se encuentra debajo de Inicio de sesión único en la sección **Información general**.
    
     ![Inicio de sesión único de Azure AD ](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_10.png)
+    
+12. Haga clic en **Guardar**
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-En esta sección, creará un usuario de prueba llamado Britta Simon en el portal clásico.
+> [!TIP]
+> Ahora puede leer una versión concisa de estas instrucciones en [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-* En la lista Usuarios, seleccione **Britta Simon**.
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-![Creación de un usuario de Azure AD][20]
+![Creación de un usuario de Azure AD][100]
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_09.png) 
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_01.png) 
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
-   
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_02.png) 
+
+3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+ 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_03.png) 
 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
-   
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+ 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_04.png) 
 
-5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_05.png)  
- 1. En Tipo de usuario, seleccione Nuevo usuario de la organización. 
- 2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**. 
- 3. Haga clic en **Siguiente**.
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
-6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_06.png)  
- 1. En el cuadro de texto **Nombre**, escriba **Britta**.   
- 2. En el cuadro de texto **Apellidos**, escriba **Simon**. 
- 3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.  
- 4. En la lista **Rol**, seleccione **Usuario**. 
- 5. Haga clic en **Siguiente**.
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
-7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_07.png) 
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_08.png)  
- 1. Anote el valor del campo **Nueva contraseña**.  
- 2. Haga clic en **Completo**.   
+    d. Haga clic en **Crear**.
+ 
+### <a name="creating-an-optimizely-test-user"></a>Creación de un usuario de prueba de Optimizely
 
-### <a name="create-an-optimizely-test-user"></a>Creación de un usuario de prueba de Optimizely
 En esta sección, creará un usuario llamado Britta Simon en Optimizely.
 
 1. En la página principal, seleccione la pestaña **Colaboradores**.
 
-2. Haga clic en **New Collaborator** (Nuevo colaborador) para agregar un nuevo colaborador al proyecto.
+2. Para agregar un nuevo colaborador, haga clic en **New Collaborator** (Nuevo colaborador).
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_10.png)
 
@@ -250,41 +200,50 @@ En esta sección, creará un usuario llamado Britta Simon en Optimizely.
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_11.png)
 
-1. El colaborador recibirá un correo electrónico de invitación y podrá iniciar sesión en Optimizely utilizando la dirección de correo electrónico.
+4. El usuario recibirá una invitación por correo electrónico, con la que debe iniciar sesión en Optimizely.
 
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Optimizely.
 
 ![Asignar usuario][200] 
 
 **Para asignar Britta Simon a Optimizely, realice los pasos siguientes:**
 
-1. En el portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
-   
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+
     ![Asignar usuario][201] 
 
 2. En la lista de aplicaciones, seleccione **Optimizely**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_50.png) 
 
-3. En el menú de la parte superior, haga clic en **Usuarios**.
-   
-    ![Asignar usuario][203] 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_app.png) 
 
-4. En la lista Todos los usuarios, seleccione **Britta Simon**.
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
-5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
-   
-    ![Asignar usuario][205]
+    ![Asignar usuario][202] 
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-Al hacer clic en el icono de Optimizely en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Optimizely.
+    ![Asignar usuario][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono de Optimizely en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Optimizely. 
 
 ## <a name="additional-resources"></a>Recursos adicionales
+
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -293,17 +252,11 @@ Al hacer clic en el icono de Optimizely en el panel de acceso, debería iniciar 
 [3]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_04.png
 
-
-[5]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_05.png
-[6]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_06.png
-[7]:  ./media/active-directory-saas-optimizely-tutorial/tutorial_general_050.png
-[10]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_060.png
-[11]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_070.png
-[20]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_205.png
+
 
