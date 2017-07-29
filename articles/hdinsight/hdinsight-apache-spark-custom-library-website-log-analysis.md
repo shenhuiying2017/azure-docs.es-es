@@ -1,6 +1,6 @@
 ---
-title: "Uso de bibliotecas de Python para analizar registros de sitios web en el clúster de Azure Spark | Microsoft Docs"
-description: "Uso de bibliotecas Python personalizadas con un clúster Spark de HDInsight para analizar registros de sitios web"
+title: "Análisis de registros de sitios web mediante bibliotecas Python en Spark - Azure | Microsoft Docs"
+description: "En este cuaderno se muestra cómo analizar los datos de registro mediante una biblioteca personalizada con Spark en Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,11 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: d55005ecea7ba6b31c638af3d26c44932e3d12bc
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 41275f8264353e7158ca42e5cfc089b2fbaa556d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Análisis de registros de sitios web mediante una biblioteca Python personalizada con un clúster Apache Spark en HDInsight
@@ -46,7 +45,7 @@ En esta sección, usamos el cuaderno de [Jupyter](https://jupyter.org) asociado 
 
 Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, nos conectaremos a la tabla de Hive mediante herramientas de BI como Power BI y Tableau.
 
-1. Desde el [Portal de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
+1. Desde [Azure Portal](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 2. En la hoja del clúster Spark, haga clic en **Panel de clúster** y, luego, en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
 
    > [!NOTE]
@@ -69,7 +68,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 1. Crear un RDD con los datos de registro de ejemplo ya disponibles en el clúster. Puede acceder a los datos de la cuenta de almacenamiento predeterminada asociada al clúster en **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
-        logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
+        logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
 
 1. Recupere un registro de ejemplo establecido para comprobar que el paso anterior se ha completado correctamente.
@@ -93,7 +92,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
     Sin embargo, esta biblioteca no está en `PYTHONPATH`, por lo que no podemos usarla mediante una instrucción de importación como `import iislogparser`. Para usar esta biblioteca, debemos distribuirla a todos los nodos de trabajo. Ejecute el siguiente fragmento de código:
 
-        sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
+        sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
 1. `iislogparser` proporciona una función `parse_log_line` que devuelve `None` si una línea de registro es una fila de encabezado y devuelve una instancia de la clase `LogLine` si encuentra una línea de registro. Utilice la clase `LogLine` para extraer solo las líneas de registro desde el RDD:
@@ -120,7 +119,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
        numLines = logLines.count()
        numErrors = errors.count()
        print 'There are', numErrors, 'errors and', numLines, 'log entries'
-       errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
+       errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
    Debe ver algo parecido a lo siguiente:
 
@@ -220,9 +219,9 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 * [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones de Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

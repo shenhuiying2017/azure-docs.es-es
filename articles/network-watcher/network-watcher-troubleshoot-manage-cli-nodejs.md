@@ -1,6 +1,6 @@
 ---
-title: "Solución de problemas de puerta de enlace y conexiones de Azure Virtual Network con la CLI de Azure 2.0 | Microsoft Docs"
-description: "En esta página se explica cómo usar Azure Network Watcher para solucionar problemas con CLI de Azure 2.0"
+title: "Solución de problemas de puerta de enlace y conexiones de Azure Virtual Network con la CLI de Azure 1.0 | Microsoft Docs"
+description: "En esta página se explica cómo usar Azure Network Watcher para solucionar problemas con la CLI de Azure 1.0."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -16,14 +16,14 @@ ms.date: 06/19/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 09270cf3181476f3ed2c1720b497e707edff880e
+ms.openlocfilehash: 74dd87fe19a9d46e74ac4ed01f357e17ee625039
 ms.contentlocale: es-es
 ms.lasthandoff: 06/20/2017
 
 
 ---
 
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>Solución de problemas de puerta de enlace y conexiones de red virtual mediante la CLI de Azure 2.0 de Azure Network Watcher
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-10"></a>Solución de problemas de puerta de enlace y conexiones de Virtual Network mediante la CLI de Azure 1.0 de Azure Network Watcher
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-troubleshoot-manage-portal.md)
@@ -34,15 +34,13 @@ ms.lasthandoff: 06/20/2017
 
 Network Watcher proporciona numerosas funcionalidades con relación a los recursos de red de Azure. Una de estas funcionalidades es la solución de problemas de recursos. Se puede llamar a la solución de problemas de recursos mediante el portal, PowerShell, la CLI o la API de REST. Cuando se llama a Network Watcher, este inspecciona el estado de una puerta de enlace de Virtual Network o de una conexión y devuelve sus conclusiones.
 
-En este artículo se usa la CLI de próxima generación para el modelo de implementación de administración de recursos, la CLI de Azure 2.0, que está disponible para Windows, Mac y Linux.
-
-Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+En este artículo, se utiliza la multiplataforma Azure CLI 1.0, que está disponible para Windows, Mac y Linux. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Create an Azure Network Watcher instance](network-watcher-create.md) (Creación de una instancia de Azure Network Watcher) para crear una instancia de Network Watcher.
 
-Para obtener una lista de los tipos de puerta de enlace compatibles, visite [Tipos de puerta de enlace compatibles](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+Para obtener una lista de los tipos de puerta de enlace compatibles, vea el artículo sobre los [tipos de puerta de enlace compatibles](/network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## <a name="overview"></a>Información general
 
@@ -53,13 +51,19 @@ La solución de problemas de recursos permite solucionar los problemas que surge
 En este ejemplo, la solución de problemas de recursos se va a ejecutar en una conexión. También puede pasarla una puerta de enlace de Virtual Network. El cmdlet siguiente enumera las conexiones de VPN en un grupo de recursos.
 
 ```azurecli
-az network vpn-connection list --resource-group resourceGroupName
+azure network vpn-connection list -g resourceGroupName
+```
+
+También puede ejecutar el comando para ver las conexiones de una suscripción.
+
+```azurecli
+azure network vpn-connection list -s subscription
 ```
 
 Cuando tenga el nombre de la conexión, puede ejecutar este comando para obtener su identificador de recurso:
 
 ```azurecli
-az network vpn-connection show --resource-group resourceGroupName --ids vpnConnectionIds
+azure network vpn-connection show -g resourceGroupName -n connectionName
 ```
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
@@ -69,27 +73,27 @@ La solución de problemas de recursos devuelve datos sobre el estado de mantenim
 1. Creación de la cuenta de almacenamiento
 
     ```azurecli
-    az storage account create --name storageAccountName --location westcentralus --resource-group resourceGroupName --sku Standard_LRS
+    azure storage account create -n storageAccountName -l location -g resourceGroupName
     ```
 
 1. Obtenga las claves de cuenta de almacenamiento.
 
     ```azurecli
-    az storage account keys list --resource-group resourcegroupName --account-name storageAccountName
+    azure storage account keys list storageAccountName -g resourcegroupName
     ```
 
 1. Cree el contenedor.
 
     ```azurecli
-    az storage container create --account-name storageAccountName --account-key {storageAccountKey} --name logs
+    azure storage container create --account-name storageAccountName -g resourcegroupName --account-key {storageAccountKey} --container logs
     ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Ejecución de la solución de problemas de recursos Network Watcher
 
-Los problemas de recursos se solucionan con el cmdlet `az network watcher troubleshooting`. Pasamos al cmdlet el grupo de recursos, el nombre de la instancia de Network Watcher, el identificador de la conexión, el identificador de la cuenta de almacenamiento, y la ruta de acceso al blob donde se van a almacenar los resultados de la solución de problemas.
+Los problemas de recursos se solucionan con el cmdlet `network watcher troubleshoot`. Pasamos al cmdlet el grupo de recursos, el nombre de la instancia de Network Watcher, el identificador de la conexión, el identificador de la cuenta de almacenamiento, y la ruta de acceso al blob donde se van a almacenar los resultados de la solución de problemas.
 
 ```azurecli
-az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}
+azure network watcher troubleshoot -g resourceGroupName -n networkWatcherName -t connectionId -i storageId -p storagePath
 ```
 
 Después de ejecutar el cmdlet, Network Watcher revisa los recursos para comprobar el estado. Devuelve los resultados al shell y almacena los registros de los resultados en la cuenta de almacenamiento especificada.

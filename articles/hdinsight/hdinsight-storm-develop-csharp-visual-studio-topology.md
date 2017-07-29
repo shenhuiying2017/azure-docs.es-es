@@ -1,6 +1,6 @@
 ---
-title: "Topologías de Apache Storm con Visual Studio y C# - Azure | Microsoft Docs"
-description: "Aprenda a crear topologías de Storm en C# al crear una sencilla topología de recuento de palabras en Visual Studio con las herramientas de Hadoop para Visual Studio."
+title: "Topologías de Apache Storm con Visual Studio y C# - Azure HDInsight | Microsoft Docs"
+description: "Aprenda a crear topologías de Storm en C#. Cree una sencilla topología de recuento de palabras en Visual Studio con las herramientas de Hadoop para Visual Studio."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,97 +14,136 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
+ms.date: 05/23/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 7b267ba427da276f53326c9068417521c8976e63
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 9447cf1919cacee5319afe559e7745e5d218fb0d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="develop-c-topologies-for-apache-storm-on-hdinsight-using-hadoop-tools-for-visual-studio"></a>Desarrollo de topologías de C# para Apache Storm en HDInsight con herramientas de Hadoop para Visual Studio
+# <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desarrollo de topologías de C# para Apache Storm con Herramientas de Azure Data Lake para Visual Studio
 
-Aprenda a crear una topología de Storm de C# con Herramientas de Data Lake (Hadoop) para Visual Studio. Este documento le guía a través del proceso de creación de un proyecto de Storm en Visual Studio, probarlo localmente e implementarlo en un clúster de Apache Storm en HDInsight.
+Aprenda a crear una topología de Storm de C# con Herramientas de Azure Data Lake (Hadoop) para Visual Studio. Este documento le guía a través del proceso para crear un proyecto de Storm en Visual Studio, probarlo localmente e implementarlo en un clúster de Apache Storm en Azure HDInsight.
 
 También aprenderá a crear topologías híbridas que usan componentes de C# y Java.
 
+> [!NOTE]
+> Aunque los pasos descritos en este documento se basan en un entorno de desarrollo de Windows con Visual Studio, el proyecto compilado se puede enviar a un clúster de HDInsight basado en Windows o Linux. Solo los clústeres basados en Linux creados después del 28 de octubre de 2016 admiten topologías SCP.NET.
+
+Para usar una topología de C# con un clúster basado en Linux, debe actualizar el paquete NuGet Microsoft.SCP.Net.SDK usado en el proyecto a la versión 0.10.0.6 o posterior. La versión del paquete también debe coincidir con la versión principal de Storm instalada en HDInsight.
+
+| Versión de HDInsight | Versión de Storm | Versión de SCP.NET | Versión de Mono predeterminada |
+|:-----------------:|:-------------:|:---------------:|:--------------------:|
+| 3.3 |0.10.x |0.10.x.x</br>(solo en HDInsight basado en Windows) | N/D |
+| 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
+| 3,5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
+| 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
+
 > [!IMPORTANT]
-> Aunque los pasos descritos en este documento se basan en un entorno de desarrollo de Windows con Visual Studio, el proyecto compilado se puede enviar a un clúster de HDInsight basado en Windows o Linux. __Solo los clústeres basados en Linux creados con posterioridad al 28/10/2016 admiten topologías SCP.NET__.
->
-> Para usar una topología de C# con un clúster basado en Linux, debe actualizar el paquete de NuGet Microsoft.SCP.Net.SDK usado en el proyecto a la versión 0.10.0.6 u otra superior. La versión del paquete también debe coincidir con la versión principal de Storm instalada en HDInsight. Por ejemplo, en las versiones de HDInsight 3.3 y 3.4 se usa Storm 0.10.x, mientras que en HDInsight 3.5 se usa Storm 1.0.x.
->
-> Las topologías de C# en clústeres basados en Linux deben usar .NET 4.5, y emplear Mono para ejecutarse en el clúster de HDInsight. La mayoría funcionará; no obstante, debe comprobar el documento de [compatibilidad de Mono](http://www.mono-project.com/docs/about-mono/compatibility/) para ver las posibles incompatibilidades.
+> Las topologías de C# en clústeres basados en Linux deben usar .NET 4.5, y emplear Mono para ejecutarse en el clúster de HDInsight. Compruebe el documento de [compatibilidad de Mono](http://www.mono-project.com/docs/about-mono/compatibility/) para ver las posibles incompatibilidades.
 
+## <a name="install-visual-studio"></a>Instalación de Visual Studio
 
-## <a name="prerequisites"></a>Requisitos previos
+Puede desarrollar topologías de C# con SCP.NET mediante una de las siguientes versiones de Visual Studio:
 
-* [Java](https://java.com) 1.7 o superior en el entorno de desarrollo. Java se utiliza para empaquetar la topología cuando se envía al clúster de HDInsight.
+* Visual Studio 2012 con [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-  * La variable de entorno **JAVA_HOME** debe señalar al directorio que contiene Java.
-  * El directorio **%JAVA_HOME%/bin** debe estar en la ruta de acceso.
+* Visual Studio 2013 con [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) o [Visual Studio Community 2013](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-* Una de las siguientes versiones de Visual Studio:
+* Visual Studio 2015 o [Visual Studio Community 2015](https://go.microsoft.com/fwlink/?LinkId=532606)
 
-  * Visual Studio 2012 con [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
-  * Visual Studio 2013 con [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) o [Visual Studio Community 2013](http://go.microsoft.com/fwlink/?LinkId=517284)
-  * Visual Studio 2015 o [Visual Studio Community 2015](https://go.microsoft.com/fwlink/?LinkId=532606)
-  * Visual Studio 2017 (cualquier edición)
+* Visual Studio 2017 (cualquier edición)
 
-* Azure SDK 2.9.5 o posterior
+## <a name="install-data-lake-tools-for-visual-studio"></a>Instalación de Herramientas de Data Lake para Visual Studio
 
-* Herramientas de Data Lake para Visual Studio: para instalarlo y configurarlo, vea [Conectarse a Azure HDInsight y ejecutar consultas de Hive con Herramientas de Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+Para instalar Herramientas de Data Lake para Visual Studio, siga los pasos de [Get started using Data Lake tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) (Introducción al uso de Herramientas de Data Lake para Visual Studio).
 
-  > [!NOTE]
-  > Herramientas de Data Lake para Visual Studio no se puede usar en Visual Studio Express.
+## <a name="install-java"></a>Instalar Java
 
-* Clúster Apache Storm en HDInsight: vea [Introducción a Apache Storm en HDInsight](hdinsight-apache-storm-tutorial-get-started.md) para conocer los pasos para crear un clúster.
+Cuando se envía una topología de Storm desde Visual Studio, SCP.NET genera un archivo zip que contiene la topología y las dependencias. Java se usa para crear estos archivos zip, ya que emplea un formato más compatible con los clústeres basados en Linux.
 
-  > [!IMPORTANT]
-  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+1. Instale Java Development Kit (JDK) 7 o posterior en el entorno de desarrollo. Puede obtener el JDK de Oracle en [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). También puede usar [otras distribuciones de Java](http://openjdk.java.net/).
 
-## <a name="templates"></a>Plantillas
+2. La variable de entorno `JAVA_HOME` debe apuntar al directorio que contiene Java.
+
+3. La variable de entorno `PATH` debe incluir el directorio `%JAVA_HOME%\bin`.
+
+Puede usar la aplicación de consola de C# siguiente para comprobar que Java y el JDK se han instalado correctamente:
+
+```csharp
+using System;
+using System.IO;
+namespace ConsoleApplication2
+{
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable(“JAVA_HOME”);
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @”\bin”, “jar.exe”);
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine(“JAVA Is Installed properly”);
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine(“A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.”);
+               }
+           }
+           else
+           {
+             Console.WriteLine(“A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.”);
+           }
+       }  
+   }
+}
+```
+
+## <a name="storm-templates"></a>Plantillas de Storm
 
 Herramientas de Data Lake para Visual Studio proporciona las siguientes plantillas:
 
 | Tipo de proyecto | Muestra |
 | --- | --- |
-| Storm Application |Un proyecto vacío de topología de Storm |
-| Storm Azure SQL Writer Sample |Cómo escribir en Base de datos SQL de Azure |
-| Storm Azure Cosmos DB Reader Sample |Cómo leer desde Azure Cosmos DB |
-| Storm Azure Cosmos DB Writer Sample |Cómo escribir en Azure Cosmos DB |
-| Storm EventHub Reader Sample |Cómo leer en los centros de eventos de Azure |
-| Storm EventHub Writer Sample |Cómo escribir en los centros de eventos de Azure |
-| Storm HBase Reader Sample |Cómo leer de HBase en clústeres de HDInsight |
-| Storm HBase Writer Sample |Cómo escribir en HBase en clústeres de HDInsight |
-| Storm Hybrid Sample |Cómo utilizar un componente de Java |
-| Storm Sample |Una topología de recuento de palabras básica |
+| Storm Application |Un proyecto vacío de topología de Storm. |
+| Storm Azure SQL Writer Sample |Cómo escribir en Azure SQL Database. |
+| Storm Azure Cosmos DB Reader Sample |Cómo leer desde Azure Cosmos DB. |
+| Storm Azure Cosmos DB Writer Sample |Cómo escribir en Azure Cosmos DB. |
+| Storm EventHub Reader Sample |Cómo leer desde Azure Event Hubs. |
+| Storm EventHub Writer Sample |Cómo escribir en Azure Event Hubs. |
+| Storm HBase Reader Sample |Cómo leer desde HBase en clústeres de HDInsight. |
+| Storm HBase Writer Sample |Cómo escribir en HBase en clústeres de HDInsight. |
+| Storm Hybrid Sample |Cómo usar un componente de Java. |
+| Storm Sample |Una topología de recuento de palabras básica. |
 
 En los pasos de este documento, usará el tipo de proyecto Storm Application básico para crear una topología.
 
 ### <a name="hbase-templates-notes"></a>Notas de plantillas de HBase
 
-Las plantillas de lector y escritor de HBase usan la API de REST de HBase para comunicarse con un HBase en un clúster de HDInsight, no la API de Java de HBase.
+Las plantillas de lector y escritor de HBase usan la API de REST de HBase, no la API de Java de HBase, para comunicarse con un HBase en un clúster de HDInsight.
 
 ### <a name="eventhub-templates-notes"></a>Notas de plantillas de EventHub
 
 > [!IMPORTANT]
-> El componente de spout de EventHub basado en Java incluido con la plantilla de lector de EventHub no funcionará con Storm en HDInsight versión 3.5. En su lugar, utilice el componente de spout de EventHub de [https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar](https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar).
+> Es posible que el componente de spout de EventHub basado en Java incluido en la plantilla de lector de EventHub no funcione con Storm en HDInsight versión 3.5 o posterior. Hay una versión actualizada de este componente disponible en [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
-Para conocer una topología de ejemplo que utiliza este componente y funciona con Storm en HDInsight 3.5, vea [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
+Para obtener una topología de ejemplo que usa este componente y funciona con Storm en HDInsight 3.5, vea [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
 ## <a name="create-a-c-topology"></a>Creación de una topología de C#
 
-1. Si todavía no tiene instalada la versión más reciente de Herramientas de Data Lake para Visual Studio, vea [Conectarse a Azure HDInsight y ejecutar consultas de Hive con Herramientas de Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. Abra Visual Studio, seleccione **Archivo** > **Nuevo** y luego seleccione **Proyecto**.
 
-2. Abra Visual Studio, seleccione **Archivo** > **Nuevo** y luego **Proyecto**.
+2. En la ventana **Nuevo proyecto**, expanda **Instalado** > **Plantillas** y seleccione **Azure Data Lake**. En la lista de plantillas, seleccione **Aplicación de Storm**. En la parte inferior de la pantalla, escriba **WordCount** como nombre de la aplicación.
 
-3. En la pantalla **Nuevo proyecto**, expanda **Instalado** > **Plantillas** y seleccione **Azure Data Lake**. En la lista de plantillas, seleccione **Aplicación de Storm**. En la parte inferior de la pantalla, escriba **WordCount** como nombre de la aplicación.
+    ![Captura de pantalla de la ventana Nuevo proyecto](./media/hdinsight-storm-develop-csharp-visual-studio-topology/new-project.png)
 
-    ![imagen](./media/hdinsight-storm-develop-csharp-visual-studio-topology/new-project.png)
-
-4. Cuando se haya creado el proyecto, debe tener los siguientes archivos:
+3. Después de crear el proyecto, debe tener los siguientes archivos:
 
    * **Program.cs**: este archivo define la topología del proyecto. Una topología predeterminada que consta de un spout y un bolt se crea de manera predeterminada.
 
@@ -112,11 +151,9 @@ Para conocer una topología de ejemplo que utiliza este componente y funciona co
 
    * **Bolt.cs**: un bolt de ejemplo que mantiene un recuento de los números emitidos por el spout.
 
-     Como parte de la creación del proyecto, el [paquete SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) más reciente se descargará de NuGet.
+     Cuando se crea el proyecto, NuGet descarga el [paquete SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) más reciente.
 
      [!INCLUDE [scp.net version important](../../includes/hdinsight-storm-scpdotnet-version.md)]
-
-En las secciones siguientes, modificará este proyecto en una aplicación básica de WordCount.
 
 ### <a name="implement-the-spout"></a>Implementación del spout
 
@@ -188,8 +225,6 @@ En las secciones siguientes, modificará este proyecto en una aplicación básic
     }
     ```
 
-    Dedique un momento a leer los comentarios para entender lo que hace este código.
-
 ### <a name="implement-the-bolts"></a>Implementación de los bolts
 
 1. Elimine el archivo **Bolt.cs** existente del proyecto.
@@ -251,9 +286,7 @@ En las secciones siguientes, modificará este proyecto en una aplicación básic
     }
     ```
 
-    Dedique un momento a leer los comentarios para entender lo que hace este código.
-
-5. Abra **Counter.cs** y reemplace el contenido de la clase por lo siguiente:
+5. Abra **Counter.cs** y sustituya el contenido de la clase por lo siguiente:
 
     ```csharp
     private Context ctx;
@@ -307,15 +340,13 @@ En las secciones siguientes, modificará este proyecto en una aplicación básic
     }
     ```
 
-    Dedique un momento a leer los comentarios para entender lo que hace este código.
-
 ### <a name="define-the-topology"></a>Definición de la topología
 
 Los spouts y bolts se organizan en un gráfico, que define cómo fluyen los datos entre componentes. Para esta topología, el gráfico es como sigue:
 
-![imagen de cómo se organizan los componentes](./media/hdinsight-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![Diagrama de cómo se organizan los componentes](./media/hdinsight-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
 
-Las frases se emiten desde el spout, que se distribuyen a las instancias del bolt divisor. El bolt divisor divide las frases en palabras, que se distribuyen en el bolt contador.
+Las frases se emiten desde el spout y se distribuyen a las instancias del bolt divisor. El bolt divisor divide las frases en palabras, que se distribuyen en el bolt contador.
 
 Dado que el recuento de palabras se guarda localmente en la instancia del contador, queremos asegurarnos de que determinadas palabras fluyan a la misma instancia del bolt contador. Cada instancia realiza el seguimiento de palabras específicas. Dado que el bolt divisor no mantiene ningún estado, realmente no importa qué instancia del divisor recibe cada frase.
 
@@ -378,21 +409,19 @@ topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
 return topologyBuilder;
 ```
 
-Dedique un momento a leer los comentarios para entender lo que hace este código.
-
 ## <a name="submit-the-topology"></a>Envío de la topología
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Submit to Storm on HDInsight** (Enviar a Storm en HDInsight).
 
    > [!NOTE]
-   > Si se le solicita, introduzca las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
+   > Si se le solicita, introduzca las credenciales de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
 
 2. Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Storm Cluster**  (Clúster de Storm y seleccione **Submit** (Enviar). Puede supervisar si el envío es correcto mediante la ventana **Salida** .
 
 3. Cuando la topología se envíe correctamente, debe aparecer **topologías de Storm** del clúster. Seleccione la topología **WordCount** en la lista para consultar la información acerca de la topología en ejecución.
 
    > [!NOTE]
-   > También puede ver las **topologías de Storm** en el **Explorador de servidores**: expanda **Azure** > **HDInsight**, haga clic con el botón derecho en un clúster de Storm en HDInsight y luego seleccione **Ver topologías de Storm**.
+   > También puede ver **topologías de Storm** desde el **Explorador de servidores**. Expanda **Azure** > **HDInsight**, haga clic con el botón derecho en un clúster de Storm en HDInsight y luego seleccione **Ver topologías de Storm**.
 
     Para ver información sobre los componentes de la topología, haga doble clic en el componente en el diagrama.
 
@@ -403,13 +432,13 @@ Dedique un momento a leer los comentarios para entender lo que hace este código
 
 ## <a name="transactional-topology"></a>Topología transaccional
 
-La topología anterior no es transaccional. Los componentes de la topología no implementan la funcionalidad para reproducir los mensajes. Para ver un ejemplo de topología transaccional, cree un proyecto y seleccione **Muestra de Storm** como tipo de proyecto.
+La topología anterior no es transaccional. Los componentes de la topología no implementan la funcionalidad para reproducir los mensajes. Para ver un ejemplo de una topología transaccional, cree un proyecto y seleccione **Muestra de Storm** como tipo de proyecto.
 
 Las topologías transaccionales implementan lo siguiente para que admitan la reproducción de datos:
 
 * **Almacenamiento en caché de metadatos**: el spout debe almacenar metadatos sobre los datos emitidos para que los datos puedan recuperarse y volver a emitirse si se produce un error. Dado que los datos que emite la muestra son pequeños, los datos sin procesar de cada tupla se almacenan en un diccionario para la reproducción.
 
-* **Ack**: cada bolt de la topología puede llamar a `this.ctx.Ack(tuple)` para confirmar si el proceso de una tupla se ha realizado correctamente. Una vez que todos los bolts han confirmado la tupla, se llama al método `Ack` del spout. El método `Ack` permite al spout quitar los datos que se almacenaron en caché para la reproducción.
+* **Ack**: cada bolt de la topología puede llamar a `this.ctx.Ack(tuple)` para confirmar que ha procesado una tupla correctamente. Una vez que todos los bolts han confirmado la tupla, se llama al método `Ack` del spout. El método `Ack` permite al spout quitar los datos que se almacenaron en caché para la reproducción.
 
 * **Fail**: cada bolt puede llamar a `this.ctx.Fail(tuple)` para indicar que se produjo un error al procesar una tupla. El error se propaga al método `Fail` del spout, donde la tupla puede reproducirse mediante metadatos almacenados en caché.
 
@@ -419,54 +448,53 @@ Las topologías transaccionales implementan lo siguiente para que admitan la rep
 
     Este código emite una tupla que contiene una frase a la secuencia predeterminada, con el valor de identificador de secuencia contenido en **lastSeqId**. En este ejemplo, **lastSeqId** se incrementa con cada tupla emitida.
 
-Como se muestra en el proyecto **Muestra de Storm** , se puede establecer si un componente es transaccional en tiempo de ejecución, según la configuración.
+Como se muestra en el proyecto **Muestra de Storm**, se puede establecer si un componente es transaccional en runtime, según la configuración.
 
 ## <a name="hybrid-topology-with-c-and-java"></a>Topología híbrida con C# y Java
 
-Herramientas de Data Lake para Visual Studio también se puede usar para crear topologías híbridas, donde algunos componentes son de C# y otros, de Java.
+También puede usar Herramientas de Data Lake para Visual Studio para crear topologías híbridas, donde algunos componentes son de C# y otros de Java.
 
-Para ver una topología híbrida de ejemplo, cree un proyecto y seleccione **Muestra híbrida de Storm**. Este tipo de ejemplo ilustra los conceptos siguientes:
+Para ver un ejemplo de una topología híbrida, cree un proyecto y seleccione **Muestra híbrida de Storm**. Este tipo de ejemplo ilustra los conceptos siguientes:
 
-* **Spout de Java** y **bolt de C#**: definidos en **HybridTopology_javaSpout_csharpBolt**
+* **Spout de Java** y **bolt de C#**: definidos en **HybridTopology_javaSpout_csharpBolt**.
 
-    * Una versión transaccional se define en **HybridTopologyTx_javaSpout_csharpBolt**
+    * Una versión transaccional se define en **HybridTopologyTx_javaSpout_csharpBolt**.
 
-* **Spout de C#** y **bolt de Java**: definidos en **HybridTopology_csharpSpout_javaBolt**
+* **Spout de C#** y **bolt de Java**: definidos en **HybridTopology_csharpSpout_javaBolt**.
 
-    * Una versión transaccional se define en **HybridTopologyTx_csharpSpout_javaBolt**
+    * Una versión transaccional se define en **HybridTopologyTx_csharpSpout_javaBolt**.
 
   > [!NOTE]
   > Esta versión también muestra cómo usar código de Clojure desde un archivo de texto como un componente de Java.
 
 
-Para cambiar entre la topología que se usa cuando se envía el proyecto, simplemente mueva la instrucción `[Active(true)]` a la topología que quiere usar antes de enviarla al clúster.
+Para cambiar la topología que se usa cuando se envía el proyecto, simplemente mueva la instrucción `[Active(true)]` a la topología que quiere usar antes de enviarla al clúster.
 
 > [!NOTE]
 > Todos los archivos de Java necesarios se ofrecen como parte de este proyecto en la carpeta **JavaDependency** .
 
-
 Tenga en cuenta lo siguiente al crear y enviar una topología híbrida:
 
-* **JavaComponentConstructor** debe usarse para crear una instancia de la clase de Java para un spout o bolt.
+* Debe usar **JavaComponentConstructor** para crear una instancia de la clase de Java para un spout o bolt.
 
-* **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** debe usarse para serializar datos hacia y desde los componentes de Java, a partir de objetos de Java a JSON
+* Debe usar **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** para serializar datos hacia y desde los componentes de Java a partir de objetos de Java a JSON.
 
 * Al enviar la topología al servidor, debe usar la opción **Configuraciones adicionales** para especificar las **rutas de acceso del archivo Java**. La ruta especificada debe ser el directorio que contiene los archivos JAR que contienen las clases de Java.
 
 ### <a name="azure-event-hubs"></a>Centros de eventos de Azure
 
-La versión 0.9.4.203 de SCP.Net presenta una nueva clase y método específicos para trabajar con el spout del Centro de eventos (un spout de Java que lee desde el Centro de eventos.) Al crear una topología que usa un spout del Centro de eventos, use los métodos siguientes:
+La versión 0.9.4.203 de SCP.NET presenta una nueva clase y un nuevo método específicos para trabajar con el spout del centro de eventos (un spout de Java que lee desde Event Hubs). Al crear una topología que usa un spout del centro de eventos, emplee los métodos siguientes:
 
-* Clase **EventHubSpoutConfig**: crea un objeto que contiene la configuración del componente spout.
+* Clase **EventHubSpoutConfig**: crea un objeto que contiene la configuración del componente de spout.
 
-* Método **TopologyBuilder.SetEventHubSpout**: agrega el componente spout del Centro de eventos a la topología.
+* Método **TopologyBuilder.SetEventHubSpout**: agrega el componente de spout del centro de eventos a la topología.
 
 > [!NOTE]
-> Deberá seguir usando CustomizedInteropJSONSerializer para serializar los datos producidos por el spout.
+> Debe seguir usando **CustomizedInteropJSONSerializer** para serializar los datos generados por el spout.
 
 ## <a id="configurationmanager"></a>Uso de ConfigurationManager
 
-No use ConfigurationManager para recuperar valores de configuración de los componentes bolt y spout. Si lo hace, puede generar una excepción de puntero nulo. En su lugar, la configuración de su proyecto se pasa a la topología de Storm como un par clave-valor en el contexto de la topología. Cada componente que se basa en los valores de configuración debe recuperarlos del contexto durante la inicialización.
+No use **ConfigurationManager** para recuperar valores de configuración de los componentes de bolt y spout. Si lo hace, puede generar una excepción de puntero nulo. En su lugar, la configuración del proyecto se pasa a la topología de Storm como un par de clave y valor en el contexto de la topología. Cada componente que se basa en los valores de configuración debe recuperarlos del contexto durante la inicialización.
 
 El código siguiente muestra cómo recuperar estos valores:
 
@@ -503,11 +531,11 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 ## <a name="how-to-update-scpnet"></a>Cómo actualizar SCP.NET
 
-Las versiones recientes de SCP.NET admiten la actualización de paquetes a través de NuGet. Cuando está disponible una nueva actualización, recibirá una notificación de actualización. Para comprobar manualmente una actualización, siga estos pasos:
+Las versiones recientes de SCP.NET admiten la actualización de paquetes a través de NuGet. Cuando está disponible una nueva actualización, recibirá una notificación de actualización. Para comprobar manualmente si hay una actualización, siga estos pasos:
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**.
 
-2. En el administrador de paquetes, seleccione **Actualizaciones**. Si hay disponible una actualización, se mostrará una lista. Haga clic en el botón **Actualizar** para que el paquete la instale.
+2. En el administrador de paquetes, seleccione **Actualizaciones**. Si hay disponible una actualización, se mostrará una lista. Haga clic en **Actualizar** para que el paquete la instale.
 
 > [!IMPORTANT]
 > Si el proyecto se creó con una versión anterior de SCP.NET que no usó NuGet, debe realizar los pasos siguientes para actualizar a una versión más reciente:
@@ -515,25 +543,25 @@ Las versiones recientes de SCP.NET admiten la actualización de paquetes a trav�
 > 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**.
 > 2. Mediante el campo **Búsqueda**, busque **Microsoft.SCP.Net.SDK** y agréguelo al proyecto.
 
-## <a name="troubleshooting-common-issues-with-topologies"></a>Solución de problemas comunes en las topologías
+## <a name="troubleshoot-common-issues-with-topologies"></a>Solución de problemas comunes de las topologías
 
 ### <a name="null-pointer-exceptions"></a>Excepciones de puntero nulo
 
-Al usar una topología de C# con un clúster de HDInsight basado en Linux, los componentes de bolt y spout que usan ConfigurationManager para leer los valores de configuración en tiempo de ejecución pueden devolver excepciones de puntero nulo.
+Al usar una topología de C# con un clúster de HDInsight basado en Linux, los componentes de bolt y spout que usan **ConfigurationManager** para leer los valores de configuración en runtime pueden devolver excepciones de puntero nulo.
 
-La configuración del proyecto se pasa a la topología de Storm como un par clave-valor en el contexto de la topología. Se puede recuperar del objeto de diccionario que se pasó a los componentes cuando se inicializaron.
+La configuración del proyecto se pasa a la topología de Storm como un par de clave y valor en el contexto de la topología. Se puede recuperar del objeto de diccionario que se pasó a los componentes cuando se inicializaron.
 
 Para más información, vea la sección [ConfigurationManager](#configurationmanager) de este documento.
 
 ### <a name="systemtypeloadexception"></a>System.TypeLoadException
 
-Al usar una topología de C# con un clúster de HDInsight basado en Linux, puede encontrar el siguiente error:
+Al usar una topología de C# con un clúster de HDInsight basado en Linux, puede aparecer el siguiente error:
 
     System.TypeLoadException: Failure has occurred while loading a type.
 
-Este error se produce cuando se usa un archivo binario que no es compatible con la versión de .NET que admite mono.
+Este error se produce cuando se usa un archivo binario que no es compatible con la versión de .NET que admite Mono.
 
-Para clústeres de HDInsight basados en Linux, debe asegurarse de que el proyecto usa archivos binarios compilados para .NET 4.5.
+En el caso de los clústeres de HDInsight basados en Linux, debe asegurarse de que el proyecto use archivos binarios compilados para .NET 4.5.
 
 ### <a name="test-a-topology-locally"></a>Prueba de una topología localmente
 
@@ -544,7 +572,7 @@ Aunque es fácil implementar una topología en un clúster, en algunos casos pue
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Propiedades**. En las propiedades del proyecto, cambie el **tipo de salida** a **Aplicación de consola**.
 
-    ![tipo de salida](./media/hdinsight-storm-develop-csharp-visual-studio-topology/outputtype.png)
+    ![Captura de pantalla de las propiedades del proyecto con Tipo de salida resaltado](./media/hdinsight-storm-develop-csharp-visual-studio-topology/outputtype.png)
 
    > [!NOTE]
    > No olvide cambiar el **tipo de salida** de nuevo a **Biblioteca de clases** antes de implementar la topología en un clúster.
@@ -659,12 +687,12 @@ Aunque es fácil implementar una topología en un clúster, en algunos casos pue
     Console.ReadKey();
     ```
 
-2. Guarde los cambios y presione **F5** o seleccione **Depurar** > **Iniciar depuración** para iniciar el proyecto. Debe aparecer una ventana de consola y el estado del registro a medida que progresen las pruebas. Cuando se muestre **Pruebas finalizadas** , presione cualquier tecla para cerrar la ventana.
+2. Guarde los cambios y luego haga clic en **F5** o seleccione **Depurar** > **Iniciar depuración** para iniciar el proyecto. Debe aparecer una ventana de consola y el estado del registro a medida que progresen las pruebas. Cuando se muestre **Pruebas finalizadas** , presione cualquier tecla para cerrar la ventana.
 
-3. Use el **Explorador de Windows** para buscar el directorio que contiene el proyecto; por ejemplo, **C:\Usuarios\<su_nombre_de_usuario>\Documentos\Visual Studio 2013\Projects\WordCount\WordCount**. En este directorio, abra **Bin** y haga clic en **Depurar**. Debería ver los archivos de texto que se generaron cuando se ejecutaron las pruebas: sentences.txt, counter.txt y splitter.txt. Abra cada archivo de texto e inspeccione los datos.
+3. Use el **Explorador de Windows** para buscar el directorio que contiene el proyecto. Por ejemplo: **C:\Usuarios\<su_nombre_de_usuario>\Documentos\Visual Studio 2013\Projects\WordCount\WordCount**. En este directorio, abra **Bin** y haga clic en **Depurar**. Debería ver los archivos de texto que se generaron cuando se ejecutaron las pruebas: sentences.txt, counter.txt y splitter.txt. Abra cada archivo de texto e inspeccione los datos.
 
    > [!NOTE]
-   > Los datos de cadena se almacenan como una matriz de valores decimales en estos archivos. Por ejemplo, \[[97,103,111]] en el archivo **splitter.txt** es la palabra 'and'.
+   > Los datos de cadena se guardan como persistentes como una matriz de valores decimales en estos archivos. Por ejemplo, \[[97,103,111]] en el archivo **splitter.txt** es la palabra *and*.
 
 > [!NOTE]
 > Asegúrese de volver a establecer el **tipo de proyecto** en **Biblioteca de clases** antes de implementarlo en un clúster de Storm en HDInsight.
@@ -677,10 +705,10 @@ Puede registrar fácilmente información de los componentes de la topología med
 Context.Logger.Info("Component started");
 ```
 
-Se puede ver la información registrada desde el **registro del servicio Hadoop**, que se encuentra en el **Explorador de servidores**. Expanda la entrada para el clúster de Storm en HDInsight y, después, expanda **Registro del servicio Hadoop**. Por último, seleccione el archivo de registro que desea consultar.
+Se puede ver la información registrada desde el **registro del servicio Hadoop**, que se encuentra en el **Explorador de servidores**. Expanda la entrada del clúster de Storm en HDInsight y luego expanda **Registro del servicio Hadoop**. Por último, seleccione el archivo de registro que desea consultar.
 
 > [!NOTE]
-> Los registros se almacenan en la cuenta de almacenamiento de Azure que usa el clúster. Para ver los registros en Visual Studio, debe iniciar sesión en la suscripción de Azure a la que pertenece la cuenta de almacenamiento.
+> Los registros se almacenan en la cuenta de Azure Storage que usa el clúster. Para ver los registros en Visual Studio, debe iniciar sesión en la suscripción de Azure a la que pertenece la cuenta de almacenamiento.
 
 ### <a name="view-error-information"></a>Visualización de la información del error
 
@@ -688,7 +716,7 @@ Para ver los errores que se han producido en una topología en ejecución, siga 
 
 1. En el **Explorador de servidores**, haga clic con el botón derecho en el clúster de Storm en HDInsight y seleccione **Ver topologías de Storm**.
 
-2. Para los componentes **spout** y **bolt**, la columna **Último error** tendrá información sobre el último error que ha ocurrido.
+2. En los componentes de **spout** y **bolt**, la columna **Último error** contiene información sobre el último error.
 
 3. Seleccione el **id. de spout** o el **id. de bolt** del componente del que se muestra un error. En la página de detalles que se muestra, se enumerará información adicional sobre el error en la sección **Errores** de la parte inferior de la página.
 
@@ -700,15 +728,27 @@ Si se producen errores al enviar una topología a HDInsight, puede encontrar reg
 
     scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 
-Reemplace __sshuser__ por la cuenta de usuario SSH del clúster. Reemplace __clustername__ por el nombre del clúster de HDInsight. Si usó una contraseña para la cuenta SSH, se le pedirá que la escriba. El comando descargará el archivo en el directorio desde el que se ejecutó el comando.
+Reemplace __sshuser__ por la cuenta de usuario SSH del clúster. Reemplace __clustername__ por el nombre del clúster de HDInsight. Para más información sobre cómo usar `scp` y `ssh` con HDInsight, vea [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+Se pueden producir errores en los envíos por varios motivos:
+
+* JDK no está instalado o no está en la ruta de acceso.
+* Las dependencias de Java necesarias no se incluyen en el envío.
+* Dependencias no compatibles.
+* Nombres de topologías duplicados.
+
+Si el registro `hdinsight-scpwebapi.out` contiene un `FileNotFoundException`, puede deberse a las siguientes condiciones:
+
+* El JDK no está en la ruta de acceso en el entorno de desarrollo. Compruebe que el JDK está instalado en el entorno de desarrollo y que `%JAVA_HOME%/bin` está en la ruta de acceso.
+* Falta una dependencia de Java. Asegúrese de incluir todos los archivos .jar necesarios como parte del envío.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener un ejemplo de procesamiento de datos desde Event Hubs, vea [Procesamiento de eventos desde Azure Event Hub con Storm en HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
+Para obtener un ejemplo de procesamiento de datos desde Event Hubs, vea [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
 Para ver un ejemplo de una topología de C# que divide los datos de una secuencia en varias secuencias, consulte [Ejemplo de Storm en C#](https://github.com/Blackmist/csharp-storm-example).
 
-Para obtener más información acerca de cómo crear topologías de C#, visite [SCP.NET GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+Para más información sobre cómo crear topologías de C#, vea [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
 Para conocer más formas de trabajar con HDInsight y obtener más ejemplos de Storm en HDInsight, vea los siguientes documentos:
 

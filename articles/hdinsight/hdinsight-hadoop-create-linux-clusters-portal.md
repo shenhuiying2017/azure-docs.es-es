@@ -1,5 +1,5 @@
 ---
-title: "Creación de Azure HDInsight (Hadoop) con un explorador web | Microsoft Docs"
+title: "Creación de clústeres de Hadoop con un explorador web - Azure HDInsight | Microsoft Docs"
 description: "Aprenda a crear clústeres Hadoop, HBase, Storm o Spark en Linux para HDInsight con un explorador web y el Portal de vista previa de Azure."
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,10 @@ ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 030935ec304cc9b26bd2369fdadf2d99bd094c5d
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 678b2847f9bf39995fa214f181a05c96df9e49f2
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Crear clústeres basados en Linux en HDInsight con el Portal de Azure
@@ -38,14 +37,17 @@ El Portal de Azure es una herramienta de administración basada en web para serv
 ## <a name="create-clusters"></a>Creación de clústeres
 El Portal de Azure expone la mayor parte de las propiedades del clúster. Mediante la plantilla de Azure Resource Manager puede ocultar una gran cantidad de detalles. Para más información, consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
+
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **+**, en **Intelligence + analytics** y después en **HDInsight**.
    
-    ![Creación de un nuevo clúster en el portal de Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Creación de un nuevo clúster en el portal de Azure")
+    ![Creación de un nuevo clúster en el portal de Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "Creación de un nuevo clúster en el portal de Azure")
 
 3. En la hoja **HDInsight**, haga clic en **Custom (size, settings, apps)** [Personalizar (tamaño, configuración y aplicaciones)], haga clic en **Básico** y después escriba la siguiente información.
 
-    ![Creación de un nuevo clúster en el portal de Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.basics.png "Creación de un nuevo clúster en el portal de Azure")
+    ![Creación de un nuevo clúster en el portal de Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-basics.png "Creación de un nuevo clúster en el portal de Azure")
 
     * Especifique el **nombre del clúster**: dicho nombre debe ser único globalmente.
 
@@ -55,10 +57,10 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
    
         * **Tipo de clúster**: si no sabe qué opción elegir, seleccione **Hadoop**. Es el tipo de clúster más popular.
      
-             > [!IMPORTANT]
-             > Los clústeres de HDInsight incluyen diversos tipos, que corresponden a la carga de trabajo o la tecnología para los que el clúster está optimizado. No hay ningún método admitido para crear un solo clúster que combine varios tipos, como Storm y HBase. 
-             > 
-             > 
+            > [!IMPORTANT]
+            > Los clústeres de HDInsight incluyen diversos tipos, que corresponden a la carga de trabajo o la tecnología para los que el clúster está optimizado. No hay ningún método admitido para crear un solo clúster que combine varios tipos, como Storm y HBase. 
+            > 
+            > 
         
         * **Sistema operativo**: seleccione **Linux**.
         
@@ -79,7 +81,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
 4. En la hoja **Almacenamiento**, especifique si desea Azure Storage (WASB) o Data Lake Store como almacenamiento predeterminado. Para más información, consulte la tabla siguiente.
 
-    ![Creación de un nuevo clúster en el portal de Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.storage.png "Creación de un nuevo clúster en el portal de Azure")
+    ![Creación de un nuevo clúster en el portal de Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Creación de un nuevo clúster en el portal de Azure")
 
     | Almacenamiento                                      | Descripción |
     |----------------------------------------------|-------------|
@@ -97,7 +99,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
 6. Haga clic en **Tamaño del clúster** para mostrar información sobre los nodos que se crearán para este clúster. Establezca el número de nodos de trabajo que necesita para el clúster. El costo estimado del clúster se mostrará en la hoja.
    
-    ![Hoja de planes de tarifa de nodos](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.nodes.png "Especificación del número de nodos del clúster")
+    ![Hoja de planes de tarifa de nodos](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-nodes.png "Especificación del número de nodos del clúster")
    
    > [!IMPORTANT]
    > Si planea crear más de 32 nodos de trabajo, en la creación de clústeres o cambiando el tamaño del clúster después de la creación, debe seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
@@ -110,7 +112,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
 7. Haga clic en **Configuración avanzada** para configurar otros valores de configuración opcionales, como el uso de **Acciones de script** para personalizar un clúster para instalar componentes personalizados o unirse a una **red virtual**. Para más información, consulte la tabla siguiente.
 
-    ![Hoja de planes de tarifa de nodos](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.advanced.png "Especificación del número de nodos del clúster")
+    ![Hoja de planes de tarifa de nodos](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "Especificación del número de nodos del clúster")
 
     | Opción | Descripción |
     |--------|-------------|
@@ -121,7 +123,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
 8. En la hoja **Resumen**, verifique la información introducida anteriormente y luego haga clic en **Crear**.
 
-    ![Hoja de planes de tarifa de nodos](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.summary.png "Especificación del número de nodos del clúster")
+    ![Hoja de planes de tarifa de nodos](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "Especificación del número de nodos del clúster")
     
     > [!NOTE]
     > El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** en la parte izquierda de la página para comprobar el proceso de aprovisionamiento.
@@ -129,7 +131,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
     > 
 12. Cuando termine el proceso de creación, haga clic en el icono del clúster desde el panel de inicio para iniciar la hoja del clúster. La hoja del clúster ofrece la siguiente información.
     
-    ![Hoja de clúster](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.completed.png "Propiedades del clúster")
+    ![Hoja de clúster](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "Propiedades del clúster")
     
     Use las siguientes opciones para comprender los iconos de la parte superior de esta hoja.
     

@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/18/2017
 ms.author: banders
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 297c85d2aa5609729e394dc527fb3a1ca5810ffa
 ms.contentlocale: es-es
 ms.lasthandoff: 06/30/2017
-
 
 ---
 
@@ -86,6 +85,8 @@ Haga clic en el icono **Application Insights** para abrir el panel **Application
 ![Panel Application Insights](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
 
 El panel incluye las hojas que aparecen en la tabla. Cada hoja muestra hasta diez elementos que coinciden con los criterios de esa hoja para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que devuelva todos los registros cuando haga clic en **Ver todo** en la parte inferior de la hoja o cuando haga clic en el encabezado de esta.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Columna** | **Descripción** |
 | --- | --- |

@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b6d998575a3bf21ada200cfedeed61fe67e3b9d7
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 69b2ef54b3c92b0c92d8199e0a41c62f727c2df2
+ms.contentlocale: es-es
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -55,7 +56,7 @@ Asegúrese de que el atributo Issuer de la solicitud SAML coincide con el valor 
 
   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
+6.  Seleccionar la aplicación que desea configurar para el inicio de sesión único
 
 7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
@@ -77,7 +78,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -141,9 +142,36 @@ Deben validar que admiten la implementación de SAML de Azure AD para inicio de 
 
 El objeto de aplicación está dañado.
 
-**Resolución**
+**Resolución: opción 1**
 
-Para solucionar el problema, quite la aplicación del directorio. Después, agregue y vuelva a configurar la aplicación, y siga estos pasos:
+Para solucionar el problema, agregue el valor de identificador único en la configuración de Azure AD. Para agregar un valor del identificador, siga estos pasos:
+
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+
+3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+
+4.  Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory.
+
+5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
+
+  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+
+6.  Seleccione la aplicación para la que ha configurado el inicio de sesión único.
+
+7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
+
+8.  En la sección **Dominio y dirección URL**, compruebe **Mostrar configuración avanzada de URL**.
+
+9.  En el cuadro de texto **Identificador**, escriba un identificador único para la aplicación.
+
+10. **Guarde** la configuración.
+
+
+**Resolución: opción 2**
+
+Si la opción 1 anterior no ha funcionado, pruebe a quitar la aplicación del directorio. Después, agregue y vuelva a configurar la aplicación, y siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
 
@@ -189,7 +217,7 @@ Para eliminar y crear un nuevo certificado, siga estos pasos:
 
  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
+6.  Seleccionar la aplicación que desea configurar para el inicio de sesión único
 
 7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
@@ -200,6 +228,10 @@ Para eliminar y crear un nuevo certificado, siga estos pasos:
 10. Active **Activar el certificado nuevo** para reemplazar el certificado activo. Después, haga clic en **Guardar** en la parte superior de la hoja y en Aceptar para activar el certificado de sustitución.
 
 11. En la sección **Certificado de firma de SAML**, haga clic en **Quitar** para quitar el certificado **no usado**.
+
+## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema al personalizar las notificaciones SAML que se han enviado a una aplicación
+
+Para obtener información sobre cómo personalizar las notificaciones de atributo SAML que se han enviado a su aplicación, vea [Asignación de notificaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obtener más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)

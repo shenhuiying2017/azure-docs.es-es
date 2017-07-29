@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 83748140c7b92b95a648ae3ecf78f22e2393780b
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: c2bbb8058ce335c7568d5260ddd0274ca36c9c52
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: creación y uso de atributos personalizados en una directiva de edición de perfil personalizada.
@@ -39,38 +39,38 @@ El directorio de Azure Active Directory (Azure AD) B2C incluye un conjunto integ
 
 Con Azure AD B2C, puede ampliar el conjunto de atributos que se almacenan en cada cuenta de usuario. También puede leer y escribir estos atributos mediante la [API de Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
-[!NOTE]
-Nos referimos a un atributo personalizado o una propiedad de extensión como una característica del directorio de Azure AD B2C.  Las propiedades de extensión extienden el esquema de los objetos de usuario en el directorio.  Para utilizar un atributo personalizado como notificación personalizada en una directiva, defínalo en la directiva en `ClaimsSchema`.
+>[!NOTE]
+>Nos referimos a un atributo personalizado o una propiedad de extensión como una característica del directorio de Azure AD B2C.  Las propiedades de extensión extienden el esquema de los objetos de usuario en el directorio.  Para utilizar un atributo personalizado como notificación personalizada en una directiva, defínalo en la directiva en `ClaimsSchema`.
 
-[!NOTE]
-Las propiedades de extensión solo se pueden registrar en un objeto de aplicación, aunque pueden contener datos de un usuario. La propiedad está conectada a la aplicación. El objeto de aplicación debe tener acceso de escritura para registrar una propiedad de extensión. En un objeto individual se pueden escribir cien propiedades de extensión (de TODOS los tipos y TODAS las aplicaciones). Las propiedades de extensión se agregan al tipo de directorio de destino y se puede acceder a ellas de inmediato en el inquilino del directorio de Azure AD B2C.
+>[!NOTE]
+>Las propiedades de extensión solo se pueden registrar en un objeto de aplicación, aunque pueden contener datos de un usuario. La propiedad está conectada a la aplicación. El objeto de aplicación debe tener acceso de escritura para registrar una propiedad de extensión. En un objeto individual se pueden escribir cien propiedades de extensión (de TODOS los tipos y TODAS las aplicaciones). Las propiedades de extensión se agregan al tipo de directorio de destino y se puede acceder a ellas de inmediato en el inquilino del directorio de Azure AD B2C.
 Si la aplicación se elimina, también se quitan las propiedades de extensión, junto con los datos que contienen de todos los usuarios. Si la aplicación elimina una propiedad de extensión, se quita en el objeto de directorio de destino, y también se quitan todos los datos que contenga.
 
-[!NOTE]
-Las propiedades de extensión solo existen en el contexto de una aplicación registrada en el inquilino. El identificador de objeto de la aplicación debe estar incluido en el elemento TechnicalProfile que lo utiliza.
+>[!NOTE]
+>Las propiedades de extensión solo existen en el contexto de una aplicación registrada en el inquilino. El identificador de objeto de la aplicación debe estar incluido en el elemento TechnicalProfile que lo utiliza.
 
-[!NOTE]
-El directorio de Azure AD B2C normalmente incluye una aplicación de API Web llamada `b2c-extensions-app`.  Esta aplicación la usan principalmente las directivas integradas de b2c para las notificaciones personalizadas creadas a través de Azure Portal.  Se recomienda que sean los usuarios avanzados quienes usen esta aplicación para registrar extensiones para las directivas personalizadas de b2c.
+>[!NOTE]
+>El directorio de Azure AD B2C normalmente incluye una aplicación de API Web llamada `b2c-extensions-app`.  Esta aplicación la usan principalmente las directivas integradas de b2c para las notificaciones personalizadas creadas a través de Azure Portal.  Se recomienda que sean los usuarios avanzados quienes usen esta aplicación para registrar extensiones para las directivas personalizadas de b2c.
 
 
 ## <a name="creating-a-new-application-to-store-the-extension-properties"></a>Creación de una nueva aplicación para almacenar las propiedades de extensión
 
 1. Abra una sesión de exploración y navegue hasta [Azure Portal](https://portal.azure.com) e inicie sesión con credenciales administrativas del directorio B2C que desea configurar.
-1. Haga clic en `Azure Active Directory` en el menú de navegación de la izquierda. Puede que tenga que buscarlo, para lo que debe seleccionar Más servicios>.
-1. Seleccione `App registrations` y haga clic en `New application registration`
+1. Haga clic en **Azure Active Directory** en el panel de navegación izquierdo. Puede que tenga que buscarlo, para lo que debe seleccionar Más servicios>.
+1. Seleccione **Registros de aplicaciones** y haga clic en **Nuevo registro de aplicaciones**.
 1. Especifique las siguientes entradas recomendadas:
-  * Especifique un nombre para la aplicación web: `WebApp-GraphAPI-DirectoryExtensions`
+  * Especifique un nombre para la aplicación web: **WebApp-GraphAPI-DirectoryExtensions**.
   * Tipo de aplicación: aplicación web o API
   * URL de inicio de sesión: https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
-1. Seleccione `Create`. La finalización correcta aparece en `notifications`
-1. Seleccione la aplicación web recién creada: `WebApp-GraphAPI-DirectoryExtensions`
-1. Seleccione Configuración: `Required permissions`
-1. Select API `Windows Active Directory`
-1. Coloque una marca de verificación en Permisos de la aplicación: `Read and write directory data` y `Save`
-1. Elija `Grant permissions` y confirme `Yes`.
+1. Seleccione **Crear**. La finalización correcta aparece en las **notificaciones**.
+1. Seleccione la aplicación web recién creada: **WebApp-GraphAPI-DirectoryExtensions**.
+1. Seleccione la configuración de **Permisos necesarios**.
+1. Seleccione la API **Windows Active Directory**.
+1. Coloque una marca en los permisos de aplicación **Leer y escribir en datos de directorio** y seleccione **Guardar**.
+1. Seleccione **Conceder permisos** y haga clic en **Sí** para confirmar.
 1. Realice la copiar en el Portapapeles y guarde los siguientes identificadores de WebApp-GraphAPI-DirectoryExtensions > Configuración > Propiedades >
-*  `Application ID` . Ejemplo: `103ee0e6-f92d-4183-b576-8c3739027780`
-* `Object ID`. Ejemplo: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+*  **Identificador de aplicación**. Ejemplo: `103ee0e6-f92d-4183-b576-8c3739027780`
+* **Identificador de objeto**. Ejemplo: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 ## <a name="modifying-your-custom-policy-to-add-the-applicationobjectid"></a>Modificación de una directiva personalizada para agregar `ApplicationObjectId`
 
@@ -98,13 +98,16 @@ En todas las instancias de TechnicalProfile que leen o escriben atributos de ext
         </ClaimsProvider>
     </ClaimsProviders>
 ```
-[!NOTE]
-<TechnicalProfile Id="AAD-Common"> es "común", porque sus elementos se reutilizan en todas las instancias de TechnicalProfiles de Azure Active Directory mediante el elemento:
+
+>[!NOTE]
+><TechnicalProfile Id="AAD-Common"> es "común", porque sus elementos se reutilizan en todas las instancias de TechnicalProfiles de Azure Active Directory mediante el elemento:
+
 ```
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
 ```
-[!NOTE]
-La primera vez que la instancia de TechnicalProfile escribe en la propiedad de extensión recién creada, puede surgir un error que se da una sola vez, ya que si la propiedad no se encuentra, se crea.  .*  
+
+>[!NOTE]
+>La primera vez que la instancia de TechnicalProfile escribe en la propiedad de extensión recién creada, puede surgir un error que se da una sola vez, ya que si la propiedad no se encuentra, se crea.  .*  
 
 ## <a name="using-the-new-extension-property--custom-attribute-in-a-user-journey"></a>Uso de la nueva propiedad de extensión o atributo personalizado en un recorrido del usuario
 
@@ -140,9 +143,12 @@ La primera vez que la instancia de TechnicalProfile escribe en la propiedad de e
 </ClaimsSchema>
 ```
 4. Agregue la misma definición de la notificación al archivo de la directiva base `TrustFrameworkBase.xml`.  
-NOTA: normalmente no es preciso agregar una definición `ClaimType` tanto en el archivo base como en el archivo de extensiones; sin embargo, dado que los siguientes pasos agregarán extension_loyaltyId a TechnicalProfiles en el archivo base, el validador de la directiva rechazará la carga del archivo base sin él.
 
-Nota: es posible que sea útil realizar un seguimiento de la ejecución del recorrido del usuario denominado "ProfileEdit" del archivo TrustFrameworkBase.xml.  Busque el recorrido del usuario que tenga el mismo nombre en el editor y observe que en el paso 5 de la orquestación se invoca a TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate".  Busque e inspeccione esta instancia de TechnicalProfile para familiarizarse con el flujo.
+>[!NOTE]
+>Normalmente no es preciso agregar una definición `ClaimType` tanto en el archivo base como en el archivo de extensiones, pero dado que los siguientes pasos agregarán extension_loyaltyId a TechnicalProfiles en el archivo base, el validador de la directiva rechazará la carga del archivo base si no la tiene.
+
+>[!NOTE]
+>Es posible que sea útil realizar un seguimiento de la ejecución del recorrido del usuario denominado "ProfileEdit" del archivo TrustFrameworkBase.xml.  Busque el recorrido del usuario que tenga el mismo nombre en el editor y observe que en el paso 5 de la orquestación se invoca a TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate".  Busque e inspeccione esta instancia de TechnicalProfile para familiarizarse con el flujo.
 
 5. Agregue loyaltyId como notificación de entrada y salida en la instancia de TechnicalProfile "SelfAsserted ProfileUpdate"
 
@@ -233,8 +239,9 @@ NOTA: hasta ahora las instancias de TechnicalProfiles solo se han cambiado en el
      </TechnicalProfile>
 ```
 
-[!IMPORTANT]
-El elemento IncludeTechnicalProfile anterior agrega todos los elementos de AAD-Common a esta instancia de TechnicalProfile.
+
+>[!IMPORTANT]
+>El elemento IncludeTechnicalProfile anterior agrega todos los elementos de AAD-Common a esta instancia de TechnicalProfile.
 
 ## <a name="test-the-custom-policy-using-run-now"></a>Prueba de la directiva personalizada con "Ejecutar ahora"
 
@@ -276,7 +283,8 @@ Agregue la nueva notificación a los flujos de inicios de sesión de cuentas soc
 * Un **perfil técnico (TP)** es un tipo de elemento que se puede considerar una *función* que define el nombre de un punto de conexión, sus metadatos y su protocolo, y que detalla el intercambio de notificaciones que el marco de experiencia de identidad debe realizar.  Cuando se llama a esta *función* en un paso de la orquestación o desde otra instancia de TechnicalProfile, quien realiza la llamada especifica InputClaims y OutputClaims como parámetros.
 
 
-* En el artículo [Extensiones de esquema de directorio |Conceptos de la API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)
-[!NOTE] se tratan exhaustivamente las propiedades de extensión
-Para asignar nombres a los tributos de extensión de API Graph se usa la convención `extension_ApplicationObjectID_attributename`. Las directivas personalizadas hacen referencia a los atributos de extensión como extension_attributename, con lo que se omite ApplicationObjectId en el archivo XML
+* En el artículo [Extensiones de esquema de directorio | Conceptos de la API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) se tratan exhaustivamente las propiedades de extensión.
+
+>[!NOTE]
+>Para asignar nombres a los tributos de extensión de API Graph se usa la convención `extension_ApplicationObjectID_attributename`. Las directivas personalizadas hacen referencia a los atributos de extensión como extension_attributename, con lo que se omite ApplicationObjectId en el archivo XML
 

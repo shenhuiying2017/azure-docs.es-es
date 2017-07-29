@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 07/18/2017
 ms.author: yurid
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.contentlocale: es-es
 ms.lasthandoff: 12/06/2016
-
 
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Conexión de productos de seguridad a la solución Seguridad y auditoría de Operations Management Suite (OMS) 
@@ -90,11 +90,13 @@ En el equipo del agente, los eventos tienen que enviarse desde el demonio syslog
     ```
 6. Escriba el siguiente comando y revise el resultado para confirmar que no hay ningún error en el registro del agente OMS:
 
-    ```    
+    ``` 
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
 ## <a name="reviewing-collected-security-events"></a>Revisión de eventos de seguridad recopilados
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Una vez finalizada la configuración, Seguridad de OMS iniciará la ingesta del evento de seguridad. Para visualizar esos eventos, abra la búsqueda de registros, escriba el comando *Type=CommonSecurityLog* en el campo de búsqueda y presione ENTRAR. En el ejemplo siguiente se muestra el resultado de este comando, tenga en cuenta que en este caso Seguridad OMS ya ha ingerido los registros de seguridad en varios proveedores:
    
