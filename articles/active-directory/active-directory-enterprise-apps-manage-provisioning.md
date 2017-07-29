@@ -12,24 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/26/2017
 ms.author: asmalser
+ms.reviewer: asmalser
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 6cb0269e87f7ecffe7030b86237fb88fd58ef77b
 ms.contentlocale: es-es
 ms.lasthandoff: 05/08/2017
 
-
 ---
-<a id="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal" class="xliff"></a>
-
-# Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
+# <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 En este artículo se describe cómo utilizar [Azure Portal](https://portal.azure.com) para administrar el aprovisionamiento automático de cuentas de usuario y el desaprovisionamiento para las aplicaciones que lo admiten, especialmente aquellas que se han agregado en la categoría "destacada" de la Galería de aplicaciones de [Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Para más información sobre el aprovisionamiento automático de cuentas de usuario, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
 
-<a id="finding-your-apps-in-the-portal" class="xliff"></a>
-
-## Búsqueda de aplicaciones en el portal
+## <a name="finding-your-apps-in-the-portal"></a>Búsqueda de aplicaciones en el portal
 Todas las aplicaciones que se han configurado para el inicio de sesión único en un directorio, por un administrador de directorio mediante la [Galería de aplicaciones de Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), se pueden ver y administrar en el [portal de Azure](https://portal.azure.com). Las aplicaciones pueden encontrarse en la sección **Más servicios** &gt; **Aplicaciones empresariales** del portal. Las aplicaciones empresariales son aplicaciones que se implementan y se usan dentro de su organización.
 
 ![Hoja Aplicaciones empresariales][0]
@@ -40,29 +36,21 @@ La configuración de aprovisionamiento de cuentas de usuario puede administrarse
 
 ![Hoja Recursos de aplicación][1]
 
-<a id="provisioning-modes" class="xliff"></a>
-
-## Modos de aprovisionamiento
+## <a name="provisioning-modes"></a>Modos de aprovisionamiento
 La hoja **Aprovisionamiento** comienza con un menú **Modo**, que muestra los modos de aprovisionamiento que se admiten para una aplicación empresarial y les permite la configuración. Las opciones disponibles incluyen:
 
 * **Automático** : esta opción aparece si Azure AD admite el aprovisionamiento automático basado en API o el desaprovisionamiento de cuentas de usuario para esta aplicación. Si se selecciona este modo, se muestra una interfaz que guía a los administradores a través de la configuración de Azure AD para conectarse a la API de administración de usuario de la aplicación, mediante la creación de asignaciones de cuentas y flujos de trabajo que definen cómo deben fluir los datos de la cuenta de usuario entre Azure AD y la aplicación, y administrar el servicio de aprovisionamiento de Azure AD.
 * **Manual** : esta opción se muestra si Azure AD no admite el aprovisionamiento automático de cuentas de usuario para esta aplicación. Esta opción significa que los registros de cuenta de usuario almacenados en la aplicación deben administrarse mediante un proceso externo, según las funcionalidades de aprovisionamiento y administración de usuarios proporcionadas por la aplicación (que puede incluir el aprovisionamiento Just-In-Time de SAML).
 
-<a id="configuring-automatic-user-account-provisioning" class="xliff"></a>
-
-## Configuración del aprovisionamiento automático de cuentas de usuario
+## <a name="configuring-automatic-user-account-provisioning"></a>Configuración del aprovisionamiento automático de cuentas de usuario
 Si se seleccione la opción **Automático** , se muestra una pantalla dividida en cuatro secciones:
 
-<a id="admin-credentials" class="xliff"></a>
-
-### Credenciales de administrador
+### <a name="admin-credentials"></a>Credenciales de administrador
 Aquí es donde se indican las credenciales necesarias para que Azure AD se conecte a la API de administración de usuarios de la aplicación. La entrada necesaria varía dependiendo de la aplicación. Para más información sobre los requisitos y tipos de credenciales para aplicaciones específicas, consulte el [tutorial de configuración de la aplicación específica](active-directory-saas-app-provisioning.md#list-of-apps-that-support-automated-user-provisioning).
 
 Si se selecciona el botón **Probar conexión** , puede probar las credenciales al hacer que Azure AD intente conectarse a la aplicación de aprovisionamiento de la aplicación con las credenciales proporcionadas.
 
-<a id="mappings" class="xliff"></a>
-
-### Asignaciones
+### <a name="mappings"></a>Asignaciones
 Aquí es donde los administradores pueden ver y modificar el flujo de atributos de usuario entre Azure AD y la aplicación de destino, cuando las cuentas de usuario se aprovisionan o se actualizan.
 
 Hay un conjunto preconfigurado de asignaciones entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Algunas aplicaciones administran otros tipos de objetos, como grupos o contactos. Si se selecciona una de estas asignaciones en la tabla, se muestra el editor de asignaciones a la derecha, donde se pueden ver y personalizar.
@@ -75,9 +63,7 @@ Las personalizaciones compatibles incluyen:
 * Editar los atributos que fluyen desde el objeto de usuario de Azure AD al objeto de usuario de la aplicación. Para más información sobre la asignación de atributos, consulte la sección [Información sobre los tipos de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
 * Filtre las acciones de aprovisionamiento que realiza Azure AD en la aplicación de destino. En lugar de que Azure AD sincronice totalmente los objetos, puede limitar las acciones realizadas. Por ejemplo, si solo se selecciona **Actualizar**, Azure AD únicamente actualiza las cuentas de usuario existentes en una aplicación y no crea otras nuevas. Si solo se selecciona **Crear**, Azure únicamente crea nuevas cuentas de usuario, pero no actualiza los existentes. Esta característica permite a los administradores crear asignaciones diferentes para la creación de cuentas y la actualización de los flujos de trabajo.
 
-<a id="settings" class="xliff"></a>
-
-### Configuración
+### <a name="settings"></a>Configuración
 Esta sección permite a los administradores iniciar y detener el servicio de aprovisionamiento de Azure AD para la aplicación seleccionada, así como borrar opcionalmente la caché de aprovisionamiento y reiniciar el servicio.
 
 Si el aprovisionamiento se habilita por primera vez para una aplicación, active el servicio mediante el cambio de **Estado de aprovisionamiento** a **Activado**. Esto hace que el servicio de aprovisionamiento de Azure AD realice una sincronización inicial, que lee los usuarios asignados en la sección **Usuarios y grupos**, consulta la aplicación de destino para ellos y, después, realiza las acciones de aprovisionamiento definidas en la sección **Asignaciones** de Azure AD. Durante este proceso, el servicio de aprovisionamiento almacena datos en caché sobre las cuentas de usuario que está administrando, para que las cuentas no administradas dentro de las aplicaciones de destino que nunca estaban en el ámbito de asignación no se vean afectadas por las operaciones de desaprovisionamiento. Después de la sincronización inicial, el servicio de aprovisionamiento sincroniza automáticamente los objetos de grupo y usuario en un intervalo de diez minutos.
@@ -86,16 +72,12 @@ Si se cambia el valor de **Estado de aprovisionamiento** a **Desactivado**, simp
 
 Si activa la casilla **Borrar estado actual y reiniciar sincronización** y detiene el servicio de aprovisionamiento, se vuelcan los datos en caché sobre las cuentas que Azure AD está administrando, se reinician los servicios y se realiza la sincronización inicial de nuevo. Esta opción permite a los administradores iniciar el proceso de implementación de aprovisionamiento de nuevo.
 
-<a id="synchronization-details" class="xliff"></a>
-
-### Detalles de la sincronización
+### <a name="synchronization-details"></a>Detalles de la sincronización
 En esta sección se ofrecen detalles adicionales sobre la operación del servicio de aprovisionamiento, incluidos las primeras y últimas veces que se ejecutó el servicio de aprovisionamiento en la aplicación y cuántos objetos de grupo y usuario se administran.
 
 Se proporcionan vínculos al **informe de actividad de aprovisionamiento**, que proporciona un registro de todos los usuarios y grupos creados, actualizados y quitados entre Azure AD y la aplicación de destino, y al **informe de error de aprovisionamiento**, que proporciona mensajes de error más detallados para los objetos de grupo y usuario que no se pudieron leer, crear, actualizar o quitar. 
 
-<a id="feedback" class="xliff"></a>
-
-##Comentarios
+##<a name="feedback"></a>Comentarios
 
 Esperamos que le guste su experiencia de Azure AD. Envíenos sus comentarios. Publique sus comentarios y sugerencias para la mejora en la sección **Portal de administración** de nuestro [foro de comentarios](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nos entusiasma crear cosas nuevas todos los días y usamos sus comentarios para dar forma y definir qué será lo próximo que haremos.
 

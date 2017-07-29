@@ -20,7 +20,6 @@ ms.openlocfilehash: 90d0b7e3f49daa33ab8c617d07ba9098cdda751f
 ms.contentlocale: es-es
 ms.lasthandoff: 05/12/2017
 
-
 ---
 
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualización de datos de análisis para métricas en todos los recursos de aplicaciones web de Azure
@@ -92,6 +91,8 @@ Al agregar la solución Azure Web Apps Analytics al área de trabajo, el icono *
 ### <a name="view-azure-web-apps-analytics-information"></a>Visualización de la información de Azure Web Apps Analytics
 
 Haga clic en el icono **Azure Web Apps Analytics** para abrir el panel de **Azure Web Apps Analytics**. El panel incluye las hojas de la tabla siguiente. Cada hoja muestra hasta diez elementos que coinciden con los criterios de esa hoja para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que devuelva todos los registros si hace clic en **Ver todo** en la parte inferior de la hoja o si hace clic en el encabezado de esta.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Columna | Descripción |
 | --- | --- |

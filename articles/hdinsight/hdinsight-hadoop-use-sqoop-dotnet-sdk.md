@@ -1,6 +1,7 @@
 ---
-title: "Ejecución de trabajos de Sqoop mediante .NET y Azure HDInsight | Microsoft Docs"
+title: "Ejecución de trabajos de Sqoop con .NET y HDInsight - Azure | Microsoft Docs"
 description: "Obtenga información sobre cómo utilizar el SDK de .NET de HDInsight para ejecutar trabajos de Sqoop con el fin de llevar a cabo tareas de importación y exportación entre un clúster de Hadoop y una base de datos SQL de Azure."
+keywords: trabajo de Sqoop
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -9,17 +10,18 @@ tags: azure-portal
 author: mumian
 ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 9cadb72e065f82de8e007b38e909d2bc07d18126
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: c95641fc6d20e2911e007d1974b9e2c2398b3133
+ms.contentlocale: es-es
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -29,7 +31,7 @@ ms.lasthandoff: 01/24/2017
 Obtenga información sobre cómo utilizar el SDK de .NET de HDInsight en HDInsight para ejecutar trabajos de Sqoop con el fin de llevar a cabo tareas de importación y exportación entre un clúster de HDInsight y una base de datos SQL de Azure o una de SQL Server.
 
 > [!NOTE]
-> Los pasos descritos en este artículo pueden utilizarse con cualquier un clúster de HDInsight basado en Windows o Linux ; sin embargo, estos pasos sólo funcionarán desde un cliente Windows. Utilice el selector de pestañas de la parte superior de este artículo para elegir otros métodos.
+> Los pasos de este artículo pueden usarse con un clúster de HDInsight basado en Windows o en Linux, aunque solo funcionan desde un cliente Windows. Utilice el selector de pestañas de la parte superior de este artículo para elegir otros métodos.
 > 
 > 
 
@@ -38,10 +40,10 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Un clúster de Hadoop en HDInsight**. Consulte el artículo [Creación del clúster y la base de datos SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## <a name="run-sqoop-using-net-sdk"></a>Ejecutar Sqoop mediante SDK de .NET
-El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight de .NET. En esta sección, creará una aplicación de consola de C# para exportar hivesampletable a la tabla de Base de datos SQL que creó anteriormente en este tutorial.
+## <a name="use-sqoop-on-hdinsight-clusters-using-net-sdk"></a>Usar Sqoop en clústeres de HDInsight con el SDK. de .NET
+El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight de .NET. En esta sección se crea una aplicación de consola de C# para exportar hivesampletable a la tabla de base de datos SQL creada anteriormente en este tutorial.
 
-**Para enviar un trabajo de Sqoop**
+## <a name="submit-a-sqoop-job"></a>Enviar un trabajo de Sqoop
 
 1. Cree una aplicación de consola en C# mediante Visual Studio.
 2. En la Consola del administrador de paquetes de Visual Studio, ejecute el siguiente comando de Nuget para importar el paquete.
@@ -114,7 +116,7 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 
 ## <a name="limitations"></a>Limitaciones
 * Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o Base de datos SQL Azure no es compatible actualmente con las inserciones masivas.
-* Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realizará varias inserciones en lugar de procesar por lotes las operaciones de inserción.
+* Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realiza varias inserciones en lugar de procesar por lotes las operaciones de inserción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:

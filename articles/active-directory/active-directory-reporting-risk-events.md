@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 07/15/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 4a70001f22b47546674c365705554ab30e05f53d
-ms.lasthandoff: 03/24/2017
-
+ms.reviewer: dhanyahk
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: cb36fdd0032d6d3c47e68a782d3bba427fe9fcd5
+ms.contentlocale: es-es
+ms.lasthandoff: 06/14/2017
 
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de riesgo de Azure Active Directory
@@ -64,7 +65,7 @@ Este algoritmo de aprendizaje automático omite*falsos positivos*obvios que cont
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Inicio de sesión desde ubicaciones desconocidas
 
-Este tipo de evento de riesgo tiene en cuenta las ubicaciones de inicio de sesión anteriores (dirección IP, latitud/longitud y ASN) para determinar las ubicaciones nuevas o desconocidas. El sistema almacena información acerca de las ubicaciones anteriores utilizadas por un usuario y considera estas ubicaciones "conocidas". El evento de riesgo se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. El sistema tiene un período de aprendizaje inicial de 14 días, durante el cual no marca ninguna nueva ubicación como ubicación desconocida. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. 
+Este tipo de evento de riesgo tiene en cuenta las ubicaciones de inicio de sesión anteriores (dirección IP, latitud/longitud y ASN) para determinar las ubicaciones nuevas o desconocidas. El sistema almacena información acerca de las ubicaciones anteriores utilizadas por un usuario y considera estas ubicaciones "conocidas". El evento de riesgo se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. El sistema tiene un período de aprendizaje inicial de 30 días, durante el cual no marca ninguna nueva ubicación como ubicación desconocida. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. 
 
 ### <a name="sign-ins-from-infected-devices"></a>Inicios de sesión desde dispositivos infectados
 
@@ -131,11 +132,11 @@ Se recomienda ponerse en contacto inmediatamente con el usuario para comprobar s
 Un viaje imposible suele ser un buen indicador de que un hacker logró iniciar sesión correctamente. Sin embargo, pueden producirse falsos positivos cuando un usuario viaja con un nuevo dispositivo o usa una VPN que normalmente no utilizan otros usuarios de la organización. Otra fuente de falsos positivos son las aplicaciones que pasan incorrectamente direcciones IP del servidor como IP de cliente, lo que puede dar la impresión de que los inicios de sesión tienen lugar desde el centro de datos en el que está hospedado el back-end de esa aplicación (a menudo son centros de datos de Microsoft, por lo que parece que los inicios de sesión tienen lugar en direcciones IP propiedad de Microsoft). Como resultado de estos falsos positivos, el nivel de riesgo de estos eventos de riesgo es **Medio**.
 
 > [!TIP]
-> Puede reducir la cantidad de falsos positivos informados para este tipo de evento de riesgo si configura [redes con nombre](active-directory-known-networks-azure-portal.md). 
+> Puede reducir la cantidad de falsos positivos informados para este tipo de evento de riesgo si configura [ubicaciones con nombre](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Inicio de sesión desde ubicaciones desconocidas
 
-Las ubicaciones desconocidas pueden proporcionar una indicación clara de que un atacante puede usar una identidad robada. Se pueden producir falsos positivos cuando un usuario está viajando o probando un nuevo dispositivo, o bien utiliza una VPN nueva. Como resultado de estos falsos positivos, el nivel de riesgo para este tipo de evento es **Medio**.
+Las ubicaciones desconocidas pueden proporcionar una indicación clara de que un atacante puede usar una identidad robada. Se pueden producir falsos positivos cuando un usuario está viajando o probando un nuevo dispositivo, o bien usando una VPN nueva. Como resultado de estos falsos positivos, el nivel de riesgo para este tipo de evento es **Medio**.
 
 ### <a name="sign-ins-from-infected-devices"></a>Inicios de sesión desde dispositivos infectados
 
@@ -176,3 +177,4 @@ Hay dos lugares donde puede revisar los eventos de riesgo informados:
 
 Si bien la detección de eventos de riesgo ya representa un aspecto importante de la protección de las identidades, también tiene la opción de abordarlas manualmente o, incluso, implementar respuestas automatizadas si configura directivas de acceso condicional. Para más información, consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
  
+

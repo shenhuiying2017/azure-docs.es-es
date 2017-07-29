@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 06/14/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ddf4affe72c6413501ffa00747c110f8761ed70e
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: ef26a16e79d9c9b0654634960b57dc59827b2c24
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -136,17 +136,22 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-linkedinsalesnavigator-tutorial/updateusermail.png)
     
-9. En la sección **Atributos de usuario**, haga clic en **Ver y editar todos los demás atributos de usuario** y establezca los atributos. El usuario tiene que agregar otra notificación denominada **department** y hay que asignar el valor a **user.department**.
+9. En la sección **Atributos de usuario**, haga clic en **Ver y editar todos los demás atributos de usuario** y establezca los atributos. El usuario debe agregar cuatro notificaciones denominadas **email**, **department**, **firstname** y **lastname**, y el valor que debe asignarse es **user.mail**, **user.department**, **user.givenname** y **user.surname**, respectivamente.
 
     | Nombre del atributo | Valor de atributo |
     | --- | --- |    
+    | email| user.mail |
     | department| user.department |
-
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
-
+    | firstname| user.givenname |
+    | lastname| user.surname |
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+    
     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo de atributos.
-
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_05.png)
    
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
     
@@ -154,19 +159,29 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     d. Haga clic en **Aceptar**.
 
-10. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
+10. Realice los pasos siguientes en el atributo **name**.
+
+    a. Haga clic en el atributo para abrir la ventana **Editar atributo**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-linkedinsalesnavigator-tutorial/url_update.png)
+
+    b. Elimine el valor de dirección URL de **namespace**.
+    
+    c. Haga clic en **Aceptar** para guardar la configuración.
+
+11. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
 
-11. Haga clic en el botón **Guardar** .
+12. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
-12. Vaya a la sección **LinkedIn Admin Settings** (Configuración de administrador de LinkedIn). Haga clic en **Upload XML file** (Cargar archivo XML) para cargar el archivo XML de metadatos que acaba de descargar de Azure Portal.
+13. Vaya a la sección **LinkedIn Admin Settings** (Configuración de administrador de LinkedIn). Haga clic en **Upload XML file** (Cargar archivo XML) para cargar el archivo XML de metadatos que acaba de descargar de Azure Portal.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. Haga clic en **On** (Activar) para habilitar SSO. El estado de SSO cambiará de **Not Connected** (No conectado) a **Connected** (Conectado).
+14. Haga clic en **On** (Activar) para habilitar SSO. El estado de SSO cambiará de **Not Connected** (No conectado) a **Connected** (Conectado).
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 

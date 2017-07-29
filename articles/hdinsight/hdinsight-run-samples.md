@@ -1,5 +1,5 @@
 ---
-title: "Ejecución de ejemplos de Hadoop en HDInsight | Microsoft Docs"
+title: "Ejecución de ejemplos de Hadoop en HDInsight - Azure| Microsoft Docs"
 description: "Introducción al uso del servicio HDInsight de Azure con los ejemplos que se proporcionan. Use scripts de PowerShell que ejecutan programas MapReduce en clústeres de datos."
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: e4042dfbf28e78d2fca5c3f6a93df751a12153f2
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: c3e9ee66974f8b7077a0436b3686fb0515ea5e22
+ms.contentlocale: es-es
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -31,7 +32,7 @@ Se proporciona un conjunto de muestras para ayudarle a empezar a ejecutar trabaj
 * [**Recuento de palabras**][hdinsight-sample-wordcount]: cuenta las apariciones de una palabra en un archivo de texto.
 * [**Recuento de palabras de streaming de C#**][hdinsight-sample-csharp-streaming]: cuenta las apariciones de una palabra en un archivo de texto mediante la interfaz de streaming de Hadoop.
 * [**Estimador de pi**][hdinsight-sample-pi-estimator]: usa un método estadístico (quasi-Monte Carlo) para calcular el valor de pi.
-* [**Graysort de 10 GB**][hdinsight-sample-10gb-graysort]: se ejecuta una muestra de GraySort de uso general en un archivo de 10 GB mediante el uso de HDInsight. Hay tres trabajos que se deben ejecutar: Teragen para generar los datos, Terasort para ordenarlos y Teravalidate para confirmar que los datos se han ordenado correctamente.
+* [**Graysort de 10 GB**][hdinsight-sample-10gb-graysort]: se ejecuta una muestra de GraySort de uso general en un archivo de 10 GB mediante HDInsight. Hay tres trabajos que se deben ejecutar: Teragen para generar los datos, Terasort para ordenarlos y Teravalidate para confirmar que los datos se han ordenado correctamente.
 
 > [!NOTE]
 > El código de origen puede encontrarse en el anexo.

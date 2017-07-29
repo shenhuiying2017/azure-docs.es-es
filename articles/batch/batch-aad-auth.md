@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 92090975e8e4e38b3ea99045c226a2777ef86405
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 9c03bde919c46cd301229255c0b12ee69dda6f78
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -108,7 +108,11 @@ Una vez que haya [registrado la aplicación](#register-your-application-with-an-
 
 3. Abra la hoja **Configuración** de la aplicación. En la sección **Acceso de API**, seleccione **Permisos necesarios**.
 4. En la hoja **Permisos necesarios**, haga clic en el botón **Agregar**.
-5. En el paso 1, busque **MicrosoftAzureBatch**, seleccione **Microsoft Azure Batch (MicrosoftAzureBatch)** y haga clic en el botón **Seleccionar**.
+5. En el paso 1, busque Batch API. Busque cada una de estas cadenas hasta que encuentre la API:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Los inquilinos más recientes de Azure AD pueden utilizar este nombre.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** es el identificador de Batch API. 
+6. Una vez que encuentre Batch API, selecciónela y haga clic en el botón **Seleccionar**.
 6. En el paso 2, active la casilla de verificación situada junto a **Acceder al servicio Azure Batch** y haga clic en el botón **Seleccionar**.
 7. Haga clic en el botón **Listo**.
 

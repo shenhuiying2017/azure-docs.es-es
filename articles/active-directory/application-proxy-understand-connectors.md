@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/02/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 16a000074ae742cc6bc1b25bf359990fe73608f7
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: cd02855717c7de00e8b12aaa6d7578a0ab6079bf
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -25,14 +26,14 @@ ms.lasthandoff: 04/21/2017
 
 Los conectores son los que hacen posible el Proxy de aplicación de Azure AD. Son simples, fáciles de implementar y mantener y muy eficaces. En este artículo se describe qué son los conectores y cómo funcionan, además de algunos procedimientos recomendados para sacar el máximo partido de su implementación. 
 
-## <a name="connector-deployment"></a>Implementación del conector
+## <a name="deployment"></a>Implementación
 
 El Proxy de aplicación funciona después de instalar el servicio de Windows Server, denominado conector, en la red. Puede instalar varios conectores en función de las necesidades de escalabilidad y alta disponibilidad. Empiece con uno y agregue más según sea necesario. Cada vez que se instala un conector, este se agrega al grupo de conectores que sirve al inquilino.
 
 Se recomienda que no instale los conectores en los mismos servidores que hospedan las aplicaciones. Sin embargo, necesita poder acceder a la aplicación desde el servidor donde instale el conector.
 
 
-## <a name="connector-maintenance"></a>Mantenimiento del conector
+## <a name="maintenance"></a>Mantenimiento
 Los conectores y el servicio se encargan de todas las tareas de alta disponibilidad. Se pueden agregar o quitar de forma dinámica. Cada vez que llega una solicitud nueva, esta se enruta a uno de los conectores que estén disponibles en ese momento. Si un conector está no disponible temporalmente, no responderá a este tráfico.
 
 Los conectores no tienen estados ni datos de configuración en el equipo, aparte de la conectividad con la configuración del servicio y el certificado que autentica este conector. Cuando se conectan al servicio, extraen todos los datos de configuración requeridos y los actualizan cada dos minutos.
@@ -44,19 +45,17 @@ Puede supervisar sus conectores desde la máquina en que se ejecutan, ya sea con
 
 No es necesario que elimine manualmente los conectores que no se están utilizando. Cuando hay un conector en ejecución, este permanece activo tal y como se conecta al servicio. Los conectores que no se están usando se etiquetan como _inactivos_ y se quitarán tras 10 días de inactividad. 
 
-## <a name="automatic-updates-to-the-connector"></a>Actualizaciones automáticas para el conector
+## <a name="automatic-updates"></a>Actualizaciones automáticas
 
-Con el servicio de actualización de los conectores, ofrecemos una forma automatizada de mantenerlos actualizados. De este modo, disfruta de la ventaja constante de contar con todas las nuevas características y las mejoras de seguridad y rendimiento.
+Azure AD admite las actualizaciones automáticas para todos los conectores que implemente. Mientras se esté ejecutando el servicio de actualización de conectores del Proxy de aplicación, los conectores se actualizan automáticamente. Si no ve el servicio de actualización de conectores en el servidor, debe [volver a instalar el conector](active-directory-application-proxy-enable.md) con el fin de obtener las actualizaciones. Para los inquilinos con varios conectores, las actualizaciones automáticas se dirigen a un conector cada vez en cada grupo para evitar tiempos de inactividad en su entorno. 
 
-Azure AD admite las actualizaciones automáticas para todos los conectores que implemente. Mientras se esté ejecutando el servicio de actualización de conectores del Proxy de aplicación, los conectores se actualizan automáticamente. Si no ve el servicio de actualización de conectores en el servidor, debe [volver a instalar el conector](active-directory-application-proxy-enable.md) con el fin de obtener las actualizaciones.
+Si no quiere esperar a que una actualización automática llegue al conector, puede realizar una actualización manual. Vaya a la [página de descarga del conector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) en el servidor en el que se encuentra el conector y seleccione **Descargar**. Esto inicia una actualización para el conector local. 
 
-Puede experimentar un tiempo de inactividad cuando el conector se actualiza si:
-
-- Solo tiene un conector. Para evitar este tiempo de inactividad y garantizar una alta disponibilidad, se recomienda instalar un segundo conector y [crear un grupo de conectores](active-directory-application-proxy-connectors-azure-portal.md).
-
+Puede experimentar un tiempo de inactividad cuando el conector se actualiza si:  
+- Solo tiene un conector. Para evitar este tiempo de inactividad y garantizar una alta disponibilidad, se recomienda instalar un segundo conector y [crear un grupo de conectores](active-directory-application-proxy-connectors-azure-portal.md).  
 - Un conector estaba en medio de una transacción cuando comenzó la actualización. El explorador debería reintentar automáticamente la operación, o puede actualizar la página. Cuando se vuelve a enviar la solicitud, el tráfico se enruta a un conector de copia de seguridad.
 
-## <a name="all-networking-is-outbound"></a>Todas las redes se consideran de salida.
+## <a name="outbound-only-networking"></a>Redes solo de salida
 Los conectores solo envían solicitudes salientes, por lo que la conexión se inicia siempre desde el conector. No hay necesidad de abrir los puertos de entrada, porque una vez que se ha establecido una sesión el tráfico fluye en ambos sentidos.
 
 El tráfico saliente se envía al servicio de Proxy de aplicación y a las aplicaciones publicadas. El tráfico hacia el servicio se envía a los centros de datos de Azure en varios números de puertos diferentes. Para obtener más información acerca de los puertos que se utilizan, consulte [Habilitación del Proxy de aplicación en Azure Portal](active-directory-application-proxy-enable.md).

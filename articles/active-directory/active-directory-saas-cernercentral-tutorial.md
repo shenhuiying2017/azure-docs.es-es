@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/22/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 5e363a3e59b077a7bccfaff2ae6eee51418c77e5
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 77b5fb94cdfa5722081198aabc59fbf86229c2b0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -38,7 +38,7 @@ Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, con
 Para configurar la integración de Azure AD con Cerner Central, se necesitan los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción a Cerner Central con el inicio de sesión único habilitado
+- Una cuenta de sistema de Cerner Central aprobada
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -110,18 +110,33 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba el valor con el siguiente patrón: `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata`
+    a. En el cuadro de texto **Identificador**, escriba el valor con los siguientes patrones:
+    
+    | |
+    |--|
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.sandboxcerner.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso`.
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con los siguientes patrones: 
+    | |
+    |--|
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
+    | `https://cernercentral.com/<instasncename>` |
+    | `https://sandboxcernercentral.com/<instancename>` |
+    | `https://sandboxcernercentral.com/<instancename>` |
+    | `https://<subdomain>.sandboxcernercentral.com/<instancename>` |
 
     > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Aquí le recomendamos que utilice el valor de cadena único en el identificador. Póngase en contacto con el [equipo de soporte técnico de Cerner Central](https://www.cerner.com/support) para obtener estos valores.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) para obtener estos valores.
  
-5. Haga clic en el botón **Guardar** .
+4. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
 
-6. Para generar la dirección URL de **Metadatos**, lleve a cabo los pasos siguientes:
+5. Para generar la dirección URL de **Metadatos**, lleve a cabo los pasos siguientes:
 
     a. Haga clic en **Registros de aplicaciones**.
     
@@ -141,7 +156,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     e. Genere la **Dirección URL de metadatos** con el patrón siguiente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-7. Para configurar el inicio de sesión único en el lado de **Cerner Central**, debe enviar la **Dirección URL de metadatos** al [equipo de soporte técnico de Cerner Central](https://www.cerner.com/support). El equipo se encargará de configurar el SSO en el lado de la aplicación para completar la integración.
+6. Para configurar el inicio de sesión único en el lado de **Cerner Central**, debe enviar la **Dirección URL de metadatos** al [equipo de soporte técnico de Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). El equipo se encargará de configurar el SSO en el lado de la aplicación para completar la integración.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -180,7 +195,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="creating-a-cerner-central-test-user"></a>Crear un usuario de prueba de Cerner Central
 
-Para permitir que los usuarios de Azure AD inicien sesión en Cerner Central, tienen que aprovisionarse en Cerner Central. Hay muchas maneras de crear usuarios en la aplicación Cerner Central. Para crear manualmente el usuario en la aplicación Cerner Central, trabaje con el equipo de [soporte técnico de Cerner Central](https://www.cerner.com/support).
+La aplicación **Cerner Central** permite la autenticación desde cualquier proveedor de identidades federado. Si un usuario puede iniciar sesión en la página principal de la aplicación, significa que está federado y no necesita el aprovisionamiento manual.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -216,7 +231,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Cerner Central en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación Cerner Central. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
+Al hacer clic en el icono de Cerner Central en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación Cerner Central. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

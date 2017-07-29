@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "simulador de raspberry pi, azure iot raspberry pi, raspberry pi iot hub, raspberry pi envía datos a la nube, raspberry pi a la nube"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
