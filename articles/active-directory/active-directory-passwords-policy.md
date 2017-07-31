@@ -6,20 +6,21 @@ keywords: "Administración de contraseñas de Active Directory, administración 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: f318499ac18a9d03bb108675de199481ab52fd1c
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4b35c5d126375735f070a7fe2331896c524b5a61
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restricciones y directivas de contraseñas en Azure Active Directory
@@ -28,20 +29,43 @@ En este artículo se describen las directivas de contraseña y los requisitos de
 
 ## <a name="administrator-password-policy-differences"></a>Diferencias entre directivas de contraseña del administrador
 
-Microsoft aplica una directiva de restablecimiento de contraseña predeterminada sólida para cualquier rol de administrador de Azure (ejemplo: administrador global, administrador del departamento de soporte técnico, administrador de contraseñas, etc.)
+Microsoft aplica una directiva de restablecimiento de contraseña predeterminada sólida de **dos puertas** para cualquier rol de administrador de Azure (ejemplo: administrador global, administrador del departamento de soporte técnico, administrador de contraseñas, etc).
 
 De este modo se impide que los administradores usen preguntas de seguridad y se aplica lo siguiente.
 
-La directiva de una puerta, que requiere un fragmento de los datos de autenticación, se aplica en las siguientes circunstancias:
+La directiva de dos puertas, que requiere dos fragmentos de los datos de autenticación (dirección de correo electrónico **y** número de teléfono), se aplica en las siguientes circunstancias
+
+* Todos los roles de administrador de Azure
+  * Administrador del departamento de soporte técnico
+  * Administrador del soporte técnico del servicio
+  * Administrador de facturación
+  * Soporte para asociados de nivel 1
+  * Soporte para asociados de nivel 2
+  * Administrador de servicios de Exchange
+  * Administrador de servicios de Lync
+  * Administrador de cuenta de usuario
+  * Escritores de directorios
+  * Administrador global y administrador de empresa
+  * Administrador de servicios de SharePoint
+  * Administrador de cumplimiento
+  * Administrador de aplicaciones
+  * Administrador de seguridad
+  * Administrador de roles con privilegios
+  * Administrador de servicios de Intune
+  * Administrador del servicio de proxy de la aplicación
+  * Administrador de servicios de CRM
+  * Administrador de servicios de Power BI
+  
+* Una vez transcurridos 30 días en una versión de prueba **O**
+* El dominio personal está presente (contoso.com) **O**
+* Azure AD Connect sincroniza identidades desde el directorio local
+
+### <a name="exceptions"></a>Excepciones
+La directiva de una puerta, que requiere un fragmento de los datos de autenticación (dirección de correo electrónico **o** número de teléfono), se aplica en las siguientes circunstancias
 
 * Primeros 30 días de una versión de prueba **O**
 * El dominio personal no está presente (* .onmicrosoft) **Y** Azure AD Connect no sincroniza identidades
 
-La directiva de dos puertas, que requiere dos fragmentos de los datos de autenticación, se aplica en las siguientes circunstancias:
-
-* Una vez transcurridos 30 días en una versión de prueba **O**
-* El dominio personal está presente (contoso.com) **O**
-* Azure AD Connect sincroniza identidades desde el directorio local
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Directivas de UserPrincipalName que se aplican a todas las cuentas de usuario
 
@@ -80,7 +104,7 @@ Un administrador global de un servicio en la nube de Microsoft puede usar el mó
 
 ## <a name="set-or-check-password-policies-using-powershell"></a>Establecimiento o comprobación de directivas de contraseña mediante PowerShell
 
-Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Una vez instalado, puede seguir los pasos siguientes para configurar cada campo.
+Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Una vez instalado, puede seguir los pasos siguientes para configurar cada campo.
 
 ### <a name="how-to-check-expiration-policy-for-a-password"></a>Comprobación de la directiva de caducidad de una contraseña
 1. Conéctese a Windows PowerShell con sus credenciales de administrador de empresa.
@@ -109,12 +133,13 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
 
 Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
 
-* [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para la administración de contraseñas autoservicio de Azure AD 
+* [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD 
 * [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
 * [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
-* [**Implementación**](active-directory-passwords-best-practices.md): planificación e implementación de SSPR para los usuarios con las directrices que aquí se proporcionan
+* [**Implementación**](active-directory-passwords-best-practices.md): planee e implemente SSPR en sus usuarios mediante las instrucciones que se encuentran aquí.
 * [**Personalización**](active-directory-passwords-customize.md): personalización de la experiencia de SSPR para la empresa
 * [**Informes**](active-directory-passwords-reporting.md): detectan si los usuarios acceden a la funcionalidad de SSPR, cuándo lo hacen y dónde.
-* [**Artículo técnico de profundización**](active-directory-passwords-how-it-works.md): más información para comprender el funcionamiento de la administración de contraseñas
+* [**Profundización técnica**](active-directory-passwords-how-it-works.md): conozca lo que hay detrás para comprender cómo funciona.
 * [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? : respuestas a las preguntas que siempre se ha hecho.
 * [**Solución de problemas**](active-directory-passwords-troubleshoot.md): información para resolver problemas habituales de SSPR
+

@@ -4,25 +4,24 @@ description:
 keywords: 
 author: jeffgilb
 manager: femila
-ms.date: 5/23/2017
+ms.reviewr: jsnow
+ms.author: jeffgilb
+ms.date: 7/5/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
-ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: bc67058d026219d676430a55fe8cfdd3f09cf295
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4b2e8d17811df58fdc628de7140cdb0a4800476d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Aspectos básicos de la administración de identidades de Azure
-Dado que cada vez hay más recursos digitales de las empresas fuera de la red corporativa, tanto en la nube como en los distintos dispositivos, una buena solución de administración de acceso y de identidades basada en la nube es la mejor forma de mantener el control y la visibilidad de la forma y los momentos en que los usuarios acceden a los datos y aplicaciones corporativas.
+Cada vez más recursos digitales corporativos residen fuera de la red corporativa, en la nube y en dispositivos, y disponer de una solución de administración de acceso y de identidades basada en la nube se está convirtiendo en una necesidad. Las identidades basadas en la nube constituyen ahora la mejor manera de mantener el control y la visibilidad sobre el modo y el momento en que los usuarios acceden a las aplicaciones y los datos corporativos.
 
 Microsoft lleva más de una década protegiendo identidades basadas en la nube y ahora, con [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), los usuarios pueden acceder a los mismos sistemas de protección. Con Azure AD, los administradores de las empresas pueden garantizar fácilmente la responsabilidad de los usuarios y administradores con mayor seguridad y gobernanza que nunca.
 
@@ -31,18 +30,17 @@ Azure AD Premium está una solución de administración de acceso y de identidad
 En este breve vídeo verá una introducción rápida a la protección y administración de identidades de Azure AD:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9LGIJ2-FKIM" frameborder="0" allowfullscreen></iframe>
 
-Microsoft proporciona no sólo una identidad que le lleva a todas partes, sino también un conjunto de herramientas que automatizan, ayudan a proteger y administran la TI en su organización. Aunque haya llegado la informática en la nube, sigue siendo preciso administrar y controlar las tareas de TI, como las llamadas al departamento de soporte técnico para restablecer contraseñas de usuario, la administración de grupos de usuario y las solicitudes de aplicaciones. Y para complicar aún más el panorama, en la actualidad los empleados llevan sus dispositivos personales al trabajo y usan las aplicaciones SaaS disponibles. Todo ello hace que no sea nada fácil mantener el control sobre sus aplicaciones en los centros de datos corporativos y en las plataformas en la nube pública.
+Microsoft no solo proporciona una identidad que le lleva a todas partes, sino también un conjunto de herramientas que automatizan, ayudan a proteger y administran la TI en su organización. Aunque haya llegado la informática en la nube, sigue siendo preciso administrar y controlar las tareas de TI, como las llamadas al departamento de soporte técnico para restablecer contraseñas de usuario, la administración de grupos de usuario y las solicitudes de aplicaciones. Y para complicar aún más el panorama, en la actualidad los empleados llevan sus dispositivos personales al trabajo y usan las aplicaciones SaaS disponibles. Todo ello hace que no sea nada fácil mantener el control sobre sus aplicaciones en los centros de datos corporativos y en las plataformas en la nube pública.
 
-> [!Note]
-> Las funcionalidades que se describen en este artículo requieren que se adquiera una suscripción P1 o P2 a Azure Active Directory por separado o como parte de una suscripción [E3 o E5 a Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/solutions/learn-about-ems).
+[!INCLUDE [identity](../../includes/azure-ad-licenses.md)]
 
 ## <a name="connect-on-premises-active-directory-with-azure-ad-and-office-365"></a>Conexión de una instancia local de Active Directory a Azure AD y Office 365
 Las organizaciones que han hecho grandes inversiones en instancias locales de Active Directory pueden extender dichas inversiones a la nube mediante la integración de sus directorios locales con Azure AD en una [administración de identidades híbridas](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). Dicho cambio aumenta la productividad de los usuarios, ya que proporciona una identidad común para acceder a los recursos, independientemente de su ubicación. Los usuarios y organizaciones pueden utilizar el inicio de sesión único (SSO) para acceder tanto a los recursos locales como a los servicios en la nube, como Office 365.
 
-[Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) es la única herramienta necesaria para realizar la integración. Azure AD Connect proporciona las funcionalidades más recientes para satisfacer sus necesidades de sincronización de identidades y reemplaza las versiones anteriores de las herramientas de integración de identidades como DirSync y Azure AD Sync. Con Azure AD Connect, la administración y sincronización de identidades entre un entorno local y Azure AD se habilitan a través de:
+[Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) es la única herramienta necesaria para realizar la integración. Azure AD Connect proporciona funcionalidades para satisfacer sus necesidades de sincronización de identidades y reemplaza las versiones anteriores de las herramientas de integración de identidades como DirSync y Azure AD Sync. Con Azure AD Connect, la administración y sincronización de identidades entre un entorno local y Azure AD se habilitan a través de:
 
 - Sincronización: este componente es responsable de la creación de usuarios, grupos y otros objetos. También es responsable de asegurarse de que la información de identidad de los usuarios y los grupos de su entorno local coincide con la de la nube. También se puede habilitar la escritura diferida de contraseñas para no perder la sincronización de los directorios locales cuando un usuario actualiza su contraseña en Azure AD.
-- AD FS: la federación es una parte opcional de Azure AD Connect y puede utilizarse para configurar un entorno híbrido mediante una infraestructura local de AD FS. Las organizaciones pueden utilizar esto para abordar implementaciones complejas como un inicio de sesión único de unión a dominio, la aplicación de la directiva de inicio de sesión de AD y MFA mediante tarjeta inteligente o de terceros.
+- AD FS: la federación es una funcionalidad opcional que proporciona Azure AD Connect y puede utilizarse para configurar un entorno híbrido mediante una infraestructura local de AD FS. Se puede usar para abordar implementaciones complejas como un inicio de sesión único, la aplicación de la directiva de inicio de sesión de AD y MFA mediante tarjeta inteligente o de terceros.
 - Seguimiento de estado: [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health) puede proporcionar una sólida supervisión y una ubicación central en Azure Portal donde se puede ver esta actividad.
 
 ## <a name="increase-productivity-and-reduce-helpdesk-costs-with-self-service-and-single-sign-on-experiences"></a>Aumento de la productividad y reducción de los costos del departamento de soporte técnico gracias al autoservicio y al inicio de sesión único
@@ -54,7 +52,7 @@ Azure AD [extiende el entorno local de Active Directory](https://docs.microsoft.
 ## <a name="manage-and-control-access-to-corporate-resources"></a>Administración y control del acceso a los recursos corporativos
 Las soluciones de administración de identidades y acceso de Microsoft ayudan al departamento de TI a proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube. para lo que se habilitan más niveles de validación, como la [autenticación multifactor](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next) y las [directivas de acceso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). La supervisión de actividades sospechosas mediante auditorías, alertas e informes de seguridad avanzados contribuye a minimizar los posibles problemas de seguridad.
 
-El sistema de acceso condicional de Azure AD Premium proporciona al administrador de la organización la capacidad de crear reglas de acceso basada en directivas para todas las aplicaciones conectadas a AD Azure (aplicaciones SaaS, aplicaciones personalizadas que se ejecutan en la nube o aplicaciones web locales). Azure AD evalúa estas directivas en tiempo real y las aplica cada vez que un usuario intenta acceder a una aplicación. Las directivas de protección de identidades de Azure permiten que se realicen automáticamente las acciones necesarias si se detecta cualquier actividad sospechosa, entre las que se incluyen el bloqueo del acceso a los usuarios de alto riesgo, la aplicación de la autenticación multifactor y el restablecimiento de contraseñas si las credenciales pueden haber estado en peligro.
+Las directivas de acceso condicional de Azure AD Premium proporcionan al administrador de la organización la capacidad de crear reglas de acceso basada en directivas para todas las aplicaciones conectadas a AD Azure (aplicaciones SaaS, aplicaciones personalizadas que se ejecutan en la nube o aplicaciones web locales). Azure AD evalúa estas directivas en tiempo real y las aplica cada vez que un usuario intenta acceder a una aplicación. Las directivas de protección de identidad de Azure le permiten emprender una acción automáticamente si se detecta actividad sospechosa. Estas acciones pueden incluir bloquear el acceso a los usuarios de alto riesgo, exigir la autenticación multifactor y restablecer las contraseñas de usuario, si parece que se han comprometido las credenciales.
 
 
 ## <a name="azure-active-directory-privileged-identity-management"></a>Azure Active Directory Privileged Identity Management
@@ -67,7 +65,7 @@ Privileged Identity Management puede aplicar los derechos de administrador a pet
 
 Con la administración de identidades de Azure se puede:
 
--   Crear y administrar una identidad única para cada usuario en toda la empresa híbrida, lo que mantiene a los usuarios, grupos y dispositivos sincronizados con Azure [Active Directory Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+-   Crear y administrar una identidad única para cada usuario en toda la empresa, lo que mantiene a los usuarios, grupos y dispositivos sincronizados con [Azure Active Directory Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 
 -   Proporcionar acceso de inicio de sesión único a las aplicaciones, incluidas miles de aplicaciones SaaS integradas previamente, o proporcionar acceso remoto seguro a aplicaciones SaaS locales mediante el [proxy de la aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
@@ -77,3 +75,5 @@ Con la administración de identidades de Azure se puede:
 
 -   Sacar provecho de la [alta disponibilidad y confiabilidad](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) de una solución a nivel mundial de administración de identidades y acceso basada en la nube de categoría empresarial.
 
+## <a name="next-steps"></a>Pasos siguientes
+[Obtener más información sobre soluciones de identidad de Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)
