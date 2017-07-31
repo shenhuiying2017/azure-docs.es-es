@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/17/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 552608e608bbea401381f0d274b513dc971c798e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1b257b5a021a682990fb615d7c9aae4fc9160dd4
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,7 +33,7 @@ Aprenda a crear un clúster de HDInsight mediante una plantilla de Azure Resourc
 La API de REST de Azure permite realizar operaciones de administración en servicios hospedados en la plataforma Azure, incluida la creación de recursos como, por ejemplo, clústeres de HDInsight.
 
 > [!IMPORTANT]
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]
 > Los pasos descritos en este documento usan la utilidad [curl (https://curl.haxx.se/)](https://curl.haxx.se/) para comunicarse con la API de REST de Azure.

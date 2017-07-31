@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 06/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0f4b9ee03e4c5470ea4824e51d1d1870ddbb34f1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c3801573808709f29cb1e563ac803f225a28cafc
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -35,7 +35,7 @@ Este documento proporciona un ejemplo de uso de Azure PowerShell para ejecutar u
 * **Un clúster de HDInsight (Hadoop en HDInsight)**.
 
   > [!IMPORTANT]
-  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Una estación de trabajo con Azure PowerShell**.
 

@@ -1,6 +1,6 @@
 ---
 title: "Instalación de Endpoint Protection en Azure Security Center | Microsoft Docs"
-description: "En este documento se muestra cómo implementar la recomendación **Instalar Endpoint Protection** de Azure Security Center."
+description: "En este documento, mostramos cómo implementar la recomendación de instalar Endpoint Protection de Azure Security Center."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: d20b23ae84bea6c7e030d2de992e8db1f04bb2a3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: efb86a0ae362c30a6772c391a499154b7ae2a697
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="install-endpoint-protection-in-azure-security-center"></a>Instalación de Endpoint Protection en Azure Security Center
 Azure Security Center recomienda instalar Endpoint Protection en las máquinas virtuales de Azure si aún no se ha habilitado esta solución. Esta recomendación se aplica únicamente a las máquinas virtuales de Windows.
 
 > [!NOTE]
-> En esta implementación de ejemplo se utiliza Microsoft Antimalware. Consulte [Integración de asociados en Azure Security Center](security-center-partner-integration.md#what-partners-are-integrated-with-security-center) para ver una lista de asociados integrados con Security Center.  
+> En esta implementación de ejemplo se utiliza Microsoft Antimalware. Consulte [Integración de asociados en Azure Security Center](security-center-partner-integration.md#partners-that-integrate-with-security-center) para ver una lista de asociados integrados con Security Center.  
 >
 >
 

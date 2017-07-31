@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 373d3f802475bd64473e3685fc5150e870823342
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 658616d1979e617a7d80a989b8e80246a9091fdf
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 06/13/2017
 Aprenda a instalar Apache Giraph en un clúster de HDInsight. La característica de acción de script de HDInsight le permite personalizar el clúster mediante la ejecución de un script de Bash. Se pueden usar scripts para personalizar los clústeres durante y después de la creación del clúster.
 
 > [!IMPORTANT]
-> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>¿Qué es Giraph?
 

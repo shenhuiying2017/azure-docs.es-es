@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: c83585d2d4a352b54d95b8f26f941da10b43dae4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f4d9336d0a7c4673f5cc2fa5ddf72476d3b9ece2
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 06/13/2017
 En este tema se explica cómo acceder a los registros de aplicaciones de YARN (del inglés Yet Another Resource Negotiator) que han finalizado en un clúster Hadoop en Azure HDInsight.
 
 > [!IMPORTANT]
-> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para obtener más información, consulte el artículo relativo al [control de versiones de componentes de HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para obtener más información, consulte el artículo relativo al [control de versiones de componentes de HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="YARNTimelineServer"></a>Servidor de escala de tiempo de YARN
 

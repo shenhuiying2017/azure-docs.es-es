@@ -17,10 +17,10 @@ ms.date: 06/16/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: a26ecc9712dfff146e9e54d83670198d6d81a083
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 28904b07609ffb40a8195278fd1afd3957896733
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Uso de Azure PowerShell para ejecutar trabajos de Pig con HDInsight
@@ -37,7 +37,7 @@ Este documento proporciona un ejemplo de uso de Azure PowerShell para enviar tra
 * **Un clúster de Azure HDInsight**.
 
   > [!IMPORTANT]
-  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Una estación de trabajo con Azure PowerShell**.
 
