@@ -22,15 +22,11 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="local-git-deployment-to-azure-app-service" class="xliff"></a>
-
-# Implementación de Git local en el Servicio de aplicaciones de Azure
+# <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local en el Servicio de aplicaciones de Azure
 En este tutorial se muestra cómo implementar la aplicación en el [Servicio de aplicaciones de Azure] desde un repositorio de Git en el equipo local. El Servicio de aplicaciones admite este enfoque con la opción de implementación **Git local** en el [Portal de Azure].  
 Muchos de los comandos de Git que se describen en este artículo se ejecutan automáticamente al crear una aplicación de App Service mediante la [interfaz de la línea de comandos de Azure], como se describe [aquí](app-service-web-get-started.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial, necesita:
 
 * Git. Puede descargar el archivo binario de instalación [aquí](http://www.git-scm.com/downloads).  
@@ -171,9 +167,7 @@ git config --global http.postBuffer 524288000
       OR
   * npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
-<a id="additional-resources" class="xliff"></a>
-
-## Recursos adicionales
+## <a name="additional-resources"></a>Recursos adicionales
 * [Documentación de Git](http://git-scm.com/documentation)
 * [Documentación de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Implementación continua en el Servicio de aplicaciones de Azure](app-service-continuous-deployment.md)

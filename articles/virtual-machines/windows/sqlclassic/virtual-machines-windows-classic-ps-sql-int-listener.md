@@ -23,18 +23,14 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="configure-an-ilb-listener-for-always-on-availability-groups-in-azure" class="xliff"></a>
-
-# Configuración de un agente de escucha ILB para grupos de disponibilidad AlwaysOn en Azure
+# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configuración de un agente de escucha ILB para grupos de disponibilidad AlwaysOn en Azure
 > [!div class="op_single_selector"]
 > * [Agente de escucha interno](../classic/ps-sql-int-listener.md)
 > * [Agente de escucha externo](../classic/ps-sql-ext-listener.md)
 >
 >
 
-<a id="overview" class="xliff"></a>
-
-## Información general
+## <a name="overview"></a>Información general
 
 > [!IMPORTANT]
 > Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [Azure Resource Manager y el modelo clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación clásico. Se recomienda que las implementaciones más recientes usen el modelo Resource Manager.
@@ -43,24 +39,18 @@ Para configurar un agente de escucha para un grupo de disponibilidad AlwaysOn en
 
 El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones que usen varias redes virtuales. En los procedimientos descritos en este artículo se supone que ya tiene [configurado un grupo de disponibilidad](../classic/portal-sql-alwayson-availability-groups.md) pero no un agente de escucha.
 
-<a id="guidelines-and-limitations-for-internal-listeners" class="xliff"></a>
-
-## Instrucciones y limitaciones de los agentes de escucha internos
+## <a name="guidelines-and-limitations-for-internal-listeners"></a>Instrucciones y limitaciones de los agentes de escucha internos
 El uso de un equilibrador de carga interno (ILB) con un agente de escucha del grupo de disponibilidad de Azure está sujeto a las siguientes directrices:
 
 * El agente de escucha del grupo de disponibilidad es compatible con Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.
 * Solo se admite un agente de escucha de grupo de disponibilidad interno para cada servicio en la nube, ya que el agente de escucha se configura según el ILB y solo hay un ILB por cada servicio en la nube. Sin embargo, es posible crear varios agentes de escucha externos. Para más información, consulte [Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure](../classic/ps-sql-ext-listener.md).
 
-<a id="determine-the-accessibility-of-the-listener" class="xliff"></a>
-
-## Determinar la accesibilidad del agente de escucha
+## <a name="determine-the-accessibility-of-the-listener"></a>Determinar la accesibilidad del agente de escucha
 [!INCLUDE [ag-listener-accessibility](../../../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
 Este artículo se centra en la creación de un agente de escucha que usa un ILB. Si necesita un agente de escucha público o externo, consulte la versión de este artículo que analiza la configuración de un [agente de escucha externo](../classic/ps-sql-ext-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-<a id="create-load-balanced-vm-endpoints-with-direct-server-return" class="xliff"></a>
-
-## Creación de extremos de máquina virtual de carga equilibrada con Direct Server Return
+## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>Creación de extremos de máquina virtual de carga equilibrada con Direct Server Return
 Primero cree un ILB ejecutando el script que aparece más adelante en esta sección.
 
 Cree un punto de conexión de carga equilibrada para cada máquina virtual que hospeda una réplica de Azure. Si tiene réplicas en varias regiones, cada réplica de esa región tiene que estar en el mismo servicio en la nube de la misma red virtual de Azure. La creación de réplicas de grupo de disponibilidad que abarcan varias regiones de Azure requiere configurar varias redes virtuales. Para más información acerca de la configuración de la conectividad cruzada entre redes virtuales, consulte [Configuración de una conexión de red virtual a red virtual para el modelo de implementación clásico](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
@@ -118,30 +108,20 @@ Cree un punto de conexión de carga equilibrada para cada máquina virtual que h
 
 13. Una vez configuradas las variables, copie el script del editor de texto en la sesión de PowerShell para ejecutarlo. Si el mensaje todavía muestra **>>**, pulse ENTER de nuevo para asegurarse de que el script comienza a ejecutarse.
 
-<a id="verify-that-kb2854082-is-installed-if-necessary" class="xliff"></a>
-
-## Comprobación de que KB2854082 está instalado si es necesario.
+## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Comprobación de que KB2854082 está instalado si es necesario.
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
 
-<a id="open-the-firewall-ports-in-availability-group-nodes" class="xliff"></a>
-
-## Apertura de los puertos de firewall en los nodos de grupo de disponibilidad
+## <a name="open-the-firewall-ports-in-availability-group-nodes"></a>Apertura de los puertos de firewall en los nodos de grupo de disponibilidad
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
-<a id="create-the-availability-group-listener" class="xliff"></a>
-
-## Creación del agente de escucha de grupo de disponibilidad
+## <a name="create-the-availability-group-listener"></a>Creación del agente de escucha de grupo de disponibilidad
 
 Cree el agente de escucha de grupo de disponibilidad en dos pasos. En primer lugar, cree el recurso de clúster del punto de acceso cliente y configure las dependencias. En segundo lugar, configure los recursos de clúster en PowerShell.
 
-<a id="create-the-client-access-point-and-configure-the-cluster-dependencies" class="xliff"></a>
-
-### Creación del punto de acceso cliente y configuración de las dependencias de clúster
+### <a name="create-the-client-access-point-and-configure-the-cluster-dependencies"></a>Creación del punto de acceso cliente y configuración de las dependencias de clúster
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
 
-<a id="configure-the-cluster-resources-in-powershell" class="xliff"></a>
-
-### Configuración de los recursos de clúster en PowerShell
+### <a name="configure-the-cluster-resources-in-powershell"></a>Configuración de los recursos de clúster en PowerShell
 1. En ILB, debe usar la dirección IP del ILB creado anteriormente. Use el script siguiente para obtener esta dirección IP en PowerShell:
 
         # Define variables
@@ -177,23 +157,15 @@ Cree el agente de escucha de grupo de disponibilidad en dos pasos. En primer lug
 4. Repita los pasos anteriores para cada máquina virtual.  
     Este script configura el recurso de dirección IP con la dirección IP del servicio en la nube y establece otros parámetros como, por ejemplo, el puerto de sondeo. El recurso de dirección IP, una vez conectado, puede responder al sondeo en el puerto de sondeo del punto de conexión de carga equilibrada que creó anteriormente.
 
-<a id="bring-the-listener-online" class="xliff"></a>
-
-## Conexión del agente de escucha
+## <a name="bring-the-listener-online"></a>Conexión del agente de escucha
 [!INCLUDE [Bring-Listener-Online](../../../../includes/virtual-machines-ag-listener-bring-online.md)]
 
-<a id="follow-up-items" class="xliff"></a>
-
-## Elementos de seguimiento
+## <a name="follow-up-items"></a>Elementos de seguimiento
 [!INCLUDE [Follow-up](../../../../includes/virtual-machines-ag-listener-follow-up.md)]
 
-<a id="test-the-availability-group-listener-within-the-same-virtual-network" class="xliff"></a>
-
-## Prueba del agente de escucha del grupo de disponibilidad (dentro de la misma red virtual)
+## <a name="test-the-availability-group-listener-within-the-same-virtual-network"></a>Prueba del agente de escucha del grupo de disponibilidad (dentro de la misma red virtual)
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
 

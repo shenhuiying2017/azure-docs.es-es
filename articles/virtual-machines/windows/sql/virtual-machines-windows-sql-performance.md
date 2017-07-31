@@ -23,13 +23,9 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="performance-best-practices-for-sql-server-in-azure-virtual-machines" class="xliff"></a>
+# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Procedimientos recomendados para mejorar el rendimiento de SQL Server en Máquinas virtuales de Azure
 
-# Procedimientos recomendados para mejorar el rendimiento de SQL Server en Máquinas virtuales de Azure
-
-<a id="overview" class="xliff"></a>
-
-## Información general
+## <a name="overview"></a>Información general
 
 En este tema se ofrecen prácticas recomendadas para optimizar el rendimiento de SQL Server en máquina virtual de Microsoft Azure. Mientras se ejecuta SQL Server en máquinas virtuales de Azure, se recomienda seguir usando las mismas opciones de ajuste de rendimiento de base de datos que son aplicables a SQL Server en el entorno de servidor local. Sin embargo, el rendimiento de una base de datos relacional en una nube pública depende de muchos factores como el tamaño de una máquina virtual y la configuración de los discos de datos.
 
@@ -39,9 +35,7 @@ Este artículo se centra en cómo obtener el *mejor* rendimiento de SQL Server e
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-<a id="quick-check-list" class="xliff"></a>
-
-## Lista de comprobación rápida
+## <a name="quick-check-list"></a>Lista de comprobación rápida
 
 La siguiente es una lista de comprobación rápida para un rendimiento óptimo de SQL Server en máquinas virtuales de Azure:
 
@@ -55,18 +49,14 @@ La siguiente es una lista de comprobación rápida para un rendimiento óptimo d
 
 Para más información sobre *cómo* y *por qué* llevar a cabo estas optimizaciones, repase los detalles y las instrucciones proporcionadas en las siguientes secciones.
 
-<a id="vm-size-guidance" class="xliff"></a>
-
-## Orientación sobre el tamaño de máquina virtual
+## <a name="vm-size-guidance"></a>Orientación sobre el tamaño de máquina virtual
 
 En aplicaciones sensibles al rendimiento, se recomienda usar los siguientes [tamaños de máquinas virtuales](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json):
 
 * **SQL Server Enterprise Edition**: DS3 o versiones posteriores
 * **Ediciones de SQL Server Standard y Web**: DS2 o versiones posteriores
 
-<a id="storage-guidance" class="xliff"></a>
-
-## Orientación sobre el almacenamiento
+## <a name="storage-guidance"></a>Orientación sobre el almacenamiento
 
 Las máquinas virtuales de la serie DS (además de las series DSv2 y GS) admiten [Premium Storage](../../../storage/storage-premium-storage.md). Almacenamiento premium es aconsejable para cargas de trabajo de producción.
 
@@ -75,9 +65,7 @@ Las máquinas virtuales de la serie DS (además de las series DSv2 y GS) admiten
 
 Además, se recomienda crear su cuenta de almacenamiento de Azure en el mismo centro de datos que sus máquinas virtuales de SQL Server para reducir los retrasos en la transferencia. Al crear una cuenta de almacenamiento, deshabilite la replicación geográfica ya que no se garantiza el orden de escritura coherente entre varios discos. En su lugar, considere la posibilidad de configurar una tecnología de recuperación ante desastres de SQL Server entre dos centros de datos de Azure. Para más información, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
-<a id="disks-guidance" class="xliff"></a>
-
-## Orientación sobre los discos
+## <a name="disks-guidance"></a>Orientación sobre los discos
 
 En una máquina virtual de Azure hay tres tipos de disco principales:
 
@@ -87,17 +75,13 @@ En una máquina virtual de Azure hay tres tipos de disco principales:
 
 En las siguientes secciones se incluyen recomendaciones sobre cómo usar cada uno de estos discos.
 
-<a id="operating-system-disk" class="xliff"></a>
-
-### Disco del sistema operativo
+### <a name="operating-system-disk"></a>Disco del sistema operativo
 
 Un disco del sistema operativo es un VHD que se puede arrancar y montar como una versión en ejecución de un sistema operativo y está etiquetado como la unidad **C** .
 
 La directiva del almacenamiento en caché predeterminada en el disco del sistema operativo es **Lectura/escritura**. Para aplicaciones sensibles al rendimiento, se recomienda usar discos de datos en lugar del disco del sistema operativo. Vea la sección sobre Discos de datos a continuación.
 
-<a id="temporary-disk" class="xliff"></a>
-
-### Disco temporal
+### <a name="temporary-disk"></a>Disco temporal
 
 La unidad de almacenamiento temporal, etiquetada como la unidad **D**:, no se conserva en el almacenamiento de blobs de Azure. No almacene archivos de base de datos de usuarios ni archivos de registro de transacciones de usuarios en la unidad **D:**.
 
@@ -105,9 +89,7 @@ En máquinas virtuales de las series D, Dv2 y G, la unidad temporal está ubicad
 
 En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se recomienda almacenar TempDB en un disco que admita Premium Storage y que tenga habilitado el almacenamiento en caché de lectura. Esta recomendación tiene una excepción: si se realiza un uso de TempDB intensivo en cuanto a escritura, podrá lograr un mayor rendimiento si almacena esta base de datos en la unidad **D** local, que en estos tamaños de equipos también está ubicada en un disco SSD.
 
-<a id="data-disks" class="xliff"></a>
-
-### Discos de datos
+### <a name="data-disks"></a>Discos de datos
 
 * **Uso de discos de datos para los archivos de datos y de registro**: como mínimo, use dos [discos P30](../../../storage/storage-premium-storage.md#scalability-and-performance-targets) de Premium Storage, uno para contener los archivos de registro y otro para contener los archivos de datos y TempDB. Cada disco de almacenamiento Premium proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el siguiente artículo: [Uso de Almacenamiento Premium para discos](../../../storage/storage-premium-storage.md).
 
@@ -145,9 +127,7 @@ En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se
   > [!WARNING]
   > De no detenerse el servicio SQL Server durante estas operaciones, podrían producirse daños en la base de datos.
 
-<a id="io-guidance" class="xliff"></a>
-
-## Orientación sobre E/S
+## <a name="io-guidance"></a>Orientación sobre E/S
 
 * Los mejores resultados con el Almacenamiento premium se logran al establecer paralelismos de su aplicación y solicitudes. El almacenamiento premium está diseñado para escenarios donde la profundidad de la cola de E/S es mayor que 1, por lo que verá poco o ningún aumento del rendimiento para las solicitudes de serie de subproceso único (incluso si son intensivas de almacenamiento). Por ejemplo, esto podría afectar a los resultados de pruebas de subproceso único de herramientas de análisis de rendimiento, como SQLIO.
 
@@ -174,9 +154,7 @@ En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se
 
 * Considere la posibilidad de comprimir los archivos de datos cuando se transfieren dentro y fuera de Azure.
 
-<a id="feature-specific-guidance" class="xliff"></a>
-
-## Orientación sobre las características específicas
+## <a name="feature-specific-guidance"></a>Orientación sobre las características específicas
 
 Algunas implementaciones pueden lograr ventajas de rendimiento adicionales mediante técnicas de configuración más avanzadas. En la siguiente lista se destacan algunas características de SQL Server que pueden ayudarle a lograr un mejor rendimiento:
 
@@ -186,9 +164,7 @@ Algunas implementaciones pueden lograr ventajas de rendimiento adicionales media
 
 * **Archivos de datos de SQL Server en Azure**: esta nueva característica, [Archivos de datos de SQL Server en Azure](https://msdn.microsoft.com/library/dn385720.aspx), está disponible a partir de SQL Server 2014. La ejecución de SQL Server con archivos de datos en Azure muestra características de rendimiento comparables con el uso de discos de datos de Azure.
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para ver prácticas recomendadas de seguridad, vea [Consideraciones de seguridad para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 

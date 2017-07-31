@@ -23,13 +23,9 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-<a id="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries" class="xliff"></a>
+# <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Descripción de la supervisión del trabajo de Análisis de transmisiones y cómo supervisar consultas
 
-# Descripción de la supervisión del trabajo de Análisis de transmisiones y cómo supervisar consultas
-
-<a id="introduction-the-monitor-page" class="xliff"></a>
-
-## Introducción: Página de supervisión
+## <a name="introduction-the-monitor-page"></a>Introducción: Página de supervisión
 Azure Portal muestra las métricas de rendimiento clave que se pueden usar para supervisar y solucionar problemas de rendimiento del trabajo y consultas. Para ver estas métricas, vaya al trabajo de Stream Analytics para el que le interesa ver las métricas y consulte la sección **Supervisión** de la página de información general.  
 
 ![Vínculo de supervisión](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
@@ -38,9 +34,7 @@ Se mostrará la siguiente ventana:
 
 ![Panel de supervisión de trabajos](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
-<a id="metrics-available-for-stream-analytics" class="xliff"></a>
-
-## Métricas disponibles para Análisis de transmisiones
+## <a name="metrics-available-for-stream-analytics"></a>Métricas disponibles para Análisis de transmisiones
 | Métrica                 | Definición                               |
 | ---------------------- | ---------------------------------------- |
 | SU % uso       | El uso de las unidades de streaming asignadas a un trabajo en la pestaña Escala del trabajo. Si este indicador llega o supera el 80 %, existe una gran probabilidad de que el procesamiento de eventos se retrase o deje de avanzar. |
@@ -56,22 +50,16 @@ Se mostrará la siguiente ventana:
 | Bytes del evento de entrada      | Cantidad de datos recibidos por el trabajo de Stream Analytics, en bytes. Puede usarse para validar que los eventos que se envían al origen de entrada. |
 
 
-<a id="customizing-monitoring-in-the-azure-portal" class="xliff"></a>
-
-## Personalización de la supervisión en Azure Portal
+## <a name="customizing-monitoring-in-the-azure-portal"></a>Personalización de la supervisión en Azure Portal
 Puede ajustar el tipo de gráfico, las métricas que se muestran y el intervalo de tiempo en la configuración de Editar gráfico. Para obtener detalles, vea [Personalización de la supervisión](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
   ![Escala de tiempo de supervisión de consultas](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 
-<a id="get-help" class="xliff"></a>
-
-## Obtener ayuda
+## <a name="get-help"></a>Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)

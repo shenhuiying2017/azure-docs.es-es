@@ -23,17 +23,13 @@ ms.lasthandoff: 06/28/2017
 
 ---
 
-<a id="virtual-machine-extensions-and-features-for-linux" class="xliff"></a>
-
-# Características y extensiones de las máquinas virtuales para Linux
+# <a name="virtual-machine-extensions-and-features-for-linux"></a>Características y extensiones de las máquinas virtuales para Linux
 
 Las extensiones de máquina virtual de Azure son pequeñas aplicaciones que realizan tareas de automatización y configuración posterior a la implementación en máquinas virtuales de Azure. Por ejemplo, si una máquina virtual necesita que se instale software, protección antivirus o configuración de Docker, se puede usar una extensión de máquina virtual para completar estas tareas. Las extensiones de máquina virtual de Azure se pueden ejecutar con la CLI de Azure, PowerShell, plantillas de Azure Resource Manager y Azure Portal. Las extensiones pueden empaquetar con una nueva implementación de máquina virtual o se pueden ejecutar en cualquier sistema existente.
 
 Este documento proporciona información general sobre las extensiones de máquina virtual, requisitos previos para usar las extensiones de máquina virtual de Azure e instrucciones sobre cómo detectar, administrar y quitar extensiones de máquina virtual. Este documento proporciona información generalizada porque muchas extensiones de máquina virtual están disponibles, cada una con una configuración potencialmente única. En cada documento específico de la extensión individual pueden encontrarse detalles específicos de extensión.
 
-<a id="use-cases-and-samples" class="xliff"></a>
-
-## Casos de uso y ejemplos
+## <a name="use-cases-and-samples"></a>Casos de uso y ejemplos
 
 Varias extensiones de máquina virtual de Azure diferentes están disponibles, cada una con un caso de uso específico. A continuación, se indican algunos ejemplos:
 
@@ -46,23 +42,17 @@ Además de las extensiones específicas de proceso, una extensión de script per
 
 Para trabajar a través de un ejemplo en el cual se usa una extensión de máquina virtual en una implementación completa de la aplicación, consulte [Automatización de implementaciones de aplicaciones en Azure Virtual Machines](../linux/dotnet-core-1-landing.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Cada extensión de máquina virtual puede tener su propio conjunto de requisitos previos. Por ejemplo, la extensión de máquina virtual de Docker tiene un requisito previo de una distribución de Linux compatible. En la documentación específica de extensión se detallan los requisitos de extensiones individuales.
 
-<a id="azure-vm-agent" class="xliff"></a>
-
-### Agente de máquina virtual de Azure
+### <a name="azure-vm-agent"></a>Agente de máquina virtual de Azure
 
 El agente de máquina virtual de Azure administra las interacciones entre una máquina virtual de Azure y el controlador de tejido de Azure. El agente de máquina virtual es responsable de muchos aspectos funcionales de la implementación y administración de máquinas virtuales de Azure, incluida la ejecución de extensiones de máquina virtual. El agente de máquina virtual de Azure está preinstalado en imágenes de Azure Marketplace y se puede instalar manualmente en sistemas operativos compatibles.
 
 Para obtener información sobre las instrucciones de instalación y los sistemas operativos compatibles, consulte [Agente de máquina virtual de Azure](../windows/classic/agents-and-extensions.md).
 
-<a id="discover-vm-extensions" class="xliff"></a>
-
-## Detección de extensiones de máquina virtual
+## <a name="discover-vm-extensions"></a>Detección de extensiones de máquina virtual
 
 Hay muchas extensiones de máquina virtual diferentes disponibles para su uso con máquinas virtuales de Azure. Para ver una lista completa, ejecute el comando siguiente con la CLI de Azure y reemplace la ubicación de ejemplo por la ubicación elegida.
 
@@ -70,17 +60,13 @@ Hay muchas extensiones de máquina virtual diferentes disponibles para su uso co
 az vm extension image list --location westus -o table
 ```
 
-<a id="run-vm-extensions" class="xliff"></a>
-
-## Ejecución de extensiones de máquina virtual
+## <a name="run-vm-extensions"></a>Ejecución de extensiones de máquina virtual
 
 Las extensiones de máquina virtual de Azure pueden ejecutarse en máquinas virtuales existentes, lo que resulta útil si es preciso realizar cambios de configuración o recuperar la conectividad en una máquina virtual ya implementada. Las extensiones de máquina virtual también pueden agruparse con las implementaciones de plantilla de Azure Resource Manager. Al usar las extensiones con plantillas de Resource Manager, las máquinas virtuales de Azure se pueden implementar y configurar sin intervención alguna después de la implementación.
 
 Los siguientes métodos pueden usarse para ejecutar una extensión en una máquina virtual existente.
 
-<a id="azure-cli" class="xliff"></a>
-
-### Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Las extensiones de máquina virtual de Azure se pueden ejecutar en una máquina virtual existente mediante el comando `az vm extension set`. En este ejemplo se ejecuta la extensión de script personalizado en una máquina virtual.
 
@@ -102,9 +88,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-<a id="azure-portal" class="xliff"></a>
-
-### Portal de Azure
+### <a name="azure-portal"></a>Portal de Azure
 
 Las extensiones de máquina virtual se pueden aplicar a una máquina virtual existente a través de Azure Portal. Para ello, seleccione la máquina virtual, elija **Extensiones** y haga clic en **Agregar**. Seleccione la extensión que quiera en la lista de extensiones disponibles y siga las instrucciones del asistente.
 
@@ -112,9 +96,7 @@ En la siguiente imagen se muestra la instalación de la extensión de script per
 
 ![Instalar la extensión de script personalizado](./media/extensions-features/installscriptextensionlinux.png)
 
-<a id="azure-resource-manager-templates" class="xliff"></a>
-
-### Plantillas del Administrador de recursos de Azure
+### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 
 Las extensiones de máquina virtual se pueden agregar a una plantilla de Azure Resource Manager y ejecutar con la implementación de la plantilla. Al implementar una extensión con una plantilla, puede crear implementaciones de Azure completamente configuradas. Por ejemplo, el siguiente JSON procede de una plantilla de Resource Manager. La plantilla implementa un conjunto de máquinas virtuales de carga equilibrada y una base de datos de Azure SQL Database y, después, instala una aplicación de .NET Core en cada máquina virtual. La extensión de máquina virtual se encarga de la instalación de software.
 
@@ -151,9 +133,7 @@ Para obtener más información, consulte la [plantilla de Resource Manager](http
 
 Para obtener más información, consulte [Creación de plantillas de Azure Resource Manager con extensiones de máquina virtual Linux](../linux/extensions-authoring-templates.md).
 
-<a id="secure-vm-extension-data" class="xliff"></a>
-
-## Protección de datos de extensión de máquina virtual
+## <a name="secure-vm-extension-data"></a>Protección de datos de extensión de máquina virtual
 
 Al ejecutar una extensión de máquina virtual, puede que sea necesario incluir información confidencial como credenciales, nombres de cuenta de almacenamiento y claves de acceso de cuenta de almacenamiento. Muchas extensiones de máquina virtual incluyen una configuración protegida que cifra datos y los descifra solo dentro de la máquina virtual de destino. Cada extensión tiene un esquema específico de configuración protegida que se detalla de forma individual en la documentación específica de extensión.
 
@@ -218,17 +198,13 @@ Al moverse la propiedad **command to execute** a la configuración **protegida**
 }
 ```
 
-<a id="troubleshoot-vm-extensions" class="xliff"></a>
-
-## Solución de problemas de extensiones de máquina virtual
+## <a name="troubleshoot-vm-extensions"></a>Solución de problemas de extensiones de máquina virtual
 
 Cada extensión de máquina virtual puede tener unos pasos de solución de problemas específicos de la extensión. Por ejemplo, al usar la extensión de script personalizado, se pueden encontrar detalles de ejecución de script localmente en la máquina virtual donde se ejecutó la extensión. Todos los pasos de solución de problemas específicos de extensión aparecen detallados en la documentación específica de extensión.
 
 Los pasos de solución de problemas siguientes se aplican a todas las extensiones de máquina virtual.
 
-<a id="view-extension-status" class="xliff"></a>
-
-### Consulta del estado de la extensión
+### <a name="view-extension-status"></a>Consulta del estado de la extensión
 
 Una vez que una extensión de máquina virtual se haya ejecutado en una máquina virtual, use el siguiente comando de la CLI de Azure para volver al estado de la extensión. Reemplace los nombres de parámetros de ejemplo por los suyos propios.
 
@@ -246,9 +222,7 @@ True                       westus      customScript  Succeeded            Micros
 
 El estado de ejecución de extensión también puede encontrarse en Azure Portal. Para ver el estado de una extensión, seleccione la máquina virtual, elija **Extensiones** y seleccione la extensión deseada.
 
-<a id="rerun-a-vm-extension" class="xliff"></a>
-
-### Repetición de ejecución de una extensión de máquina virtual
+### <a name="rerun-a-vm-extension"></a>Repetición de ejecución de una extensión de máquina virtual
 
 Puede haber casos en los que sea necesario volver a ejecutar una extensión de máquina virtual. Puede volver ejecutar la extensión si la quita y la vuelve a ejecutar con un método de ejecución de su elección. Para quitar una extensión, ejecute el siguiente comando con la CLI de Azure. Reemplace los nombres de parámetros de ejemplo por los suyos propios.
 
@@ -263,9 +237,7 @@ Puede quitar una extensión mediante los siguientes pasos en Azure Portal:
 3. Seleccione la extensión deseada.
 4. Elija **Desinstalar**.
 
-<a id="common-vm-extension-reference" class="xliff"></a>
-
-## Referencia de extensión de máquina virtual común
+## <a name="common-vm-extension-reference"></a>Referencia de extensión de máquina virtual común
 | Nombre de la extensión | Descripción | Más información |
 | --- | --- | --- |
 | Extensión de script personalizado para Linux |Ejecución de scripts en una máquina virtual de Azure |[Extensión de script personalizado para Linux](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |

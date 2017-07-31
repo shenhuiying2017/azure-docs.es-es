@@ -22,17 +22,13 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="how-to-integrate-engagement-reach-on-android" class="xliff"></a>
-
-# Integración de cobertura para Engagement en Android
+# <a name="how-to-integrate-engagement-reach-on-android"></a>Integración de cobertura para Engagement en Android
 > [!IMPORTANT]
 > Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
 > 
 > 
 
-<a id="standard-integration" class="xliff"></a>
-
-## Integración estándar
+## <a name="standard-integration"></a>Integración estándar
 
 Copie los archivos de recursos de cobertura desde el SDK en el proyecto:
 
@@ -108,9 +104,7 @@ Edite su archivo `AndroidManifest.xml`:
   
   Sin este permiso, Android impide que se muestren notificaciones del sistema si marca la opción de sonar o vibrar en el administrador de la campaña de cobertura.
 
-<a id="native-push" class="xliff"></a>
-
-## Inserción nativa:
+## <a name="native-push"></a>Inserción nativa:
 Ahora que ha configurado el módulo Reach, deberá configurar la inserción nativa para poder recibir las campañas en el dispositivo.
 
 Se admiten dos servicios en Android:
@@ -124,12 +118,8 @@ En ese caso, debe usar varios APK.
 
 **Ahora su aplicación está lista para recibir y mostrar campañas de cobertura.**
 
-<a id="how-to-handle-data-push" class="xliff"></a>
-
-## Control de inserción de datos
-<a id="integration" class="xliff"></a>
-
-### Integración
+## <a name="how-to-handle-data-push"></a>Control de inserción de datos
+### <a name="integration"></a>Integración
 Si desea que su aplicación reciba inserciones de datos de cobertura, debe crear una subclase de `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` y hacer referencia a ella en el archivo `AndroidManifest.xml` (entre las etiquetas `<application>` y/o `</application>`):
 
             <receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
@@ -159,14 +149,10 @@ Luego puede invalidar las devoluciones de llamada `onDataPushStringReceived` y `
               }
             }
 
-<a id="category" class="xliff"></a>
-
-### Categoría
+### <a name="category"></a>Categoría
 El parámetro de categoría es opcional cuando se crea una campaña de inserción de datos y permite filtrar los datos que inserta. Esto es útil si tiene varios receptores de difusión que controlan distintos tipos de inserciones de datos, o bien, si desea insertar distintos tipos de datos `Base64` y desea identificar su tipo antes de analizarlos.
 
-<a id="callbacks-return-parameter" class="xliff"></a>
-
-### Parámetro de devolución de devoluciones de llamada
+### <a name="callbacks-return-parameter"></a>Parámetro de devolución de devoluciones de llamada
 Estas son algunas directrices para manejar correctamente el parámetro de devolución de `onDataPushStringReceived` y `onDataPushBase64Received`:
 
 * Un receptor de difusión debiera devolver `null` en la devolución de llamada si no sabe cómo controlar una inserción de datos. Debe usar la categoría para determina si el receptor de difusión debe controlar o no la inserción de datos.
@@ -179,26 +165,18 @@ El tipo de devolución se usa solo para las estadísticas de cobertura:
 * `Replied` aumenta si uno de los receptores de difusión devolvió `true` o `false`.
 * `Actioned` aumenta solo si uno de los receptores de difusión devolvió `true`.
 
-<a id="how-to-customize-campaigns" class="xliff"></a>
-
-## Personalización de las campañas
+## <a name="how-to-customize-campaigns"></a>Personalización de las campañas
 Para personalizar campañas, puede modificar los diseños proporcionados en el SDK de cobertura.
 
 Debe conservar todos los identificadores usados en los diseños y los tipos de las vistas que usa un identificador, especialmente para vistas de texto y vistas de imagen. Algunas vistas solo se utilizan para ocultar o mostrar áreas, por tanto, es posible que se cambie su tipo. Compruebe el código fuente si intenta cambiar el tipo de una vista de los diseños proporcionados.
 
-<a id="notifications" class="xliff"></a>
-
-### Notificaciones
+### <a name="notifications"></a>Notificaciones
 Existen dos tipos de notificaciones: notificaciones del sistema y notificaciones en aplicación, las que usan distintos archivos de diseño.
 
-<a id="system-notifications" class="xliff"></a>
-
-#### Notificaciones del sistema
+#### <a name="system-notifications"></a>Notificaciones del sistema
 Para personalizar las notificaciones del sistema, debe usar las **categorías**. Puede ir a [Categorías](#categories).
 
-<a id="in-app-notifications" class="xliff"></a>
-
-#### Notificación en aplicación
+#### <a name="in-app-notifications"></a>Notificación en aplicación
 De manera predeterminada, una notificación en aplicación es una vista que se agrega de manera dinámica a la interfaz de usuario de actividad actual gracias al método Android `addContentView()`. Esto se denomina superposición de notificaciones. Las superposiciones de notificación son ideales para una integración rápida, debido a que no requieren que modifique ningún diseño en la aplicación.
 
 Para modificar el aspecto de las superposiciones de notificación, puede simplemente modificar el archivo `engagement_notification_area.xml` según sus necesidades.
@@ -208,9 +186,7 @@ Para modificar el aspecto de las superposiciones de notificación, puede simplem
 > 
 > 
 
-<a id="include-notification-layout-as-part-of-an-activity-layout" class="xliff"></a>
-
-##### Incluya el diseño de la notificación como parte de un diseño de actividad
+##### <a name="include-notification-layout-as-part-of-an-activity-layout"></a>Incluya el diseño de la notificación como parte de un diseño de actividad
 Las superposiciones son ideales para lograr una integración rápida, pero puede ser poco conveniente o tener efectos secundarios en casos especiales. El sistema de superposición se puede personalizar en el nivel de una actividad, para que sea fácil impedir los efectos secundarios para actividades especiales.
 
 Puede decidir incluir nuestro diseño de notificación en su diseño existente gracias a la instrucción **include** de Android. El siguiente es un ejemplo de un diseño `ListActivity` modificado que contiene solo una `ListView`.
@@ -252,9 +228,7 @@ El SDK de cobertura para Engagement detecta automáticamente que el diseño de n
 > 
 > 
 
-<a id="disabling-application-notification-per-activity" class="xliff"></a>
-
-##### Deshabilitación de notificación de aplicación por actividad
+##### <a name="disabling-application-notification-per-activity"></a>Deshabilitación de notificación de aplicación por actividad
 Si no desea agregar la superposición a su actividad y no desea incluir el diseño de notificación en su propio diseño, puede deshabilitar la superposición para esta actividad en el `AndroidManifest.xml` al agregar una sección `meta-data`, como en el siguiente ejemplo:
 
             <activity android:name="SplashScreenActivity">
@@ -309,9 +283,7 @@ Se transmite como un parámetro `String` o de manera indirecta en un objeto `Eng
 
 Puede cambiar la mayor parte del proceso de creación de notificaciones si redefine los métodos en `EngagementDefaultNotifier`; si desea obtener una apariencia de personalización más avanzada, revise la documentación técnica y el código fuente.
 
-<a id="in-app-notifications" class="xliff"></a>
-
-##### Notificación en aplicación
+##### <a name="in-app-notifications"></a>Notificación en aplicación
 Si solo desea usar diseños alternativos para una categoría específica, puede implementar esto como en el siguiente ejemplo:
 
             public class MyNotifier extends EngagementDefaultNotifier
@@ -442,9 +414,7 @@ Este ejemplo simple de categoría crea notificaciones de aplicación (o en aplic
 
 Si desea cambiar eso, debe redefinir el método `EngagementDefaultNotifier.prepareInAppArea` . Se recomienda consultar la documentación técnica y el código fuente de `EngagementNotifier` y `EngagementDefaultNotifier` si desea este nivel de personalización avanzada.
 
-<a id="system-notifications" class="xliff"></a>
-
-##### Notificaciones del sistema
+##### <a name="system-notifications"></a>Notificaciones del sistema
 Al extender `EngagementDefaultNotifier`, puede invalidar `onNotificationPrepared` para modificar la notificación que se preparó mediante la implementación predeterminada.
 
 Por ejemplo:
@@ -489,9 +459,7 @@ El siguiente es un ejemplo de una implementación de ese tipo correcta:
               return false;
             }
 
-<a id="notification-only-announcements" class="xliff"></a>
-
-##### Anuncios solo de notificación
+##### <a name="notification-only-announcements"></a>Anuncios solo de notificación
 La administración del clic en un anuncio de solo notificación se puede personalizar al anular `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` para modificar el `Intent` preparado. Usar este método le permite ajusta fácilmente las marcas.
 
 Por ejemplo, para agregar la marca `SINGLE_TOP` :
@@ -508,9 +476,7 @@ En el caso de los usuarios de Engagement heredado, observe que las notificacione
 
 También puede implementar `EngagementNotifier.executeNotifAnnouncementAction` desde cero.
 
-<a id="notification-life-cycle" class="xliff"></a>
-
-##### Ciclo de vida de notificación
+##### <a name="notification-life-cycle"></a>Ciclo de vida de notificación
 Al utilizar la categoría predeterminada, se llama a algunos métodos de ciclo de vida en el objeto `EngagementReachInteractiveContent` para mostrar estadísticas y actualizar el estado de la campaña:
 
 * Cuando la notificación se muestra en la aplicación o se pone en la barra de estado, se llama al método `displayNotification` (que informa las estadísticas) mediante `EngagementReachAgent` si `handleNotification` devuelve `true`.
@@ -528,24 +494,16 @@ Si su implementación de pasa por alto `EngagementNotifier` el comportamiento pr
 > 
 > 
 
-<a id="announcements-and-polls" class="xliff"></a>
-
-### Anuncios y sondeos
-<a id="layouts" class="xliff"></a>
-
-#### Diseños
+### <a name="announcements-and-polls"></a>Anuncios y sondeos
+#### <a name="layouts"></a>Diseños
 Puede modificar los archivos `engagement_text_announcement.xml`, `engagement_web_announcement.xml` y `engagement_poll.xml` para personalizar anuncios de texto, anuncios web y sondeos.
 
 Estos archivos comparten dos diseños comunes para el área de título y el área de botones. El diseño del título es `engagement_content_title.xml` y usa el archivo dibujable epónimo para el segundo plano. El diseño de los botones de acción y salida es `engagement_button_bar.xml` y usa el archivo dibujable epónimo para el segundo plano.
 
 En un sondeo, el diseño de la pregunta y sus opciones se inflan de manera dinámica usando varias veces el archivo de diseño `engagement_question.xml` para las preguntas y el archivo `engagement_choice.xml` para las opciones.
 
-<a id="categories" class="xliff"></a>
-
-#### Categorías
-<a id="alternate-layouts" class="xliff"></a>
-
-##### Diseños alternativos
+#### <a name="categories"></a>Categorías
+##### <a name="alternate-layouts"></a>Diseños alternativos
 Como con las notificaciones, la categoría de la campaña puede utilizarse para tener diseños alternativos para los anuncios y sondeos.
 
 Por ejemplo, para crear una categoría para un anuncio de texto, puede extender `EngagementTextAnnouncementActivity` y hacer referencia a él en el archivo `AndroidManifest.xml`:
@@ -596,9 +554,7 @@ En el caso de los sondeos, puede extender `EngagementPollActivity` y declarar su
               </intent-filter>
             </activity>
 
-<a id="implementation-from-scratch" class="xliff"></a>
-
-##### Implementación desde cero
+##### <a name="implementation-from-scratch"></a>Implementación desde cero
 Puede implementar categorías para sus actividades de anuncio (y sondeo) sin extender una de las clases `Engagement*Activity` proporcionadas por el SDK de cobertura. Esto resulta útil, por ejemplo, si desea definir un diseño que no utiliza las mismas vistas que los diseños estándar.
 
 Al igual que para la personalización de notificación avanzada, se recomienda mirar el código fuente de la implementación estándar.

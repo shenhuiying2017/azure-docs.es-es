@@ -23,14 +23,10 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-<a id="how-to-write-queries-in-stream-analytics" class="xliff"></a>
-
-# Cómo escribir consultas en Análisis de transmisiones
+# <a name="how-to-write-queries-in-stream-analytics"></a>Cómo escribir consultas en Análisis de transmisiones
 La escritura de consultas con lógica de procesamiento de transmisiones de Análisis de transmisiones de Azure se implementa como una "consulta permanente" que se define antes de que un trabajo empiece y se ejecuta en los datos conforme llega al trabajo. La transformación de datos se expresa en un lenguaje de consultas similar a SQL, que es en gran medida un subconjunto de T-SQL con algunas extensiones de lenguaje agregadas como [Basado en ventanas](https://msdn.microsoft.com/library/azure/dn835019.aspx) que se usa para expresar la semántica temporal.
 
-<a id="writing-queries" class="xliff"></a>
-
-## Escritura de consultas:
+## <a name="writing-queries"></a>Escritura de consultas:
 1. En su trabajo de Análisis de transmisiones en el Portal de administración de Azure, haga clic en **Consulta**.
    
     ![Seleccionar consulta](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)  
@@ -45,9 +41,7 @@ La escritura de consultas con lógica de procesamiento de transmisiones de Anál
    
    ![Ventana de datos de consulta](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)  
 
-<a id="to-validate-query-data-is-working" class="xliff"></a>
-
-## Para comprobar que los datos de consulta funcionan:
+## <a name="to-validate-query-data-is-working"></a>Para comprobar que los datos de consulta funcionan:
 Puede probar que la consulta se comporta según lo esperado si la ejecuta en el explorador a través de uno o más archivos JSON locales que contienen los datos de prueba. Esto no iniciará el trabajo ni tendrá implicaciones de facturación.
 
 > [!NOTE]
@@ -68,14 +62,10 @@ Puede probar que la consulta se comporta según lo esperado si la ejecuta en el 
    
    ![Resumen de la consulta](./media/stream-analytics-write-queries/6-stream-analytics-write-queries.png)  
 
-<a id="get-help" class="xliff"></a>
-
-## Obtener ayuda
+## <a name="get-help"></a>Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
