@@ -15,9 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 259c59133499a4a3beb0e5f6f3700944df5ab8a9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
+ms.contentlocale: es-es
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -83,14 +85,14 @@ El gráfico siguiente es un subconjunto de los límites que figuran en [Límites
 | Número máximo de réplicas |N/D |3 |12 |12 |12 |12 |
 | Consultas por segundo |N/D |~ 3 por réplica |~ 15 por réplica |~ 60 por réplica |>60 por réplica |>60 por réplica |
 
-<sup>1</sup> Las SKU de Gratis y Versión preliminar no se incluyen en los Acuerdos de Nivel de Servicio. Los Acuerdo de Nivel de Servicio se aplican cuando una SKU pasa a estar disponible de manera general.
+<sup>1</sup> Las versiones gratuitas y preliminares no incluyen contratos de nivel de servicio (SLA). Para todos los niveles facturables, los SLA tomarán efecto cuando se aprovisione suficiente redundancia para el servicio. Son necesarias dos o más réplicas para el SLA de consulta (lectura). Son necesarias tres o más réplicas para el SLA de consulta e indexación (lectura y escritura). El número de particiones no es una consideración del SLA. 
 
 <sup>2</sup> S3 y S3 HD están respaldados por la misma infraestructura de alta capacidad, pero cada uno de ellos alcanza su límite máximo de maneras diferentes. S3 se dirige a un menor número de índices muy grandes. Como tal, su límite máximo es el límite de recursos (2,4 TB para cada servicio). S3 HD se dirige a un gran número de índices muy pequeños. A los 1000 índices, S3 HD alcanza sus límites en forma de restricciones de índice. Si es un cliente de S3 HD que requiere más de 1000 índices, póngase en contacto con el soporte técnico de Microsoft para obtener información sobre cómo proceder.
 
 ## <a name="eliminate-skus-that-dont-meet-requirements"></a>Eliminación de las SKU que no cumplen los requisitos
 Las siguientes preguntas pueden ayudarlo a decidir qué SKU elegir para su carga de trabajo.
 
-1. ¿Tiene requisitos de **SLA** ? Reduzca las opciones a los niveles Básico o Estándar (que no sea Vista previa).
+1. ¿Tiene requisitos de **SLA** ? Puede usar cualquier nivel facturable (Básico y superiores), pero debe configurar el servicio en pos de la redundancia. Son necesarias dos o más réplicas para el SLA de consulta (lectura). Son necesarias tres o más réplicas para el SLA de consulta e indexación (lectura y escritura). El número de particiones no es una consideración del SLA.
 2. ¿**Cuántos índices** necesita? Una de las variables más importantes que afecta a la decisión de qué SKU elegir es el número de índices que admite cada una, ya que los planes de tarifas más económicos tienen límites muy diferentes. Los requisitos de número de índices podrían ser un factor determinante para decidir qué SKU elegir.
 3. **¿Cuántos documentos** se cargarán en cada índice? El número y tamaño de los documentos determinarán el tamaño final del índice. Si damos por hecho que puede estimar el tamaño previsto del índice, puede comparar ese número con el tamaño de la partición por SKU y sumarle la cantidad de particiones necesarias para almacenar un índice de ese tamaño.
 4. **¿Qué carga de consultas se espera**? Una vez que entiende los requisitos de almacenamiento, tenga en cuenta las cargas de trabajo de consultas. Las SKU de los niveles S2 y S3 ofrecen prácticamente el mismo rendimiento, pero los requisitos de SLA excluirán todas las SKU de vista previa.
@@ -113,9 +115,4 @@ Una vez que sepa qué SKU se ajusta a sus requisitos, consulte cuáles son los s
 
 * [Creación de un servicio Búsqueda de Azure mediante el Portal de Azure](search-create-service-portal.md)
 * [Planeación de la capacidad en Búsqueda de Azure](search-capacity-planning.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

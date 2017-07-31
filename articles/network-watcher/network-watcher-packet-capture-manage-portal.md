@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 858769130eed5c996bca151855bfc09d4832a314
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 33390532cc4fc1129a4f960d589f41bc95e5a1ff
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/15/2017
 
 ---
 
@@ -88,7 +88,7 @@ Las propiedades que se pueden definir en una captura de paquetes son:
 - **Ruta de acceso de archivo local**: la ruta de acceso local en una máquina virtual para guardar la captura de paquetes. (Solo se habilita si está seleccionada la opción **Archivo**). Se tiene que proporcionar una ruta de acceso válida
 - **Número máximo de bytes por paquete**: el número de bytes de cada paquete que se captura, si se deja en blanco se capturan todos los bytes.
 - **Número máximo de bytes por sesión**: número total de bytes que se capturan, una vez que se alcanza este valor la captura de paquetes se detiene.
-- **Límite de tiempo (segundos)**: establece un límite de tiempo para detener la captura del paquete. El valor predeterminado es 1800 segundos.
+- **Límite de tiempo (segundos)**: establece un límite de tiempo para detener la captura del paquete. El valor predeterminado es 18 000 segundos.
 
 > [!NOTE]
 > Actualmente las cuentas de Premium Storage no se admiten para almacenar paquetes de captura.

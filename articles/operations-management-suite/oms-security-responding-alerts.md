@@ -4,7 +4,7 @@ description: "Este documento le ayuda a utilizar la opción de información sobr
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -83,9 +84,21 @@ El **mapa de información sobre amenazas** le ayudará a identificar las ubicaci
 > [!NOTE]
 > Puede ver una demostración sobre cómo utilizar esta capacidad durante un proceso de respuesta a incidentes observando la presentación [Mitigate datacenter security threats with guided investigation using Operations Management Suite](https://myignite.microsoft.com/videos/5000) (Mitigar las amenazas de seguridad del centro de datos con la investigación guiada mediante Operations Management Suite) proporcionada en Microsoft Ignite.
 > 
-> 
 
-## <a name="see-also"></a>Consulte también
+### <a name="responding-to-distinct-malicious-ip-accessed"></a>Respuesta a diversos accesos a direcciones IP malintencionadas
+En algunos escenarios, puede que observe una posible dirección IP malintencionada a la que se accedió desde un equipo supervisado:
+
+![mapa de información sobre amenazas](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Esta alerta y otras de la misma categoría, se generan a través de la seguridad de OMS mediante el uso de [Inteligencia de amenazas de Microsoft](https://youtu.be/O4WtxgUrDc8). Microsoft recopila los datos de inteligencia de amenazas, así como también los adquiere a través de los principales proveedores. Estos datos se actualizan con frecuencia y se adaptan a amenazas que cambian rápidamente. Debido a su naturaleza, debe combinarse con otras fuentes de información de seguridad mientras se [investiga](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) una alerta de seguridad. 
+
+## <a name="customize-alerts-received-via-e-mail"></a>Personalización de las alertas que se reciben por correo electrónico
+
+Puede personalizar los usuarios de la organización que recibirán notificación cuando Seguridad de OMS desencadena alertas de seguridad. Esta opción se encuentra disponible en la sección de información general y configuración del panel de OMS:
+
+![Email](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig7.png)
+
+## <a name="see-also"></a>Otras referencias
 En este documento ha aprendido a usar la opción **Información sobre amenazas** de la solución Seguridad y auditoría de OMS para responder a las alertas de seguridad. Para obtener más información sobre Seguridad de OMS, consulte los siguientes artículos:
 
 * [Información general de Operations Management Suite (OMS)](operations-management-suite-overview.md)

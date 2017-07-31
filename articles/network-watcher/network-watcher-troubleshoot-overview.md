@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 9c7ce71674a851d598ef48eb430127c9a6bddb84
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 3ae4701914fb759efe7a890d5906f231c1def2e2
+ms.contentlocale: es-es
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introducción a la solución de problemas de recursos en Azure Network Watcher
 
-Las puertas de enlace de red virtual proporcionan conectividad entre recursos locales y otras redes virtuales dentro de Azure. La supervisión de estas puertas de enlace y sus conexiones es esencial para garantizar la continuidad de la comunicación. Network Watcher proporciona la funcionalidad para solucionar problemas con las puertas de enlace de red virtual y las conexiones. Se puede llamar a este servicio mediante PowerShell, la CLI o la API de REST. Cuando se llama, Network Watcher diagnostica el estado de la puerta de enlace de red virtual o la conexión y devuelve los resultados pertinentes. Esta solicitud es una transacción de larga duración; los resultados se devuelven cuando se completa el diagnóstico.
+Las puertas de enlace de red virtual proporcionan conectividad entre recursos locales y otras redes virtuales dentro de Azure. La supervisión de estas puertas de enlace y sus conexiones es esencial para garantizar la continuidad de la comunicación. Network Watcher proporciona la funcionalidad para solucionar problemas con las puertas de enlace de red virtual y las conexiones. Se puede llamar mediante el portal, PowerShell, la CLI o la API de REST. Cuando se llama, Network Watcher diagnostica el estado de la puerta de enlace de red virtual o la conexión y devuelve los resultados pertinentes. Esta solicitud es una transacción de larga duración; los resultados se devuelven cuando se completa el diagnóstico.
+
+![portal][2]
 
 ## <a name="results"></a>Results
 
@@ -78,6 +81,24 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 | IkePolicyMismatch | La puerta de enlace del mismo nivel tiene directivas IKE que no son compatibles con Azure. | Sí|
 | Error de WfpParse | Se produjo un error al analizar el registro de WFP. |Sí|
 
+## <a name="supported-gateway-types"></a>Tipos de puerta de enlace admitidos
+
+En la lista siguiente se muestra qué puertas de enlace y conexiones son compatibles con la solución de problemas de Network Watcher.
+|  |  |
+|---------|---------|
+|**Tipos de puerta de enlace**   |         |
+|VPN      | Compatible        |
+|ExpressRoute | No compatible |
+|HyperNet | No compatible|
+|**Tipos de VPN** | |
+|Basado en ruta | Compatible|
+|Basado en directiva | No compatible|
+|**Tipos de conexión**||
+|IPSec| Compatible|
+|VNet2Vnet| Compatible|
+|ExpressRoute| No compatible|
+|HyperNet| No compatible|
+|VPNClient| No compatible|
 
 ## <a name="log-files"></a>Archivos de registro
 
@@ -193,8 +214,9 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a diagnosticar las VPN Gateway y conexiones con PowerShell, visite [Solución de problemas de puerta de enlace: PowerShell](network-watcher-troubleshoot-manage-powershell.md).
+Visite [Gateway troubleshooting - Azure portal](network-watcher-troubleshoot-manage-portal.md) (Solución de problemas de puerta de enlace: Azure Portal) para saber cómo diagnosticar las conexiones y las puertas de enlace de VPN a través del portal.
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
+[2]: ./media/network-watcher-troubleshoot-overview/portal.png
 

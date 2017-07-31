@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 0ca7382ed64fd548f8a086893ea2e3187dd26929
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 392c814b7d3ff6b4f0f7850a51960576775e0307
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/09/2017
 Este artículo le ayuda a comenzar rápidamente con Azure Security Center guiándole por los componentes de supervisión de la seguridad y administración de directivas de Security Center.
 
 > [!NOTE]
-> Este artículo es una introducción al servicio mediante una implementación de ejemplo. No es una guía paso a paso.
+> Desde primeros de junio de 2017, Security Center usará Microsoft Monitoring Agent para recopilar y almacenar datos. Consulte [Migración de la plataforma de Azure Security Center](security-center-platform-migration.md) para más información. La información de este artículo representa la funcionalidad de Security Center después de la transición a Microsoft Monitoring Agent.
 >
 >
 
@@ -41,9 +41,16 @@ Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.micros
 En Security Center, solo se muestra información relacionada con un recurso de Azure cuando tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o grupo de recursos al que pertenece un recurso. Consulte [Permisos en Azure Security Center](security-center-permissions.md) para más información sobre los roles y las acciones permitidas en Security Center.
 
 ## <a name="data-collection"></a>Colección de datos
-Security Center recopila datos de las máquinas virtuales (VM) para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede a Security Center, la recopilación de datos está habilitada en todas las máquinas virtuales de la suscripción. Aunque se recomienda usar la recopilación de datos, puede desactivarla en la directiva de Security Center.
+Security Center recopila datos de las máquinas virtuales (VM) para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede a Security Center, la recopilación de datos está habilitada en todas las máquinas virtuales de la suscripción. Security Center aprovisiona Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles y en las que se creen. Consulte el artículo sobre cómo [habilitar la recopilación de datos](security-center-enable-data-collection.md) para obtener más información acerca de cómo funciona esta característica.
+
+Se recomienda habilitar la recopilación de datos. Si se utiliza el nivel Gratis de Security Center, también se puede deshabilitar la recopilación de datos de las máquinas virtuales en la directiva de seguridad. La recopilación de datos es necesaria para las suscripciones del nivel Estándar de Security Center. Consulte los [planes de tarifa de Security Center](security-center-pricing.md) para obtener más información sobre los planes de tarifa Gratis y Estándar.
 
 Los pasos siguientes describen cómo acceder a los componentes de Security Center y usarlos. En estos pasos, se muestra cómo desactivar la recopilación de datos, si decide excluirla.
+
+> [!NOTE]
+> Este artículo es una introducción al servicio mediante una implementación de ejemplo. No es una guía paso a paso.
+>
+>
 
 ## <a name="access-security-center"></a>Acceso al Centro de seguridad
 En el portal, siga estos pasos para acceder al Centro de seguridad:
@@ -60,21 +67,13 @@ En el portal, siga estos pasos para acceder al Centro de seguridad:
 Puede configurar directivas de seguridad para los grupos de recursos y las suscripciones de Azure. Vamos a configurar una directiva de seguridad para su suscripción:
 
 1. En la hoja **Security Center**, seleccione el icono **Directiva**.
-   ![Directiva de seguridad][3]
-2. En la hoja **Directiva de seguridad: definir directiva por suscripción o grupo de recursos**, seleccione una suscripción.
-3. En la hoja **Directiva de seguridad**, **Recopilación de datos** está habilitada para que recopile registros de forma automática. La extensión de supervisión se aprovisiona en todas las máquinas virtuales actuales y nuevas de la suscripción. (Para desactivar la recopilación de datos, en **Recopilación de datos**, seleccione **Desactivar**; pero si lo hace, Security Center dejará de proporcionar alertas y recomendaciones de seguridad).
-4. En la hoja **Directiva de seguridad**, seleccione **Elija una cuenta de almacenamiento por región**. Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Si no elige una cuenta de almacenamiento para cada región, se crea automáticamente una cuenta de almacenamiento y se coloca en el grupo de recursos securitydata. Los datos recopilados se aíslan lógicamente de los datos de otros clientes por seguridad.
+2. En la hoja **Security policy - Define policy per subscription** (Directiva de seguridad: Definir directiva por suscripción), seleccione una suscripción.
+3. En la hoja **Directiva de seguridad**, **Recopilación de datos** está habilitada para que recopile registros de forma automática. La extensión de supervisión se aprovisiona en todas las máquinas virtuales actuales y nuevas de la suscripción. En el nivel Gratis de Security Center, se puede deshabilitar la recopilación de datos estableciendo **Recopilación de datos** en **Desactivar**. Al establecer **Recopilación de datos** en **Desactivar**, Security Center dejará de proporcionar alertas y recomendaciones de seguridad.
+4. En la hoja **Directiva de seguridad**, seleccione **Directiva de prevención**. Se abre la hoja **Directiva de prevención**.
+5. En la hoja **Directiva de prevención**, active las recomendaciones que quiere ver como parte de la directiva de seguridad. Ejemplos:
 
-   > [!NOTE]
-   > Se recomienda que en primer lugar habilite la recopilación de datos y elija una cuenta de almacenamiento en el nivel de suscripción. Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero la configuración de la recopilación de datos y la cuenta de almacenamiento tiene lugar solo en el nivel de suscripción.
-   >
-   >
-5. En la hoja **Directiva de seguridad**, seleccione **Directiva de prevención**. Se abre la hoja **Directiva de prevención**.
-   ![Directiva de prevención][4]
-6. En la hoja **Directiva de prevención**, active las recomendaciones que quiere ver como parte de la directiva de seguridad. Ejemplos:
-
-   * Al establecer **Actualizaciones del sistema** en **Activado**, se examinan todas las máquinas virtuales compatibles para comprobar si faltan actualizaciones del sistema operativo.
-   * Al establecer **Vulnerabilidades del sistema operativo** en **Activado**, se examinan todas las máquinas virtuales compatibles para identificar todas las configuraciones del sistema operativo que podrían hacer que la máquina virtual resultara más vulnerable a ataques.
+   * Al establecer **Actualizaciones del sistema** en **Activar**, se examinan todas las máquinas virtuales compatibles para comprobar si faltan actualizaciones del sistema operativo.
+   * Al establecer **Vulnerabilidades del sistema operativo** en **Activar**, se examinan todas las máquinas virtuales compatibles para identificar las configuraciones del sistema operativo que podrían hacer que la máquina virtual resultara más vulnerable a ataques.
 
 ### <a name="view-recommendations"></a>Ver recomendaciones
 1. Vuelva a la hoja **Security Center** y haga clic en el icono **Recomendaciones**. El Centro de seguridad analiza periódicamente el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, muestra recomendaciones en la hoja **Recomendaciones**.
@@ -85,8 +84,8 @@ Puede configurar directivas de seguridad para los grupos de recursos y las suscr
 1. Vuelva a la hoja **Centro de seguridad** . La sección **Prevención** del panel contiene indicadores del estado de seguridad de máquinas virtuales, redes, datos y aplicaciones.
 2. Seleccione **Proceso** para más información. La hoja **Proceso** se abre y muestra tres pestañas:
 
-  - **Overview** (Información general): contiene recomendaciones de supervisión y de la máquina virtual.
-  - **Virtual Machines** (Máquinas virtuales): lista de todas las máquinas virtuales y su estado de seguridad actual.
+  - **Información general**: contiene recomendaciones de supervisión y de máquinas virtuales.
+  - **Máquinas virtuales**: enumera todas las máquinas virtuales y sus estados de seguridad actuales.
   - **Cloud Services**: lista de todos los roles web y de trabajo que supervisa Security Center.
 
     ![El icono Estado de los recursos en el Centro de seguridad de Azure][6]
@@ -117,6 +116,7 @@ En este artículo se han presentado los componentes de supervisión de la seguri
 * Configure una directiva de seguridad para su suscripción de Azure. Para aprender más, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md).
 * Use las recomendaciones de Security Center como ayuda para proteger los recursos de Azure. Para aprender más, consulte [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 * Revise y administre las alertas de seguridad actuales. Para aprender más, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
+- [Seguridad de datos de Azure Security Center](security-center-data-security.md): aprenda cómo se administran y protegen los datos en Security Center.
 * Aprenda más sobre las [características avanzadas de detección de amenazas](security-center-detection-capabilities.md) que vienen con el [nivel estándar](security-center-pricing.md) de Security Center. El nivel Estándar se ofrece gratis para los primeros 60 días.
 * Si tiene preguntas acerca de cómo usar Security Center, consulte las [P+F de Azure Security Center](security-center-faq.md).
 

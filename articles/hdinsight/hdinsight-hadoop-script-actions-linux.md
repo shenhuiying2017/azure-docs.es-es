@@ -1,5 +1,5 @@
 ---
-title: Desarrollo de acciones de script con HDInsight basado en Linux | Microsoft Docs
+title: Desarrollo de acciones de script con HDInsight basado en Linux (Azure) | Microsoft Docs
 description: "Obtenga información sobre cómo personalizar clústeres de HDInsight basados en Linux mediante la acción de script. Las acciones de script son una manera de personalizar los clústeres de HDInsight de Azure especificando opciones de configuración de clúster, o instalando servicios adicionales, herramientas u otro software en el clúster. "
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/02/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: aaa5134fafea387e63fc9c9819422d24de6baed0
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: f0ad9a30235412bca9a5b820705960e7b1158d9b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

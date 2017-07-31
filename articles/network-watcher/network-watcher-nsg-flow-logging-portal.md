@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: bbea08798a601989d06774475cb25ee67e99add6
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 41cb5ffab9bd3a3bed75ffdb6a7383ca1690f810
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -30,19 +30,28 @@ ms.lasthandoff: 05/26/2017
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
-> - [API DE REST](network-watcher-nsg-flow-logging-rest.md)
+> - [API de REST](network-watcher-nsg-flow-logging-rest.md)
 
-Los registros de flujo de grupos de seguridad de red son una característica de Network Watcher que permite ver información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen/destino, puerto de origen/destino, protocolo), y si se permitió o denegó el tráfico.
+Los registros de flujo de grupos de seguridad de red son una característica de Network Watcher que permite ver información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Estos registros de flujo se escriben con formato JSON y brinda información importante, la que incluye: 
+
+- Flujos de entrada y de salida por regla.
+- La NIC a la que se aplica el flujo.
+- Información de 5-tupla sobre el flujo (dirección IP de origen o destino, puerto de origen o destino, protocolo).
+- Información sobre si se permitió o denegó el tráfico.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Create an Azure Network Watcher instance](network-watcher-create.md) (Creación de una instancia de Azure Network Watcher) para crear una instancia de Network Watcher. En este escenario también se da por hecho que existe un grupo de recursos con una máquina virtual válida.
+En este escenario se da por hecho que ya siguió los pasos descritos en el artículo sobre cómo [crear una instancia de Network Watcher](network-watcher-create.md). En este escenario se da por hecho que tiene un grupo de recursos con una máquina virtual válida.
 
 ## <a name="register-insights-provider"></a>Registro del proveedor de Insights
 
-Para que el registro del flujo de trabajo funcione correctamente, es preciso registrar el proveedor de **Microsoft.Insights**. Para ello, navegue hasta **Suscripciones** y seleccione la suscripción para la que desea habilitar registros de flujo. En la hoja **Suscripción**, seleccione **Proveedores de recursos**. Navegue por la lista de proveedores y compruebe que el proveedor **microsoft.insights** está registrado. Si no lo está, haga clic en **Registrar**.
+Para que el registro del flujo de trabajo funcione correctamente, es necesario registrar el proveedor **Microsoft.Insights**. Para registrar el proveedor, realice los pasos siguientes: 
 
-![ver proveedores][providers]
+1. Vaya a **Suscripciones** y, luego, seleccione la suscripción para la que desea habilitar los registros de flujo. 
+2. En la hoja **Suscripción**, seleccione **Proveedores de recursos**. 
+3. Observe la lista de proveedores y compruebe que el proveedor **microsoft.insights** está registrado. Si no es así, seleccione **Registrarse**.
+
+![Visualización de proveedores][providers]
 
 ## <a name="enable-flow-logs"></a>Habilitar los registros de flujo
 
@@ -50,49 +59,49 @@ Estos pasos lo guían en el proceso para habilitar registros de flujo en un grup
 
 ### <a name="step-1"></a>Paso 1
 
-Navegue a una instancia de Network Watcher y seleccione **Registros de flujo**.
+Vaya a una instancia de Network Watcher y seleccione **Registros de flujo de NSG**.
 
-![información general de los registros de flujo][1]
+![Información general de los registros de flujo][1]
 
 ### <a name="step-2"></a>Paso 2
 
-Haga clic en un grupo de seguridad de red para seleccionarlo.
+Seleccione un grupo de seguridad de red desde la lista.
 
-![información general de los registros de flujo][2]
+![Información general de los registros de flujo][2]
 
 ### <a name="step-3"></a>Paso 3 
 
-En la hoja **Configuración de los registros de flujo**, establezca el estado en **On** (Activado) y configure una cuenta de almacenamiento.  Cuando haya terminado, haga clic en **Aceptar** y luego en **Guardar**.
+En la hoja **Configuración de los registros de flujo**, establezca el estado en **On** (Activado) y, luego, configure una cuenta de almacenamiento.  Cuando finalice, seleccione **Aceptar**. Después, seleccione **Guardar**.
 
-![información general de los registros de flujo][3]
+![Información general de los registros de flujo][3]
 
 ## <a name="download-flow-logs"></a>Descarga de registros de flujo
 
-Los registros de flujo se guardan en una cuenta de almacenamiento. Para ver los registros de flujo debe descargarlos.
+Los registros de flujo se guardan en una cuenta de almacenamiento. Descargue los registros de flujo para verlos.
 
 ### <a name="step-1"></a>Paso 1
 
-Para descargar registros de flujo, haga clic en **Puede descargar los registros de flujo desde cuentas de almacenamiento configuradas**.  Esto le llevará a una vista de la cuenta de almacenamiento donde puede navegar hasta el registro para descargarlo.
+Para descargar registros de flujo, seleccione **Puede descargar los registros de flujo desde cuentas de almacenamiento configuradas**. Este paso lo lleva a una vista de cuenta de almacenamiento en la que puede elegir los registros que se van a descargar.
 
-![configuración de registros de flujo][4]
+![Configuración de registros de flujo][4]
 
 ### <a name="step-2"></a>Paso 2
 
-Vaya a la cuenta de almacenamiento correcta y luego a **Contenedores** > **insights-log-networksecuritygroupflowevent**.
+Vaya a la cuenta de almacenamiento correcta. Luego, seleccione **Contenedores** > **insights-log-networksecuritygroupflowevent**.
 
-![configuración de registros de flujo][5]
+![Configuración de registros de flujo][5]
 
 ### <a name="step-3"></a>Paso 3
 
-Explore en profundidad la ubicación del registro de flujo, seleccione el registro de flujo y haga clic en **Descargar**.
+Vaya a la ubicación del registro de flujo, selecciónelo y, luego, seleccione **Descargar**.
 
-![configuración de registros de flujo][6]
+![Configuración de registros de flujo][6]
 
-Para más información sobre la estructura del registro, vea la [introducción a los registros de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
+Para información sobre la estructura del registro, visite la [introducción a los registros de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo [visualizar los registros de flujo de NSG con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Obtenga información sobre cómo [visualizar los registros de flujo de NSG con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 
 <!-- Image references -->
 [1]: ./media/network-watcher-nsg-flow-logging-portal/figure1.png
@@ -102,3 +111,4 @@ Obtenga información sobre cómo [visualizar los registros de flujo de NSG con P
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
 [providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png
+

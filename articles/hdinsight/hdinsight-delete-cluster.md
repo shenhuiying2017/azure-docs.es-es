@@ -1,5 +1,5 @@
 ---
-title: "Eliminación de un clúster de HDInsight | Microsoft Docs"
+title: "Eliminación de un clúster de HDInsight - Azure | Microsoft Docs"
 description: "Información sobre las distintas formas de eliminar un clúster de HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 05/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: fbb561f4bfda27c74ffdc08c1b07f4adb83286ab
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 7d3aed71d9b5867a87954a60b1e470def0563f71
+ms.contentlocale: es-es
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Eliminación de un clúster de HDInsight con el explorador, PowerShell o la CLI de Azure
 
-La facturación del clúster de HDInsight se inicia una vez creado el clúster y solo se detiene cuando se elimina. Se facturan por minuto realizando una prorrata, por lo que siempre debe eliminar aquellos que ya no se estén utilizando. En este documento, obtendrá información sobre cómo eliminar un clúster mediante Azure Portal, Azure PowerShell y la CLI de Azure.
+La facturación del clúster de HDInsight se inicia una vez creado el clúster y solo se detiene cuando se elimina. Se facturan por minuto realizando una prorrata, por lo que siempre debe eliminar aquellos que ya no se estén utilizando. En este documento, aprenderá a eliminar un clúster mediante el portal de Azure, Azure PowerShell y la CLI de Azure.
 
 > [!IMPORTANT]
-> Al eliminar un clúster de HDInsight, no se eliminan las cuentas de Azure Storage asociadas a este. Puesto que no se elimina la cuenta de almacenamiento, los datos se conservan y se pueden reutilizar en el futuro.
+> Al eliminar un clúster de HDInsight, no se eliminan las cuentas de Azure Storage asociadas a este. Esto le permite reutilizar los datos en el futuro.
 
 ## <a name="azure-portal"></a>Portal de Azure
 

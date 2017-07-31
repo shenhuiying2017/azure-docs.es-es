@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: ganesr;cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 23b88e4dd3af3cd3e1e13f80890311bdbfb7fe84
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 46ff5b6f925ef5688b099d5b1a5db125c034aad0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -66,7 +66,7 @@ Select-AzureSubscription -SubscriptionName <VNET Subscription>
 Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
 ```
       
-Debe asegurarse de que todas las referencias a <ConnectionsToLocalNetwork> se hayan quitado de las redes virtuales que se van a migrar. En el fragmento de código siguiente se muestra una configuración de red de ejemplo:
+Debe asegurarse de que todas las referencias a `<ConnectionsToLocalNetwork>` se hayan quitado de las redes virtuales que se van a migrar. En el fragmento de código siguiente se muestra una configuración de red de ejemplo. Tenga en cuenta que no hay ninguna referencia entre las líneas de `<ConnectionsToLocalNetwork>`:
 
 ```
     <VirtualNetworkSite name="MyVNet" Location="East US">
@@ -88,7 +88,7 @@ Debe asegurarse de que todas las referencias a <ConnectionsToLocalNetwork> se ha
     </VirtualNetworkSite>
 ```
  
-Si <ConnectionsToLocalNetwork> no está vacío, elimine las referencias que contiene y vuelva a enviar su configuración de red. Para ello, ejecute el siguiente cmdlet de PowerShell:
+Si `<ConnectionsToLocalNetwork>` no está vacío, elimine las referencias que contiene y vuelva a enviar su configuración de red. Para ello, ejecute el siguiente cmdlet de PowerShell:
 
 ```powershell
 Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml

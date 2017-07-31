@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3ca1184bfbd6af3a63e62bce9dfe1baf1729b4ac
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 88b23f844610a16ebca05a20499f4c7e82bf598a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -32,6 +32,9 @@ Obtenga información sobre cómo usar Apache Oozie con Hadoop en HDInsight. Oozi
 
 > [!NOTE]
 > Otra opción para definir los flujos de trabajo con HDInsight es Factoría de datos de Azure. Para obtener más información sobre Data Factory de Azure, consulte [Uso de Pig y Hive con Data Factory][azure-data-factory-pig-hive].
+
+> [!IMPORTANT]
+> Oozie no está habilitado en HDInsight unido a un dominio.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

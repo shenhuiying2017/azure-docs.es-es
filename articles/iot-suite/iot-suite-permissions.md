@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 06/09/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 5f2615b3df14c82147ff8a2cd997458756581d01
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 518e6a481ab6385b03dd3ddc2e155fb724e677fe
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -43,13 +43,29 @@ Los roles de AAD controlan las soluciones preconfiguradas de aprovisionamiento d
 
 Puede encontrar más información sobre los roles del administrador en AAD en [Asignación de roles de administrador en Azure Active Directory][lnk-aad-admin]. El artículo actual se centra en los roles de **administrador global** y de directorio de **usuario** que utilizan las soluciones preconfiguradas.
 
-**Administrador global:** puede haber muchos administradores globales por inquilino de AAD. Al crear un inquilino de AAD, quien lo crea es de forma predeterminada el administrador global del mismo. El administrador global puede aprovisionar una solución preconfigurada y se le asigna el rol **Admin** para la aplicación dentro de su inquilino de AAD. Sin embargo, si otro usuario del mismo inquilino de AAD crea una aplicación, el rol predeterminado que se concede al administrador global es **ReadOnly**. Los administradores globales pueden asignar a los usuarios roles para aplicaciones mediante [Azure Portal][lnk-portal].
+### <a name="global-administrator"></a>Administrador global
 
-**Usuario:** puede haber muchos usuarios de dominio por inquilino de AAD. Un usuario de dominio puede aprovisionar una solución preconfigurada mediante el sitio [azureiotsuite.com][lnk-azureiotsuite]. El rol predeterminado que se les concede para la aplicación que aprovisionan es **Admin**. Pueden crear una aplicación con el script build.cmd en el repositorio [azure-iot-remote-monitoring][lnk-rm-github-repo] o [azure-iot-predictive-maintenance][lnk-pm-github-repo]. Sin embargo, el rol predeterminado que se les concede es **ReadOnly**, ya que no tienen permiso para asignar roles. Si otro usuario en el inquilino de AAD crea una aplicación, se le asignará el rol **ReadOnly** de forma predeterminada para dicha aplicación. No pueden asignar roles para aplicaciones; por consiguiente, no pueden agregar usuarios o roles a usuarios para una aplicación, aunque la hayan aprovisionado.
+Puede haber muchos administradores globales por inquilino de AAD:
 
-**Usuario invitado:** puede haber muchos usuarios invitados por inquilino de AAD. Los usuarios invitados tienen un conjunto de derechos limitado en el inquilino de AAD. Como consecuencia, los usuarios invitados no pueden aprovisionar una solución preconfigurada en el inquilino de AAD.
+* Al crear un inquilino de AAD, quien lo crea es de forma predeterminada el administrador global del mismo.
+* El administrador global puede aprovisionar una solución preconfigurada y se le asigna el rol **Admin** para la aplicación dentro de su inquilino de AAD.
+* Si otro usuario del mismo inquilino de AAD crea una aplicación, el rol predeterminado que se concede al administrador global es **ReadOnly**.
+* Un administrador global pueden asignar a los usuarios roles para aplicaciones mediante [Azure Portal][lnk-portal].
 
-Para obtener más información, consulte los siguientes recursos:
+### <a name="domain-user"></a>Usuario de dominio
+
+Puede haber muchos usuarios de dominio por inquilino de AAD:
+
+* Un usuario de dominio puede aprovisionar una solución preconfigurada mediante el sitio [azureiotsuite.com][lnk-azureiotsuite]. De forma predeterminada, se concede al usuario de dominio el rol de **administrador** en la aplicación aprovisionada.
+* Un usuario de dominio puede crear una aplicación con el script build.cmd en el repositorio [azure-iot-remote-monitoring][lnk-rm-github-repo], [azure-iot-predictive-maintenance][lnk-pm-github-repo] o [azure-iot-connected-factory][lnk-cf-github-repo]. Sin embargo, la función predeterminada concedida al usuario de dominio es **ReadOnly**, ya que un usuario de dominio no tiene permiso para asignar roles.
+* Si otro usuario del inquilino de AAD crea una aplicación, al usuario de dominio se le asignará el rol **ReadOnly** de forma predeterminada para dicha aplicación.
+* El usuario de dominio no puede asignar roles para aplicaciones; por consiguiente, no puede agregar usuarios o roles a usuarios para una aplicación, aunque la haya aprovisionado.
+
+### <a name="guest-user"></a>Usuario invitado
+
+Puede haber muchos usuarios invitados por inquilino de AAD. Los usuarios invitados tienen un conjunto de derechos limitado en el inquilino de AAD. Como consecuencia, los usuarios invitados no pueden aprovisionar una solución preconfigurada en el inquilino de AAD.
+
+Para más información acerca de los usuarios y roles de AAD, consulte estos recursos:
 
 * [Creación de usuarios en Azure AD][lnk-create-edit-users]
 * [Asignación de usuarios a aplicaciones][lnk-assign-app-roles]
@@ -58,13 +74,13 @@ Para obtener más información, consulte los siguientes recursos:
 
 Los roles de administrador de Azure controlan la capacidad para asignar una suscripción de Azure a un inquilino de AD.
 
-Puede encontrar más información sobre los roles de coadministrador de Azure, administrador de servicios y administrador de cuentas en el artículo [Adición o cambio de roles de administrador de Azure que administran la suscripción o servicios][lnk-admin-roles].
+Encuentre más información sobre los roles de administrador de Azure en el artículo [Adición o cambio de roles de administrador de Azure que administran la suscripción o servicios][lnk-admin-roles].
 
 ## <a name="application-roles"></a>Roles de la aplicación
 
 Los roles de aplicación controlan el acceso a los dispositivos de las soluciones preconfiguradas.
 
-En la aplicación que se crea cuando se aprovisiona una solución preconfigurada, hay dos roles definidos y un rol implícito definido.
+Hay dos roles definidos y una función implícita definida en una aplicación aprovisionada:
 
 * **Admin:** tiene control total para agregar, administrar y quitar dispositivos, y modificar la configuración.
 * **ReadOnly:** puede ver dispositivos, reglas, acciones, trabajos y telemetría.
@@ -99,11 +115,11 @@ Para cambiar los roles de los usuarios, es preciso ser administrador global de A
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Soy miembro o usuario de dominio en el inquilino de AAD y he creado una solución preconfigurada. ¿Cómo se asigna un rol en mi aplicación?
 
-Pida a un administrador global que le asigne como administrador global en el inquilino de AAD para obtener permisos para asignar roles a usuarios, o bien pida a un administrador global que le asigne un rol. Si desea cambiar el inquilino de AAD, en la que se implementó la solución preconfigurada, consulte la siguiente pregunta.
+Pida al administrador global que le nombre administrador global en el inquilino de AAD y, después, podrá asignar roles a los usuarios usted mismo. O bien, pida al administrador global que le asigne un rol directamente. Si desea cambiar el inquilino de AAD, en la que se implementó la solución preconfigurada, consulte la siguiente pregunta.
 
 ### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>¿Cómo cambio el inquilino de AAD al que están asignadas mi solución preconfigurada de supervisión remota y mi aplicación?
 
-Puede ejecutar una implementación en la nube desde <https://github.com/Azure/azure-iot-remote-monitoring> e implementar de nuevo con un inquilino de ADD recién creado. Dado que para crear un inquilino de AAD nuevo es preciso ser administrador global, tiene permisos para agregar usuarios y asignarles roles.
+Puede ejecutar una implementación en la nube desde <https://github.com/Azure/azure-iot-remote-monitoring> e implementar de nuevo con un inquilino de ADD recién creado. Dado que, de manera predeterminada, ya es administrador global cuando crea un inquilino de AAD, tiene permisos para agregar usuarios y asignarles roles.
 
 1. Cree un directorio de AAD en [Azure Portal][lnk-portal].
 2. Vaya a <https://github.com/Azure/azure-iot-remote-monitoring>.
@@ -135,6 +151,7 @@ Para obtener más información sobre el Conjunto de aplicaciones de IoT, consult
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
+[lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/

@@ -1,5 +1,5 @@
 ---
-title: "Creación de un clúster de HDInsight (Hadoop) mediante la API de REST de Azure | Microsoft Docs"
+title: "Creación de clústeres de Hadoop con la API de REST de Azure - Azure | Microsoft Docs"
 description: "Aprenda a crear clústeres de HDInsight enviando plantillas de Azure Resource Manager a la API de REST de Azure."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/17/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 85d241d7c81d1c40abb6f98b84983aca8240463d
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 552608e608bbea401381f0d274b513dc971c798e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---

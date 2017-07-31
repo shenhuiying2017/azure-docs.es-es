@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: e42c541ce15b2e025c7019e91ae3c6c74483b6c2
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 5119772dd7c3d55ed4e0ad44e71bd67b2e923409
 ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -31,7 +31,7 @@ La integración de Absorb LMS con Azure AD ofrece las siguientes ventajas:
 - Puede permitir que los usuarios inicien sesión automáticamente en Absorb LMS (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar las cuentas en una sola ubicación central: Azure Portal.
 
-Si quiere conocer más detalles sobre la integración de aplicaciones SaaS con Azure AD, vea: [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si quiere conocer más detalles sobre la integración de aplicaciones SaaS con Azure AD, vea: [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -116,7 +116,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.myabsorb.com/Account/SAML`.
 
-4. Active **Mostrar configuración avanzada de URL**. Si quiere configurar la aplicación en modo iniciado por **SP**:
+4. Active **Mostrar configuración avanzada de URL**. Si quiere volver a configurar la aplicación en modo iniciado por **SP**:
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_url2.png)
 
@@ -178,7 +178,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 > Ahora puede leer una versión concisa de estas instrucciones en [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado Britta Simon.
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
 ![Creación de un usuario de Azure AD][100]
 
@@ -241,7 +241,7 @@ En el caso de Absorb LMS, el aprovisionamiento es una tarea manual.
 
     d. En el cuadro de texto **Password** (Contraseña), escriba la contraseña de Britta Simon.
 
-    e. En el cuadro de texto **Confirm Password** (Confirmar contraseña), seleccione la confirmación de contraseña de Britta Simon.
+    e. En el cuadro de texto **Confirm Password** (Confirmar contraseña), escriba la misma contraseña.
     
     f. Establézcalo en **ACTIVE** (ACTIVO).    
 

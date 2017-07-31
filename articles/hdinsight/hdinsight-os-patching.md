@@ -1,5 +1,5 @@
 ---
-title: "Programación de la aplicación de revisión del SO para clústeres de HDInsight basado en Linux: Azure | Microsoft Docs"
+title: "Configuración de la programación de aplicación de revisiones de SO para clústeres de HDInsight basado en Linux (Azure) | Microsoft Docs"
 description: "Aprenda a configurar la programación de la aplicación de revisión del SO para clústeres de HDInsight basado en Linux."
 services: hdinsight
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: f39dfdff2239bb0b55eca50a1e7c706a5408b83a
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
+ms.contentlocale: es-es
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -47,7 +48,7 @@ Con la acción de script que se describe en este artículo, puede modificar la p
 
 Cuando se usa este script, se requiere la información siguiente:
 1. La ubicación del script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.
-     HDInsight usa este URI para encontrar y ejecutar el script en todas las máquinas virtuales del clúster.
+    HDInsight usa este URI para encontrar y ejecutar el script en todas las máquinas virtuales del clúster.
   
 2. Los tipos de nodo de clúster al que se aplica el script: headnode, workernode, zookeeper. Este script se debe aplicar a todos los tipos de nodo del clúster. Si no se aplica a un tipo de nodo, las máquinas virtuales de ese tipo de nodo seguirán usando la programación de aplicación de revisión anterior.
 
