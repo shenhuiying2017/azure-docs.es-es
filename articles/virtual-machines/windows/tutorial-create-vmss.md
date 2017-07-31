@@ -24,9 +24,7 @@ ms.lasthandoff: 05/09/2017
 
 ---
 
-<a id="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows" class="xliff"></a>
-
-# Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Windows
+# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Creación de un conjunto de escalado de máquinas virtuales e implementación de una aplicación de alta disponibilidad en Windows
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente, o definir reglas de escalado automático basado en el uso de la CPU, la demanda de memoria o el tráfico de red. En este tutorial, implementará un conjunto de escalado de máquinas virtuales en Azure. Aprenderá a:
 
 > [!div class="checklist"]
@@ -39,9 +37,7 @@ El conjunto de escalado de máquinas virtuales le permite implementar y administ
 Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
-<a id="scale-set-overview" class="xliff"></a>
-
-## Introducción al conjunto de escalado
+## <a name="scale-set-overview"></a>Introducción al conjunto de escalado
 Los conjuntos de escalado usan conceptos similares a los que ha aprendido en el tutorial anterior sobre [Creación de máquinas virtuales de alta disponibilidad](tutorial-availability-sets.md). Las VM de un conjunto de escalado se distribuyen entre los dominios de error y actualización como las VM en un conjunto de disponibilidad.
 
 Las máquinas virtuales se crean según sea necesario en un conjunto de escalado. Defina reglas de escalado automático para controlar cómo y cuándo se agregan o se quitan las máquinas virtuales del conjunto de escalado. Estas reglas se pueden desencadenar en función de métricas como la carga de la CPU, el uso de la memoria o el tráfico de red.
@@ -49,9 +45,7 @@ Las máquinas virtuales se crean según sea necesario en un conjunto de escalado
 Los conjuntos de escalado admiten hasta 1000 máquinas virtuales cuando se usa una imagen de la plataforma de Azure. Para las cargas de trabajo con requisitos de personalización de VM o instalación significativos, puede que desee [crear una imagen de VM personalizada](tutorial-custom-images.md). Puede crear hasta 100 máquinas virtuales en un conjunto de escalado al usar una imagen personalizada.
 
 
-<a id="create-an-app-to-scale" class="xliff"></a>
-
-## Creación de una aplicación para escalar
+## <a name="create-an-app-to-scale"></a>Creación de una aplicación para escalar
 Antes de poder crear un conjunto de escalado, cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupAutomate* en la ubicación *EastUS*:
 
 ```powershell
@@ -83,9 +77,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig `
     -Setting $publicSettings
 ```
 
-<a id="create-scale-load-balancer" class="xliff"></a>
-
-## Creación de un equilibrador de carga de escalado
+## <a name="create-scale-load-balancer"></a>Creación de un equilibrador de carga de escalado
 Un equilibrador de carga de Azure es un equilibrador de carga de nivel 4 (TCP, UDP) que proporciona una alta disponibilidad mediante la distribución del tráfico entrante entre máquinas virtuales con un estado correcto. Un sondeo de estado de equilibrador de carga supervisa un puerto determinado en cada máquina virtual y solo distribuye tráfico a una máquina virtual operativa. Para más información, vea el tutorial siguiente sobre [cómo aplicar el equilibrio de carga a máquinas virtuales Windows ](tutorial-load-balancer.md).
 
 Cree un equilibrador de carga que tenga una dirección IP pública y distribuye el tráfico web en el puerto 80:
@@ -134,9 +126,7 @@ Add-AzureRmLoadBalancerRuleConfig `
 Set-AzureRmLoadBalancer -LoadBalancer $lb
 ```
 
-<a id="create-a-scale-set" class="xliff"></a>
-
-## Creación de un conjunto de escalado
+## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
 Ahora, cree un conjunto de escalado de máquinas virtuales con [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). En el ejemplo siguiente se crea un conjunto de escalado denominado *myScaleSet*:
 
 ```powershell
@@ -185,9 +175,7 @@ New-AzureRmVmss `
 Se tardan unos minutos en crear y configurar todos los recursos de conjunto de escalado y máquinas virtuales.
 
 
-<a id="test-your-app" class="xliff"></a>
-
-## Prueba de la aplicación
+## <a name="test-your-app"></a>Prueba de la aplicación
 Para ver el sitio web de IIS en acción, obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIP* que se ha creado como parte del conjunto de escalado:
 
 ```powershell
@@ -201,14 +189,10 @@ Escriba la dirección IP pública en un explorador web. Se muestra la aplicació
 Para ver el conjunto de escalado en funcionamiento, realice una actualización forzada del explorador web para ver cómo el equilibrador de carga distribuye el tráfico entre las máquinas virtuales del conjunto de escalado que ejecutan la aplicación.
 
 
-<a id="management-tasks" class="xliff"></a>
-
-## Tareas de administración
+## <a name="management-tasks"></a>Tareas de administración
 Durante el ciclo de vida del conjunto de escalado, debe ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. Azure PowerShell proporciona una forma rápida de realizar esas tareas. A continuación, presentamos algunas tareas comunes.
 
-<a id="view-vms-in-a-scale-set" class="xliff"></a>
-
-### Visualización de máquinas virtuales en un conjunto de escalado
+### <a name="view-vms-in-a-scale-set"></a>Visualización de máquinas virtuales en un conjunto de escalado
 Para ver una lista de las máquinas virtuales en ejecución en el conjunto de escalado, use [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) como se indica a continuación:
 
 ```powershell
@@ -226,9 +210,7 @@ for ($i=0; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
 ```
 
 
-<a id="increase-or-decrease-vm-instances" class="xliff"></a>
-
-### Aumento o disminución de instancias de máquina virtual
+### <a name="increase-or-decrease-vm-instances"></a>Aumento o disminución de instancias de máquina virtual
 Para ver el número de instancias que tiene actualmente en un conjunto de escalado, use [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) y realice consultas a *sku.capacity*:
 
 ```powershell
@@ -255,9 +237,7 @@ Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
 Se tarda unos minutos en actualizar el número especificado de instancias en el conjunto de escalado.
 
 
-<a id="configure-autoscale-rules" class="xliff"></a>
-
-### Configuración de reglas de escalado automático
+### <a name="configure-autoscale-rules"></a>Configuración de reglas de escalado automático
 En lugar de escalar manualmente el número de instancias en el conjunto de escalado, defina reglas de escalado automático. Estas reglas supervisan las instancias en el conjunto de escalado y responden según corresponda, basándose en las métricas y los umbrales que defina. En el ejemplo siguiente se escala horizontalmente el número de instancias en uno cuando la carga de CPU media es mayor que el 60 % durante un período de 5 minutos. Si la carga de CPU media se sitúa por debajo del 30 % durante un período de 5 minutos, las instancias se reducen horizontalmente en una instancia:
 
 ```powershell
@@ -311,9 +291,7 @@ Add-AzureRmAutoscaleSetting `
 ```
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha creado un conjunto de escalado de máquinas virtuales. Ha aprendido a:
 
 > [!div class="checklist"]

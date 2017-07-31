@@ -23,9 +23,7 @@ ms.lasthandoff: 05/08/2017
 
 ---
 
-<a id="manage-storage-accounts-by-using-the-azure-explorer-for-eclipse" class="xliff"></a>
-
-# Administración de cuentas de almacenamiento mediante Azure Explorer para Eclipse
+# <a name="manage-storage-accounts-by-using-the-azure-explorer-for-eclipse"></a>Administración de cuentas de almacenamiento mediante Azure Explorer para Eclipse
 
 Azure Explorer, que forma parte del kit de herramientas de Azure para Eclipse, proporciona a los desarrolladores de Java una solución fácil de usar para la administración de cuentas de almacenamiento en su cuenta de Azure desde el entorno de desarrollo integrado de Eclipse (IDE).
 
@@ -33,9 +31,7 @@ Azure Explorer, que forma parte del kit de herramientas de Azure para Eclipse, p
 
 [!INCLUDE [azure-toolkit-for-eclipse-show-azure-explorer](../includes/azure-toolkit-for-eclipse-show-azure-explorer.md)]
 
-<a id="create-a-storage-account-in-eclipse" class="xliff"></a>
-
-## Creación de una cuenta de almacenamiento en Eclipse
+## <a name="create-a-storage-account-in-eclipse"></a>Creación de una cuenta de almacenamiento en Eclipse
 
 Para crear una cuenta de almacenamiento con Azure Explorer, haga lo siguiente:
 
@@ -67,9 +63,7 @@ Para crear una cuenta de almacenamiento con Azure Explorer, haga lo siguiente:
 
 4. Cuando haya especificado todas las opciones anteriores, haga clic en **Crear**.
 
-<a id="create-a-storage-container-in-eclipse" class="xliff"></a>
-
-## Creación de un contenedor de almacenamiento en Eclipse
+## <a name="create-a-storage-container-in-eclipse"></a>Creación de un contenedor de almacenamiento en Eclipse
 
 Para crear un contenedor de almacenamiento con Azure Explorer, haga lo siguiente:
 
@@ -81,9 +75,7 @@ Para crear un contenedor de almacenamiento con Azure Explorer, haga lo siguiente
 
    ![Cuadro de diálogo Crear contenedor de blobs][CC02]
 
-<a id="delete-a-storage-container-in-eclipse" class="xliff"></a>
-
-## Eliminación de un contenedor de almacenamiento en Eclipse
+## <a name="delete-a-storage-container-in-eclipse"></a>Eliminación de un contenedor de almacenamiento en Eclipse
 
 Para eliminar un contenedor de almacenamiento mediante Azure Explorer, siga estos pasos:
 
@@ -95,9 +87,7 @@ Para eliminar un contenedor de almacenamiento mediante Azure Explorer, siga esto
 
    ![Ventana de confirmación Eliminar contenedor de almacenamiento][DC02]
 
-<a id="delete-a-storage-account-in-eclipse" class="xliff"></a>
-
-## Eliminación de una cuenta de almacenamiento en Eclipse
+## <a name="delete-a-storage-account-in-eclipse"></a>Eliminación de una cuenta de almacenamiento en Eclipse
 
 Para eliminar una cuenta de almacenamiento con Azure Explorer, haga lo siguiente:
 
@@ -109,9 +99,7 @@ Para eliminar una cuenta de almacenamiento con Azure Explorer, haga lo siguiente
 
    ![Ventana de confirmación Eliminar cuenta de almacenamiento][DS02]
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre las cuentas de Azure Storage, tamaños y precios, vea los siguientes recursos:
 
 * [Introducción a Microsoft Azure Storage]

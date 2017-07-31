@@ -22,21 +22,15 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics" class="xliff"></a>
-
-# Recopilación de orígenes de datos JSON personalizados con el agente de OMS para Linux en Log Analytics
+# <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Recopilación de orígenes de datos JSON personalizados con el agente de OMS para Linux en Log Analytics
 Los orígenes de datos JSON personalizados se pueden recopilar en Log Analytics mediante el agente de OMS para Linux.  Estos orígenes de datos personalizados pueden ser scripts simples que devuelven JSON, como [curl](https://curl.haxx.se/) o uno de los más de [300 complementos de FluentD](http://www.fluentd.org/plugins/all). En este artículo se describe la configuración necesaria para esta recopilación de datos.
 
 > [!NOTE]
 > El agente de OMS para Linux v1.1.0-217+ es necesario para los datos JSON personalizados.
 
-<a id="configuration" class="xliff"></a>
+## <a name="configuration"></a>Configuración
 
-## Configuración
-
-<a id="configure-input-plugin" class="xliff"></a>
-
-### Configuración del complemento de entrada
+### <a name="configure-input-plugin"></a>Configuración del complemento de entrada
 
 Para recopilar datos JSON en Log Analytics, agregue `oms.api.` al principio de una etiqueta de FluentD en un complemento de entrada.
 
@@ -68,9 +62,7 @@ Será necesario cambiar la propiedad del archivo de configuración agregado bajo
 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
-<a id="configure-output-plugin" class="xliff"></a>
-
-### Configuración del complemento de salida 
+### <a name="configure-output-plugin"></a>Configuración del complemento de salida 
 Agregue la siguiente configuración de complemento de salida a la configuración principal en `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` o como un archivo de configuración independiente colocado en `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.
 
 ```
@@ -88,16 +80,12 @@ Agregue la siguiente configuración de complemento de salida a la configuración
 </match>
 ```
 
-<a id="restart-oms-agent-for-linux" class="xliff"></a>
-
-### Reinicio del agente de OMS para Linux
+### <a name="restart-oms-agent-for-linux"></a>Reinicio del agente de OMS para Linux
 Reinicie el servicio de agente de OMS para Linux con el siguiente comando.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
-<a id="output" class="xliff"></a>
-
-## Salida
+## <a name="output"></a>Salida
 Los datos se recopilarán en Log Analytics con un tipo de registro de `<FLUENTD_TAG>_CL`.
 
 Por ejemplo, la etiqueta personalizada `tag oms.api.tomcat` en Log Analytics con un tipo de registro de `tomcat_CL`.  Podría recuperar todos los registros de este tipo con la siguiente búsqueda de registros.
@@ -116,8 +104,6 @@ Se admiten datos JSON anidados, pero se indexan en función del campo principal.
 ```
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados desde soluciones y orígenes de datos. 
  

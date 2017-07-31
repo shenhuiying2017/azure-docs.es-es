@@ -24,9 +24,7 @@ ms.lasthandoff: 05/09/2017
 
 ---
 
-<a id="how-to-use-availability-sets" class="xliff"></a>
-
-# Cómo usar conjuntos de disponibilidad
+# <a name="how-to-use-availability-sets"></a>Cómo usar conjuntos de disponibilidad
 
 En este tutorial, obtendrá información sobre cómo aumentar la disponibilidad y confiabilidad de las soluciones de máquina virtual en Azure mediante una funcionalidad denominada "conjuntos de disponibilidad". Los conjuntos de disponibilidad garantizan que las máquinas virtuales implementadas en Azure se distribuyan entre varios clústeres de hardware aislados. De este modo, se asegura de que, si se produce un error de hardware o software en Azure, solo un subconjunto de las máquinas virtuales se verá afectado, y que la solución estará disponible y en funcionamiento para los clientes. 
 
@@ -39,9 +37,7 @@ En este tutorial, aprenderá a:
 
 Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-<a id="availability-set-overview" class="xliff"></a>
-
-## Información general sobre conjuntos de disponibilidad
+## <a name="availability-set-overview"></a>Información general sobre conjuntos de disponibilidad
 
 Un conjunto de disponibilidad es una funcionalidad de agrupación lógica que puede usar en Azure para asegurarse de que los recursos de máquina virtual que coloque en dicho conjunto de disponibilidad estén aislados entre sí cuando se implementen en un centro de datos de Azure. Azure garantiza que las máquinas virtuales colocados en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. De este modo, se garantiza que si se produce un error de hardware o software de Azure, solo un subconjunto de las máquinas virtuales se verá afectado, y que la aplicación se mantendrá actualizada y seguirá estando disponible para los clientes. Usar conjuntos de disponibilidad es una funcionalidad fundamental que debe tener en cuenta para crear soluciones en la nube confiables.
 
@@ -49,9 +45,7 @@ Veamos una solución basada en máquina virtual típica en la podría haber 4 se
 
 Siempre debe utilizar los conjuntos de disponibilidad cuando quiera implementar soluciones basadas en máquinas virtuales confiables en Azure.
 
-<a id="create-an-availability-set" class="xliff"></a>
-
-## Crear un conjunto de disponibilidad
+## <a name="create-an-availability-set"></a>Crear un conjunto de disponibilidad
 
 Puede crear un conjunto de disponibilidad con [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). En este ejemplo, se establece el número de dominios de actualización y error en *2* para el conjunto de disponibilidad denominado *myAvailabilitySet* en el grupo de recursos *myResourceGroupAvailability*.
 
@@ -72,9 +66,7 @@ New-AzureRmAvailabilitySet `
    -PlatformUpdateDomainCount 2
 ```
 
-<a id="create-vms-inside-an-availability-set" class="xliff"></a>
-
-## Creación de VM dentro de un conjunto de disponibilidad
+## <a name="create-vms-inside-an-availability-set"></a>Creación de VM dentro de un conjunto de disponibilidad
 
 Las máquinas virtuales deben crearse en el conjunto de disponibilidad para asegurarse de que se distribuyan correctamente en el hardware. No se puede agregar una máquina virtual existente a un conjunto de disponibilidad después de crearla. 
 
@@ -170,9 +162,7 @@ for ($i=1; $i -le 2; $i++)
 
 Se tarda unos minutos en crear y configurar ambas VM. Cuando se acabe, tendrá 2 máquinas virtuales distribuidas en el hardware subyacente. 
 
-<a id="check-for-available-vm-sizes" class="xliff"></a>
-
-## Comprobación de los tamaños de VM disponibles 
+## <a name="check-for-available-vm-sizes"></a>Comprobación de los tamaños de VM disponibles 
 
 Se pueden agregar más máquinas virtuales al conjunto de disponibilidad posteriormente, pero debe saber qué tamaños de máquina virtual están disponibles en el hardware. Use [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) para enumerar todos los tamaños disponibles en el clúster de hardware para el conjunto de disponibilidad.
 
@@ -182,9 +172,7 @@ Get-AzureRmVMSize `
    -ResourceGroupName myResourceGroupAvailability  
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido cómo:
 

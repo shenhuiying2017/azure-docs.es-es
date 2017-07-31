@@ -23,17 +23,13 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="create-and-upload-a-freebsd-vhd-to-azure" class="xliff"></a>
-
-# Creación y carga de un VHD de FreeBSD en Azure
+# <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Creación y carga de un VHD de FreeBSD en Azure
 En este artículo se muestra cómo crear y cargar un disco duro virtual (VHD) que contenga el sistema operativo FreeBSD. Después de cargarlo, puede utilizarlo como su propia imagen para crear una máquina virtual (VM) en Azure.
 
 > [!IMPORTANT] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para más información sobre cómo cargar un VHD con el modelo de Resource Manager, consulte [aquí](../upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que tiene los siguientes elementos:
 
 * **Una suscripción de Azure**: si no tiene una cuenta, puede crear una en un par de minutos. Si tiene una suscripción a MSDN, consulte [Crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). De lo contrario, obtenga información sobre cómo [crear una cuenta de prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).  
@@ -47,9 +43,7 @@ En este artículo se supone que tiene los siguientes elementos:
 
 Esta tarea incluye los cinco pasos siguientes:
 
-<a id="step-1-prepare-the-image-for-upload" class="xliff"></a>
-
-## Paso 1: Preparación de la imagen que se va a cargar
+## <a name="step-1-prepare-the-image-for-upload"></a>Paso 1: Preparación de la imagen que se va a cargar
 En la máquina virtual en la que se instaló el sistema operativo FreeBSD, realice los procedimientos siguientes:
 
 1. Habilite DHCP.
@@ -122,9 +116,7 @@ En la máquina virtual en la que se instaló el sistema operativo FreeBSD, reali
 
     Ahora ya puede apagar la máquina virtual.
 
-<a id="step-2-create-a-storage-account-in-azure" class="xliff"></a>
-
-## Paso 2: Creación de una cuenta de almacenamiento en Azure
+## <a name="step-2-create-a-storage-account-in-azure"></a>Paso 2: Creación de una cuenta de almacenamiento en Azure
 Necesita una cuenta de almacenamiento de Azure para cargar un archivo .vhd, que se puede usar para crear una máquina virtual. Puede utilizar el portal clásico de Azure para crear una cuenta de almacenamiento.
 
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
@@ -157,14 +149,10 @@ Necesita una cuenta de almacenamiento de Azure para cargar un archivo .vhd, que 
    >
    >
 
-<a id="step-3-prepare-the-connection-to-azure" class="xliff"></a>
-
-## Paso 3: Preparación de la conexión a Azure
+## <a name="step-3-prepare-the-connection-to-azure"></a>Paso 3: Preparación de la conexión a Azure
 Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el equipo y la suscripción de Azure. Para ello, puede usar el método de Azure Active Directory (Azure AD) o el método del certificado.
 
-<a id="use-the-azure-ad-method-to-upload-a-vhd-file" class="xliff"></a>
-
-### Uso del método de Azure AD para cargar un archivo .vhd
+### <a name="use-the-azure-ad-method-to-upload-a-vhd-file"></a>Uso del método de Azure AD para cargar un archivo .vhd
 1. Abra la consola de Azure PowerShell.
 2. Escriba el siguiente comando:   
     `Add-AzureAccount`
@@ -174,9 +162,7 @@ Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el e
     ![Ventana de PowerShell](./media/freebsd-create-upload-vhd/add_azureaccount.png)
 3. Azure autentica y guarda las credenciales. A continuación, cierra la ventana.
 
-<a id="use-the-certificate-method-to-upload-a-vhd-file" class="xliff"></a>
-
-### Uso del método del certificado para cargar un archivo .vhd
+### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Uso del método del certificado para cargar un archivo .vhd
 1. Abra la consola de Azure PowerShell.
 2. Escriba:  `Get-AzurePublishSettingsFile`.
 3. Se abre una ventana del explorador que le solicita que descargue el archivo .publishsettings. Este archivo contiene información y un certificado para su suscripción de Azure.
@@ -189,9 +175,7 @@ Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el e
 
    Para más información sobre cómo instalar Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 
-<a id="step-4-upload-the-vhd-file" class="xliff"></a>
-
-## Paso 4: Carga del archivo .vhd
+## <a name="step-4-upload-the-vhd-file"></a>Paso 4: Carga del archivo .vhd
 Cuando carga el archivo .vhd, puede colocarlo en cualquier parte del Almacenamiento de blobs. A continuación se muestran algunos términos que se van a usar al cargar el archivo:
 
 * **URLAlmacenamientoDeBlobs** es la dirección URL de la cuenta de almacenamiento que ha creado en el paso 2.
@@ -203,9 +187,7 @@ Desde la ventana de Azure PowerShell que ha usado en el paso anterior, escriba:
 
         Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
-<a id="step-5-create-a-vm-with-the-uploaded-vhd-file" class="xliff"></a>
-
-## Paso 5: Creación de una máquina virtual con el archivo .vhd cargado
+## <a name="step-5-create-a-vm-with-the-uploaded-vhd-file"></a>Paso 5: Creación de una máquina virtual con el archivo .vhd cargado
 Después de cargar el archivo .vhd, puede agregarlo como imagen a la lista de imágenes personalizadas que están asociadas con su suscripción y crear una máquina virtual con esta imagen personalizada.
 
 1. Desde la ventana de Azure PowerShell que ha usado en el paso anterior, escriba:

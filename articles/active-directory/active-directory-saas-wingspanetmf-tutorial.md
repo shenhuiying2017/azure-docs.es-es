@@ -21,9 +21,7 @@ ms.lasthandoff: 05/04/2017
 
 
 ---
-<a id="tutorial-azure-active-directory-integration-with-wingspan-etmf" class="xliff"></a>
-
-# Tutorial: Integración de Azure Active Directory con Wingspan eTMF
+# <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Tutorial: Integración de Azure Active Directory con Wingspan eTMF
 
 En este tutorial, aprenderá a integrar Wingspan eTMF con Azure Active Directory (Azure AD).
 
@@ -35,9 +33,7 @@ La integración de Wingspan eTMF con Azure AD le proporciona las siguientes vent
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Wingspan eTMF, necesita los siguientes elementos:
 
@@ -52,17 +48,13 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - No use el entorno de producción, salvo que sea necesario.
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
-<a id="scenario-description" class="xliff"></a>
-
-## Descripción del escenario
+## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar Wingspan eTMF desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-<a id="adding-wingspan-etmf-from-the-gallery" class="xliff"></a>
-
-## Agregar Wingspan eTMF desde la galería
+## <a name="adding-wingspan-etmf-from-the-gallery"></a>Agregar Wingspan eTMF desde la galería
 Para configurar la integración de Wingspan eTMF en Azure AD, debe agregar Wingspan eTMF desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Wingspan eTMF desde la galería, realice los pasos siguientes:**
@@ -87,9 +79,7 @@ Para configurar la integración de Wingspan eTMF en Azure AD, debe agregar Wings
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-wingspanetmf-tutorial/tutorial_wingspanetmf_addfromgallery.png)
 
-<a id="configuring-and-testing-azure-ad-single-sign-on" class="xliff"></a>
-
-##  Configuración y comprobación del inicio de sesión único de Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, configurará y probará el inicio de sesión único de Azure AD con Wingspan eTMF con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Wingspan eTMF para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Wingspan eTMF.
@@ -104,9 +94,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Wingspan eT
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
-<a id="configuring-azure-ad-single-sign-on" class="xliff"></a>
-
-### Configuración del inicio de sesión único de Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Wingspan eTMF.
 
@@ -147,9 +135,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
-<a id="creating-an-azure-ad-test-user" class="xliff"></a>
-
-### Creación de un usuario de prueba de Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
 ![Creación de un usuario de Azure AD][100]
@@ -180,15 +166,11 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     d. Haga clic en **Crear**.
  
-<a id="creating-a-wingspan-etmf-test-user" class="xliff"></a>
-
-### Crear un usuario de prueba de Wingspan eTMF
+### <a name="creating-a-wingspan-etmf-test-user"></a>Crear un usuario de prueba de Wingspan eTMF
 
 En esta sección, creará un usuario llamado Britta Simon en Wingspan eTMF. Trabaje con el [equipo de soporte técnico de Wingspan eTMF](http://www.wingspan.com/contact-us/) para agregar los usuarios a la aplicación de Wingspan eTMF. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-<a id="assigning-the-azure-ad-test-user" class="xliff"></a>
-
-### Asignación del usuario de prueba de Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Wingspan eTMF.
 
@@ -218,17 +200,13 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
-<a id="testing-single-sign-on" class="xliff"></a>
-
-### Prueba del inicio de sesión único 
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso. 
 
 Haga clic en el icono de Wingspan eTMF en el panel de acceso y después se le redirigirá a la página de inicio de sesión de la organización. Después de registrarse correctamente, iniciará sesión en la aplicación Wingspan eTMF. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<a id="additional-resources" class="xliff"></a>
-
-## Recursos adicionales
+## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)

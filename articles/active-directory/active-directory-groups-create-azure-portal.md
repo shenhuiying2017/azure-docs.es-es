@@ -23,9 +23,7 @@ ms.lasthandoff: 05/08/2017
 
 
 ---
-<a id="create-a-group-and-add-members-in-azure-active-directory" class="xliff"></a>
-
-# Creación de un grupo y adición de miembros en Azure Active Directory
+# <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Creación de un grupo y adición de miembros en Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-groups-create-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-accessmanagement-manage-groups.md)
@@ -35,9 +33,7 @@ ms.lasthandoff: 05/08/2017
 
 En este artículo se explica cómo crear y rellenar un nuevo grupo en Azure Active Directory. Use un grupo para realizar tareas de administración, como asignar licencias o permisos a un número de usuarios o dispositivos a la vez.
 
-<a id="how-do-i-create-a-group" class="xliff"></a>
-
-## ¿Cómo se crea un grupo?
+## <a name="how-do-i-create-a-group"></a>¿Cómo se crea un grupo?
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios** y grupos en el cuadro de texto y, después, presione **Entrar**.
 
@@ -57,9 +53,7 @@ En este artículo se explica cómo crear y rellenar un nuevo grupo en Azure Acti
 
    ![Creación de la confirmación de grupo](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Consulta de los grupos existentes](active-directory-groups-view-azure-portal.md)

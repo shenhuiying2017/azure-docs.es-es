@@ -23,15 +23,11 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell" class="xliff"></a>
-
-# Transición de los circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager mediante PowerShell
+# <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Transición de los circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager mediante PowerShell
 
 Para usar un circuito ExpressRoute con el modelo de implementación clásica y el modelo de implementación de Resource Manager, debe mover el circuito al modelo de implementación de Resource Manager. Las siguientes secciones le ayudan a mover su circuito mediante PowerShell.
 
-<a id="before-you-begin" class="xliff"></a>
-
-## Antes de empezar
+## <a name="before-you-begin"></a>Antes de empezar
 
 * Compruebe que dispone de la versión más reciente de los módulos de Azure PowerShell (como mínimo, la versión 1.0). Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 * Asegúrese de haber revisado los [requisitos previos](expressroute-prerequisites.md), los [requisitos de enrutamiento](expressroute-routing.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
@@ -39,13 +35,9 @@ Para usar un circuito ExpressRoute con el modelo de implementación clásica y e
 * Compruebe que el circuito está totalmente operativo en el modelo de implementación clásica.
 * Asegúrese de tener un grupo de recursos creado en el modelo de implementación de Resource Manager.
 
-<a id="move-an-expressroute-circuit" class="xliff"></a>
+## <a name="move-an-expressroute-circuit"></a>Movimiento de un circuito ExpressRoute
 
-## Movimiento de un circuito ExpressRoute
-
-<a id="step-1-gather-circuit-details-from-the-classic-deployment-model" class="xliff"></a>
-
-### Paso 1: Recopile detalles del circuito desde el modelo de implementación clásica
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Paso 1: Recopile detalles del circuito desde el modelo de implementación clásica
 
 Inicie sesión en el entorno clásico de Azure y recopile la clave de servicio.
 
@@ -74,9 +66,7 @@ Inicie sesión en el entorno clásico de Azure y recopile la clave de servicio.
   Get-AzureDedicatedCircuit
   ```
 
-<a id="step-2-sign-in-and-create-a-resource-group" class="xliff"></a>
-
-### Paso 2: Inicio de sesión y creación de un grupo de recursos
+### <a name="step-2-sign-in-and-create-a-resource-group"></a>Paso 2: Inicio de sesión y creación de un grupo de recursos
 
 Inicie sesión en el entorno de Resource Manager y cree un grupo de recursos nuevo.
 
@@ -98,9 +88,7 @@ Inicie sesión en el entorno de Resource Manager y cree un grupo de recursos nue
   New-AzureRmResourceGroup -Name "DemoRG" -Location "West US"
   ```
 
-<a id="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model" class="xliff"></a>
-
-### Paso 3: Mover el circuito ExpressRoute al modelo de implementación de Resource Manager
+### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Paso 3: Mover el circuito ExpressRoute al modelo de implementación de Resource Manager
 
 Ya está listo para mover el circuito ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager. Antes de continuar, revise la información que se proporciona en [Transición de un circuito ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager](expressroute-move.md).
 
@@ -114,13 +102,9 @@ Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -L
 > Una vez que se termine la transición, se usará el nombre nuevo que aparece en el cmdlet anterior para referirse al recurso. Básicamente, se cambiará el nombre del circuito.
 > 
 
-<a id="modify-circuit-access" class="xliff"></a>
+## <a name="modify-circuit-access"></a>Modificación del acceso al circuito
 
-## Modificación del acceso al circuito
-
-<a id="to-enable-expressroute-circuit-access-for-both-deployment-models" class="xliff"></a>
-
-### Habilitación del acceso al circuito ExpressRoute para ambos modelos de implementación
+### <a name="to-enable-expressroute-circuit-access-for-both-deployment-models"></a>Habilitación del acceso al circuito ExpressRoute para ambos modelos de implementación
 
 Después de mover el circuito ExpressRoute creado con el modelo clásico al modelo de implementación de Resource Manager, puede habilitar el acceso a ambos modelos de implementación. Ejecute el siguiente cmdlet para habilitar el acceso a ambos modelos de implementación:
 
@@ -153,9 +137,7 @@ Después de mover el circuito ExpressRoute creado con el modelo clásico al mode
     * [Vinculación de redes virtuales a circuitos ExpressRoute en el modelo de implementación de Resource Manager](expressroute-howto-linkvnet-arm.md)
     * [Vinculación de redes virtuales a circuitos ExpressRoute en el modelo de implementación clásica](expressroute-howto-linkvnet-classic.md)
 
-<a id="to-disable-expressroute-circuit-access-to-the-classic-deployment-model" class="xliff"></a>
-
-### Deshabilitación del acceso al circuito ExpressRoute en el modelo de implementación clásica
+### <a name="to-disable-expressroute-circuit-access-to-the-classic-deployment-model"></a>Deshabilitación del acceso al circuito ExpressRoute en el modelo de implementación clásica
 
 Ejecute los siguientes cmdlets para deshabilitar el acceso al modelo de implementación clásica.
 
@@ -177,9 +159,7 @@ Ejecute los siguientes cmdlets para deshabilitar el acceso al modelo de implemen
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Crear y modificar el enrutamiento para el circuito ExpressRoute](expressroute-howto-routing-arm.md)
 * [Vincular la red virtual a su circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)

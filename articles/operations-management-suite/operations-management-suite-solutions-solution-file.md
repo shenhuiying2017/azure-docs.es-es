@@ -23,18 +23,14 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="creating-a-management-solution-file-in-operations-management-suite-oms-preview" class="xliff"></a>
-
-# Creación de archivos de solución de administración en Operations Management Suite (OMS) (versión preliminar)
+# <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Creación de archivos de solución de administración en Operations Management Suite (OMS) (versión preliminar)
 > [!NOTE]
 > La versión de la documentación para crear soluciones de administración de OMS está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.  
 
 Las soluciones de administración en Operations Management Suite (OMS) se implementan como [plantillas de Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  La tarea principal para aprender a crear soluciones de administración es saber cómo [crear una plantilla](../azure-resource-manager/resource-group-authoring-templates.md).  En este artículo se proporcionan detalles únicos de plantillas que se usan para soluciones y sobre cómo configurar recursos de solución típicos.
 
 
-<a id="tools" class="xliff"></a>
-
-## Herramientas
+## <a name="tools"></a>Herramientas
 
 Puede usar cualquier editor de texto para trabajar con archivos de solución, pero se recomienda aprovechar las características proporcionadas en Visual Studio o Visual Studio Code como se describe en los siguientes artículos.
 
@@ -44,9 +40,7 @@ Puede usar cualquier editor de texto para trabajar con archivos de solución, pe
 
 
 
-<a id="structure" class="xliff"></a>
-
-## sección Estructura
+## <a name="structure"></a>sección Estructura
 La estructura básica de un archivo de una solución de administración, que se muestra a continuación, es la misma que la de una [plantilla de Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format).  En cada una de las siguientes secciones se describen los elementos de nivel superior y su contenido en una solución.  
 
     {
@@ -58,9 +52,7 @@ La estructura básica de un archivo de una solución de administración, que se 
        "outputs": {  }
     }
 
-<a id="parameters" class="xliff"></a>
-
-## Parámetros
+## <a name="parameters"></a>Parámetros
 Los [parámetros](../azure-resource-manager/resource-group-authoring-templates.md#parameters) son valores que el usuario le debe proporcionar al instalar la solución de administración.  Hay parámetros estándar que tendrán todas las soluciones, y puede agregar parámetros adicionales según sea necesario para su solución particular.  La manera en que los usuarios proporcionarán valores de parámetros al instalar la solución dependerá del parámetro particular y de cómo se instala la solución.
 
 Cuando un usuario instala su solución de administración mediante plantillas de [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) o [de inicio rápido de Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), se le pide que seleccione un [área de trabajo de OMS y una cuenta de Automation](operations-management-suite-solutions.md#oms-workspace-and-automation-account).  Estos se usan para rellenar los valores de cada uno de los parámetros estándar.  Al usuario no se le pide que proporcione valores directamente para los parámetros estándar, pero se le pide que proporcione valores para cualquier parámetro adicional.
@@ -86,9 +78,7 @@ En la tabla siguiente se describen los atributos de un parámetro.
 | control |Funcionalidad adicional para los parámetros de cadena.<br><br>datetime: se muestra el control de fecha y hora.<br>guid: el valor del GUID se genera automáticamente y no se muestra el parámetro. |
 | Description |Descripción opcional del parámetro.  Se muestra en un globo de información junto al parámetro. |
 
-<a id="standard-parameters" class="xliff"></a>
-
-### Parámetros estándar
+### <a name="standard-parameters"></a>Parámetros estándar
 En la tabla siguiente se enumeran los parámetros estándar de todas las soluciones de administración.  Estos valores se rellenan para el usuario en lugar de pedírseles cuando se instala la solución desde las plantillas de Azure Marketplace o de inicio rápido.  El usuario debe proporcionar los valores si la solución se instala con otro método.
 
 > [!NOTE]
@@ -144,9 +134,7 @@ Esta es la estructura de los parámetros estándar que puede copiar y pegar en e
 
 Consulte los valores de parámetro de otros elementos de la solución con la sintaxis **parameters('nombre de parámetro')**.  Por ejemplo, para tener acceso al nombre de área de trabajo, use **parameters('workspaceName')**
 
-<a id="variables" class="xliff"></a>
-
-## Variables
+## <a name="variables"></a>Variables
 [Variables](../azure-resource-manager/resource-group-authoring-templates.md#variables) son valores que usará en el resto de la solución de administración.  Estos valores no se exponen al usuario que instala la solución.  Están destinados a proporcionar al creador una única ubicación donde pueda administrar los valores que pueden utilizarse varias veces a lo largo de la solución. Debe colocar los valores específicos para su solución en variables en lugar de codificarlos de forma rígida en el elemento **resources**.  De este modo, el código es más legible y los valores se pueden cambiar fácilmente en versiones posteriores.
 
 A continuación se muestra un ejemplo del elemento **variables** con parámetros típicos usados en las soluciones.
@@ -175,25 +163,17 @@ También puede definir variables complejas en varios conjuntos de valores.  Esta
 
 En este caso, consulte los valores de las variables a través de la solución con la sintaxis **variables('nombre de variable').property**.  Por ejemplo, para tener acceso a la variable SolutionName, se usaría **variables('Solution').Name**.
 
-<a id="resources" class="xliff"></a>
-
-## Recursos
+## <a name="resources"></a>Recursos
 [Recursos](../azure-resource-manager/resource-group-authoring-templates.md#resources) define los diferentes recursos que instalará y configurará la solución de administración.  Se trata de la parte más grande y compleja de la plantilla.  Puede obtener la estructura y la descripción completa de los elementos de recurso en [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#resources).  Se detallan distintos recursos que se definirán normalmente en otros artículos en esta documentación. 
 
 
-<a id="dependencies" class="xliff"></a>
-
-### Dependencias
+### <a name="dependencies"></a>Dependencias
 El elemento **dependsOn** especifica una [dependencia](../azure-resource-manager/resource-group-define-dependencies.md) en otro recurso.  Cuando se instala la solución, un recurso no se crea hasta que no se hayan creado todas sus dependencias.  Por ejemplo, puede que su solución [inicie un runbook](operations-management-suite-solutions-resources-automation.md#runbooks) cuando se instala mediante un [recurso de trabajo](operations-management-suite-solutions-resources-automation.md#automation-jobs).  El recurso de trabajo será dependiente del recurso de runbook para asegurarse de que el runbook se crea antes de que se cree el trabajo.
 
-<a id="oms-workspace-and-automation-account" class="xliff"></a>
-
-### Área de trabajo de OMS y cuenta de Automation
+### <a name="oms-workspace-and-automation-account"></a>Área de trabajo de OMS y cuenta de Automation
 La mayoría de las soluciones requieren que un [área de trabajo de OMS](../log-analytics/log-analytics-manage-access.md) contenga vistas y que una [cuenta de Automation](../automation/automation-security-overview.md#automation-account-overview) contenga runbooks y recursos relacionados.  Estos deben estar disponibles antes de que se creen los recursos de la solución y no se deben definir en la propia solución.  El usuario [especificará un área de trabajo y una cuenta](operations-management-suite-solutions.md#oms-workspace-and-automation-account) al implementar la solución, pero usted, como autor, debe tener en cuenta los siguientes puntos.
 
-<a id="solution-resource" class="xliff"></a>
-
-## Recursos de solución
+## <a name="solution-resource"></a>Recursos de solución
 Cada solución requiere una entrada de recursos en el elemento **resources** que define la propia solución.  Esto tendrá un tipo de **Microsoft.OperationsManagement/solutions** y tener la siguiente estructura. Esto incluye [parámetros estándar](#parameters) y [variables](#variables) que se usan normalmente para definir las propiedades de la solución.
 
 
@@ -227,14 +207,10 @@ Cada solución requiere una entrada de recursos en el elemento **resources** que
 
 
 
-<a id="dependencies" class="xliff"></a>
-
-### Dependencias
+### <a name="dependencies"></a>Dependencias
 El recurso de la solución debe tener un [dependencia](../azure-resource-manager/resource-group-define-dependencies.md) en todos los recursos de la solución, ya que estos deben existir antes de que se cree la solución.  Para ello, agregue una entrada para cada recurso en el elemento **dependsOn**.
 
-<a id="properties" class="xliff"></a>
-
-### Propiedades
+### <a name="properties"></a>Propiedades
 Este recurso de la solución tiene las propiedades de la tabla siguiente.  Esto incluye los recursos a los que hace referencia la solución y contenidos en ella, que define cómo se administra el recurso después de instalar la solución.  Cada recurso de la solución debe aparecer en una de las propiedades **referencedResources** o **containedResources**.
 
 | Propiedad | Descripción |
@@ -245,9 +221,7 @@ Este recurso de la solución tiene las propiedades de la tabla siguiente.  Esto 
 
 El ejemplo anterior es para una solución con un runbook, una programación y una vista.  Se hace *referencia a la programación y al runbook*  en el elemento **properties** de modo que no se quitan cuando se quita la solución.  La vista está *contenida*, por lo que se quita cuando se quita la solución.
 
-<a id="plan" class="xliff"></a>
-
-### Plan
+### <a name="plan"></a>Plan
 La entidad **plan** del recurso de la solución tiene las propiedades en la tabla siguiente.
 
 | Propiedad | Description |
@@ -259,18 +233,14 @@ La entidad **plan** del recurso de la solución tiene las propiedades en la tabl
 
 
 
-<a id="sample" class="xliff"></a>
-
-## Muestra
+## <a name="sample"></a>Muestra
 Puede ver ejemplos de archivos de solución con un recurso de la solución en las siguientes ubicaciones.
 
 - [Recursos de Automation](operations-management-suite-solutions-resources-automation.md#sample)
 - [Recursos de búsqueda y alerta](operations-management-suite-solutions-resources-searches-alerts.md#sample)
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Incorporación de búsquedas y alertas guardadas](operations-management-suite-solutions-resources-searches-alerts.md) a la solución de administración.
 * [Incorporación de vistas](operations-management-suite-solutions-resources-views.md) a la solución de administración.
 * [Incorporación de runbooks de y otros recursos Automation](operations-management-suite-solutions-resources-automation.md) a la solución de administración.

@@ -21,9 +21,7 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="tutorial-azure-active-directory-integration-with-servicechannel" class="xliff"></a>
-
-# Tutorial: Integración de Azure Active Directory con ServiceChannel
+# <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Tutorial: Integración de Azure Active Directory con ServiceChannel
 
 En este tutorial, obtendrá información sobre cómo integrar ServiceChannel con Azure Active Directory (Azure AD).
 
@@ -35,9 +33,7 @@ La integración de ServiceChannel con Azure AD proporciona las siguientes ventaj
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con ServiceChannel, se necesitan los siguientes elementos:
 
@@ -52,17 +48,13 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - No debe usar el entorno de producción, a menos que sea necesario.
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
-<a id="scenario-description" class="xliff"></a>
-
-## Descripción del escenario
+## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar ServiceChannel desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-<a id="adding-servicechannel-from-the-gallery" class="xliff"></a>
-
-## Agregar ServiceChannel desde la galería
+## <a name="adding-servicechannel-from-the-gallery"></a>Agregar ServiceChannel desde la galería
 Para configurar la integración de ServiceChannel en Azure AD, deberá agregar ServiceChannel desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar ServiceChannel desde la galería, realice los pasos siguientes:**
@@ -87,9 +79,7 @@ Para configurar la integración de ServiceChannel en Azure AD, deberá agregar S
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_2.png)
 
-<a id="configuring-and-testing-azure-ad-single-sign-on" class="xliff"></a>
-
-##  Configuración y comprobación del inicio de sesión único de Azure AD
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
 En esta sección, configurará y probará el inicio de sesión único de Azure AD con ServiceChannel con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de ServiceChannel para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de ServiceChannel.
@@ -104,9 +94,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con ServiceChan
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
-<a id="configuring-azure-ad-single-sign-on" class="xliff"></a>
-
-### Configuración del inicio de sesión único de Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en el Portal de administración de Azure y configurará el inicio de sesión único en la aplicación ServiceChannel.
 
@@ -170,9 +158,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
 9. Para configurar el inicio de sesión único en el lado de **ServiceChannel**, debe enviar el **certificado (Base64)** descargado y el **Id. de entidad de SAML** al [equipo de soporte técnico de ServiceChannel](https://servicechannel.zendesk.com/hc/en-us). Ellos realizarán esta operación para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-<a id="creating-an-azure-ad-test-user" class="xliff"></a>
-
-### Creación de un usuario de prueba de Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal de administración de Azure llamado Britta Simon.
 
 ![Creación de un usuario de Azure AD][100]
@@ -203,15 +189,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
     d. Haga clic en **Crear**. 
 
-<a id="creating-a-servicechannel-test-user" class="xliff"></a>
-
-### Crear un usuario de prueba de ServiceChannel
+### <a name="creating-a-servicechannel-test-user"></a>Crear un usuario de prueba de ServiceChannel
 
 La aplicación admite aprovisionamiento de usuarios Just-In-Time y, tras la autenticación, los usuarios se crearán automáticamente en la aplicación. Para el aprovisionamiento de usuario completo, póngase en contacto con el [equipo de soporte técnico de ServiceChannel](https://servicechannel.zendesk.com/hc/en-us).
 
-<a id="assigning-the-azure-ad-test-user" class="xliff"></a>
-
-### Asignación del usuario de prueba de Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a ServiceChannel.
 
@@ -241,17 +223,13 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
-<a id="testing-single-sign-on" class="xliff"></a>
-
-### Prueba del inicio de sesión único 
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de ServiceChannel en el panel de acceso, debería iniciar sesión automáticamente en la aplicación ServiceChannel.
 
-<a id="additional-resources" class="xliff"></a>
-
-## Recursos adicionales
+## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
