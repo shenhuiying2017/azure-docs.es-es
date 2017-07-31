@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 06/01/2017
 ms.author: sethm;babanisa
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: fa0d49498db74ec81c98f3df9317d42cdd31ab46
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: b3af61ec0923a0d9d207cee790d59aa9254a578b
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -55,13 +56,13 @@ Dispone de las siguientes ventajas cuando utiliza Event Hubs con capacidad dedic
 * Cero mantenimiento: nosotros administramos el equilibrio de carga, las actualizaciones del sistema operativo, las revisiones de seguridad y la creación de particiones.
 * Precio fijo mensual.
 
-Event Hubs dedicado también elimina algunas de las limitaciones de rendimiento de la oferta Estándar. La unidades de rendimiento en los niveles Estándar y Básico le proporcionan 1000 eventos por segundo o 1 Mbps de entrada por unidad y el doble de esa cantidad de salida. La oferta de escala Dedicado no tiene ninguna restricción en la cantidad de eventos de entrada y de salida. Estos límites solo se rigen por la capacidad de procesamiento de los centros de eventos adquiridos.
+Event Hubs dedicado también elimina algunas de las limitaciones de rendimiento de la oferta Estándar. Las unidades de procesamiento de los niveles Estándar y Básico proporcionan 1000 eventos por segundo o 1 MB por segundo de entrada por unidad de procesamiento, así como el doble de esa cantidad de salida. La oferta de escala Dedicado no tiene ninguna restricción en la cantidad de eventos de entrada y de salida. Estos límites solo se rigen por la capacidad de procesamiento de los centros de eventos adquiridos.
 
 Este servicio está dirigido a los usuarios de telemetría más grandes y está disponible para los clientes con un contrato Enterprise.
 
 ## <a name="how-to-onboard"></a>¿Cómo incorporarlo?
 
-La plataforma de Event Hubs dedicado se ofrece al público a través de un contrato Enterprise con distintos tamaños de unidades de capacidad. Cada unidad de capacidad proporciona aproximadamente el equivalente a 200 unidades de procesamiento. Puede aumentar o reducir verticalmente su capacidad a lo largo del mes para satisfacer sus necesidades agregando o quitando unidades de rendimiento. El plan dedicado es único en el sentido de que tendrá más ayuda del equipo de producto de Event Hubs para la incorporación con el fin de obtener la implementación flexible adecuada para usted. 
+La plataforma de Event Hubs dedicado se ofrece al público a través de un contrato Enterprise con distintos tamaños de unidades de capacidad. Cada unidad de capacidad proporciona aproximadamente el equivalente a 200 unidades de procesamiento. Puede aumentar o reducir verticalmente su capacidad a lo largo del mes para satisfacer sus necesidades agregando o quitando unidades de rendimiento. El plan dedicado es único en el sentido de que tendrá más ayuda del equipo del producto Event Hubs en el proceso de incorporación con el fin de obtener la implementación flexible adecuada. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Póngase en contacto con su representante de ventas de Microsoft o el Servicio de soporte técnico de Microsoft para obtener detalles adicionales sobre la capacidad Event Hubs Dedicado. Para más información acerca de Event Hubs, visite los vínculos siguientes:

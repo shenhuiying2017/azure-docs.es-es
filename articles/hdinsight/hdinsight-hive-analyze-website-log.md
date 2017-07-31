@@ -1,5 +1,5 @@
 ---
-title: "Uso de Hive con Hadoop para el análisis de registros de sitios web | Microsoft Docs"
+title: "Uso de Hive con Hadoop para el análisis de registros de sitios web: Azure HDInsight | Microsoft Docs"
 description: "Vea cómo usar Hive con HDInsight para analizar registros de sitios web. Usará un archivo de registro como entrada en una tabla de HDInsight y HiveQL para consultar los datos."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3322a585de591010925efe8699cc48e32bd8a607
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: caa7881e8139f86af7c95c23cac5b3eaf1587dc8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

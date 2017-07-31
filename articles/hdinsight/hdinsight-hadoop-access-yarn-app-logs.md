@@ -1,5 +1,5 @@
 ---
-title: "Acceso a los registros de aplicación de YARN de Hadoop mediante programación| Microsoft Docs"
+title: "Acceso a los registros de aplicación de YARN de Hadoop mediante programación - Azure | Microsoft Docs"
 description: "La aplicación de Access se registra mediante programación en un clúster de Hadoop en HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: ce07cf026ca9dae40afe3205685f3ab463492e39
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 63b60a671cde118c41e94fc88c4eed5f6cba8c19
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 07/14/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 729c89e26e0c2da3ec88b554645091997dea4552
-ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: cb88ce2960d63b8a1c5861913b2095bcc977938f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/15/2017
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute y dominios de enrutamiento
@@ -26,7 +27,7 @@ ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 ## <a name="expressroute-circuits"></a>Circuitos ExpressRoute
-Un *circuito ExpressRoute* representa una conexión lógica entre la infraestructura local y los servicios en la nube de Microsoft a través de un proveedor de conectividad. Puede solicitar varios circuitos ExpressRoute. Cada circuito puede estar en la misma región o en regiones diferentes, y puede estar conectado a su entorno local mediante proveedores de conectividad diferentes. 
+Un *circuito ExpressRoute* representa una conexión lógica entre la infraestructura local y los servicios en la nube de Microsoft a través de un proveedor de conectividad. Puede solicitar varios circuitos ExpressRoute. Cada circuito puede estar en la misma región o en diferentes, y puede estar conectado a su entorno local mediante distintos proveedores de conectividad. 
 
 Los circuitos ExpressRoute no se asignan a entidades físicas. Un circuito se identifica de forma única mediante un GUID estándar denominado clave de servicio (s-key). La clave de servicio es la única parte de la información que se intercambia entre Microsoft, el proveedor de conectividad y usted. Por motivos de seguridad, la s-key no es un secreto. Hay una asignación 1:1 entre un circuito ExpressRoute y la s-key.
 
@@ -85,10 +86,5 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
   * [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configuración del enrutamiento (emparejamientos de circuitos)](expressroute-howto-routing-classic.md)
   * [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

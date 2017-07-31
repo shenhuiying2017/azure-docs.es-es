@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: fd52bd8e14ca9bdcd06fc820e5e03fb5feccc72f
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 8951167213da6ab5341c1ca420353ec625ef5424
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/09/2017
 Obtenga información sobre el Centro de seguridad de Azure, sus capacidades clave y cómo funciona.
 
 > [!NOTE]
-> En este documento se presenta el servicio mediante una implementación de ejemplo.
+> Desde primeros de junio de 2017, Security Center usará Microsoft Monitoring Agent para recopilar y almacenar datos. Consulte [Migración de la plataforma de Azure Security Center](security-center-platform-migration.md) para más información. La información de este artículo representa la funcionalidad de Security Center después de la transición a Microsoft Monitoring Agent.
 >
 >
 
@@ -39,17 +39,23 @@ Obtenga información sobre el Centro de seguridad de Azure, sus capacidades clav
 | Fase | Capacidad |
 | --- | --- |
 | Prevención |Supervisa el estado de seguridad de los recursos de Azure |
-| Prevención | Define las directivas de sus suscripciones y grupos de recursos de Azure en función de los requisitos de seguridad de su compañía, los tipos de aplicaciones que use y la confidencialidad de los datos |
+| Prevención | Define las directivas de las suscripciones de Azure en función de los requisitos de seguridad de la compañía, los tipos de aplicaciones utilizados y la confidencialidad de los datos. |
 | Prevención | Usa recomendaciones de seguridad controladas por directivas para guiar a los propietarios de los servicios a través del proceso de implementación de los controles necesarios |
 | Prevención | Implementa rápidamente servicios y dispositivos de seguridad de Microsoft y asociados |
 | Detección |Recopila y analiza automáticamente los datos de seguridad de los recursos de Azure, la red y las soluciones de asociados como firewalls y programas antimalware |
-| Detección | Aprovecha la inteligencia de amenazas global de los productos y servicio de Microsoft, la Unidad de crímenes digitales de Microsoft, Microsoft Security Response Center (MSRC) y fuentes externas. |
+| Detección | Utiliza la inteligencia de amenazas globales de los productos y servicios de Microsoft, Microsoft Digital Crimes Unit (DCU), Microsoft Security Response Center (MSRC) y fuentes externas. |
 | Detección | Aplica análisis avanzados, incluido el aprendizaje automático y el análisis de comportamientos |
 | Respuesta |Proporciona seguridad prioritaria ante incidentes y alertas |
 | Respuesta | Proporciona información sobre el origen del ataque y los recursos afectados |
 | Respuesta | Sugiere formas de detener el ataque actual y de ayudar a impedir ataques futuros |
 
 ## <a name="introductory-walkthrough"></a>Tutorial de introducción
+
+> [!NOTE]
+> En este documento se presenta el servicio mediante una implementación de ejemplo. Este documento no es una guía paso a paso.
+>
+>
+
  Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). [Inicie sesión en el portal](https://portal.azure.com). En el menú principal del portal, desplácese hasta la opción **Security Center** o seleccione el icono **Security Center** que ancló anteriormente al panel del portal.
 
 ![Icono Seguridad en el Portal de Azure][1]
@@ -57,10 +63,10 @@ Obtenga información sobre el Centro de seguridad de Azure, sus capacidades clav
 En el Centro de seguridad, puede establecer directivas de seguridad, supervisar configuraciones de seguridad y ver alertas de seguridad.
 
 ### <a name="security-policies"></a>Directivas de seguridad
-Puede definir directivas para las suscripciones y los grupos de recursos de Azure según los requisitos de seguridad de su empresa. También puede personalizarlas según los tipos de aplicaciones que use o la confidencialidad de los datos en cada suscripción. Por ejemplo, es posible que los recursos usados para el desarrollo o las pruebas tengan requisitos de seguridad distintos a los empleados para las aplicaciones de producción. Del mismo modo, es posible que las aplicaciones con datos regulados como PII requieran un mayor nivel de seguridad.
+Puede definir directivas para las suscripciones de Azure según los requisitos de seguridad de la compañía. También puede personalizarlas según los tipos de aplicaciones que use o la confidencialidad de los datos en cada suscripción. Por ejemplo, es posible que los recursos usados para el desarrollo o las pruebas tengan requisitos de seguridad distintos a los empleados para las aplicaciones de producción. Del mismo modo, es posible que las aplicaciones con datos regulados como PII requieran un mayor nivel de seguridad.
 
 > [!NOTE]
-> Para modificar una directiva de seguridad en el nivel de suscripción o el nivel de grupo de recursos, debe ser el propietario de la suscripción o un colaborador de esta.
+> Para modificar una directiva de seguridad, debe ser administrador de seguridad o el propietario/colaborador de la suscripción. Consulte [Permisos en Azure Security Center](security-center-permissions.md) para obtener más información sobre los roles y las acciones permitidas en Security Center.
 >
 >
 
@@ -70,35 +76,17 @@ En la hoja **Security Center**, seleccione el icono **Directiva** para obtener u
 
 En la hoja **Directiva de seguridad**, seleccione una suscripción para ver los detalles de la directiva.
 
-![Suscripción de hoja de directiva de seguridad][3]
-
-**Recopilación de datos** (consultar  más arriba) habilita la recopilación de datos para una directiva de seguridad. Con la habilitación se consigue lo siguiente:
+**Recopilación de datos** habilita la recopilación de datos en una directiva de seguridad. Con la habilitación se consigue lo siguiente:
 
 * Examen diario de todas las máquinas virtuales (VM) admitidas para las recomendaciones y la supervisión de seguridad.
 * Colección de eventos de seguridad para el análisis y la detección de amenazas.
 
-**Elegir una cuenta de almacenamiento por región** (ver más arriba) le permite seleccionar (para cada región donde ejecute VM) la cuenta de almacenamiento donde se almacenan los datos recopilados de esas VM. Si no elige una cuenta de almacenamiento para cada región, se creará automáticamente. Los datos recopilados se aíslan lógicamente de los datos de otros clientes por seguridad.
-
 > [!NOTE]
-> La recopilación de datos y la elección de una cuenta de almacenamiento por región se configura en el nivel de suscripción.
+> Recopilación de datos se configura en el nivel de suscripción.
 >
 >
 
-Seleccione **Directiva de prevención** (ver más arriba) para abrir la hoja **Directiva de prevención**. **Mostrar recomendaciones para** permite elegir los controles de seguridad que desea supervisar y las recomendaciones que desea ver según las necesidades de seguridad de los recursos de la suscripción.
-
-A continuación, seleccione un grupo de recursos para ver los detalles de la directiva.
-
-![Grupo de recursos de hoja de directiva de seguridad][4]
-
-**Herencia** (véase más arriba) le permite definir el grupo de recursos como:
-
-* Heredado (valor predeterminado), lo que significa que todas las directivas de seguridad para este grupo de recursos se heredan a partir del nivel de suscripción.
-* Único, lo que significa que el grupo de recursos tendrá una directiva de seguridad personalizada. Necesita realizar cambios en **Mostrar recomendaciones para**.
-
-> [!NOTE]
-> En caso de un conflicto entre la directiva del nivel de suscripción y la directiva del nivel de grupo de recursos, la del nivel del grupo de recursos tiene prioridad.
->
->
+Seleccione **Directiva de prevención** para abrir la hoja **Directiva de prevención**. **Mostrar recomendaciones para** permite elegir los controles de seguridad que desea supervisar y las recomendaciones que desea ver según las necesidades de seguridad de los recursos de la suscripción.
 
 ### <a name="security-recommendations"></a>Recomendaciones de seguridad
  El Centro de seguridad analiza el estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de seguridad. Una lista de recomendaciones le guiará por el proceso de configuración de los controles necesarios. Algunos ejemplos son:
@@ -137,7 +125,7 @@ Al seleccionar una alerta, se muestra más información sobre el ataque y sugere
 ![Detalles de alertas de seguridad][8]
 
 ### <a name="partner-solutions"></a>Soluciones de socios
-El icono **Soluciones de asociados** permite supervisar de un solo vistazo el estado de mantenimiento de las soluciones de asociados integradas en su suscripción de Azure. Security Center muestra las alertas procedentes de las soluciones.
+El icono de **Soluciones de asociados** permite supervisar de un solo vistazo el estado de seguridad de las soluciones de asociados integradas en la suscripción de Azure. Security Center muestra las alertas procedentes de las soluciones.
 
 Seleccione el icono **Soluciones de asociados** . Se muestra una hoja con una lista de todas las soluciones de asociados conectadas.
 
@@ -150,14 +138,15 @@ Para empezar a trabajar con el Centro de seguridad, necesita una suscripción a 
 
 [Introducción a Azure Security Center](security-center-get-started.md) le guía rápidamente por los componentes de administración de directivas y supervisión de seguridad de Azure Security Center.
 
-## <a name="see-also"></a>Otras referencias
-En este documento, se ha presentado el Centro de seguridad, sus funcionalidades clave y cómo empezar a usarlo. Para obtener más información, consulte:
+## <a name="next-steps"></a>Pasos siguientes
+En este documento, se ha presentado el Centro de seguridad, sus funcionalidades clave y cómo empezar a usarlo. Para obtener más información, consulte los siguientes recursos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md) : recomendaciones que lo ayudan a proteger los recursos de Azure.
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md) : obtenga información sobre cómo supervisar el estado de los recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md) : aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+- [Seguridad de datos de Azure Security Center](security-center-data-security.md): aprenda cómo se administran y protegen los datos en Security Center.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : obtenga las últimas noticias e información sobre la seguridad en Azure.
 

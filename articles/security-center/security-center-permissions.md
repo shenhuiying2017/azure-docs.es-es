@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/13/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 5c4a08d96175d431e0a29dfc5927b64567c40117
-ms.openlocfilehash: d1c8a39bbcda7d22fdce08d122098e994ca87451
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
+ms.contentlocale: es-es
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -25,19 +27,31 @@ ms.openlocfilehash: d1c8a39bbcda7d22fdce08d122098e994ca87451
 
 Azure Security Center usa el [control de acceso basado en roles (RBAC)](../active-directory/role-based-access-control-configure.md), que proporciona [roles integrados](../active-directory/role-based-access-built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
 
-Security Center evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Security Center, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o al grupo de recursos al que pertenece un recurso.
+Security Center evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Security Center, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o grupo de recursos al que pertenece un recurso.
+
+Además de estos roles, hay dos roles específicos de Security Center:
+
+* **Lector de seguridad**: un usuario que pertenece a este rol tiene derechos de visualización en Security Center. El usuario puede ver las recomendaciones, las alertas, una directiva de seguridad y los estados de seguridad, pero no puede realizar cambios.
+* **Administrador de seguridad**: un usuario que pertenece a este rol tiene los mismos derechos que el lector de seguridad, y puede actualizar la directiva de seguridad y descartar las alertas y las recomendaciones.
+
+> [!NOTE]
+> Los roles de seguridad Lector de seguridad y Administrador de seguridad solo tienen acceso a Security Center. Los roles de seguridad descritos no tienen acceso a otras áreas de servicio de Azure, como Storage, Web y móvil o Internet de las cosas.
+>
+>
 
 ## <a name="roles-and-allowed-actions"></a>Roles y acciones permitidas
 
 En la siguiente tabla se muestran los roles y las acciones permitidas en Security Center. Una X indica que la acción se permite para ese rol.
 
-| Rol | Editar directivas de seguridad | Aplicar recomendaciones de seguridad en un recurso | Corrija o descartar alertas | Ver las alertas en una suscripción | Ver las alertas de un recurso específico |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Propietario de la suscripción | X | X | X | X | X |
-| Colaborador de la suscripción | X | X | X | X | X |
-| Propietario del grupo de recursos | -- | X | -- | -- | X |
-| Colaborador del grupo de recursos | -- | X | -- | -- | X |
-| Lector | -- | -- | -- | X | X |
+| Rol | Editar directivas de seguridad | Aplicar recomendaciones de seguridad en un recurso | Descartar alertas y recomendaciones | Ver alertas y recomendaciones |
+|:--- |:---:|:---:|:---:|:---:|
+| Propietario de la suscripción | X | X | X | X |
+| Colaborador de la suscripción | X | X | X | X |
+| Propietario del grupo de recursos | -- | X | -- | X |
+| Colaborador del grupo de recursos | -- | X | -- | X |
+| Lector | -- | -- | -- | X |
+| Administrador de seguridad | X | -- | X | X |
+| Lector de seguridad | -- | -- | -- | X |
 
 > [!NOTE]
 > Es recomendable que asigne el rol de menos permisos que los usuarios necesiten para realizar sus tareas. Por ejemplo, asigne el rol Lector a los usuarios que solo necesiten ver información sobre el estado de seguridad de los recursos, pero no llevar a cabo acciones como aplicar recomendaciones o editar directivas.
@@ -52,9 +66,4 @@ En este artículo se ha explicado cómo Security Center usa RBAC para asignar pe
 - [Supervisar el estado de seguridad de los recursos de Azure](security-center-monitoring.md)
 - [Responder a alertas de seguridad en Security Center](security-center-managing-and-responding-alerts.md)
 - [Supervisar soluciones de seguridad de asociados](security-center-partner-solutions.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

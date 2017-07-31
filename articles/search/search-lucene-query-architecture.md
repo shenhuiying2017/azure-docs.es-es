@@ -12,10 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 9e09425b0143c1907d1af167782d1e4b1457d626
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 9b7adf78271407963ed1d4b34a7760d707b5fc3a
+ms.contentlocale: es-es
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -262,28 +263,28 @@ Para el campo **descripción**, el índice es el siguiente:
 
 | Término | Lista de documento |
 |------|---------------|
-| post- |    3
-| y |    4
+| post- | 3
+| y | 4
 | playa | 1
-| vacacional |    3
-| cómodo |    3
+| vacacional | 3
+| cómodo | 3
 | distancia | 1
 | isla | 2
 | kauaʻi | 2
-| ubicado |    2
+| ubicado | 2
 | norte | 2
 | océano | 1, 2, 3
 | de | 2
 | en |2
 | silencioso | 4
-| habitaciones     | 1, 3
+| habitaciones  | 1, 3
 | aislado | 4
-| costa    | 2
+| costa | 2
 | espacioso | 1
 | el | 1, 2
 | to | 1
 | view | 1, 2, 3
-| paseo |    1
+| paseo | 1
 | por | 3
 
 
@@ -386,7 +387,9 @@ En este artículo se ha analizado la búsqueda de texto completo en el contexto 
 
 + [Configurar los analizadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para un procesamiento mínimo o especializado en campos específicos.
 
-## <a name="see-also"></a>Consulte también
++ [Comparar el analizador estándar y el analizador de inglés](http://alice.unearth.ai/) en paralelo en este sitio web de demostración. 
+
+## <a name="see-also"></a>Otras referencias
 
 [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 21078a82e979af251a08bca70d623c80949d064a
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 9f6de5b516da110b93a1e0cddf835b2bcec77bb7
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -29,8 +30,9 @@ Hasta hoy, Azure HDInsight solo admite un único usuario administrador local. Es
 
 > [!NOTE]
 > Las nuevas características descritas en esta versión preliminar solo están disponibles en los clústeres de HDInsight basados en Linux para cargas de trabajo de Hive. Las demás cargas de trabajo, como HBase, Spark, Storm y Kafka, se habilitarán en futuras versiones.
->
->
+
+> [!IMPORTANT]
+> Oozie no está habilitado en HDInsight unido a un dominio.
 
 ## <a name="benefits"></a>Ventajas
 La seguridad de la empresa contiene cuatro grandes pilares; seguridad del perímetro, autenticación, autorización y cifrado.

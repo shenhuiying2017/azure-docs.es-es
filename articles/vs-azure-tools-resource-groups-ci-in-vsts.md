@@ -14,19 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b178359d2f55e9137b39f42f5562e7bb8a642c57
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
+ms.contentlocale: es-es
+ms.lasthandoff: 06/01/2017
 
 
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Integración continua en Visual Studio Team Services mediante proyectos de implementación del Grupo de recursos de Azure
-Para implementar una plantilla de Azure, tiene que realizar tareas que pasan por las distintas fases: compilación, prueba, copia en Azure (también denominada "almacenamiento provisional") y plantilla de implementación.  Hay dos maneras diferentes de implementar plantillas de Visual Studio Team Services (VS Team Services). Ambos métodos proporcionan los mismos resultados, así que puede elegir el que mejor se adapte a su flujo de trabajo.
+Para implementar una plantilla de Azure, se realizan tareas en diversas fases: compilación, prueba, copia en Azure (también denominada "almacenamiento provisional") y plantilla de implementación. Hay dos maneras distintas de implementar plantillas en Visual Studio Team Services (VS Team Services). Ambos métodos proporcionan los mismos resultados, así que puede elegir el que mejor se adapte a su flujo de trabajo.
 
 1. Agregue un paso único a la definición de compilación que ejecuta el script de PowerShell incluido en el proyecto de implementación del Grupo de recursos de Azure (Deploy-AzureResourceGroup.ps1). El script copia los artefactos y, a continuación, implementa la plantilla.
 2. Agregue varios pasos de compilación de VS Team Services, cada uno de los cuales realiza una tarea de fase.
 
-En este artículo se muestran ambas opciones.  La primera opción tiene la ventaja de usar el mismo script que usan los desarrolladores en Visual Studio, lo que permite uniformidad en todo el ciclo de vida.  La segunda opción ofrece una alternativa conveniente al script integrado.  Ambos procedimientos suponen que ya tiene un proyecto de implementación de Visual Studio activado en VS Team Services.
+En este artículo se muestran ambas opciones. La primera opción tiene la ventaja de usar el mismo script que usan los desarrolladores en Visual Studio y proporcionar coherencia en todo el ciclo de vida. La segunda opción ofrece una alternativa conveniente al script integrado. Ambos procedimientos suponen que ya tiene un proyecto de implementación de Visual Studio activado en VS Team Services.
 
 ## <a name="copy-artifacts-to-azure"></a>Copia de artefactos en Azure
 Independientemente del escenario, si dispone de los artefactos necesarios para la implementación de plantillas, debe dar a Azure Resource Manager acceso a ellos. Estos artefactos pueden incluir archivos como:
@@ -47,7 +49,7 @@ Para llamar al script de PowerShell en VS Team Services, debe actualizar la defi
 4. Establecimiento del valor del parámetro *-ArtifactsStagingDirectory* para trabajar con un proyecto compilado en VS Team Services.
 
 ### <a name="detailed-walkthrough-for-option-1"></a>Tutorial detallado para la opción 1
-Los pasos siguientes le guiarán a través de los pasos necesarios para configurar la implementación continua en VS Team Services con una sola tarea que ejecuta el script de PowerShell en el proyecto. 
+Los procedimientos siguientes le guiarán a través de los pasos necesarios para configurar la implementación continua en VS Team Services con una sola tarea que ejecuta el script de PowerShell en el proyecto. 
 
 1. Edite la definición de compilación de VS Team Services y agregue un paso de compilación de Azure PowerShell. Elija la definición de compilación en la categoría **Definiciones de compilación** y, a continuación, elija el vínculo **Editar**.
    
@@ -63,7 +65,7 @@ Los pasos siguientes le guiarán a través de los pasos necesarios para configur
    1. Si ya tiene un punto de conexión de servicio de Azure agregado a VS Team Services, elija la suscripción en el cuadro de lista desplegable **Suscripción de Azure** y vaya a la sección siguiente. 
       
       Si no tiene ningún punto de conexión de servicio de Azure en VS Team Services, debe agregar uno. Este subapartado le guiará por el proceso. Si su cuenta de Azure usa una cuenta de Microsoft (como Hotmail), debe seguir estos pasos para obtener una autenticación de entidad de servicio.
-   2. Elija el vínculo **Administrar** junto al cuadro de lista desplegable **Suscripción de Azure**.
+   2. Elija el vínculo **Administrar** situado junto al cuadro de lista desplegable **Suscripción de Azure**.
       
       ![Administración de suscripciones de Azure][3]
    3. Elija **Azure** en el cuadro de lista desplegable **Nuevo punto de conexión de servicio**.
@@ -93,7 +95,7 @@ Los pasos siguientes le guiarán a través de los pasos necesarios para configur
    9. Agregue los valores del identificador de entidad de servicio, de la clave de entidad de servicio y del identificador de inquilino en el cuadro de diálogo **Agregar suscripción de Azure** y, después, elija el botón **Aceptar**.
       
       Ahora dispone de una entidad de servicio válida que puede utilizar para ejecutar el script de Azure PowerShell.
-5. Edite la definición de compilación y elija el paso de compilación **Azure PowerShell** . Seleccione la suscripción en el cuadro de lista desplegable **Suscripción de Azure** . (Si la suscripción no aparece, elija el botón **Actualizar** junto al vínculo **Administrar**). 
+5. Edite la definición de compilación y elija el paso de compilación **Azure PowerShell** . Seleccione la suscripción en el cuadro de lista desplegable **Suscripción de Azure**. (Si la suscripción no aparece, elija el botón **Actualizar** junto al vínculo **Administrar**). 
    
    ![Configure la tarea de compilación de Azure PowerShell][8]
 6. Proporcione una ruta de acceso al script de PowerShell Deploy-AzureResourceGroup.ps1. Para ello, elija el botón de puntos suspensivos (...) junto al cuadro **Ruta de acceso del script**, vaya al script de PowerShell Deploy-AzureResourceGroup.ps1 en la carpeta **Scripts** del proyecto, selecciónelo y elija el botón **Aceptar**.    
@@ -109,7 +111,7 @@ Los pasos siguientes le guiarán a través de los pasos necesarios para configur
    | -ResourceGroupLocation |El valor de la ubicación geográfica donde se encuentra el grupo de recursos, como **eastus** o **'Este de EE. UU.'**. (Agregue comillas simples si hay un espacio en el nombre). Para más información, consulte [Regiones de Azure](https://azure.microsoft.com/en-us/regions/). |
    | -ResourceGroupName |El nombre del grupo de recursos que se usa para esta implementación. |
    | -UploadArtifacts |Este parámetro, cuando está presente, especifica que los artefactos tienen que cargarse en Azure desde el sistema local. Solo debe establecer este modificador si su implementación de plantilla requiere artefactos adicionales que desea almacenar provisionalmente mediante el script de PowerShell (como scripts de configuración o plantillas anidadas). |
-   | -StorageAccountName |El nombre de la cuenta de almacenamiento utilizada para almacenar provisionalmente los artefactos en esta implementación.  Este parámetro solo se usa si almacena provisionalmente los artefactos para la implementación. Si se suministra este parámetro se crea una cuenta de almacenamiento nueva si el script no creó ninguna durante una implementación anterior.  Si se especifica el parámetro, ya debe existir la cuenta de almacenamiento. |
+   | -StorageAccountName |El nombre de la cuenta de almacenamiento utilizada para almacenar provisionalmente los artefactos en esta implementación. Este parámetro solo se usa si almacena provisionalmente los artefactos para la implementación. Si se suministra este parámetro se crea una cuenta de almacenamiento nueva si el script no creó ninguna durante una implementación anterior. Si se especifica el parámetro, ya debe existir la cuenta de almacenamiento. |
    | -StorageAccountResourceGroupName |El nombre del grupo de recursos asociado a la cuenta de almacenamiento. Este parámetro solo se requiere si se proporciona un valor para el parámetro StorageAccountName. |
    | -TemplateFile |La ruta de acceso al archivo de plantilla en el proyecto de implementación del Grupo de recursos de Azure. Para mejorar la flexibilidad, utilice una ruta de acceso para este parámetro que sea relativa a la ubicación del script de PowerShell en lugar de una ruta de acceso absoluta. |
    | -TemplateParametersFile |La ruta de acceso al archivo de parámetros en el proyecto de implementación del Grupo de recursos de Azure. Para mejorar la flexibilidad, utilice una ruta de acceso para este parámetro que sea relativa a la ubicación del script de PowerShell en lugar de una ruta de acceso absoluta. |
@@ -129,7 +131,7 @@ Los pasos siguientes le guiarán a través de los pasos necesarios para configur
 9. Después de agregar todos los elementos necesarios para el paso de compilación de Azure PowerShell, elija el botón de compilación **Cola** para generar el proyecto de compilación. La pantalla **Compilación** muestra el resultado del script de PowerShell.
 
 ### <a name="detailed-walkthrough-for-option-2"></a>Tutorial detallado para la opción 2
-Los pasos siguientes le guiarán por los pasos necesarios para configurar la implementación continua en VS Team Services con las tareas integradas.
+Los procedimientos siguientes le guiarán por los pasos necesarios para configurar la implementación continua en VS Team Services con las tareas integradas.
 
 1. Edite la definición de compilación de VS Team Services para agregar dos pasos de compilación nuevos. Elija la definición de compilación en la categoría **Definiciones de compilación** y, a continuación, elija el vínculo **Editar**.
    
@@ -145,14 +147,14 @@ Los pasos siguientes le guiarán por los pasos necesarios para configurar la imp
    ![Incorporación de la tarea Implementación de un grupo de recursos de Azure][15]
 5. Elija la tarea **Copia de archivos de Azure** y rellene sus valores.
    
-   Si ya tiene un punto de conexión de servicio de Azure agregado a VS Team Services, elija la suscripción en el cuadro de lista desplegable **Suscripción de Azure**.  Si no tiene suscripción, consulte la [opción 1](#detailed-walkthrough-for-option-1) para ver las instrucciones sobre cómo configurar una en VS Team Services.
+   Si ya tiene un punto de conexión de servicio de Azure agregado a VS Team Services, elija la suscripción en el cuadro de lista desplegable **Suscripción de Azure**. Si no tiene suscripción, vea la [opción 1](#detailed-walkthrough-for-option-1) para obtener las instrucciones sobre cómo configurar una en VS Team Services.
    
    * Origen: escriba **$(Build.StagingDirectory)**
    * Tipo de conexión de Azure: seleccione **Azure Resource Manager**
    * Suscripción de Azure RM: seleccione la suscripción correspondiente a la cuenta de almacenamiento que desea usar en el cuadro de lista desplegable **Suscripción de Azure**. Si la suscripción no aparece, elija el botón **Actualizar** junto al vínculo **Administrar**.
    * Tipo de destino: seleccione **Blob de Azure**
    * Cuenta de almacenamiento de RM: seleccione la cuenta de almacenamiento que desea usar para almacenar artefactos provisionalmente
-   * Nombre de contenedor: escriba el nombre del contenedor que desea usar para el almacenamiento provisional; puede ser cualquier nombre de controlador válido, excepto uno dedicado a esta definición de compilación
+   * Nombre de contenedor: escriba el nombre del contenedor que desea usar para el almacenamiento provisional; puede ser cualquier nombre de controlador válido, pero use uno dedicado a esta definición de compilación
    
    Para los valores de salida:
    
@@ -196,9 +198,4 @@ Consulte [Información general sobre Azure Resource Manager](azure-resource-mana
 [15]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough16.png
 [16]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough17.png
 [17]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough18.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
