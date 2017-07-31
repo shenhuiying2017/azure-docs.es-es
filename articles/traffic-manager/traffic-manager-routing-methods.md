@@ -1,6 +1,6 @@
 ---
 title: "Azure Traffic Manager: métodos de enrutamiento del tráfico | Microsoft Docs"
-description: "Este artículo le ayudará a entender los distintos métodos de enrutamiento de tráfico usados por el Administrador de tráfico"
+description: "Este artículo le ayudará a entender los distintos métodos de enrutamiento de tráfico usados por Traffic Manager"
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -12,29 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 06/15/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 032beeb624fb86450e051a9486baf4d04c632da1
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 5a39ef3f0debb92a19015f9a2428a2c3ba95c621
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 ---
 
 # <a name="traffic-manager-routing-methods"></a>Métodos de enrutamiento del Administrador de tráfico
 
-Azure Traffic Manager admite tres métodos de enrutamiento de tráfico para determinar cómo enrutar el tráfico de red a los diversos puntos de conexión del servicio. Traffic Manager aplica el método de enrutamiento de tráfico a cada consulta de DNS que recibe. El método de enrutamiento de tráfico determina qué punto de conexión se devuelve en la respuesta de DNS.
+Azure Traffic Manager admite cuatro métodos de enrutamiento de tráfico para determinar cómo enrutar el tráfico de red a los diversos puntos de conexión del servicio. Traffic Manager aplica el método de enrutamiento de tráfico a cada consulta de DNS que recibe. El método de enrutamiento de tráfico determina qué punto de conexión se devuelve en la respuesta de DNS.
 
 En Traffic Manager, hay cuatro métodos de enrutamiento de tráfico disponibles:
 
-* **Prioridad:** seleccione "Prioridad" cuando quiera usar un punto de conexión de servicio primario para todo el tráfico y proporcione reservas en caso de que los puntos de conexión primarios o de reserva no se encuentren disponibles.
-* **Ponderado:** seleccione Ponderado cuando quiera distribuir el tráfico entre un conjunto de puntos de conexión, o bien de manera uniforme o según los pesos definidos.
-* **Rendimiento** : seleccione Rendimiento cuando tenga puntos de conexión en diferentes ubicaciones geográficas y quiera que los usuarios finales utilicen el punto de conexión "más cercano" según la latencia de red más baja.
-* **Geográfico:** seleccione Geográfico para dirigir a los usuarios a puntos de conexión concretos (Azure, Externo o Anidado) en función de la ubicación geográfica de la que parta su consulta de DNS. Esto permite a los clientes de Traffic Manager habilitar escenarios en los que es importante conocer la región geográfica de un usuario y enrutarlo en función de dicha región. Algunos ejemplos incluyen cumplir los mandatos de soberanía de datos, la localización del contenido y de la experiencia del usuario, y la medición del tráfico de otras regiones.
+* **[Prioridad](#priority):** Seleccione **Prioridad** cuando quiera usar un punto de conexión de servicio primario para todo el tráfico y proporcionar reservas en caso de que los puntos de conexión principal o de reserva no estén disponibles.
+* **[Ponderado](#weighted):** Seleccione **Ponderado** cuando quiera distribuir el tráfico entre un conjunto de puntos de conexión, bien de manera uniforme o en función a pesos definidos.
+* **[Rendimiento](#performance):** Seleccione **Rendimiento** cuanto tenga puntos de conexión en ubicaciones geográficas diferentes y quiera que los usuarios finales utilicen el punto de conexión "más cercano" según la latencia de red más baja.
+* **[Geográfico](#geographic):** Seleccione **Geográfico** para dirigir a los usuarios a puntos de conexión concretos (Azure, Externo o Anidado) en función de la ubicación geográfica de la que parta su consulta de DNS. Esto permite a los clientes de Traffic Manager habilitar escenarios en los que es importante conocer la región geográfica de un usuario y enrutarlo en función de dicha región. Algunos ejemplos incluyen cumplir los mandatos de soberanía de datos, la localización del contenido y de la experiencia del usuario, y la medición del tráfico de otras regiones.
 
 Todos los perfiles de Traffic Manager incluyen supervisión del estado y conmutación por error automática del punto de conexión. Para más información, consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md). Con un único perfil de Administrador de tráfico solo se puede usar un método de enrutamiento de tráfico. El método de enrutamiento de tráfico para el perfil se puede cambiar en cualquier momento. Los cambios se aplican en un minuto, sin tiempo de inactividad. Los métodos de enrutamiento de tráfico se pueden combinar mediante perfiles anidados del Administrador de tráfico. La anidación hace posible la creación de configuraciones de enrutamiento de tráfico sofisticadas y flexibles que satisfacen las necesidades de aplicaciones más grandes y complejas. Para más información, consulte [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)(Perfiles anidados de Administrador de tráfico).
 
-## <a name="priority-traffic-routing-method"></a>Método de enrutamiento del tráfico prioritario
+## <a name = "priority"></a>Método de enrutamiento de tráfico Prioridad
 
 Habitualmente, las organizaciones desean ofrecer confiabilidad en sus servicios y, para ello, implementan uno o varios servicios de reserva en caso de que su servicio principal se vuelva inactivo. El método de enrutamiento de tráfico de "Prioridad" permite que los clientes de Azure implementen fácilmente este patrón de conmutación por error.
 
@@ -46,7 +47,7 @@ El perfil de Traffic Manager contiene una lista de puntos de conexión de servic
 
 Con Azure Resource Manager, el usuario configura explícitamente la prioridad del punto de conexión mediante la propiedad de prioridad de cada punto de conexión. Esta propiedad es un valor comprendido entre 1 y 1000. Los valores más bajos representan una prioridad más alta. Los puntos de conexión no pueden compartir valores de prioridad. La configuración de esta propiedad es opcional. Cuando se omite, se usa una prioridad predeterminada basada en el orden del punto de conexión.
 
-## <a name="weighted-traffic-routing-method"></a>Método de enrutamiento del tráfico ponderado
+##<a name = "weighted"></a>Método de enrutamiento de tráfico Ponderado
 El método de enrutamiento de tráfico "Ponderado" le permite distribuir el tráfico uniformemente o utilizar una ponderación predefinida.
 
 ![Método de enrutamiento de tráfico "ponderado" de Azure Traffic Manager][2]
@@ -73,7 +74,7 @@ Entre los casos de uso comunes se incluye:
 
 Estos efectos de almacenamiento en caché de DNS son comunes a todos los sistemas de enrutamiento de tráfico basados en DNS, no solo al Administrador de tráfico de Azure. En algunos casos, borrar explícitamente la caché DNS puede proporcionar una solución provisional. En otros, puede resultar más adecuado el uso de un método de enrutamiento de tráfico alternativo.
 
-## <a name="performance-traffic-routing-method"></a>Método de enrutamiento de tráfico de rendimiento
+## <a name = "performance"></a>Método de enrutamiento de tráfico Rendimiento
 
 La capacidad de respuesta de muchas aplicaciones se puede mejorar con la implementación de puntos de conexión en dos o más ubicaciones del planeta y el enrutamiento del tráfico a la ubicación más "cercana" al usuario. El método de enrutamiento de tráfico de "rendimiento" ofrece esta funcionalidad.
 
@@ -97,7 +98,7 @@ Puntos a tener en cuenta:
 * El algoritmo que elige el punto de conexión es determinista. Las consultas de DNS repetidas del mismo cliente se dirigen al mismo punto de conexión. Normalmente, los clientes utilizan servidores DNS recursivos diferentes durante su recorrido. El cliente puede enrutarse a un punto de conexión diferente. El enrutamiento también puede verse afectado por las actualizaciones de la tabla de latencia de Internet. Por lo tanto, el método de enrutamiento de tráfico de rendimiento no garantiza que un cliente siempre se enrute al mismo punto de conexión.
 * Cuando hay cambios en la tabla de latencia de Internet, puede observar que a algunos clientes se les dirige a un punto de conexión diferente. Este cambio de enrutamiento es más adecuado en función de los datos de latencia actuales. Estas actualizaciones son esenciales para mantener la precisión del enrutamiento de tráfico de rendimiento dado que Internet evoluciona constantemente.
 
-## <a name="geographic-traffic-routing-method"></a>Método de enrutamiento del tráfico geográfico
+## <a name = "geographic"></a>Método de enrutamiento de tráfico Geográfico
 
 Los perfiles de Traffic Manager se pueden configurar para usar el método de enrutamiento geográfico para dirigir a los usuarios a puntos de conexión concretos (Azure, Externo o Anidado) en función de la ubicación geográfica de la que parta su consulta de DNS. Esto permite a los clientes de Traffic Manager habilitar escenarios en los que es importante conocer la región geográfica de un usuario y enrutarlo en función de dicha región. Algunos ejemplos incluyen cumplir los mandatos de soberanía de datos, la localización del contenido y de la experiencia del usuario, y la medición del tráfico de otras regiones.
 Cuando se configura un perfil para el enrutamiento geográfico, es preciso que cada punto de conexión asociado a dicho perfil tenga un conjunto de regiones geográficas asignado. Una región geográfica puede estar en los siguientes niveles de granularidad 
@@ -106,18 +107,21 @@ Cuando se configura un perfil para el enrutamiento geográfico, es preciso que c
 - País o región: p. ej., Irlanda, Perú, Hong Kong (RAE), etc. 
 - Estado o provincia: p. ej., Estados Unidos-California, Australia-Queensland, etc. (este nivel de granularidad solo se admite en estados o provincias de Australia, Canadá, Reino Unido y Estados Unidos).
 
-Si se asigna una región o un conjunto de regiones a un punto de conexión, todas las solicitudes de dichas regiones se enrutarán solo a dicho punto de conexión. Traffic Manager usa la dirección IP de origen de la consulta de DNS para determinar la región desde la que un usuario realiza la consulta (en la mayoría de los casos, será la dirección IP de la resolución de DNS local, que realiza la consulta en nombre del usuario).  
+Si se asigna una región o un conjunto de regiones a un punto de conexión, todas las solicitudes de dichas regiones se enrutarán solo a dicho punto de conexión. Traffic Manager usa la dirección IP de origen de la consulta de DNS para determinar la región desde la que un usuario realiza la consulta (normalmente será la dirección IP de la resolución de DNS local, que realiza la consulta en nombre del usuario).  
 
 ![Método de enrutamiento del tráfico "geográfico" de Azure Traffic Manager](./media/traffic-manager-routing-methods/geographic.png)
 
-Traffic Manager lee la dirección IP de origen de la consulta de DNS y decide la región geográfica de la que es originaria. Después, examina si hay algún punto de conexión que tiene dicha región asignada. Esta búsqueda se inicia en el nivel de granularidad más bajo (estado o provincia donde se admita o a nivel de país o región si no se admite) y asciende hasta el nivel más alto, que es el mundo. La primera coincidencia que se encuentra mediante este recorrido se designará como el punto de conexión de devolución en la respuesta de la consulta. En el caso de coincidencia con un punto de conexión de tipo Anidado, se devolverá un punto de conexión de dicho perfil secundario, en función de su método de enrutamiento. Los siguientes puntos se pueden aplicar a este comportamiento:
+Traffic Manager lee la dirección IP de origen de la consulta de DNS y decide la región geográfica de la que es originaria. Después, examina si hay algún punto de conexión que tiene dicha región geográfica asignada. Esta búsqueda se inicia en el nivel de granularidad más bajo (estado o provincia donde se admita o en el nivel de país o región si no se admite) y asciende hasta el nivel más alto, que es el **Mundo**. La primera coincidencia que se encuentre mediante este recorrido se designará como el punto de conexión de devolución en la respuesta de la consulta. En el caso de coincidencia con un punto de conexión de tipo Anidado, se devolverá un punto de conexión de dicho perfil secundario, en función de su método de enrutamiento. Los siguientes puntos se pueden aplicar a este comportamiento:
 
-1. Si se elige Enrutamiento geográfico, una región geográfica puede asignarse únicamente a un punto de conexión en un perfil de Traffic Manager. Esto garantiza que el enrutamiento de los usuarios es determinista y que los clientes pueden habilitar escenarios que requieran límites geográficos inequívocos.
-2. Si la región de un usuario se encuentra bajo la asignación geográfica de dos puntos de conexión diferentes, Traffic Manager seleccionará el punto de conexión con la granularidad más baja y no tomará en consideración solicitudes de enrutamiento desde dicha región al otro punto de conexión. Ejemplo: considere un perfil del tipo Enrutamiento geográfico con dos puntos de conexión, Punto de conexión 1 y Punto de conexión 2. Punto de conexión 1 está configurado para recibir tráfico de Irlanda, mientras que Punto de conexión 2 está configurado para recibir tráfico de Europa. Si una solicitud parte de Irlanda, siempre se enrutará a Punto de conexión 1.
-3. Puesto que una región se puede asignar solo a un punto de conexión, Traffic Manager la devolverá, independientemente de que el punto de conexión sea correcto, o no. Por tanto, se recomienda encarecidamente que los clientes que puedan usar el método de enrutamiento geográfico lo asocien con puntos de conexión del tipo Anidado que tengan perfiles secundarios que contengan al menos dos puntos de conexión cada uno.
-4. Si se encuentra un punto de conexión coincidente que esté en estado **Detenido**, Traffic Manager devolverá la respuesta NODATA. En este caso, no se realizarán más búsquedas en la parte superior de la jerarquía de la región geográfica. Este comportamiento también se puede aplicar a los tipos de punto de conexión anidados cuando el perfil secundario está en los estados **Detenido** o **Deshabilitado**.
-5. Si un punto de conexión se encuentra en el estado **Deshabilitado**, no se incluirá en el proceso de coincidencia de región. Este comportamiento también se puede aplicar a los tipos de punto de conexión anidados cuando el punto de conexión se encuentra en estado **Deshabilitado**.
-6. Si una consulta procede de una región geográfica que no tiene ninguna asignación en dicho perfil, Traffic Manager devolverá una respuesta NODATA. Por consiguiente, se recomienda encarecidamente que los clientes usen el enrutamiento geográfico con un punto de conexión, idealmente del tipo Anidado, con un mínimo de dos puntos de conexión en el perfil secundario, con la región **Mundo** asignada. Esto también garantizará que se controlan todas las direcciones IP no asignadas a ninguna región.
+- Si se elige Enrutamiento geográfico, una región geográfica puede asignarse únicamente a un punto de conexión en un perfil de Traffic Manager. Esto garantiza que el enrutamiento de los usuarios es determinista y que los clientes pueden habilitar escenarios que requieran límites geográficos inequívocos.
+- Si la región de un usuario se encuentra bajo la asignación geográfica de dos puntos de conexión diferentes, Traffic Manager seleccionará el punto de conexión con la granularidad más baja y no tomará en consideración solicitudes de enrutamiento desde dicha región al otro punto de conexión. Ejemplo: considere un perfil del tipo enrutamiento Geográfico con dos puntos de conexión, Punto de conexión 1 y Punto de conexión 2. Punto de conexión 1 está configurado para recibir tráfico de Irlanda, mientras que Punto de conexión 2 está configurado para recibir tráfico de Europa. Si una solicitud parte de Irlanda, siempre se enrutará al Punto de conexión 1.
+- Puesto que una región se puede asignar solo a un punto de conexión, Traffic Manager lo devolverá, independientemente de que el punto de conexión sea correcto, o no.
+
+    >[!IMPORTANT]
+    >Se recomienda encarecidamente que los clientes que puedan usar el método de enrutamiento geográfico lo asocien con puntos de conexión del tipo Anidado que tengan perfiles secundarios que contengan al menos dos puntos de conexión cada uno.
+- Si se encuentra un punto de conexión coincidente que esté en estado **Detenido**, Traffic Manager devolverá una respuesta NODATA. En este caso, no se realizarán más búsquedas en la parte superior de la jerarquía de la región geográfica. Este comportamiento también se puede aplicar a los tipos de punto de conexión anidados cuando el perfil secundario está en los estados **Detenido** o **Deshabilitado**.
+- Si un punto de conexión se encuentra en el estado **Deshabilitado**, no se incluirá en el proceso de coincidencia de región. Este comportamiento también se puede aplicar a los tipos de punto de conexión anidados cuando el punto de conexión se encuentra en estado **Deshabilitado**.
+- Si una consulta procede de una región geográfica que no tiene ninguna asignación en dicho perfil, Traffic Manager devolverá una respuesta NODATA. Por consiguiente, se recomienda encarecidamente que los clientes usen el enrutamiento geográfico con un punto de conexión, idealmente del tipo Anidado, con un mínimo de dos puntos de conexión en el perfil secundario, con la región **Mundo** asignada. Esto también garantiza que se administran las direcciones IP que no se asignan a ninguna región.
 
 Como se explica en [Cómo funciona Traffic Manager](traffic-manager-how-traffic-manager-works.md), Traffic Manager no recibe consultas de DNS directamente desde los clientes. En su lugar, las consultas de DNS proceden del servicio DNS recursivo que se ha configurado para que lo usen los clientes. Por tanto, la dirección IP usada para determinar la región no es la del cliente, sino la de su servicio DNS recursivo. En la práctica, esta dirección IP constituye un buen proxy para el cliente.
 
