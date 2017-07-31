@@ -1,5 +1,4 @@
-#### Creación de puntos de conexión públicos en la aplicación en la nube
-<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
+#### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Creación de puntos de conexión públicos en la aplicación en la nube
 
 1. Inicie sesión en el Portal de Azure.
 2. Vaya a **Máquinas virtuales**y, a continuación, haga clic en la máquina virtual que se utiliza como aplicación en la nube.

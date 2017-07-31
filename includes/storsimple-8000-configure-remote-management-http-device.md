@@ -1,6 +1,5 @@
 
-#### Para configurar la administración remota en el dispositivo de nube, siga estos pasos:
-<a id="to-configure-remote-management-on-cloud-appliance" class="xliff"></a>
+#### <a name="to-configure-remote-management-on-cloud-appliance"></a>Para configurar la administración remota en el dispositivo de nube, siga estos pasos:
 
 1. En el servicio StorSimple Device Manager, haga clic en **Dispositivos**. Seleccione el dispositivo de nube y haga clic en él en la lista de dispositivos conectados al servicio.
     ![Selección de dispositivo de nube de StorSimple](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage1.png)

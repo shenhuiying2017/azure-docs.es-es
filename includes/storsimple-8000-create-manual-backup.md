@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/20/2017-->
 
-#### Creación de una copia de seguridad manual
-<a id="to-create-a-manual-backup" class="xliff"></a>
+#### <a name="to-create-a-manual-backup"></a>Creación de una copia de seguridad manual
 
 1. Vaya al servicio Administrador de dispositivos de StorSimple y, después, haga clic en **Dispositivos**. En la lista tabular de dispositivos, seleccione el dispositivo. Vaya a **Configuración > Administrar > Directivas de copia de seguridad**.
 
