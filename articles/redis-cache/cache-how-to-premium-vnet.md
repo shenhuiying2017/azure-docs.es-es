@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: cf3c1a3c669e0da810c32939492cb262e76492c7
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 84d55b7c86b6cf1964941d45748cde95c4f0f90f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -39,7 +40,7 @@ La compatibilidad con Virtual Network se configura en la hoja **Nueva caché en 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Una vez que haya seleccionado un plan de tarifa premium, la integración con una red virtual de Redis se puede configurar seleccionando una red virtual que esté en la misma suscripción y ubicación que la memoria caché. Para usar una nueva red virtual, primero es preciso crearla, para lo que es preciso seguir los pasos de [Creación de una red virtual mediante Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o [Creación de Virtual Network (clásica) mediante Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md) y, luego, volver a la hoja **Nueva caché en Redis** para crear y configurar una memoria caché Premium.
+Una vez que haya seleccionado un plan de tarifa premium, la integración con una red virtual de Redis se puede configurar seleccionando una red virtual que esté en la misma suscripción y ubicación que la memoria caché. Para usar una nueva red virtual, primero es preciso crearla, para lo que es preciso seguir los pasos de [Creación de una red virtual mediante Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o [Creación de Virtual Network (clásica) mediante Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y, luego, volver a la hoja **Nueva caché en Redis** para crear y configurar una memoria caché Premium.
 
 Para configurar la red virtual de la memoria caché nueva, haga clic en **Virtual Network** en la hoja **Nueva caché en Redis** y seleccione la red virtual deseada en la lista desplegable.
 
@@ -84,26 +85,58 @@ Para conectarse a la instancia de Azure Redis Cache cuando usa una red virtual, 
 La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre el escalado de Caché en Redis de Azure.
 
 * [¿Cuáles son algunos de los problemas comunes de configuración incorrecta con Caché en Redis de Azure y las redes virtuales?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* [¿Cómo se puede comprobar que la memoria caché funciona una red virtual?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * [¿Se pueden usar redes virtuales con una memoria caché Basic o Estándar?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * [¿Por qué se produce un error al crear una caché en Redis en algunas subredes, pero no en otras?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
 * [¿Cuáles son los requisitos de espacio de direcciones de subred?](#what-are-the-subnet-address-space-requirements)
 * [¿Funcionarán todas las características al alojar una caché en una red virtual?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 ## <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>¿Cuáles son algunos de los problemas comunes de configuración incorrecta con Caché en Redis de Azure y las redes virtuales?
-Cuando la Caché en Redis de Azure se hospeda en una red virtual, se usan los puertos de la tabla siguiente. Si estos puertos están bloqueados, puede que la memoria caché no funcione correctamente. Tener bloqueados uno o varios de estos puertos es el problema más común de una configuración incorrecta cuando se utiliza la Caché en Redis de Azure en una red virtual.
+Cuando Azure Redis Cache se hospeda en una red virtual, se usan los puertos de la tabla siguiente. 
+
+>[!IMPORTANT]
+>Si los puertos de las siguientes tablas están bloqueados, puede que la memoria caché no funcione correctamente. Tener bloqueados uno o varios de estos puertos es el problema más común de una configuración incorrecta cuando se utiliza la Caché en Redis de Azure en una red virtual.
+> 
+> 
+
+- [Requisitos de puerto de salida](#outbound-port-requirements)
+- [Requisitos de puerto de entrada](#inbound-port-requirements)
+
+### <a name="outbound-port-requirements"></a>Requisitos de puerto de salida
+
+Existen siete requisitos de puerto de salida.
+
+- Si lo desea, se pueden realizar todas las conexiones salientes a Internet a través de un dispositivo de auditoría local de un cliente.
+- Tres de los puertos enrutan el tráfico a los puntos de conexión de Azure que funcionan con Azure Storage y Azure DNS.
+- Los intervalos de puertos restantes y para las comunicaciones internas de la subred de Redis. No es necesaria ninguna regla de NSG para las comunicaciones internas de la subred de Redis.
 
 | Puertos | Dirección | Protocolo de transporte | Propósito | Dirección IP remota |
 | --- | --- | --- | --- | --- |
 | 80, 443 |Salida |TCP |Dependencias de Redis en Almacenamiento de Azure/PKI (Internet) |* |
 | 53 |Salida |TCP/UDP |Dependencias de Redis en DNS (Internet y red virtual) |* |
-| 6379, 6380 |Entrada |TCP |Comunicación del cliente con Redis, equilibrio de carga de Azure |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 8443 |Entrante o saliente |TCP |Detalles de implementación para Redis |VIRTUAL_NETWORK |
-| 8500 |Entrada |TCP/UDP |Equilibrio de carga de Azure |AZURE_LOADBALANCER |
-| 10221-10231 |Entrante o saliente |TCP |Detalle de implementación para Redis (puede restringir el punto de conexión remoto a VIRTUAL_NETWORK) |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 13000-13999 |Entrada |TCP |Comunicación del cliente con clústeres de Redis, Equilibrio de carga de Azure |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 15000-15999 |Entrada |TCP |Comunicación del cliente con clústeres de Redis, Equilibrio de carga de Azure |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 16001 |Entrada |TCP/UDP |Equilibrio de carga de Azure |AZURE_LOADBALANCER |
-| 20226 |Entrante + saliente |TCP |Detalle de implementación de clústeres de Redis |VIRTUAL_NETWORK |
+| 8443 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |
+| 10221-10231 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |
+| 20226 |Salida |TCP |Comunicaciones internas en Redis |(Subred de Redis) |
+| 13000-13999 |Salida |TCP |Comunicaciones internas en Redis |(Subred de Redis) |
+| 15000-15999 |Salida |TCP |Comunicaciones internas en Redis |(Subred de Redis) |
+
+
+### <a name="inbound-port-requirements"></a>Requisitos de puerto de entrada
+
+Existen ocho requisitos de intervalo de puertos de entrada. Las solicitudes entrantes de estos intervalos provienen de otros servicios hospedados en la misma red virtual o son comunicaciones internas de la subred de Redis.
+
+| Puertos | Dirección | Protocolo de transporte | Propósito | Dirección IP remota |
+| --- | --- | --- | --- | --- |
+| 6379, 6380 |Entrada |TCP |Comunicación del cliente con Redis, equilibrio de carga de Azure |Virtual Network, Azure Load Balancer |
+| 8443 |Entrada |TCP |Comunicaciones internas en Redis |(Subred de Redis) |
+| 8500 |Entrada |TCP/UDP |Equilibrio de carga de Azure |Azure Load Balancer |
+| 10221-10231 |Entrada |TCP |Comunicaciones internas en Redis |(Subred de Redis), Azure Load Balancer |
+| 13000-13999 |Entrada |TCP |Comunicación del cliente con clústeres de Redis, Equilibrio de carga de Azure |Virtual Network, Azure Load Balancer |
+| 15000-15999 |Entrada |TCP |Comunicación del cliente con clústeres de Redis, Equilibrio de carga de Azure |Virtual Network, Azure Load Balancer |
+| 16001 |Entrada |TCP/UDP |Equilibrio de carga de Azure |Azure Load Balancer |
+| 20226 |Entrada |TCP |Comunicaciones internas en Redis |(Subred de Redis) |
+
+### <a name="additional-vnet-network-connectivity-requirements"></a>Requisitos adicionales de conectividad de red virtual
 
 Existen requisitos de conectividad de red para entornos para una Caché en Redis de Azure que no pueden cumplirse inicialmente en una red virtual. Azure Redis Cache requiere todos los elementos siguientes para funcionar correctamente cuando se usa en una red virtual.
 
@@ -111,6 +144,26 @@ Existen requisitos de conectividad de red para entornos para una Caché en Redis
 * Conectividad de red saliente con *ocsp.msocsp.com*, *mscrl.microsoft.com* y *crl.microsoft.com*. Esta conectividad es necesaria para admitir la funcionalidad SSL.
 * La configuración de DNS para la red virtual debe ser capaz de resolver todos los puntos de conexión y dominios mencionados en los puntos anteriores. Se pueden cumplir los requisitos de DNS al asegurar que se configura y se mantiene una infraestructura DNS válida para la red virtual.
 * Conectividad de red saliente con los siguientes puntos de conexión de Azure Monitor que se resuelven en los siguientes dominios DNS: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
+
+### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>¿Cómo se puede comprobar que la memoria caché funciona una red virtual?
+
+>[!IMPORTANT]
+>Al conectarse a una instancia de Azure Redis Cache que se hospeda en una red virtual, los clientes de caché deben estar en la misma red virtual, incluidas las aplicaciones de prueba o herramientas de hacer ping de diagnóstico.
+>
+>
+
+Cuando los requisitos de puerto se configuran tal como se describe en la sección anterior, puede comprobar que la memoria caché funciona mediante la realización de los pasos siguientes.
+
+- [Reinicie](cache-administration.md#reboot) todos los nodos de la caché. Si no se pueden alcanzar todas las dependencias de caché necesarias (como se documenta en [Requisitos del puerto de entrada](cache-how-to-premium-vnet.md#inbound-port-requirements) y [Requisitos de puerto de salida](cache-how-to-premium-vnet.md#outbound-port-requirements)), la caché no podrá reiniciarse correctamente.
+- Cuando se han reiniciado los nodos de la memoria caché (como indica el estado de la caché en Azure Portal), puede realizar las siguientes pruebas:
+  - hacer ping en el punto de conexión de caché (con el puerto 6380) desde una máquina que esté dentro de la misma red virtual como la memoria caché, con [tcping](https://www.elifulkerson.com/projects/tcping.php). Por ejemplo:
+    
+    `tcping.exe contosocache.redis.cache.windows.net 6380`
+    
+    Si la herramienta `tcping` informa de que el puerto está abierto, la memoria caché está disponible para su conexión en los clientes de la red virtual.
+
+  - Otra manera de realizar la prueba consiste en crear un cliente de caché de prueba (que podría ser una sencilla aplicación de consola mediante StackExchange.Redis) que se conecta a la memoria caché y agrega y recupera algunos elementos de la caché. Instale la aplicación de cliente de ejemplo en una máquina virtual que está en la misma red virtual que la caché y ejecútela para comprobar la conectividad en la memoria caché.
+
 
 ### <a name="can-i-use-vnets-with-a-standard-or-basic-cache"></a>¿Se pueden usar redes virtuales con una memoria caché Basic o Estándar?
 Las redes virtuales solo se pueden usar con memorias caché Premium.

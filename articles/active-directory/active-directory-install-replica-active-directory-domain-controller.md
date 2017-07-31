@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7b267f11a2989b1e621906a46ea4e3bf7f58ca2b
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 2adf6d6758c260f539277dafe8b9fadc3d9acb8b
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -81,7 +81,7 @@ Para obtener más información acerca de cómo establecer una dirección IP est�
 Inicie sesión en una máquina virtual y compruebe que tiene conectividad a través de la conexión de ExpressRoute o de VPN de sitio a sitio a los recursos de la red local. Después, instale AD DS en las máquinas virtuales de Azure. Puede usar el mismo proceso que se utiliza para instalar un controlador de dominio adicional en la red local (interfaz de usuario, Windows PowerShell o un archivo de respuesta). Cuando instale AD DS, asegúrese de que especifica el nuevo volumen para la ubicación de la base de datos, los registros y SYSVOL de AD. Si necesita hacer un repaso sobre la instalación de AD DS, consulte [Instalar servicios de dominio de Active Directory (nivel 100)](https://technet.microsoft.com/library/hh472162.aspx) o [Instalar una réplica del controlador de dominio de Windows Server 2012 en un dominio existente  (nivel 200)](https://technet.microsoft.com/library/jj574134.aspx).
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Volver a configurar el servidor DNS para la red virtual
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com), haga clic en el nombre de la red virtual y, a continuación, en la pestaña **Configurar** para [volver a configurar las direcciones IP del servidor DNS de la red virtual](../virtual-network/virtual-networks-manage-dns-in-vnet.md) y así usar las direcciones IP estáticas que están asignadas a los controladores de dominio de réplica en lugar de las direcciones IP de los servidores DNS locales.
+1. En [Azure Portal](https://portal.azure.com), en el cuadro **Buscar recursos**, escriba *Redes virtuales* y, a continuación, haga clic en **Redes virtuales (clásico)** en los resultados de búsqueda. Haga clic en el nombre de la red virtual y, a continuación, [vuelva a configurar las direcciones IP del servidor DNS de la red virtual](../virtual-network/virtual-network-manage-network.md#dns-servers) para usar las direcciones IP estáticas que están asignadas a los controladores de dominio de réplica en lugar de las direcciones IP de los servidores DNS locales.
 2. Para asegurarse de que todas las máquinas virtuales del controlador de dominio de réplica de la red virtual están configuradas para usar servidores DNS en la red virtual, haga clic en **Virtual Machines**, en la columna de estado para cada máquina virtual y, a continuación, en **Reiniciar**. Espere hasta que la máquina virtual muestre el estado **En ejecución** antes de intentar iniciar sesión en ella.
 
 ## <a name="create-vms-for-application-servers"></a>Crear máquinas virtuales para servidores de aplicaciones

@@ -1,6 +1,6 @@
 ---
-title: Acceso condicional de Azure Active Directory | Microsoft Docs
-description: "Use el control de acceso condicional en Azure Active Directory para comprobar la existencia de condiciones específicas durante la autenticación para acceder a aplicaciones."
+title: "Acceso condicional en el Portal de Azure clásico | Microsoft Docs"
+description: "Use el control de acceso condicional en el Portal de Azure clásico para comprobar la existencia de condiciones específicas durante la autenticación para acceder a aplicaciones."
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/07/2017
 ms.author: markvi
+ms.reviewer: calebb
+ms.custom: oldportal
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 31659a7394a34cf8fb5b6ff11c955bdc9f8b65bb
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: b19fd8c0c41638ffec5fda32b6b1a855be2abc7b
 ms.contentlocale: es-es
-ms.lasthandoff: 03/28/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="conditional-access-in-azure-active-directory"></a>Acceso condicional en Azure Active Directory
+# <a name="conditional-access-in-the-azure-classic-portal"></a>Acceso condicional en el Portal de Azure clásico
 
-> [!div class="op_single_selector"]
-> * [Portal de Azure clásico](active-directory-conditional-access.md)
-> * [Portal de Azure](active-directory-conditional-access-azure-portal.md)
+Este tema trata sobre el acceso condicional en el Portal de Azure clásico. Para ver la información más reciente sobre el acceso condicional en Azure Active Directory, consulte [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
 
 Las funcionalidades de control del acceso condicional en Azure Active Directory (Azure AD) ofrecen maneras sencillas de proteger los recursos locales y en la nube. Las directivas de acceso condicional, como la autenticación multifactor, contribuyen a proteger frente al riesgo de que las credenciales sean objeto de robo y suplantación de identidad (phishing). Otras directivas de acceso condicional pueden ayudar a mantener seguros los datos de su organización. Por ejemplo, además de requerir credenciales, podría tener una directiva por la cual solo los dispositivos que estén inscritos en un sistema de administración de dispositivos móviles como Microsoft Intune puedan acceder a los servicios confidenciales de su organización.
 
