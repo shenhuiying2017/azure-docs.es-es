@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a5b845a93f318b991e14705f0fadea3acd802ced
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 766d327a87ed13e04166d71c3d9ae0a1e7a66d19
+ms.contentlocale: es-es
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -33,11 +34,11 @@ En este tema, se describe cómo usar el comando [docker-machine](https://docs.do
 ## <a name="create-vms-with-docker-machine"></a>Creación de VM con la máquina de Docker
 Cree máquinas virtuales host de Docker en Azure con el comando `docker-machine create` mediante el controlador `azure`. 
 
-El controlador de Azure necesitará su identificador de suscripción. Para recuperar su suscripción de Azure, puede usar la [CLI de Azure](cli-install-nodejs.md) o [Azure Portal](https://portal.azure.com). 
+El controlador de Azure necesita su identificador de suscripción. Para recuperar su suscripción de Azure, puede usar la [CLI de Azure](cli-install-nodejs.md) o [Azure Portal](https://portal.azure.com). 
 
 **Uso del portal de Azure**
 
-* Seleccione Suscripciones de la página de navegación izquierda y copie el identificador de suscripción.
+* Seleccione **Suscripciones** de la página de navegación izquierda y copie el identificador de suscripción.
 
 **Uso de la CLI de Azure**
 
@@ -48,7 +49,7 @@ Para más información, también puede consultar la [documentación del controla
 
 En el siguiente ejemplo se usan los [valores predeterminados](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), pero se configuran opcionalmente estos valores: 
 
-* azure-dns para el nombre asociado a la dirección IP pública y los certificados generados.  La máquina virtual puede así detenerse sin ningún riesgo, liberar la dirección IP dinámica y ofrecer la posibilidad de volver a conectarse una vez que la máquina virtual se inicia de nuevo con una dirección IP nueva.  El prefijo del nombre debe ser único para esa región UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
+* azure-dns para el nombre asociado a la dirección IP pública y los certificados generados. Este es el nombre DNS de la máquina virtual. La máquina virtual puede así detenerse sin ningún riesgo, liberar la dirección IP dinámica y ofrecer la posibilidad de volver a conectarse una vez que la máquina virtual se inicia de nuevo con una dirección IP nueva. El prefijo del nombre debe ser único para esa región UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
 * abrir el puerto 80 en la máquina virtual para el acceso a internet saliente
 * tamaño de la máquina virtual para usar Premium Storage más rápido
 * Premium Storage utilizado para el disco de máquina virtual

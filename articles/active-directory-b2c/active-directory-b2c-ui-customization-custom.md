@@ -21,31 +21,23 @@ ms.contentlocale: es-es
 ms.lasthandoff: 07/06/2017
 
 ---
-<a id="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy" class="xliff"></a>
-
-# Azure Active Directory B2C: configuración de la interfaz de usuario personalizada en una directiva personalizada
+# <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: configuración de la interfaz de usuario personalizada en una directiva personalizada
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Después de completar este artículo, tendrá una directiva personalizada de registro e inicio de sesión con su marca y apariencia. Con Azure Active Directory B2C (Azure AD B2C), controlará prácticamente todo el contenido HTML y CSS que se presenta a los usuarios. Cuando se usa una directiva personalizada, la personalización de la interfaz del usuario se configura en XML en lugar de con controles de Azure Portal. 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de continuar, lea el artículo de [introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
 
-<a id="page-ui-customization" class="xliff"></a>
-
-## Personalización de la interfaz de usuario de la página
+## <a name="page-ui-customization"></a>Personalización de la interfaz de usuario de la página
 
 La característica de personalización de la interfaz de usuario de la página sirve para personalizar la apariencia y la experiencia de cualquier directiva personalizada. También puede mantener la coherencia visual y de la marca entre la aplicación y Azure AD B2C.
 
 Funciona de la siguiente manera: Azure AD B2C ejecuta código en el explorador del consumidor y usa un enfoque moderno denominado [Uso compartido de recursos entre orígenes (CORS)](http://www.w3.org/TR/cors/). En primer lugar, especifique una dirección URL en la directiva personalizada con contenido HTML personalizado. Azure AD B2C combina elementos de la interfaz de usuario con el contenido HTML cargado desde la dirección URL y muestra la página al consumidor.
 
-<a id="create-your-html5-content" class="xliff"></a>
-
-## Creación de contenido HTML5
+## <a name="create-your-html5-content"></a>Creación de contenido HTML5
 
 Puede crear contenido HTML con el nombre de la marca del producto en el título.
 
@@ -68,9 +60,7 @@ Puede crear contenido HTML con el nombre de la marca del producto en el título.
 
 2. Pegue el fragmento de código copiado en un editor de texto y guarde el archivo como *customize-ui.html*.
 
-<a id="create-an-azure-blob-storage-account" class="xliff"></a>
-
-## Creación de una cuenta de Almacenamiento de blobs de Azure
+## <a name="create-an-azure-blob-storage-account"></a>Creación de una cuenta de Almacenamiento de blobs de Azure
 
 >[!NOTE]
 > En este artículo se usa Azure Blob Storage para hospedar el contenido. Puede elegir hospedar el contenido en un servidor web, pero deberá [habilitar CORS en el servidor web](https://enable-cors.org/server.html).
@@ -92,9 +82,7 @@ Para hospedar este contenido HTML en Blob Storage, haga lo siguiente:
 13. Haga clic en **Crear** para crear la cuenta de almacenamiento.  
     Espere que termine la implementación y la hoja de la **Cuenta de almacenamiento** se abrirá automáticamente.
 
-<a id="create-a-container" class="xliff"></a>
-
-## Crear un contenedor
+## <a name="create-a-container"></a>Crear un contenedor
 
 Para crear un contenedor público en Blob Storage, haga lo siguiente:
 
@@ -111,9 +99,7 @@ Para crear un contenedor público en Blob Storage, haga lo siguiente:
 11. Junto a **URL**, haga clic en **Copiar**.
 12. En un explorador, pegue la dirección URL copiada y vaya al sitio. Si no puede acceder, asegúrese de que el tipo de acceso de contenedor está establecido en **blob**.
 
-<a id="configure-cors" class="xliff"></a>
-
-## Configuración de CORS
+## <a name="configure-cors"></a>Configuración de CORS
 
 Para configurar Blob Storage para Uso compartido de recursos entre orígenes (CORS), haga lo siguiente:
 
@@ -129,9 +115,7 @@ Para configurar Blob Storage para Uso compartido de recursos entre orígenes (CO
 7. Para **Antigüedad máxima (segundos)**, escriba **200**.
 8. Haga clic en **Agregar**.
 
-<a id="test-cors" class="xliff"></a>
-
-## Prueba de CORS
+## <a name="test-cors"></a>Prueba de CORS
 
 Para comprobar que está listo, haga lo siguiente:
 
@@ -139,9 +123,7 @@ Para comprobar que está listo, haga lo siguiente:
 2. Haga clic en **Send Request** (Enviar solicitud).  
     Si recibe un error, asegúrese de que la [configuración de CORS](#configure-cors) sea correcta. Puede que también deba borrar la caché del explorador o abrir una sesión de navegación privada, para ello, presione Ctrl + Mayús + P.
 
-<a id="modify-your-sign-up-or-sign-in-custom-policy" class="xliff"></a>
-
-## Modificación de la directiva de inicio de sesión o de registro
+## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Modificación de la directiva de inicio de sesión o de registro
 
 En la etiqueta *\<TrustFrameworkPolicy\>* superior, debería encontrar la etiqueta *\<BuildingBlocks\>*. Dentro de las etiquetas *\<BuildingBlocks\>*, agregue una etiqueta *\<ContentDefinitions\>*; para ello, copie el ejemplo siguiente. Reemplace *your_storage_account* por el nombre de la cuenta de almacenamiento.
 
@@ -155,26 +137,20 @@ En la etiqueta *\<TrustFrameworkPolicy\>* superior, debería encontrar la etique
   </BuildingBlocks>
   ```
 
-<a id="upload-your-updated-custom-policy" class="xliff"></a>
-
-## Carga de la directiva personalizada actualizada
+## <a name="upload-your-updated-custom-policy"></a>Carga de la directiva personalizada actualizada
 
 1. En [Azure Portal](https://portal.azure.com), [cambie al contexto del inquilino de Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) y abra la hoja **Azure AD B2C**.
 2. Haga clic en **Todas las directivas**.
 3. Haga clic en **Cargar directiva**.
 4. Cargue `SignUpOrSignin.xml` con la etiqueta *\<ContentDefinitions\>* que agregó anteriormente.
 
-<a id="test-the-custom-policy-by-using-run-now" class="xliff"></a>
-
-## Prueba de la directiva personalizada con **Ejecutar ahora**
+## <a name="test-the-custom-policy-by-using-run-now"></a>Prueba de la directiva personalizada con **Ejecutar ahora**
 
 1. En la hoja **Azure AD B2C**, vaya a **Todas las directivas**.
 2. Seleccione la directiva personalizada que cargó y, luego, haga clic en el botón **Ejecutar ahora**.
 3. Debería poder registrarse con una dirección de correo electrónico.
 
-<a id="reference" class="xliff"></a>
-
-## Referencia
+## <a name="reference"></a>Referencia
 
 Aquí encontrará plantillas de ejemplo de personalización de interfaz de usuario:
 
@@ -207,9 +183,7 @@ En la sección [Modificación de la directiva de inicio de sesión o de registro
 | *api.selfasserted.profileupdate* | **Página de actualización de perfil**. Esta página contiene un formulario que los usuarios pueden usar para actualizar su perfil. Esta página es similar a la página de registro en una cuenta social, excepto por los campos de entrada de contraseña. |
 | *api.signuporsignin* | **Página de inicio de sesión o registro unificada**. Esta página controla tanto la suscripción como el inicio de sesión de los usuarios, que pueden usar proveedores de identidades de empresa, proveedores de identidades sociales, como Facebook o Google +, o cuentas locales.  |
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para información adicional sobre los elementos de la interfaz de usuario que se pueden personalizar, consulte la [guía de referencia para la personalización de la interfaz de usuario para las directivas integradas](active-directory-b2c-reference-ui-customization.md).
 
