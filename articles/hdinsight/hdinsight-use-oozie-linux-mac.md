@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 88b23f844610a16ebca05a20499f4c7e82bf598a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c1d70bfcf5d1235b34f6cda3ce4e1639e99ebc7f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -41,7 +41,7 @@ Obtenga información sobre cómo usar Apache Oozie con Hadoop en HDInsight. Oozi
 * **Un clúster de HDInsight**: Consulte [Introducción a HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
   > [!IMPORTANT]
-  > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="example-workflow"></a>Flujo de trabajo de ejemplo
 

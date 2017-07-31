@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 06/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 85a4a05e68bd929cd162b8373454a8cbc03fb1b9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a235496728b4eeacb6b3e11d1d33363d28420fa8
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -37,7 +37,7 @@ En este documento se ofrece un ejemplo de uso de Azure PowerShell en el modo Gru
 * **Un clúster de Azure HDInsight**: no importa si el clúster está basado en Windows o en Linux.
 
   > [!IMPORTANT]
-  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Una estación de trabajo con Azure PowerShell**.
 
