@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2017
+ms.date: 06/27/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5b5aa75756d2a7061d531d50a59a2c52dfb75cbe
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 4c0c7c185943eb292d816e2047de930245a3e1e1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="help-choosing-a-streaming-analytics-platform-apache-storm-comparison-to-azure-stream-analytics"></a>Ayuda para seleccionar una plataforma de Análisis de transmisiones: comparación de Apache Storm con Análisis de transmisiones de Azure
-Obtenga instrucciones para seleccionar una plataforma de análisis en la nube mediante esta comparación de Apache Storm con Análisis de transmisiones de Azure. Comprenda las diferencias entre las propuestas de valor de Análisis de transmisiones y Apache Storm como servicio administrado en HDInsight de Azure, para que pueda elegir la solución adecuada para los casos de uso de su empresa.
+# <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Elección de una plataforma de Stream Analytics: comparación de Apache Storm con Azure Stream Analytics
+Azure ofrece varias soluciones para analizar datos de streaming: [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) y [Apache Storm en HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/apache-storm/). Ambas plataformas de análisis ofrecen las ventajas de una solución PaaS. Pero las plataformas presentan algunas diferencias importantes en cuanto a funcionalidades, así como en la forma en que se configuran y administran. 
 
-Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas importantes capacidades distintivas que diferencian estos servicios. Las capacidades, así como las limitaciones, de estos servicios se enumeran a continuación para ayudarle a llegará a la solución que necesita para lograr sus objetivos.
+En este artículo se ofrece una comparación de características en paralelo para ayudarle a elegir entre Apache Storm y Azure Stream Analytics como plataforma de análisis en la nube. 
 
-## <a name="storm-comparison-to-stream-analytics-general-features"></a>Comparación de Storm con Análisis de transmisiones: características generales
+## <a name="general-features"></a>Características generales
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -52,29 +52,29 @@ Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Código abierto</strong>
+                    <strong>¿Código abierto?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-No, Análisis de transmisiones de Azure es una oferta propiedad de Microsoft.
+No. Azure Stream Analytics es una oferta propiedad de Microsoft.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Sí, Apache Storm es una tecnología con licencia de Apache.
+Sí. Apache Storm es una tecnología con licencia de Apache.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Compatible con Microsoft</strong>
+                    <strong>¿Soporte técnico de Microsoft?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-yes </p>
+Sí </p>
             </td>
             <td width="246" valign="top">
                 <p>
@@ -89,12 +89,12 @@ Sí </p>
             </td>
             <td width="204" valign="top">
                 <p>
-No hay requisitos de hardware. Análisis de transmisiones de Azure es un servicio de Azure.
+Ninguno. Análisis de transmisiones de Azure es un servicio de Azure.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-No hay requisitos de hardware. Apache Storm es un servicio de Azure.
+Ninguno. Apache Storm es un servicio de Azure.
                 </p>
             </td>
         </tr>
@@ -106,42 +106,41 @@ No hay requisitos de hardware. Apache Storm es un servicio de Azure.
             </td>
             <td width="204" valign="top">
                 <p>
-Con Análisis de transmisiones de Azure, puede implementar clientes y supervisar los trabajos de transmisión.
+Los usuarios implementan y supervisan trabajos de streaming.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Con Apache Storm en HDInsight, los clientes implementan y supervisan todo un clúster, que puede hospedar varios trabajos de Storm y otras cargas de trabajo (lote incluido).
+Los usuarios implementan y supervisan todo un clúster, que puede hospedar varios trabajos de Storm y otras cargas de trabajo (de Batch incluidas).
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Precio</strong>
+                    <strong>Precios</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-El precio de Análisis de transmisiones varía según el volumen de datos procesados y el número de unidades de streaming necesarias (por cada hora en la que se está ejecutando el trabajo).
+El precio varía por volumen de datos procesados y el número de unidades de streaming necesarias por cada hora en la que se ejecuta el trabajo. 
                 </p>
-                <p>
-                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Puede encontrar más información sobre los precios aquí.</a>
+                    <p>Para más información, vea los <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">precios de Stream Analytics</a>.</p>
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Para Apache Storm en HDInsight, la unidad de compra está basada en el clúster y se cobra según la hora en la que el clúster se ejecuta, independientemente de los trabajos implementados.
+La unidad de compra se basa en el clúster y se cobra por el tiempo durante el que el clúster se ejecuta, independientemente de los trabajos implementados.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Puede encontrar más información sobre los precios aquí.</a>
+Para más información, vea los <a href="http://azure.microsoft.com/pricing/details/hdinsight/">precios de HDInsight</a>.
                 </p>
             </td>
         </tr>
     </tbody>
 </table>
 
-## <a name="authoring-on-each-analytics-platform"></a>Creación en cada plataforma de análisis ##
+## <a name="authoring"></a>Creación
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -165,34 +164,34 @@ Para Apache Storm en HDInsight, la unidad de compra está basada en el clúster 
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Funcionalidades: SQL DSL</strong>
+                    <strong>¿Funcionalidades: SQL DSL?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-Sí, tiene disponible la compatibilidad de idioma de SQL que es muy fácil de usar.
+Sí. Stream Analytics ofrece un lenguaje de tipo SQL para crear las transformaciones.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-No, los usuarios deben escribir el código en Java C# o usar las API de Trident.
+No. Los usuarios escriben el código en Java o C# o usan las API de Trident.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Funcionalidades: operadores temporales</strong>
+                    <strong>¿Funcionalidades: operadores temporales?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-Los agregados de ventana y las uniones temporales son compatibles y están listos para usar.
+Compatible de manera predeterminada con agregados de ventana y uniones temporales.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Los operadores temporales deben ser implementados por el usuario.
+Los operadores temporales debe implementarlos el usuario.
                 </p>
             </td>
         </tr>
@@ -204,12 +203,12 @@ Los operadores temporales deben ser implementados por el usuario.
             </td>
             <td width="204" valign="top">
                 <p>
-Experiencias de creación y depuración interactivas de los datos de ejemplo mediante el Portal de Azure.
+Los usuarios pueden crear, depurar y supervisar trabajos a través de Azure Portal, con datos de muestra procedentes de Live Stream.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Las experiencias de desarrollo, depuración y supervisión se realizan siempre a través de la experiencia de Visual Studio para usuarios. NET, mientras que para Java y otros desarrolladores de lenguajes puede utilizar el IDE que desee.
+Los usuarios que utilizan .NET pueden desarrollar, depurar y supervisar a través de Visual Studio. Los usuarios que utilizan Java u otros lenguajes pueden usar el IDE que prefieran.
                 </p>
             </td>
         </tr>
@@ -221,53 +220,53 @@ Las experiencias de desarrollo, depuración y supervisión se realizan siempre a
             </td>
             <td width="204" valign="top">
                 <p>
-Análisis de transmisiones le ofrece un estado de trabajo básico y registros de operaciones a modo de depuración, pero tenga en cuenta que actualmente no es flexible con lo que se puede incluir en estos registros o en qué cantidad; el modo detallado es un ejemplo de ello.
+Existen registros de operaciones y estados del trabajo básicos disponibles que ayudan a depurar. Stream Analytics actualmente no permite a los usuarios especificar qué contenido ni cuánto contenido se incluye en los registros (es decir, el modo detallado).
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Tiene disponibles registros detallados con fines de depuración. El usuario puede acceder a los registros de dos formas: a través de Visual Studio o conectando mediante un RDP (protocolo de escritorio remoto) al clúster para así poder acceder a los registros.
+Hay registros detallados disponibles. Los usuarios pueden acceder a los registros en Visual Studio o iniciar sesión en el clúster y acceder directamente a los registros.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Compatibilidad con UDF (funciones definidas por el usuario)</strong>
+                    <strong>Compatibilidad con funciones definidas por el usuario (UDF)</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-Actualmente no es compatible con los UDF.
+Las consultas admiten funciones definidas por el usuario en JavaScript. Para más información, vea <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">Integración de UDF de JavaScript</a>.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Puede escribir los UDF en C#, Java o en el idioma de su elección.
+Las UDF se pueden escribir en C#, Java o en cualquier otro lenguaje.
                 </p>
             </td>
         </tr>
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Extensible: código personalizado </strong>
+                    <strong>¿Extensibilidad con código personalizado?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-El código extensible no es compatible con Análisis de transmisiones.
+No. El código extensible no es compatible con Análisis de transmisiones.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Sí, puede escribir en Storm el código personalizado en C#, Java u otros lenguajes compatibles.
+Sí. Los usuarios pueden escribir código personalizado en C#, Java o en cualquier otro lenguaje compatible con Storm.
                 </p>
             </td>
         </tr>
     </tbody>
 </table>
 
-## <a name="data-sources-and-outputs"></a>Salidas y orígenes de datos ##
+## <a name="data-sources-inputs-and-outputs"></a>Orígenes de datos (entradas) y salidas ##
 
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
@@ -295,12 +294,12 @@ Sí, puede escribir en Storm el código personalizado en C#, Java u otros lengua
                 </p>
             </td>
             <td width="204" valign="top">
-                <p>Los orígenes de entrada que se admiten son los centros de eventos de Azure y los blobs de Azure.
+                <p>Azure Event Hubs y Azure Blob Storage.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Hay conectores disponibles para los centros de eventos, el bus de servicio, Kafka, etc. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
+Hay conectores disponibles para Azure Event Hubs, Azure Service Bus, Kafka y otros más. Los usuarios pueden crear conectores adicionales con código personalizado.
                 </p>
             </td>
         </tr>
@@ -312,12 +311,11 @@ Hay conectores disponibles para los centros de eventos, el bus de servicio, Kafk
             </td>
             <td width="204" valign="top">
                 <p>
-Los formatos de entrada admitidos son Avro, JSON y CSV.
-                </p>
+Avro, JSON y CSV </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Cualquier otro formato puede implementarse a través del código personalizado.
+Los usuarios pueden implementar cualquier formato mediante código personalizado.
                 </p>
             </td>
         </tr>
@@ -329,12 +327,12 @@ Cualquier otro formato puede implementarse a través del código personalizado.
             </td>
             <td width="204" valign="top">
                 <p>
-Un trabajo de streaming puede tener varias salidas. Las salidas compatibles son: centros de eventos de Azure, almacenamiento de blobs de Azure, tablas de Azure, Azure SQL DB y PowerBI.
+Un trabajo de streaming puede tener varias salidas. Las salidas compatibles son Azure Event Hubs, Azure Blob Storage, Azure Table Storage, Azure SQL DB y Power BI.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Compatible con muchas de las salidas en una topología; cada salida puede tener una lógica personalizada para el procesamiento de nivel inferior. Esta versión de Storm ya está lista para usar e incluye conectores para Power BI, Azure Event Hubs, Azure Blob Store, Azure Cosmos DB, SQL y HBase. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
+Storm admite muchas salidas en una topología y cada una puede tener una lógica personalizada para el procesamiento de bajada. Storm incluye conectores para Power BI, Azure Event Hubs, Azure Blob Storage, Azure Cosmos DB, SQL y HBase. Los usuarios pueden crear conectores adicionales con código personalizado.    
                 </p>
             </td>
         </tr>
@@ -346,12 +344,12 @@ Compatible con muchas de las salidas en una topología; cada salida puede tener 
             </td>
             <td width="204" valign="top">
                 <p>
-Ha de tener el formato de datos UTF-8 para poder usar Análisis de transmisiones.
+Los datos deben tener formato UTF-8.
                 </p>
-            </td>
+            </td>   
             <td width="246" valign="top">
                 <p>
-Cualquier formato de codificación de datos ha de implementarse a través del código personalizado.
+Los usuarios pueden implementar cualquier formato de codificación de datos mediante código personalizado.
                 </p>
             </td>
         </tr>
@@ -382,26 +380,17 @@ Cualquier formato de codificación de datos ha de implementarse a través del c�
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Modelo de implementación de trabajo</strong>
-                </p>
-                <p>
-                    - <strong>Azure Portal</strong>
-                </p>
-                <p>
-                    - <strong>Visual Studio</strong>
-                </p>
-                <p>
-                    - <strong>PowerShell</strong>
+                    <strong>Modelo de implementación del trabajo</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-La implementación se realiza a través del Portal de Azure, PowerShell y las API de REST.
+Azure Portal, PowerShell y las API de REST.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-La implementación se realiza a través del Portal de Azure, PowerShell, Visual Studio y las API de REST.
+Azure Portal, PowerShell, Visual Studio y las API de REST.
                 </p>
             </td>
         </tr>
@@ -413,15 +402,12 @@ La implementación se realiza a través del Portal de Azure, PowerShell, Visual 
             </td>
             <td width="204" valign="top">
                 <p>
-La supervisión se implementa a través del Portal de Azure y las API de REST.
-                </p>
-                <p>
-A parte, el usuario también puede configurar alertas de Azure.
+La supervisión se implementa mediante Azure Portal y las API de REST. Los usuarios también pueden configurar alertas de Azure.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-La supervisión se implementa a través de la interfaz de usuario de Storm y las API de REST.
+La supervisión se implementa mediante la interfaz de usuario de Storm y las API de REST.
                 </p>
             </td>
         </tr>
@@ -433,12 +419,12 @@ La supervisión se implementa a través de la interfaz de usuario de Storm y las
             </td>
             <td width="204" valign="top">
                 <p>
-Número de unidades de streaming para cada trabajo. Cada unidad de streaming puede procesar hasta 1 MB/s. Hay un máximo de 50 unidades de forma predeterminada. Puede llamar para aumentar el límite.
+La escalabilidad viene determinada por el número de unidades de streaming (SU) para cada trabajo. Cada unidad de streaming procesa hasta 1 MB/segundo, con un máximo de 50 unidades. Para más información, vea <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-scale-jobs">Escalado para aumentar el rendimiento</a>.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Número de nodos en el clúster de HDI Storm. No hay límite en el número de nodos (el límite máximo lo define la cuota de Azure). Puede llamar para aumentar el límite.
+La escalabilidad viene determinada por el número de nodos de clúster de Storm en HDInsight. El límite superior en el número de nodos se define por la cuota de Azure del usuario.
                 </p>
             </td>
         </tr>
@@ -450,14 +436,12 @@ Número de nodos en el clúster de HDI Storm. No hay límite en el número de no
             </td>
             <td width="204" valign="top">
                 <p>
-Los usuarios pueden escalar o reducir verticalmente el número de unidades de streaming para aumentar el procesamiento de datos u optimizar los costos.
+Los usuarios pueden aumentar el procesamiento de datos u optimizar los costos aumentando o reduciendo el número de unidades de streaming, con un límite superior de 1 GB/segundo.
                 </p>
-                <p>
-Escalar verticalmente hasta 1 GB/s </p>
             </td>
             <td width="246" valign="top">
                 <p>
-El usuario puede escalar o reducir verticalmente el tamaño de clúster según le convenga.
+Los usuarios pueden escalar o reducir verticalmente el tamaño del clúster.
                 </p>
             </td>
         </tr>
@@ -474,7 +458,7 @@ Puede detenerlo y reanudarlo en el punto donde lo detuvo.
             </td>
             <td width="246" valign="top">
                 <p>
-Puede detenerlo y reanudarlo en el último punto donde lo detuvo en función de la marca de agua.
+Se puede detener y reanudar en el punto donde se detuvo en función de la marca de agua.
                 </p>
             </td>
         </tr>
@@ -498,21 +482,22 @@ Revisión automática sin tiempo de inactividad.
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Continuidad del negocio a través de un servicio altamente disponible con Acuerdos de Nivel de Servicio garantizados</strong>
+                    <strong>Continuidad empresarial mediante un servicio de alta disponibilidad con acuerdos de nivel de servicio garantizados</strong>
                 </p>
             </td>
             <td width="204" valign="top">
-                <p>
-Contrato de nivel de servicio con un tiempo de actividad del 99,9% </p>
-                <p>
-Recuperación automática de errores </p>
-                <p>
-La recuperación de los operadores con estado temporal está integrada.
-                </p>
+                <ul>
+                <li>Contrato de nivel de servicio con un tiempo de actividad del 99,9%</li>
+                <li>Recuperación automática de errores</li>
+                <li>Recuperación integrada de los operadores temporales con estado.</li>
+                </ul>
             </td>
             <td width="246" valign="top">
                 <p>
-Contrato de nivel de servicio con un tiempo de actividad del clúster de Storm del 99,9%. Apache Storm es una plataforma de streaming a prueba de errores, pero es responsabilidad de los clientes asegurarse de que sus trabajos de streaming se ejecutan sin interrupciones.
+Contrato de nivel de servicio con un tiempo de actividad del clúster de Storm del 99,9%. 
+                </p>
+                <p>
+Apache Storm es una plataforma de streaming con tolerancia a errores. Pero, es responsabilidad del usuario garantizar que los trabajos de streaming se ejecutan sin interrupciones.
                 </p>
             </td>
         </tr>
@@ -543,17 +528,17 @@ Contrato de nivel de servicio con un tiempo de actividad del clúster de Storm d
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Llegada tardía y control de eventos desordenados</strong>
+                    <strong>Control de eventos desordenados y llegada tardía</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-Directivas configurables integradas para reordenar, quitar eventos o ajustar la hora del evento.
+Directivas configurables integradas pueden reordenar los eventos, quitar eventos o ajustar la hora del evento.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-El usuario debe implementar la lógica para controlar este escenario.
+Los usuarios deben implementar la lógica para administrar este escenario.
                 </p>
             </td>
         </tr>
@@ -565,15 +550,12 @@ El usuario debe implementar la lógica para controlar este escenario.
             </td>
             <td width="204" valign="top">
                 <p>
-Datos de referencia disponibles en los blobs de Azure con un tamaño máximo de 100 MB de caché de búsqueda en memoria. El servicio administra la actualización de los datos de referencia.
+Hay datos de referencia disponibles de Azure Blob Storage con un máximo de 100 MB de caché en memoria. El servicio actualiza los datos de referencia.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Sin límites en el tamaño de los datos. Conectores disponibles para HBase, Azure Cosmos DB, SQL Server y Azure. Aquellos conectores que sean incompatibles se pueden implementar a través del código personalizado.
-                </p>
-                <p>
-El código personalizado es el que debe encargarse de actualizar los datos de referencia.
+Sin límites en el tamaño de los datos. Hay conectores disponibles para HBase, Azure Cosmos DB, SQL Server y Azure. Los usuarios pueden crear conectores adicionales con código personalizado. Los datos de referencia deben actualizarse con código personalizado.
                 </p>
             </td>
         </tr>
@@ -585,7 +567,7 @@ El código personalizado es el que debe encargarse de actualizar los datos de re
             </td>
             <td width="204" valign="top">
                 <p>
-Mediante la configuración de los modelos publicados de Azure Machine Learning a modo de funciones durante la creación del trabajo ASA <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(vista previa privada)</a>.
+Los modelos de Azure Machine Learning publicados se pueden configurar a modo de funciones durante la creación del trabajo. Para más información, vea <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-scale-with-machine-learning-functions">Escalado con funciones de Machine Learning</a>.
                 </p>
             </td>
             <td width="246" valign="top">

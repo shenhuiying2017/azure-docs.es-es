@@ -12,23 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 07/05/2017
 ms.author: sdanie
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0355c8a943947f5d53d7cd6892db3567c3bf0cce
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Administración de la Caché en Redis de Azure
 En este tema se describe cómo realizar tareas de administración como el [reinicio](#reboot) y la [programación de actualizaciones](#schedule-updates) para las instancias de Azure Redis Cache.
-
-> [!IMPORTANT]
-> La configuración y las características que se describen en este artículo solo están disponibles para las cachés de nivel Premium.
-> 
-> 
 
 ## <a name="reboot"></a>Reboot
 La hoja **Reiniciar** permite reiniciar uno o varios nodos de la memoria caché. Esta funcionalidad de reinicio le permite probar la resistencia de la aplicación en caso de que haya un error de un nodo de la caché.
@@ -53,7 +48,7 @@ El impacto en las aplicaciones cliente varía en función de los nodos que se re
 * **Nodes of a premium cache with clustering enabled** (Nodos de una caché premium con agrupamiento en clústeres habilitado): cuando reinicie uno o varios nodos de una caché premium con el agrupamiento en clústeres habilitado, el comportamiento de los nodos seleccionados es el mismo que al reiniciar el nodo o nodos correspondientes de una caché sin agrupar.
 
 > [!IMPORTANT]
-> El reinicio solo está disponible para las memorias caché de nivel premium.
+> El reinicio ahora está disponible para todos los planes de tarifas.
 > 
 > 
 
@@ -84,10 +79,10 @@ Si reinicia solo uno de los nodos, no se suelen perder datos, pero podría pasar
 Sí. Para más información sobre las instrucciones de PowerShell consulte la sección [Reinicio de una caché en Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
 ### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>¿Con qué planes de tarifa se puede usar la funcionalidad de reinicio?
-El reinicio solo está disponible en el plan de tarifa Premium.
+El reinicio está disponible para todos los planes de tarifas.
 
-## <a name="schedule-updates"></a>Programación de actualizaciones
-La hoja **Programar actualizaciones** permite designar una ventana de mantenimiento para la memoria caché. Cuando se especifica un período de mantenimiento, las actualizaciones del servidor Redis se realizan en ese intervalo de tiempo. 
+## <a name="schedule-updates"></a>Programar actualizaciones
+La hoja **Programar actualizaciones** permite designar una ventana de mantenimiento para la memoria caché de nivel Premium. Cuando se especifica un período de mantenimiento, las actualizaciones del servidor Redis se realizan en ese intervalo de tiempo. 
 
 > [!NOTE] 
 > El período de mantenimiento solo se aplica a las actualizaciones del servidor de Redis y no a las actualizaciones de Azure o del sistema operativo de las máquinas virtuales que hospedan la caché.

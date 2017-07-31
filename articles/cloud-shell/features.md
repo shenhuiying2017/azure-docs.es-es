@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/27/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: e789283ab9b25f634c50b341ca882bbf9c70a225
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 2b434ccb9218a0a2731642da6125031592ea8ce6
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -29,25 +29,27 @@ Cloud Shell ofrece una experiencia de shell preconfigurado y accesible desde el 
 
 Cloud Shell aprovisiona máquinas a medida que se solicitan y, por tanto, el estado de la máquina no se conservará entre sesiones. Como Cloud Shell se ha creado para sesiones interactivas, los shells finalizan automáticamente si pasan 10 minutos inactivos.
 
-## <a name="tools"></a>Herramientas
+## <a name="bash-in-cloud-shell"></a>Bash en Cloud Shell
+### <a name="tools"></a>Herramientas
 |Categoría   |Nombre   |
 |---|---|
 |Intérprete de shell de Linux|Bash<br> sh               |
-|Herramientas de Azure            |CLI de Azure 2.0 y 1.0     |
+|Herramientas de Azure            |CLI de Azure 2.0 y 1.0<br> AzCopy     |
 |Editores de texto           |vim<br> nano<br> emacs       |
 |Control de código fuente         |git                    |
 |Herramientas de compilación            |make<br> maven<br> npm<br> pip         |
-|Contenedores             |Docker<br> Kubectl<br> DC/OS CLI         |
+|Contenedores             |Docker CLI/Docker Machine<br> Kubectl<br> DC/OS CLI         |
 |Bases de datos              |Cliente de MySQL<br> Cliente de PostgreSql<br> Utilidad sqlcmd      |
-|Otros                  |Cliente de iPython |
+|Otros                  |Cliente de iPython<br> CLI de Cloud Foundry<br> |
 
-## <a name="language-support"></a>Compatibilidad con idiomas
+### <a name="language-support"></a>Compatibilidad con idiomas
 |language   |Versión   |
 |---|---|
 |.NET       |1.01       |
 |Go         |1.7        |
+|Java       |1.8        |
 |Node.js    |6.9.4      |
-|Python     |2.7 y 3.5|
+|Python     |2.7 y 3.5 (predeterminadas)|
 
 ## <a name="secure-automatic-authentication"></a>Protección de la autenticación automática
 Cloud Shell autentica de forma segura y automática el acceso a la cuenta para la CLI de Azure 2.0.
@@ -57,8 +59,8 @@ Puesto que Cloud Shell se asigna para cada solicitud mediante una máquina tempo
 Para conservar archivos entre sesiones, la primera vez que se inicia Cloud Shell se explica cómo conectar un recurso compartido de archivos de Azure.
 Una vez finalizado, Cloud Shell conectará automáticamente su almacenamiento para todas las sesiones futuras.
 
-[Más información acerca de cómo conectar recursos compartidos de archivos de Azure a Cloud Shell](persisting-shell-storage.md).
+[Obtenga más información sobre cómo conectar recursos compartidos de archivos de Azure a Cloud Shell](persisting-shell-storage.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Guía de inicio rápido de Cloud Shell](quickstart.md) 
-[Más información sobre CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/)
+[Inicio rápido de Cloud Shell](quickstart.md) <br>
+[Más información sobre la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>

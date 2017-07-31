@@ -1,5 +1,5 @@
 ---
-title: Exploradores y dispositivos compatibles
+title: Exploradores y dispositivos compatibles con Azure Portal | Microsoft Docs
 description: "Describe los exploradores y dispositivos en los que funcionará el Portal de Azure."
 services: 
 documentationcenter: 
@@ -13,32 +13,29 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2015
+ms.date: 06/28/2017
 ms.author: micflan
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2f243accae710bdeb3adb51d37a5c6803b761687
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 2d3046381892978e3aea12752f526d7cdf8184f5
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="supported-browsers-and-devices"></a>Exploradores y dispositivos compatibles
-El Portal de Microsoft Azure se puede ejecutar en todos los exploradores y dispositivos modernos como tabletas y equipos de escritorio.
+# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Exploradores y dispositivos compatibles con Azure Portal
+Puede ejecutar [Azure Portal](https://portal.azure.com) en todos los escritorios, los dispositivos de tableta y los exploradores modernos.
 
 ### <a name="supported-devices"></a>Dispositivos compatibles
-El portal se ejecutará de manera excelente en tabletas, Mac y PC modernos. Los teléfonos móviles no son compatibles actualmente.
+Azure Portal se ejecuta de manera excelente en tabletas, Mac y PC modernos. Si necesita administrar los recursos de Azure desde un dispositivo móvil, pruebe la aplicación de Azure disponible para versión preliminar en iPhone y Android. Para más información, consulte la entrada de blog sobre la [presentación de la versión preliminar pública de las aplicaciones de Azure](https://azure.microsoft.com/blog/azure-app-preview/).
 
 ### <a name="supported-browsers"></a>Exploradores compatibles
-Son compatibles las últimas versiones de los siguientes exploradores:
+Se recomienda usar el explorador más actualizado compatible con el sistema operativo. Se admiten los siguientes exploradores:
 
-* Edge (última versión)
+* Microsoft Edge (versión más recientes)
 * Internet Explorer 11
-* Safari (más reciente, solo Mac)
-* Chrome (última versión)
-* Firefox (última versión)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* Safari (versión más reciente, solo Mac)
+* Chrome (versión más reciente)
+* Firefox (versión más reciente)
 
 

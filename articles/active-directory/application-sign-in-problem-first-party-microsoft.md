@@ -1,6 +1,6 @@
 ---
 title: "Problemas de inicio de sesión en una aplicación de Microsoft | Microsoft Docs"
-description: "Solución de problemas comunes que aparecen al iniciar sesión en aplicaciones de Microsoft de primera entidad mediante Azure AD (por ejemplo, Office 365)"
+description: "Solución de problemas comunes que aparecen al iniciar sesión en aplicaciones propias de Microsoft mediante Azure AD (por ejemplo, Office 365)"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c3594b292a5b548bcb1e0df5959775d139576597
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 77f8f10c764013e539480138fb1479d0326b5eef
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -27,7 +27,7 @@ Las aplicaciones de Microsoft (como Office 365 Exchange, SharePoint, Yammer, etc
 
 Hay tres maneras principales en que un usuario puede acceder a una aplicación publicada por Microsoft.
 
--   En el caso de aplicaciones de Office 365 u otros conjuntos de aplicaciones de pago, a los usuarios se les concede acceso mediante la **asignación de licencias**, bien directamente a sus cuentas de usuario o mediante un grupo por medio de nuestra funcionalidad de asignación de licencias basada en grupo.
+-   En el caso de aplicaciones de Office 365 u otros conjuntos de aplicaciones de pago, a los usuarios se les concede acceso mediante la **asignación de licencias** o mediante la funcionalidad de asignación de licencias basada en grupo.
 
 -   Para aplicaciones que Microsoft o un tercero publica de manera gratuita para que todo el mundo las use, a los usuarios se les puede conceder acceso mediante **consentimiento del usuario**. Esto significa que inician sesión en la aplicación con su cuenta profesional o educativa de Azure AD, que les permite tener acceso a un conjunto limitado de datos en sus cuentas.
 
@@ -37,7 +37,7 @@ Para solucionar el problema, comience con [Áreas problemáticas generales con e
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Áreas problemáticas generales con el acceso a las aplicaciones para tener en cuenta
 
-A continuación se muestra una lista de áreas problemáticas generales en la que puede profundizar si no tiene idea de por dónde comenzar. Sin embargo, le recomendamos que lea el tutorial para comenzar rápidamente: [Tutorial: Pasos para solucionar problemas de acceso a las aplicaciones de Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Aquí tiene una lista de las áreas problemáticas generales en las que puede profundizar si sabe por dónde empezar. Para una introducción rápida, le recomendamos que lea [Tutorial: Pasos para solucionar problemas de acceso a las aplicaciones de Microsoft](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
 -   [Problemas con la cuenta del usuario](#problems-with-the-users-account)
 
@@ -109,7 +109,7 @@ El acceso a la aplicación se puede bloquear debido a un problema con un usuario
 
 -   [Comprobar las licencias asignadas de un usuario](#check-a-users-assigned-licenses)
 
--   [Asignar a un usuario una licencia](#assign-a-user-a-license)
+-   [Asignar una licencia a un usuario](#assign-a-user-a-license)
 
 ### <a name="check-if-a-user-account-exists-in-azure-active-directory"></a>Comprobar si existe una cuenta de usuario en Azure Active Directory
 
@@ -117,13 +117,13 @@ Para comprobar si una cuenta de usuario existe, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **All users** (Todos los usuarios).
+5.  Haga clic en **Todos los usuarios**.
 
 6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
@@ -135,13 +135,13 @@ Para comprobar el estado de la cuenta de un usuario, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **All users** (Todos los usuarios).
+5.  Haga clic en **Todos los usuarios**.
 
 6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
@@ -155,13 +155,13 @@ Para restablecer la contraseña de un usuario, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **All users** (Todos los usuarios).
+5.  Haga clic en **Todos los usuarios**.
 
 6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
@@ -175,9 +175,10 @@ Para restablecer la contraseña de un usuario, siga estos pasos:
 
 ### <a name="enable-self-service-password-reset"></a>Habilitar el autoservicio de restablecimiento de contraseña
 
-Para habilitar el autoservicio de restablecimiento de contraseña, siga los pasos de implementación siguientes:
+Para habilitar el autoservicio de restablecimiento de contraseña, siga estos pasos de implementación:
 
--   [Cómo permitir que los usuarios restablezcan sus contraseñas de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [Permitir que los usuarios restablezcan sus contraseñas de Azure AD
+](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
 
 -   [Permitir que los usuarios restablezcan o cambien sus contraseñas de AD locales](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 
@@ -187,23 +188,23 @@ Para comprobar el estado de la autenticación multifactor de un usuario, siga es
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **All users** (Todos los usuarios).
+5.  Haga clic en **Todos los usuarios**.
 
 6.  Haga clic en el botón **Multi-Factor Authentication** en la parte superior de la hoja.
 
 7.  Después de que se ha cargado el **Portal de administración de Multi-factor Authentication**, asegúrese de que se encuentra en la pestaña **Usuarios**.
 
-8.  Busque el usuario en la lista de usuarios mediante búsqueda, filtrado u ordenación.
+8.  Para encontrar el usuario, filtre u ordene la lista de usuarios, o realice búsquedas en ella.
 
-9.  Seleccione el usuario de la lista de usuarios y **habilite**, **deshabilite** o **exija** autenticación multifactor, según desee.
+9.  Seleccione el usuario en la lista y elija **Habilitar**, **Deshabilitar** o **Forzar** la autenticación multifactor.
 
-  * **Nota**: Si un usuario se encuentra en un estado **Exigido**, puede establecerlo en **Deshabilitado** temporalmente para permitirle volver a su cuenta. Una vez de vuelta, puede cambiar de nuevo su estado a **Habilitado** para solicitarle que vuelva a registrar su información de contacto durante su siguiente inicio de sesión. Como alternativa, puede seguir los pasos descritos en [Comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info) para comprobar o establecer estos datos para los usuarios.
+  * **Nota**: Si un usuario se encuentra en un estado **Forzado**, puede establecerlo en **Deshabilitado** temporalmente para permitirle volver a su cuenta. Una vez de vuelta, puede cambiar de nuevo su estado a **Habilitado** para solicitarle que vuelva a registrar su información de contacto durante su siguiente inicio de sesión. Como alternativa, puede seguir los pasos descritos en [Comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info) para comprobar o establecer estos datos por ellos.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Comprobar la información de contacto de autenticación de un usuario
 
@@ -211,13 +212,13 @@ Para comprobar la información de contacto de autenticación de un usuario para 
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **All users** (Todos los usuarios).
+5.  Haga clic en **Todos los usuarios**.
 
 6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
@@ -233,13 +234,13 @@ Para comprobar la pertenencia a grupos de un usuario, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **All users** (Todos los usuarios).
+5.  Haga clic en **Todos los usuarios**.
 
 6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
@@ -251,13 +252,13 @@ Para comprobar las licencias asignadas de un usuario, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **All users** (Todos los usuarios).
+5.  Haga clic en **Todos los usuarios**.
 
 6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
@@ -269,13 +270,13 @@ Para asignar una licencia a un usuario, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
 4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **All users** (Todos los usuarios).
+5.  Haga clic en **Todos los usuarios**.
 
 6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
@@ -285,7 +286,7 @@ Para asignar una licencia a un usuario, siga estos pasos:
 
 9.  Seleccione **uno o más productos** en la lista de productos disponibles.
 
-10. **Opcional**: haga clic en el elemento **Opciones de asignación** para asignar productos de forma granular. Cuando haya finalizado este procedimiento, haga clic en **Aceptar**.
+10. **Opcional**: Haga clic en el elemento **Opciones de asignación** para asignar productos de forma granular. Cuando haya finalizado este procedimiento, haga clic en **Aceptar**.
 
 11. Haga clic en el botón **Asignar** para asignar estas licencias a este usuario.
 
@@ -309,7 +310,7 @@ Para comprobar la pertenencia de un grupo, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -327,7 +328,7 @@ Para comprobar los criterios de pertenencia de un grupo dinámico, siga estos pa
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -347,7 +348,7 @@ Para comprobar las licencias asignadas de un grupo, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -365,7 +366,7 @@ Para volver a procesar las licencias asignadas de un grupo, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -390,7 +391,7 @@ Para asignar una licencia a un grupo, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -406,7 +407,7 @@ Para asignar una licencia a un grupo, siga estos pasos:
 
 9.  Seleccione **uno o más productos** en la lista de productos disponibles.
 
-10. **Opcional**: haga clic en el elemento **Opciones de asignación** para asignar productos de forma granular. Cuando haya finalizado este procedimiento, haga clic en **Aceptar**.
+10. **Opcional**: Haga clic en el elemento **Opciones de asignación** para asignar productos de forma granular. Cuando haya finalizado este procedimiento, haga clic en **Aceptar**.
 
 11. Haga clic en el botón **Asignar** para asignar estas licencias a este grupo. Esta operación puede tardar mucho tiempo, en función del tamaño y la complejidad del grupo.
 
@@ -423,7 +424,7 @@ Para comprobar o validar una directiva de acceso condicional:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -446,7 +447,7 @@ Para comprobar o validar la directiva de acceso condicional configurada actualme
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -454,7 +455,7 @@ Para comprobar o validar la directiva de acceso condicional configurada actualme
 
 5.  A continuación, haga clic en **Todas las aplicaciones**.
 
-6.  Busque la aplicación que le interesa, o el usuario que intenta iniciar sesión en ella por el nombre para mostrar de la aplicación o el id. de aplicación.
+6.  Busque la aplicación que le interesa o en la que el usuario intenta iniciar sesión por el nombre para mostrar o el id. de aplicación.
 
      >[!NOTE]
      >Si no ve la aplicación que busca, haga clic en el botón **Filtrar** y amplíe el ámbito de la lista a **Todas las aplicaciones**. Si desea ver más columnas, haga clic en el botón **Columnas** para agregar detalles adicionales para las aplicaciones.
@@ -478,7 +479,7 @@ Para comprobar o validar una directiva de acceso condicional:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -504,7 +505,7 @@ El acceso a la aplicación se puede bloquear porque no se haya producido la oper
 
 ### <a name="perform-a-user-level-consent-operation"></a>Realizar una operación de consentimiento de nivel de usuario
 
--   Para cualquier aplicación, al navegar hasta la pantalla de inicio de sesión de la aplicación, se realiza un consentimiento de nivel de usuario a la aplicación para el usuario que inicia la sesión.
+-   Para cualquier aplicación compatible con Open ID Connect que solicite permisos, al navegar a la pantalla de inicio de sesión de la aplicación se realiza un consentimiento de nivel de usuario a la aplicación para el usuario que inició sesión.
 
 -   Si desea realizar esto mediante programación, consulte [Solicitud de consentimiento de usuario individual](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
 
@@ -516,7 +517,7 @@ El acceso a la aplicación se puede bloquear porque no se haya producido la oper
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Realizar el consentimiento de nivel de administrador para una aplicación de un único inquilino
 
--   Para **aplicaciones de un único inquilino** que solicitan permisos (por ejemplo, los que desarrolla o posee en su organización), puede realizar una operación de **consentimiento de nivel administrativo** en nombre de todos los usuarios iniciando sesión como administrador global y haciendo clic en el botón **Conceder permisos** de la parte superior de la hoja **Application Registry (Registro de aplicación) -&gt; Todas las aplicaciones -&gt; Select an App (Seleccionar una aplicación) - &gt; Permisos necesarios**.
+-   Con las **aplicaciones de un único inquilino** que solicitan permisos (por ejemplo, las que desarrolla o posee su organización), puede realizar una operación de **consentimiento de nivel administrativo** en nombre de todos los usuarios. Para ello, inicie sesión como administrador global y haga clic en el botón **Conceder permisos** de la parte superior de la hoja **Application Registry (Registro de aplicación) -&gt; Todas las aplicaciones -&gt; Select an App (Seleccionar una aplicación) - &gt; Permisos necesarios**.
 
 -   Para **todas las aplicaciones desarrolladas mediante el modelo de aplicación V1 o V2**, puede forzar que se produzca este consentimiento de nivel de administrador si sigue las instrucciones de la sección **Solicitud de los permisos de un administrador de directorios** de [Uso del punto de conexión de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
