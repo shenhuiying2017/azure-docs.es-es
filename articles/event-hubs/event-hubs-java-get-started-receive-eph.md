@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 852a0fab2fa7a50eb315e7107749e391031b463e
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 024a9dd00d086d5c1cc14d6731b34ee0eab3b2c5
 ms.contentlocale: es-es
-ms.lasthandoff: 02/02/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
 
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Recepción de eventos desde Azure Event Hubs mediante Java
+
 
 ## <a name="introduction"></a>Introducción
 Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
@@ -68,6 +69,11 @@ La biblioteca de cliente de Java para Event Hubs está disponible para su uso en
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
     <version>{VERSION}</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-eventhubs-eph</artifactId>
+  <version>0.14.0</version>
 </dependency>
 ```
 
@@ -220,7 +226,7 @@ Para distintos tipos de entornos de compilación, puede obtener explícitamente 
     ```
 
 > [!NOTE]
-> Este tutorial usa una sola instancia de EventProcessorHost. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de EventProcessorHost. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen *todos* los eventos, debe usar el concepto **ConsumerGroup** . Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de EventProcessorHost según los equipos (o roles) en que se implementan.
+> Este tutorial usa una sola instancia de EventProcessorHost. Para aumentar la capacidad de procesamiento, se recomienda ejecutar varias instancias de EventProcessorHost, preferiblemente en máquinas independientes.  Así también se proporciona redundancia.   En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen *todos* los eventos, debe usar el concepto **ConsumerGroup** . Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de EventProcessorHost según los equipos (o roles) en que se implementan.
 > 
 > 
 
@@ -228,7 +234,7 @@ Para distintos tipos de entornos de compilación, puede obtener explícitamente 
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Creación de un Centro de eventos](event-hubs-create.md)
+* [Creación de un centro de eventos](event-hubs-create.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
 
 <!-- Links -->

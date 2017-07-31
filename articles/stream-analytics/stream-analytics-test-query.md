@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 039ea499f3bfc594472ddc6de59220c4600769f1
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 9ca96196d2d4b898c79556867b5ff8d8be0f66dc
 ms.contentlocale: es-es
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -37,7 +37,7 @@ Con Azure Stream Analytics, puede probar consultas en Azure Portal sin tener que
 
     ![datos de prueba de ejemplo del editor de consultas de Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-El resultado de la consulta se muestra en el explorador con un vínculo a los resultados de descarga por si desea guardar el resultado de prueba para un uso posterior. Ahora puede modificar iterativamente y fácilmente la consulta y probarla repetidamente para ver cómo cambia la salida.
+El resultado de la consulta se muestra en el explorador, con el vínculo Descargar resultados por si desea guardar el resultado de prueba para un uso posterior. Ahora puede modificar iterativamente y fácilmente la consulta y probarla repetidamente para ver cómo cambia la salida.
 
 ![Salida de ejemplo del editor de consultas de Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
@@ -52,7 +52,7 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

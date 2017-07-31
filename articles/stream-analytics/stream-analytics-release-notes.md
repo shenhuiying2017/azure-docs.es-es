@@ -15,19 +15,39 @@ ms.workload: data-services
 ms.date: 05/03/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6a5ec66172e7920a89ff8c0592224f01f19c9e41
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: e1ab8dd89c0590c8ee309a032efc17edeacf4d0e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Notas de la versión de Análisis de transmisiones
 
+## <a name="notes-for-06142017-update-of-stream-analytics-tools-for-visual-studio"></a>Notas de la actualización del 14/06/2017 de las herramientas de Stream Analytics para Visual Studio
+Esta actualización corresponde a Visual Studio Tools. Esta versión contiene las siguientes nuevas características.
+
+| Título | Descripción |
+| --- | --- |
+| Compatibilidad con el editor de scripts de Java |Puede disfrutar de la experiencia del editor scripts de Java nativo después de crear las funciones de script de Java.|
+| Visualización del mensaje de error en tiempo de ejecución de trabajos | Si hay errores en tiempo de ejecución durante la ejecución del trabajo, puede verlos en la pestaña Errores ajustando la ventana de tiempo de visualización. Muestra de manera predeterminada los mensajes de error de los últimos 30 minutos. |
+| Compatibilidad de CSV y Avro con la entrada de pruebas locales | Además de JSON, ahora puede usar el formato de archivo CSV y Avro en la entrada de pruebas locales.|
+
 ## <a name="notes-for-05032017-update-of-stream-analytics"></a>Notas de la actualización de Stream Analytics del 03/05/2017
 Esta actualización es para la versión d documentación de solución de problemas.
 
 Se han publicado la [guía de solución de problemas](stream-analytics-troubleshooting-guide.md) y otros documentos. Revíselos. Agradecemos sus comentarios.
+
+## <a name="notes-for-04242017-update-of-stream-analytics-tools-for-visual-studio"></a>Notas de la actualización del 24/04/2017 de las herramientas de Stream Analytics para Visual Studio
+Esta actualización corresponde a Visual Studio Tools. Esta versión contiene las siguientes nuevas características.
+
+| Título | Descripción |
+| --- | --- |
+| Visualización del resultado de la prueba local en Visual Studio | Para ver el resultado de la salida de la prueba local, basta con presionar ENTRAR en la ventana de la consola de salida o cerrarla. El resultado se mostrará en formato de tabla en una ventana de Visual Studio. |
+| Resultado local de salida en formato JSON | Al ejecutar una prueba local, el resultado de salida se genera como formatos de archivo CSV y JSON. |
+| Vista previa de datos de entradas y salidas de Blob Storage o Table Storage | Al hacer doble clic en una entrada o salida de Blob Storage o Table Storage en la ventana del trabajo, pude obtener fácilmente la vista previa de los datos dentro de Visual Studio. |
+| Visualización de los mensajes de error de las entradas y salidas | Si hay algunos errores en tiempo de ejecución relacionados con las entradas o salidas del trabajo, se mostrarán en el diagrama de trabajo, donde puede mantener el puntero sobre él para ver el mensaje de error detallado.|
+
 
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Notas de la versión de Stream Analytics del 01/02/2017
 Esta versión contiene la siguiente actualización.
@@ -147,7 +167,7 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

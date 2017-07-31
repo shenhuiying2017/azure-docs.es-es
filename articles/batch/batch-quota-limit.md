@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 56e8f5579da2b5bed7975f25f0779c54d70cb886
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: f3f69ed8d3a985afe07e648e7512a88b25278ced
 ms.contentlocale: es-es
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -72,8 +72,10 @@ La cuota de núcleos en un nivel regional o por familia de máquinas virtuales s
 | [Aplicaciones](batch-application-packages.md) por cuenta de Lote |20 | |
 | Paquetes de aplicación por aplicación |40 |
 | Tamaño del paquete de aplicación (cada uno) |Aprox. 195 GB<sup>1</sup> |
+| Tamaño máximo de la tarea de inicio | 32 768 caracteres<sup>2</sup> |
 
-<sup>1</sup> Límite de Almacenamiento de Azure para el tamaño máximo de blob en bloques
+<sup>1</sup> Límite de Almacenamiento de Azure para el tamaño máximo de blob en bloques<br />
+<sup>2</sup> Incluye archivos de recursos y variables de entorno
 
 ## <a name="view-batch-quotas"></a>Visualización de las cuotas de Lote
 Vea las cuotas de la cuenta de Batch en [Azure Portal][portal].

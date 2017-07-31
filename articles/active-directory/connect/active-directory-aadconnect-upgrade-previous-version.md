@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 085706dacdcb0cd5a4169ccac4dc7fd8b8ddb6e0
-ms.lasthandoff: 03/03/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 03de42352b92692a0fa5c6ee3f335592cb2b66c1
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
@@ -46,6 +46,8 @@ Este método es adecuado cuando tiene un único servidor y menos de unos 100 000
 ![Actualización local](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
 Si se realizaron cambios en las reglas de sincronización originales, estas volverán a su configuración predeterminada tras la actualización. Para asegurarse de que la configuración se mantiene entre una actualización y la siguiente, asegúrese de que los cambios se realizan como se describe en [Azure AD Connect Sync: procedimientos recomendados de cambio de la configuración predeterminada](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
+
+Durante la actualización en contexto, puede que se hayan introducido cambios que requieran que se ejecuten actividades específicas de sincronización (incluidos los pasos de importación completa y sincronización completa) una vez completada la actualización. Para aplazar estas actividades, consulte la sección [Aplazamiento de la sincronización completa después de la actualización](#how-to-defer-full-synchronization-after-upgrade).
 
 ## <a name="swing-migration"></a>Migración oscilante
 Si tiene una implementación compleja o muchos objetos, puede que no resulte práctico realizar una actualización local en el sistema activo. En el caso de algunos clientes, este proceso podría tardar varios días y durante este tiempo no se procesará ningún cambio delta. Este método también se puede utilizar cuando se planea realizar cambios sustanciales en la configuración y se desea probarlos antes de insertarlos en la nube.
@@ -89,6 +91,42 @@ Para mover reglas de sincronización personalizadas, siga estos pasos:
 3. El GUID del Conector del servidor provisional es diferente, por lo que debe cambiarse. Para obtener el GUID, inicie el **Editor de reglas de sincronización**, seleccione una de las reglas originales que represente el mismo sistema conectado y haga clic en **Exportar**. Reemplace el GUID del archivo PS1 por el GUID del servidor de ensayo.
 4. En un símbolo del sistema de PowerShell, ejecute el archivo PS1. Esta acción crea la regla de sincronización personalizada en el servidor provisional.
 5. Repita esta operación para todas las reglas personalizadas.
+
+## <a name="how-to-defer-full-synchronization-after-upgrade"></a>Aplazamiento de la sincronización completa después de la actualización
+Durante la actualización en contexto, puede que se hayan introducido cambios que requieran que se ejecuten actividades específicas de sincronización (incluidos los pasos de importación completa y sincronización completa). Por ejemplo, los cambios de esquema de conector requieren que se ejecute el paso de **importación completa** y los cambios de regla de sincronización de serie requieren que se ejecute el paso de **sincronización completa** en los conectores afectados. Durante la actualización, Azure AD Connect determina las actividades de sincronización que son necesarias y las registra como *invalidaciones*. En el siguiente ciclo de sincronización, el programador de sincronización selecciona estas invalidaciones y las ejecuta. Una vez ejecutada correctamente una invalidación, se quita.
+
+Puede que haya situaciones en las no quiere que estas invalidaciones se produzcan inmediatamente después de actualizar. Por ejemplo, tiene numerosos objetos sincronizados y quiere que estos pasos de sincronización se produzcan después del horario comercial. Para quitar estas invalidaciones:
+
+1. Durante la actualización, **desactive** la opción **Inicie el proceso de sincronización cuando se complete la configuración**. Así, deshabilita el programador de sincronización e impide que el ciclo de sincronización se produzca automáticamente antes de quitar las invalidaciones.
+
+   ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
+
+2. Una vez completada la actualización, ejecute el siguiente cmdlet para averiguar qué invalidaciones se han agregado: `Get-ADSyncSchedulerConnectorOverride | fl`
+
+   >[!NOTE]
+   > Las invalidaciones son específicas del conector. En el ejemplo siguiente, se han agregado los pasos de importación completa y sincronización completa al conector AD local y a Azure AD Connector.
+
+   ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync02.png)
+
+3. Anote las invalidaciones existentes que se han agregado.
+   
+4. Para quitar las invalidaciones de importación completa y sincronización completa de un conector arbitrario, ejecute el siguiente cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+
+   Para quitar las invalidaciones de todos los conectores, ejecute el siguiente script de PowerShell:
+
+   ```
+   foreach ($connectorOverride in Get-ADSyncSchedulerConnectorOverride)
+   {
+       Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier $connectorOverride.ConnectorIdentifier.Guid -FullSyncRequired $false -FullImportRequired $false
+   }
+   ```
+
+5. Para reanudar el programador, ejecute el cmdlet siguiente: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+
+   >[!IMPORTANT]
+   > No olvide ejecutar lo antes posible los pasos de sincronización necesarios. Puede ejecutar estos pasos manualmente con el Synchronization Service Manager o volver a agregar las invalidaciones con el cmdlet Set-ADSyncSchedulerConnectorOverride.
+
+Para agregar las invalidaciones de importación completa y sincronización completa en un conector arbitrario, ejecute el siguiente cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información acerca de la [integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
