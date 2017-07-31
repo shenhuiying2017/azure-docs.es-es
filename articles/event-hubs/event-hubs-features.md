@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/15/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 3979593a399ed701fb1985152379818a0417f122
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 45c04c395c474f1fe6ff042776ef0e89470b280f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -52,6 +52,10 @@ Los Centros de eventos permiten un control granular sobre los publicadores de ev
 ```
 
 No tiene que crear nombres de publicador con antelación, pero deben coincidir con el token de SAS que se usa al publicar un evento, con el fin de garantizar las identidades de publicador independientes. Al usar directivas de publicador, el valor **PartitionKey** se establece como el nombre del publicador. Para que funcione correctamente, estos valores deben coincidir.
+
+## <a name="capture"></a>Capture
+
+[Event Hubs Capture](event-hubs-capture-overview.md) permite capturar automáticamente los datos de streaming en Event Hubs y archivarlos en la cuenta de almacenamiento de blobs que prefiera. Puede habilitar Capture desde Azure Portal y especificar una ventana de tiempo y de tamaño mínimos para realizar la captura. El uso de Event Hubs Capture le permite especificar su propia cuenta de Azure Blob Storage y el contenedor que se usa para almacenar los datos capturados. Los datos capturados se escriben en el formato de Apache Avro.
 
 ## <a name="partitions"></a>Particiones
 

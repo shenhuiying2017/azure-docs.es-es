@@ -1,10 +1,10 @@
 ---
 title: "Administración de Azure Data Lake Analytics con Azure PowerShell | Microsoft Docs"
-description: "Aprenda a administrar trabajos, orígenes de datos y usuarios de Análisis de Data Lake. "
+description: "Aprenda a administrar cuentas de Data Lake Analytics, orígenes de datos, trabajos y elementos de catálogo. "
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.service: data-lake-analytics
@@ -12,325 +12,464 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: edmaca
+ms.date: 06/26/2017
+ms.author: mahi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 4dd1ba30101d364fa52738a4e1c3e07874c5ed1f
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 86648ebc5e13570050bb142158bf1aa356d466b3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Administración de Análisis de Azure Data Lake mediante Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análisis de Azure Data Lake mediante Azure PowerShell. Para ver los temas de administración con otras herramientas, haga clic en el selector de pestañas de arriba.
+Aprenda a administrar cuentas de Azure Data Lake Analytics, orígenes de datos, trabajos y elementos de catálogo mediante Azure PowerShell. 
 
-**Requisitos previos**
+## <a name="prerequisites"></a>Requisitos previos
 
-Antes de empezar este tutorial, debe contar con lo siguiente:
+Al crear una cuenta de Data Lake Analytics, debe saber:
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell**. Vea la sección de requisitos previos de [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
-
-## <a name="running-the-snippets"></a>Ejecución de los fragmentos de código
+* **Id. de suscripción**: Id. de la suscripción de Azure en la que reside la cuenta de Data Lake Analytics.
+* **Grupo de recursos**: el nombre del grupo de recursos de Azure que contiene la cuenta de Data Lake Analytics.
+* **Nombre de la cuenta de Data Lake Analytics**: el nombre de la cuenta solo debe contener letras minúsculas y números.
+* **Cuenta predeterminada de Data Lake Store**: cada cuenta de Data Lake Analytics tiene una cuenta de Data Lake Store predeterminada. Estas cuentas deben estar en la misma ubicación.
+* **Ubicación**: la ubicación de la cuenta de Data Lake Analytics como "Este de EE. UU. 2" u otras ubicaciones admitidas. Las ubicaciones admitidas se pueden consultar en nuestra [página de precios](https://azure.microsoft.com/pricing/details/data-lake-analytics/).
 
 Los fragmentos de código de PowerShell de este tutorial usan estas variables para almacenar esta información
 
-```
+```powershell
+$subId = "<SubscriptionId>"
 $rg = "<ResourceGroupName>"
-$adls = "<DataLakeAccountName>"
 $adla = "<DataLakeAnalyticsAccountName>"
-$location = "East US 2"
+$adls = "<DataLakeStoreAccountName>"
+$location = "<Location>"
 ```
 
-## <a name="manage-accounts"></a>Administración de cuentas
+## <a name="log-in"></a>Registro
+
+```powershell
+Login-AzureRmAccount -SubscriptionId $subId
+```
+
+> [!NOTE]
+> Para guardar la sesión de inicio para un uso futuro, utilice ``Save-AzureRmProfile``. Para cargar la sesión de inicio de nuevo, utilice ``Select-AzureRmProfile``.
+
+## <a name="managing-accounts"></a>Administración de cuentas
 
 ### <a name="create-a-data-lake-analytics-account"></a>Creación de una cuenta de Análisis de Data Lake
 
-```
+Si aún no tiene un [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups) para usar, cree uno. 
+
+```powershell
 New-AzureRmResourceGroup -Name  $rg -Location $location
+```
+
+Cada cuenta de Data Lake Analytics requiere una cuenta predeterminada de Data Lake Store que se usa para almacenar registros. Puede reutilizar una cuenta existente o crear una nueva. 
+
+```powershell
 New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
+```
+
+Una vez que un grupo de recursos y una cuenta de Data Lake Store estén disponibles, cree una cuenta de Data Lake Analytics.
+
+```powershell
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
-### <a name="create-a-data-lake-analytics-account-using-a-template"></a>Creación de una cuenta de Data Lake Analytics mediante una plantilla
+### <a name="get-information-about-an-account"></a>Obtener información de una cuenta
 
-También puede usar una plantilla del grupo de recursos de Azure. En el [Apéndice A](#appendix-a) puede encontrar una plantilla para crear una cuenta de Data Lake Analytics y la cuenta de Data Lake Store dependiente. Guarde la plantilla en un archivo con plantilla .json y después use el siguiente script de PowerShell para llamarlo:
+Obtener detalles acerca de una cuenta.
 
-    $AzureSubscriptionID = "<Your Azure Subscription ID>"
+```powershell
+Get-AdlAnalyticsAccount -Name $adla
+```
 
-    $ResourceGroupName = "<New Azure Resource Group Name>"
-    $Location = "EAST US 2"
-    $DefaultDataLakeStoreAccountName = "<New Data Lake Store Account Name>"
-    $DataLakeAnalyticsAccountName = "<New Data Lake Analytics Account Name>"
+Comprobar la existencia de una cuenta específica de Data Lake Analytics. El cmdlet devuelve `True` o `False`.
 
-    $DeploymentName = "MyDataLakeAnalyticsDeployment"
-    $ARMTemplateFile = "E:\Tutorials\ADL\ARMTemplate\azuredeploy.json"  # update the Json template path 
+```powershell
+Test-AdlAnalyticsAccount -Name $adla
+```
 
-    Login-AzureRmAccount
+### <a name="listing-accounts"></a>Lista de cuentas
 
-    Select-AzureRmSubscription -SubscriptionId $AzureSubscriptionID
+Enumerar cuentas de Data Lake Analytics dentro de la suscripción actual.
 
-    # Create the resource group
-    New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+```powershell
+Get-AdlAnalyticsAccount
+```
 
-    # Create the Data Lake Analytics account with the default Data Lake Store account.
-    $parameters = @{"adlAnalyticsName"=$DataLakeAnalyticsAccountName; "adlStoreName"=$DefaultDataLakeStoreAccountName}
-    New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters 
+Enumerar cuentas de Data Lake Analytics dentro de un grupo de recursos específico.
 
+```powershell
+Get-AdlAnalyticsAccount -ResourceGroupName $rg
+```
 
-### <a name="list-accounts"></a>Enumeración de cuentas
+## <a name="managing-firewall-rules"></a>Administración de reglas de firewall
 
-Enumerar cuentas de Data Lake Analytics dentro de la suscripción actual
+### <a name="add-or-remove-firewall-rules"></a>Agregar o eliminar reglas de firewall
 
-    Get-AzureRmDataLakeAnalyticsAccount
+Enumerar reglas de firewall.
 
-Enumerar cuentas de Análisis de Data Lake dentro de un grupo de recursos específico
+```powershell
+Get-AdlAnalyticsFirewallRule -Account $adla
+```
 
-    Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName
+Agregar una regla de firewall.
 
-Obtener detalles de una cuenta específica de Análisis de Data Lake
+```powershell
+$ruleName = "Allow access from on-prem server"
+$startIpAddress = "<start IP address>"
+$endIpAddress = "<end IP address>"
 
-    Get-AzureRmDataLakeAnalyticsAccount -Name $adlAnalyticsAccountName
+Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
 
-Probar la existencia de una cuenta específica de Análisis de Data Lake
+Cambiar una regla de firewall.
 
-    Test-AzureRmDataLakeAnalyticsAccount -Name $adlAnalyticsAccountName
+```powershell
+Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
 
-El cmdlet devolverá o bien **True** o **False**.
+Eliminar una regla de firewall.
 
-### <a name="delete-data-lake-analytics-accounts"></a>Eliminación de cuentas de Análisis de Data Lake
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
+```powershell
+Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
+```
 
-    Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName 
+### <a name="enable-or-disable-firewall-rules"></a>Habilitar o deshabilitar reglas de firewall
 
-Si elimina una cuenta de Análisis de Data Lake, no se eliminará la cuenta dependiente de Almacén de Data Lake. El ejemplo siguiente elimina la cuenta de Análisis de Data Lake y la cuenta predeterminada de Almacén de Data Lake.
+Habilitar reglas de firewall.
 
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
+```
 
-    Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName 
-    Remove-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName
+Permitir direcciones IP de Azure.
 
-<!-- ################################ -->
-<!-- ################################ -->
-## <a name="manage-account-data-sources"></a>Administración de orígenes de datos de cuenta
-Actualmente, Análisis de Data Lake admite los siguientes orígenes de datos:
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
+```
+
+Deshabilitar reglas de firewall.
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
+```
+
+## <a name="managing-data-sources"></a>Administración de orígenes de datos
+Actualmente, Azure Data Lake Analytics admite los siguientes orígenes de datos:
 
 * [Almacén de Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
 * [Almacenamiento de Azure](../storage/storage-introduction.md)
 
-Cuando crea una cuenta de Análisis, debe designar una cuenta de Almacén de Azure Data Lake para que sea la cuenta de almacenamiento predeterminada. La cuenta predeterminada de Almacén de Data Lake sirve para almacenar los registros de auditoría y de metadatos de trabajos. Una vez creada la cuenta de Análisis, puede agregar más cuentas de Almacén de Data Lake y/o cuentas de Almacenamiento de Azure. 
+Cuando se crea una cuenta de Analytics, se debe designar una cuenta de Data Lake Store para que sea el origen de datos predeterminado. La cuenta predeterminada de Almacén de Data Lake sirve para almacenar los registros de auditoría y de metadatos de trabajos. Una vez creada la cuenta de Data Lake Analytics, puede agregar más cuentas de Data Lake Store o cuentas de Storage. 
 
 ### <a name="find-the-default-data-lake-store-account"></a>Búsqueda de la cuenta predeterminada de Almacén de Data Lake
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
+```powershell
+$dataLakeStoreName = (Get-AdlAnalyticsAccount -Name $adla).DefaultDataLakeAccount
+```
 
-### <a name="add-additional-azure-blob-storage-accounts"></a>Adición de más cuentas de almacenamiento de blobs de Azure
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-    $AzureStorageAccountName = "<AzureStorageAccountName>"
-    $AzureStorageAccountKey = "<AzureStorageAccountKey>"
+### <a name="add-data-sources"></a>Agregar orígenes de datos
 
-    Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
+Agregar una cuenta adicional de Storage (Blob).
 
-### <a name="add-additional-data-lake-store-accounts"></a>Adición de más cuentas de Almacén de Data Lake
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-    $AzureDataLakeName = "<DataLakeStoreName>"
+```powershell
+$AzureStorageAccountName = "<AzureStorageAccountName>"
+$AzureStorageAccountKey = "<AzureStorageAccountKey>"
 
-    Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -DataLake $AzureDataLakeName 
+Add-AdlAnalyticsDataSource -Account $adla -Blob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
+```
 
-### <a name="list-data-sources"></a>Enumeración de orígenes de datos:
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
+Agregar una cuenta adicional de Data Lake Store.
 
-    (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DataLakeStoreAccounts
-    (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.StorageAccounts
+```powershell
+$AzureDataLakeStoreName = "<AzureDataLakeStoreAccountName"
+Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName 
+```
 
+### <a name="list-data-sources"></a>Enumerar orígenes de datos
 
+Enumerar todos los orígenes de datos asociados.
 
-<!-- ################################ -->
-<!-- ################################ -->
-## <a name="manage-jobs"></a>Trabajos de administración
-Debe tener una cuenta de Análisis de Data Lake para poder crear un trabajo.  Para obtener más información, consulte [Administración de cuentas de Análisis de Data Lake](#manage-data-lake-analytics-accounts).
+```powershell
+Get-AdlAnalyticsDataSource -Name $adla
+```
+
+Enumerar las cuentas de Data Lake Store asociadas.
+
+```powershell
+Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "DataLakeStore"
+```
+
+Enumerar las cuentas de Storage asociadas.
+
+```powershell
+Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "Blob"
+```
+
+## <a name="managing-jobs"></a>Administración de trabajos
+
+### <a name="submit-a-job"></a>Enviar un trabajo
+
+Crear un archivo de texto local con el siguiente script de U-SQL.
+
+```
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS D( customer, amount );
+OUTPUT @a
+    TO "/data.csv"
+    USING Outputters.Csv();
+```
+
+Envíe el script.
+
+```powershell
+Submit-AdlJob -AccountName $adla –ScriptPath "<LocalPathToScriptFile>"
+```
 
 ### <a name="list-jobs"></a>Enumeración de trabajos
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
-    Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName
+Muestre todos los trabajos de la cuenta. El resultado incluye los trabajos actualmente en ejecución y aquellos que se han completado recientemente.
 
-    Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -State Running, Queued
-    #States: Accepted, Compiling, Ended, New, Paused, Queued, Running, Scheduling, Starting
+```powershell
+Get-AdlJob -Account $adla
+```
 
-    Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Result Cancelled
-    #Results: Cancelled, Failed, None, Successed 
+Lista de todos los trabajos con error enviados por "joe@contoso.com" en los últimos siete días.
 
-    Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Name <Job Name>
-    Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Submitter <Job submitter>
+```powershell
+Get-AdlJob -Account $adla `
+    -Submitter "joe@contoso.com" `
+    -SubmittedAfter (Get-Date).AddDays(-7) `
+    -Result Failed
+```
 
-    # List all jobs submitted on January 1 (local time)
-    Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
-        -SubmittedAfter "2015/01/01"
-        -SubmittedBefore "2015/01/02"    
+### <a name="get-information-about-a-job"></a>Obtención de información sobre un trabajo
 
-    # List all jobs that succeeded on January 1 after 2 pm (UTC time)
-    Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
-        -State Ended
-        -Result Succeeded
-        -SubmittedAfter "2015/01/01 2:00 PM -0"
-        -SubmittedBefore "2015/01/02 -0"
+Obtenga el estado de un trabajo específico.
 
-    # List all jobs submitted in the past hour
-    Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
-        -SubmittedAfter (Get-Date).AddHours(-1)
+```powershell
+Get-AdlJob -AccountName $adla -JobId $job.JobId
+```
 
-### <a name="get-job-details"></a>Obtención de detalles del trabajo
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-    Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -JobID <Job ID>
+En lugar de repetir `Get-AdlAnalyticsJob` hasta que finalice un trabajo, puede usar el cmdlet `Wait-AdlJob` para esperar a que finalice el trabajo.
 
-### <a name="submit-jobs"></a>Envío de trabajos
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
+```powershell
+Wait-AdlJob -Account $adla -JobId $job.JobId
+```
 
-    #Pass script via path
-    Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
-        -Name $jobName `
-        -ScriptPath $scriptPath
+Después de finalizar el trabajo, compruebe si existe el archivo de salida; para ello, enumere los archivos de una carpeta.
 
-    #Pass script contents
-    Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
-        -Name $jobName `
-        -Script $scriptContents
+```powershell
+Get-AdlStoreChildItem -Account $adls -Path "/"
+```
+
+Compruebe la existencia de un archivo.
+
+```powershell
+Test-AdlStoreItem -Account $adls -Path "/data.csv"
+```
+
+### <a name="cancel-a-job"></a>Cancelación de un trabajo
+
+```powershell
+Stop-AdlJob -Account $adls -JobID $jobID
+```
+
+## <a name="uploading-and-downloading"></a>Carga y descarga de archivos
+
+Cargar un archivo.
+
+```powershell
+Import-AdlStoreItem -AccountName $adls `
+    -Path "<LocalPath>\data.tsv" `
+    -Destination "/data_copy.csv" 
+```
+
+Cargar una carpeta completa.
+
+```powershell
+Import-AdlStoreItem -AccountName $adls `
+    -Path "<LocalPath>\myData\" `
+    -Destination "/myData/" `
+    -Recurse
+```
+
+Descargar un archivo.
+
+```powershell
+Export-AdlStoreItem -AccountName $adls `
+    -Path "/data.csv" `
+    -Destination "<LocalPath>\data.csv"
+```
+
+Descargar una carpeta completa.
+
+```powershell
+Export-AdlStoreItem -AccountName $adls `
+    -Path "/" `
+    -Destination "<LocalPath>\myData\" `
+    -Recurse
+```
 
 > [!NOTE]
-> La prioridad predeterminada de un trabajo es 1000 y el grado predeterminado de paralelismo para un trabajo es 1.
-> 
-> 
-
-### <a name="cancel-jobs"></a>Cancelación de trabajos
-    Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
-        -JobID $jobID
-
+> Si se interrumpe el proceso de carga o descarga, puede intentar reanudar el proceso ejecutando el cmdlet de nuevo con la opción ``-Resume``.
 
 ## <a name="manage-catalog-items"></a>Administración de elementos de catálogo
 El catálogo de U-SQL se usa para estructurar datos y código, para que puedan compartirse mediante scripts de U-SQL. El catálogo permite el mayor rendimiento posible con los datos en Azure Data Lake. Para obtener más información, consulte [Uso del catálogo de U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
-### <a name="list-catalog-items"></a>Enumeración de elementos del catálogo
-    #List databases
-    Get-AzureRmDataLakeAnalyticsCatalogItem `
-        -Account $adlAnalyticsAccountName `
-        -ItemType Database
+### <a name="list-items"></a>Enumeración de elementos
 
+Enumerar bases de datos U-SQL.
 
+```powershell
+Get-AdlCatalogItem -Account $adla -ItemType Database 
+```
 
-    #List tables
-    Get-AzureRmDataLakeAnalyticsCatalogItem `
-        -Account $adlAnalyticsAccountName `
-        -ItemType Table `
-        -Path "master.dbo"
+Enumerar las tablas de una base de datos.
 
-### <a name="get-catalog-item-details"></a>Obtención de detalles de elementos del catálogo
-    #Get a database
-    Get-AzureRmDataLakeAnalyticsCatalogItem `
-        -Account $adlAnalyticsAccountName `
-        -ItemType Database `
-        -Path "master"
+```powershell
+Get-AdlCatalogItem -Account $adla -ItemType Table -Path "master"
+```
 
-    #Get a table
-    Get-AzureRmDataLakeAnalyticsCatalogItem `
-        -Account $adlAnalyticsAccountName `
-        -ItemType Table `
-        -Path "master.dbo.mytable"
+Enumerar las tablas de un esquema.
 
-### <a name="test-existence-of--catalog-item"></a>Comprobación de un elemento del catálogo
-    Test-AzureRmDataLakeAnalyticsCatalogItem  `
-        -Account $adlAnalyticsAccountName `
-        -ItemType Database `
-        -Path "master"
+```powershell
+Get-AdlCatalogItem -Account $adla -ItemType Table -Path "master.dbo"
+```
 
-## <a name="use-azure-resource-manager-groups"></a>Uso de grupos del Administrador de recursos de Azure
-Las aplicaciones normalmente se componen de muchos componentes,por ejemplo una aplicación web, base de datos, servidor de base de datos, almacenamiento y servicios de terceros. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como un grupo al que se hace referencia como Grupo de recursos de Azures Puede implementar, actualizar, supervisar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Para la implementación se utiliza una plantilla, y esta plantilla puede trabajar en diferentes entornos, como pruebas, ensayo y producción. Puede aclarar la facturación de la organización consultando los costes acumulados de todo el grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](../azure-resource-manager/resource-group-overview.md). 
+### <a name="get-information-about-a-catalog-item"></a>Obtención de información de un elemento de catálogo
 
-Un servicio Análisis de Data Lake puede incluir los siguientes componentes:
+Obtener detalles de una base de datos U-SQL.
 
-* Cuenta de Análisis de Azure Data Lake
-* Cuenta predeterminada y necesaria de Almacén de Azure Data Lake
-* Cuentas adicionales de Almacén de Azure Data Lake
-* Cuentas adicionales de Almacenamiento de Azure
+```powershell
+Get-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
+```
 
-Puede crear todos estos componentes en un grupo de ARM para que sean más fáciles de administrar.
+Obtener detalles de una tabla de una base de datos U-SQL.
 
-![Cuenta y almacenamiento de Análisis de Azure Data Lake](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
+```powershell
+Get-AdlCatalogItem  -Account $adla -ItemType Table -Path "master.dbo.mytable"
+```
 
-La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes deben ubicarse en el mismo centro de datos de Azure.
-Sin embargo, el grupo de ARM puede encontrarse en otro centro de datos.  
+Comprobar la existencia de una base de datos U-SQL.
 
-## <a name="see-also"></a>Otras referencias
-* [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
-* [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
-* [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+```powershell
+Test-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
+```
 
-## <a name="appendix-a---data-lake-analytics-arm-template"></a>Apéndice A: Plantilla ARM de Análisis de Data Lake
-La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Análisis de Data Lake y su cuenta de Almacén de Data Lake dependiente.  Guárdela como un archivo json y después use el script de PowerShell para llamar a la plantilla. Para obtener más información , consulte el artículo sobre cómo [implementar una aplicación con la plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) y [crear plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+### <a name="create-catalog-items"></a>Creación de elementos de catálogo
 
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "adlAnalyticsName": {
-          "type": "string",
-          "metadata": {
-            "description": "The name of the Data Lake Analytics account to create."
-          }
-        },
-        "adlStoreName": {
-          "type": "string",
-          "metadata": {
-            "description": "The name of the Data Lake Store account to create."
-          }
-        }
-      },
-      "resources": [
-        {
-          "name": "[parameters('adlStoreName')]",
-          "type": "Microsoft.DataLakeStore/accounts",
-          "location": "East US 2",
-          "apiVersion": "2015-10-01-preview",
-          "dependsOn": [ ],
-          "tags": { }
-        },
-        {
-          "name": "[parameters('adlAnalyticsName')]",
-          "type": "Microsoft.DataLakeAnalytics/accounts",
-          "location": "East US 2",
-          "apiVersion": "2015-10-01-preview",
-          "dependsOn": [ "[concat('Microsoft.DataLakeStore/accounts/',parameters('adlStoreName'))]" ],
-          "tags": { },
-          "properties": {
-            "defaultDataLakeStoreAccount": "[parameters('adlStoreName')]",
-            "dataLakeStoreAccounts": [
-              { "name": "[parameters('adlStoreName')]" }
-            ]
-          }
-        }
-      ],
-      "outputs": {
-        "adlAnalyticsAccount": {
-          "type": "object",
-          "value": "[reference(resourceId('Microsoft.DataLakeAnalytics/accounts',parameters('adlAnalyticsName')))]"
-        },
-        "adlStoreAccount": {
-          "type": "object",
-          "value": "[reference(resourceId('Microsoft.DataLakeStore/accounts',parameters('adlStoreName')))]"
-        }
+Dentro de una base de datos U-SQL, cree un objeto de credenciales para una base de datos hospedada en Azure. Actualmente, las credenciales U-SQL son el único tipo de elemento de catálogo que se puede crear a través de PowerShell.
+
+```powershell
+$dbName = "master"
+$credentialName = "ContosoDbCreds"
+$dbUri = "https://contoso.database.windows.net:8080"
+
+New-AdlCatalogCredential -AccountName $adla `
+          -DatabaseName $db `
+          -CredentialName $credentialName `
+          -Credential (Get-Credential) `
+          -Uri $dbUri
+```
+
+## <a name="create-a-data-lake-analytics-account-using-a-template"></a>Creación de una cuenta de Data Lake Analytics mediante una plantilla
+
+También puede usar una plantilla de grupo de recursos de Azure mediante el siguiente script de PowerShell:
+
+```powershell
+$subId = "<Your Azure Subscription ID>"
+
+$rg = "<New Azure Resource Group Name>"
+$location = "<Location (such as East US 2)>"
+$adls = "<New Data Lake Store Account Name>"
+$adla = "<New Data Lake Analytics Account Name>"
+
+$deploymentName = "MyDataLakeAnalyticsDeployment"
+$armTemplateFile = "<LocalFolderPath>\azuredeploy.json"  # update the JSON template path 
+
+# Log in to Azure
+Login-AzureRmAccount -SubscriptionId $subId
+
+# Create the resource group
+New-AzureRmResourceGroup -Name $rg -Location $location
+
+# Create the Data Lake Analytics account with the default Data Lake Store account.
+$parameters = @{"adlAnalyticsName"=$adla; "adlStoreName"=$adls}
+New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $rg -TemplateFile $armTemplateFile -TemplateParameterObject $parameters 
+```
+
+Para obtener más información , consulte el artículo sobre cómo [implementar una aplicación con la plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) y [crear plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+
+**Plantilla de ejemplo**
+
+Guarde el siguiente texto como un archivo `.json` y, a continuación, utilice el script de PowerShell anterior para usar la plantilla. 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adlAnalyticsName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the Data Lake Analytics account to create."
+      }
+    },
+    "adlStoreName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the Data Lake Store account to create."
       }
     }
+  },
+  "resources": [
+    {
+      "name": "[parameters('adlStoreName')]",
+      "type": "Microsoft.DataLakeStore/accounts",
+      "location": "East US 2",
+      "apiVersion": "2015-10-01-preview",
+      "dependsOn": [ ],
+      "tags": { }
+    },
+    {
+      "name": "[parameters('adlAnalyticsName')]",
+      "type": "Microsoft.DataLakeAnalytics/accounts",
+      "location": "East US 2",
+      "apiVersion": "2015-10-01-preview",
+      "dependsOn": [ "[concat('Microsoft.DataLakeStore/accounts/',parameters('adlStoreName'))]" ],
+      "tags": { },
+      "properties": {
+        "defaultDataLakeStoreAccount": "[parameters('adlStoreName')]",
+        "dataLakeStoreAccounts": [
+          { "name": "[parameters('adlStoreName')]" }
+        ]
+      }
+    }
+  ],
+  "outputs": {
+    "adlAnalyticsAccount": {
+      "type": "object",
+      "value": "[reference(resourceId('Microsoft.DataLakeAnalytics/accounts',parameters('adlAnalyticsName')))]"
+    },
+    "adlStoreAccount": {
+      "type": "object",
+      "value": "[reference(resourceId('Microsoft.DataLakeStore/accounts',parameters('adlStoreName')))]"
+    }
+  }
+}
+```
 
+## <a name="next-steps"></a>Pasos siguientes
+* [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+* Introducción a Data Lake Analytics mediante [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI 2.0](data-lake-analytics-get-started-cli2.md)
+* Administración de Azure Data Lake Analytics mediante [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) |  [Azure Portal](data-lake-analytics-manage-use-portal.md) | [CLI](data-lake-analytics-manage-use-cli.md) 
 

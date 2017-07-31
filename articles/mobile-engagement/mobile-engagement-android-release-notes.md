@@ -12,16 +12,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/27/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: e50c1c70a4378560f8ce3182069cba4832fa4d22
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 1cd7c365844b22e10dd69f38f08e5d1aa691ba20
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="release-notes"></a>Notas de la versión
+
+## <a name="430-06272017"></a>4.3.0 (06/27/2017)
+* Compatibilidad con Android 8 (las versiones anteriores del SDK no funcionarán en Android 8).
+* Desaparece la dependencia de la biblioteca de soporte.
+* Se quita la clase `EngagementFragmentActivity`.
+* Debido a los [límites de ejecución en segundo plano](https://developer.android.com/preview/features/background.html) en Android 8, puede que los registros en segundo plano se retrasen hasta que el usuario interactúe con el dispositivo, lo que provocará que las estadísticas sobre la campaña de inserción **entregada** y la **notificación del sistema mostrada** se retrasen si el dispositivo estaba en suspensión (la notificación se mostrará, sonará y vibrará en tiempo real sin problemas).
+* Debido a los [límites de ubicación en segundo plano](https://developer.android.com/preview/features/background-location-limits.html), la ubicación en tiempo real en segundo plano no se actualizará con frecuencia en Android 8.
 
 ## <a name="424-03302017"></a>4.2.4 (30/03/2017)
 * Se han corregido los colores del texto de notificación en aplicación de Android 7 para que coincidan con los de las versiones anteriores de Android.
