@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/03/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 64874564c54dd37108f1075fb54181f2324cb229
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 95589ca169926362fa77f0e307afd449014c8402
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticación y autorización en Azure Relay
-Las aplicaciones pueden autenticarse en Azure Relay mediante la autenticación con Firma de acceso compartido (SAS). De manera similar a la [mensajería de Service Bus](../service-bus-messaging/service-bus-authentication-and-authorization.md), la autenticación de Firma de acceso compartido permite a las aplicaciones autenticarse en el servicio Azure Relay mediante una clave de acceso configurada en el espacio de nombres de Relay. A continuación, puede usar esta clave para generar un token de Firma de acceso compartido que los clientes pueden usar para autenticarse en el servicio de retransmisión.
+Las aplicaciones pueden autenticarse en Azure Relay mediante la autenticación con Firma de acceso compartido (SAS). De manera similar a como sucede en la [mensajería de Service Bus](../service-bus-messaging/service-bus-authentication-and-authorization.md), la autenticación de SAS permite a las aplicaciones autenticarse en el servicio Azure Relay mediante una clave de acceso configurada en el espacio de nombres de Relay. A continuación, puede usar esta clave para generar un token de Firma de acceso compartido que los clientes pueden usar para autenticarse en el servicio de retransmisión.
 
 ## <a name="shared-access-signature-authentication"></a>Autenticación con Firma de acceso compartido
-La [autenticación con SAS](../service-bus-messaging/service-bus-sas.md) le permite conceder acceso a un usuario a los recursos Service Bus Relay con derechos específicos. La autenticación con SAS implica la configuración de una clave criptográfica con derechos asociados en un recurso. Los clientes pueden obtener acceso a ese recurso presentando un token SAS que consta del URI del recurso al que se tiene acceso y una fecha de expiración firmada con la clave configurada.
+La [autenticación de SAS](../service-bus-messaging/service-bus-sas.md) permite conceder a los usuarios acceso a los recursos de Azure Relay con derechos específicos. La autenticación con SAS implica la configuración de una clave criptográfica con derechos asociados en un recurso. Los clientes pueden obtener acceso a ese recurso presentando un token SAS que consta del URI del recurso al que se tiene acceso y una fecha de expiración firmada con la clave configurada.
 
 Puede configurar claves para SAS en un espacio de nombres de Relay. A diferencia de la mensajería de Service Bus, [Conexiones híbridas de Relay](relay-hybrid-connections-protocol.md) admite remitentes no autorizados o anónimos. Puede habilitar el acceso anónimo para la entidad cuando la cree, tal y como se muestra en la siguiente pantalla desde el portal:
 

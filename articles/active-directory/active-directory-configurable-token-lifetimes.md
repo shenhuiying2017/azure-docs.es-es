@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 7d0c5f83d907af9109e27d69806d6106d4bc3214
-ms.lasthandoff: 03/28/2017
-
+ms.custom: aaddev
+ms.reviewer: anchitn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: d1d72932d8156fdada44ad6f375fe81c0428846c
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Vigencia de tokens configurables de Azure Active Directory (versión preliminar pública)
@@ -73,8 +75,8 @@ Una directiva de vigencia del token es un tipo de objeto de directiva que contie
 | --- | --- | --- | --- | --- | --- |
 | Vigencia del token de acceso |AccessTokenLifetime |Tokens de acceso, tokens de identificador, tokens de SAML2 |1 hora |10 minutos |1 día |
 | Tiempo máximo de inactividad del token de actualización |MaxInactiveTime |Tokens de actualización |14 días |10 minutos |90 días |
-| Antigüedad máxima del token de actualización (un solo factor) |MaxAgeSingleFactor |Tokens de actualización (para los usuarios) |90 días |10 minutos |Hasta que se revoca<sup>1</sup> |
-| Antigüedad máxima del token de actualización (varios factores) |MaxAgeMultiFactor |Tokens de actualización (para los usuarios) |90 días |10 minutos |Hasta que se revoca<sup>1</sup> |
+| Antigüedad máxima del token de actualización (un solo factor) |MaxAgeSingleFactor |Tokens de actualización (para los usuarios) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
+| Antigüedad máxima del token de actualización (varios factores) |MaxAgeMultiFactor |Tokens de actualización (para los usuarios) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 | Antigüedad máxima del token de sesión (un solo factor) |MaxAgeSessionSingleFactor<sup>2</sup> |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 | Antigüedad máxima del token de sesión (varios factores) |MaxAgeSessionMultiFactor<sup>3</sup> |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 
@@ -85,9 +87,11 @@ Una directiva de vigencia del token es un tipo de objeto de directiva que contie
 ### <a name="exceptions"></a>Excepciones
 | Propiedad | Afecta a | Valor predeterminado |
 | --- | --- | --- |
-| Tiempo máximo de inactividad del token de actualización (emitido para usuarios federados con información de revocación insuficiente) |Tokens de actualización (emitidos para usuarios federados con información de revocación insuficiente) |12 horas |
+| Antigüedad máxima de los tokens de actualización (emitidos para usuarios federados con información de revocación insuficiente<sup>1</sup>) |Tokens de actualización (emitidos para usuarios federados con información de revocación insuficiente<sup>1</sup>) |12 horas |
 | Tiempo máximo de inactividad del token de actualización (emitido para clientes confidenciales) |Tokens de actualización (emitidos para clientes confidenciales) |90 días |
 | Antigüedad máxima del token de actualización (emitido para clientes confidenciales) |Tokens de actualización (emitidos para clientes confidenciales) |Hasta que se revoca |
+
+* <sup>1</sup>Entre los usuarios federados que tienen información de revocación insuficiente se incluyen todos los usuarios que no tienen el atributo "LastPasswordChangeTimestamp" sincronizado. A estos usuarios se les da esta antigüedad máxima tan corta porque AAD no puede comprobar cuándo se deben revocar los tokens asociados a una credencial antigua (como una contraseña que se ha modificado) y deben realizar comprobaciones más frecuentes para asegurarse de que el usuario y los tokens asociados están aún activos. Para mejorar esta experiencia, los administradores de los inquilinos deben asegurarse de que están sincronizando el atributo "LastPasswordChangeTimestamp" (esto se puede establecer en el objeto de usuario con PowerShell o a través de AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Evaluación y prioridades de directivas
 Puede crear y, a continuación, asignar una directiva de vigencia del token a una aplicación específica, a su organización y a las entidades de servicio. Se pueden aplicar varias directivas a una aplicación específica. La directiva de vigencia del token que entra en vigor sigue estas reglas:

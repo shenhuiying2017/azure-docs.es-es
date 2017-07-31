@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/27/2017
+ms.date: 06/27/2017
 ms.author: sethm;babanisa
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: bb8679b733e9ebd8d6a95a618d4ab8deab18ece4
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 11f7b111df8b426c00334bebd82d5877817419d8
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -29,27 +30,27 @@ Puede ver dos tipos de registros para Event Hubs de Azure:
 * **[Registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Puede configurar registros de diagnóstico para obtener una vista más completa sobre todo lo que ocurre con un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
 
 ## <a name="turn-on-diagnostic-logs"></a>Activación de los registros de diagnóstico
-Los registros de diagnóstico están **desactivados** de forma predeterminada. Para habilitar registros de diagnóstico:
+Los registros de diagnóstico están inhabilitados de forma predeterminada. Para habilitar registros de diagnóstico:
 
-1.    En Azure Portal, vaya a la hoja de trabajo de streaming.
+1.  En Azure Portal, vaya a la hoja de trabajo de streaming.
 
-2.    En **Supervisión**, vaya a la hoja **Registros de diagnósticos**.
+2.  En **Supervisión**, vaya a la hoja **Registros de diagnósticos**.
 
     ![Navegación por la hoja de Registros de diagnósticos](./media/event-hubs-diagnostic-logs/image1.png)  
 
-3.    Seleccione **Activar diagnósticos**.
+3.  Haga clic en **Activar diagnóstico**.
 
     ![Activación de los registros de diagnósticos](./media/event-hubs-diagnostic-logs/image2.png)
 
-4.    En **Estado**, seleccione **Activo**.
+4.  En **Estado**, haga clic en **Activado**.
 
     ![Cambio del estado de registros de diagnósticos](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.    Establezca el destino de archivo que quiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o Azure Log Analytics.
+5.  Establezca el destino de archivo que quiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o Azure Log Analytics.
 
-6.    Seleccione las categorías de registros que desee recopilar; por ejemplo, **Ejecución** o **Creación**.
+6.  Seleccione las categorías de registros que desee recopilar; por ejemplo, **Ejecución** o **Creación**.
 
-7.    Guarde la nueva configuración de diagnóstico.
+7.  Guarde la nueva configuración de diagnóstico.
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en la hoja **Registros de diagnóstico**.
 
@@ -109,7 +110,7 @@ Las cadenas JSON de registros de operaciones incluyen elementos enumerados en la
 Nombre | Descripción
 ------- | -------
 ActivityId | Identificador interno, usado con fines de seguimiento.
-EventName | Nombre de la operación.     
+EventName | Nombre de la operación.  
 resourceId | Identificador de recursos de Azure Resource Manager.
 SubscriptionId | Id. de suscripción.
 EventTimeString | Hora de la operación.

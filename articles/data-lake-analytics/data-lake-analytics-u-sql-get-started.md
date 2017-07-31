@@ -3,8 +3,8 @@ title: "Introducción al lenguaje U-SQL | Microsoft Docs"
 description: "Conozca los aspectos básicos del lenguaje U-SQL."
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: edmaca
+ms.date: 06/23/2017
+ms.author: saveenr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 4884d96e8126337f62af23316935978cfe219ec8
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 01dd9cb6491ac830486da074cfe74779ca41db5b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -37,7 +37,7 @@ Antes de examinar los ejemplos de U-SQL de este documento, lea y realice el [Tut
 
 ## <a name="your-first-u-sql-script"></a>El primer script U-SQL
 
-El siguiente script U-SQL es muy sencillo y nos permite explorar muchos aspectos del lenguaje U-SQL.
+El siguiente script U-SQL es sencillo y nos permite explorar muchos aspectos del lenguaje U-SQL.
 
 ```
 @searchlog =
@@ -69,20 +69,13 @@ Observe el signo de interrogación junto al tipo de datos en el campo `Duration`
 
 Las instrucciones EXTRACT y OUTPUT usan rutas de acceso de archivo. Las rutas de acceso de archivo puede ser absolutas o relativas:
 
-Esta ruta de acceso absoluta de archivo hace referencia a un archivo de Data Lake Store denominado `mystore`:
+La siguiente ruta de acceso absoluta de archivo hace referencia a un archivo de Data Lake Store denominado `mystore`:
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-Esta ruta de acceso absoluta de archivo hace referencia a un archivo de Azure Blog Storage denominado `myblobaccount` y de un contenedor denominado `mycontainer`:
+La siguiente ruta de acceso relativa de archivo comienza con `"/"`. Hace referencia a un archivo en la cuenta de Data Lake Store predeterminada:
 
-    wasb://mycontainer@myblobaccount.blob.core.windows.net/Samples/Data/SearchLog.tsv
-
- >[!NOTE]
- >Actualmente no se admiten contenedores de almacenamiento de Azure Blob con permisos de acceso a contenedores públicos o blobs públicos.
-
-Esta ruta de acceso relativa de archivo comienza con `"/"`. Hace referencia a un archivo de la cuenta de predeterminada de Data Lake Store que está asociada a la cuenta de Data Lake Analytics:
-
-    TO "/output/SearchLog-first-u-sql.csv"
+    /output/SearchLog-first-u-sql.csv
 
 ## <a name="use-scalar-variables"></a>Uso de variables escalares
 
@@ -192,15 +185,16 @@ Los conjuntos de filas de U-SQL no conservan el orden en la siguiente consulta. 
     GROUP BY Region;
 
     @res =
-    SELECT *
-    FROM @rs1
-    ORDER BY TotalDuration DESC
-    FETCH 5 ROWS;
+        SELECT *
+        FROM @rs1
+        ORDER BY TotalDuration DESC
+        FETCH 5 ROWS;
 
     OUTPUT @rs1
         TO @out1
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
+
     OUTPUT @res
         TO @out2
         ORDER BY TotalDuration DESC
@@ -226,21 +220,17 @@ La cláusula HAVING de U-SQL puede usarse para restringir los resultados a los g
             Region,
             SUM(Duration) AS TotalDuration
         FROM @searchlog
-    GROUP BY Region
-    HAVING SUM(Duration) > 200;
+        GROUP BY Region
+        HAVING SUM(Duration) > 200;
 
     OUTPUT @res
         TO "/output/Searchlog-having.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-## <a name="see-also"></a>Consulte también
+Para escenarios avanzados de agregación, consulte la documentación de referencia de U-SQL para [agregar, analizar y hacer referencia a funciones](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
+
+## <a name="next-steps"></a>Pasos siguientes
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Desarrollo de scripts de U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Uso de funciones de ventana de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-use-window-functions.md)
-
-## <a name="let-us-know-what-you-think"></a>Díganos su opinión
-* [Envíe una solicitud de característica](http://aka.ms/adlafeedback)
-* [Obtenga ayuda en los foros](http://aka.ms/adlaforums)
-* [Proporcione comentarios sobre U-SQL](http://aka.ms/usqldiscuss)
 

@@ -16,15 +16,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6f4189cb30d528a106dd8889c06acd621aebb699
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: d31ad53525ef75bdb61c42409dc07bba4138fc25
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Configuración de clústeres de HDInsight unidos a un dominio (versión preliminar) con Azure PowerShell
 Vea cómo configurar un clúster de HDInsight de Azure con Azure Active Directory (Azure AD) y [Apache Ranger](http://hortonworks.com/apache/ranger/) con Azure PowerShell. Se proporciona un script de Azure PowerShell para realizar la configuración más rápidamente y con menos errores. HDInsight unido a un dominio solo se puede configurar en clústeres basados en Linux. Para más información, consulte [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Introducción a los clústeres de HDInsight unidos a dominio (versión preliminar))
+
+> [!IMPORTANT]
+> Oozie no está habilitado en HDInsight unido a un dominio.
 
 Una configuración típica de un clúster de HDInsight unidos a un dominio implica los pasos siguientes:
 
@@ -59,7 +63,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 * Azure PowerShell.  Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-an-azure-classic-vnet-for-your-azure-ad"></a>Cree una red virtual clásica de Azure para su Azure AD.
-Encontrará instrucciones [aquí](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
+Encontrará instrucciones [aquí](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic).
 
 ## <a name="create-and-configure-azure-ad-and-azure-ad-ds"></a>Cree y configure Azure AD y Azure AD DS.
 Encontrará instrucciones [aquí](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).
@@ -73,7 +77,7 @@ El script de PowerShell se puede descargar desde [GitHub](https://github.com/hdi
 2. Rellene los valores de las siguientes variables:
    
    * **$SubscriptionName**: nombre de la suscripción de Azure donde desea crear el clúster de HDInsight. Ya ha creado una red virtual clásica en esta suscripción y va a crear una red virtual de Azure Resource Manager para el clúster de HDInsight en la suscripción.
-   * **$ClassicVNetName**: red virtual clásica que contiene Azure AD DS. Esta red virtual debe estar en la misma suscripción que se indicó anteriormente. Esta red virtual debe crearse mediante Azure Portal y no mediante el portal clásico. Si sigue las instrucciones de [Configuración de clústeres de HDInsight unidos a un dominio (versión preliminar)](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet), el nombre predeterminado es contosoaadvnet.
+   * **$ClassicVNetName**: red virtual clásica que contiene Azure AD DS. Esta red virtual debe estar en la misma suscripción que se indicó anteriormente. Esta red virtual debe crearse mediante Azure Portal y no mediante el portal clásico. Si sigue las instrucciones de [Configuración de clústeres de HDInsight unidos a un dominio (versión preliminar)](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic), el nombre predeterminado es contosoaadvnet.
    * **$ClassicResourceGroupName**: nombre de grupo de Resource Manager para la red virtual clásica que esté mencionada anteriormente. Por ejemplo, contosoaadrg. 
    * **$ArmResourceGroupName**: nombre del grupo de recursos en el que desea crear el clúster de HDInsight. Puede usar el mismo grupo de recursos que $ArmResourceGroupName.  Si no existe el grupo de recursos, el script lo crea.
    * **$ArmVNetName**: nombre de la red virtual de Resource Manager en la que desea crear el clúster de HDInsight. Esta red virtual se colocará en $ArmResourceGroupName.  Si la red virtual no existe, el script de PowerShell la creará. Si existe, debe formar parte del grupo de recursos que se proporciona anteriormente.

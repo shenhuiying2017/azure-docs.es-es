@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: ce4d51c4ed38645ee81325404ff7214f845d5bf0
-ms.openlocfilehash: 317f3be6cb39da7c7c57f7f368c750672609726e
-ms.lasthandoff: 01/31/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 37df8d66d0a3ce738db2960d4283bdc672fb0fc4
+ms.contentlocale: es-es
+ms.lasthandoff: 07/04/2017
 
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: consideraciones especiales para instancias
@@ -39,7 +39,7 @@ Características que actualmente no están presentes en Microsoft Cloud Germany:
 
 * **Azure AD Connect Health** no está disponible.
 * Las **actualizaciones automáticas** no están disponibles.
-* El servicio de **escritura diferida de contraseñas** no está disponible.
+* La **escritura diferida de contraseñas** está disponible en versión preliminar con Azure AD Connect versión 1.1.570.0 y posteriores.
 * Otros servicios de Azure AD Premium no están disponibles.
 
 ## <a name="microsoft-azure-government-cloud"></a>Microsoft Azure Government Cloud
@@ -50,6 +50,7 @@ Esta nube ha sido compatible con versiones anteriores de DirSync. A partir de la
 | Direcciones URL para abrir en el servidor proxy |
 | --- |
 | \*.microsoftonline.com |
+| \*.microsoftonline.us |
 | \*.gov.us.microsoftonline.com |
 | +Listas de revocación de certificados |
 
@@ -64,7 +65,7 @@ Características que actualmente no están presentes en Microsoft Azure Governme
 
 * **Azure AD Connect Health** no está disponible.
 * Las **actualizaciones automáticas** no están disponibles.
-* El servicio de **escritura diferida de contraseñas** no está disponible.
+* La **escritura diferida de contraseñas** está disponible en versión preliminar con Azure AD Connect versión 1.1.570.0 y posteriores.
 * Otros servicios de Azure AD Premium no están disponibles.
 
 ## <a name="next-steps"></a>Pasos siguientes

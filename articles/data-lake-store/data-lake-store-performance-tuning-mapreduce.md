@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-translationtype: Human Translation
-ms.sourcegitcommit: c145642c06e477dd47e4d8d651262046519b656b
-ms.openlocfilehash: 564141d09bc54fbf4beb36d28bec160a7097f897
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 9528148792f083cb0e48d356e61cf61762ee954f
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -29,7 +31,7 @@ ms.openlocfilehash: 564141d09bc54fbf4beb36d28bec160a7097f897
 * **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md)
 * **Clúster de HDInsight de Azure** con acceso a una cuenta de Almacén de Data Lake. Consulte [Creación de un clúster de HDInsight con Data Lake Store mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
 * **Uso de MapReduce en HDInsight**.  Para más información, consulte [Uso de MapReduce en Hadoop en HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-mapreduce).  
-* **Directrices para la optimización del rendimiento en ADLS**.  Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento de Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Directrices para la optimización del rendimiento en ADLS**.  Para conocer los conceptos generales de rendimiento, consulte [Guía para la optimización del rendimiento de Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
 ## <a name="parameters"></a>parameters
 
@@ -40,7 +42,7 @@ Al ejecutar trabajos de MapReduce, estos son los parámetros más importantes qu
 * **Mapreduce.reduce.memory.mb**: la cantidad de memoria que se asignará a cada reductor.
 * **Mapreduce.job.reduces**: el número de tareas de reducción por trabajo.
 
-**Mapreduce.map.memory / Mapreduce.reduce.memory**: este número se debe ajustar según la cantidad de memoria necesaria para la tarea de asignación o reducción.  Los valores predeterminados de mapreduce.map.memory y mapreduce.reduce.memory pueden verse en Ambari a través de la configuración de Yarn.  En Ambari, vaya a YARN y vea la pestaña Configs (Configuraciones).  Puede ver la memoria.     
+**Mapreduce.map.memory / Mapreduce.reduce.memory**: este número se debe ajustar según la cantidad de memoria necesaria para la tarea de asignación o reducción.  Los valores predeterminados de mapreduce.map.memory y mapreduce.reduce.memory pueden verse en Ambari a través de la configuración de Yarn.  En Ambari, vaya a YARN y vea la pestaña Configs (Configuraciones).  Se mostrará la memoria YARN.  
 
 **Mapreduce.job.maps / Mapreduce.job.reduces**: determina el número máximo de asignadores o reductores que se crearán.  El número de divisiones determinará cuántos asignadores se crearán para el trabajo de MapReduce.  Por lo tanto, puede que obtenga menos asignadores que los solicitados si hay menos divisiones que el número de asignadores solicitado.       
 
@@ -58,10 +60,10 @@ Si va a usar un clúster vacío, la memoria puede ser la memoria de YARN total p
 **Paso 4: Cálculo del número de contenedores YARN**: los contenedores YARN dictaminan la cantidad de simultaneidad disponible para el trabajo.  Tome la memoria de YARN total y divídala entre el valor de mapreduce.map.memory.  
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
-    
-Debe usar al menos tantos asignadores y reductores como número de contenedores YARN para obtener la máxima simultaneidad.  Puede seguir experimentando y aumentar el número de asignadores y reductores para ver si obtiene mejor rendimiento.  Tenga en cuenta que cuantos más asignadores más sobrecarga, por lo que tener demasiados asignadores puede reducir el rendimiento.  
 
-Nota: La programación de CPU y el aislamiento de CPU están desactivadas de forma predeterminada, de modo que el número de contenedores de YARN está restringido por la memoria.
+**Paso 5: Establecer mapreduce.job.maps/mapreduce.job.reduces** Establece mapreduce.job.maps/mapreduce.job.reduces en al menos el número de contenedores disponibles.  Puede seguir experimentando y aumentar el número de asignadores y reductores para ver si obtiene mejor rendimiento.  Tenga en cuenta que cuantos más asignadores más sobrecarga, por lo que tener demasiados asignadores puede reducir el rendimiento.  
+
+Nota: la programación de CPU y el aislamiento de CPU están desactivadas de forma predeterminada, de modo que el número de contenedores de YARN está restringido por la memoria.
 
 ## <a name="example-calculation"></a>Cálculo de ejemplo
 
@@ -72,16 +74,20 @@ Supongamos que tiene actualmente un clúster compuesto de 8 nodos D14 y quiere e
 **Paso 2: Configuración de mapreduce.map.memory/mapreduce.reduce.memory**: en nuestro ejemplo, está ejecutando un trabajo de uso intensivo de E/S y decide que 3 GB de memoria para las tareas de asignación será suficiente.
 
     mapreduce.map.memory = 3GB
-**Paso 3: Determinación de la memoria de YARN total** 
+**Paso 3: Determinación de la memoria de YARN total**
 
     total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **Paso 4: Cálculo del número de contenedores de YARN**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
+**Paso 5: Establecer mapreduce.job.maps/mapreduce.job.reduces**
+
+    mapreduce.map.jobs = 256
+
 ## <a name="limitations"></a>Limitaciones
 
-**Limitación de ADLS** 
+**Limitación de ADLS**
 
 Como servicio multiinquilino, ADLS establece los límites de ancho de banda de nivel de cuenta.  Si se alcanzan estos límites, comenzará a ver errores de tarea. Para identificar esta situación, observe los errores de limitación en los registros de tareas.  Si necesita más ancho de banda para su trabajo, póngase en contacto con nosotros.   
 
@@ -98,24 +104,19 @@ Para comprobar si le están aplicando limitaciones, debe habilitar el registro d
 Para demostrar cómo MapReduce se ejecuta en Azure Data Lake Store, a continuación se muestra código de ejemplo que se ejecutó en un clúster con la siguiente configuración:
 
 * 16 nodos D14v2
-* Clúster de Hadoop ejecutando HDI 3.5
+* Clúster de Hadoop con HDI 3.6
 
 Como punto de partida, estos son algunos comandos de ejemplo para ejecutar MapReduce: Teragen, Terasort y Teravalidate.  Puede ajustar estos comandos en función de los recursos.
 
 **Teragen**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
 
 **Terasort**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 -Dmapred.reduce.tasks=512 -Dmapred.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
 
 **Teravalidate**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=512 -Dmapred.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
 

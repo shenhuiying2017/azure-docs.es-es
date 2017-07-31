@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 06/26/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
-ms.lasthandoff: 03/31/2017
+ms.custom: azlog
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: e6aefe5f16e7148f7837a8741355c61851618495
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -33,6 +35,16 @@ Está actualmente disponible en la versión comercial de Azure y en Azure Govern
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>¿Cómo puedo ver las cuentas de almacenamiento desde las que el servicio de integración de registro de Azure extrae los registros de máquinas virtuales de Azure?
 Ejecute el comando **azlog source list**.
+
+## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>¿Cómo puedo saber de qué suscripción son los registros de integración de Azure?
+
+En el caso de los registros de auditoría que se colocan en los directorios AzureResourcemanagerJson, el identificador de la suscripción está en el nombre del archivo de registro. Esto también es cierto para los registros de la carpeta AzureSecurityCenterJson. Por ejemplo:
+
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+
+Los registros de auditoría de Azure Active Directory incluyen el identificador del inquilino como parte del nombre.
+
+La lectura de los registros de diagnóstico de una instancia de Event Hubs no incluyen el identificador de la suscripción como parte del nombre, pero en su lugar, incluyen un nombre descriptivo especificado como parte de la creación del origen de dicha instancia. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>¿Cómo se puede actualizar la configuración de proxy?
 Si la configuración de proxy no permite el acceso a Azure Storage directamente, abra el archivo **AZLOG.EXE.CONFIG** en **c:\Program Files\Microsoft Azure Log Integration**. Actualice el archivo para que incluya la sección **defaultProxy** con la dirección del proxy de su organización. Después realizar la actualización, detenga e inicie el servicio mediante los comandos **net stop azlog** y **net start azlog**.
@@ -113,6 +125,9 @@ Después de realizar cambios, compruebe la cuenta de almacenamiento para asegura
 
 Si experimenta problemas durante la instalación y la configuración, abra una [solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) y seleccione **Integración de registros** como el servicio para el que está solicitando soporte técnico.
 
+### <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>¿Puedo usar la integración de registros de Azure para integrar los registros de Network Watcher en mi SIEM?
+
+Network Watcher genera grandes cantidades de información de registro y estos registros no están diseñados para su envío a un SIEM. El único destino admitido para los registros de Network Watcher es una cuenta de almacenamiento. Azlog no admite la lectura de estos registros ni su envío a un SIEM
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

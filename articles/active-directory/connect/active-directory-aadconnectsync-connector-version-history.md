@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 244ca634cfd47ee37e3845380ac05dc68d406621
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: e9699abe0c1bdb6ea449c99e087ae56adb717b8d
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="connector-version-release-history"></a>Historial de versiones de conectores
@@ -38,11 +38,53 @@ Vínculos relacionados:
 * [conector PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
 * [conector Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
+## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
+
+### <a name="fixed-issues"></a>Problemas corregidos:
+
+* Servicios Web genéricos:
+  * La herramienta Wsconfig no convirtió correctamente la matriz JSON de "solicitud de ejemplo" para el método del servicio REST. Por este motivo, se han producido problemas de serialización de esta matriz JSON para la solicitud de REST.
+  * La herramienta de configuración de conectores del servicio web no admite el uso de símbolos de espacio en los nombres de atributo JSON. Se puede agregar manualmente un patrón de sustitución al archivo WSConfigTool.exe.config, por ejemplo, ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+
+* Lotus Notes:
+  * Cuando la opción **Allow custom certifiers for Organization/Organizational Units** (Permitir certificadores personalizados para la organización/unidades organizativas) está deshabilitada, el conector produce un error durante la exportación (Actualización) Después del flujo de exportación, se exportan todos los atributos a Domino, pero en el momento de la exportación se devuelve una excepción KeyNotFoundException a Sync. Esto sucede porque se produce un error en la operación de cambio de nombre al intentar cambiar DN (atributo UserName) cambiando uno de los atributos siguientes:  
+    - Apellidos
+    - Nombre
+    - MiddleInitial
+    - AltFullName
+    - AltFullNameLanguage
+    - ou
+    - altcommonname
+
+  * Cuando la opción **Allow custom certifiers for Organization/Organizational Units** (Permitir certificadores personalizados para la organización/unidades organizativas) está habilitada pero los certificadores necesarios siguen vacíos, se produce una excepción KeyNotFoundException.
+
+### <a name="enhancements"></a>Mejoras:
+
+* SQL genérico:
+  * **Escenario: se volvió a implementar:** característica "*"
+  * **Descripción de la solución:** se cambió el enfoque para el [control de los atributos de referencia multivalor](active-directory-aadconnectsync-connector-genericsql.md).
+
+
+### <a name="fixed-issues"></a>Problemas corregidos:
+
+* Servicios Web genéricos:
+  * No se puede importar la configuración del servidor si está presente el conector de WebService
+  * El conector de WebService no funciona con varios servicios web
+
+* SQL genérico:
+  * No hay tipos de objeto para atributos de referencia de un único valor
+  * La importación diferencial en la estrategia de Change Tracking elimina el objeto cuando se quita el valor de la tabla multivalor
+  * OverflowException en conector GSQL con DB2 en AS/400
+
+Lotus:
+  * Se ha agregado la opción para habilitar o deshabilitar la búsqueda de unidades organizativas antes de abrir la página de GlobalParameters
+
 ## <a name="114430"></a>1.1.443.0
 
 Publicación: marzo de 2017
 
 ### <a name="enhancements"></a>Mejoras
+
 * SQL genérico:</br>
   **Síntomas del escenario:** se trata de una limitación conocida con el Conector de SQL en la que solo se permite una referencia a un tipo de objeto y se requiere referencia cruzada con los miembros. </br>
   **Descripción de la solución:** en el paso de procesamiento de las referencias en que se elige la opción "*", TODAS las combinaciones de tipos de objeto se devolverán al motor de sincronización.
@@ -151,7 +193,7 @@ Antes de marzo de 2016, los conectores se publicaban como temas de soporte técn
 * [KB2875551](https://support.microsoft.com/kb/2875551) : 5.3.0534, agosto de 2013
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
+Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 

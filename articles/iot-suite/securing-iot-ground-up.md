@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 07/03/2017
 ms.author: yurid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ad88c17e0c6bad7cb58c8517a47bbe5fe0fae763
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 4e02b55272fee8460886bb807a45cad99612dd86
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -29,7 +29,7 @@ Internet de las cosas (IoT) plantea desafíos únicos para la seguridad, la priv
 
 En este artículo se explora cómo el conjunto de aplicaciones de IoT de Microsoft Azure proporciona una solución de nube de Internet de las cosas privada y segura. El conjunto de aplicaciones de IoT de Azure ofrece una solución completa, donde la seguridad es una parte integral de cada etapa desde el principio. En Microsoft, desarrollar software seguro forma parte de la práctica de ingeniería de software, arraigada en nuestras décadas de experiencia de desarrollo de software seguro. Para garantizar esto, la metodología de desarrollo fundamental es el Ciclo de vida de desarrollo de seguridad (SDL), junto con un conjunto de servicios de seguridad de nivel de infraestructura, como Garantía de la seguridad operacional (OSA), la unidad de delitos digitales de Microsoft, el Centro de respuestas de seguridad de Microsoft y el Centro de protección contra malware de Microsoft. 
 
-El conjunto de aplicaciones de IoT de Azure ofrece características únicas para aprovisionar los dispositivos IoT, conectarse a ellos y almacenar sus datos de forma fácil y transparente y, principalmente, segura. En este artículo examinaremos las características de seguridad y las estrategias de implementación del conjunto de aplicaciones de IoT de Azure para garantizar que se abordan los desafíos relativos a la seguridad, la privacidad y el cumplimiento. 
+El conjunto de aplicaciones de IoT de Azure ofrece características únicas para aprovisionar los dispositivos IoT, conectarse a ellos y almacenar sus datos de forma fácil y transparente y, sobre todo, segura. En este artículo examinaremos las características de seguridad y las estrategias de implementación del conjunto de aplicaciones de IoT de Azure para garantizar que se abordan los desafíos relativos a la seguridad, la privacidad y el cumplimiento. 
 
 ## <a name="introduction"></a>Introducción
 Internet de las cosas (IoT) es la generación del futuro al ofrecer a las empresas oportunidades inmediatas y reales para reducir los costos, aumentar los ingresos y transformar el negocio. Muchas empresas, sin embargo, tienen dudas sobre si implementar IoT en sus organizaciones, ya que les preocupa la seguridad, la privacidad y el cumplimiento. Una de las principales preocupaciones proviene del carácter único de la infraestructura IoT; al combinarse los mundos cibernético y físico, se agravan los riegos individuales inherentes a estos dos mundos. La seguridad de IoT tiene que ver con garantizar la integridad del código que se ejecuta en los dispositivos, proporcionar autenticación de dispositivos y usuarios, definir la propiedad clara de los dispositivos (así como de los datos generados por ellos) y resistir a los ataques cibernéticos y físicos. 
@@ -101,7 +101,7 @@ Cada solución preconfigurada del conjunto de aplicaciones de IoT de Azure crea 
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/documentdb/): servicio de base de datos completamente indexado y escalable destinado a datos semiestructurados que administra los metadatos de los dispositivos aprovisionados, como los atributos, la configuración y las propiedades de seguridad. Cosmos DB ofrece procesamiento de alto rendimiento, indexación de datos independiente del esquema y una completa interfaz de consultas SQL.
 * [**Análisis de transmisiones de Azure**](https://azure.microsoft.com/services/stream-analytics/)procesamiento de transmisiones en tiempo real en la nube que permite desarrollar e implementar rápidamente una solución de análisis de bajo costo para desvelar datos detallados en tiempo real de dispositivos, sensores, infraestructura y aplicaciones. Los datos de este servicio completamente administrado se pueden escalar a cualquier volumen, sin dejar de obtener alto rendimiento, baja latencia y resistencia.
 * [**Azure App Services**](https://azure.microsoft.com/services/app-service/): plataforma en la nube que sirve para crear sólidas aplicaciones web y móviles desde las que se puede obtener acceso a datos en cualquier lugar, ya sea en la nube o desde la infraestructura local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
-* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): la característica Logic Apps de Azure App Service sirve para integrar la solución IoT con la línea existente de sistemas empresariales y para automatizar los procesos de flujo de trabajo. Las aplicaciones lógicas permiten a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Las aplicaciones lógicas ofrecen conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
+* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): la característica Logic Apps de Azure App Service sirve para integrar la solución de IoT con los sistemas de línea de negocio existentes y para automatizar los procesos de flujo de trabajo. Las aplicaciones lógicas permiten a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Las aplicaciones lógicas ofrecen conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
 * [**Azure Blob Storage**](https://azure.microsoft.com/services/storage/): almacenamiento en la nube confiable y económico para los datos que los dispositivos envían a la nube.
 
 ## <a name="next-steps"></a>Pasos siguientes

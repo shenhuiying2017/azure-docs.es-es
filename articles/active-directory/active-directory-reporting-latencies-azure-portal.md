@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1c6b79c5f67cee5d62c9879bdeec926091253af6
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: a1e385c235c3530744a83527574880c5f37caadd
 ms.contentlocale: es-es
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="azure-active-directory-reporting-latencies---preview"></a>Latencias de informes de Azure Active Directory (versión preliminar)
+# <a name="azure-active-directory-reporting-latencies"></a>Latencias de informes de Azure Active Directory
 
-Con los informes de la [versión preliminar](active-directory-preview-explainer.md) de Azure Active Directory, obtendrá toda la información que necesita para determinar cómo marcha el entorno. La cantidad de tiempo necesaria para que los datos de informes aparezcan en Azure Portal se denomina latencia. 
+Con los [informes](active-directory-preview-explainer.md) de Azure Active Directory, obtendrá toda la información que necesita para determinar cómo funciona el entorno. La cantidad de tiempo necesaria para que los datos de informes aparezcan en Azure Portal se denomina latencia. 
 
 En este tema se muestra la información de latencia de todas las categorías de informes en Azure Portal. 
 
@@ -91,3 +91,4 @@ Si desea obtener más información acerca de los informes de seguridad en Azure 
 - [Informe de inicios de sesión poco seguros en el portal de Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 Si desea obtener más información acerca de los eventos de riesgo, consulte [Eventos de riesgo de Azure Active Directory](active-directory-reporting-risk-events.md).
+
