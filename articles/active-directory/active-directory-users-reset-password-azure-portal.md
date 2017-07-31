@@ -25,18 +25,14 @@ ms.lasthandoff: 05/08/2017
 
 
 ---
-<a id="reset-the-password-for-a-user-in-azure-active-directory" class="xliff"></a>
-
-# Restablecimiento de la contraseña de un usuario en Azure Active Directory
+# <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Restablecimiento de la contraseña de un usuario en Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Portal de Azure](active-directory-users-reset-password-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-create-users-reset-password.md)
 >
 >
 
-<a id="how-to-reset-the-password-for-a-user" class="xliff"></a>
-
-## Restablecimiento de la contraseña de un usuario
+## <a name="how-to-reset-the-password-for-a-user"></a>Restablecimiento de la contraseña de un usuario
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
 
@@ -50,9 +46,7 @@ ms.lasthandoff: 05/08/2017
     ![Selección del comando Restablecer contraseña](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
 6. En la hoja **Restablecer contraseña**, seleccione **Restablecer contraseña**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Adición de un usuario](active-directory-users-create-azure-portal.md)
 * [Asignar a un usuario a un rol de Azure AD](active-directory-users-assign-role-azure-portal.md)
 * [Cambiar la información de trabajo de un usuario](active-directory-users-work-info-azure-portal.md)

@@ -24,9 +24,7 @@ ms.lasthandoff: 05/09/2017
 
 ---
 
-<a id="how-to-customize-a-windows-virtual-machine-in-azure" class="xliff"></a>
-
-# Cómo personalizar una máquina virtual de Windows en Azure
+# <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Cómo personalizar una máquina virtual de Windows en Azure
 Para configurar las máquinas virtuales de una manera rápida y coherente, normalmente se desea alguna forma de automatización. Un enfoque común para personalizar una máquina virtual de Windows consiste en usar la [Extensión de la secuencia de comandos personalizada para Windows](extensions-customscript.md). En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
@@ -37,9 +35,7 @@ Para configurar las máquinas virtuales de una manera rápida y coherente, norma
 Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
-<a id="custom-script-extension-overview" class="xliff"></a>
-
-## Información general de la extensión de script personalizado
+## <a name="custom-script-extension-overview"></a>Información general de la extensión de script personalizado
 La extensión de script personalizado descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage o GitHub, o se pueden proporcionar a Azure Portal en el tiempo de ejecución de la extensión.
 
 La extensión de script personalizado se integra con las plantillas de Azure Resource Manager y también se puede ejecutar mediante la CLI de Azure, PowerShell, Azure Portal o la API de REST de máquina virtual de Azure.
@@ -47,9 +43,7 @@ La extensión de script personalizado se integra con las plantillas de Azure Res
 Se puede usar la extensión de script personalizado con máquinas virtuales de Linux y Windows.
 
 
-<a id="create-virtual-machine" class="xliff"></a>
-
-## Create virtual machine
+## <a name="create-virtual-machine"></a>Create virtual machine
 Antes de poder crear una máquina virtual, cree un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupAutomate* en la ubicación *EastUS*:
 
 ```powershell
@@ -139,9 +133,7 @@ New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $v
 Los recursos y la máquina virtual tardan unos minutos en crearse.
 
 
-<a id="automate-iis-install" class="xliff"></a>
-
-## Automatizar la instalación de IIS
+## <a name="automate-iis-install"></a>Automatizar la instalación de IIS
 Use [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para instalar la extensión de script personalizado. La extensión ejecuta `powershell Add-WindowsFeature Web-Server` para instalar el servidor web de IIS y después actualiza la página *Default.htm* para mostrar el nombre de host de la máquina virtual:
 
 ```powershell
@@ -156,9 +148,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
 ```
 
 
-<a id="test-web-site" class="xliff"></a>
-
-## Sitio web de prueba
+## <a name="test-web-site"></a>Sitio web de prueba
 Obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIP* que se ha creado anteriormente:
 
 ```powershell
@@ -172,9 +162,7 @@ A continuación, puede escribir la dirección IP pública en un explorador web. 
 ![Ejecución del sitio web de IIS](./media/tutorial-automate-vm-deployment/running-iis-website.png)
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, automatizó la instalación IIS en una máquina virtual. Ha aprendido a:
 

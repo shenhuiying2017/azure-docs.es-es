@@ -24,14 +24,10 @@ ms.lasthandoff: 05/08/2017
 
 
 ---
-<a id="assign-a-user-to-administrator-roles-in-azure-active-directory" class="xliff"></a>
-
-# Asignación de un usuario a roles de administrador en Azure Active Directory
+# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Asignación de un usuario a roles de administrador en Azure Active Directory
 En este artículo se explica cómo asignar un rol administrativo a un usuario en Azure Active Directory (Azure AD). Para obtener más información sobre cómo agregar nuevos usuarios en su organización, consulte [Incorporación de nuevos usuarios a Azure Active Directory](active-directory-users-create-azure-portal.md). De forma predeterminada, los usuarios agregados no tienen permisos de administrador, pero puede asignárselos en cualquier momento.
 
-<a id="assign-a-role-to-a-user" class="xliff"></a>
-
-## Asignar de un rol a un usuario
+## <a name="assign-a-role-to-a-user"></a>Asignar de un rol a un usuario
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
 
@@ -45,9 +41,7 @@ En este artículo se explica cómo asignar un rol administrativo a un usuario en
       ![Asignación de un rol a un usuario](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Seleccione **Guardar**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Adición de un usuario](active-directory-users-create-azure-portal.md)
 * [Restablecer una contraseña de usuario en el nuevo Azure Portal](active-directory-users-reset-password-azure-portal.md)
 * [Cambiar la información de trabajo de un usuario](active-directory-users-work-info-azure-portal.md)

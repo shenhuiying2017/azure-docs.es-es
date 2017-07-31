@@ -22,9 +22,7 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="use-desired-properties-to-configure-devices-node" class="xliff"></a>
-
-# Uso de las propiedades deseadas para configurar dispositivos (Node)
+# <a name="use-desired-properties-to-configure-devices-node"></a>Uso de las propiedades deseadas para configurar dispositivos (Node)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
@@ -48,9 +46,7 @@ Si ha seguido el tutorial [Introducción a los dispositivos gemelos][lnk-twin-tu
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-<a id="create-the-simulated-device-app" class="xliff"></a>
-
-## Creación de la aplicación de dispositivo simulado
+## <a name="create-the-simulated-device-app"></a>Creación de la aplicación de dispositivo simulado
 En esta sección, creará una aplicación de consola de Node.js que se conecta a su centro como **myDeviceId**, espera por una actualización de la configuración deseada y, a continuación, informa de las actualizaciones en el proceso de actualización de configuración simulada.
 
 1. Cree una nueva carpeta vacía denominada **simulatedeviceconfiguration**. En la carpeta **simulatedeviceconfiguration** , cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
@@ -161,9 +157,7 @@ En esta sección, creará una aplicación de consola de Node.js que se conecta a
    
     Verá el mensaje `retrieved device twin`. Mantenga la aplicación en ejecución.
 
-<a id="create-the-service-app" class="xliff"></a>
-
-## Creación de la aplicación de servicio
+## <a name="create-the-service-app"></a>Creación de la aplicación de servicio
 En esta sección, creará una aplicación de consola de Node.js que actualiza las *propiedades deseadas* en el dispositivo gemelo asociado con **myDeviceId** con un nuevo objeto de configuración de telemetría. A continuación, consulta a los dispositivos gemelos almacenados en el centro de IoT y muestra la diferencia entre las configuraciones deseada y notificada del dispositivo.
 
 1. Cree una nueva carpeta vacía denominada **setdesiredandqueryapp**. En la carpeta **setdesiredandqueryapp** , cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
@@ -253,9 +247,7 @@ En esta sección, creará una aplicación de consola de Node.js que actualiza la
    > 
    > 
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha establecido una configuración deseada como *propiedades deseadas* desde una aplicación back-end, y ha escrito una aplicación de dispositivo simulado para detectar ese cambio y simular un proceso de actualización de varios pasos que informe de su estado como *propiedades notificadas* para el dispositivo gemelo.
 
 Use los siguientes recursos para obtener información sobre cómo:

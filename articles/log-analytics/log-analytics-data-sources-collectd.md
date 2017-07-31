@@ -22,9 +22,7 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="collect-data-from-collectd-on-linux-agents-in-log-analytics" class="xliff"></a>
-
-# Recopilación de datos de CollectD en agentes de Linux en Log Analytics
+# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Recopilación de datos de CollectD en agentes de Linux en Log Analytics
 [CollectD](https://collectd.org/) es un demonio de Linux de código abierto que recopila periódicamente métricas de rendimiento de aplicaciones e información de nivel de sistema. Las aplicaciones de ejemplo incluyen la máquina virtual Java (JVM), MySQL Server y Nginx. En este artículo se proporciona información sobre la recopilación de datos de rendimiento de CollectD en Log Analytics.
 
 Puede encontrar una lista completa de los complementos disponibles en la [tabla de complementos](https://collectd.org/wiki/index.php/Table_of_Plugins).
@@ -72,25 +70,19 @@ El agente de OMS para Linux también escucha en el puerto 26000 las métricas de
     </filter>
 
 
-<a id="versions-supported" class="xliff"></a>
-
-## Versiones admitidas
+## <a name="versions-supported"></a>Versiones admitidas
 - Log Analytics admite actualmente las versiones de CollectD 4.8 y superior.
 - Para la recopilación de métricas de CollectD, se requiere el agente de OMS para Linux v1.1.0-217 o superior.
 
 
-<a id="configuration" class="xliff"></a>
-
-## Configuración
+## <a name="configuration"></a>Configuración
 Estos son los pasos básicos para configurar la recopilación de datos de CollectD en Log Analytics.
 
 1. Configure CollectD para enviar datos al agente de OMS para Linux mediante el complemento write_http.  
 2. Configure al agente de OMS para Linux para escuchar datos de CollectD en el puerto adecuado.
 3. Reinicie CollectD y el agente de OMS para Linux.
 
-<a id="configure-collectd-to-forward-data" class="xliff"></a>
-
-### Configuración de CollectD para reenviar datos 
+### <a name="configure-collectd-to-forward-data"></a>Configuración de CollectD para reenviar datos 
 
 1. Para enrutar los datos de CollectD al agente de OMS para Linux, es necesario agregar `oms.conf` al directorio de configuración de CollectD. El destino de este archivo depende de la distribución de Linux de su máquina.
 
@@ -115,9 +107,7 @@ Estos son los pasos básicos para configurar la recopilación de datos de Collec
 
     sudo service collectd restart  sudo /opt/microsoft/omsagent/bin/service_control restart
 
-<a id="collectd-metrics-to-log-analytics-schema-conversion" class="xliff"></a>
-
-## Conversión de métricas de CollectD en esquemas de Log Analytics
+## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Conversión de métricas de CollectD en esquemas de Log Analytics
 Para mantener un modelo conocido entre las métricas de infraestructura ya recopiladas por el agente de OMS para Linux y las nuevas métricas recopiladas por CollectD, se usa la siguiente asignación de esquema:
 
 | Campo de métrica de CollectD | Campo de Log Analytics |
@@ -131,9 +121,7 @@ Para mantener un modelo conocido entre las métricas de infraestructura ya recop
 | dstypes | None |
 | values[] | CounterValue |
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones. 
 * Use [Campos personalizados](log-analytics-custom-fields.md) para analizar datos de registros de Syslog en campos individuales.
 

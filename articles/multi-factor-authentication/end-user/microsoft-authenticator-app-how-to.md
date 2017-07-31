@@ -22,9 +22,7 @@ ms.contentlocale: es-es
 ms.lasthandoff: 05/09/2017
 
 ---
-<a id="get-started-with-the-microsoft-authenticator-app" class="xliff"></a>
-
-# Introducción a la aplicación Microsoft Authenticator
+# <a name="get-started-with-the-microsoft-authenticator-app"></a>Introducción a la aplicación Microsoft Authenticator
 La aplicación Microsoft Authenticator proporciona un nivel de seguridad adicional para su cuenta profesional o educativa (por ejemplo, bsimon@contoso.com) o su cuenta de Microsoft (por ejemplo, bsimon@outlook.com).
 
 La aplicación funciona de una de estas dos formas:
@@ -34,9 +32,7 @@ La aplicación funciona de una de estas dos formas:
 
 La aplicación Microsoft Authenticator sustituye a la aplicación Azure Authenticator. La aplicación Azure Authenticator seguirá funcionando, pero si decide dar el paso a la nueva aplicación Microsoft Authenticator, este artículo puede servirle de ayuda.  
 
-<a id="opt-in-for-two-step-verification" class="xliff"></a>
-
-## Suscripción a la comprobación en dos pasos
+## <a name="opt-in-for-two-step-verification"></a>Suscripción a la comprobación en dos pasos
 
 La aplicación Microsoft Authenticator no funciona por sí misma. Deberá configurar sus cuentas para que le soliciten un segundo método de comprobación después de iniciar sesión con su nombre de usuario y contraseña. 
 
@@ -46,25 +42,17 @@ En una cuenta personal, debe configurar la comprobación en dos pasos usted mism
 
 También puede usar Microsoft Authenticator con cuentas que no sean de Microsoft. Aunque es posible que llamen a la característica de comprobación en dos de otra manera, lo más seguro es que la encuentre en la configuración de seguridad o de inicio de sesión. 
 
-<a id="install-the-app" class="xliff"></a>
-
-## Instalación de la aplicación
+## <a name="install-the-app"></a>Instalación de la aplicación
 La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-<a id="add-accounts-to-the-app" class="xliff"></a>
-
-## Incorporación de cuentas a la aplicación
+## <a name="add-accounts-to-the-app"></a>Incorporación de cuentas a la aplicación
 Siga uno de los procedimientos siguientes para cada cuenta que desee agregar a la aplicación Microsoft Authenticator.
 
-<a id="add-a-personal-microsoft-account-to-the-app" class="xliff"></a>
-
-### Incorporación de una cuenta Microsoft personal a la aplicación
+### <a name="add-a-personal-microsoft-account-to-the-app"></a>Incorporación de una cuenta Microsoft personal a la aplicación
 
 Para una cuenta Microsoft personal (una que use para iniciar sesión en Outlook.com, Xbox, Skype, etc.), lo único que debe hacer es iniciar sesión en su cuenta en la aplicación Microsoft Authenticator.
 
-<a id="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner" class="xliff"></a>
-
-### Incorporación de una cuenta profesional o educativa a la aplicación con el escáner de códigos QR
+### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>Incorporación de una cuenta profesional o educativa a la aplicación con el escáner de códigos QR
 1. Vaya a la pantalla de configuración de comprobación de seguridad.  Para información sobre cómo ir a esta pantalla, consulte la sección sobre el [cambio de la configuración de seguridad](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
 2. Active la casilla situada junto a **Aplicación Authenticator** y luego seleccione **Configurar**.
 
@@ -82,9 +70,7 @@ Para una cuenta Microsoft personal (una que use para iniciar sesión en Outlook.
 
     ![Pantalla Cuentas](./media/authenticator-app-how-to/accounts.png)
 
-<a id="add-an-account-to-the-app-manually" class="xliff"></a>
-
-### Incorporación manual de una cuenta a la aplicación
+### <a name="add-an-account-to-the-app-manually"></a>Incorporación manual de una cuenta a la aplicación
 1. Vaya a la pantalla de configuración de comprobación de seguridad.  Para información sobre cómo ir a esta pantalla, consulte la sección sobre el [cambio de la configuración de seguridad](multi-factor-authentication-end-user-manage-settings.md).
 2. Seleccione **Configurar**.
 
@@ -106,9 +92,7 @@ Para una cuenta Microsoft personal (una que use para iniciar sesión en Outlook.
 
     ![Pantalla Cuentas](./media/authenticator-app-how-to/accounts.png)
 
-<a id="add-an-account-to-the-app-using-touch-id" class="xliff"></a>
-
-### Incorporación de una cuenta a la aplicación con Touch ID
+### <a name="add-an-account-to-the-app-using-touch-id"></a>Incorporación de una cuenta a la aplicación con Touch ID
 La aplicación Microsoft Authenticator de iOS es compatible con Touch ID.  Azure Multi-Factor Authentication permite a las organizaciones pedir un PIN para los dispositivos. Con Touch ID, los usuarios de iOS no tienen por qué escribir un PIN. En su lugar, pueden digitalizar su huella y seleccionar **Aprobar**.
 
 Configurar Touch ID con Microsoft Authenticator es sencillo. Un PIN supone un reto de comprobación normal. Si el dispositivo es compatible con Touch ID, Microsoft Authenticator lo configura automáticamente para esa cuenta.
@@ -119,9 +103,7 @@ A partir de ese momento, cuando se requiera que compruebe el inicio de sesión, 
 
 ![Notificación push](./media/authenticator-app-how-to/touchid2.png)
 
-<a id="use-the-app-when-you-sign-in" class="xliff"></a>
-
-## Uso de la aplicación al iniciar sesión
+## <a name="use-the-app-when-you-sign-in"></a>Uso de la aplicación al iniciar sesión
 
 Después de que la cuenta se agregue a la aplicación, puede que se le solicite que realice una comprobación de prueba para asegurarse de que todo está configurado correctamente. Después de eso, habrá terminado. No es necesario hacer nada más hasta la próxima vez que inicie sesión.
 

@@ -22,8 +22,7 @@ ms.contentlocale: es-es
 ms.lasthandoff: 05/05/2017
 
 ---
-<a id="supplemental-lesson---ragged-hierarchies" class="xliff"></a>
-# Lección complementaria: Jerarquías desiguales
+# <a name="supplemental-lesson---ragged-hierarchies"></a>Lección complementaria: Jerarquías desiguales
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -35,17 +34,14 @@ Los modelos tabulares en el nivel de compatibilidad 1400 tienen la propiedad adi
   
 Tiempo estimado para completar esta lección: **20 minutos**  
   
-<a id="prerequisites" class="xliff"></a>
-## Requisitos previos  
+## <a name="prerequisites"></a>Requisitos previos  
 Esta lección complementaria forma parte de un tutorial de modelado tabular. Antes de realizar las tareas de esta lección complementaria, debería haber finalizado todas las lecciones anteriores o haber completado un proyecto de modelo de ejemplo de ventas por Internet de Adventure Works. 
 
 Si ha creado el proyecto de ventas por Internet de AW como parte del tutorial, el modelo todavía no contendrá datos ni jerarquías desiguales. Para completar esta lección complementaria, primero debe crear el problema. Para ello, agregue algunas tablas y cree relaciones, columnas calculadas, una medida y una jerarquía de organización. Solo tardará unos 15 minutos en hacerlo. Después, podrá solucionar el problema en unos pocos minutos.  
 
-<a id="add-tables-and-objects" class="xliff"></a>
-## Agregar tablas y objetos
+## <a name="add-tables-and-objects"></a>Agregar tablas y objetos
   
-<a id="to-add-new-tables-to-your-model" class="xliff"></a>
-### Para agregar nuevas tablas al modelo
+### <a name="to-add-new-tables-to-your-model"></a>Para agregar nuevas tablas al modelo
   
 1.  En el Explorador de modelos tabulares, expanda **Orígenes de datos** y haga clic con el botón derecho en la conexión > **Importar nuevas tablas**.
   
@@ -116,8 +112,7 @@ Si ha creado el proyecto de ventas por Internet de AW como parte del tutorial, e
 
     Como puede ver en la tabla dinámica, la jerarquía muestra filas desiguales. Hay muchas filas en las que se muestran miembros en blanco.
 
-<a id="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property" class="xliff"></a>
-## Para corregir la jerarquía desigual mediante el establecimiento de la propiedad Ocultar miembros
+## <a name="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property"></a>Para corregir la jerarquía desigual mediante el establecimiento de la propiedad Ocultar miembros
 
 1.  En el **Explorador de modelos tabulares**, expanda **Tablas** > **DimEmployee** > **Jerarquías** > **Organización**.
 
@@ -131,8 +126,7 @@ Si ha creado el proyecto de ventas por Internet de AW como parte del tutorial, e
 
     Ahora el aspecto es mucho mejor.
 
-<a id="see-also" class="xliff"></a>
-## Otras referencias   
+## <a name="see-also"></a>Otras referencias   
 [Lección 9: Creación de jerarquías](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Lección complementaria: Seguridad dinámica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Lección complementaria: Filas de detalles](../tutorials/aas-supplemental-lesson-detail-rows.md)  
