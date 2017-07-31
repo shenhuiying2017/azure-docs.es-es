@@ -24,17 +24,13 @@ ms.lasthandoff: 07/01/2017
 
 
 ---
-<a id="azure-availability-sets-guidelines-for-linux-vms" class="xliff"></a>
-
-# Directrices de conjuntos de disponibilidad de Azure para máquinas virtuales Linux
+# <a name="azure-availability-sets-guidelines-for-linux-vms"></a>Directrices de conjuntos de disponibilidad de Azure para máquinas virtuales Linux
 
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Este artículo se centra en describir los pasos de planeación necesarios para que los conjuntos de disponibilidad garanticen que sus aplicaciones permanezcan accesibles durante eventos planeados o no planeados.
 
-<a id="implementation-guidelines-for-availability-sets" class="xliff"></a>
-
-## Directrices de implementación para los conjuntos de disponibilidad
+## <a name="implementation-guidelines-for-availability-sets"></a>Directrices de implementación para los conjuntos de disponibilidad
 Decisiones:
 
 * ¿Cuántos conjuntos de disponibilidad necesita para los distintos roles y niveles de la infraestructura de la aplicación?
@@ -45,9 +41,7 @@ Tareas:
 * Determine si necesita ajustar el número de dominios de error o actualización que se va a usar para la aplicación.
 * Defina los conjuntos de disponibilidad necesarios usando su convención de nomenclatura y las máquinas virtuales que residirán en ellos. Una máquina virtual solo puede residir en un conjunto de disponibilidad. 
 
-<a id="availability-sets" class="xliff"></a>
-
-## Conjuntos de disponibilidad
+## <a name="availability-sets"></a>Conjuntos de disponibilidad
 En Azure, las máquinas virtuales (VM) se pueden colocar en una agrupación lógica llamada conjunto de disponibilidad. Al crear máquinas virtuales dentro de un conjunto de disponibilidad, la plataforma de Azure distribuirá la ubicación de esas máquinas virtuales a través de la infraestructura subyacente. Si hubiera un evento de mantenimiento planeado para la plataforma de Azure o un error de hardware o infraestructura subyacente, el uso de conjuntos de disponibilidad garantiza que al menos una máquina virtual siguiera ejecutándose.
 
 Como procedimiento recomendado, las aplicaciones no deben residir en una sola máquina virtual. Un conjunto de disponibilidad que contiene una sola máquina virtual no obtiene ninguna protección por parte de eventos planeados o no planeados dentro de la plataforma de Azure. El [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) requiere dos o más máquinas virtuales dentro de un conjunto de disponibilidad para permitir la distribución de máquinas virtuales a través de la infraestructura subyacente. Si utiliza [Azure Premium Storage](../../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), el Acuerdo de Nivel de Servicio de Azure se aplica a una sola máquina virtual.
@@ -62,9 +56,7 @@ Los equilibradores de carga pueden usarse delante de cada nivel de aplicación j
 
 Diseñe su aplicación para lograr una alta disponibilidad en la capa de almacenamiento. El procedimiento recomendado es [usar Managed Disks para las máquinas virtuales de un conjunto de disponibilidad](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set). Si actualmente usa discos no administrados, es muy recomendable [convertir las máquinas virtuales del conjunto de disponibilidad para que usen Managed Disks](convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set).
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
 

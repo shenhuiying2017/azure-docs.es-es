@@ -21,19 +21,16 @@ ms.contentlocale: es-es
 ms.lasthandoff: 07/12/2017
 
 ---
-# Uso de la hoja de resumen del servicio del dispositivo de la serie StorSimple 8000
-<a id="use-the-service-summary-blade-for-storsimple-8000-series-device" class="xliff"></a>
+# <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Uso de la hoja de resumen del servicio del dispositivo de la serie StorSimple 8000
 
-## Información general
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Información general
 
 La hoja del resumen del servicio StorSimple Device Manager proporciona una vista resumida de todos los dispositivos conectados al servicio StorSimple Device Manager y resalta los que requieren la atención del administrador del sistema. En este tutorial se presenta la hoja de resumen del servicio, se explica el contenido y la función del panel y se describen las tareas que se pueden realizar desde esta página.
 
 ![Resumen del servicio](./media/storsimple-8000-service-dashboard/service-summary1.png)
 
 
-## Comandos de administración
-<a id="management-commands" class="xliff"></a>
+## <a name="management-commands"></a>Comandos de administración
 
 En la hoja de resumen del servicio de StorSimple se ven las opciones para administrar tanto el servicio StorSimple Device Manager como los dispositivos de la serie StorSimple 8000 registrados en dicho servicio. Verá los comandos de administración en la parte superior de la hoja y en el lado izquierdo.
 
@@ -42,15 +39,13 @@ En la hoja de resumen del servicio de StorSimple se ven las opciones para admini
 Estas opciones se pueden usar para realizar diversas operaciones tales como agregar recursos compartidos o volúmenes, o supervisar los distintos trabajos que se ejecutan en los dispositivos de StorSimple.
 
 
-## Essentials
-<a id="essentials" class="xliff"></a>
+## <a name="essentials"></a>Essentials
 
 El área de información esencial captura algunas de las propiedades importantes, como el grupo de recursos, la ubicación y la suscripción en la que se creó StorSimple Device Manager.
 
 ![Essentials](./media/storsimple-8000-service-dashboard/service-summary3.png)
 
-## Resumen del servicio StorSimple Device Manager
-<a id="storsimple-device-manager-service-summary" class="xliff"></a>
+## <a name="storsimple-device-manager-service-summary"></a>Resumen del servicio StorSimple Device Manager
 
 * El icono **Alertas** (Alertas) proporciona una instantánea de todas las alertas activas en todos los dispositivos virtuales, agrupadas por gravedad.
 
@@ -85,14 +80,12 @@ El área de información esencial captura algunas de las propiedades importantes
 
     ![Hacer clic en icono de dispositivos](./media/storsimple-8000-service-dashboard/service-summary9.png)
 
-## Visualizar los registros de actividad
-<a id="view-the-activity-logs" class="xliff"></a>
+## <a name="view-the-activity-logs"></a>Visualizar los registros de actividad
 
 Para ver las distintas operaciones que se llevan a cabo en StorSimple Device Manager, haga clic en el vínculo **Registros de actividad** en el lado izquierdo de la hoja de resumen del servicio StorSimple. Esto le llevará a la hoja **Registros de actividad**, donde puede ver un resumen de las operaciones recientes que se llevan a cabo.
 
 ![Registros de actividad](./media/storsimple-8000-service-dashboard/activity-logs1.png)
-## Pasos siguientes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información acerca de cómo [usar el servicio StorSimple Device Manager para administrar cualquier dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

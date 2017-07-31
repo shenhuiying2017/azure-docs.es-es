@@ -2,8 +2,7 @@
 
 Si el contenedor de volúmenes tiene volúmenes asociados, desconecte primero estos volúmenes. Siga los pasos de [Desconexión de un volumen](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Una vez que los volúmenes estén desconectados, puede eliminarlos. Si el contenedor de volúmenes no tiene volúmenes asociados, elimínelo. Realice el siguiente procedimiento para eliminar un contenedor de volúmenes.
 
-#### Para eliminar un contenedor de volúmenes
-<a id="to-delete-a-volume-container" class="xliff"></a>
+#### <a name="to-delete-a-volume-container"></a>Para eliminar un contenedor de volúmenes
 1. Vaya al servicio Administrador de dispositivos de StorSimple y haga clic en **Dispositivos**. Seleccione y haga clic en el dispositivo y, a continuación, vaya a **Configuración > Administrar > Contenedores de volúmenes**.
 
     ![Hoja Contenedores de volúmenes](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)

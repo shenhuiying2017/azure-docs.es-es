@@ -23,15 +23,11 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-<a id="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs" class="xliff"></a>
-
-# Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
+# <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
 
 En ocasiones, un trabajo de Azure Stream Analytics deja de procesarse inesperadamente. Es importante poder solucionar este tipo de evento. El evento podría deberse a un resultado de consulta inesperado, la conectividad a los dispositivos o una interrupción inesperada del servicio. Los registros de diagnóstico de Stream Analytics pueden ayudarle a identificar la causa de los problemas cuando se producen y a reducir el tiempo de recuperación.
 
-<a id="log-types" class="xliff"></a>
-
-## Tipos de registro
+## <a name="log-types"></a>Tipos de registro
 
 Stream Analytics ofrece dos tipos de registros: 
 * [Registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (siempre activados). Los registros de actividad proporcionan información sobre las operaciones realizadas en los trabajos.
@@ -41,9 +37,7 @@ Stream Analytics ofrece dos tipos de registros:
 > Puede usar servicios como Azure Storage, Azure Event Hubs y Azure Log Analytics para analizar los datos no conformes. Se le cobra según el modelo de precios existente para esos servicios.
 >
 
-<a id="turn-on-diagnostics-logs" class="xliff"></a>
-
-## Activación de los registros de diagnóstico
+## <a name="turn-on-diagnostics-logs"></a>Activación de los registros de diagnóstico
 
 Los registros de diagnóstico están **desactivados** de forma predeterminada. Para activar los registros de diagnóstico, siga estos pasos:
 
@@ -69,9 +63,7 @@ Tardará unos 10 minutos en surtir efecto. Luego, comienzan a aparecer los regis
 
 Para más información sobre la configuración de diagnósticos, consulte el artículo sobre la [recopilación y el uso de datos de diagnóstico provenientes de los recursos de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
-<a id="diagnostics-log-categories" class="xliff"></a>
-
-## Categorías de registro de diagnóstico
+## <a name="diagnostics-log-categories"></a>Categorías de registro de diagnóstico
 
 Actualmente, se capturan dos categorías de registros de diagnóstico:
 
@@ -83,9 +75,7 @@ Actualmente, se capturan dos categorías de registros de diagnóstico:
         * Errores de evaluación de expresión
     * Otros eventos y errores
 
-<a id="diagnostics-logs-schema" class="xliff"></a>
-
-## Esquema de registros de diagnóstico
+## <a name="diagnostics-logs-schema"></a>Esquema de registros de diagnóstico
 
 Todos los registros se almacenan en formato JSON. Cada entrada tiene los siguientes campos de cadena comunes:
 
@@ -99,15 +89,11 @@ status | Estado de la operación. Por ejemplo, **Erróneo** o **Correcto**.
 level | Nivel de registro. Por ejemplo, **Error**, **Advertencia** o **Información**.
 propiedades | Detalle específico de entrada de registro, serializado como una cadena JSON. Para más información, consulte las siguientes secciones:
 
-<a id="execution-log-properties-schema" class="xliff"></a>
-
-### Esquema de propiedades de registros de ejecución
+### <a name="execution-log-properties-schema"></a>Esquema de propiedades de registros de ejecución
 
 Los registros de ejecución contienen información sobre eventos que se produjeron durante la ejecución del trabajo de Stream Analytics. El esquema de propiedades varía en función del tipo de evento. Actualmente, tenemos los siguientes tipos de registros de ejecución:
 
-<a id="data-errors" class="xliff"></a>
-
-### Errores de datos
+### <a name="data-errors"></a>Errores de datos
 
 Cualquier error que se produce mientras el trabajo está procesando datos se puede incluir en esta categoría de registros. Estos registros se crean habitualmente durante las operaciones de lectura, serialización y escritura de datos. No incluyen errores de conectividad. Los errores de conectividad se tratan como eventos genéricos.
 
@@ -124,9 +110,7 @@ En función del valor de **operationName**, los errores de datos tendrán el sig
     * *No se puede leer un evento, la serialización no es válida*: muestra información sobre la ubicación de los datos de entrada donde se produjo el error. Incluye el nombre de blob de la entrada de blob, el desplazamiento y una muestra de los datos.
 * **Eventos de envío**. Los eventos de envío se producen durante las operaciones de escritura. Identifican el evento de transmisión que produjo el error.
 
-<a id="generic-events" class="xliff"></a>
-
-### Eventos genéricos
+### <a name="generic-events"></a>Eventos genéricos
 
 Los eventos genéricos incluyen todos los demás.
 
@@ -137,9 +121,7 @@ Message| Mensaje de registro.
 Tipo | Tipo de mensaje. Se asigna a la categorización interna de errores. Por ejemplo, **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 Id. de correlación | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica de manera única la ejecución del trabajo. Todas las entradas de registros de ejecución desde el momento en que se inicia el trabajo hasta que se detiene tienen el mismo valor de **Id. de correlación**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué es Stream Analytics?](stream-analytics-introduction.md)
 * [Introducción a Stream Analytics](stream-analytics-real-time-fraud-detection.md)

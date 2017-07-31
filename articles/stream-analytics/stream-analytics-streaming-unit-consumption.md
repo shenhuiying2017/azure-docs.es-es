@@ -24,15 +24,11 @@ ms.lasthandoff: 07/04/2017
 
 ---
 
-<a id="optimize-your-job-to-use-streaming-units-efficiently" class="xliff"></a>
-
-# Optimización del trabajo para usar unidades de streaming de forma eficaz
+# <a name="optimize-your-job-to-use-streaming-units-efficiently"></a>Optimización del trabajo para usar unidades de streaming de forma eficaz
 
 Azure Stream Analytics agrega el "peso" de rendimiento de ejecutar un trabajo en unidades de streaming (SU). Las SU representan los recursos informáticos que se usan para ejecutar un trabajo. Las SU proporcionan una forma de describir la capacidad de procesamiento del evento relativo en función de una medida que combina la CPU, la memoria y las tasas de lectura y escritura. Esta capacidad le permite centrarse en la lógica de consulta y elimina la necesidad de conocer las consideraciones de rendimiento de los niveles de almacenamiento, de asignar memoria para su trabajo manualmente y de aproximar el número de núcleos de CPU para ejecutar su trabajo de manera oportuna.
 
-<a id="how-many-sus-are-required-for-a-job" class="xliff"></a>
-
-## ¿Cuántas SU son necesarias para un trabajo?
+## <a name="how-many-sus-are-required-for-a-job"></a>¿Cuántas SU son necesarias para un trabajo?
 
 La elección del número de SU necesarias para un trabajo determinado depende de la configuración de particiones de las entradas y de la consulta definida dentro del trabajo. La hoja **Escala** le permite establecer el número correcto de SU. Es recomendable asignar más unidades de streaming de las necesarias. El motor de procesamiento de Stream Analytics se optimiza para la latencia y el rendimiento, a costa de asignar memoria adicional.
 
@@ -43,13 +39,9 @@ Azure Stream Analytics mantiene los eventos en una ventana llamada "búfer de re
 > [!NOTE]
 > Cuando el número de lectores cambia durante las actualizaciones de trabajos, se escriben advertencias transitorias en registros de auditoría. Los trabajos de Stream Analytics se recuperan automáticamente de estos problemas transitorios.
 
-<a id="common-high-memory-causes-for-high-su-usage-for-running-jobs" class="xliff"></a>
+## <a name="common-high-memory-causes-for-high-su-usage-for-running-jobs"></a>Causas comunes de memoria alta por el uso elevado de SU para la ejecución de trabajos
 
-## Causas comunes de memoria alta por el uso elevado de SU para la ejecución de trabajos
-
-<a id="high-cardinality-for-group-by" class="xliff"></a>
-
-### Alta cardinalidad para GROUP BY
+### <a name="high-cardinality-for-group-by"></a>Alta cardinalidad para GROUP BY
 
 La cardinalidad de los eventos de entrada determina el uso de memoria para el trabajo.
 
@@ -67,9 +59,7 @@ Aquí, el número de *clustered* es la cardinalidad de GROUP BY.
 
 Una vez que la consulta está particionada, se extiende por varios nodos. Como resultado, el número de eventos que entra en cada nodo se reduce, lo que a su vez disminuye el tamaño del búfer de reordenación. También debe particionar las particiones de centro de eventos mediante partitionid.
 
-<a id="high-unmatched-event-count-for-join" class="xliff"></a>
-
-### Recuento alto de eventos no coincidentes para JOIN
+### <a name="high-unmatched-event-count-for-join"></a>Recuento alto de eventos no coincidentes para JOIN
 
 El número de eventos no coincidentes en JOIN afecta a la utilización de memoria de la consulta. Por ejemplo, imagine una consulta que busca encontrar el número de impresiones de anuncios que generan clics:
 
@@ -84,21 +74,15 @@ Para mitigar esta situación, escale horizontalmente la consulta aumentando las 
 
 Después de particionar la consulta, se distribuye entre varios nodos de procesamiento. Como resultado, el número de eventos que entra en cada nodo se reduce, lo que a su vez disminuye el tamaño del búfer de reordenación.
 
-<a id="large-number-of-out-of-order-events" class="xliff"></a>
-
-### Gran número de eventos desordenados 
+### <a name="large-number-of-out-of-order-events"></a>Gran número de eventos desordenados 
 
 Un gran número de eventos desordenados en una ventana de tiempo grande hace que el tamaño del "búfer de reordenación" sea mayor. Para mitigar esta situación, escale la consulta aumentando las particiones mediante PARTITION BY. Una vez que la consulta está particionada, se extiende por varios nodos. Como resultado, el número de eventos que entra en cada nodo se reduce, lo que a su vez disminuye el tamaño del búfer de reordenación. 
 
 
-<a id="get-help" class="xliff"></a>
-
-## Obtener ayuda
+## <a name="get-help"></a>Obtener ayuda
 Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)

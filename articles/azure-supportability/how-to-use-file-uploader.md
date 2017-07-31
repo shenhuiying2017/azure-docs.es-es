@@ -23,9 +23,7 @@ ms.lasthandoff: 06/28/2017
 
 
 ---
-<a id="microsoft-azure-new-support-request-file-upload-utility-guidelines" class="xliff"></a>
-
-# Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
 Cuando se [crea una solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support), la utilidad Carga de archivos puede ayudarle a cargar fácilmente los archivos de diagnóstico o cualquier otro archivo que crea que es pertinente para el incidente.  
 
 > [!NOTE]
@@ -40,9 +38,7 @@ Siga estas directrices cuando use la utilidad Carga de archivos:
 * No se puede cargar más de un archivo.
 * Los archivos no pueden ser superiores a 4 MB.
 
-<a id="table-of-the-allowed-file-name-extensions" class="xliff"></a>
-
-## Tabla de las extensiones de nombre de archivo permitidas
+## <a name="table-of-the-allowed-file-name-extensions"></a>Tabla de las extensiones de nombre de archivo permitidas
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |

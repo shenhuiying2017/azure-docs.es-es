@@ -1,5 +1,4 @@
-#### Detención e inicio de una aplicación en la nube
-<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
+#### <a name="to-stop-and-start-a-cloud-appliance"></a>Detención e inicio de una aplicación en la nube
 
 1. Para detener una aplicación en la nube, vaya a la máquina virtual de su aplicación en la nube.
     ![Máquina virtual de StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart1.png)
@@ -26,8 +25,7 @@ Use los siguientes cmdlets para detener e iniciar una aplicación en la nube.
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-#### Reinicio de una aplicación en la nube
-<a id="to-restart-a-cloud-appliance" class="xliff"></a>
+#### <a name="to-restart-a-cloud-appliance"></a>Reinicio de una aplicación en la nube
 
 Para reiniciar una aplicación en la nube, vaya a la máquina virtual de su aplicación en la nube. En la barra de comandos, haga clic en **Reiniciar**. Cuando se le solicite, confirme el reinicio. Cuando la aplicación en la nube esté lista para su uso, su estado será **En ejecución**.
 
