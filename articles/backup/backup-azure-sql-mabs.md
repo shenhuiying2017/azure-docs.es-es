@@ -22,8 +22,7 @@ ms.lasthandoff: 03/27/2017
 
 
 ---
-# Copia de seguridad de SQL Server en Azure con el Azure Backup Server
-<a id="back-up-sql-server-to-azure-with-azure-backup-server" class="xliff"></a>
+# <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Copia de seguridad de SQL Server en Azure con el Azure Backup Server
 Este artículo le guiará por los pasos de configuración de la copia de seguridad de bases de datos de SQL Server mediante el servidor de copia de seguridad de Microsoft Azure (MABS).
 
 La administración de la copia de seguridad de bases de datos de SQL Server en Azure implica tres pasos:
@@ -32,12 +31,10 @@ La administración de la copia de seguridad de bases de datos de SQL Server en A
 2. Creación de copias de seguridad a petición en Azure.
 3. Recuperación de la base de datos de Azure.
 
-## Antes de comenzar
-<a id="before-you-start" class="xliff"></a>
+## <a name="before-you-start"></a>Antes de comenzar
 Antes de comenzar, asegúrese de que ha [instalado y preparado el Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
-## Crear una directiva de copia de seguridad para proteger las bases de datos SQL Server en Azure
-<a id="create-a-backup-policy-to-protect-sql-server-databases-to-azure" class="xliff"></a>
+## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Crear una directiva de copia de seguridad para proteger las bases de datos SQL Server en Azure
 1. En la IU del Azure Backup Server, haga clic en el área de trabajo **Protección**.
 2. En la cinta de herramientas, haga clic en **Nuevo** para crear un nuevo grupo de protección.
 
@@ -121,8 +118,7 @@ Antes de comenzar, asegúrese de que ha [instalado y preparado el Azure Backup S
 
     ![Creación de un grupo de protección en curso](./media/backup-azure-backup-sql/pg-summary.png)
 
-## Copia de seguridad a petición de una base de datos SQL Server
-<a id="on-demand-backup-of-a-sql-server-database" class="xliff"></a>
+## <a name="on-demand-backup-of-a-sql-server-database"></a>Copia de seguridad a petición de una base de datos SQL Server
 Aunque los pasos anteriores crean una directiva de copia de seguridad, solo se crea un “punto de recuperación” cuando se produce la primera copia de seguridad. En lugar de esperar a que se inicie el programador, los pasos siguientes activarán la creación de un punto de recuperación manualmente.
 
 1. Espere hasta que el estado del grupo de protección muestre **Correcto** para la base de datos antes de crear el punto de recuperación.
@@ -138,8 +134,7 @@ Aunque los pasos anteriores crean una directiva de copia de seguridad, solo se c
 
     ![Consola de supervisión](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
-## Recuperación de una base de datos SQL Server de Azure
-<a id="recover-a-sql-server-database-from-azure" class="xliff"></a>
+## <a name="recover-a-sql-server-database-from-azure"></a>Recuperación de una base de datos SQL Server de Azure
 Los pasos siguientes son necesarios para recuperar una entidad protegida (base de datos SQL) de Azure.
 
 1. Abra el consola de administración del servidor DPM. Vaya al área de trabajo **Recuperación** donde podrá ver los servidores de los que DPM realiza una copia de seguridad. Examine la base de datos requerida (en este caso ReportServer$MSDPM2012). Seleccione una hora en **Recuperación desde** que finalice con **En línea**.
@@ -162,7 +157,6 @@ Los pasos siguientes son necesarios para recuperar una entidad protegida (base d
 
     Una vez completada la recuperación, la base de datos restaurada será coherente con la aplicación.
 
-### Pasos siguientes:
-<a id="next-steps" class="xliff"></a>
+### <a name="next-steps"></a>Pasos siguientes:
 •   [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md)
 
