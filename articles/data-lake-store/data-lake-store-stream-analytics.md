@@ -22,8 +22,7 @@ ms.lasthandoff: 01/06/2017
 
 
 ---
-<a id="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics" class="xliff"></a>
-# Transmisión de datos del blob de Almacenamiento de Azure al Almacén de Data Lake mediante el Análisis de transmisiones
+# <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Transmisión de datos del blob de Almacenamiento de Azure al Almacén de Data Lake mediante el Análisis de transmisiones
 En este artículo aprenderá a utilizar el Almacén de Azure Data Lake como salida para un trabajo de Análisis de transmisiones de Azure. Este artículo muestra un escenario simple que lee datos desde un blob de Almacenamiento de Azure (entrada) y los escribe en el Almacén de Data Lake (salida).
 
 > [!NOTE]
@@ -31,8 +30,7 @@ En este artículo aprenderá a utilizar el Almacén de Azure Data Lake como sali
 >
 >
 
-<a id="prerequisites" class="xliff"></a>
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -41,8 +39,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
   
 * **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md). Supongamos que tiene una cuenta de Data Lake Store llamada **asadatalakestore**. 
 
-<a id="create-a-stream-analytics-job" class="xliff"></a>
-## Creación de un trabajo de Análisis de transmisiones
+## <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Análisis de transmisiones
 Primero debe crear un trabajo de Análisis de transmisiones que incluya un origen de entrada y un destino de salida. Para este tutorial, el origen es un contenedor de blobs de Azure y el destino es el Almacén de Data Lake.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
@@ -55,8 +52,7 @@ Primero debe crear un trabajo de Análisis de transmisiones que incluya un orige
     > Asegúrese de crear el trabajo en la misma región que la cuenta de almacenamiento o incurrirá en costos adicionales derivados de mover datos entre regiones.
     >
 
-<a id="create-a-blob-input-for-the-job" class="xliff"></a>
-## Creación de una entrada de blob para el trabajo
+## <a name="create-a-blob-input-for-the-job"></a>Creación de una entrada de blob para el trabajo
 
 1. Abra la página del trabajo de Stream Analytics y en el panel izquierdo haga clic en la pestaña **Inputs** (Entradas) y luego haga clic en **Agregar**.
 
@@ -79,8 +75,7 @@ Primero debe crear un trabajo de Análisis de transmisiones que incluya un orige
     Haga clic en **Crear**. El portal ahora agrega la entrada y prueba la conexión a ella.
 
 
-<a id="create-a-data-lake-store-output-for-the-job" class="xliff"></a>
-## Creación de una salida del Almacén de Data Lake para el trabajo
+## <a name="create-a-data-lake-store-output-for-the-job"></a>Creación de una salida del Almacén de Data Lake para el trabajo
 
 1. Haga clic en la página del trabajo de Stream Analytics, haga clic en la pestaña **Outputs** (Salidas) y después haga clic en **Agregar**.
 
@@ -108,8 +103,7 @@ Primero debe crear un trabajo de Análisis de transmisiones que incluya un orige
     
     Haga clic en **Crear**. El portal ahora agrega la salida y prueba la conexión a ella.
     
-<a id="run-the-stream-analytics-job" class="xliff"></a>
-## Ejecución del trabajo de Análisis de transmisiones
+## <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Análisis de transmisiones
 
 1. Para ejecutar un trabajo de Stream Analytics, debe ejecutar una consulta desde la pestaña **Consulta**. En este tutorial, puede ejecutar la consulta de ejemplo mediante el reemplazo de los marcadores de posición con los alias de entrada y salida del trabajo, tal como se muestra en la captura de pantalla siguiente.
 
@@ -133,7 +127,6 @@ Primero debe crear un trabajo de Análisis de transmisiones que incluya un orige
 
     En el panel del Explorador de datos, tenga en cuenta que la salida se escribe en una ruta de carpeta, según lo especificado en la configuración de salida de Data Lake Store (`streamanalytics/job/output/{date}/{time}`).  
 
-<a id="see-also" class="xliff"></a>
-## Consulte también
+## <a name="see-also"></a>Consulte también
 * [Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 
