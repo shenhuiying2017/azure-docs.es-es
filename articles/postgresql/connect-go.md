@@ -11,43 +11,75 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: hero-article
 ms.date: 06/29/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: f3e7e57993b5253a895640854672da431c00854b
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: a80adae0359aac6aa8c9e7922e3f4c3883dd8056
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
-<a id="azure-database-for-postgresql-use-go-language-to-connect-and-query-data" class="xliff"></a>
+# <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso del lenguaje Go para conectarse y consultar datos
+En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for PostgreSQL mediante código escrito en el lenguaje [Go](https://golang.org/) (golang). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante Go, pero que nunca ha trabajado con Azure Database para PostgreSQL.
 
-# Azure Database for PostgreSQL: uso del lenguaje Go para conectarse y consultar datos
-En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for PostgreSQL mediante código escrito en el lenguaje [Go](https://golang.org/). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante Go, pero que nunca ha trabajado con Azure Database para PostgreSQL.
-
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Creación de la base de datos: Azure Portal](quickstart-create-server-database-portal.md)
 - [Creación de la base de datos: CLI de Azure](quickstart-create-server-database-azure-cli.md)
 
-<a id="install-go-and-pq" class="xliff"></a>
+## <a name="install-go-and-pq-connector"></a>Instalación de Go y del conector pq
+Instale [Go](https://golang.org/doc/install) y el [controlador Pure Go Postgres (pq)](https://github.com/lib/pq) en su máquina. Dependiendo de la plataforma, siga estos pasos:
 
-## Instalación de Go y pq
-- Descargue e instale Go de acuerdo con las [instrucciones de instalación](https://golang.org/doc/install) que coincidan con su plataforma.
-- Cree una carpeta para su proyecto, como C:\Postgresql\. Mediante la línea de comandos, cambie el directorio por la carpeta del proyecto, por ejemplo `cd C:\Postgres\`.
-- Descargue el [controlador puro de Postgres para Go (pq)](https://github.com/lib/pq) en la carpeta del proyecto; para ello, escriba el comando `go get github.com/lib/pq` mientras está en el mismo directorio.
+### <a name="windows"></a>Windows
+1. [Descargue](https://golang.org/dl/) e instale Go a Microsoft Windows de acuerdo con las [instrucciones de instalación](https://golang.org/doc/install).
+2. En el menú Inicio, inicie el símbolo del sistema.
+3. Cree una carpeta para su proyecto, como `mkdir  %USERPROFILE%\go\src\postgresqlgo`.
+4. Cambie el directorio en la carpeta del proyecto, por ejemplo `cd %USERPROFILE%\go\src\postgresqlgo`.
+5. Establezca la variable de entorno para GOPATH con el fin de que apunte al directorio de código fuente. `set GOPATH=%USERPROFILE%\go`.
+6. Instale el [controlador Pure Go Postgres (pq)](https://github.com/lib/pq) mediante la ejecución del comando `go get github.com/lib/pq`.
 
-<a id="build-and-run-go-code" class="xliff"></a>
+   En resumen, instale Go y después ejecute estos comandos en el símbolo del sistema:
+   ```cmd
+   mkdir  %USERPROFILE%\go\src\postgresqlgo
+   cd %USERPROFILE%\go\src\postgresqlgo
+   set GOPATH=%USERPROFILE%\go
+   go get github.com/lib/pq
+   ```
 
-## Compilación y ejecución del código de Go 
-- Guarde el código en un archivo de texto con la extensión *.go y guárdelo en la carpeta del proyecto, por ejemplo, `C:\postgres\read.go`.
-- Para ejecutar el código, cambie el directorio por la carpeta del proyecto `cd postgres`, escriba el comando `go run read.go` para compilar la aplicación y ejecútelo.
-- Para compilar el código en una aplicación nativa, `go build read.go`, inicie read.exe para ejecutar la aplicación.
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
+1. Abra el shell de Bash. 
+2. Instale Go mediante la ejecución de `sudo apt-get install golang-go`.
+3. Cree una carpeta para el proyecto en su directorio particular, como `mkdir -p ~/go/src/postgresqlgo/`.
+4. Cambie el directorio en la carpeta, por ejemplo `cd ~/go/src/postgresqlgo/`.
+5. Establezca la variable de entorno GOPATH para que apunte a un directorio de origen válido, como la carpeta go del directorio particular actual. En el shell de Bash, ejecute `export GOPATH=~/go` para agregar el directorio go como GOPATH para la sesión de shell actual.
+6. Instale el [controlador Pure Go Postgres (pq)](https://github.com/lib/pq) mediante la ejecución del comando `go get github.com/lib/pq`.
 
-<a id="get-connection-information" class="xliff"></a>
+   En resumen, ejecute estos comandos de Bash:
+   ```bash
+   sudo apt-get install golang-go
+   mkdir -p ~/go/src/postgresqlgo/
+   cd ~/go/src/postgresqlgo/
+   export GOPATH=~/go/
+   go get github.com/lib/pq
+   ```
 
-## Obtención de información sobre la conexión
+### <a name="apple-macos"></a>MacOS de Apple
+1. Descargue e instale Go de acuerdo con las [instrucciones de instalación](https://golang.org/doc/install) que coincidan con su plataforma. 
+2. Abra el shell de Bash. 
+3. Cree una carpeta para el proyecto en su directorio particular, como `mkdir -p ~/go/src/postgresqlgo/`.
+4. Cambie el directorio en la carpeta, por ejemplo `cd ~/go/src/postgresqlgo/`.
+5. Establezca la variable de entorno GOPATH para que apunte a un directorio de origen válido, como la carpeta go del directorio particular actual. En el shell de Bash, ejecute `export GOPATH=~/go` para agregar el directorio go como GOPATH para la sesión de shell actual.
+6. Instale el [controlador Pure Go Postgres (pq)](https://github.com/lib/pq) mediante la ejecución del comando `go get github.com/lib/pq`.
+
+   En resumen, instale Go y después ejecute estos comandos de Bash:
+   ```bash
+   mkdir -p ~/go/src/postgresqlgo/
+   cd ~/go/src/postgresqlgo/
+   export GOPATH=~/go/
+   go get github.com/lib/pq
+   ```
+
+## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 Obtenga la información de conexión necesaria para conectarse a Azure Database for PostgreSQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
@@ -57,15 +89,20 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
  ![Azure Database for PostgreSQL: inicio de sesión del Administrador del servidor](./media/connect-go/1-connection-string.png)
 5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** y vea el nombre de inicio de sesión del Administrador del servidor. Si es necesario, restablezca la contraseña.
 
-<a id="connect-and-create-a-table" class="xliff"></a>
+## <a name="build-and-run-go-code"></a>Compilación y ejecución del código de Go 
+1. Para escribir código Golang, utilice un editor de texto simple, como el Bloc de notas en Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) o [Nano](https://www.nano-editor.org/) en Ubuntu, o TextEdit en macOS. Si prefiere un entorno de desarrollo integrado (IDE) más rico, pruebe [Gogland](https://www.jetbrains.com/go/) de Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) de Microsoft o [Atom](https://atom.io/).
+2. Pegue el código de Golang de las secciones siguientes en archivos de texto y guárdelos en la carpeta del proyecto con la extensión de archivo \*.go, como la ruta de acceso de Windows `%USERPROFILE%\go\src\postgresqlgo\createtable.go` o la ruta de acceso de Linux `~/go/src/postgresqlgo/createtable.go`.
+3. Busque las constantes `HOST`, `DATABASE`, `USER` y `PASSWORD` en el código y reemplace los valores de ejemplo con sus propios valores.  
+4. Inicie el símbolo del sistema o el shell de Bash. Cambie el directorio en la carpeta del proyecto. Por ejemplo, en Windows `cd %USERPROFILE%\go\src\postgresqlgo\`. En Linux `cd ~/go/src/postgresqlgo/`. Algunos de los entornos de IDE mencionados ofrecen funcionalidades de depuración y de tiempo de ejecución sin necesidad de comandos de shell.
+5. Ejecute el código escribiendo el comando `go run createtable.go` para compilar la aplicación y ejecútela. 
+6. Además, para compilar el código en una aplicación nativa, `go build createtable.go`, inicie `createtable.exe` para ejecutar la aplicación.
 
-## Conexión y creación de una tabla
+## <a name="connect-and-create-a-table"></a>Conexión y creación de una tabla
 Use el código siguiente para conectarse y crear una tabla mediante la instrucción SQL **CREATE TABLE**, seguida de las instrucciones SQL **INSERT INTO** para agregar filas a la tabla.
 
 El código importa tres paquetes: el [paquete sql](https://golang.org/pkg/database/sql/), el [paquete pq](http://godoc.org/github.com/lib/pq), como controlador para la comunicación con el servidor de Postgres, y el [paquete fmt](https://golang.org/pkg/fmt/) para la entrada y la salida impresas en la línea de comandos.
 
 El código llama al método [sql.Open()](http://godoc.org/github.com/lib/pq#Open) para conectarse a Azure Database for PostgreSQL y comprueba la conexión mediante el método [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). Durante todo el proceso se usa un [identificador de base de datos](https://golang.org/pkg/database/sql/#DB), que contiene el grupo de conexiones del servidor de base de datos. El código llama al método [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) varias veces para ejecutar varios comandos SQL. En todo momento, un método checkError() personalizado comprueba si se ha producido un error y, en caso afirmativo, avisa para salir.
-
 
 Reemplace los parámetros `HOST`, `DATABASE`, `USER` y `PASSWORD` por sus propios valores. 
 
@@ -126,9 +163,7 @@ func main() {
 }
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Lectura de datos
+## <a name="read-data"></a>Lectura de datos
 Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **SELECT**. 
 
 El código importa tres paquetes: el [paquete sql](https://golang.org/pkg/database/sql/), el [paquete pq](http://godoc.org/github.com/lib/pq), como controlador para la comunicación con el servidor de Postgres, y el [paquete fmt](https://golang.org/pkg/fmt/) para la entrada y la salida impresas en la línea de comandos.
@@ -195,9 +230,7 @@ func main() {
 }
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Actualización de datos
+## <a name="update-data"></a>Actualización de datos
 Use el código siguiente para conectarse y actualizar los datos mediante la instrucción SQL **UPDATE**.
 
 El código importa tres paquetes: el [paquete sql](https://golang.org/pkg/database/sql/), el [paquete pq](http://godoc.org/github.com/lib/pq), como controlador para la comunicación con el servidor de Postgres, y el [paquete fmt](https://golang.org/pkg/fmt/) para la entrada y la salida impresas en la línea de comandos.
@@ -250,9 +283,7 @@ func main() {
 }
 ```
 
-<a id="delete-data" class="xliff"></a>
-
-## Eliminación de datos
+## <a name="delete-data"></a>Eliminación de datos
 Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL **DELETE**. 
 
 El código importa tres paquetes: el [paquete sql](https://golang.org/pkg/database/sql/), el [paquete pq](http://godoc.org/github.com/lib/pq), como controlador para la comunicación con el servidor de Postgres, y el [paquete fmt](https://golang.org/pkg/fmt/) para la entrada y la salida impresas en la línea de comandos.
@@ -305,9 +336,7 @@ func main() {
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Migración de una base de datos mediante exportación e importación](./howto-migrate-using-export-and-import.md)
 
