@@ -23,9 +23,7 @@ ms.lasthandoff: 06/07/2017
 
 
 ---
-<a id="azure-cosmos-db-documentdb-api-getting-started-tutorial" class="xliff"></a>
-
-# Azure Cosmos DB: tutorial de introducción a las API de DocumentDB
+# <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: tutorial de introducción a las API de DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -56,18 +54,14 @@ Después, utilice los botones de votación situados en la parte superior o infer
 
 Comencemos.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Asegúrese de que dispone de lo siguiente:
 
 * Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/). 
     * Como alternativa, en este tutorial puede usar el [Emulador de Azure Cosmos DB](local-emulator.md).
 * [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 
-<a id="step-1-create-an-azure-cosmos-db-account" class="xliff"></a>
-
-## Paso 1: Creación de una cuenta de Azure Cosmos DB
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Paso 1: Creación de una cuenta de Azure Cosmos DB
 Vamos a crear una cuenta de Azure Cosmos DB. Si ya tiene una cuenta que desea usar, puede ir directamente a [Configuración de la solución de Visual Studio](#SetupVS). Si usa el Emulador de Azure Cosmos DB, siga los pasos que se indican en [Emulador de Azure Cosmos DB](local-emulator.md) para configurar el emulador y vaya directamente a [Configuración de la solución de Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -168,9 +162,7 @@ Presione **F5** para ejecutar la aplicación. La salida de la ventana de consola
 
 ¡Enhorabuena! Se ha conectado correctamente a una cuenta de Azure Cosmos DB y ahora se explicará cómo trabajar con recursos de Azure Cosmos DB.  
 
-<a id="step-4-create-a-database" class="xliff"></a>
-
-## Paso 4: Creación de una base de datos
+## <a name="step-4-create-a-database"></a>Paso 4: Creación de una base de datos
 Antes de agregar el código para crear una base de datos, agregue un método auxiliar para escribirlo en la consola.
 
 Copie y pegue el método **WriteToConsoleAndPromptToContinue** después del método **GetStartedDemo**.
@@ -551,9 +543,7 @@ Para restaurar las referencias al SDK de DocumentDB para .NET en Visual Studio, 
 Y, eso es todo, genérela y habrá terminado.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * ¿Desea un tutorial de ASP.NET MVC más complejo? Consulte el artículo sobre la [Creación de una aplicación web con ASP.NET MVC mediante Azure Cosmos DB](documentdb-dotnet-application.md).
 * ¿Desea realizar pruebas de escala y de rendimiento con Azure Cosmos DB? Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md)
 * Obtenga información acerca de cómo [supervisar una cuenta de Azure Cosmos DB](monitor-accounts.md).
