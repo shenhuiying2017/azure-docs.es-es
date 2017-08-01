@@ -23,9 +23,7 @@ ms.lasthandoff: 06/17/2017
 
 
 ---
-<a id="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection" class="xliff"></a>
-
-# Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente
+# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
@@ -37,9 +35,7 @@ Este artículo le guiará a través del uso de Azure Portal para agregar conexio
 
 Este artículo se aplica a las redes virtuales creadas con el modelo de implementación de Resource Manager que tiene una VPN Gateway RouteBased. Estos pasos no se aplican a las configuraciones de conexión coexistentes de ExpressRoute/sitio a sitio. Consulte [conexiones coexistentes de ExpressRoute/S2S](../expressroute/expressroute-howto-coexist-resource-manager.md) para obtener información sobre las conexiones coexistentes.
 
-<a id="deployment-models-and-methods" class="xliff"></a>
-
-### Modelos de implementación y métodos
+### <a name="deployment-models-and-methods"></a>Modelos de implementación y métodos
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 Esta tabla se actualiza cada vez que hay nuevos artículos y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde esta tabla.
@@ -97,9 +93,7 @@ Compruebe los siguientes aspectos:
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte la [ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) de las máquinas virtuales para más información.
 

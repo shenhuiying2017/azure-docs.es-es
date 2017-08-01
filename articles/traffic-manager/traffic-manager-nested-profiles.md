@@ -22,9 +22,7 @@ ms.lasthandoff: 06/09/2017
 
 ---
 
-<a id="nested-traffic-manager-profiles" class="xliff"></a>
-
-# Perfiles anidados del Administrador de tráfico
+# <a name="nested-traffic-manager-profiles"></a>Perfiles anidados del Administrador de tráfico
 
 Traffic Manager incluye una serie de métodos de enrutamiento del tráfico que permiten controlar el modo en que se elige el punto de conexión que debe recibir tráfico de cada usuario final. Para más información, consulte [Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md).
 
@@ -32,9 +30,7 @@ Cada perfil del Administrador de tráfico especifica un único método de enruta
 
 Los ejemplos siguientes muestran cómo usar perfiles anidados de Traffic Manager en distintos escenarios.
 
-<a id="example-1-combining-performance-and-weighted-traffic-routing" class="xliff"></a>
-
-## Ejemplo 1: Enrutamiento de tráfico combinado: de "rendimiento" y "ponderado"
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Ejemplo 1: Enrutamiento de tráfico combinado: de "rendimiento" y "ponderado"
 
 Supongamos que ha implementado una aplicación en las siguientes regiones de Azure: oeste de EE. UU., Europa Occidental y Asia Oriental. Usará el método de enrutamiento de tráfico de "rendimiento" de Traffic Manager para distribuir el tráfico a la región más cercana al usuario.
 
@@ -52,9 +48,7 @@ En esta configuración, el tráfico dirigido mediante el perfil primario distrib
 
 Cuando el perfil primario utiliza el método de enrutamiento de tráfico de "rendimiento", se debe asignar una ubicación a cada punto de conexión. La ubicación se asigna al configurar el punto de conexión. Elija la región de Azure más cercana a su implementación. Las regiones de Azure son los valores de ubicación compatibles con la tabla de latencia de Internet. Para más información, consulte [Método de enrutamiento de tráfico de rendimiento de Traffic Manager](traffic-manager-routing-methods.md#a-name--performanceaperformance-traffic-routing-method).
 
-<a id="example-2-endpoint-monitoring-in-nested-profiles" class="xliff"></a>
-
-## Ejemplo 2: Supervisión de puntos de conexión en perfiles anidados
+## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Ejemplo 2: Supervisión de puntos de conexión en perfiles anidados
 
 El Administrador de tráfico supervisa activamente el estado de cada punto de conexión de servicio. Si un punto de conexión es incorrecto, Traffic Manager dirige a los usuarios a puntos de conexión alternativos para mantener la disponibilidad del servicio. Este comportamiento de conmutación por error y supervisión de los puntos de conexión se aplica a todos los métodos de enrutamiento de tráfico. Para más información, consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md). La supervisión de puntos de conexión funciona de manera diferente para perfiles anidados. Con perfiles anidados, el perfil primario no realiza comprobaciones de estado en el perfil secundario directamente. En su lugar, el estado de los puntos de conexión del perfil secundario se usa para calcular el estado general del perfil secundario. Esta información de estado se propaga hacia arriba en la jerarquía de perfil anidado. El perfil primario usa este estado agregado para determinar si se debe dirigir el tráfico al perfil secundario. Consulte la sección de [preguntas más frecuentes](traffic-manager-FAQs.md#traffic-manager-nested-profiles) para obtener todos los detalles sobre la supervisión del estado de los perfiles anidados.
 
@@ -71,9 +65,7 @@ En la siguiente ilustración, se muestra esta configuración:
 > [!NOTE]
 > El método de enrutamiento de tráfico por 'prioridad' distribuye todo el tráfico a un solo punto de conexión. Por lo tanto, en este caso, no tiene mucho sentido una configuración de MinChildEndpoints distinta de "1" para un perfil secundario.
 
-<a id="example-3-prioritized-failover-regions-in-performance-traffic-routing" class="xliff"></a>
-
-## Ejemplo 3: Regiones de conmutación por error en orden de prioridad en el enrutamiento de tráfico de "rendimiento"
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Ejemplo 3: Regiones de conmutación por error en orden de prioridad en el enrutamiento de tráfico de "rendimiento"
 
 El comportamiento predeterminado del método de enrutamiento de tráfico de "rendimiento" está diseñado para evitar sobrecargar el siguiente punto de conexión más cercano y provocar una serie de errores en cascada. Cuando se produce un error en un punto de conexión, todo el tráfico que se habría dirigido a ese punto de conexión se distribuye uniformemente a los demás puntos de conexión de todas las regiones.
 
@@ -87,9 +79,7 @@ Dado que el punto de conexión de Europa Occidental tiene una mayor prioridad qu
 
 Puede repetir este patrón con todas las regiones. Reemplace los tres puntos de conexión del perfil primario por tres perfiles secundarios, cada uno proporcionando una secuencia de conmutación por error ordenada por orden de prioridad.
 
-<a id="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region" class="xliff"></a>
-
-## Ejemplo 4: Control del enrutamiento de tráfico de "rendimiento" entre varios puntos de conexión de la misma región
+## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Ejemplo 4: Control del enrutamiento de tráfico de "rendimiento" entre varios puntos de conexión de la misma región
 
 Suponga que el método de enrutamiento de tráfico de "rendimiento" se usa en un perfil que tiene más de un punto de conexión en una determinada región. De forma predeterminada, el tráfico dirigido a esa región se distribuirá uniformemente entre todos los puntos de conexión disponibles en esa región.
 
@@ -99,9 +89,7 @@ En lugar de agregar varios puntos de conexión en Europa Occidental, esos puntos
 
 ![Enrutamiento de tráfico de "rendimiento" con distribución personalizada del tráfico en la región][8]
 
-<a id="example-5-per-endpoint-monitoring-settings" class="xliff"></a>
-
-## Ejemplo 5: Configuración de la supervisión por punto de conexión
+## <a name="example-5-per-endpoint-monitoring-settings"></a>Ejemplo 5: Configuración de la supervisión por punto de conexión
 
 Imagine que utiliza Traffic Manager para migrar limpiamente desde un sitio web local heredado a una nueva versión basada en la nube hospedada en Azure. Para el sitio heredado, deseará el URI de la página de inicio para supervisar el estado del sitio. Pero para la nueva versión basada en la nube, implementará una página de supervisión personalizada que incluye comprobaciones adicionales (ruta de acceso ‘/monitor.aspx’).
 
@@ -111,9 +99,7 @@ La configuración de supervisión en un perfil de Traffic Manager se aplica a to
 
 ![Supervisión de puntos de conexión del Administrador de tráfico con configuración por punto de conexión][10]
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre los [perfiles de Traffic Manager](traffic-manager-overview.md)
 

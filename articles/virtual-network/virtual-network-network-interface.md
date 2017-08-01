@@ -24,9 +24,7 @@ ms.lasthandoff: 06/01/2017
 
 ---
 
-<a id="create-change-or-delete-network-interfaces" class="xliff"></a>
-
-# Creación, cambio o eliminación de interfaces de red
+# <a name="create-change-or-delete-network-interfaces"></a>Creación, cambio o eliminación de interfaces de red
 
 Aprenda a crear, cambiar la configuración y eliminar interfaces de red (NIC). Una NIC permite que una máquina virtual de Azure se comunique con Internet, Azure y los recursos locales. Al crear una máquina virtual desde Azure Portal, este crea una NIC con la configuración predeterminada. En su lugar, puede elegir crear NIC con opciones personalizadas y, al crearlas, agregar una o más a las máquinas virtuales. También puede cambiar la configuración de NIC predeterminada para las NIC existentes. En este artículo se explica cómo crear NIC con opciones personalizadas, cambiar la configuración de NIC existente (como la asignación de filtros de red: grupos de seguridad de red), asignar subredes, configurar el servidor DNS, reenviar direcciones IP y eliminar NIC.
 

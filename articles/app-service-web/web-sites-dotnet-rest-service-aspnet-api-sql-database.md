@@ -23,9 +23,7 @@ ms.lasthandoff: 06/01/2017
 
 
 ---
-<a id="create-a-rest-service-using-aspnet-web-api-and-sql-database-in-azure-app-service" class="xliff"></a>
-
-# Crear un servicio REST con la Web API de ASP.NET y la base de datos SQL en el servicio de aplicaciones de Azure
+# <a name="create-a-rest-service-using-aspnet-web-api-and-sql-database-in-azure-app-service"></a>Crear un servicio REST con la Web API de ASP.NET y la base de datos SQL en el servicio de aplicaciones de Azure
 En este tutorial se muestra cómo implementar una aplicación web ASP.NET en un [servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) utilizando el Asistente para publicación web de Visual Studio 2013 o Visual Studio 2013 Community Edition. 
 
 Puede abrir una cuenta de Azure de manera gratuita y, si todavía no tiene Visual Studio 2013, el SDK instala automáticamente Visual Studio 2013 Express para Web. De este modo, puede empezar a desarrollar contenido para Azure sin coste alguno.
@@ -46,9 +44,7 @@ Va a desarrollar una aplicación web de lista de contactos sencilla basada en AS
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-<a id="create-the-project" class="xliff"></a>
-
-### Creación del proyecto
+### <a name="create-the-project"></a>Creación del proyecto
 1. Inicie Visual Studio 2013.
 2. En el menú **Archivo**, haga clic en **Nuevo proyecto**.
 3. En el cuadro de diálogo **Nuevo proyecto**, expanda **Visual C#**, seleccione **Web** y, luego, **Aplicación web ASP.NET**. Póngale a la aplicación el nombre **ContactManager** y haga clic en **Aceptar**.
@@ -73,9 +69,7 @@ Si tiene un servidor de base de datos, úselo para crear una nueva base de datos
 
 ![Configuración de Sitio web de Azure](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/configWithDB.PNG)
 
-<a id="set-the-page-header-and-footer" class="xliff"></a>
-
-### Establecimiento del encabezado y pie de página
+### <a name="set-the-page-header-and-footer"></a>Establecimiento del encabezado y pie de página
 1. En el **Explorador de soluciones**, expanda la carpeta *Views\Shared* y abra el archivo *_Layout.cshtml*.
    
     ![_Layout.cshtml en el Explorador de soluciones][newapp004]
@@ -119,18 +113,14 @@ Si tiene un servidor de base de datos, úselo para crear una nueva base de datos
 
 El código anterior cambia el nombre de la aplicación "My ASP.NET App" a "Contact Manager" y quita los vínculos de **Inicio**, **Información** y **Contacto**.
 
-<a id="run-the-application-locally" class="xliff"></a>
-
-### Ejecución de la aplicación de forma local
+### <a name="run-the-application-locally"></a>Ejecución de la aplicación de forma local
 1. Presione CTRL+F5 para ejecutar la aplicación.
    Aparece la página principal de la aplicación en el explorador predeterminado.
     ![Página de inicio de lista de tareas pendientes](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
 
 Esto es todo lo que necesita hacer por ahora para crear la aplicación que va a implementar en Azure. Más adelante agregará la funcionalidad de base de datos.
 
-<a id="deploy-the-application-to-azure" class="xliff"></a>
-
-## Implementación de la aplicación en Azure
+## <a name="deploy-the-application-to-azure"></a>Implementación de la aplicación en Azure
 1. En Visual Studio, haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones** y seleccione **Publicar** en el menú contextual.
    
     ![Opción Publicar del menú contextual del proyecto][PublishVSSolution]
@@ -148,14 +138,10 @@ Visual Studio comienza el proceso de copiar los archivos en el servidor de Azure
    
    ![Página de inicio de tareas pendientes ejecutándose en Azure][rxz2]
 
-<a id="add-a-database-to-the-application" class="xliff"></a>
-
-## Incorporación de una base de datos a la aplicación
+## <a name="add-a-database-to-the-application"></a>Incorporación de una base de datos a la aplicación
 A continuación, actualizará la aplicación MVC incorporando funciones que permitan mostrar y actualizar los contactos y almacenar los datos en una base de datos. La aplicación utilizará Entity Framework para crear la base de datos y para leer y actualizar los datos que esta contiene.
 
-<a id="add-data-model-classes-for-the-contacts" class="xliff"></a>
-
-### Incorporación de clases de modelos de datos para los contactos
+### <a name="add-data-model-classes-for-the-contacts"></a>Incorporación de clases de modelos de datos para los contactos
 Se empieza por crear un modelo de datos sencillo en código.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta Models, a continuación en **Agregar** y, por último, en **Clase**.
@@ -190,14 +176,10 @@ Se empieza por crear un modelo de datos sencillo en código.
 
 La clase **Contact** define qué datos se almacenarán para cada contacto, así como una clave principal, ContactID, necesaria para la base de datos. Puede obtener más información sobre los modelos de datos en la sección [Pasos siguientes](#nextsteps) al final de este tutorial.
 
-<a id="create-web-pages-that-enable-app-users-to-work-with-the-contacts" class="xliff"></a>
-
-### Creación de páginas web que permiten a los usuarios de aplicaciones utilizar los contactos
+### <a name="create-web-pages-that-enable-app-users-to-work-with-the-contacts"></a>Creación de páginas web que permiten a los usuarios de aplicaciones utilizar los contactos
 La característica de scaffolding de ASP.NET MVC puede generar automáticamente código que realiza acciones de creación, lectura, actualización y eliminación (CRUD).
 
-<a id="add-a-controller-and-a-view-for-the-data" class="xliff"></a>
-
-## Incorporación de un controlador y una vista para los datos
+## <a name="add-a-controller-and-a-view-for-the-data"></a>Incorporación de un controlador y una vista para los datos
 1. En el **Explorador de soluciones**, expanda la carpeta Controllers.
 2. Creación del proyecto **(Ctrl+Mayús+B)**. (Debe crear el proyecto antes de usar el mecanismo de scaffolding). 
 3. Haga clic con el botón derecho en la carpeta Controllers, haga clic en **Agregar** y luego en **Controlador**.
@@ -212,9 +194,7 @@ La característica de scaffolding de ASP.NET MVC puede generar automáticamente 
 
     Visual Studio crea métodos y vistas de controlador para las operaciones CRUD de base de datos que afectan a los objetos **Contact** .
 
-<a id="enable-migrations-create-the-database-add-sample-data-and-a-data-initializer" class="xliff"></a>
-
-## Habilitación de las migraciones, creación de la base de datos e incorporación de datos de ejemplo y un inicializador de datos
+## <a name="enable-migrations-create-the-database-add-sample-data-and-a-data-initializer"></a>Habilitación de las migraciones, creación de la base de datos e incorporación de datos de ejemplo y un inicializador de datos
 La siguiente tarea consiste en habilitar la característica [Migraciones de Code First](http://curah.microsoft.com/55220) para crear la base de datos a partir del modelo de datos ya establecido.
 
 1. En el menú **Herramientas**, seleccione **Administrador de paquetes de biblioteca** y, a continuación, **Consola del Administrador de paquetes**.
@@ -308,9 +288,7 @@ La aplicación muestra los datos de inicialización y ofrece enlaces de edición
 
 ![Vista MVC de los datos][rxz3]
 
-<a id="edit-the-view" class="xliff"></a>
-
-## Edición de la vista
+## <a name="edit-the-view"></a>Edición de la vista
 1. Abra el archivo *Views\Home\Index.cshtml*. En el paso siguiente, reemplazaremos la revisión generada por código que usa [jQuery](http://jquery.com/) y [Knockout.js](http://knockoutjs.com/). Este nuevo código recupera la lista de contactos con la utilización de web API y JSON y, a continuación, enlaza los datos de contacto con la UI mediante knockout.js. Consulte la sección [Pasos siguientes](#nextsteps) al final de este tutorial. 
 2. Reemplace el contenido del archivo por el código siguiente.
    
@@ -484,9 +462,7 @@ La aplicación muestra los datos de inicialización y ofrece enlaces de edición
    
         Install-Package knockoutjs
 
-<a id="add-a-controller-for-the-web-api-restful-interface" class="xliff"></a>
-
-## Incorporación de un controlador para la interfaz Restful de Web API
+## <a name="add-a-controller-for-the-web-api-restful-interface"></a>Incorporación de un controlador para la interfaz Restful de Web API
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en Controladores y haga clic en **Agregar** y luego en **Controlador...** 
 2. En el cuadro de diálogo **Agregar scaffold**, escriba **Controlador de Web API 2 con acciones, usando Entity Framework** y luego haga clic en **Agregar**.
    
@@ -494,9 +470,7 @@ La aplicación muestra los datos de inicialización y ofrece enlaces de edición
 3. En el cuadro de diálogo **Agregar controlador** , escriba "ContactsController" como el nombre de controlador. Seleccione "Contact (ContactManager.Models)" para la opción **Clase de modelo**.  Mantenga el valor predeterminado para **Clase de contexto de datos**. 
 4. Haga clic en **Agregar**.
 
-<a id="run-the-application-locally" class="xliff"></a>
-
-### Ejecución de la aplicación de forma local
+### <a name="run-the-application-locally"></a>Ejecución de la aplicación de forma local
 1. Presione CTRL+F5 para ejecutar la aplicación.
    
     ![Página de índice][intro001]
@@ -521,9 +495,7 @@ La aplicación muestra los datos de inicialización y ofrece enlaces de edición
     ![Cuadro de diálogo de almacenamiento de la API web.][addwebapi007]
 
     **Administración de seguridad**: en este momento, la aplicación es insegura y vulnerable frente un ataque CSRF. Más adelante en el tutorial eliminaremos esta vulnerabilidad. Para más información, consulte [Preventing Cross-Site Request Forgery (CSRF) Attacks][prevent-csrf-attacks] (Impedimento de ataques de falsificación de solicitud entre sitios (CSRF)).
-<a id="add-xsrf-protection" class="xliff"></a>
-
-## Incorporación de protección de XSRF
+## <a name="add-xsrf-protection"></a>Incorporación de protección de XSRF
 La falsificación de solicitud entre sitios (también conocida como XSRF o CSRF) es un ataque contra aplicaciones hospedadas en web, en donde un sitio web malintencionado puede influir en la interacción entre un explorador cliente y un sitio web de confianza de ese explorador. Estos ataques son posibles porque los exploradores web enviarán tokens de autenticación automáticamente con cada solicitud a un sitio web. El ejemplo canónico es una cookie de autenticación, como el vale de autenticación de formularios de ASP.NET. Sin embargo, los sitios web que utilicen cualquier mecanismo de autenticación persistente (como Autenticación de Windows, Basic, entre otras) podrían ser objetivos de esos ataques.
 
 Un ataque XSRF es distinto de un ataque de suplantación de identidad (phishing). Los ataques de suplantación de identidad requieren interacción de la víctima. En un ataque de suplantación de identidad (phishing), un sitio web malintencionado imitará el sitio web de destino y engañará a la víctima para que proporcione información confidencial al atacante. En un ataque XSRF, con frecuencia no hay interacción necesaria de la víctima. Por el contrario, el atacante confía en el explorador enviando automáticamente todas las cookies relevantes al sitio web de destino.
@@ -663,9 +635,7 @@ Para más información, consulte [Proyecto de seguridad de aplicación web abier
             </script>
          }
 
-<a id="publish-the-application-update-to-azure-and-sql-database" class="xliff"></a>
-
-## Publicación de la actualización de la aplicación en Azure y la base de datos SQL
+## <a name="publish-the-application-update-to-azure-and-sql-database"></a>Publicación de la actualización de la aplicación en Azure y la base de datos SQL
 Para publicar la aplicación, repita el procedimiento que ha realizado anteriormente.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y, a continuación, seleccione **Publicar**.
@@ -698,9 +668,7 @@ La aplicación ahora se está ejecutando en la nube, utilizando Base de datos SQ
 > 
 > 
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Otra forma de almacenar datos en una aplicación de Azure consiste en utilizar el almacenamiento de Azure, que ofrece un almacenamiento de datos no relacional en forma de blobs y tablas. En los vínculos siguientes se proporciona más información sobre Web API, ASP.NET MVC y Azure.
 
 * [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial] (Introducción a Entity Framework con MVC)
@@ -712,9 +680,7 @@ Este tutorial y la aplicación de ejemplo fueron desarrollados por [Rick Anderso
 
 Es importante que haga comentarios acerca de lo que le gustó o lo que le gustaría que mejorásemos, no solo en relación al tutorial en sí sino a los productos sobre los que trata. Sus comentarios nos ayudarán a clasificar las mejoras por orden de prioridad. Estamos especialmente interesados en averiguar el interés que despierta una mayor automatización para el proceso de configurar e implementar la base de datos de suscripciones. 
 
-<a id="whats-changed" class="xliff"></a>
-
-## Lo que ha cambiado
+## <a name="whats-changed"></a>Lo que ha cambiado
 * Para obtener una guía del cambio de Websites a App Service, consulte: [Azure App Service y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
