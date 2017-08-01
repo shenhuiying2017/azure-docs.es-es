@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
 ms.contentlocale: es-es
-ms.lasthandoff: 02/13/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Administración del directorio para la suscripción de Office 365 en Azure
 En este artículo se describe cómo administrar un directorio que se creó para una suscripción de Office 365 mediante el Portal de Azure clásico. Para iniciar sesión en el Portal de Azure clásico, es preciso ser administrador de servicios o coadministrador de una suscripción de Azure. Si aún no dispone de una suscripción de Azure, desde este vínculo puede registrarse ahora mismo para disfrutar de una [evaluación gratuita durante 30 días](https://azure.microsoft.com/trial/get-started-active-directory/) e implementar su primera solución en la nube en menos de 5 minutos. Asegúrese de que utiliza la misma cuenta profesional o educativa que utilizó para iniciar sesión en Office 365.
+
+> [!IMPORTANT]
+> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo.
 
 Después de completar la suscripción a Azure, puede iniciar sesión en el Portal de Azure clásico y acceder a los servicios de Azure. Haga clic en la extensión de Active Directory para administrar el mismo directorio que autentica a los usuarios de Office 365.
 
@@ -41,7 +44,7 @@ Michael Smith desea administrar las identidades de usuario en el directorio Cont
 En este caso, ambos directorios son independientes entre sí.
 
 ## <a name="to-manage-two-independent-directories"></a>Para administrar dos directorios independientes
-Para que Michael Smith pueda administrar ambos directorios mientras tenga una sesión iniciada en Azure como msmith@hotmail.com,, debe llevar a cabo los siguientes pasos:
+Para que Michael Smith pueda administrar ambos directorios mientras tenga una sesión iniciada en Azure como msmith@hotmail.com, debe llevar a cabo los siguientes pasos:
 
 > [!NOTE]
 > Estos pasos solo se pueden realizar cuando un usuario ha iniciado sesión con una cuenta Microsoft. Si el usuario ha iniciado sesión con una cuenta profesional o educativa, la opción **Usar directorio existente** no está disponible. Las cuentas profesionales o educativas solo se pueden autenticar por su directorio particular (es decir, el directorio donde se almacena la cuenta profesional o educativa, y que posee el negocio o la escuela).
@@ -51,7 +54,7 @@ Para que Michael Smith pueda administrar ambos directorios mientras tenga una se
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) como msmith@hotmail.com.
 2. Haga clic en **Nuevo** > **App Services** > **Active Directory** > **Directorio** > **Creación personalizada**.
 3. Haga clic en Usar directorio existente y active la casilla **Estoy listo para cerrar la sesión ahora** .
-4. Inicie sesión en el Portal de Azure clásico como administrador global de Contoso.onmicrosoft.com (por ejemplo, msmith@contoso.com)).
+4. Inicie sesión en el Portal de Azure clásico como administrador global de Contoso.onmicrosoft.com (por ejemplo, msmith@contoso.com).
 5. Cuando se le pregunte **¿Usar el directorio Contoso con Azure?**, haga clic en **Continuar**.
 6. Haga clic en **Cerrar sesión ahora**.
 7. Inicie sesión en el Portal de Azure clásico como msmith@hotmail.com. El directorio Contoso y el directorio predeterminado aparecen en la extensión de Active Directory.
@@ -61,7 +64,7 @@ Después de realizar estos pasos, msmith@hotmail.com es un administrador global 
 ## <a name="to-administer-resources-as-the-global-admin"></a>Para administrar recursos como administrador global
 Ahora supongamos que Jane Doe necesita administrar sitios web y recursos de la base de datos asociados con la suscripción de Azure de msmith@hotmail.com. Antes de que pueda hacerlo, Michael Smith debe realizar estos pasos adicionales:
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) mediante la cuenta de administrador de servicios de la suscripción de Azure (en este ejemplo, msmith@hotmail.com)).
+1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) mediante la cuenta de administrador de servicios de la suscripción de Azure (en este ejemplo, msmith@hotmail.com).
 2. Transfiera la suscripción al directorio Contoso: haga clic en **Configuración** > **Suscripciones** > seleccione la suscripción > **Editar directorio** > y seleccione **Contoso (Contoso.com)**. Como parte de la transferencia, se eliminan todas las cuentas profesionales o educativas que sean coadministradores de la suscripción.
 3. Agregue a Jane Doe como coadministradora de la suscripción: haga clic en **Configuración** > **Administradores** > seleccione la suscripción > **Agregar**> y escriba **JohnDoe@Contoso.com**.
 

@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replicación de máquinas virtuales de Hyper-V que están en nubes VMM en Azure mediante Site Recovery en Azure Portal
@@ -164,6 +164,11 @@ Instale el Proveedor de Azure Site Recovery en el servidor VMM y registre el ser
 
      ![Internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Puede especificar o modificar la ubicación de un certificado SSL que se genera automáticamente para el cifrado de datos. Este certificado se usa si habilita el cifrado de datos para una nube protegida por Azure en el portal de Azure Site Recovery. Mantenga el certificado en un lugar seguro. Cuando ejecute una conmutación por error en Azure lo necesitará para descifrar si está habilitado el cifrado de datos.
+
+    > [!NOTE]
+    > Se recomienda utilizar la funcionalidad de cifrado proporcionada por Azure para cifrar los datos en reposo, en lugar de usar la opción de cifrado de datos proporcionada por Azure Site Recovery. La funcionalidad de cifrado proporcionada por Azure puede activarse para una cuenta de almacenamiento, y ayuda a mejorar el rendimiento porque Azure Storage administra el cifrado y descifrado.
+    > [Más información acerca del cifrado del servicio Storage desde Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 8. En **Nombre del servidor**, especifique un nombre descriptivo para identificar el servidor VMM en el almacén. En una configuración de clúster, especifique el nombre del rol de clúster VMM.
 9. Habilite la **sincronización de metadatos de la nube** si quiere sincronizar los metadatos de todas las nubes del servidor VMM con el almacén. Esta acción solo se debe ejecutar una vez en cada servidor. Si no desea sincronizar todas las nubes, puede dejar este parámetro sin marcar y sincronizar cada nube individualmente en las propiedades de la nube de la consola de VMM. Haga clic en **Register** para finalizar el proceso.
 
@@ -425,6 +430,12 @@ Donde:
 * **/Credentials**: parámetro obligatorio que especifica la ubicación donde se encuentra el archivo de clave de registro.  
 * **/FriendlyName**: parámetro obligatorio para el nombre del servidor host Hyper-V que aparece en el portal de Azure Site Recovery.
 * * **/EncryptionEnabled**: parámetro opcional que solo se usa cuando se están replicando máquinas virtuales de Hyper-V en nubes de VMM en Azure. Especifique si desea cifrar máquinas virtuales en Azure (en cifrado en reposo). Asegúrese de que el nombre del archivo tiene la extensión **.pfx** . El cifrado está desactivado de forma predeterminada.
+
+    > [!NOTE]
+    > Se recomienda utilizar la funcionalidad de cifrado proporcionada por Azure para cifrar los datos en reposo, en lugar de usar la opción de cifrado (opción EncryptionEnabled) proporcionada por Azure Site Recovery. La funcionalidad de cifrado proporcionada por Azure puede activarse para una cuenta de almacenamiento, y ayuda a mejorar el rendimiento porque Azure administra el cifrado y descifrado  
+    > .
+    > [Más información acerca del cifrado del servicio Storage en Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 * **/proxyAddress**: parámetro opcional que especifica la dirección del servidor proxy.
 * **/proxyport**: parámetro opcional que especifica el puerto del servidor proxy.
 * **/proxyUsername**: parámetro opcional que especifica el nombre de usuario de proxy (si el proxy requiere autenticación).

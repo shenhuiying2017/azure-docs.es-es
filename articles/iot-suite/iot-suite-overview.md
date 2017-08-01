@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: bfa8dbbd0b1d943a9eb7a042df0bac25189d9ac9
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="overview-of-azure-iot-suite"></a>Información general de Azure IoT Suite
@@ -55,7 +54,13 @@ Para información general de la arquitectura de una solución de IoT típica, co
 
 ## <a name="preconfigured-solutions"></a>soluciones preconfiguradas
 
-El conjunto de aplicaciones de IoT incluye soluciones preconfiguradas que permiten empezar a trabajar rápidamente con los escenarios comunes de IoT y explorarlos, como *supervisión remota*, *mantenimiento predictivo*, y *fábrica conectada*. Puede implementar estas soluciones en su suscripción de Azure y luego ejecutar un escenario de IoT completo e integral.
+El Conjunto de aplicaciones de IoT incluye soluciones preconfiguradas que le permiten empezar a trabajar rápidamente con los escenarios comunes de IoT, como:
+
+* Supervisión remota
+* Mantenimiento predictivo
+* Fábrica conectada
+
+Puede implementar estas soluciones en su suscripción de Azure y luego ejecutar un escenario de IoT completo e integral.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

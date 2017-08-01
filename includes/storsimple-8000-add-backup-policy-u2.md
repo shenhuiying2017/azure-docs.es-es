@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-#### Para agregar una directiva de copia de seguridad de StorSimple
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-add-a-storsimple-backup-policy"></a>Para agregar una directiva de copia de seguridad de StorSimple
 
 1. Vaya al dispositivo StorSimple y haga clic en **Directiva de copia de seguridad**.
 
@@ -13,7 +12,7 @@
    
    1. El campo **Seleccionar dispositivo** se rellena automáticamente según el dispositivo seleccionado.
    
-   2. Especifique un **nombre** que tenga entre 3 y 150 caracteres para la directiva de copia de seguridad.
+   2. Especifique un **nombre** que tenga entre 3 y 150 caracteres para la directiva de copia de seguridad. Una vez creada la directiva, no se puede cambiar el nombre de la misma.
        
    3. Para asignar volúmenes a esta directiva de copia de seguridad, seleccione **Agregar volúmenes** y, en la lista tabular de volúmenes, haga clic en las casillas para asignar uno o más volúmenes.
 
