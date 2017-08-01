@@ -23,9 +23,7 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="use-azure-portal-to-restore-virtual-machines" class="xliff"></a>
-
-# Uso del Portal de Azure para restaurar máquinas virtuales
+# <a name="use-azure-portal-to-restore-virtual-machines"></a>Uso del Portal de Azure para restaurar máquinas virtuales
 > [!div class="op_single_selector"]
 > * [Restauración de máquinas virtuales en el portal clásico](backup-azure-restore-vms.md)
 > * [Restauración de máquinas virtuales en el Portal de Azure](backup-azure-arm-restore-vms.md)
@@ -46,9 +44,7 @@ Para restaurar una máquina virtual o todos los discos a partir de copias de seg
 1. Seleccionar un punto de restauración
 2. Seleccionar el tipo de restauración: cree una nueva máquina virtual o restaure los discos y especifique los parámetros necesarios. 
 
-<a id="select-restore-point-for-restore" class="xliff"></a>
-
-## Seleccionar el punto de restauración
+## <a name="select-restore-point-for-restore"></a>Seleccionar el punto de restauración
 1. Inicie sesión en el [Portal de Azure](http://portal.azure.com/)
 2. En el menú de Azure, haga clic en **Examinar** y, en la lista de servicios, escriba **Recovery Services**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Servicios de recuperación**, haga clic en ella.
 
@@ -97,9 +93,7 @@ Para restaurar una máquina virtual o todos los discos a partir de copias de seg
     ![se establece el punto de restauración](./media/backup-azure-arm-restore-vms/recovery-point-set.png)
 9. En la hoja **Restaurar**, se abre automáticamente **Configuración de restauración** en cuanto se establece el punto de restauración.
 
-<a id="choosing-a-vm-restore-configuration" class="xliff"></a>
-
-## Elección de una configuración de restauración para una máquina virtual
+## <a name="choosing-a-vm-restore-configuration"></a>Elección de una configuración de restauración para una máquina virtual
 Ahora que ha seleccionado el punto de restauración, elija una configuración para la restauración de la máquina virtual. Las opciones para configurar la máquina virtual restaurada son usar el Portal de Azure o PowerShell.
 
 1. Si aún no está allí, vaya a la hoja **Restaurar** . Asegúrese de que se ha seleccionado un [punto de restauración](#select-restore-point-for-restore) y haga clic en **Restaurar configuración** para abrir la hoja **Configuración de recuperación**.
@@ -111,9 +105,7 @@ Ahora que ha seleccionado el punto de restauración, elija una configuración pa
 
 El Portal proporciona una opción de creación rápida para la máquina virtual restaurada. Si quiere personalizar la configuración de máquina virtual o los nombres de los recursos creados como parte de la selección de una nueva máquina virtual, siga estos pasos. Use PowerShell o el Portal para restaurar los discos de copias de seguridad, y los comandos de PowerShell para asociarlos a las opciones de configuración de máquina virtual. También puede emplear la plantilla que se incluye con los discos de restauración para personalizar la máquina virtual restaurada. Vea [Restauración de máquinas virtuales con configuraciones de red especiales](#restoring-vms-with-special-network-configurations) para obtener más información sobre cómo restaurar la máquina virtual que tiene varios NIC o que se encuentra en el equilibrador de carga. Si la máquina virtual Windows usa [licencias de HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), debe restaurar discos y usar PowerShell o plantilla tal como se especifica a continuación para crear la máquina virtual y asegurarse de especificar LicenseType como "Windows_Server" al crear la máquina virtual para hacer uso de las ventajas de HUB en la máquina virtual restaurada. 
  
-<a id="create-a-new-vm-from-restore-point" class="xliff"></a>
-
-## Creación de una nueva máquina virtual desde el punto de restauración
+## <a name="create-a-new-vm-from-restore-point"></a>Creación de una nueva máquina virtual desde el punto de restauración
 Si no aún no lo ha hecho, [seleccione un punto de restauración](#restoring-vms-with-special-network-configurations) antes de continuar para crear una máquina virtual desde el punto de restauración. Cuando haya seleccionado el punto de restauración, en la hoja **Restaurar configuración**, escriba o seleccione valores en cada uno de los siguientes campos:
 
 * **Tipo de restauración**: cree la máquina virtual.
@@ -134,9 +126,7 @@ Si no aún no lo ha hecho, [seleccione un punto de restauración](#restoring-vms
 
 En la hoja **Restore configuration** (Configuración de restauración), haga clic en **Aceptar** para finalizar la configuración de la restauración. En la hoja **Restaurar**, haga clic en **Restaurar** para desencadenar la operación de restauración.
 
-<a id="restore-backed-up-disks" class="xliff"></a>
-
-## Restaurar discos en copia de seguridad.
+## <a name="restore-backed-up-disks"></a>Restaurar discos en copia de seguridad.
 Si desea personalizar la máquina virtual que quisiera crear a partir de discos en copia de seguridad en lugar de hacerlo a partir de lo que existe en la hoja de configuración de restauración, seleccione **Restaurar discos** como valor para **Tipo de restauración**. Esta opción solicita una cuenta de almacenamiento en la que se copiarán los discos desde las copias de seguridad. Al elegir una cuenta de almacenamiento, seleccione una cuenta que comparta la misma ubicación que el almacén de Servicios de recuperación. No se admiten cuentas de almacenamiento con redundancia de zona. Si no hay ninguna cuenta de almacenamiento con la misma ubicación que el almacén de Servicios de recuperación, debe crear uno antes de iniciar la operación de restauración. El tipo de replicación de la cuenta de almacenamiento se menciona entre paréntesis.
 
 Cuando termine la operación de restauración, puede realizar estas tareas:
@@ -148,9 +138,7 @@ En la hoja **Restore configuration** (Configuración de restauración), haga cli
 
 ![Configuración de recuperación completa](./media/backup-azure-arm-restore-vms/trigger-restore-operation.png)
 
-<a id="track-the-restore-operation" class="xliff"></a>
-
-## Seguimiento de la operación de restauración
+## <a name="track-the-restore-operation"></a>Seguimiento de la operación de restauración
 Una vez que se desencadene la operación de restauración, el servicio Copia de seguridad crea un trabajo para realizar el seguimiento de la operación de restauración. El servicio Copia de seguridad también crea y muestra temporalmente la notificación en el área de notificaciones del portal. Si no ve la notificación, siempre puede hacer clic en el icono de notificaciones para ver las notificaciones.
 
 ![Restauración desencadenada](./media/backup-azure-arm-restore-vms/restore-notification.png)
@@ -173,9 +161,7 @@ Para ver la operación mientras se está procesando, o para verla cuando se ha c
 
     ![lista de máquinas virtuales en el almacén](./media/backup-azure-arm-restore-vms/restore-job-in-progress.png)
     
-<a id="use-templates-to-customize-restore-vm" class="xliff"></a>
-
-## Uso de plantillas para personalizar la restauración de máquinas virtuales
+## <a name="use-templates-to-customize-restore-vm"></a>Uso de plantillas para personalizar la restauración de máquinas virtuales
 Cuando [se completa la operación de restauración discos](#Track-the-restore-operation), puede usar la plantilla que se genera como parte de la operación de restauración para crear una máquina virtual con una configuración diferente de la de copia de seguridad, o bien para personalizar los nombres de los recursos creados o crear una máquina virtual desde un punto de restauración. 
 
 > [!NOTE]
@@ -206,50 +192,34 @@ Después de escribir los valores necesarios, acepte los *términos y condiciones
 
    ![Envío de una implementación de plantillas](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
-<a id="post-restore-steps" class="xliff"></a>
-
-## Pasos posteriores a la restauración
+## <a name="post-restore-steps"></a>Pasos posteriores a la restauración
 * Si usa una distribución de Linux basada en cloud-init, como Ubuntu, la contraseña se bloquea después de la restauración por seguridad. Use la extensión VMAccess en la máquina virtual restaurada para [restablecer la contraseña](../virtual-machines/linux/classic/reset-access.md). Se recomienda utilizar claves SSH en estas distribuciones para evitar que se restablezca la contraseña después de la restauración.
 * Se instalarán las extensiones presentes durante la configuración de la copia de seguridad, pero no se habilitarán. Vuelva a instalar las extensiones si surge algún problema. 
 * Si la máquina virtual de copia de seguridad tiene una dirección IP estática, tras la restauración, la máquina virtual restaurada tendrá una dirección IP dinámica para evitar conflictos cuando se crea una máquina virtual restaurada. Más información sobre cómo se puede [agregar una dirección IP estática a la máquina virtual restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * La máquina virtual restaurada no tendrá un conjunto de valores de disponibilidad. Se recomienda usar la opción de discos de restauración y [agregar un conjunto de disponibilidad](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) cuando se crea una máquina virtual desde PowerShell o plantillas mediante los discos restaurados. 
 
 
-<a id="backup-for-restored-vms" class="xliff"></a>
-
-## Copia de seguridad de máquinas virtuales restauradas
+## <a name="backup-for-restored-vms"></a>Copia de seguridad de máquinas virtuales restauradas
 Si restauró la máquina virtual en el mismo grupo de recursos con el mismo nombre con el que originalmente se creó una copia de seguridad de ella, la copia de seguridad seguirá en la máquina virtual después de la restauración. Si restauró la máquina virtual en un grupo de recursos distinto o especificó un nombre diferente para la máquina virtual restaurada, esta se trata como una nueva y debe configurar la copia de seguridad para ella.
 
-<a id="restoring-a-vm-during-azure-datacenter-disaster" class="xliff"></a>
-
-## Restauración de una máquina virtual en caso de desastre de centro de datos de Azure
+## <a name="restoring-a-vm-during-azure-datacenter-disaster"></a>Restauración de una máquina virtual en caso de desastre de centro de datos de Azure
 Copia de seguridad de Azure permite restaurar copias de seguridad de máquinas virtuales en el centro de datos asociado, en caso de que el centro de datos principal donde se ejecutan las máquinas virtuales experimente una situación de desastre y haya configurado el almacén de copia de seguridad para que tenga redundancia geográfica. En estos casos, deberá seleccionar una cuenta de almacenamiento que esté presente en el centro de datos asociado. El resto del proceso de restauración permanece igual. Copia de seguridad de Azure usa el servicio de proceso de la zona geográfica asociada para crear la máquina virtual restaurada. Más información sobre la [resistencia del centro de datos de Azure](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
-<a id="restoring-domain-controller-vms" class="xliff"></a>
-
-## Restauración de máquinas virtuales de controlador de dominio
+## <a name="restoring-domain-controller-vms"></a>Restauración de máquinas virtuales de controlador de dominio
 Copia de seguridad de las máquinas virtuales de controlador de dominio (DC) es un escenario admitido con Copia de seguridad de Azure. Sin embargo, se debe tener cuidado durante el proceso de restauración. El proceso de restauración correcto depende de la estructura del dominio. El caso más simple es tener un único DC en un solo dominio. El caso más común en las cargas de producción es tener un solo dominio con varios DC y, quizás, algún DC local. Por último, puede tener un bosque con varios dominios. 
 
 Desde la perspectiva de Active Directory, una VM de Azure es como cualquier otra VM de un hipervisor admitido moderno. La principal diferencia respecto a los hipervisores locales es que no hay ninguna consola de VM disponible en Azure. Es necesaria una consola para determinados escenarios, como para una recuperación mediante una copia de seguridad de reconstrucción completa (BMR). Sin embargo, la restauración de una VM desde el almacén de Backup es una sustitución completa para una BMR. El modo de restauración de Active Directory (DSRM) también está disponible, de modo que todos los escenarios de recuperación de Active Directory son viables. Para obtener más información general, consulte [Consideraciones relacionadas con la copia de seguridad y la restauración para controladores de dominio virtualizados](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) y [Planning for Active Directory Forest Recovery](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx) (Planificación de la recuperación de bosques de Active Directory).
 
-<a id="single-dc-in-a-single-domain" class="xliff"></a>
-
-### Controlador de dominio único en un solo dominio
+### <a name="single-dc-in-a-single-domain"></a>Controlador de dominio único en un solo dominio
 Se puede restaurar la máquina virtual (como cualquier otra máquina virtual) desde el Portal de Azure o mediante PowerShell.
 
-<a id="multiple-dcs-in-a-single-domain" class="xliff"></a>
-
-### Varios controladores de dominio en un solo dominio
+### <a name="multiple-dcs-in-a-single-domain"></a>Varios controladores de dominio en un solo dominio
 Cuando se pueda acceder a otros controladores de dominio del mismo dominio a través de la red, el controlador de dominio se podrá restaurar como cualquier VM. Si se trata del último controlador de dominio que queda en el dominio o bien se lleva a cabo una recuperación en una red aislada, debe seguirse el procedimiento de recuperación de bosques.
 
-<a id="multiple-domains-in-one-forest" class="xliff"></a>
-
-### Varios dominios en un solo bosque
+### <a name="multiple-domains-in-one-forest"></a>Varios dominios en un solo bosque
 Cuando se pueda acceder a otros controladores de dominio del mismo dominio a través de la red, el controlador de dominio se podrá restaurar como cualquier VM. Sin embargo, en el resto de casos se recomienda una recuperación de bosques.
 
-<a id="restoring-vms-with-special-network-configurations" class="xliff"></a>
-
-## Restauración de máquinas virtuales con configuraciones de red especiales
+## <a name="restoring-vms-with-special-network-configurations"></a>Restauración de máquinas virtuales con configuraciones de red especiales
 Es posible hacer una copia de seguridad y restaurar las máquinas virtuales con las siguientes configuraciones de red especiales. Sin embargo, estas configuraciones requieren consideraciones especiales al pasar por el proceso de restauración.
 
 * Máquinas virtuales en el equilibrador de carga (interno y externo)
@@ -271,9 +241,7 @@ Con el fin de volver a crear completamente las máquinas virtuales después de r
    * Creación de una máquina virtual con [varias NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)
    * Creación de una máquina virtual con [varias direcciones IP reservadas](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que se pueden restaurar las máquinas virtuales, consulte el artículo de solución de problemas para más información sobre los errores comunes con las máquinas virtuales. Asimismo, consulte el artículo sobre la administración de las tareas con las máquinas virtuales.
 
 * [Solución de errores](backup-azure-vms-troubleshoot.md#restore)

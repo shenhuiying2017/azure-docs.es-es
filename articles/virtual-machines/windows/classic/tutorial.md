@@ -23,9 +23,7 @@ ms.lasthandoff: 06/01/2017
 
 
 ---
-<a id="create-a-virtual-machine-running-windows-in-the-azure-portal" class="xliff"></a>
-
-# Creación de una máquina virtual que ejecuta Windows en el Portal de Azure
+# <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Creación de una máquina virtual que ejecuta Windows en el Portal de Azure
 > [!div class="op_single_selector"]
 > * [Portal de Azure](tutorial.md)
 > * [PowerShell: implementación clásica](create-powershell.md)
@@ -48,9 +46,7 @@ También puede crear máquinas virtuales con sus [propias imágenes](createuploa
 ## <a id="createvirtualmachine"> </a>Creación de la máquina virtual
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a [crear una máquina virtual mediante el modelo de implementación de Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en Azure Portal.
 * Iniciar sesión en la nueva máquina virtual. Para obtener instrucciones, consulte el artículo sobre el [inicio de sesión en una máquina virtual que ejecute Windows Server](connect-logon.md).
 * Acople un disco para almacenar los datos. Puede acoplar tanto discos vacíos como discos que contienen datos. Para obtener instrucciones, consulte [Conexión de un disco de datos a una máquina virtual Windows creada con el modelo de implementación clásica](attach-disk.md).

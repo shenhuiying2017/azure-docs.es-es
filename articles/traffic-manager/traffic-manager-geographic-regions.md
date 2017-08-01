@@ -22,9 +22,7 @@ ms.lasthandoff: 06/09/2017
 
 ---
 
-<a id="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method" class="xliff"></a>
-
-# Jerarquía de país o región usada por Azure Traffic Manager para el método de enrutamiento de tráfico geográfico
+# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Jerarquía de país o región usada por Azure Traffic Manager para el método de enrutamiento de tráfico geográfico
 
 En este artículo se muestran los países y las regiones que usa el método de enrutamiento de tráfico **geográfico** en Azure Traffic Manager. También puede obtener esta información mediante programación si llama a la [API de REST de Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
@@ -702,9 +700,7 @@ En este artículo se muestran los países y las regiones que usa el método de e
 
         - WS(Samoa)
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre el [método de enrutamiento de tráfico geográfico en Azure Traffic Manager](traffic-manager-routing-methods.md#a-name--geographicageographic-traffic-routing-method).
 

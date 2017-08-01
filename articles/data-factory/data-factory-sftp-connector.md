@@ -19,7 +19,6 @@ ms.openlocfilehash: c8ac99f63bd6700349bb352b2c880a2ffedf7457
 ms.contentlocale: es-es
 ms.lasthandoff: 06/05/2017
 
-
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
 En este artículo se describe el uso de la actividad de copia en Azure Data Factory para mover datos de un servidor SFTP local o de nube a un almacén de datos receptor compatible. Este artículo se basa en el artículo sobre las [actividades de movimiento de datos](data-factory-data-movement-activities.md), que presenta una introducción general del movimiento de datos con la actividad de copia la lista de almacenes de datos compatibles como orígenes/receptores.
@@ -219,7 +218,7 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 ## <a name="supported-file-and-compression-formats"></a>Formatos de archivo y de compresión admitidos
 Consulte los detalles en [Formatos de compresión y de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
 
-### <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Ejemplo JSON: Copia de datos del servidor SFTP en Blob de Azure
+## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Ejemplo JSON: Copia de datos del servidor SFTP en Blob de Azure
 En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos del origen SFTP en Azure Blob Storage. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.
 
 > [!IMPORTANT]
