@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 97da0f4dc5d5528bfb803eefe9037651939a8efd
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: d9d4dcf16954b0cd831e017ecb305d30e3b36dc7
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Introducción a la solución preconfigurada de fábrica conectada
@@ -116,14 +115,14 @@ Si su suscripción tiene acceso a la API de Bing Maps, el mapa *Fábricas* muest
 
 ## <a name="view-alerts"></a>Visualización de alertas
 
-El historial del panel **Alerta** muestra las alertas que se están generando debido a que un valor notificado o un valor calculado de OEE o KPI supera el umbral configurado. Este panel muestra las alertas en cada nivel de la jerarquía, desde la vista de nivel de estación a la vista global. Las alertas contienen una descripción de la alerta, fecha, hora, ubicación y número de repeticiones. Puede obtener más información de los datos que provocaron la alerta usando los datos de Time Series Insights. Los datos de Time Series Insights se visualizan en las alertas, si procede. Si es un administrador, puede realizar acciones predeterminadas en las alertas, tales como:
+El panel **Alerta** muestra las alertas generadas debido a que un valor notificado o un valor calculado de OEE o KPI supera el umbral configurado. Este panel muestra las alertas en cada nivel de la jerarquía, desde la vista de nivel de estación a la vista global. Las alertas contienen una descripción de la alerta, fecha, hora, ubicación y número de repeticiones. Puede obtener más información de los datos que provocaron la alerta usando los datos de Time Series Insights. Los datos de Time Series Insights se visualizan en las alertas, si procede. Si es un administrador, puede realizar acciones predeterminadas en las alertas, tales como:
 
 * Cierre la alerta.
 * Confirme la alerta.
 
 Si lo desea, puede realizar acciones más complejas. Por ejemplo, para el nodo Presión de OPC UA del ensamblado, podría:
 
-* Cargar una página web en una nueva ventana del explorador para mostrar información de soporte técnico.
+* Mostrar información de soporte técnico en una página web de una nueva ventana del explorador.
 * Llamar a un método de OPC UA en el dispositivo que mitigue la causa de la alerta.
 * Suprimir la disponibilidad de las acciones predeterminadas.
 
@@ -148,7 +147,7 @@ OEE evalúa la eficiencia del proceso de fabricación usando parámetros de oper
 
 1. Para ver el valor de OEE en cualquier nivel de la jerarquía, vaya a la vista específica que necesite. En esa vista, el valor de OEE se muestra en el panel junto con cada uno de los elementos que componen el porcentaje de OEE.
 
-2. Para analizar con mayor profundidad el valor de OEE de cualquier nivel de los datos de la jerarquía, haga clic en el porcentaje de OEE, el porcentaje de disponibilidad, el porcentaje de rendimiento o el porcentaje de calidad. Aparece un panel de contexto con visualizaciones proporcionadas por Time Series Insights que muestra datos de la última hora, las últimas 24 horas y los últimos 7 días.
+2. Para analizar con mayor profundidad el valor de OEE de cualquier nivel de los datos de la jerarquía, haga clic en los porcentajes de OEE, de disponibilidad, de rendimiento o de calidad. Aparece un panel de contexto con visualizaciones proporcionadas por Time Series Insights que muestra datos de la última hora, las últimas 24 horas y los últimos 7 días.
 
     ![Visualización TSI de la solución preconfigurada de fábrica conectada][cf-img-tsi-visualization]
 
@@ -164,7 +163,7 @@ La solución proporciona dos indicadores clave de rendimiento, *unidades por hor
 
 1. Para ver las unidades por hora o la energía usada de cualquier nivel de la jerarquía, vaya a la vista específica que necesite. Las unidades por hora y la energía usada se muestran en el panel.
 
-2. Para analizar con mayor profundidad las unidades por hora o la energía usada en cualquier nivel de los datos de la jerarquía, haga clic en el medidor de unidades producidas o en el medidor de energía usada del panel **Indicadores clave de rendimiento**. Aparece un panel de contexto con las visualizaciones proporcionadas por Time Series Insights que permite ver los datos de la última hora, las últimas 24 horas y los últimos 7 días.
+2. Para analizar las unidades por hora o la energía usada en cualquier nivel de la jerarquía, haga clic en el medidor del panel **Indicadores clave de rendimiento**. Aparece un panel de contexto con las visualizaciones proporcionadas por Time Series Insights que permite ver los datos de la última hora, las últimas 24 horas y los últimos 7 días.
 
 ## <a name="scenario-review"></a>Revisión del escenario
 
@@ -172,7 +171,7 @@ En este escenario, ha supervisado los valores de OEE y KPI de las fábricas en e
 
 ## <a name="other-features"></a>Otras características
 
-Las secciones siguientes describen algunas características adicionales de la solución preconfigurada de fábrica conectada que no se han descrito como parte del escenario anterior.
+Las secciones siguientes describen algunas características adicionales de la solución de fábrica conectada que no se han descrito en el escenario anterior.
 
 ## <a name="apply-filters"></a>Aplicación de filtros
 
@@ -182,7 +181,7 @@ Las secciones siguientes describen algunas características adicionales de la so
 
     ![Filtros de la solución preconfigurada de fábrica conectada][cf-img-alert-filter]
 
-3. Elija el filtro que necesite; también es posible escribir texto en los campos de filtro si lo necesita.
+3. Elija el filtro que necesite. También puede escribir texto libre en los campos de filtro.
 
 4. A continuación, se aplica el filtro. El estado del filtro se muestra en el panel mediante un embudo que se muestra en las tablas de fábricas y alertas.
 

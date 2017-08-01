@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Creación, inicio o eliminación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-create-gateway-arm.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure](application-gateway-create-gateway-cli.md)
@@ -171,10 +170,10 @@ En este ejemplo, hay dos grupos de back-end para enrutar el tráfico de red seg�
 
 ### <a name="step-3"></a>Paso 3
 
-Configure la opción de la puerta de enlace de aplicaciones **poolsetting01** para el tráfico de red con carga equilibrada del grupo de back-end. Cada grupo de back-end puede tener su propia configuración de grupo de back-end.  Las reglas usan la configuración de HTTP de back-end para enrutar el tráfico hacia los miembros del grupo back-end correctos. La configuración de HTTP de back-end determina el protocolo y el puerto que se usa al enviar tráfico a los miembros del grupo back-end. Las sesiones basadas en cookies también dependen de la configuración de HTTP de back-end.  Si está habilitada, la afinidad de la sesión basada en cookies envía tráfico al mismo servidor back-end como solicitudes anteriores para cada paquete.
+Configure la opción de la puerta de enlace de aplicaciones **poolsetting** para el tráfico de red de carga equilibrada del grupo de back-end. Cada grupo de back-end puede tener su propia configuración de grupo de back-end.  Las reglas usan la configuración de HTTP de back-end para enrutar el tráfico hacia los miembros del grupo back-end correctos. La configuración de HTTP de back-end determina el protocolo y el puerto que se usa al enviar tráfico a los miembros del grupo back-end. Las sesiones basadas en cookies también dependen de la configuración de HTTP de back-end.  Si está habilitada, la afinidad de la sesión basada en cookies envía tráfico al mismo servidor back-end como solicitudes anteriores para cada paquete.
 
 ```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 ```
 
 ### <a name="step-4"></a>Paso 4
@@ -206,7 +205,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 Cree la regla de enrutamiento del equilibrador de carga denominada **rule01** que configura el comportamiento del equilibrador de carga. La configuración del grupo back-end, el agente de escucha y el grupo back-end creado en los pasos anteriores componen la regla. Según los criterios definidos, el tráfico se enruta al servidor back-end adecuado.
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 ### <a name="step-8"></a>Paso 8

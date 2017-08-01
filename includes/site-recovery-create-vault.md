@@ -1,5 +1,5 @@
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Site Recovery**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Recovery Services**.
 2. Haga clic en **Nuevo** > **Supervisión y administración** > **Backup y Site Recovery**. 
 3. En **Nombre**, especifique un nombre descriptivo para identificar el almacén. Si tiene más de una suscripción, seleccione una de ellas.
 4. [Cree un grupo de recursos](../articles/azure-resource-manager/resource-group-template-deploy-portal.md)o seleccione uno existente. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
