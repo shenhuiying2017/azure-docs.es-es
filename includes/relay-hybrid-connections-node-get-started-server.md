@@ -1,21 +1,25 @@
 ### <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
-* Cree un nuevo archivo JavaScript denominado `listener.js`.
+
+Cree un nuevo archivo JavaScript denominado `listener.js`.
 
 ### <a name="add-the-relay-npm-package"></a>Adición del paquete Relay NPM
-* Ejecute `npm install hyco-ws` desde un símbolo del sistema del nodo en la carpeta del proyecto.
+
+Ejecute `npm install hyco-ws` desde un símbolo del sistema del nodo en la carpeta del proyecto.
 
 ### <a name="write-some-code-to-receive-messages"></a>Escritura de código para recibir mensajes
-1. Agregue lo siguiente `constant` en la parte superior del archivo `listener.js`.
+
+1. Agregue la siguiente constante al principio del archivo `listener.js`.
    
     ```js
     const WebSocket = require('hyco-ws');
     ```
-2. Agregue la siguiente instancia de Relay `constants` a `listener.js` para los detalles de conexión de la conexión híbrida. Reemplace los marcadores de posición entre corchetes por los valores adecuados obtenidos al crear la conexión híbrida.
+2. Agregue la siguientes constantes al archivo `listener.js` para los detalles de la conexión híbrida. Reemplace los marcadores de posición entre corchetes por los valores que obtuvo al crear la conexión híbrida.
    
-   1. `const ns`: el espacio de nombres de Relay (usar FQDN; p. ej., `{namespace}.servicebus.windows.net`)
-   2. `const path`: el nombre de la conexión híbrida
-   3. `const keyrule`: el nombre de la clave SAS
-   4. `const key`: el valor de la clave SAS
+   1. `const ns`: el espacio de nombres de Relay. Asegúrese de utilizar el nombre de espacio de nombres completo; por ejemplo, `{namespace}.servicebus.windows.net`.
+   2. `const path`: el nombre de la conexión híbrida.
+   3. `const keyrule`: el nombre de la clave SAS.
+   4. `const key`: el valor de la clave SAS.
+
 3. Agregue el siguiente código al archivo `listener.js`:
    
     ```js
@@ -40,7 +44,7 @@
         console.log('error' + err);
     });
     ```
-    Este es el aspecto que debería tener listener.cs:
+    Este es el aspecto que debería tener el archivo listener.cs:
    
     ```js
     const WebSocket = require('hyco-ws');

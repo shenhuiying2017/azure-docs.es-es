@@ -18,7 +18,7 @@ Se rechazarán los intentos efectuados para conectar con el servicio DocumentDB 
 
 Las nuevas características y funcionalidad solo se incorporarán a las nuevas versiones. Si usa una versión anterior del SDK que no se haya retirado, las solicitudes realizadas en DocumentDB seguirán funcionando como antes, pero no se tendrá acceso a las nuevas capacidades.  
 
-**6. ¿Qué debo hacer si no puedo actualizar la aplicación antes de una fecha límite**
+**6. ¿Qué debo hacer si no puedo actualizar la aplicación antes de una fecha límite?**
 
 Se recomienda que actualice al SDK más reciente tan pronto como sea posible. Una vez etiquetado un SDK para la retirada, tendrá 12 meses para actualizar la aplicación. Si por cualquier razón no puede completar la actualización de la aplicación en este período de tiempo, póngase en contacto con el [equipo de Cosmos DB](mailto:askcosmosdb@microsoft.com) y solicite su ayuda antes de la fecha límite.
 

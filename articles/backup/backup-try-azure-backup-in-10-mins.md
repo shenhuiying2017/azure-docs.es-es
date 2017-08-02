@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/23/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c989ca38e2463f8365b55c509e8b2bcf4572b409
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -164,6 +165,15 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
 Ahora está instalado el agente y el equipo está registrado en el almacén. Está listo para configurar y programar la copia de seguridad.
 
+## <a name="network-and-connectivity-requirements"></a>Requisitos de conectividad y de red
+
+Si la máquina o el proxy tienen limitado el acceso a Internet, asegúrese de que su configuración de firewall esté establecida para permitir las direcciones URL siguientes: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.ne
+
 ## <a name="back-up-your-files-and-folders"></a>Realización de copias de seguridad de archivos y carpetas.
 La copia de seguridad inicial incluye dos tareas clave:
 
@@ -198,7 +208,7 @@ Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Rec
     La directiva de retención especifica cuánto tiempo se almacenan los datos de la copia de seguridad. En vez de especificar una directiva para todos los puntos de copia de seguridad, puede especificar directivas de retención distintas en función de cuándo se realice la copia de seguridad. Puede modificar las directivas de retención diarias, semanales, mensuales y anuales según sus necesidades.
 9. En la página Elija el tipo de copia de seguridad inicial, elija el tipo de copia de seguridad inicial. Deje activada la opción **Automáticamente a través de la red** y, luego, haga clic en **Siguiente**.
 
-    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](backup-azure-backup-import-export.md) para más información.
+    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md) para más información.
 10. En la página Confirmación, revise la información y, luego, haga clic en **Finalizar**.
 11. Cuando el asistente termine de crear la programación de copia de seguridad, haga clic en **Cerrar**.
 

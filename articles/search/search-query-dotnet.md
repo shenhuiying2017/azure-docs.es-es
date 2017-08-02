@@ -1,5 +1,5 @@
 ---
-title: "Realización de una consulta en el Índice de Azure Search mediante el SDK para .NET | Microsoft Docs"
+title: "Consulte de un índice (API de .NET - Azure Search) | Microsoft Docs"
 description: "Cree una consulta de búsqueda en Búsqueda de Azure y use los parámetros de búsqueda para filtrar y ordenar los resultados de búsqueda."
 services: search
 manager: jhubbard
@@ -13,12 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: ffc27db4de5bd699dbd8175930a597fb85947140
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0185d898f5443cc03135cb1692a54194a82b1e50
 ms.contentlocale: es-es
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Consultas del índice de Búsqueda de Azure con el SDK de .NET

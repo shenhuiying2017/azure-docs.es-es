@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
-ms.lasthandoff: 04/07/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure
@@ -41,7 +41,7 @@ Puede ver quién tiene acceso a un recurso, a un grupo de recursos o a una suscr
    
     ![Hoja de usuarios: acceso heredado frente a asignado (captura de pantalla)](./media/role-based-access-control-configure/view-access.png)
 
-Tenga en cuenta que algunos usuarios tienen un acceso **Asignado** mientras que otros lo tienen **Heredado**. El acceso se asigna específicamente en el grupo de recursos o se hereda de una asignación en la suscripción principal.
+Tenga en cuenta que algunos roles se limitan a **este recurso**, mientras que otras lo **heredan** de otro ámbito. El acceso se asigna específicamente en el grupo de recursos o se hereda de una asignación en la suscripción principal.
 
 > [!NOTE]
 > Los administradores y coadministradores de la suscripción clásica se consideran los propietarios de la suscripción en el nuevo modelo RBAC.
@@ -60,9 +60,10 @@ Puede conceder acceso desde el recurso, el grupo de recursos o la suscripción q
 Después de agregar correctamente una asignación de roles, aparecerá en la hoja **Usuarios** .
 
 ## <a name="remove-access"></a>Eliminación de acceso
-1. Use las casillas de la hoja Control de acceso para seleccionar una o más asignaciones de roles.
+1. Desplace el cursor sobre el nombre de la asignación que desea quitar. Aparece una casilla junto al nombre.
+2. Use las casillas para seleccionar una o varias asignaciones de roles.
 2. Seleccione **Quitar**.  
-3. Aparecerá una ventana emergente que le pedirá confirmar la acción. Seleccione **Sí** para quitar las asignaciones de roles.
+3. Seleccione **Sí** para confirmar la eliminación.
 
 Las asignaciones heredadas no se pueden quitar. Si necesita quitar una asignación heredada, debe hacerlo en el ámbito donde se creó la asignación de roles. En la columna **Ámbito**, junto a **Heredado**, hay un vínculo que lo dirige a los recursos donde se asignó este rol. Vaya a los recursos indicados ahí para quitar la asignación de roles.
 

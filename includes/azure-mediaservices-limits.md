@@ -20,7 +20,7 @@
 | Directivas | 1 000 000<sup>(6)</sup> |
 | Tamaño de archivo| En algunos casos, existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. <sup>7</sup> |
   
-<sup>1</sup> Las RU S3 no están disponibles en India occidental.
+<sup>1</sup> Las RU S3 no están disponibles en India occidental. Los límites de RU máxima se restablecen si el cliente cambia el tipo (por ejemplo, de S2 a S1). 
 
 <sup>2</sup> Este número incluye los trabajos en cola, terminados, activos y cancelados. No incluye los trabajos eliminados. Puede eliminar los trabajos antiguos con **IJob.Delete** o con la solicitud HTTP **DELETE**.
 
@@ -43,6 +43,6 @@ A partir del 15 de mayo de 2017, el tamaño máximo admitido para un único blob
 
 | Tipo de unidad reservada de medios | Tamaño máximo de entrada (GB)| 
 | --- | --- | 
-|S1    | 325|
-|S2    | 640|
-|S3    | 260|
+|S1 | 325|
+|S2 | 640|
+|S3 | 260|

@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-automation-overview"></a>Información general sobre Automatización de Azure
 Automatización de Microsoft Azure ofrece a los usuarios una manera de automatizar las tareas manuales, propensas a errores, con una ejecución prolongada y repetidas con frecuencia que se realizan normalmente en un entorno empresarial y en la nube. Ahorra tiempo y aumenta la confiabilidad de las tareas administrativas periódicas e incluso las programa para que se realicen automáticamente a intervalos regulares. Puede automatizar procesos mediante runbooks o automatizar la administración de configuración mediante la configuración de estado deseado. En este artículo se ofrece una breve información general sobre Automatización de Azure y se responden algunas preguntas habituales. Puede consultar otros artículos de esta biblioteca para obtener información más detallada sobre los diferentes temas.
 
 ## <a name="automating-processes-with-runbooks"></a>Procesos de automatización con runbooks
-Un runbook es un conjunto de tareas que realizan algún proceso automatizado en Automatización de Azure. Puede ser un proceso sencillo como iniciar una máquina virtual y crear una entrada de registro, o puede ser un runbook complejo que combina otros runbooks más pequeños para llevar a cabo un proceso complejo en varios recursos o incluso en varias nubes y varios entornos locales.  
+Un runbook es un conjunto de tareas que realizan algún proceso automatizado en Automatización de Azure. Puede ser un proceso sencillo como iniciar una máquina virtual y crear una entrada de registro, o puede ser un runbook complejo que combina otros runbooks más pequeños para llevar a cabo un proceso complejo entre varios recursos o incluso entre varias nubes y varios entornos locales.  
 
 Por ejemplo, se podría tener un proceso manual para truncar una Base de datos SQL si se aproxima al tamaño máximo que incluye varios pasos como la conexión al servidor, la conexión a la base de datos, la obtención del tamaño actual de la base de datos, la comprobación de si se ha superado el umbral y, finalmente, truncarla y notificarlo al usuario. En lugar de realizar manualmente cada uno de estos pasos, podría crear un runbook que realizara todas estas tareas como un solo proceso. Debería iniciar el runbook, especificar la información necesaria como el nombre del servidor SQL, el nombre de la base de datos y el correo electrónico del destinatario, y esperar mientras el proceso se completa. 
 

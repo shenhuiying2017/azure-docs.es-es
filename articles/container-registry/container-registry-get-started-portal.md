@@ -17,19 +17,18 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e74c5428f0e31d9d3cf06b85aa8cefde868e9d67
-ms.lasthandoff: 03/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2cd5a08cc74473be594fc3c7a4fb934d65ffe0ab
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Creación de un registro de contenedor privado de Docker con Azure Portal
-Use Azure Portal para crear un registro de contenedor y administrar su configuración. También puede crear y administrar registros de contenedor mediante los [comandos de la CLI 2.0 de Azure](container-registry-get-started-azure-cli.md) o mediante programación con la [API de REST](https://go.microsoft.com/fwlink/p/?linkid=834376) de Container Registry.
+Use Azure Portal para crear un registro de contenedor y administrar su configuración. También puede crear y administrar registros de contenedor mediante los [comandos de la CLI de Azure 2.0](container-registry-get-started-azure-cli.md), [Azure PowerShell](container-registry-get-started-powershell.md) o mediante programación con la [API de REST](https://go.microsoft.com/fwlink/p/?linkid=834376) de Container Registry.
 
 Para más información sobre el entorno y los conceptos, consulte [la información general](container-registry-intro.md).
-
-
 
 ## <a name="create-a-container-registry"></a>Creación de un registro de contenedor
 1. En [Azure Portal](https://portal.azure.com), haga clic **+ Nuevo**.

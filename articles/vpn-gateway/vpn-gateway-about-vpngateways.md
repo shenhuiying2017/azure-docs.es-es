@@ -15,25 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: c24f7770e4d0721f9c584b80df9eb857442dfa0b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6ab2b4c905d2095e8eec09ccebcb8ebdfa91bb3a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="about-vpn-gateway" class="xliff"></a>
-
-# Acerca de VPN Gateway
+# <a name="about-vpn-gateway"></a>Acerca de VPN Gateway
 
 Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que envía tráfico cifrado a una ubicación local a través de una conexión pública. También puede usar puertas de enlace de VPN para enviar tráfico cifrado entre las redes virtuales de Azure a través de la red de Microsoft. Para enviar tráfico de red cifrado entre la red virtual de Azure y el sitio local, debe crear una puerta de enlace de VPN para la red virtual.
 
 Cada red virtual solo puede tener una puerta de enlace de VPN; sin embargo, puede crear varias conexiones a la misma puerta de enlace de VPN. Un ejemplo de esto es una configuración de conexión multisitio. Al crear varias conexiones a la misma puerta de enlace de VPN, todos los túneles VPN, incluidos las VPN de punto a sitio, comparten el ancho de banda que está disponible para la puerta de enlace.
 
-<a id="what-is-a-virtual-network-gateway" class="xliff"></a>
-
-### ¿Qué es una puerta de enlace de red virtual?
+### <a name="what-is-a-virtual-network-gateway"></a>¿Qué es una puerta de enlace de red virtual?
 
 Una puerta de enlace de red virtual se compone de dos o más máquinas virtuales que se implementan en una subred específica llamada GatewaySubnet. Las máquinas virtuales que se encuentran en GatewaySubnet se crean al crear la puerta de enlace de red virtual. Las máquinas virtuales de puerta de enlace de red virtual están configuradas para contener tablas de enrutamiento y servicios de puerta de enlace específicos de la puerta de enlace. No puede configurar directamente máquinas virtuales que formen parte de la puerta de enlace de red virtual y nunca debería implementar recursos adicionales en GatewaySubnet.
 
@@ -43,27 +38,19 @@ Cuando se crea una puerta de enlace de red virtual con el tipo de puerta de enla
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-<a id="configuring-a-vpn-gateway" class="xliff"></a>
-
-## Configuración de una puerta de enlace de VPN
+## <a name="configuring-a-vpn-gateway"></a>Configuración de una puerta de enlace de VPN
 
 Una conexión de puerta de enlace de VPN se basa en varios recursos con una configuración específica. La mayoría de los recursos puede configurarse por separado, aunque en algunos casos es necesario seguir un orden determinado.
 
-<a id="settings" class="xliff"></a>
-
-### Configuración
+### <a name="settings"></a>Configuración
 
 La configuración que ha elegido para cada recurso es fundamental para crear una conexión correcta. Para más información sobre los recursos individuales y la configuración de VPN Gateway, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md). Puede encontrar información que le ayudará a entender los tipos de puerta de enlace, los tipos de VPN, los tipos de conexión, las subredes de puerta de enlace, las puertas de enlace de red local y otras configuraciones de recursos que puede tener en cuenta.
 
-<a id="deployment-tools" class="xliff"></a>
-
-### Herramientas de implementación
+### <a name="deployment-tools"></a>Herramientas de implementación
 
 Puede empezar a crear y configurar recursos mediante una herramienta de configuración, como Azure Portal. Después, puede decidir cambiar a otra herramienta, como PowerShell, para configurar recursos adicionales o para modificar los existentes cuando sea aplicable. Actualmente, no se pueden configurar todos los recursos ni establecer todas las configuraciones de recurso en Azure Portal. Las instrucciones de los artículos para cada topología de configuración indican cuándo se necesita una herramienta de configuración específica. 
 
-<a id="deployment-model" class="xliff"></a>
-
-### Modelo de implementación
+### <a name="deployment-model"></a>Modelo de implementación
 
 Cuando configure una instancia de VPN Gateway, los pasos que realice dependen del modelo de implementación que ha utilizado para crear la red virtual. Por ejemplo, si creó la red virtual con el modelo de implementación clásica, use las instrucciones y directrices del modelo de implementación clásica para crear y configurar la puerta de enlace de VPN. Para más información sobre los modelos de implementación, consulte [Descripción de los modelos de implementación clásica y de Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -77,9 +64,7 @@ Es importante saber que hay distintas configuraciones disponibles para las conex
 
 Use los gráficos y las descripciones como ayuda para seleccionar la topología de conexión que mejor se ajuste a sus requisitos. Los diagramas muestran las principales topologías de referencia, pero también se pueden crear configuraciones más complejas con los diagramas como guía.
 
-<a id="site-to-site-and-multi-site-ipsecike-vpn-tunnel" class="xliff"></a>
-
-## Sitio a sitio y multisitio (túnel VPN de IPsec/IKE)
+## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Sitio a sitio y multisitio (túnel VPN de IPsec/IKE)
 
 ### <a name="S2S"></a>De sitio a sitio
 
@@ -93,9 +78,7 @@ Este tipo de conexión es una variación de la conexión de sitio a sitio. Puede
 
 ![Ejemplo de conexión multisitio de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
-<a id="deployment-models-and-methods-for-site-to-site-and-multi-site" class="xliff"></a>
-
-### Modelos de implementación y métodos para conexiones de sitio a sitio y multisitio
+### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Modelos de implementación y métodos para conexiones de sitio a sitio y multisitio
 
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
@@ -105,9 +88,7 @@ Una configuración de puerta de enlace de VPN de punto a sitio (P2S) permite cre
 
 ![Ejemplo de conexión de punto a sitio de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
 
-<a id="deployment-models-and-methods-for-point-to-site" class="xliff"></a>
-
-### Métodos y modelos de implementación disponibles para conexiones de punto a sitio
+### <a name="deployment-models-and-methods-for-point-to-site"></a>Métodos y modelos de implementación disponibles para conexiones de punto a sitio
 
 [!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
@@ -123,21 +104,15 @@ Las redes virtuales que conecta pueden:
 
 ![Ejemplo de conexión de red virtual a red virtual de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)
 
-<a id="connections-between-deployment-models" class="xliff"></a>
-
-### Conexiones entre modelos de implementación
+### <a name="connections-between-deployment-models"></a>Conexiones entre modelos de implementación
 
 Actualmente, Azure tiene dos modelos de implementación: el clásico y el de Resource Manager. Si lleva un tiempo usando Azure, es probable que tenga máquinas virtuales de Azure y roles de instancia que se ejecuten en una red virtual clásica. Es posible que sus máquinas virtuales e instancias de roles más recientes se estén ejecutando en una red virtual creada en Resource Manager. Puede crear una conexión entre las redes virtuales para permitir que los recursos de una red virtual se comuniquen directamente con los recursos de otra.
 
-<a id="vnet-peering" class="xliff"></a>
-
-### Emparejamiento de VNET
+### <a name="vnet-peering"></a>Emparejamiento de VNET
 
 Es posible que pueda usar el emparejamiento de VNET para crear la conexión, siempre que la red virtual cumpla determinados requisitos. El emparejamiento de VNET no utiliza una puerta de enlace de red virtual. Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
 
-<a id="deployment-models-and-methods-for-vnet-to-vnet" class="xliff"></a>
-
-### Modelos de implementación y métodos para conexiones de red virtual a red virtual
+### <a name="deployment-models-and-methods-for-vnet-to-vnet"></a>Modelos de implementación y métodos para conexiones de red virtual a red virtual
 
 [!INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -157,30 +132,23 @@ Puede configurar una VPN de sitio a sitio como una ruta de acceso seguro de conm
 
 ![Ejemplo de conexiones coexistentes en ExpressRoute y VPN Gateway](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-<a id="deployment-models-and-methods-for-s2s-and-expressroute" class="xliff"></a>
-
-### Métodos y modelos de implementación disponibles para conexiones S2S y ExpressRoute
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>Métodos y modelos de implementación disponibles para conexiones S2S y ExpressRoute
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
-<a id="pricing" class="xliff"></a>
-
-## Precios
+## <a name="pricing"></a>Precios
 
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
 
 Para más información acerca de las SKU de puerta de enlace para VPN Gateway, consulte [SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-<a id="faq" class="xliff"></a>
-
-## P+F
+## <a name="faq"></a>P+F
 
 Para conocer las preguntas más frecuentes acerca de VPN Gateway, consulte [Preguntas más frecuentes sobre VPN Gateway](vpn-gateway-vpn-faq.md).
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - Planee la configuración de puerta de enlace de VPN. Consulte [Planeamiento y diseño de VPN Gateway](vpn-gateway-plan-design.md).
 - Consulte las [Preguntas más frecuentes sobre VPN Gateway](vpn-gateway-vpn-faq.md) para más información.
 - Consulte [Límites del servicio y la suscripción](../azure-subscription-service-limits.md#networking-limits).
+- Aprenda sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.

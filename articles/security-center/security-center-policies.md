@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2593e6846c897644017083b49ad4ba8219696c6c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: aefec15c72c6cf8389a29b03be70abb4c7f020b9
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Establecimiento de directivas de seguridad en Azure Security Center
@@ -43,7 +42,7 @@ Puede configurar directivas de seguridad para cada suscripción. Para modificar 
     ![Definición de directiva](./media/security-center-policies/security-center-policies-fig1-ga.png)
 3. Se abre la hoja **Directiva de seguridad** correspondiente a la suscripción seleccionada, y muestra un conjunto de opciones. Las opciones disponibles en esta hoja son:
 
-   * **Directiva de prevención**: esta opción permite configurar directivas por suscripción o por grupo de recursos.  
+   * **Directiva de prevención**: esta opción permite configurar directivas por suscripción.  
    * **Notificación por correo electrónico**: utilice esta opción para configurar una notificación por correo electrónico que se envía en la primera aparición diaria de una alerta y en las alertas con un nivel de gravedad elevado. Las preferencias de correo electrónico solo pueden configurarse para las directivas de suscripción. Para más información sobre cómo configurar la notificación por correo electrónico, consulte [Proporcionar detalles de contacto de seguridad en Azure Security Center](security-center-provide-security-contact-details.md) .
    * **Plan de tarifa**: utilice esta opción para actualizar al plan de tarifa seleccionado. Para más información acerca de las opciones de precios, consulte los [planes de tarifa de Security Center](security-center-pricing.md).
 4. Asegúrese de que la opción **Recopilar datos de máquinas virtuales** está **Activada**. Esta opción permite la recopilación automática de registros para los recursos nuevos y existentes mediante Microsoft Monitoring Agent, que es el mismo agente que usan la solución Operations Management Suite y el servicio Log Analytics. Los datos recopilados por este agente se almacenarán en las áreas de trabajo existentes de Log Analytics asociadas con la suscripción de Azure o en unas nuevas áreas de trabajo, según la región geográfica de la máquina virtual.

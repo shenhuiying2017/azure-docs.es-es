@@ -15,17 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
 ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Conjuntos de escalado de máquinas virtuales y discos administrados
 
-Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure ahora admiten máquinas virtuales con discos administrados. El uso de discos administrados con conjuntos de escalado resulta ventajoso de varias maneras, como por ejemplo:
+Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure admiten máquinas virtuales con discos administrados. El uso de discos administrados con conjuntos de escalado resulta ventajoso de varias maneras, como por ejemplo:
 
 * Ya no es necesario que cree anticipadamente cuentas de almacenamiento y las administre para almacenar los discos de SO de las máquinas virtuales del conjunto de escalado.
 
@@ -43,10 +42,6 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 ```
 
 Como alternativa, también puede buscar en el [repositorio Azure Quickstart Templates de GitHub](https://github.com/Azure/azure-quickstart-templates) carpetas que contengan `vmss` para ver ejemplos pregenerados de plantillas que implementan conjuntos de escalado. Para saber qué plantillas ya están usando discos administrados, puede consultar [esta lista](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
-
-## <a name="api-versions"></a>Versiones de API
-
-Los conjuntos de escalado con discos administrados requieren la versión `2016-04-30-preview` de API Microsoft.Compute o una versión posterior. Los conjuntos de escalado con discos no administrados seguirán funcionando como ahora lo hacen, incluso en nuevas versiones de API que admiten discos administrados. Sin embargo, los conjuntos de escalado con discos no administrados no obtienen las ventajas de los discos administrados, incluso en estas nuevas versiones de API.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

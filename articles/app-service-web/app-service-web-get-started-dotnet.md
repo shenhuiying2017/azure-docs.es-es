@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 2b447bcc5930550af3996cb40925ab59d203dc7c
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: b5a7f3ebe5e95d3838e71b7b17b91e85da0d51a2
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>Creación de una aplicación web ASP.NET en Azure
@@ -32,7 +32,7 @@ ms.lasthandoff: 06/20/2017
 
 Para completar este tutorial:
 
-* Instalar [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) con las cargas de trabajo siguientes:
+* Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
     - **ASP.NET y desarrollo web**
     - **Desarrollo de Azure**
 
@@ -74,7 +74,7 @@ Con ello se abrirá el cuadro de diálogo **Crear App Service** que le ayudará 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-En el cuadro de diálogo **Crear App Service**, haga clic en **Agregar una cuenta** y, a continuación, inicie sesión en su suscripción de Azure. Si ya ha iniciado sesión, asegúrese de que esa cuenta contiene la suscripción de Azure. Puede seleccionar la cuenta con sesión iniciada para agregar la cuenta correcta.
+En el cuadro de diálogo **Crear App Service**, haga clic en **Agregar una cuenta** e inicie sesión en su suscripción de Azure. Si ya ha iniciado sesión, seleccione la cuenta que contiene la suscripción deseada en la lista desplegable.
 
 > [!NOTE]
 > Si ya ha iniciado sesión, no seleccione **Crear** todavía.
@@ -82,8 +82,6 @@ En el cuadro de diálogo **Crear App Service**, haga clic en **Agregar una cuent
 >
    
 ![Inicio de sesión en Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
-
-Una vez que haya iniciado sesión, estará listo para crear todos los recursos necesarios para la aplicación web de Azure en este cuadro de diálogo.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -113,9 +111,7 @@ Seleccione **Aceptar**.
 
 ## <a name="create-and-publish-the-web-app"></a>Creación y publicación de la aplicación web
 
-En **Nombre de la aplicación web**, escriba un nombre único de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). La dirección URL de la aplicación web es `http://<app_name>.azurewebsites.net`, donde `<app_name>` es el nombre de la aplicación web. 
-
-Puede aceptar el nombre generado automáticamente, que es único.
+En **Web App Name** (Nombre de aplicación web), escriba un nombre único de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`) o acepte el nombre único generado automáticamente. La dirección URL de la aplicación web es `http://<app_name>.azurewebsites.net`, donde `<app_name>` es el nombre de la aplicación web.
 
 Seleccione **Crear** para comenzar a crear los recursos de Azure.
 
@@ -125,7 +121,7 @@ Una vez completado el asistente, publica la aplicación web ASP.NET en Azure y, 
 
 ![Aplicación web de ASP.NET publicada en Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
 
-La dirección URL utiliza el nombre de la aplicación web que especificó anteriormente, con el formato `http://<app_name>.azurewebsites.net`. 
+El nombre de aplicación web especificado en el [paso de creación y publicación](#create-and-publish-the-web-app) se usa como el prefijo de dirección URL en el formato `http://<app_name>.azurewebsites.net`.
 
 Su aplicación web ASP.NET se está ejecutando en vivo en Azure App Service.
 

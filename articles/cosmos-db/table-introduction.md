@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/09/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 07dc5e1520cf60e19a1961ad85d2aea0cc7bd15f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef57753aeeace0086c815d83600f92422996032a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -42,7 +42,7 @@ Si actualmente usa Azure Table Storage, obtendrá las siguientes ventajas si act
 | Distribución global | Una sola región, con una región de lectura secundaria legible opcional para alta disponibilidad. No se puede iniciar la conmutación por error. | [Distribución global inmediata](distribute-data-globally.md) entre una y más de 30 regiones, compatibilidad con [conmutaciones por error automáticas y manuales](regional-failover.md) en cualquier momento y en cualquier lugar en el mundo. |
 | Indización | Índice principal solo en PartitionKey y RowKey. No hay índices secundarios. | Indexación automática y completa en todas las propiedades, sin administración de índices. |
 | Consultar | La ejecución de consultas usa el índice de la clave principal y, en caso contrario, examina. | Las consultas pueden aprovechar la indexación automática en las propiedades para reducir el tiempo de consulta. El motor de base de datos de Azure Cosmos DB puede admitir agregados, funciones geoespaciales y ordenación. |
-| Coherencia | Fuerte en la región primaria, Final en la región secundaria. | [Cinco niveles de coherencia bien definidos](consistency-levels.md) para compensar la disponibilidad, la latencia, el rendimiento y la coherencia en función de lo que necesita la aplicación. |
+| Coherencia | Fuerte en la región primaria, Final en la región secundaria. | [Cinco niveles de coherencia bien definidos](consistency-levels.md) para compensar la disponibilidad, la latencia, el rendimiento y la coherencia en función de lo que necesita la aplicación |
 | Precios | Optimizado para el almacenamiento.  | Optimizado para el rendimiento. |
 | SLA | Disponibilidad del 99,9 %. | Disponibilidad del 99,99 % en una sola región y capacidad de agregar más regiones para una mayor disponibilidad. [SLA completos líderes en el sector](https://azure.microsoft.com/support/legal/sla/cosmos-db/) en disponibilidad general. |
 

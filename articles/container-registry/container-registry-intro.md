@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: bc0c8ccad64166582dcb3f7162280a8772abc6b3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ba82a5e25750fc6d9bd047ace3abb087e5dedfb3
 ms.contentlocale: es-es
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introducción a los registros de contenedores privados de Docker
@@ -40,7 +40,7 @@ Para más información sobre Docker y los contenedores, consulte:
 Extraiga imágenes desde un registro de contenedor de Azure a varios destinos de implementación:
 
 * **Sistemas escalables de orquestación** que administran aplicaciones en contenedores a través de clústeres de hosts, incluidos [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) y [Kubernetes](http://kubernetes.io/docs/).
-* **Servicios de Azure** que admiten la creación y ejecución de aplicaciones a escala, entre los que se incluyen [Container Service](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) y otros más.
+* **Servicios de Azure** que admiten la creación y ejecución de aplicaciones a escala, entre los que se incluyen [Container Service](../container-service/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/) y otros más.
 
 Los desarrolladores también pueden insertar en un registro de contenedor como parte de un flujo de trabajo de desarrollo de contenedor. Por ejemplo, puede dirigir un registro de contenedor desde una herramienta de desarrollo e integración continua como [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) o [Jenkins](https://jenkins.io/).
 
@@ -52,6 +52,8 @@ Los desarrolladores también pueden insertar en un registro de contenedor como p
 * **Registro**: cree un registro de contenedor o varios en la suscripción de Azure. Cada registro está respaldado por una [cuenta de almacenamiento](../storage/storage-introduction.md) estándar de Azure en la misma ubicación. Aproveche las ventajas del almacenamiento local, cercano a la red, de las imágenes de contenedor mediante la creación de un registro en la misma ubicación de Azure que las implementaciones. Un nombre completo de registro tiene el formato `myregistry.azurecr.io`.
 
   Puede [controlar el acceso](container-registry-authentication.md) a un registro de contenedor mediante una [entidad de servicio](../active-directory/active-directory-application-objects.md) respaldada por Azure Active Directory o una cuenta de administrador proporcionada. Ejecute el comando estándar `docker login` para autenticarse con un registro.
+
+* **Registro administrado**: un nivel que ofrece funcionalidades adicionales para los registros en tres SKU: Basic, Standard y Premium. Las imágenes de estas SKU se almacenan en cuentas de almacenamiento administradas mediante Azure Container Registry, lo que mejora la confiabilidad y permite nuevas características. Entre las nuevas funcionalidades se incluyen la integración de webhooks, la autenticación del repositorio con Azure Active Directory y la compatibilidad con la funcionalidad de eliminación. Los usuarios tienen la opción de elegir entre registros administrados o crear un registro respaldado por sus propias cuentas de almacenamiento cuando se crean registros.
 
 * **Repositorio**: un registro contiene uno o varios repositorios, que son grupos de imágenes de contenedor. Azure Container Registry es compatible con los espacios de nombres del repositorio de varios niveles. Esta característica le permite agrupar colecciones de imágenes relacionadas con una aplicación específica o una colección de aplicaciones con equipos operativos o de desarrollo específicos. Por ejemplo:
 
