@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: e9a2c3230ec5081a0cfb57ef1dbf311a87bb26b5
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: ddc391127d43a954f555943d27258593eba02df2
 ms.contentlocale: es-es
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -108,7 +107,7 @@ Para crear una réplica en un centro de datos remoto, siga estos pasos:
 
 1. En el nuevo servidor SQL Server, en el Administrador de configuración de SQL Server, [habilite grupos de disponibilidad AlwaysOn](http://msdn.microsoft.com/library/ff878259.aspx).
 
-1. [Abra los puertos de firewall en el nuevo servidor SQL](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm).
+1. [Abra los puertos de firewall en el nuevo servidor SQL](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
    Los números de puerto que debe abrir dependerán del entorno. Abra puertos para el punto de conexión de creación de reflejo y el sondeo de estado del equilibrador de carga de Azure.
 

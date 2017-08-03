@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: f0609465edde67a9e11af86c3265ea29a737fc85
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 792712e3e529d77ff20a7603b5fbf028ca60f8c8
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -51,7 +51,7 @@ Cuando se usan puntos de conexión de Azure, Traffic Manager detecta cuándo se 
 Los puntos de conexión externos se usan para servicios fuera de Azure. Por ejemplo, un servicio hospedado localmente o con un proveedor diferente. Los puntos de conexión externos pueden usarse de forma individual o combinados con puntos de conexión de Azure en el mismo perfil de Traffic Manager. La combinación de puntos de conexión de Azure con otros externos posibilita distintos escenarios:
 
 * En un modelo de conmutación por error activo-activo o activo-pasivo, use Azure para proporcionar mayor redundancia a una aplicación local existente.
-* Para reducir la latencia de aplicación para usuarios de todo el mundo, extienda una aplicación local existente a más ubicaciones geográficas en Azure. Para más información, consulte [Método de enrutamiento del tráfico de rendimiento de Traffic Manager](traffic-manager-routing-methods.md#a-name--performanceaperformance-traffic-routing-method).
+* Para reducir la latencia de aplicación para usuarios de todo el mundo, extienda una aplicación local existente a más ubicaciones geográficas en Azure. Para más información, consulte [Método de enrutamiento del tráfico de rendimiento de Traffic Manager](traffic-manager-routing-methods.md#performance).
 * Use Azure para ofrecer más capacidad para una aplicación local existente, bien de forma continua o bien empleando el modelo de migración a la nube para satisfacer un pico de demanda.
 
 En algunos casos, resulta útil usar puntos de conexión externos para hacer referencia a servicios de Azure (consulte las [preguntas más frecuentes](traffic-manager-faqs.md#traffic-manager-endpoints) para ver ejemplos). En este caso, las comprobaciones de estado se facturan a la tarifa Puntos de conexión de Azure, y no Puntos de conexión externos. Sin embargo, a diferencia de los puntos de conexión de Azure, si detiene o elimina el servicio subyacente, se le seguirá cobrando por las comprobaciones de estado hasta que deshabilite o elimine el punto de conexión en Traffic Manager.
