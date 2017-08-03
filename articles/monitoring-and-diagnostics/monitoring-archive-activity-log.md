@@ -81,7 +81,7 @@ Por ejemplo, un nombre de blob podría ser:
 > 
 > 
 
-Cada blob PT1H.json contiene un blob JSON de eventos que se produjeron en la hora especificada en la dirección URL del blob (por ejemplo h =&12;). Durante la hora en cuestión, los eventos se anexan al archivo PT1H.json a medida que se producen. El valor de los minutos (m = 00) siempre es 00, ya que los eventos del registro de actividades se dividen en blobs individuales por hora.
+Cada blob PT1H.json contiene un blob JSON de eventos que se produjeron en la hora especificada en la dirección URL del blob (por ejemplo h = 12). Durante la hora en cuestión, los eventos se anexan al archivo PT1H.json a medida que se producen. El valor de los minutos (m = 00) siempre es 00, ya que los eventos del registro de actividades se dividen en blobs individuales por hora.
 
 En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con este formato:
 
