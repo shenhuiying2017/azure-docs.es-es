@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/27/2017
 ms.author: abnarain
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 01f3ef6d0e8e43e702b8292a7c215d3df58817f2
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: e05563c8ef705b823199703795baa86dcb665b00
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
@@ -379,8 +378,8 @@ Para cifrar las credenciales en el Editor de Data Factory, realice los siguiente
                 "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
                 "gatewayName": "adftutorialgateway"
             }
-         }
-     }
+        }
+    }
     ```
 Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de enlace, debe asegurarse de que la aplicación del Administrador de credenciales puede conectarse al equipo de la puerta de enlace. Si la aplicación no puede ponerse en contacto con la máquina de la puerta de enlace, no podrá establecer las credenciales del origen de datos ni probar la conexión a él.  
 

@@ -13,21 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
+ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 247c26b3988664bcf93fb5face6514a3dc74cebc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Introducción a Azure Machine Learning en la nube
-## <a name="what-is-machine-learning"></a>¿Qué es el aprendizaje automático?
-El aprendizaje automático es una técnica de ciencia de datos que ayuda a los equipos a aprender de los datos existentes para prever tendencias, resultados y comportamientos futuros.  
+# <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Introducción a Machine Learning en la nube de Azure
 
-Estas previsiones o predicciones del aprendizaje automático pueden hacer que las aplicaciones y los dispositivos sean más inteligentes. Cuando compra en línea, el aprendizaje automático ayuda a recomendar otros productos según lo que haya adquirido. Al pasar su tarjeta de crédito, el aprendizaje automático compara la transacción con una base de datos de transacciones y ayuda a detectar fraudes. Cuando la aspiradora robot aspira una sala, el aprendizaje automático le ayuda a decidir si se ha terminado el trabajo.
+## <a name="what-is-machine-learning"></a>¿Qué es el aprendizaje automático?
+El aprendizaje automático es una técnica de ciencia de datos que permite a los equipos utilizar datos existentes para prever tendencias, resultados y comportamientos futuros. Mediante el aprendizaje automático, los equipos aprenden si necesidad de programarlos explícitamente.
+
+Las previsiones o predicciones del aprendizaje automático pueden hacer que las aplicaciones y los dispositivos sean más inteligentes. Cuando compra en línea, el aprendizaje automático ayuda a recomendar otros productos según lo que haya adquirido. Al pasar su tarjeta de crédito, el aprendizaje automático compara la transacción con una base de datos de transacciones y ayuda a detectar fraudes. Cuando la aspiradora robot aspira una sala, el aprendizaje automático le ayuda a decidir si se ha terminado el trabajo.
 
 Si desea una pequeña introducción, vea la serie de vídeos [Ciencia de datos para principiantes](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Sin utilizar tecnicismos ni matemáticas, la serie de vídeos Ciencia de datos para principiantes hace una introducción al aprendizaje automático y le guía a lo largo de un sencillo modelo de predicción.
 

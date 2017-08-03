@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 08ba157ba783d00069750cdc1c80d13111b6a670
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -134,7 +136,7 @@ Si tiene menos de 50.000 objetos pero aún así desea realizar una implementaci�
 1. Ejecute el instalador de Azure AD Connect (MSI).
 2. Cuando aparezca la pantalla **Bienvenido a Azure AD Connect** , salga del asistente para instalación haciendo clic en la "X", en la esquina superior derecha de la ventana.
 3. Abra el símbolo del sistema.
-4. En la ubicación de instalación de Azure AD Connect (predeterminada: C:\Archivos de programa\Microsoft Azure Active Directory Connect), ejecute el siguiente comando:  `AzureADConnect.exe /ForceExport`.
+4. En la ubicación de instalación de Azure AD Connect (predeterminada: C:\Archivos de programa\Microsoft Azure Active Directory Connect), ejecute el siguiente comando: `AzureADConnect.exe /ForceExport`.
 5. Haga clic en el botón **Exportar configuración** . Al instalar Azure AD Connect en un servidor independiente, esta configuración se migra desde su DirSync actual a la nueva instalación de Azure AD Connect.
 
 ![Análisis completo](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
@@ -147,7 +149,7 @@ Al instalar Azure AD Connect en un nuevo servidor, se presupone que se desea rea
 1. Ejecute el instalador de Azure AD Connect (MSI).
 2. Cuando aparezca la pantalla **Bienvenido a Azure AD Connect** , salga del asistente para instalación haciendo clic en la "X", en la esquina superior derecha de la ventana.
 3. Abra el símbolo del sistema.
-4. En la ubicación de instalación de Azure AD Connect (predeterminada: C:\Archivos de programa\Microsoft Azure Active Directory Connect), ejecute el siguiente comando:  `AzureADConnect.exe /migrate`.
+4. En la ubicación de instalación de Azure AD Connect (predeterminada: C:\Archivos de programa\Microsoft Azure Active Directory Connect), ejecute el siguiente comando: `AzureADConnect.exe /migrate`.
    Se inicia el Asistente para instalación de Azure AD Connect y muestra la siguiente pantalla:  
    ![Escriba sus credenciales de Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
 5. Seleccione el archivo de configuración exportado desde la instalación de DirSync.
@@ -157,7 +159,7 @@ Al instalar Azure AD Connect en un nuevo servidor, se presupone que se desea rea
    * Una cuenta de servicio usada para conectarse a SQL Server (si la base de datos de SQL Server es remota, esta cuenta debe ser una cuenta de servicio de dominio).
      Estas opciones se pueden ver en esta pantalla:   
      ![Escriba sus credenciales de Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
-7. Haga clic en **Next**.
+7. Haga clic en **Siguiente**.
 8. En la página **Listo para configurar**, deje seleccionada la opción **Inicie el proceso de sincronización en cuanto se complete la configuración**. El servidor está ya en [modo provisional](active-directory-aadconnectsync-operations.md#staging-mode), por lo que los cambios no se exportan a Azure AD.
 9. Haga clic en **Instalar**.
 10. Una vez completada la instalación, cierre la sesión e iníciela de nuevo en Windows antes de usar Synchronization Service Manager o el Editor de reglas de sincronización. También puede tratar de realizar cualquier otro cambio en la configuración.
@@ -216,9 +218,4 @@ Para aprender más acerca de estas características nuevas que se habilitaron co
 Obtenga información acerca de estos temas habituales: [el programador y cómo desencadenar la sincronización](active-directory-aadconnectsync-feature-scheduler.md).
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

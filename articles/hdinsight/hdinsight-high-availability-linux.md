@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 07/28/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: f8f58f7007b6a52f0955232ad1492b25f3e851f0
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 56dd07de81e322aa66587ee160beb734811285dc
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
@@ -36,12 +35,10 @@ Hadoop logra una alta disponibilidad y confiabilidad al replicar datos y servici
 
 ## <a name="availability-and-reliability-of-nodes"></a>Disponibilidad y confiabilidad de los nodos
 
-Los nodos de un clúster de HDInsight se implementan mediante Máquinas virtuales de Azure. Si se produce un error en un nodo, se desconecta y se crea un nuevo nodo para reemplazar el nodo con error. Mientras el nodo está sin conexión, se utiliza otro nodo del mismo tipo hasta que se vuelve a conectar el nuevo nodo.
+Los nodos de un clúster de HDInsight se implementan mediante Máquinas virtuales de Azure. En las secciones siguientes se describen los tipos de nodo individuales usados con HDInsight. 
 
 > [!NOTE]
-> Si el nodo está analizando los datos cuando se produce un error, se pierde su progreso en el trabajo. El trabajo se vuelve a enviar a otro nodo.
-
-En las secciones siguientes se describen los tipos de nodo individuales usados con HDInsight. No todos los tipos de nodo se utilizan para un tipo de clúster. Por ejemplo, un tipo de clúster de Hadoop no tiene ningún nodo Nimbus. Para más información sobre los nodos usados por los tipos de clúster de HDInsight, vea la sección Tipos de clúster en el documento [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+> No todos los tipos de nodo se utilizan para un tipo de clúster. Por ejemplo, un tipo de clúster de Hadoop no tiene ningún nodo Nimbus. Para más información sobre los nodos usados por los tipos de clúster de HDInsight, vea la sección Tipos de clúster en el documento [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 ### <a name="head-nodes"></a>Nodos principales
 

@@ -1,5 +1,5 @@
 ---
-title: "Creación del primer índice de Azure Search en el portal | Microsoft Docs"
+title: "Tutorial: creación del primer índice de Azure Search en el portal | Microsoft Docs"
 description: "En el portal de Azure, use datos de ejemplo predefinidos para generar un índice. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada, la búsqueda geográfica y más."
 services: search
 documentationcenter: 
@@ -13,17 +13,16 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 06/26/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="build-and-query-your-first-azure-search-index-in-the-portal"></a>Creación y consulta del primer índice de Azure Search en el portal
+# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Tutorial: creación del primer índice de Azure Search en el portal
 
 En Azure Portal, comience con un conjunto de datos de ejemplo predefinido para generar rápidamente un índice mediante el **Asistente para la importación de datos**. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada y la búsqueda geográfica con el **Explorador de búsqueda**.  
 

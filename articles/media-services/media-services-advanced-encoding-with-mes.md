@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/01/2017
 ms.author: juliako
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 25a13ad3738286795f45bbdec681614356bd3db8
 ms.contentlocale: es-es
 ms.lasthandoff: 06/30/2017
-
 
 ---
 
@@ -940,28 +939,30 @@ Puede usar cualquiera de los valores preestablecidos de MES que se documentan en
 #### <a name="xml-preset"></a>Valor preestablecido XML
 
 Al usar XML, utilice Condition="InsertBlackIfNoVideoBottomLayerOnly" como atributo del elemento **H264Video** y Condition="InsertSilenceIfNoAudio" como atributo de **AACAudio**.
-    
-    . . .
-    <Encoding>  
-    <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
-      <KeyFrameInterval>00:00:02</KeyFrameInterval>
-      <SceneChangeDetection>true</SceneChangeDetection>  
-      <StretchMode>AutoSize</StretchMode>
-      <H264Layers>  
-    <H264Layer>  
-      . . .
-    </H264Layer>  
-      </H264Layers>  
-      <Chapters />  
-    </H264Video>  
-    <AACAudio Condition="InsertSilenceIfNoAudio">  
-      <Profile>AACLC</Profile>  
-      <Channels>2</Channels>  
-      <SamplingRate>48000</SamplingRate>  
-      <Bitrate>128</Bitrate>  
-    </AACAudio>  
-    </Encoding>  
-    . . .
+
+```
+. . .
+<Encoding>
+  <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">
+    <KeyFrameInterval>00:00:02</KeyFrameInterval>
+    <SceneChangeDetection>true</SceneChangeDetection>
+    <StretchMode>AutoSize</StretchMode>
+    <H264Layers>
+      <H264Layer>
+        . . .
+      </H264Layer>
+    </H264Layers>
+    <Chapters />
+  </H264Video>
+  <AACAudio Condition="InsertSilenceIfNoAudio">
+    <Profile>AACLC</Profile>
+    <Channels>2</Channels>
+    <SamplingRate>48000</SamplingRate>
+    <Bitrate>128</Bitrate>
+  </AACAudio>
+</Encoding>
+. . .
+```
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>Inserción de vídeo con todas las velocidades de bits de salida
 Supongamos que utiliza un valor preestablecido de codificación de varias velocidades de bits como [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) con el fin de codificar el catálogo de entrada completo para el proceso de streaming, que contiene una combinación de archivos de vídeo y archivos de solo audio. En este escenario, cuando la entrada no tiene ningún vídeo, puede forzar que el codificador inserte una pista de vídeo monocromática con todas las velocidades de bits de salida. Esto garantiza que los recursos de salida sean homogéneos con respecto al número de pistas de vídeo y de audio. Para ello, debe especificar la marca InsertBlackIfNoVideo.
@@ -982,27 +983,29 @@ Puede usar cualquiera de los valores preestablecidos de MES que se documentan en
 
 Al usar XML, utilice Condition="InsertBlackIfNoVideo" como atributo del elemento **H264Video** y Condition="InsertSilenceIfNoAudio" como atributo de **AACAudio**.
 
-    . . .
-    <Encoding>  
-    <H264Video Condition="InsertBlackIfNoVideo">  
-      <KeyFrameInterval>00:00:02</KeyFrameInterval>
-      <SceneChangeDetection>true</SceneChangeDetection>  
-      <StretchMode>AutoSize</StretchMode>
-      <H264Layers>  
-    <H264Layer>  
-      . . .
-    </H264Layer>  
-      </H264Layers>  
-      <Chapters />  
-    </H264Video>  
-    <AACAudio Condition="InsertSilenceIfNoAudio">  
-      <Profile>AACLC</Profile>  
-      <Channels>2</Channels>  
-      <SamplingRate>48000</SamplingRate>  
-      <Bitrate>128</Bitrate>  
-    </AACAudio>  
-    </Encoding>  
-    . . .  
+```
+. . .
+<Encoding>
+  <H264Video Condition="InsertBlackIfNoVideo">
+    <KeyFrameInterval>00:00:02</KeyFrameInterval>
+    <SceneChangeDetection>true</SceneChangeDetection>
+    <StretchMode>AutoSize</StretchMode>
+    <H264Layers>
+      <H264Layer>
+        . . .
+      </H264Layer>
+    </H264Layers>
+    <Chapters />
+  </H264Video>
+  <AACAudio Condition="InsertSilenceIfNoAudio">
+    <Profile>AACLC</Profile>
+    <Channels>2</Channels>
+    <SamplingRate>48000</SamplingRate>
+    <Bitrate>128</Bitrate>
+  </AACAudio>
+</Encoding>
+. . .  
+```
 
 ## <a id="rotate_video"></a>Girar un vídeo
 [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) admite ángulos de rotación de 0, 90, 180 o 270 grados. El comportamiento predeterminado es "Auto", en el que se intentan detectar los metadatos de rotación del archivo de vídeo entrante y la compensación. Incluya el siguiente elemento **Sources** en uno de los valores preestablecidos definidos en [esta](media-services-mes-presets-overview.md) sección:

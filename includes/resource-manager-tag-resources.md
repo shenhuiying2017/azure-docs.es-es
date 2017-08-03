@@ -4,7 +4,7 @@
 2. Verá las etiquetas existentes para el recurso. Si no ha aplicado etiquetas anteriormente, la lista está vacía. 
 
      ![Mostrar las etiquetas existentes en las hojas de recurso y de grupo de recursos](./media/resource-manager-tag-resources/existing-tags.png)
-3. Para agregar una etiqueta, escriba una clave y un valor o seleccione uno existente en el menú desplegable. Seleccione **Guardar**.
+3. Para agregar una etiqueta, escriba un nombre y un valor o seleccione uno en el menú desplegable. Seleccione **Guardar**.
 
      ![Agregar nueva etiqueta](./media/resource-manager-tag-resources/tag-resources.png)
 3. Para ver todos los recursos con un valor de etiqueta, seleccione **>** (Más servicios) y escriba la palabra **Etiquetas** en el cuadro de texto de filtro. Seleccione **Etiquetas** entre las opciones disponibles.

@@ -16,10 +16,10 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -180,13 +180,14 @@ Las siguientes sugerencias pueden ayudarle cuando esté solucionando problemas d
 * Use `-h` para obtener **texto de ayuda** de cualquier comando de CLI.
 * Use `-v` y `-vv` para mostrar la salida **detallada** de comandos. Cuando se incluye la marca `-vv`, la CLI de Azure muestra las solicitudes y respuestas REST en sí. Estos modificadores son útiles para mostrar la salida completa del error.
 * Puede ver la **salida del comando como JSON** con la opción `--json`. Por ejemplo, `az batch pool show pool001 --json` muestra las propiedades de pool001 en formato JSON. Puede copiar y modificar esta salida para usarla en `--json-file` (consulte [Archivos JSON](#json-files) en este mismo artículo).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * El [foro de Batch][batch_forum] está supervisado por los miembros del equipo de Batch. Puede publicar en él sus preguntas si experimenta problemas o desea obtener ayuda acerca de una operación concreta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/overview).
 * Para más información sobre los recursos de Batch, consulte [Introducción a Azure Batch para desarrolladores](batch-api-basics.md).
-* Consulte [Implementación de aplicaciones con paquetes de aplicación de Azure Batch](batch-application-packages.md) para averiguar cómo utilizar esta característica para administrar e implementar las aplicaciones que se ejecutan en nodos de proceso de Batch.
+* Consulte [Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch](batch-application-packages.md) para averiguar cómo usar esta característica para administrar e implementar las aplicaciones que se ejecutan en nodos de proceso de Batch.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

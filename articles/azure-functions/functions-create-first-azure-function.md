@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/08/2017
+ms.date: 07/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: f00ca3b8a35c0c49277457bd42fe8a314520d5a5
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ed096cf202a85f44755c9eee110b1b7c5c4074ad
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creación de su primera función en Azure Portal
@@ -64,17 +63,15 @@ Se crea una función en el lenguaje elegido mediante la plantilla para una funci
 
     ![Copiar la dirección URL de la función desde Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Pegue la dirección URL de la solicitud HTTP en la barra de direcciones del explorador. Agregue la cadena de consulta `&name=<yourname>` a esta dirección URL y ejecute la solicitud. A continuación se muestra la respuesta en el explorador para la solicitud GET devuelta por la función:
+2. Pegue la dirección URL de la función en la barra de direcciones de su explorador. Anexe la cadena de consulta `&name=<yourname>` a esta dirección URL y presione la tecla `Enter` en el teclado para ejecutar la solicitud. A continuación, se muestra un ejemplo de la respuesta devuelta por la función en el navegador Edge:
 
     ![Respuesta de la función en el explorador.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     La dirección URL de la solicitud incluye una clave que, de forma predeterminada, es necesaria para tener acceso a la función a través de HTTP.   
 
-## <a name="view-the-function-logs"></a>Ver los registros de función 
+3. Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver el resultado del seguimiento de la ejecución anterior, vuelva a la función en el portal y haga clic en la flecha hacia arriba que encontrará en la parte inferior de la pantalla para expandir **Registros**. 
 
-Cuando se ejecuta la función, se escribe información de seguimiento en los registros. Para ver el resultado del seguimiento de la ejecución anterior, vuelva a la función en el portal y haga clic en la flecha hacia arriba que encontrará en la parte inferior de la pantalla para expandir **Registros**. 
-
-![Visor de registros de las funciones en Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Visor de registros de las funciones en Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

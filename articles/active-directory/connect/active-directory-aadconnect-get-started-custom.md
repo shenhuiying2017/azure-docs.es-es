@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: f36d5da78818410e028a73a36a502a758400e5a5
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
@@ -127,10 +127,10 @@ La característica Correspondencia entre bosques permite definir cómo se repres
 | Configuración | Description |
 | --- | --- |
 | [Los usuarios solo se representan una vez en todos los bosques](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Todos los usuarios se crean como objetos individuales en Azure AD. Los objetos no se combinan en el metaverso. |
-| [Atributo Mail](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Esta opción une a los usuarios y contactos si el atributo Mail tiene el mismo valor en bosques diferentes. Esta opción se utiliza cuando los contactos se han creado mediante GALSync. |
+| [Atributo Mail](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Esta opción une a los usuarios y contactos si el atributo Mail tiene el mismo valor en bosques diferentes. Esta opción se utiliza cuando los contactos se han creado mediante GALSync. Si elige esta opción, no se sincronizarán con Azure AD los objetos de usuario cuyo atributo Mail no esté relleno. |
 | [ObjectSID y msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Esta opción une un usuario habilitado en un bosque de cuentas con un usuario deshabilitado en un bosque de recursos. En Exchange, esta configuración se conoce como buzón vinculado. Esta opción también se puede usar si solo usa Lync y Exchange no está presente en el bosque de recursos. |
 | sAMAccountName y MailNickName |Esta opción combina atributos donde se espera que pueda encontrarse el identificador de inicio de sesión para el usuario. |
-| Un atributo específico |Esta opción le permite seleccionar su propio atributo. **Limitación:** asegúrese de seleccionar un atributo que pueda encontrarse en el metaverso. Si selecciona un atributo personalizado (que no está en el metaverso), el asistente no podrá completarse. |
+| Un atributo específico |Esta opción le permite seleccionar su propio atributo. Si elige esta opción, no se sincronizarán con Azure AD los objetos de usuario cuyo atributo (seleccionado) no esté relleno. **Limitación:** asegúrese de seleccionar un atributo que pueda encontrarse en el metaverso. Si selecciona un atributo personalizado (que no está en el metaverso), el asistente no podrá completarse. |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Seleccione cómo deben identificarse los usuarios con Azure AD: delimitador de origen
 El atributo sourceAnchor es inmutable mientras siga vigente un objeto de usuario. Es la clave principal que vincula el usuario local con el usuario de Azure AD.

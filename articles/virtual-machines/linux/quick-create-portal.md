@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -48,7 +48,7 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
 1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
 
-2. Seleccione **Compute**, **Ubuntu Server 16.04 LTS** y asegúrese de que el modelo de implementación seleccionado sea **Resource Manager**. Haga clic en el botón **Crear** . 
+2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**. 
 
 3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH**. Al pegar la clave pública SSH, tenga cuidado de no quitar los espacios en blanco finales o iniciales. Cuando haya terminado, haga clic en **Aceptar**.
 
@@ -58,7 +58,7 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
     ![Captura de pantalla que muestra los tamaños de máquina virtual](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. En la hoja Configuración, seleccione **Sí** en **Usar discos administrados**, conserve los valores predeterminados en el resto de la configuración y haga clic en **Aceptar**.
+5. En la hoja de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
 
 6. En la página Resumen, haga clic en **Aceptar** para iniciar la implementación de máquina virtual.
 

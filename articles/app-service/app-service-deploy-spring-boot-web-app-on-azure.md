@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 05/20/2017
 ms.author: asirveda;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: ec6982f41d1e04d737c0f47571c30d813a390ea7
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a071cd1933caafce1f176cd5c5c4f41a60c54357
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -197,9 +196,9 @@ Los siguientes pasos le guiarán por las fases necesarias para implementar la ap
 
 Para obtener más información sobre el uso de aplicaciones de Spring Boot en Azure, consulte los siguientes artículos:
 
-* [Ejecución de una aplicación de Spring Boot en Linux en Azure Container Service](../container-service/container-service-deploy-spring-boot-app-on-linux.md)
+* [Ejecución de una aplicación de Spring Boot en Linux en Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
 
-* [Ejecución de una aplicación de Spring Boot en un clúster de Kubernetes en Azure Container Service](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
+* [Ejecución de una aplicación de Spring Boot en un clúster de Kubernetes en Azure Container Service](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

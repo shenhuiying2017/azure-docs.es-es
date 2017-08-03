@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/14/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: cb88ce2960d63b8a1c5861913b2095bcc977938f
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 3742fb37016db5e6230bc2b7ce11f0270d9d58b3
 ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute y dominios de enrutamiento
@@ -83,8 +83,7 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 * Busque un proveedor de servicios. Consulte [Ubicaciones y proveedores de servicios de ExpressRoute](expressroute-locations.md).
 * Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 * Configure su conexión ExpressRoute.
-  * [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
-  * [Configuración del enrutamiento (emparejamientos de circuitos)](expressroute-howto-routing-classic.md)
-  * [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
+  * [Creación y administración de circuitos ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
+  * [Configuración del enrutamiento (emparejamiento) para los circuitos ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 
 

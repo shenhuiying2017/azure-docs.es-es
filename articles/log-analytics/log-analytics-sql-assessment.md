@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 13453a831c3d42a9e291976a4d5cc80ced5c4755
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 045c4cd49e7b7b1e0b02cc7dc6ede636d0622208
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Optimización del entorno de SQL Server con la solución de evaluación de SQL en Log Analytics
@@ -170,6 +169,8 @@ Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura 
 
 ## <a name="ignore-recommendations"></a>Omisión de las recomendaciones
 Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS usará para evitar que aparezcan recomendaciones en los resultados de la evaluación.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar las recomendaciones que omitirá
 1. Inicie sesión en su área de trabajo y abra Búsqueda de registros. Use la siguiente consulta para mostrar las recomendaciones para los equipos que presentan errores en el entorno.

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Tutorial rápido del lenguaje R para Machine Learning | Microsoft Docs"
 description: "Use este tutorial para empezar a utilizar rápidamente el lenguaje de programación R con Azure Machine Learning Studio con el fin de crear una solución de previsión."
 keywords: "inicio rápido, idioma r, lenguaje de programación r, tutorial de programación r"
@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: 598f5ce445e520b6cdc347c80f7f3dcbc9c2c9e5
+ms.contentlocale: es-es
 ms.lasthandoff: 03/15/2017
 
 
@@ -30,6 +31,7 @@ ms.lasthandoff: 03/15/2017
 Este tutorial rápido le ayudará a comenzar a ampliar Aprendizaje automático de Azure mediante el uso del lenguaje de programación R. Siga este tutorial de programación R para crear, probar y ejecutar código R en Aprendizaje automático de Azure. A medida que vaya avanzando en este tutorial, creará una solución completa de previsión mediante el lenguaje R en Aprendizaje automático de Azure.  
 
 Aprendizaje automático de Microsoft Azure contiene muchos módulos versátiles de manipulación de datos y aprendizaje automático. El lenguaje R se conoce como la lingua franca del análisis de datos. Afortunadamente, la manipulación y el análisis de datos en Aprendizaje automático de Azure se pueden ampliar mediante R. Esta combinación une la escalabilidad y sencillez en la implementación de Aprendizaje automático de Azure con la flexibilidad y el análisis profundo de R.
+
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -71,7 +73,7 @@ Tomando como referencia la ilustración 1, veamos algunas de las partes principa
 
 Por supuesto, analizaremos el módulo [Ejecutar script R][execute-r-script] con mayor detalle en el resto de este documento.
 
-Cuando se utilicen funciones complejas de R, es recomendable editar, probar y depurar el código en RStudio. Al igual que con cualquier desarrollo de software, amplíe el código de forma incremental y pruébelo en casos de prueba más sencillos. Luego, corte y pegue las funciones en la ventana de scripts R del módulo [Ejecutar script R][execute-r-script]. Este enfoque le permite aprovechar el entorno de desarrollo integrado (IDE) de RStudio y la eficacia de Aprendizaje automático de Azure.  
+Cuando se utilicen funciones complejas de R, es recomendable editar, probar y depurar el código en RStudio. Al igual que con cualquier desarrollo de software, amplíe el código de forma incremental y pruébelo en casos de prueba más sencillos.  Luego, corte y pegue las funciones en la ventana de scripts R del módulo [Ejecutar script R][execute-r-script]. Este enfoque le permite aprovechar el entorno de desarrollo integrado (IDE) de RStudio y la eficacia de Aprendizaje automático de Azure.  
 
 #### <a name="execute-r-code"></a>Ejecución del código R
 Cualquier código R del módulo [Ejecutar script R][execute-r-script] se ejecutará cuando haga clic en el botón **Ejecutar** para ejecutar el experimento. Cuando haya finalizado la ejecución, aparecerá una marca de verificación en el icono [Ejecutar script R][execute-r-script].
@@ -124,7 +126,7 @@ Siga leyendo si no comprende la última línea de este código. En el resto del 
 ### <a name="introduction-to-rstudio"></a>Introducción a RStudio
 RStudio es un IDE ampliamente usado para R. Utilizaremos RStudio para editar, probar y depurar el código R utilizado en esta guía de inicio rápido. Una vez que el código R se pruebe y esté listo, simplemente deberá cortar y pegar desde el editor de RStudio en un módulo [Ejecutar script R][execute-r-script] de Machine Learning Studio.  
 
-Si no tiene instalado el lenguaje de programación R en su equipo, es recomendable que lo instale ahora. Encontrará descargas gratuitas del lenguaje R disponibles en la red completa de archivos de R o CRAN en [https://cran.r-project.org/](https://cran.r-project.org/). Hay descargas disponibles para Windows, Mac OS y Linux/UNIX. Elija el espejo más cercano a su ubicación y siga las instrucciones de descarga. Además, CRAN contiene una gran cantidad de paquetes de manipulación de datos y análisis de utilidad.
+Si no tiene instalado el lenguaje de programación R en su equipo de sobremesa, es recomendable que lo instale ahora. Encontrará descargas gratuitas del lenguaje R abierto están disponibles en la red completa de archivos de R o CRAN en [http://www.r-project.org/](http://www.r-project.org/). Hay descargas disponibles para Windows, Mac OS y Linux/UNIX. Elija el espejo más cercano a su ubicación y siga las instrucciones de descarga. Además, CRAN contiene una gran cantidad de paquetes de manipulación de datos y análisis de utilidad.
 
 Si no está familiarizado con RStudio, descargue e instale la versión de escritorio. Encontrará descargas de RStudio para Windows, Mac OS y Linux/UNIX en http://www.rstudio.com/products/RStudio/. Siga las instrucciones proporcionadas para instalar RStudio en su equipo.  
 
@@ -1109,7 +1111,7 @@ El gráfico de valores residuales se muestra en la ilustración 25.
 
 Estos valores residuales parecen ser razonables. No hay ninguna estructura determinada, excepto el efecto de la recesión de 2008 y 2009 que nuestro modelo no tiene especialmente en cuenta.
 
-El gráfico que se muestra en la ilustración 25 es útil para detectar los patrones que dependen del tiempo en los valores residuales. El enfoque explícito de cálculo y gráficos de los valores residuales que he utilizado coloca los valores residuales por orden cronológico en el gráfico. Por otro lado, si hubiese creado el trazado con la función `milk.lm$residuals`, este no estaría ordenado de forma cronológica.
+El gráfico que se muestra en la ilustración 25 es útil para detectar los patrones que dependen del tiempo en los valores residuales. El enfoque explícito de cálculo y gráficos de los valores residuales que he utilizado coloca los valores residuales por orden cronológico en el gráfico. Por otro lado, si hubiese creado el trazado con la  `milk.lm$residuals`, este no estaría ordenado de forma cronológica.
 
 También puede usar la función `plot.lm()` para generar una serie de trazados de diagnóstico:
 

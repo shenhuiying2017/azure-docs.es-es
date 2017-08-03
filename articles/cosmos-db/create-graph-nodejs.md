@@ -3,7 +3,7 @@ title: "Compilación de una aplicación de Node.js de Azure Cosmos DB mediante A
 description: "En este tema se presenta un ejemplo de código Node.js que puede usar para conectarse a Azure Cosmos DB y realizar consultas."
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,14 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/21/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: b9e8c46ba2f029f8dae2b357f05a806d769d0920
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 153b4cc668fdebd28cec5f3d95093a595064202a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: compilación de una aplicación de Node.js mediante API Graph
@@ -96,19 +95,23 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `a
 
 ## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 
-Ahora, vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
+1. Abra el archivo config.js. 
 
-1. En [Azure Portal](http://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el menú de navegación de la izquierda, haga clic en **Claves** y en **Claves de lectura y escritura**. En el paso siguiente, debe usar los botones de copia de la derecha para copiar el URI y la clave principal en el archivo `app.js`.
-
-    ![Hoja de claves de Azure Portal](./media/create-graph-nodejs/keys.png)
-
-2. Copie el valor del identificador URI de Gremlin (con el botón de copia) y conviértalo en el valor de la clave `config.endpoint` en config.js. El punto de conexión de Gremlin debe ser solo el nombre de host sin el número de puerto y protocolo, como `mygraphdb.graphs.azure.com` (no como `https://mygraphdb.graphs.azure.com` ni `mygraphdb.graphs.azure.com:433`).
+2. En config.js, rellene la clave config.endpoint con el valor del **Identificador URI de Gremlin** de la página **Información general** de Azure Portal. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
-3. Copie el valor de la clave principal del portal y úselo como valor de config.primaryKey en config.js. Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
+    ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-graph-nodejs/gremlin-uri.png)
+
+   Si el valor de **Identificador URI de Gremlin** está en blanco, puede generar el valor desde la página **Claves** en el portal; para ello, use el valor de **URI**, elimine https:// y cambie documents por graphs.
+
+   El punto de conexión de Gremlin debe ser solo el nombre de host sin el número de puerto y protocolo, como `mygraphdb.graphs.azure.com` (no como `https://mygraphdb.graphs.azure.com` ni `mygraphdb.graphs.azure.com:433`).
+
+3. En config.js, rellene el valor de config.primaryKey con el valor de la **Clave principal** de la página **Claves** de Azure Portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
+
+   ![Hoja de claves de Azure Portal](./media/create-graph-nodejs/keys.png)
 
 4. Escriba el nombre de la base de datos y el nombre del gráfico (contenedor) para el valor de config.database y config.collection. 
 
@@ -118,8 +121,8 @@ Este es un ejemplo del aspecto que debería tener el archivo config.js completad
 var config = {}
 
 // Note that this must not have HTTPS or the port number
-config.endpoint = "mygraphdb.graphs.azure.com";
-config.primaryKey = "OjlhK6tjxfSXyKtrmCiM9O6gQQgu5DmgAoauzD1PdPIq1LZJmILTarHvrolyUYOB0whGQ4j21rdAFwoYep7Kkw==";
+config.endpoint = "testgraphacct.graphs.azure.com";
+config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
 config.collection = "Persons"
 

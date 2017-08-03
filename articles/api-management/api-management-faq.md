@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 51459dae8d09d7051ab74c9fe57cc29e38b8b9ab
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: a0bf8995913511b0e14304a1259f13de4aa9e04b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
@@ -132,7 +132,7 @@ Puede obtener su dirección IP (o direcciones IP, en una implementación de vari
 Para más información sobre cómo configurar un servidor de autorización de OAuth 2.0 con la seguridad de Servicios de federación de Active Directory (AD FS), consulte [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/) (Uso de ADFS en API Management).
 
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>¿Qué método de enrutamiento utiliza API Management en implementaciones en varias ubicaciones geográficas?
-API Management usa el [método de enrutamiento de tráfico de rendimiento](../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method) en las implementaciones en varias ubicaciones geográficas. El tráfico entrante se enrutará a la puerta de enlace de API más cercana. Si una región se queda sin conexión, el tráfico entrante se enruta automáticamente a la siguiente puerta de enlace más cercana. Aprenda más acerca de los métodos de enrutamiento en [Métodos de enrutamiento de tráfico de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
+API Management usa el [método de enrutamiento de tráfico de rendimiento](../traffic-manager/traffic-manager-routing-methods.md#priority) en las implementaciones en varias ubicaciones geográficas. El tráfico entrante se enrutará a la puerta de enlace de API más cercana. Si una región se queda sin conexión, el tráfico entrante se enruta automáticamente a la siguiente puerta de enlace más cercana. Aprenda más acerca de los métodos de enrutamiento en [Métodos de enrutamiento de tráfico de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>¿Se puede usar una plantilla de Azure Resource Manager para crear una instancia del servicio API Management?
 Sí. Consulte las plantillas de inicio rápido del [servicio Azure API Management Service](http://aka.ms/apimtemplate).

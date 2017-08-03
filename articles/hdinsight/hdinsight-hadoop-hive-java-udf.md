@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6fe228ee8967c1d290e9bd515733d8207a721466
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 481d234eaf88bdb210821084ee4154159470eda0
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilización de una función definida por el usuario de Java con Hive en HDInsight
@@ -215,12 +214,12 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
 2. Una vez alcanzado el aviso `jdbc:hive2://localhost:10001/>` , escriba lo siguiente para agregar la función definida por el usuario a Hive y exponerla como una función.
 
     ```hiveql
-    ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
+    ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
 
     > [!NOTE]
-    > En este ejemplo se da por supuesto que el almacenamiento predeterminado para el clúster es Azure Storage. Si su clúster utiliza Data Lake Store en su lugar, cambie el valor `wasbs:///` a `adl:///`.
+    > En este ejemplo se da por supuesto que el almacenamiento predeterminado para el clúster es Azure Storage. Si su clúster utiliza Data Lake Store en su lugar, cambie el valor `wasb:///` a `adl:///`.
 
 3. Use la función definida por el usuario para convertir los valores recuperados de una tabla a cadenas de minúsculas.
 

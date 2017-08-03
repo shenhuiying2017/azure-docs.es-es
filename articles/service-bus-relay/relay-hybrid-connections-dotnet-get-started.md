@@ -1,6 +1,6 @@
 ---
 title: "Introducción a las conexiones híbridas de Azure Relay en .NET | Microsoft Docs"
-description: "Cómo escribir una aplicación de consola en C# para conexiones híbridas"
+description: "Escriba una aplicación de consola en C# para Conexiones híbridas de Azure Relay."
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
@@ -12,37 +12,39 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 07/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: d27016559ede5d810d7efcec2a3abc78334f0f0a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1af23bfd46dd7d3781505473f7c1d86e65ea9bc7
 ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="get-started-with-relay-hybrid-connections"></a>Introducción a las conexiones híbridas de Relay
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Este tutorial proporciona una introducción a las [conexiones híbridas de Azure Relay](relay-what-is-it.md#hybrid-connections) y muestra cómo crear una aplicación cliente que envía mensajes a una aplicación de escucha correspondiente. 
+Este tutorial proporciona una introducción a las [conexiones híbridas de Azure Relay](relay-what-is-it.md#hybrid-connections) y muestra la forma cómo usar .NET para crear una aplicación de escucha correspondiente envía mensajes a una aplicación de escucha correspondiente. 
 
 ## <a name="what-will-be-accomplished"></a>Lo que se logrará
-Dado que las conexiones híbridas requieren un cliente y un componente de servidor, se van a crear dos aplicaciones de consola en este tutorial. Los pasos son:
+Dado que las conexiones híbridas requieren un cliente y un componente de servidor, se van a crear dos aplicaciones de consola en este tutorial. Estos son los pasos que se deben seguir:
 
 1. Creación de un espacio de nombres de Relay mediante Azure Portal.
-2. Creación de una conexión híbrida mediante Azure Portal.
+2. Creación de una conexión híbrida en dicho espacio de nombres mediante Azure Portal.
 3. Escritura de una aplicación de consola de servidor (de escucha) para recibir mensajes.
 4. Escritura de una aplicación de consola de cliente (remitente) para enviar mensajes.
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. [Visual Studio 2015 o posterior](http://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2015.
+
+Para completar este tutorial, debe cumplir los siguientes requisitos previos:
+
+1. [Visual Studio 2015 o posterior](http://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2017.
 2. Una suscripción de Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Creación de un espacio de nombres mediante el Portal de Azure
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Creación de un espacio de nombres mediante Azure Portal
 Si ya ha creado un espacio de nombres de Relay, vaya a la sección [Creación de una conexión híbrida mediante Azure Portal](#2-create-a-hybrid-connection-using-the-azure-portal).
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]

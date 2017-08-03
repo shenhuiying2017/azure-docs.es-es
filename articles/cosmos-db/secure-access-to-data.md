@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: b57a157bc47b09af34684b0d85ce4538782a5ff2
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 383e04f91eec2f465b381ce30f2d6d24c488b731
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protección del acceso a los datos de Azure Cosmos DB
@@ -46,7 +45,7 @@ Cada cuenta consta de dos claves maestras: una principal y una secundaria. El fi
 
 Además de las dos claves maestras de la cuenta de Cosmos DB, hay dos claves de solo lectura. Estas claves de solo lectura permiten operaciones de lectura en la cuenta. Las claves de solo lectura no proporcionan acceso a los recursos de los permisos de lectura.
 
-Las claves maestras principal, secundaria, de solo lectura y de lectura y escritura se pueden recuperar y volver a generar desde Azure Portal. Para ver instrucciones al respecto, consulte [Visualización, copia y regeneración de las claves de acceso](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+Las claves maestras principal, secundaria, de solo lectura y de lectura y escritura se pueden recuperar y volver a generar desde Azure Portal. Para ver instrucciones al respecto, consulte [Visualización, copia y regeneración de las claves de acceso](manage-account.md#keys).
 
 ![Control de acceso (IAM) en Azure Portal: demostración de la seguridad de bases de datos NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -59,7 +58,7 @@ El proceso de rotación de la clave maestra es simple. Navegue hasta Azure Porta
 El fragmento de código de ejemplo ilustra cómo usar un punto de conexión y la clave maestra de la cuenta de Cosmos DB para crear una instancia de DocumentClient y una base de datos. 
 
 ```csharp
-//Read the DocumentDB endpointUrl and authorization keys from config.
+//Read the Azure Cosmos DB endpointUrl and authorization keys from config.
 //These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
@@ -183,6 +182,6 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de la seguridad de las bases de datos de Cosmos DB, consulte [Cosmos DB: Database security](database-security.md) (Cosmos DB: seguridad de bases de datos).
-* Para información sobre cómo administrar las claves maestra y de solo lectura, consulte [Administración de una cuenta de Azure Cosmos DB](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+* Para información sobre cómo administrar las claves maestra y de solo lectura, consulte [Administración de una cuenta de Azure Cosmos DB](manage-account.md#keys).
 * Para aprender a construir tokens de autorización de Azure Cosmos DB, consulte [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) (Control de acceso en recursos de Azure Cosmos DB).
 

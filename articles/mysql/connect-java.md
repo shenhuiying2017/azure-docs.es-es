@@ -11,22 +11,18 @@ ms.custom: mvc
 ms.topic: hero-article
 ms.devlang: java
 ms.date: 06/20/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7b9048731fed94a71dc8fb7125961265232fb65c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0190fb5a88f766369e6462965e47686c5f289551
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
-<a id="azure-database-for-mysql-use-java-to-connect-and-query-data" class="xliff"></a>
-
-# Azure Database for MySQL: uso de Java para conectarse y consultar datos
+# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database for MySQL: uso de Java para conectarse y consultar datos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de Java. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante Java y que nunca ha utilizado Azure Database for MySQL.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
 - [Create an Azure Database for MySQL server using Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creación de un servidor de Azure Database for MySQL mediante Azure Portal)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure)
@@ -36,21 +32,17 @@ Además, deberá:
 - Incluir el archivo jar de JDBC (por ejemplo, mysql-connector-java-5.1.42-bin.jar) en la ruta de clase de la aplicación.
 - Asegurarse de que se configura la seguridad de conexión de Azure Database for MySQL con el firewall abierto y la configuración de SSL correcta conectar la aplicación.
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Obtención de información sobre la conexión
+## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 Obtenga la información de conexión necesaria para conectarse a Azure Database for MySQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque el servidor que ha creado, por ejemplo, **myserver4demo**.
+2. En el panel izquierdo, haga clic en **Todos los recursos** y, a continuación, busque el servidor que ha creado (por ejemplo, **myserver4demo**).
 3. Haga clic en el nombre del servidor.
 4. Seleccione la página **Propiedades** del servidor. Tome nota del **Nombre del servidor** y del **Server admin login name** (Nombre de inicio de sesión del administrador del servidor).
  ![Nombre del servidor de Azure Database for MySQL](./media/connect-java/1_server-properties-name-login.png)
 5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el nombre de inicio de sesión del administrador del servidor y, si es necesario, restablecer la contraseña.
 
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
-
-## Conexión, creación de una tabla e inserción de datos
+## <a name="connect-create-table-and-insert-data"></a>Conexión, creación de una tabla e inserción de datos
 Use el código siguiente para conectarse y cargar los datos mediante la función con una instrucción SQL **INSERT**. Para la conexión a MySQL se utiliza el método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html). Los métodos [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) y execute() sirven para colocar y crear la tabla. El objeto prepareStatement sirve para generar los comandos insert, con setString() y setInt() para enlazar los valores de los parámetros. El método executeUpdate() ejecuta el comando para insertar los valores en cada conjunto de parámetros. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
@@ -152,9 +144,7 @@ public class CreateTableInsertRows {
 
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Lectura de datos
+## <a name="read-data"></a>Lectura de datos
 Use el código siguiente para leer los datos con una instrucción SQL **SELECT**. Para la conexión a MySQL se utiliza el método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html). Los métodos [crateStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) y executeQuery() se usan para la conexión y la ejecución de la instrucción seleccionada. Los resultados se procesan mediante un objeto [ResultSet](https://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html). 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
@@ -241,9 +231,7 @@ public class ReadTable {
 }
 ```
 
-<a id="update-data" class="xliff"></a>
-
-## Actualización de datos
+## <a name="update-data"></a>Actualización de datos
 Use el código siguiente para cambiar los datos con una instrucción SQL **UPDATE**. Para la conexión a MySQL se utiliza el método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html). Los métodos [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) y executeUpdate() se usan para la conexión y la ejecución de la instrucción update. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
@@ -324,9 +312,7 @@ public class UpdateTable {
 }
 ```
 
-<a id="delete-data" class="xliff"></a>
-
-## Eliminación de datos
+## <a name="delete-data"></a>Eliminación de datos
 Use el código siguiente para quitar datos con una instrucción SQL **DELETE**. Para la conexión a MySQL se utiliza el método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html).  Los métodos [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) y executeUpdate() se usan para la conexión y la ejecución de la instrucción update. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
@@ -407,9 +393,7 @@ public class DeleteTable {
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Migre su Base de datos MySQL a Azure Database for MySQL mediante el volcado y la restauración](concepts-migrate-dump-restore.md)
 

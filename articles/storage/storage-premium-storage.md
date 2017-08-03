@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: ramankum
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c905bfe672d1027916d7f273ab5ac79ceec9a4d9
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 94ae2fa4600c007725ae2615554144d12306e833
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Discos administrados y Premium Storage de alto rendimiento para VM
@@ -59,7 +58,7 @@ Aquí se muestran algunas de las características de Premium Storage:
 
 * **Discos de Premium Storage**
 
-    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage es compatible con las máquinas virtuales de las series DS, DSv2, GS y Fs. Tiene la opción de siete tamaños de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Los tamaños de disco P4 y P6 siguen admitiéndose solo para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#premium-storage-scalability-and-performance-targets) se describen las especificaciones más detalladamente.
+    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage es compatible con máquinas virtuales de las series DS, DSv2, GS, Ls y Fs. Tiene la opción de siete tamaños de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Los tamaños de disco P4 y P6 siguen admitiéndose solo para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
 
 * **Blobs en páginas Premium**
 

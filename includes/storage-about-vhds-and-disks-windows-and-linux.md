@@ -1,7 +1,5 @@
 
-<a id="about-vhds" class="xliff"></a>
-
-## Acerca de los discos duros virtuales
+## <a name="about-vhds"></a>Acerca de los discos duros virtuales
 
 Los discos duros virtuales usados en Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. Para obtener información detallada sobre blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Para más información sobre Premium Storage, consulte [Premium Storage de alto rendimiento y máquinas virtuales de Azure](../articles/storage/storage-premium-storage.md).
 
@@ -17,35 +15,28 @@ Para poder eliminar un archivo .vhd de origen, deberá quitar la concesión elim
 > Si elimina un archivo .vhd de origen del almacenamiento o elimina la cuenta de almacenamiento, Microsoft no puede recuperar esos datos por usted.
 > 
 
-<a id="types-of-disks" class="xliff"></a>
+## <a name="types-of-disks"></a>Tipos de discos 
 
-## Tipos de discos 
+Los discos de Azure están diseñados para ofrecer una disponibilidad del 99,999 %. Los discos de Azure ofrecen durabilidad de nivel empresarial, con una tasa de error anualizada del 0 %.
 
-Hay dos niveles de rendimiento para el almacenamiento que puede elegir al crear los discos: almacenamiento estándar y Premium Storage. Además, hay dos tipos de discos, no administrados y administrados, y pueden residir en cualquier nivel de rendimiento.  
+Hay dos niveles de rendimiento para el almacenamiento que puede elegir al crear los discos: almacenamiento estándar y Premium Storage. Además, hay dos tipos de discos, no administrados y administrados, y pueden residir en cualquier nivel de rendimiento.
 
-<a id="standard-storage" class="xliff"></a>
 
-### Standard Storage 
+### <a name="standard-storage"></a>Standard Storage 
 
 El almacenamiento estándar está respaldado por unidades de disco duro y ofrece un almacenamiento rentable al mismo tiempo que tiene un rendimiento superior. El almacenamiento estándar se puede replicar de forma local en un centro de datos, o tener redundancia geográfica con centros de datos principales y secundarios. Para más información sobre la replicación almacenamiento, consulte [Replicación de Azure Storage](../articles/storage/storage-redundancy.md). 
 
 Para más información sobre el uso del almacenamiento estándar con discos de máquina virtual, consulte el artículo sobre [Almacenamiento estándar y discos](../articles/storage/storage-standard-storage.md).
 
-<a id="premium-storage" class="xliff"></a>
-
-### Premium Storage 
+### <a name="premium-storage"></a>Premium Storage 
 
 Premium Storage está respaldado por discos SSD y ofrece compatibilidad con discos de alto rendimiento y baja latencia para máquinas virtuales con cargas de trabajo intensivas de E/S. Puede usar Premium Storage con máquinas virtuales de Azure de las series DS, DSv2, GS, Ls o FS. Para más información, consulte [Premium Storage](../articles/storage/storage-premium-storage.md).
 
-<a id="unmanaged-disks" class="xliff"></a>
-
-### Discos no administrados
+### <a name="unmanaged-disks"></a>Discos no administrados
 
 Los discos no administrados constituyen el tipo tradicional de discos que han usado las máquinas virtuales. Con esto, cree su propia cuenta de almacenamiento y especifique esa cuenta de almacenamiento al crear el disco. Tiene que asegurarse de que no incluir demasiados discos en la misma cuenta de almacenamiento, porque podría superar los [objetivos de escalabilidad](../articles/storage/storage-scalability-targets.md) de la cuenta de almacenamiento (20 000 IOPS, por ejemplo), lo que da como resultado una limitación de las máquinas virtuales. Con los discos no administrados, tendrá que averiguar cómo maximizar el uso de una o varias cuentas de almacenamiento para obtener el máximo rendimiento de las máquinas virtuales.
 
-<a id="managed-disks" class="xliff"></a>
-
-### Discos administrados 
+### <a name="managed-disks"></a>Discos administrados 
 
 El servicio Managed Disks controla la creación y administración de las cuentas de almacenamiento en segundo plano y se asegura de que no tiene que preocuparse de los límites de escalabilidad de la cuenta de almacenamiento. Simplemente especifique el tamaño del disco y el nivel de rendimiento (Estándar o Premium) y Azure crea y administra el disco en su nombre. Incluso a medida que agrega discos o escala y reduce verticalmente la máquina virtual, no tendrá que preocuparse por el almacenamiento que se va a usar. 
 
@@ -53,9 +44,7 @@ También puede administrar sus imágenes personalizadas en una cuenta de almacen
 
 Se recomienda usar Azure Managed Disks para las nuevas máquinas virtuales y que convierta los discos no administrados anteriores en discos administrados, para aprovechar las múltiples características disponibles en Managed Disks.
 
-<a id="disk-comparison" class="xliff"></a>
-
-### Comparación de discos
+### <a name="disk-comparison"></a>Comparación de discos
 
 En la tabla siguiente se ofrece una comparación de almacenamiento premium y estándar para discos administrados y no administrados para ayudar a decidir cuál utilizar.
 

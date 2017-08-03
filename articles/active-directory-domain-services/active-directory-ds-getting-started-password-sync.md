@@ -12,44 +12,55 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/30/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: b7b5f92c0093faa96a367fc95d459b1babd99789
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b6da997f44860dccb2aa2571ce099ab2d0231f3
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="enable-password-synchronization-with-azure-active-directory-domain-services"></a>Habilitación de la sincronización de contraseñas con Azure Active Directory Domain Services
-En las tareas anteriores, habilitó Azure Active Directory Domain Services (AD DS) para su inquilino de Azure Active Directory (Azure AD). La siguiente tarea consiste en habilitar los hashes de credenciales necesarios para que la autenticación de NT LAN Manager (NTLM) y Kerberos se sincronice con Azure Active Directory Domain Services. Una vez configurada la sincronización de credenciales, los usuarios pueden iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
+# <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Habilitación de la sincronización de contraseñas con Azure Active Directory Domain Services
+En las tareas anteriores, habilitó Azure Active Directory Domain Services para su inquilino de Azure Active Directory (Azure AD). La siguiente tarea consiste en habilitar la sincronización de los hashes de credenciales necesarios para que la autenticación NT LAN Manager (NTLM) y Kerberos se sincronice con Azure AD Domain Services. Una vez configurada la sincronización de credenciales, los usuarios pueden iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
 
-Los procedimientos pueden variar en función de si su organización tiene un inquilino de Azure AD solo de nube o está configurado para sincronizarse con su directorio local mediante Azure AD Connect.
+Los pasos necesarios son diferentes según se trate de cuentas de usuario solo de nube o de las cuentas de usuarios que se sincronizan desde el directorio local mediante Azure AD Connect.  Si el inquilino de Azure AD tiene una combinación entre usuarios solo de nube y usuarios de la instalación local de AD, deberá realizar ambos pasos.
+
+<br>
 
 > [!div class="op_single_selector"]
-> * [Inquilino de Azure AD solo de nube](active-directory-ds-getting-started-password-sync.md)
-> * [Inquilino de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+> * **Cuentas de usuario solo de nube**: [Sincronización de contraseñas de cuentas de usuario solo de nube con el dominio administrado](active-directory-ds-getting-started-password-sync.md)
+> * **Cuentas de usuario locales**: [Sincronización de contraseñas de cuentas de usuario sincronizadas desde la instancia local de AD con el dominio administrado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 >
 >
 
-## <a name="task-5-enable-password-synchronization-with-azure-active-directory-domain-services-for-a-cloud-only-azure-ad-tenant"></a>Tarea 5: Habilitación de la sincronización de contraseñas con Azure Active Directory Domain Services para un inquilino de Azure AD solo de nube
-Azure Active Directory Domain Services necesita hashes de credenciales en un formato adecuado para la autenticación de NTLM y Kerberos para poder autenticar a los usuarios en el dominio administrado. A menos que habilite Azure Active Directory Domain Services para el inquilino, Azure AD no genera ni almacena hashes de credenciales en el formato necesario para la autenticación NTLM o Kerberos. Por motivos de seguridad obvios, Azure AD tampoco almacena las credenciales en forma de texto sin cifrar. Por lo tanto, Azure AD no tiene forma de generar estos hashes de credenciales de NTLM o Kerberos basados en las credenciales de los usuarios existentes.
+<br>
+
+## <a name="task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts"></a>Tarea 5: habilitar la sincronización de contraseñas con el dominio administrado para las cuentas de usuario solo de nube
+Azure Active Directory Domain Services necesita hashes de credenciales en un formato adecuado para la autenticación de NTLM y Kerberos para poder autenticar a los usuarios en el dominio administrado. A menos que habilite Azure Active Directory Domain Services para el inquilino, Azure AD no genera ni almacena hashes de credenciales en el formato necesario para la autenticación NTLM o Kerberos. Por motivos de seguridad obvios, Azure AD tampoco almacena las credenciales de contraseñas en forma de texto sin cifrar. Por lo tanto, Azure AD no tiene forma de generar automáticamente estos hashes de credenciales de NTLM o Kerberos basados en las credenciales de los usuarios existentes.
 
 > [!NOTE]
-> Si su organización tiene un inquilino de Azure AD solo de nube, los usuarios que tengan que usar Azure Active Directory Domain Services deberán cambiar sus contraseñas.
+> Si su organización tiene una cuenta de usuario solo de nube, los usuarios que tengan que usar Azure Active Directory Domain Services deberán cambiar sus contraseñas. Una cuenta de usuario solo de nube es una cuenta creada en su directorio de Azure AD mediante Azure Portal, o bien mediante cmdlets de PowerShell de Azure AD. Estas cuentas de usuario no se sincronizan desde un directorio local.
 >
 >
 
 Este proceso de cambio de contraseña hace que los valores de hash de credenciales que necesita Azure Active Directory Domain Services para la autenticación Kerberos y NTLM se generen en Azure AD. Puede caducar las contraseñas de todos los usuarios en el inquilino que tiene que usar Azure Active Directory Domain Services o indicar a estos usuarios que cambien sus contraseñas.
 
-### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloud-only-azure-ad-tenant"></a>Habilitación de la generación de hash de credenciales de NTLM y Kerberos en el inquilino de Azure AD solo de nube
+### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloud-only-user-account"></a>Habilitación de la generación de hash de credenciales de NTLM y Kerberos para una cuenta de usuario solo de nube
 Estas son las instrucciones que tiene que proporcionar a los usuarios finales para que puedan cambiar sus contraseñas:
 
 1. Vaya a la página [Panel de acceso de Azure AD](http://myapps.microsoft.com) para su organización.
-2. En la ventana Panel de acceso, seleccione la pestaña de **perfil**.
-3. Haga clic en el icono **Cambiar contraseña**.
 
-    ![Icono "Cambiar contraseña" del panel de acceso de Azure AD](./media/active-directory-domain-services-getting-started/user-change-password.png)
+    ![Inicio del panel de acceso de Azure AD](./media/active-directory-domain-services-getting-started/access-panel.png)
+
+2. En la esquina superior derecha, haga clic en su nombre y seleccione **Perfil** en el menú.
+
+    ![Seleccionar perfil](./media/active-directory-domain-services-getting-started/select-profile.png)
+
+3. En la página **Perfil**, haga clic en **Cambiar contraseña**.
+
+    ![Hacer clic en "Cambiar contraseña"](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
    > [!NOTE]
    > Si no aparece la opción **Cambiar contraseña** en la ventana Panel de acceso, asegúrese de que su organización ha configurado la [administración de contraseñas en Azure AD](../active-directory/active-directory-passwords-getting-started.md).
@@ -63,7 +74,7 @@ Estas son las instrucciones que tiene que proporcionar a los usuarios finales pa
 
 Unos minutos después de haber cambiado su contraseña, la nueva contraseña se podrá usar en Azure Active Directory Domain Services. Después de unos minutos (por lo general, unos 20 minutos), los usuarios pueden iniciar sesión en equipos unidos al dominio administrado con su contraseña recién cambiada.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="related-content"></a>Contenido relacionado
 * [Actualización de la propia contraseña](../active-directory/active-directory-passwords-update-your-own-password.md)
 * [Introducción a la administración de contraseñas en Azure AD](../active-directory/active-directory-passwords-getting-started.md)
 * [Habilitación de la sincronización de contraseñas con Azure Active Directory Domain Services para un inquilino de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)

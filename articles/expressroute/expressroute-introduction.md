@@ -1,6 +1,6 @@
 ---
-title: "Introducción a ExpressRoute: Ampliación de la red local a Azure mediante una conexión privada dedicada | Microsoft Docs"
-description: "Esta introducción técnica sobre ExpressRoute explica cómo funciona una conexión de ExpressRoute a la hora de ampliar su red local a Azure mediante una conexión privada dedicada."
+title: "Introducción a ExpressRoute: Ampliación de la red local a Azure mediante una conexión privada | Microsoft Docs"
+description: "Esta introducción técnica sobre ExpressRoute explica cómo funciona una conexión de ExpressRoute a la hora de ampliar su red local a Azure mediante una conexión privada."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/14/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: a36fce44efb3c32f83f33b19d2bca5ad73782a1b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a998ec92ad58932c5f71e84fbffcd7783cbb459b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="expressroute-overview"></a>Información general sobre ExpressRoute
-Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y Dynamics 365.
+Microsoft Azure ExpressRoute le permite ampliar sus redes locales en la nube de Microsoft a través de una conexión privada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y Dynamics 365.
 
 La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida. Las conexiones ExpressRoute no pasan por la red pública de Internet. Esto permite a las conexiones de ExpressRoute ofrecer más confiabilidad, más velocidad, menor latencia y mayor seguridad que las conexiones normales a través de Internet. Para información sobre cómo conectar la red a Microsoft mediante ExpressRoute, consulte [ExpressRoute connectivity models](expressroute-connectivity-models.md) (Modelos de conectividad de ExpressRoute).
 
@@ -114,4 +113,5 @@ Para ver las preguntas más frecuentes sobre ExpressRoute, consulte [P+F de Expr
   * [Creación de un circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configuración del emparejamiento de un circuito ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
   * [Conexión de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
+* Aprenda sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.
 

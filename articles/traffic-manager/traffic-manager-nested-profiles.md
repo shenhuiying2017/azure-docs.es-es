@@ -1,6 +1,6 @@
 ---
 title: Perfiles anidados de Traffic Manager | Microsoft Docs
-description: "En este artículo se explica la característica &quot;Perfiles anidados&quot; del Administrador de tráfico de Azure."
+description: "En este artículo se explica la característica \"Perfiles anidados\" del Administrador de tráfico de Azure."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 2dacb50ab9b8604e48f5ba08e8f8e94fa4a71bd5
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 1ac4ec2775ca9f690f5adf4f939908f8cee3f715
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -46,7 +46,7 @@ En el siguiente diagrama, se ilustra este concepto:
 
 En esta configuración, el tráfico dirigido mediante el perfil primario distribuye el tráfico entre las regiones normalmente. En Europa Occidental, el perfil anidado distribuye el tráfico a los puntos de conexión de prueba y producción según las ponderaciones asignadas.
 
-Cuando el perfil primario utiliza el método de enrutamiento de tráfico de "rendimiento", se debe asignar una ubicación a cada punto de conexión. La ubicación se asigna al configurar el punto de conexión. Elija la región de Azure más cercana a su implementación. Las regiones de Azure son los valores de ubicación compatibles con la tabla de latencia de Internet. Para más información, consulte [Método de enrutamiento de tráfico de rendimiento de Traffic Manager](traffic-manager-routing-methods.md#a-name--performanceaperformance-traffic-routing-method).
+Cuando el perfil primario utiliza el método de enrutamiento de tráfico de "rendimiento", se debe asignar una ubicación a cada punto de conexión. La ubicación se asigna al configurar el punto de conexión. Elija la región de Azure más cercana a su implementación. Las regiones de Azure son los valores de ubicación compatibles con la tabla de latencia de Internet. Para más información, consulte [Método de enrutamiento de tráfico de rendimiento de Traffic Manager](traffic-manager-routing-methods.md#performance).
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Ejemplo 2: Supervisión de puntos de conexión en perfiles anidados
 

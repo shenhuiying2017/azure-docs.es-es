@@ -1,6 +1,6 @@
 ---
 title: "Introducción a Azure IoT Hub (Node) | Microsoft Docs"
-description: "Cómo enviar mensajes del dispositivo a la nube desde un dispositivo a una instancia de IoT Hub de Azure mediante el SDK de IoT de Azure para Node.js. Cree una aplicación de dispositivo simulado para enviar mensajes, una aplicación de servicio para registrar el dispositivo en el registro de identidad y una aplicación de servicio para leer los mensajes de dispositivo a la nube desde IoT Hub."
+description: "Obtenga información sobre cómo enviar mensajes del dispositivo a la nube a una instancia de Azure IoT Hub mediante los SDK de IoT para Node.js. Cree aplicaciones de servicio y de dispositivo simuladas para registrar el dispositivo, enviar mensajes y leerlos en IoT Hub."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: b04fe441cf83ed616b0464eec83a6caf3a449532
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5ce485575416b863d34117807c6dccd96e88eb42
 ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Conexión del dispositivo simulado en el centro de IoT con Node
@@ -95,6 +94,8 @@ En esta sección, creará una aplicación de consola de Node.js que crea una ide
       }
     }
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 7. Guarde y cierre el archivo **CreateDeviceIdentity.js** .
 8. Para ejecutar la aplicación **createdeviceidentity**, ejecute el siguiente comando en el símbolo del sistema en la carpeta createdeviceidentity:
    
@@ -110,7 +111,7 @@ En esta sección, creará una aplicación de consola de Node.js que crea una ide
 
 <a id="D2C_node"></a>
 ## <a name="receive-device-to-cloud-messages"></a>Recepción de mensajes de dispositivo a nube
-En esta sección, creará una aplicación de consola de Node.js que lee los mensajes de dispositivo a nube de IoT Hub. Un centro de IoT expone un punto de conexión compatible con [Event Hubs][lnk-event-hubs-overview] para poder leer los mensajes del dispositivo a la nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El [tutorial: procesamiento de mensajes de dispositivo a la nube][lnk-process-d2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. En el tutorial [Introducción a Event Hubs][lnk-eventhubs-tutorial] se proporciona información adicional acerca de cómo procesar los mensajes desde Event Hubs. Dicha información se puede aplicar a los puntos de conexión compatibles con Event Hubs de IoT Hub.
+En esta sección, creará una aplicación de consola de Node.js que lee los mensajes de dispositivo a nube de IoT Hub. Un centro de IoT expone un punto de conexión compatible con [Event Hubs][lnk-event-hubs-overview] para poder leer los mensajes del dispositivo a la nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. El [tutorial: procesamiento de mensajes de dispositivo a la nube][lnk-process-d2c-tutorial] muestra cómo procesar mensajes de dispositivo a la nube a escala. En el tutorial [Introducción a Event Hubs][lnk-eventhubs-tutorial] se proporciona información adicional acerca de cómo procesar los mensajes desde Event Hubs. Dicha información se puede aplicar a los puntos de conexión de IoT Hub compatibles con Event Hubs.
 
 > [!NOTE]
 > El punto de conexión compatible con Event Hubs para leer mensajes de dispositivo a la nube siempre usa el protocolo AMQP.
@@ -267,7 +268,7 @@ Ya está preparado para ejecutar las aplicaciones.
     ![Icono Uso de Azure Portal que muestra el número de mensajes enviados a IoT Hub][43]
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades del centro de IoT. Usó esta identidad de dispositivo para habilitar la aplicación del dispositivo simulado para enviar al centro de IoT los mensajes del dispositivo a la nube. También creó otra aplicación que muestra los mensajes recibidos por el centro de IoT. 
+En este tutorial, configuró una nueva instancia de IoT Hub en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades de IoT Hub. Usó esta identidad de dispositivo para habilitar la aplicación del dispositivo simulado para enviar a IoT Hub los mensajes del dispositivo a la nube. También creó otra aplicación que muestra los mensajes recibidos por el centro de IoT. 
 
 Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, consulte:
 

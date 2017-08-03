@@ -1,5 +1,5 @@
 ---
-title: "Realización de una consulta en el índice de Azure Search mediante Azure Portal | Microsoft Docs"
+title: "Consulta de un índice (portal - Azure Search) | Microsoft Docs"
 description: "Emita una consulta de búsqueda en el Explorador de búsqueda del Portal de Azure."
 services: search
 manager: jhubbard
@@ -11,15 +11,16 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 07/10/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dd68d8ed073bf7b8666ddef35a2f1f84df690b4b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="query-your-azure-search-index-using-the-azure-portal"></a>Realización de una consulta en el índice de Búsqueda de Azure mediante el Portal de Azure
+# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Consulta de un índice de Azure Search mediante el Explorador de búsqueda de Azure Portal
 > [!div class="op_single_selector"]
 > * [Información general](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -28,34 +29,43 @@ ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
 > 
 > 
 
-Esta guía le mostrará cómo consultar en el índice de Búsqueda de Azure en el Portal de Azure.
+En este artículo se muestra cómo consultar un índice de Azure Search mediante el **Explorador de búsqueda** de Azure Portal. El Explorador de búsqueda se puede usar para enviar cadenas de consulta de Lucene simples o completas para cualquier índice existente en el servicio.
 
-Antes de comenzar este tutorial, debe haber [creado ya un índice de Azure Search](search-what-is-an-index.md) y [haberlo rellenado con datos](search-what-is-data-import.md).
+## <a name="open-the-service-dashboard"></a>Abrir el panel del servicio
+1. Haga clic en **Todos los recursos** en la barra de acceso rápido del menú izquierdo de [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+2. Seleccione el servicio Azure Search.
 
-## <a name="i-go-to-your-azure-search-blade"></a>I. Vaya a la hoja Búsqueda de Azure.
-1. Haga clic en "Todos los recursos" en el menú en el lado izquierdo del [Portal de Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Seleccione el servicio Búsqueda de Azure.
+## <a name="select-an-index"></a>Seleccionar un índice
 
-## <a name="ii-select-the-index-you-would-like-to-search"></a>II. Seleccione el índice que desea buscar
-1. Seleccione el índice que desea buscar en el icono "Índices".
+Seleccione el índice en el que desea buscar con el icono **Índices**.
 
-![](./media/search-explorer/pick-index.png)
+   ![](./media/search-explorer/pick-index.png)
 
-## <a name="iii-click-on-the-search-explorer-tile"></a>III. Haga clic en el icono "Explorador de búsqueda"
-![](./media/search-explorer/search-explorer-tile.png)
+## <a name="open-search-explorer"></a>Abrir el Explorador de búsqueda
 
-## <a name="iii-start-searching"></a>III. Inicio de la búsqueda
-1. Para buscar en el índice de Búsqueda de Azure, empiece a escribir en el campo "*Cadena de consulta*" y, después, presione"**Buscar**".
+Haga clic en el icono del Explorador de búsqueda para abrir la barra de búsqueda y el panel de resultados.
+
+   ![](./media/search-explorer/search-explorer-tile.png)
+
+## <a name="start-searching"></a>Inicio de la búsqueda
+
+Cuando utilice el Explorador de búsqueda, puede especificar los [parámetros de consulta](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para formular la consulta.
+
+1. En **Cadena de consulta**, escriba una consulta y pulse **Buscar**. 
+
+   La cadena de consulta se analiza automáticamente en la dirección URL de solicitud adecuada para enviar una solicitud HTTP con la API de REST de Azure Search.   
    
-   * Cuando utilice el Explorador de búsqueda, puede especificar cualquiera de los [parámetros de consulta](https://msdn.microsoft.com/library/dn798927.aspx)
-2. En la sección "*Resultados*", se presentarán los resultados de la consulta en el archivo JSON sin formato que podría recibir en un cuerpo de respuesta HTTP al emitir solicitudes de búsqueda en la API de REST de Búsqueda de Azure.
-3. La cadena de consulta se analiza automáticamente en la dirección URL de solicitud adecuada para enviar una solicitud HTTP con la API de REST de Búsqueda de Azure
+   Puede usar cualquier sintaxis de consulta de Lucene simple o completa válida para crear la solicitud. El carácter `*` equivale a una búsqueda vacía o sin especificar que devuelve todos los documentos sin ningún orden determinado.
 
-![](./media/search-explorer/search-bar.png)
+2. En **Resultados**, los resultados de las consultas se presentan en formato JSON sin formato, que son idénticos a la carga útil que se devuelve en un cuerpo de respuesta HTTP al emitir solicitudes mediante programación.
 
+   ![](./media/search-explorer/search-bar.png)
 
+## <a name="next-steps"></a>Pasos siguientes
 
+Los siguientes recursos proporcionan ejemplos y la información de la sintaxis de consulta adicionales.
 
-<!--HONumber=Nov16_HO2-->
-
-
+ + [Sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+ + [Sintaxis de consulta de Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+ + [Ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Azure Search](https://docs.microsoft.com/azure/search/search-query-lucene-examples) 
+ + [OData Expression Syntax for Azure Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Sintaxis de expresiones de OData en Azure Search) 

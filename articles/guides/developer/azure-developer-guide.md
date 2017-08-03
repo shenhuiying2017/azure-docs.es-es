@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: efd01bb001f4ac05f933793184b5027157f143f6
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: b53b044242f339d00dcc947c213dacb5dffdcce6
 ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -149,7 +148,7 @@ Azure proporciona varias maneras de utilizar contenedores en sus aplicaciones.
 
     >**Cuándo se usa**: para crear entornos escalables listos para la producción que cuenten con herramientas de administración y programación adicionales, o para implementar un clúster de Docker Swarm.
 
-    >**Para empezar**: [implemente un clúster de Container Service](../../container-service/container-service-deployment.md).
+    >**Para empezar**: [implemente un clúster de Container Service](../../container-service/dcos-swarm/container-service-deployment.md).
 
 -   **Docker Machine**: permite instalar y administrar un motor de Docker en hosts virtuales mediante comandos de docker-machine.
 

@@ -15,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a05c878f876eadc5160ef9765f764595cade76a9
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cad933cc453f1bfdbf29914ca3a9a6029108e70f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configuración de una conexión de puerta de enlace de VPN de red virtual a red virtual mediante la CLI de Azure
 
-En este artículo se explica cómo crear una conexión de VPN Gateway entre redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y usan la CLI de Azure. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
+En este artículo se explica cómo crear una conexión de VPN Gateway entre redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Al conectar redes virtuales de distintas suscripciones, estas no necesitan estar asociadas con el mismo inquilino de Active Directory. Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y usan la CLI de Azure. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -257,7 +256,7 @@ Ahora tiene dos redes virtuales con puertas de enlace de VPN. El siguiente paso 
 
 ![diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
-En este escenario, conectaremos TestVNet1 y TestVNet5. Las redes virtuales residen en suscripciones distintas. Los pasos para esta configuración permiten agregar una conexión de red virtual a red virtual adicional para poder conectar TestVNet1 a TestVNet5.
+En este escenario, conectaremos TestVNet1 y TestVNet5. Las redes virtuales residen en suscripciones distintas. Las suscripciones no necesitan estar asociadas con el mismo inquilino de Active Directory. Los pasos para esta configuración permiten agregar una conexión de red virtual a red virtual adicional para poder conectar TestVNet1 a TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Paso 5: Creación y configuración de TestVNet1
 

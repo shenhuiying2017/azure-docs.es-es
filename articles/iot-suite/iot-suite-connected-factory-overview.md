@@ -13,18 +13,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: d9d4dcf16954b0cd831e017ecb305d30e3b36dc7
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: a7d31be48ef06064b01cdb2dfd0331b34adbec4d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Introducción a la solución preconfigurada de fábrica conectada
-
-## <a name="introduction"></a>Introducción
 
 Las [soluciones preconfiguradas][lnk-preconfigured-solutions] del Conjunto de aplicaciones de IoT de Azure combinan varios servicios de IoT de Azure para ofrecer soluciones integrales que implementan escenarios empresariales de IoT comunes. La solución preconfigurada *fábrica conectada* permite conectar y supervisar dispositivos industriales. Puede usar la solución para analizar el flujo de datos de los dispositivos y administrar la productividad y la rentabilidad de las operaciones.
 
