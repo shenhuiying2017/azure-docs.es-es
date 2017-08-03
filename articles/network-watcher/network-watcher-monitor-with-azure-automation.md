@@ -1,5 +1,4 @@
 ---
-
 title: "Supervisión de las puertas de enlace de VPN con la solución de problemas de Azure Network Watcher | Documentos de Microsoft"
 description: "En este artículo se describe cómo diagnosticar la conectividad local con Azure Automation y Network Watcher"
 services: network-watcher
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 9a6f42e9b7b737e9316dcc1ff39ea532c4b923c5
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 655469b88a77bcf54b775cbde991b8cba415c024
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -47,13 +46,14 @@ Antes de comenzar con este escenario, tiene que cumplir los siguientes requisito
 - Tener un conjunto de credenciales configuradas en Azure Automation. Obtenga más información en el artículo sobre [seguridad en Azure Automation](../automation/automation-security-overview.md)
 - Tener un servidor SMTP válido (Office 365, correo electrónico local u otro) y las credenciales definidas en Azure Automation
 - Tener una puerta de enlace de Virtual Network configurada en Azure.
+- Una cuenta de almacenamiento existente para almacenar los inicios de sesión.
 
 > [!NOTE]
 > La infraestructura que se muestra en la imagen anterior tiene fines meramente ilustrativos y no se creó con los pasos que se incluyen en este artículo.
 
 ### <a name="create-the-runbook"></a>Creación del runbook
 
-El primer paso para configurar el ejemplo es crear el runbook. Este ejemplo utiliza una cuenta de ejecución. Para obtener información acerca de las cuentas de ejecución, visite [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md#create-an-automation-account-from-the-azure-portal)
+El primer paso para configurar el ejemplo es crear el runbook. Este ejemplo utiliza una cuenta de ejecución. Para obtener información acerca de las cuentas de ejecución, visite [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 ### <a name="step-1"></a>Paso 1
 
@@ -89,6 +89,7 @@ Use el código siguiente y haga clic en **Guardar**
 # Get credentials for Office 365 account
 $MyCredential = "Office 365 account"
 $Cred = Get-AutomationPSCredential -Name $MyCredential
+$username = "<from email address>"
 
 # Get the connection "AzureRunAsConnection "
 $connectionName = "AzureRunAsConnection"
@@ -103,17 +104,17 @@ Add-AzureRmAccount `
 "Setting context to a specific subscription"
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "<Azure Region>" }
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
-$sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
+$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "<vpn connection name>" -ResourceGroupName "<resource group name>"
+$sa = Get-AzureRmStorageAccount -Name "<storage account name>" -ResourceGroupName "<resource group name>" 
 $result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)logs"
 
 
 if($result.code -ne "Healthy")
     {
-        $Body = "Connection for ${vpnconnectionName} is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
-        $subject = "${connectionname} Status"
+        $Body = "Connection for $($connection.name) is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
+        $subject = "$($connection.name) Status"
         Send-MailMessage `
         -To 'admin@contoso.com' `
         -Subject $subject `
@@ -121,17 +122,15 @@ if($result.code -ne "Healthy")
         -UseSsl `
         -Port 587 `
         -SmtpServer 'smtp.office365.com' `
-        -From "${$username}" `
+        -From $username `
         -BodyAsHtml `
         -Credential $Cred
     }
 else
     {
-    Write-Output ("Connection Status is: $($result.connectionStatus)")
+    Write-Output ("Connection Status is: $($result.code)")
     }
 ```
-
-![Paso 5][5]
 
 ### <a name="step-6"></a>Paso 6
 

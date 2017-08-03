@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 07/17/2017
+ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 08df9939eb31c224d62d96a0d034d1cda10ba270
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 32b5e5a8025be3381e20aad0b22289b2c641f74e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect Sync: atributos sincronizados con Azure Active Directory
@@ -54,6 +53,7 @@ En este caso, comience con la lista de atributos de este tema e identifique aque
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define si se habilita una cuenta. |
 | assistant |X |X | | |
+| altRecipient |X | | |Requiere la compilación 1.1.552.0 de Azure AD Connect o versiones posteriores. |
 | authOrig |X |X |X | |
 | c |X |X | | |
 | cn |X | |X | |
@@ -432,6 +432,7 @@ Estos atributos se reescriben desde Azure AD en Active Directory local cuando se
 | msExchUCVoiceMailSettings |X | | |Habilitar mensajería unificada (UM) - correo de voz en línea: usado para la integración de Microsoft Lync Server para indicar a Lync Server local que el usuario tiene el correo de voz en los servicios en línea. |
 | msExchUserHoldPolicies |X | | |Retención por juicio: permite que los servicios en la nube determinen qué usuarios están bajo retención por juicio. |
 | proxyAddresses |X |X |X |Solo se inserta la dirección x500 de Exchange Online. |
+| publicDelegates |X | | |Permite conceder derechos SendOnBehalfTo a un buzón de Exchange Online para los usuarios con buzones de Exchange locales. Requiere la compilación 1.1.552.0 de Azure AD Connect o versiones posteriores. |
 
 ## <a name="exchange-mail-public-folder"></a>Carpeta pública de correo de Exchange
 Estos atributos se sincronizan desde Active Directory local en Azure AD cuando se elige habilitar la **carpeta pública de correo de Exchange**.

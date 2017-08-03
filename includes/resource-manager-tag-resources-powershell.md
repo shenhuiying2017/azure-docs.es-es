@@ -12,35 +12,74 @@ Version
 3.5.0
 ```
 
-Cada vez que aplique etiquetas a un recurso o grupo de recursos, sobrescribirá las etiquetas existentes en ese recurso o grupo de recursos. Por lo tanto, tiene que utilizar un enfoque diferente en función de si el recurso o grupo de recursos tiene etiquetas existentes que desea conservar. Para agregar etiquetas a un:
+Para ver las etiquetas existentes de un **grupo de recursos**, use:
 
-* grupo de recursos sin etiquetas existentes.
+```powershell
+(Get-AzureRmResourceGroup -Name examplegroup).Tags
+```
 
-  ```powershell
-  Set-AzureRmResourceGroup -Name TagTestGroup -Tag @{ Dept="IT"; Environment="Test" }
-  ```
+Que devuelve el siguiente formato:
 
-* grupo de recursos con etiquetas existentes.
+```powershell
+Name                           Value
+----                           -----
+Dept                           IT
+Environment                    Test
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResourceGroup -Name TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResourceGroup -Tag $tags -Name TagTestGroup
-  ```
+Para ver las etiquetas existentes de un **recurso con un identificador de recurso especificado**, use:
 
-* recurso sin etiquetas existentes.
+```powershell
+(Get-AzureRmResource -ResourceId {resource-id}).Tags
+```
 
-  ```powershell
-  Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+O bien, para ver las etiquetas existentes para un **recurso con un nombre y un grupo de recursos especificados**, use:
 
-* recurso con etiquetas existentes.
+```powershell
+(Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResource -ResourceName storageexample -ResourceGroupName TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResource -Tag $tags -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+Para obtener **grupos de recursos con una etiqueta específica**, use:
+
+```powershell
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
+```
+
+Para obtener **recursos con una etiqueta específica**, use:
+
+```powershell
+(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+```
+
+Cada vez que aplique etiquetas a un recurso o grupo de recursos, sobrescribirá las etiquetas existentes en ese recurso o grupo de recursos. Por lo tanto, tiene que utilizar un enfoque diferente en función de si el recurso o grupo de recursos tienen etiquetas existentes. 
+
+Para agregar etiquetas a un **grupo de recursos sin etiquetas**, use:
+
+```powershell
+Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
+```
+
+Para agregar etiquetas a un **grupo de recursos con etiquetas**, recupere las etiquetas existentes, agregue la nueva y vuelva a aplicar todas:
+
+```powershell
+$tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
+```
+
+Para agregar etiquetas a un **recurso sin etiquetas**, use:
+
+```powershell
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName exampleroup
+```
+
+Para agregar etiquetas a un **recurso con etiquetas**.
+
+```powershell
+$tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
+```
 
 Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y **no conservar ninguna de las etiquetas existentes en los recursos**, use el siguiente script:
 
@@ -77,18 +116,8 @@ foreach ($g in $groups)
 Para quitar todas las etiquetas, pase una tabla hash vacía.
 
 ```powershell
-Set-AzureRmResourceGroup -Tag @{} -Name TagTestGgroup
+Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
 
-Para obtener grupos de recursos con una etiqueta específica, use el cmdlet `Find-AzureRmResourceGroup`.
 
-```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
-```
-
-Para obtener todos los recursos con una etiqueta y un valor concretos, use el cmdlet `Find-AzureRmResource`.
-
-```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
-```
 

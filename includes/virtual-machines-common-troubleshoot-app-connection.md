@@ -113,6 +113,10 @@ Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimet
 * El tráfico de solicitud saliente de aplicaciones desde el equipo cliente hasta la máquina virtual de Azure.
 * El tráfico de respuesta de aplicación entrante desde la máquina virtual de Azure.
 
+## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Paso 4 Si no puede obtener acceso a la aplicación, use la comprobación de IP para comprobar la configuración. 
+
+Para más información, consulte [Información general sobre la supervisión de red de Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+
 ## <a name="additional-resources"></a>Recursos adicionales
 [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 

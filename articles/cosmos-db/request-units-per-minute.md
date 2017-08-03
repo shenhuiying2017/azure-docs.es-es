@@ -3,7 +3,7 @@ title: 'Azure Cosmos DB: unidades de solicitud por minuto (RU/m) | Microsoft Doc
 description: "Obtenga información sobre cómo reducir el costo mediante el uso de unidades de solicitud por minuto."
 services: cosmos-db
 documentationcenter: 
-author: arnomicrosoft
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: acomet
+ms.author: mimig
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: 0c597fa4afa816f9731edb744ae494b6ef928b9e
 ms.contentlocale: es-es
 ms.lasthandoff: 06/20/2017
-
 
 ---
 # <a name="request-units-per-minute-in-azure-cosmos-db"></a>Unidades de solicitud por minuto en Azure Cosmos DB

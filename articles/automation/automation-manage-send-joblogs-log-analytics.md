@@ -4,7 +4,7 @@ description: "Este artículo muestra cómo enviar el estado de un trabajo y tran
 services: automation
 documentationcenter: 
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: c12724c6-01a9-4b55-80ae-d8b7b99bd436
 ms.service: automation
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/03/2017
+ms.date: 06/02/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2c25403a4bb2acd81061cc5dfdfd460c48a244bc
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 2c0ca7fc332963e5a5db3c20c400ed877ae0cc54
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -34,8 +34,8 @@ Automatización puede enviar el estado de un trabajo del runbook y de transmisio
 ## <a name="prerequisites-and-deployment-considerations"></a>Requisitos previos y consideraciones de implementación
 Para empezar a enviar los registros de Automation a Log Analytics, necesita:
 
-1. La versión de noviembre de 2016, o una posterior, de [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
-2. Un área de trabajo de Log Analytics. Para más información, consulte [Introducción a Log Analytics](../log-analytics/log-analytics-get-started.md).
+1. La versión de noviembre de 2016, o una posterior, de [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
+2. Un área de trabajo de Log Analytics. Para más información, consulte [Introducción a Log Analytics](../log-analytics/log-analytics-get-started.md). 
 3. El valor de ResourceId de su cuenta de Azure Automation
 
 Para encontrar el valor de ResourceId de la cuenta de Azure Automation y el área de trabajo de Log Analytics, ejecute el PowerShell siguiente:
@@ -61,25 +61,21 @@ Si necesita encontrar el *nombre* de la cuenta de Automation, en Azure Portal se
     Param
     (
         [Parameter(Mandatory=$True)]
-            [ValidateSet("AzureCloud","AzureUSGovernment")]
-            [string]$Environment="AzureCloud",
-        [Parameter(Mandatory=$True)]
-        [string]$nameOfYourLogAnalyticsWorkspace,
-        [Parameter(Mandatory=$True)]
-        [string]$nameOfYourAutomationAccount
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
     )
 
 #Check to see which cloud environment to sign into.
 Switch ($Environment)
    {
        "AzureCloud" {Login-AzureRmAccount}
-       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
    }
 
-# Below both the ResourceId's are populated using the Parameters from this script as a searchstring based on the Name of the Automation Account and Name of Workspace
+# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
+$workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-$workspaceId=(Get-AzureRmOperationalInsightsWorkspace|where Name -like ('*'+$nameOfYourLogAnalyticsWorkspace+'*')).ResourceId
-$automationAccountId=(Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts" -ResourceNameContains $nameOfYourAutomationAccount).Resourceid
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
 
 Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
 
@@ -87,7 +83,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $work
 
 Después de ejecutar este script, verá los registros de Log Analytics a los 10 minutos de escribir los nuevos JobLogs o JobStreams.
 
-Para ver los registros, ejecute la consulta siguiente: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
+Para ver los registros, ejecute la siguiente consulta en la búsqueda de registros de Log Analytics: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Comprobación de la configuración
 Para confirmar que la cuenta de Automation está enviando registros a su área de trabajo de Log Analytics, compruebe que los diagnósticos están establecidos correctamente en la cuenta de Automation con el código PowerShell siguiente:
@@ -97,22 +93,20 @@ Para confirmar que la cuenta de Automation está enviando registros a su área d
     Param
     (
         [Parameter(Mandatory=$True)]
-            [ValidateSet("AzureCloud","AzureUSGovernment")]
-            [string]$Environment="AzureCloud",
-        [Parameter(Mandatory=$True)]
-        [string]$nameOfYourAutomationAccount
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
     )
 
 #Check to see which cloud environment to sign into.
 Switch ($Environment)
    {
        "AzureCloud" {Login-AzureRmAccount}
-       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
    }
+# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
+$workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-# Below the ResourceId is populated using the Parameter from this script as a searchstring based on the Name of the Workspace
-
-$automationAccountId=(Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts" -ResourceNameContains $nameOfYourAutomationAccount).Resourceid
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
 
 Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
@@ -123,7 +117,7 @@ En la salida asegúrese de que:
 
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
-Diagnósticos de Azure Automation crea dos tipos de registros en Log Analytics.
+Diagnósticos de Azure Automation crea dos tipos de registros en Log Analytics y se etiquetan como **Type=AzureDiagnostics**.
 
 ### <a name="job-logs"></a>Registros de trabajo
 | Propiedad | Descripción |

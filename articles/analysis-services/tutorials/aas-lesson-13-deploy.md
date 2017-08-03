@@ -13,27 +13,31 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 8e3e1be572aa66ab46f894a2e5f395d1e6f2ea23
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="lesson-13-deploy"></a>Lección 13: Implementación
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-En esta lección, configurará propiedades de implementación; especificará un servidor de Analysis Services en Azure o un servidor de Analysis Services local de SQL Server vNext y un nombre para el modelo. A continuación, implementará el modelo en esa instancia. Después de implementa el modelo, los usuarios pueden conectarse a él mediante una aplicación cliente de generación de informes. Para más información, consulte [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) (Implementación en Azure Analysis Services).  
+En esta lección, configurará propiedades de implementación. Para ello, especificará un servidor de Azure Analysis Services en el que realizar la implementación y un nombre para el modelo. A continuación, implementará el modelo en esa instancia. Después de implementa el modelo, los usuarios pueden conectarse a él mediante una aplicación cliente de generación de informes. Para más información, consulte [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) (Implementación en Azure Analysis Services).  
   
 Tiempo estimado para completar esta lección: **cinco minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 12: Análisis en Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
-**Importante:** si instaló la base de datos de ejemplo AdventureWorksDW2014 en un servidor local de SQL y va a implementar el modelo en un servidor de Analysis Services de Azure, se requiere una [puerta de enlace de datos local](../analysis-services-gateway.md).
+> [!IMPORTANT]  
+> Debe tener [permisos de administrador](../analysis-services-server-admins.md) en el servidor remoto de Analysis Services para poder implementarla.  
+
+> [!IMPORTANT]  
+> Si instaló la base de datos de ejemplo AdventureWorksDW2014 en un servidor local de SQL y va a implementar el modelo en un servidor de Azure Analysis Services, se requiere una [puerta de enlace de datos local](../analysis-services-gateway.md).
   
 ## <a name="deploy-the-model"></a>Implementación del modelo  
   
@@ -42,12 +46,9 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
   
 1.  En **el Explorador de soluciones**, haga clic con el botón derecho en el proyecto **AW Internet Sales** y luego haga clic en **Propiedades**.  
   
-2.  En el cuadro de diálogo **AW Internet Sales Property Pages**, en **Servidor de implementación**, en la propiedad **Servidor**, escriba el nombre de un servidor de Analysis Services en Azure o el entorno local.  
+2.  En el cuadro de diálogo **AW Internet Sales Property Pages**, en **Servidor de implementación**, en la propiedad **Servidor**, escriba el nombre completo de un servidor.  
 
     ![aas-lesson13-deploy-property](../tutorials/media/aas-lesson13-deploy-property.png)
- 
-    > [!IMPORTANT]  
-    > Debe tener permisos de administrador en la instancia remota de Analysis Services para poder implementarla.  
   
 3.  En la propiedad **Base de datos**, escriba **Adventure Works Internet Sales**.  
   
@@ -61,7 +62,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
 
 2.  Haga clic con el botón derecho en el **proyecto AW Internet Sales** > **Implementar**.
 
-    Al realizar la implementación en Azure Analysis Services, puede que se le pida que escriba su contraseña. Escriba su cuenta profesional y la contraseña, por ejemplo nancy@adventureworks.com. Esta cuenta debe estar en Administradores en la instancia de servidor.
+    Al realizar la implementación en Azure Analysis Services, puede que se le pida que escriba su contraseña. Escriba su cuenta profesional y la contraseña, por ejemplo nancy@adventureworks.com. Esta cuenta debe estar en Administradores en el servidor.
   
     Aparece el cuadro de diálogo Implementar y muestra el estado de implementación de los metadatos y cada tabla incluida en el modelo.  
     
@@ -77,9 +78,8 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
   
   
 ## <a name="whats-next"></a>Pasos siguientes
-*  [Lección complementaria: Seguridad dinámica](../tutorials/aas-supplemental-lesson-dynamic-security.md)
-
-*  [Lección complementaria: Filas de detalles](../tutorials/aas-supplemental-lesson-detail-rows.md)
-
-*  [Lección complementaria: Jerarquías desiguales](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
+[Conexión con Power BI Desktop](../analysis-services-connect-pbi.md)   
+[Lección complementaria: Seguridad dinámica](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Lección complementaria: Filas de detalles](../tutorials/aas-supplemental-lesson-detail-rows.md)   
+[Lección complementaria: Jerarquías desiguales](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
 

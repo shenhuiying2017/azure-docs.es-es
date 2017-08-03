@@ -1,135 +1,254 @@
 ---
 title: "Tutorial: integración de Azure Active Directory con Projectplace | Microsoft Docs"
-description: "Aprenda cómo usar Projectplace con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Projectplace."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 298059ca-b652-4577-916a-c31393d53d7a
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/23/2017
+ms.date: 06/29/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fcf3332a6674524ea5354b96826586c79a4ba3e1
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: bb9dd10c887cb0e42e544066d9b0dcfa554e10ce
+ms.contentlocale: es-es
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>Tutorial: Integración de Azure Active Directory con Projectplace
-El objetivo de este tutorial es mostrar la integración de Azure y Projectplace. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-* Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Projectplace
+En este tutorial aprenderá a integrar Projectplace con Azure Active Directory (Azure AD).
 
-Después de completar este tutorial, los usuarios de Azure AD asignados a Projectplace podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía Projectplace (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+La integración de Projectplace con Azure AD proporciona las siguientes ventajas:
 
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+- Puede controlar en Azure AD quién tiene acceso a Projectplace.
+- Puede permitir que los usuarios inicien sesión automáticamente en Projectplace (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-1. Habilitación de la integración de aplicaciones para Projectplace
-2. Configuración del inicio de sesión único (SSO)
-3. Configuración del aprovisionamiento de usuario
-4. Asignación de usuarios
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-![Escenario](./media/active-directory-saas-projectplace-tutorial/IC790217.png "Escenario")
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="enabling-the-application-integration-for-projectplace"></a>Habilitación de la integración de aplicaciones para Projectplace
-El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para Projectplace.
+Para configurar la integración de Azure AD con Projectplace, necesita los siguientes elementos:
 
-**Siga estos pasos para habilitar la integración de aplicaciones en Projectplace:**
-1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-projectplace-tutorial/IC700993.png "Active Directory")
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
-   
-   ![Aplicaciones](./media/active-directory-saas-projectplace-tutorial/IC700994.png "Aplicaciones")
-4. Haga clic en **Agregar** en la parte inferior de la página.
-   
-   ![Agregar aplicaciones](./media/active-directory-saas-projectplace-tutorial/IC749321.png "Agregar aplicaciones")
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-   
-   ![Agregar una aplicación de la galería](./media/active-directory-saas-projectplace-tutorial/IC749322.png "Agregar una aplicación de la galería")
-6. En el **cuadro de búsqueda**, escriba **Projectplace**.
-   
-   ![Galería de aplicaciones](./media/active-directory-saas-projectplace-tutorial/IC790218.png "Galería de aplicaciones")
-7. En el panel de resultados, seleccione **Projectplace** y haga clic en **Completar** para agregar la aplicación.
-   
-   ![ProjectPlace](./media/active-directory-saas-projectplace-tutorial/IC790219.png "ProjectPlace")
-   
-## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en Projectplace
 
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Projectplace con su cuenta de Azure AD usando el protocolo SAML basado en la federación.
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
-**Siga estos pasos para configurar el inicio de sesión único:**
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Projectplace**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-projectplace-tutorial/IC790220.png "Configurar inicio de sesión único")
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Projectplace?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-projectplace-tutorial/IC790221.png "Configurar inicio de sesión único")
-3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Projectplace**, escriba la dirección URL del inquilino de Projectplace (por ejemplo, "*http://company.projectplace.com*") y haga clic en **Siguiente**.
-   
-   ![Configurar dirección URL de la aplicación](./media/active-directory-saas-projectplace-tutorial/IC790222.png "Configurar dirección URL de la aplicación")
-4. En la página **Configuración de inicio de sesión único en Projectplace**, haga clic en **Descargar metadatos** y guarde el archivo de metadatos en el equipo.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-projectplace-tutorial/IC790223.png "Configurar inicio de sesión único")
-5. Envíe el archivo de metadatos al equipo de soporte técnico de Projectplace.
-   
-   >[!NOTE]
-   >La configuración del inicio de sesión único la debe realizar el equipo de soporte técnico de Projectplace. Tan pronto como se complete la configuración, recibirá una notificación.
-   > 
-   > 
-6. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-projectplace-tutorial/IC790227.png "Configurar inicio de sesión único")
-   
-## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+
+1. Adición de Projectplace desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
+
+## <a name="adding-projectplace-from-the-gallery"></a>Adición de Projectplace desde la galería
+Para configurar la integración de Projectplace en Azure AD, es preciso agregar esta solución desde la galería a la lista de aplicaciones SaaS administradas.
+
+**Para agregar Projectplace desde la galería, realice los pasos siguientes:**
+
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+
+    ![Aplicaciones][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
+    ![Aplicaciones][3]
+
+4. En el cuadro de búsqueda, escriba **Projectplace**.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_search.png)
+
+5. En el panel de resultados, seleccione **Projectplace** y, después, haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Projectplace con un usuario de prueba llamado "Britta Simon".
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Projectplace para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Projectplace.
+
+Para establecer la relación de vínculo, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario** de Projectplace.
+
+Para configurar y probar el inicio de sesión único de Azure AD con Projectplace, es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Projectplace](#creating-a-projectplace-test-user)**: el objetivo es tener un homólogo de Britta Simon en Projectplace que esté vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Projectplace.
+
+**Para configurar el inicio de sesión único de Azure AD con Projectplace, realice los pasos siguientes:**
+
+1. En la página de integración de la aplicación **Projectplace** de Azure Portal, haga clic en **Inicio de sesión único**.
+
+    ![Configurar inicio de sesión único][4]
+
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_samlbase.png)
+
+3. En la sección **Dominio y direcciones URL de Projectplace**, lleve a cabo los pasos siguientes:
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_url.png)
+
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company>.projectplace.com`.
+
+    > [!NOTE] 
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Projectplace](https://success.planview.com/Projectplace/Support) para obtener este valor. 
+ 
+4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_certificate.png) 
+
+5. Haga clic en el botón **Guardar** .
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-projectplace-tutorial/tutorial_general_400.png)
+
+7. Para configurar el inicio de sesión único en **Projectplace**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Projectplace](https://success.planview.com/Projectplace/Support). Ellos se encargan de realizar esta configuración para que la conexión de SSO de SAML esté establecida correctamente en ambos lados.
+
+>[!NOTE]
+>La configuración del inicio de sesión único la debe realizar el [equipo de soporte técnico de Projectplace](https://success.planview.com/Projectplace/Support). Tan pronto como se complete la configuración, recibirá una notificación.
+
+> [!TIP]
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+
+![Creación de un usuario de Azure AD][100]
+
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-projectplace-tutorial/create_aaduser_01.png) 
+
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-projectplace-tutorial/create_aaduser_02.png) 
+
+3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-projectplace-tutorial/create_aaduser_03.png) 
+
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-projectplace-tutorial/create_aaduser_04.png) 
+
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+
+    d. Haga clic en **Crear**.
+ 
+### <a name="creating-a-projectplace-test-user"></a>Creación de un usuario de prueba de Projectplace
 
 Para permitir que los usuarios de Azure AD inicien sesión en Projectplace, deben aprovisionarse en Projectplace. En el caso de Projectplace, el aprovisionamiento es una tarea manual.
 
-**Para aprovisionar cuentas de usuario, realice estos pasos:**
+**Para aprovisionar una cuenta de usuario, realice estos pasos:**
 
 1. Inicie sesión en el sitio de la compañía **Projectplace** como administrador.
+
 2. Vaya a **Personas** y haga clic en **Miembros**.
    
-   ![Personas](./media/active-directory-saas-projectplace-tutorial/IC790228.png "Personas")
+    ![Personas](./media/active-directory-saas-projectplace-tutorial/ic790228.png "Personas")
+
 3. Haga clic en **Agregar miembro**.
    
-   ![Agregar miembros](./media/active-directory-saas-projectplace-tutorial/IC790232.png "Agregar miembros")
+    ![Agregar miembros](./media/active-directory-saas-projectplace-tutorial/ic790232.png "Agregar miembros")
+
 4. En la sección **Agregar miembro** , lleve a cabo estos pasos:
    
-   ![Nuevos miembros](./media/active-directory-saas-projectplace-tutorial/IC790233.png "Nuevos miembros")
+    ![Nuevos miembros](./media/active-directory-saas-projectplace-tutorial/ic790233.png "Nuevos miembros")
    
-   1. En el cuadro de texto **Nuevos miembros** , escriba la dirección de correo electrónico de la cuenta de AAD válida que quiera suministrar en los cuadros de texto relacionados.
-   2. Haga clic en **Enviar**.
+    a. En el cuadro de texto **Nuevos miembros** , escriba la dirección de correo electrónico de la cuenta de AAD válida que quiera suministrar en los cuadros de texto relacionados.
+   
+    b. Haga clic en **Enviar**.
 
-Se enviará un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active al titular de la cuenta de Azure Active Directory.
-
+   Se enviará un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active al titular de la cuenta de Azure Active Directory.
 
 >[!NOTE]
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Projectplace que proporcione Projectplace para aprovisionar cuentas de usuario de AAD.
-> 
-> 
 
-## <a name="assign-users"></a>Asignar usuarios
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-**Para asignar usuarios a Projectplace, lleve a cabo los siguientes pasos:**
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Projectplace.
 
-1. En el Portal de Azure clásico, cree una cuenta de prueba.
-2. En la página de integración de aplicaciones de **Projectplace**, haga clic en **Asignar usuarios**.
-   
-   ![Asignar usuarios](./media/active-directory-saas-projectplace-tutorial/IC790234.png "Asignar usuarios")
-3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
-   
-   ![Sí](./media/active-directory-saas-projectplace-tutorial/IC767830.png "Sí")
+![Asignar usuario][200] 
 
-Si desea probar la configuración de inicio de sesión único (SSO), abra el panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+**Para asignar a Britta Simon a Projectplace, realice los pasos siguientes:**
+
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones, seleccione **Projectplace**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_app.png) 
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Asignar usuario][202] 
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Asignar usuario][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono de Projectplace en el Panel de acceso, debería iniciar sesión automáticamente en dicha aplicación.
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_203.png
 
 

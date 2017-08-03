@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services: Creación del grupo de administradores de controlador de dominio de Azure AD | Microsoft Docs"
-description: "Introducción a los Servicios de dominio de Azure Active Directory"
+description: "Habilitación de Azure Active Directory Domain Services mediante el Portal de Azure clásico"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 06/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 99607cf642bb6767c845ceb6fb4e62b1c15834f9
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: b8e5e2213f157c0332f98305266c1c6248c2ea87
+ms.contentlocale: es-es
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="get-started-with-azure-active-directory-domain-services"></a>Introducción a Azure Active Directory Domain Services
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Habilitación de Azure Active Directory Domain Services mediante el Portal de Azure clásico
 Este artículo describe y le guía por las tareas de configuración que son necesarias para habilitar Azure Active Directory Domain Services (Azure AD DS) para su inquilino de Azure Active Directory (Azure AD).
 
 ## <a name="task-1-create-the-azure-ad-dc-administrators-group"></a>Tarea 1: Creación del grupo de administradores de controlador de dominio de Azure AD
@@ -51,7 +52,7 @@ En esta tarea de configuración, creará el grupo administrativo y agregará uno
 
     ![Cuadro de diálogo Agregar grupo](./media/active-directory-domain-services-getting-started/create-admin-group.png)
 7. En el cuadro **Descripción**, escriba una descripción que permita que otras personas entiendan que este grupo concede permisos administrativos en Azure Active Directory Domain Services.
-8. Después de crear el grupo, haga clic en el nombre del grupo para ver sus propiedades. 
+8. Después de crear el grupo, haga clic en el nombre del grupo para ver sus propiedades.
 9. Para agregar usuarios como miembros del grupo, en la parte inferior de la ventana, haga clic en el botón **Agregar miembros**.
 
     ![Botón Agregar miembros del grupo](./media/active-directory-domain-services-getting-started/add-group-members-button.png)
@@ -59,7 +60,7 @@ En esta tarea de configuración, creará el grupo administrativo y agregará uno
 
     ![Agregar usuarios al grupo de administradores](./media/active-directory-domain-services-getting-started/add-group-members.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+
+## <a name="next-step"></a>Paso siguiente
 Tarea 2: [Creación o selección de una red virtual de Azure](active-directory-ds-getting-started-vnet.md)
-  
 

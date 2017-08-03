@@ -13,7 +13,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
@@ -163,7 +163,7 @@ Siga estos pasos para importar datos desde el archivo CSV en una tabla de Hive d
 3. Para iniciar Hive y ejecutar el archivo **flightdelays.hql**, use el siguiente comando:
 
     ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
    > [!NOTE]
@@ -172,7 +172,7 @@ Siga estos pasos para importar datos desde el archivo CSV en una tabla de Hive d
 4. Una vez que el script __flightdelays.hql__ termine de ejecutarse, use el siguiente comando para abrir una sesión interactiva de Beeline:
 
     ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
 5. Cuando reciba el símbolo del sistema `jdbc:hive2://localhost:10001/>`, use la consulta siguiente para recuperar datos de los datos de retrasos de vuelos importados.

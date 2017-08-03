@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: dbee3f1d0aae885325ef9efe9c2f48961495e8b9
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: c5eda443dcd41a481ad952d8472f7f67f4517abd
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
@@ -231,7 +230,7 @@ En este paso, crea una canalización con una actividad de **HDInsightSpark**. Ac
 
     ![Resultados de la consulta Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-Vea la sección [Ejecución de una consulta de Spark SQL](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-an-interactive-spark-sql-query) para obtener instrucciones detalladas. 
+Vea la sección [Ejecución de una consulta de Spark SQL](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-hive-query-using-spark-sql) para obtener instrucciones detalladas. 
 
 ### <a name="troubleshooting"></a>Solución de problemas
 Puesto que establece **getDebugInfo** en **Siempre**, aparece una subcarpeta de **registro** en la carpeta **pyFiles** del contenedor de Azure Blob. El archivo de registro en la carpeta de registro proporciona detalles adicionales. Este archivo de registro es especialmente útil cuando se produce un error. En un entorno de producción, puede establecerlo en **Error**.

@@ -22,23 +22,19 @@ ms.lasthandoff: 03/27/2017
 
 
 ---
-# Realice una copia de seguridad de un servidor Exchange en Azure Backup con el Azure Backup Server
-<a id="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server" class="xliff"></a>
+# <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Realice una copia de seguridad de un servidor Exchange en Azure Backup con el Azure Backup Server
 En este artículo se describe cómo configurar un servidor de copia de seguridad de Microsoft Azure (MABS) para realizar una copia de seguridad de un servidor Microsoft Exchange en Azure.  
 
-## Requisitos previos
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Requisitos previos
 Antes de continuar, asegúrese de que el Azure Backup Server esté [instalado y preparado](backup-azure-microsoft-azure-backup.md).
 
-## Agente de protección MABS
-<a id="mabs-protection-agent" class="xliff"></a>
+## <a name="mabs-protection-agent"></a>Agente de protección MABS
 Para instalar al agente de protección MABS en el servidor Exchange, siga estos pasos:
 
 1. Asegúrese de que los firewalls estén configurados correctamente. Consulte [Configuración de excepciones de firewall para el agente](https://technet.microsoft.com/library/Hh758204.aspx).
 2. Instale el agente en el servidor Exchange; para ello, haga clic en **Administración > Agentes > Instalar** en la consola de administrador de MABS. Consulte [Instalación del agente de protección MABS](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) para ver pasos detallados.
 
-## Creación de un grupo de protección para el servidor Exchange
-<a id="create-a-protection-group-for-the-exchange-server" class="xliff"></a>
+## <a name="create-a-protection-group-for-the-exchange-server"></a>Creación de un grupo de protección para el servidor Exchange
 1. En la consola de administrador de MABS, haga clic en **Protección** y luego en **Nuevo** en la cinta de herramientas para abrir el asistente **Crear nuevo grupo de protección**.
 2. En la pantalla **Bienvenido** del asistente, haga clic en **Siguiente**.
 3. En la pantalla **Seleccionar tipo de grupo de protección**, seleccione **Servidores** y haga clic en **Siguiente**.
@@ -99,8 +95,7 @@ Para instalar al agente de protección MABS en el servidor Exchange, siga estos 
 18. Confirme la configuración y haga clic en **Crear grupo**.
 19. Haga clic en **Cerrar**.
 
-## Recuperación de la base de datos de Exchange
-<a id="recover-the-exchange-database" class="xliff"></a>
+## <a name="recover-the-exchange-database"></a>Recuperación de la base de datos de Exchange
 1. Para recuperar una base de datos de Exchange, haga clic en **Recuperación** en la consola de administrador de MABS.
 2. Busque la base de datos de Exchange que desea recuperar.
 3. Seleccione un punto de recuperación en línea en la lista desplegable *Hora de recuperación* .
@@ -116,7 +111,6 @@ Para los puntos de recuperación en línea, existen cinco tipos de recuperación
 
     ![Elegir replicación en línea](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
-## Pasos siguientes
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Pasos siguientes
 * [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 

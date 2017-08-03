@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: dac2b51cb48f76a88fc592c0fac50414da641777
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 51f24bf75631206d7480eec8b871dee95726b0a8
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -115,15 +115,17 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
     ```JSON
     {
-      "name": "HDInsightOnDemandLinkedService",
-      "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
-          "clusterSize": 1,
-          "timeToLive": "00:30:00",
-          "linkedServiceName": "AzureStorageLinkedService"
+        "name": "HDInsightOnDemandLinkedService",
+        "properties": {
+            "type": "HDInsightOnDemand",
+            "typeProperties": {
+                "version": "3.5",
+                "clusterSize": 1,
+                "timeToLive": "00:05:00",
+                "osType": "Linux",
+                "linkedServiceName": "AzureStorageLinkedService"
+            }
         }
-      }
     }
     ```
 
@@ -132,12 +134,12 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
    | Propiedad | Descripción |
    |:--- |:--- |
    | ClusterSize |Especifica el tamaño del clúster de HDInsight. |
-   | TimeToLive |Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine. |
-   | linkedServiceName |Especifica la cuenta de almacenamiento que se usa para almacenar los registros que genera HDInsight. |
+   | TimeToLive | Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine. |
+   | linkedServiceName | Especifica la cuenta de almacenamiento que se usa para almacenar los registros que genera HDInsight. |
 
     Tenga en cuenta los siguientes puntos:
 
-   * Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON. También podría hacer que cree un clúster de HDInsight **basado en Linux** . Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
+   * Data Factory crea un clúster de HDInsight **basado en Linux** con el código JSON. Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
    * Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) .
    * El clúster de HDInsight crea un **contenedor predeterminado** en el almacenamiento de blobs que especificó en JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Este comportamiento es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez se procesa un segmento, a menos que haya un clúster existente activo (**timeToLive**). El clúster se elimina automáticamente cuando se realiza el procesamiento.
 
@@ -282,8 +284,8 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
                     "linkedServiceName": "HDInsightOnDemandLinkedService"
                 }
             ],
-            "start": "2016-04-01T00:00:00Z",
-            "end": "2016-04-02T00:00:00Z",
+            "start": "2017-07-01T00:00:00Z",
+            "end": "2017-07-02T00:00:00Z",
             "isPaused": false
         }
     }
@@ -370,7 +372,7 @@ La Aplicación de supervisión y administración también se puede usar para sup
 1. Haga clic en el icono **Supervisión y administración** en la página principal de Data Factory.
 
     ![Icono Supervisión y administración](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
-2. Debería ver la **aplicación de supervisión y administración**. Cambie el valor de **Hora de inicio** y **Hora de finalización** para que coincidan con la hora de inicio (01-04-2016 12:00 a. m.) y la hora de finalización (02-04-2016 12:00 a. m.) de la canalización y haga clic en **Aplicar**.
+2. Debería ver la **aplicación de supervisión y administración**. Cambie el valor de **Hora de inicio** y **Hora de finalización** para que coincidan con la hora de inicio y la hora de finalización de la canalización y haga clic en **Aplicar**.
 
     ![Aplicación de supervisión y administración](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 3. Seleccione una ventana en la lista de **ventanas de actividad** para ver información sobre ella.

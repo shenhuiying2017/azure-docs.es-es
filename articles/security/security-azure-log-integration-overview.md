@@ -12,13 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/20/2017
+ms.date: 06/01/2017
 ms.author: TomSh
+ms.custom: azlog
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 616a29b3f7db817e63a3a3673b845cc86752af77
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 1adabc7f249d9b01f3ad1a819f75b2ef47f72998
 ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 06/05/2017
+
 
 
 ---
@@ -45,6 +47,9 @@ Azure genera gran cantidad de registros para cada servicio. Estos registros repr
 
 Azure Log Integration admite actualmente la integración de registros de actividad de Azure, registros de eventos de Windows de las máquinas virtuales Windows en su suscripción de Azure, alertas de Azure Security Center, registros de Diagnósticos de Azure y registros de auditoría de Azure Active Directory.
 
+>[!NOTE]
+Aunque Azure Log Integration es una solución gratuita, se aplicarán costes de Azure Storage derivados del almacenamiento de la información de archivos de registro.
+
 En la siguiente tabla se explica en detalle la categoría Registro y la integración de SIEM.
 
 | Tipo de registro  |Análisis de registros que admiten JSON (Splunk, ELK)| ArcSight  | QRadar  |   
@@ -55,8 +60,8 @@ En la siguiente tabla se explica en detalle la categoría Registro y la integrac
 | Registros de diagnóstico (registros de recursos) | Sí | Necesita que el usuario final cree un archivo de analizador JSON de FlexConnector. Vea la documentación de ArcSight para obtener información sobre cómo hacerlo. | Debe crear una extensión del origen del registro. Vea la documentación de QRadar para obtener más información. |
 | Registros de VM | Sí mediante eventos reenviados y no mediante JSON | Sí mediante eventos reenviados | Sí mediante eventos reenviados |
 
->[!NOTE]
-Aunque Azure Log Integration es una solución gratuita, se aplicarán costes de Azure Storage derivados del almacenamiento de la información de archivos de registro.
+Para obtener más información sobre los tipos de registro compatibles, visite las [preguntas más frecuentes](security-azure-log-integration-faq.md)
+
 
 Puede encontrar ayuda de la comunidad en [Foro MSDN de Azure Log Integration](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). El foro ofrece a la comunidad de AzLog la posibilidad de ayudarse en relación con preguntas, respuestas, consejos y sugerencias sobre cómo sacar el máximo partido de Azure Log Integration. Además, el equipo de Azure Log Integration supervisa este foro y le ayudará a cada vez que se pueda.
 

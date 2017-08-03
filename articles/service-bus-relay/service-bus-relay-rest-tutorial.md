@@ -12,30 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2017
+ms.date: 06/17/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 8296e88024109e35379faa67ca887e6d2c52a6c5
-ms.openlocfilehash: 41bba4608fd7e3d0b16cbf0d846f5f65a071ad20
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial de REST de Azure WCF Relay
+
 En este tutorial se describe cómo compilar una sencilla aplicación host de Azure Relay que expone una interfaz basada en REST. REST permite a un cliente web, como un explorador web, tener acceso a la API de Bus de servicio a través de solicitudes HTTP.
 
-En este tutorial se usa el modelo de programación REST de Windows Communication Foundation (WCF) para construir un servicio REST de Service Bus. Para obtener más información, vea [Modelo de programación REST de WCF](https://msdn.microsoft.com/library/bb412169.aspx) y [Diseño e implementación de servicios](https://msdn.microsoft.com/library/ms729746.aspx) en la documentación de WCF.
+En este tutorial se usa el modelo de programación REST de Windows Communication Foundation (WCF) para construir un servicio REST de Service Bus. Para obtener más información, vea [Modelo de programación REST de WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) y [Diseño e implementación de servicios](/dotnet/framework/wcf/designing-and-implementing-services) en la documentación de WCF.
 
-## <a name="step-1-create-a-service-namespace"></a>Paso 1: Creación de un espacio de nombres de servicio
+## <a name="step-1-create-a-namespace"></a>Paso 1: Crear un espacio de nombres
 
 Para comenzar a usar las características de Relay en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos de Azure en la aplicación. Siga [estas instrucciones](relay-create-namespace-portal.md) para crear un espacio de nombres de Relay.
 
 ## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Paso 2: Definir un contrato de servicio de WCF basado en REST para utilizar con Azure Relay
+
 Cuando se crea un servicio WCF de tipo REST, debe definir el contrato. El contrato especifica qué operaciones admite el host. Una operación de servicio puede considerarse como un método de servicio web. Los contratos se crean mediante la definición de una interfaz de C++, C# o Visual Basic. Cada método de la interfaz corresponde a una operación de servicio específica. El atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) se debe aplicar a cada interfaz, y el atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) se debe aplicar a cada operación. Si un método en una interfaz que tiene [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) no tiene [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), ese método no se expone. El código utilizado para estas tareas se muestra en el ejemplo que sigue al procedimiento.
 
 La diferencia principal entre un contrato de WCF y un contrato de estilo REST es la adición de una propiedad a [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Esta propiedad permite asignar un método de la interfaz a un método en el otro lado de la interfaz. En este caso, usaremos [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) para vincular un método a HTTP GET. Esto permite al Bus de servicio recuperar e interpretar con precisión los comandos enviados a la interfaz.
 
 ### <a name="to-create-a-contract-with-an-interface"></a>Para crear un contrato con una interfaz
+
 1. Abra Visual Studio como administrador: haga clic con el botón derecho en el programa en el menú **Inicio** y después haga clic en **Ejecutar como administrador**.
 2. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo**, seleccione **Nuevo** y después **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#**, seleccione la plantilla **Aplicación de consola** y asígnele el nombre **ImageListener**. Use la **Ubicación** predeterminada. Haga clic en **Aceptar** para crear el proyecto.
 3. Para un proyecto de C#, Visual Studio crea un archivo `Program.cs`. Esta clase contiene un método `Main()` vacío, necesario para que un proyecto de aplicación de consola se compile correctamente.
@@ -558,9 +562,9 @@ Después de compilar la solución, haga lo siguiente para ejecutar la aplicació
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha creado una aplicación que utiliza el servicio Service Bus Relay, consulte los artículos siguientes para obtener más información sobre Azure Relay:
 
-* [Información general sobre la arquitectura de Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
+* [Información general sobre la arquitectura de Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Introducción a Azure Relay](relay-what-is-it.md)
-* [Uso de WCF Relay de Service Bus con .NET](service-bus-dotnet-how-to-use-relay.md)
+* [Uso de WCF Relay de Service Bus con .NET](relay-wcf-dotnet-get-started.md)
 
 [Azure portal]: https://portal.azure.com
 

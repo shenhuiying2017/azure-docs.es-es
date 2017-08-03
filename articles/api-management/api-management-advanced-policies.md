@@ -21,9 +21,7 @@ ms.contentlocale: es-es
 ms.lasthandoff: 05/08/2017
 
 ---
-<a id="api-management-advanced-policies" class="xliff"></a>
-
-# Directivas avanzadas de API Management
+# <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AdvancedPolicies"></a> Directivas avanzadas  
@@ -77,9 +75,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
  La directiva de flujo de control debe contener al menos un elemento `<when/>`. El elemento `<otherwise/>` es opcional. Las condiciones de los elementos `<when/>` se evalúan en orden de aparición dentro de la directiva. Se aplicarán las declaraciones de directivas adjuntas en el primer elemento `<when/>` cuyo atributo de condición sea igual a `true`. Las directivas incluidas dentro del elemento `<otherwise/>`, si está presente, se aplicarán si todos los atributos de condición del elemento `<when/>` son `false`.  
   
-<a id="examples" class="xliff"></a>
-
-### Ejemplos  
+### <a name="examples"></a>Ejemplos  
   
 ####  <a name="ChooseExample"></a> Ejemplo  
  En el ejemplo siguiente se muestra una directiva [set-variable](api-management-advanced-policies.md#set-variable) y dos directivas de flujo de control.  
@@ -119,9 +115,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 </policies>  
 ```  
   
-<a id="example" class="xliff"></a>
-
-#### Ejemplo  
+#### <a name="example"></a>Ejemplo  
  En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos de la respuesta recibida del servicio back-end al usar el producto `Starter`. Para ver una demostración de la configuración y el uso de esta directiva, vea [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Episodio 177 de Cloud Cover: más características API Management con Vlad Vinogradsky) y avance al minuto 34:30. Empiece en el minuto 31:50 para ver una introducción a la [API de previsión de Dark Sky](https://developer.forecast.io/) empleada en esta demostración.  
   
 ```xml  
@@ -140,9 +134,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 </choose>  
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
@@ -150,9 +142,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |when|La condición que se va a usar para las partes `if` o `ifelse` de la directiva `choose`. Si la directiva `choose` tiene varias secciones `when`, se evalúan de forma secuencial. Una vez que la instancia de `condition` de un elemento when se evalúa en `true`, ya no se evalúan más condiciones `when`.|Sí|  
 |otherwise|Contiene el fragmento de código de directiva que se utilizará si ninguna de las condiciones `when` se evalúan como `true`.|No|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|  
 |---------------|-----------------|--------------|  
@@ -171,21 +161,15 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 > [!NOTE]
 >  Si quita los resultados de esta directiva en la solicitud no se reenviarán al servicio back-end, y las directivas de la sección de salida se evaluarán inmediatamente tras la finalización correcta de las directivas en la sección de entrada.  
   
-<a id="policy-statement" class="xliff"></a>
-
-### Declaración de la directiva  
+### <a name="policy-statement"></a>Declaración de la directiva  
   
 ```xml  
 <forward-request timeout="time in seconds" follow-redirects="true | false"/>  
 ```  
   
-<a id="examples" class="xliff"></a>
-
-### Ejemplos  
+### <a name="examples"></a>Ejemplos  
   
-<a id="example" class="xliff"></a>
-
-#### Ejemplo  
+#### <a name="example"></a>Ejemplo  
  La siguiente directiva de nivel de API reenvía todas las solicitudes al servicio back-end con un intervalo de tiempo de espera de 60 segundos.  
   
 ```xml  
@@ -204,9 +188,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-#### Ejemplo  
+#### <a name="example"></a>Ejemplo  
  Esta directiva de nivel de operación utiliza el elemento `base` para heredar la directiva de back-end del ámbito de nivel de API principal.  
   
 ```xml  
@@ -225,9 +207,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-#### Ejemplo  
+#### <a name="example"></a>Ejemplo  
  Esta directiva de nivel de operación reenvía explícitamente todas las solicitudes al servicio back-end con un tiempo de espera de 120 y no hereda la directiva de back-end de nivel de API principal.  
   
 ```xml  
@@ -247,9 +227,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-#### Ejemplo  
+#### <a name="example"></a>Ejemplo  
  Esta directiva de nivel de operación no reenvía solicitudes al servicio back-end.  
   
 ```xml  
@@ -268,26 +246,20 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
 |forward-request|Elemento raíz.|Sí|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |timeout="entero"|Tiempo de espera en segundos antes de que se produzca un error de la llamada al servicio back-end.|No|Sin tiempo de espera|  
 |follow-redirects="true &#124; false"|Especifica si la puerta de enlace sigue los redireccionamientos desde el servicio back-end o si estos se devuelven al autor de la llamada.|No|false|  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** back-end  
@@ -300,9 +272,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 > [!NOTE]
 >  Para obtener una guía paso a paso acerca de cómo configurar un centro de eventos y eventos de registro, consulte [Cómo registrar eventos de API Management con Azure Event Hubs](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).  
   
-<a id="policy-statement" class="xliff"></a>
-
-### Declaración de la directiva  
+### <a name="policy-statement"></a>Declaración de la directiva  
   
 ```xml  
 <log-to-eventhub logger-id="id of the logger entity" partition-id="index of the partition where messages are sent" partition-key="value used for partition assignment">  
@@ -311,9 +281,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-### Ejemplo  
+### <a name="example"></a>Ejemplo  
  Puede utilizar cualquier cadena como valor que se registrará en Event Hubs. En este ejemplo, la fecha y hora, el nombre del servicio de implementación, el identificador de solicitud, la dirección IP y el nombre de la operación de todas las llamadas entrantes se registran en el registrador del centro de eventos con el identificador `contoso-logger`.  
   
 ```xml  
@@ -328,17 +296,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 </policies>  
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
 |log-to-eventhub|Elemento raíz. El valor de este elemento es la cadena que sirve para iniciar sesión en su centro de eventos.|Sí|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|  
 |---------------|-----------------|--------------|  
@@ -346,9 +310,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |partition-id|Especifica el índice de la partición desde donde se envían los mensajes.|Opcional. Este atributo no se puede utilizar cuando se usa `partition-key`.|  
 |partition-key|Especifica el valor utilizado para la asignación de partición cuando se envían mensajes.|Opcional. Este atributo no se puede utilizar cuando se usa `partition-id`.|  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error  
@@ -358,18 +320,14 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ##  <a name="mock-response"></a> Similar respuesta  
 `mock-response`, como el nombre indica, se utiliza para simular las API y las operaciones. Se anula la ejecución de la canalización normal y devuelve una respuesta simulada al llamador. La directiva siempre trata de devolver las respuestas de mayor fidelidad. Prefiere ejemplos de contenido de respuesta, siempre que estén disponibles. Genera las respuestas de ejemplo a partir de esquemas, cuando se proporcionan esquemas y no ejemplos. Si no se encuentran ni ejemplos ni esquemas, se devuelven las respuestas sin contenido.
   
-<a id="policy-statement" class="xliff"></a>
-
-### Instrucción de la directiva  
+### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
 <mock-response status-code="code" content-type="media type"/>  
   
 ```  
   
-<a id="examples" class="xliff"></a>
-
-### Ejemplos  
+### <a name="examples"></a>Ejemplos  
   
 ```xml  
 <!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this 
@@ -381,26 +339,20 @@ status code and media type. If no example or schema found, the content is empty.
 <mock-response status-code='200' content-type='application/json'/>  
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
 |mock-response|Elemento raíz.|Sí|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|--------------|  
 |status-code|Especifica el código de estado de la respuesta y se utiliza para seleccionar el ejemplo o el esquema correspondientes.|No|200|  
 |content-type|Especifica el valor de encabezado de la respuesta `Content-Type` y se utiliza para seleccionar el ejemplo o el esquema correspondientes.|No|None|  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante, saliente y en caso de error  
@@ -410,9 +362,7 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="Retry"></a> Reintento  
  La directiva `retry` ejecuta sus directivas secundarias una vez y después vuelve a tratar de ejecutarla hasta que el elemento `condition` del reintento pasa a ser `false` o se agota el número correspondiente al elemento `count` del reintento.  
   
-<a id="policy-statement" class="xliff"></a>
-
-### Declaración de la directiva  
+### <a name="policy-statement"></a>Declaración de la directiva  
   
 ```xml  
   
@@ -428,9 +378,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-### Ejemplo  
+### <a name="example"></a>Ejemplo  
  En el siguiente ejemplo de solicitud, el reenvío de solicitud se vuelve a intentar hasta diez veces usando un algoritmo exponencial de reintentos. Como `first-fast-retry` se ha establecido en false, todos los reintentos quedan sujetos al algoritmo exponencial de reintentos.  
   
 ```xml  
@@ -447,17 +395,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
 |retry|Elemento raíz. Puede contener cualquier otra directiva como elemento secundario.|Sí|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
@@ -473,9 +417,7 @@ status code and media type. If no example or schema found, the content is empty.
 >  Cuando solamente se especifican `interval` y `delta`, se utiliza el algoritmo de reintentos de intervalo **lineal**, en el que el tiempo de espera entre reintentos se calcula según la siguiente fórmula: `interval + (count - 1)*delta`.  
 >  Cuando se especifican `interval`, `max-interval` y `delta`, se aplica un algoritmo de reintentos de intervalo **exponencial**, en el que el tiempo de espera entre los reintentos crece exponencialmente desde el valor de `interval` al valor de `max-interval` según la siguiente fórmula: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva. Tenga en cuenta que esta directiva heredará las restricciones de uso de directivas secundarias.  
   
 -   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error  
@@ -485,9 +427,7 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="ReturnResponse"></a> Devolución de respuesta  
  La directiva `return-response` anula la ejecución de la canalización y devuelve una respuesta personalizada o predeterminada al autor de la llamada. La respuesta predeterminada es `200 OK` sin cuerpo. La respuesta personalizada se puede especificar mediante declaraciones de directiva o variable de contexto. Cuando se especifican ambas, las declaraciones de la directiva modifican la respuesta que se encuentra en la variable de contexto antes de devolverla al autor de la llamada.  
   
-<a id="policy-statement" class="xliff"></a>
-
-### Declaración de la directiva  
+### <a name="policy-statement"></a>Declaración de la directiva  
   
 ```xml  
 <return-response response-variable-name="existing context variable">  
@@ -498,9 +438,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-### Ejemplo  
+### <a name="example"></a>Ejemplo  
   
 ```xml  
 <return-response>  
@@ -512,9 +450,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
@@ -523,17 +459,13 @@ status code and media type. If no example or schema found, the content is empty.
 |set-body|Una declaración de directiva [set-body](api-management-transformation-policies.md#SetBody).|No|  
 |set-status|Una declaración de directiva [set-status](api-management-advanced-policies.md#SetStatus).|No|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|  
 |---------------|-----------------|--------------|  
 |response-variable-name|Nombre de la variable de contexto a la que se hace referencia, por ejemplo, desde una directiva [send-request](api-management-advanced-policies.md#SendRequest) de canal de subida y que contiene un objeto `Response`.|Opcional.|  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error  
@@ -543,9 +475,7 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="SendOneWayRequest"></a> Envío de solicitud unidireccional  
  La directiva `send-one-way-request` envía la solicitud proporcionada a la dirección URL especificada sin esperar una respuesta.  
   
-<a id="policy-statement" class="xliff"></a>
-
-### Declaración de la directiva  
+### <a name="policy-statement"></a>Declaración de la directiva  
   
 ```xml  
 <send-one-way-request mode="new | copy">  
@@ -557,9 +487,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-### Ejemplo  
+### <a name="example"></a>Ejemplo  
  Esto es un ejemplo de cómo usar la directiva `send-one-way-request` para enviar un mensaje a un salón de chat de Slack cuando el código de respuesta HTTP es mayor o igual que 500. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
@@ -588,9 +516,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
@@ -600,9 +526,7 @@ status code and media type. If no example or schema found, the content is empty.
 |encabezado|Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.|No|  
 |body|Cuerpo de la solicitud.|No|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
@@ -610,9 +534,7 @@ status code and media type. If no example or schema found, the content is empty.
 |name|Especifica el nombre del encabezado que se va a establecer.|Sí|N/D|  
 |exists-action|Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del encabezado existente.<br />-   skip: no sustituye el valor del encabezado existente.<br />-   append: anexa el valor al encabezado existente.<br />-   delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|No|override|  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error  
@@ -622,9 +544,7 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="SendRequest"></a> Envío de solicitud  
  La directiva `send-request` envía la solicitud proporcionada a la dirección URL que se ha especificado, aunque no espera más del valor de tiempo de espera establecido.  
   
-<a id="policy-statement" class="xliff"></a>
-
-### Declaración de la directiva  
+### <a name="policy-statement"></a>Declaración de la directiva  
   
 ```xml  
 <send-request mode="new|copy" response-variable-name="" timeout="60 sec" ignore-error  
@@ -637,9 +557,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-### Ejemplo  
+### <a name="example"></a>Ejemplo  
  En este ejemplo se muestra una forma de comprobar un token de referencia con un servidor de autorización. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
@@ -677,9 +595,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
@@ -689,9 +605,7 @@ status code and media type. If no example or schema found, the content is empty.
 |encabezado|Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.|No|  
 |body|Cuerpo de la solicitud.|No|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
@@ -702,9 +616,7 @@ status code and media type. If no example or schema found, the content is empty.
 |name|Especifica el nombre del encabezado que se va a establecer.|Sí|N/D|  
 |exists-action|Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del encabezado existente.<br />-   skip: no sustituye el valor del encabezado existente.<br />-   append: anexa el valor al encabezado existente.<br />-   delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|No|override|  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error  
@@ -714,18 +626,14 @@ status code and media type. If no example or schema found, the content is empty.
 ##  <a name="SetHttpProxy"></a> Establecer proxy HTTP  
  La directiva `proxy` le permite enrutar las solicitudes reenviadas a los back-ends a través de un proxy HTTP. Solo se admite HTTP (no HTTPS) entre la puerta de enlace y el proxy. Solo autenticación básica y NTLM.
   
-<a id="policy-statement" class="xliff"></a>
-
-### Instrucción de la directiva  
+### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
 <proxy url="http://hostname-or-ip:port" username="username" password="password" />  
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-### Ejemplo  
+### <a name="example"></a>Ejemplo  
 Observe el uso de [propiedades](api-management-howto-properties.md) como valores de nombre de usuario y contraseña para evitar almacenar información confidencial en el documento de directiva.  
   
 ```xml  
@@ -733,17 +641,13 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
 |proxy|Elemento raíz|Sí|  
 
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
@@ -751,9 +655,7 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 |username="string"|Nombre de usuario que se usará para la autenticación con el servidor proxy.|No|N/D|  
 |password="string"|Contraseña que se usará para la autenticación con el servidor proxy.|No|N/D|  
 
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante  
@@ -763,18 +665,14 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 ##  <a name="SetRequestMethod"></a> Establecimiento de método de solicitud  
  La directiva `set-method` le permite cambiar el método de solicitud de HTTP para una solicitud.  
   
-<a id="policy-statement" class="xliff"></a>
-
-### Declaración de la directiva  
+### <a name="policy-statement"></a>Declaración de la directiva  
   
 ```xml  
 <set-method>METHOD</set-method>  
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-### Ejemplo  
+### <a name="example"></a>Ejemplo  
  En este ejemplo, donde se usa la directiva `set-method`, se ilustra cómo enviar un mensaje a un salón de chat de Slack cuando el código de respuesta HTTP es mayor o igual que 500. Si desea más información sobre este ejemplo, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
@@ -803,17 +701,13 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
 |set-method|Elemento raíz. El valor del elemento especifica el método HTTP.|Sí|  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante y en caso de error  
@@ -823,18 +717,14 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 ##  <a name="SetStatus"></a> Establecimiento de código de estado  
  La directiva `set-status` establece el código de estado HTTP en el valor especificado.  
   
-<a id="policy-statement" class="xliff"></a>
-
-### Declaración de la directiva  
+### <a name="policy-statement"></a>Declaración de la directiva  
   
 ```xml  
 <set-status code="" reason=""/>  
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-### Ejemplo  
+### <a name="example"></a>Ejemplo  
  En este ejemplo se muestra cómo devolver una respuesta 401 si el token de autorización no es válido. Si desea más información, consulte [Uso de servicios externos del servicio Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).  
   
 ```xml  
@@ -851,26 +741,20 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
 |set-status|Elemento raíz.|Sí|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |code="entero"|Código de estado HTTP que se devuelve.|Sí|N/D|  
 |reason="cadena"|Una descripción del motivo por el que se devuelve el código de estado.|Sí|N/D|  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** saliente, back-end y en caso de error  
@@ -893,26 +777,20 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 <set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />  
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
 |set-variable|Elemento raíz.|Sí|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|  
 |---------------|-----------------|--------------|  
 |name|El nombre de la variable.|Sí|  
 |value|El valor de la variable. Puede ser una expresión o un valor literal.|Sí|  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error  
@@ -987,9 +865,7 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 ##  <a name="Trace"></a> Seguimiento  
  La directiva `trace` agrega una cadena a la salida de [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/). La directiva se ejecutará solamente cuando se desencadena el seguimiento, es decir, cuando el encabezado de solicitud `Ocp-Apim-Trace` está presente y establecido en `true`, y cuando el encabezado de solicitud `Ocp-Apim-Subscription-Key` está presente y contiene una clave válida asociada a la cuenta de administrador.  
   
-<a id="policy-statement" class="xliff"></a>
-
-### Declaración de la directiva  
+### <a name="policy-statement"></a>Declaración de la directiva  
   
 ```xml  
   
@@ -999,25 +875,19 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
 |trace|Elemento raíz.|Sí|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |de origen|Literal de cadena que resulta significativo para el visor de seguimiento y especifica el origen del mensaje.|Sí|N/D|  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error  
@@ -1027,9 +897,7 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 ##  <a name="Wait"></a> Espera  
  La directiva `wait` ejecuta sus directivas secundarias inmediatas en paralelo y espera a que se completen todas o una de ellas para finalizar. La directiva de espera puede tener las directivas de [envío de solicitud](api-management-advanced-policies.md#SendRequest), [obtención del valor de caché](api-management-caching-policies.md#GetFromCacheByKey) y [flujo de control](api-management-advanced-policies.md#choose) como directivas secundarias inmediatas.  
   
-<a id="policy-statement" class="xliff"></a>
-
-### Declaración de la directiva  
+### <a name="policy-statement"></a>Declaración de la directiva  
   
 ```xml  
 <wait for="all|any">  
@@ -1039,9 +907,7 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ```  
   
-<a id="example" class="xliff"></a>
-
-### Ejemplo  
+### <a name="example"></a>Ejemplo  
  En el ejemplo siguiente hay dos directivas `choose` que son directivas secundarias inmediatas de la directiva `wait`. Cada una de estas directivas `choose` se ejecuta en paralelo. Cada directiva `choose` intenta recuperar un valor almacenado en memoria caché. Si se produce un error de memoria caché, se llama a un servicio back-end para que proporcione el valor. En este ejemplo la directiva `wait` no se completa hasta que lo han hecho todas sus directivas secundarias inmediatas, ya que el atributo `for` está establecido en `all`.   Las variables de contexto (`execute-branch-one`, `value-one`, `execute-branch-two` y `value-two`) quedan fuera del ámbito de esta directiva de ejemplo.  
   
 ```xml  
@@ -1076,34 +942,26 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ```  
   
-<a id="elements" class="xliff"></a>
-
-### Elementos  
+### <a name="elements"></a>Elementos  
   
 |Elemento|Descripción|Obligatorio|  
 |-------------|-----------------|--------------|  
 |wait|Elemento raíz. Solo puede contener como elementos secundarios a las directivas `send-request`, `cache-lookup-value` y `choose`.|Sí|  
   
-<a id="attributes" class="xliff"></a>
-
-### Attributes  
+### <a name="attributes"></a>Attributes  
   
 |Atributo|Descripción|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
 |for|Determina si la directiva `wait` espera a que se hayan completado todas las directivas secundarias inmediatas o solo una. Los valores permitidos son:<br /><br /> -   `all`: espera a que se hayan completado todas las directivas secundarias inmediatas.<br />- any: espera a que se haya completado cualquier directiva secundaria inmediata. En cuanto se completa la primera, la directiva `wait` también se completa y finaliza la ejecución de cualquier otra directiva secundaria inmediata.|No|todas|  
   
-<a id="usage" class="xliff"></a>
-
-### Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante, saliente y back-end  
   
 -   **Ámbitos de la directiva:** todos los ámbitos  
   
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo trabajar con directivas, consulte:
 -    [Directivas de Administración de API de Azure](api-management-howto-policies.md) 
 -    [Policy expressions (Expresiones de directiva)](api-management-policy-expressions.md)

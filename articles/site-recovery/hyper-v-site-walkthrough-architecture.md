@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 044dfe686de36c56703d126db94d0b4382b85886
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
 
-<a id="step-1-review-the-architecture-for-hyper-v-replication-to-azure" class="xliff"></a>
-
-# Paso 1: Revisión de la arquitectura para la replicación de Hyper-V en Azure
+# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>Paso 1: Revisión de la arquitectura para la replicación de Hyper-V en Azure
 
 
 En este artículo se describen los componentes y procesos que tienen lugar al replicar máquinas virtuales de Hyper-V locales (que no se administren con System Center VMM) en Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
@@ -34,9 +32,7 @@ Publique cualquier comentario que tenga en la parte inferior de este artículo, 
 
 
 
-<a id="architectural-components" class="xliff"></a>
-
-## Componentes de la arquitectura
+## <a name="architectural-components"></a>Componentes de la arquitectura
 
 En la replicación de las máquinas virtuales de Hyper-V en Azure, intervienen una serie de componentes sin VMM.
 
@@ -53,26 +49,20 @@ Aprenda sobre los requisitos previos de implementación y los requisitos de cada
 ![Componentes](./media/hyper-v-site-walkthrough-architecture/arch-onprem-azure-hypervsite.png)
 
 
-<a id="replication-process" class="xliff"></a>
-
-## Proceso de replicación
+## <a name="replication-process"></a>Proceso de replicación
 
 **Figura 2: Proceso de replicación y recuperación para la replicación de Hyper-V en Azure**
 
 ![flujo de trabajo](./media/hyper-v-site-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
-<a id="enable-protection" class="xliff"></a>
-
-### Habilitar protección
+### <a name="enable-protection"></a>Habilitar protección
 
 1. Después de habilitar la protección de una máquina virtual de Hyper-V, en el Azure Portal o de forma local, la opción **Habilitar la protección** se inicia.
 2. El trabajo comprueba que la máquina cumpla los requisitos previos e invoca [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) para que configure la replicación con su configuración.
 3. El trabajo comienza la replicación inicial con la invocación del método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) para inicializar una replicación completa de la máquina virtual y enviar los discos virtuales de la máquina virtual a Azure.
 4. Puede supervisar el trabajo en la pestaña **Trabajos**.
  
-<a id="replicate-the-initial-data" class="xliff"></a>
-
-### Replicación de los datos iniciales
+### <a name="replicate-the-initial-data"></a>Replicación de los datos iniciales
 
 1. Cuando se desencadena la replicación inicial, se toma una [instantánea de la máquina virtual de Hyper-V](https://technet.microsoft.com/library/dd560637.aspx).
 2. Los discos duros virtuales se replican uno a uno hasta que se copian todos en Azure. Esto puede tardar unos minutos, en función del tamaño de la máquina virtual y el ancho de banda de la red. Para optimizar el uso de la red, consulte cómo [administrar el uso de ancho de banda de red para la protección en entornos locales en Azure](https://support.microsoft.com/kb/3056159).
@@ -81,35 +71,27 @@ Aprenda sobre los requisitos previos de implementación y los requisitos de cada
 5. Cuando finalice la replicación inicial, se elimina la instantánea de la máquina virtual. Los cambios diferenciales en el registro del disco se sincronizan y se combinan en el disco primario.
 
 
-<a id="finalize-protection" class="xliff"></a>
-
-### Fin de la protección
+### <a name="finalize-protection"></a>Fin de la protección
 
 1. Una vez finalizada la replicación inicial, el trabajo **Finalizar la protección en la máquina virtual** configura la red y otras opciones posteriores a la replicación para proteger la máquina virtual.
 2. Si va a replicar en Azure, debe ajustar la configuración de la máquina virtual para que esté preparada para conmutación por error. En este momento puede ejecutar una conmutación por error de prueba para comprobar que todo funciona según lo esperado.
 
-<a id="replicate-the-delta" class="xliff"></a>
-
-### Replicación diferencial
+### <a name="replicate-the-delta"></a>Replicación diferencial
 
 1. Después de la replicación inicial, comienza la sincronización diferencial según la configuración de replicación.
 2. La herramienta de seguimiento de la replicación de Réplica de Hyper-V supervisa los cambios realizados en un disco duro virtual como archivos .hrl. Cada disco configurado para la replicación tiene un archivo .hrl asociado. Este registro se envía a la cuenta de almacenamiento del cliente una vez completada la replicación inicial. Cuando un registro se encuentra en tránsito hacia Azure, los cambios en el disco principal se siguen en otro archivo de registro del mismo directorio.
 3. Durante la replicación inicial y diferencial puede supervisar la máquina virtual en su vista. [Más información](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
-<a id="synchronize-replication" class="xliff"></a>
-
-### Sincronización de la replicación
+### <a name="synchronize-replication"></a>Sincronización de la replicación
 
 1. Si se produce un error en la replicación diferencial y una replicación completa sería costosa en términos de ancho de banda o de tiempo, se marca una máquina virtual para la resincronización. Por ejemplo, si los archivos .hrl alcanzan el 50 % del tamaño del disco, la máquina virtual se marcará para repetir la sincronización.
 2.  La resincronización reduce al mínimo la cantidad de datos que se envían; para ello, calcula las sumas de comprobación de las máquinas virtuales de origen y de destino, y envía solo los datos diferenciales. La resincronización utiliza un algoritmo de fragmentación de bloques fijos donde los archivos de origen y destino se dividen en fragmentos fijos. Se generan sumas de comprobación para cada fragmento y, luego, se comparan para determinar qué bloques del origen se deben aplicar al destino.
 3. Una vez finalizada la resincronización, se debe reanudar la replicación diferencial normal. De forma predeterminada, la resincronización está programada para ejecutarse automáticamente fuera del horario de oficina, pero puede resincronizar una máquina virtual manualmente. Por ejemplo, si se produce una interrupción de la red o de otro tipo, la resincronización se puede reanudar. Para ello, seleccione la máquina virtual en el portal > **Volver a sincronizar**.
 
-    ![Resincronización manual](media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![Resincronización manual](./media/hyper-v-site-walkthrough-architecture/image4.png)
 
 
-<a id="retry-logic" class="xliff"></a>
-
-### Lógica de reintento
+### <a name="retry-logic"></a>Lógica de reintento
 
 Si se produce un error de replicación, se realiza un reintento de forma predefinida. Esta lógica se puede clasificar en dos categorías:
 
@@ -120,9 +102,7 @@ Si se produce un error de replicación, se realiza un reintento de forma predefi
 
 
 
-<a id="failover-and-failback-process" class="xliff"></a>
-
-## Proceso de conmutación por error y conmutación por recuperación
+## <a name="failover-and-failback-process"></a>Proceso de conmutación por error y conmutación por recuperación
 
 1. Puede ejecutar una [conmutación por error](site-recovery-failover.md), planeada o no, desde máquinas virtuales de Hyper-V locales en Azure. Si ejecuta una conmutación por error planeada, las máquinas virtuales de origen se apagan para garantizar que no se pierdan datos.
 2. Puede conmutar por error una única máquina o crear [planes de recuperación](site-recovery-create-recovery-plans.md) para organizar la conmutación por error de varias máquinas.
@@ -133,9 +113,7 @@ Si se produce un error de replicación, se realiza un reintento de forma predefi
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Vaya al [paso 2 sobre la revisión de los requisitos previos de implementación](hyper-v-site-walkthrough-prerequisites.md).
 

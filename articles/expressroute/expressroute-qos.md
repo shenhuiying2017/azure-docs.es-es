@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 07/25/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
-
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
+ms.contentlocale: es-es
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="expressroute-qos-requirements"></a>Requisitos de QoS ExpressRoute
@@ -35,7 +36,7 @@ En la tabla siguiente se proporciona una lista de marcados de DSCP usados por Sk
 | **Clase de tráfico** | **Tratamiento (marcado de DSCP)** | **Cargas de trabajo de Skype Empresarial** |
 | --- | --- | --- |
 | **Voz** |EF (46) |Voz de Skype o Lync |
-| **Interactivo** |AF41 (34) |Vídeo |
+| **Interactivo** |AF41 (34) |Video, VBSS |
 | AF21 (18) |Uso compartido de aplicaciones | |
 | **Valor predeterminado** |AF11 (10) |Transferencia de archivos |
 | CS0 (0) |Nada más | |
@@ -51,10 +52,5 @@ En la tabla siguiente se proporciona una lista de marcados de DSCP usados por Sk
   * [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
   * [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
   * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

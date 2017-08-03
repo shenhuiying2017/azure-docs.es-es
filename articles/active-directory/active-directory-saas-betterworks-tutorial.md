@@ -2,231 +2,244 @@
 title: "Tutorial: integración de Azure Active Directory con BetterWorks | Microsoft Docs"
 description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y BetterWorks."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: 5bb9505a-be02-46ae-9979-5308715d2b47
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 06/09/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
-ms.openlocfilehash: 30dfd46c8133a2a5bb0b32bd5c035260026eec42
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d6a5b167c0befbd0fe2c65bdd16abc35ed0a659c
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>Tutorial: Integración de Azure Active Directory con BetterWorks
-El objetivo de este tutorial es mostrar cómo integrar BetterWorks con Azure Active Directory (Azure AD).
+
+En este tutorial, obtendrá información sobre cómo integrar BetterWorks con Azure Active Directory (Azure AD).
 
 La integración de BetterWorks con Azure AD proporciona las siguientes ventajas:
 
-* Puede controlar en Azure AD quién tiene acceso a BetterWorks.
-* Puede permitir que los usuarios inicien sesión automáticamente en el inicio de sesión único de BetterWorks (SSO) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
+- Puede controlar en Azure AD quién tiene acceso a BetterWorks.
+- Puede permitir que los usuarios inicien sesión automáticamente en BetterWorks (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Para configurar la integración de Azure AD con BetterWorks, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD
-* Una suscripción habilitada para inicio de sesión único (SSO) en BetterWorks
+- Una suscripción de Azure AD
+- Una suscripción habilitada para inicio de sesión único en BetterWorks
 
->[!NOTE]
->Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
->  
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-* No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba.
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-La situación descrita en este tutorial consta de dos bloques de creación principales:
+1. Adición de BetterWorks desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-* Adición de BetterWorks desde la galería
-* Configuración y comprobación del inicio de sesión único de Azure AD
-
-## <a name="add-betterworks-from-the-gallery"></a>Agregación de BetterWorks desde la galería
+## <a name="adding-betterworks-from-the-gallery"></a>Adición de BetterWorks desde la galería
 Para configurar la integración de BetterWorks en Azure AD, es preciso agregar BetterWorks desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar BetterWorks desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**. 
-   
-    ![Active Directory][1]
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
-   
-    ![Applications][2]
-4. Haga clic en **Agregar** en la parte inferior de la página.
-   
-    ![Aplicaciones][3]
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-   
-    ![Aplicaciones][4]
-6. En el cuadro de búsqueda, escriba **BetterWorks**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_01.png)
-7. En el panel de resultados, seleccione **BetterWorks** y, luego, haga clic en **Completar** para agregar la aplicación.
-   
-    ![Selección de la aplicación en la galería](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_001.png)
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
-El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con BetterWorks con un usuario de prueba llamado "Britta Simon".
+    ![Active Directory][1]
+
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+
+    ![Aplicaciones][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
+    ![Aplicaciones][3]
+
+4. En el cuadro de búsqueda, escriba **BetterWorks**.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_search.png)
+
+5. En el panel de resultados, seleccione **BetterWorks** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con BetterWorks con un usuario de prueba llamado "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de BetterWorks para un usuario de Azure AD. Es decir, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de BetterWorks.
 
-Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en BetterWorks.
+Para establecer la relación de vínculo, en BetterWorks, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario**.
 
 Para configurar y probar el inicio de sesión único de Azure AD con BetterWorks, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba en BetterWorks](#creating-a-betterworks-test-user)** : para tener un homólogo de Britta Simon en BetterWorks que esté vinculado a la representación de ella en Azure AD.
+3. **[Creación de un usuario de prueba en BetterWorks](#creating-a-betterworks-test-user)**: para tener un homólogo de Britta Simon en BetterWorks que esté vinculado a la representación del usuario en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación BetterWorks.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-La aplicación BetterWorks espera que las aserciones SAML se encuentren en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar el valor de estos atributos desde la pestaña**Atributo**de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto. 
-
-![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_06.png)
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación BetterWorks.
 
 **Para configurar el inicio de sesión único de Azure AD con BetterWorks, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **BetterWorks**, en el menú de la parte superior, haga clic en **Atributos**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_07.png)
-2. En el cuadro de diálogo **Atributos de token de SAML** , para cada fila de la tabla siguiente, realice los pasos que se indican a continuación:
+1. En Azure Portal, en la página de integración de la aplicación **BetterWorks**, haga clic en **Inicio de sesión único**.
 
-    | Nombre del atributo | Valor de atributo |
-    | --- | --- |    
-    | saml_token | bd189cf6-1701-11e6-8f90-d26992eca2a5 |
+    ![Configurar inicio de sesión único][4]
 
-    1. Haga clic en **agregar atributo de usuario** para abrir el cuadro de diálogo **Agregar atributo de usuario**.
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_samlbase.png)
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_12.png)
-    2. En el cuadro de texto **Nombre de atributo** , escriba el nombre de atributo que se muestra para la fila.
-    3. En la lista **Valor de atributo**, escriba el id. del token SAML que se muestra para esa fila.
-    4. Haga clic en **Completar**
+3. En la sección **Dominio y direcciones URL de BetterWorks**, si quiere configurar la aplicación en modo iniciado por **IDP**:
 
-1. En el menú de la parte superior, haga clic en **Inicio rápido**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_11.png) 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en BetterWorks?**, seleccione **Inicio de sesión único de Azure AD** y, luego, haga clic en **Siguiente**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_03.png)
-3. En la página de diálogo **Configurar las opciones de la aplicación**, si quiere configurar la aplicación en el **modo iniciado por el proveedor de identidades**, siga estos pasos:
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_04.png)
-   1. En el cuadro de texto **Identificador**, escriba la dirección URL con el siguiente patrón: `https://app.betterworks.com/saml2/metadata/`
-   2. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón: `https://app.betterworks.com/saml2/acs/`
-   3. Haga clic en **Siguiente**
+    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_url.png)
 
-1. En la página de diálogo **Configurar las opciones de la aplicación**, si desea configurar la aplicación en el **modo iniciado por el proveedor de servicios**, siga estos pasos:
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_10.png)
-    1. Seleccione **Mostrar la configuración avanzada (opcional)**.
-    2. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de BetterWorks con el siguiente patrón: `https://app.betterworks.com`
-    3. Haga clic en **Siguiente**.
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://app.betterworks.com/saml2/metadata/`
 
-1. En la página **Configurar inicio de sesión único en BetterWorks**, lleve a cabo estos pasos y haga clic en **Siguiente**:
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_05.png)
-    1. Haga clic en **Descargar metadatos**y luego guarde el archivo en el equipo.
-    2. Haga clic en **Siguiente**.
-2. Si quiere configurar el inicio de sesión único para la aplicación, póngase en contacto con el equipo de soporte de BetterWorks a través de <mailto:support@betterworks.com>. Adjunte el archivo de metadatos descargado y compártalo con el equipo de BetterWorks para que le configure el inicio de sesión único.
-3. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
-   
-    ![Inicio de sesión único de Azure AD ][10]
-4. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
-   
-   ![Inicio de sesión único de Azure AD ][11]
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://app.betterworks.com/saml2/acs/`.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal clásico llamado Britta Simon.
+4. En la sección **Dominio y direcciones URL de BetterWorks**, si quiere configurar la aplicación en **SP initiated mode** (Modo iniciado por SP), realice los siguientes pasos:
+    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_url1.png)
 
-![Creación de un usuario de Azure AD][20]
+    a. Haga clic en la opción **Mostrar configuración avanzada de URL**.
+
+    b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.betterworks.com`.
+
+    > [!NOTE] 
+    > Estos valores no son reales. Actualícelos con la dirección URL de respuesta, el identificador y la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de BetterWorks](mailto:support@betterworks.com) para obtener estos valores.
+ 
+4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_certificate.png)  
+
+5. La aplicación BetterWorks espera que las aserciones SAML se encuentren en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar el valor de estos atributos desde la pestaña "**Atributo**" de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto. 
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_attribute.png)
+
+6. En el cuadro de diálogo **Atributos de token de SAML** , para cada fila de la tabla siguiente, realice los pasos que se indican a continuación:
+ 
+   | Nombre del atributo | Valor de atributo |
+   | -------------- |  ------------ |
+   | saml_token     | bd189cf6-1701-11e6-8f90-d26992eca2a5 |
+
+   a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_officespace_04.png)
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_officespace_05.png)
+
+   b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila. 
+
+   c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
+    
+   d. Haga clic en **Aceptar**.
+
+7. Haga clic en el botón **Guardar** .
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_general_400.png)
+
+8. Para configurar el inicio de sesión único en **BetterWorks**, es preciso enviar los datos descargados de **XML de metadatos** al [equipo de soporte técnico de BetterWorks](mailto:support@betterworks.com).
+
+
+> [!TIP]
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+ 
+
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+
+![Creación de un usuario de Azure AD][100]
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_09.png)
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_03.png)
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_04.png)
-5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_05.png)
-    1. En Tipo de usuario, seleccione Nuevo usuario de la organización.
-    2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-    3. Haga clic en **Siguiente**.
-6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
-   
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_06.png)
-   1. En el cuadro de texto **Nombre**, escriba **Britta**.  
-   2. En el cuadro de texto **Apellidos**, escriba **Simon**.
-   3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-   4. En la lista **Rol**, seleccione **Usuario**.
-   5. Haga clic en **Siguiente**.
-7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_07.png)
-8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_08.png)
-    1. Anote el valor del campo **Nueva contraseña**.
-    2. Haga clic en **Completo**.   
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
-### <a name="create-a-betterworks-test-user"></a>Creación de un usuario de prueba en BetterWorks
-En esta sección, creará un usuario llamado Britta Simon en BetterWorks. 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_01.png) 
 
-Colabore con el equipo de soporte técnico de BetterWorks a través de <mailto:support@betterworks.com> para agregar los usuarios a la plataforma BetterWorks.
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_02.png) 
 
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo cual se le concederá acceso a BetterWorks.
+3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_03.png) 
 
-   ![Asignar usuario][200]
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-betterworks-tutorial/create_aaduser_04.png) 
+
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+
+    d. Haga clic en **Crear**.
+ 
+### <a name="creating-a-betterworks-test-user"></a>Creación de un usuario de prueba en BetterWorks
+
+En esta sección, creará un usuario llamado Britta Simon en BetterWorks. Colabore con el [equipo de soporte técnico de BetterWorks](mailto:support@betterworks.com) para agregar los usuarios a la plataforma BetterWorks.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a BetterWorks.
+
+![Asignar usuario][200] 
 
 **Para asignar Britta Simon a BetterWorks, realice los pasos siguientes:**
 
-1. En el portal clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
-   
-    ![Asignar usuario][201]
-2. En la lista de aplicaciones, seleccione **BetterWorks**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_50.png)
-3. En el menú de la parte superior, haga clic en **Usuarios**.
-   
-    ![Asignar usuario][203]
-4. En la lista Usuarios, seleccione **Britta Simon**.
-5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
-   
-    ![Asignar usuario][205]
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones, seleccione **BetterWorks**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_app.png) 
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Asignar usuario][202] 
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Asignar usuario][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de BetterWorks en el panel de acceso, debería iniciar sesión automáticamente en su aplicación BetterWorks.
 
 ## <a name="additional-resources"></a>Recursos adicionales
+
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
 
 <!--Image references-->
 
@@ -235,14 +248,11 @@ Al hacer clic en el icono de BetterWorks en el panel de acceso, debería iniciar
 [3]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-betterworks-tutorial/tutorial_general_205.png
+
 

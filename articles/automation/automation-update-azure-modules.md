@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2017
+ms.date: 06/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 6765ea93dd4e4e2594fb147dd19120aec058a2f5
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: ed8c97b642d406a05817ec6c67f31a1b4bce93b0
+ms.contentlocale: es-es
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -25,6 +26,8 @@ ms.lasthandoff: 04/21/2017
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Actualización de módulos de Azure PowerShell en Azure Automation
 
 Los módulos de Azure PowerShell más comunes se proporcionan de forma predeterminada en cada cuenta de Automation.  El equipo de Azure actualiza los módulos de Azure con regularidad, por lo que en la cuenta de Automation se proporciona una manera de actualizar los módulos de la cuenta cuando hay nuevas versiones disponibles en el portal.  
+
+Dado que el grupo del producto actualiza los módulos con regularidad, pueden producirse cambios con los cmdlets incluidos, lo que puede afectar negativamente a los runbooks según el tipo de cambio, por ejemplo, al cambiar el nombre de un parámetro o al dejar de usar un cmdlet por completo. Para evitar afectar a los runbooks y a los procesos que automatizan, se recomienda encarecidamente probarlos y validarlos antes de continuar.  Si no tiene una cuenta de Automation dedicada destinada para este propósito, considere la posibilidad de crear una para poder probar muchos escenarios y permutaciones diferentes durante el desarrollo de los runbooks, además de los cambios iterativos, como la actualización de los módulos de PowerShell.  Una vez validados los resultados y aplicados los cambios necesarios, continúe con la coordinación de la migración de los runbooks que requieran modificación y realice la actualización tal y como se describe a continuación en un entorno de producción.     
 
 ## <a name="updating-azure-modules"></a>Actualización de módulos de Azure
 
@@ -35,20 +38,23 @@ Los módulos de Azure PowerShell más comunes se proporcionan de forma predeterm
 3. Haga clic en **Sí** y comenzará el proceso de actualización de módulos.  El proceso de actualización tarda aproximadamente 15-20 minutos en actualizar los siguientes módulos:
 
   * Las tablas de Azure
-  *    Azure.Storage
-  *    AzureRm.Automation
-  *    AzureRm.Compute
-  *    AzureRm.Profile
-  *    AzureRm.Resources
-  *    AzureRm.Sql
+  * Azure.Storage
+  * AzureRm.Automation
+  * AzureRm.Compute
+  * AzureRm.Profile
+  * AzureRm.Resources
+  * AzureRm.Sql
   * AzureRm.Storage
 
     Si los módulos ya están actualizados, el proceso se completará en unos segundos.  Cuando el proceso de actualización se complete, recibirá una notificación.<br><br> ![Estado de actualización de Update Azure Modules (Actualizar módulos de Azure)](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
-Siempre que se crea una programación, los trabajos posteriores que se ejecutan en esa programación usan los módulos de la cuenta de Automation en el momento en que se creó la programación.  Para empezar a usar los módulos actualizados con los runbooks programados, debe desvincular y volver a vincular la programación con ese runbook.   
+> [!NOTE]
+> Azure Automation utilizará los módulos más recientes en su cuenta de Automation cuando se ejecuta un nuevo trabajo programado.    
 
 Si usa cmdlets de estos módulos de Azure PowerShell en sus runbooks para administrar recursos de Azure, le interesará realizar este proceso de actualización cada mes, por ejemplo, para asegurarse de que dispone de los módulos más recientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los módulos de integración y cómo crear módulos personalizados para integrar Automation con otros sistemas, servicios o soluciones, consulte [Módulos de integración](automation-integration-modules.md).
+* Para más información sobre los módulos de integración y cómo crear módulos personalizados para integrar Automation con otros sistemas, servicios o soluciones, consulte [Módulos de integración](automation-integration-modules.md).
+
+* Considere la integración del control de origen con [GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) o [Visual Studio Team Services](automation-scenario-source-control-integration-with-vsts.md) para controlar las versiones de la cartera de configuración y el runbook de Automation y administrarlas de forma centralizada.  

@@ -1,8 +1,10 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-#### Para completar la instalación mínima del dispositivo StorSimple
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Para completar la instalación mínima del dispositivo StorSimple
 
+   > [!NOTE]
+   > No se puede cambiar el nombre del dispositivo cuando se haya completado la configuración mínima del dispositivo.
+   
 1. En la lista tabular de dispositivos de la hoja **Dispositivos**, seleccione su dispositivo y haga clic en él. El dispositivo está en estado **Listo para configurar**. Se abre la hoja **Configurar dispositivo**.
 
      ![Interfaces de red de la instalación mínima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
@@ -26,9 +28,6 @@
 1. Haga clic en **Aceptar**. Se inicia la configuración del dispositivo. Cuando finalice, recibirá una notificación. El estado del dispositivo cambia a **En línea** en la hoja **Dispositivos**.
 
     ![Interfaces de red de la instalación mínima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
-
-   > [!NOTE]
-   > Puede modificar el resto de la configuración del dispositivo en cualquier desde la hoja **Configuración del dispositivo**.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

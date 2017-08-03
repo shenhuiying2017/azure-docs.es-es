@@ -1,5 +1,5 @@
 ---
-title: "Realización de una consulta en el Índice de Azure Search mediante la API de REST | Microsoft Docs"
+title: "Consulta de un índice (API de REST - Azure Search) | Microsoft Docs"
 description: "Cree una consulta de búsqueda en Búsqueda de Azure y use los parámetros de búsqueda para filtrar y ordenar los resultados de búsqueda."
 services: search
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1976a514b4469704dcba9381c5fcbe8805a11ecd
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
 ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 

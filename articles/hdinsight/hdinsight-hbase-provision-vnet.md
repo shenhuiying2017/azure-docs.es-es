@@ -1,5 +1,5 @@
 ---
-title: "Creación de clústeres de HBase en una red virtual | Microsoft Docs"
+title: "Creación de clústeres de HBase en una red virtual: Azure | Microsoft Docs"
 description: "Introducción al uso de HBase en HDInsight de Azure Aprenda a crear clústeres de HBase de HDInsight en Red virtual de Azure."
 keywords: 
 services: hdinsight,virtual-network
@@ -17,14 +17,14 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: fbd5c31a4ca1fa26d14001ba5765adfc91142a10
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 244fc64dd6d13d52e38878d919feea7882e886eb
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="create-hbase-clusters-in-azure-virtual-network"></a>Creación de clústeres de HBase en Virtual Network de Azure
+# <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creación de clústeres de HBase en HDInsight en Azure Virtual Network
 Aprenda a crear clústeres de HBase de HDInsight de Azure en una [Azure Virtual Network][1].
 
 Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones para que estas puedan comunicarse directamente con HBase. Entre las ventajas se incluye lo siguiente:

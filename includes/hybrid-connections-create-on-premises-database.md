@@ -65,8 +65,3 @@ Por último, creará un nuevo inicio de sesión de SQL Server con permisos restr
 3. En el script anterior, reemplace la cadena `<**secure_password**>` por una contraseña segura para el nuevo *HybridConnectionsLogin*.
 4. **Ejecute** la consulta para crear el nuevo inicio de sesión y conceder los permisos necesarios en la base de datos local.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

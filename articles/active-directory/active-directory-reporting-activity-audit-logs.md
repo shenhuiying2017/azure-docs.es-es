@@ -1,5 +1,4 @@
 ---
-
 title: "Informes de actividad de auditoría en el portal de Azure Active Directory | Microsoft Docs"
 description: "Introducción a los informes de actividad de auditoría en el portal de Azure Active Directory"
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
@@ -131,7 +130,7 @@ Cuando se selecciona **Grupo** como **Tipo de recurso de actividad**, obtendrá 
 
 El filtro **Actividad** se basa en la selección de categoría y de tipo de recurso de actividad que realice. Puede seleccionar la actividad específica que desea ver o elegir todas. 
 
-Para obtener la lista de todas las actividades de auditoría, use API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, donde $tenantdomain = el nombre de dominio, o bien consulte el artículo sobre [eventos del informe de auditoría](active-directory-reporting-audit-events.md#list-of-audit-report-events).
+Para obtener la lista de todas las actividades de auditoría, use API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, donde $tenantdomain = el nombre de dominio, o bien consulte el artículo sobre [eventos del informe de auditoría](active-directory-reporting-audit-events.md).
 
 
 ## <a name="audit-logs-shortcuts"></a>Métodos abreviados de los registros de auditoría
@@ -185,6 +184,7 @@ Puede filtrar aún más esta vista hasta simplemente **grupos** o simplemente **
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).
+
+Para obtener información general sobre los informes, consulte la [Informes de Azure Active Directory](active-directory-reporting-azure-portal.md).
 
 

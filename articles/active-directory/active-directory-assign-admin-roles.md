@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/14/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: b29633d93484950d6657fc1d618fa0f1a2d5c01a
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 1d3c9023ff4d3a722363d38d3c927fb7f4304448
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -35,7 +35,9 @@ Los roles de administrador disponibles son los siguientes:
 
 * **Administrador de facturación**: hace compras, administra suscripciones, administra incidencias de soporte técnico y supervisa el estado del servicio.
 
-* **Administrador de cumplimiento**: los usuarios con este rol tienen permisos de administración en el Centro de cumplimiento y seguridad de Office 365 y el Centro de administración de Exchange. Más información en "[Acerca de los roles de administrador de Office 365](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1)".
+* **Administrador de cumplimiento**: los usuarios con este rol tienen permisos de administración en el Centro de cumplimiento y seguridad de Office 365 y el Centro de administración de Exchange. Más información en "[Acerca de los roles de administrador de Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)".
+
+* **Administrador de acceso condicional**: los usuarios con este rol tienen la capacidad de administrar la configuración de acceso condicional de Azure Active Directory.
 
 * **Administrador del servicio CRM**: los usuarios con este rol tienen permisos globales en Microsoft CRM Online, cuando el servicio está presente, así como también la capacidad de administrar incidencias de soporte técnico y supervisar el estado del servicio. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -102,11 +104,15 @@ Los roles de administrador disponibles son los siguientes:
 | --- | --- |
 |<p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra productos de Office</p> |<p>Restablecer las contraseñas de los usuarios</p><p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Visualización de registros de auditoría</p>|
 
+### <a name="conditional-access-administrator"></a>Administrador de acceso condicional
+| Puede hacer | No puede hacer |
+| --- | --- |
+|<p>Ver información de usuario y de la compañía</p><p>Administrar la configuración de acceso condicional</p> |<p>Restablecer las contraseñas de los usuarios</p><p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Visualización de registros de auditoría</p>|
+
 ### <a name="global-administrator"></a>Administrador global
 | Puede hacer | No puede hacer |
 | --- | --- |
-| <p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra productos de Office</p><p>Restablecer las contraseñas de los usuarios</p>
-<p>Restablecer las contraseñas de otro administrador</p> <p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar Multi-Factor Authentication</p><p>Visualización de registros de auditoría</p> |N/D |
+|<p>Ver información de usuario y de la compañía</p><p>Administrar incidencias de soporte técnico de Office</p><p>Realizar operaciones de facturación y compra productos de Office</p><p>Restablecer las contraseñas de los usuarios</p><p>Restablecer las contraseñas de otro administrador</p><p>Crear y administrar vistas de usuario</p><p>Crear, editar y eliminar usuarios y grupos, y administrar licencias de usuario</p><p>Administrar dominios</p><p>Administrar información de la compañía</p><p>Delegar roles administrativos a otros usuarios</p><p>Usar la sincronización de directorios</p><p>Habilitar o deshabilitar Multi-Factor Authentication</p><p>Visualización de registros de auditoría</p> |<p>N/D</p>|
 
 ### <a name="password-administrator"></a>Administrador de contraseñas
 | Puede hacer | No puede hacer |
@@ -156,6 +162,17 @@ El administrador global tiene acceso a todos los roles administrativos. De forma
 
 ## <a name="assign-or-remove-administrator-roles"></a>Asignación o eliminación de roles de administrador
 Para obtener información sobre cómo asignar roles administrativos a un usuario en Azure Active Directory, consulte [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) (Asignación de roles de administrador a un usuario en Azure Active Directory).
+
+## <a name="deprecated-roles"></a>Roles en desuso
+
+Los siguientes roles no deben usarse. Están en desuso y se eliminarán de Azure AD más adelante.
+
+* Administrador de licencias ad hoc
+* Creador de usuarios comprobados de correo electrónico
+* Combinación de dispositivos
+* Administradores de dispositivos
+* Usuarios de dispositivos
+* Combinación de dispositivos de área de trabajo
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md)

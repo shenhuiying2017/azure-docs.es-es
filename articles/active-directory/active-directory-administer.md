@@ -4,7 +4,6 @@ description: "Explica qué es un inquilino de Azure AD y cómo administrar Azure
 services: active-directory
 documentationcenter: 
 author: curtand
-writer: markvi
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -12,13 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 07/20/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
-ms.lasthandoff: 12/08/2016
-
+ms.reviewer: jeffsta
+ms.custom: it-pro;oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 07b9f4626e9129c7eeb94d43883417f324da5292
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Administración del directorio de Azure AD
@@ -55,9 +56,9 @@ Por ejemplo, si se suscribió originalmente a Microsoft Intune y completó los p
 Para obtener más información acerca de cómo integrar su directorio local con Azure AD, vea [Integración de directorios](active-directory-aadconnect.md).
 
 ### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>Asociación de un directorio de Azure AD con una nueva suscripción de Azure
-Puede asociar una nueva suscripción de Azure con el mismo directorio que autentica el inicio de sesión para una suscripción de Office 365 o Microsoft Intune existente. Inicie sesión en el Portal de administración de Azure con la cuenta profesional o educativa. El Portal de administración devuelve un mensaje informando que no pudo encontrar ninguna suscripción para esa cuenta. Seleccione **Suscribirse a Azure**, y el directorio estará disponible para la administración dentro del portal. Para obtener más información, consulte [Administrar el directorio de su suscripción de Office 365 en Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
+Puede asociar una nueva suscripción de Azure con el mismo directorio que autentica el inicio de sesión para una suscripción de Office 365 o Microsoft Intune existente. Inicie sesión en Azure Portal con la cuenta profesional o educativa. El portal devuelve un mensaje informando que no pudo encontrar ninguna suscripción para esa cuenta. Seleccione **Suscribirse a Azure**, y el directorio estará disponible para la administración dentro del portal. Para obtener más información, consulte [Administrar el directorio de su suscripción de Office 365 en Azure](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure).
 
-Para ver un vídeo sobre preguntas comunes relacionadas con el uso de Azure AD, consulte [Azure Active Directory: preguntas comunes acerca del registro, el inicio de sesión y el uso.](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
+Para ver un vídeo sobre preguntas comunes relacionadas con el uso de Azure AD, consulte [Azure Active Directory: preguntas comunes acerca del registro, el inicio de sesión y el uso](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions).
 
 ### <a name="create-an-azure-ad-directory-by-signing-up-for-a-microsoft-cloud-service-as-an-organization"></a>Creación de un directorio de Azure AD mediante una suscripción a un servicio en la nube de Microsoft como una organización
 Si aún no tiene una suscripción a un servicio en la nube de Microsoft, utilice uno de los siguientes vínculos para suscribirse. Con la suscripción a su primer servicio se creará un directorio de Azure AD automáticamente.
@@ -76,7 +77,7 @@ No hay costes asociados al uso de Azure AD. El directorio es un recurso gratuito
 Para cambiar el nombre para mostrar del directorio, haga clic en el directorio del portal y luego en **Configurar**. Como se explica más adelante en este tema, puede agregar un nuevo directorio o eliminar uno que ya no necesite. Para asociar una suscripción a otro directorio, haga clic en la extensión **Configuración** en el panel de navegación izquierdo y en la parte inferior de la página **Suscripciones**, haga clic en **Editar directorio**. También puede crear un dominio personalizado mediante un nombre DNS que haya registrado en lugar del predeterminado *.onmicrosoft.com, que puede ser preferible para un servicio como SharePoint Online.
 
 ## <a name="how-can-i-manage-directory-data"></a>¿Cómo puedo administrar datos de directorio?
-Como administrador de una o más suscripciones de servicio en la nube de Microsoft, puede usar el Portal de administración de Azure, el portal de cuentas de Microsoft Intune o el centro de administración de Office 365 para administrar datos de directorio de su organización. También puede descargar y ejecutar los cmdlets del [módulo de Microsoft Azure Active Directory para Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) , que le ayudarán a administrar los datos almacenados en Azure AD.
+Como administrador de una o más suscripciones de servicio en la nube de Microsoft, puede usar el [centro de administración de Azure AD](https://aad.portal.azure.com), el portal de cuentas de Microsoft Intune o el centro de administración de Office 365 para administrar datos de directorio de su organización. También puede descargar y ejecutar los cmdlets del [módulo de Microsoft Azure Active Directory para Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) , que le ayudarán a administrar los datos almacenados en Azure AD.
 
 En cualquiera de estos portales (o cmdlets), puede:
 
@@ -84,7 +85,7 @@ En cualquiera de estos portales (o cmdlets), puede:
 * Administrar servicios en la nube relacionados a los que se suscribe su organización
 * Configurar la integración local con el servicio de directorio
 
-El portal de administración de Azure, el centro de administración de Office 365, el portal de cuentas de Microsoft Intune y los cmdlets de Azure AD leen y escriben en una instancia compartida única de Azure AD que está asociada con el directorio de su organización, tal como se muestra en la siguiente ilustración. De esta manera, los portales (o cmdlets) actúan como interfaz front-end que extraen o modifican los datos de directorio.
+El [centro de administración de Azure AD](https://aad.portal.azure.com), el centro de administración de Office 365, el portal de cuentas de Microsoft Intune y los cmdlets de Azure AD leen y escriben en una instancia compartida única de Azure AD que está asociada con el directorio de su organización, tal como se muestra en la siguiente ilustración. De esta manera, los portales (o cmdlets) actúan como interfaz front-end que extraen o modifican los datos de directorio.
 
 ![][2]
 
@@ -94,7 +95,7 @@ Al realizar un cambio en los datos de su organización mediante cualquiera de lo
 Por ejemplo, si utiliza el centro de administración de Office 365 para bloquear el inicio de sesión de un usuario, dicha acción bloqueará el inicio de sesión de ese usuario en cualquier otro servicio al que esté suscrita actualmente su organización. Si fuera a usar esa misma cuenta de usuario en el contexto del portal de cuentas de Microsoft Intune, vería que el usuario está bloqueado.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>¿Cómo puedo agregar y administrar varios directorios?
-Puede agregar un directorio de Azure AD en el Portal de administración de Azure. Seleccione la extensión **Active Directory** a la izquierda y haga clic en **Agregar**.
+Puede agregar un directorio de Azure AD en el [Portal clásico de Azure AD](https://manage.windowsazure.com). En el panel **Introducción**, seleccione la extensión **Active Directory** situada a la izquierda y, a continuación, haga clic en **Nuevo**.
 
 Puede administrar cada directorio como un recurso totalmente independiente: cada directorio es un par con características completas y lógicamente independiente de otros directorios que administre; no existe ninguna relación principal-secundario entre los directorios. Esta independencia entre directorios incluye la independencia de recursos, la independencia administrativa y la independencia de sincronización.
 
@@ -116,7 +117,7 @@ También tenga en cuenta que, a diferencia de otros recursos de Azure, los direc
 Un administrador global puede eliminar un directorio de Azure AD desde el portal. Antes de eliminar un directorio, asegúrese de que realmente no lo necesita, ya que también se eliminarán todos los recursos que contiene.
 
 > [!NOTE]
-> Si el usuario inicia sesión con una cuenta profesional o educativa, el usuario no debe intentar eliminar su directorio particular. Por ejemplo, si el usuario ha iniciado sesión como joe@contoso.onmicrosoft.com,, no puede eliminar el directorio que tiene contoso.onmicrosoft.com como dominio predeterminado.
+> Si el usuario inicia sesión con una cuenta profesional o educativa, el usuario no debe intentar eliminar su directorio particular. Por ejemplo, si el usuario ha iniciado sesión como joe@contoso.onmicrosoft.com, no puede eliminar el directorio que tiene contoso.onmicrosoft.com como dominio predeterminado.
 > 
 > 
 
@@ -130,7 +131,7 @@ Se comprueban las condiciones siguientes:
 * No puede haber suscripciones a ningún servicio de Microsoft Online Services, como Microsoft Azure, Office 365 o Azure AD Premium, asociadas al directorio. Por ejemplo, si se ha creado un directorio predeterminado en Azure en su nombre, no puede eliminar este directorio si la suscripción a Azure aún se basa en este directorio para la autenticación. De igual forma, no puede eliminar un directorio si otro usuario le ha asociado una suscripción. Para asociar su suscripción a un directorio diferente, inicie sesión en el Portal de administración de Azure y haga clic en **Configuración** en el panel izquierdo. Luego, en la parte inferior de la página **Suscripciones**, haga clic en **Editar directorio**. Para obtener más información acerca de las suscripciones de Azure, consulte [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 > [!NOTE]
-> Si el usuario inicia sesión con una cuenta profesional o educativa, el usuario no debe intentar eliminar su directorio particular. Por ejemplo, si el usuario ha iniciado sesión como joe@contoso.onmicrosoft.com,, no puede eliminar el directorio que tiene contoso.onmicrosoft.com como dominio predeterminado.
+> Si el usuario inicia sesión con una cuenta profesional o educativa, el usuario no debe intentar eliminar su directorio particular. Por ejemplo, si el usuario ha iniciado sesión como joe@contoso.onmicrosoft.com, no puede eliminar el directorio que tiene contoso.onmicrosoft.com como dominio predeterminado.
 > 
 > 
 

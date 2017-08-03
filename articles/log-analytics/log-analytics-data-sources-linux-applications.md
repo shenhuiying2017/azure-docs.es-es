@@ -22,22 +22,16 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="collect-performance-counters-for-linux-applications-in-log-analytics" class="xliff"></a>
-
-# Recopilar los contadores de rendimiento para aplicaciones de Linux en Log Analytics 
+# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recopilar los contadores de rendimiento para aplicaciones de Linux en Log Analytics 
 En este artículo se proporciona información para configurar el [agente de OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) a fin de recopilar los contadores de rendimiento para aplicaciones específicas.  Las aplicaciones incluidas en este artículo son las siguientes:  
 
 - [MySQL](#MySQL)
 - [Servidor HTTP de Apache](#apache-http-server)
 
-<a id="mysql" class="xliff"></a>
-
-## MySQL
+## <a name="mysql"></a>MySQL
 Si se detecta en el equipo un servidor de MySQL o de MariaDB cuando se instala el agente de OMS, se instalará automáticamente un proveedor de supervisión de rendimiento para el servidor MySQL. Este proveedor se conecta al servidor MySQL o MariaDB local para exponer las estadísticas de rendimiento. Debe configurar las credenciales de usuario de MySQL para que el proveedor pueda tener acceso al servidor de MySQL.
 
-<a id="configure-mysql-credentials" class="xliff"></a>
-
-### Configurar las credenciales de MySQL
+### <a name="configure-mysql-credentials"></a>Configurar las credenciales de MySQL
 El proveedor de MySQL para OMI necesita un usuario de MySQL preconfigurado y bibliotecas de cliente de MySQL instaladas para consultar la información de rendimiento y mantenimiento de la instancia de MySQL.  Estas credenciales se almacenan en un archivo de autenticación que se almacena en el agente de Linux.  El archivo de autenticación especifica la dirección de enlace y el puerto que usa la instancia de MySQL para escuchar y las credenciales que tiene que usar para recopilar métricas.  
 
 Durante la instalación del agente de OMS para Linux, el proveedor de MySQL para OMI examinará los archivos de configuración my.cnf de MySQL (ubicaciones predeterminadas) para encontrar la dirección de enlace y el puerto, y establecer parcialmente el archivo de autenticación de MySQL para OMI.
@@ -45,9 +39,7 @@ Durante la instalación del agente de OMS para Linux, el proveedor de MySQL para
 El archivo de autenticación de MySQL se almacena en `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
 
-<a id="authentication-file-format" class="xliff"></a>
-
-### Formato del archivo de autenticación
+### <a name="authentication-file-format"></a>Formato del archivo de autenticación
 A continuación se muestra el formato del archivo de autenticación de MySQL para OMI.
 
     [Port]=[Bind-Address], [username], [Base64 encoded Password]
@@ -65,9 +57,7 @@ Las entradas del archivo de autenticación se describen en la tabla siguiente.
 | Contraseña codificada en Base64| Contraseña del usuario de supervisión de MySQL codificada en Base64. |
 | Actualización automática| Especifica si se volverán a examinar los cambios en el archivo my.cnf y si se sobrescribirá el archivo de autenticación de MySQL para OMI cuando el proveedor de MySQL para OMI se actualice. |
 
-<a id="default-instance" class="xliff"></a>
-
-### Instancia predeterminada
+### <a name="default-instance"></a>Instancia predeterminada
 El archivo de autenticación de MySQL para OMI puede definir una instancia predeterminada y un número de puerto para facilitar la administración de varias instancias de MySQL en un host de Linux.  La instancia predeterminada se indica mediante una instancia con el puerto 0. Todas las instancias adicionales heredarán las propiedades establecidas en la instancia predeterminada, a menos que se especifiquen valores diferentes. Por ejemplo, si se agrega la instancia de MySQL que escucha en el puerto "3308", se usará la dirección de enlace, el nombre de usuario y la contraseña codificada en Base64 de la instancia predeterminada para probar y supervisar la instancia que escucha en 3308. Si la instancia en 3308 está enlazada a otra dirección y usa el mismo par de nombre de usuario y contraseña que MySQL, solo se necesitará la dirección de enlace, y las demás propiedades se heredarán.
 
 En la tabla siguiente se indica una configuración de ejemplo de la instancia. 
@@ -78,9 +68,7 @@ En la tabla siguiente se indica una configuración de ejemplo de la instancia.
 | Instancia predeterminada e instancia con el puerto 3308 y nombre de usuario y contraseña diferentes. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
 
 
-<a id="mysql-omi-authentication-file-program" class="xliff"></a>
-
-### Programa del archivo de autenticación de MySQL para OMI
+### <a name="mysql-omi-authentication-file-program"></a>Programa del archivo de autenticación de MySQL para OMI
 Con la instalación del proveedor de MySQL para OMI se incluye un programa del archivo de autenticación de MySQL para OMI que se puede usar para editar el archivo de autenticación de MySQL para OMI. El programa del archivo de autenticación se encuentra en la ubicación siguiente.
 
     /opt/microsoft/mysql-cimprov/bin/mycimprovauth
@@ -104,9 +92,7 @@ Los comandos del ejemplo siguiente definen una cuenta de usuario predeterminada 
     sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
     sudo /opt/omi/bin/service_control restart
 
-<a id="database-permissions-required-for-mysql-performance-counters" class="xliff"></a>
-
-### Permisos necesarios de la base de datos para los contadores de rendimiento de MySQL
+### <a name="database-permissions-required-for-mysql-performance-counters"></a>Permisos necesarios de la base de datos para los contadores de rendimiento de MySQL
 El usuario de MySQL necesita acceso a las consultas siguientes para recopilar datos de rendimiento del servidor MySQL. 
 
     SHOW GLOBAL STATUS;
@@ -127,9 +113,7 @@ Estos privilegios se pueden conceder ejecutando los siguientes comandos de conce
 > [!NOTE]
 > Para conceder permisos a un usuario de supervisión de MySQL, el usuario que concede el permiso tiene que tener el privilegio "GRANT option", además del privilegio que se va a conceder.
 
-<a id="define-performance-counters" class="xliff"></a>
-
-### Definir contadores de rendimiento
+### <a name="define-performance-counters"></a>Definir contadores de rendimiento
 
 Una vez configurado el agente de OMS para Linux de modo que envíe datos a Log Analytics, debe configurar los contadores de rendimiento para que recopilen.  Use el procedimiento descrito en [Orígenes de datos de rendimiento de Windows y Linux en Log Analytics](log-analytics-data-sources-windows-events.md) con los contadores de la tabla siguiente.
 
@@ -154,9 +138,7 @@ Una vez configurado el agente de OMS para Linux de modo que envíe datos a Log A
 | MySQL Server | Porcentaje de uso de la caché de tablas |
 | MySQL Server | Porcentaje de contención de bloqueo de tablas |
 
-<a id="apache-http-server" class="xliff"></a>
-
-## Servidor HTTP de Apache 
+## <a name="apache-http-server"></a>Servidor HTTP de Apache 
 Si se detecta en el equipo un servidor HTTP de Apache cuando se instala la agrupación de omsagent, se instalará automáticamente un proveedor de supervisión de rendimiento para el servidor HTTP de Apache. Este proveedor se basa en un módulo de Apache que se tiene que cargar en el servidor HTTP de Apache para tener acceso a los datos de rendimiento. Puede cargar el módulo con el comando siguiente:
 ```
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
@@ -167,9 +149,7 @@ Para cargar el módulo de supervisión de Apache, ejecute el siguiente comando:
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ```
 
-<a id="define-performance-counters" class="xliff"></a>
-
-### Definir contadores de rendimiento
+### <a name="define-performance-counters"></a>Definir contadores de rendimiento
 
 Una vez configurado el agente de OMS para Linux de modo que envíe datos a Log Analytics, debe configurar los contadores de rendimiento para que recopilen.  Use el procedimiento descrito en [Orígenes de datos de rendimiento de Windows y Linux en Log Analytics](log-analytics-data-sources-windows-events.md) con los contadores de la tabla siguiente.
 
@@ -187,8 +167,6 @@ Una vez configurado el agente de OMS para Linux de modo que envíe datos a Log A
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Recopilar contadores de rendimiento](log-analytics-data-sources-performance-counters.md) en agentes de Linux.
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos. 

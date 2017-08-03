@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3ca1184bfbd6af3a63e62bce9dfe1baf1729b4ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c1d70bfcf5d1235b34f6cda3ce4e1639e99ebc7f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,12 +33,15 @@ Obtenga información sobre cómo usar Apache Oozie con Hadoop en HDInsight. Oozi
 > [!NOTE]
 > Otra opción para definir los flujos de trabajo con HDInsight es Factoría de datos de Azure. Para obtener más información sobre Data Factory de Azure, consulte [Uso de Pig y Hive con Data Factory][azure-data-factory-pig-hive].
 
+> [!IMPORTANT]
+> Oozie no está habilitado en HDInsight unido a un dominio.
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **Un clúster de HDInsight**: Consulte [Introducción a HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
   > [!IMPORTANT]
-  > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="example-workflow"></a>Flujo de trabajo de ejemplo
 

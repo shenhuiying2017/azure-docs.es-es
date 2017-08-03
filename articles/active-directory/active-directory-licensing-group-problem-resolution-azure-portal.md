@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2017
+ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 68155ebaa6af36500bfe856c9bcd49f5efb6cbc2
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 21ba840f62ea50e943bf5b82f8cc0afd94bb0fef
 ms.contentlocale: es-es
-ms.lasthandoff: 03/23/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -34,7 +34,26 @@ Cuando se asignan licencias directamente a usuarios individuales, sin usar las l
 
 Cuando se usan licencias basadas en grupo, se pueden producir los mismos errores, pero se producen en segundo plano cuando el servicio de Azure AD está asignando las licencias. Por este motivo, los errores no se comunican inmediatamente. En su lugar, los errores se registran en el objeto de usuario y se notifican a través del portal de administración. Tenga en cuenta que nunca se pierde la intención original de asignar la licencia al usuario, pero se registra en estado de error a efectos de futuras investigaciones y resoluciones.
 
-Para buscar usuarios que están en un estado de error en cada grupo, abra la hoja de cada grupo. En **Licencias**, se muestra una notificación si hay usuarios en estado de error. Seleccione la notificación para abrir una lista de todos los usuarios afectados. Puede ver los usuarios individualmente para entender el problema subyacente. En este artículo, describiremos cada posible problema y la forma de resolverlo.
+## <a name="how-to-find-license-assignment-errors"></a>Cómo buscar errores de asignación de licencias
+
+1. Para buscar usuarios con un estado de error en un grupo específico, abra la hoja correspondiente al grupo. En **Licencias**, se muestra una notificación si hay usuarios en estado de error.
+
+![Grupo, notificación de error](media/active-directory-licensing-group-problem-resolution-azure-portal/group-error-notification.png)
+
+2. Haga clic en la notificación para abrir una lista de todos los usuarios afectados. Puede hacer clic individualmente en cada usuario para ver más detalles.
+
+![Grupo, lista de usuarios con estado de error](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-users-with-errors.png)
+
+3. Para buscar todos los grupos que contienen al menos un error, en la hoja **Azure Active Directory** seleccione **Licencias** y, luego, **Información general**. Si algunos grupos requieren atención, aparece un cuadro de información.
+
+![Información general, información sobre los grupos con estado de error](media/active-directory-licensing-group-problem-resolution-azure-portal/group-errors-widget.png)
+
+4. Haga clic en el cuadro para ver una lista de todos los grupos con errores. Puede hacer clic en cada grupo para más detalles.
+
+![Información general, lista de grupos con errores](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-groups-with-errors.png)
+
+
+A continuación se muestra una descripción de cada problema potencial y la manera de resolverlo.
 
 ## <a name="not-enough-licenses"></a>No hay suficientes licencias
 

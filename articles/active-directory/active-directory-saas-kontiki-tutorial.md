@@ -1,116 +1,230 @@
 ---
 title: "Tutorial: Integración de Azure Active Directory con Kontiki | Microsoft Docs"
-description: "Aprenda a usar Kontiki con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Kontiki."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 8d5e5413-da4c-40d8-b1d0-f03ecfef030b
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 06/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 230facec9f8f83e8a94eaaac5a1495195ff45cc7
-ms.openlocfilehash: 3af125b186e3905572dd5d621c948a6639f9b023
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: 8c441656a1a52d1e1e75b7d0f7025f4331bf9dc1
+ms.contentlocale: es-es
+ms.lasthandoff: 06/24/2017
 
 
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Integración de Azure Active Directory con Kontiki
-El objetivo de este tutorial es mostrar la integración de Azure y Kontiki.  
-En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-* Una suscripción de Azure válida
-* Una suscripción habilitada para inicio de sesión único (SSO) en Kontiki
+En este tutorial, aprenderá cómo integrar Kontiki con Azure Active Directory (Azure AD).
 
-Después de completar este tutorial, los usuarios de Azure AD asignados a Kontiki podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Kontiki (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+La integración de Kontiki con Azure AD le proporciona las siguientes ventajas:
 
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+- En Azure AD se puede controlar quién tiene acceso a Kontiki
+- Puede permitir que los usuarios inicien sesión automáticamente en Kontiki (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar las cuentas en una sola ubicación central: Azure Portal.
 
-* Habilitación de la integración de aplicaciones para Kontiki
-* Configuración del inicio de sesión único
-* Configuración del aprovisionamiento de usuario
-* Asignación de usuarios
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-![Escenario](./media/active-directory-saas-kontiki-tutorial/IC790235.png "Escenario")
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="enable-the-application-integration-for-kontiki"></a>Habilitación de la integración de aplicaciones para Kontiki
-El objetivo de esta sección es describir cómo habilitar la integración de aplicaciones para Kontiki.
+Para configurar la integración de Azure AD con Kontiki, necesita los siguientes elementos:
 
-**Siga estos pasos para habilitar la integración de aplicaciones para Kontiki:**
+- Una suscripción de Azure AD
+- Una suscripción habilitada para inicio de sesión único en Kontiki
 
-1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-kontiki-tutorial/IC700993.png "Active Directory")
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
-   
-   ![Aplicaciones](./media/active-directory-saas-kontiki-tutorial/IC700994.png "Aplicaciones")
-4. Haga clic en **Agregar** en la parte inferior de la página.
-   
-   ![Agregar aplicaciones](./media/active-directory-saas-kontiki-tutorial/IC749321.png "Agregar aplicaciones")
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-   
-   ![Agregar una aplicación de la galería](./media/active-directory-saas-kontiki-tutorial/IC749322.png "Agregar una aplicación de la galería")
-6. En el **cuadro de búsqueda**, escriba **Kontiki**.
-   
-   ![Galería de aplicaciones](./media/active-directory-saas-kontiki-tutorial/IC790236.png "Galería de aplicaciones")
-7. En el panel de resultados, seleccione **Kontiki** y luego haga clic en **Completar** para agregar la aplicación.
-   
-   ![Kontiki](./media/active-directory-saas-kontiki-tutorial/IC790237.png "Kontiki")
-   
-## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
-El objetivo de esta sección es describir cómo habilitar la autenticación de usuarios en Kontiki con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-*Siga estos pasos para configurar el inicio de sesión único:**
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Kontiki**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Configurar inicio de sesión único")
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Kontiki?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/IC790239.png "Configurar inicio de sesión único")
-3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Kontiki**, escriba la dirección URL que los usuarios utilizan para iniciar sesión en Kontiki (por ejemplo: *https://company.mc.eval.kontiki.com/*) y luego haga clic en **Siguiente**.
-   
-   ![Configurar dirección URL de la aplicación](./media/active-directory-saas-kontiki-tutorial/IC790240.png "Configurar dirección URL de la aplicación")
-4. En la página **Configuración de inicio de sesión único en Kontiki**, haga clic en **Descargar metadatos** y luego guarde el archivo de metadatos en el equipo.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/IC790241.png "Configurar inicio de sesión único")
-5. Envíe el archivo de metadatos al equipo de soporte técnico de Kontiki.
-   
-   >[!NOTE]
-   >La configuración del inicio de sesión único la debe realizar el equipo de soporte técnico de Kontiki. Tan pronto como se complete la configuración, recibirá una notificación. 
-   > 
-6. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-  ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Configurar inicio de sesión único")
-   
-## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
+## <a name="scenario-description"></a>Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-No hay ningún elemento de acción para que configure el aprovisionamiento de usuarios para Kontiki. Cuando un usuario asignado intenta iniciar sesión en Kontiki desde el Panel de acceso, Kontiki comprueba si el usuario existe.  
+1. Adición de Kontiki desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
->!NOTE] Si no hay cuentas de usuario disponibles, Kontiki crea una automáticamente.
->
+## <a name="adding-kontiki-from-the-gallery"></a>Adición de Kontiki desde la galería
+Para configurar la integración de Kontiki en Azure AD, es preciso agregar Kontiki desde la galería a la lista de aplicaciones SaaS administradas.
 
-## <a name="assign-users"></a>Asignar usuarios
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+**Para agregar Kontiki desde la galería, realice los pasos siguientes:**
 
-**Para asignar usuarios a Kontiki, siga estos pasos:**
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-1. En el Portal de Azure clásico, cree una cuenta de prueba.
-2. En la página de integración de aplicaciones de **Kontiki**, haga clic en **Asignar usuarios**.
-   
-   ![Asignar usuarios](./media/active-directory-saas-kontiki-tutorial/IC790243.png "Asignar usuarios")
-3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
-   
-   ![Sí](./media/active-directory-saas-kontiki-tutorial/IC767830.png "Sí")
+    ![Active Directory][1]
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+
+    ![Aplicaciones][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
+    ![Aplicaciones][3]
+
+4. En el cuadro de búsqueda, escriba **Kontiki**.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kontiki-tutorial/tutorial_kontiki_search.png)
+
+5. En el panel de resultados, seleccione **Kontiki** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kontiki-tutorial/tutorial_kontiki_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Kontiki con un usuario de prueba llamado "Britta Simon".
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Kontiki para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Kontiki.
+
+Para establecer la relación de vínculo, en Kontiki, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario**.
+
+Para configurar y probar el inicio de sesión único de Azure AD con Kontiki, es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Kontiki](#creating-a-kontiki-test-user)**: para tener un homólogo de Britta Simon en Kontiki que esté vinculado a la representación de Azure AD de usuario.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en Kontiki.
+
+**Para configurar el inicio de sesión único de Azure AD con Kontiki, realice los pasos siguientes:**
+
+1. En Azure Portal, en la página de integración de la aplicación **Kontiki**, haga clic en **Inicio de sesión único**.
+
+    ![Configurar inicio de sesión único][4]
+
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/tutorial_kontiki_samlbase.png)
+
+3. En la sección **Dominio y direcciones URL de Kontiki**, lleve a cabo los pasos siguientes:
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/tutorial_kontiki_url.png)
+
+     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.mc.eval.kontiki.com`.
+
+    > [!NOTE] 
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Kontiki](http://customersupport.kontiki.com/enterprise/contactsupport.html) para obtener este valor. 
+ 
+4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/tutorial_kontiki_certificate.png) 
+
+5. Haga clic en el botón **Guardar** .
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/tutorial_general_400.png) 
+
+6. Para configurar el inicio de sesión único en el lado de **Kontiki**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Kontiki](http://customersupport.kontiki.com/enterprise/contactsupport.html). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+
+> [!TIP]
+> Ahora puede leer una versión concisa de estas instrucciones en [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+
+![Creación de un usuario de Azure AD][100]
+
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kontiki-tutorial/create_aaduser_01.png) 
+
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kontiki-tutorial/create_aaduser_02.png) 
+
+3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kontiki-tutorial/create_aaduser_03.png) 
+
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kontiki-tutorial/create_aaduser_04.png) 
+
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+
+    d. Haga clic en **Crear**.
+ 
+### <a name="creating-a-kontiki-test-user"></a>Creación de un usuario de prueba de Kontiki
+
+No hay ningún elemento de acción para que configure el aprovisionamiento de usuarios para Kontiki. Si un usuario asignado intenta iniciar sesión en Kontiki desde el Panel de acceso, Kontiki comprueba si el usuario existe.  
+
+>[!NOTE]
+>Si no hay cuentas de usuario disponibles, Kontiki crea una automáticamente.
+
+
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Kontiki.
+
+![Asignar usuario][200] 
+
+**Para asignar Britta Simon a Kontiki, realice los pasos siguientes:**
+
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones, seleccione **Kontiki**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-kontiki-tutorial/tutorial_kontiki_app.png) 
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Asignar usuario][202] 
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Asignar usuario][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
+
+Al hacer clic en el icono de Kontiki en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Kontiki.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-kontiki-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-kontiki-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-kontiki-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-kontiki-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-kontiki-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-kontiki-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-kontiki-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-kontiki-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-kontiki-tutorial/tutorial_general_203.png
 
 

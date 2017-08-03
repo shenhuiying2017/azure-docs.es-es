@@ -23,9 +23,7 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-<a id="how-to-create-a-data-analytics-processing-job-for-stream-analytics" class="xliff"></a>
-
-# Creación de un trabajo de procesamiento de análisis de datos para Análisis de transmisiones
+# <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Creación de un trabajo de procesamiento de análisis de datos para Análisis de transmisiones
 El recurso de nivel superior en el Análisis de transmisiones de Azure es un trabajo de análisis de transmisiones.  Consta de uno o varios orígenes de datos de entrada, una consulta que expresa la transformación de datos y uno o más destinos de salida en los que se escriben los resultados. Juntos, permiten al usuario realizar procesamiento de análisis de datos para escenarios de streaming de datos.
 
 Para empezar a usar Análisis de transmisiones, cree un trabajo de Análisis de transmisiones.  Tenga en cuenta que esta acción no tiene ninguna implicación de facturación hasta que se inicie el trabajo.
@@ -53,14 +51,10 @@ Para empezar a usar Análisis de transmisiones, cree un trabajo de Análisis de 
    
    ![Trabajo de procesamiento de análisis de datos en el Portal de Azure: Estado del trabajo](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 
-<a id="get-help" class="xliff"></a>
-
-## Obtener ayuda
+## <a name="get-help"></a>Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)

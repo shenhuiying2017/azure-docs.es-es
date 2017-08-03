@@ -2,35 +2,31 @@
 title: "Envío de eventos al entorno de Azure Time Series Insights | Microsoft Docs"
 description: "Este tutorial describe cómo se insertan eventos en el entorno de Time Series Insights"
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: venkatgct
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/21/2017
 ms.author: venkatja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9f2d3b57a42efb7b04566278d3267b3cdbed713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
 ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/24/2017
 
 ---
-<a id="send-events-to-a-time-series-insights-environment-via-event-hub" class="xliff"></a>
-
-# Envío de eventos a un entorno de Time Series Insights mediante un centro de eventos
+# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envío de eventos a un entorno de Time Series Insights mediante un centro de eventos
 
 Este tutorial explica cómo crear y configurar el centro de eventos y ejecutar una aplicación de ejemplo para insertar eventos. Si tiene un centro de eventos existente con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Time Series Insights](https://insights.timeseries.azure.com).
 
-<a id="configure-an-event-hub" class="xliff"></a>
-
-## Configuración de un centro de eventos
+## <a name="configure-an-event-hub"></a>Configuración de un centro de eventos
 1. Para crear un centro de eventos, siga las instrucciones de la [documentación](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) de Event Hubs.
 
 2. Asegúrese de crear un grupo de consumidores que sea utilizado exclusivamente por el origen de eventos de Time Series Insights.
@@ -46,18 +42,14 @@ Este tutorial explica cómo crear y configurar el centro de eventos y ejecutar u
 
   ![Agregar nueva directiva de acceso compartido](media/send-events/shared-access-policy-2.png)  
 
-<a id="create-time-series-insights-event-source" class="xliff"></a>
+## <a name="create-time-series-insights-event-source"></a>Creación de un origen de eventos de Time Series Insights
+1. Si no ha creado un origen de eventos, siga [estas instrucciones](time-series-insights-add-event-source.md) para crear un origen de eventos.
 
-## Creación de un origen de eventos de Time Series Insights
-1. Si no ha creado el origen de eventos, siga las instrucciones que se especifican [aquí](time-series-insights-add-event-source.md) para crear un origen de eventos.
-
-2. Especifique "deviceTimestamp" como nombre de la propiedad de marca de tiempo: esta propiedad se utiliza como marca de tiempo real en el ejemplo de csharp. El nombre de la propiedad de marca de tiempo distingue mayúsculas de minúsculas y los valores deben tener el formato __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ cuando se envían como JSON al centro de eventos. Si la propiedad no existe en el evento, se utiliza la hora de puesta en la cola del centro de eventos.
+2. Especifique "deviceTimestamp" como nombre de la propiedad de marca de tiempo: esta propiedad se utiliza como marca de tiempo real en el ejemplo de csharp. El nombre de la propiedad timestamp distingue mayúsculas de minúsculas y los valores deben tener el formato __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ cuando se envían como JSON al centro de eventos. Si la propiedad no existe en el evento, se utiliza la hora de puesta en la cola del centro de eventos.
 
   ![Creación de un origen de eventos](media/send-events/event-source-1.png)
 
-<a id="sample-code-to-push-events" class="xliff"></a>
-
-## Código de ejemplo para insertar eventos
+## <a name="sample-code-to-push-events"></a>Código de ejemplo para insertar eventos
 1. Vaya a la directiva del centro de eventos "MySendPolicy" y copie la cadena de conexión con la clave de directiva.
 
   ![Copia de la cadena de conexión de MySendPolicy](media/send-events/sample-code-connection-string.png)
@@ -131,16 +123,10 @@ namespace Microsoft.Rdx.DataGenerator
 }
 
 ```
-<a id="supported-json-shapes" class="xliff"></a>
+## <a name="supported-json-shapes"></a>Formas de JSON admitidas
+### <a name="sample-1"></a>Ejemplo 1
 
-## Formas de JSON admitidas
-<a id="sample-1" class="xliff"></a>
-
-### Ejemplo 1
-
-<a id="input" class="xliff"></a>
-
-#### Entrada
+#### <a name="input"></a>Entrada
 
 Un objeto JSON simple.
 
@@ -150,21 +136,15 @@ Un objeto JSON simple.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-<a id="output---1-event" class="xliff"></a>
-
-#### Salida: 1 evento
+#### <a name="output---1-event"></a>Salida: 1 evento
 
 |id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
-<a id="sample-2" class="xliff"></a>
+### <a name="sample-2"></a>Ejemplo 2
 
-### Ejemplo 2
-
-<a id="input" class="xliff"></a>
-
-#### Entrada
+#### <a name="input"></a>Entrada
 Una matriz JSON con dos objetos JSON. Cada objeto JSON se convertirá en un evento.
 ```json
 [
@@ -178,21 +158,15 @@ Una matriz JSON con dos objetos JSON. Cada objeto JSON se convertirá en un even
     }
 ]
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Salida: 2 eventos
+#### <a name="output---2-events"></a>Salida: 2 eventos
 
 |id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
-<a id="sample-3" class="xliff"></a>
+### <a name="sample-3"></a>Ejemplo 3
 
-### Ejemplo 3
-
-<a id="input" class="xliff"></a>
-
-#### Entrada
+#### <a name="input"></a>Entrada
 
 Un objeto JSON con una matriz JSON anidada que contiene dos objetos JSON.
 ```json
@@ -211,9 +185,7 @@ Un objeto JSON con una matriz JSON anidada que contiene dos objetos JSON.
 }
 
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Salida: 2 eventos
+#### <a name="output---2-events"></a>Salida: 2 eventos
 Tenga en cuenta que la propiedad "location" se copia en cada uno de los eventos.
 
 |location|events.id|events.timestamp|
@@ -221,13 +193,9 @@ Tenga en cuenta que la propiedad "location" se copia en cada uno de los eventos.
 |WestUs|device1|2016-01-08T01:08:00Z|
 |WestUs|device2|2016-01-08T01:17:00Z|
 
-<a id="sample-4" class="xliff"></a>
+### <a name="sample-4"></a>Ejemplo 4
 
-### Ejemplo 4
-
-<a id="input" class="xliff"></a>
-
-#### Entrada
+#### <a name="input"></a>Entrada
 
 Un objeto JSON con una matriz JSON anidada que contiene dos objetos JSON. Esta entrada muestra que las propiedades globales se pueden representar mediante el objeto JSON complejo.
 
@@ -260,18 +228,14 @@ Un objeto JSON con una matriz JSON anidada que contiene dos objetos JSON. Esta e
     ]
 }
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Salida: 2 eventos
+#### <a name="output---2-events"></a>Salida: 2 eventos
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Vea el entorno en el [portal de Time Series Insights](https://insights.timeseries.azure.com)
 

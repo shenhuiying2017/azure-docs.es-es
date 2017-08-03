@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: d3908e2984889656a70b5295eab19164ad3bfa95
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: eea78b6616248aaf24053081ec99701c187111cc
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Compilación de la primera instancia de Azure Data Factory con Azure PowerShell
@@ -140,15 +140,17 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
     ```json
     {
-      "name": "HDInsightOnDemandLinkedService",
-      "properties": {
-        "type": "HDInsightOnDemand",
-        "typeProperties": {
-          "clusterSize": 1,
-          "timeToLive": "00:30:00",
-          "linkedServiceName": "StorageLinkedService"
+        "name": "HDInsightOnDemandLinkedService",
+        "properties": {
+            "type": "HDInsightOnDemand",
+            "typeProperties": {
+                "version": "3.5",
+                "clusterSize": 1,
+                "timeToLive": "00:05:00",
+                "osType": "Linux",
+                "linkedServiceName": "StorageLinkedService"
+            }
         }
-      }
     }
     ```
     En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se usan en el fragmento de código:
@@ -161,7 +163,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
     Tenga en cuenta los siguientes puntos:
 
-   * Data Factory crea un clúster de HDInsight **basado en Windows** con el código JSON. También podría hacer que cree un clúster de HDInsight **basado en Linux** . Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
+   * Data Factory crea un clúster de HDInsight **basado en Linux** con el código JSON. Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
    * Puede usar **su propio clúster de HDInsight** en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) .
    * El clúster de HDInsight crea un **contenedor predeterminado** en el almacenamiento de blobs que especificó en JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Este comportamiento es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez se procesa un segmento, a menos que haya un clúster existente activo (**timeToLive**). El clúster se elimina automáticamente cuando se realiza el procesamiento.
 
@@ -302,8 +304,8 @@ En este paso, creará la primera canalización con una actividad **HDInsightHive
                     "linkedServiceName": "HDInsightOnDemandLinkedService"
                 }
             ],
-            "start": "2016-04-01T00:00:00Z",
-            "end": "2016-04-02T00:00:00Z",
+            "start": "2017-07-01T00:00:00Z",
+            "end": "2017-07-02T00:00:00Z",
             "isPaused": false
         }
     }
@@ -339,7 +341,7 @@ En este paso, se usa Azure PowerShell para supervisar lo que ocurre en una Data 
 2. Ejecute **Get-AzureRmDataFactorySlice** para obtener la información sobre todos los segmentos de **EmpSQLTable**, que es la tabla de salida de la canalización.
 
     ```PowerShell
-    Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
+    Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
     Observe que la StartDateTime que especifique aquí es la misma hora de inicio especificada en el JSON de la canalización. Este es la salida de ejemplo:
 
@@ -347,8 +349,8 @@ En este paso, se usa Azure PowerShell para supervisar lo que ocurre en una Data 
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : FirstDataFactoryPSH
     DatasetName       : AzureBlobOutput
-    Start             : 4/1/2016 12:00:00 AM
-    End               : 4/2/2016 12:00:00 AM
+    Start             : 7/1/2017 12:00:00 AM
+    End               : 7/2/2017 12:00:00 AM
     RetryCount        : 0
     State             : InProgress
     SubState          :
@@ -358,7 +360,7 @@ En este paso, se usa Azure PowerShell para supervisar lo que ocurre en una Data 
 3. Ejecute **Get-AzureRmDataFactoryRun** para más información de la actividad que se ejecuta para un segmento específico.
 
     ```PowerShell
-    Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
+    Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
 
     Este es la salida de ejemplo: 
@@ -371,8 +373,8 @@ En este paso, se usa Azure PowerShell para supervisar lo que ocurre en una Data 
     ProcessingStartTime : 12/18/2015 4:50:33 AM
     ProcessingEndTime   : 12/31/9999 11:59:59 PM
     PercentComplete     : 0
-    DataSliceStart      : 4/1/2016 12:00:00 AM
-    DataSliceEnd        : 4/2/2016 12:00:00 AM
+    DataSliceStart      : 7/1/2017 12:00:00 AM
+    DataSliceEnd        : 7/2/2017 12:00:00 AM
     Status              : AllocatingResources
     Timestamp           : 12/18/2015 4:50:33 AM
     RetryAttempt        : 0

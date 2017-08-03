@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 7/17/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: fbcd35529c5d2360f5b0c9de4d3c9c4a08a0cc8f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introducción al Explorador de Storage (versión preliminar)
@@ -69,80 +68,7 @@ Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Conexión a una suscripción de Azure Stack
 
-Necesita una conexión VPN para que el Explorador de Storage pueda acceder de forma remota a la suscripción de Azure Stack. Para más información sobre cómo configurar una conexión VPN a Azure Stack, consulte [Conexión a Azure Stack con VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn).
-
-Para realizar la prueba de concepto (POC) de Azure Stack, debe exportar el certificado raíz de la entidad de certificación de Azure Stack. Para ello:
-
-1. Abra `mmc.exe` en MAS-CON01, una máquina host de Azure Stack o una máquina local con una conexión VPN a Azure Stack. 
-
-2. En **Archivo**, seleccione **Agregar o quitar complemento** y luego agregue **certificados** para administrar la **cuenta de equipo** del **equipo local**.
-
-    ![Carga del certificado raíz de Azure Stack a través de mmc.exe][25]   
-
-3. Busque **AzureStackCertificationAuthority** en **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. 
-
-4. Haga clic con el botón derecho en el elemento, seleccione **Todas las tareas** > **Exportar** y luego siga las instrucciones para exportar el certificado con **X.509 (.CER) codificado en base 64**.  
-
-    Se usará el certificado exportado en el paso siguiente.   
-
-    ![Exportación del certificado raíz de la entidad de certificación de Azure Stack][26]   
-
-5. En el Explorador de Storage (versión preliminar), en el menú **Editar**, seleccione **Certificados SSL** y luego **Importar certificados**. Use el cuadro de diálogo del selector de archivos para buscar y abrir el certificado que exportó en el paso anterior.  
-
-    Después de la importación, se le pedirá que reinicie el Explorador de Storage.
-
-    ![Importe el certificado en el Explorador de Storage (versión preliminar)][27]
-
-6. Después de que se reinicie el Explorador de Storage (versión preliminar), seleccione el menú **Editar** y luego asegúrese de que esté seleccionada la opción **Target Azure Stack** (Azure Stack de destino). Si no está seleccionada, selecciónela y luego reinicie el Explorador de Storage para que el cambio surta efecto. Esta configuración es necesaria para obtener compatibilidad con el entorno de Azure Stack.
-
-    ![Comprobación de que Azure Stack de destino está activada][28]
-
-7. En el panel izquierdo, seleccione **Administrar cuentas**.  
-    Se muestran todas las cuentas de Microsoft en las que haya iniciado sesión.
-
-8. Para conectarse a la cuenta de Azure Stack, seleccione **Agregar una cuenta**.
-
-    ![Adición de una cuenta de Azure Stack][29]
-
-9. En el cuadro de diálogo **Agregar nueva cuenta**, en **Entorno de Azure**, seleccione **Create Custom Environment** (Crear entono personalizado) y luego haga clic en **Siguiente**.
-
-10. Escriba toda la información necesaria del entorno personalizado de Azure Stack y haga clic en **Iniciar sesión**. 
-
-11. Para iniciar sesión con la cuenta de Azure Stack que está asociada a una suscripción de Azure Stack activa por lo menos, rellene el cuadro de diálogo **Sign in to a Custom Cloud environment** (Iniciar sesión en un entorno personalizado en la nube).  
-
-    Los detalles de cada campo son los siguientes:
-
-    * **Environment name** (Nombre del entorno): el usuario puede personalizar este campo.
-    * **Entidad de certificación**: el valor debe ser https://login.windows.net. Para Azure China, use https://login.chinacloudapi.cn.
-    * **Sign in resource id** (Id. de recurso de inicio de sesión): para recuperar este valor, ejecute uno de los siguientes scripts de PowerShell:
-
-        Si es un administrador de la nube:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-        Si es un inquilino:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-    * **Punto de conexión de Graph**: el valor debe ser https://graph.windows.net. Para Azure China, use https://graph.chinacloudapi.cn.
-    * **ARM resource id** (Id. de recurso de ARM): use el mismo valor que el de **id. de recurso de inicio de sesión**.
-    * **ARM resource endpoint** (Punto de conexión de recurso de ARM): los ejemplos de los puntos de conexión de recursos de Azure Resource Manager:
-
-        * Para el administrador de la nube: https://adminmanagement.local.azurestack.external.   
-        * Para el inquilino: https://management.local.azurestack.external.
- 
-    * **Tenant Ids** (Identificadores de inquilino): opcional. Se asigna un valor solo si se debe especificar el directorio.
-
-12. Después de iniciar sesión correctamente con una cuenta de Azure Stack, el panel izquierdo se llena con las suscripciones de Azure Stack asociadas a dicha cuenta. Seleccione las suscripciones de Azure Stack con la que quiere trabajar y luego seleccione **Aplicar**. (Al activar o desactivar la casilla **Todas las suscripciones**, se alterna entre seleccionar todas o ninguna de las suscripciones de Azure Stack que aparecen).
-
-    ![Selección de las suscripciones de Azure Stack después de rellenar el cuadro de diálogo Custom Cloud Environment (Entorno personalizado en la nube)][30]  
-    El panel izquierdo muestra ahora las cuentas de almacenamiento asociadas a las suscripciones de Azure Stack seleccionadas.
-
-    ![Lista de cuentas de almacenamiento, incluidas las cuentas de suscripción de Azure Stack][31]
+Para más información sobre cómo conectarse a una suscripción de Azure Stack, consulte [Conexión de Storage Explorer a una suscripción de Azure Stack](azure-stack/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Trabajo con el almacenamiento de desarrollo local
 Con el Explorador de Storage (versión preliminar), puede trabajar con el almacenamiento local mediante el Emulador de Azure Storage. Este enfoque le permite escribir código y realizar pruebas de almacenamiento sin necesidad de tener una cuenta de almacenamiento implementada en Azure (ya que el Emulador de Azure Storage emula dicha cuenta).

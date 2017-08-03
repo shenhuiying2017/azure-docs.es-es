@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 12c14222be76ad6d31d968f0704159068c85b21c
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2daa6c07191da7bd732cadf62b414f8027682071
+ms.openlocfilehash: 35d7ac416c35c74d38f4370ee7e34a96eb18d000
+ms.contentlocale: es-es
+ms.lasthandoff: 02/07/2017
 
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: historial de versiones
@@ -96,10 +97,5 @@ El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect H
 
 ## <a name="next-steps"></a>Pasos siguientes
 Conozca más detalles acerca de la [Supervisión de la infraestructura de identidad local y los servicios de sincronización en la nube](active-directory-aadconnect-health.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

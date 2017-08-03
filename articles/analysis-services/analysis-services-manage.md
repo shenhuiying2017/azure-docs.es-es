@@ -13,20 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 06/14/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9a298a5869d449c974267483eb779f45bc6b7abc
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: d41dc3c05d0d0cd0d9466c43bbebadcffd21e0dd
+ms.contentlocale: es-es
+ms.lasthandoff: 06/23/2017
 
 
 ---
 # <a name="manage-analysis-services"></a>Administración de Analysis Services
 Una vez que se ha creado un servidor de Analysis Services en Azure, es posible que haya que realizar varias tareas de administración inmediatamente o en algún momento del futuro. Por ejemplo, ejecutar el procesamiento de los datos de la actualización, controlar quién puede acceder a los modelos del servidor o supervisar el estado del servidor. Varias de estas tareas solo se pueden realizar en Azure Portal, otras en SQL Server Management Studio (SSMS) y otras se pueden realizar indistintamente en ambos.
 
-## <a name="azure-portal"></a>Azure Portal
-[Azure Portal](http://portal.azure.com/) es el lugar donde se pueden crear y eliminar servidores, supervisar los recursos de los servidores, cambiar el tamaño de los servidores y administrar quién tiene acceso a ellos.  Si tiene problemas, también puede enviar una solicitud de soporte técnico.
+## <a name="azure-portal"></a>Portal de Azure
+[Azure Portal](http://portal.azure.com/) es el lugar donde se puede crear y eliminar servidores, supervisar los recursos de los servidores, y cambiar el tamaño de los servidores y administrar quién tiene acceso a ellos.  Si tiene problemas, también puede enviar una solicitud de soporte técnico.
 
 ![Obtención del nombre del servidor en Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
@@ -48,7 +49,7 @@ Para obtener las últimas características y la experiencia más completa al con
    
     ![Obtención del nombre del servidor en Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. En SSMS > **Explorador de objetos**, haga clic en **Conectar** > **Analysis Services**.
-3. En el cuadro de diálogo **Conectar con el servidor**, pegue el nombre del servidor y luego, en **Autenticación**, elija una de las siguientes opciones:
+3. En el cuadro de diálogo **Conectarse al servidor**, pegue el nombre del servidor y en **Autenticación**, elija uno de los siguientes tipos de autenticación:
    
     **Autenticación de Windows** para usar las credenciales de dominio o nombre de usuario y contraseña de Windows.
 
@@ -59,7 +60,7 @@ Para obtener las últimas características y la experiencia más completa al con
     ![Conectar en SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 ## <a name="server-administrators-and-database-users"></a>Administradores del servidor y usuarios de la base de datos
-En Azure Analysis Services hay dos tipos de usuarios: los administradores del servidor y los usuarios de la base de datos. Ambos tipos de usuarios deben estar en su instancia de Azure Active Directory y se deben especificar mediante la dirección de correo electrónico profesional o UPN. Esto es diferente de las bases de datos locales de modelo tabular que admiten administradores del servidor y usuarios de la base de datos según los nombres de usuario de dominio de Windows. Para más información, consulte [Administración de usuarios en Azure Analysis Services](analysis-services-manage-users.md).
+En Azure Analysis Services hay dos tipos de usuarios: los administradores del servidor y los usuarios de la base de datos. Ambos tipos de usuarios deben estar en su instancia de Azure Active Directory y se deben especificar mediante la dirección de correo electrónico profesional o UPN. Para más información, consulte [Permisos de usuario y autenticación](analysis-services-manage-users.md).
 
 
 ## <a name="troubleshooting-connection-problems"></a>Solución de problemas de conexión

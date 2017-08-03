@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c46a85aaf5237a2a7643cc9069255bdad9ab1d69
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
+ms.contentlocale: es-es
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
@@ -227,15 +228,28 @@ En este tema se proporciona una referencia para las siguientes directivas de API
     </outbound>  
 </policies>  
 ```  
+En este ejemplo, la directiva del servicio back-end establecida enruta las solicitudes según el valor de versión pasado en la cadena de consulta a un servicio back-end distinto del especificado en la API.
   
- En este ejemplo, la directiva del servicio back-end establecida enruta las solicitudes según el valor de versión pasado en la cadena de consulta a un servicio back-end distinto del especificado en la API.  
+Inicialmente, la dirección URL base del servicio back-end se obtiene a partir de la configuración de la API. Por ello, la dirección URL de solicitud `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` se convierte en `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef`, donde `http://contoso.com/api/10.4/` se corresponde con la dirección URL del servicio back-end especificada en la configuración de la API.  
   
- Inicialmente, la dirección URL base del servicio back-end se obtiene a partir de la configuración de la API. Por ello, la dirección URL de solicitud `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` se convierte en `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef`, donde `http://contoso.com/api/10.4/` se corresponde con la dirección URL del servicio back-end especificada en la configuración de la API.  
+Cuando se aplica la instrucción de la directiva [<choose\>](api-management-advanced-policies.md#choose), la dirección URL base del servicio back-end puede volver a cambiar a `http://contoso.com/api/8.2` o `http://contoso.com/api/9.1`, en función del valor del parámetro de consulta de la solicitud de la versión. Por ejemplo, si el valor es `"2013-15"`, la dirección URL final de la solicitud se convierte en `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
   
- Cuando se aplica la instrucción de la directiva [<choose\>](api-management-advanced-policies.md#choose), la dirección URL base del servicio back-end puede volver a cambiar a `http://contoso.com/api/8.2` o `http://contoso.com/api/9.1`, en función del valor del parámetro de consulta de la solicitud de la versión. Por ejemplo, si el valor es `"2013-15"`, la dirección URL final de la solicitud se convierte en `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
+Si se desea aplicar más transformaciones a la solicitud, es posible usar otras [directivas de transformación](api-management-transformation-policies.md#TransformationPolicies). Por ejemplo, para quitar el parámetro de consulta de la versión ahora que la solicitud se está enrutando a un back-end específico de la versión, se puede usar la directiva de [establecimiento del parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) para quitar el atributo de versión, que ahora presenta un carácter redundante.  
   
- Si se desea aplicar más transformaciones a la solicitud, es posible usar otras [directivas de transformación](api-management-transformation-policies.md#TransformationPolicies). Por ejemplo, para quitar el parámetro de consulta de la versión ahora que la solicitud se está enrutando a un back-end específico de la versión, se puede usar la directiva de [establecimiento del parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) para quitar el atributo de versión, que ahora presenta un carácter redundante.  
+### <a name="example"></a>Ejemplo  
   
+```xml  
+<policies>  
+    <inbound>  
+        <set-backend-service backend-id="my-sf-service" sf-partition-key="@(context.Request.Url.Query.GetValueOrDefault("userId","")" sf-replica-type="primary" /> 
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+```  
+En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabric, con la cadena de consulta userId como la clave de partición y con la réplica principal de la partición.  
+
 ### <a name="elements"></a>Elementos  
   
 |Nombre|Descripción|Obligatorio|  
@@ -246,8 +260,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |Nombre|Descripción|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|base-url|Nueva dirección URL base del servicio back-end.|Sí|N/D|  
-  
+|base-url|Nueva dirección URL base del servicio back-end.|No|N/D|  
+|backend-id|Identificador del back-end al que se va a enrutar.|No|N/D|  
+|sf-partition-key|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Se usa para resolver una partición específica desde el servicio de resolución de nombres.|No|N/D|  
+|sf-replica-type|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Controla si la solicitud debe ir a la réplica principal o secundaria de una partición. |No|N/D|    
+|sf-resolve-condition|Solo se aplica cuando el back-end es un servicio de Service Fabric. Condición que identifica si la llamada al back-end de Service Fabric tiene que repetirse con la nueva resolución.|No|N/D|    
+|sf-service-instance-name|Solo se aplica cuando el back-end es un servicio de Service Fabric. Permite cambiar instancias de servicio en tiempo de ejecución. |No|N/D|    
+
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
@@ -655,7 +674,7 @@ OriginalUrl.
   <outbound>  
       <base />  
       <xsl-transform>  
-          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -663,7 +682,7 @@ OriginalUrl.
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-          </xsl:stylesheet>  
+        </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  

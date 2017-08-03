@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 66834674e37d3b46a4a754b2b743cb223a6961d7
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: d04d33fede00fbc083d71bc486b726bd7f86c6d0
+ms.contentlocale: es-es
+ms.lasthandoff: 06/10/2017
 
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Administración del Análisis de Azure Data Lake mediante Interfaz de línea de comandos (CLI) de Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análisis con Azure Data Lake mediante Azure. Para ver el tema de administración con otras herramientas, haga clic en el selector de pestañas de arriba.
+Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Azure Data Lake Analytics con la CLI de Azure. Para ver los temas de administración con otras herramientas, haga clic en el selector de pestañas de arriba.
+
 
 **Requisitos previos**
 
@@ -165,15 +167,6 @@ El catálogo de U-SQL se usa para estructurar datos y código, para que puedan c
     azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 
 Entre los tipos, se incluyen base de datos, esquema, ensamblado, origen de datos externo, tabla, función con valores de tabla o estadísticas de tabla.
-
-### <a name="create-catalog-secret"></a>Creación del secreto del catálogo
-    azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### <a name="modify-catalog-secret"></a>Modificación del secreto del catálogo
-      azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### <a name="delete-catalog-secret"></a>Eliminación del secreto del catálogo
-    azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
 <!-- ################################ -->
 <!-- ################################ -->

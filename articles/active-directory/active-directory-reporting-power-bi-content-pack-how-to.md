@@ -1,5 +1,4 @@
 ---
-
 title: Uso del paquete de contenido de Power BI de Azure Active Directory | Microsoft Docs
 description: Aprenda a usar el paquete de contenido de Power BI de Azure Active Directory.
 services: active-directory
@@ -11,27 +10,23 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2017
+ms.date: 07/15/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: ab95f61e2d88f82bf2b24aea786c7dbadfb9c0fe
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5c642bb814a279756e8391f12fdc86b6ec0b4a8f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="how-to-use-the-azure-active-directory-power-bi-content-pack" class="xliff"></a>
-
-# Uso del paquete de contenido de Power BI de Azure Active Directory
+# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Uso del paquete de contenido de Power BI de Azure Active Directory
 
 Comprender cómo los usuarios adoptan y usan las características de Azure Active Directory es fundamental para un administrador de TI. Permite planear la infraestructura de TI y la comunicación para aumentar la utilización y sacar el máximo partido de las características de AAD. El paquete de contenido de Power BI para Azure Active Directory ofrece la capacidad de analizar con mayor profundidad los datos para comprender cómo puede usarlos para recopilar información más completa sobre qué sucede con su entorno Azure Active Directory para las diversas funcionalidades de las que depende en gran medida.  Con la integración de las API de Azure Active Directory en Power BI, puede descargar fácilmente los paquetes de contenido pregenerados y obtener información sobre todas las actividades dentro de su entorno Azure Active Directory por medio de la completa experiencia de visualización que Power BI ofrece. Puede crear su propio panel y compartirlo fácilmente con cualquier persona de su organización. 
 
 En este tema se proporcionan instrucciones paso a paso para instalar y usar el paquete de contenido en su entorno.
 
-<a id="installation" class="xliff"></a>
-
-## Instalación  
+## <a name="installation"></a>Instalación  
 
 **Para instalar el paquete de contenido de Power BI:**
 
@@ -72,15 +67,11 @@ En este tema se proporcionan instrucciones paso a paso para instalar y usar el p
  
     ![Paquete de contenido de Power BI de Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/08.png) 
 
-<a id="what-can-i-do-with-this-content-pack" class="xliff"></a>
-
-## ¿Qué puedo hacer con este paquete de contenido?
+## <a name="what-can-i-do-with-this-content-pack"></a>¿Qué puedo hacer con este paquete de contenido?
 
 Antes de explicar qué puede hacer con este paquete de contenido, aquí tiene un breve resumen de los distintos informes que incluye el paquete de contenido. Los datos de los informes cubren los **últimos 30 días**.
 
-<a id="reports-included-in-this-version-of-azure-active-directory-logs-content-pack" class="xliff"></a>
-
-### Informes incluidos en esta versión del paquete de contenido de registros de Azure Active Directory
+### <a name="reports-included-in-this-version-of-azure-active-directory-logs-content-pack"></a>Informes incluidos en esta versión del paquete de contenido de registros de Azure Active Directory
 
 **Informe de utilización y tendencias de aplicaciones**: obtenga información sobre las aplicaciones que se usan en su organización y cuáles se usan más y cuándo. Este informe se puede usar para recopilar información sobre cómo se usa una aplicación que acabe de implementar en su organización o para averiguar qué aplicaciones son populares. Al hacerlo, puede mejorar la utilización si ve si no se usa la aplicación.
 
@@ -105,9 +96,7 @@ Con este informe, puede comprender los diversos perfiles de dispositivo usados d
 
 **Embudo de SSPR**: obtenga una descripción de cómo se llevan a cabo los restablecimientos de contraseña en su organización. Eche un vistazo a cuántos restablecimientos de contraseña se intentaron con la herramienta SSPR y cuántos se realizaron correctamente. Profundice más en los restablecimientos de contraseña con error mediante el embudo de SSPR y comprenda por qué se produjeron determinados errores. Este informe ofrece una visión más detallada de cómo se usa la herramienta SSPR dentro de su organización para que pueda tomar las decisiones correctas.
 
-<a id="customizing-azure-ad-activity-content-pack" class="xliff"></a>
-
-## Personalización del paquete de contenido de actividad de Azure AD
+## <a name="customizing-azure-ad-activity-content-pack"></a>Personalización del paquete de contenido de actividad de Azure AD
 
 **Cambio de la visualización**: para cambiar la visualización de un informe, haga clic en **Editar informe** y seleccione la visualización que desee.
  
@@ -135,17 +124,13 @@ Con este informe, puede comprender los diversos perfiles de dispositivo usados d
 
 
 
-<a id="scheduling-a-daily-refresh-of-your-power-bi-report" class="xliff"></a>
-
-## Programación de una actualización diaria de su informe de Power BI
+## <a name="scheduling-a-daily-refresh-of-your-power-bi-report"></a>Programación de una actualización diaria de su informe de Power BI
 
 Para programar una actualización diaria de su informe de Power BI, vaya a **Conjuntos de datos > Configuración > Programar actualización** y configúrelo como se muestra a continuación.
  
 ![Paquete de contenido de Power BI de Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/15.png) 
 
-<a id="updating-to-newer-version-of-content-pack" class="xliff"></a>
-
-## Actualización a una versión más reciente del paquete de contenido
+## <a name="updating-to-newer-version-of-content-pack"></a>Actualización a una versión más reciente del paquete de contenido
 
 Si desea actualizar el paquete de contenido para obtener una versión más reciente:
 
@@ -157,12 +142,12 @@ Si desea actualizar el paquete de contenido para obtener una versión más recie
 
 Tan pronto como la nueva versión del paquete de contenido esté funcionando, puede quitar la versión anterior, si es necesario, eliminando los informes subyacentes y los conjuntos de datos asociados con ese paquete de contenido.
 
-<a id="still-having-issues" class="xliff"></a>
-
-## ¿Sigue teniendo problemas? 
+## <a name="still-having-issues"></a>¿Sigue teniendo problemas? 
 
 Consulte nuestra [guía de solución de problemas](active-directory-reporting-troubleshoot-content-pack.md). Para obtener ayuda general con Power BI, visite estos [artículos de Ayuda](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
  
 
+## <a name="next-steps"></a>Pasos siguientes
 
+Para obtener información general sobre los informes, consulte la [Informes de Azure Active Directory](active-directory-reporting-azure-portal.md).
 

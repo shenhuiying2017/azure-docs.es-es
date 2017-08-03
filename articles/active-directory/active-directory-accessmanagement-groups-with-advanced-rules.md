@@ -1,5 +1,5 @@
 ---
-title: "Rellenado dinámico de grupos en función de los atributos de usuario en Azure Active Directory | Microsoft Docs"
+title: "Rellenado dinámico de grupos en función de los atributos de objeto en Azure Active Directory | Microsoft Docs"
 description: "Procedimientos para crear reglas avanzadas para la pertenencia a grupos, con operadores y parámetros de reglas de expresión admitidos."
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 06/19/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b0c8eb46b6c01662f0b53213843f8a7ad295e5aa
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: dac95b5866aa165587009062064ca135b9255ab2
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="populate-groups-dynamically-based-on-user-attributes"></a>Rellenado dinámico de grupos en función de los atributos de usuario 
+
+# <a name="populate-groups-dynamically-based-on-object-attributes"></a>Rellenado dinámico de grupos en función de los atributos de objeto 
 El Portal de Azure clásico proporciona la capacidad de habilitar pertenencias dinámicas basadas en atributos más complejos para grupos de Azure Active Directory (Azure AD).  
 
-Cuando los atributos de un usuario cambian, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación de los atributos del usuario en cuestión desencadenaría adiciones o retiradas en el grupo. Si un usuario cumple una regla de un grupo, se agrega a este como miembro. Si, por el contrario, deja de cumplir la regla del grupo al que pertenece, se le quita como miembro de este.
+Cuando los atributos de un usuario o un dispositivo cambian, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación de los atributos del usuario o dispositivo en cuestión desencadenaría adiciones o eliminaciones en el grupo. Si un usuario o dispositivo cumple una regla de un grupo, se agrega a este como miembro. Si, por el contrario, deja de cumplir la regla del grupo al que pertenece, se le quita como miembro de este.
 
 > [!NOTE]
 > Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365. 
@@ -57,6 +59,7 @@ Los siguientes son ejemplos de una regla avanzada construida correctamente:
 
 Para obtener una lista completa de los parámetros y los operadores de regla de expresión admitidos, vea las secciones siguientes.
 
+
 Tenga en cuenta que la propiedad debe llevar un prefijo con el tipo de objeto correcto: usuario o dispositivo.
 La regla que aparece a continuación producirá un error de validación: mail –ne null
 
@@ -86,6 +89,8 @@ En la tabla siguiente se enumeran todos los operadores de regla de expresión ad
 | Contains |-contains |
 | Not Match |-notMatch |
 | Match |-match |
+| En el | -in |
+| Not In | -notIn |
 
 ## <a name="operator-precedence"></a>Precedencia de operadores
 
@@ -100,6 +105,14 @@ Tenga en cuenta que no siempre se necesitan paréntesis, solo necesita agregar p
 equivale a:
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
+
+## <a name="using-the--in-and--notin-operators"></a>Uso de los operadores -In y -notIn
+
+Si desea comparar el valor de un atributo de usuario con un número de valores diferentes, puede usar los operadores -In o -notIn. A continuación se muestra un ejemplo del operador -In:
+
+    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+
+Tenga en cuenta el uso de "[" y "]" al principio y al final de la lista de valores. Esta condición se evalúa como True si el valor de user.department es igual a uno de los valores en la lista.
 
 ## <a name="query-error-remediation"></a>Corrección de errores de consulta
 En la tabla siguiente se enumeran los posibles errores y se indica cómo corregirlos si se producen.
@@ -151,6 +164,7 @@ Operadores permitidos
 | mailNickName |Cualquier valor de cadena (alias de correo electrónico del usuario) |(user.mailNickName -eq "value") |
 | mobile |Cualquier valor de cadena o $null |(user.mobile -eq "value") |
 | objectId |GUID del objeto de usuario |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | Identificador de seguridad local (SID) para los usuarios que se han sincronizado desde local a la nube. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Cualquier valor de cadena o $null |(user.physicalDeliveryOfficeName -eq "value") |
 | postalCode |Cualquier valor de cadena o $null |(user.postalCode -eq "value") |
@@ -219,11 +233,12 @@ Puede rellenar los miembros de un grupo en función del atributo de administrado
     donde "62e19b97-8b3d-4d4a-a106-4ce66896a863" es el identificador de objeto del administrador. Encontrará el identificador de objeto en Azure AD, en la pestaña **Perfil** de la página del usuario que es el administrador.
 5. Al guardar esta regla, todos los usuarios que la cumplen se unirán como miembros del grupo. Pueden pasar unos minutos hasta que empiece a llenarse el grupo.
 
-## <a name="using-attributes-to-create-rules-for-device-objects"></a>Uso de atributos para crear reglas para los objetos de dispositivo
+# <a name="using-attributes-to-create-rules-for-device-objects"></a>Uso de atributos para crear reglas para los objetos de dispositivo
 También puede crear una regla que selecciona objetos de dispositivo para la pertenencia de un grupo. Pueden utilizarse los siguientes atributos del dispositivo:
 
 | Propiedades | Valores permitidos | Uso |
 | --- | --- | --- |
+| accountEnabled |true false |(device.accountEnabled -eq true) |
 | DisplayName |Cualquier valor de cadena |(device.displayName -eq "Rob Iphone”) |
 | deviceOSType |Cualquier valor de cadena |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |Cualquier valor de cadena |(device.OSVersion -eq "9.1") |
@@ -239,7 +254,8 @@ También puede crear una regla que selecciona objetos de dispositivo para la per
 | isRooted |true false null |(device.isRooted -eq true) |
 | managementType |Cualquier valor de cadena |(device.managementType -eq "") |
 | organizationalUnit |Cualquier valor de cadena |(device.organizationalUnit -eq "") |
-| deviceId |un valor válido de deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+| deviceId |un valor válido de deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId |un valor de objectId de AAD válido |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > No se pueden crear estas reglas de dispositivo mediante la lista desplegable de "regla simple" en el Portal de Azure clásico.

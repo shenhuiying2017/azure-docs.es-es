@@ -24,17 +24,13 @@ ms.lasthandoff: 07/06/2017
 
 ---
 
-<a id="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell" class="xliff"></a>
-
-# Migración de una máquina virtual Windows de Amazon Web Services (AWS) a Azure con PowerShell
+# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Migración de una máquina virtual Windows de Amazon Web Services (AWS) a Azure con PowerShell
 
 Si va a evaluar las máquinas virtuales de Azure para hospedar las cargas de trabajo, puede exportar una instancia existente de la máquina virtual Windows de Amazon Web Services (AWS) EC2 y cargar el disco duro virtual (VHD) en Azure. Una vez cargado el disco duro virtual, puede crear una nueva máquina virtual en Azure desde el disco duro virtual. 
 
 En este tema se cubre la migración de una sola máquina virtual de AWS a Azure. Si quiere migrar máquinas virtuales de AWS a Azure en escala, consulte [Migrar máquinas virtuales de Amazon Web Services (AWS) a Azure con Azure Site Recovery](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
 
-<a id="prepare-the-vm" class="xliff"></a>
-
-## Preparación de la VM 
+## <a name="prepare-the-vm"></a>Preparación de la VM 
  
 Puede cargar VHD generalizados y especializados en Azure. Todos requieren la preparación de la máquina virtual antes de la exportación desde AWS. 
 
@@ -50,9 +46,7 @@ Puede cargar VHD generalizados y especializados en Azure. Todos requieren la pre
     * Asegúrese de que la VM se configura para extraer su dirección IP y la configuración de DNS a través de DHCP. Esto garantiza que el servidor obtiene una dirección IP dentro de la red virtual cuando se inicia.  
 
 
-<a id="export-and-download-the-vhd" class="xliff"></a>
-
-## Exportación y descarga del disco duro virtual 
+## <a name="export-and-download-the-vhd"></a>Exportación y descarga del disco duro virtual 
 
 Exporte la instancia de EC2 a un disco duro virtual de un cubo de Amazon S3. Siga los pasos que se describen en el tema [Exporting an Instance as a VM Using VM Import/Export](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) (Exportación de una instancia como una máquina virtual con la importación/exportación de máquinas virtuales) de la documentación de Amazon y ejecute el comando [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) para exportar la instancia de EC2 a un archivo VHD. 
 
@@ -69,9 +63,7 @@ Una vez exportado el disco duro virtual, siga las instrucciones de [How Do I Dow
 > Por la descarga del disco duro virtual, AWS cobra una tarifa de transferencia de datos. Consulte [Precios de Amazon S3](https://aws.amazon.com/s3/pricing/) para más información.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ahora puede cargar el disco duro virtual en Azure y crear una máquina virtual. 
 

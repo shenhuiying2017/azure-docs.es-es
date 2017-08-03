@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: a1349e53774732ffbfacefc7bd8dcc493f78fbd6
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 15e81bd1bc8a7b718313afc487dbab89b36f2760
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Representan conjuntos de datos más pequeños que se utilizan para la creación 
 
 | Origen de datos | Introducir mediante |
 | --- | --- |
-| Equipo local |<ul> <li>[Portal de Azure](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[CLI multiplataforma de Azure](data-lake-store-get-started-cli.md)</li> <li>[Usar herramientas de Data Lake para Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md#upload-source-data-files) </li></ul> |
+| Equipo local |<ul> <li>[Portal de Azure](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[CLI multiplataforma de Azure 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usar herramientas de Data Lake para Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Blob de almacenamiento de Azure |<ul> <li>[Factoría de datos de Azure](../data-factory/data-factory-azure-datalake-connector.md)</li> <li>[herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp ejecutándose en un clúster de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Datos de streaming
@@ -63,7 +63,7 @@ También se pueden originar datos desde bases de datos relacionales. Durante un 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Datos de registro de servidor web (carga mediante aplicaciones personalizadas)
 Este tipo de conjunto de datos es específicamente necesario porque el análisis de los datos de registro del servidor web es un caso de uso común para aplicaciones de macrodatos y requiere que se carguen grandes volúmenes de archivos de registro en el Almacén de Data Lake. Puede utilizar cualquiera de las herramientas siguientes para escribir sus propios scripts o aplicaciones para cargar dichos datos.
 
-* [CLI multiplataforma de Azure](data-lake-store-get-started-cli.md)
+* [CLI multiplataforma de Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [SDK para .NET del Almacén de Azure Data Lake](data-lake-store-get-started-net-sdk.md)
 * [Factoría de datos de Azure](../data-factory/data-factory-data-movement-activities.md)
@@ -83,7 +83,7 @@ Es posible que haya grandes cantidades de datos almacenados en clústeres de Had
 | Enfoque | Detalles | Ventajas | Consideraciones |
 | --- | --- | --- | --- |
 | Usar Data Factory de Azure (ADF) para copiar datos directamente desde los clústeres de Hadoop al Almacén de Azure Data Lake |[ADF admite HDFS como origen de datos](../data-factory/data-factory-hdfs-connector.md) |ADF proporciona compatibilidad inmediata con HDFS, así como una supervisión y administración integrales y de primera clase. |Requiere que se implemente Data Management Gateway localmente o en el clúster de IaaS. |
-| Exportar datos desde Hadoop como archivos. Después copiar los archivos en el Almacén de Azure Data Lake con el mecanismo adecuado. |Puede copiar archivos al Almacén de Azure Data Lake por medio de:  <ul><li>[Azure PowerShell para SO Windows](data-lake-store-get-started-powershell.md)</li><li>[CLI multiplataforma de Azure para sistemas operativos distintos de Windows](data-lake-store-get-started-cli.md)</li><li>Aplicación personalizada con cualquier SDK de Data Lake Store</li></ul> |Se empieza rápido. Se pueden usar cargas personalizadas. |Proceso de varios pasos en el que participan varias tecnologías. La administración y la supervisión presentarán dificultades con el tiempo, dada la naturaleza personalizada de las herramientas. |
+| Exportar datos desde Hadoop como archivos. Después copiar los archivos en el Almacén de Azure Data Lake con el mecanismo adecuado. |Puede copiar archivos al Almacén de Azure Data Lake por medio de:  <ul><li>[Azure PowerShell para SO Windows](data-lake-store-get-started-powershell.md)</li><li>[CLI multiplataforma de Azure 2.0 para sistemas operativos distintos de Windows](data-lake-store-get-started-cli-2.0.md)</li><li>Aplicación personalizada con cualquier SDK de Data Lake Store</li></ul> |Se empieza rápido. Se pueden usar cargas personalizadas. |Proceso de varios pasos en el que participan varias tecnologías. La administración y la supervisión presentarán dificultades con el tiempo, dada la naturaleza personalizada de las herramientas. |
 | Usar Distcp para copiar datos de Hadoop en Almacenamiento de Azure. Después copiar los datos de Almacenamiento de Azure al Almacén de Data Lake con el mecanismo adecuado. |Puede copiar datos de Almacenamiento de Azure a Azure Data Lake Store por medio de:  <ul><li>[Factoría de datos de Azure](../data-factory/data-factory-data-movement-activities.md)</li><li>[herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp ejecutándose en clústeres de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |Puede usar herramientas de código abierto. |Proceso de varios pasos en el que participan varias tecnologías. |
 
 ### <a name="really-large-datasets"></a>Conjuntos de datos realmente grandes
@@ -123,7 +123,7 @@ En tales casos, puede utilizar cualquiera de las opciones siguientes.
 
 También puede utilizar los métodos siguientes para escribir su propio script o aplicación para descargar datos desde el Almacén de Data Lake.
 
-* [CLI multiplataforma de Azure](data-lake-store-get-started-cli.md)
+* [CLI multiplataforma de Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [SDK para .NET del Almacén de Azure Data Lake](data-lake-store-get-started-net-sdk.md)
 

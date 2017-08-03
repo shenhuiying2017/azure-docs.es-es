@@ -15,18 +15,16 @@ ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 71a839d9c076d33c404a56bf0544666dc86eaa4d
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 2bfd7d8a4c06b1b40a9852d21908e7c1c785b91d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acceso a los registros de diagnóstico de Azure Data Lake Analytics
 
-Sepa cómo habilitar el registro de diagnósticos en su cuenta de Data Lake Analytics y cómo ver los registros recopilados relativos a su cuenta.
-
-Las organizaciones pueden habilitar el registro de diagnósticos para su cuenta de Azure Data Lake Analytics para recopilar trazas de auditoría de acceso a datos. Estos registros proporcionan información como:
+Los registros de diagnóstico le permiten recopilar seguimientos de auditoría de acceso a datos. Estos registros proporcionan información como:
 
 * Una lista de los usuarios que tienen acceso a los datos.
 * Frecuencia con la que se accede a los datos.
@@ -34,7 +32,7 @@ Las organizaciones pueden habilitar el registro de diagnósticos para su cuenta 
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
-1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 2. Abra su cuenta de Data Lake Analytics y seleccione **Registros de diagnósticos** en la __sección Supervisión__. Después, seleccione __Activar diagnósticos__.
 
@@ -46,34 +44,29 @@ Las organizaciones pueden habilitar el registro de diagnósticos para su cuenta 
 
    * Establezca el **Estado** en **Activado** para habilitar el registro de diagnóstico.
 
-   * Puede optar por almacenar o procesar los datos de dos maneras diferentes.
+   * Puede optar por almacenar o procesar los datos de tres maneras diferentes.
 
      * Seleccione __Archive to a storage account__ (Archivar en cuenta de almacenamiento) para almacenar los registros en una cuenta de almacenamiento de Azure. Utilice esta opción si desea archivar los datos. Si selecciona esta opción, debe proporcionar una cuenta de almacenamiento de Azure para guardar los registros.
 
-     * Seleccione la opción **Transmitir a un centro de eventos** para transmitir los datos de registro a un Centro de eventos de Azure. Use esta opción si tiene una canalización de procesamiento de bajada para analizar los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
+     * Seleccione la opción **Transmitir a un centro de eventos** para transmitir los datos de registro a un Centro de eventos de Azure. Use esta opción si tiene una canalización de procesamiento de bajada que está analizando los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
 
      * Seleccione __Enviar a Log Analytics__ para enviar los datos al servicio Log Analytics. Utilice esto si desea usar Log Analytics para recopilar y analizar registros.
-   * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.
+   * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.  Cada solicitud de API se captura en un registro de solicitudes, y un registro de auditoría registra todas las operaciones que esa solicitud de API desencadena.
 
-   * Especifique el número de días durante los que deben conservarse los datos.
+   * Para __Archivar en una cuenta de almacenamiento__, especifique el número de días que se retendrán los datos.
 
-   * Haga clic en **Guardar**.
+   * Haga clic en __Guardar__.
 
         > [!NOTE]
-        > Debe seleccionar __Archivar en una cuenta de almacenamiento__, __Transmitir a un centro de eventos__ o __Enviar a Log Analytics__ antes de usar el botón __Guardar__.
+        > Tiene que seleccionar __Archivar en una cuenta de almacenamiento__, __Transmitir a un centro de eventos__ o __Enviar a Log Analytics__ antes de hacer clic en el botón __Guardar__.
 
 Una vez habilitada la configuración de diagnóstico, puede volver a la hoja __Registros de diagnósticos__ para ver los registros.
 
 ## <a name="view-logs"></a>Ver registros
 
-Existen dos formas de ver los datos de registro para la cuenta de Data Lake Analytics.
+### <a name="use-the-data-lake-analytics-view"></a>Uso de la vista de Data Lake Analytics
 
-* Desde la configuración de la cuenta de Data Lake Analytics
-* Desde la cuenta de Almacenamiento de Azure donde se almacenan los datos
-
-### <a name="using-the-data-lake-analytics-settings-view"></a>Uso de la vista de configuración de Data Lake Analytics
-
-1. En la hoja de la cuenta de Data Lake Analytics, seleccione **Registros de diagnósticos** y luego seleccione la entrada para la que se van a mostrar los registros.
+1. En la hoja de la cuenta de Data Lake Analytics, en **Supervisión** seleccione **Registros de diagnóstico** y luego seleccione la entrada para la que se van a mostrar los registros.
 
     ![Ver registro de diagnóstico](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Ver registros de diagnóstico")
 
@@ -82,13 +75,13 @@ Existen dos formas de ver los datos de registro para la cuenta de Data Lake Anal
     ![entradas del registro](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * Los registros de solicitudes capturan todas las solicitudes API realizadas en la cuenta de Data Lake Analytics.
-   * Los registros de auditoría son parecidos a los de solicitud, pero proporcionan un desglose mucho más detallado de las operaciones que tienen lugar en la cuenta de Data Lake Analytics. Por ejemplo, una llamada de API de carga única en los registros de solicitud podría producir varias operaciones "Append" en los registros de auditoría.
+   * Los registros de auditoría son parecidos a los de solicitud, pero proporcionan un desglose mucho más detallado de las operaciones que tienen lugar en la cuenta de Data Lake Analytics. Por ejemplo, una llamada de API de carga única en un registro de solicitud podría producir varias operaciones "Append" en el registro de auditoría correspondiente.
 
-3. Haga clic en el vínculo **Descargar** para que una entrada de registro descargue los registros.
+3. Haga clic en el vínculo **Descargar** para que una entrada de registro descargue ese registro.
 
-### <a name="from-the-azure-storage-account-that-contains-log-data"></a>En la cuenta de Almacenamiento de Azure que contiene los datos de registro
+### <a name="use-the-azure-data-lake-storage-account-that-contains-log-data"></a>Use la cuenta de almacenamiento de Azure Data Lake que contiene los datos de registro
 
-1. Abra la hoja de la cuenta de Almacenamiento de Azure asociada con Data Lake Analytics para el registro y haga clic en Blobs. La hoja **Servicio Blob** muestra dos contenedores.
+1. Abra la hoja de la cuenta de almacenamiento de Azure Data Lake asociada con Data Lake Analytics para el registro y haga clic en __Blobs__. La hoja **Servicio Blob** muestra dos contenedores.
 
     ![Ver registro de diagnóstico](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Ver registros de diagnóstico")
 
@@ -125,7 +118,7 @@ Existen dos formas de ver los datos de registro para la cuenta de Data Lake Anal
 
 ## <a name="log-structure"></a>Estructura de los registros
 
-Los registros de auditoría y de solicitud tienen un formato JSON. En esta sección, veremos la estructura de JSON de los registros de auditoría y de solicitud.
+Los registros de auditoría y de solicitud tienen un formato JSON.
 
 ### <a name="request-logs"></a>Request Logs
 
@@ -164,12 +157,12 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 | Nombre | Tipo | Description |
 | --- | --- | --- |
 | Twitter en tiempo |String |Marca de tiempo (en UTC) del registro. |
-| resourceId |String |Identificador del recurso en el que tuvo lugar la operación. |
+| resourceId |String |Identificador del recurso en el que tuvo lugar la operación |
 | categoría |String |Categoría del registro. Por ejemplo, **Requests**. |
 | operationName |String |Nombre de la operación que se registra. Por ejemplo, GetAggregatedJobHistory. |
 | resultType |String |Estado de la operación. Por ejemplo, 200. |
 | callerIpAddress |String |Dirección IP del cliente que realiza la solicitud. |
-| correlationId |String |El identificador del registro. Este valor puede utilizarse para agrupar un conjunto de entradas de registro relacionadas |
+| correlationId |String |Identificador del registro. Este valor puede utilizarse para agrupar un conjunto de entradas de registro relacionadas. |
 | identidad |Objeto |Identidad que ha generado el registro. |
 | propiedades |JSON |Consulte la siguiente sección (Esquema de propiedades de un registro de solicitud) para más información |
 
@@ -180,13 +173,13 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 | HttpMethod |String |Método HTTP usado en la operación. Por ejemplo, GET. |
 | Ruta de acceso |String |Ruta de acceso en la que se ha realizado la operación. |
 | RequestContentLength |int |Longitud del contenido de la solicitud HTTP. |
-| ClientRequestId |String |Identificador que distingue de manera única esta solicitud. |
+| ClientRequestId |String |El identificador que distingue de manera exclusiva esta solicitud |
 | StartTime |String |Hora a la que el servidor ha recibido la solicitud. |
 | EndTime |String |Hora a la que el servidor ha enviado una respuesta. |
 
 ### <a name="audit-logs"></a>Registros de auditoría
 
-Este es un ejemplo de una entrada en el registro de auditoría con formato JSON. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro
+Este es un ejemplo de una entrada en el registro de auditoría con formato JSON. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro.
 
     {
     "records":
@@ -216,7 +209,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 | Nombre | Tipo | Description |
 | --- | --- | --- |
 | Twitter en tiempo |String |Marca de tiempo (en UTC) del registro. |
-| resourceId |String |Identificador del recurso en el que tuvo lugar la operación. |
+| resourceId |String |Identificador del recurso en el que tuvo lugar la operación |
 | categoría |String |Categoría del registro. Por ejemplo, **Audit**. |
 | operationName |String |Nombre de la operación que se registra. Por ejemplo, JobSubmitted. |
 | resultType |String |Un subestado para el estado del trabajo (operationName). |
@@ -225,7 +218,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 | propiedades |JSON |Consulte la siguiente sección (Esquema de propiedades de un registro de auditoría) para más información |
 
 > [!NOTE]
-> **resultType** y **resultSignature** proporcionan información sobre el resultado de una operación y solo contienen un valor si se ha completado una operación. Por ejemplo, contienen un valor cuando **operationName** contiene un valor de **JobStarted** o **JobEnded**.
+> **resultType** y **resultSignature** proporcionan información sobre el resultado de una operación y solo contienen un valor si se ha completado una operación. Por ejemplo, solo contienen un valor cuando **operationName** contiene un valor de **JobStarted** o **JobEnded**.
 >
 >
 
@@ -237,12 +230,12 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 | JobName |String |El nombre que se proporcionó para el trabajo |
 | JobRunTime |String |El tiempo de ejecución utilizado para procesar el trabajo |
 | SubmitTime |String |La hora (en UTC) en la que se envió el trabajo |
-| StartTime |String |La hora en la que el trabajo empezó a ejecutarse tras el envío (en UTC). |
-| EndTime |String |La hora de finalización del trabajo. |
-| Paralelismo |String |El número de unidades de Data Lake Analytics solicitadas para este trabajo durante el envío. |
+| StartTime |String |La hora en la que el trabajo empezó a ejecutarse tras el envío (en UTC) |
+| EndTime |String |La hora de finalización del trabajo |
+| Paralelismo |String |El número de unidades de Data Lake Analytics solicitadas para este trabajo durante el envío |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **EndTime** y **Parallelism** proporcionan información sobre una operación y solo contendrán algún valor si una operación se ha iniciado o completado. Por ejemplo, **SubmitTime** contiene un valor después de que **operationName** indique **JobSubmitted**.
+> **SubmitTime**, **StartTime**, **EndTime** y **Parallelism** proporcionan información sobre una operación y solo contendrán algún valor si una operación se ha iniciado o completado. Por ejemplo, **SubmitTime** contiene un valor después de que **operationName** tenga el valor **JobSubmitted**.
 
 ## <a name="process-the-log-data"></a>Procesamiento de los datos de registro
 

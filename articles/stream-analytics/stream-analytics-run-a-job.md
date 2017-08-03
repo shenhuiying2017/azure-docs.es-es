@@ -23,9 +23,7 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-<a id="how-to-run-a-streaming-job-in-azure-stream-analytics" class="xliff"></a>
-
-# Ejecución de un trabajo de streaming en Análisis de transmisiones de Azure
+# <a name="how-to-run-a-streaming-job-in-azure-stream-analytics"></a>Ejecución de un trabajo de streaming en Análisis de transmisiones de Azure
 Cuando se hayan especificado una entrada, una consulta y una salida de trabajo, podrá iniciar el trabajo de Análisis de transmisiones.
 
 Para iniciar su trabajo:
@@ -48,14 +46,10 @@ Para iniciar su trabajo:
    
    ![Progreso del trabajo de streaming de Azure Portal](./media/stream-analytics-run-a-job/6-stream-analytics-run-a-job.png)  
 
-<a id="get-help" class="xliff"></a>
-
-## Obtener ayuda
+## <a name="get-help"></a>Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)

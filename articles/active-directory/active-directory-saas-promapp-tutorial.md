@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 610c731195ffa92ccd915b93e8c901f47b2ff16a
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: ada6ddfed06514d86e493c6a2074fa2f7c55010d
+ms.contentlocale: es-es
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -109,8 +110,9 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
    
     ![Inicio de sesión único de Azure AD ][8] 
    
-   1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL utilizada por los usuarios para iniciar sesión en el sitio de Promapp (p. ej.: *https://companyname.promapp.com/instancename*).
-   2. Haga clic en **Siguiente**.
+   1. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL utilizada por los usuarios para iniciar sesión en el sitio de Promapp (p. ej.: *https://DOMAIN.promapp.com/INSTANCENAME/saml/authenticate*).
+   2. En el cuadro de texto **Identificador**, escriba la dirección URL utilizada por los usuarios para iniciar sesión en el sitio de Promapp (p. ej.: *https://DOMAIN.promapp.com/INSTANCENAME*).
+   3. Haga clic en **Siguiente**.
 
 1. En la página **Configurar inicio de sesión único en Promapp** , siga estos pasos:
    
@@ -230,7 +232,7 @@ Al hacer clic en el icono de Promapp en el panel de acceso, debería iniciar ses
 
 [6]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_02.png
-[8]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_03.png
+[8]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_11.png
 [9]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_04.png
 [10]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_06.png
 [11]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_07.png

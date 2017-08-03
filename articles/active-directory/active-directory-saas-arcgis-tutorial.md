@@ -1,147 +1,286 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con ArcGIS | Microsoft Docs"
-description: "Aprenda a usar ArcGIS con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+title: "Tutorial: Integración de Azure Active Directory con ArcGIS Online | Microsoft Docs"
+description: "Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y ArcGIS Online."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: a9e132a4-29e7-48bf-beb9-4148e617c8a9
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 06/01/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
-ms.openlocfilehash: 9867af8c5f18e2412e73c2ae5fa95825e367e275
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: df72270ca6443b456c079b22425f1660aa522389
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-arcgis"></a>Tutorial: Integración de Azure Active Directory con ArcGIS
-El objetivo de este tutorial es mostrar la integración de Azure y ArcGIS. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+# <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutorial: Integración de Azure Active Directory con ArcGIS Online
 
-* Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único (SSO) en ArcGIS
+En este tutorial, obtendrá información sobre cómo integrar ArcGIS Online con Azure Active Directory (Azure AD).
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a ArcGIS podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de ArcGIS (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md)
+La integración de ArcGIS Online con Azure AD proporciona las siguientes ventajas:
 
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+- En Azure AD puede controlar quién tiene acceso a ArcGIS Online
+- Puede permitir que los usuarios inicien sesión automáticamente en ArcGIS Online (inicio de sesión único) con sus cuentas de Azure AD
+- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-* Habilitación de la integración de aplicaciones para ArcGIS
-* Configuración del inicio de sesión único (SSO)
-* Configuración del aprovisionamiento de usuario
-* Asignación de usuarios
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-![Escenario](./media/active-directory-saas-arcgis-tutorial/IC784735.png "Escenario")
+<!--## Overview
 
-## <a name="enable-the-application-integration-for-arcgis"></a>Habilitación de la integración de aplicaciones para ArcGIS
-El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para ArcGIS.
+To enable single sign-on with ArcGIS Online, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in ArcGIS Online.
 
-**Siga estos pasos para habilitar la integración de aplicaciones para ArcGIS:**
+>[!Note]: 
+>This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
 
-1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-arcgis-tutorial/IC700993.png "Active Directory")
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
-   
-   ![Aplicaciones](./media/active-directory-saas-arcgis-tutorial/IC700994.png "Aplicaciones")
-4. Haga clic en **Agregar** en la parte inferior de la página.
-   
-   ![Agregar aplicaciones](./media/active-directory-saas-arcgis-tutorial/IC749321.png "Agregar aplicaciones")
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-   
-   ![Agregar una aplicación de la galería](./media/active-directory-saas-arcgis-tutorial/IC749322.png "Agregar una aplicación de la galería")
-6. En el **cuadro de búsqueda**, escriba **ArcGIS**.
-   
-   ![Galería de aplicaciones](./media/active-directory-saas-arcgis-tutorial/IC784736.png "Galería de aplicaciones")
-7. En el panel de resultados, seleccione **ArcGIS** y, luego, haga clic en **Completar** para agregar la aplicación.
-   
-   ![ArcGIS](./media/active-directory-saas-arcgis-tutorial/IC784737.png "ArcGIS")
-   
-## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
 
-El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en ArcGIS con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
+## <a name="prerequisites"></a>Requisitos previos
 
-**Siga estos pasos para configurar el inicio de sesión único:**
+Para configurar la integración de Azure AD con ArcGIS Online, necesita los siguientes elementos:
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **ArcGIS**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784738.png "Configurar inicio de sesión único")
-2. En la página **¿Cómo desea que los usuarios inicien sesión en ArcGIS?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784739.png "Configurar inicio de sesión único")
-3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de ArcGIS**, escriba la dirección URL que usan los usuarios para iniciar sesión con el patrón *https://company.maps.arcgis.com* y luego haga clic en **Siguiente**.
-   
-   ![Configurar dirección URL de la aplicación](./media/active-directory-saas-arcgis-tutorial/IC784740.png "Configurar dirección URL de la aplicación")
-4. En la página **Configuración de inicio de sesión único en ArcGIS**, haga clic en **Descargar metadatos** y, luego, guarde el archivo de metadatos localmente en el equipo.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784741.png "Configurar inicio de sesión único")
-5. En otra ventana del explorador web, inicie sesión en como administrador en el sitio de la compañía de ArcGIS.
-6. Haga clic en **Edit Settings**(Editar configuración).
-   
-   ![Editar configuración](./media/active-directory-saas-arcgis-tutorial/IC784742.png "Editar configuración")
-7. Haga clic en **Seguridad**.
-   
-   ![Seguridad](./media/active-directory-saas-arcgis-tutorial/IC784743.png "Seguridad")
-8. En **Inicios de sesión de la empresa**, haga clic en **Establecer proveedor de identidades**.
-   
-   ![Enterprise Logins (Inicios de sesión de la empresa)](./media/active-directory-saas-arcgis-tutorial/IC784744.png "Enterprise Logins (Inicios de sesión de la empresa)")
-9. En la sección **Configurar proveedor de identidades** , realice los pasos siguientes:
-   
-   ![Set Identity Provider (Establecer proveedor de identidades)](./media/active-directory-saas-arcgis-tutorial/IC784745.png "Set Identity Provider (Establecer proveedor de identidades)")
-   
-   1. En el cuadro de texto Name (Nombre), escriba el nombre de su organización.
-   2. En **Metadata for the Enterprise Identity Provider will be supplied using** (Los metadatos para el proveedor de identidades de la empresa se proporcionarán con), seleccione **A File** (Un archivo).
-   3. Haga clic en **Choose file**(Elegir archivo) para cargar el archivo de metadatos descargado.
-   4. Haga clic en **Establecer proveedor de identidades**.
-10. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en ArcGIS Online
+
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
+
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+
+1. Incorporación de ArcGIS Online desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
+
+## <a name="adding-arcgis-online-from-the-gallery"></a>Incorporación de ArcGIS Online desde la galería
+Para configurar la integración de ArcGIS Online en Azure AD, deberá agregar ArcGIS Online desde la galería a la lista de aplicaciones SaaS administradas.
+
+**Para agregar ArcGIS Online desde la galería, siga estos pasos:**
+
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+
+    ![Aplicaciones][2]
     
-    ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/IC784746.png "Configurar inicio de sesión único")
+3. Haga clic en el botón **Nueva aplicación** en la parte superior del cuadro de diálogo para agregar la nueva aplicación.
+
+    ![Aplicaciones][3]
+
+4. En el cuadro de búsqueda, escriba **ArcGIS Online**.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_search.png)
+
+5. En el panel de resultados, seleccione **ArcGIS Online** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con ArcGIS Online con un usuario de prueba denominado "Britta Simon".
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de ArcGIS Online para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de ArcGIS Online.
+
+Para establecer la relación de vínculo, en ArcGIS Online, asigne el valor de **nombre de usuario** de Azure AD como valor de **Nombre de usuario**.
+
+Para configurar y probar el inicio de sesión único de Azure AD con ArcGIS Online, es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de ArcGIS Online](#creating-an-arcgis-online-test-user)**: para tener un homólogo de Britta Simon en ArcGIS Online que esté vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación ArcGIS Online.
+
+**Para configurar el inicio de sesión único de Azure AD con ArcGIS Online, siga estos pasos:**
+
+1. En Azure Portal, en la página de integración de la aplicación **ArcGIS Online**, haga clic en **Inicio de sesión único**.
+
+    ![Configurar inicio de sesión único][4]
+
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_samlbase.png)
+
+3. En la sección **Dominio y direcciones URL de ArcGIS Online**, lleve a cabo el paso siguiente:
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
+
+    En el cuadro de texto **URL de inicio de sesión**, escriba el valor con el siguiente patrón: `https://<company>.maps.arcgis.com`
+
+    > [!NOTE] 
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de ArcGIS Online](http://support.esri.com/) para obtener este valor. 
+
+4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_certificate.png) 
+
+5. Haga clic en el botón **Guardar** .
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/tutorial_general_400.png)
+
+6. En otra ventana del explorador web, inicie sesión en como administrador en el sitio de la compañía de ArcGIS.
+
+7. Haga clic en **EDITAR CONFIGURACIÓN**.
+
+    ![Editar configuración](./media/active-directory-saas-arcgis-tutorial/ic784742.png "Editar configuración")
+
+8. Haga clic en **Seguridad**.
+
+    ![Seguridad](./media/active-directory-saas-arcgis-tutorial/ic784743.png "Seguridad")
+
+9. En **Inicios de sesión de la empresa**, haga clic en **ESTABLECER PROVEEDOR DE IDENTIDADES**.
+
+    ![Enterprise Logins (Inicios de sesión de la empresa)](./media/active-directory-saas-arcgis-tutorial/ic784744.png "Enterprise Logins (Inicios de sesión de la empresa)")
+
+10. En la sección **Configurar proveedor de identidades** , realice los pasos siguientes:
+   
+    ![Set Identity Provider (Establecer proveedor de identidades)](./media/active-directory-saas-arcgis-tutorial/ic784745.png "Set Identity Provider (Establecer proveedor de identidades)")
+   
+    a. En el cuadro de texto **Nombre**, escriba el nombre de la organización.
+
+    b. En **Metadata for the Enterprise Identity Provider will be supplied using** (Los metadatos para el proveedor de identidades de la empresa se proporcionarán con), seleccione **A File** (Un archivo).
+
+    c. Haga clic en **Choose file**(Elegir archivo) para cargar el archivo de metadatos descargado.
+
+    d. Haga clic en **ESTABLECER PROVEEDOR DE IDENTIDADES**.
+
+> [!TIP]
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+
+![Creación de un usuario de Azure AD][100]
+
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_01.png) 
+
+2. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
     
-## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_02.png) 
 
-Para permitir que los usuarios de Azure AD inicien sesión en ArcGIS, tienen que aprovisionarse en ArcGIS.
+3. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_03.png) 
 
-* En el caso de ArcGIS, el aprovisionamiento es una tarea manual.
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_04.png) 
 
-**Siga estos pasos para configurar el aprovisionamiento de usuario:**
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+
+    d. Haga clic en **Crear**.
+ 
+### <a name="creating-an-arcgis-online-test-user"></a>Creación de un usuario de prueba de ArcGIS Online
+
+Para permitir que los usuarios de Azure AD inicien sesión en ArcGIS Online, tienen que aprovisionarse en ArcGIS Online.  
+En el caso de ArcGIS Online, el aprovisionamiento es una tarea manual.
+
+**Para aprovisionar una cuenta de usuario, realice estos pasos:**
 
 1. Inicie sesión en su inquilino de **ArcGIS** .
-2. Haga clic en **Invitar a miembros**.
+
+2. Haga clic en **INVITAR A MIEMBROS**.
    
-   ![Invitar a miembros](./media/active-directory-saas-arcgis-tutorial/IC784747.png "Invitar a miembros")
-3. Seleccione **Agregar miembros automáticamente sin enviar un correo electrónico** y luego haga clic en **Siguiente**.
+    ![Invitar a miembros](./media/active-directory-saas-arcgis-tutorial/ic784747.png "Invitar a miembros")
+
+3. Seleccione **Agregar miembros automáticamente sin enviar un correo electrónico** y luego haga clic en **SIGUIENTE**.
    
-   ![Agregar miembros automáticamente](./media/active-directory-saas-arcgis-tutorial/IC784748.png "Agregar miembros automáticamente")
+    ![Agregar miembros automáticamente](./media/active-directory-saas-arcgis-tutorial/ic784748.png "Agregar miembros automáticamente")
+
 4. En la página de diálogo **Miembros** , realice los pasos siguientes:
    
-   ![Agregar y revisar](./media/active-directory-saas-arcgis-tutorial/IC784749.png "Agregar y revisar")
-   1. Escriba**Nombre**, **Apellido** y **Correo electrónico** de una cuenta válida de AAD que quiera aprovisionar.
-   2. Haga clic en **Agregar y revisar**.
-5. Revise los datos que ha escrito y luego haga clic en **Agregar miembros**.
+     ![Agregar y revisar](./media/active-directory-saas-arcgis-tutorial/ic784749.png "Agregar y revisar")
+    
+     a. Escriba los valores de **correo electrónico**, **nombre** y **apellido** de una cuenta de AAD válida que desea aprovisionar.
+  
+     b. Haga clic en **AGREGAR Y REVISAR**.
+5. Revise los datos que ha escrito y luego haga clic en **AGREGAR MIEMBROS**.
    
-   ![Agregar miembros](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Agregar miembros")
+    ![Agregar miembros](./media/active-directory-saas-arcgis-tutorial/ic784750.png "Agregar miembros")
+        
+    > [!NOTE]
+    > El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
 
->[!NOTE]
->Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ArcGIS ofrecida por ArcGIS para aprovisionar cuentas de usuario de AAD. 
-> 
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-## <a name="assign-users"></a>Asignar usuarios
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a ArcGIS Online.
 
-**Para asignar usuarios a ArcGIS, lleve a cabo los siguientes pasos:**
-1. En el Portal de Azure clásico, cree una cuenta de prueba.
-2. En la página de integración de aplicaciones de **ArcGIS**, haga clic en **Asignar usuarios**.
-   
-  ![Asignar usuarios](./media/active-directory-saas-arcgis-tutorial/IC784751.png "Asignar usuarios")
-3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
-   
-  ![Sí](./media/active-directory-saas-arcgis-tutorial/IC767830.png "Sí")
+![Asignar usuario][200] 
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+**Para asignar a Britta Simon a ArcGIS Online, siga estos pasos:**
+
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones. seleccione **ArcGIS Online**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png) 
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Asignar usuario][202] 
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Asignar usuario][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono de ArcGIS Online en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación ArcGIS Online.
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-arcgis-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-arcgis-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-arcgis-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-arcgis-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-arcgis-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-arcgis-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-arcgis-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-arcgis-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-arcgis-tutorial/tutorial_general_203.png
 
 

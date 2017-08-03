@@ -1,5 +1,4 @@
-#### Para configurar y registrar el dispositivo de la nube, siga estos pasos:
-<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
+#### <a name="to-configure-and-register-the-cloud-appliance"></a>Para configurar y registrar el dispositivo de la nube, siga estos pasos:
 
 1. Seleccione la instancia de StorSimple Cloud Appliance que creó en la hoja **Dispositivos** y haga clic en ella.
 

@@ -23,16 +23,12 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="azure-ad-service-limits-and-restrictions" class="xliff"></a>
-
-# Restricciones y límites del servicio Azure AD
+# <a name="azure-ad-service-limits-and-restrictions"></a>Restricciones y límites del servicio Azure AD
 Este artículo contiene las restricciones de uso y otros límites de servicio para el servicio Azure Active Directory (Azure AD). Si está buscando el conjunto completo de límites del servicio de Microsoft Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
 [!INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
 
-<a id="whats-next" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="whats-next"></a>Pasos siguientes
 * [Inicio de sesión en Azure como una organización](sign-up-organization.md)
 * [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Información general de Mobile Engagement | Microsoft Docs"
 description: "Información general de Azure Mobile Engagement"
 services: mobile-engagement
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
+ms.contentlocale: es-es
 ms.lasthandoff: 01/30/2017
 
 

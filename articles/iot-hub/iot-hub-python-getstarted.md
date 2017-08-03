@@ -1,6 +1,6 @@
 ---
 title: "Introducción a Azure IoT Hub (Python) | Microsoft Docs"
-description: "Este artículo muestra cómo enviar mensajes desde un dispositivo simulado a Azure IoT Hub mediante los SDK de IoT de Azure para Python."
+description: "Obtenga información sobre cómo enviar mensajes del dispositivo a la nube a una instancia de Azure IoT Hub mediante los SDK de IoT para Python. Cree aplicaciones de servicio y de dispositivo simuladas para registrar el dispositivo, enviar mensajes y leerlos en IoT Hub."
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -13,12 +13,11 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 572dfc8965957c4667d4124b045ffbb835786a94
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f0800b70620106f9ae9d19d63b60b726835e338f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Conexión de un dispositivo simulado a IoT Hub mediante Python
@@ -78,6 +77,8 @@ En esta sección se enumeran los pasos para crear una aplicación de consola de 
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Agregue la siguiente función para imprimir parte de la información del dispositivo.
 
     ```python
@@ -282,7 +283,7 @@ Para recibir mensajes de telemetría del dispositivo, debe usar un punto de cone
     ![Mensajes de Python del dispositivo a la nube][2]
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades del centro de IoT. Usó esta identidad de dispositivo para habilitar la aplicación del dispositivo simulado para enviar al centro de IoT los mensajes del dispositivo a la nube. Observó los mensajes que recibió IoT Hub con la ayuda de la herramienta Explorador de IoT Hub. 
+En este tutorial, configuró una nueva instancia de IoT Hub en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades de IoT Hub. Usó esta identidad de dispositivo para habilitar la aplicación del dispositivo simulado para enviar al centro de IoT los mensajes del dispositivo a la nube. Observó los mensajes que recibió IoT Hub con la ayuda de la herramienta Explorador de IoT Hub. 
 
 Para explorar el SDK de Python para el uso intensivo de Azure IoT Hub, visite [este repositorio de Git Hub][lnk-python-github]. Para revisar las funcionalidades de mensajería del SDK del servicio Azure IoT Hub para Python, puede descargar y ejecutar [iothub_messaging_sample.py][lnk-messaging-sample]. Para la simulación del lado del dispositivo mediante el SDK del dispositivo Azure IoT Hub para Python, puede descargar y ejecutar [iothub_client_sample.py][lnk-client-sample].
 

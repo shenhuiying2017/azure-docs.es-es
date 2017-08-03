@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3874cba5f0e09145a29159690fd740eeddad209a
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 452acde571164a3ab4ce2dcccf99d2aed90361fe
+ms.contentlocale: es-es
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-resource-group-guidelines-for-linux-vms"></a>Directrices para el grupo de recursos de Azure para máquinas virtuales Linux 
@@ -43,7 +43,7 @@ Tareas:
 * Cree el conjunto de grupos de recursos usando su convención de nomenclatura. Puede usar la CLI o el Portal de Azure.
 
 ## <a name="resource-groups"></a>Grupos de recursos
-En Azure, puede agrupar de forma lógica recursos relacionados tales como cuentas de almacenamiento, redes virtuales y máquinas virtuales para implementarlos, administrarlos y mantenerlos como entidad única. Con este enfoque, resulta más fácil implementar aplicaciones al mismo tiempo que se mantienen juntos todos los recursos relacionados desde una perspectiva de administración, así como conceder acceso a otros usuarios a ese grupo de recursos. Para una descripción más completa de los grupos de recursos, puede leer [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+En Azure, puede agrupar de forma lógica recursos relacionados tales como cuentas de almacenamiento, redes virtuales y máquinas virtuales para implementarlos, administrarlos y mantenerlos como entidad única. Con este enfoque, resulta más fácil implementar aplicaciones al mismo tiempo que se mantienen juntos todos los recursos relacionados desde una perspectiva de administración, así como conceder acceso a otros usuarios a ese grupo de recursos. Los nombres de grupos de recursos pueden tener un máximo de 90 caracteres de longitud. Para una descripción más completa de los grupos de recursos, puede leer [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 Una función clave de los grupos de recursos es la capacidad de crear su entorno mediante un archivo JSON que declara los recursos de proceso, redes y almacenamiento. También puede definir todos los scripts personalizados relacionados o configuraciones que correspondan. Al usar estas plantillas JSON, crea implementaciones coherentes y reproducibles para sus aplicaciones. Este enfoque le permite crear un entorno en desarrollo y, a continuación, el uso de esa misma plantilla para crear una implementación de producción, o viceversa. Para comprender mejor el uso de plantillas, puede leer [el tutorial de plantillas](../../azure-resource-manager/resource-manager-template-walkthrough.md) , que lo guiará en cada paso de la creación de una plantilla JSON.
 

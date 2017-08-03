@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 457ba9c9f74bc9d88800607a2f78a3c3c96cea07
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicaciones web en tiempo de ejecución con Application Insights
@@ -42,10 +41,10 @@ A continuación hay un resumen de lo que se obtiene por cada vía:
 | [Excepciones más detalladas](app-insights-asp-net-exceptions.md) | |Sí |
 | [Diagnósticos de dependencia](app-insights-asp-net-dependencies.md) |En .NET 4.6 +, pero con menos detalle |Sí, detalles completos: códigos de resultado, texto de comandos SQL, verbo HTTP|
 | [Contadores de rendimiento del sistema](app-insights-performance-counters.md) |Sí |Sí |
-| [API para la telemetría personalizada][api] |Sí | |
-| [Integración del registro de seguimiento](app-insights-asp-net-trace-logs.md) |yes | |
-| [Datos de usuario y página](app-insights-javascript.md) |Sí | |
-| No es necesario volver a compilar el código |No | |
+| [API para la telemetría personalizada][api] |Sí |No |
+| [Integración del registro de seguimiento](app-insights-asp-net-trace-logs.md) |Sí |No |
+| [Datos de usuario y página](app-insights-javascript.md) |Sí |No |
+| Es necesario volver a compilar el código |Sí | No |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Supervisión de una aplicación web de Azure activa

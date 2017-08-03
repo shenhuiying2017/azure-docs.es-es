@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 9c7073e55b98406fc8f9db9a40bf1a6ffc626f47
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 96fead1f40b0f76e909b5583fc817d72e7f2a6ea
 ms.contentlocale: es-es
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -35,16 +35,14 @@ En este artículo, aprenderá cómo cargar y administrar paquetes de aplicación
 > 
 
 ## <a name="application-package-requirements"></a>Requisitos de los paquetes de aplicación
-Para utilizar paquetes de aplicación, primero se debe [vincular una cuenta de Almacenamiento de Azure](#link-a-storage-account) a su cuenta de Lote.
-
-La característica de paquetes de aplicación que se explica en este artículo *solo* es compatible con los grupos de Lote creados después del 10 de marzo de 2016. Los paquetes de aplicación no se implementarán en los nodos de proceso de los grupos creados antes de esta fecha.
+Para utilizar paquetes de aplicación, primero se debe [vincular una cuenta de Azure Storage](#link-a-storage-account) a su cuenta de Batch.
 
 Esta característica se introdujo en la [API de REST de Batch][api_rest] versión 2015-12-01.2.2, y la correspondiente biblioteca de [.NET para Batch][api_net], versión 3.1.0. Si se trabaja con Lote, se recomienda utilizar siempre la versión más reciente de la API.
 
-> [!IMPORTANT]
-> Actualmente, solo los grupos *CloudServiceConfiguration* admiten paquetes de aplicación. No puede usar paquetes de aplicación en grupos creados con imágenes VirtualMachineConfiguration. Consulte la sección [Configuración de la máquina virtual](batch-linux-nodes.md#virtual-machine-configuration) de [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Lote de Azure](batch-linux-nodes.md) para más información sobre las dos configuraciones.
-> 
-> 
+> [!NOTE]
+> Los paquetes de aplicaciones se admiten en todos los grupos de Batch creados después del 5 de julio de 2017. Se admiten en los grupos de Batch creados entre el 10 de marzo de 2016 y el 5 de julio de 2017 únicamente si el grupo se creó mediante una configuración de Cloud Services. Los grupos de Batch creados antes del 10 de marzo de 2016 no admiten los paquetes de aplicaciones.
+>
+>
 
 ## <a name="about-applications-and-application-packages"></a>Acerca de las aplicaciones y los paquetes de aplicación
 En Lote de Azure, una *aplicación* hace referencia a un conjunto de archivos binarios con versiones que se pueden descargar automáticamente en los nodos de proceso del grupo. Un *paquete de aplicación* hace referencia a un *conjunto específico* de dichos archivos binarios y representa una *versión* determinada de la aplicación.
@@ -54,10 +52,10 @@ En Lote de Azure, una *aplicación* hace referencia a un conjunto de archivos bi
 ### <a name="applications"></a>Aplicaciones
 Una aplicación en Lote contiene uno o más paquetes de aplicación y especifica las opciones de configuración de la aplicación. Por ejemplo, una aplicación puede especificar la versión predeterminada del paquete de aplicación que se instala en los nodos de proceso y si sus paquetes se pueden actualizar o eliminar.
 
-### <a name="application-packages"></a>Paquetes de aplicación
-Un paquete de aplicación es un archivo .zip que contiene los archivos binarios de la aplicación y los archivos auxiliares que se requieren para que las tareas los ejecuten. Cada paquete de aplicación representa una versión específica de la aplicación.
+### <a name="application-packages"></a>paquetes de aplicación
+Un paquete de aplicación es un archivo .zip que contiene los archivos binarios de la aplicación y los archivos auxiliares que se requieren para que las tareas ejecuten la aplicación. Cada paquete de aplicación representa una versión específica de la aplicación.
 
-Los paquetes de aplicaciones se pueden especificar a nivel de grupo y de tarea. Puede especificar uno o varios de estos paquetes y (opcionalmente) una versión cuando crea un grupo o tarea.
+Los paquetes de aplicaciones se pueden especificar a niveles de grupo y de tarea. Puede especificar uno o varios de estos paquetes y (opcionalmente) una versión cuando crea un grupo o tarea.
 
 * **paquetes de aplicación del grupo** se implementan en *cada* nodo del grupo. Las aplicaciones se implementan cuando un nodo se une a un grupo y cuando se reinicia o se restablece la imagen inicial.
   
@@ -66,39 +64,44 @@ Los paquetes de aplicaciones se pueden especificar a nivel de grupo y de tarea. 
   
     Los paquetes de aplicaciones de tareas son útiles en entornos de grupo compartido, donde los distintos trabajos se ejecutan en un grupo que no se elimina cuando se completa un trabajo. Si el trabajo tiene menos tareas que nodos en el grupo, los paquetes de aplicación de las tareas pueden minimizar la transferencia de datos, ya que la aplicación se implementa solo en los nodos que ejecutan tareas.
   
-    Otros escenarios que pueden beneficiarse de los paquetes de aplicación de tareas son los trabajos que usan una aplicación de gran tamaño, pero solo para un pequeño número de tareas. Por ejemplo, una fase previa al procesamiento o una tarea de combinación, donde la aplicación de procesamiento previo o combinación es pesada.
+    Otros escenarios que pueden beneficiarse de los paquetes de aplicación de tareas son los trabajos que ejecutan una aplicación grande, pero solo para unas pocas tareas. Por ejemplo, en una fase previa al procesamiento o una tarea de combinación, donde la aplicación de procesamiento previo o combinación es pesada, puede ser útil usar paquetes de aplicación de tareas.
 
 > [!IMPORTANT]
-> Hay restricciones en el número de aplicaciones y paquetes de aplicación que puede haber en una cuenta de Lote, así como en el tamaño máximo del paquete de aplicación. Para más información sobre estos límites, consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) .
+> Hay restricciones en el número de aplicaciones y paquetes de aplicación que puede haber en una cuenta de Batch, así como en el tamaño máximo del paquete de aplicación. Para más información sobre estos límites, consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) .
 > 
 > 
 
 ### <a name="benefits-of-application-packages"></a>Ventajas de los paquetes de aplicación
 Los paquetes de aplicación pueden simplificar el código de su solución de Lote y reducir la sobrecarga requerida para administrar las aplicaciones que ejecutan las tareas.
 
-La tarea de inicio del grupo no tiene que especificar una larga lista de archivos de recursos individuales que se deben instalar en los nodos. No es preciso administrar manualmente varias versiones de los archivos de la aplicación en Almacenamiento de Azure ni en los nodos. Y tampoco es preciso preocuparse de generar [direcciones URL de SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) para proporcionar acceso a los archivos de su cuenta de Almacenamiento. Lote funciona en segundo plano con el Almacenamiento de Azure para almacenar paquetes de aplicación e implementarlos en los nodos de proceso.
+Con los paquetes de aplicación, la tarea de inicio del grupo no tiene que especificar una larga lista de archivos de recursos individuales que se deben instalar en los nodos. No es preciso administrar manualmente varias versiones de los archivos de la aplicación en Almacenamiento de Azure ni en los nodos. Y tampoco es preciso preocuparse de generar [direcciones URL de SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) para proporcionar acceso a los archivos de su cuenta de Almacenamiento. Lote funciona en segundo plano con el Almacenamiento de Azure para almacenar paquetes de aplicación e implementarlos en los nodos de proceso.
+
+> [!NOTE] 
+> El tamaño total de una tarea de inicio debe ser menor o igual a 32 768 caracteres, incluidos los archivos de recursos y las variables de entorno. Si la tarea de inicio supera este límite, en este caso usar paquetes de aplicación es otra opción. Puede crear también un archivo comprimido que contiene los archivos de recursos, cargarlo como un blob en Azure Storage y. después, descomprímalo en línea de comandos de la tarea de inicio. 
+>
+>
 
 ## <a name="upload-and-manage-applications"></a>Carga y administración de aplicaciones
-Puede usar el [Azure Portal][portal] o la biblioteca de [Batch Management .NET](batch-management-dotnet.md) para administrar los paquetes de aplicaciones en la cuenta de Batch. En las siguientes secciones, se vinculará primero una cuenta de almacenamiento y, después, se analizará la incorporación de paquetes y aplicaciones y su administración con el portal.
+Puede usar el [Azure Portal][portal] o la biblioteca de [Batch Management .NET](batch-management-dotnet.md) para administrar los paquetes de aplicaciones en la cuenta de Batch. En las siguientes secciones, primero se muestra cómo vinculará primero una cuenta de Storage y, después, se analizará la incorporación de paquetes y aplicaciones y su administración con el portal.
 
 ### <a name="link-a-storage-account"></a>Vínculo a una cuenta de Almacenamiento
-Para utilizar paquetes de aplicación, primero se debe vincular una cuenta de Almacenamiento de Azure a su cuenta de Lote. Si aún no ha configurado ninguna cuenta de almacenamiento para su cuenta de Batch, Azure Portal mostrará una advertencia la primera vez que haga clic en el icono **Aplicaciones** en la hoja **Cuenta de Batch**.
+Para utilizar paquetes de aplicación, primero se debe vincular una cuenta de Almacenamiento de Azure a su cuenta de Lote. Si aún no ha configurado ninguna cuenta de almacenamiento, Azure Portal muestra una advertencia la primera vez que haga clic en el icono **Aplicaciones** en la hoja **Cuenta de Batch**.
 
 > [!IMPORTANT]
-> Actualmente, Batch *solo* admite el tipo de cuenta de almacenamiento **de uso general**, tal y como se describe en el paso 5, [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account), del artículo [Acerca de las cuentas de Azure Storage](../storage/storage-create-storage-account.md). Cuando vincula una cuenta de Almacenamiento de Azure a su cuenta de Lote, *solo* se vincula una cuenta de almacenamiento de **Uso general** .
+> Actualmente, Batch *solo* admite el tipo de cuenta de almacenamiento **de uso general**, tal y como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md). Cuando vincula una cuenta de Azure Storage a su cuenta de Batch, *solo* se vincula una cuenta de almacenamiento de **Uso general**.
 > 
 > 
 
-![Advertencia de que no hay cuentas de almacenamiento almacenadas en Azure Portal][9]
+![Advertencia de que no hay cuentas de almacenamiento configuradas en Azure Portal][9]
 
-El servicio de Lote utiliza la cuenta de Almacenamiento asociada para el almacenamiento y la recuperación de paquetes de aplicación. Una vez que haya vinculado las dos cuentas, Lote puede implementar automáticamente los paquetes almacenados en la cuenta de Almacenamiento vinculada en los nodos de proceso. Haga clic en **Configuración de cuenta de almacenamiento** en la hoja **Advertencia**; después, en **Cuenta de almacenamiento** en la hoja **Cuenta de almacenamiento** para vincular una cuenta de almacenamiento a su cuenta de Batch.
+El servicio Batch utiliza la cuenta de Storage asociada para almacenar los paquetes de aplicación. Una vez que haya vinculado las dos cuentas, Lote puede implementar automáticamente los paquetes almacenados en la cuenta de Almacenamiento vinculada en los nodos de proceso. Para vincular una cuenta de Storage a su cuenta de Batch, haga clic en **Configuración de cuenta de almacenamiento** en la hoja **Advertencia**; después, en **Cuenta de almacenamiento** en la hoja **Cuenta de almacenamiento**.
 
 ![Hoja Elegir de cuenta de almacenamiento en Azure Portal][10]
 
-Se recomienda crear una cuenta de almacenamiento *específicamente* para su uso con la cuenta de Lote y seleccionarla aquí. Para información más detallada sobre cómo crear una cuenta de almacenamiento, consulte la sección "Crear una cuenta de almacenamiento" en [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md). Una vez que haya creado una cuenta de Almacenamiento, puede vincularla a su cuenta de Lote mediante la hoja **Cuenta de almacenamiento** .
+Se recomienda crear una cuenta de Storage *específicamente* para su uso con la cuenta de Batch y seleccionarla aquí. Para más información sobre cómo crear una cuenta de almacenamiento, consulte la sección "Crear una cuenta de almacenamiento" en [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md). Una vez que haya creado una cuenta de Almacenamiento, puede vincularla a su cuenta de Lote mediante la hoja **Cuenta de almacenamiento** .
 
 > [!WARNING]
-> Dado que Batch almacena los paquetes de aplicación con Azure Storage, se aplican [cargos normales][storage_pricing] a los datos de blob en bloques. Asegúrese de considerar el tamaño y número de los paquetes de aplicación y elimine periódicamente los paquetes en desuso para minimizar el costo.
+> El servicio Batch utiliza Azure Storage para almacenar los paquetes de aplicación como blobs en bloques. Se le [cobrará de la forma habitual][storage_pricing] por los datos de los blobs en bloques. Asegúrese de considerar el tamaño y número de los paquetes de aplicación y elimine periódicamente los paquetes en desuso para minimizar los costos.
 > 
 > 
 
@@ -107,18 +110,18 @@ Para ver las aplicaciones en la cuenta de Batch, haga clic en el elemento de men
 
 ![Icono Aplicaciones][2]
 
-Se abre la hoja **Aplicaciones** :
+Al seleccionar esta opción de menú, se abre la hoja **Aplicaciones**:
 
 ![Lista de aplicaciones][3]
 
 La hoja **Aplicaciones** muestra el identificador de cada aplicación de su cuenta y las siguientes propiedades:
 
 * **Paquetes**: el número de versiones asociadas a la aplicación.
-* **Versión predeterminada**: la versión que se instala si no especifica ninguna versión al configurar la aplicación para un grupo. Esta configuración es opcional.
-* **Permitir actualizaciones**: el valor que especifica si se permiten las actualizaciones, eliminaciones y adiciones en el paquete. Si se establece en **No**, las actualizaciones y eliminaciones se deshabilitan para la aplicación. Solo se pueden agregar versiones nuevas del paquete de aplicación. El valor predeterminado es **Sí**.
+* **Versión predeterminada**: la versión de la aplicación que se instala si no indica ninguna versión al especificar la aplicación para un grupo. Esta configuración es opcional.
+* **Permitir actualizaciones**: el valor que especifica si se permiten actualizaciones, eliminaciones y adiciones en el paquete. Si se establece en **No**, las actualizaciones y eliminaciones se deshabilitan para la aplicación. Solo se pueden agregar versiones nuevas del paquete de aplicación. El valor predeterminado es **Sí**.
 
 ### <a name="view-application-details"></a>Visualización de los detalles de una aplicación
-Haga clic en una aplicación en la hoja **Aplicaciones** para abrir la hoja que incluye los detalles de la aplicación.
+Para abrir la hoja que incluye los detalles de la aplicación, seleccione la aplicación en la hoja **Aplicaciones**.
 
 ![Detalles de la aplicación][4]
 
@@ -126,10 +129,10 @@ En la hoja de detalles de la aplicación, puede configurar los siguientes valore
 
 * **Permitir actualizaciones**: especifica si se pueden actualizar o eliminar sus paquetes de aplicación. Consulte "Actualización o eliminación de un paquete de aplicación" más adelante en este artículo.
 * **Versión predeterminada**: especifique el paquete de aplicación predeterminado que se implementa en los nodos de proceso.
-* **Nombre para mostrar**: especifica un nombre "descriptivo" que la solución de Lote puede usar al mostrar información de la aplicación, como en la interfaz de usuario de un servicio que proporciona a los clientes a través de Lote.
+* **Nombre para mostrar**: especifica un nombre "descriptivo" que la solución de Batch puede usar al mostrar información de la aplicación, por ejemplo, en la interfaz de usuario de un servicio que proporciona a los clientes a través de Batch.
 
 ### <a name="add-a-new-application"></a>Adición de una nueva aplicación
-Para crear una aplicación, agregue un paquete de aplicación y especifique un identificador de aplicación nuevo y exclusivo. El primer paquete de aplicación que agregue con el nuevo identificador de aplicación también creará la nueva aplicación.
+Para crear una aplicación, agregue un paquete de aplicación y especifique un identificador de aplicación nuevo y exclusivo. El primer paquete de aplicación que agregue con el nuevo identificador de aplicación también crea la nueva aplicación.
 
 Haga clic en **Agregar** en la hoja **Aplicaciones** para abrir la hoja **Nueva aplicación**.
 
@@ -139,27 +142,27 @@ La hoja **Nueva aplicación** proporciona los siguientes campos para especificar
 
 **Id. de la aplicación**
 
-Este campo especifica el identificador de la nueva aplicación, que está sujeto a las reglas de validación estándar de identificadores de Lote de Azure:
+Este campo especifica el identificador de la nueva aplicación, que está sujeto a las reglas de validación estándar de identificadores de Azure Batch. Las reglas para proporcionar un identificador de aplicación son las siguientes:
 
-* Pueden contener cualquier combinación de caracteres alfanuméricos, incluidos los guiones y caracteres de subrayado.
+* En los nodos de Windows, el identificador puede contener cualquier combinación de caracteres alfanuméricos, guiones y caracteres de subrayado. En los nodos de Linux, solo se permiten caracteres alfanuméricos y caracteres de subrayado.
 * No pueden contener más de 64 caracteres.
 * Deben ser único en la cuenta de Lote.
-* Conserva las mayúsculas y minúsculas y no distingue mayúsculas de minúsculas.
+* Conserva las mayúsculas y minúsculas, aunque no las distingue.
 
 **Versión**
 
-Especifica la versión del paquete de aplicación que se carga. Las cadenas de la versión están sujetas a las siguientes reglas de validación:
+Este campo especifica la versión del paquete de aplicación que se carga. Las cadenas de la versión están sujetas a las siguientes reglas de validación:
 
-* Pueden contener cualquier combinación de caracteres alfanuméricos, incluidos guiones, caracteres de subrayado y puntos.
+* En los nodos de Windows, la cadena de versión puede contener cualquier combinación de caracteres alfanuméricos, guiones, caracteres de subrayado y puntos. En los nodos de Linux, la cadena de versión solo puede contener caracteres alfanuméricos y de subred.
 * No pueden contener más de 64 caracteres.
 * Deben ser únicas en la aplicación.
-* Conservación de mayúsculas y minúsculas y no distingue mayúsculas de minúsculas.
+* Conservan las mayúsculas y minúsculas, aunque no las distinguen.
 
 **Paquete de aplicación**
 
 Este campo especifica el archivo .zip que contiene los archivos binarios y los archivos auxiliares necesarios para ejecutar la aplicación. Haga clic en el cuadro **Seleccionar un archivo** o en el icono de la carpeta a la que desee desplazarse y seleccione un archivo .zip que contenga los archivos de la aplicación.
 
-Una vez que haya seleccionado un archivo, haga clic en **Aceptar** para iniciar la carga en Almacenamiento de Azure. Cuando se complete la operación de carga, recibirá una notificación y se cerrará la hoja. En función del tamaño del archivo que se va a cargar y de la velocidad de la conexión de red, esta operación puede tardar un tiempo.
+Una vez que haya seleccionado un archivo, haga clic en **Aceptar** para iniciar la carga en Almacenamiento de Azure. Una vez completada la operación de carga, el portal muestra una notificación y cierra la hoja. En función del tamaño del archivo que se va a cargar y de la velocidad de la conexión de red, esta operación puede tardar un tiempo.
 
 > [!WARNING]
 > No cierre la hoja **Nueva aplicación** antes de que se complete la operación de carga. Si lo hace, se detendrá el proceso de carga.
@@ -191,7 +194,7 @@ Al hacer clic en **Eliminar**, se le pedirá que confirme la eliminación de la 
 ![Eliminar aplicación][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>Instalación de aplicaciones en nodos de proceso
-Ahora que ha visto cómo administrar paquetes de aplicación con el Portal de Azure, podemos analizar cómo implementarlos en los nodos de proceso y ejecutarlos con las tareas de Lote.
+Ahora que ha aprendido cómo administrar paquetes de aplicación con Azure Portal, podemos analizar cómo implementarlos en los nodos de proceso y ejecutarlos con las tareas de Batch.
 
 ### <a name="install-pool-application-packages"></a>Instalación de paquetes de aplicación de grupos
 Para instalar un paquete de aplicación en todos los nodos de proceso de un grupo, especifique una o varias *referencias* de paquetes de aplicación para el grupo. Los paquetes de aplicación que especifique para un grupo se instalan en cada nodo de proceso cuando este se una al grupo, además de cuando se reinicie o se restablezca la imagen inicial.
@@ -216,12 +219,12 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 };
 
 // Commit the pool so that it's created in the Batch service. As the nodes join
-// the pool, the specified application package will be installed on each.
+// the pool, the specified application package is installed on each.
 await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Si, por cualquier motivo, se produce un error en una implementación del paquete de aplicación, el servicio Batch marca el nodo como [inutilizable][net_nodestate] y no se programarán tareas de ejecución en ese nodo. En este caso, debería **reiniciar** el nodo para reiniciar la implementación del paquete. Al reiniciar el nodo, también se volverá a habilitar la programación de tareas en el nodo.
+> Si, por cualquier motivo, se produce un error en una implementación del paquete de aplicación, el servicio Batch marca el nodo como [inutilizable][net_nodestate] y no se programarán tareas de ejecución en ese nodo. En este caso, debería **reiniciar** el nodo para reiniciar la implementación del paquete. Al reiniciar el nodo, también se vuelve a habilitar la programación de tareas en el nodo.
 > 
 > 
 
@@ -247,17 +250,39 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 ```
 
 ## <a name="execute-the-installed-applications"></a>Ejecución de las aplicaciones instaladas
-Los paquetes que ha especificado para un grupo o tarea se descargan y extraen en un directorio con nombre dentro del nodo `AZ_BATCH_ROOT_DIR` . Lote también permite crear una variable de entorno que contiene la ruta de acceso al directorio con nombre. Las líneas de comando de la tarea usan esta variable de entorno al hacer referencia a la aplicación en el nodo. La variable está en el formato siguiente:
+Los paquetes que ha especificado para un grupo o tarea se descargan y extraen en un directorio con nombre dentro del nodo `AZ_BATCH_ROOT_DIR` . Lote también permite crear una variable de entorno que contiene la ruta de acceso al directorio con nombre. Las líneas de comando de la tarea usan esta variable de entorno al hacer referencia a la aplicación en el nodo. 
 
-`AZ_BATCH_APP_PACKAGE_APPLICATIONID#version`
+En los nodos de Windows, la variable está en el formato siguiente:
 
-`APPLICATIONID` y `version` son los valores que corresponden a la versión de la aplicación y del paquete que ha especificado para la implementación. Por ejemplo, si especificó que se debía instalar la versión 2.7 de la aplicación *blender* , las líneas de comando de la tarea usarán esta variable de entorno para tener acceso a sus archivos:
+```
+Windows:
+AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
+```
 
-`AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
+En los nodos de Linux, el formato es ligeramente diferente. Los puntos (.), guiones (-) y signos de número (##) se convierten en caracteres de subrayado en la variable de entorno. Por ejemplo:
+
+```
+Linux:
+AZ_BATCH_APP_PACKAGE_APPLICATIONID_version
+```
+
+`APPLICATIONID` y `version` son los valores que corresponden a la versión de la aplicación y del paquete que ha especificado para la implementación. Por ejemplo, si especificó que se debía instalar la versión 2.7 de la aplicación *blender* en los nodos de Windows, las líneas de comando de la tarea usarán esta variable de entorno para tener acceso a sus archivos:
+
+```
+Windows:
+AZ_BATCH_APP_PACKAGE_BLENDER#2.7
+```
+
+En los nodos de Linux, especifique la variable de entorno con este formato:
+
+```
+Linux:
+AZ_BATCH_APP_PACKAGE_BLENDER_2_7
+``` 
 
 Cuando carga un paquete de aplicación, puede especificar una versión predeterminada que implementar en los nodos de proceso. Si ha especificado una versión predeterminada para una aplicación, puede omitir el sufijo de versión al hacer referencia a ella. Puede especificar la versión predeterminada de la aplicación en Azure Portal, en la hoja Aplicaciones, como se muestra en [Carga y administración de aplicaciones](#upload-and-manage-applications).
 
-Por ejemplo, si especifica la versión 2.7 como la versión predeterminada de la aplicación *blender*, las tareas pueden hacer referencia a la siguiente variable de entorno y ejecutarán la versión 2.7:
+Por ejemplo, si especifica la versión "2.7" como la versión predeterminada de la aplicación *blender*, las tareas pueden hacer referencia a la siguiente variable de entorno y, después, los nodos de Windows ejecutarán la versión 2.7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
@@ -278,7 +303,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ## <a name="update-a-pools-application-packages"></a>Actualización de los paquetes de aplicación de un grupo
 Si un grupo existente ya se ha configurado con un paquete de aplicación, se puede especificar un paquete nuevo para el grupo. Si especifica una nueva referencia de paquete para un grupo, se aplica lo siguiente:
 
-* Todos los nodos nuevos que se unen al grupo y cualquier nodo existente que se reinicie o cuya imagen inicial se restablezca instalarán el paquete recién especificado.
+* El servicio Batch instala el paquete recién especificado en todos los nodos nuevos que se unen al grupo y en cualquier nodo existente que se reinicie o cuya imagen inicial se restablezca.
 * Los nodos de proceso que ya estén en el grupo cuando se actualicen las referencias del paquete no instalan automáticamente el paquete de aplicación nuevo. Estos nodos de proceso deben reiniciarse o se debe restablecer su imagen inicial para recibir el nuevo paquete.
 * Cuando se implementa un nuevo paquete, las variables de entorno creadas reflejan las nuevas referencias del paquete de aplicación.
 
@@ -296,7 +321,7 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Ahora que se ha configurado la nueva versión, todos los nodos *nuevos* que se unan al grupo tendrán la versión 2.76b implementada. Para instalar la versión 2.76b en los nodos que *ya* están en el grupo, reinícielos o restablezca su imagen inicial. Tenga en cuenta que los nodos reiniciados conservarán los archivos de las anteriores implementaciones del paquete.
+Ahora que se ha configurado la nueva versión, el servicio Batch instala la versión 2.76b en todos los nodos *nuevos* que se unan al grupo. Para instalar la versión 2.76b en los nodos que *ya* están en el grupo, reinícielos o restablezca su imagen inicial. Tenga en cuenta que los nodos reiniciados conservan los archivos de las anteriores implementaciones del paquete.
 
 ## <a name="list-the-applications-in-a-batch-account"></a>Enumeración de las aplicaciones en una cuenta de Lote
 Puede enumerar las aplicaciones y sus paquetes en una cuenta de Batch mediante el método [ApplicationOperations][net_appops].[ListApplicationSummaries][net_appops_listappsummaries].

@@ -1,6 +1,6 @@
 ---
 title: Uso de Redgate para cargar datos en Azure Data Warehouse | Microsoft Docs
-description: "Aprenda cómo usar Redgate&quot;s Data Platform Studio para escenarios de almacenamiento de datos."
+description: "Aprenda cómo usar Redgate's Data Platform Studio para escenarios de almacenamiento de datos."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
 ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
-
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Carga de datos con Redgate's Data Platform Studio
@@ -33,7 +31,7 @@ ms.lasthandoff: 01/24/2017
 > 
 > 
 
-Este tutorial muestra cómo utilizar [Redgate's Data Platform Studio](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) para mover datos desde una instancia de SQL Server local a Azure SQL Data Warehouse. Data Platform Studio aplica las correcciones y optimizaciones de compatibilidad más adecuadas, por lo que es la forma más rápida de empezar a trabajar con SQL Data Warehouse.
+Este tutorial muestra cómo utilizar [Data Platform Studio de Redgate](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) para mover datos desde una instancia de SQL Server local a Azure SQL Data Warehouse. Data Platform Studio aplica las correcciones y optimizaciones de compatibilidad más adecuadas, por lo que es la forma más rápida de empezar a trabajar con SQL Data Warehouse.
 
 > [!NOTE]
 > [Redgate](http://www.red-gate.com) es un experimentado asociado de Microsoft que ofrece diversas herramientas de SQL Server. Esta característica de Data Platform Studio está disponible gratuitamente para uso comercial y no comercial.

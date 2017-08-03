@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 07/13/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 6f91f732b7579c9f14458dab9be49c027debfac1
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 6b0fd60e79308b75c3a2797ff25065b8a500a3b4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 06/10/2017
 
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista de compatibilidad de federación de Azure AD
@@ -47,6 +46,7 @@ Para obtener información sobre cómo obtener el proveedor de identidades de ter
 * [CA SiteMinder 12.52](#ca-siteminder-1252-sp1-cumulative-release-4) 
 * [Centrify](#centrify) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
+* [DigitalPersona Composite Authentication](#digitalpersona-composite-authentication)
 * [IBM Tivoli Federated Identity Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federation versión 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -61,7 +61,7 @@ Para obtener información sobre cómo obtener el proveedor de identidades de ter
 * [Sign&go 5.3](#signgo-53) 
 * [SoftBank Technology Online Service Gate](#softbank)
 * [VMware Workspace One](#vmware-workspace-one)
-* [VMware  Workspace Portal versión 2.1](#vmware--workspace-portal-version-21) 
+
 
 
 > [!IMPORTANT]
@@ -82,7 +82,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 | Aplicaciones modernas que usan ADAL, como Office 2016 |Compatible |None |
 
-Para más información sobre el uso de Azure Active Directory con AD FS, consulte la referencia sobre [Servicios de federación de Active Directory (AD FS)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
+Para obtener más información sobre el uso de Azure Active Directory con AD FS, vea [Servicios de federación de Active Directory (AD FS)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
 
 Para más información sobre el uso de Azure Active Directory con sincronización de contraseñas, consulte la referencia sobre [Azure AD Connect](active-directory-aadconnect.md).
 
@@ -96,7 +96,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |No se admite la autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para más información, consulte [AuthAnvil Single Sign On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-)
+Para obtener más información, vea [AuthAnvil Single Sign On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-).
 
 
 ## <a name="big-ip-with-access-policy-manager-big-ip-ver-113x--116x"></a>BIG-IP con Access Policy Manager BIG-IP ver. 11.3x – 11.6x
@@ -111,7 +111,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 
 Para más información sobre BIG-IP Access Policy Manager, consulte la referencia sobre [BIG-IP Access Policy Manager](https://f5.com/products/modules/access-policy-manager) 
 
-Para obtener instrucciones de BIG-IP Access Policy Manager para configurar este STS con el fin de proporcionar una experiencia de inicio de sesión único a los usuarios de Active Directory, descargue el archivo .pdf [aquí.](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf)
+Para obtener instrucciones de BIG-IP Access Policy Manager para configurar este STS con el fin de proporcionar una experiencia de inicio de sesión único a los usuarios de Active Directory, descargue el archivo .pdf [BIG-IP](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf).
 
 ## <a name="bitglass"></a>BitGlass
 
@@ -123,7 +123,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |No se admite la autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Puede obtener más información sobre BitGlass [aquí](http://www.bitglass.com ).
+Para obtener más información sobre BitGlass, vea [BitGlass](http://www.bitglass.com).
 
 ## <a name="ca-secure-cloud"></a>CA Secure Cloud
 
@@ -135,7 +135,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |No se admite la autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para más información sobre CA Secure Cloud, consulte la referencia sobre [CA Secure Cloud](http://www.ca.com/us/products/security-as-a-service.aspx)
+Para obtener más información sobre CA Secure Cloud, vea [CA Secure Cloud](http://www.ca.com/us/products/security-as-a-service.aspx).
 
 ## <a name="ca-siteminder-1252-sp1-cumulative-release-4"></a>CA SiteMinder 12.52 SP1 Cumulative Release 4
 
@@ -147,7 +147,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |None |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para más información sobre CA SiteMinder, consulte [CA SiteMinder Federation](http://www.ca.com/us/products/ca-single-sign-on.html) 
+Para obtener más información sobre CA SiteMinder, vea [CA SiteMinder Federation](http://www.ca.com/us/products/ca-single-sign-on.html). 
 
 ## <a name="centrify"></a>Centrify
 
@@ -159,7 +159,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |None |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |No se admite el control de acceso de clientes. |
 
-Para más información sobre Centrify, consulte [aquí.](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp)|
+Para obtener más información sobre Centrify, vea [Centrify](http://www.centrify.com/cloud/apps/single-sign-on-for-office-365.asp).
 
 ## <a name="dell-one-identity-cloud-access-manager-v71"></a>Dell One Identity Cloud Access Manager v7.1
 
@@ -171,9 +171,22 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |None |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para más información sobre Dell One Identity Cloud Access Manager, consulte la referencia sobre [Dell One Identity Cloud Access Manager](http://software.dell.com/products/cloud-access-manager)
+Para obtener más información sobre Dell One Identity Cloud Access Manager, vea [Dell One Identity Cloud Access Manager](http://software.dell.com/products/cloud-access-manager).
 
- Para obtener instrucciones sobre cómo configurar este STS con el fin de proporcionar la experiencia de inicio de sesión único a los usuarios de Office 365, consulte [Configure Office 365 Users](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365) 
+ Para obtener instrucciones sobre cómo configurar este STS con el fin de proporcionar la experiencia de inicio de sesión único a los usuarios de Office 365, vea [Configurar Usuarios de Office 365](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365). 
+
+## <a name="digitalpersona-composite-authentication"></a>DigitalPersona Composite Authentication  
+
+A continuación, se presenta la matriz de compatibilidad de escenarios para esta experiencia de inicio de sesión único:
+
+| Cliente | Soporte técnico | Excepciones |
+| --- | --- | --- |
+| Clientes basados en web como Exchange Web Access y SharePoint Online |Compatible |No se admite la autenticación integrada de Windows|
+| Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |No se admite la autenticación integrada de Windows|
+| Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
+
+Para obtener más información, vea [DigitalPersona Composite Authentication](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf).
+
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli Federated Identity Manager 6.2.2
 
@@ -185,7 +198,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |None |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para más información sobre IBM Tivoli Federated Identity Manager, consulte [IBM Security Access Manager for Microsoft Applications](http://www-01.ibm.com/support/docview.wss?uid=swg24029517)
+Para obtener más información sobre IBM Tivoli Federated Identity Manager, vea [IBM Security Access Manager for Microsoft Applications](http://www-01.ibm.com/support/docview.wss?uid=swg24029517).
 
 ## <a name="icewall-federation-version-30"></a>IceWall Federation versión 3.0
 
@@ -197,7 +210,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |No se admite la autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para más información sobre IceWall Federation, consulte [aquí](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) y [aquí](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html).
+Para obtener más información sobre IceWall Federation, vea [IceWall Federation versión 3.0](http://h50146.www5.hp.com/products/software/security/icewall/eng/federation/) e [IceWall Federation con Office 365](http://h50146.www5.hp.com/products/software/security/icewall/federation/office365.html).
 
 ## <a name="memority"></a>Memority
 
@@ -209,7 +222,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |None |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para más información sobre el uso de Memority, vea [Memority](http://www.memority.com).
+Para obtener más información sobre el uso de Memority, vea [Memority](http://www.memority.com).
 
 
 ## <a name="netiq-access-manager-4x"></a>NetIQ Access Manager 4.x
@@ -222,7 +235,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |None|
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para obtener más información, consulte [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m)
+Para obtener más información, vea [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m).
 
 ## <a name="okta"></a>Okta
 
@@ -234,7 +247,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |Autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para más información sobre Okta, consulte [Okta](https://www.okta.com/)
+Para obtener más información sobre Okta, vea [Okta](https://www.okta.com/).
 
 ## <a name="onelogin"></a>OneLogin
 
@@ -246,7 +259,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |Autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para más información sobre OneLogin, consulte [OneLogin.](https://www.onelogin.com/)
+Para obtener más información sobre OneLogin, vea [OneLogin](https://www.onelogin.com/).
 
 ## <a name="optimal-idm-virtual-identity-server-federation-services"></a>Servicios de federación de servidores de identidad virtual de Optimal IDM
 
@@ -258,7 +271,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |Autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |
 
-Para más información sobre las directivas de acceso de cliente, vea [Limiting Access to Office 365 Services Based on the Location of the Client](https://technet.microsoft.com/library/hh526961.aspx) (Limitación del acceso a los servicios de Office 365 en función de la ubicación del cliente). |
+Para obtener más información sobre las directivas de acceso de cliente, vea [Limiting Access to Office 365 Services Based on the Location of the Client](https://technet.microsoft.com/library/hh526961.aspx) (Limitación del acceso a los servicios de Office 365 en función de la ubicación del cliente).
 
 
 
@@ -290,7 +303,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |Autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para más información sobre RadiantOne CFS, consulte [RadiantOne CFS](http://www.radiantlogic.com/products/radiantone-cfs/)
+Para obtener más información sobre RadiantOne CFS, vea [RadiantOne CFS](http://www.radiantlogic.com/products/radiantone-cfs/).
 
 ## <a name="sailpoint-identitynow"></a>Sailpoint IdentityNow
 
@@ -302,7 +315,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |No se admite la autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para obtener más información, consulte [Sailpoint IdentityNow.](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)
+Para obtener más información, vea [Sailpoint IdentityNow](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/).
 
 ## <a name="secureauth-idp-720"></a>SecureAuth IdP 7.2.0
 
@@ -339,7 +352,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |None |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Sign&go 5.3 admite la autenticación Kerberos mediante la configuración de un contrato con Kerberos.  Para obtener ayuda sobre esta configuración, póngase en contacto con Ilex o consulte la guía de configuración [aquí.](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
+Sign&go 5.3 admite la autenticación Kerberos mediante la configuración de un contrato con Kerberos.  Para obtener ayuda sobre esta configuración, póngase en contacto con Ilex o vea la guía de configuración [Sign&go](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf).
 
 ## <a name="softbank-technology-online-service-gate"></a>SoftBank Technology Online Service Gate
 
@@ -351,7 +364,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |No se admite la autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Para más información sobre SoftBank Technology Online Service Gate, consulte [esto](https://www.softbanktech.jp/service/list/osg-pro-ent/).
+Para obtener más información sobre SoftBank Technology Online Service Gate, vea [Softbank](https://www.softbanktech.jp/service/list/osg-pro-ent/).
 
 ## <a name="vmware-workspace-one"></a>VMware Workspace One
 
@@ -363,16 +376,6 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |No se admite la autenticación integrada de Windows |
 | Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
-Puede obtener más información [aquí](http://www.vmware.com/pdf/vidm-office365-saml.pdf).
+Para obtener más información, vea [VMware Workspace One](http://www.vmware.com/pdf/vidm-office365-saml.pdf).
 
-## <a name="vmware--workspace-portal-version-21"></a>VMware Workspace Portal versión 2.1
 
-A continuación, se presenta la matriz de compatibilidad de escenarios para esta experiencia de inicio de sesión único:
-
-| Cliente | Soporte técnico | Excepciones |
-| --- | --- | --- |
-| Clientes basados en web como Exchange Web Access y SharePoint Online |Compatible |No se admite la autenticación integrada de Windows |
-| Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |No se admite la autenticación integrada de Windows |
-| Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
-
-Para más información sobre VMware Workspace Portal versión 2.1, descargue el archivo .pdf [aquí.](http://pubs.vmware.com/workspace-portal-21/topic/com.vmware.ICbase/PDF/workspace-portal-21-resource.pdf)

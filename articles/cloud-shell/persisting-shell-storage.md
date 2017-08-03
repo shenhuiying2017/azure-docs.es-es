@@ -12,21 +12,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 540cd10066e055e2dc132445b9adba5a4112d63a
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 9f5883a2a611b986aa305087084d05d6fab1ab7d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
 # <a name="persisting-files-in-azure-cloud-shell"></a>Persistencia de archivos en Azure Cloud Shell
-Al principio, Azure Cloud Shell solicita su suscripción para crear una cuenta de almacenamiento LRS y un recurso compartido de archivos de Azure para usted.
+Al principio, Azure Cloud Shell solicita su suscripción para crear una cuenta de almacenamiento LRS y un recurso compartido de archivos de Azure para usted. La suscripción debe tener acceso para crear una cuenta de almacenamiento a fin de obtener acceso a Cloud Shell.
 
 ![](media/storage-prompt.png)
 
+## <a name="how-it-works"></a>Cómo funciona
 ### <a name="three-resources-will-be-created-on-your-behalf-in-a-supported-region-nearest-to-you"></a>Se crearán tres recursos en su nombre en la región admitida más cercana a usted:
 1. Grupo de recursos llamado: `cloud-shell-storage-<region>`
 2. Cuenta de almacenamiento llamada: `cs-uniqueGuid`
@@ -42,6 +43,9 @@ Este recurso compartido de archivos se montará como `clouddrive` en el director
  
 > [!Note]
 > Todos los archivos en el directorio $Home, como las claves de SSH, se conservan en la imagen de disco de usuario almacenada en el recurso compartido de archivos montado. Ponga en práctica los procedimientos recomendados correspondientes para conservar la información en el directorio $Home y en el recurso compartido de archivos montado.
+
+### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restringir la creación de recursos con una directiva de recursos de Azure
+La cuenta de almacenamiento tiene la etiqueta "ms-resource-usage:azure-cloud-shell". Si su organización quiere impedir que los usuarios creen cuentas de almacenamiento para Cloud Shell, cree una [directiva de recursos de Azure para etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) que se desencadene mediante esta clave y valor específicos.
 
 ## <a name="using-clouddrive"></a>Uso de clouddrive
 Cloud Shell permite a los usuarios ejecutar un comando llamado `clouddrive` que permite actualizar manualmente el recurso compartido de archivos montado en Cloud Shell.
@@ -132,6 +136,6 @@ El directorio `clouddrive` se sincroniza con la hoja de almacenamiento de Azure 
 Ahora debería ver el archivo accesible en el directorio clouddrive de Cloud Shell.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Guía de inicio rápido de Cloud Shell](quickstart.md) 
-[Más información sobre Azure File Storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
-[Más información sobre las etiquetas de Storage](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) 
+[Inicio rápido de Cloud Shell](quickstart.md) <br>
+[Información sobre Azure File Storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Información sobre las etiquetas de Storage](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

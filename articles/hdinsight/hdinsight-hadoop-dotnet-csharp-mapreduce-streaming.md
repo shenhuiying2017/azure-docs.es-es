@@ -191,7 +191,7 @@ Después de crear la aplicación, compílela para generar el archivo `/bin/Debug
     * Si emplea __Azure Storage__ como almacenamiento predeterminado:
 
         ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
         ```
 
     En la lista siguiente, se describen las funciones de cada parámetro:

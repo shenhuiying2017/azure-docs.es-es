@@ -1,5 +1,5 @@
 ---
-title: "Uso de un espacio aislado de Hadoop para obtener información sobre Hadoop | Microsoft Docs"
+title: Empleo de un espacio aislado o emulador de Hadoop - Azure HDInsight | Microsoft Docs
 description: "Para empezar a obtener información sobre el ecosistema de Hadoop, puede configurar un espacio aislado de Hadoop desde Hortonworks en una máquina virtual de Azure. "
 keywords: emulador de hadoop, espacio aislado de hadoop
 editor: cgronlun
@@ -10,21 +10,22 @@ documentationcenter:
 tags: azure-portal
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 1618ed7971ffef0eae55b73b4bdd04f3f14195ba
-ms.openlocfilehash: a070df78bf95173aa48da60d24d14d08d9be8d9a
-ms.lasthandoff: 01/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: b701879464205860edd1c097651b532f87bae388
+ms.contentlocale: es-es
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="get-started-in-the-hadoop-ecosystem-with-a-hadoop-sandbox-on-a-virtual-machine"></a>Introducción al ecosistema de Hadoop con un espacio aislado de Hadoop en una máquina virtual
+# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Empleo de un espacio aislado de Hadoop, un emulador en una máquina virtual
 
 Aprenda a instalar el espacio aislado de Hadoop desde Hortonworks en una máquina virtual para obtener información sobre el ecosistema de Hadoop. El espacio aislado proporciona un entorno de desarrollo local para comprender Hadoop, el sistema de archivos distribuido de Hadoop (HDFS) y el envío de trabajos. Cuando se haya familiarizado con Hadoop, puede empezar a usarlo en Azure mediante la creación de un clúster de HDInsight. Para obtener más información sobre cómo empezar, consulte [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -35,7 +36,8 @@ Aprenda a instalar el espacio aislado de Hadoop desde Hortonworks en una máquin
 
 ## <a name="download-and-install-the-virtual-machine"></a>Descarga e instalación de la máquina virtual
 1. Vaya a las [descargas de Hortonworks](http://hortonworks.com/downloads/#sandbox).
-2. Haga clic en **DOWNLOAD FOR VIRTUALBOX** (DESCARGAR PARA VIRTUALBOX) para descargar la última versión de Hrotonworks Sandbox en una máquina virtual. Se le pedirá que se registre en Hortonworks antes de que comience la descarga. La descarga tarda de una a dos horas según la velocidad de la red.
+
+2. Haga clic en **DOWNLOAD FOR VIRTUALBOX** (DESCARGAR PARA VIRTUALBOX) para descargar la última versión de Hortonworks Sandbox en una máquina virtual. Se le pedirá que se registre en Hortonworks para poder descargar. La descarga tarda de una a dos horas según la velocidad de la red.
    
     ![Imagen del vínculo para descargar Sandbox de Hortonworks para VirtualBox](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png)
 3. En la misma página web, haga clic en el vínculo **Import on Virtual Box** (Importar en Virtual Box para descargar un archivo PDF que contiene las instrucciones de instalación de la máquina virtual.
@@ -49,25 +51,26 @@ Para descargar un espacio aislado de una versión más antigua de HDP, expanda e
 
 1. Abra Oracle VM VirtualBox.
 2. En el menú **File** (Archivo), haga clic en **Import Appliance** (Importar aplicación) y luego especifique la imagen de Hortonworks Sandbox.
-1. Seleccione el espacio aislado Hortonworks Sandbox, haga clic en **Start** (Iniciar) y luego en **Normal Start** (Inicio normal). Una vez que la máquina virtual ha terminado el proceso de arranque, mostrará las instrucciones de inicio de sesión.
+1. Seleccione el espacio aislado Hortonworks Sandbox, haga clic en **Start** (Iniciar) y luego en **Normal Start** (Inicio normal). Una vez que la máquina virtual ha terminado el proceso de arranque, muestra instrucciones de inicio de sesión.
    
     ![Normal Start](./media/hdinsight-hadoop-emulator-get-started/normal-start.png)
 2. Abra un explorador web y vaya a la dirección URL que se muestra (normalmente http://127.0.0.1:8888).
 
 ## <a name="set-sandbox-passwords"></a>Establecimiento de las contraseñas del espacio aislado
 
-1. En el paso **get started** (introducción) de la página Sandbox de Hortonworks, seleccione **View Advanced Options** (Ver opciones avanzadas). Utilice la información de esta página para iniciar sesión en el espacio aislado usando SSH. Utilice el nombre y la contraseña proporcionada.
+1. En el paso **get started** (introducción) de la página Sandbox de Hortonworks, seleccione **View Advanced Options** (Ver opciones avanzadas). Use la información de esta página para iniciar sesión en el espacio aislado mediante SSH. Utilice el nombre y la contraseña proporcionada.
    
    > [!NOTE]
    > Si no tiene instalado un cliente SSH, puede usar el SSH web que proporciona la máquina virtual en **http://localhost:4200/**.
    > 
    
-    La primera vez que se conecta a través de SSH, se le solicitará que cambie la contraseña para la cuenta raíz. Escriba una contraseña nueva, que se utilizará cuando inicie sesión con SSH en el futuro.
+    La primera vez que se conecte mediante SSH, se le pedirá que cambie la contraseña de la cuenta raíz. Escriba una contraseña nueva, que se usará al iniciar sesión mediante SSH.
+
 2. Una vez que haya iniciado sesión, escriba el comando siguiente:
    
         ambari-admin-password-reset
    
-    Cuando se le solicite, proporcione una contraseña para la cuenta de administración de Ambari. Esta se utilizará para obtener acceso a la interfaz de usuario de la web de Ambari.
+    Cuando se le solicite, proporcione una contraseña para la cuenta de administración de Ambari. Esta se usará para tener acceso a la interfaz de usuario web de Ambari.
 
 ## <a name="use-hive-commands"></a>Uso de comandos de Hive
 

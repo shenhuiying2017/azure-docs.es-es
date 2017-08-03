@@ -1,5 +1,5 @@
 ---
-title: Arquitectura Azure HDInsight unida a un dominio| Microsoft Docs
+title: Arquitectura Azure HDInsight unida a un dominio | Microsoft Docs
 description: "Aprenda a planear clústeres de HDInsight unidos a un dominio."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: saurinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: d365446b7eafd373b3d1bde2ed0a407f1e917b86
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7e34f47f09466a40993b4cc797ff1cad2bdaeafe
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -28,17 +28,17 @@ ms.lasthandoff: 05/31/2017
 
 Tradicionalmente, Hadoop es un clúster de un solo usuario. Es apropiado para la mayor parte de las empresas que tienen equipos de aplicaciones pequeños que generan grandes cargas de trabajo de datos. A medida que aumenta la popularidad de Hadoop, muchas empresas empiezan a usar un modelo en el que los equipos de TI administran clústeres y varios equipos de aplicaciones comparten los clústeres. Por consiguiente, las funcionalidades que implican a clústeres de varios usuarios se encuentran entre las más solicitadas en HDInsight de Azure.
 
-En lugar de generar su propia autenticación y autorización multiusuario, HDInsight usa el proveedor de identidades más popular, Azure Active Directory (Azure AD). La eficaz funcionalidad de seguridad de Azure AD se puede usar para administrar la autorización multiusuario en HDInsight. Mediante la integración de HDInsight con Azure AD, se puede comunicar con los clústeres mediante sus credenciales de Azure AD. HDInsight asigna un usuario de Azure AD a un usuario de Hadoop local, de modo que todos los servicios que se ejecutan en HDInsight (Ambari, servidor de Hive, Ranger, servidor Thrift de Spark, etc.) funcionan perfectamente para el usuario autenticado.
+En lugar de generar su propia autenticación y autorización multiusuario, HDInsight usa el proveedor de identidades más popular: Active Directory (AD). La eficaz funcionalidad de seguridad de AD se puede usar para administrar la autorización multiusuario en HDInsight. Mediante la integración de HDInsight con AD, se puede comunicar con los clústeres mediante sus credenciales de AD. HDInsight asigna un usuario de AD a un usuario de Hadoop local, de modo que todos los servicios que se ejecutan en HDInsight (Ambari, servidor de Hive, Ranger, servidor Thrift de Spark, etc.) funcionan perfectamente para el usuario autenticado.
 
-## <a name="integrate-hdinsight-with-azure-ad"></a>Integración de HDInsight con Azure Apps
+## <a name="integrate-hdinsight-with-ad-and-ad-on-iaas-vm"></a>Integración de HDInsight con AD y AD en la máquina virtual de IaaS
 
-Mediante la integración de HDInsight con Azure AD, los nodos del clúster de HDInsight se unen al dominio de Azure AD. HDInsight crea entidades de servicio para los servicios de Hadoop que se ejecutan en el clúster y las coloca en una unidad organizativa (OU) especificada de Azure AD. HDInsight también crea asignaciones de DNS inverso en el dominio de Azure AD para las direcciones IP de los nodos que se unen al dominio.
+Al integrar HDInsight con Azure AD o AD, los nodos del clúster de HDInsight son unidos a un dominio para un dominio. HDInsight crea entidades de servicio para los servicios de Hadoop que se ejecutan en el clúster y las coloca en una unidad organizativa (OU) especificada de Azure AD o AD en una máquina virtual de IaaS. HDInsight también crea asignaciones de DNS inverso en el dominio para las direcciones IP de los nodos que se unen al dominio.
 
 Esta configuración se puede lograr mediante el uso de varias arquitecturas. Puede elegir entre las siguientes opciones.
 
-**HDInsight integrado con Azure AD que se ejecuta en Azure IaaS**
+**HDInsight integrado con AD que se ejecuta en Azure IaaS**
 
-Esta es la arquitectura más sencilla para integrar HDInsight con Azure AD. El controlador de dominio de Azure AD se ejecuta en una máquina virtual, o en varias, en Azure. Normalmente, estas máquinas virtuales se encuentran en una red virtual. Configure otra red virtual para el clúster de HDInsight. Para que HDInsight tenga una línea de visión a Azure AD, es preciso emparejar estas redes virtuales mediante el uso del [emparejamiento de VNet a VNet](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md).
+Esta es la arquitectura más sencilla para la integración de HDInsight con Active Directory. El controlador de dominio de AD se ejecuta en una máquina virtual, o en varias, en Azure. Normalmente, estas máquinas virtuales se encuentran en una red virtual. Configure otra red virtual para el clúster de HDInsight. Para que HDInsight tenga una línea de visión a Active Directory, es preciso emparejar estas redes virtuales mediante el uso del [emparejamiento de VNet a VNet](../virtual-network/virtual-network-create-peering.md). Si crea el Active Directory en ARM, a continuación, puede crear el Active Directory y HDInsight en la misma red virtual y no tiene que hacer el emparejamiento. 
 
 ![Topología de clúster de HDInsight de unión a dominio](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_1.png)
 
@@ -46,10 +46,10 @@ Esta es la arquitectura más sencilla para integrar HDInsight con Azure AD. El c
 > En esta arquitectura, Azure Data Lake Store no se puede usar con el clúster de HDInsight.
 
 
-Requisitos previos de Azure AD:
+Requisitos previos de Active Directory:
 
 * Se debe crear una [unidad organizativa](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md), en la que se colocan las máquinas virtuales del clúster de HDInsight y las entidades de servicio que usa el clúster.
-* [Protocolos ligeros de acceso a directorios](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAP) deben configurarse para comunicarse con Azure AD. El certificado que se usa para instalar LDAPS debe ser un certificado real (no uno autofirmado).
+* [Protocolo ligero de acceso a directorios](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAP) debe configurarse para comunicarse con AD. El certificado que se usa para instalar LDAPS debe ser un certificado real (no uno autofirmado).
 * Deben crearse zonas de DNS inverso en el dominio para el intervalo de direcciones IP de la subred de HDInsight (por ejemplo, 10.2.0.0/24 en la imagen anterior).
 * Se necesita una cuenta de servicio o una cuenta de usuario. Utilice esta cuenta para crear el clúster de HDInsight. Esta cuenta debe tener los siguientes permisos:
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 06/16/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0fb7e8fe778c8d6f7e12b1c8a75c95941da3d4d9
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: b8cac63967bf837183095cbb235c4a84f2dabcb9
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory
@@ -33,6 +33,7 @@ Para más información acerca de:
 
 - Acceso condicional, consulte [Acceso condicional en Azure Active Directory: versión preliminar](active-directory-conditional-access-azure-portal.md). 
 - Dispositivos con Windows 10 en el área de trabajo y las experiencias mejoradas al registrarse en Azure AD, consulte [Windows 10 para empresa: formas de usar dispositivos para trabajar](active-directory-azureadjoin-windows10-devices-overview.md).
+- Windows 10 Enterprise E3 en CSP, consulte la [Introducción a Windows 10 Enterprise E3 en CSP](https://docs.microsoft.com/en-us/windows/deployment/windows-10-enterprise-e3-overview).
 
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -59,9 +60,8 @@ Para mejorar la legibilidad de las descripciones, en este tema se utiliza el té
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- El registro de dispositivos de Windows inferiores **no se** admite en:
-    - Entornos no federado (configuraciones de sincronización de hash de contraseña).  
-    - Dispositivos que usan perfiles móviles. Si confía en la itinerancia de la configuración o de los perfiles, use Windows 10.
+- El registro de dispositivos de Windows de nivel inferior **se** admite en entornos no federados a través del inicio de sesión único de conexión directa [Inicio de sesión único de conexión directa de Azure Active Directory](https://aka.ms/hybrid/sso).
+- El registro de dispositivos de Windows de nivel inferior **no se** admite en dispositivos que usan perfiles móviles. Si confía en la itinerancia de la configuración o de los perfiles, use Windows 10.
 
 
 
@@ -137,7 +137,10 @@ El siguiente script muestra un ejemplo de uso del cmdlet. En este script, `$aadA
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
-El cmdlet `Initialize-ADSyncDomainJoinedComputerSync` usa el módulo de PowerShell de Active Directory, que usa Active Directory Web Services (ADWS) que se ejecuta en un controlador de dominio. Active Directory Web Services es compatible con los controladores de dominio en los que se ejecuta Windows Server 2008 R2, y las versiones posteriores. 
+El cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
+
+- Usa el módulo de PowerShell de Active Directory, que usa Active Directory Web Services que se ejecuta en un controlador de dominio. Active Directory Web Services es compatible con los controladores de dominio en los que se ejecuta Windows Server 2008 R2, y las versiones posteriores.
+- Solo es compatible con la **versión 1.1.166.0 del módulo de MSOnline PowerShell**. Para descargar este módulo, use este [vínculo](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
 
 En los casos de los controladores de dominio en los que se ejecuta Windows Server 2008 R2, o alguna versión anterior, use el siguiente script para crear el punto de conexión de servicio.
 
@@ -524,7 +527,9 @@ Para evitar las peticiones de certificados cuando los usuarios de dispositivos r
 
 ## <a name="step-4-control-deployment-and-rollout"></a>Paso 4: Control de implementación y lanzamiento
 
-Cuando se hayan completado los pasos requeridos, los dispositivos unidos a un dominio están listos para registrarse automáticamente en Azure AD. Todos los dispositivos unidos a un dominio en que se ejecuten la Actualización de aniversario de Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD cuando el dispositivo se reinicie o el usuario inicie sesión. Los dispositivos nuevos se registran en Azure AD al reiniciarse después de la operación de unión al dominio.
+Cuando se hayan completado los pasos requeridos, los dispositivos unidos a un dominio están listos para registrarse automáticamente en Azure AD. Todos los dispositivos unidos a un dominio en que se ejecuten la Actualización de aniversario de Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD cuando el dispositivo se reinicie o el usuario inicie sesión. Los dispositivos nuevos se registran en Azure AD al reiniciarse después de que finaliza la operación de unión al dominio.
+
+Los dispositivos que anteriormente estaban unidos a un área de trabajo en Azure AD (por ejemplo, para Intune) pasan a estar "*unidos a dominio, registrados en AAD*". Sin embargo, este proceso tarda algún tiempo en completarse en todos los dispositivos debido al flujo normal de actividades de dominio y de usuario.
 
 ### <a name="remarks"></a>Comentarios
 

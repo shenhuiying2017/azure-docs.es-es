@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b28488ac9037b0f0ff7df892b9c3a61167b1eceb
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Realización de streaming en vivo con codificadores locales mediante el Portal de Azure
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Realización de streaming en vivo con codificadores locales mediante Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -41,9 +42,9 @@ Es importante que revise los artículos siguientes:
 
 * [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Información general de streaming en vivo con Servicios multimedia de Azure](media-services-manage-channels-overview.md)
-* [Streaming en vivo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md)
+* [Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Escenario común de streaming en vivo
+## <a id="scenario"></a>Escenario común de streaming en vivo
 Los pasos siguientes describen las tareas que conlleva la creación de aplicaciones comunes de streaming en vivo que usan canales configurados para entregas de paso a través. Este tutorial muestra cómo crear y administrar un canal de paso a través y eventos en directo.
 
 >[!NOTE]
@@ -69,7 +70,7 @@ Los pasos siguientes describen las tareas que conlleva la creación de aplicacio
 9. Elimine el evento o programa (y, opcionalmente, elimine el recurso).     
 
 > [!IMPORTANT]
-> Revise [Streaming en directo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md) para obtener información acerca de los conceptos y las consideraciones relacionadas con el streaming en vivo con codificadores locales y canales de paso a través.
+> Consulte [Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md) para obtener información acerca de los conceptos y las consideraciones relacionadas con el streaming en vivo con codificadores locales y canales de paso a través.
 > 
 > 
 
@@ -100,7 +101,7 @@ Si desea conservar el contenido archivado, pero no hacerlo disponible para la tr
 ### <a name="to-use-the-portal-to-create-a-channel"></a>Uso del portal para crear un canal
 Esta sección muestra cómo utilizar la opción **Creación rápida** para crear un canal de paso a través.
 
-Para más información sobre los canales de este tipo, consulte [Streaming en vivo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
+Para más información sobre este tipo de canales, consulte [Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
 2. En la ventana **Configuración**, haga clic en **Streaming en vivo**. 
@@ -134,7 +135,7 @@ Para ver el evento, haga clic en **Inspección** en el Portal de Azure o copie l
 El evento en directo se convierte automáticamente en contenido a petición cuando se detiene.
 
 ## <a name="clean-up"></a>Limpieza
-Para más información sobre los canales de este tipo, consulte [Streaming en vivo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
+Para más información sobre este tipo de canales, consulte [Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
 
 * Un canal se puede detener solo cuando se hayan detenido todos los eventos o programas del canal.  Cuando se detiene el canal, no se incurre en ningún cargo. Cuando necesite iniciarlo de nuevo, tendrá la misma URL de introducción, por lo que no necesitará volver a configurar su codificador.
 * Un canal se puede eliminar solo cuando se hayan eliminado todos los eventos en directo del canal.
@@ -153,10 +154,5 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

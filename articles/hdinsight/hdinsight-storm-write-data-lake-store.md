@@ -1,6 +1,6 @@
 ---
-title: "Uso del Almacén de Azure Data Lake con Apache Storm en Azure HDInsight"
-description: "Aprenda a escribir datos en Almacén de Azure Data Lake desde una topología de Apache Storm en HDInsight. Este documento y el ejemplo asociado muestran cómo se puede usar el componente HdfsBolt para escribir en Almacén de Data Lake."
+title: Escritura de Apache Storm en Storage o Data Lake Store - Azure HDInsight | Microsoft Docs
+description: "Obtenga más información sobre cómo usar Apache Storm para escribir datos en almacenamiento compatible con HDFS para HDInsight. Azure Storage o Azure Data Lake Store proporcionan almacenamiento compatible con HDFS para HDInsight. En este documento y en el ejemplo relacionado se muestra cómo se puede usar el componente HfdfsBolt para escribir datos en el almacenamiento predeterminado de un clúster de HDInsight en Storm."
 services: hdinsight
 documentationcenter: na
 author: Blackmist
@@ -13,60 +13,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/19/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 30edf20d7fc742da9b42d3ea9baafcce31141259
-ms.lasthandoff: 04/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 10dc8789e8f4a2b27fd3a4c6fec2ab28c674170a
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="use-azure-data-lake-store-with-apache-storm-with-hdinsight-java"></a>Uso de Azure Data Lake Store con Apache Storm con HDInsight (Java)
+# <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Escritura de datos en HDFS desde Apache Storm en HDInsight
 
-Almacén de Azure Data Lake es un servicio de almacenamiento en la nube compatible con HDFS que ofrece alto rendimiento, disponibilidad, durabilidad y confiabilidad de los datos. En este documento, aprenderá a utilizar una topología de Storm basada en Java para escribir datos en Azure Data Lake Store. Los pasos descritos en este documento usan el componente [HdfsBolt](http://storm.apache.org/releases/1.0.2/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html), que se proporciona como parte de Apache Storm.
+Obtenga más información sobre cómo usar Storm para escribir datos en el almacenamiento compatible con HDFS que usa Apache Storm en HDInsight. HDInsight puede usar tanto Azure Storage como Azure Data Lake como almacenamiento compatible con HDFS. Storm proporciona un componente [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) que permite escribir datos en HDFS. En este documento se proporciona información sobre cómo escribir datos en ambos tipos de almacenamiento desde HdfsBolt. 
 
 > [!IMPORTANT]
-> La topología de ejemplo usada en este documento se basa en componentes que se incluyen con clústeres de Storm en HDInsight y pueden que requiera modificaciones para que funcione con Azure Data Lake Store cuando se usa con otros clústeres de Apache Storm.
+> La topología de ejemplo que se usa en este documento depende de componentes que se incluyen con Storm en HDInsight. Puede que sea necesario realizar alguna modificación para que funcione con Azure Data Lake Store al usarlo con otros clústeres de Apache Storm.
 
-## <a name="how-to-work-with-azure-data-lake-store"></a>Trabajo con Azure Data Lake Store
+## <a name="get-the-code"></a>Obtención del código
 
-Data Lake Store aparece en HDInsight como un sistema de archivos compatible con HDFS, por lo que puede usar el bolt Storm-HDFS para escribir en él. Cuando trabaja con Azure Data Lake en HDInsight, puede utilizar un esquema de archivos de `adl://`.
+El proyecto que contiene esta topología está disponible como descarga en [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
-* Si Data Lake Store es el almacenamiento principal del clúster, use `adl:///`. Esta es la raíz del almacenamiento de clúster en Azure Data Lake. Esto puede traducirse en una ruta de acceso de /clústeres/NOMBREDECLÚSTER en la cuenta de Data Lake Store.
-* Si Data Lake Store es el almacenamiento adicional del clúster, use `adl://DATALAKEACCOUNT.azuredatalakestore.net/`. Este URI especifica la cuenta de Data Lake Store en la que se escriben los datos. Los datos se escriben a partir de la raíz de Data Lake Store.
+Para compilar este proyecto, necesitará la siguiente configuración para su entorno de desarrollo:
 
-    > [!NOTE]
-    > También puede usar este formato URI para guardar los datos en la cuenta de Data Lake Store que contiene el almacenamiento principal para su clúster. Esto le permite guardar los datos fuera de la ruta del directorio que contiene HDInsight.
+* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o versiones posteriores. HDInsight 3.5 y versiones posteriores requieren Java 8.
 
-El código Java siguiente muestra cómo puede utilizar el bolt Storm-HDFS para escribir datos en un directorio denominado `/stormdata` en una cuenta de Data Lake Store denominada `MYDATALAKE`.
+* [Maven 3.x](https://maven.apache.org/download.cgi)
 
-```java
-// 1. Create sync and rotation policies to control when data is synched
-//    (written) to the file system and when to roll over into a new file.
-SyncPolicy syncPolicy = new CountSyncPolicy(1000);
-FileRotationPolicy rotationPolicy = new FileSizeRotationPolicy(0.5f, Units.KB);
-// 2. Set the format. In this case, comma delimited
-RecordFormat recordFormat = new DelimitedRecordFormat().withFieldDelimiter(",");
-// 3. Set the directory name. In this case, '/stormdata/'
-FileNameFormat fileNameFormat = new DefaultFileNameFormat().withPath("/stormdata/");
-// 4. Create the bolt using the previously created settings,
-//    and also tell it the base URL to your Data Lake Store.
-// NOTE! Replace 'MYDATALAKE' below with the name of your data lake store.
-HdfsBolt adlsBolt = new HdfsBolt()
-    .withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")
-        .withRecordFormat(recordFormat)
-        .withFileNameFormat(fileNameFormat)
-        .withRotationPolicy(rotationPolicy)
-        .withSyncPolicy(syncPolicy);
-// 4. Give it a name and wire it up to the bolt it accepts data
-//    from. NOTE: The name used here is also used as part of the
-//    file name for the files written to Data Lake Store.
-builder.setBolt("ADLStoreBolt", adlsBolt, 1)
-    .globalGrouping("finalcount");
-```
+Pueden establecer las siguientes variables de entorno al instalar Java y el JDK en la estación de trabajo de desarrollo. Sin embargo, debe comprobar que existen y que contienen los valores correctos para su sistema.
 
-El siguiente YAML muestra cómo utilizar el bolt Storm-HDFS desde el marco de trabajo de Flux:
+* `JAVA_HOME`: debe apuntar al directorio en el que esté instalado JDK.
+* `PATH`: debe contener las rutas de acceso siguientes:
+  
+    * `JAVA_HOME` (o la ruta de acceso equivalente).
+    * `JAVA_HOME\bin` (o la ruta de acceso equivalente).
+    * Directorio en el que esté instalado Maven.
+
+## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>Cómo usar HdfsBolt con HDInsight
+
+> [!IMPORTANT]
+> Antes de usar HdfsBolt con Storm en HDInsight, debe usar una acción de script para copiar los archivos .jar necesarios en `extpath` para Storm. Para obtener más información, consulte la sección [Configuración del clúster](#configure).
+
+HdfsBolt usa el esquema de archivo que usted proporcione para comprender cómo escribir datos en HDFS. Con HDInsight, use uno de los siguientes esquemas:
+
+* `wasb://`: se usa con una cuenta de Azure Storage.
+* `adl://`: se usa con Azure Data Lake Store.
+
+En la siguiente tabla se proporcionan ejemplos de cómo usar el esquema de archivos en diferentes casos:
+
+| Esquema | Notas |
+| ----- | ----- |
+| `wasb:///` | La cuenta de almacenamiento predeterminada es un contenedor de blobs de una cuenta de Azure Storage. |
+| `adl:///` | La cuenta de almacenamiento predeterminada es un directorio de Azure Data Lake Store. Durante la creación del clúster, especifique el directorio de Data Lake Store que sea la raíz del HDFS del clúster. Por ejemplo, el directorio `/clusters/myclustername/`. |
+| `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Cuenta de Azure Storage no predeterminada (adicional) asociada al clúster. |
+| `adl://STORENAME/` | Raíz de Data Lake Store que usa el clúster. El uso de este esquema permite acceder a datos que se encuentren fuera del directorio que contiene el sistema de archivos del clúster. |
+
+Para obtener más información, consulte la referencia de [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) en Apache.org.
+
+### <a name="example-configuration"></a>Configuración de ejemplo
+
+El siguiente YAML es un fragmento del archivo `resources/writetohdfs.yaml` incluido en el ejemplo. Este archivo define la topología de Storm mediante el marco [Flux](https://storm.apache.org/releases/1.1.0/flux.html) para Apache Storm.
 
 ```yaml
 components:
@@ -74,11 +79,9 @@ components:
     className: "org.apache.storm.hdfs.bolt.sync.CountSyncPolicy"
     constructorArgs:
       - 1000
+
   - id: "rotationPolicy"
-    className: "org.apache.storm.hdfs.bolt.rotation.FileSizeRotationPolicy"
-    constructorArgs:
-      - 5
-      - KB
+    className: "org.apache.storm.hdfs.bolt.rotation.NoRotationPolicy"
 
   - id: "fileNameFormat"
     className: "org.apache.storm.hdfs.bolt.format.DefaultFileNameFormat"
@@ -94,11 +97,12 @@ components:
       - name: "withFieldDelimiter"
         args: ["|"]
 
-  - id: "rotationAction"
-    className: "org.apache.storm.hdfs.common.rotation.MoveFileAction"
-    configMethods:
-      - name: "toDestination"
-        args: ["${hdfs.dest.dir}"]
+# spout definitions
+spouts:
+  - id: "tick-spout"
+    className: "com.microsoft.example.TickSpout"
+    parallelism: 1
+
 
 # bolt definitions
 bolts:
@@ -117,65 +121,46 @@ bolts:
         args: [ref: "rotationPolicy"]
       - name: "withSyncPolicy"
         args: [ref: "syncPolicy"]
-    parallelism: 1
 ```
 
-> [!NOTE]
-> Los ejemplos de este documento usan el marco de trabajo de Flux.
+En este YAML se definen los siguientes elementos:
 
-## <a name="prerequisites"></a>Requisitos previos
+* `syncPolicy`: define cuándo se sincronizan o vacían los archivos en el sistema de archivos. En este ejemplo, cada 1000 tuplas.
+* `fileNameFormat`: define la ruta de acceso y el patrón del nombre de archivo que se usarán al escribir archivos. En este ejemplo, la ruta de acceso se proporciona durante el tiempo de ejecución con un filtro, y la extensión de archivo es `.txt`.
+* `recordFormat`: define el formato interno de los archivos escritos. En este ejemplo, los campos están delimitados por el carácter `|`.
+* `rotationPolicy`: define cuándo se giran los archivos. En este ejemplo no se realiza ningún giro.
+* `hdfs-bolt`: usa los componentes anteriores como parámetros de configuración para la clase `HdfsBolt`.
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o versiones posteriores. HDInsight 3.5 requiere Java 8.
+Para obtener más información sobre el marco Flux, consulte [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
 
-* [Maven 3.x](https://maven.apache.org/download.cgi)
+## <a name="configure-the-cluster"></a>Configuración del clúster
 
-* La versión 3.5 de un clúster de Storm en HDInsight. Para crear un nuevo clúster de Storm en HDInsight, siga los pasos descritos en el documento [Uso de HDInsight con Data Lake Store mediante Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+De manera predeterminada, Storm en HDInsight no incluye los componentes que usa HdfsBolt para la comunicación con Azure Storage o Data Lake Store en el parámetro classpath de Storm. Use la siguiente acción de script para agregar dichos componentes al directorio `extlib` de Storm en su clúster:
 
-### <a name="configure-environment-variables"></a>Configuración de las variables de entorno
+| URI de script | Nodos en los que se aplicará| Parámetros | | `https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh` | Nimbus, supervisor | Ninguno |
 
-Pueden establecer las siguientes variables de entorno al instalar Java y el JDK en la estación de trabajo de desarrollo. Sin embargo, debe comprobar que existen y que contienen los valores correctos para su sistema.
-
-* **JAVA_HOME**: debe apuntar al directorio donde está instalado Java Runtime Environment (JRE). Por ejemplo, en una distribución de Unix o Linux, debe tener un valor similar a `/usr/lib/jvm/java-8-oracle`. En Windows, tendría un valor similar a `c:\Program Files (x86)\Java\jre1.8`.
-* **PATH** : debe contener las rutas de acceso siguientes:
-  
-  * **JAVA\_HOME** (o la ruta de acceso equivalente)
-  * **JAVA\_HOME\bin** (o la ruta de acceso equivalente)
-  * El directorio donde está instalado Maven
-
-## <a name="topology-implementation"></a>Implementación de la topología
-
-El ejemplo usado en este documento está escrito en Java y utiliza los siguientes componentes:
-
-* **TickSpout**: genera los datos que usan otros componentes de la topología.
-* **PartialCount**: cuenta los eventos generados mediante TickSpout.
-* **FinalCount**: agrega datos de recuento de PartialCount.
-* **ADLStoreBolt**: escribe datos en Azure Data Lake Store mediante el componente [HdfsBolt](http://storm.apache.org/releases/1.0.2/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html).
-
-El proyecto que contiene esta topología está disponible como descarga en [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
+Para obtener más información sobre cómo usar este script con su clúster, consulte el documento [Personalización de clústeres de HDInsight mediante la acción de scripts](./hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="build-and-package-the-topology"></a>Compilación y empaquetado de la topología
 
 1. Descargue el proyecto de ejemplo de [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) en su entorno de desarrollo.
 
-2. Abra el archivo `StormToDataLake\src\main\java\com\microsoft\example\StormToDataLakeStore.java` en un editor y busque la línea que contiene `.withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")`. Cambie **MYDATALAKE** por el nombre de Azure Data Lake Store que usó al crear el servidor de HDInsight.
-
-3. Desde un símbolo del sistema, un terminal o la sesión del shell, cambie los directorios a la raíz del proyecto descargado y ejecute los siguientes comandos para compilar y empaquetar la topología.
+2. Desde un símbolo del sistema, un terminal o una sesión de shell, cambie los directorios a la raíz del proyecto descargado. Para compilar y empaquetar la topología, use el siguiente comando:
    
-        mvn compile
-        mvn package
+        mvn compile package
    
-    Al finalizar la compilación y el empaquetado, habrá un nuevo directorio denominado "`target`", que contiene un archivo denominado "`StormToDataLakeStore-1.0-SNAPSHOT.jar`". Contiene la topología compilada.
+    Al finalizar la compilación y el empaquetado, habrá un nuevo directorio denominado `target` con el archivo `StormToHdfs-1.0-SNAPSHOT.jar`. Este archivo contiene la topología compilada.
 
 ## <a name="deploy-and-run-the-topology"></a>Implementación y ejecución de la topología
 
 1. Use el siguiente comando para copiar la topología en el clúster de HDInsight. Reemplace **USER** por el nombre de usuario SSH que usó al crear el clúster. Reemplace **CLUSTERNAME** por el nombre del clúster.
    
-        scp target\StormToDataLakeStore-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToDataLakeStore-1.0-SNAPSHOT.jar
+        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs1.0-SNAPSHOT.jar
    
     Cuando se le solicite, escriba la contraseña que se usó al crear el usuario SSH del clúster. Si usó una clave pública en lugar de una contraseña, tal vez tenga que usar el parámetro `-i` para especificar la ruta de acceso a la correspondiente clave privada.
    
    > [!NOTE]
-   > Si usa un cliente Windows para el desarrollo, puede que no tenga un comando `scp`. En ese caso, puede usar `pscp`, que está disponible en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+   > Para obtener más información sobre cómo usar `scp` con HDInsight, consulte [Conexión a través de SSH con HDInsight](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Una vez finalizada la carga, use lo siguiente para conectarse al clúster de HDInsight con SSH. Reemplace **USER** por el nombre de usuario SSH que usó al crear el clúster. Reemplace **CLUSTERNAME** por el nombre del clúster.
    
@@ -191,16 +176,19 @@ El proyecto que contiene esta topología está disponible como descarga en [http
 
 4. Use el texto siguiente como contenido del archivo `dev.properties`:
 
-        hdfs.write.dir: /stormdata
-        hdfs.url: adl:///
+        hdfs.write.dir: /stormdata/
+        hdfs.url: wasb:///
+
+    > [!IMPORTANT]
+    > En este ejemplo se da por supuesto que su clúster usa una cuenta de Azure Storage como almacenamiento predeterminado. Si el clúster usa Azure Data Lake Store, use `hdfs.url: adl:///`.
     
     Para guardar el archivo, use __Ctrl+X__, después __Y__ y, finalmente, presione __Intro__. Los valores de este archivo establecen la URL de Data Lake Store y el nombre del directorio en el que se escriben los datos.
 
 3. Use el comando siguiente para iniciar la topología:
    
-        storm jar StormToDataLakeStore-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /datalakewriter.yaml --filter dev.properties
+        storm jar StormToHdfs-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writetohdfs.yaml --filter dev.properties
 
-    Este comando inicia la topología mediante el marco de trabajo de Flux. La topología la define el archivo `datalakewriter.yaml` incluido en el jar. El archivo `dev.properties` se pasa como un filtro y la topología lee los valores contenidos en el archivo.
+    Este comando inicia la topología con el marco de Flux enviándolo al nodo Nimbus del clúster. La topología la define el archivo `writetohdfs.yaml` incluido en el jar. El archivo `dev.properties` se pasa como un filtro y la topología lee los valores contenidos en el archivo.
 
 ## <a name="view-output-data"></a>Visualización de datos de salida
 
@@ -208,34 +196,24 @@ Para ver los datos, use el siguiente comando:
 
     hdfs dfs -ls /stormdata/
 
-Esto muestra una lista de archivos creados por la topología.
-
-Si Data Lake Store no es el almacenamiento predeterminado para el clúster, use el comando siguiente para ver los datos:
-
-    hdfs dfs -ls adl://MYDATALAKE.azuredatalakestore.net/stormdata/
-
-En el comando anterior, reemplace __MYDATALAKE__ con la cuenta de Data Lake Store.
+Se muestra una lista de los archivos que ha creado la topología.
 
 La lista siguiente es un ejemplo de los datos devueltos por los comandos anteriores:
 
     Found 30 items
-    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-0-1488568403092.txt
-    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-1-1488568404567.txt
-    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-10-1488568408678.txt
-    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-11-1488568411636.txt
-    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-12-1488568411884.txt
-    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-13-1488568412603.txt
-    -rw-r-----+  1 larryfr larryfr       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-14-1488568415055.txt
+    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-0-1488568403092.txt
+    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-1-1488568404567.txt
+    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-10-1488568408678.txt
+    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-11-1488568411636.txt
+    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-12-1488568411884.txt
+    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-13-1488568412603.txt
+    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-14-1488568415055.txt
 
 ## <a name="stop-the-topology"></a>Detención de la topología
 
-Las topologías de Storm se ejecutarán hasta que se detengan o se elimine el clúster. Use la información siguiente para detener las topologías.
+Las topologías de Storm se ejecutarán hasta que se detengan o se elimine el clúster. Para detener la topología, use el siguiente comando:
 
-**Para HDInsight basado en Linux**:
-
-Desde una sesión de SSH en el clúster, use el siguiente comando:
-
-    storm kill datalakewriter
+    storm kill hdfswriter
 
 ## <a name="delete-your-cluster"></a>Eliminación del clúster
 
@@ -243,6 +221,6 @@ Desde una sesión de SSH en el clúster, use el siguiente comando:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a usar Storm para escribir en el Almacén de Azure Data Lake, descubra otros [ejemplos de Storm para HDInsight](hdinsight-storm-example-topology.md).
+Ahora que ya sabe usar Storm para escribir datos en Azure Storage y Azure Data Lake Store, descubra otros [ejemplos de Storm para HDInsight](hdinsight-storm-example-topology.md).
 
 

@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 053e2ae7f382bc55a6638ccd612289ab2ba64e52
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 331d08da8a70eee893fb1b01b1fef4475cc8bca0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
@@ -152,7 +151,7 @@ Existe la posibilidad de vincular una cuenta de Azure Storage de uso general a u
 
 Se recomienda crear una cuenta de Storage nueva para que la use exclusivamente su cuenta de Batch.
 
-![Creación de una cuenta de almacenamiento "de uso general"][storage_account]
+![Creación de una cuenta de almacenamiento de uso general][storage_account]
 
 > [!NOTE]
 > En la actualidad, Azure Batch solo admite el tipo de cuenta de Storage de uso general. Este tipo de cuenta se describe en el paso 5, [Crear una cuenta de almacenamiento] (../storage/storage-create-storage-account.md#create-a-storage-account), de [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).

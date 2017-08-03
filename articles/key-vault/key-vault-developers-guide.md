@@ -1,20 +1,19 @@
 ---
 title: "Guía del desarrollador de Azure Key Vault | Microsoft Docs"
-description: "Los desarrolladores pueden usar Azure Key Vault para administrar las claves criptográficas en el entorno de Microsoft Azure."
+description: "Los desarrolladores pueden usar Azure Key Vault\npara administrar las claves criptográficas en el entorno de Microsoft Azure."
 services: key-vault
-documentationcenter: 
 author: BrucePerlerMS
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 06/6/2017
 ms.author: bruceper
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: b046e95e2167009727f6ea8f3dd237619c61434f
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 7b8042d6a2d34858f35a2041db0116c1d6159630
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -29,10 +28,14 @@ Key Vault le permite acceder de forma segura a información confidencial desde s
 
 Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Key Vault?](key-vault-whatis.md)
 
-## <a name="public-preview---may-10-2017"></a>Versión preliminar pública: 10 de mayo de 2017
+## <a name="public-previews"></a>Versiones preliminares públicas
+
+Periódicamente se publica una versión preliminar pública de una nueva característica de Key Vault. Pruébelas y díganos su opinión a través de azurekeyvault@microsoft.com, la dirección de correo electrónico de comentarios.
+
+### <a name="soft-delete---may-10-2017"></a>Eliminación temporal: 10 de mayo de 2017
 
 >[!NOTE]
->Para esta versión preliminar de Azure Key Vault, la característica de **eliminación temporal** es la única que se encuentra aún en versión preliminar. Azure Key Vault, como un todo, es un servicio de producción completo.
+>En esta actualización de Azure Key Vault, la única característica en versión preliminar es la **eliminación temporal**.
 
 Esta versión preliminar incluye nuestra nueva característica de eliminación temporal, la eliminación recuperable de almacenes y objetos de Key Vault e interfaces actualizadas para desarrolladores: [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) y [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
 
@@ -63,7 +66,7 @@ Antes de trabajar con Azure Key Vault en el código, puede crear y administrar a
 
 ## <a name="coding-with-key-vault"></a>Codificación con Key Vault
 
-El sistema de administración de Key Vault para los programadores está compuesto por varias interfaces, con REST como base. Mediante la interfaz REST se puede acceder a todos los recursos de almacenes de claves: claves, secretos y certificados. [Referencia de la API de REST de Key Vault](https://docs.microsoft.com/rest/api/keyvault/). 
+El sistema de administración de Key Vault para los programadores está compuesto por varias interfaces, con REST como base. Mediante la interfaz de REST se puede acceder a todos los recursos de Key Vault: claves, secretos y certificados. [Referencia de la API de REST de Key Vault](https://docs.microsoft.com/rest/api/keyvault/). 
 
 ### <a name="supported-programming-languages"></a>Lenguajes de programación admitidos
 
@@ -78,6 +81,8 @@ Para más información sobre la versión 2.x de SDK de .NET, consulte las [notas
 - [SDK de Java para Key Vault](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
 
 #### <a name="nodejs"></a>Node.js
+
+En Node.js, la API de administración y la API de objetos de Key Vault son independientes. Administración de Key Vault permite crear y actualizar el almacén de claves. La API de operaciones de Key Vault es para trabajar con objetos del almacén como: claves, secretos y certificados. 
 
 - [Referencia de API de Node.js para administración de Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
 - [Referencia de API de Node.js para operaciones de Key Vault](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
@@ -121,20 +126,20 @@ para ayudarle a controlar y administrar las claves y secretos de cifrado de disc
 
 ## <a name="key-vault-overviews-and-concepts"></a>Conceptos y datos globales de Key Vault
 
-- [Espacios de seguridad de Key Vault](key-vault-ovw-security-worlds.md)
-- [Eliminación temporal de Key Vault](key-vault-ovw-soft-delete.md)
+- [Comportamiento de eliminación temporal de Key Vault](key-vault-ovw-soft-delete.md) describe una característica que permite la recuperación de objetos eliminados tanto si dicha eliminación ha sido accidental como intencionada.
+- [Limitación del cliente de Key Vault](key-vault-ovw-throttling.md) proporciona orientación sobre los conceptos básicos de la limitación y ofrece un enfoque para la aplicación.
+- [Introducción a las claves de cuenta de Key Vault](key-vault-ovw-storage-keys.md) describe la integración de Key Vault con las claves de cuenta de Azure Storage.
+- [Espacios de seguridad de Key Vault](key-vault-ovw-security-worlds.md) describe las relaciones entre regiones y zonas de seguridad.
 
 ## <a name="social"></a>Redes sociales
 
 - [Blog de Key Vault](http://aka.ms/kvblog)
 - [Foro sobre Key Vault](http://aka.ms/kvforum)
 
-
 ## <a name="supporting-libraries"></a>Bibliotecas compatibles
 
 - [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) (biblioteca principal Microsoft Azure Key Vault) proporciona las interfaces **IKey** e **IKeyResolver** para localizar las claves de los identificadores y realizar operaciones con ellas.
 - [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) (extensiones de Microsoft Azure Key Vault) proporcionan capacidades ampliadas para Azure Key Vault.
 
-## <a name="other-key-vault-resources"></a>Otros recursos de Key Vault
 
 

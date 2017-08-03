@@ -22,9 +22,7 @@ ms.lasthandoff: 06/28/2017
 
 ---
 
-<a id="internet-facing-load-balancer-overview" class="xliff"></a>
-
-# Información general sobre el equilibrador de carga accesible desde Internet
+# <a name="internet-facing-load-balancer-overview"></a>Información general sobre el equilibrador de carga accesible desde Internet
 
 El Equilibrador de carga de Azure asigna la dirección IP y el número de puerto públicos del tráfico entrante a la dirección IP y el número de puerto privados de la máquina virtual, y viceversa, para el tráfico de respuesta desde la máquina virtual. Las reglas de equilibrio de carga permiten distribuir tipos específicos de tráfico entre varias máquinas virtuales o servicios. Por ejemplo, puede extender la carga del tráfico de solicitudes web entre varios servidores web o roles web.
 
@@ -42,9 +40,7 @@ Cuando los clientes de Internet envían solicitudes de página web a la direcci�
 
 De forma predeterminada, Azure Load Balancer distribuye el tráfico de red equitativamente entre varias instancias de máquina virtual. También puede configurar la afinidad de la sesión. Para más información, consulte el [modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md).
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre el [equilibrador de carga interno](load-balancer-internal-overview.md) para saber qué equilibrador de carga se adapta mejor a su implementación en la nube.
 

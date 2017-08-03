@@ -6,20 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 4dae8b87904fff2f2f8665d235bf790fb1e073d0
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 963749bce0a84a97a0938f5531ebf7d694a3ca58
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 
@@ -76,7 +77,6 @@ Si tiene problemas con el autoservicio de restablecimiento de contraseña, los e
 | El registro de eventos del equipo de Azure AD Connect contiene el error 32002 producido por PasswordResetService. <br> <br> El error dice: "Error al conectarse al Bus de servicio, el proveedor de tokens no pudo proporcionar un token de seguridad..." | El entorno local no es capaz de conectarse al punto de conexión del bus de servicio en la nube. Este error se debe normalmente a una regla de firewall que bloquea una conexión saliente a una dirección de puerto o web determinada. Consulte [Requisitos de red](active-directory-passwords-how-it-works.md#network-requirements) para más información. Una vez que haya actualizado estas reglas, reinicie el equipo de Azure AD Connect y la escritura diferida de contraseñas debería empezar a funcionar de nuevo. |
 | Después trabajar durante algún tiempo, los usuarios federados o con sincronización de hash de contraseña no pueden restablecer las contraseñas. | En algunos casos excepcionales, el servicio de escritura diferida de contraseñas puede no volver a iniciarse cuando se reinicia Azure AD Connect. En estos casos, en primer lugar, compruebe si la escritura diferida de contraseñas está habilitada en el entorno local. Esto puede hacerse mediante el Asistente de Azure AD Connect o PowerShell (consulte la sección anterior sobre los procedimientos). Si la característica parece estar habilitada, pruebe a habilitar o deshabilitar la característica de nuevo a través de la interfaz de usuario o de PowerShell. Si esto no funciona, pruebe a desinstalar por completo y volver a instalar Azure AD Connect. |
 | Los usuarios federados o con sincronización de hash de contraseña que intenten restablecer su contraseña obtienen un error después de enviar la contraseña que indica que se ha producido un problema de servicio. <br ><br> Además, durante las operaciones de restablecimiento de contraseña, verá un error relacionado con que al agente de administración se le denegó el acceso a los registros de eventos locales. | Si ve estos errores en el registro de eventos, confirme que la cuenta de AD MA (que se especificó en el asistente en el momento de la configuración) tiene los permisos necesarios para la escritura diferida de contraseñas. <br> <br> **Una vez que se concede este permiso, puede tardar hasta una hora en poder usarse a través de la tarea en segundo plano sdprop en el controlador de dominio.** <br> <br> Para que el restablecimiento de contraseña funcione, el permiso debe quedar marcado en el descriptor de seguridad del objeto de usuario cuya contraseña se está restableciendo. Hasta que este permiso se muestra en el objeto de usuario, el restablecimiento de contraseña seguirá generando un error con acceso denegado. |
-| No se puede restablecer la contraseña para los usuarios en grupos especiales tales como administradores de dominio o administradores de empresa | Los usuarios con privilegios en Active Directory están protegidos mediante AdminSDHolder. Para más información, consulte [http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx](http://technet.microsoft.com/magazine/2009.09.sdadminholder.aspx). <br> <br> Esto significa que los descriptores de seguridad en estos objetos se comprueban periódicamente para que coincidan con el especificado en AdminSDHolder y se restablecen si son diferentes. Por lo tanto, los permisos adicionales necesarios para la escritura diferida de contraseñas no filtran a dichos usuarios. Esto puede dar lugar a que la escritura diferida de contraseñas no funcione para ellos. Como resultado, **no se admite la administración de contraseñas de usuarios que pertenezcan a dichos grupos ya que infringe el modelo de seguridad de AD.**
 | Los usuarios federados o con sincronización de hash de contraseña que intenten restablecer su contraseña obtienen un error después de enviar la contraseña que indica que se ha producido un problema de servicio. <br> <br> Además, durante las operaciones de restablecimiento de contraseña, puede obtener un error en los registros de eventos del servicio Azure AD Connect que indique un error “No se encontró el objeto”. | Este error suele indicar que el motor de sincronización no puede encontrar el objeto de usuario en el espacio del conector de AAD o en el objeto de espacio del conector MV o AD vinculado. <br> <br> Para solucionar este problema, asegúrese de que el usuario realmente está sincronizado desde el entorno local a AAD a través de la instancia actual de Azure AD Connect e inspeccione el estado de los objetos de los espacios de conector y MV. Confirme que el objeto de AD CS es conector al objeto MV a través de la regla "Microsoft.InfromADUserAccountEnabled.xxx".|
 | Los usuarios federados o con sincronización de hash de contraseña que intenten restablecer su contraseña obtienen un error después de enviar la contraseña que indica que se ha producido un problema de servicio. <br> <br> Además, durante las operaciones de restablecimiento de contraseña, puede obtener un error en los registros de eventos del servicio Azure AD Connect que indique un error "Varias coincidencias detectadas". | Esto indica que el motor de sincronización ha detectado que el objeto de MV está conectado a más de un objeto de AD CS a través de "Microsoft.InfromADUserAccountEnabled.xxx". Esto significa que el usuario tiene una cuenta habilitada en más de un bosque. **Actualmente este escenario no se admite para la escritura diferida de contraseñas.** |
 | Error de configuración en las operaciones con contraseñas. El registro de eventos de aplicación contiene: <br> <br> El error 6329 de Azure AD Connect con el texto: 0x8023061f (error en la operación porque no está habilitada la sincronización de contraseñas en este agente de administración). | Esto ocurre si se cambia la configuración de Azure AD Connect para agregar un nuevo bosque de AD (o para quitar y volver a agregar un bosque existente) después de que ya se haya habilitado la escritura diferida de contraseñas. Se producirá un error en las operaciones de contraseñas para los usuarios de estos bosques recién agregados. Para corregir el problema, deshabilite y vuelva a habilitar la característica de escritura diferida de contraseñas después de que se hayan completado los cambios de configuración del bosque. |
@@ -143,7 +143,7 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
 
 Si se producen interrupciones del servicio con el componente de escritura diferida de contraseñas de Azure AD Connect, aquí tiene algunos pasos que puede seguir para resolver este problema:
 
-* [Reinicio del servicio de sincronización de Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
+* [Reinicio del servicio de sincronización de Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Deshabilitar y volver a habilitar la característica de escritura diferida de contraseña](#disable-and-re-enable-the-password-writeback-feature)
 * [Instalación de la última versión de Azure AD Connect](#install-the-latest-azure-ad-connect-release)
 * [Solución de problemas de escritura diferida de contraseñas](#troubleshoot-password-writeback)
@@ -199,6 +199,27 @@ Estos pasos restablecen la conexión con el servicio en la nube y resuelven las 
 
 Si con la instalación de la última versión del servidor de Azure AD Connect no se resuelve el problema, le recomendamos que intente deshabilitar y volver a habilitar la escritura diferida de contraseñas como último paso después de instalar la versión más reciente.
 
+## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Compruebe si Azure AD Connect dispone del permiso necesario para la escritura diferida de contraseñas 
+Azure AD Connect requiere el permiso de AD **restablecer contraseña** para realizar la escritura diferida de contraseñas. Para averiguar si Azure AD Connect tiene el permiso para una cuenta de usuario de AD local determinada, puede usar la característica Permiso efectivo de Windows:
+
+1. Inicie sesión en el servidor Azure AD Connect e inicie **Synchronization Service Manager** (Inicio → Servicio Synchronization).
+2. En la pestaña **Conectores**, seleccione el **conector AD** local y haga clic en **Propiedades**.  
+![Permiso efectivo: paso 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+3. En el cuadro de diálogo emergente, seleccione la pestaña **Connect to Active Directory Forest** (Conectar con el bosque de Active Directory) y anote el valor de la propiedad **Nombre de usuario**. Se trata de la cuenta de AD DS que Azure AD Connect usa para realizar la sincronización de directorios. Para que Azure AD Connect realice la escritura diferida de contraseñas, la cuenta de AD DS debe tener permiso para restablecer la contraseña.  
+![Permiso efectivo: paso 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png)  
+4. Inicie sesión en un controlador de dominio local e inicie la aplicación **Usuarios y equipos de Active Directory**.
+5. Haga clic en **Vista** y asegúrese de que la opción **Características avanzadas** está habilitada.  
+![Permiso efectivo: paso 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png)  
+6. Busque la cuenta de usuario de AD que desea comprobar. Haga clic con el botón derecho en la cuenta y seleccione **Propiedades**.  
+![Permiso efectivo: paso 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png)  
+7. En el cuadro de diálogo emergente, vaya a la pestaña **Seguridad** y haga clic en **Avanzada**.  
+![Permiso efectivo: paso 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png)  
+8. En el cuadro de diálogo emergente de configuración Seguridad avanzada, vaya a la pestaña **Acceso efectivo**.
+9. Haga clic en **Seleccionar un usuario** y seleccione la cuenta de AD DS que usa Azure AD Connect (vea el paso 3). A continuación, haga clic en **Ver acceso efectivo**.  
+![Permiso efectivo: paso 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png)  
+10. Desplácese hacia abajo y busque **Restablecer contraseña**. Si la entrada está activada, significa que la cuenta de AD DS tiene permiso para restablecer la contraseña de la cuenta de usuario de AD seleccionada.  
+![Permiso efectivo: paso 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
 ## <a name="azure-ad-forums"></a>Foros de Azure AD
 
 Si tiene alguna pregunta general sobre Azure AD y el autoservicio de restablecimiento de contraseña, puede pedir ayuda a la comunidad en los [foros de Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Los miembros de la comunidad están formados por ingenieros, jefes de producto, MVP y profesionales de TI.
@@ -211,10 +232,11 @@ Para que reciba la ayuda correcta, le pedimos que proporcione la mayor cantidad 
 
 * **Descripción general del error**: ¿cuál es el error? ¿Qué comportamiento observó? ¿Cómo podemos reproducir el error? Proporcione tantos detalles como sea posible.
 * **Página**: ¿en qué página estaba cuando se detectó el error? Incluya la dirección URL si es posible y una captura de pantalla.
-* **Fecha, hora y zona horaria**: incluya la fecha y la hora precisas (incluida la **zona horaria**) en que se produjo el error.
 * **Código de soporte técnico**: ¿qué código de soporte técnico se generó cuando el usuario vio el error? 
     * Para encontrarlo, reproduzca el error, haga clic en el vínculo del código de soporte técnico en la parte inferior de la pantalla y envíe al ingeniero de soporte técnico el GUID resultante.
+    ![Busque el código de soporte técnico en la parte inferior de la pantalla][Support Code]
     * Si se encuentra en una página sin código de soporte en la parte inferior, presione F12 y busque el SID y CID y envíe estos dos resultados al ingeniero de soporte.
+* **Fecha, hora y zona horaria**: incluya la fecha y la hora precisas (incluida la **zona horaria**) en que se produjo el error.
 * **Id. de usuario**: ¿quién fue el usuario que vio el error? (user@contoso.com)
     * ¿Es un usuario federado?
     * ¿Es un usuario con sincronización de hash de contraseña?
@@ -222,7 +244,10 @@ Para que reciba la ayuda correcta, le pedimos que proporcione la mayor cantidad 
 * **Licencia**: ¿tiene el usuario asignada una licencia de Azure AD Premium o Azure AD Básico?
 * **Registro de eventos de aplicación**: si usa la escritura diferida de contraseñas y el error se produce en la infraestructura local, comprima una copia del registro de eventos de la aplicación desde el servidor de Azure AD Connect y envíela cuando se ponga en contacto con el soporte técnico.
 
+    
+
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Reinicio del servicio Azure AD Sync"
+[Support Code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "El código de soporte técnico se encuentra en la parte inferior derecha de la ventana"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -231,11 +256,11 @@ Los vínculos siguientes proporcionan información adicional sobre el restableci
 * [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD 
 * [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
 * [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
-* [**Implementación**](active-directory-passwords-best-practices.md): planificación e implementación de SSPR para los usuarios con las directrices que aquí se proporcionan
-* [**Personalización**](active-directory-passwords-customize.md): personalización de la experiencia de SSPR para la empresa
+* [**Implementación**](active-directory-passwords-best-practices.md): planee e implemente SSPR en sus usuarios mediante las instrucciones que se encuentran aquí.
+* [**Personalización**](active-directory-passwords-customize.md): personalice el aspecto de la experiencia SSPR para su empresa.
 * [**Directiva**](active-directory-passwords-policy.md): conozca y establezca directivas de contraseñas de Azure AD.
 * [**Escritura diferida de contraseñas** ](active-directory-passwords-writeback.md): cómo funciona la escritura diferida de contraseñas con su directorio local.
 * [**Informes**](active-directory-passwords-reporting.md): descubra si, cuándo y dónde sus usuarios acceden a la funcionalidad SSPT.
-* [**Artículo técnico de profundización**](active-directory-passwords-how-it-works.md): más información para comprender el funcionamiento de la administración de contraseñas
+* [**Profundización técnica**](active-directory-passwords-how-it-works.md): conozca lo que hay detrás para comprender cómo funciona.
 * [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? - Respuestas a preguntas que siempre ha querido hacer
 

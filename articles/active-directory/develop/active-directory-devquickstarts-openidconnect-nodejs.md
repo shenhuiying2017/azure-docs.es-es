@@ -3,7 +3,7 @@ title: "Introducción al inicio de sesión y cierre de sesión en Azure AD media
 description: "Aprenda a crear una aplicación web MVC Express de Node.js que se integre con Azure AD para el inicio de sesión."
 services: active-directory
 documentationcenter: nodejs
-author: xerners
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: xerners
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 8d91d551cbb508485ca27d77b23eb319293e4237
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
 ms.contentlocale: es-es
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -144,8 +144,8 @@ Aquí configuramos Express para usar el protocolo de autenticación OpenID Conne
     ```
 Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, etc.) al que se ajustan todos los escritores de estrategias. Si se examina la estrategia, se percibe que se pasa una función que tiene un token y un elemento done como parámetros. La estrategia se devuelve después de que realiza su trabajo. Luego almacenaremos el usuario y guardaremos provisionalmente el token con el fin de que no tengamos que volver a pedirlo.
 
-    > [!IMPORTANT]
-    > The previous code takes any user that happens to authenticate to our server. This is known as auto-registration. We recommend that you don't let anyone authenticate to a production server without first having them register via a process that you decide on. This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to provide additional information. If this weren't a sample application, we could have extracted the user's email address from the token object that is returned and then asked the user to fill out additional information. Because this is a test server, we add them to the in-memory database.
+> [!IMPORTANT]
+El código anterior toma cualquier usuario que se autentique en el servidor. Esto se conoce como registro automático. Le recomendamos que no permita que nadie se autentique en un servidor de producción sin registrarse primero mediante un proceso que decida. Este suele ser el patrón que se observa en las aplicaciones de consumidor que le permiten registrarse con Facebook, pero que luego piden que proporcione información adicional. Si esta no fuera una aplicación de ejemplo, podríamos haber extraído la dirección del correo electrónico del usuario del objeto de token que se devuelve y, después, haber pedido al usuario que rellenara la información adicional. Puesto que se trata de un servidor de prueba, los agregaremos a la base de datos en memoria.
 
 
 4. A continuación, vamos a agregar los métodos que nos permitirán realizar un seguimiento de los usuarios con sesión iniciada, tal y como requiere Passport. Estos métodos incluyen la serialización y deserialización de la información del usuario.
@@ -210,9 +210,9 @@ Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, e
 
 6. Por último, se agregan las rutas que entregan las solicitudes de inicio de sesión reales al motor `passport-azure-ad`:
 
-       
+
        ```JavaScript
- 
+
         // Our Auth routes (section 3)
 
         // GET /auth/openid

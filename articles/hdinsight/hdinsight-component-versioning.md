@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: f6f50906766408226ad3ab9fdfd67b4707961b9b
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 54254203b79c6d69a2febc5987b0a24077a84939
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/06/2017
 
  
 
@@ -74,40 +74,84 @@ Las versiones de los componentes del ecosistema de Hadoop asociados a las versio
 Para los clústeres basados en Windows: otra forma de obtener las versiones de los componentes es iniciar sesión en un clúster mediante el Escritorio remoto y examinar directamente el contenido del directorio C:\apps\dist\".
 
 > [!IMPORTANT]
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para obtener más información, consulte la sección sobre la [puesta en desuso de HDInsight 3.3](#hdi-version-33-nearing-deprecation-date). 
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, vea [Windows retirement on HDInsight](#hdi-version-33-nearing-retirement-date) (Retirada de Windows en HDInsight). 
 
 ### <a name="release-notes"></a>Notas de la versión
 
 Consulte [Notas de la versión de HDInsight](hdinsight-release-notes.md) para conocer otras notas de las últimas versiones de HDInsight.
 
 ## <a name="supported-hdinsight-versions"></a>Versiones compatibles de HDInsight
-En la siguiente tabla se enumeran las versiones de HDInsight que está disponibles actualmente, las versiones correspondientes de la distribución Hortonworks Data Platform que usan y sus fechas de lanzamiento. Si se conocen, también se proporcionan también las fechas de expiración y desuso. Tenga en cuenta la siguiente información de versión:
+En la siguiente tabla se enumeran las versiones de HDInsight que está disponibles actualmente, las versiones correspondientes de la distribución Hortonworks Data Platform que usan y sus fechas de lanzamiento. Si se conocen, también se proporcionan las fechas de expiración y retirada. Tenga en cuenta la siguiente información de versión:
 
 * Los clústeres de alta disponibilidad con dos nodos principales se implementan de forma predeterminada para los clústeres de HDInsight 2.1 y versiones posteriores. No están disponibles para los clústeres de HDInsight 1.6.
-* Cuando expira el soporte técnico de una versión concreta, es posible que no esté disponible en el Portal de Azure. En la tabla siguiente se indica qué versiones están disponibles en el Portal de Azure clásico. Las versiones de clúster seguirán estando disponibles usando el parámetro `Version` en el comando [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) de Windows PowerShell y en el SDK de .NET hasta la fecha de degradación.
+* Cuando expira el soporte técnico de una versión concreta, es posible que no esté disponible en el Portal de Azure. En la tabla siguiente se indica qué versiones están disponibles en el Portal de Azure clásico. Las versiones de clúster seguirán estando disponibles con el parámetro `Version` en el comando [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) de Windows PowerShell y en el SDK de .NET hasta la fecha de retirada.
 
-| Versión de HDInsight | Versión de HDP | SISTEMA OPERATIVO DE LA MÁQUINA VIRTUAL | Alta disponibilidad | Fecha de lanzamiento | Disponible en el Portal de Azure | Fecha de expiración del soporte técnico | Fecha de desuso |
+| Versión de HDInsight | Versión de HDP | SISTEMA OPERATIVO DE LA MÁQUINA VIRTUAL | Alta disponibilidad | Fecha de lanzamiento | Disponible en el Portal de Azure | Fecha de expiración del soporte técnico | Fecha de retirada |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDI 3.6 |HDP 2.6 |Ubuntu 16 |Sí |06/04/2017 |Sí | | |
 | HDI 3.5 |HDP 2.5 |Ubuntu 16 |Sí |30/9/2016 |Sí |05/07/2017 |31/05/2018 |
 | HDI 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Sí |29/03/2016 |Sí |29/12/2016 |9/1/2018 |
-| HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS o Windows Server 2012R2 |Sí |12/02/2015 |Sí |27/06/2016 |31/07/2017 |
+| HDI 3.3 |HDP 2.3 |Windows Server 2012R2 |Sí |12/02/2015 |Sí |27/06/2016 |07/31/2018 |
+| HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Sí |12/02/2015 |Sí |27/06/2016 |31/07/2017 |
 | HDI 3.2 |HDP 2.2 |Ubuntu 12.04 LTS o Windows Server 2012R2 |Sí |18/02/2015 |No |01/03/2016 |01/04/2017 |
 | HDI 3,1 |HDP 2,1 |Windows Server 2012R2 |Sí |24/06/2014 |No |18/05/2015 |30/06/2016 |
 | HDI 3,0 |HDP 2,0 |Windows Server 2012R2 |Sí |11/02/2014 |No |17/09/2014 |30/06/2015 |
 | HDI 2,1 |HDP 1,3 |Windows Server 2012R2 |Sí |28/10/2013 |No |12/05/2014 |31/05/2015 |
 | HDI 1.6 |HDP 1.1 | |No |28/10/2013 |No |26/04/2014 |31/05/2015 |
 
-## <a name="hdi-version-33-nearing-deprecation-date"></a>HDI versión 3.3 cerca de la fecha de desuso
-La compatibilidad con el clúster de HDI 3.3 expiró el 27/06/2016 y dejará de utilizarse en 31/07/2017. Si tiene un clúster de HDI 3.3, actualícelo a HDI 3.5 o HDI 3.6 cuanto antes. Las fechas de desuso de HDI 3.3 para Windows pueden variar en función de la región. Si la fecha de desuso planeada de la región es diferente, se le notificará por separado.
+## <a name="hdinsight-windows-retirement"></a>Retirada de Windows de HDInsight
 
-### <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>El contrato de nivel de servicio para las versiones de clúster de HDInsight
-El Acuerdo de Nivel de Servicio se define en términos de **plazo de soporte técnico**. Un plazo de soporte técnico se refiere al período durante el cual la versión del clúster de HDInsight puede recibir soporte técnico por parte del Soporte técnico y el servicio al cliente de Microsoft. Un clúster de HDInsight está fuera del plazo de soporte técnico si su versión cuenta con una **fecha de expiración de soporte técnico** anterior a la fecha actual. En la tabla anterior se puede consultar una lista de las versiones de clúster de HDInsight con soporte técnico. La fecha de expiración de una versión determinada (X) de HDInsight (una vez que hay disponible una versión más reciente X+1) se calcula como la fecha más tardía de las dos siguientes:  
+Microsoft Azure HDInsight (HDI) versión 3.3 fue la última versión de HDInsight en Windows y se retirará el 31 de julio de 2018. Si tiene algún clúster HDI en Windows (3.3 o anterior), debe migrar a HDInsight en Linux (HDI 3.5 o posterior) antes del 31 de julio de 2018 para conservar la capacidad de crear clústeres HDI o cambiar su tamaño. La compatibilidad con HDI 3.3 en Windows expiró el 27 de junio de 2016. 
+ 
+A partir de HDInsight versión 3.4, Microsoft ha lanzado HDInsight únicamente en el sistema operativo Linux. Como resultado, algunos de los componentes de HDInsight solo están disponibles para Linux: Apache Ranger, Kafka, Hive interactivo, Spark, Aplicaciones de HDInsight y Azure Data Lake Store como sistema de archivos principal. Las versiones futuras de HDInsight solo estarán disponibles en el sistema operativo Linux. No habrá ninguna versión futura de HDInsight en el sistema operativo Windows.
+
+### <a name="faqs"></a>Preguntas más frecuentes
+
+### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>¿Cuál es la escala de tiempo para la retirada de HDInsight en Windows?
+El 31 de julio de 2018 es la fecha de retirada de HDInsight en Windows. Si la fecha de retirada planeada para su región es diferente, se le notificará de forma individual. 
+
+### <a name="what-will-be-the-impact-of-retiring-hdinsight-on-windows-for-existing-customers"></a>¿Cuál será el impacto de la retirada de HDInsight en Windows para los clientes existentes?
+* Después de la fecha de retirada no será posible crear un nuevo HDI en el clúster de Windows.
+* Después de la fecha de retirada no será posible cambiar el tamaño de un HDInsight existente en el clúster de Windows. 
+ * Las versiones futuras de HDInsight solo estarán disponibles en el sistema operativo Linux. No habrá ninguna versión futura de HDInsight en el sistema operativo Windows.
+* Tenga en cuenta que la compatibilidad con HDInsight 3.3 expiró el 27 de junio de 2016. Por lo tanto, no hay soporte técnico ni correcciones de errores para HDInsight 3.3 o versiones anteriores. 
+ 
+### <a name="which-versions-of-hdinsight-on-windows-are-impacted"></a>¿Qué versiones de HDInsight en Windows se ven afectadas?
+Azure HDInsight versión 3.3 fue la última versión de HDInsight para Windows. Cualquier clúster de HDInsight que se ejecute en Windows (3.3 o anterior) debe migrarse a HDInsight en Linux (3.5 o posterior) antes de la fecha de retirada para conservar la capacidad de crear nuevos clústeres HDI o cambiar el tamaño de los existentes. 
+
+### <a name="what-do-i-need-to-do"></a>¿Qué tengo que hacer?
+Vea [este](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) documento para migrar clústeres de HDInsight basados en Windows a un clúster de HDInsight basado en Linux compatible antes del 31 de julio de 2018. [Aquí](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) encontrará más información sobre las versiones de HDI compatibles. 
+
+### <a name="where-do-i-find-the-cluster-os-type"></a>¿Dónde se encuentra el tipo de sistema operativo del clúster?
+En el portal de Azure, vaya a la página de información general del clúster de HDInsight. En esa página encontrará el tipo de clúster en Información esencial. Ahí se indicará el tipo de sistema operativo del clúster. 
+
+### <a name="what-will-be-the-impact-to-my-hdinsight-windows-cluster-if-i-cant-migrate-to-a-linux-based-cluster-by-jul-31st-2018"></a>¿Cuál será el impacto en el clúster de HDInsight en Windows si no se puede migrar a un clúster basado en Linux antes del 31 de julio de 2018?
+El clúster de HDInsight en Windows se ejecutará tal cual, pero no podrá crear un nuevo clúster de HDInsight en Windows ni cambiar el tamaño de un HDInsight existente en el clúster de Windows. 
+
+### <a name="my-cluster-has-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>El clúster tiene dependencia de .NET. ¿Cómo se resuelve esta dependencia en Linux?
+[Mono](http://www.mono-project.com/), una implementación de código abierto de .NET, está disponible en los clústeres de HDInsight en Linux. Vea [este](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) documento para obtener más detalles. 
+
+### <a name="i-am-a-new-customer-trying-to-create-an-hdinsight-windows-based-cluster-however-i-dont-see-the-option-in-the-azure-portal-or-i-am-unable-to-create-this-from-powershell-or-sdk-how-can-i-create-an-hdi-windows-based-cluster"></a>Soy un nuevo cliente que intenta crear un clúster de HDInsight basado en Windows, pero no veo la opción en el portal de Azure o no puedo crearlo desde PowerShell ni el SDK. ¿Cómo se puede crear un clúster HDI basado en Windows?
+A partir del 3 de julio de 2017, solo los clientes existentes de HDInsight basado en Windows pueden crear nuevos clústeres HDI basados en Windows (hasta la fecha de retirada). Se recomienda crear un clúster HDI basado en Linux. 
+
+### <a name="is-there-pricing-impact-associated-with-moving-from-hdinsight-on-windows-to-hdinsight-on-linux"></a>¿La migración de HDInsight en Windows a HDInsight en Linux afecta en algo al precio?
+No, el precio es el mismo para HDInsight en cualquier sistema operativo. 
+
+### <a name="what-are-the-customer-advantages-associated-with-the-move-to-hdinsight-only-on-the-linux-os"></a>¿Cuáles son las ventajas para el cliente de la migración a HDInsight solo en el sistema operativo Linux?
+* Un tiempo de comercialización más rápido para tecnologías de macrodatos de código abierto a través del servicio HDInsight
+* Una gran comunidad y ecosistema de soporte técnico
+* Mayor posibilidad de aprovechar el desarrollo activo mediante la comunidad de código abierto para Hadoop y tecnologías de macrodatos más recientes
+
+### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-that-available-in-hdinsight-on-windows"></a>¿HDInsight en Linux proporciona funcionalidad adicional más allá de la disponible en HDInsight en Windows?
+A partir de HDInsight versión 3.4, MSFT ha lanzado HDInsight únicamente en el sistema operativo Linux. Como resultado, algunos de los componentes de HDInsight solo están disponibles para Linux: Apache Ranger, Kafka, Hive interactivo, Spark, Aplicaciones de HDInsight y Azure Data Lake Store como sistema de archivos principal. 
+
+## <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>El contrato de nivel de servicio para las versiones de clúster de HDInsight
+El Acuerdo de Nivel de Servicio se define en términos de **plazo de soporte técnico**. Un plazo de soporte técnico se refiere al período durante el cual la versión del clúster de HDInsight puede recibir soporte técnico por parte del Soporte técnico y el servicio al cliente de Microsoft. Si la versión tiene una **fecha de expiración de soporte técnico** anterior a la fecha actual, el clúster de HDInsight está fuera del servicio de soporte técnico. En la tabla anterior se puede consultar una lista de las versiones de clúster de HDInsight con soporte técnico. La fecha de expiración de una versión determinada (X) de HDInsight (una vez que hay disponible una versión más reciente X+1) se calcula como la fecha más tardía de las dos siguientes:  
 
 * Fórmula 1: agregue 180 días a la fecha en la que se lanzó la versión X del clúster de HDInsight.
 * Fórmula 2: agregue 90 días a la fecha en la que la versión X+1 (versión subsiguiente después de X) del clúster de HDInsight se puso a su disposición en el Portal.
 
-La **fecha de desuso** es la fecha tras la cual no se puede crear la versión del clúster en HDInsight. A partir del 31 de julio de 2017, no podrá cambiar el tamaño de un clúster después de su fecha de desuso. 
+La **fecha de retirada** es la fecha tras la cual no se puede crear la versión del clúster en HDInsight. A partir del 31 de julio de 2017, no se puede cambiar el tamaño de un clúster después de su fecha de retirada. 
 
 > [!NOTE]
 > Los clústeres de HDInsight basados en Windows (incluidas las versiones 2.1, 3.0, 3.1, 3.2 y 3.3) se ejecutan en el SO invitado de Azure Familia 4 que usa la versión de 64 bits de Windows Server 2012 R2 y admite .NET Framework 4.0, 4.5, 4.5.1 y 4.5.2.
@@ -116,7 +160,7 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Notas de la versión de HortonWorks asociadas con las versiones de HDInsight
 * La versión 3.6 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 2.6](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html). 
-* La versión 3.5 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 2.5](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html). Este es el clúster de Hadoop **predeterminado** que se crea al usar el portal.
+* La versión 3.5 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 2.5](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html). Este clúster de Hadoop es el **predeterminado** que se crea al usar el portal.
 * La versión 3.4 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html). 
 * La versión 3.3 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
 
@@ -132,7 +176,7 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 ## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard y HDInsight Premium
 
-Azure HDInsight proporciona las ofertas de macrodatos en la nube en dos categorías: **Estándar** y **Premium**. La tabla que aparece debajo de la sección recoge las características que **solo están disponibles con el tipo Premium**. Las características que no aparecen expresamente en esta tabla están disponibles con el tipo Estándar.
+Azure HDInsight proporciona las ofertas de macrodatos en la nube en dos categorías: **Estándar** y **Premium**. La tabla de la siguiente sección indica las características que **solo están disponibles con el tipo Premium**. Las características que no aparecen expresamente en esta tabla están disponibles con el tipo Estándar.
 
 > [!NOTE]
 > Actualmente, la oferta HDInsight Premium se encuentra en versión preliminar y solo está disponible para los clústeres de Linux.
@@ -167,6 +211,45 @@ Las siguientes características no son compatibles en estos momentos con clúste
 ### <a name="pricing-and-sla"></a>Precios y contrato de nivel de servicio
 Para obtener información sobre los precios y el contrato de nivel de servicio de HDInsight Premium, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
+## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Configuración de nodo predeterminada y tamaños de máquina virtual para clústeres
+En las tablas siguientes se indican los tamaños de máquina virtual predeterminados para clústeres de HDInsight:
+
+> [!IMPORTANT]
+> Si necesita más de 32 nodos de trabajo en un clúster, tiene que seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
+>
+>
+
+* Todas las regiones, excepto Sur de Brasil y Japón Occidental:
+
+  | Tipo de clúster | Hadoop | HBase | Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- |
+  | Principal: tamaño de máquina virtual predeterminado |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
+  | Principal: tamaños de máquina virtual recomendados |D3 v2, D4 v2 y D12 v2 |D3 v2, D4 v2 y D12 v2 |A3, A4, A5 |D12 v2, v2 D13 y D14 v2 |D12 v2, v2 D13 y D14 v2 |
+  | Trabajo: tamaño de máquina virtual predeterminado |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | Trabajo: tamaños de máquina virtual recomendados |D3 v2, D4 v2 y D12 v2 |D3 v2, D4 v2 y D12 v2 |D3 v2, D4 v2 y D12 v2 |Windows: D12 v2, v2 D13 y D14 v2; Linux: D4 v2, D12 v2, v2 D13 y D14 v2 |Windows: D12 v2, v2 D13 y D14 v2; Linux: D4 v2, D12 v2, v2 D13 y D14 v2 |
+  | Zookeeper: tamaño de máquina virtual predeterminado | |A3 |A2 | | |
+  | Zookeeper: tamaños de máquina virtual recomendados | |A3, A4, A5 |A2, A3, A4 | | |
+  | Perimetral: tamaño de máquina virtual predeterminado | | | | |Windows: D12 v2; Linux: D4 v2 |
+  | Perimetral: tamaño de máquina virtual recomendado | | | | |Windows: D12 v2, v2 D13 y D14 v2; Linux: D4 v2, D12 v2, v2 D13 y D14 v2 |
+* Solo Sur de Brasil y Japón Occidental (ningún tamaño v2 aquí):
+
+  | Tipo de clúster | Hadoop | HBase | Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- |
+  | Principal: tamaño de máquina virtual predeterminado |D3 |D3 |A3 |D12 |D12 |
+  | Principal: tamaños de máquina virtual recomendados |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
+  | Trabajo: tamaño de máquina virtual predeterminado |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | Trabajo: tamaños de máquina virtual recomendados |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13 y D14; Linux: D4, D12, D13 y D14 |Windows: D12, D13 y D14; Linux: D4, D12, D13 y D14 |
+  | Zookeeper: tamaño de máquina virtual predeterminado | |A2 |A2 | | |
+  | Zookeeper: tamaños de máquina virtual recomendados | |A2, A3, A4 |A2, A3, A4 | | |
+  | Perimetral: tamaños de máquina virtual predeterminados | | | | |Windows: D12; Linux: D4 |
+  | Perimetral: tamaños de máquina virtual recomendados | | | | |Windows: D12, D13 y D14; Linux: D4, D12, D13 y D14 |
+
+> [!NOTE]
+> Nota: Principal se conoce como *Nimbus* para el tipo de clúster de Storm. Trabajo se conoce como *Región* en el tipo de clúster de HBase y como *Supervisor* en el tipo de clúster de Storm.
+
+## <a name="next-steps"></a>Pasos siguientes
+- [Configuración de clúster para Hadoop, Spark, etc. en HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Trabajo en Hadoop en HDInsight desde un equipo Windows](hdinsight-hadoop-windows-tools.md)
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 

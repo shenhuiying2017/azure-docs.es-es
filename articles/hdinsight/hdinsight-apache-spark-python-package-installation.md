@@ -1,6 +1,6 @@
 ---
-title: "Acción de script: instalación de paquetes de Python con cuadernos de Jupyter en Azure HDInsight | Microsoft Docs"
-description: "Instrucciones detalladas sobre cómo configurar cuadernos de Jupyter disponibles con clústeres de HDInsight Spark para usar paquetes externos de Python."
+title: "Acción de script: instalación de paquetes de Python con Jupyter en Azure HDInsight | Microsoft Docs"
+description: "Instrucciones detalladas sobre cómo usar la acción de script para configurar cuadernos de Jupyter disponibles con clústeres de HDInsight Spark para usar paquetes externos de Python."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
-ms.openlocfilehash: b0d6e509c5bacd828e9a9938edb860bbf0c0a8f3
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 20cf384c96d4ff4eaf064c8880ad128d521fb9bf
+ms.contentlocale: es-es
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -65,11 +66,11 @@ Debe tener lo siguiente:
 
 3. Abrir un cuaderno de Jupyter de PySpark
 
-    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-python-package-installation/hdispark.note.jupyter.createpysparknotebook.png "Crear un nuevo cuaderno de Jupyter")
+    ![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "Crear un nuevo cuaderno de Jupyter")
 
 4. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Haga clic en el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
 
-    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Proporcionar un nombre para el cuaderno")
+    ![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-python-package-installation/hdinsight-spark-name-notebook.png "Proporcionar un nombre para el cuaderno")
 
 5. Ahora realizará la acción `import tensorflow` y ejecutará un ejemplo de saludo (Hola mundo). 
 
@@ -104,7 +105,7 @@ Debe tener lo siguiente:
 * [Uso de paquetes externos con cuadernos de Jupyter en clústeres de Apache Spark en HDInsight](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones de Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para depurar aplicaciones de Spark de forma remota)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 

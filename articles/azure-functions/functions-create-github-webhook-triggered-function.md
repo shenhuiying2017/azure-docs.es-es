@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: accd5c55e7adafd5a387bf420660b808335192e6
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
 ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Creación de una función desencadenada por Webhook de GitHub
@@ -104,5 +104,9 @@ Ahora, el webhook está configurado para desencadenar la función cuando se agre
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha creado una función que se ejecuta cuando se recibe una solicitud de un webhook de GitHub. 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Para obtener más información sobre los desencadenadores de webhook, vea [Enlaces HTTP y webhook en Azure Functions](functions-bindings-http-webhook.md).
+Ha creado una función que se ejecuta cuando se recibe una solicitud de un webhook de GitHub.
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Para más información sobre los desencadenadores de webhook, consulte [Enlaces HTTP y webhook en Azure Functions](functions-bindings-http-webhook.md).
+

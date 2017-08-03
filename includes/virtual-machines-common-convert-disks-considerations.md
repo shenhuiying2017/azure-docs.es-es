@@ -1,4 +1,4 @@
-* Si el disco no administrado está en una cuenta de almacenamiento que se cifró previamente mediante el cifrado del servicio Azure Storage, no podrá convertirlo en disco administrado. Para ver los pasos para copiar y usar estos discos duros virtuales en discos administrados, consulte [más adelante en este artículo](#managed-disks-and-azure-storage-service-encryption).
+* Si el disco no administrado está en una cuenta de almacenamiento que se cifró previamente mediante el cifrado del servicio Azure Storage, no podrá convertirlo en disco administrado. Para ver los pasos que hay que seguir para copiar y utilizar estos discos duros virtuales (VHD) en discos administrados, consulte la sección [Managed Disks y Azure Storage Service Encryption](#managed-disks-and-azure-storage-service-encryption) más adelante en este artículo.
 
 * La conversión requiere reiniciar la máquina virtual, por lo que debe programar la migración de las máquinas virtuales durante una ventana de mantenimiento existente previamente. 
 

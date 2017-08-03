@@ -2,7 +2,7 @@
 title: "Tutorial de Azure Cosmos DB: Creación, consulta y recorrido en la consola de Gremlin de Apache TinkerPops | Microsoft Docs"
 description: "Un inicio rápido de Azure Cosmos DB para crear vértices, bordes y consultas con la API Graph de Azure Cosmos DB."
 services: cosmos-db
-author: AndrewHoh
+author: dennyglee
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 06/10/2017
-ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 44972270a13f5ab5b3aa22557b36e80ae406a4a6
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 82ddc351359318dab82c95d3e3b9b97ba3e3b4a8
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: crear, consultar y recorrer un gráfico en la consola de Gremlin
@@ -47,35 +47,40 @@ También necesita instalar la [consola de Gremlin](http://tinkerpop.apache.org/)
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Conectarse a su App Service
-1. Antes de iniciar la consola de Gremlin, cree o modifique su archivo de configuración *remote-secure.yaml* en su directorio *apache-tinkerpop-gremlin-console-3.2.4/conf*.
+1. Antes de iniciar la consola de Gremlin, cree o modifique el archivo de configuración remote-secure.yaml en el directorio apache-tinkerpop-gremlin-console-3.2.4/conf.
 2. Rellene sus configuraciones *host*, *puerto*, *nombre de usuario*, *contraseña*, *connectionPool* y *serializador*:
 
     Configuración|Valor sugerido|Descripción
     ---|---|---
-    Hosts|***.graphs.azure.com|Su URI del servicio Graph, que puede recuperar desde Azure Portal
-    Port|443|Se establece en 443
-    Nombre de usuario|*Su nombre de usuario*|El recurso del formulario `/dbs/<db>/colls/<coll>`.
-    Password|*Su clave maestra principal*|Su clave maestra principal para Azure Cosmos DB
-    ConnectionPool|{enableSsl: true}|La configuración del grupo de conexiones para SSL
-    serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Se establece en este valor
+    hosts|[***.graphs.azure.com]|Ver la captura de pantalla siguiente. Este es el valor del Identificador URI de Gremlin en la página Información general de Azure Portal, entre corchetes, sin la terminación :443/.<br><br>Este valor también se puede obtener desde la pestaña Claves; para ello, use el valor del identificador URI, quite https://, sustituya documents por graphs y elimine la terminación :443 /.
+    puerto|443|Se establece en 443.
+    nombre de usuario|*Su nombre de usuario*|El recurso con la forma `/dbs/<db>/colls/<coll>` donde `<db>` es el nombre de la base de datos y `<coll>` es el nombre de la colección.
+    Contraseña|*La clave principal*| Ver la segunda captura de pantalla más adelante. Es la clave principal, que puede obtener en la página Claves de Azure Portal, en el cuadro de texto Clave principal. Use el botón Copiar a la izquierda del cuadro de texto para copiar el valor.
+    connectionPool|{enableSsl: true}|La configuración del grupo de conexiones para SSL.
+    serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Establecer en este valor y eliminar los saltos de línea `\n` cuando se pegue el valor.
 
-3. En su terminal, ejecute *bin/gremlin.bat* o *bin/gremlin.sh* para iniciar la [consola de Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
-4. En su terminal, ejecute *:remote connect tinkerpop.server conf/remote-secure.yaml* para conectarse a su App Service.
+    Para obtener el valor de hosts, copie el valor del **Identificador URI de Gremlin** de la página **Información general**: ![Visualizar y copiar el valor del identificador URI de Gremlin en la página Información general de Azure Portal](./media/create-graph-gremlin-console/gremlin-uri.png)
+
+    Para obtener el valor de la contraseña, copie la **Clave principal** en la página **Claves**: ![Visualizar y copiar la clave principal en la página Claves de Azure Portal](./media/create-graph-gremlin-console/keys.png)
+
+
+3. En el terminal, ejecute `bin/gremlin.bat` o `bin/gremlin.sh` para iniciar la [Consola de Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
+4. En el terminal, ejecute `:remote connect tinkerpop.server conf/remote-secure.yaml` para conectarse al servicio de aplicaciones.
 
 Estupendo. Ahora que hemos terminado la configuración, comencemos a ejecutar algunos comandos de la consola.
 
-Probemos un comando count() sencillo. En el símbolo del sistema, escriba lo siguiente en la consola:
+Probemos un comando count() sencillo. En el símbolo del sistema de la consola, escriba lo siguiente:
 ```
 :> g.V().count()
 ```
 
 > [!TIP]
-> ¿Ve el ***:>*** que precede al texto g.V().count()? 
+> ¿Ve los caracteres `:>` que preceden al texto `g.V().count()`? 
 >
 > Forma parte del comando que debe escribir. Es importante si se usa la consola de Gremlin con Azure Cosmos DB.  
 >
-> Si omite este prefijo :>, le indica a la consola que ejecute el comando localmente, a menudo con un gráfico en memoria.
-> Mediante este prefijo ***:>***, le indica a la consola que ejecute un comando remoto; en este caso, con Cosmos DB (ya sea el emulador de localhost o una instancia de Azure >).
+> Si omite este prefijo `:>`, le indica a la consola que ejecute el comando localmente, a menudo con un grafo en memoria.
+> Mediante este prefijo `:>` le indica a la consola que ejecute un comando remoto, en este caso, con Cosmos DB (ya sea el emulador local o una instancia de Azure).
 
 
 ## <a name="create-vertices-and-edges"></a>Crear vértices y bordes

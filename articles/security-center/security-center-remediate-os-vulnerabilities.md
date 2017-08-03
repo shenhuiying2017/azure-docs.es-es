@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c88dc19cdacc94b9b81adcdbf69f22aac8f6eabe
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: e6b251d5b97c57b3b6f79d14e53fbed5ca37ecb0
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -25,14 +26,14 @@ ms.lasthandoff: 03/22/2017
 Azure Security Center analiza a diario las configuraciones del sistema operativo (SO) de la máquina virtual que podrían provocar que esta fuera más vulnerable a ataques. Asimismo, recomienda cambios de configuración para solucionar estas vulnerabilidades. Azure Security Center recomienda que solucione las vulnerabilidades cuando la configuración del SO de la máquina virtual no coincida con las reglas de configuración recomendadas.
 
 > [!NOTE]
-> Para obtener más información sobre las configuraciones específicas que se están supervisando, [consulte la lista de reglas de configuración recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). En este momento, Windows Server 2016 no es totalmente compatible.
+> Para obtener más información sobre las configuraciones específicas que se están supervisando, [consulte la lista de reglas de configuración recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
 >
 >
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
 
 > [!NOTE]
-> En este documento se presenta el servicio mediante una implementación de ejemplo.  No se trata de una guía paso a paso.
+> En este documento se presenta el servicio mediante una implementación de ejemplo.  Este documento no es una guía paso a paso.
 >
 >
 
@@ -53,7 +54,7 @@ Azure Security Center analiza a diario las configuraciones del sistema operativo
 2. Seleccione una máquina virtual. Una hoja de esa VM se abre y muestra las reglas con error.
    ![Reglas de configuración con error][2]
 
-3. Seleccione una regla. En este ejemplo, seleccionamos **La contraseña debe cumplir los requisitos de complejidad**. Se abre una hoja que describe la regla con errores y el impacto. Revise los detalles y tenga en cuenta cómo se aplicarán las configuraciones del sistema operativo.
+3. Seleccione una regla. En este ejemplo, seleccionamos **La contraseña debe cumplir los requisitos de complejidad**. Se abre una hoja que describe la regla con errores y el impacto. Revise los detalles y tenga en cuenta cómo se aplican las configuraciones del sistema operativo.
   ![Descripción de la regla con error][3]
 
   Azure Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos para las reglas de configuración. En esta hoja, se proporciona la siguiente información:
@@ -74,13 +75,14 @@ En este artículo se muestra cómo implementar la recomendación de Azure Securi
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md) : aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-* [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md) : recomendaciones que le ayudan a proteger los recursos de Azure.
-* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md) : obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
-* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
-* [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md) : aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : busque las preguntas más frecuentes sobre cómo usar el servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/) : encuentre publicaciones de blog sobre el cumplimiento y la seguridad de Azure.
+* [Plataformas compatibles con Azure Security Center](security-center-os-coverage.md): proporciona una lista de máquinas virtuales Windows y Linux compatibles.
+* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que le ayudan a proteger los recursos de Azure.
+* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el mantenimiento de los recursos de Azure.
+* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
+* [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre publicaciones de blog sobre el cumplimiento y la seguridad de Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/recommendation.png

@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
+ms.date: 06/15/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 3f1f19f8d8a4f2e6e892ba3ede67f3749cedb11b
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: a99fd7931d6172046f2b2e91994381ac6ebc66c9
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 ---
 
 # <a name="overview-of-traffic-manager"></a>Introducción a Traffic Manager
 
-Microsoft Azure Traffic Manager permite controlar la distribución del tráfico de los usuarios para puntos de conexión de servicio en distintos centros de datos. Entre los puntos de conexión de servicio compatibles con Traffic Manager, se incluyen máquinas virtuales de Azure, Web Apps y servicios en la nube. También puede utilizar el Traffic Manager con puntos de conexión externos, que no forman parte de Azure.
+Microsoft Azure Traffic Manager permite controlar la distribución del tráfico de los usuarios para puntos de conexión de servicio en distintos centros de datos. Entre los puntos de conexión de servicio compatibles con Traffic Manager, se incluyen máquinas virtuales de Azure, Web Apps y servicios en la nube. También puede utilizar el Administrador de tráfico con puntos de conexión externos, que no forman parte de Azure.
 
-Traffic Manager usa el sistema de nombres de dominio (DNS) para dirigir las solicitudes del cliente al punto de conexión más adecuado en función de un [método de enrutamiento del tráfico](traffic-manager-routing-methods.md) y el estado de los puntos de conexión. Traffic Manager proporciona una serie de métodos de enrutamiento del tráfico para satisfacer las necesidades de distintas aplicaciones, la [supervisión](traffic-manager-monitoring.md) del estado de los puntos de conexión y la conmutación automática por error. Traffic Manager es resistente a errores, incluidos los que afecten a toda una región de Azure.
+Traffic Manager usa el sistema de nombres de dominio (DNS) para dirigir las solicitudes del cliente al punto de conexión más adecuado en función de un método de enrutamiento del tráfico y el estado de los puntos de conexión. Traffic Manager proporciona una serie de [métodos de enrutamiento del tráfico](traffic-manager-routing-methods.md) y [opciones de supervisión del punto de conexión](traffic-manager-monitoring.md) para satisfacer las distintas necesidades de las aplicaciones y los modelos de conmutación automática por error. Traffic Manager es resistente a errores, incluidos los que afecten a toda una región de Azure.
 
 ## <a name="traffic-manager-benefits"></a>Ventajas de Traffic Manager
 
@@ -68,11 +69,11 @@ Cuando un cliente intenta conectarse a un servicio, debe resolver primero el nom
 
 Contoso Corp ha desarrollado un nuevo portal para asociados. La dirección URL de este portal es https://partners.contoso.com/login.aspx. La aplicación está hospedada en tres regiones de Azure. Para mejorar la disponibilidad y maximizar el rendimiento global, usan Traffic Manager para distribuir el tráfico de cliente al punto de conexión disponible más próximo.
 
-Para lograr esta configuración:
+Para lograr esta configuración, se han completado los pasos siguientes:
 
-* Se implementan 3 instancias de su servicio. Los nombres DNS de estas implementaciones son "contoso-us.cloudapp.net", "contoso-eu.cloudapp.net" y "contoso-asia.cloudapp.net".
-* A continuación, se crea un perfil de Traffic Manager denominado "contoso.trafficmanager.net", y este se configura para utilizar el método de enrutamiento de tráfico "Rendimiento" entre los 3 puntos de conexión.
-* Por último, se configura un nombre de dominio personal, "partners.contoso.com", para que apunte a "contoso.trafficmanager.net" con un registro CNAME de DNS.
+1. Se implementan tres instancias de su servicio. Los nombres DNS de estas implementaciones son "contoso-us.cloudapp.net", "contoso-eu.cloudapp.net" y "contoso-asia.cloudapp.net".
+2. Se crea un perfil de Traffic Manager denominado "contoso.trafficmanager.net" y este se configura para utilizar el método de enrutamiento de tráfico "Rendimiento" entre los tres puntos de conexión.
+* Se configura un nombre de dominio personal, "partners.contoso.com", para que apunte a "contoso.trafficmanager.net" con un registro CNAME de DNS.
 
 ![Configuración de DNS de Traffic Manager][1]
 
@@ -99,7 +100,7 @@ Continuando a partir del ejemplo anterior, cuando un cliente solicita la página
 7. El servicio DNS recursivo consolida los resultados y devuelve una única respuesta DNS al cliente.
 8. El cliente recibe los resultados DNS y se conecta a la dirección IP especificada. El cliente se conecta al punto de conexión de servicio de la aplicación directamente, no mediante Traffic Manager. Puesto que es un punto de conexión HTTPS, el cliente lleva a cabo el protocolo de enlace SSL/TLS necesario y, a continuación, realiza una solicitud GET de HTTP para la página "/login.aspx".
 
-El servicio DNS recursivo almacena en la memoria caché las respuestas DNS que recibe. La resolución DNS del dispositivo cliente también almacena en caché el resultado. El almacenamiento en caché permite que las consultas DNS posteriores se respondan más rápidamente al utilizar datos de la memoria caché en lugar de consultar otros servidores DNS. La duración de la memoria caché viene determinada por la propiedad de período de vida (TTL) de cada registro DNS. Unos valores más cortos producen una expiración de caché más rápida y, por tanto, más recorridos de ida y vuelta a los servidores de nombres de Traffic Manager. Unos valores mayores significan que se puede tardar más tiempo en alejar el tráfico de un punto de conexión con error. Traffic Manager permite configurar el valor TTL utilizado en las respuestas DNS de Traffic Manager, lo que le permite elegir el valor que responda mejor a las necesidades de su aplicación.
+El servicio DNS recursivo almacena en la memoria caché las respuestas DNS que recibe. La resolución DNS del dispositivo cliente también almacena en caché el resultado. El almacenamiento en caché permite que las consultas DNS posteriores se respondan más rápidamente al utilizar datos de la memoria caché en lugar de consultar otros servidores DNS. La duración de la memoria caché viene determinada por la propiedad de período de vida (TTL) de cada registro DNS. Unos valores más cortos producen una expiración de caché más rápida y, por tanto, más recorridos de ida y vuelta a los servidores de nombres de Traffic Manager. Unos valores mayores significan que se puede tardar más tiempo en alejar el tráfico de un punto de conexión con error. Traffic Manager permite configurar el valor de TTL utilizado en las respuestas DNS de Traffic Manager entre 0 segundos y 2.147.483.647 segundos (el intervalo máximo compatible con [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt)), lo que le permite elegir el valor que responda mejor a las necesidades de su aplicación.
 
 ## <a name="pricing"></a>Precios
 

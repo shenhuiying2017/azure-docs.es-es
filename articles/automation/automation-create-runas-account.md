@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/29/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
@@ -22,9 +22,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="update-your-automation-account-authentication-with-run-as-accounts" class="xliff"></a>
-
-# Actualizar la autenticación de la cuenta de Automation con cuentas de ejecución 
+# <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Actualizar la autenticación de la cuenta de Automation con cuentas de ejecución 
 Puede actualizar una cuenta de Automation existente desde el portal o mediante PowerShell si:
 
 * Crea una cuenta de Automation, pero se rechaza la creación de la cuenta de ejecución.
@@ -32,9 +30,7 @@ Puede actualizar una cuenta de Automation existente desde el portal o mediante P
 * Ya usa una cuenta de Automation para administrar recursos del modelo clásico y quiere actualizarla para usar la cuenta de ejecución en lugar de crear una nueva cuenta y migrar los runbooks y recursos a ella.   
 * Quiere crear una cuenta de ejecución y una cuenta de ejecución clásica mediante un certificado emitido por una entidad de certificación (CA) de empresa.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * El script solo se puede ejecutar en Windows 10 y Windows Server 2016 con módulos de Azure Resource Manager 3.0.0 y versiones posteriores. No se admite en versiones anteriores de Windows.
 * Azure PowerShell 1.0 y versiones superiores. Para más información sobre la versión 1.0 de PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
@@ -46,9 +42,7 @@ Para obtener los valores de *SubscriptionID*, *ResourceGroup* y *AutomationAccou
 2. En la hoja **All settings** (Toda la configuración), en **Account Settings** (Configuración de la cuenta), seleccione **Propiedades**. 
 3. Tenga en cuenta los valores de la hoja **Propiedades**.<br><br> ![Hoja "Propiedades" de la cuenta de Automation](media/automation-create-runas-account/automation-account-properties.png)  
 
-<a id="required-permissions-to-update-your-automation-account" class="xliff"></a>
-
-### Privilegios necesarios para actualizar la cuenta de Automation
+### <a name="required-permissions-to-update-your-automation-account"></a>Privilegios necesarios para actualizar la cuenta de Automation
 Para actualizar una cuenta de Automation, debe tener los siguientes privilegios y permisos, necesarios para completar este tema.   
  
 * Debe agregarse la cuenta de usuario de AD a un rol con los privilegios equivalentes a los del rol Colaborador para los recursos de Microsoft Automation, como se resalta en el artículo [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
@@ -56,9 +50,7 @@ Para actualizar una cuenta de Automation, debe tener los siguientes privilegios 
 
 Si no es miembro de la instancia de Active Directory de la suscripción antes de que le agreguen al rol de administrador global/coadministrador de esta última, se le agregará a Active Directory como invitado. En este caso, recibirá una advertencia tipo "No tiene permisos para crear..." en la hoja **Agregar cuenta de Automation**. Los usuarios que primero se agregaron al rol de administrador global/coadministrador se pueden quitar de la instancia de Active Directory de la suscripción y volverse a agregar para convertirlos en usuarios completos en Active Directory. Para comprobar esta situación, en el panel de **Azure Active Directory** de Azure Portal, seleccione **Usuarios y grupos**, **All Users** y, después de seleccionar el usuario específico, seleccione **Perfil**. El valor del atributo **Tipo de usuario** del perfil de los usuarios no debería ser **Invitado**.
 
-<a id="create-run-as-account-from-the-portal" class="xliff"></a>
-
-## Creación de una cuenta de ejecución desde el portal
+## <a name="create-run-as-account-from-the-portal"></a>Creación de una cuenta de ejecución desde el portal
 En esta sección, realizará los pasos que se describen a continuación para actualizar una cuenta de Azure Automation desde Azure Portal.  Las cuenta de ejecución y la cuenta de ejecución clásica se crean individualmente y, si no necesita administrar recursos desde el portal de Azure clásico, puede crear únicamente la cuenta de ejecución de Azure.  
 
 El proceso crea los siguientes elementos en su cuenta de Automation.
@@ -79,9 +71,7 @@ El proceso crea los siguientes elementos en su cuenta de Automation.
 3. En función de la cuenta que necesite, seleccione **Cuenta de ejecución de Azure** o **Cuenta de ejecución de Azure clásica**.  Después de seleccionar **Agregar cuenta de ejecución de Azure** o **Agregar cuenta de ejecución de Azure clásica**, aparece la hoja y, después de revisar la información general, haga clic en **Crear** para continuar con la creación de la cuenta de ejecución.  
 4. Mientras Azure crea la cuenta de ejecución, puede seguir el progreso en **Notificaciones** en el menú y se muestra un banner que indica que se está creando la cuenta.  Este proceso puede tardar unos minutos en completarse.  
 
-<a id="create-run-as-account-using-powershell-script" class="xliff"></a>
-
-## Creación de una cuenta de ejecución con un script de PowerShell
+## <a name="create-run-as-account-using-powershell-script"></a>Creación de una cuenta de ejecución con un script de PowerShell
 Este script de PowerShell incluye compatibilidad con las siguientes configuraciones:
 
 * Creación de una cuenta de ejecución mediante un certificado autofirmado.
@@ -166,7 +156,7 @@ Dependiendo de la opción de configuración seleccionada, el script crea los sig
 
         $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
-        $KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
+        $KeyCredential.EndDate = Get-Date $PfxCert.GetExpirationDateString()
         $KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
         $KeyCredential.KeyId = $KeyId
         $KeyCredential.CertValue  = $keyValue
@@ -307,8 +297,6 @@ Una vez que el script se ejecuta correctamente, observe lo siguiente:
 * Si creó una cuenta de identificación clásica con un certificado público de empresa (archivo .cer) , use este certificado. Siga las instrucciones para [cargar un certificado de API de administración en el Portal de Azure clásico](../azure-api-management-certs.md) y luego valide la configuración de credenciales con recursos de implementación clásicos mediante el [código de ejemplo para realizar la autenticación con recursos del modelo de implementación clásica de Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Si *no* creó una cuenta de ejecución clásica, realice la autenticación con recursos de Resource Manager y valide la configuración de credenciales mediante el [código de ejemplo para la autenticación con recursos de Service Management](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md).
 * Para más información acerca de los certificados y de los servicios de Azure, consulte [Introducción a los certificados para los servicios en la nube de Azure](../cloud-services/cloud-services-certs-create.md).

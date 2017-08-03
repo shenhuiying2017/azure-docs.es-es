@@ -1,5 +1,5 @@
 ---
-title: Puertos utilizados por HDInsight | Microsoft Docs
+title: 'Puertos utilizados por los servicios Hadoop en HDInsight: Azure | Microsoft Docs'
 description: Una lista de puertos utilizados por los servicios Hadoop que se ejecutan en HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/17/2017
+ms.date: 06/02/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 3bf5ff732b03a1ecffb4e149d7805a6216ab0019
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: ffd8c494d821d41532c9a31613b10b521ff4d86b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="ports-and-uris-used-by-hdinsight"></a>Puertos e identificadores URI usados en HDInsight
+# <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Hadoop en HDInsight
 
 En este documento se proporciona una lista de puertos que se usan con los servicios de Hadoop que se ejecutan en clústeres de HDInsight basados en Linux. También se proporciona información sobre los puertos utilizados para conectarse al clúster mediante SSH.
 
@@ -105,8 +105,8 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 
 | Servicio | Nodos | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| HiveServer2 |Nodos principales |10001 |Thrift |Servicio para conectarse mediante programación a Hive (Thrift/JDBC) |
-| Tienda de metadatos Hive |Nodos principales |9083 |Thrift |Servicio para conectarse mediante programación a metadatos de Hive (Thrift/JDBC) |
+| HiveServer2 |Nodos principales |10001 |Thrift |Servicio para conectarse a Hive (Thrift/JDBC) |
+| Tienda de metadatos Hive |Nodos principales |9083 |Thrift |Servicio para conectarse a metadatos de Hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Puertos de WebHCat
 
@@ -152,4 +152,8 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 | Agente |Nodos de trabajo |9092 |[Protocolo de conexión de Kafka](http://kafka.apache.org/protocol.html) |Se utiliza para la comunicación del cliente |
 | &nbsp; |Nodos Zookeeper |2181 |&nbsp; |El puerto que los clientes utilizan para conectarse a ZooKeeper |
 
+### <a name="spark-ports"></a>Puertos de Spark
 
+| Servicio | Nodos | Port | Protocol | Descripción |
+| --- | --- | --- | --- | --- |
+| Servidores Thrift de Spark |Nodos principales |10002 |Thrift |Servicio para conectarse a Spark SQL (Thrift/JDBC) |

@@ -1,5 +1,5 @@
 ---
-title: " Creación de una cuenta de Azure Media Services con Azure Portal | Microsoft Docss"
+title: "Creación de una cuenta de Azure Media Services con Azure Portal | Microsoft Docs"
 description: "Este tutorial le guiará por los pasos que hay que seguir para crear una cuenta de Servicios multimedia de Azure con el Portal de Azure."
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 07/10/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7ef0383ae88dcb8beb4b30792eaf60dec2911507
-ms.openlocfilehash: 08b8629502f99fc46fbe28ad17cd173f11259721
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9ab5368c173f016f44546d6c8acb360598f5f5ab
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Creación de una cuenta de Azure Media Services mediante Azure Portal
@@ -40,13 +41,10 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
 * Una cuenta de Servicios multimedia. La cuenta le proporciona acceso a un conjunto de Servicios multimedia basados en la nube que están disponibles en Azure. Una cuenta de Servicios multimedia no almacena el contenido multimedia real, sino que almacena metadatos sobre el contenido multimedia y trabajos de procesamiento multimedia en su cuenta. En el momento en el que cree la cuenta, seleccione una región de Servicios multimedia disponible. La región que selecciona es un centro de datos que almacena los registros de metadatos para su cuenta.
   
-    Entre las regiones de Servicios multimedia (AMS) disponibles se incluyen las siguientes: Europa del Norte, Europa occidental, Oeste de EE. UU., Este de EE. UU., Sudeste de Asia, Asia oriental, Oeste de Japón, Este de Japón. Servicios multimedia no usa grupos de afinidad.
-  
-    AMS ya está disponible en los centros de datos siguientes: sur de Brasil, India occidental, sur de India e India central. Ahora se puede usar Azure Portal para crear cuentas de Media Services y realizar varias tareas que se describen aquí. Sin embargo, Codificación en directo no está habilitado en estos centros de datos. Además, no todos los tipos de unidades reservadas de codificación están disponibles en estos centros de datos.
-  
-  * Sur de Brasil: solo están disponibles las unidades reservadas de codificación Estándar y Básica.
-  * India occidental, sur de la India: 
 * Una cuenta de almacenamiento de Azure. Las cuentas de almacenamiento deben ubicarse en la misma región geográfica que la cuenta de Media Services. Cuando cree una cuenta de Servicios multimedia, podrá elegir una cuenta de almacenamiento existente en la misma región o crear una nueva cuenta de almacenamiento en la misma región. Si elimina una cuenta de Servicios multimedia, no se eliminarán los blobs de la cuenta de almacenamiento relacionada.
+
+> [!NOTE]
+> Para obtener información acerca de la disponibilidad de las características de Azure Media Services en distintas regiones, consulte la sección [Availability of Media Services features across datacenters](scenarios-and-availability.md#a-idavailabilitya-availability-of-media-services-features-across-datacenters) (Disponibilidad de las características de Media Services en los centros de datos).
 
 ## <a name="create-an-ams-account"></a>Creación de una cuenta de AMS
 Los pasos de esta sección muestran cómo crear una cuenta de AMS.
@@ -74,35 +72,21 @@ Los pasos de esta sección muestran cómo crear una cuenta de AMS.
     >[!NOTE]
     >Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución). 
    
-    ![Configuración de Servicios multimedia](./media/media-services-create-account/media-services-settings.png)
-   
-    Para administrar la cuenta de AMS (por ejemplo, para cargar vídeos, codificar recursos, supervisar el progreso del trabajo) use la ventana **Configuración** .
+## <a name="to-manage-your-ams-account"></a>Administración de una cuenta de AMS
 
-## <a name="manage-keys"></a>Administrar claves
-Necesita el nombre de cuenta y la información de la clave principal para obtener acceso mediante programación a la cuenta de Servicios multimedia.
+Para administrar una cuenta de AMS (por ejemplo, conectarse a la API de AMS mediante programación, cargar vídeos, codificar recursos, configurar la protección de contenido o supervisar el progreso del trabajo) seleccione **Configuración** en el lado izquierdo del portal. En **Configuración**, navegue a una de las hojas disponibles (por ejemplo: **Acceso de API**, **Recursos**, **Trabajos**, **Content Protection**).
 
-1. En el Portal de Azure, seleccione la cuenta. 
-   
-    Aparecerá la ventana **Configuración** a la derecha. 
-2. En la ventana **Configuración**, seleccione **Claves**. 
-   
-    Aparece la ventana **Administrar claves** que muestra el nombre de la cuenta y la clave principal y la secundaria. 
-3. Pulse el botón Copiar para copiar los valores.
-   
-    ![Claves de Servicios multimedia](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ya puede cargar archivos en su cuenta de AMS. Para más información, consulte [Upload files into a Media Services account using the Azure portal](media-services-portal-upload-files.md)(Carga de archivos en una cuenta de Servicios multimedia desde el Portal de Azure).
+
+Si planea acceder a la API de AMS mediante programación, consulte [Acceso a Azure Media Services API con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

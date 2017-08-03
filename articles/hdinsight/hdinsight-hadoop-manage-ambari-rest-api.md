@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 7ac80a8521b48f43538ca06a054f8302eb32eea6
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 642f40de546600525fb739d8b158f06851d78406
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Administración de clústeres de HDInsight con la API de REST de Ambari
@@ -258,7 +257,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 El valor devuelto es similar a uno de los ejemplos siguientes:
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net`: este valor indica que el clúster usa una cuenta de Azure Storage para el almacenamiento predeterminado. El valor `ACCOUNTNAME` es el nombre de la cuenta de almacenamiento. La parte `CONTAINER` es el nombre del contenedor de blob de la cuenta de almacenamiento. El contenedor es la raíz del almacenamiento HDFS compatible del clúster.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`: este valor indica que el clúster usa una cuenta de Azure Storage para el almacenamiento predeterminado. El valor `ACCOUNTNAME` es el nombre de la cuenta de almacenamiento. La parte `CONTAINER` es el nombre del contenedor de blob de la cuenta de almacenamiento. El contenedor es la raíz del almacenamiento HDFS compatible del clúster.
 
 * `adl://home`: este valor indica que el clúster usa Azure Data Lake Store como almacenamiento predeterminado.
 

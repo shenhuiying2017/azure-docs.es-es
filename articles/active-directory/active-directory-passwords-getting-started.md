@@ -6,22 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 5a338029cea5f448fc4d84a1a9c01c867ecd5028
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 23715879b46dd6d56a91fac2908964ea87fe569a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="quick-start-azure-ad-self-service-password-reset"></a>Inicio rápido: Autoservicio de restablecimiento de contraseña de Azure AD
@@ -40,23 +39,23 @@ En esta guía se da por hecho que ya dispone de un inquilino de Azure AD con lic
     * Todo el mundo: todos los usuarios con cuentas en su inquilino de Azure AD podrán usar la funcionalidad de SSPR.
 
 3. En la pantalla **"Métodos de autenticación"**, seleccione:
-    * "Número de métodos requeridos para el restablecimiento": se admite uno como mínimo o dos como máximo.
-    * "Métodos disponibles para los usuarios": se necesita al menos uno, pero es recomendable tener una opción adicional disponible.
+    * Número de métodos requeridos para el restablecimiento: se admite uno como mínimo o dos como máximo.
+    * Métodos disponibles para los usuarios: se necesita al menos uno, pero es recomendable tener una opción adicional disponible.
         * **Correo electrónico** envía un correo electrónico con un código a la dirección de correo electrónico de autenticación configurada del usuario.
         * **Teléfono móvil** proporciona al usuario la opción de recibir una llamada o un mensaje de texto con un código en su número de teléfono móvil configurado.
         * **Teléfono de la oficina** realiza una llamada al número de teléfono de la oficina configurado del usuario para transmitirle un código.
         * **Preguntas de seguridad** requiere que se definan las siguientes opciones:
-            * "Número de preguntas necesarias para registrarse" es cantidad mínima de preguntas para registrarse correctamente, de forma que un usuario puede responder aún más para crear una serie de preguntas entre las que escoger. Esta opción puede definirse entre 3 y 5 y debe ser mayor o igual que el número de preguntas necesarias para el restablecimiento.
-            * "Número de preguntas necesarias para el restablecimiento" puede establecerse entre 3 y 5 preguntas, que deben responderse correctamente para permitir restablecer o desbloquear la contraseña de los usuarios.
+            * Número de preguntas necesarias para registrarse: es cantidad mínima de preguntas para registrarse correctamente, de forma que un usuario puede responder aún más para crear una serie de preguntas entre las que escoger. Esta opción puede definirse entre 3 y 5 y debe ser mayor o igual que el número de preguntas necesarias para el restablecimiento.
                 * Se pueden agregar preguntas personalizadas haciendo clic en el botón "Personalizar" al seleccionar preguntas de seguridad.
+            * Número de preguntas necesarias para el restablecimiento: puede establecerse entre 3 y 5 preguntas, que deben responderse correctamente para permitir restablecer o desbloquear la contraseña de los usuarios.
 
 4. RECOMENDADO: **"Personalización"** permite cambiar el vínculo "Póngase en contacto con el administrador" para dirigir a otra página o dirección de correo electrónico que defina.
 
 5. OPCIONAL: La pantalla **"Registro"** proporciona a los administradores las opciones siguientes:
-    * "¿Desea exigir a los usuarios que se registren al iniciar sesión?"
-    * "Número de días antes de que se solicite a los usuarios que vuelvan a confirmar su información de autenticación"
+    * Exigir a los usuarios que se registren al iniciar sesión
+    * Número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación
 
-6. OPCIONAL: **"Notificación"** proporciona a los administradores las opciones siguientes:
+6. OPCIONAL: la pantalla **"Notificación"** proporciona a los administradores las opciones siguientes:
     * ¿Quiere notificar a los usuarios los restablecimientos de contraseña?
     * ¿Quiere notificar a todos los administradores cuando otros administradores restablezcan su contraseña?
 
@@ -67,7 +66,7 @@ En esta guía se da por hecho que ya dispone de un inquilino de Azure AD con lic
 
 ## <a name="configure-synchronization-to-existing-identity-source"></a>Configuración de la sincronización con un origen de identidades existente
 
-Para habilitar la sincronización de identidades local con Azure AD, debe instalar y configurar [Azure AD Connect](./connect/active-directory-aadconnect.md) en un servidor de su organización. Esta aplicación administra la sincronización de usuarios y grupos de su origen de identidades existente con su dominio de Azure AD.
+Para habilitar la sincronización de identidades local con Azure AD, debe instalar y configurar [Azure AD Connect](./connect/active-directory-aadconnect.md) en un servidor de su organización. Esta aplicación administra la sincronización de usuarios y grupos de su origen de identidades existente con su inquilino de Azure AD.
 
 * [Actualización desde DirSync o Azure AD Sync a Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Introducción a Azure AD Connect mediante la configuración rápida](./connect/active-directory-aadconnect-get-started-express.md)
@@ -75,7 +74,7 @@ Para habilitar la sincronización de identidades local con Azure AD, debe instal
 
 ## <a name="disabling-self-service-password-reset"></a>Deshabilitación del autoservicio de restablecimiento de contraseña
 
-Para deshabilitar el autoservicio de restablecimiento de contraseña, tan solo tiene que abrir el inquilino de Azure AD, ir a **Restablecimiento de contraseña**, **Propiedades** y seleccionar **Nadie** en **Se habilitó el restablecimiento de contraseña del autoservicio**.
+Para deshabilitar el autoservicio de restablecimiento de contraseña, tan solo tiene que abrir el inquilino de Azure AD, ir a **Restablecimiento de contraseña, Propiedades** y seleccionar **Nadie** en **Se habilitó el restablecimiento de contraseña del autoservicio**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:

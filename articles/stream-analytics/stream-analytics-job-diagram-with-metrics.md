@@ -24,15 +24,11 @@ ms.lasthandoff: 07/04/2017
 
 ---
 
-<a id="data-driven-debugging-by-using-the-job-diagram" class="xliff"></a>
-
-# Depuración orientada a datos mediante el diagrama de trabajo
+# <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuración orientada a datos mediante el diagrama de trabajo
 
 El diagrama de trabajo de la hoja **Supervisión** del portal de Azure puede ayudarle a visualizar su canalización de trabajo. Muestra las entradas, las salidas y los pasos de consulta. Puede usar el diagrama de trabajo para examinar las métricas de cada paso y así aislar más rápidamente el origen de un problema cuando tenga que solucionarlo.
 
-<a id="using-the-job-diagram" class="xliff"></a>
-
-## Uso del diagrama de trabajo
+## <a name="using-the-job-diagram"></a>Uso del diagrama de trabajo
 
 En el portal de Azure, mientras está en un trabajo de Stream Analytics, en **SOPORTE TÉCNICO Y SOLUCIÓN DE PROBLEMAS**, seleccione **Diagrama de trabajo**:
 
@@ -58,60 +54,44 @@ Para ver los detalles del valor de métrica y la hora, apunte al gráfico.
 
 ![Diagrama de trabajo con métricas: mantener el mouse](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-6.png)
 
-<a id="troubleshoot-by-using-metrics" class="xliff"></a>
-
-## Solución de problemas mediante métricas
+## <a name="troubleshoot-by-using-metrics"></a>Solución de problemas mediante métricas
 
 La métrica **QueryLastProcessedTime** indica cuando un paso específico recibió datos. Si examina la topología, puede volver atrás desde el procesador de salida para ver qué paso no recibe datos. Si un paso no recibe datos, vaya al paso de consulta justo delante de él. Compruebe que el paso de consulta anterior tenga una ventana de tiempo, y que se le haya pasado suficiente tiempo para generar datos. (Observe que las ventanas de tiempo están ajustadas a la hora.)
  
 Si el paso de consulta anterior es un procesador de entrada, use las métricas de entrada como ayuda para responder a las siguientes preguntas ayude a responder las siguientes preguntas dirigidas. Pueden ayudarle a determinar si un trabajo recibe datos de sus orígenes de entrada. Si la consulta está particionada, examine cada partición.
  
-<a id="how-much-data-is-being-read" class="xliff"></a>
-
-### ¿Cuántos datos se están leyendo?
+### <a name="how-much-data-is-being-read"></a>¿Cuántos datos se están leyendo?
 
 *   **InputEventsSourcesTotal** es el número de unidades de datos leídas. Por ejemplo, el número de blobs.
 *   **InputEventsTotal** es el número de eventos leídos. Esta métrica está disponible por partición.
 *   **InputEventsInBytesTotal** es el número de bytes leídos.
 *   **InputEventsLastArrivalTime** se actualiza con el tiempo que está puesto en cola cada evento recibido.
  
-<a id="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued" class="xliff"></a>
-
-### ¿Avanza el tiempo? Si se leen eventos reales, es posible que no se emita la puntuación.
+### <a name="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued"></a>¿Avanza el tiempo? Si se leen eventos reales, es posible que no se emita la puntuación.
 
 *   **InputEventsLastPunctuationTime** indica cuando se emitió una puntuación para mantener el tiempo avanzando. El flujo de datos puede bloquearse si no se emite la puntuación.
  
-<a id="are-there-any-errors-in-the-input" class="xliff"></a>
-
-### ¿Hay errores en la entrada?
+### <a name="are-there-any-errors-in-the-input"></a>¿Hay errores en la entrada?
 
 *   **InputEventsEventDataNullTotal** es el número de eventos que tienen datos nulos.
 *   **InputEventsSerializerErrorsTotal** es el número de eventos que no se pudieron deserializar correctamente.
 *   **InputEventsDegradedTotal** es el número de eventos que tuvieron un problema distinto al de la deserialización.
  
-<a id="are-events-being-dropped-or-adjusted" class="xliff"></a>
-
-### ¿Se van a descartar o ajustar los eventos?
+### <a name="are-events-being-dropped-or-adjusted"></a>¿Se van a descartar o ajustar los eventos?
 
 *   **InputEventsEarlyTotal** es el número de eventos con una marca de tiempo de la aplicación antes del límite máximo.
 *   **InputEventsLateTotal** es el número de eventos con una marca de tiempo de la aplicación después del límite máximo.
 *   **InputEventsDroppedBeforeApplicationStartTimeTotal** es el número de eventos descartados antes de la hora de inicio del trabajo.
  
-<a id="are-we-falling-behind-in-reading-data" class="xliff"></a>
-
-### ¿Estamos retrasados en la lectura de los datos?
+### <a name="are-we-falling-behind-in-reading-data"></a>¿Estamos retrasados en la lectura de los datos?
 
 *   **InputEventsSourcesBackloggedTotal** indica cuántos mensajes más es necesario leer para las entradas de Event Hubs y Azure IoT Hub.
 
 
-<a id="get-help" class="xliff"></a>
-
-## Obtener ayuda
+## <a name="get-help"></a>Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [¿Qué es Stream Analytics?](stream-analytics-introduction.md)
 * [Introducción a Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Escalado de trabajos de Stream Analytics](stream-analytics-scale-jobs.md)

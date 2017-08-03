@@ -1,5 +1,5 @@
 ---
-title: "Configuración de clústeres de HDInsight unidos a un dominio| Microsoft Docs"
+title: "Configuración de clústeres de HDInsight unidos a un dominio (versión preliminar): Azure | Microsoft Docs"
 description: "Aprenda a configurar y definir clústeres de HDInsight unidos a un dominio."
 services: hdinsight
 documentationcenter: 
@@ -15,15 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1fb13d60eebbaf45ca9cb394c073c834bbe59bb9
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: e789114a9b3faee73d264eded52c35cedd9cf98f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Configuración de clústeres de HDInsight unidos a un dominio (versión preliminar)
+
 Aprenda a configurar un clúster de Azure HDInsight con Azure Active Directory (Azure AD) y [Apache Ranger](http://hortonworks.com/apache/ranger/) para aprovechar la autenticación sólida y las directivas de control de acceso basado en rol (RBAC) enriquecidas.  HDInsight unido a un dominio solo se puede configurar en clústeres basados en Linux. Para más información, consulte [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Introducción a los clústeres de HDInsight unidos a dominio (versión preliminar))
+
+> [!IMPORTANT]
+> Oozie no está habilitado en HDInsight unido a un dominio.
 
 Este artículo es el primer tutorial de una serie:
 
@@ -71,8 +76,8 @@ Este tutorial proporciona los pasos para configurar un clúster de HDInsight uni
 
 Hay un script de PowerShell que automatiza los pasos 3 al 7.  Para más información, consulte [Configuración de clústeres de HDInsight unidos a un dominio con Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md).
 
-## <a name="create-an-azure-classic-vnet"></a>Cree una red virtual clásica de Azure.
-En esta sección, creará una red virtual clásica mediante Azure Portal. En la siguiente sección, se habilita Azure AD DS para Azure AD en la red virtual clásica. Para más información sobre el siguiente procedimiento y el uso de otros métodos de creación de la red virtual, consulte [Creación de una red virtual (clásica) usando Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+## <a name="create-an-azure-virtual-network-classic"></a>Creación de una instancia de Azure Virtual Network (clásico)
+En esta sección se crea una instancia de Virtual Network (clásico) con Azure Portal. En la siguiente sección, se habilita Azure AD DS para Azure AD en la red virtual. Para más información sobre el siguiente procedimiento y el uso de otros métodos de creación de la red virtual, vea [Creación de una instancia de Virtual Network (clásico) con Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 **Para crear una red virtual clásica**
 

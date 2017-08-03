@@ -24,12 +24,10 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="manage-the-settings-for-a-group-in-azure-active-directory" class="xliff"></a>
-# Administración de la configuración de un grupo en Azure Active Directory
+# <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Administración de la configuración de un grupo en Azure Active Directory
 En este artículo se explica cómo administrar la configuración de un grupo en Azure Active Directory (Azure AD).
 
-<a id="how-do-i-find-and-change-the-settings" class="xliff"></a>
-## ¿Cómo puedo buscar y cambiar la configuración?
+## <a name="how-do-i-find-and-change-the-settings"></a>¿Cómo puedo buscar y cambiar la configuración?
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
 
@@ -45,8 +43,7 @@ En este artículo se explica cómo administrar la configuración de un grupo en 
 
    ![Guardado de los cambios de propiedades](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-<a id="next-steps" class="xliff"></a>
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Ver los grupos existentes](active-directory-groups-view-azure-portal.md)

@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: e9607d2426192eca990261e5ef3b4e06b25b1dec
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: efa459f6b382ff22c94802e1250836d5f622b4ed
+ms.contentlocale: es-es
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -80,6 +81,7 @@ Antes de probar la aplicación en el emulador de Azure, se deben realizar alguna
          , nib = require('nib')
        //, sio = require('..//..//lib//socket.io'); //Original
          , sio = require('socket.io');                //Updated
+         var port = process.env.PORT || 3000;         //Updated
 3. Para estar seguro de que la aplicación escucha el puerto correcto, abra el archivo server.js en el Bloc de notas o su editor favorito y luego cambie la siguiente línea reemplazando **3000** por **process.env.port**, como se muestra a continuación:
    
        //app.listen(3000, function () {            //Original
@@ -105,9 +107,18 @@ Después de guardar los cambios en **server.js**, use los siguientes pasos para 
 1. Inicie el emulador y ejecute el siguiente comando:
    
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
+   
+   > [!NOTE]
+   > Si tiene algún problema con el emulador de inicio, por ejemplo; Start-AzureEmulator : Error inesperado.  Detalles: Error inesperado. No se puede usar el objeto de comunicación, System.ServiceModel.Channels.ServiceChannel, para la comunicación porque está en el estado Faulted.
+   
+      Vuelva a instalar AzureAuthoringTools v 2.7.1 y AzureComputeEmulator v 2.7. Asegúrese de que coincida con esa versión.
+   >
+   >
+
+
 2. Abra un explorador y navegue a **http://127.0.0.1**.
 3. Cuando se abra la ventana del explorador, escriba un alias y luego presione Entrar.
-   De esta manera podrá publicar mensajes con un alias específico. Para probar la funcionalidad multiusuario, abra ventanas del explorador adicionales con la misma dirección URL y escriba diferentes alias.
+   De esta manera, podrá publicar mensajes con un sobrenombre específico. Para probar la funcionalidad multiusuario, abra ventanas del explorador adicionales con la misma dirección URL y escriba diferentes alias.
    
    ![Dos ventanas de explorador que muestran mensajes de chat de User1 y User2](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
 4. Después de probar la aplicación, detenga el emulador ejecutando el siguiente comando:

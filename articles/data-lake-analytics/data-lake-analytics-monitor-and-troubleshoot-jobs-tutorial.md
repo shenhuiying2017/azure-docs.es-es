@@ -3,8 +3,8 @@ title: "Solución de problemas de trabajos de Azure Data Lake Analytics mediante
 description: "Aprenda a usar el Portal de Azure para solucionar problemas de trabajos de Análisis de Data Lake. "
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.service: data-lake-analytics
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: b2b19a6f2ea20c414119e9dfbf84fda92dd93402
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -27,50 +27,31 @@ Aprenda a usar el Portal de Azure para solucionar problemas de trabajos de Anál
 
 En este tutorial, configurará un problema con un archivo de origen que falta y usará el Portal de Azure para solucionar el problema.
 
-**Requisitos previos**
-
-Antes de empezar este tutorial, debe contar con lo siguiente:
-
-* **Conocimientos básicos del proceso de trabajo de Análisis de Data Lake**. Consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md).
-* **Una cuenta de Análisis de Data Lake**. Vea [Introducción a Azure Data Lake Analytics con Azure Portal](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-* **Copiar los datos de ejemplo en la cuenta predeterminada de Almacén de Data Lake**.  Consulte [Preparación de los datos de origen](data-lake-analytics-get-started-portal.md)
-
 ## <a name="submit-a-data-lake-analytics-job"></a>Envío de un trabajo de Análisis de Data Lake
-Ahora creará un trabajo U-SQL con un nombre de archivo de origen incorrecto.  
 
-**Para enviar el trabajo**
+Envíe el siguiente trabajo de U-SQL:
 
-1. En el Portal de Azure, haga clic en **Microsoft Azure** en la esquina superior izquierda.
-2. Haga clic en el icono con el nombre de la cuenta de Análisis de Data Lake.  Se ancló aquí cuando se creó la cuenta.
-   Si la cuenta no está anclada ahí, consulte [Apertura de una cuenta de Análisis desde el portal](data-lake-analytics-manage-use-portal.md#manage-data-sources).
-3. Haga clic en **Nuevo trabajo** en el menú superior.
-4. Escriba el nombre del trabajo y el siguiente script U-SQL:
+```
+@searchlog =
+   EXTRACT UserId          int,
+           Start           DateTime,
+           Region          string,
+           Query           string,
+           Duration        int?,
+           Urls            string,
+           ClickedUrls     string
+   FROM "/Samples/Data/SearchLog.tsv1"
+   USING Extractors.Tsv();
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv1"
-            USING Extractors.Tsv();
+OUTPUT @searchlog   
+   TO "/output/SearchLog-from-adls.csv"
+   USING Outputters.Csv();
+```
+    
+El archivo de origen definido en el script es **/Samples/Data/SearchLog.tsv1**, pero debería ser **/Samples/Data/SearchLog.tsv**.
 
-        OUTPUT @searchlog   
-            TO "/output/SearchLog-from-adls.csv"
-        USING Outputters.Csv();
-
-    El archivo de origen definido en el script es **/Samples/Data/SearchLog.tsv1**, pero debería ser **/Samples/Data/SearchLog.tsv**.
-5. Haga clic en **Enviar trabajo** en la parte superior. Se abre un nuevo panel llamado Detalles del trabajo. En la barra de título, se muestra el estado del trabajo. Tarda unos minutos en finalizar. Puede hacer clic en **Actualizar** para obtener el estado más reciente.
-6. Espere a que el estado del trabajo cambie a **Error**.  Si el estado del trabajo es **Correcto**, es porque no quitó la carpeta /Samples. Consulte la sección **Requisitos previos** que se encuentra al principio del tutorial.
-
-Tal vez se pregunte: ¿por qué tarda tanto tiempo para trabajo pequeño.  Recuerde que Análisis de Data Lake está diseñado para procesar macrodatos.  Destaca al procesar una gran cantidad de datos mediante su sistema distribuido.
-
-Ahora suponga que envió el trabajo y cierra el portal.  En la sección siguiente, aprenderá a solucionar el problema del trabajo.
 
 ## <a name="troubleshoot-the-job"></a>Solución de problemas del trabajo
-En la última sección, ha enviado un trabajo y este dio error.  
 
 **Para ver todos los trabajos**
 

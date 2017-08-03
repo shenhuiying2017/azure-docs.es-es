@@ -16,4 +16,4 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 `<username>` es el [usuario de implementación](#configure-a-deployment-user) que creó en el paso anterior.
 
-Guarde el identificador URI que se muestra; se usará en el paso siguiente. 
+Copie el identificador URI que se muestra; se usará en el paso siguiente.

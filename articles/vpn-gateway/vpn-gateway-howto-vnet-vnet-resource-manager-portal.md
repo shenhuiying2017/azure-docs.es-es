@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 07/05/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: c614efa25e2e7ddbb9b6c90094cf84fa8b6b4243
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: bf028b0e49833385837fa7bdd68f215ed27e0325
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante Azure Portal
 
-En este artículo se explica cómo crear una conexión de VPN Gateway entre redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y Azure Portal. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
+En este artículo se explica cómo crear una conexión de VPN Gateway entre redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Al conectar redes virtuales de distintas suscripciones, estas no necesitan estar asociadas con el mismo inquilino de Active Directory. 
+
+Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y Azure Portal para las redes virtuales que están en la misma suscripción. Si las redes virtuales se encuentran en distintas suscripciones, no se puede crear la conexión en el portal. Puede usar [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) o [CLI](vpn-gateway-howto-vnet-vnet-cli.md). También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -57,9 +58,10 @@ Puede que desee conectar redes virtuales por las siguientes razones:
   
   * Dentro de la misma región, se pueden configurar aplicaciones de niveles múltiples con varias redes virtuales conectadas entre sí para cumplir requisitos administrativos o de aislamiento.
 
-Para más información acerca de las conexiones de red virtual a red virtual, consulte [P+F sobre conexiones de red virtual a red virtual](#faq) al final de este artículo. Tenga en cuenta que si las redes virtuales se encuentran en distintas suscripciones, no se puede crear la conexión en el portal. Puede usar [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+Para más información acerca de las conexiones de red virtual a red virtual, consulte [P+F sobre conexiones de red virtual a red virtual](#faq) al final de este artículo. Tenga en cuenta que si las redes virtuales se encuentran en distintas suscripciones, no se puede crear la conexión en el portal. Puede usar [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) o [CLI](vpn-gateway-howto-vnet-vnet-cli.md).
 
 ### <a name="values"></a>Configuración de ejemplo
+
 Al usar estos pasos como un ejercicio, puede utilizar los valores de ejemplo. En los ejemplos, usamos varios espacios de direcciones para cada red virtual. Sin embargo, las configuraciones de red virtual a red virtual no requieren varios espacios de direcciones.
 
 **Valores para TestVNet1:**
@@ -129,7 +131,7 @@ Si va a crear esta configuración como ejercicio, consulte estos [valores de eje
 ### <a name="to-create-a-gateway-subnet"></a>Creación de una subred de puerta de enlace
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-## <a name="DNSServer"></a>4. Especificación de un servidor DNS (opcional)
+## <a name="dns"></a>4. Especificación de un servidor DNS (opcional)
 No se requiere la DNS para las conexiones de red virtual a red virtual. Sin embargo, si desea tener resolución de nombres para los recursos que se implementan en su red virtual, debe especificar un servidor DNS. Esta configuración le permite especificar el servidor DNS que desea usar para la resolución de nombres para esta red virtual. No crea un servidor DNS.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]

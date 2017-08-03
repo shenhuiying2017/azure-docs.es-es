@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 347984aae91a9fa99f88001effe2cba49f92deb9
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 6fbe0dbe159fecb73833260d18aade7d294f040f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -72,5 +72,6 @@ Elimine el grupo de recursos y cualquier recurso dentro del mismo: <br>
 Ejecute `az group delete -n MyRG`
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Obtenga información sobre el almacenamiento de persistencia en Cloud Shell](persisting-shell-storage.md) [Learn about Azure CLI 2.0 (Más información sobre la CLI de Azure 2.0)] (https://docs.microsoft.com/cli/azure/) [Más información sobre Azure File Storage] (https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
-
+[Obtenga información sobre la persistencia del almacenamiento en Cloud Shell](persisting-shell-storage.md) <br>
+[Más información sobre la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Información sobre Azure File Storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>

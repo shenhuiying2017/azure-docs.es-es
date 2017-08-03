@@ -1,5 +1,5 @@
 ---
-title: Desarrollo de acciones de script con HDInsight basado en Linux | Microsoft Docs
+title: Desarrollo de acciones de script con HDInsight basado en Linux (Azure) | Microsoft Docs
 description: "Obtenga información sobre cómo personalizar clústeres de HDInsight basados en Linux mediante la acción de script. Las acciones de script son una manera de personalizar los clústeres de HDInsight de Azure especificando opciones de configuración de clúster, o instalando servicios adicionales, herramientas u otro software en el clúster. "
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/02/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: aaa5134fafea387e63fc9c9819422d24de6baed0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc4326a72e2124034606e25fe8f75b330726e68e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/18/2017
 Obtenga información sobre cómo personalizar su clúster de HDInsight mediante scripts de Bash. Las acciones de script son una forma de personalizar HDInsight durante la creación del clúster o después de crearlo.
 
 > [!IMPORTANT]
-> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>¿Qué son las acciones de script?
 

@@ -17,39 +17,39 @@ ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 08e2e561b6b939de4d829c816c1948361e16f6c4
-ms.openlocfilehash: 2bbfed6e14a77964a32b84ae3f78f3529f13043c
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
 ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
-# <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0
+# Azure Active Directory v2.0 y el flujo de credenciales de cliente de OAuth 2.0
 Puede usar la [concesiones de credenciales de cliente de OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), a veces denominada *OAuth de dos días*, para obtener acceso a recursos hospedados en la Web mediante la identidad de una aplicación. Este tipo de concesión se usa principalmente para interacciones de servidor a servidor que se deben ejecutar en segundo plano, sin la interacción inmediata con un usuario. A menudo, estos tipos de aplicaciones se conocen como *demonios* o *cuentas de servicio*.
 
 > [!NOTE]
 > No todas las características y escenarios de Azure Active Directory son compatibles con la versión 2.0 del punto de conexión. Para determinar si debe usar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
-> 
-> 
+>
+>
 
 En el escenario más típico de *OAuth de tres vías*, una aplicación cliente tiene permiso para obtener acceso a un recurso en nombre de un usuario específico. El permiso se delega desde el usuario a la aplicación, habitualmente durante el proceso de [consentimiento](active-directory-v2-scopes.md). Sin embargo, en el flujo de credenciales de cliente, los permisos se conceden directamente en la propia aplicación. Cuando la aplicación presenta un token a un recurso, este exige que la propia aplicación tenga autorización para realizar una acción, y que sea el usuario el que tenga la autorización.
 
-## <a name="protocol-diagram"></a>Diagrama de protocolo
+## Diagrama de protocolo
 El flujo completo de credenciales de cliente tiene un aspecto similar al diagrama siguiente. Más adelante en este artículo se describe cada uno de los pasos.
 
 ![Flujo de credenciales de cliente](../../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
 
-## <a name="get-direct-authorization"></a>Obtención de autorización directa
+## Obtención de autorización directa
 Una aplicación recibe habitualmente autorización directa para obtener acceso a un recurso, ya sea a través de una lista de control de acceso (ACL) en el recurso o mediante una asignación de permisos de aplicación en Azure Active Directory (Azure AD). Estos dos métodos son los más comunes en Azure AD y se recomiendan para los clientes y recursos que realizan el flujo de credenciales de cliente. Sin embargo, un recurso puede elegir autorizar a sus clientes de otras formas. Cada servidor de recurso puede elegir el mejor método para su aplicación.
 
-### <a name="access-control-lists"></a>Listas de control de acceso
+### Listas de control de acceso
 Un proveedor de recursos podría exigir una comprobación de autorización basada en una lista de identificadores de aplicación que conoce y concede un nivel de acceso específico. Cuando el recurso recibe un token del punto de conexión v2.0, puede descodificar el token y extraer el identificador de la aplicación del cliente desde las notificaciones `appid` y `iss`. A continuación, compara la aplicación con una ACL que mantiene. El método y la granularidad de la ACL podrían variar considerablemente entre los recursos.
 
 Un caso de uso común es usar una ACL para ejecutar pruebas para una aplicación web o para una API web. La API web podría conceder solo un subconjunto de permisos completos a un cliente específico. Para ejecutar pruebas de un extremo a otro en la API, cree un cliente de prueba que adquiera tokens desde el punto de conexión v2.0 y, luego, envíelos a la API. Luego, la API comprueba la ACL del identificador de la aplicación del cliente de prueba para tener acceso completo a toda la funcionalidad de la API. Si usa este tipo de ACL, asegúrese de validar no solo el valor `appid` del autor de la llamada. También debe validar que el valor `iss` del token es de confianza.
 
 Este tipo de autorización es común para las cuentas de servicio y los demonios que necesitan tener acceso a datos que pertenecen a los usuarios consumidores con cuentas personales de Microsoft. En el caso de los datos que pertenecen a organizaciones, se recomienda obtener la autorización necesaria a través de los permisos de aplicación.
 
-### <a name="application-permissions"></a>Permisos de aplicación
+### Permisos de aplicación
 En lugar de usar ACL, puede usar las API para exponer un conjunto de permisos de aplicación. El administrador de una organización concede un permiso de aplicación a una aplicación, el que solo se puede usar para obtener acceso a los datos que pertenecen a esa organización y sus empleados. Por ejemplo, Microsoft Graph expone varios permisos de aplicación para hacer lo siguiente:
 
 * Leer correo en todos los buzones de correo
@@ -61,17 +61,17 @@ Para más información sobre los permisos de aplicación, vaya a [Microsoft Grap
 
 Para usar permisos de aplicación en la aplicación, lleve a cabo los pasos que analizamos en las secciones siguientes.
 
-#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitud de los permisos en el portal de registro de aplicaciones
+#### Solicitud de los permisos en el portal de registro de aplicaciones
 1. Vaya a la aplicación en el [portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o [cree una aplicación](active-directory-v2-app-registration.md), si todavía no tiene. Deberá usar, al menos, un secreto de aplicación cuando cree la aplicación.
 2. Busque la sección de **permisos directos de aplicación** y agregue los permisos que requiere la aplicación.
 3. **Guarde** el registro de aplicaciones.
 
-#### <a name="recommended-sign-the-user-in-to-your-app"></a>Recomendación: inicie la sesión del usuario en la aplicación
+#### Recomendación: inicie la sesión del usuario en la aplicación
 Habitualmente, cuando compila una aplicación que usa permisos de aplicación, la aplicación requiere una página o vista en la que el administrador aprueba los permisos de la aplicación. Esta página puede ser parte del flujo de inicio de sesión de la aplicación o de la configuración de la aplicación, o bien puede ser un flujo de "conexión" dedicado. En muchos casos, tiene sentido que la aplicación muestre esta vista de conexión solo después de que un usuario haya iniciado sesión con una cuenta Microsoft profesional o educativa.
 
 Si inicia la sesión del usuario en la aplicación, puede identificar la organización a la que pertenece el usuario antes de pedirle que apruebe los permisos de aplicación. Aunque no es estrictamente necesario, puede ayudarlo a crear una experiencia más intuitiva para los usuarios. Para iniciar la sesión del usuario, siga nuestros [tutoriales del protocolo de la versión 2.0](active-directory-v2-protocols.md).
 
-#### <a name="request-the-permissions-from-a-directory-admin"></a>Solicitud de los permisos de un administrador de directorios
+#### Solicitud de los permisos de un administrador de directorios
 Cuando esté listo para solicitar permisos al administrador de la organización, puede redirigir al usuario al *punto de conexión de consentimiento del administrador* v2.0.
 
 ```
@@ -100,7 +100,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 En este momento, Azure AD solo exige que un administrador de inquilino pueda iniciar sesión para completar la solicitud. Se pedirá al administrador que apruebe todos los permisos de aplicación directos que solicitó para la aplicación en el portal de registro de aplicaciones.
 
-##### <a name="successful-response"></a>Respuesta correcta
+##### Respuesta correcta
 Si el administrador aprueba los permisos para la aplicación, la respuesta correcta tendrá un aspecto similar al siguiente:
 
 ```
@@ -113,7 +113,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | state |Un valor incluido en la solicitud que también se devuelve en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
 | admin_consent |Se establece en **true**. |
 
-##### <a name="error-response"></a>Respuesta de error
+##### Respuesta de error
 Si el administrador no aprueba los permisos de la aplicación, la respuesta de error tendrá el aspecto siguiente:
 
 ```
@@ -127,8 +127,10 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 Una vez que reciba una respuesta correcta desde el punto de conexión de aprovisionamiento de la aplicación, esta habrá obtenido los permisos de aplicación directos que solicitó. Ahora puede solicitar un token para el recurso que desee.
 
-## <a name="get-a-token"></a>Obtención de un token
+## Obtención de un token
 Una vez que obtenga la autorización necesaria para la aplicación, siga con el proceso de adquisición de tokens de acceso para las API. Para obtener un token mediante la concesión de credenciales de cliente, envíe una solicitud POST al punto de conexión v2.0 `/token`:
+
+### Primer caso: solicitud de token de acceso con un secreto compartido
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -149,7 +151,27 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | client_secret |Obligatorio |El secreto de aplicación que generó para la aplicación en el portal de registro de aplicaciones. |
 | grant_type |Obligatorio |Debe ser `client_credentials`. |
 
-##### <a name="successful-response"></a>Respuesta correcta
+### Segundo caso: solicitud de token de acceso con un certificado
+
+```
+POST /common/oauth2/v2.0/token HTTP/1.1
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
+```
+
+| Parámetro | Condición | Descripción |
+| --- | --- | --- |
+| client_id |Obligatorio |El identificador de aplicación que el [portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) asignó a la aplicación. |
+| ámbito |Obligatorio |El valor pasado del parámetro `scope` en esta solicitud debe ser el identificador de recurso (URI de identificador de aplicación) del recurso que desea, con el sufijo `.default`. Para el ejemplo de Microsoft Graph, el valor es `https://graph.microsoft.com/.default`. Este valor indica al punto de conexión v2.0 que, de todos los permisos de aplicación directos que configuró para la aplicación, debe emitir un token para los que están asociados con el recurso que desea usar. |
+| client_assertion_type |requerido |El valor debe ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |requerido | Aserción (un JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación. Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para información sobre cómo registrar el certificado y el formato de la aserción.|
+| grant_type |Obligatorio |Debe ser `client_credentials`. |
+
+Tenga en cuenta que los parámetros son casi iguales que en el caso de solicitud con un secreto compartido, salvo que el parámetro client_secret se sustituye por dos parámetros: client_assertion_type y client_assertion.
+
+### Respuesta correcta
 Una respuesta correcta tiene el siguiente aspecto:
 
 ```
@@ -166,7 +188,7 @@ Una respuesta correcta tiene el siguiente aspecto:
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es `bearer`. |
 | expires_in |Durante cuánto tiempo es válido el token de acceso (en segundos). |
 
-##### <a name="error-response"></a>Respuesta de error
+### Respuesta de error
 Una respuesta de error tiene el aspecto siguiente:
 
 ```
@@ -191,7 +213,7 @@ Una respuesta de error tiene el aspecto siguiente:
 | trace_id |Un identificador exclusivo para la solicitud que podría ayudar en los diagnósticos. |
 | correlation_id |Un identificador exclusivo para la solicitud que podría ayudar en los diagnósticos entre componentes. |
 
-## <a name="use-a-token"></a>Uso de un token
+## Uso de un token
 Ahora que adquirió un token, úselo para hacer solicitudes al recurso. Cuando expire el token, repita la solicitud al punto de conexión `/token` para adquirir un token de acceso nuevo.
 
 ```
@@ -208,7 +230,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## <a name="code-sample"></a>Código de ejemplo
+## Código de ejemplo
 Para ver un ejemplo de una aplicación que implementa la concesión de credenciales de cliente mediante el uso del punto de conexión de consentimiento del administrador, consulte nuestro [ejemplo de código de demonio v2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-
 

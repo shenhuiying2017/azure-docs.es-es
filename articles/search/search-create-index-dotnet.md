@@ -1,5 +1,5 @@
 ---
-title: "Creación de un índice de Azure Search mediante el SDK para .NET | Microsoft Docs"
+title: "Creación de un índice (API de .NET - Azure Search) | Microsoft Docs"
 description: "Creación de un índice en código mediante SDK de .NET para Búsqueda de Azure"
 services: search
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 0531b5c3b63a3fa54bb331f3d8d09c8119e789ea
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2f2160f9b4383f9220c81a7233612a767e296109
 ms.contentlocale: es-es
-ms.lasthandoff: 05/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>Creación de un índice de Búsqueda de Azure mediante el SDK para .NET
@@ -38,8 +37,7 @@ Antes de seguir con esta guía y crear un índice, debe haber [creado ya un serv
 
 > [!NOTE]
 > Todo el código de ejemplo de este artículo está escrito en C#. El código fuente completo se puede encontrar [en GitHub](http://aka.ms/search-dotnet-howto). Consulte el [SDK de Azure Search para .NET](search-howto-dotnet-sdk.md) para ver un tutorial más detallado sobre el código de ejemplo.
->
->
+
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificación de la clave de API de administración del servicio de Búsqueda de Azure
 Ahora que ha aprovisionado un servicio de Búsqueda de Azure, está casi preparado para emitir solicitudes en el punto de conexión de servicio mediante el SDK para .NET. En primer lugar, tiene que obtener una de las claves de API de administrador que se generaron para aprovisionar el servicio de búsqueda. El SDK para .NET enviará esta clave de API en cada solicitud al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
