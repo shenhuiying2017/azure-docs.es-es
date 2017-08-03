@@ -11,7 +11,7 @@ Creamos el concepto de unidad de proceso de Azure (ACU) para brindar una forma d
 
 <br>
 
-| Familia de SKU | ACU/núcleo |
+| Familia de SKU | ACU |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |
