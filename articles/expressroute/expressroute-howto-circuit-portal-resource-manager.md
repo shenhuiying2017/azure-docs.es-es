@@ -15,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/07/2017
 ms.author: cherylmc;ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 2e6c204a1b520f5994c30c518f7ced11d77bde24
-ms.lasthandoff: 05/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: e3721cd3c031622788f553e71a6555b844f3f7dc
+ms.contentlocale: es-es
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creación y modificación de un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Portal de Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [CLI de Azure](howto-circuit-cli.md)
 > * [Vídeo: Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> 
+> * [PowerShell (clásico)](expressroute-howto-circuit-classic.md)
 >
 
 En este artículo se describe cómo crear un circuito Azure ExpressRoute con el Portal de Azure y el modelo de implementación de Azure Resource Manager. Los siguientes pasos también le mostrarán cómo comprobar el estado del circuito, actualizarlo, o eliminarlo y desaprovisionarlo.

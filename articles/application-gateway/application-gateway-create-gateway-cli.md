@@ -13,21 +13,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 14dab2197ff7c1eaff012066e321ef1b99f05bb3
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 7776942602e21cd0efc86fd471dc072564bb64a6
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure 2.0
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-create-gateway-arm.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure 1.0](application-gateway-create-gateway-cli.md)
@@ -58,9 +57,6 @@ En este escenario:
 * Creará una puerta de enlace de aplicaciones media con dos instancias.
 * Creará una red virtual denominada AdatumAppGatewayVNET con un bloque CIDR reservado de 10.0.0.0/16.
 * Creará una subred denominada Appgatewaysubnet que usa 10.0.0.0/28 como bloque CIDR.
-* Configurará un certificado para la descarga SSL.
-
-![Escenario de ejemplo][scenario]
 
 > [!NOTE]
 > La configuración adicional de la puerta de enlace de aplicaciones, incluidos los sondeos personalizados sobre el estado, las direcciones del grupo de back-end y las reglas se realiza después de que se configura la puerta de enlace de aplicaciones, no durante la implementación inicial.
@@ -128,14 +124,12 @@ az network application-gateway create \
 --subnet Appgatewaysubnet \
 ---subnet-address-prefix 10.0.0.0/28 \
 --servers 10.0.0.4 10.0.0.5 \
---cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
---cert-password P@ssw0rd \
 --capacity 2 \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
 --public-ip-address AdatumAppGatewayPIP \
---frontend-port 443 \
+--frontend-port 80 \
 --routing-rule-type Basic \
 --http-settings-port 80
 
@@ -144,7 +138,7 @@ az network application-gateway create \
 > [!NOTE]
 > Para ver una lista de parámetros que se pueden usar durante la creación, ejecute el siguiente comando: **az network application-gateway create --help**.
 
-Con este ejemplo sea crea una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. También configura la descarga SSL. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto.
+Con este ejemplo sea crea una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto.
 Si ya definió una aplicación web con el grupo de back-end en los pasos anteriores, una vez creada, comienza el equilibrio de carga.
 
 ## <a name="delete-all-resources"></a>Eliminación de todos los recursos

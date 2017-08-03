@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 223738aecd1bb0a53542bd8bcab5d24582aee02a
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 42e594dc6a8a8be619b5652bf8e44cf883650489
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Programación y difusión de trabajos (Node)
 
-## <a name="introduction"></a>Introducción
+[!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
+
 IoT Hub de Azure es un servicio completamente administrado que permite a una aplicación back-end crear y realizar un seguimiento de los trabajos que programan y actualizan millones de dispositivos.  Los trabajos pueden utilizarse para las siguientes acciones:
 
 * Actualizar las propiedades deseadas

@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9bccb28934415d3ff6d363d35b604056b28cb6b9
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 41a5c652a89c85f248039fc617c84a2b6b230f56
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalación y uso de Hue en clústeres de Hadoop para HDInsight
@@ -129,7 +128,7 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 3. Haga clic con el botón derecho en un archivo o carpeta para ver las operaciones disponibles. Use el botón **Cargar** situado en la esquina derecha para cargar archivos en el directorio actual. Use el botón **Nuevo** para crear nuevos archivos o directorios.
 
 > [!NOTE]
-> El explorador de archivos de Hue solo puede mostrar el contenido del contenedor predeterminado asociado con el clúster de HDInsight. Cualquier cuenta o contenedor de almacenamiento adicional asociados con el clúster no serán accesibles mediante el explorador de archivos. Sin embargo, los contenedores adicionales asociados con el clúster siempre serán accesibles para los trabajos de Hive. Por ejemplo, si escribe el comando `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net` en el editor de Hive, también podrá ver el contenido de los contenedores adicionales. En este comando, **newcontainer** no es el contenedor predeterminado asociado a un clúster.
+> El explorador de archivos de Hue solo puede mostrar el contenido del contenedor predeterminado asociado con el clúster de HDInsight. Cualquier cuenta o contenedor de almacenamiento adicional asociados con el clúster no serán accesibles mediante el explorador de archivos. Sin embargo, los contenedores adicionales asociados con el clúster siempre serán accesibles para los trabajos de Hive. Por ejemplo, si escribe el comando `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` en el editor de Hive, también podrá ver el contenido de los contenedores adicionales. En este comando, **newcontainer** no es el contenedor predeterminado asociado a un clúster.
 >
 >
 
@@ -146,7 +145,7 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
    ![Error en el portal de Hue](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Error en el portal de Hue")
 
    Este es un problema conocido. Como alternativa, modifique Ambari para que la instancia de Resource Manager que está activa también se ejecute en el nodo principal primario.
-5. Hue entiende WebHDFS, mientras que los clústeres de HDInsight usan Almacenamiento de Azure mediante `wasbs://`. Por lo tanto, el script personalizado que se usa con la acción de script instala WebWasb, que es un servicio compatible con WebHDFS para hablar con WASB. Así que aunque el portal de Hue dice HDFS en lugares (como cuando se mueve el mouse sobre el **Explorador de archivos**), se debe interpretar como WASB.
+5. Hue entiende WebHDFS, mientras que los clústeres de HDInsight usan Almacenamiento de Azure mediante `wasb://`. Por lo tanto, el script personalizado que se usa con la acción de script instala WebWasb, que es un servicio compatible con WebHDFS para hablar con WASB. Así que aunque el portal de Hue dice HDFS en lugares (como cuando se mueve el mouse sobre el **Explorador de archivos**), se debe interpretar como WASB.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Instalación de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md). Use la personalización del clúster para instalar Giraph en clústeres de Hadoop para HDInsight. Giraph permite realizar un procesamiento gráfico con Hadoop y se puede usar con HDInsight de Azure.

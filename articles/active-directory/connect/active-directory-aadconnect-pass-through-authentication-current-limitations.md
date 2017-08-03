@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/25/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 3ed2ee8c996628caabefd60b5ecff7528402eb52
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 40d07ce6e480924c7c1af601cc25e4a74280141f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -33,6 +33,7 @@ Los siguientes escenarios son totalmente compatibles durante la versión prelimi
 
 - Inicios de sesión de usuario en todas las aplicaciones basadas en explorador web.
 - Inicios de sesión de usuario en las aplicaciones cliente de Office 365 que admitan la [autenticación moderna](https://aka.ms/modernauthga).
+- Azure AD Join para dispositivos con Windows 10.
 
 ## <a name="unsupported-scenarios"></a>Escenarios no admitidos
 
@@ -41,7 +42,6 @@ En la versión preliminar, los siguientes escenarios _no_ se admiten:
 - Inicios de sesión de usuario en las aplicaciones cliente de Office heredadas y en Exchange ActiveSync (es decir, las aplicaciones de correo electrónico nativas en dispositivos móviles). Se recomienda a las organizaciones que cambien a la autenticación moderna, en caso de que sea posible. La autenticación moderna permite la compatibilidad de la autenticación de paso a través, pero también le ayuda a proteger sus identidades mediante características de [acceso condicional](../active-directory-conditional-access.md) como Multi-Factor Authentication (MFA).
 - Inicios de sesión de usuario en las aplicaciones cliente de Skype Empresarial.
 - Inicios de sesión de usuario en PowerShell v1.0. Se recomienda que use PowerShell v2.0 en su lugar.
-- Azure AD Join para dispositivos con Windows 10.
 
 >[!IMPORTANT]
 >Como solución alternativa para escenarios no admitidos, habilite la sincronización de hash de contraseñas en la página [Características opcionales](active-directory-aadconnect-get-started-custom.md#optional-features) del asistente de Azure AD Connect. La sincronización de hash de contraseñas _solo_ actúa como reserva en los escenarios anteriores (y _no_ como reserva genérica en la autenticación de paso a través). Si no necesita estos escenarios, desactive la sincronización hash de contraseñas.
@@ -52,5 +52,5 @@ En la versión preliminar, los siguientes escenarios _no_ se admiten:
 - [**Preguntas más frecuentes**](active-directory-aadconnect-pass-through-authentication-faq.md): obtenga respuestas a las preguntas más frecuentes.
 - [**Solución de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): aprenda a resolver problemas comunes de esta característica.
 - [**SSO de conexión directa de Azure AD**](active-directory-aadconnect-sso.md): obtenga más información sobre esta característica complementaria.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.
+- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para rellenar solicitudes de características nuevas.
 

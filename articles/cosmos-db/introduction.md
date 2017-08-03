@@ -25,7 +25,7 @@ ms.lasthandoff: 07/22/2017
 
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 
-Azure Cosmos DB es la base de datos de varios modelos de distribución global de Microsoft. Con solo hacer clic en un botón, Azure Cosmos DB le permite escalar de forma elástica e individual el rendimiento y el almacenamiento en cualquier número de regiones geográficas de Azure. Ofrece garantía de rendimiento, latencia, disponibilidad y coherencia con [acuerdos de nivel de servicio](https://aka.ms/acdbsla) (SLA) integrales, algo que no ofrece ningún otro servicio de base de datos.
+Azure Cosmos DB es la base de datos multimodelo de distribución global de Microsoft. Con tan solo un clic, Azure Cosmos DB permite escalar de forma elástica e individual el rendimiento y el almacenamiento en cualquiera de las regiones geográficas de Azure. Ofrece garantía de rendimiento, latencia, disponibilidad y coherencia con [acuerdos de nivel de servicio](https://aka.ms/acdbsla) (SLA)  integrales, algo que no ofrece ningún otro servicio de base de datos.
 
 ![Azure Cosmos DB es el servicio de base de datos de distribución global de Microsoft con escalado elástico horizontal, baja latencia garantizada, cinco modelos de coherencia y SLA integrales garantizados.](./media/introduction/azure-cosmos-db.png)
 
@@ -53,7 +53,7 @@ Como un servicio de base de datos distribuida globalmente, Azure Cosmos DB propo
     * Escale fácilmente el rendimiento de la base de datos en [segundos](request-units.md) y [minutos](request-units-per-minute.md), y cámbielo cuando quiera. 
     * Escale el tamaño del almacenamiento de manera [transparente y automática](partition-data.md) para controlar los requisitos de tamaño ahora y siempre.
 
-* **Creación de aplicaciones de alta capacidad de respuesta y de misión crítica**
+* **Creación de aplicaciones muy adaptables y de misión crítica**
     * Azure Cosmos DB garantiza una baja latencia global en el percentil 99 para sus clientes. 
     * Para un elemento típico de 1 KB, Cosmos DB garantiza latencias de lectura globales de menos de 10 ms y escrituras indexadas de menos de 15 ms en el percentil 99, en la misma región de Azure. Las latencias medianas son mucho menores (menos de 5 ms).
 

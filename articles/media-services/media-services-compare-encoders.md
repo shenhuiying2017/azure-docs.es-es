@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 32cbfbc78fbb808ed59142b80602a751f607706d
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: a0e93881e0d75541fc04d7bc736459f8109d1c9f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -33,13 +33,13 @@ En la tabla siguiente se compara la funcionalidad entre Media Encoder Standard (
 |Capacidad|Media Encoder Estándar|Flujo de trabajo de Media Encoder Premium|
 |---|---|---|
 |Aplicación de la lógica condicional durante la codificación<br/>(por ejemplo, si la entrada es HD, entonces, codifique audio 5.1)|No|Sí|
-|Subtítulos (CC)|No|[Sí](media-services-premium-workflow-encoder-formats.md#a-idclosedcaptioningasupport-for-closed-captioning)|
+|Subtítulos (CC)|No|[Sí](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
 |[Corrección de volumen profesional Dolby®](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> con Dialogue Intelligence™|No|Sí|
 |Deshacer entrelazado, telecine inverso|Básica|Calidad de difusión|
 |Detectar y quitar bordes negros <br/>(formato pillarbox y formato letterbox)|No|Sí|
-|Generación de miniaturas|[Sí](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sí](media-services-media-encoder-premium-workflow-tutorials.md#a-idthumbnailstomultibitratemp4aadding-thumbnails-to-multibitrate-mp4-output)|
-|Recorte y unión de vídeos|[Sí](media-services-advanced-encoding-with-mes.md#a-idtrimvideoatrim-a-video-clipping)|Sí|
-|Superposiciones de audio o vídeo|[Sí](media-services-advanced-encoding-with-mes.md#a-idoverlayacreate-an-overlay)|[Sí](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
+|Generación de miniaturas|[Sí](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sí](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
+|Recorte y unión de vídeos|[Sí](media-services-advanced-encoding-with-mes.md#trim_video)|Sí|
+|Superposiciones de audio o vídeo|[Sí](media-services-advanced-encoding-with-mes.md#overlay)|[Sí](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
 |Superposiciones de gráficos|De orígenes de imagen|De orígenes de imagen y texto|
 |Varias pistas de idiomas de audio|Limitado|[Sí](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
 
