@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/18/2017
+ms.date: 07/06/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f31f17121fdb42f4ae911efde9e98bbd223d0680
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Pasos detallados de solución de problemas de SSH para los problemas de conexión a una máquina virtual Linux en Azure
@@ -34,28 +33,14 @@ El siguiente diagrama muestra los componentes que intervienen.
 
 Los siguientes pasos ayudan a aislar la causa del error y a averiguar soluciones o alternativas.
 
-En primer lugar, compruebe el estado de la máquina virtual en el portal.
+1. Compruebe el estado de la máquina virtual en el portal.
+   En [Azure Portal](https://portal.azure.com), seleccione **Máquinas virtuales** > *Nombre de máquina virtual*.
 
-En el [Portal de Azure](https://portal.azure.com):
+   El panel de estado de la máquina virtual debe mostrar **En ejecución**. Desplácese hacia abajo para ver la actividad reciente de los recursos de proceso, almacenamiento y de red.
 
-1. En el caso de máquinas virtuales creadas con el modelo de Resource Manager, seleccione **Máquinas virtuales** > *Nombre de máquina virtual*.
-   
-    O
-   
-    En el caso de máquinas virtuales creadas con el modelo de implementación clásica, seleccione **Máquinas virtuales (clásico)** > *Nombre de máquina virtual*.
-   
-    El panel de estado de la máquina virtual debe mostrar **En ejecución**. Desplácese hacia abajo para ver la actividad reciente de los recursos de proceso, almacenamiento y de red.
+2. Seleccione **Configuración** para examinar los puntos de conexión, las direcciones IP, los grupos de seguridad de red y otros valores de configuración.
 
-2. Seleccione **Configuración** para examinar los puntos de conexión, las direcciones IP y otros valores de configuración.
-   
-    Para identificar puntos de conexión de las máquinas virtuales que se crearon mediante Resource Manager, compruebe que se haya definido un [grupo de seguridad de red](../../virtual-network/virtual-networks-nsg.md) . Compruebe también que se hayan aplicado reglas al grupo de seguridad de red y que se les haga referencia en la subred.
-
-En el [Portal de Azure clásico](https://manage.windowsazure.com), para las máquinas virtuales creadas con el modelo de implementación clásica:
-
-1. Haga clic en **Máquinas virtuales** > *Nombre de máquina virtual*.
-2. Seleccione el **Panel** de la máquina virtual para comprobar su estado.
-3. Seleccione **Supervisar** para ver la actividad reciente de los recursos de proceso, almacenamiento y red.
-4. Seleccione **Puntos de conexión** para asegurarse de que hay un punto de conexión para el tráfico de SSH.
+   La máquina virtual debe tener un punto de conexión definido para el tráfico SSH que puede ver en **Puntos de conexión** o en **[Grupo de seguridad de red](../../virtual-network/virtual-networks-nsg.md)**. Los puntos de conexión en las máquinas virtuales que se crearon con Resource Manager se almacenan en un grupo de seguridad de red. Compruebe también que se hayan aplicado reglas al grupo de seguridad de red y que se les haga referencia en la subred.
 
 Para comprobar la conectividad de red, compruebe los puntos de conexión configurados y vea si puede llegar a la máquina virtual a través de otro protocolo, como HTTP u otro servicio.
 
@@ -118,7 +103,7 @@ Si no tiene otra máquina virtual en la misma red virtual, puede crear una fáci
 
 Si puede crear una conexión SSH con una máquina virtual en la misma red virtual, compruebe las siguientes áreas:
 
-* **La configuración del punto de conexión para el tráfico de SSH en la máquina virtual de destino.** El puerto TCP privado del punto de conexión debe coincidir con el puerto TCP en el que escucha el servicio SSH en la máquina virtual. (El puerto predeterminado es 22). En el caso de máquinas virtuales creadas con el modelo de implementación de Resource Manager, compruebe el número de puerto TCP de SSH en Azure Portal seleccionando **Máquinas virtuales** > *Nombre de máquina virtual* > **Configuración** > **Puntos de conexión**.
+* **La configuración del punto de conexión para el tráfico de SSH en la máquina virtual de destino.** El puerto TCP privado del punto de conexión debe coincidir con el puerto TCP en el que escucha el servicio SSH en la máquina virtual. (El puerto predeterminado es 22). Para comprobar que el número de puerto TCP de SSH en Azure Portal, seleccione **Máquinas virtuales** > *Nombre de máquina virtual* > **Configuración** > **Puntos de conexión**.
 * **La ACL del punto de conexión para el tráfico de SSH en la máquina virtual de destino.** Una ACL permite especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de SSH al punto de conexión. Compruebe las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red](../../virtual-network/virtual-networks-acl.md).
 
 Para descartar el punto de conexión como causa del problema, quite el actual, cree uno y especifique el nombre SSH (puerto TCP 22 para el número de puerto público y privado). Para obtener más información, vea [Configuración de puntos de conexión en una máquina virtual en Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -128,6 +113,8 @@ Para descartar el punto de conexión como causa del problema, quite el actual, c
 ## <a name="source-4-network-security-groups"></a>Causa 4: Grupos de seguridad de red
 Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure. Compruebe las reglas de los grupos de seguridad de red para asegurarse de que se permite el tráfico de SSH tanto a Internet como desde Internet.
 Para obtener más información, consulte [Acerca de los grupos de seguridad de red](../../virtual-network/virtual-networks-nsg.md).
+
+También puede usar la comprobación de IP para validar la configuración de NSG. Para más información, consulte [Información general sobre la supervisión de red de Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Causa 5: Máquina virtual de Azure basada en Linux
 La última causa de los posibles problemas puede residir en la propia máquina virtual de Azure.
@@ -145,5 +132,4 @@ Pruebe de nuevo la conexión desde su equipo. Si sigue sin funcionar, estos son 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 Para más información sobre cómo solucionar problemas de acceso a las aplicaciones, consulte [Solución de problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](troubleshoot-app-connection.md).
-
 

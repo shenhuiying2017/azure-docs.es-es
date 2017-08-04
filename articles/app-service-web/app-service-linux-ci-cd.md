@@ -1,7 +1,7 @@
 ---
-title: "Implementación continua de Docker Hub con Azure Web App on Linux | Microsoft Docs"
+title: "Implementación continua con Aplicación web de Azure en Linux | Microsoft Docs"
 description: "En este artículo se describe cómo configurar una implementación continua en Azure Web App en Linux."
-keywords: azure app service, linux, oss
+keywords: azure app service, linux, oss, acr
 services: app-service
 documentationcenter: 
 author: ahmedelnably
@@ -15,23 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 68e11f07520bbe8da6812a34fe95708fc9e932ac
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6b6c173c6c4bb3f670c54208c80e6d966a1f396e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="docker-hub-continuous-deployment-with-azure-web-app-on-linux"></a>Implementación continua de Docker Hub con Azure Web App en Linux
+# <a name="continuous-deployment-with-azure-web-app-on-linux"></a>Implementación continua con Aplicación web de Azure en Linux
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-En este tutorial, configurará una implementación continua para una imagen de contenedor personalizada desde [Docker Hub](https://hub.docker.com).
+En este tutorial, configurará una implementación continua para una imagen de contenedor personalizada desde los repositorios administrados de [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) o [Docker Hub](https://hub.docker.com).
 
-## <a name="step-1---log-in-to-azure"></a>Paso 1: Inicio de sesión en Azure
+## <a name="step-1---sign-in-to-azure"></a>Paso 1: Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal: http://portal.azure.com.
+Inicie sesión en Azure Portal: http://portal.azure.com/.
 
 ## <a name="step-2---enable-docker-hub-continuous-deployment"></a>Paso 2: Habilitación de la implementación continua de Docker Hub
 
@@ -43,25 +42,42 @@ En la **configuración de la aplicación**, agregue una aplicación llamada `DOC
 
 ![insert image of app setting](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
-## <a name="step-3---add-a-web-hook-to-docker-hub"></a>Paso 3: Incorporación de un enlace web en Docker Hub
+## <a name="step-3---prepare-webhook-url"></a>Paso 3: Preparación de la dirección URL de webhook
+
+Para la URL del Webhook, debe tener el siguiente punto de conexión: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+
+Puede obtener `publishingusername` y `publishingpwd` descargando el perfil de publicación de la aplicación web mediante Azure Portal.
+
+![insert image of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
+
+## <a name="step-4---add-a-web-hook"></a>Paso 4: Incorporación de webhook
+
+### <a name="azure-container-registry"></a>Azure Container Registry
+
+En la hoja del portal de registro, haga clic en **Webhooks** y cree un nuevo webhook haciendo clic en **Agregar**. En la hoja **Crear webhook**, asigne un nombre a su webhook. Para el URI de webhook, deberá proporcionar la dirección URL obtenida en el **paso 3**.
+
+Asegúrese de que define el ámbito como el repositorio que contiene la imagen de contenedor.
+
+![insertar imagen de webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
+
+Cuando se actualiza la imagen, la aplicación web se actualizan automáticamente con la nueva imagen.
+
+### <a name="docker-hub"></a>Docker Hub
 
 En la página de Docker Hub, haga clic en **Webhooks** y, luego, en **CREAR NUEVO WEBHOOK**.
 
 ![insert image of adding webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
 
-Para la URL del Webhook, debe tener el siguiente punto de conexión: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+Para la dirección URL de webhook, deberá proporcionar la dirección URL que se obtienen de **paso 3**
 
 ![insert image of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
-
-Puede obtener `publishingusername` y `publishingpwd` descargando el perfil de publicación de la aplicación web mediante Azure Portal.
-
-![insert image of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
 
 Cuando se actualiza la imagen, la aplicación web se actualizan automáticamente con la nueva imagen.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [¿Qué es Web App on Linux de Azure?](./app-service-linux-intro.md)
 * [Creación de aplicaciones en Web App on Linux de Azure](./app-service-linux-how-to-create-web-app.md)
+* [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
 * [Uso de la configuración de PM2 para Node.js en Web App on Linux de Azure](app-service-linux-using-nodejs-pm2.md)
 * [Uso de .NET Core en Web App on Linux de Azure](app-service-linux-using-dotnetcore.md)
 * [Uso de Ruby en Web App on Linux de Azure](app-service-linux-ruby-get-started.md)

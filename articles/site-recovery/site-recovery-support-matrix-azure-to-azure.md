@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 7c30f5164b9fe7ff6044bbf23767a5db9a0f7c30
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 89b12ce7af1e810f72e14f67ec5b11390ac3e72f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación de Azure a Azure
@@ -63,16 +62,35 @@ Esta compatibilidad es aplicable a cualquier carga de trabajo que se ejecute en 
 
 #### <a name="windows"></a>Windows
 
-- Windows Server 2012 R2 de 64 bits
+- Windows Server 2016 (Server Core y Server con Experiencia de escritorio)*
+- Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 con al menos SP1
 
+>[!NOTE]
+>
+> \* No se admite Windows Server 2016 Nano Server.
+
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6.8, 7.0, 7.1, 7.2 y 7.3
 - CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
+- Servidor Ubuntu 14.04 LTS[ (versiones de kernel admitidas)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Servidor Ubuntu 16.04 LTS[ (versiones de kernel admitidas)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Oracle Enterprise Linux 6.4 y 6.5, en ejecución en el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3)
 - SUSE Linux Enterprise Server 11 SP3
+
+>[!NOTE]
+>
+> Los servidores Ubuntu que utilizan inicio de sesión y autenticación basados en contraseña y que utilizan el paquete de inicialización en la nube para configurar máquinas virtuales en la nube, pueden tener el inicio de sesión basado en contraseña deshabilitado tras una conmutación por error (en función de dicha inicialización). El inicio de sesión basado en contraseña puede habilitarse de nuevo en la máquina virtual mediante el restablecimiento de la contraseña en el menú de configuración (en la sección SOPORTE TÉCNICO + SOLUCIÓN DE PROBLEMAS) de la máquina virtual conmutada por error en Azure Portal.
+
+### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel de Ubuntu admitidas para máquinas virtuales de Azure
+
+**Versión** | **Versión de Mobility service** | **Versión de kernel** |
+--- | --- | --- |
+14.04 LTS | 9.9 | 3.13.0-24-generic a 3.13.0-117-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-75-generic |
+14.04 LTS | 9.10 | 3.13.0-24-generic a 3.13.0-121-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-81-generic |
+16.04 LTS | 9.10 | 4.4.0-21-generic a 4.4.0-81-generic,<br/>4.8.0-34-generic a 4.8.0-56-generic,<br/>4.10.0-14-generic a 4.10.0-24-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>Sistemas de archivos y configuraciones de almacenamiento de invitado admitidos en máquinas virtuales de Azure que ejecutan el sistema operativo Linux
 
@@ -113,16 +131,16 @@ Máquinas virtuales migradas con Site Recovery | Compatible | Si es una máquina
 
 **Configuración** | **No admite/no se admite** | **Comentarios**
 --- | --- | ---
-Tamaño de disco máximo del sistema operativo | Tamaño de disco máximo del sistema operativo que se admite en Azure.| Consulte [Discos usados por las máquinas virtuales](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms).
-Tamaño máximo del disco de datos | Tamaño máximo del disco de datos que se admite en Azure.| Consulte [Discos usados por las máquinas virtuales](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms).
+Tamaño de disco máximo del sistema operativo | 1023 GB | Consulte [Discos usados por las máquinas virtuales](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms).
+Tamaño máximo del disco de datos | 1023 GB | Consulte [Discos usados por las máquinas virtuales](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms).
 Número de discos de datos | Hasta 64, que es el admitido por un tamaño de máquina virtual específico de Azure. | Consulte los [tamaños de máquina virtual de Azure](../virtual-machines/windows/sizes.md)
 Disco temporal | Siempre se excluyen de la replicación | El disco temporal se excluye de la replicación siempre. Como recomienda Azure, no se deben colocar los datos persistentes en los discos temporales. Consulte [Discos temporales en máquinas virtuales de Azure](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk) para más información.
-Velocidad de cambio de datos en el disco | 6 Mbps como máximo por disco. | Si la velocidad media de cambio de los datos en el disco sobrepasa los 6 Mbps continuamente, la replicación no mantendrá el ritmo. Sin embargo, si es una ráfaga de datos ocasional y la velocidad de cambio de los datos es superior a 6 Mbps durante algún tiempo y desciende, la replicación mantendrá el ritmo. En este caso, podría ver puntos de recuperación ligeramente retrasados.
+Velocidad de cambio de datos en el disco | Máximo de 6 Mbps por disco | Si la velocidad media de cambio de los datos en el disco sobrepasa los 6 Mbps continuamente, la replicación no mantendrá el ritmo. Sin embargo, si es una ráfaga de datos ocasional y la velocidad de cambio de los datos es superior a 6 Mbps durante algún tiempo y desciende, la replicación mantendrá el ritmo. En este caso, podría ver puntos de recuperación ligeramente retrasados.
 Discos en cuentas de almacenamiento estándar | Compatible |
 Discos en cuentas de almacenamiento premium | Compatible | Si una máquina virtual tiene discos repartidas entre cuentas de almacenamiento estándar y premium, puede seleccionar una cuenta de almacenamiento de destino diferente para cada disco a fin de garantizar que tenga la misma configuración de almacenamiento en la región de destino.
 Discos administrados estándar | No compatible |  
 Discos administrados premium | No compatible |
-Espacios de almacenamiento | No compatible |         
+Espacios de almacenamiento | Compatible |         
 Cifrado en reposo (SSE) | Compatible | Para las cuentas de almacenamiento de destino y de almacenamiento en caché, puede seleccionar una cuenta de almacenamiento habilitada para SSE.     
 Azure Disk Encryption (ADE) | No compatible |
 Agregar/quitar disco en caliente | No compatible | Si agrega o quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo para la máquina virtual.

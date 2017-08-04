@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 12502c91f7dff01651e3edcfd1dfa6a9d5ffe234
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d645855e8edddee092d244e18c9937c19237a49a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
@@ -39,7 +38,9 @@ En este artículo se proporcionan instrucciones para crear y configurar una dire
 * [Parte 5: administrar (crear, agregar, quitar) una directiva de IPsec o IKE para una conexión](#managepolicy)
 
 > [!IMPORTANT]
-> 1. Tenga en cuenta que la directiva de IPsec o IKE solo funciona en puertas de enlace de VPN ***basadas en rutas*** ***Standard*** y ***HighPerformance***.
+> 1. Tenga en cuenta que la directiva de IPsec/IKE solo funciona en las SKU de puerta de enlace siguiente:
+>     - ***VpnGw1, VpnGw2, VpnGw3*** (basadas en enrutamiento)
+>     - ***Standard*** y ***HighPerformance*** (basadas en enrutamiento)
 > 2. Solo se puede especificar ***una*** combinación de directivas para una conexión dada.
 > 3. Es preciso especificar todos los algoritmos y parámetros de IKE (modo principal) e IPsec (modo rápido). No se permite la especificación de una directiva parcial.
 > 4. Consulte las especificaciones del proveedor de dispositivos VPN para asegurarse de que los dispositivos VPN locales admiten la directiva. No se pueden establecer conexiones de sitio a sitio o de red virtual a red virtual si las directivas son incompatibles.
@@ -64,23 +65,38 @@ En la tabla siguiente se enumeran los algoritmos criptográficos y los niveles d
 | ---              | ---                                                                         |
 | Cifrado IKEv2 | AES256, AES192, AES128, DES3, DES                                           |
 | Integridad de IKEv2  | SHA384, SHA256, SHA1, MD5                                                   |
-| Grupo DH         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, No |
+| Grupo DH         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, No |
 | Cifrado IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, No    |
 | Integridad de IPsec  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
-| Grupo PFS        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, No                     |
-| Vigencia de SA (QM)*  | Segundos (entero) y KB (entero)                                      |
-| Selector de tráfico | UsePolicyBasedTrafficSelectors** ($True/$False - default $False)            |
+| Grupo PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, No                            |
+| Vigencia de SA QM   | (**Opcional**: Se usan los valores predeterminados si no se especifica ningún valor)<br>Segundos (entero; **mín. 300**/predeterminado 27000 segundos)<br>KBytes (entero; **mín. 1024**/predeterminado 102400000 KBytes)                                                                                |
+| Selector de tráfico | UsePolicyBasedTrafficSelectors** ($True/$False; **Opcional**, valor predeterminado $False si no se especifica)                                                                         |
 |                  |                                                                             |
 
-> [!NOTE]
-> * (*) La vigencia de SA del modo principal de IKEv2 se fija en 28 800 segundos en las puertas de enlace de VPN de Azure
-> * (**) Si establece "UsePolicyBasedTrafficSelectors" en $True en una conexión, configurará la puerta de enlace de VPN de Azure de modo que se conecte al firewall VPN basado en directivas de forma local. Si habilita PolicyBasedTrafficSelectors, debe asegurarse de que el dispositivo VPN tiene los selectores de tráfico coincidentes definidos con todas las combinaciones de sus prefijos de red local (puerta de enlace de red local) a o desde los prefijos de red virtual de Azure, en lugar de cualquiera a cualquiera. Por ejemplo, si sus prefijos de red local son 10.1.0.0/16 y 10.2.0.0/16, y sus prefijos de red virtual son 192.168.0.0/16 y 172.16.0.0/16, debe especificar los siguientes selectores de tráfico:
->   * 10.1.0.0/16 <====> 192.168.0.0/16
->   * 10.1.0.0/16 <====> 172.16.0.0/16
->   * 10.2.0.0/16 <====> 192.168.0.0/16
->   * 10.2.0.0/16 <====> 172.16.0.0/16
+> [!IMPORTANT]
+> 1. **Si se GCMAES para el algoritmo de cifrado IPsec, se debe seleccionar el mismo algoritmo GCMAES y longitud de clave para la integridad de IPsec; por ejemplo, el uso de GCMAES128 para ambos**
+> 2. La vigencia de SA del modo principal de IKEv2 se fija en 28 800 segundos en las puertas de enlace de VPN de Azure
+> 3. Si establece "UsePolicyBasedTrafficSelectors" en $True en una conexión, configurará la puerta de enlace de VPN de Azure de modo que se conecte al firewall VPN basado en directivas de forma local. Si habilita PolicyBasedTrafficSelectors, debe asegurarse de que el dispositivo VPN tiene los selectores de tráfico coincidentes definidos con todas las combinaciones de sus prefijos de red local (puerta de enlace de red local) a o desde los prefijos de red virtual de Azure, en lugar de cualquiera a cualquiera. Por ejemplo, si sus prefijos de red local son 10.1.0.0/16 y 10.2.0.0/16, y sus prefijos de red virtual son 192.168.0.0/16 y 172.16.0.0/16, debe especificar los siguientes selectores de tráfico:
+>    * 10.1.0.0/16 <====> 192.168.0.0/16
+>    * 10.1.0.0/16 <====> 172.16.0.0/16
+>    * 10.2.0.0/16 <====> 192.168.0.0/16
+>    * 10.2.0.0/16 <====> 172.16.0.0/16
 
 Para obtener información sobre los selectores de tráfico basados en directivas, vea [Connect multiple on-premises policy-based VPN devices](vpn-gateway-connect-multiple-policybased-rm-ps.md) (Conectar varios dispositivos VPN basados en directivas locales).
+
+En la tabla siguiente se muestran los grupos Diffie-Hellman admitidos en la directiva personalizada:
+
+| **Grupo Diffie-Hellman**  | **Grupo DH**              | **Grupo PFS** | **Longitud de clave** |
+| ---                       | ---                      | ---          | ---            |
+| 1                         | DHGroup1                 | PFS1         | MODP de 768 bits   |
+| 2                         | DHGroup2                 | PFS2         | MODP de 1024 bits  |
+| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | MODP de 2048 bits  |
+| 19                        | ECP256                   | ECP256       | ECP de 256 bits    |
+| 20 |                        | ECP384                   | ECP284       | ECP de 384 bits    |
+| 24                        | DHGroup24                | PFS24        | MODP de 2048 bits  |
+|                           |                          |              |                |
+
+Consulte [RFC3526](https://tools.ietf.org/html/rfc3526) y [RFC5114](https://tools.ietf.org/html/rfc5114) para ver información más detallada.
 
 ## <a name ="crossprem"></a>Parte 3: crear una conexión VPN de sitio a sitio con una directiva de IPsec o IKE
 
@@ -155,15 +171,25 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
 
-### <a name="step-2---creat-a-s2s-vpn-connection-with-an-ipsecike-policy"></a>Paso 2: crear una conexión VPN de sitio a sitio con una directiva de IPsec o IKE
+### <a name="step-2---creat-a-s2s-vpn-connection-with-an-ipsecike-policy"></a>Paso 2: Creación de una conexión VPN de sitio a sitio con una directiva IPsec/IKE
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Crear una directiva de IPsec o IKE
 El script de ejemplo siguiente crea una directiva de IPsec o IKE con los algoritmos y parámetros siguientes:
+
 * IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS24, vigencia de SA de 7200 segundos y 2048 KB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+```
+
+Si usa GCMAES para IPsec, debe usar el mismo algoritmo GCMAES y longitud de clave para la integridad y el cifrado IPsec, por ejemplo:
+
+* IKEv2: AES256, SHA384, DHGroup24
+* IPsec: **GCMAES256, GCMAES256**, PFS24, vigencia de SA de 7200 segundos y 2048 KB
+
+```powershell
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
 ```
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Crear la conexión VPN de sitio a sitio con la directiva de IPsec o IKE

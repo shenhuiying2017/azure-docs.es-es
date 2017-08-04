@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 39dd726078c4dcc55063300bdca998ad822feadd
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: ba3cf4c6834279bbd7f94d666fd8abbb7ac05bf0
+ms.contentlocale: es-es
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="how-to-migrate-data-into-and-out-of-azure-remoteapp"></a>Procedimiento para migrar datos en Azure RemoteApp como origen y destino
@@ -61,5 +61,11 @@ Aunque no se puede habilitar el agente de sincronización de OneDrive para la Em
 
 ## <a name="copy-files-by-using-drive-redirection"></a>Copia de archivos mediante la redirección de unidades
 Si ha habilitado la [redirección de unidades](remoteapp-redirection.md), ya ha creado una unidad asignada para los usuarios. En este caso, puede comprimir los archivos en la unidad redirigida y, después, guardarlos en su equipo local.
+
+## <a name="how-administrators-can-export-data"></a>Cómo pueden exportar datos los administradores
+
+Los administradores de Azure RemoteApp pueden exportar todos los discos de perfil de usuario (UPD) para todas las colecciones dentro de una suscripción a Azure Storage mediante el cmdlet Export-AzureRemoteAppUserDisk de Azure PowerShell.  No hay ninguna posibilidad de seleccionar UPD individuales.  Cuando se ejecuta el comando de PowerShell, cada disco de usuario será tendrá un tamaño de disco fijo de 50 GB y se exportará al almacenamiento de Azure.  Los costos del almacenamiento de Azure se cobrarán inmediatamente para este almacenamiento.  Al ejecutar este comando asegúrese de que no hay ninguna sesión; en caso contrario, la exportación fallará.
+
+Los UPD para las implementaciones de Azure RemoteApp unidas a un dominio solo pueden usarse de nuevo en una implementación de RDS; las implementaciones no unidas a un dominio no se pueden usar.  Si estos discos se van a utilizar en una implementación de RDS se recomienda usar nuestros [scripts automatizados](https://github.com/arcadiahlyy/aramigration) que exportarán, convertirán e importarán los UPD en una implementación de RDS.
 
 

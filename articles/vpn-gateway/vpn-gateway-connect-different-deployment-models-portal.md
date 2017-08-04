@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9e0dbb028c668aad182e2c1c54fb397ffe99a0a0
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1b7b67ec28986b7c20b3e990e3565265f74c28e6
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
@@ -84,7 +84,16 @@ En la tabla siguiente se muestra un ejemplo de cómo se definen los sitios local
 
 ## <a name="classicvnet"></a>1. Configuración de la red virtual clásica
 
-En esta sección se creará la red local (sitio local) y la puerta de enlace de la red virtual para la red virtual clásica. Si no tiene una red virtual clásica y lleva a cabo estos pasos como ejercicio, puede crear una red virtual según [este artículo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y los valores de configuración de [ejemplo](#values) indicados anteriormente. Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puerta de enlace sea dinámica. Si es estática, primero debe eliminar la puerta de enlace VPN y luego continuar.
+En esta sección se creará la red local (sitio local) y la puerta de enlace de la red virtual para la red virtual clásica. Si no tiene una red virtual clásica y lleva a cabo estos pasos como ejercicio, puede crear una red virtual según [este artículo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y los valores de configuración de [ejemplo](#values) indicados anteriormente.
+
+Al usar el portal para crear una red virtual clásica, debe ir a la hoja de la red virtual siguiendo los pasos siguientes; en caso contrario, no aparece la opción para crear una red virtual clásica:
+
+1. Haga clic en "+" para abrir la hoja "Nuevo".
+2. En el campo "Buscar en el Marketplace", escriba "Red virtual". Si en su lugar, selecciona Redes -> Red virtual, no obtendrá la opción para crear una red virtual clásica.
+3. En la lista de resultados, busque "Red virtual" y haga clic en él para abrir la hoja Red virtual. 
+4. En la hoja de la red virtual, seleccione "Clásica" para crear una red virtual clásica. 
+
+Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puerta de enlace sea dinámica. Si es estática, primero debe eliminar la puerta de enlace VPN y luego continuar.
 
 Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos o use los valores de [ejemplo](#values).
 

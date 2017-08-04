@@ -1,6 +1,6 @@
 ---
 title: Aprovisionamiento de Microsoft Data Science Virtual Machine | Microsoft Docs
-description: "Configuro y creación de Data Science Virtual Machine en Azure para realizar análisis y aprendizaje de equipo."
+description: "Configure y cree una instancia de Data Science Virtual Machine en Azure para realizar análisis y aprendizaje automático."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -11,18 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1469e7a2f5f41ef52c0ff77e6e70378951594135
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: b1b29ba11bc489a6ad67c2d9043cdb8a2dca7ef8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="provision-the-microsoft-data-science-virtual-machine"></a>Aprovisionamiento de Microsoft Data Science Virtual Machine
-Microsoft Data Science Virtual Machine es una imagen de máquina virtual (VM) de Azure preinstalada y configurada con varias herramientas populares que se usan habitualmente para el análisis de datos y el aprendizaje automático. Las herramientas incluidas son:
+Microsoft Data Science Virtual Machine es una imagen de máquina virtual (VM) de Windows Azure preinstalada y configurada con varias herramientas populares que se usan habitualmente para el análisis de datos y el aprendizaje automático. Las herramientas incluidas son:
 
 * Microsoft R Server Developer Edition
 * Anaconda Python Distribution
@@ -42,7 +41,13 @@ Microsoft Data Science Virtual Machine es una imagen de máquina virtual (VM) de
 * Git, incluido Git Bash, para trabajar con repositorios de código fuente, entre otros, GitHub, Visual Studio Team Services
 * Puertos de Windows de varias utilidades de línea de comandos de Linux populares (en otras, awk, sed, perl, grep, buscar, wget, curl, etc.) accesibles mediante el símbolo del sistema. 
 
-La ciencia de datos implica una iteración en una secuencia de tareas: encontrar, cargar y preprocesar datos, crear y probar modelos e implementar los modelos para su uso en aplicaciones inteligentes. Los científicos de datos usan varias herramientas para realizar estas tareas. Puede ser bastante lento encontrar las versiones del software adecuadas, descargarlas e instalarlas. Para reducir esta carga, Microsoft Data Science Virtual Machine proporciona una imagen lista para usar que se puede aprovisionar en Azure con las herramientas más populares preinstaladas y configuradas. 
+La ciencia de datos implica la iteración de una secuencia de tareas:
+
+1. Buscar, cargar y preprocesar datos
+2. Compilar y probar modelos
+3. Implementar los modelos para consumirse en aplicaciones inteligentes
+
+Los científicos de datos usan varias herramientas para realizar estas tareas. Puede ser bastante lento encontrar las versiones del software adecuadas, descargarlas e instalarlas. Para reducir esta carga, Microsoft Data Science Virtual Machine proporciona una imagen lista para usar que se puede aprovisionar en Azure con las herramientas más populares preinstaladas y configuradas. 
 
 Microsoft Data Science Virtual Machine da un empujón al inicio de los proyecto de análisis. Le permite trabajar en tareas en varios lenguajes, incluidos R, Python, SQL y C#. Visual Studio proporciona un IDE para desarrollar y probar el código que es fácil de usar. El SDK de Azure incluido en la máquina virtual permite crear aplicaciones con varios servicios en la plataforma en la nube de Microsoft. 
 
@@ -92,18 +97,19 @@ Una vez creada la máquina virtual, puede usar el escritorio remoto con las cred
 Una vez creada y aprovisionada la máquina virtual, está listo para comenzar a usar las herramientas que se instalan y configuran en ella. Hay iconos del menú de inicio e iconos del escritorio para muchas de las herramientas. 
 
 ## <a name="how-to-create-a-strong-password-for-jupyter-and-start-the-notebook-server"></a>Creación de una contraseña segura para Jupyter e inicio del servidor de notebooks
-De forma predeterminada, el servidor de notebooks de Jupyter está preconfigurado pero deshabilitado en la máquina virtual hasta que se establezca una contraseña para Jupyter. Para crear una contraseña segura para el servidor de notebooks de Jupyter instalado en la máquina, ejecute el siguiente comando desde un símbolo del sistema en la máquina virtual de Data Science, o bien haga doble clic en el acceso directo que hemos proporcionado en el escritorio, llamado **Jupyter Set Password & Start** desde una cuenta de administrador de máquina virtual local.
+De forma predeterminada, el servidor de notebooks de Jupyter está preconfigurado pero deshabilitado en la máquina virtual hasta que se establezca una contraseña para Jupyter. Para crear una contraseña segura para el servidor de cuadernos de Jupyter Notebook instalado en la máquina, ejecute el siguiente comando desde un símbolo del sistema en la máquina virtual de Data Science, o bien haga doble clic en el acceso directo que hemos proporcionado en el escritorio, llamado **Jupyter Set Password & Start** desde una cuenta de administrador de máquina virtual local.
 
     C:\dsvm\tools\setup\JupyterSetPasswordAndStart.cmd
 
 Siga los mensajes y elija una contraseña segura cuando se le solicite.
 
-El script anterior creará un hash de contraseña y lo almacenará en el archivo de configuración de Jupyter ubicado en: **C:\ProgramData\jupyter\jupyter_notebook_config.py**, en el nombre de parámetro ***c.NotebookApp.password***.
+El script anterior crea un hash de contraseña y lo almacena en el archivo de configuración de Jupyter ubicado en: **C:\ProgramData\jupyter\jupyter_notebook_config.py**, bajo el nombre de parámetro ***c.NotebookApp.password***.
 
-El script también se habilita y ejecuta el servidor de Jupyter en segundo plano. El servidor de Jupyter se crea como una tarea de Windows llamada **Start_IPython_Notebook**, en el programador de tareas de Windows.  Quizás tenga que esperar unos pocos segundos después de establecer la contraseña antes de abrir el notebook en el explorador. Consulte la sección titulada **Jupyter Notebook** acerca de cómo tener acceso al servidor de notebooks de Jupyter. 
+El script también habilita y ejecuta el servidor de Jupyter en segundo plano. El servidor de Jupyter se crea como una tarea de Windows llamada **Start_IPython_Notebook**, en el programador de tareas de Windows.  Quizás tenga que esperar unos pocos segundos después de establecer la contraseña antes de abrir el notebook en el explorador. Consulte la sección titulada **Jupyter Notebook** acerca de cómo tener acceso al servidor de notebooks de Jupyter. 
 
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Herramientas instaladas en Microsoft Data Science Virtual Machine
+
 ### <a name="microsoft-r-server-developer-edition"></a>Microsoft R Server Developer Edition
 Si desea usar R para su análisis, la máquina virtual tiene Microsoft R Server Developer Edition instalado. Microsoft R Server es una plataforma de análisis de nivel empresarial que se puede implementar ampliamente gracias a que R es compatible, escalable y seguro. Compatible con una gran variedad de estadísticas de macrodatos, con funcionalidades de modelado de predicción y de aprendizaje automático, R Server admite toda la gama de análisis: exploración, análisis, visualización y modelado. Al usar y ampliar R de código abierto, Microsoft R Server es totalmente compatible con scripts, funciones y paquetes CRAN de R, a fin de analizar datos a escala empresarial. También resuelve las limitaciones en memoria de R de origen abierto agregando el procesamiento paralelo y fragmentado de datos. Esto permite ejecutar análisis de datos mucho mayor de lo que cabe en la memoria principal.  La edición Visual Studio Community Edition incluida en la máquina virtual contiene la extensión R Tools for Visual Studio que proporciona un IDE completo para trabajar con R. También puede descargar y usar otros IDE, así como [RStudio](http://www.rstudio.com). 
 

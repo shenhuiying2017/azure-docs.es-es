@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21223eb0cfbff607e15713e4726761c1bdb01774
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cfc9fb3ca26819999e10eff8df55d48468c7edef
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso de un equilibrador de carga interno con un entorno del Servicio de aplicaciones
-La característica de Entornos del Servicio de aplicaciones (ASE) es una opción del nivel Premium del Servicio de aplicaciones de Azure que ofrece una mejor funcionalidad de configuración que no está disponible en las marcas de varios inquilinos.  Básicamente, la característica de ASE implementa el Servicio de aplicaciones de Azure en la red virtual de esta plataforma.  Para comprender mejor las capacidades ofrecidas por los App Service Environment, lea la documentación [¿Qué es un App Service Environment?][WhatisASE].  Si no conoce las ventajas de utilizar una red virtual, consulte las [preguntas más frecuentes sobre Azure Virtual Network][virtualnetwork].  
+La característica de Entornos del Servicio de aplicaciones (ASE) es una opción del nivel Premium del Servicio de aplicaciones de Azure que ofrece una mejor funcionalidad de configuración que no está disponible en las marcas de varios inquilinos.  Básicamente, la característica de ASE implementa el Servicio de aplicaciones de Azure en la red virtual de esta plataforma.  Para comprender mejor las funciones que ofrecen los entornos de App Service, lea el artículo donde[que explica en qué consiste un entorno de App Service][WhatisASE].  Si no conoce las ventajas de utilizar una red virtual, consulte las [preguntas más frecuentes sobre Azure Virtual Network][virtualnetwork].  
 
 ## <a name="overview"></a>Información general
 Un ASE puede implementarse con un punto de conexión accesible por Internet o con una dirección IP en la red virtual.  Para establecer la dirección IP en una dirección de red virtual, tiene que implementar el ASE con un equilibrador de carga interno (ILB).  Cuando el ASE se configura con un ILB, tiene que proporcionar lo siguiente:
@@ -109,7 +110,7 @@ Un ASE con un ILB permite aislar a las aplicaciones de la red; es decir, permane
 
 Si quiere usar los NSG con este fin, tendrá que asegurarse de no interrumpir la comunicación que necesita el ASE para poder funcionar.  Aunque el acceso HTTP y HTTPS solo se realiza a través del ILB que utiliza el ASE, este sigue dependiendo de recursos externos a la red virtual.  Para consultar qué acceso de red sigue siendo necesario, busque la información en los documentos [Cómo controlar el tráfico de entrada a un App Service Environment][ControlInbound] y [Detalles de configuración de red para los App Service Environment con ExpressRoute][ExpressRoute].  
 
-Para configurar los NSG, debe conocer la dirección IP que usa Azure para administrar el ASE.  Esa dirección IP también es la dirección IP saliente del ASE en caso de que realice solicitudes de Internet.  Para encontrar esta dirección IP, vaya a **Configuración -> Propiedades** y busque **Dirección IP saliente**.  
+Para configurar los NSG, debe conocer la dirección IP que usa Azure para administrar el ASE.  Esa dirección IP también es la dirección IP saliente del ASE en caso de que realice solicitudes de Internet.  La dirección IP saliente para su ASE permanecerá estática durante la vida de su ASE.  Si elimina y vuelve a crear el ASE, recibirá una nueva dirección IP.  Para encontrar esta dirección IP, vaya a **Configuración -> Propiedades** y busque **Dirección IP saliente**.  
 
 ![][5]
 
@@ -128,9 +129,9 @@ Cuando se utiliza una dirección VIP externa, Azure se encarga de administrar el
 ## <a name="getting-started"></a>Introducción
 Todos los artículos y procedimientos para los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
-Para empezar a trabajar con App Service Environment, vea [Introducción a los App Service Environment][WhatisASE]
+Para empezar a trabajar con entornos de App Service, consulte [Introducción al entorno de App Service][WhatisASE].
 
-Para obtener más información acerca de la plataforma de Azure App Service, consulte [Azure App Service][AzureAppService].
+Para obtener más información sobre la plataforma Azure App Service, consulte [Azure App Service][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -155,9 +156,4 @@ Para obtener más información acerca de la plataforma de Azure App Service, con
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 [vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

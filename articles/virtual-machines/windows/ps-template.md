@@ -13,31 +13,30 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 07/18/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 67b023ccd761bc08b96c9ebda907c6451bfbe52f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d84c20dc74feedd7329cd390ff35765532bcf74d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creación de una máquina virtual Windows con una plantilla de Resource Manager
 
-En este artículo se muestra cómo implementar una plantilla de Azure Resource Manager con PowerShell. La [plantilla](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) implementa una sola máquina virtual que ejecuta Windows Server en una nueva red virtual con una sola subred.
+En este artículo se muestra cómo implementar una plantilla de Azure Resource Manager con PowerShell. La plantilla que crea implementa una sola máquina virtual que ejecuta Windows Server en una nueva red virtual con una sola subred.
 
 Para obtener una descripción detallada del recurso de máquina virtual, consulte [Virtual machines in an Azure Resource Manager template](template-description.md) (Máquinas virtuales en una plantilla de Azure Resource Manager). Para obtener más información acerca de todos los recursos de una plantilla, consulte [Tutorial de la plantilla de Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Tardará unos cinco minutos en realizar los pasos de este artículo.
 
-## <a name="step-1-install-azure-powershell"></a>Paso 1: Instalación de Azure PowerShell
+## <a name="install-azure-powershell"></a>Instalar Azure Powershell
 
 Consulte [Cómo instalar y configurar Azure PowerShell](../../powershell-install-configure.md) para obtener más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta.
 
-## <a name="step-2-create-a-resource-group"></a>Paso 2: Creación de un grupo de recursos
+## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Todos los recursos se deben implementar en un [grupo de recursos](../../azure-resource-manager/resource-group-overview.md).
 
@@ -47,61 +46,169 @@ Todos los recursos se deben implementar en un [grupo de recursos](../../azure-re
     Get-AzureRmLocation | sort DisplayName | Select DisplayName
     ```
 
-2. Cree el grupo de recursos en la ubicación que seleccione. En este ejemplo se muestra la creación de un grupo de recursos denominado **myResourceGroup** en la ubicación **Centro de EE. UU.**:
+2. Cree el grupo de recursos en la ubicación que seleccione. En este ejemplo se muestra la creación de un grupo de recursos denominado **myResourceGroup** en la ubicación **Oeste de EE. UU.**:
 
     ```powershell   
-    New-AzureRmResourceGroup -Name "myResourceGroup" -Location "Central US"
-    ```
-   
-  Puede ver algo parecido a este ejemplo:
-
-    ```powershell 
-    ResourceGroupName : myResourceGroup
-    Location          : centralus
-    ProvisioningState : Succeeded
-    Tags              :
-    ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup
+    New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
     ```
 
-## <a name="step-3-create-the-resources"></a>Paso 3: Creación de los recursos
-Implemente la plantilla y proporcione valores de parámetro cuando se le solicite. En este ejemplo se implementa la plantilla 101-vm-simple-windows en el grupo de recursos que ha creado:
+## <a name="create-the-files"></a>Creación de los archivos
+
+En este paso, creará un archivo de plantilla que implementa los recursos y un archivo de parámetros que proporciona valores de parámetro a la plantilla. También creará un archivo de autorización que se utiliza para realizar operaciones de Azure Resource Manager.
+
+1. Cree un archivo denominado *CreateVMTemplate.json* y agréguele este código JSON:
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "adminUsername": { "type": "string" },
+        "adminPassword": { "type": "securestring" }
+      },
+      "variables": {
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+      },
+      "resources": [
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/publicIPAddresses",
+          "name": "myPublicIPAddress",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "publicIPAllocationMethod": "Dynamic",
+            "dnsSettings": {
+              "domainNameLabel": "myresourcegroupdns1"
+            }
+          }
+        },
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/virtualNetworks",
+          "name": "myVNet",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "addressSpace": { "addressPrefixes": [ "10.0.0.0/16" ] },
+            "subnets": [
+              {
+                "name": "mySubnet",
+                "properties": { "addressPrefix": "10.0.0.0/24" }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/networkInterfaces",
+          "name": "myNic",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/publicIPAddresses/', 'myPublicIPAddress')]",
+            "[resourceId('Microsoft.Network/virtualNetworks/', 'myVNet')]"
+          ],
+          "properties": {
+            "ipConfigurations": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Dynamic",
+                  "publicIPAddress": { "id": "[resourceId('Microsoft.Network/publicIPAddresses','myPublicIPAddress')]" },
+                  "subnet": { "id": "[variables('subnetRef')]" }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2016-04-30-preview",
+          "type": "Microsoft.Compute/virtualMachines",
+          "name": "myVM",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/networkInterfaces/', 'myNic')]"
+          ],
+          "properties": {
+            "hardwareProfile": { "vmSize": "Standard_DS1" },
+            "osProfile": {
+              "computerName": "myVM",
+              "adminUsername": "[parameters('adminUsername')]",
+              "adminPassword": "[parameters('adminPassword')]"
+            },
+            "storageProfile": {
+              "imageReference": {
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2012-R2-Datacenter",
+                "version": "latest"
+              },
+              "osDisk": {
+                "name": "myManagedOSDisk",
+                "caching": "ReadWrite",
+                "createOption": "FromImage"
+              }
+            },
+            "networkProfile": {
+              "networkInterfaces": [
+                {
+                  "id": "[resourceId('Microsoft.Network/networkInterfaces','myNic')]"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+    ```
+
+2. Cree un archivo denominado *Parameters.json* y agréguele este código JSON:
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+      "adminUserName": { "value": "azureuser" },
+        "adminPassword": { "value": "Azure12345678" }
+      }
+    }
+    ```
+
+3. Cree una nueva cuenta de almacenamiento y un contenedor:
+
+    ```powershell
+    $storageName = "st" + (Get-Random)
+    New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" -AccountName $storageName -Location "West US" -SkuName "Standard_LRS" -Kind Storage
+    $accountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name $storageName).Value[0]
+    $context = New-AzureStorageContext -StorageAccountName $storageName -StorageAccountKey $accountKey 
+    New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
+    ```
+
+4. Cargue los archivos en la cuenta de almacenamiento:
+
+    ```powershell
+    Set-AzureStorageBlobContent -File "C:\templates\CreateVMTemplate.json" -Context $context -Container "templates"
+    Set-AzureStorageBlobContent -File "C:\templates\Parameters.json" -Context $context -Container templates
+    ```
+
+    Cambio las rutas de acceso de -File a la ubicación donde almacenó los archivos.
+
+## <a name="create-the-resources"></a>Creación de los recursos
+
+Implemente la plantilla mediante los parámetros:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json" 
+$templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
+$parametersPath = "https://" + $storageName + ".blob.core.windows.net/templates/Parameters.json"
+New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "myDeployment" -TemplateUri $templatePath -TemplateParameterUri $parameterPath 
 ```
-Se le pide que proporcione el nombre de la cuenta de administrador en la máquina virtual, la contraseña de la cuenta y el prefijo de DNS.
-
-Puede ver algo parecido a este ejemplo:
-
-    DeploymentName    : azuredeploy
-    ResourceGroupName : myResourceGroup
-    ProvisioningState : Succeeded
-    Timestamp         : 12/29/2016 8:11:37 PM
-    Mode              : Incremental
-    TemplateLink      :
-       Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/
-                        101-vm-simple-windows/azuredeploy.json
-       ContentVersion : 1.0.0.0
-    Parameters        :
-      Name             Type                       Value
-      ===============  =========================  ==========
-      adminUsername    String                     myAdminUser
-      adminPassword    SecureString
-      dnsLabelPrefix   String                     myDomain
-      windowsOSVersion String                     2016-Datacenter
-    Outputs           :
-      Name             Type                       Value
-      ===============  =========================  ===========
-      hostname         String                     myDomain.centralus.cloudapp.azure.com
-    DeploymentDebugLogLevel :
 
 > [!NOTE]
 > También puede implementar las plantillas y los parámetros desde archivos locales. Para obtener más información, consulte [Usar Azure PowerShell con Azure Storage](../../storage/storage-powershell-guide-full.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si se produjeron problemas durante la implementación, el paso siguiente sería consultar [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
-- Obtenga información sobre cómo usar PowerShell de Azure para crear una máquina virtual en [Crear una máquina virtual de Windows con Resource Manager y PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Aprenda a administrar la máquina virtual que ha creado repasando el tema [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Si se produjeron problemas con la implementación, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Aprenda a crear y administrar una máquina virtual en [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

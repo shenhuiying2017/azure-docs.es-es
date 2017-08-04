@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 571c31b9e6514b44d6a8a69fe8a6a0806e4b80e3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 88f4a23f89a1c8fd88db1df3a7ff03ae5df64c0f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -37,7 +36,7 @@ Los objetivos principales de la supervisión y diagnóstico son:
 
 El flujo de trabajo general de la supervisión y el diagnóstico consta de tres pasos:
 
-1. **Generación de eventos**: incluye eventos (registros, seguimientos y eventos personalizados) tanto en los niveles de infraestructura (clúster) como en los de aplicación o servicio.
+1. **Generación de eventos**: incluye eventos (registros, seguimientos y eventos personalizados) en los niveles de infraestructura (clúster), plataforma y aplicación o servicio.
 2. **Agregación de eventos**: es preciso recopilar y agregar los eventos generados antes de que se puedan mostrar.
 3. **Análisis**: los eventos se deben visualizar y acceder en algún formato, para permitir su análisis y visualización cuando sea necesario.
 
@@ -45,9 +44,9 @@ Hay varios productos que abarcan las tres áreas, y puede elegir tecnologías di
 
 ## <a name="event-generation"></a>Generación de eventos
 
-El primer paso del flujo de trabajo de supervisión y diagnóstico es la creación y generación de eventos y registros. Se generan eventos, registros y seguimientos en dos niveles: la capa de infraestructura (cualquier elemento desde las acciones del clúster, los equipos o Service Fabric) o la capa de la aplicación (toda la instrumentación que se agrega a las aplicaciones y servicios que se implementan en el clúster). Los eventos de cada uno de estos niveles son personalizables, aunque Service Fabric proporciona instrumentación de forma predeterminada.
+El primer paso del flujo de trabajo de supervisión y diagnóstico es la creación y generación de eventos y registros. Estos eventos, registros y seguimientos se generan en dos niveles: la capa de la plataforma (que incluye el clúster, los equipos o acciones de Service Fabric) o la capa de la aplicación (la instrumentación que se agrega a las aplicaciones y servicios que se implementan en el clúster). Los eventos de cada uno de estos niveles son personalizables, aunque Service Fabric proporciona instrumentación de forma predeterminada.
 
-Obtenga más información sobre los [eventos de nivel de infraestructura](service-fabric-diagnostics-event-generation-infra.md) y los [eventos de nivel de aplicación](service-fabric-diagnostics-event-generation-app.md) para comprender lo que se proporciona y cómo agregar otras instrumentaciones.
+Obtenga más información sobre los [eventos de nivel de plataforma](service-fabric-diagnostics-event-generation-infra.md) y los [eventos de nivel de aplicación](service-fabric-diagnostics-event-generation-app.md) para comprender lo que se proporciona y cómo agregar otras instrumentaciones.
 
 Después de tomar una decisión sobre el proveedor de registro que le gustaría utilizar, debe asegurarse de que los registros se agregan y almacenan correctamente.
 
@@ -69,7 +68,7 @@ Usar [EventFlow](https://github.com/Azure/diagnostics-eventflow) le permite que 
 * Acceso a los datos y el contexto internos de la aplicación
     * El subsistema de diagnóstico que se ejecuta dentro del proceso de la aplicación o servicio puede ampliar fácilmente los seguimientos con información contextual.
 
-Hay que destacar es que estas dos opciones no son mutuamente excluyentes y, si bien es posible conseguir resultados similares con el uso de uno u otro, también podría serle útil configurar ambos. En la mayoría de los casos, la combinación de un agente con la recopilación In-Process puede ofrecer un flujo de trabajo de supervisión más confiable. La extensión de Azure Diagnostics (agente) podría ser la ruta de acceso elegida para registros de nivel de infraestructura, aunque podría utilizar EventFlow (recopilación In-Process) para sus registros de nivel de aplicación. Una vez que haya descubierto qué funciona mejor para usted, es el momento de pensar en cómo desea que se muestren y se analicen los datos.
+Hay que destacar es que estas dos opciones no son mutuamente excluyentes y, si bien es posible conseguir resultados similares con el uso de uno u otro, también podría serle útil configurar ambos. En la mayoría de los casos, la combinación de un agente con la recopilación In-Process puede ofrecer un flujo de trabajo de supervisión más confiable. La extensión de Azure Diagnostics (agente) podría ser la ruta de acceso elegida para registros de nivel de plataforma, aunque podría utilizar EventFlow (colección In-Process) para sus registros de nivel de aplicación. Una vez que haya descubierto qué funciona mejor para usted, es el momento de pensar en cómo desea que se muestren y se analicen los datos.
 
 ## <a name="event-analysis"></a>Análisis de eventos
 
@@ -85,7 +84,7 @@ Puede usar [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)
 
 ![Vista de Azure Portal con la información de métrica recopilada](media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
 
-Para personalizar los gráficos, siga las instrucciones del artículo de [introducción a las métricas en Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). También puede crear alertas basadas en estas métricas, como se describe en [Creación de alertas en Azure Monitor para servicios de Azure - Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Puede enviar alertas a un servicio de notificación mediante webhooks, tal y como se describe en [Configuración de un webhook en una alerta de métrica de Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure Monitor es compatible con una sola suscripción. Si quiere supervisar varias suscripciones o necesita características adicionales, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), parte de Microsoft Operations Management Suite, proporciona una solución integral de administración de TI para infraestructura tanto local como basada en la nube. Los datos de Azure Monitor se pueden enrutar directamente a Log Analytics para ver los registros y las métricas de todo el entorno desde un único lugar.
+Para personalizar los gráficos, siga las instrucciones del artículo de [introducción a las métricas en Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). También puede crear alertas basadas en estas métricas, como se describe en [Creación de alertas en Azure Monitor para servicios de Azure - Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Puede enviar alertas a un servicio de notificación mediante webhooks, tal y como se describe en [Configuración de un webhook en una alerta de métrica de Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure Monitor es compatible con una sola suscripción. Si tiene que supervisar varias suscripciones o necesita características adicionales, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), parte de Microsoft Operations Management Suite, ofrece una solución integral de administración de TI para la infraestructura local y basada en la nube. Los datos de Azure Monitor se pueden enrutar directamente a Log Analytics para ver los registros y las métricas de todo el entorno desde un único lugar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -93,4 +92,4 @@ Para personalizar los gráficos, siga las instrucciones del artículo de [introd
 
 Un guardián es un servicio independiente que vigila el estado y la carga en los servicios e informa sobre el estado de cualquier componente en la jerarquía del modelo de mantenimiento. Esto puede ayudar a evitar errores que se pasan por alto con la vista de un solo servicio. Los guardianas también son un buen lugar donde hospedar el código que realiza acciones de subsanación sin interacción del usuario (por ejemplo, limpiar los archivos de registro de almacenamiento a determinados intervalos de tiempo). [Aquí](https://github.com/Azure-Samples/service-fabric-watchdog-service) puede encontrar la implementación de un servicio guardián de ejemplo.
 
-Consulte una introducción a la generación de eventos y registros en el [nivel de la infraestructura](service-fabric-diagnostics-event-generation-infra.md) y en el [nivel de aplicación](service-fabric-diagnostics-event-generation-app.md).
+Empiece por comprender cómo se generan los eventos y registros en el [nivel de plataforma](service-fabric-diagnostics-event-generation-infra.md) y en el [nivel de aplicación](service-fabric-diagnostics-event-generation-app.md).

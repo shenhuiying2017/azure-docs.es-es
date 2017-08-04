@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: b52e5bcf443afd05bf8cc37ce436cb80ab41412f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d252a4a8b811f966098348866cc498e2be2924f2
 ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 #<a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox
@@ -55,15 +54,15 @@ En esta sección, creará un proyecto de Scala de ejemplo con IntelliJ IDEA. En 
 3. Haga clic en **HDInsight** en el panel izquierdo, haga clic en **Spark on HDInsight(Scala)** (Spark en HDInsight [Scala]) en el panel derecho y luego haga clic en **Next** (Siguiente).
 
     ![Creación de un proyecto de Scala en IntelliJ](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+    - Herramienta de compilación: el asistente para crear un proyecto de Scala admite Maven o SBT para administrar las dependencias y compilar el proyecto de Scala. Seleccione una según sea necesario.
 4. Escriba la siguiente información:
 
     ![Creación de las propiedades del proyecto de Scala en IntelliJ](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
     - **Project name** (Nombre del proyecto): proporcione un nombre para el proyecto.
     - **Project location** (Ubicación del proyecto): proporcione una ubicación para el proyecto.
-    - **Project SDK** (SDK del proyecto): haga clic en **New** (Nuevo), en **JDK** y luego especifique la carpeta del JDK de Java versión 7 o posterior.  La ubicación predeterminada es C:\Program Files\Java\jdk1.8.x_xxx.
-    - **Scala SDK** (SDK de Scala): haga clic en **Select** (Seleccionar), seleccione la versión **2.10.6** y luego haga clic en **OK** (Aceptar). Si no se muestra la versión, haga clic en **Download** (Descargar), seleccione **Scala version** (Versión de Scala) y haga clic en **OK** (Aceptar). Asegúrese de no usar la versión 2.11.x. En este artículo se usa la versión 2.10.6.
-    - **Spark SDK** (SDK de Spark): descargue el [SDK](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). También puede omitir este paso y usar en su lugar el repositorio de Spark Maven. Sin embargo, debe comprobar que tiene instalado el repositorio de Maven correcto para poder desarrollar aplicaciones de Spark. Por ejemplo, debe asegurarse de que tiene la parte Spark Streaming instalada si está utilizando Spark Streaming. Asimismo, asegúrese de que utiliza el repositorio marcado como Scala 2.10 y no el repositorio marcado como Scala 2.11.
+    - **Project SDK** (SDK del proyecto): haga clic en **New** (Nuevo), en **JDK** y luego especifique la carpeta del JDK de Java versión 7 o posterior. Utilice Java 1.8 para el clúster de spark 2.x y Java 1.7 para el clúster de spark 1.x. La ubicación predeterminada es C:\Program Files\Java\jdk1.8.x_xxx.
+    - **Versión de Spark**: el asistente para crear un proyecto de Scala integra la versión correcta de los SDK de Spark y de Scala. Si la versión del clúster de Spark es inferior a la 2.0, elija Spark 1.x. En caso contrario, debe seleccionar spark2.x. Este ejemplo utiliza Spark1.6.2 (Scala 2.10.5). Asegúrese también de que está utilizando el repositorio marcado como Scala 2.10.x (no utilice el repositorio marcado como Scala 2.11.x).
 5. Haga clic en **Finalizar**
 6. Presione **[ALT]+1** para abrir la vista Project si no se abre.
 7. En **Project Explorer** (Explorador de proyectos), expanda el proyecto y luego haga clic en **src**.
@@ -140,10 +139,11 @@ Después de haber vinculado IntelliJ IDEA al emulador, puede enviar el proyecto.
     - **Main class name** (Nombre de la clase principal): elija o escriba el nombre de la clase principal.  En este tutorial, es **GroupByTest**.
 3. Haga clic en **Enviar**. Los registros de envío de trabajo se muestran en la ventana de la herramienta de envío de Spark.
 
-##<a name="next-steps"></a>Pasos siguientes:
+## <a name="next-steps"></a>Pasos siguientes:
 
 - Para aprender a crear aplicaciones de Spark para HDInsight mediante Herramientas de HDInsight para IntelliJ, consulte [Uso de las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark destinadas al clúster Spark en HDInsight (Linux)](hdinsight-apache-spark-intellij-tool-plugin.md).
-- Para ver un vídeo sobre las Herramientas de HDInsight para IntelliJ, vea el [vídeo de introducción sobre las Herramientas de HDInsight para IntelliJ para el desarrollo con Spark](https://mix.office.com/watch/1nqkqjt5xonza).
-- Para aprender a depurar aplicaciones de Spark usando el kit de herramientas de forma remota en HDInsight, consulte [Uso de las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark en clústeres Spark de HDInsight (Linux)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
+- Para ver un vídeo sobre las Herramientas de HDInsight para IntelliJ, vea el [vídeo de introducción sobre las Herramientas de HDInsight para IntelliJ para el desarrollo con Spark](https://www.youtube.com/watch?v=YTZzYVgut6c).
+- Para aprender a depurar aplicaciones de Spark usando el kit de herramientas de forma remota en HDInsight a través de SSH, consulte [Depuración de aplicaciones de Spark de forma remota en un clúster de HDInsight con el kit de herramientas de Azure para IntelliJ mediante SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md).
+- Para aprender a depurar aplicaciones de Spark usando el kit de herramientas de forma remota en HDInsight a través de VPN, consulte [Uso del kit de herramientas de Azure para IntelliJ para depurar aplicaciones de forma remota en HDInsight Spark mediante VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
 - Para aprender a usar las Herramientas de HDInsight para Eclipse con la finalidad de crear una aplicación Spark, consulte [Uso de las herramientas de HDInsight del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark destinadas al clúster Spark en HDInsight (Linux)](hdinsight-apache-spark-eclipse-tool-plugin.md).
 - Para ver un vídeo sobre las Herramientas de HDInsight para Eclipse, vea el vídeo sobre [cómo usar las Herramientas de HDInsight para Eclipse para crear aplicaciones de Spark](https://mix.office.com/watch/1rau2mopb6fha).

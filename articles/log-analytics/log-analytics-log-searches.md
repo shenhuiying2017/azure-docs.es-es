@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/07/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: b005d0fb25483f3dce14133038d7759dff07fc7c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6dbe7713c48a60974f1026dddc8ee9d2aeb01708
 ms.contentlocale: es-es
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="find-data-using-log-searches"></a>Búsqueda de datos mediante búsquedas de registros
@@ -135,6 +134,24 @@ Igualmente, la siguiente consulta devuelve el **% tiempo de CPU** solo para los 
 
 ```
 CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com)
+```
+
+### <a name="field-types"></a>Tipos de campo
+Cuando cree filtros, debe comprender las diferencias que existen al trabajar con los distintos tipos de campos que aparecen en las búsquedas de registros.
+
+Los **campos de búsqueda** se muestran en azul en los resultados de la búsqueda.  Puede usar campos de búsqueda en condiciones de búsqueda específicas para el campo, como el siguiente:
+
+```
+Type: Event EventLevelName: "Error"
+Type: SecurityEvent Computer:Contains("contoso.com")
+Type: Event EventLevelName IN {"Error","Warning"}
+```
+
+Los **campos de búsqueda de texto libre** se muestran en gris en los resultados de la búsqueda.  No se pueden usar con condiciones de búsqueda específicas para el campo, como los campos de búsqueda.  Se buscan solo al realizar una consulta en todos los campos, como la siguiente.
+
+```
+"Error"
+Type: Event "Exception"
 ```
 
 

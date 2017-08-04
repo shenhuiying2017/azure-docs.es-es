@@ -1,6 +1,6 @@
 ---
-title: "Administración de aplicaciones de Service Fabric mediante la CLI de Azure 2.0"
-description: "Describe el proceso de implementación y eliminación de aplicaciones de un clúster de Service Fabric mediante la CLI de Azure 2.0"
+title: "Administración de aplicaciones de Azure Service Fabric mediante la CLI de Azure 2.0"
+description: "Aprenda cómo implementar y quitar aplicaciones de un clúster de Azure Service Fabric mediante la CLI de Azure 2.0."
 services: service-fabric
 author: samedder
 manager: timlt
@@ -8,46 +8,47 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: edwardsa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: a99819f6a1c0ef31e14c95b6bd47138feb05053f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5728339236e3819b301e428f9d7a8add08f02b3e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="manage-service-fabric-application-using-azure-cli-20"></a>Administración de una aplicación de Service Fabric mediante la CLI de Azure 2.0
+# <a name="manage-an-azure-service-fabric-application-by-using-azure-cli-20"></a>Administración de una aplicación de Azure Service Fabric mediante la CLI de Azure 2.0
 
-Siga esta documentación para crear y eliminar aplicaciones que se ejecutan en un clúster de Service Fabric.
+Aprenda cómo crear y eliminar aplicaciones que se ejecutan en un clúster de Azure Service Fabric.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Asegúrese de instalar la CLI de Azure 2.0 y seleccionar el clúster de Service Fabric. Puede encontrar más información en la [documentación de introducción a la CLI de Azure 2.0](service-fabric-azure-cli-2-0.md).
+* Instale la CLI de Azure 2.0. A continuación, seleccione su clúster de Service Fabric. Para más información, consulte [Service Fabric y CLI de Azure 2.0](service-fabric-azure-cli-2-0.md).
 
-También debe tener un paquete de aplicación de Service Fabric listo para la implementación. Puede obtener más información acerca de cómo crear y empaquetar una aplicación en la [documentación del modelo de aplicación](service-fabric-application-model.md).
+* Tenga un paquete de aplicación de Service Fabric listo para la implementación. Para más información sobre cómo crear y empaquetar una aplicación, lea la información sobre el [modelo de aplicación de Service Fabric](service-fabric-application-model.md).
 
 ## <a name="overview"></a>Información general
 
-La implementación de una nueva aplicación consta de cuatro pasos:
+Para implementar una nueva aplicación, complete estos pasos:
 
-1. Carga de un paquete de aplicación en el almacén de imágenes de Service Fabric
-1. Aprovisionamiento de un tipo de aplicación
-1. Especificación y creación de una aplicación
-1. Especificación y creación de servicios
+1. Cargue un paquete de aplicación en el almacén de imágenes de Service Fabric.
+2. Aprovisione un tipo de aplicación.
+3. Especifique y cree una aplicación.
+4. Especifique y cree servicios.
 
-La eliminación de una aplicación existente precisa tres pasos:
+Para quitar una aplicación existente, complete estos pasos:
 
-1. Eliminar aplicación
-1. Anulación del aprovisionamiento del tipo de aplicación asociado
-1. Eliminación del contenido del almacén de imágenes
+1. Elimine la aplicación.
+2. Anule el aprovisionamiento del tipo de aplicación asociado.
+3. Elimine el contenido del almacén de imágenes.
 
 ## <a name="deploy-a-new-application"></a>Implementación de una nueva aplicación
 
-Para implementar una nueva aplicación, siga estos pasos:
+Para implementar una nueva aplicación, complete las tareas siguientes.
 
 ### <a name="upload-a-new-application-package-to-the-image-store"></a>Carga de un nuevo paquete de aplicación en el almacén de imágenes
 
-Antes de crear una aplicación, el paquete de aplicación debe cargarse en el almacén de imágenes de Service Fabric.
-Suponga que el paquete de aplicación se encuentra en el directorio `app_package_dir`. Use los comandos siguientes para cargar el directorio:
+Antes de crear una aplicación, cargue el paquete de aplicación en el almacén de imágenes de Service Fabric. 
+
+Por ejemplo, si el paquete de aplicación está en el directorio `app_package_dir`, use los siguientes comandos para cargar el directorio:
 
 ```azurecli
 az sf application upload --path ~/app_package_dir
@@ -55,62 +56,62 @@ az sf application upload --path ~/app_package_dir
 
 Para paquetes de aplicación de gran tamaño, puede especificar la opción `--show-progress` para mostrar el progreso de la carga.
 
-### <a name="provision-application-type"></a>Aprovisionamiento del tipo de aplicación
+### <a name="provision-the-application-type"></a>Aprovisionamiento del tipo de aplicación
 
-Una vez finalizada la carga, la aplicación tiene que aprovisionarse. Utilice el siguiente comando para aprovisionar la aplicación
+Cuando la carga haya finalizado, aprovisione la aplicación. Utilice el siguiente comando para aprovisionar la aplicación:
 
 ```azurecli
 az sf application provision --application-type-build-path app_package_dir
 ```
 
-El `application-type-build-path` es el mismo que el nombre del directorio que contiene el paquete de aplicación cargado previamente
+El valor de `application-type-build-path` es el nombre del directorio donde cargó el paquete de aplicación.
 
-### <a name="create-application-from-application-type"></a>Creación de una aplicación desde el tipo de aplicación
+### <a name="create-an-application-from-an-application-type"></a>Creación de una aplicación desde un tipo de aplicación
 
-Después de que se aprovisione la aplicación, puede poner un nombre a la aplicación y crearla mediante el siguiente comando:
+Después de que se aprovisione la aplicación, utilice el comando siguiente para asignar un nombre a la aplicación y crearla:
 
 ```azurecli
 az sf application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-Aquí `app-name` es el nombre que le gustaría poner a la instancia de la aplicación. Los demás parámetros pueden encontrarse en el manifiesto de aplicación aprovisionado anteriormente.
+`app-name` es el nombre que desea utilizar para la instancia de la aplicación. Puede obtener parámetros adicionales del manifiesto de aplicación aprovisionado anteriormente.
 
 El nombre de la aplicación debe comenzar con el prefijo `fabric:/`.
 
 ### <a name="create-services-for-the-new-application"></a>Creación de servicios para la nueva aplicación
 
-Una vez creada una aplicación, puede crear servicios desde la aplicación. En este ejemplo, creamos un nuevo servicio sin estado desde nuestra aplicación. Los servicios que puede crear a partir de una aplicación se definen en un manifiesto de servicio dentro del paquete de aplicación aprovisionado anteriormente.
+Una vez creada una aplicación, puede crear servicios desde ella. En el siguiente ejemplo, creamos un nuevo servicio sin estado desde nuestra aplicación. Los servicios que puede crear a partir de una aplicación se definen en un manifiesto de servicio en del paquete de aplicación aprovisionado anteriormente.
 
 ```azurecli
 az sf service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
 --stateless --instance-count 1 --singleton-scheme
 ```
 
-## <a name="verify-application-creation-and-health"></a>Comprobación de la creación y el estado de la aplicación
+## <a name="verify-application-deployment-and-health"></a>Comprobación de implementación y el estado de la aplicación
 
-Para comprobar que una aplicación y el servicio se han implementado correctamente, puede comprobar que la aplicación y el servicio se muestren utilizando los siguientes comandos:
+Para comprobar que una aplicación y un servicio se implementaron correctamente, compruebe que la aplicación y el servicio se muestren:
 
 ```azurecli
 az sf application list
 az sf service list --application-list TestApp
 ```
 
-Para comprobar que el servicio es correcto, use comandos similares para recuperar el estado del servicio y de la aplicación
+Para comprobar que el servicio es correcto, use comandos similares para recuperar tanto el estado del servicio como el de la aplicación:
 
 ```azurecli
 az sf application health --application-id TestApp
 az sf service health --service-id TestApp/TestSvc
 ```
 
-Las aplicaciones y los servicios correctos deben tener un valor `HealthState` de `Ok`.
+Las aplicaciones y los servicios correctos tienen un valor `HealthState` de `Ok`.
 
 ## <a name="remove-an-existing-application"></a>Eliminación de una aplicación existente
 
-Para quitar una aplicación, siga estos pasos:
+Para quitar una nueva aplicación, complete las tareas siguientes.
 
 ### <a name="delete-the-application"></a>Eliminación de la aplicación
 
-Eliminación de la aplicación ejecutando el siguiente comando
+Para eliminar la aplicación, use el siguiente comando:
 
 ```azurecli
 az sf application delete --application-id TestEdApp
@@ -118,26 +119,28 @@ az sf application delete --application-id TestEdApp
 
 ### <a name="unprovision-the-application-type"></a>Anulación del aprovisionamiento del tipo de aplicación
 
-Una vez eliminada la aplicación, se puede anular el aprovisionamiento del tipo de aplicación si ya no es necesario. Utilice el siguiente comando para anular el aprovisionamiento del tipo de aplicación
+Después de eliminar la aplicación, puede deshacer el aprovisionamiento del tipo de aplicación si ya no lo necesita. Para anular el aprovisionamiento del tipo de aplicación, use el siguiente comando:
 
 ```azurecli
 az sf application unprovision --application-type-name TestAppTye --application-type-version 1.0
 ```
 
-En este caso, el nombre de tipo y la versión de tipo deben coincidir con el nombre y la versión del manifiesto de aplicación aprovisionado anteriormente
+El nombre de tipo y la versión de tipo deben coincidir con el nombre y la versión del manifiesto de aplicación aprovisionado anteriormente.
 
-### <a name="delete-application-package"></a>Eliminación del paquete de aplicación
+### <a name="delete-the-application-package"></a>Eliminación del paquete de aplicación
 
-Después de que se haya anulado el aprovisionamiento del tipo de aplicación, el paquete de aplicación puede eliminarse desde el almacén de imágenes si ya no es necesario. La eliminación de paquetes de aplicación le ayuda a recuperar espacio en disco. Utilice el siguiente comando para eliminar el paquete de aplicación del almacén de imágenes:
+Después de que se haya anulado el aprovisionamiento del tipo de aplicación, puede eliminar el paquete de aplicación del almacén de imágenes si ya no lo necesita. La eliminación de paquetes de aplicación le ayuda a recuperar espacio en disco. 
+
+Para eliminar el paquete de aplicación del almacén de imágenes, use el comando siguiente:
 
 ```azurecli
 az sf application package-delete --content-path app_package_dir
 ```
 
-En este caso, el `content-path` debe ser el mismo nombre que el directorio que se cargó inicialmente al crear la aplicación
+`content-path` debe ser el nombre del directorio que cargó cuando creó la aplicación.
 
 ## <a name="related-articles"></a>Artículos relacionados
 
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (Introducción a Service Fabric y la CLI de Azure 2.0)
-* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md) (Introducción a la CLI de XPlat de Service Fabric)
+* [Service Fabric y CLI de Azure 2.0](service-fabric-azure-cli-2-0.md)
+* [Uso de la CLI de XPlat para interactuar con un clúster de Service Fabric](service-fabric-azure-cli.md)
 

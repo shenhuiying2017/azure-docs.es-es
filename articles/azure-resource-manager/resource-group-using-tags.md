@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 07/17/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
-ms.openlocfilehash: 2f56314769d90a1f0f9ebb5ece9c8e54b23b8936
-ms.lasthandoff: 02/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9345971b8dff683c7d079c29168437f601633eb1
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Uso de etiquetas para organizar los recursos de Azure
@@ -33,52 +33,37 @@ ms.lasthandoff: 02/21/2017
 
 Las directivas de recursos le permiten crear reglas estándar para su organización. Puede crear directivas que se aseguren de que los recursos están etiquetados con los valores adecuados. Para más información, consulte [Aplicación de directivas de recursos para etiquetas](resource-manager-policy-tags.md).
 
-## <a name="templates"></a>Plantillas
-
-[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
-
-## <a name="portal"></a>Portal
-[!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
-
 ## <a name="powershell"></a>PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## <a name="azure-cli-20"></a>CLI de Azure 2.0
+## <a name="azure-cli"></a>CLI de Azure
 
-Con la CLI de Azure 2.0, puede agregar etiquetas a recursos y grupos de recursos, además de consultar recursos por valores de etiqueta.
-
-Cada vez que aplique etiquetas a un recurso o grupo de recursos, sobrescribirá las etiquetas existentes en ese recurso o grupo de recursos. Por lo tanto, tiene que utilizar un enfoque diferente en función de si el recurso o grupo de recursos tiene etiquetas existentes que desea conservar. Para agregar etiquetas a un:
-
-* grupo de recursos sin etiquetas existentes.
-
-  ```azurecli
-  az group update -n TagTestGroup --set tags.Environment=Test tags.Dept=IT
-  ```
-
-* recurso sin etiquetas existentes.
-
-  ```azurecli
-  az resource tag --tags Dept=IT Environment=Test -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
-  ``` 
-
-Para agregar una etiqueta a un recurso que ya tiene etiquetas, primero recupere las etiquetas existentes: 
+Para ver las etiquetas existentes de un **grupo de recursos**, use:
 
 ```azurecli
-az resource show --query tags --output list -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+az group show -n examplegroup --query tags
 ```
 
 Que devuelve el siguiente formato:
 
-```
-Dept        : Finance
-Environment : Test
+```json
+{
+  "Dept"        : "IT",
+  "Environment" : "Test"
+}
 ```
 
-Aplique de nuevo las etiquetas existentes al recurso y agregue las nuevas etiquetas.
+Para ver las etiquetas existentes de un **recurso con un ID de recurso especificado**, use:
 
 ```azurecli
-az resource tag --tags Dept=Finance Environment=Test CostCenter=IT -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
-``` 
+az resource show --id {resource-id} --query tags
+```
+
+O bien, para ver las etiquetas existentes de un **recurso con un nombre, tipo y grupo de recursos especificado**, use:
+
+```azurecli
+az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+```
 
 Para obtener grupos de recursos con una etiqueta específica, use `az group list`.
 
@@ -92,8 +77,70 @@ Para obtener todos los recursos con una etiqueta y un valor concretos, use `az r
 az resource list --tag Dept=Finance
 ```
 
-## <a name="azure-cli-10"></a>CLI de Azure 1.0
-[!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
+Cada vez que aplique etiquetas a un recurso o grupo de recursos, sobrescribirá las etiquetas existentes en ese recurso o grupo de recursos. Por lo tanto, tiene que utilizar un enfoque diferente en función de si el recurso o grupo de recursos tiene etiquetas existentes. 
+
+Para agregar etiquetas a un **grupo de recursos sin etiquetas existentes**, use:
+
+```azurecli
+az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
+```
+
+Para agregar etiquetas a un **recurso sin etiquetas existentes**, use:
+
+```azurecli
+az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+``` 
+
+Para agregar etiquetas a un recurso que ya tiene etiquetas, recupere las etiquetas existentes, vuelva a formatear el valor y vuelva a aplicar esas etiquetas con etiquetas nuevas: 
+
+```azurecli
+jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
+rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
+az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+```
+
+Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y **no conservar ninguna de las etiquetas existentes en los recursos**, use el siguiente script:
+
+```azurecli
+groups=$(az group list --query [].name --output tsv)
+for rg in $groups 
+do 
+  jsontag=$(az group show -n $rg --query tags)
+  t=$(echo $jsontag | tr -d '"{},' | sed 's/: /=/g')
+  r=$(az resource list -g $rg --query [].id --output tsv) 
+  for resid in $r 
+  do 
+    az resource tag --tags $t --id $resid
+  done 
+done
+```
+
+Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y **conservar las etiquetas existentes en los recursos**, use el siguiente script:
+
+```azurecli
+groups=$(az group list --query [].name --output tsv)
+for rg in $groups 
+do 
+  jsontag=$(az group show -n $rg --query tags)
+  t=$(echo $jsontag | tr -d '"{},' | sed 's/: /=/g')
+  r=$(az resource list -g $rg --query [].id --output tsv) 
+  for resid in $r 
+  do 
+    jsonrtag=$(az resource show --id $resid --query tags)
+    rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
+    az resource tag --tags $t$rt --id $resid
+  done 
+done
+```
+
+
+## <a name="templates"></a>Plantillas
+
+[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
+
+## <a name="portal"></a>Portal
+[!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
+
 
 ## <a name="rest-api"></a>API de REST
 Tanto el portal como PowerShell usan la [API de REST del Administrador de recursos](https://docs.microsoft.com/rest/api/resources/) en segundo plano. Si necesita integrar el etiquetado en otro entorno, puede obtener etiquetas con un comando GET en el identificador de recurso y actualizar el conjunto de etiquetas con una llamada PATCH.

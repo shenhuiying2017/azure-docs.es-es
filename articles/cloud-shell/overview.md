@@ -7,24 +7,24 @@ author: jluk
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/10/2017
 ms.author: juluk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 6b4bbb13dbb86f82dd6a70acaccfcf38eec951c6
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 865c72b7525c185d047d6c9f57b642a195e56fd4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Introducción a Azure Cloud Shell (versión preliminar)
 Azure Cloud Shell es un shell interactivo, accesible desde el explorador, para administrar recursos de Azure.
 
-![](media/startup.gif)
+![](media/overview-pic.png)
 
 ## <a name="features"></a>Características
 ### <a name="browser-based-shell-experience"></a>Experiencia de shell basada en explorador
@@ -42,9 +42,10 @@ Cloud Shell autentica de forma segura y automática en cada sesión para obtener
 Las máquinas de Cloud Shell son temporales y, como resultado, requieren que un recurso compartido de archivos de Azure se monte como `clouddrive` para conservar el directorio $Home.
 Al iniciarse por primera vez, Cloud Shell le indica que va a crear un grupo de recursos, una cuenta de almacenamiento y un recurso compartido de archivos en su nombre. Esto es un paso único y se adjuntará automáticamente en todas las sesiones. 
 
-![](media/storage-prompt.png)
+#### <a name="create-new-storage"></a>creación de nuevo almacenamiento
+![](media/basic-storage.png)
 
-Se crea una cuenta de almacenamiento LRS en su nombre con un recurso compartido de archivos de Azure que contiene una imagen de disco de 5 GB de forma predeterminada. El recurso compartido de archivos se monta como `clouddrive` para hacer posible la interacción del recurso compartido de archivos con la imagen de disco que se va a usar para sincronizar y hacer persistente el directorio $Home. Se aplican costos por almacenamiento normal.
+Se crea una cuenta de almacenamiento con redundancia local (LRS) en su nombre con un recurso compartido de archivos de Azure que, de forma predeterminada, contiene una imagen de disco de 5 GB. El recurso compartido de archivos se monta como `clouddrive` para hacer posible la interacción del recurso compartido de archivos con la imagen de disco que se va a usar para sincronizar y hacer persistente el directorio $Home. Se aplican costos por almacenamiento normal.
 
 Se crearán tres recursos en su nombre:
 1. Grupo de recursos llamado: `cloud-shell-storage-<region>`
@@ -54,11 +55,16 @@ Se crearán tres recursos en su nombre:
 > [!Note]
 > Todos los archivos en el directorio $Home, como las claves de SSH, se conservan en la imagen de disco de usuario almacenada en el recurso compartido de archivos montado. Ponga en práctica los procedimientos recomendados para guardar archivos en el directorio $Home y en el recurso compartido de archivos montado.
 
-Obtenga más información sobre el almacenamiento de Cloud Shell, la actualización de recursos compartidos de archivos y la carga/descarga de archivos. (persisting-shell-storage.md).
+#### <a name="use-existing-resources"></a>Uso de recursos existentes
+![](media/advanced-storage.png)
+
+También se ofrece una opción avanzada que le permite asociar los recursos existentes Cloud Shell. Cuando aparezca el mensaje del programa de instalación, haga clic en "Mostrar configuración avanzada" para seleccionar otras opciones. Las listas desplegables se filtran para las cuentas de almacenamiento redundante local y globalmente y para la región asignada de Cloud Shell.
+
+[Obtenga más información sobre el almacenamiento de Cloud Shell, la actualización de recursos compartidos de archivos y la carga y descarga de archivos]. (persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Conceptos
 * Cloud Shell se ejecuta en un equipo temporal proporcionado en cada sesión y por usuario
-* Cloud Shell agota el tiempo de espera tras 10 minutos sin actividad interactiva.
+* Cloud Shell agota el tiempo de espera tras 20 minutos sin actividad interactiva.
 * Solo se puede acceder a Cloud Shell mediante un recurso compartido de archivo adjuntado.
 * Se asigna a Cloud Shell una máquina por cuenta de usuario.
 * Los permisos se establecen como un usuario de Linux regular
@@ -66,7 +72,7 @@ Obtenga más información sobre el almacenamiento de Cloud Shell, la actualizaci
 [Más información sobre todas las características de Cloud Shell.](features.md)
 
 ## <a name="examples"></a>Ejemplos
-* Creación o modificación de scripts para administrar recursos de Azure desde cualquier explorador
+* Creación o edición de scripts para automatizar la administración de Azure
 * Administración simultánea los recursos a través de Azure Portal y la CLI de Azure 2.0
 * Prueba de la CLI de Azure 2.0
 
@@ -79,9 +85,6 @@ El equipo que hospeda Cloud Shell es gratis, con un requisito previo de un recur
 Se recomienda Cloud Shell para Chrome, Edge y Safari. Aunque se admite Cloud Shell para Chrome, Firefox, Safari, Internet Explorer y Edge, Cloud Shell está sujeto a la configuración específica del explorador.
 
 ## <a name="troubleshooting"></a>Solución de problemas
-* Cuando se crea el almacenamiento, se recibe el error: 409 MissingSubscriptionRegistration.
-  * Este error indica que la suscripción no se ha registrado para el espacio de nombres de almacenamiento. Siga [estas instrucciones paso a paso](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#noregisteredproviderfound) e inténtelo de nuevo cuando las haya terminado.
-* Cuando se utiliza una suscripción de Azure Active Directory, no se puede crear almacenamiento debido al error: 400 DisallowedOperation.
-  * Las suscripciones de AD no tienen acceso para crear recursos de Azure, use una suscripción de Azure capaz de crear recursos de almacenamiento.
+1. Cuando se utiliza una suscripción de Azure Active Directory, no se puede crear almacenamiento debido al error: 400 DisallowedOperation. Para resolver este problema, use una suscripción de Azure con capacidad de creación de recursos de almacenamiento. Las suscripciones de AD no pueden crear recursos de Azure.
 
 Para conocer las limitaciones conocidas específicas, consulte las [limitaciones de Cloud Shell](limitations.md).

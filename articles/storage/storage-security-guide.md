@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: bee96774abacebe36e61a1f4d051f65dd20342f6
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 428dcaa8e842077936b7d9b9cb6ac639844c3961
 ms.contentlocale: es-es
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
@@ -108,7 +107,7 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
   Este es un vínculo a un vídeo de Channel 9 de la conferencia de MS Ignite de 2015. En esta sesión, se abordan las funciones de notificación y administración de acceso en Azure y se exploran los procedimientos recomendados en torno a la protección del acceso a suscripciones de Azure con Azure Active Directory.
 
 ### <a name="managing-your-storage-account-keys"></a>Administración de las claves de cuenta de almacenamiento
-Las claves de cuenta de almacenamiento son cadenas de 512 bits creadas por Azure que, junto con el nombre de la cuenta de almacenamiento, pueden utilizarse para tener acceso a los objetos de datos almacenados en la cuenta de almacenamiento; por ejemplo, blobs, entidades dentro de una tabla, mensajes de una cola y archivos en un recurso compartido de Azure Files. El control del acceso a las claves de cuenta de almacenamiento controla el acceso al plano de los datos de esa cuenta de almacenamiento.
+Las claves de cuenta de almacenamiento son cadenas de 512 bits creadas por Azure que, junto con el nombre de la cuenta de almacenamiento, pueden usarse para tener acceso a los objetos de datos almacenados en la cuenta de almacenamiento; por ejemplo, blobs, entidades dentro de una tabla, mensajes de una cola y archivos en un recurso compartido de archivos de Azure. El control del acceso a las claves de cuenta de almacenamiento controla el acceso al plano de los datos de esa cuenta de almacenamiento.
 
 Cada cuenta de almacenamiento tiene dos claves que se conocen como "Key 1" y "Key 2" en [Azure Portal](http://portal.azure.com/) y en los cmdlets de PowerShell. Es posible volver a generarlas manualmente con diferentes métodos, como el uso de [Azure Portal](https://portal.azure.com/), PowerShell o la CLI de Azure, o mediante programación con la biblioteca de clientes de Storage de .NET o la API de REST de los servicios de Azure Storage.
 
@@ -271,14 +270,14 @@ Puede exigir el uso de HTTPS al llamar a las API de REST para acceder a objetos 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Uso del cifrado durante el tránsito con recursos compartidos de archivos de Azure
 Azure File Storage admite HTTPS cuando se usa la API de REST, pero se usa con más frecuencia como un recurso compartido de archivos de SMB conectado a una máquina virtual. SMB 2.1 no admite el cifrado, por lo que solo se permiten las conexiones dentro de la misma región de Azure. Sin embargo, SMB 3.0 admite cifrado y está disponible en Windows Server 2012 R2, Windows 8, Windows 8.1 y Windows 10, lo que permite el acceso entre regiones e incluso el acceso en el escritorio.
 
-Tenga en cuenta que aunque puede usar recursos compartidos de archivos de Azure con Unix, el cliente SMB de Linux aún no admite el cifrado, por lo que solo se permite el acceso dentro de una misma región de Azure. La compatibilidad con el cifrado para Linux está en la hoja de ruta de los desarrolladores de Linux responsables de la funcionalidad SMB. Cuando se agregue el cifrado, podrá tener acceso a un recurso compartido de archivos de Azure en Linux al igual que hace en Windows.
+Tenga en cuenta que aunque se pueden usar recursos compartidos de archivos de Azure con Unix, el cliente SMB de Linux aún no admite el cifrado, por lo que solo se permite el acceso dentro de una región de Azure. La compatibilidad con el cifrado para Linux está en la hoja de ruta de los desarrolladores de Linux responsables de la funcionalidad SMB. Cuando se agregue el cifrado, podrá tener acceso a un recurso compartido de archivos de Azure en Linux al igual que hace en Windows.
 
 Puede exigir el uso de cifrado con el servicio Azure Files habilitando la opción [Se requiere transferencia segura](storage-require-secure-transfer.md) para la cuenta de almacenamiento. Si usa las API de REST, se necesita HTTPS. Para SMB, solo las conexiones SMB que admiten cifrado se conectarán correctamente.
 
 #### <a name="resources"></a>Recursos
 * [Uso de Azure File Storage con Linux](storage-how-to-use-files-linux.md)
 
-  Este artículo muestra cómo montar un recurso compartido de archivos de Azure en un sistema Linux y cargar/descargar archivos.
+  En este artículo se muestra cómo montar un recurso compartido de archivos de Azure en un sistema Linux y cargar y descargar archivos.
 * [Introducción a Azure File Storage en Windows](storage-dotnet-how-to-use-files.md)
 
   Este artículo ofrece una visión general de los recursos compartidos de archivos de Azure y cómo montarlos y usarlos con PowerShell y. NET.
@@ -351,7 +350,7 @@ La solución no admite los siguientes escenarios, características y tecnología
 * Deshabilitación del cifrado en una unidad del sistema operativo para máquinas virtuales IaaS Linux
 * Máquinas virtuales IaaS creadas con el método clásico de generación de máquinas virtuales
 * Integración con el Servicio de administración de claves local
-* Azure Files (sistema de archivos compartido), Network File System (NFS), volúmenes dinámicos y máquinas virtuales Windows configuradas con sistemas RAID basadas en software
+* Azure File Storage (sistema de archivos compartido), Network File System (NFS), volúmenes dinámicos y máquinas virtuales con Windows configuradas con sistemas RAID basados en software
 
 
 > [!NOTE]

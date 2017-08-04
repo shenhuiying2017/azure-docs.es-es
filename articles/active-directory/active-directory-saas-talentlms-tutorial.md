@@ -1,137 +1,209 @@
 ---
-title: "Tutorial: integración de Azure Active Directory con TalentLMS | Microsoft Docs"
-description: "Aprenda cómo usar TalentLMS con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+title: "Tutorial: Integración de Azure Active Directory con TalentLMS | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y TalentLMS."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: c903d20d-18e3-42b0-b997-6349c5412dde
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 3/07/2017
+ms.date: 07/13/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: a9de3004a1968f514227f0ba5dfde0f562a2b392
-ms.lasthandoff: 03/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f28d6fbfad9dae578a20db7218b7e3b174ed859c
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: integración de Azure Active Directory con TalentLMS
-El objetivo de este tutorial es mostrar la integración de Azure y TalentLMS.  
 
-En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+En este tutorial, aprenderá a integrar TalentLMS con Azure Active Directory (Azure AD).
 
-* Una suscripción de Azure válida
-* Un inquilino de TalentLMS
+Integrar TalentLMS con Azure AD proporciona las siguientes ventajas:
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a TalentLMS podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de TalentLMS (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+- En Azure AD se puede controlar quién tiene acceso a TalentLMS
+- Puede permitir que los usuarios inicien sesión automáticamente en TalentLMS (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-1. Habilitación de la integración de aplicaciones para TalentLMS
-2. Configuración del inicio de sesión único (SSO)
-3. Configuración del aprovisionamiento de usuario
-4. Asignación de usuarios
+## <a name="prerequisites"></a>Requisitos previos
 
-![Escenario](./media/active-directory-saas-talentlms-tutorial/IC777289.png "Escenario")
+Para configurar la integración de Azure AD con TalentLMS, necesita los siguientes elementos:
 
-## <a name="enable-the-application-integration-for-talentlms"></a>Habilitación de la integración de aplicaciones para TalentLMS
-El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones en TalentLMS.
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en TalentLMS
 
-**Siga estos pasos con el fin de habilitar la integración de aplicaciones para TalentLMS:**
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
-1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
-   
-    ![Active Directory](./media/active-directory-saas-talentlms-tutorial/IC700993.png "Active Directory")
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, aquí puede obtener una versión de prueba de un mes: [oferta de prueba](https://azure.microsoft.com/pricing/free-trial/).
 
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
-   
-    ![Aplicaciones](./media/active-directory-saas-talentlms-tutorial/IC700994.png "Aplicaciones")
+## <a name="scenario-description"></a>Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-4. Haga clic en **Agregar** en la parte inferior de la página.
-   
-    ![Agregar aplicaciones](./media/active-directory-saas-talentlms-tutorial/IC749321.png "Agregar aplicaciones")
+1. Incorporación de TalentLMS desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-   
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-talentlms-tutorial/IC749322.png "Agregar una aplicación de la galería")
+## <a name="adding-talentlms-from-the-gallery"></a>Incorporación de TalentLMS desde la galería
+Para configurar la integración de TalentLMS en Azure AD, deberá agregar TalentLMS desde la galería a la lista de aplicaciones SaaS administradas.
 
-6. En el **cuadro de búsqueda**, escriba **TalentLMS**.
-   
-    ![Galería de aplicaciones](./media/active-directory-saas-talentlms-tutorial/IC777290.png "Galería de aplicaciones")
+**Para agregar TalentLMS desde la galería, siga estos pasos:**
 
-7. En el panel de resultados, seleccione **TalentLMS** y, luego, haga clic en **Completar** para agregar la aplicación.
-   
-   ![TalentLMS](./media/active-directory-saas-talentlms-tutorial/IC777291.png "TalentLMS")
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en TalentLMS con su cuenta de Azure AD mediante el protocolo SAML basado en la federación.
+    ![Active Directory][1]
 
-La configuración del SSO para TalentLMS requiere la recuperación de un valor de huella digital de un certificado.  
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+    ![Aplicaciones][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-**Siga estos pasos para configurar el inicio de sesión único:**
+    ![Aplicaciones][3]
 
-1. En el Portal de Azure clásico, en la página de integración de la aplicación **TalentLMS**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configurar inicio de sesión único")
+4. En el cuadro de búsqueda, escriba **TalentLMS**.
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en TalentLMS?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-talentlms-tutorial/IC777293.png "Configurar inicio de sesión único")
-3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **Dirección URL de inicio de sesión de TalentLMS**, escriba su dirección URL con el siguiente patrón "*https://\<nombreDeInquilino>\>.TalentLMSapp.com*" y haga clic en **Siguiente**.
-   
-    ![URL de inicio de sesión](./media/active-directory-saas-talentlms-tutorial/IC777294.png "URL de inicio de sesión")
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_search.png)
 
-4. En la página **Configurar inicio de sesión único en TalentLMS**, para descargar el certificado, haga clic en **Descargar certificado** y guarde el archivo de certificado localmente como **c:\\TalentLMS.cer**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-talentlms-tutorial/IC777295.png "Configurar inicio de sesión único")
+5. En el panel de resultados, seleccione **TalentLMS** y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-5. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de TalentLMS como administrador.
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_addfromgallery.png)
 
-6. En la sección **Account & Settings** (Cuenta y configuración), haga clic en la pestaña **Users** (Usuarios).
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con TalentLMS con un usuario de prueba llamado "Britta Simon".
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de TalentLMS para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de TalentLMS.
+
+Para establecer la relación de vínculo, en TalentLMS, asigne el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario**.
+
+Para configurar y probar el inicio de sesión único de Azure AD con TalentLMS, es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de TalentLMS](#creating-a-talentlms-test-user)**: para tener un homólogo de Britta Simon en TalentLMS que esté vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación TalentLMS.
+
+**Para configurar el inicio de sesión único de Azure AD con TalentLMS, realice los pasos siguientes:**
+
+1. En Azure Portal, en la página de integración de la aplicación **TalentLMS**, haga clic en **Inicio de sesión único**.
+
+    ![Configurar inicio de sesión único][4]
+
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_samlbase.png)
+
+3. En la sección **Dominio y direcciones URL de TalentLMS**, lleve a cabo los pasos siguientes:
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_url.png)
+
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.TalentLMSapp.com`.
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `http://<tenant-name>.talentlms.com`
+
+    > [!NOTE] 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de TalentLMS](https://www.talentlms.com/contact) para obtener estos valores. 
+ 
+4. En la sección **Certificado de firma de SAML**, copie el valor de **HUELLA DIGITAL** del certificado.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_certificate.png) 
+
+5. Haga clic en el botón **Guardar** .
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-talentlms-tutorial/tutorial_general_400.png)
+
+6. En la sección **Configuración de TalentLMS**, haga clic en **Configurar TalentLMS** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_configure.png)  
+
+7. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de TalentLMS como administrador.
+
+8. En la sección **Account & Settings** (Cuenta y configuración), haga clic en la pestaña **Users** (Usuarios).
    
     ![Cuenta y configuración](./media/active-directory-saas-talentlms-tutorial/IC777296.png "Cuenta y configuración")
 
-7. Haga clic en **Inicio de sesión único (SSO)**.
+9. Haga clic en **Inicio de sesión único (SSO)**.
 
-8. En la sección Inicio de sesión único, siga estos pasos:
+10. En la sección Inicio de sesión único, siga estos pasos:
    
     ![Inicio de sesión único](./media/active-directory-saas-talentlms-tutorial/IC777297.png "Inicio de sesión único")   
-  1. En la lista **SSO integration type** (Tipo de integración de SSO), seleccione **SAML 2.0**.
-  2. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en TalentLMS**, copie el valor de **Id. de proveedor de identidad** y péguelo en el cuadro de texto **Identity provider (IdP)** (Proveedor de identidades [IdP]).
-  3. Copie el valor de **Huella digital** del certificado exportado y péguelo en el cuadro de texto **Certificate Fingerprint** (Huella digital del certificado).
-      
-     >[!TIP]
-     >Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI). 
-     >    
 
-  4. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en TalentLMS**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **Remote sign-in URL** (URL de inicio de sesión remoto). 
-  5. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en TalentLMS**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **Remote sign-out URL** (URL de cierre de sesión remoto).
-  6. Rellene lo siguiente: 
-    * En el cuadro de texto **TargetedID** (ID dirigido), escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-    * En el cuadro de texto **Nombre**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    * En el cuadro de texto **Apellidos**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-    * En el cuadro de texto **Correo electrónico**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-  7. Haga clic en **Guardar**.
+    a. En la lista **SSO integration type** (Tipo de integración de SSO), seleccione **SAML 2.0**.
 
-9. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-talentlms-tutorial/IC777298.png "Configurar inicio de sesión único")
+    b. En el cuadro de texto **Identity provider (IDP)** (Proveedor de identidad [IDP]), pegue el valor del **identificador de entidad de SAML** que ha copiado de Azure Portal.
+ 
+    c. Pegue el valor de **Huella digital** de Azure Portal en el cuadro de texto de **Certificate fingerprint** (Huella digital de certificado).    
 
-## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
-Para permitir que los usuarios de Azure AD inicien sesión en TalentLMS, deben aprovisionarse en TalentLMS.  
+    d.  En el cuadro de texto **Remote sign-in URL** (Dirección URL de inicio de sesión remoto), pegue el valor de la **dirección URL de servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
+ 
+    e. En el cuadro de texto **Remote Log Out URL** (Dirección URL de cierre de sesión remoto), pegue el valor de **dirección URL de cierre de sesión** que copió de Azure Portal.
 
-* En el caso de TalentLMS, el aprovisionamiento es una tarea manual.
+    f. Rellene lo siguiente: 
 
-**Para aprovisionar cuentas de usuario, realice estos pasos:**
+    * En el cuadro de texto **TargetedID** (Id. dirigido), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+     
+    * En el cuadro de texto **First name** (Nombre), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    
+    * En el cuadro de texto **Last name** (Apellidos), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    
+    * En el cuadro de texto **Email** (Correo electrónico), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    
+11. Haga clic en **Guardar**.
+ 
+> [!TIP]
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+
+![Creación de un usuario de Azure AD][100]
+
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-talentlms-tutorial/create_aaduser_01.png) 
+
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-talentlms-tutorial/create_aaduser_02.png) 
+
+3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-talentlms-tutorial/create_aaduser_03.png) 
+
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-talentlms-tutorial/create_aaduser_04.png) 
+
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+
+    d. Haga clic en **Crear**.
+ 
+### <a name="creating-a-talentlms-test-user"></a>Creación de un usuario de prueba de TalentLMS
+
+Para permitir que los usuarios de Azure AD inicien sesión en TalentLMS, deben aprovisionarse en TalentLMS. En el caso de TalentLMS, el aprovisionamiento es una tarea manual.
+
+**Para aprovisionar una cuenta de usuario, realice estos pasos:**
 
 1. Inicie sesión en su inquilino de **TalentLMS** .
 
@@ -139,29 +211,75 @@ Para permitir que los usuarios de Azure AD inicien sesión en TalentLMS, deben a
 
 3. En la página del cuadro de diálogo **Agregar usuario** , realice los siguientes pasos:
    
-    ![Agregar usuario](./media/active-directory-saas-talentlms-tutorial/IC777299.png "Agregar usuario")   
-  1. Escriba los valores de atributo relacionados de la cuenta de usuario de Azure AD en los siguientes cuadros de texto: **First Name** (Nombre), **Last Name** (Apellidos), **Email address** (Dirección de correo electrónico).
-  2. Haga clic en **Agregar usuario**.
+    ![Agregar usuario](./media/active-directory-saas-talentlms-tutorial/IC777299.png "Agregar usuario")  
+
+    a. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso, **Britta**.
+
+    b. En el cuadro de texto **Last Name** (Apellidos), escriba el apellido del usuario, en este caso, **Simon**.
+ 
+    c. En el cuadro de texto **Email address** (Dirección de correo electrónico), escriba el correo electrónico del usuario, en este caso, **brittasimon@contoso.com**.
+
+    d. Haga clic en **Agregar usuario**.
 
 >[!NOTE]
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de TalentLMS ofrecida por TalentLMS para aprovisionar cuentas de usuario de AAD.
->  
+ 
 
-## <a name="assign-users"></a>Asignar usuarios
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-**Para asignar usuarios a TalentLMS, lleve a cabo los siguientes pasos:**
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a TalentLMS.
 
-1. En el Portal de Azure clásico, cree una cuenta de prueba.
+![Asignar usuario][200] 
 
-2. En la página de integración de la aplicación **TalentLMS**, haga clic en **Asignar usuarios**.
-   
-    ![Asignar usuarios](./media/active-directory-saas-talentlms-tutorial/IC777300.png "Asignar usuarios")
+**Para asignar Britta Simon a TalentLMS, realice los pasos siguientes:**
 
-3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
-   
-    ![Sí](./media/active-directory-saas-talentlms-tutorial/IC767830.png "Sí")
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones, seleccione **TalentLMS**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_app.png) 
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Asignar usuario][202] 
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Asignar usuario][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+
+El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
+
+Al hacer clic en el icono de TalentLMS en el panel de acceso, debería iniciar sesión automáticamente en su aplicación TalentLMS.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-talentlms-tutorial/tutorial_general_203.png
 
 

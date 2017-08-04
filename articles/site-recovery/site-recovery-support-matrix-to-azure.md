@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 07/04/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 6664cb20393ec5f588c8eeb119d6f606a0072861
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: d42527fc661d320c6279fe3b74791983edc5cd33
 ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación desde local a Azure
@@ -43,7 +42,7 @@ En este artículo se resumen los componentes y las configuraciones compatibles c
 
 **Implementación** | **Soporte técnico**
 --- | ---
-**Servidor de máquina virtual de VMware o físico** | vSphere 6.0, 5.5 o 5.1 con la última actualización
+**Servidor de máquina virtual de VMware o físico** | vCenter 6.5, 6.0 o 5.5
 **Hyper-V (con Virtual Machine Manager)** | System Center Virtual Machine Manager 2016 y System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
@@ -53,7 +52,7 @@ En este artículo se resumen los componentes y las configuraciones compatibles c
 
 **Implementación** | **Soporte técnico**
 --- | ---
-**Servidor de máquina virtual de VMware o físico** | vCenter 5.5 o 6.0 (compatible solo con características de 5.5) 
+**Servidor de máquina virtual de VMware o físico** | vSphere 6.5, 6.0 y 5.5
 **Hyper-V (con o sin Virtual Machine Manager)** | Windows Server 2016 y Windows Server 2012 R2 con las actualizaciones más recientes.<br></br>Si se usa SCVMM, los hosts de Windows Server 2016 debe administrarlos SCVMM 2016.
 
 
@@ -67,7 +66,7 @@ La tabla siguiente resume la compatibilidad con los sistemas operativos de las m
 
  **Servidores físicos o de VMware** | **Hyper-V (con o sin VMM)** |
 --- | --- |
-Windows Server 2012 R2 de 64 bits, Windows Server 2012, Windows Server 2008 R2 con al menos SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/>CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versiones de kernel admitidas)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4 y 6.5, en ejecución en el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(No se admite la actualización de máquinas de replicación de SLES 11 SP3 a SLES 11 SP4. Si se ha actualizado una máquina replicada de SLES 11SP3 a SLES 11 SP4, debe deshabilitar la replicación y volver a proteger la máquina después de la actualización). | Cualquier sistema operativo invitado [compatible con Azure](https://technet.microsoft.com/library/cc794868.aspx)
+Windows Server 2012 R2 de 64 bits, Windows Server 2012, Windows Server 2008 R2 con al menos SP1<br/>*Windows Server 2016*: no se admite actualmente en servidores físicos y máquinas virtuales de VMware. <br/><br/> Red Hat Enterprise Linux: 5.2 a 5.11, 6.1 a 6.8 y 7.0 a 7.3 <br/><br/>Cent OS: 5.2 a 5.11, 6.1 a 6.8 y 7.0 a 7.3 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versiones de kernel admitidas)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Servidor Ubuntu 16.04 LTS[ (versiones de kernel admitidas)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4 y 6.5, en ejecución en el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(No se admite la actualización de máquinas de replicación de SLES 11 SP3 a SLES 11 SP4. Si se ha actualizado una máquina replicada de SLES 11SP3 a SLES 11 SP4, debe deshabilitar la replicación y volver a proteger la máquina después de la actualización). | Cualquier sistema operativo invitado [compatible con Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 
 >[!IMPORTANT]
@@ -82,19 +81,24 @@ Windows Server 2012 R2 de 64 bits, Windows Server 2012, Windows Server 2008 R2 c
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
 14.04 LTS | 9.9 | 3.13.0-24-generic a 3.13.0-117-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-75-generic |
+14.04 LTS | 9.10 | 3.13.0-24-generic a 3.13.0-121-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-81-generic |
+16.04 LTS | 9.10 | 4.4.0-21-generic a 4.4.0-81-generic,<br/>4.8.0-34-generic a 4.8.0-56-generic,<br/>4.10.0-14-generic a 4.10.0-24-generic |
+
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Sistemas de archivos compatibles y configuraciones de almacenamiento de invitado en Linux (servidores físicos/VMware)
 
 Los sistemas de archivos y el software de configuración de almacenamiento siguientes son compatibles con servidores Linux que se ejecutan en servidores físicos o VMware:
-* Sistemas de archivos: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server) y XFS (solo hasta la versión v4)
+* Sistemas de archivos: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS
 * Administrador de volúmenes: LVM2
 * Software de múltiples rutas: asignador de dispositivos
 
-No se admiten servidores físicos con controlador de almacenamiento HP CCISS.
+No se admiten dispositivos de almacenamiento de paravirtualizados (dispositivos exportados por controladores paravirtualizados).<br/>
+No se admiten dispositivos de E/S de bloque multicola.<br/>
+No se admiten servidores físicos con controlador de almacenamiento HP CCISS.<br/>
 
 >[!Note]
 > En servidores Linux, todos los directorios siguientes (si se configuran como sistemas de archivos o particiones independientes) deben ubicarse en el mismo disco (el disco de sistema operativo) del servidor de origen: / (root), /boot, /usr, /usr/local, /var, /etc.<br/><br/>
-> ASR no admite las características de XFS v5, como la suma de comprobación de metadatos, en sistemas de archivos XFS. Asegúrese de que los sistemas de archivos XFS no usan ninguna característica de v5. Puede usar la utilidad xfs_info para comprobar el superbloque XFS para la partición. Si ftype está establecido en 1, entonces se usan las características de XFSv5.
+> Las características de XFSv5 en sistemas de archivos XFS, como la suma de comprobación de metadatos, se admiten a partir de la versión 9.10 de Mobility Service. Si está usando características de XFSv5, asegúrese de que está ejecutando la versión 9.10 de Mobility Service o una versión posterior. Puede usar la utilidad xfs_info para comprobar el superbloque XFS para la partición. Si ftype está establecido en 1, entonces se usan las características de XFSv5.
 >
 
 
@@ -105,7 +109,7 @@ La tabla siguiente resume la compatibilidad con la configuración de red en dist
 
 **Configuración** | **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)**
 --- | --- | ---
-Formación de equipos NIC | Sí<br/><br/>No compatible en máquinas físicas| Sí
+Formación de equipos NIC | Sí<br/><br/>No se admite cuando se replican las máquinas virtuales| Sí
 VLAN | Sí | Sí
 IPv4 | Sí | Sí
 IPv6 | No | No
@@ -118,7 +122,7 @@ Formación de equipos NIC | No | No
 IPv4 | Sí | Sí
 IPv6 | No | No
 Dirección IP estática (Windows) | Sí | Sí
-Dirección IP estática (Linux) | No | No
+Dirección IP estática (Linux) | Sí <br/><br/>Las máquinas virtuales se configuran para usar DHCP en la conmutación por recuperación  | No
 Varias NIC | Sí | Sí
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuración de red de la máquina virtual de Azure a la que se conmuta por error
@@ -155,12 +159,13 @@ VMDK | Sí | N/D
 VHD/VHDX | N/D | Sí
 VM de 2 generación | N/D | Sí
 EFI/UEFI| No | Sí
-Disco en clúster compartido | Sí para VMware<br/><br/> N/D para servidores físicos | No
+Disco en clúster compartido | No | No
 Disco cifrado | No | No
 NFS | No | N/D
 SMB 3.0 | No | No
 RDM | Sí<br/><br/> N/D para servidores físicos | N/D
-Disco > 1 TB | No | No
+Disco > 1 TB | Sí<br/><br/>Hasta 4095 GB | Sí<br/><br/>Hasta 4095 GB
+Disco con tamaño de sector de 4K | No | No
 Volumen con disco en bandas > 1 TB<br/><br/> Administración de volúmenes lógicos (LVM) | Sí | Sí
 Espacios de almacenamiento | No | Sí
 Agregar/quitar disco en caliente | No | No
@@ -182,9 +187,10 @@ Servicio Import/Export | No | No
 ## <a name="support-for-azure-compute-configuration"></a>Compatibilidad con la configuración del proceso de Azure
 
 **Característica de proceso** | **Servidores físicos o de VMware** | **Hyper-V (con o sin Virtual Machine Manager)**
---- | --- | --- | ---
+--- | --- | --- 
 Conjuntos de disponibilidad | Sí | Sí
 CONCENTRADOR | Sí | Sí  
+Discos administrados | Sí | Sí<br/><br/>La conmutación por recuperación en local a partir de VM de Azure con discos administrados no se admite actualmente.
 
 ## <a name="failed-over-azure-vm-requirements"></a>Requisitos de la máquina virtual de Azure a la que se conmuta por error
 
@@ -192,12 +198,12 @@ Puede implementar Site Recovery para replicar máquinas virtuales y servidores f
 
 **Entidad** | **Requisitos** | **Detalles**
 --- | --- | ---
-**Sistema operativo invitado** | Replicación de Hyper-V en Azure: Site Recovery es compatible con todos los sistemas operativos [admitidos por Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Para la replicación de servidores físicos y de VMware, consulte los [requisitos previos](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+**Sistema operativo invitado** | Replicación de Hyper-V en Azure: Site Recovery es compatible con todos los sistemas operativos [admitidos por Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). <br/><br/> Para la replicación de servidores físicos y de VMware, consulte los [requisitos previos](site-recovery-vmware-to-azure-classic.md) | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Arquitectura del sistema operativo invitado** | 64 bits | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Tamaño del disco del sistema operativo** | Hasta 1.023 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+**Tamaño del disco del sistema operativo** | Hasta 2048 GB si se están replicando **VM de VMware o servidores físicos en Azure**.<br/><br/>Hasta 2048 GB para VM de **la generación 1 de Hyper-V**.<br/><br/>Hasta 300 GB para VM de **la generación 2 de Hyper-V**.  | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Número de discos del sistema operativo** | 1 | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Número de discos de datos** | 64 o menos si está va a replicar **VM de VMware a Azure**; 16 o menos si va a replicar **VM de Hyper-V a Azure** | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
-**Tamaño de VHD del disco de datos** | Hasta 1.023 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
+**Tamaño de VHD del disco de datos** | Hasta 4095 GB | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Adaptadores de red** | Se admiten varios adaptadores |
 **VHD compartido** | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.
 **Disco FC** | No compatible | Se producirá un error en la comprobación de los requisitos previos si no es compatible.

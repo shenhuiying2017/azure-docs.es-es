@@ -13,24 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 782489e7551fef3daed4de8212821e93f7777535
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: da5995535d42ed52772cb09e0f4da51bbf878748
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services" class="xliff"></a>
-
-# Adición o cambio de roles de administrador de Azure que administran la suscripción o servicios
+# <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Adición o cambio de roles de administrador de Azure que administran la suscripción o servicios
 Puede cambiar el administrador de Azure que administra su suscripción de Azure o los servicios de Azure que se usan en su suscripción. Para ver la información de facturación de Azure y administrar las suscripciones, debe iniciar sesión en el [Centro de cuentas](https://account.windowsazure.com/Home/Index) como el administrador de cuenta. 
 
-<a id="add-an-admin-for-a-subscription" class="xliff"></a>
-
-## Adición de un administrador para una suscripción
+## <a name="add-an-admin-for-a-subscription"></a>Adición de un administrador para una suscripción
 Puede agregar un administrador de Azure en Azure Portal o en el Portal de Azure clásico.
 
 **Azure Portal**
@@ -42,16 +37,22 @@ Para agregar a alguna persona como administrador de una suscripción en Azure Po
 
     ![Captura de pantalla que muestra la suscripción seleccionada](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
-3. En la hoja de suscripción, seleccione **Access control (IAM)**> **Agregar**.
+3. En la hoja de suscripción, seleccione **Control de acceso (IAM)**.
+4. Seleccione **Agregar** > **Rol** > **Propietario**. Escriba la dirección de correo electrónico del usuario al que desea agregar como propietario, seleccione el usuario y, luego, seleccione **Guardar**.
 
-    ![Captura de pantalla que muestra el botón Agregar seleccionado](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. Seleccione **Seleccionar rol** > **Propietario**.
+    ![Captura de pantalla que muestra el rol de propietario seleccionado](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-    ![Captura de pantalla que muestra el rol de propietario seleccionado](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+5. Si desea agregar la cuenta de propietario como coadministrador, en la página **Control de acceso (IAM)**, haga clic con el botón derecho en el usuario y, luego, seleccione **Agregar como coadministrador**. Esta característica ahora está disponible en el [Portal de vista previa de Azure](https://preview.portal.azure.com/). 
 
-5. Escriba la dirección de correo electrónico del usuario al que desee agregar como propietario, haga clic en el usuario y luego haga clic en **Seleccionar**.
+     ![Captura de pantalla donde se agrega el coadministrador](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
-    ![Captura de pantalla que muestra un correo electrónico del usuario agregado y seleccionado](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+    >[!TIP]
+    >Deberá agregar el usuario "Propietario" como coadministrador si este debe administrar los servicios de Azure en el [Portal de Azure clásico](https://manage.windowsazure.com/).
+
+    Para quitar el permiso de coadministrador, haga clic con el botón derecho en el usuario "coadministrador" y, luego, seleccione **Quitar coadministrador**.
+
+    ![Captura de pantalla donde se quita el coadministrador](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
 
 **Portal de Azure clásico**
 
@@ -72,32 +73,24 @@ Se puede agregar la siguiente dirección de correo electrónico como coadministr
 
     usuario@&lt;su dominio&gt;.onmicrosoft.com
 
-
-
-<a id="change-service-administrator-for-a-subscription" class="xliff"></a>
-
-## Cambio del administrador de servicios de una suscripción
+## <a name="change-service-administrator-for-a-subscription"></a>Cambio del administrador de servicios de una suscripción
 Solo el administrador de cuenta puede cambiar el administrador de servicios de una suscripción.
 
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions) como administrador de cuenta.
 2. Seleccione la suscripción que desea cambiar.
-3. En la parte derecha, haga clic en **Editar detalles de suscripción** . </br>
+3. En la parte derecha, seleccione **Editar detalles de suscripción**. </br>
 
     ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 4. En el cuadro **ADMINISTRADOR DE SERVICIOS** , escriba la dirección de correo electrónico del nuevo administrador de servicios. </br>
 
     ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-<a id="change-the-account-administrator" class="xliff"></a>
-
-## Cambio del administrador de cuenta
+## <a name="change-the-account-administrator"></a>Cambio del administrador de cuenta
 Para transferir la propiedad de la cuenta de Azure a otra cuenta, vea [Transferencia de la propiedad de una suscripción de Azure](billing-subscription-transfer.md).
 
 Se recomienda encarecidamente que no elimine ni cambie el nombre de la dirección de correo electrónico del administrador de cuenta. Puede producirse un comportamiento inesperado y no deseado en la cuenta de Azure. Es posible que no pueda iniciar sesión en Azure con esa cuenta, realizar cambios en ella ni administrar sus recursos. 
 
-<a id="check-the-account-administrator-of-the-subscription" class="xliff"></a>
-
-## Comprobación del administrador de cuenta de la suscripción
+## <a name="check-the-account-administrator-of-the-subscription"></a>Comprobación del administrador de cuenta de la suscripción
 Si no está seguro de quién es el administrador de cuenta de la suscripción, use los pasos siguientes para averiguarlo.
 
   1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
@@ -105,9 +98,7 @@ Si no está seguro de quién es el administrador de cuenta de la suscripción, u
   3. Seleccione la suscripción que desee comprobar y, luego, consulte **Configuración**.
   4. Seleccione **Propiedades**. El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas** .  
 
-<a id="types-of-azure-admin-accounts" class="xliff"></a>
-
-## Tipos de cuentas de administrador de Azure
+## <a name="types-of-azure-admin-accounts"></a>Tipos de cuentas de administrador de Azure
  Administrador de cuenta, Administrador de servicios y Coadministrador son las tres variantes de roles de administrador de Microsoft Azure. La tabla siguiente describe la diferencia entre estos tres roles administrativos.
 
 | Rol administrativo | Límite | Description |
@@ -118,9 +109,7 @@ Si no está seguro de quién es el administrador de cuenta de la suscripción, u
 
 Control de acceso basado en roles de Azure Active Directory (RBAC) permite que se agreguen usuarios a varios roles. Para más información, consulte [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
-<a id="limitations-and-restrictions-for-admin-accounts" class="xliff"></a>
-
-## Limitaciones y restricciones de las cuentas de administrador
+## <a name="limitations-and-restrictions-for-admin-accounts"></a>Limitaciones y restricciones de las cuentas de administrador
 * Cada suscripción está asociada a un directorio de Azure AD (conocido también como el directorio predeterminado). Para encontrar el directorio predeterminado al que está asociada la suscripción, vaya al [Portal de Azure clásico](https://manage.windowsazure.com/) y seleccione **Configuración** > **Suscripciones**. Compruebe el identificador de la suscripción para encontrar el directorio predeterminado.
 * Si inició sesión con una cuenta de Microsoft, solo puede agregar otras cuentas de Microsoft o usuarios del directorio predeterminado como coadministradores.
 * Si inició sesión con una cuenta de organización, puede agregar otras cuentas de organización de su organización como coadministrador. Por ejemplo, abby@contoso.com puede agregar a bob@contoso.com como administrador de servicios o coadministrador, pero no puede agregar a john@notcontoso.com a menos que john@notcontoso.com se encuentre en el directorio predeterminado. Los usuarios que iniciaron sesión con cuentas de organización pueden continuar agregando usuarios de cuentas de Microsoft como coadministrador o administrador de servicios.
@@ -131,14 +120,10 @@ Control de acceso basado en roles de Azure Active Directory (RBAC) permite que s
   |  Cuenta Microsoft |Sí |No |No |
   |  Cuenta de organización |Sí |Sí |No |
 
-<a id="learn-more-about-resource-access-control-and-active-directory" class="xliff"></a>
-
-## Más información sobre el control de acceso a los recursos y Active Directory
+## <a name="learn-more-about-resource-access-control-and-active-directory"></a>Más información sobre el control de acceso a los recursos y Active Directory
 * Para más información sobre cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](../active-directory/active-directory-understanding-resource-access.md).
 * Si desea más información sobre Azure Active Directory, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) y [Asignación de roles de administrador en Azure Active Directory](../active-directory/active-directory-assign-admin-roles.md).
 
-<a id="need-help-contact-support" class="xliff"></a>
-
-## ¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
+## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
