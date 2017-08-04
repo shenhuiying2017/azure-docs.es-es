@@ -3,8 +3,8 @@
 ## [¿Qué es Azure Backup?](backup-introduction-to-azure-backup.md)
 
 # Introducción
-## [Copias de seguridad de máquinas virtuales de Azure](backup-azure-vms-first-look-arm.md)
-## [Realización de copias de seguridad de archivos y carpetas](backup-try-azure-backup-in-10-mins.md)
+## [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-first-look-arm.md)
+## [Copias de seguridad de equipos con Windows Server o Windows](backup-try-azure-backup-in-10-mins.md)
 ## [Copias de seguridad de servidores VMware](backup-azure-backup-server-vmware.md)
 
 # Procedimientos
@@ -27,16 +27,19 @@
 #### [Restauración de máquinas virtuales implementadas según el modelo de Resource Manager en Azure Portal](backup-azure-arm-restore-vms.md)
 #### [Restauración de máquinas virtuales cifradas](backup-azure-vms-encryption.md)
 #### [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md)
-#### [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup](backup-azure-restore-key-secret.md)
+#### [Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas](backup-azure-restore-key-secret.md)
 
 
-## Archivos y carpetas de Windows
-### [Uso del modelo de implementación de Resource Manager por parte de Windows Server](backup-configure-vault.md)
-### [Uso del modelo de implementación clásica por parte de Windows Server](backup-configure-vault-classic.md)
+## Windows Server
+### [Copia de seguridad de carpetas y archivos de Windows Server](backup-configure-vault.md)
+### [Copia de seguridad del estado del sistema de Windows Server](backup-azure-system-state.md)
+### [Recuperación de archivos de Azure en Windows Server](backup-azure-restore-windows-server.md)
+### [Restauración del estado del sistema de Windows Server](backup-azure-restore-system-state.md)
 ### [Supervisión y administración de almacenes de Recovery Services](backup-azure-manage-windows-server.md)
-### [Administración de almacenes de copia de seguridad mediante el modelo de implementación clásica](backup-azure-manage-windows-server-classic.md)
-### [Recuperación de archivos en Windows Server mediante el modelo de implementación de Resource Manager](backup-azure-restore-windows-server.md)
-### [Recuperación de archivos en Windows Server mediante el modelo de implementación clásica](backup-azure-restore-windows-server-classic.md)
+### Copia de seguridad y restauración mediante el portal clásico
+#### [Uso del modelo de implementación clásica por parte de Windows Server](backup-configure-vault-classic.md)
+#### [Administración de almacenes de copia de seguridad mediante el modelo de implementación clásica](backup-azure-manage-windows-server-classic.md)
+#### [Recuperación de archivos en Windows Server mediante el modelo de implementación clásica](backup-azure-restore-windows-server-classic.md)
 
 ## Azure Backup Server
 ### [Matriz de protección de Azure Backup Server](backup-mabs-protection-matrix.md)
@@ -108,5 +111,6 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [Precios](https://azure.microsoft.com/pricing/details/backup/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=backup)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=backup)

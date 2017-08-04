@@ -71,5 +71,6 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Foro](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
 ## [Precios](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=remoteapp)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)

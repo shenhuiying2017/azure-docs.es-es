@@ -8,6 +8,7 @@
 ## [Multisitio](application-gateway-multi-site-overview.md)
 ## [SSL de un extremo a otro](application-gateway-backend-ssl.md)
 ## [Redireccionamiento](application-gateway-redirect-overview.md)
+## [Compatibilidad multiinquilino](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Límites de servicio](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Introducción
@@ -16,7 +17,8 @@
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Plantilla de Resource Manager](application-gateway-create-gateway-arm-template.md)
-#### [CLI de Azure](application-gateway-create-gateway-cli.md)
+#### [CLI de Azure 1.0](application-gateway-create-gateway-cli-nodejs.md)
+#### [CLI de Azure 2.0](application-gateway-create-gateway-cli.md)
 #### [PowerShell (clásico)](application-gateway-create-gateway.md)
 ### Acceso interno
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -40,6 +42,8 @@
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configuración del redireccionamiento
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## Configuración de aplicaciones web como miembros del grupo de back-end
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## Configuración de sondeos de mantenimiento
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
@@ -70,6 +74,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Precios](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

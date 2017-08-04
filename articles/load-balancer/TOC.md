@@ -48,6 +48,7 @@
 ### [Configuración de Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Referencia
+## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [CLI de Azure 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
@@ -69,4 +70,5 @@
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Precios](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=load-balancer)

@@ -359,6 +359,7 @@
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Precios](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Blog de soporte técnico](http://blogs.msdn.com/b/storsimple/)
 ## [Avisos de terceros](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)

@@ -82,6 +82,7 @@
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Precios](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilidad regional](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

@@ -71,3 +71,4 @@
 
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)

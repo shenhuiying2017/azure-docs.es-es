@@ -179,6 +179,7 @@
 #### [Realización de una copia de seguridad de los manifiestos de la unidad](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnóstico y recuperación de errores en los trabajos de Import/Export](storage-import-export-diagnostics-and-error-recovery.md)
 # Referencia
+## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [CLI de Azure](/cli/azure/storage)
 ## .NET
@@ -210,6 +211,7 @@
 ## [Herramientas de cliente de Azure Storage](storage-explorers.md)
 ## [Foro](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Precios](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=storage)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -218,6 +220,7 @@
 ### [Explorador de Storage (versión preliminar)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Administración de blobs con el Explorador de Storage (versión preliminar)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Uso del Explorador de Storage (versión preliminar) con Azure File Storage](../vs-azure-tools-storage-explorer-files.md)
+### [Notas de la versión de Explorador de almacenamiento (versión preliminar)](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## Paquetes NuGet
 ### [Biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

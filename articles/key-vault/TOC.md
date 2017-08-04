@@ -33,6 +33,7 @@
 ### [Creación y administración mediante CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referencia
+## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [CLI de Azure 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -55,3 +56,4 @@
 ## [Ejemplos de código](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Foros](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 ## [Precios](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)

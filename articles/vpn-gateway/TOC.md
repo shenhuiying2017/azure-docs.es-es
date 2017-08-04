@@ -17,7 +17,6 @@
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [CLI de Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Portal de Azure clásico](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [Portal clásico (clásico)](vpn-gateway-site-to-site-create.md)
 ## Configuración de una conexión de punto a sitio
 ### [Portal de Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -59,8 +58,7 @@
 ### [Portal de Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (clásico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Configuración de una instancia de VPN Gateway (clásico)](vpn-gateway-configure-vpn-gateway-mp.md)
-## [SKU de puerta de enlace (antiguo)](vpn-gateway-about-skus-legacy.md)
+## [SKU de puerta de enlace (heredado)](vpn-gateway-about-skus-legacy.md)
 ## Configuración de dispositivos VPN de terceros
 ### [Introducción y configuración de Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Ejemplo: dispositivo Cisco ASA (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
@@ -91,5 +89,6 @@
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Foro](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Precios](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)
