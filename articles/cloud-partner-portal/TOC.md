@@ -35,3 +35,4 @@
 ## [Obtención de soporte técnico](./cloud-partner-portal-support-for-cloud-partner-portal.md)
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)

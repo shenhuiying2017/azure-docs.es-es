@@ -56,6 +56,7 @@
 ### [One click de PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Referencia
+## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 ## [PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Lenguaje de consulta](https://msdn.microsoft.com/library/azure/dn834998)
@@ -67,6 +68,7 @@
 ## [Foro de comentarios](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 ## [Foro](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 ## [Precios](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Notas de la versión](stream-analytics-release-notes.md)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)

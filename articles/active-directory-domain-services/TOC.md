@@ -47,6 +47,9 @@
 ### [Habilitación de la versión preliminar de la experiencia de Azure Portal](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolución de errores de inquilinos que no coinciden](active-directory-ds-mismatched-tenant-error.md)
 
+# Referencia
+## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Temas relacionados
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -57,4 +60,5 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Ponerse en contacto con nosotros](active-directory-ds-contact-us.md)
 ## [Precios](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=active-directory-ds)

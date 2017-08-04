@@ -27,6 +27,7 @@
 ### [Solución del estado degradado en Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 # Referencia
+## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
 ## [PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [CLI de Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
@@ -45,6 +46,7 @@
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Precios](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Límites de servicio](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=traffic-manager)
 ## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/traffic-manager/)

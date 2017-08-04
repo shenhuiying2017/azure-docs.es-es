@@ -17,6 +17,7 @@
 ### [Uso de un dispositivo físico](iot-hub-get-started-physical.md)
 #### [Raspberry Pi con Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi con C](iot-hub-raspberry-pi-kit-c-get-started.md)
+#### [Raspberry Pi con Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 
 #### [Intel Edison con Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison con C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -84,6 +85,7 @@
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-twin-getstarted.md)
 #### [Back-end de .NET/Dispositivo de .NET](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Back-end de Java/Dispositivo de Java](iot-hub-java-java-twin-getstarted.md)
 ### Uso de métodos directos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-direct-methods.md)
@@ -103,7 +105,8 @@
 ### Programación y difusión de trabajos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-schedule-jobs.md)
-## administración
+#### [Java](iot-hub-java-java-schedule-jobs.md)
+## Administrar
 ### Crear un centro de IoT 
 #### [Uso del portal](iot-hub-create-through-portal.md)
 #### [Uso de PowerShell](iot-hub-create-using-powershell.md)
@@ -150,6 +153,7 @@
 #### [Host de módulo nativo](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Referencia
+## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [CLI de Azure](/cli/azure/iot)
 ## [.NET (servicio)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (dispostivos)](/dotnet/api/microsoft.azure.devices.client)
@@ -180,6 +184,7 @@
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Precios](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Casos prácticos técnicos](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

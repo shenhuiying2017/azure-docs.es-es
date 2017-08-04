@@ -42,6 +42,7 @@
 ## Configuración
 ### Las tablas de Azure
 #### [Generador de perfiles](app-insights-profiler.md)
+#### [Habilitar el generador de perfiles](enable-profiler-cloud-services.md)
 #### [Diagnóstico](app-insights-azure-diagnostics.md)
 #### [Vistas previas](app-insights-previews.md)
 
@@ -140,7 +141,7 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Referencia
-## [Analytics](app-insights-analytics-reference.md)
+## [Analytics](https://docs.loganalytics.io/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -154,6 +155,7 @@
 ### [Métrica](application-insights-data-model-metric-telemetry.md)
 ### [Contexto](application-insights-data-model-context.md)
 ## [Correlación de telemetría](application-insights-correlation.md)
+## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
@@ -161,6 +163,7 @@
 ## [Lenguajes y plataformas](app-insights-platforms.md)
 
 ## [Precios](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
 ## Noticias
 
