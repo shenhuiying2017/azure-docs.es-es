@@ -126,7 +126,7 @@ Para eventos extendidos hay DMV adicionales que son comunes a Base de datos SQL 
 
 Puede ejecutar una sencilla instruccióon SQL **SELECT** para obtener una lista de los eventos, acciones y destinos disponibles.
 
-```tsql
+```sql
 SELECT
         o.object_type,
         p.name         AS [package_name],

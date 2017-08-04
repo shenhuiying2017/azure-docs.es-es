@@ -269,7 +269,7 @@ El script de PowerShell imprimió algunos valores con nombre cuando finalizó. D
 
 ### <a name="transact-sql-code"></a>Código Transact-SQL
 
-```tsql
+```sql
 ---- TODO: First, run the PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
@@ -465,7 +465,7 @@ GO
 
 Si el destino no se adjunta cuando ejecuta el script, debe detener la sesión de evento y reiniciarla:
 
-```tsql
+```sql
 ALTER EVENT SESSION ... STATE = STOP;
 GO
 ALTER EVENT SESSION ... STATE = START;

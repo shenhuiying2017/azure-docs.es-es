@@ -22,7 +22,6 @@ ms.openlocfilehash: a49be9d5037af120e429a9cc7ae77ceda5e03236
 ms.contentlocale: es-es
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino de búfer de anillo para eventos extendidos en Base de datos SQL
 
@@ -67,7 +66,7 @@ Con modificaciones muy pequeñas, el siguiente ejemplo de código de Búfer de a
 
 &nbsp;
 
-```tsql
+```sql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -324,7 +323,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 Cuando termine de usar el búfer en anillo, puede quitarlo y liberar sus recursos. Para ello, emita un comando **ALTER** como el siguiente:
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -334,7 +333,7 @@ GO
 
 La definición de la sesión de eventos está actualizada, pero no se quita. Más adelante, puede agregar otra instancia del Búfer de anillo a la sesión de eventos:
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET
