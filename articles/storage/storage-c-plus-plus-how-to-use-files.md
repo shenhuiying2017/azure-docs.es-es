@@ -1,6 +1,6 @@
 ---
-title: Uso de File Storage en C++ | Microsoft Docs
-description: Almacene datos de archivo en la nube con Azure File Storage.
+title: Desarrollo para Azure File Storage con C++ | Microsoft Docs
+description: Aprenda a desarrollar aplicaciones de C++ y servicios que usan Azure File Storage para almacenar datos de archivos.
 services: storage
 documentationcenter: .net
 author: renashahmsft
@@ -12,29 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 05/27/2017
 ms.author: renashahmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: f8ecb68fddf4293592e546c0c10d0c86664bd090
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fc0d8451442f1337db4a36718c3fc746f8eb5125
 ms.contentlocale: es-es
-ms.lasthandoff: 04/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="how-to-use-file-storage-from-c"></a>Uso de File Storage desde C++
+
+# <a name="develop-for-azure-file-storage-with-c"></a>Desarrollo para Azure File Storage con C++
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
-[!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
-
 ## <a name="about-this-tutorial"></a>Acerca de este tutorial
-En este tutorial, aprenderá a realizar operaciones básicas en el servicio Microsoft Azure File Storage. Mediante ejemplos escritos en C++, aprenderá a crear recursos compartidos y directorios, y a cargar, enumerar y eliminar archivos. Si no está familiarizado con el servicio File Storage de Microsoft Azure, le resultará útil repasar los conceptos de las secciones siguientes para comprender los ejemplos.
 
-[!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
+En este tutorial, aprenderá a realizar operaciones básicas en Azure File Storage. Mediante ejemplos escritos en C++, aprenderá a crear recursos compartidos y directorios, y a cargar, enumerar y eliminar archivos. Si es la primera vez que usa Azure File Storage, le resultará útil repasar los conceptos de las secciones siguientes para comprender los ejemplos.
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+
+* Crear y eliminar recursos compartidos de Azure File
+* Crear y eliminar directorios
+* Enumerar los archivos y directorios de un recurso compartido de Azure File
+* Cargar, descargar y eliminar un archivo
+* Establecer la cuota (tamaño máximo) de un recurso compartido de Azure File
+* Crear una firma de acceso compartido (clave SAS) para un archivo que utiliza una directiva de acceso compartido definida en el recurso compartido.
+
+> [!Note]  
+> Dado que se puede tener acceso a Azure File Storage a través de SMB, es posible escribir aplicaciones sencillas que tengan acceso al recurso compartido de Azure File mediante las clases y funciones estándar de E/S de C++. En este artículo se describe cómo escribir aplicaciones que utilizan el SDK de C++ de Azure Storage, que usa la [API de REST de Azure File Storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para comunicarse con Azure File Storage.
 
 ## <a name="create-a-c-application"></a>Creación de una aplicación de C++
 Para compilar los ejemplos, debe instalar la biblioteca de cliente de Azure Storage 2.4.0 para C++. También deberá haber creado una cuenta de almacenamiento de Azure.
@@ -48,8 +54,8 @@ Para instalar el cliente de Azure Storage 2.4.0 para C++, puede usar uno de los 
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-file-storage"></a>Configuración de la aplicación para usar File Storage
-Agregue las siguientes instrucciones include en la parte superior del archivo de C++ en el que desea usar las API de Azure Storage para acceder a los archivos:
+## <a name="set-up-your-application-to-use-azure-file-storage"></a>Configuración de la aplicación para usar Azure File Storage
+Agregue las siguientes instrucciones include a la parte superior del archivo de origen de C++ en el que desea manipular Azure File Storage:
 
 ```cpp
 #include <was/storage_account.h>
@@ -74,16 +80,16 @@ azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="how-to-create-a-share"></a>Creación de una cola
-Todos los archivos y directorios del almacenamiento de archivos residen en un contenedor denominado **Share**. La cuenta de almacenamiento puede tener tantos recursos compartidos como los que permita la capacidad de su cuenta. Para obtener acceso a un recurso compartido y su contenido, deberá usar a un cliente de almacenamiento de archivo.
+## <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de Azure File
+Todos los archivos y directorios de Azure File Storage residen en un contenedor denominado **Share**. La cuenta de almacenamiento puede tener tantos recursos compartidos como los que permita la capacidad de su cuenta. Para obtener acceso a un recurso compartido y su contenido, es preciso usar un cliente de Azure File Storage.
 
 ```cpp
-// Create the file storage client.
+// Create the Azure File storage client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 ```
 
-Con el cliente de almacenamiento de archivos, puede obtener una referencia a un recurso compartido.
+Con dicho cliente, puede obtener luego una referencia a un recurso compartido.
 
 ```cpp
 // Get a reference to the file share
@@ -101,8 +107,84 @@ if (share.create_if_not_exists()) {
 
 En este punto, **share** contiene una referencia a un recurso compartido denominado **my-sample-share**.
 
-## <a name="how-to-upload-a-file"></a>Carga de un archivo
-Los recursos compartidos de almacenamiento de Azure File Storage contienen como mínimo un directorio raíz donde pueden residir los archivos. En esta sección, aprenderá cómo cargar un archivo del almacenamiento local en el directorio raíz de un recurso compartido.
+## <a name="delete-an-azure-file-share"></a>Eliminación de un recurso compartido de Azure File
+Para eliminar un recurso compartido, realice una llamada al método **delete_if_exists** en un objeto cloud_file_share. A continuación se facilita código de ejemplo que lo hace.
+
+```cpp
+// Get a reference to the share.
+azure::storage::cloud_file_share share = 
+  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
+
+// delete the share if exists
+share.delete_share_if_exists();
+```
+
+## <a name="create-a-directory"></a>Creación de directorios
+Para organizar el almacenamiento, coloque los archivos en los subdirectorios, en lugar de mantenerlos todos en el directorio raíz. Azure File Storage permite crear tantos directorios como permita su cuenta. El código siguiente creará un directorio llamado **Mi directorio de ejemplo** bajo el directorio raíz, así como un subdirectorio denominado **mi subdirectorio de ejemplo**.
+
+```cpp
+// Retrieve a reference to a directory
+azure::storage::cloud_file_directory directory = share.get_directory_reference(_XPLATSTR("my-sample-directory"));
+
+// Return value is true if the share did not exist and was successfully created.
+directory.create_if_not_exists();
+
+// Create a subdirectory.
+azure::storage::cloud_file_directory subdirectory = 
+  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
+subdirectory.create_if_not_exists();
+```
+
+## <a name="delete-a-directory"></a>Eliminación de un directorio
+Eliminar un directorio es una tarea sencilla, aunque se debe tener en cuenta que no se puede eliminar un directorio que contenga archivos u otros directorios.
+
+```cpp
+// Get a reference to the share.
+azure::storage::cloud_file_share share = 
+  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
+
+// Get a reference to the directory.
+azure::storage::cloud_file_directory directory = 
+  share.get_directory_reference(_XPLATSTR("my-sample-directory"));
+
+// Get a reference to the subdirectory you want to delete.
+azure::storage::cloud_file_directory sub_directory =
+  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
+
+// Delete the subdirectory and the sample directory.
+sub_directory.delete_directory_if_exists();
+
+directory.delete_directory_if_exists();
+```
+
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar los archivos y directorios de un recurso compartido de Azure File
+Es fácil obtener una lista de archivos y directorios dentro de un recurso compartido mediante la llamada a **list_files_and_directories** en una referencia de **cloud_file_directory**. Para acceder al conjunto completo de propiedades y métodos de un elemento **list_file_and_directory_item** devuelto, debe llamar al método **list_file_and_directory_item.as_file** para obtener un objeto **cloud_file**, o al método **list_file_and_directory_item.as_directory** para obtener un objeto **cloud_file_directory**.
+
+El código siguiente muestra cómo recuperar y generar el URI de cada elemento en el directorio raíz del recurso compartido.
+
+```cpp
+//Get a reference to the root directory for the share.
+azure::storage::cloud_file_directory root_dir = 
+  share.get_root_directory_reference();
+
+// Output URI of each item.
+azure::storage::list_file_and_diretory_result_iterator end_of_results;
+
+for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
+{
+    if(it->is_directory())
+    {
+        ucout << "Directory: " << it->as_directory().uri().primary_uri().to_string() << std::endl;
+    }
+    else if (it->is_file())
+    {
+        ucout << "File: " << it->as_file().uri().primary_uri().to_string() << std::endl;
+    }        
+}
+```
+
+## <a name="upload-a-file"></a>Cargar un archivo
+Un recurso compartido de Azure File contiene como mínimo un directorio raíz donde pueden residir los archivos. En esta sección, aprenderá cómo cargar un archivo del almacenamiento local en el directorio raíz de un recurso compartido.
 
 El primer paso para cargar un archivo es obtener una referencia al directorio donde debe residir. Para ello, llame al método **get_root_directory_reference** del objeto de recurso compartido.
 
@@ -133,49 +215,7 @@ azure::storage::cloud_file file4 =
 file4.upload_from_file(_XPLATSTR("DataFile.txt"));    
 ```
 
-## <a name="how-to-create-a-directory"></a>Creación de directorios
-También puede organizar el almacenamiento y colocar los archivos dentro de los subdirectorios en lugar de mantenerlos todos en el directorio raíz. El servicio de almacenamiento de archivos de Azure permite crear tantos directorios como lo permita su cuenta. El código siguiente creará un directorio llamado **Mi directorio de ejemplo** bajo el directorio raíz, así como un subdirectorio denominado **mi subdirectorio de ejemplo**.
-
-```cpp
-// Retrieve a reference to a directory
-azure::storage::cloud_file_directory directory = share.get_directory_reference(_XPLATSTR("my-sample-directory"));
-
-// Return value is true if the share did not exist and was successfully created.
-directory.create_if_not_exists();
-
-// Create a subdirectory.
-azure::storage::cloud_file_directory subdirectory = 
-  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
-subdirectory.create_if_not_exists();
-```
-
-## <a name="how-to-list-files-and-directories-in-a-share"></a>Enumeración de archivos y directorios en un recurso compartido
-Es fácil obtener una lista de archivos y directorios dentro de un recurso compartido mediante la llamada a **list_files_and_directories** en una referencia de **cloud_file_directory**. Para acceder al conjunto completo de propiedades y métodos de un elemento **list_file_and_directory_item** devuelto, debe llamar al método **list_file_and_directory_item.as_file** para obtener un objeto **cloud_file**, o al método **list_file_and_directory_item.as_directory** para obtener un objeto **cloud_file_directory**.
-
-El código siguiente muestra cómo recuperar y generar el URI de cada elemento en el directorio raíz del recurso compartido.
-
-```cpp
-//Get a reference to the root directory for the share.
-azure::storage::cloud_file_directory root_dir = 
-  share.get_root_directory_reference();
-
-// Output URI of each item.
-azure::storage::list_file_and_diretory_result_iterator end_of_results;
-
-for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
-{
-    if(it->is_directory())
-    {
-        ucout << "Directory: " << it->as_directory().uri().primary_uri().to_string() << std::endl;
-    }
-    else if (it->is_file())
-    {
-        ucout << "File: " << it->as_file().uri().primary_uri().to_string() << std::endl;
-    }        
-}
-```
-
-## <a name="how-to-download-a-file"></a>Descarga de un archivo
+## <a name="download-a-file"></a>Descarga de un archivo
 Para descargar archivos, primero recupere una referencia de archivo y luego llame al método **download_to_stream** para transferir el contenido del archivo a un objeto de secuencia que luego puede guardar en un archivo local. Como alternativa, puede usar el método **download_to_file** para descargar el contenido de un archivo en un archivo local. También puede usar el método **download_text** para descargar el contenido de un archivo como una cadena de texto.
 
 En el ejemplo siguiente se usan los métodos **download_to_stream** y **download_text** para mostrar la descarga de los archivos que se crearon en las secciones anteriores.
@@ -200,8 +240,8 @@ outfile.write((char *)&data[0], buffer.size());
 outfile.close();
 ```
 
-## <a name="how-to-delete-a-file"></a>Eliminación de un archivo
-Otra operación de almacenamiento de archivo común es la eliminación de archivos. El código siguiente elimina un archivo denominado my-sample-file-3 almacenado en el directorio raíz.
+## <a name="delete-a-file"></a>Eliminación de un archivo
+Otra operación común de Azure File Storage es la eliminación de archivos. El código siguiente elimina un archivo denominado my-sample-file-3 almacenado en el directorio raíz.
 
 ```cpp
 // Get a reference to the root directory for the share.    
@@ -217,41 +257,7 @@ azure::storage::cloud_file file =
 file.delete_file_if_exists();
 ```
 
-## <a name="how-to-delete-a-directory"></a>Eliminación de un directorio
-Eliminar un directorio es una tarea sencilla, aunque se debe tener en cuenta que no se puede eliminar un directorio que contenga archivos u otros directorios.
-
-```cpp
-// Get a reference to the share.
-azure::storage::cloud_file_share share = 
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-
-// Get a reference to the directory.
-azure::storage::cloud_file_directory directory = 
-  share.get_directory_reference(_XPLATSTR("my-sample-directory"));
-
-// Get a reference to the subdirectory you want to delete.
-azure::storage::cloud_file_directory sub_directory =
-  directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
-
-// Delete the subdirectory and the sample directory.
-sub_directory.delete_directory_if_exists();
-
-directory.delete_directory_if_exists();
-```
-
-## <a name="how-to-delete-a-share"></a>Eliminación de un recurso compartido
-Para eliminar un recurso compartido, realice una llamada al método **delete_if_exists** en un objeto cloud_file_share. A continuación se facilita código de ejemplo que lo hace.
-
-```cpp
-// Get a reference to the share.
-azure::storage::cloud_file_share share = 
-  file_client.get_share_reference(_XPLATSTR("my-sample-share"));
-
-// delete the share if exists
-share.delete_share_if_exists();
-```
-
-## <a name="set-the-maximum-size-for-a-file-share"></a>Establecer el tamaño máximo para un recurso compartido de archivos
+## <a name="set-the-quota-maximum-size-for-an-azure-file-share"></a>Establecer la cuota (tamaño máximo) de un recurso compartido de Azure File
 Puede establecer la cuota (o el tamaño máximo) para un recurso compartido de archivos, en gigabytes. También puede comprobar cuántos datos se almacenan actualmente en el recurso compartido.
 
 Al establecer la cuota para un recurso compartido, puede limitar el tamaño total de los archivos almacenados en el recurso compartido. Si el tamaño total de archivos del recurso compartido supera la cuota establecida en el recurso compartido, los clientes no podrán aumentar el tamaño de los archivos existentes ni crear nuevos archivos, a menos que estén vacíos.
@@ -349,9 +355,6 @@ if (share.exists())
 
 }
 ```
-
-Para más información sobre la creación y el uso de firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md).
-
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre Almacenamiento de Azure, consulte los siguientes recursos:
 
@@ -359,5 +362,3 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 * [Ejemplos del servicio Azure Storage File en C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Explorador de almacenamiento de Azure](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-

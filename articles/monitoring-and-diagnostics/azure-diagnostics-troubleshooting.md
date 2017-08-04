@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0764b9f3ac262b7c65944d6e2c82490daefa54c3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Diagnósticos de Azure
@@ -43,6 +42,7 @@ Estas son las rutas de acceso a algunos de registros y artefactos más important
 | **Archivo de configuración del agente de supervisión** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Paquete de extensión de Azure Diagnostics** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Ruta de acceso a la utilidad de recopilación de registros** | %SystemDrive%\Packages\GuestAgent\ |
+| **Archivo de registro de MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
 | Artefacto | path |
@@ -54,9 +54,12 @@ Estas son las rutas de acceso a algunos de registros y artefactos más important
 | **Archivo de estado** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Paquete de extensión de Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Ruta de acceso a la utilidad de recopilación de registros** | C:\WindowsAzure\Packages |
+| **Archivo de registro de MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="azure-diagnostics-is-not-starting"></a>Diagnósticos de Azure no se inicia
-Examine los archivos **DiagnosticsPluginLauncher.log** y **DiagnosticsPlugin.log** en la ubicación de los archivos de registro proporcionada anteriormente para obtener información sobre el motivo de que los diagnósticos no se consigan iniciar.  
+Examine los archivos **DiagnosticsPluginLauncher.log** y **DiagnosticsPlugin.log** en la ubicación de los archivos de registro proporcionada anteriormente para obtener información sobre el motivo de que los diagnósticos no se consigan iniciar. 
+
+Si estos registros indican `Monitoring Agent not reporting success after launch`, significa que hubo un error al iniciar MonAgentHost.exe. Examine los registros en la ubicación indicada para `MonAgentHost log file` en la sección anterior.
 
 La última línea de los archivos de registro contiene el código de salida.  
 
@@ -86,7 +89,7 @@ La configuración de diagnóstico contiene la parte que indica que se recopile u
 - **Contadores de rendimiento**: abra el Monitor de rendimiento y compruebe el contador.
 - **Registros de seguimiento**: conéctese a la máquina virtual mediante Escritorio remoto y agregue TextWriterTraceListener al archivo de configuración de la aplicación.  Consulte http://msdn.microsoft.com/en-us/library/sk36c28t.aspx para configurar el agente de escucha de texto.  Asegúrese de que el elemento `<trace>` tenga `<trace autoflush="true">`.<br />
 Si no ve que se generen registros de seguimiento, consulte [Más sobre registros de seguimiento que faltan](#more-about-trace-logs-missing).
- - **Seguimientos de ETW**: conéctese a la máquina virtual mediante Escritorio remoto e instale PerfView.  En PerfView, ejecute File (Archivo) -> User Command (Comando de usuario) -> Listen (Escuchar) etwprovder1, etwprovider2, etc.  Tenga en cuenta que el comando de escucha distingue mayúsculas de minúsculas y no puede haber espacios entre la lista de proveedores de ETW separados por coma.  Si no se puede ejecutar el comando, puede hacer clic en el botón "Log" (Registrar) en la esquina inferior derecha de la herramienta Perfview para ver lo que se intentó ejecutar y cuál fue el resultado.  Suponiendo que la entrada sea correcta, aparece una nueva ventana y en unos segundos comenzará a ver seguimientos de ETW.
+- **Seguimientos de ETW**: conéctese a la máquina virtual mediante Escritorio remoto e instale PerfView.  En PerfView, ejecute File (Archivo) -> User Command (Comando de usuario) -> Listen (Escuchar) etwprovder1, etwprovider2, etc.  Tenga en cuenta que el comando de escucha distingue mayúsculas de minúsculas y no puede haber espacios entre la lista de proveedores de ETW separados por coma.  Si no se puede ejecutar el comando, puede hacer clic en el botón "Log" (Registrar) en la esquina inferior derecha de la herramienta Perfview para ver lo que se intentó ejecutar y cuál fue el resultado.  Suponiendo que la entrada sea correcta, aparece una nueva ventana y en unos segundos comenzará a ver seguimientos de ETW.
 - **Registros de eventos**: conéctese a la máquina virtual mediante Escritorio remoto. Abra `Event Viewer` y asegurarse de que los eventos existan.
 #### <a name="is-data-getting-captured-locally"></a>¿Se capturan los datos localmente?
 A continuación, asegúrese de que los datos se capturen localmente.
@@ -241,4 +244,3 @@ La experiencia del portal de las máquinas virtuales muestra de forma predetermi
 - Si usa caracteres comodín (\*) en los nombres de los contadores de rendimiento, el portal no podrá correlacionar el contador configurado y recopilado.
 
 **Mitigación**: cambiar el idioma de la máquina a inglés en las cuentas del sistema. Panel de control -> Región -> Administrativa -> Configuración de la copia ->, desactive "Pantalla de inicio de sesión y cuentas del sistema" para que el idioma personalizado no se aplique a la cuenta del sistema. Además, asegúrese de que no usa caracteres comodín si quiere que el portal sea su experiencia de consumo principal.
-

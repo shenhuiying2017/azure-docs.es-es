@@ -1,5 +1,4 @@
 ---
-
 title: Uso de grupos para administrar el acceso a recursos en Azure Active Directory | Microsoft Docs
 description: "Cómo usar grupos en Azure Active Directory para administrar el acceso de los usuarios a recursos y aplicaciones en la nube y locales."
 services: active-directory
@@ -16,12 +15,11 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 27ce2b472cd10d8c6e9bbfb64588a824980fb656
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cd8125eda7643f0b190d35cbb89edf8b7b4eca30
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Administración del acceso a recursos con grupos de Azure Active Directory
@@ -32,7 +30,7 @@ Azure Active Directory (Azure AD) es una completa solución de administración d
 >
 >
 
-Dentro de Azure AD, una de las principales características es la capacidad para administrar el acceso a los recursos. Estos recursos pueden formar parte del directorio, como en el caso de los permisos para administrar objetos a través de roles en el directorio, o recursos externos al directorio, como las aplicaciones SaaS, servicios de Azure y sitios de SharePoint o publicados en modo local. Existen cuatro formas de asignar a un usuario derechos de acceso a un recurso:
+Dentro de Azure AD, una de las principales características es la capacidad para administrar el acceso a los recursos. Estos recursos pueden formar parte del directorio, como en el caso de los permisos para administrar objetos a través de roles en el directorio o los recursos externos al directorio, como las aplicaciones SaaS, los servicios de Azure y los sitios de SharePoint o los recursos publicados en modo local. Existen cuatro formas de asignar a un usuario derechos de acceso a un recurso:
 
 1. Asignación directa
 

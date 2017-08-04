@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 2776f640bc192b0775b0ccbaaf62bb719b3bb790
-ms.lasthandoff: 04/18/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 259162f25e024470b5ee53a34fadec20b81ffea4
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="diagnose-on-premise-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de VPN Gateway
+# <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de puertas de enlace de VPN
 
 Azure VPN Gateway le permite crear soluciones híbridas que dan soluciones a la necesidad de una conexión segura entre su red local y la red virtual de Azure. Como sus necesidades son únicas, también lo es la elección del dispositivo VPN local. Azure admite actualmente [varios dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides) que se validan constantemente en asociación con los proveedores de los dispositivos. Revise los valores de configuración específicos del dispositivo antes de configurar el dispositivo VPN local. Igualmente, Azure VPN Gateway está configurado con un conjunto de [parámetros de IPsec admitidos](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-nameipsecaipsecike-parameters) que se utilizan para establecer conexiones. Actualmente no hay ninguna manera de especificar o seleccionar una combinación específica de parámetros de IPsec desde Azure VPN Gateway. Para establecer una conexión correcta entre la red local y Azure, la configuración del dispositivo VPN local debe estar de acuerdo con los parámetros de IPsec prescritos por Azure VPN Gateway. Si no es así, puede provocar una pérdida de conectividad y además, hasta hoy en día, solucionar estos problemas no era algo trivial y normalmente se tardaban horas en identificar y corregir el problema.
 

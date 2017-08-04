@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1d35dc01aba57dcf8a37db757138abbd7b22c8c5
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
 ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence de SQL Server en Máquinas virtuales de Azure
@@ -227,7 +226,7 @@ Si quiere conectarse al portal web o al Administrador de informes de 2014 y 2012
 2. Abra el puerto 80 en el firewall de la máquina virtual.
 3. Navegue hasta el portal web o el administrador de informes. Como nombre de servidor en la URL, use el **nombre de DNS** de la máquina virtual de Azure. Por ejemplo:
    
-    **Servidor de informes**: http://uebi.cloudapp.net/reportserver  **Web portal**: http://uebi.cloudapp.net/reports
+    **Servidor de informes**: http://uebi.cloudapp.net/reportserver **Portal web**: http://uebi.cloudapp.net/reports
    
     [Configurar un firewall para el acceso del Servidor de informes](https://msdn.microsoft.com/library/bb934283.aspx)
 

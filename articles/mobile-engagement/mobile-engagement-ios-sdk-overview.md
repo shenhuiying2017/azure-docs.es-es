@@ -12,16 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c8bb1161e874a3adda4a71ee889ca833db881e20
-ms.openlocfilehash: cd70b0b5656bef08a8be1c1a67754b203cceb905
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>SDK de iOS para Azure Mobile Engagement
-Comience aquí a obtener todos los detalles sobre cómo integrar Azure Mobile Engagement en una aplicación de iOS. Si primero quiere probarlo, asegúrese de seguir nuestro [tutorial de&15; minutos](mobile-engagement-ios-get-started.md)
+Comience aquí a obtener todos los detalles sobre cómo integrar Azure Mobile Engagement en una aplicación de iOS. Si primero quiere probarlo, asegúrese de seguir nuestro [tutorial de 15 minutos](mobile-engagement-ios-get-started.md)
 
 Haga clic para ver el [contenido del SDK](mobile-engagement-ios-sdk-content.md)
 
@@ -31,8 +32,11 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-ios-sdk-content.md)
 3. Implementación del plan de etiquetas: [Uso de la API de etiquetado de Mobile Engagement avanzada en su aplicación iOS](mobile-engagement-ios-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notas de la versión
-### <a name="401-12132016"></a>4.0.1 (12/13/2016)
-* Entrega de registros en segundo plano mejorada
+### <a name="410-07172017"></a>4.1.0 (07/17/2017)
+* Se han corregido las notificaciones borradas en el fondo.
+* Se han corregido las advertencias de XCode 9 sobre las API a las que no se llamaba en cola principal.
+* Se ha corregido una fuga de memoria en los sondeos de cobertura.
+* Se ha eliminado el soporte técnico para iOS 6.X. A partir de esta versión, el destino de implementación de la aplicación tiene que ser como mínimo iOS 7.
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-ios-release-notes.md)
 
@@ -49,8 +53,8 @@ XCode 8 es obligatorio a partir de la versión 4.0.0 del SDK.
 
 > [!NOTE]
 > Si realmente depende de XCode 7, puede usar el [SDK v3.2.4 de Engagement para iOS](https://aka.ms/r6oouh). Existe un problema conocido en el módulo de cobertura de esta versión anterior cuando se ejecuta en dispositivos iOS 10: las notificaciones del sistema no se ejecutan. Para solucionarlo, tendrá que implementar la API `application:didReceiveRemoteNotification:` en desuso en su delegado de aplicación de la manera siguiente:
-> 
-> 
+>
+>
 
     - (void)application:(UIApplication*)application
     didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -60,8 +64,8 @@ XCode 8 es obligatorio a partir de la versión 4.0.0 del SDK.
 
 > [!IMPORTANT]
 > **No se recomienda esta solución** ya que este comportamiento puede cambiar en la próxima actualización de la versión de iOS (por menor que sea) porque esta API de iOS está en desuso. Debe cambiar a XCode 8 tan pronto como sea posible.
-> 
-> 
+>
+>
 
 #### <a name="usernotifications-framework"></a>Marco de UserNotifications
 Debe agregar el marco `UserNotifications` en sus fases de compilación.
@@ -72,7 +76,7 @@ En el Explorador de proyectos, abra su panel de proyectos y seleccione el destin
 XCode 8 puede restablecer la funcionalidad de inserción de su aplicación, solo tiene que marcarla dos veces en la pestaña `capability` del destino seleccionado.
 
 #### <a name="add-the-new-ios-10-notification-registration-code"></a>Adición del nuevo código de registro de notificaciones de iOS 10
-El fragmento de código anterior para registrar la aplicación para las notificaciones aún funciona, pero está utilizando API obsoletas mientras se ejecuta en iOS 10. 
+El fragmento de código anterior para registrar la aplicación para las notificaciones aún funciona, pero está utilizando API obsoletas mientras se ejecuta en iOS 10.
 
 Importe la plataforma `User Notification` :
 
@@ -176,14 +180,8 @@ Por ejemplo, si implementa la propuesta anterior 1:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code
-  
+
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

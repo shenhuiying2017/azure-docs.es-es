@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/29/2017
 ms.author: sumukhs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e90efe810084939280b392c470e14e76d35aff01
-ms.openlocfilehash: 101b4e6a7bd5ded44334a4c3c9efee69669d9bcf
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fa77eaf44f4d90d1a78f5de69e36432a53d80ecd
 ms.contentlocale: es-es
-ms.lasthandoff: 02/21/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar Reliable Services con estado
@@ -37,7 +36,7 @@ La configuración global de los servicios de confianza se especifica en el manif
 | SharedLogPath |Nombre de ruta de acceso completo |"" |Especifica la ruta de acceso completa donde se encuentra el archivo de registro compartido que usan todos los servicios de confianza en todos los nodos del clúster que no especifican SharedLogPath en su configuración específica del servicio. Sin embargo, si se especifica SharedLogPath, también se debe especificar SharedLogId. |
 | SharedLogSizeInMB |Megabytes |8192 |Especifica el número de MB de espacio en disco que se va a asignar estáticamente para el registro compartido. El valor deber ser 2048 o superior. |
 
-En una plantilla de JSON o Azure ARM local, en el ejemplo siguiente se muestra cómo cambiar el registro de transacciones compartido que se crea para realizar copias de cualquier colección confiable de servicios con estado.
+En una plantilla de JSON o Azure ARM local, el ejemplo siguiente muestra cómo cambiar el registro de transacciones compartido que se crea para realizar copias de cualquier colección confiable de servicios con estado.
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -115,7 +114,7 @@ ReplicatorConfig
 | MaxRecordSizeInKB |KB |1024 |Tamaño del registro de mayor tamaño el replicador que puede escribir en el registro. Este valor debe ser un múltiplo de 4 y superior a 16. |
 | MinLogSizeInMB |MB |0 (sistema determinado) |Tamaño mínimo del registro transaccional. El registro no podrá truncarse a un tamaño inferior a este valor. 0 indica que el replicador determinará el tamaño mínimo del registro. Al aumentar este valor, incrementa la posibilidad de hacer copias parciales y copias de seguridad incrementales, ya que se reducen las posibilidades de que se trunquen registros pertinentes. |
 | TruncationThresholdFactor |Factor |2 |Determina a qué tamaño del registro se activará el truncamiento. El umbral de truncamiento se determina multiplicando el valor de MinLogSizeInMB por TruncationThresholdFactor. El valor de TruncationThresholdFactor debe ser mayor que 1. El valor de MinLogSizeInMB * TruncationThresholdFactor debe ser menor que MaxStreamSizeInMB. |
-| ThrottlingThresholdFactor |Factor |4 |Determina a qué tamaño del registro se empezará a limitar la réplica. El umbral de limitación (en MB) se determina mediante Max((MinLogSizeInMB * ThrottlingThresholdFactor),(CheckpointThresholdInMB * ThrottlingThresholdFactor)). El valor del umbral de limitación (en MB) debe ser mayor que el de truncamiento (en MB). El valor del umbral de truncamiento (en MB) debe ser menor que el de MaxStreamSizeInMB. |
+| ThrottlingThresholdFactor |Factor |4 |Determina a qué tamaño del registro se empezará a limitar la réplica. El umbral de limitación (en MB) se determina mediante Max((MinLogSizeInMB ThrottlingThresholdFactor),(CheckpointThresholdInMB ThrottlingThresholdFactor)). El valor del umbral de limitación (en MB) debe ser mayor que el de truncamiento (en MB). El valor del umbral de truncamiento (en MB) debe ser menor que el de MaxStreamSizeInMB. |
 | MaxAccumulatedBackupLogSizeInMB |MB |800 |El tamaño máximo acumulado (en MB) de los registros de copia de seguridad de una cadena de registros de copia de seguridad determinada. Las solicitudes de copia de seguridad incremental no se realizarán correctamente si esta genera un registro de copia de seguridad que provoque la acumulación de este tipo de elemento, ya que la copia de seguridad completa tendrá un tamaño superior. En tales casos, el usuario tiene que realizar una copia de seguridad completa. |
 | SharedLogId |GUID |"" |Especifica un GUID único que debe usarse para identificar el archivo de registro compartido que se usa con esta réplica. Normalmente, los servicios no deben usar esta opción de configuración. Sin embargo, si se especifica SharedLogId, también se debe especificar SharedLogPath. |
 | SharedLogPath |Nombre de ruta de acceso completo |"" |Especifica la ruta de acceso completa donde se creará el archivo de registro compartido para esta réplica. Normalmente, los servicios no deben usar esta opción de configuración. Sin embargo, si se especifica SharedLogPath, también se debe especificar SharedLogId. |

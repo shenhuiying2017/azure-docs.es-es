@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 397f3e75830acf46b29ac864c77ed3160f4e01e4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8cca857314ecf37ef51700fd25aef228515ecd0a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -73,7 +73,9 @@ Limitaciones
 * No se pueden conectar máquinas virtuales de Azure Virtual Machines a través de IPv6 a otras máquinas virtuales, otros servicios de Azure o los dispositivos locales. Solo pueden comunicarse con Azure Load Balancer a través de IPv6. Sin embargo, pueden comunicarse con estos otros recursos mediante IPv4.
 * La protección del grupo de seguridad de red (NSG) para IPv4 es compatible con las implementaciones de pila doble (IPv4 + IPv6). Los NSG no se aplican a los puntos de conexión de IPv6.
 * El punto de conexión de IPv6 en la máquina virtual no se conecta directamente a Internet. Lo hace a través de un equilibrador de carga. Solo los puertos especificados en las reglas de equilibrador de carga son accesibles a través de IPv6.
-* El cambio del parámetro IdleTimeout a IPv6 **no se admite actualmente**. El valor predeterminado es de cuatro minutos.
+* El cambio del parámetro IdleTimeout de IPv6 **no se admite actualmente**. El valor predeterminado es de cuatro minutos.
+* El cambio del parámetro loadDistributionMethod de IPv6 **no se admite actualmente**.
+* Las direcciones IP de reserva de IPv6 (donde IPAllocationMethod = static) **no se admiten actualmente**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 07/05/2017
+ms.date: 07/10/2017
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 7166c4428398015c0570b048dff0005b5061eadb
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c1e8fd914d83cd3900181c5235455851d7d57485
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Introducción: grupos de conmutación por error y replicación geográfica activa
@@ -53,7 +52,6 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 ## <a name="active-geo-replication-capabilities"></a>Funcionalidades de replicación geográfica activa
 La característica de replicación geográfica activa ofrece las siguientes funcionalidades esenciales:
-
 * **Replicación asincrónica automática**: solo se puede crear una base de datos secundaria mediante la adición a una existente. La base de datos secundaria se puede crear en cualquier servidor de Azure SQL Database. Una vez creada, la base de datos secundaria se rellena con los datos copiados de la base de datos principal. Este proceso se conoce como propagación. Después de crear y propagar la base de datos secundaria, las actualizaciones de la base de datos principal se replican asincrónicamente en la base de datos secundaria de forma automática. La replicación asincrónica significa que las transacciones se confirman en la base de datos principal antes de replicarse en la secundaria. 
 * **Bases de datos secundarias legibles**: una aplicación puede acceder a una base de datos secundaria para operaciones de solo lectura con las mismas entidades de seguridad que las usadas para tener acceso a la base de datos principal u otras diferentes. Las bases de datos secundarias funcionan en el modo de aislamiento de instantánea para asegurarse de que no se retrasa la replicación de las actualizaciones de la base de datos principal (reproducción de registro) por las consultas ejecutadas en la secundaria.
 
@@ -116,10 +114,10 @@ Puede actualizar o degradar una base de datos principal a un nivel de rendimient
 >
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Evitar la pérdida de datos críticos
-Debido a la elevada latencia de las redes de área extensa, la copia continua usa un mecanismo de replicación asincrónica. La replicación asincrónica hace inevitable la pérdida de cierta cantidad datos si se produce un error. Sin embargo, es posible que algunas aplicaciones exijan que no se pierdan datos. Para proteger estas actualizaciones críticas, un desarrollador de aplicaciones puede llamar al procedimiento del sistema [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx) inmediatamente después de confirmar la transacción. La llamada a **sp_wait_for_database_copy_sync** bloquea el subproceso de llamada hasta que se replica la última transacción confirmada en la base de datos secundaria. El procedimiento espera hasta que la base de datos secundaria confirma todas las transacciones en cola. **sp_wait_for_database_copy_sync** está dirigida a un vínculo de copia continua específico. Cualquier usuario con derechos de conexión para la base de datos principal puede llamar a este procedimiento.
+Debido a la elevada latencia de las redes de área extensa, la copia continua usa un mecanismo de replicación asincrónica. La replicación asincrónica hace inevitable la pérdida de cierta cantidad datos si se produce un error. Sin embargo, es posible que algunas aplicaciones exijan que no se pierdan datos. Para proteger estas actualizaciones críticas, un desarrollador de aplicaciones puede llamar al procedimiento del sistema [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx) inmediatamente después de confirmar la transacción. La llamada a **sp_wait_for_database_copy_sync** bloquea el subproceso de llamada hasta que se transmite la última transacción confirmada en la base de datos secundaria. Sin embargo, no espera para que las transacciones transmitidas se reproduzcan y se confirmen en la base de datos secundaria. **sp_wait_for_database_copy_sync** está dirigida a un vínculo de copia continua específico. Cualquier usuario con derechos de conexión para la base de datos principal puede llamar a este procedimiento.
 
 > [!NOTE]
-> El retraso causado por una llamada al procedimiento **sp_wait_for_database_copy_sync** puede ser considerable. El retraso depende de la longitud del registro de transacciones en ese momento y esta llamada no devuelve resultados hasta que se replique el registro completo. Evite llamar a este procedimiento a menos que se vuelva absolutamente necesario.
+> **sp_wait_for_database_copy_sync** evitará la pérdida de datos después de la conmutación por error, pero no garantizará la sincronización completa para el acceso de lectura. El retraso causado por una llamada al procedimiento **sp_wait_for_database_copy_sync** puede ser considerable y depende del tamaño del registro de transacciones en el momento de la llamada. 
 > 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Administración mediante programación de la replicación geográfica activa

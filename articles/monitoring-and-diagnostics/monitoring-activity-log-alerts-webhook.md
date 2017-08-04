@@ -1,9 +1,32 @@
+---
+title: "Recepción de alertas de registro de actividad en las notificaciones del servicio de Azure | Microsoft Docs"
+description: "Reciba notificaciones por SMS, correo electrónico o webhook cuando se produzcan problemas en el servicio de Azure."
+author: johnkemnetz
+manager: orenr
+editor: 
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: johnkem
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c8339c08333aaa471b42f6468ca2a59ee4efacf9
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
+
+---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas del registro de actividad de Azure
 Como parte de la definición de un grupo de acciones, se pueden configurar puntos de conexión de Webhook para recibir notificaciones de alertas del registro de actividad. Los webhooks permiten enrutar estas notificaciones a otros sistemas para su procesamiento posterior o acciones personalizadas. Este artículo muestra el aspecto de la carga útil para HTTP POST a un webhook.
 
-Para más información sobre la configuración y el esquema de las alertas del registro de actividad de Azure, [vea esta página en su lugar](monitoring-activity-log-alerts.md).
+Para más información sobre la creación de las alertas del registro de actividad de Azure, [consulte esta página](monitoring-activity-log-alerts.md).
 
-Para más información sobre la configuración y el esquema de los grupos de acciones, [vea esta página en su lugar](monitoring-action-groups.md).
+Para más información sobre la creación de grupos de acción, [consulte esta página](monitoring-action-groups.md)
 
 ## <a name="authenticating-the-webhook"></a>Autenticación del webhook
 El weebhook se puede autenticar mediante autorización basada en token: el identificador URI de webhook se guarda con un identificador de token, por ejemplo, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
@@ -90,7 +113,7 @@ La carga útil JSON incluida en la operación POST difiere según el campo data.
                     "stage": "Active",
                     "communicationId": "...",
                     "version": "0.1"
-                },
+                }
             }
         },
         "properties": {}
@@ -136,3 +159,4 @@ Para obtener detalles de esquema concretos sobre las alertas del registro de act
 * [Use una aplicación lógica para enviar un SMS a través de Twilio desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este ejemplo es para alertas de métrica, pero podría modificarse para funcionar con una alerta de registro de actividad.
 * [Use una aplicación lógica para enviar un mensaje de Slack desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este ejemplo es para alertas de métrica, pero podría modificarse para funcionar con una alerta de registro de actividad.
 * [Use una aplicación lógica para enviar un mensaje a una cola de Azure desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Este ejemplo es para alertas de métrica, pero podría modificarse para funcionar con una alerta de registro de actividad.
+

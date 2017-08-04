@@ -3,8 +3,8 @@ title: "Introducción a la autenticación de Aplicaciones móviles en Xamarin An
 description: "Obtenga información acerca de cómo utilizar Aplicaciones móviles para autenticar usuarios de su aplicación Xamarin Android a través de una variedad de proveedores de identidad, incluidos AAD, Google, Facebook, Twitter y Microsoft."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: panarasi
 editor: 
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.service: app-service-mobile
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4c0ba82ca010f1ee571424fa3d650718e5acdd8b
-ms.lasthandoff: 11/17/2016
-
+ms.date: 07/05/2017
+ms.author: panarasi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8f9a1109018c708d52cdcb7b8bce43861cecd31c
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Adición de la autenticación a la aplicación Xamarin.Android
@@ -30,6 +30,20 @@ Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero deb
 
 ## <a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios de aplicaciones
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
+
+## <a name="redirecturl"></a>Adición de la aplicación a las direcciones URL de redirección externa permitidas
+
+La autenticación segura requiere que se defina un nuevo esquema de dirección URL para la aplicación. Esto permite que el sistema de autenticación se redirija a la aplicación una vez completado el proceso de autenticación. En este tutorial, se usará el esquema de dirección URL _appname_. Sin embargo, puede utilizar cualquier otro esquema de dirección URL que elija. Debe ser único para la aplicación móvil. Para habilitar la redirección en el lado de servidor:
+
+1. En [Azure Portal], seleccione App Service.
+
+2. Haga clic en la opción de menú **Autenticación/autorización**.
+
+3. En **URL de redirección externas permitidas**, introduzca `url_scheme_of_your_app://easyauth.callback`.  El valor de **url_scheme_of_your_app** de esta cadena es el esquema de dirección URL para la aplicación móvil.  Debe seguir la especificación normal de las direcciones URL para un protocolo (usar únicamente letras y números, y comenzar por una letra).  Debe tomar nota de la cadena que elija ya que necesitará ajustar el código de la aplicación móvil con el esquema de direcciones URL en varios sitios.
+
+4. Haga clic en **Aceptar**.
+
+5. Haga clic en **Save**.
 
 ## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -52,7 +66,7 @@ La aplicación se actualiza para requerir a los usuarios que pulsen el botón **
                 {
                     // Sign in with Facebook login using a server-managed flow.
                     user = await client.LoginAsync(this,
-                        MobileServiceAuthenticationProvider.Facebook);
+                        MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                     CreateAndShowDialog(string.Format("you are now logged in - {0}",
                         user.UserId), "Logged in!");
    
@@ -99,10 +113,18 @@ La aplicación se actualiza para requerir a los usuarios que pulsen el botón **
 4. Agregue el siguiente elemento al archivo de recursos Strings.xml:
    
         <string name="login_button_text">Sign in</string>
-5. En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o emulador, e inicie sesión con el proveedor de identidades elegido.
-   
-       When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
+5. Abra el archivo AndroidManifest.xml, agregue el código siguiente dentro del elemento XML `<application>`:
+
+        <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
+          <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
+          </intent-filter>
+        </activity>
+
+6. En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o emulador, e inicie sesión con el proveedor de identidades elegido. Una vez iniciada la sesión correctamente, la aplicación mostrará el identificador de inicio de sesión y la lista de tareas pendientes, y podrá realizar actualizaciones en los datos.
 
 <!-- URLs. -->
 [Creación de una aplicación Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
-

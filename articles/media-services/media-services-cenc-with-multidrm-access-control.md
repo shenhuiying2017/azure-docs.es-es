@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: 1ea286a04c84d031fcefa8dc771cbdef9d8a9b72
-ms.lasthandoff: 02/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 527d011476b046add0842b1c7275fc6507be31d4
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC con varios DRM y control de acceso: diseño e implementación de referencia en Azure y Servicios multimedia de Azure
@@ -57,7 +57,7 @@ En la tabla siguiente se resume la aplicación o plataforma nativa y los explora
 | --- | --- | --- | --- |
 | **Televisores inteligentes, operador STB, OTT STB** |PlayReady principalmente o Widevine u otros |Linux, Opera y WebKit, otros |Varios formatos |
 | **Dispositivos Windows 10 (Windows PC, tabletas de Windows, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH (no se admite PlayReady para HLS)<br/><br/>DASH, Smooth Streaming (no se admite PlayReady para HLS) |
-| **Dispositivos Android (teléfono, tableta, TV)** |Widevine |Chrome/EME |DASH |
+| **Dispositivos Android (teléfono, tableta, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), clientes de OS X y Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
 
@@ -118,7 +118,7 @@ Antes de pasar al tema siguiente, algunas palabras sobre el diseño de la admini
 | --- | --- |
 | 1-1 |El caso más simple. Proporciona el control más específico. Sin embargo, el resultado es generalmente un costo más alto en la entrega de licencias. Se requiere al menos una solicitud de licencia para cada activo protegido. |
 | 1 a muchos |Puede utilizar la misma clave de contenido para varios activos. Por ejemplo, para todos los activos de un grupo lógico, como un género o un subconjunto del género (o género de película), podría utilizar una única clave de contenido. |
-| Muchos a&1; |Se necesitan varias claves de contenido para cada activo. <br/><br/>Por ejemplo, si tiene que aplicar protección CENC dinámica con varios DRM para MPEG-DASH y cifrado AES-128 para HLS, necesitará dos claves de contenido distintas, cada una con su propio valor de ContentKeyType. (Para la clave de contenido que se usa en la protección CENC dinámica, se debe utilizar ContentKeyType.CommonEncryption, mientras que para la clave de contenido que se usa en el cifrado AES-128 dinámico, se debe utilizar ContentKeyType.EnvelopeEncryption).<br/><br/>Otro ejemplo: en la protección CENC de contenido DASH, en teoría, se puede usar una clave de contenido para proteger la transmisión de vídeo y otra para proteger la transmisión de audio. |
+| Muchos a 1 |Se necesitan varias claves de contenido para cada activo. <br/><br/>Por ejemplo, si tiene que aplicar protección CENC dinámica con varios DRM para MPEG-DASH y cifrado AES-128 para HLS, necesitará dos claves de contenido distintas, cada una con su propio valor de ContentKeyType. (Para la clave de contenido que se usa en la protección CENC dinámica, se debe utilizar ContentKeyType.CommonEncryption, mientras que para la clave de contenido que se usa en el cifrado AES-128 dinámico, se debe utilizar ContentKeyType.EnvelopeEncryption).<br/><br/>Otro ejemplo: en la protección CENC de contenido DASH, en teoría, se puede usar una clave de contenido para proteger la transmisión de vídeo y otra para proteger la transmisión de audio. |
 | Muchos a muchos |Combinación de los dos escenarios anteriores: se utiliza un conjunto de claves de contenido para cada uno de los diversos activos del mismo "grupo" de activos. |
 
 Otro factor importante a tener en cuenta es el uso de licencias persistentes y no persistentes.
@@ -227,10 +227,10 @@ Existen algunas dificultades en la implementación. Por fortuna, la siguiente li
 
     En [JWT Decoder](http://jwt.calebb.net/), debería ver **aud** y **iss**, como se muestra a continuación en el token de JWT:
 
-    ![Problema&1;](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
+    ![Problema 1](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 2. Agregue permisos a la aplicación en AAD (en la pestaña Configurar de la aplicación). Este paso es necesario para cada aplicación (las versiones local e implementada).
 
-    ![Problema&2;](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
+    ![Problema 2](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
 3. Utilice el emisor correcto en la configuración de la protección CENC dinámica:
 
         <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
@@ -274,7 +274,7 @@ Azure AD utiliza el estándar del sector para establecer la confianza entre sí 
 
 Puede encontrar información detallada sobre la sustitución de claves de Azure AD en el documento: [Información importante acerca de la sustitución de la clave de firma en Azure AD](../active-directory/active-directory-signing-key-rollover.md).
 
-Entre el [par de claves pública y privada](https://login.windows.net/common/discovery/keys/):
+Entre el [par de claves pública y privada](https://login.microsoftonline.com/common/discovery/keys/):
 
 * Azure Active Directory utiliza la clave privada para generar un token de JWT.
 * La clave pública se utiliza en una aplicación, como Servicios de entrega de licencias de DRM en AMS, para comprobar el token de JWT.
@@ -438,7 +438,7 @@ Caso de uso de clave simétrica (con Chrome):
 
 ![Ejecución del STS personalizado](./media/media-services-cenc-with-multidrm-access-control/media-services-running-sts1.png)
 
-El caso de uso de una clave asimétrica mediante un certificado X&509; (con el explorador moderno de Microsoft).
+El caso de uso de una clave asimétrica mediante un certificado X 509 (con el explorador moderno de Microsoft).
 
 ![Ejecución del STS personalizado](./media/media-services-cenc-with-multidrm-access-control/media-services-running-sts2.png)
 
@@ -457,3 +457,4 @@ En este documento, hemos examinado el CENC con varios DRM nativos y el control d
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
+

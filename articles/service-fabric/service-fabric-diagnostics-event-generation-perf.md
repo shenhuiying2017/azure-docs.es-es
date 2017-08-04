@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: ac019d5393e9e9b7edb7960aa50edd5af3b49ebc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -32,12 +32,6 @@ Para las máquinas del clúster, considere la posibilidad de recopilar los sigui
 
 | Categoría de contador | Nombre del contador |
 | --- | --- |
-| Disco físico (total) | Prom. Longitud de la cola de lectura de disco |
-| Disco físico (total) | Prom. Longitud de la cola de escritura de disco |
-| Disco físico (total) | Lecturas de disco/s  |
-| Disco físico (total) | Bytes de lectura de disco/s  |
-| Disco físico (total) | Escrituras en disco/s |
-| Disco físico (total) |  Bytes de escritura en disco/s |
 | Disco físico (por disco) | Prom. Longitud de la cola de lectura de disco |
 | Disco físico (por disco) | Prom. Longitud de la cola de escritura de disco |
 | Disco físico (por disco) | Prom. Segundos de disco/lecturas |
@@ -85,6 +79,6 @@ Si usa Reliable Collections, se recomienda agregar `Avg. Transaction ms/Commit` 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre [la generación de eventos en el nivel de infraestructura](service-fabric-diagnostics-event-generation-infra.md) en Service Fabric
+* Aprenda más sobre la [generación de eventos en el nivel de plataforma ](service-fabric-diagnostics-event-generation-infra.md) en Service Fabric.
 * Recopile las métricas de rendimiento mediante [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)
 

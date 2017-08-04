@@ -13,16 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 8793744f63388c5df04a167585d5f7b99ec7acee
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fe769fb433d65374109fec60c6c6d032b1ad97fb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
-
 
 Inserte unas cuantas líneas de código en la aplicación para averiguar qué uso hacen de ella los usuarios o para ayudarle a diagnosticar problemas. Puede enviar datos de telemetría desde aplicaciones de escritorio y de dispositivo y desde clientes y servidores web. Use la API de telemetría principal de [Azure Application Insights](app-insights-overview.md) para enviar métricas y eventos personalizados, así como sus propias versiones de telemetría estándar. Esta API es la misma que usan los recopiladores de datos estándar de Application Insights.
 
@@ -42,7 +40,7 @@ La API es uniforme en todas las plataformas, excepto por algunas pequeñas varia
 Puede [adjuntar propiedades y métricas](#properties) a la mayoría de estas llamadas de telemetría.
 
 ## <a name="prep"></a>Antes de comenzar
-Si no ha hecho esto aún:
+Si aún no tiene una referencia en el SDK de Application Insights:
 
 * Agregue el SDK de Application Insights a su proyecto:
 
@@ -58,7 +56,7 @@ Si no ha hecho esto aún:
     *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
 ## <a name="constructing-a-telemetryclient-instance"></a>Construcción de una instancia de TelemetryClient
-Construcción de una instancia de TelemetryClient (excepto en JavaScript en páginas web):
+Construcción de una instancia de `TelemetryClient` (excepto en JavaScript en páginas web):
 
 *C#*
 
@@ -79,7 +77,7 @@ Se recomienda que use una instancia de TelemetryClient para cada módulo de la a
 ## <a name="trackevent"></a>TrackEvent
 En Application Insights, un *evento personalizado* es un punto de datos que se puede mostrar en el [Explorador de métricas](app-insights-metrics-explorer.md) como recuento agregado, y como repeticiones individuales en [Búsqueda de diagnóstico](app-insights-diagnostic-search.md). (No está relacionado con MVC ni con "eventos" de otro marco).
 
-Inserte llamadas a TrackEvent en el código para contabilizar la frecuencia con la que los usuarios utilizan una determinada característica, la frecuencia con la que logran unos determinados objetivos o la frecuencia con la que cometen determinados tipos de errores.
+Inserte llamadas a `TrackEvent` en el código para contabilizar diversos eventos: la frecuencia con la que los usuarios eligen una determinada característica, con la que logran unos determinados objetivos o con la que cometen determinados tipos de errores.
 
 Por ejemplo, en una aplicación de juego, envíe un evento cada vez que un usuario gane el juego:
 
@@ -99,8 +97,7 @@ Por ejemplo, en una aplicación de juego, envíe un evento cada vez que un usuar
 
     telemetry.trackEvent("WinGame");
 
-
-### <a name="view-your-events-in-the-azure-portal"></a>Visualización de eventos en Azure Portal
+### <a name="view-your-events-in-the-microsoft-azure-portal"></a>Visualización de eventos en Microsoft Azure Portal
 Para ver un recuento de los eventos, abra una hoja [Explorador de métricas](app-insights-metrics-explorer.md), agregue un nuevo gráfico y seleccione **Eventos**.  
 
 ![Visualización de un recuento de eventos personalizados](./media/app-insights-api-custom-events-metrics/01-custom.png)
@@ -109,7 +106,7 @@ Para comparar los recuentos de eventos diferentes, establezca el tipo de gráfic
 
 ![Establecimiento del tipo de gráfico y agrupación](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
-En la cuadrícula, haga clic en un nombre de evento para ver todas las repeticiones individuales de ese evento. Haga clic en cualquier repetición para ver más información.
+En la cuadrícula, haga clic en un nombre de evento para ver todas las repeticiones individuales de ese evento. Para más información, haga clic en cualquier elemento de la lista.
 
 ![Obtenga detalles de los eventos.](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
@@ -121,7 +118,7 @@ Para centrarse en eventos concretos de la Búsqueda o el Explorador de métricas
 
 La telemetría está disponible en la tabla `customEvents` de [Analytics de Application Insights](app-insights-analytics.md). Cada fila representa una llamada a `trackEvent(..)` en la aplicación. 
 
-Si el [muestreo](app-insights-sampling.md) está en uso, en la propiedad de itemCount se mostrará un valor superior a 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackEvent(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de eventos personalizados, debería usar código como `customEvent | summarize sum(itemCount)`.
+Si el [muestreo](app-insights-sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackEvent(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de eventos personalizados, debería usar código como `customEvent | summarize sum(itemCount)`.
 
 
 ## <a name="trackmetric"></a>TrackMetric
@@ -130,7 +127,7 @@ Application Insights puede crear gráficos de métricas que no estén conectadas
 
 Para enviar las métricas a Application Insights, puede usar la API `TrackMetric(..)`. Hay dos formas de enviar una métrica: 
 
-* Valor único. Cada vez que realiza una medición en la aplicación, envía el valor correspondiente a Application Insights. Por ejemplo, suponga que cuenta con una métrica que describe el número de elementos de un contenedor. Durante un período determinado, primero coloca 3 elementos en el contenedor y seguidamente retira 2 de ellos. En consecuencia, llamaría a `TrackMetric` dos veces: la primera, para pasar el valor `3` y a continuación el valor `-2`. Application Insights almacenará ambos valores en su nombre. 
+* Valor único. Cada vez que realiza una medición en la aplicación, envía el valor correspondiente a Application Insights. Por ejemplo, suponga que cuenta con una métrica que describe el número de elementos de un contenedor. Durante un período determinado, primero coloca tres elementos en el contenedor y seguidamente retira dos. En consecuencia, llamaría a `TrackMetric` dos veces: la primera, para pasar el valor `3` y a continuación el valor `-2`. Application Insights almacena ambos valores en su nombre. 
 
 * Agregación. Al trabajar con métricas, las mediciones individuales pocas veces resultan de interés. En su lugar, lo importante son los resúmenes de acontecimientos durante un período determinado. Los resúmenes de este tipo se denominan _agregaciones_. En el ejemplo anterior, la suma de las métricas agregadas del período correspondiente es de `1` y el recuento de los valores de las métricas es de `2`. Al usar el método de agregación, solo invocará `TrackMetric` una vez por período y enviará los valores agregados. Este es el método que se recomienda usar, ya que puede reducir significativamente los costos y la sobrecarga de rendimiento gracias a que envía menos puntos de datos a Application Insights, a pesar de seguir recopilado toda la información pertinente.
 
@@ -405,21 +402,20 @@ La manera más fácil de establecer el identificador es definir un contexto de o
 *C#*
 
 ```C#
+// Establish an operation context and associated telemetry item:
+using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+{
+    // Telemetry sent in here will use the same operation ID.
+    ...
+    telemetry.TrackTrace(...); // or other Track* calls
+    ...
+    // Set properties of containing telemetry item--for example:
+    operation.Telemetry.ResponseCode = "200";
 
-    // Establish an operation context and associated telemetry item:
-    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
-    {
-        // Telemetry sent in here will use the same operation ID.
-        ...
-        telemetry.TrackEvent(...); // or other Track* calls
-        ...
-        // Set properties of containing telemetry item--for example:
-        operation.Telemetry.ResponseCode = "200";
+    // Optional: explicitly send telemetry item:
+    telemetry.StopOperation(operation);
 
-        // Optional: explicitly send telemetry item:
-        telemetry.StopOperation(operation);
-
-    } // When operation is disposed, telemetry item is sent.
+} // When operation is disposed, telemetry item is sent.
 ```
 
 Junto con la configuración de un contexto de la operación, `StartOperation` crea un elemento de telemetría del tipo que especifique. Envía el elemento de telemetría al eliminar la operación, o si llama explícitamente a `StopOperation`. Si usa `RequestTelemetry` como tipo de telemetría, su duración se establece en el intervalo cronometrado entre el inicio y la detención.
@@ -429,6 +425,8 @@ Los contextos de operación no pueden estar anidados. Si ya existe un contexto d
 En la Búsqueda, el contexto de la operación se utiliza para crear la lista de **Elementos relacionados**:
 
 ![Elementos relacionados](./media/app-insights-api-custom-events-metrics/21.png)
+
+Consulte [application-insights-custom-operations-tracking.md.md] para más información sobre el seguimiento de las operaciones personalizadas.
 
 ### <a name="requests-in-analytics"></a>Solicitudes en Analytics 
 
@@ -488,13 +486,13 @@ Los SDK capturan muchas excepciones automáticamente, por lo que no siempre es n
 
 En [Analytics de Application Insights](app-insights-analytics.md), las excepciones aparecen en la tabla `exceptions`.
 
-Si el [muestreo](app-insights-sampling.md) está en uso, en la propiedad de itemCount se mostrará un valor superior a 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackException(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de excepciones segmentadas por tipo de excepción, use código como el siguiente:
+Si el [muestreo](app-insights-sampling.md) está en uso, en la propiedad `itemCount` se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackException(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de excepciones segmentadas por tipo de excepción, use código como el siguiente:
 
 ```
 exceptions | summarize sum(itemCount) by type
 ```
 
-La mayor parte de la información importante sobre pilas ya se extrajo en variables independientes, pero puede apartar la estructura "details" para obtener más. Puesto que se trata de una estructura dinámica, debería convertir el resultado al tipo que espere. Por ejemplo:
+La mayor parte de la información importante sobre pilas ya se extrajo en variables independientes, pero puede desmontar la estructura `details` para obtener más. Puesto que se trata de una estructura dinámica, debería convertir el resultado al tipo que espere. Por ejemplo:
 
 ```AIQL
 exceptions
@@ -537,25 +535,24 @@ En [Búsqueda](app-insights-diagnostic-search.md), puede filtrar fácilmente tod
 
 En [Analytics de Application Insights](app-insights-analytics.md), las llamadas a TrackTrace aparecen en la tabla `traces`.
 
-Si el [muestreo](app-insights-sampling.md) está en uso, en la propiedad de itemCount se mostrará un valor superior a 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackTrace(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de llamadas de seguimiento, debería usar código como `traces | summarize sum(itemCount)`.
+Si el [muestreo](app-insights-sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a `trackTrace()`, el proceso de muestreo solo transmite una. Para obtener un recuento correcto de llamadas de seguimiento, debería codificar por tanto como `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
 Utilice la llamada de TrackDependency para realizar un seguimiento de los tiempos de respuesta y las tasas de éxito de las llamadas a un fragmento de código externo. Los resultados se muestran en los gráficos de dependencia del portal.
 
 ```C#
-
-            var success = false;
-            var startTime = DateTime.UtcNow;
-            var timer = System.Diagnostics.Stopwatch.StartNew();
-            try
-            {
-                success = dependency.Call();
-            }
-            finally
-            {
-                timer.Stop();
-                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
-            }
+var success = false;
+var startTime = DateTime.UtcNow;
+var timer = System.Diagnostics.Stopwatch.StartNew();
+try
+{
+    success = dependency.Call();
+}
+finally
+{
+    timer.Stop();
+    telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+}
 ```
 
 Recuerde que los SDK del servidor incluyen un [módulo de dependencia](app-insights-asp-net-dependencies.md) que detecta y realiza automáticamente el seguimiento de ciertas llamadas de dependencia; por ejemplo, a bases de datos y API de REST. Debe instalar un agente en el servidor para que el módulo funcione. Utilizará esta llamada si desea hacer un seguimiento de las llamadas no captadas por el seguimiento automatizado, o bien si no desea instalar el agente.
@@ -566,7 +563,7 @@ Para desactivar el módulo de seguimiento de dependencias estándar, edite [Appl
 
 En [Analytics de Application Insights](app-insights-analytics.md), las llamadas de trackDependency aparecen en la tabla `dependencies`.
 
-Si el [muestreo](app-insights-sampling.md) está en uso, en la propiedad de itemCount se mostrará un valor superior a 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackDependency(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de dependencias segmentadas por componente de destino, use código como el siguiente:
+Si el [muestreo](app-insights-sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackDependency(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de dependencias segmentadas por componente de destino, use código como el siguiente:
 
 ```
 dependencies | summarize sum(itemCount) by target
@@ -599,12 +596,12 @@ Si los usuarios inician sesión en su aplicación, puede obtener un recuento má
 *JavaScript*
 
 ```JS
-    // Called when my app has identified the user.
-    function Authenticated(signInId) {
-      var validatedId = signInId.replace(/[,;=| ]+/g, "_");
-      appInsights.setAuthenticatedUserContext(validatedId);
-      ...
-    }
+// Called when my app has identified the user.
+function Authenticated(signInId) {
+    var validatedId = signInId.replace(/[,;=| ]+/g, "_");
+    appInsights.setAuthenticatedUserContext(validatedId);
+    ...
+}
 ```
 
 En una aplicación MVC web de ASP.NET, por ejemplo:
@@ -622,7 +619,7 @@ En una aplicación MVC web de ASP.NET, por ejemplo:
 
 No es necesario usar el nombre de inicio de sesión real del usuario. Solo tiene que ser un identificador único para ese usuario. No debe incluir espacios ni ninguno de los caracteres `,;=|`.
 
-El identificador de usuario también se establece en una cookie de sesión y se envía al servidor. Si está instalado el SDK del servidor, el identificador de usuario autenticado se enviará como parte de las propiedades de contexto tanto de la telemetría del cliente como del servidor, para que pueda filtrar y buscar en ella. A continuación, puede filtrar y buscar en ella.
+El identificador de usuario también se establece en una cookie de sesión y se envía al servidor. Si está instalado el SDK del servidor, el identificador de usuario autenticado se envía como parte de las propiedades de contexto tanto de la telemetría del cliente como del servidor. A continuación, puede filtrar y buscar en ella.
 
 Si su aplicación agrupa a los usuarios en cuentas, también puede pasar un identificador de la cuenta (con las mismas restricciones de caracteres).
 
@@ -753,7 +750,7 @@ Si le resulta más cómodo, puede recopilar los parámetros de un evento en un o
 
 En [Analytics](app-insights-analytics.md), las métricas y propiedades personalizadas aparecen en los atributos `customMeasurements` y `customDimensions` de cada registro de telemetría.
 
-Por ejemplo, si agregó una propiedad llamada "game" a la telemetría de solicitudes, esta consulta contará el número de ocurrencias de diferentes valores de "game" y mostrará la media de la métrica personalizada "score":
+Por ejemplo, si agregó una propiedad llamada "game" a la telemetría de solicitudes, esta consulta cuenta el número de apariciones de diferentes valores de "game" y muestra la media de la métrica personalizada "score":
 
 ```
 requests
@@ -920,12 +917,12 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 
 * **Component**: la aplicación y su versión
 * **Device**: datos sobre el dispositivo donde se ejecuta la aplicación. (En aplicaciones web, se trata del servidor o el dispositivo de cliente desde el que se envía la telemetría).
-* **InstrumentationKey**: el recurso de Application Insights en Azure donde aparecerá la telemetría. Normalmente, se selecciona de ApplicationInsights.config.
+* **InstrumentationKey**: el recurso de Application Insights en Azure donde aparece la telemetría. Normalmente, se selecciona de ApplicationInsights.config.
 * **Location**: la ubicación geográfica del dispositivo.
 * **Operation**: en aplicaciones web, es la solicitud HTTP actual. En otros tipos de aplicaciones, puede establecer este valor para agrupar los eventos juntos.
   * **Id**: valor generado que correlaciona distintos eventos, de modo que cuando usted inspeccione cualquier evento en Búsqueda de diagnóstico, puede encontrar elementos relacionados.
   * **Name**: un identificador, generalmente la dirección URL de la solicitud HTTP.
-  * **SyntheticSource**: si no es un valor nulo ni está vacío, esta cadena indica que el origen de la solicitud se ha identificado como un robot o una prueba web. De forma predeterminada se excluirá de cálculos en el Explorador de métricas.
+  * **SyntheticSource**: si no es un valor nulo ni está vacío, esta cadena indica que el origen de la solicitud se ha identificado como un robot o una prueba web. De forma predeterminada, se excluye de cálculos en el Explorador de métricas.
 * **Properties**: propiedades que se envían con todos los datos de telemetría. Se pueden invalidar en llamadas de seguimiento* individuales.
 * **Session**: la sesión del usuario. El identificador se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
 * **User**: información del usuario.

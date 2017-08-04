@@ -5,21 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2017
+ms.date: 07/13/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 06daecfe8cd61cbb3ab9d2307acb07e30270d921
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 68213a40755ae7dc675556c595da032b408be261
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introducción al control de acceso basado en roles en Azure Portal
@@ -48,7 +47,7 @@ El resto de los roles RBAC de Azure permiten la administración de recursos espe
 [Roles RBAC integrados](role-based-access-built-in-roles.md) muestra los roles disponibles en Azure. Especifica las operaciones y el ámbito de cada rol integrado que se concede a los usuarios. Si quiere definir sus propios roles para tener un mayor control, consulte [Custom Roles in Azure RBAC](role-based-access-control-custom-roles.md)(Roles personalizados en RBAC de Azure).
 
 ## <a name="resource-hierarchy-and-access-inheritance"></a>Jerarquía de recursos de Azure y herencia de acceso
-* Cada **suscripción** de Azure pertenece a un único directorio.
+* Cada **suscripción** de Azure pertenece a un único directorio. (Pero cada directorio puede tener más de una suscripción).
 * Cada **grupo de recursos** pertenece a una única suscripción.
 * Cada **recurso** pertenece a un único grupo de recursos.
 

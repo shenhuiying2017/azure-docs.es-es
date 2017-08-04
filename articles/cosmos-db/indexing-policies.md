@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 6d5a5814977d05fbe7be52dcb482a622de1c2ef6
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0beae16534b8efa7a23be6d2b61f1f1257317bd7
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
@@ -161,7 +160,7 @@ Ahora que hemos echado un vistazo a cómo especificar las rutas de acceso, echem
 
 * Tipo de datos: **Cadena**, **Número** o **Punto**, **Polígono** o **LineString** (solo puede contener una entrada por tipo de datos y ruta de acceso).
 * Variante de índice: **Hash** (consultas de igualdad), **Intervalo** (consultas de igualdad, de intervalo o por Order By), o **Espacial** (consultas espaciales) 
-* Precisión: 1-8 o -1 (precisión máxima) para números, 1-100 (precisión máxima) para cadenas
+* Precisión: para el índice de hash esto varía de 1 a 8, tanto para cadenas como para números (valor predeterminado: 3). Para el índice de intervalo, este valor puede ser -1 (precisión mínima) y, para valores numéricos o de cadena, variar entre 1 y 100 (precisión máxima).
 
 #### <a name="index-kind"></a>Tipo de índice
 Azure Cosmos DB admite los tipos de índice Hash e Intervalo para cada ruta de acceso (que puede configurar para las cadenas, números o ambos).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 179cac8856cd42cfad4a4d4aaa6301afb2c58329
-ms.openlocfilehash: 6d802148cec5b12004d1d374485f56af8eae64f8
-ms.lasthandoff: 12/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 303d7b06d259bc42c8093fb20a0e4a55410e28f5
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Movimiento de datos desde o hacia Azure Blob Storage con conectores SSIS
@@ -82,10 +82,10 @@ A continuación, se describen los parámetros que usa la tarea:
 > 
 
 ## <a name="download-data-from-azure-blob-storage"></a>Cargar datos desde el almacenamiento de blobs de Azure
-Para descargar datos desde el almacenamiento de blobs de Azure a un almacenamiento local con SSIS, use una instancia de la [tarea de carga de blobs de Azure](https://msdn.microsoft.com/library/mt146779.aspx).
+Para descargar datos desde Azure Blob Storage a un almacenamiento local con SSIS, use una instancia de [Azure Blob Upload Task](https://msdn.microsoft.com/library/mt146779.aspx) (Tarea de carga de Azure Blob).
 
 ## <a name="more-advanced-ssis-azure-scenarios"></a>Escenarios de SSIS-Azure más avanzados
-El Feature Pack de SSIS permite administrar flujos más complejos al empaquetar juntas las tareas. Por ejemplo, los datos de blobs se podrían ingresar directamente en un clúster de HDInsight cuyo resultado se podría descargar nuevamente a un blob y, luego, a un almacenamiento local. SSIS puede ejecutar trabajos de Hive y Pig en un clúster de HDInsight, mediante el uso de conectores SSIS adicionales:
+El Feature Pack de SSIS permite administrar flujos más complejos al empaquetar juntas las tareas. Por ejemplo, los datos de blobs se podrían ingresar directamente en un clúster de HDInsight cuya salida se podría descargar nuevamente a un blob y, luego, a un almacenamiento local. SSIS puede ejecutar trabajos de Hive y Pig en un clúster de HDInsight, mediante el uso de conectores SSIS adicionales:
 
 * Para ejecutar un script de Hive en un clúster de HDInsight de Azure con SSIS, use [Tarea de Hive para HDInsight de Azure](https://msdn.microsoft.com/library/mt146771.aspx).
 * Para ejecutar un script de Pig en un clúster de HDInsight de Azure con SSIS, use [Tarea de Pig para HDInsight de Azure](https://msdn.microsoft.com/library/mt146781.aspx).

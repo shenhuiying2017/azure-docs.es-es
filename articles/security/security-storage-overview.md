@@ -1,6 +1,6 @@
 ---
 title: "Características de seguridad que se pueden usar con Azure Storage | Microsoft Docs"
-description: " Este artículo ofrece una visión general de las principales características de seguridad de Azure que se pueden usar con Azure Storage.. "
+description: " Este artículo ofrece una visión general de las principales características de seguridad de Azure que se pueden usar con Almacenamiento de Azure. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 2db6effdaf2e23d00eefdde82d074dd5d47857d7
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1386d16cf0e7f6fd324d0779e9ad54ecd88b3166
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Información general sobre seguridad de Almacenamiento de Azure
@@ -55,14 +56,14 @@ Una Firma de acceso compartido (SAS) ofrece acceso delegado a los recursos en la
 
 Más información:
 
-* [Firmas de acceso compartido, Parte&1;: Descripción del modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Firmas de acceso compartido, Parte&2;: Creación y uso de una SAS con Almacenamiento de blobs](../storage/storage-dotnet-shared-access-signature-part-2.md)
+* [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../storage/storage-dotnet-shared-access-signature-part-1.md)
+* [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](../storage/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>Cifrado en tránsito
 Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a través de redes. Con Almacenamiento de Azure, puede proteger los datos mediante:
 
 * [Cifrado de nivel de transporte](../storage/storage-security-guide.md#encryption-in-transit), como HTTPS para transferir datos a Almacenamiento de Azure o desde este servicio.
-* [Cifrado de conexión](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como el cifrado SMB 3.0 para recursos compartidos de archivos de Azure.
+* [Cifrado en el cable](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como el cifrado SMB 3.0 para recursos compartidos de Azure File.
 * [Cifrado de cliente](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), para cifrar los datos antes de transferirlos al almacenamiento y descifrarlos una vez transferidos desde este servicio.
 
 Más información acerca del cifrado de cliente:
@@ -98,9 +99,4 @@ Más información:
 
 * [¿Qué es el Almacén de claves de Azure?](../key-vault/key-vault-whatis.md)
 * [Introducción al Almacén de claves de Azure](../key-vault/key-vault-get-started.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

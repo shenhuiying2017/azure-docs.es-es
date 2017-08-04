@@ -1,6 +1,6 @@
 ---
-title: "Uso de los métodos directos de IoT Hub de Azure (.NET y Node) | Microsoft Docs"
-description: "Describe cómo usar los métodos directos de IoT Hub de Azure. Usará el SDK de dispositivo IoT de Azure para Node.js con el fin de implementar una aplicación de dispositivo simulado que incluye un método directo, además del SDK de servicio IoT de Azure para .NET con el objetivo de implementar una aplicación de servicio que invoque el método directo."
+title: "Uso de métodos directos de Azure IoT Hub (Java) | Microsoft Docs"
+description: "Describe cómo usar los métodos directos de IoT Hub de Azure. Usará el SDK de dispositivo IoT de Azure para Java con el fin de implementar una aplicación de dispositivo simulado que incluye un método directo, además del SDK de servicio IoT de Azure para Java con el objetivo de implementar una aplicación de servicio que invoque el método directo."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: fe804cc01925cee58a1d694bdb94b85a8f994cef
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3be5b442b357523449850e0a179eab93634e7b7b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-direct-methods-java"></a>Uso de métodos directos (Java)
@@ -48,7 +47,7 @@ Para completar este tutorial, necesita:
 
 En esta sección, creará una aplicación de consola de Java que responda a un método llamado por el back-end de solución.
 
-1. Cree una carpeta vacía llamada iot-java-direct-method. En la carpeta iot-java-direct-method, cree un proyecto de Maven denominado **simulated-device** mediante el comando siguiente en el símbolo del sistema. Observe que este es un comando único y largo:
+1. Cree una carpeta vacía llamada iot-java-direct-method.
 
 1. En la carpeta iot-java-direct-method, cree un proyecto de Maven denominado **simulated-device** mediante el comando siguiente en el símbolo del sistema. Observe que este es un comando único y largo:
 

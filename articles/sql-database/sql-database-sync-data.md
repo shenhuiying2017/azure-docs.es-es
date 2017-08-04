@@ -4,7 +4,7 @@ description: "Se trata de una introducción a Azure SQL Data Sync (versión prel
 services: sql-database
 documentationcenter: 
 author: douglaslms
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 075b5563688158289d51f2f0b5da4a3441ddd13a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 94c8160464cd7355ac0e0733801d0b06fcdfab7c
 ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
@@ -29,7 +28,7 @@ SQL Data Sync es un servicio basado en Azure SQL Database que permite sincroniza
 
 Data Sync se basa en el concepto de un grupo de sincronización. Un grupo de sincronización es un grupo de bases de datos que desea sincronizar.
 
-Un grupo de sincronización tiene varias propiedades, incluidas las siguientes:
+Un grupo de sincronización tiene las siguientes propiedades:
 
 -   En el **esquema de sincronización** se describen qué datos se están sincronizando.
 
@@ -39,7 +38,7 @@ Un grupo de sincronización tiene varias propiedades, incluidas las siguientes:
 
 -   El **directiva de resolución de conflictos** es una directiva de nivel de grupo, que puede ser *Prevalece la base de datos central* o *Prevalece el cliente*.
 
-Data Sync usa una topología de concentrador y radio para sincronizar los datos. Debe definir una de las bases de datos del grupo como la base de datos central. El resto de las bases de datos son bases de datos miembro. La sincronización solo se produce entre la base de datos central y los clientes individuales.
+Data Sync usa una topología de concentrador y radio para sincronizar los datos. Defina una de las bases de datos del grupo como base de datos central. El resto de las bases de datos son bases de datos miembro. La sincronización solo se produce entre la base de datos central y los clientes individuales.
 -   La **base de datos central** debe ser una instancia de Azure SQL Database.
 -   Las **bases de datos miembro** pueden ser bases de datos SQL, bases de datos de SQL Server locales o instancias de SQL Server en Azure Virtual Machines.
 -   La **base de datos de sincronización** contiene los metadatos y el registro para Data Sync. La base de datos de sincronización tiene que ser una instancia de Azure SQL Database ubicada en la misma región que la base de datos central. La base de datos la crea el propio cliente y es de su propiedad.
@@ -82,7 +81,7 @@ No se recomienda Data Sync en los siguientes escenarios:
 ## <a name="limitations-and-considerations"></a>Limitaciones y consideraciones
 
 ### <a name="performance-impact"></a>Impacto en el rendimiento
-Data Sync usa desencadenadores de inserción, actualización y eliminación para realizar un seguimiento de los cambios. Crea tablas en la base de datos de usuario. Estas actividades repercuten en la carga de trabajo de la base de datos, por lo que debe evaluar el servicio y actualizarlo, si procede.
+Data Sync usa desencadenadores de inserción, actualización y eliminación para realizar un seguimiento de los cambios. Crea tablas laterales en la base de datos de usuario para hacer un seguimiento de los cambios. Estas actividades de seguimiento de cambios afectan a la carga de trabajo de la base de datos. Evalúe el nivel de servicio y realice la actualización si fuera necesario.
 
 ### <a name="eventual-consistency"></a>Coherencia final
 Como Data Sync se basa en desencadenadores, la coherencia transaccional no está garantizada. Microsoft garantiza que todos los cambios se realicen finalmente y que Data Sync no ocasione pérdida de datos.
@@ -101,9 +100,9 @@ Como Data Sync se basa en desencadenadores, la coherencia transaccional no está
 
 -   Cada tabla debe tener una clave principal.
 
--   Una tabla no puede tener columnas de identidad que no sean la clave principal.
+-   Una tabla no puede tener una columna de identidad que no sea la clave principal.
 
--   El nombre de la base de datos no puede contener caracteres especiales.
+-   Los nombres de objetos (bases de datos, tablas y columnas) no pueden contener los caracteres imprimibles punto (.), corchete de apertura ([) o corchete de cierre (]).
 
 ### <a name="limitations-on-service-and-database-dimensions"></a>Limitaciones de las dimensiones de la base de datos y del servicio
 
@@ -119,6 +118,29 @@ Como Data Sync se basa en desencadenadores, la coherencia transaccional no está
 | Tamaño de la fila de datos en una tabla                                        | 24 Mb                  |                             |
 | Intervalo de sincronización mínimo                                           | 5 minutos              |                             |
 
+## <a name="common-questions"></a>Preguntas frecuentes
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>¿Con qué frecuencia puede sincronizar mis datos 
+Data Sync? 
+La frecuencia mínima es cada cinco minutos.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>¿Puedo usar Data Sync para realizar la sincronización solo bases de datos locales de SQL Server? 
+No directamente. Sin embargo, es posible realizar una sincronización indirecta entre bases de datos locales de SQL Server, mediante la creación de una base de datos central en Azure y la posterior incorporación de bases de datos locales al grupo de sincronización.
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>¿Puedo usar Data Sync para propagar datos de mi base de datos de producción a una base de datos vacía y, después, mantenerlos sincronizados? 
+Sí. Cree el esquema manualmente en la base de datos nueva mediante la generación de scripts del original. Después de crear el esquema, agregue las tablas a un grupo de sincronización para copiar los datos y mantenerlos sincronizados.
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>¿Por qué veo tablas que no he creado?  
+Data Sync crea tablas laterales en su base de datos para hacer un seguimiento de los cambios. No las elimine, ya que Data Sync dejaría de funcionar.
+   
+### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>He recibido el mensaje de error "No se puede insertar el valor NULL en la columna \<columna\>. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir el error? 
+Este mensaje de error indica que uno de los dos problemas siguientes:
+1.  Puede haber una tabla sin una clave principal. Para corregir este problema, agregue una clave principal a todas las tablas que va a sincronizar.
+2.  Puede haber una cláusula WHERE en la instrucción CREATE INDEX. La sincronización no controla esta condición. Para solucionar este problema, quite la cláusula WHERE o realice los cambios manualmente en todas las bases de datos. 
+ 
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>¿Cómo trata Data Sync las referencias circulares? En otras palabras, ¿cuándo se sincronizan los mismos datos en varios grupos de sincronización y sigue cambiando como resultado?
+Data Sync no controla las referencias circulares, así que asegúrese de no usarlas. 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre SQL Database y SQL Data Sync, vea:
@@ -132,6 +154,4 @@ Para obtener más información sobre SQL Database y SQL Data Sync, vea:
 -   [Información general de Base de datos SQL](sql-database-technical-overview.md)
 
 -   [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)
-
-
 

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 8271c10cceb7a98879b06704b65a716cd9ac6822
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 23e2bacbb18385f2fe86f1eedbef366fd1518b1b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>Creación de una instancia de IoT Hub mediante el cmdlet New-AzureRmIotHub
@@ -87,8 +86,10 @@ New-AzureRmIotHub `
     -Location "East US"
 ```
 
-> [!NOTE]
-> El nombre de la instancia de IoT Hub debe ser único.
+Recuerde que el nombre de la instancia de IoT Hub debe ser único.
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 
 Para ver todas las instancias de IoT Hub de su suscripción, use el comando siguiente:
 

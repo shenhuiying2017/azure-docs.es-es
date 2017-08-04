@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58baae6fb3d338ef94caca79b9248afc0fb7f841
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-integrate-engagement-on-ios"></a>Integración de Engagement en iOS
@@ -28,17 +27,17 @@ ms.lasthandoff: 07/06/2017
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
 > * [Android](mobile-engagement-android-integrate-engagement.md)
-> 
-> 
+>
+>
 
 Este procedimiento describe la manera más sencilla de activar las funciones de supervisión y análisis de Engagement en su aplicación iOS.
 
-El SDK de Engagement requiere iOS6+ y Xcode 8: el destino de implementación de la aplicación debe ser como mínimo iOS 6.
+El SDK de Engagement requiere iOS7+ y Xcode 8+: el destino de implementación de la aplicación debe ser como mínimo iOS 7.
 
 > [!NOTE]
 > Si realmente depende de XCode 7, puede usar el [SDK v3.2.4 de Engagement para iOS](https://aka.ms/r6oouh). Existe un problema conocido en el módulo de cobertura de esta versión anterior cuando se ejecuta en dispositivos iOS 10. Consulte la [integración del módulo de cobertura](mobile-engagement-ios-integrate-engagement-reach.md) para más información. Si decide usar el SDK v3.2.4, simplemente omita la importación de `UserNotifications.framework` en el siguiente paso.
-> 
-> 
+>
+>
 
 Los siguientes pasos son suficientes para activar el informe de los registros necesarios para calcular todas las estadísticas en relación con los usuarios, las sesiones, las actividades, los bloqueos y los aspectos técnicos. El informe de los registros necesarios para calcular otras estadísticas, como eventos, errores y trabajos debe realizarse manualmente mediante la API de Engagement (consulte [Cómo usar la API de etiquetado avanzado de Mobile Engagement en su aplicación iOS](mobile-engagement-ios-use-engagement-api.md)) debido a que estas estadísticas dependen de la aplicación.
 
@@ -46,7 +45,7 @@ Los siguientes pasos son suficientes para activar el informe de los registros ne
 * Descargue el SDK de iOS [aquí](http://aka.ms/qk2rnj).
 * Agregue el SDK de Engagement al proyecto de iOS: en Xcode, haga clic con el botón derecho en el proyecto, elija **"Agregar archivos a..."** y elija la carpeta `EngagementSDK`.
 * Engagement requiere la contratación de marcos adicionales para trabajar: en el Explorador de proyectos, abra el panel de proyectos y elija el destino correcto. A continuación, abra la pestaña **"Generar fases"** en el menú **"Vincular binario con bibliotecas"** y agregue estos marcos:
-  
+
   * `UserNotifications.framework`- configure el vínculo como `Optional`
   * `AdSupport.framework`- configure el vínculo como `Optional`
   * `SystemConfiguration.framework`
@@ -57,18 +56,18 @@ Los siguientes pasos son suficientes para activar el informe de los registros ne
 
 > [!NOTE]
 > El marco de trabajo AdSupport se puede quitar. Engagement necesita este marco para recopilar el IDFA. No obstante, la recopilación de IDFA se puede deshabilitar \<ios-sdk-engagement-idfa\> para cumplir con la nueva directiva de Apple con respecto a este identificador.
-> 
-> 
+>
+>
 
 ## <a name="initialize-the-engagement-sdk"></a>Inicializar el SDK de Engagement
 Debe modificar el delegado de la aplicación:
 
 * En la parte superior del archivo de implementación, importe el agente de Engagement.
-  
+
       [...]
       #import "EngagementAgent.h"
 * Inicialice Engagement dentro del método '**applicationDidFinishLaunching:**' o '**application:didFinishLaunchingWithOptions:**':
-  
+
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       {
         [...]
@@ -110,13 +109,13 @@ Si no puede o no desea sobrecargar las clases `UIViewController`, en su lugar, p
 
 > [!IMPORTANT]
 > El SDK de iOS llama automáticamente al método `endActivity()` cuando se cierra la aplicación. Por lo tanto, es *MUY* recomendable llamar al método `startActivity` cada vez que cambie la actividad del usuario y *NUNCA* llamar al método `endActivity`, ya que fuerza la finalización de la sesión actual.
-> 
-> 
+>
+>
 
 ## <a name="location-reporting"></a>Informes de ubicación
 Las condiciones de servicio de Apple no permiten a las aplicaciones utilizar el seguimiento de ubicación con fines de estadísticas únicamente. Por lo tanto, se recomienda habilitar los informes de ubicación solo si la aplicación también utiliza el seguimiento de ubicación por otro motivo.
 
-A partir de iOS 8, debe proporcionar una descripción del modo en que su aplicación utiliza los servicios de ubicación estableciendo una cadena para la clave [NSLocationWhenInUseUsageDescription] o [NSLocationAlwaysUsageDescription] en el archivo Info.plist de la aplicación. Si desea registrar la ubicación en segundo plano con Engagement, agregue la clave NSLocationAlwaysUsageDescription. En los demás casos, agregue la clave NSLocationWhenInUseUsageDescription.
+A partir de iOS 8, debe proporcionar una descripción del modo en que su aplicación utiliza los servicios de ubicación estableciendo una cadena para la clave [NSLocationWhenInUseUsageDescription] o [NSLocationAlwaysUsageDescription] en el archivo Info.plist de la aplicación. Si desea registrar la ubicación en segundo plano con Engagement, agregue la clave NSLocationAlwaysUsageDescription. En los demás casos, agregue la clave NSLocationWhenInUseUsageDescription. Tenga en cuenta que necesita tanto NSLocationAlwaysAndWhenInUseUsageDescription como NSLocationWhenInUseUsageDescription para notificar la ubicación de fondo en iOS 11.
 
 ### <a name="lazy-area-location-reporting"></a>Informes de ubicaciones de áreas diferidas
 Los informes de ubicación de área diferida permiten notificar el país, la región y la localidad asociados con los dispositivos. Este tipo de informe de ubicación sólo emplea ubicaciones de red (basadas en el identificador del teléfono móvil o en WIFI). El área del dispositivo se notifica como máximo una vez por sesión. El GPS no se utiliza nunca y, por tanto, este tipo de informe de ubicación tiene muy poco impacto (por no decir ninguno) en la batería.
@@ -153,8 +152,8 @@ De forma predeterminada, los informes de ubicación en tiempo real solo están a
 
 > [!NOTE]
 > Cuando la aplicación se ejecuta en segundo plano, solo se notifican las ubicaciones de red, incluso si ha habilitado el GPS.
-> 
-> 
+>
+>
 
 La implementación de esta función efectuará una llamada a [startMonitoringSignificantLocationChanges] cuando la aplicación pase a un segundo plano. Tenga en cuenta que la aplicación se reiniciará automáticamente en segundo plano si se produce un nuevo evento de ubicación.
 

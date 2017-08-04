@@ -3,8 +3,8 @@ title: "Incorporación de autenticación en iOS con Aplicaciones móviles de Azu
 description: "Obtenga información acerca de cómo usar las Aplicaciones móviles de Azure para autenticar a los usuarios de su aplicación iOS en una variedad de proveedores de identidades, incluidos AAD, Google, Facebook, Twitter y Microsoft."
 services: app-service\mobile
 documentationcenter: ios
-author: ysxu
-manager: yochayk
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.service: app-service-mobile
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 604c1f84365954ddd3ba2de21fffa90ba5cc274b
-ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 21a2cc6c1eaf4b34cbe8c2d7c4dbb69c8730cf32
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Incorporación de la autenticación a la aplicación iOS
@@ -25,10 +26,10 @@ ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
 
 En este tutorial podrá agregar la autenticación al proyecto de [inicio rápido de iOS] mediante un proveedor de identidades compatible. Este tutorial está basado en el tutorial de [inicio rápido de iOS] , que debe completar primero.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Registro de la aplicación para la autenticación y configuración del Servicio de aplicaciones
+## <a name="register"></a>Registro de la aplicación para la autenticación y configuración del Servicio de aplicaciones
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="a-nameredirecturlaadd-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Adición de la aplicación a las direcciones URL de redirección externa permitidas
+## <a name="redirecturl"></a>Adición de la aplicación a las direcciones URL de redirección externa permitidas
 
 La autenticación segura requiere que se defina un nuevo esquema de dirección URL para la aplicación.  Esto permite que el sistema de autenticación se redirija a la aplicación una vez completado el proceso de autenticación.  En este tutorial, se usará el esquema de dirección URL _appname_.  Sin embargo, puede utilizar cualquier otro esquema de dirección URL que elija.  Debe ser único para la aplicación móvil.  Para habilitar la redirección en el lado de servidor:
 
@@ -46,12 +47,12 @@ La autenticación segura requiere que se defina un nuevo esquema de dirección U
 
 7. Haga clic en **Save**.
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
+## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 En Xcode, presione **Ejecutar** para iniciar la aplicación. Se genera una excepción porque la aplicación intenta acceder al back-end como usuario sin autenticar, pero la tabla *TodoItem* ahora requiere autenticación.
 
-## <a name="a-nameadd-authenticationaadd-authentication-to-app"></a><a name="add-authentication"></a>Incorporación de autenticación a la aplicación
+## <a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 **Objective-C**:
 
 1. En el Mac, abra *QSTodoListViewController.m* en Xcode y agregue el siguiente método:
@@ -76,8 +77,7 @@ En Xcode, presione **Ejecutar** para iniciar la aplicación. Se genera una excep
     }
     ```
 
-    Cambie *google* a *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* si no usa Google como su proveedor de identidades. Si utiliza Facebook, debe [incluir dominios de Facebook en la lista blanca][1]
-    en su aplicación.
+    Cambie *google* a *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* si no usa Google como su proveedor de identidades. Si utiliza Facebook, debe [incluir los dominios de Facebook en la lista blanca][1] en su aplicación.
 
     Reemplace **urlScheme** por un nombre único para la aplicación.  El valor de urlScheme debe ser el mismo que el protocolo de esquema de dirección URL que especificó en el campo **URL de redirección externas permitidas** de Azure Portal. urlScheme se utiliza en la devolución de llamada de autenticación para volver a la aplicación una vez completada la solicitud de autenticación.
 
@@ -163,8 +163,7 @@ En Xcode, presione **Ejecutar** para iniciar la aplicación. Se genera una excep
     }
     ```
 
-    Cambie *google* a *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* si no usa Google como su proveedor de identidades. Si utiliza Facebook, debe [incluir dominios de Facebook en la lista blanca][1]
-    en su aplicación.
+    Cambie *google* a *microsoftaccount*, *twitter*, *facebook* o *windowsazureactivedirectory* si no usa Google como su proveedor de identidades. Si utiliza Facebook, debe [incluir los dominios de Facebook en la lista blanca][1] en su aplicación.
 
     Reemplace **urlScheme** por un nombre único para la aplicación.  El valor de urlScheme debe ser el mismo que el protocolo de esquema de dirección URL que especificó en el campo **URL de redirección externas permitidas** de Azure Portal. urlScheme se utiliza en la devolución de llamada de autenticación para volver a la aplicación una vez completada la solicitud de autenticación.
 
@@ -221,10 +220,5 @@ La autenticación de App Service utiliza Apple Inter-App Communication.  Para m�
 [Azure Portal]: https://portal.azure.com
 
 [inicio rápido de iOS]: app-service-mobile-ios-get-started.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

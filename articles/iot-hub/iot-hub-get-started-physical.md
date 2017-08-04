@@ -1,6 +1,6 @@
 ---
 title: "Introducción a la conexión de dispositivos físicos a Azure IoT Hub | Microsoft Docs"
-description: "Aprenda a crear dispositivos de IoT físicos y a conectarlos a Azure IoT Hub. Los dispositivos pueden enviar telemetría a IoT Hub y este servicio puede supervisar y administrar los dispositivos."
+description: "Aprenda a conectar dispositivos físicos y paneles a Azure IoT Hub. Los dispositivos pueden enviar datos de telemetría a IoT Hub y este servicio supervisa y administra los dispositivos."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/02/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 2e00affad9302145ac0c62e5994bd636cb2b72a9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dce80d060538adc061149f686b71992a09d190da
 ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---

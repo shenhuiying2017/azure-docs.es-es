@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: gokuma;weig;bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 467626354cff5643f5f6e602b9d7b72c6c1281ec
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: b6ad821a89df17441921a157f136f3ca0869c8fb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Diez cosas que puede hacer en Data Science Virtual Machine
@@ -31,7 +30,7 @@ En este artículo le mostraremos cómo utilizar DSVM para realizar diferentes ta
 2. Utilizar un cuaderno de Jupyter Notebook para experimentar con los datos en un explorador mediante Python 2, Python 3 o Microsoft R, una versión de R para uso empresarial diseñada para ofrecer escalabilidad y rendimiento
 3. Poner en operación los modelos creados con R y Python en Aprendizaje automático de Azure para que aplicaciones cliente puedan tener acceso a los modelos mediante una sencilla interfaz de servicios web
 4. Administrar los recursos de Azure mediante Azure Portal o PowerShell
-5. Ampliar el espacio de almacenamiento y compartir código o conjuntos de datos de gran escala entre todo el equipo mediante la creación de Almacenamiento de archivos de Azure como una unidad que se puede montar en DSVM
+5. Ampliar el espacio de almacenamiento y compartir código o conjuntos de datos de gran escala entre todo el equipo mediante la creación de almacenamiento de archivos de Azure como una unidad que se puede montar en la máquina virtual de ciencia de datos (DSVM)
 6. Compartir código con su equipo mediante GitHub y tener acceso a su repositorio utilizando los clientes de Git preinstalados: Git Bash o Git GUI
 7. Acceder a diversos servicios de análisis y datos de Azure, como Azure Blob Storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse y bases de datos
 8. Crear informes y paneles con la aplicación Power BI Desktop preinstalada en DSVM e implementarlos en la nube
@@ -45,7 +44,7 @@ En este artículo le mostraremos cómo utilizar DSVM para realizar diferentes ta
 
 **Requisitos previos**
 
-* Necesitará una suscripción de Azure. Puede suscribirse a una evaluación gratuita [aquí](https://azure.microsoft.com/free/).
+* Necesita una suscripción de Azure. Puede suscribirse a una evaluación gratuita [aquí](https://azure.microsoft.com/free/).
 * Las instrucciones para el aprovisionamiento de Data Science Virtual Machine en el Portal de Azure están disponibles en [Creación de máquinas virtuales](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-r-server-or-python"></a>1. Explorar datos y desarrollar modelos con el Servidor R de Microsoft o Python
@@ -72,7 +71,7 @@ Jupyter Notebook es un eficaz entorno que proporciona un IDE basado en explorado
 
 Para iniciar el cuaderno de Jupyter Notebook, haga clic en el icono del menú Inicio o en el inicio del Escritorio **Jupyter Notebook**. En DSVM, también puede ir a "https://localhost:9999/" para tener acceso al cuaderno de Jupyter Notebook. Si se le solicita una contraseña, utilice las instrucciones proporcionadas en la sección ***Creación de una contraseña segura en el servidor Jupyter Notebook*** del tema [Aprovisionamiento de Microsoft Data Science Virtual Machine](machine-learning-data-science-provision-vm.md) para crear una contraseña segura para disponer de acceso a Jupyter Notebook. 
 
-Una vez que lo haya abierto, verá un directorio con varios cuadernos de ejemplo que se incluyen en DSVM. Ahora puede:
+Una vez abierto el cuaderno, verá un directorio con varios cuadernos de ejemplo que vienen incluidos en la máquina virtual DSVM. Ahora puede:
 
 * Hacer clic en el cuaderno para ver el código.
 * Ejecutar cada celda presionando **MAYÚS+ENTRAR**.
@@ -138,7 +137,7 @@ Un cliente ahora puede realizar llamadas al servicio web. Para su comodidad, hay
 ### <a name="build-and-operationalize-r-models"></a>Compilación y puesta en operación de modelos de R
 Los modelos de R generados en Data Science Virtual Machine, o en cualquier otro lugar, se pueden implementar en Aprendizaje automático de Azure de forma similar a como se hace para Python. Estos son los pasos:
 
-* Crea un archivo settings.json como el que aparece más abajo para proporcionar el identificador del área de trabajo y el token de autenticación.
+* Creación de un archivo settings.json para proporcionar el identificador del área de trabajo y el token de autenticación como se muestra en el siguiente código de ejemplo.
 * Escriba un contenedor para la función de predicción del modelo.
 * Llame a ```publishWebService``` en la biblioteca de Aprendizaje automático de Azure para pasar el contenedor de funciones.  
 
@@ -227,7 +226,7 @@ Puede usar Azure Powershell para crear un recurso compartido del servicio de arc
     Get-AzureStorageFile -Share $s
 
 
-Ahora que ha creado un recurso compartido de archivos de Azure, puede montarlo en cualquier máquina virtual de Azure. Es muy recomendable que la máquina virtual se encuentre en el mismo centro de datos que la cuenta de almacenamiento para evitar la latencia y los cobros por la transferencia de datos. Estos son los comandos para montar la unidad en DSVM que se pueden ejecutar en Azure Powershell.
+Ahora que ha creado un recurso compartido de archivos de Azure, puede montarlo en cualquier máquina virtual de Azure. Es muy recomendable que la máquina virtual se encuentre en el mismo centro de datos que la cuenta de almacenamiento para evitar la latencia y los cobros por la transferencia de datos. Estos son los comandos para montar la unidad en la máquina virtual DSVM que se pueden ejecutar en Azure Powershell.
 
     # Get storage key of the storage account that has the Azure file share from Azure portal. Store it securely on the VM to avoid prompted in next command.
     cmdkey /add:<<mydatadisk>>.file.core.windows.net /user:<<mydatadisk>> /pass:<storage key>
@@ -241,7 +240,7 @@ Ya puede acceder a esta unidad del mismo modo que a cualquier otra unidad normal
 ## <a name="6-share-code-with-your-team-using-github"></a>6. Compartir código con su equipo mediante GitHub
 GitHub es un repositorio de código donde puede encontrar una gran cantidad de ejemplos de código y orígenes para diferentes herramientas usando las diversas tecnologías que comparte la comunidad de desarrolladores. Utiliza Git como tecnología para realizar un seguimiento de las versiones de los archivos de código y almacenarlas. Asimismo, GitHub es una plataforma donde podrá crear su propio repositorio para almacenar el código compartido y la documentación de su equipo, implementar el control de versiones y también controlar quién tiene acceso para ver el código y contribuir en él. Para obtener más información sobre el uso de Git, visite las [páginas de ayuda de GitHub](https://help.github.com/). Puede usar GitHub como uno de los métodos para colaborar con su equipo, usar el código desarrollado por la comunidad y aportar código de vuelta a ella.
 
-DSVM ya incluye herramientas de cliente tanto en la línea de comandos como en la GUI para poder acceder al repositorio de GitHub. La herramienta de línea de comandos que se usa para trabajar con Git y GitHub se denomina "Git Bash". La versión de Visual Studio instalada en DSVM cuenta con las extensiones de Git. Puede encontrar iconos de inicio para estas herramientas en el menú de inicio y en el escritorio.
+La máquina virtual DSVM ya incluye herramientas de cliente tanto en la línea de comandos como en la GUI para poder acceder al repositorio de GitHub. La herramienta de línea de comandos que se usa para trabajar con Git y GitHub se denomina Git Bash. La versión de Visual Studio instalada en DSVM cuenta con las extensiones de Git. Puede encontrar iconos de inicio para estas herramientas en el menú de inicio y en el escritorio.
 
 Para descargar código de un repositorio de GitHub, debe usar el comando ```git clone```. Por ejemplo, para descargar en el directorio actual el repositorio de ciencia de datos que publica Microsoft, puede ejecutar el comando siguiente una vez que se encuentre en ```git-bash```.
 
@@ -363,7 +362,7 @@ Azure Data Lake Store es un repositorio a gran escala para cargas de trabajo de 
 
 ![Azure_Data_Lake_Create_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
-* Las **herramientas de Azure Data Lake** para **Visual Studio** que se encuentran en este [vínculo](https://www.microsoft.com/download/details.aspx?id=49504) ya están instaladas en la versión Visual Studio Community Edition de la máquina virtual. Después de iniciar Visual Studio e iniciar sesión en su suscripción de Azure, verá su cuenta de Análisis de datos de Azure y el almacenamiento en el panel izquierdo de Visual Studio.
+* Las **herramientas de Azure Data Lake** para **Visual Studio** que se encuentran en este [vínculo](https://www.microsoft.com/download/details.aspx?id=49504) ya están instaladas en la versión Visual Studio Community Edition de la máquina virtual. Después de iniciar Visual Studio e iniciar sesión en su suscripción de Azure, verá su cuenta de Azure Data Analytics y el almacenamiento en el panel izquierdo de Visual Studio.
 
 ![Azure_Data_Lake_PlugIn_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
@@ -427,7 +426,7 @@ Puede utilizar las siguientes consultas U-SQL en Visual Studio:
 
 
 
-Después de enviar la consulta al servidor, aparecerá un diagrama con el estado de su trabajo.
+Después de enviar la consulta al servidor, aparecerá un diagrama con el estado del trabajo.
 
 ![Diagrama de estado de trabajo](./media/machine-learning-data-science-vm-do-ten-things/USQL_Job_Status.PNG)
 
@@ -458,11 +457,11 @@ HDInsight de Azure es un servicio administrado de Apache Hadoop, Spark, HBase y 
 
 ![Vinculación a la cuenta de almacenamiento creada con clúster de HDInsight](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_v4.PNG)
 
-* Debe habilitar el **acceso remoto** en el nodo principal del clúster después de crearlo. Recuerde las credenciales de acceso remoto que especifique aquí (distintas de las especificadas para el clúster en su creación), ya que las necesitará más adelante.
+* Debe habilitar el **acceso remoto** en el nodo principal del clúster después de crearlo. Recuerde las credenciales de acceso remoto que especifique aquí (distintas de las especificadas para el clúster durante su creación), ya que las necesitará para realizar los procedimientos a continuación.
 
 ![Habilitación del acceso remoto](./media/machine-learning-data-science-vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-* Cree un área de trabajo de Azure Machine Learning. Los experimentos de Machine Learning se almacenarán en esta área de trabajo de Machine Learning. Seleccione las opciones resaltadas en el portal, tal como se muestra en la captura de pantalla siguiente.
+* Cree un área de trabajo de Azure Machine Learning. Los experimentos de Machine Learning se almacenarán en este área de trabajo de Machine Learning. Seleccione las opciones resaltadas en el portal, tal como se muestra en la captura de pantalla siguiente:
 
 ![Creación de un área de trabajo de Aprendizaje automático de Azure](./media/machine-learning-data-science-vm-do-ten-things/Create_ML_Space.PNG)
 
@@ -687,7 +686,7 @@ Ahora vamos a preparar una muestra reducida (1%) de un conjunto de datos para el
         """
         cursor.execute(queryString)
 
-        --- now insert contents of the join into the above internal table
+        --- now insert contents of the join into the preceding internal table
 
         queryString = """
         insert overwrite table nyctaxi_downsampled_dataset_testNEW
@@ -786,7 +785,7 @@ Después de un tiempo, verá que los datos se han cargado en clústeres de Hadoo
 
 **Lectura de datos de HDI mediante Machine Learning: módulo lector**
 
-También puede usar el módulo **lector** de Machine Learning Studio para acceder a la base de datos del clúster de Hadoop. Indique las credenciales de los clústeres HDI y la cuenta de Almacenamiento de Azure y podrá crear modelos de aprendizaje automático con la base de datos en clústeres HDI.
+También puede usar el módulo **lector** de Machine Learning Studio para acceder a la base de datos del clúster de Hadoop. Indique las credenciales de los clústeres HDI y de la cuenta de Azure Storage y podrá crear modelos de aprendizaje automático con la base de datos en clústeres HDI.
 
 ![Propiedades del módulo lector](./media/machine-learning-data-science-vm-do-ten-things/AML_Reader_Hive.PNG)
 
@@ -807,14 +806,14 @@ Debe realizar los siguientes pasos como requisitos previos para tener acceso a A
 1. Instale el SDK de Python de DocumentDB (ejecute ```pip install pydocumentdb``` desde el símbolo del sistema).
 2. Cree una base de datos y una cuenta de Azure Cosmos DB en [Azure Portal](https://portal.azure.com).
 3. Descargue la "herramienta de migración de Azure Cosmos DB" desde [aquí](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) y extráigala en el directorio que prefiera.
-4. Importe los datos de JSON (datos de volcanes) almacenados en un [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) en Cosmos DB con los siguientes parámetros de comando para la herramienta de migración (dtui.exe desde el directorio en que instaló la herramienta de migración de Cosmos DB). Especifique los parámetros de ubicación de origen y destino de los que se muestran a continuación.
+4. Importe los datos de JSON (datos de volcanes) almacenados en un [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) en Cosmos DB con los siguientes parámetros de comando para la herramienta de migración (dtui.exe desde el directorio en que instaló la herramienta de migración de Cosmos DB). Especifique las ubicaciones de origen y destino con estos parámetros:
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
 Después de importar los datos, puede ir a Jupyter y abrir el cuaderno *DocumentDBSample* , que contiene el código de Python necesario para acceder a DocumentDB y realizar algunas consultas básicas. Para obtener más información sobre Cosmos DB, visite la [página de documentación](https://docs.microsoft.com/azure/cosmos-db/) del servicio.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Crear informes y paneles con la aplicación Power BI Desktop
-Vamos a visualizar el archivo JSON sobre volcanes que vimos en el ejemplo de Cosmos DB anterior en Power BI para obtener información visual sobre los datos. En este [artículo de Power BI](../cosmos-db/powerbi-visualize.md)encontrará una explicación detallada de los pasos que se deben seguir. Los pasos de alto nivel son los siguientes:
+Vamos a visualizar el archivo JSON denominado Volcano que vimos en el ejemplo de Cosmos DB anterior en Power BI para obtener información visual sobre los datos. En este [artículo de Power BI](../cosmos-db/powerbi-visualize.md)encontrará una explicación detallada de los pasos que se deben seguir. Los pasos generales son los siguientes:
 
 1. Abra Power BI Desktop y presione "Obtenga datos". Especifique la dirección URL como: https://cahandson.blob.core.windows.net/samples/volcano.json
 2. Debería ver los registros JSON importados en forma una lista.
@@ -838,11 +837,11 @@ En lugar de seguir los pasos anteriores, puede pegar el código siguiente, que c
 
 
 
-Ya tiene los datos en el modelo de datos de Power BI. El escritorio de Power BI debería tener un aspecto similar al que se muestra a continuación.
+Ya tiene los datos en el modelo de datos de Power BI. Power BI Desktop debe aparecer como sigue:
 
 ![Power BI Desktop](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
-Puede empezar a crear informes y visualizaciones con el modelo de datos. Para generar un informe, puede seguir los pasos de este [artículo de Power BI](../cosmos-db/powerbi-visualize.md#build-the-reports) . El resultado final será un informe similar al siguiente.
+Puede empezar a crear informes y visualizaciones con el modelo de datos. Para generar un informe, puede seguir los pasos de este [artículo de Power BI](../cosmos-db/powerbi-visualize.md#build-the-reports) . El resultado final es un informe similar al siguiente.
 
 ![Vista de informes de Power BI Desktop: conector de Power BI](./media/machine-learning-data-science-vm-do-ten-things/power_bi_connector_pbireportview2.png)
 
@@ -861,7 +860,7 @@ Del mismo modo, si necesita una menor capacidad de proceso de máquina virtual (
 ![Configuración de la instancia de VM](./media/machine-learning-data-science-vm-do-ten-things/VMScaling.PNG)
 
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10. Instalar herramientas adicionales en la máquina virtual
-Hemos incluido varias herramientas que creemos que pueden cubrir muchas de las necesidades de análisis de datos más habituales y ahorrarle tiempo, ya que evitan que tenga que instalar y configurar los entornos uno por uno, y dinero, ya que solo paga los recursos que utilice.
+Hemos incluido varias herramientas que creemos que pueden cubrir muchas de las necesidades de análisis de datos más habituales y ahorrarle tiempo, ya que evitan que tenga que instalar y configurar los entornos uno por uno y dinero, ya que solo paga los recursos que utilice.
 
 Para mejorar su entorno de análisis, puede sacar provecho de otros servicios tanto de datos como de análisis de Azure, como se ha perfilado en este artículo. Somos conscientes de que en algunos casos sus necesidades pueden requerir herramientas adicionales, incluidas algunas herramientas propiedad de terceros. Tiene acceso administrativo completo en la máquina virtual para instalar las nuevas herramientas que necesite. También puede instalar paquetes adicionales de Python y R que no estén instalados previamente. En el caso de Python, puede utilizar ```conda``` o ```pip```. En cuanto a R, puede utilizar ```install.packages()``` en la consola de R o recurrir al IDE y elegir "**Packages (Paquetes)** -> **Install Packages** (Instalar paquetes)...".
 

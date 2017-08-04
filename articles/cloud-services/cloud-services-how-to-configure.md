@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 838be613a35ac4af988e089efb57e45365cc7636
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 39bb294c96ce0c12d91cf8b3488ac3e1a7b2f7b2
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-configure-cloud-services"></a>Configuración de servicios en la nube
@@ -42,11 +43,10 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
 2. En **supervisión**, establezca el nivel de supervisión en Detallado o Mínimo y configure las cadenas de conexión del diagnóstico que se requieren para la supervisión detallada.
 3. Para los roles de servicio (agrupados por rol), puede actualizar la siguiente configuración:
    
-    * **Configuración** 
-       Modifique los valores de los ajustes de la configuración diversa que se especifican en los elementos *ConfigurationSettings* del archivo de configuración del servicio (.cscfg).
+    * **Configuración** Modifique los valores de los ajustes de la configuración diversa que se especifican en los elementos *ConfigurationSettings* del archivo de configuración del servicio (.cscfg).
 
     * **Certificados**  
-         Cambie la huella digital del certificado que se está usando en el cifrado SSL para un rol. Para cambiar un certificado, debe primero cargar el certificado nuevo (en la página **Certificados** ). Posteriormente, actualice la huella digital en la cadena de certificado que aparece en la configuración de roles.
+        Cambie la huella digital del certificado que se está usando en el cifrado SSL para un rol. Para cambiar un certificado, debe primero cargar el certificado nuevo (en la página **Certificados** ). Posteriormente, actualice la huella digital en la cadena de certificado que aparece en la configuración de roles.
 4. En **sistema operativo**, puede cambiar la familia o la versión del sistema operativo para las instancias de rol o seleccionar **Automático** para habilitar las actualizaciones automáticas de la versión del sistema operativo actual. Esta configuración del sistema operativo se aplica a roles web y roles de trabajo, pero no afecta a Máquinas virtuales.
    
     Durante la implementación, se instala la versión más reciente del sistema operativo en todas las instancias de rol y los sistemas operativos se actualizan automáticamente de manera predeterminada. 
@@ -77,10 +77,5 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 * [Habilitar la conexión a Escritorio remoto para un rol de servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md)
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

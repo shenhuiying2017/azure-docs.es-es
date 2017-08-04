@@ -4,7 +4,7 @@ description: "Use la herramienta de la CLI iothub-explorer para la administraci�
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "administración de dispositivos de azure iot, administración de dispositivos de azure iot hub, iot de administración de dispositivos, administración de dispositivos de iot hub"
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
@@ -13,14 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
+ms.date: 07/12/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2234924251447bb32d7cca0623a4e8d4f8d4e7ff
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Uso de iothub-explorer para la administración de dispositivos de Azure IoT Hub
@@ -59,7 +58,8 @@ Ejecute iothub-explorer con distintas opciones de administración.
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
-- iothub-explorer ([Instalar iothub-explorer](https://github.com/azure/iothub-explorer) en la máquina de desarrollo)
+- Asegúrese de que el dispositivo se está ejecutando con la aplicación de cliente durante este tutorial.
+- iothub-explorer, [instale iothub-explorer](https://github.com/azure/iothub-explorer) en la máquina de desarrollo.
 
 ## <a name="connect-to-your-iot-hub"></a>Conexión a IoT Hub
 
@@ -114,7 +114,8 @@ iothub-explorer get-twin <your device id>
 Agregue un rol de campo = temperatura y humedad al dispositivo mediante la ejecución del comando siguiente:
 
 ```bash
-iothub-explorer update-twin <your device id> {\"tags\":{\"role\":\"temperature&humidity\"}}
+iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
+
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Uso de iothub-explorer con mensajes de la nube al dispositivo

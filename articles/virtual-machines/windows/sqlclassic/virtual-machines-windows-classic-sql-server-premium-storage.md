@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: aba69b95db8313dd9ce711ddc6c26e5df55d79a4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e8f191e7bc0ce49abc3f1b4b2329a0ee3b38cd4e
 ms.contentlocale: es-es
-ms.lasthandoff: 04/04/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar el almacenamiento Premium de Azure con SQL Server en máquinas virtuales
@@ -253,7 +252,7 @@ El ejemplo siguiente muestra cómo colocar el VHD del sistema operativo en el al
 
 
 ### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Crear una nueva VM para usar el almacenamiento Premium con una imagen personalizada
-Este escenario muestra dónde tiene imágenes personalizadas que residen en una cuenta de almacenamiento estándar. Como ya se mencionó, si desea colocar el VHD del sistema operativo en el almacenamiento Premium necesitará copiar la imagen que existe en la cuenta de almacenamiento estándar y transferirlo a un almacenamiento Premium antes de poder usarlo. Si tiene una imagen en local, también puede usar este método para copiarla directamente a la cuenta de almacenamiento Premium.
+Este escenario muestra dónde tiene imágenes personalizadas que residen en una cuenta de almacenamiento estándar. Como ya se mencionó, si desea colocar el VHD del sistema operativo en el almacenamiento Premium necesitará copiar la imagen que existe en la cuenta de almacenamiento estándar y transferirlo a un almacenamiento Premium antes de poder usarlo. Si tiene una imagen local, también puede usar este método para copiarla directamente a la cuenta Premium Storage.
 
 #### <a name="step-1-create-storage-account"></a>Paso 1: Crear una cuenta de almacenamiento
     $mysubscription = "DansSubscription"
@@ -893,7 +892,7 @@ Ahora quite la dirección IP antigua del servicio en la nube.
 Ahora debe comprobar los servidores DNS en sus redes de cliente de SQL Server y asegurarse de que los clústeres agregaron el registro de host adicional para la dirección IP agregada. Si los servidores DNS no se han actualizado, considere la posibilidad de forzar una transferencia de zona DNS y asegúrese de que los clientes de la subred pueden realizar la resolución en ambas direcciones IP de AlwaysOn, con el fin de que no tenga que esperar a la replicación automática de DNS.
 
 #### <a name="step-16-reconfigure-always-on"></a>Paso 16: Reconfigurar AlwaysOn
-En este momento, espere a que el elemento secundario al que se migró el nodo se resincronice totalmente con el nodo local, y cambie al nodo de replicación sincrónica y conviértalo en el AFP.  
+En este momento, espere a que el elemento secundario al que se migró el nodo se vuelva a sincronizar totalmente con el nodo local, y cambie al nodo de replicación sincrónica y conviértalo en el AFP.  
 
 #### <a name="step-17-migrate-second-node"></a>Paso 17: Migrar el nodo secundario
     $vmNameToMigrate="dansqlams1"

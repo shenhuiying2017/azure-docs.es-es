@@ -13,253 +13,319 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 07/14/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: daff6ab4c0eaf17d1cb488f1c16aa111b6ed9a88
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: bd1c860db026f948202cd1f3aa763b4547c597b4
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementación de una máquina virtual de Azure con C# y una plantilla de Resource Manager
-En este artículo se muestra cómo implementar una plantilla de Azure Resource Manager con C#. La [plantilla](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) implementa una sola máquina virtual que ejecuta Windows Server en una nueva red virtual con una sola subred.
+En este artículo se muestra cómo implementar una plantilla de Azure Resource Manager con C#. La plantilla que crea implementa una sola máquina virtual que ejecuta Windows Server en una nueva red virtual con una sola subred.
 
 Para obtener una descripción detallada del recurso de máquina virtual, consulte [Virtual machines in an Azure Resource Manager template](template-description.md) (Máquinas virtuales en una plantilla de Azure Resource Manager). Para obtener más información acerca de todos los recursos de una plantilla, consulte [Tutorial de la plantilla de Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Tardará unos 10 minutos en realizar estos pasos.
 
-## <a name="step-1-create-a-visual-studio-project"></a>Paso 1: Creación de un proyecto de Visual Studio
+## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
 
 En este paso, asegúrese de que está instalado Visual Studio y cree una aplicación de consola que se utilice para implementar la plantilla.
 
-1. Si aún no lo ha hecho, instale [Visual Studio](https://www.visualstudio.com/).
+1. Si aún no lo ha hecho, instale [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Seleccione **Desarrollo de escritorio de .NET** en la página Cargas de trabajo y haga clic en **Instalar**. En el resumen, puede ver que **Herramientas de desarrollo de .NET Framework 4 – 4.6** se selecciona automáticamente. Si ya ha instalado Visual Studio, puede agregar la carga de trabajo de .NET con el selector de Visual Studio.
 2. En Visual Studio, haga clic en **Archivo** > **Nuevo** > **proyecto**.
-3. En **Plantillas** > **Visual C#**, seleccione **Aplicación de consola (.NET Framework)**, escriba el nombre y la ubicación del proyecto y, a continuación, haga clic en **Aceptar**.
+3. En **Plantillas** > **Visual C#**, seleccione **Aplicación de consola (.NET Framework)**, escriba *myDotnetProject* como nombre del proyecto, seleccione la ubicación del proyecto y, haga clic en **Aceptar**.
 
-## <a name="step-2-install-libraries"></a>Paso 2: Instalación de las bibliotecas
+## <a name="install-the-packages"></a>Instalación de los paquetes
 
-Los paquetes de NuGet son la manera más fácil de instalar las bibliotecas que necesita para finalizar estos pasos. Debe instalar la biblioteca de Azure Resource Manager y la biblioteca de autenticación de Azure Active Directory para crear los recursos. Para obtener estas bibliotecas en Visual Studio, siga estos pasos:
+Los paquetes de NuGet son la manera más fácil de instalar las bibliotecas que necesita para finalizar estos pasos. Para obtener las bibliotecas que necesita en Visual Studio, siga estos pasos:
 
-1. Haga clic con el botón derecho en el Explorador de soluciones, haga clic en **Administrar paquetes NuGet para la solución** y, luego, haga clic en **Examinar**.
-2. Escriba *Microsoft.IdentityModel.Clients.ActiveDirectory* en el cuadro de búsqueda, seleccione su proyecto y haga clic en **Instalar**. A continuación, siga las instrucciones para instalar el paquete.
-3. En la parte superior de la página, seleccione **Incluir versión preliminar**. Escriba *Microsoft.Azure.Management.ResourceManager* en el cuadro de búsqueda, haga clic en **Instalar** y siga las instrucciones para instalar el paquete.
-
-Ahora está preparado para comenzar a usar las bibliotecas para crear su aplicación.
-
-## <a name="step-3-create-credentials-used-to-authenticate-requests"></a>Paso 3: Creación de las credenciales que se utilizan para autenticar las solicitudes
-
-Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de servicio de Active Directory](../../resource-group-authenticate-service-principal.md). Desde la entidad de servicio, adquiera un token para autenticar solicitudes a Azure Resource Manager.
-
-1. Abra el archivo Program.cs del proyecto que ha creado y agregue las siguientes instrucciones using a las instrucciones existentes en la parte superior del archivo:
+1. Haga clic en **Herramientas** > **Administrador de paquetes Nuget** y, después, haga clic en **Consola del Administrador de paquetes**.
+2. En la consola, escriba estos comandos:
 
     ```
-    using Microsoft.Azure;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.Azure.Management.ResourceManager.Models;
-    using Microsoft.Rest;
-    using System.IO;
+    Install-Package Microsoft.Azure.Management.Fluent
+    Install-Package WindowsAzure.Storage
     ```
 
-2. Agregue este método a la clase Program para obtener el token necesario para crear las credenciales:
+## <a name="create-the-files"></a>Creación de los archivos
 
-    ```
-    private static async Task<AuthenticationResult> GetAccessTokenAsync()
+En este paso, creará un archivo de plantilla que implementa los recursos y un archivo de parámetros que proporciona valores de parámetro a la plantilla. También creará un archivo de autorización que se utiliza para realizar operaciones de Azure Resource Manager.
+
+### <a name="create-the-template-file"></a>Cree el archivo de plantilla
+
+1. En el Explorador de soluciones, haga clic en *myDotnetProject* > **Agregar** > **Nuevo elemento** y, después, seleccione **Archivo de texto** en *Elementos de Visual C#*. Asigne un nombre al archivo *CreateVMTemplate.json* y, después, haga clic en **Agregar**.
+2. Agregue este código JSON al archivo creado:
+
+    ```json
     {
-      var cc = new ClientCredential("client-id", "client-secret");
-      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
-      var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
-      if (token == null)
-      {
-        throw new InvalidOperationException("Could not get the token.");
-      } 
-      return token;
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "adminUsername": { "type": "string" },
+        "adminPassword": { "type": "securestring" }
+      },
+      "variables": {
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+      },
+      "resources": [
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/publicIPAddresses",
+          "name": "myPublicIPAddress",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "publicIPAllocationMethod": "Dynamic",
+            "dnsSettings": {
+              "domainNameLabel": "myresourcegroupdns1"
+            }
+          }
+        },
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/virtualNetworks",
+          "name": "myVNet",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "addressSpace": { "addressPrefixes": [ "10.0.0.0/16" ] },
+            "subnets": [
+              {
+                "name": "mySubnet",
+                "properties": { "addressPrefix": "10.0.0.0/24" }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/networkInterfaces",
+          "name": "myNic",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/publicIPAddresses/', 'myPublicIPAddress')]",
+            "[resourceId('Microsoft.Network/virtualNetworks/', 'myVNet')]"
+          ],
+          "properties": {
+            "ipConfigurations": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Dynamic",
+                  "publicIPAddress": { "id": "[resourceId('Microsoft.Network/publicIPAddresses','myPublicIPAddress')]" },
+                  "subnet": { "id": "[variables('subnetRef')]" }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2016-04-30-preview",
+          "type": "Microsoft.Compute/virtualMachines",
+          "name": "myVM",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/networkInterfaces/', 'myNic')]"
+          ],
+          "properties": {
+            "hardwareProfile": { "vmSize": "Standard_DS1" },
+            "osProfile": {
+              "computerName": "myVM",
+              "adminUsername": "[parameters('adminUsername')]",
+              "adminPassword": "[parameters('adminPassword')]"
+            },
+            "storageProfile": {
+              "imageReference": {
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2012-R2-Datacenter",
+                "version": "latest"
+              },
+              "osDisk": {
+                "name": "myManagedOSDisk",
+                "caching": "ReadWrite",
+                "createOption": "FromImage"
+              }
+            },
+            "networkProfile": {
+              "networkInterfaces": [
+                {
+                  "id": "[resourceId('Microsoft.Network/networkInterfaces','myNic')]"
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
     ```
 
-    Reemplace estos valores:
-    
-    - *client-id* con el identificador de la aplicación de Azure Active Directory. Puede encontrar este identificador en la hoja Propiedades de la aplicación de AD. Para encontrar la aplicación de AD en Azure Portal, haga clic en **Azure Active Directory** en el menú de recursos y, luego, haga clic en **Registros de aplicación**.
-    - *client-secret* con la clave de acceso de la aplicación de AD. Puede encontrar este identificador en la hoja Propiedades de la aplicación de AD.
-    - *tenant-id* con el identificador de inquilino de la suscripción. Puede encontrar el identificador del inquilino en la hoja Propiedades de Azure Active Directory en Azure Portal. Se etiqueta como *identificación de directorio*.
+3. Guarde el archivo CreateVMTemplate.json.
 
-3. Para llamar al método que acaba de agregar, agregue este código al método Main:
+### <a name="create-the-parameters-file"></a>Cree el archivo de parámetros
 
-    ```
-    var token = GetAccessTokenAsync();
-    var credential = new TokenCredentials(token.Result.AccessToken);
-    ```
+Para especificar los valores de los parámetros de recurso que se definieron en la plantilla, debe crear un archivo de parámetros que contenga los valores.
 
-4. Guarde el archivo Program.cs.
+1. En el Explorador de soluciones, haga clic en *myDotnetProject* > **Agregar** > **Nuevo elemento** y, después, seleccione **Archivo de texto** en *Elementos de Visual C#*. Asigne un nombre al archivo *Parameters.json* y, después, haga clic en **Agregar**.
+2. Agregue este código JSON al archivo creado:
 
-## <a name="step-4-create-a-resource-group"></a>Paso 4: Creación de un grupo de recursos
-
-Aunque puede crear un grupo de recursos desde una plantilla, la plantilla que utiliza desde la Galería no crea uno. En este paso, agregará el código para crear un grupo de recursos.
-
-1. Con el fin de especificar valores para la aplicación, agregue las variables al método Main de la clase Program:
-
-    ```
-    var groupName = "myResourceGroup";
-    var subscriptionId = "subsciptionId";
-    var deploymentName = "deploymentName";
-    var location = "location";
-    ```
-
-    Reemplace estos valores:
-    
-    - *myResourceGroup* con el nombre del grupo de recursos que se está creando.
-    - *subscriptionId* con su identificador de suscripción. Puede encontrar el identificador de suscripción en la hoja Suscripciones de Azure Portal.
-    - *deploymentName* con el nombre de la implementación.
-    - *location* con la [región de Azure](https://azure.microsoft.com/regions/) donde desea crear los recursos.
-
-2. Agregue este método a la clase Program para crear el grupo de recursos:
-
-    ```
-    public static async Task<ResourceGroup> CreateResourceGroupAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId,
-      string location)
-    {
-      var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-
-      Console.WriteLine("Creating the resource group...");
-      var resourceGroup = new ResourceGroup { Location = location };
-      return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(
-        groupName, 
-        resourceGroup);
-    }
-    ```
-
-3. Para llamar al método que acaba de agregar, agregue este código al método Main:
-
-    ```
-    var rgResult = CreateResourceGroupAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location);
-    Console.WriteLine(rgResult.Result.Properties.ProvisioningState);
-    Console.ReadLine();
-    ```
-
-## <a name="step-5-create-a-parameters-file"></a>Paso 5: Creación del archivo de parámetros
-
-Para especificar los valores de los parámetros de recurso que se definieron en la plantilla, debe crear un archivo de parámetros que contenga los valores. El archivo de parámetros se usa al implementar la plantilla. La plantilla que está usando desde la Galería espera valores para los parámetros *adminUserName*, *adminPassword* y *dnsLabelPrefix*.
-
-En Visual Studio, siga estos pasos:
-
-1. Haga clic con el botón derecho en el nombre del proyecto en el Explorador de soluciones y, a continuación, haga clic en **Agregar** > **Nuevo elemento**.
-2. Haga clic en **Web**, seleccione **Archivo JSON**, escriba *Parameters.json* como nombre y, después, haga clic en **Agregar**.
-3. Abra el archivo parameters.json y, a continuación, agregue este contenido JSON:
-
-    ```
+    ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "adminUserName": { "value": "mytestacct1" },
-        "adminPassword": { "value": "mytestpass1" },
-        "dnsLabelPrefix": { "value": "mydns1" }
+        "adminUserName": { "value": "azureuser" },
+        "adminPassword": { "value": "Azure12345678" }
       }
     }
     ```
 
-    Reemplace los valores de parámetro con valores que funcionan en su entorno.
-
 4. Guarde el archivo Parameters.json.
 
-## <a name="step-6-deploy-a-template"></a>Paso 6: Implementación de una plantilla
+### <a name="create-the-authorization-file"></a>Creación del archivo de autorización
 
-En este ejemplo, implementará una plantilla de la Galería de plantillas de Azure y proporcionará valores de parámetro desde el archivo local que ha creado. 
+Antes de poder implementar una plantilla, asegúrese de que tiene acceso a una [entidad de servicio de Active Directory](../../resource-group-authenticate-service-principal.md). Desde la entidad de servicio, adquiera un token para autenticar solicitudes a Azure Resource Manager. También debe registrar el identificador de aplicación, la clave de autenticación y el identificador del inquilino que necesitará en el archivo de autorización.
 
-1. Agregue este método a la clase Program:
+1. En el Explorador de soluciones, haga clic en *myDotnetProject* > **Agregar** > **Nuevo elemento** y, después, seleccione **Archivo de texto** en *Elementos de Visual C#*. Asigne un nombre al archivo *azureauth.properties* y, luego, haga clic en **Agregar**.
+2. Agregue estas propiedades de autorización:
 
     ```
-    public static async Task<DeploymentExtended> CreateTemplateDeploymentAsync(
-      TokenCredentials credential,
-      string groupName,
-      string deploymentName,
-      string subscriptionId)
-    {
+    subscription=<subscription-id>
+    client=<application-id>
+    key=<authentication-key>
+    tenant=<tenant-id>
+    managementURI=https://management.core.windows.net/
+    baseURL=https://management.azure.com/
+    authURL=https://login.windows.net/
+    graphURL=https://graph.windows.net/
+    ```
+
+    Reemplace **&lt;subscription-id&gt;** por su identificador de suscripción, **&lt;application-id&gt;** por el identificador de aplicación de Active Directory, **&lt;authentication-key&gt;** por la clave de aplicación y **&lt;tenant-id&gt;** por el identificador de inquilino.
+
+3. Guarde el archivo azureauth.properties.
+4. Establezca una variable de entorno de Windows denominada AZURE_AUTH_LOCATION con la ruta de acceso completa al archivo de autorización que ha creado; por ejemplo, se puede usar el comando PowerShell siguiente:
+
+    ```
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    ```
     
-      var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
+## <a name="create-the-management-client"></a>Creación del cliente de administración
 
-      Console.WriteLine("Creating the template deployment...");
-      var deployment = new Deployment();
-      deployment.Properties = new DeploymentProperties
-        {
-          Mode = DeploymentMode.Incremental,
-          TemplateLink = new TemplateLink("https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json"),
-          Parameters = File.ReadAllText("..\\..\\Parameters.json")
-        };
-      
-      return await resourceManagementClient.Deployments.CreateOrUpdateAsync(
-        groupName,
-        deploymentName,
-        deployment
-      );
-    }
-    ```
-
-    También puede implementar una plantilla desde una carpeta local mediante la propiedad de plantilla en lugar de la propiedad TemplateLink.
-
-2. Para llamar al método que acaba de agregar, agregue este código al método Main:
+1. Abra el archivo Program.cs del proyecto que ha creado y agregue las siguientes instrucciones using a las instrucciones existentes en la parte superior del archivo:
 
     ```
-    var dpResult = CreateTemplateDeploymentAsync(
-      credential,
-      groupName,
-      deploymentName,
-      subscriptionId);
-    Console.WriteLine(dpResult.Result.Properties.ProvisioningState);
-    Console.ReadLine();
+    using Microsoft.Azure.Management.Compute.Fluent;
+    using Microsoft.Azure.Management.Compute.Fluent.Models;
+    using Microsoft.Azure.Management.Fluent;
+    using Microsoft.Azure.Management.ResourceManager.Fluent;
+    using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-## <a name="step-7-delete-the-resources"></a>Paso 7: Eliminación de los recursos
+2. Para crear el cliente de administración, agregue este código al método Main:
 
-Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveniente eliminar los recursos que ya no sean necesarios. No es necesario eliminar por separado cada recurso de un grupo de recursos. Elimine el grupo de recursos y todos sus recursos se eliminarán automáticamente.
+    ```
+    var credentials = SdkContext.AzureCredentialsFactory
+        .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
-1. Para eliminar el grupo de recursos, agregue este método a la clase Program:
+    var azure = Azure
+        .Configure()
+        .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
+        .Authenticate(credentials)
+        .WithDefaultSubscription();
+    ```
 
-   ```
-   public static async void DeleteResourceGroupAsync(
-     TokenCredentials credential,
-     string groupName,
-     string subscriptionId)
-   {
-     Console.WriteLine("Deleting resource group...");
-     var resourceManagementClient = new ResourceManagementClient(credential)
-       { SubscriptionId = subscriptionId };
-     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-   }
-   ```
+## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-2. Para llamar al método que acaba de agregar, agregue este código al método Main:
+Con el fin de especificar valores para la aplicación, agregue el código al método Main:
 
-   ```
-   DeleteResourceGroupAsync(
-     credential,
-     groupName,
-     subscriptionId);
-   Console.ReadLine();
-   ```
+```
+var groupName = "myResourceGroup";
+var location = Region.USWest;
 
-## <a name="step-8-run-the-console-application"></a>Paso 8: Ejecución de la aplicación de consola
+var resourceGroup = azure.ResourceGroups.Define(groupName)
+    .WithRegion(location)
+    .Create();
+```
+
+## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
+
+La plantilla y los parámetros se implementan desde una cuenta de almacenamiento de Azure. En este paso, va a crear la cuenta y cargar los archivos. 
+
+Para crear la cuenta, agregue este código al método Main:
+
+```
+string storageAccountName = SdkContext.RandomResourceName("st", 10);
+
+Console.WriteLine("Creating storage account...");
+var storage = azure.StorageAccounts.Define(storageAccountName)
+    .WithRegion(Region.USWest)
+    .WithExistingResourceGroup(resourceGroup)
+    .Create();
+
+var storageKeys = storage.GetKeys();
+string storageConnectionString = "DefaultEndpointsProtocol=https;"
+    + "AccountName=" + storage.Name
+    + ";AccountKey=" + storageKeys[0].Value
+    + ";EndpointSuffix=core.windows.net";
+
+var account = CloudStorageAccount.Parse(storageConnectionString);
+var serviceClient = account.CreateCloudBlobClient();
+
+Console.WriteLine("Creating container...");
+var container = serviceClient.GetContainerReference("templates");
+container.CreateIfNotExistsAsync().Wait();
+var containerPermissions = new BlobContainerPermissions()
+    { PublicAccess = BlobContainerPublicAccessType.Container };
+container.SetPermissionsAsync(containerPermissions).Wait();
+
+Console.WriteLine("Uploading template file...");
+var templateblob = container.GetBlockBlobReference("CreateVMTemplate.json");
+templateblob.UploadFromFile("..\\..\\CreateVMTemplate.json");
+
+Console.WriteLine("Uploading parameters file...");
+var paramblob = container.GetBlockBlobReference("Parameters.json");
+paramblob.UploadFromFile("..\\..\\Parameters.json");
+```
+
+## <a name="deploy-the-template"></a>Implementación de la plantilla
+
+Implemente la plantilla y los parámetros de la cuenta de almacenamiento que creó. 
+
+Para implementar la plantilla, agregue este código al método Main:
+
+```
+var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
+var paramPath = "https://" + storageAccountName + ".blob.core.windows.net/templates/Parameters.json";
+var deployment = azure.Deployments.Define("myDeployment")
+    .WithExistingResourceGroup(groupName)
+    .WithTemplateLink(templatePath, "1.0.0.0")
+    .WithParametersLink(paramPath, "1.0.0.0")
+    .WithMode(Microsoft.Azure.Management.ResourceManager.Fluent.Models.DeploymentMode.Incremental)
+    .Create();
+Console.WriteLine("Press enter to delete the resource group...");
+Console.ReadLine();
+```
+
+## <a name="delete-the-resources"></a>Eliminación de los recursos
+
+Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveniente eliminar los recursos que ya no sean necesarios. No es necesario eliminar por separado cada recurso de un grupo de recursos. Elimine el grupo de recursos y todos sus recursos se eliminarán automáticamente. 
+
+Para eliminar el grupo de recursos, agregue este código al método Main:
+
+```
+azure.ResourceGroups.DeleteByName(groupName);
+```
+
+## <a name="run-the-application"></a>Ejecución de la aplicación
 
 Esta aplicación de consola tardará unos cinco minutos en ejecutarse completamente de principio a fin. 
 
-1. Para ejecutar la aplicación de consola, haga clic en **Iniciar** en Visual Studio y, a continuación, inicie sesión en Azure AD con las mismas credenciales que utiliza en su suscripción.
+1. Para ejecutar la aplicación de consola, haga clic en **Iniciar**.
 
-2. Presione **Entrar** cuando aparezca el estado *Correcto*. 
-
-    También debería ver **1 Correcto** en Implementaciones en la hoja Introducción del grupo de recursos de Azure Portal.
-
-3. Antes de presionar **Entrar** para comenzar la eliminación de recursos, puede dedicar unos minutos a comprobar la creación de los recursos en Azure Portal. Haga clic en el estado de implementación para ver información de la implementación.
+2. Antes de presionar **Entrar** para comenzar la eliminación de recursos, puede dedicar unos minutos a comprobar la creación de los recursos en Azure Portal. Haga clic en el estado de implementación para ver información de la implementación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Si se produjeron problemas durante la implementación, el paso siguiente sería consultar [Solución de errores comunes de implementación de Azure con Azure Resource Manager](../../resource-manager-common-deployment-errors.md).

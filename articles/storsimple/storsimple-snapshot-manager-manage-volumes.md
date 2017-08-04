@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c0b211bced99d272a73a7b018a22f99d8d58aa9
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -94,7 +96,7 @@ Utilice el procedimiento siguiente para ver información acerca de volúmenes lo
    |:--- |:--- |
    |  Nombre |La columna **Nombre** contiene la letra de unidad asignada a cada volumen detectado. |
    |  Dispositivo |La columna **Dispositivo** contiene la dirección IP del dispositivo conectado al equipo host. |
-   |  Nombre del volumen del dispositivo |La columna **Nombre del volumen del dispositivo** contiene el nombre del volumen del dispositivo al que pertenece el volumen seleccionado. Este es el nombre del volumen definido en el Portal de Azure clásico para ese volumen específico. |
+   |  Nombre del volumen del dispositivo |La columna **Nombre del volumen del dispositivo** contiene el nombre del volumen del dispositivo al que pertenece el volumen seleccionado. Este es el nombre del volumen definido en Azure Portal para ese volumen específico. |
    |  Rutas de acceso |La columna **Rutas de acceso** muestra la ruta de acceso al volumen. Es la letra de unidad o el punto de montaje en el que el volumen es accesible en el equipo host. |
 
 ## <a name="delete-a-volume"></a>Eliminar un volumen
@@ -102,8 +104,6 @@ Utilice el procedimiento siguiente para eliminar un volumen en Administrador de 
 
 > [!NOTE]
 > No se puede eliminar un volumen si forma parte de un grupo de volúmenes. (La opción Eliminar no está disponible para los volúmenes que son miembros de un grupo de volúmenes). Debe eliminar el grupo de volúmenes completo para eliminar el volumen.
-> 
-> 
 
 #### <a name="to-delete-a-volume"></a>Para eliminar un volumen
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
@@ -162,7 +162,7 @@ Complete los pasos siguientes para configurar la copia de seguridad de un volume
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de empezar:
 
-* Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementación del dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
+* Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementación del dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 * Instalación y configuración de Administrador de instantáneas StorSimple Para obtener más información, vaya a [Implementación de StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 * Configure dos volúmenes en el dispositivo StorSimple. (En los ejemplos, los volúmenes disponibles son **Disco 1** y **Disco 2**). 
 
@@ -212,9 +212,4 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f0a1717219bfc33033bdb827e66e80dd18388e64
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Información para las distribuciones no aprobadas
@@ -53,8 +53,8 @@ El resto de este artículo se centrará en ofrecer orientaciones generales para 
 * No cree una partición de intercambio en el disco del SO. El agente de Linux se puede configurar para crear un archivo de intercambio en el disco de recursos temporal.  Puede encontrar más información al respecto en los pasos que vienen a continuación.
 * El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
-### <a name="installing-linux-without-hyper-v"></a>Instalación de Linux sin Hyper-V
-En algunos casos, los instaladores de Linux pueden no incluir los controladores de Hyper-V en el disco RAM inicial (initrd o initramfs) a menos que detecte que está ejecutando un entorno de Hyper-V.  Cuando utilice un sistema de virtualización diferente (Virtualbox, KVM, etc.) para preparar su imagen de Linux, puede que necesite volver a generar el initrd para asegurarse de que al menos los módulos kernel `hv_vmbus` y `hv_storvsc` están disponibles en el disco RAM inicial.  Esto es un problema conocido al menos en sistemas basados en el nivel superior de distribución de Red Hat.
+### <a name="installing-kernel-modules-without-hyper-v"></a>Instalación de los módulos de kernel sin Hyper-V
+Azure se ejecuta en el hipervisor de Hyper-V, por lo que Linux requiere que ciertos módulos del kernel estén instalados para ejecutarse en Azure. Si tiene una máquina virtual que se ha creado fuera de Hyper-V, los instaladores de Linux pueden no incluir los controladores de Hyper-V en el disco RAM inicial (initrd o initramfs) a menos que detecte que está ejecutando un entorno de Hyper-V. Cuando utilice un sistema de virtualización diferente (Virtualbox, KVM, etc.) para preparar su imagen de Linux, puede que necesite volver a generar el initrd para asegurarse de que al menos los módulos kernel `hv_vmbus` y `hv_storvsc` están disponibles en el disco RAM inicial.  Esto es un problema conocido al menos en sistemas basados en el nivel superior de distribución de Red Hat.
 
 El mecanismo para volver a generar la imagen initrd o initramfs puede variar dependiendo de la distribución. Consulte la documentación de distribución o el soporte para conocer el procedimiento adecuado.  Este es un ejemplo de cómo volver a generar initrd mediante la utilidad `mkinitrd` :
 

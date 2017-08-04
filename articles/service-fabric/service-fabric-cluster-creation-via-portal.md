@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/21/2017
+ms.date: 06/21/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: bb27d279396aa7b670187560cebe2ed074576bad
-ms.openlocfilehash: c413f415cb056f079ed30cf444af4edbe20364ea
-ms.lasthandoff: 01/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 37e8d04f1786187a947a435b3cfd299546617c8b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
@@ -297,7 +297,7 @@ En la sección **Node Monitor** (Monitor de nodo) de la hoja del panel del clús
 > 
 
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conexión remota a una instancia de conjunto de escalado de máquinas virtuales (VMSS) o a un nodo del clúster
-Cada uno de los tipos de nodos que especifica en el clúster da lugar a una configuración del conjunto de escalado de VM. Consulte [Conexión remota a una instancia de conjunto de escalado de máquinas virtuales][remote-connect-to-a-vm-scale-set] para obtener más información.
+Cada uno de los tipos de nodos que especifica en el clúster da lugar a una configuración del conjunto de escalado de máquinas virtuales. Consulte [Conexión remota a una instancia de conjunto de escalado de máquinas virtuales][remote-connect-to-a-vm-scale-set] para más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este punto, tiene un clúster seguro mediante certificados para la autenticación de administración. Después, [conéctese al clúster](service-fabric-connect-to-secure-cluster.md) y aprenda a [administrar secretos de aplicación](service-fabric-application-secret-management.md).  Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)

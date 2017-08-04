@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 3fc66d775f97333ad497cf3773643c188ec7c1d6
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: db6e654de074fc6651fd0d7479ee52038f944745
 ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -60,7 +59,7 @@ La aplicación de orquestación de revisiones consta de los siguientes subcompon
 #### <a name="azure-clusters"></a>Clústeres de Azure
 Se debe ejecutar la aplicación de orquestación de revisiones en clústeres de Azure que tengan la versión v5.5 o posterior del runtime de Service Fabric.
 
-#### <a name="standalone-on-premise-clusters"></a>Clústeres locales independientes
+#### <a name="standalone-on-premises-clusters"></a>Clústeres locales independientes
 Se debe ejecutar la aplicación de orquestación de revisiones en clústeres independientes que tengan la versión v5.6 o posterior del runtime de Service Fabric.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Habilitar el servicio de administrador de reparaciones (si no se está ejecutando ya)
@@ -149,10 +148,9 @@ Los registros de la aplicación de orquestación de revisiones se generan en los
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-Agregue la siguiente sección dentro la sección `WadCfg` de la plantilla de Resource Manager: 
+En la plantilla de Resource Manager, vaya a la sección `EtwEventSourceProviderConfiguration` en `WadCfg` y agregue las siguientes entradas:
 
 ```json
-"PatchOrchestrationApplication": [
   {
     "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
     "scheduledTransferPeriod": "PT5M",
@@ -180,8 +178,7 @@ Agregue la siguiente sección dentro la sección `WadCfg` de la plantilla de Res
     "DefaultEvents": {
     "eventDestination": " PatchOrchestrationApplicationTable"
     }
-  },
-]
+  }
 ```
 
 > [!NOTE]

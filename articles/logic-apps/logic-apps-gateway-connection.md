@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 06/9/2017
+ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 4b6f21c7949493ac1f95e7c0f255e5c96613adf1
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>Obtener acceso a orígenes de datos locales desde aplicaciones lógicas con la puerta de enlace de datos local
@@ -29,7 +28,7 @@ Para obtener acceso a orígenes de datos locales desde las aplicaciones lógicas
 
 La puerta de enlace admite conexiones a estos orígenes de datos locales:
 
-*   BizTalk Server
+*   BizTalk Server 2016
 *   DB2  
 *   Sistema de archivos
 *   Informix
@@ -39,18 +38,18 @@ La puerta de enlace admite conexiones a estos orígenes de datos locales:
 *   PostgreSQL
 *   Servidor de aplicaciones de SAP 
 *   Servidor de mensajes de SAP
-*   SharePoint para HTTP solo, no HTTPS
+*   SharePoint
 *   SQL Server
 *   Teradata
 
 En estos pasos se indica cómo configurar la puerta de enlace de datos local para trabajar con las aplicaciones lógicas. Para obtener más información sobre las conexiones admitidas, consulte [Conectores para Azure Logic Apps](../connectors/apis-list.md). 
 
-Para obtener más información sobre las puertas de enlace de datos para otros servicios de Microsoft, consulte estos artículos:
+Para información sobre cómo usar la puerta de enlace con otros servicios, consulte estos artículos:
 
-*   [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/): [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)
 *   [Puerta de enlace de datos local de Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 *   [Puerta de enlace de datos local de Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 *   [Puerta de enlace de datos local de Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
+*   [Administración de una puerta de enlace de datos local en Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 ## <a name="requirements"></a>Requisitos
 
@@ -105,7 +104,7 @@ Después de instalar la puerta de enlace en un equipo local, debe crear la puert
 
     ![Proporcionar detalles para crear la puerta de enlace de datos local](./media/logic-apps-gateway-connection/createblade.png)
 
-    Para buscar o ver la puerta de enlace de datos en cualquier momento, en el menú principal de Azure de la izquierda, vaya a  **Más servicios** > **Enterprise Integration** > **Puertas de enlace de datos locales**.
+    Para buscar o ver la puerta de enlace de datos en cualquier momento, en el menú principal de Azure de la izquierda, vaya a **Más servicios** > **Enterprise Integration** > **Puertas de enlace de datos locales**.
 
     ![Vaya a "Más servicios", "Enterprise Integration", "Puertas de enlace de datos locales"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
@@ -142,7 +141,7 @@ Después de crear una conexión de puerta de enlace para la aplicación lógica,
 
      ![Vaya a la aplicación lógica y seleccione "Conexiones de API".](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * O bien, en el menú principal de Azure de la izquierda, vaya a **Más servicios** > **Servicios web y móviles** > **Conexiones de API** para todas las conexiones de API, incluidas las conexiones de puerta de enlace, que están asociadas con su suscripción de Azure. 
+   * O bien, en el menú principal de Azure de la izquierda, vaya a **Más servicios** > **Servicios web y móviles** > **Conexiones de API** para todas las conexiones de API, incluidas las conexiones de puerta de enlace, que están asociadas con la suscripción de Azure. 
 
    * O bien, en el menú principal de Azure de la izquierda, vaya a **Todos los recursos** para todas las conexiones de API, incluidas las conexiones de puerta de enlace, que están asociadas con su suscripción de Azure.
 

@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 71863e52dca951b1fc3847e1bba47977a6e49c7c
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2a2172a78bfd3ac923edbc9de366b035629dd27b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube
@@ -32,7 +33,7 @@ El Portal de Azure clásico le ofrece dos formas de crear e implementar un servi
 En este tema se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, luego, usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure clásico pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando **Creación personalizada**.
 
 > [!NOTE]
-> Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use Creación rápida y, a continuación, configure la publicación VSTS desde **Creación rápida** o el panel. Para más información, consulte [Entrega continua en Azure con Visual Studio Team Services][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
+> Si tiene pensado publicar su servicio en la nube desde Visual Studio Team Services (VSTS), use **Creación rápida** y, a continuación, configure la publicación VSTS desde **Creación rápida** o el panel.
 > 
 > 
 
@@ -120,17 +121,11 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
    
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
-[TFSTutorialForCloudService]: cloud-services-continuous-delivery-use-vso.md
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
 * [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

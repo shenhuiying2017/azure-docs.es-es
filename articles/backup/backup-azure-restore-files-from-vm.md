@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/6/2017
+ms.date: 07/20/2017
 ms.author: pullabhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c65976c7394c7f9691526c0914854ef09184ab07
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: ae7c345c11a7db25413d60ad822f16f84ca37362
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="recover-files-from-azure-virtual-machine-backup-preview"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure (versión preliminar)
+# <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
 Azure Backup ofrece la posibilidad de restaurar [discos y máquinas virtuales de Azure](./backup-azure-arm-restore-vms.md) desde copias de seguridad de máquina virtual de Azure. En este artículo explicaremos cómo recuperar elementos como archivos y carpetas desde una copia de seguridad de máquina virtual de Azure.
 
@@ -35,7 +34,7 @@ Azure Backup ofrece la posibilidad de restaurar [discos y máquinas virtuales de
 
 1. Inicie sesión en el [Portal de Azure](http://portal.Azure.com). Busque el almacén de Recovery Services pertinente y el elemento requerido de copia de seguridad.
 
-2. En la hoja Elemento de copia de seguridad, haga clic en **Recuperación de archivos (versión preliminar)**.
+2. En la hoja Elemento de copia de seguridad, haga clic en **Recuperación de archivos**.
 
     ![Apertura del elemento de copia de seguridad del almacén de Recovery Services](./media/backup-azure-restore-files-from-vm/open-vault-item.png)
 
@@ -49,13 +48,19 @@ Azure Backup ofrece la posibilidad de restaurar [discos y máquinas virtuales de
 
   El archivo ejecutable/script crea una conexión entre el equipo local y el punto de recuperación especificado.
 
-5. En el equipo donde desea recuperar los archivos, ejecute el archivo ejecutable o el script. La ejecución debe realizarla con credenciales de administrador. Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a los siguientes recursos:
+5. Es necesaria una contraseña para ejecutar el script o ejecutable descargado. Puede copiar la contraseña del portal con el botón para copiar, junto a la contraseña generada.
 
-    - go.microsoft.com
+    ![Contraseña generada](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
+
+6. En el equipo donde desea recuperar los archivos, ejecute el archivo ejecutable o el script. La ejecución debe realizarla con credenciales de administrador. Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a los siguientes recursos:
+
+    - download.Microsoft.com
     - Puntos de conexión de Azure usados para copias de seguridad de máquina virtual de Azure
     - Puerto de salida 3260
 
    En el caso de Linux, el script requiere los componentes "open-iscsi" e "lshw" para conectar con el punto de recuperación. Si no se encuentran en la máquina en que se realiza la ejecución, solicita permiso para instalar los componentes pertinentes, pero no los instala hasta no haber obtenido el consentimiento.
+   
+   Cuando se le solicite, escriba la contraseña copiada desde el portal. Una vez que se escriba la contraseña válida, los scripts se conectan al punto de recuperación.
       
     ![Hoja Recuperación de archivos](./media/backup-azure-restore-files-from-vm/executable-output.png)
     

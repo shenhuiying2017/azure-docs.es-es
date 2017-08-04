@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 2e7c1ddedaa11fb614f2e8cf6d1644ae2a2beae3
-ms.lasthandoff: 04/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 92e4c7d5a873cd75cdc32e1feeede71bd5e37f40
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
@@ -236,11 +236,11 @@ Azure AD admite la federación (inicio de sesión único) con Active Directory D
 * En el caso de los usuarios federados (SSO), nunca se usa el proveedor de identidades (IdP), a diferencia del flujo pasivo. Las contraseñas se almacenan en el identificador de la organización. Si el usuario abandona la empresa, esta información tiene que fluir al identificador de la organización usando DirSync en tiempo real. La deshabilitación o eliminación de la cuenta puede tardar hasta tres horas en sincronizarse, retrasando la deshabilitación o eliminación de contraseña de aplicación en Azure AD.
 * La configuración del control de acceso de cliente local no admite la contraseña de aplicación
 * La contraseña de aplicación no tiene la ninguna funcionalidad de auditoría o registro de autenticación local.
-* Puede que algunos diseños arquitectónicos avanzados requieran una combinación de nombre de usuario y contraseñas de la organización, y de contraseñas de aplicación cuando se usa comprobación en dos pasos con clientes, en función de dónde se autentiquen. Para los clientes que se autentican en una infraestructura local, utilizaría un nombre de usuario y una contraseña de la organización. Para los clientes que se autentican en Azure AD, usaría la contraseña de aplicación.
+* Puede que algunos diseños arquitectónicos avanzados requieran una combinación de nombre de usuario y contraseñas de la organización, y de contraseñas de aplicación cuando se usa comprobación en dos pasos con clientes, en función de dónde se autentiquen. Para los clientes que se autentican en una infraestructura local, usaría un nombre de usuario y una contraseña de la organización. Para los clientes que se autentican en Azure AD, usaría la contraseña de aplicación.
 
   Por ejemplo, suponga que tiene una arquitectura que consta de lo siguiente:
 
-  * Federa su instancia local de Active Directory con Azure AD
+  * Tiene federada su instancia local de Active Directory con Azure AD
   * Usa Exchange Online
   * Usa Lync que es específicamente local
   * Usa Azure Multi-Factor Authentication

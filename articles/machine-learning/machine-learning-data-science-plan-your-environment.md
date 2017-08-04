@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a712baabf2674bda0a53de63e7c204b08ba9d105
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9297b241c047bf9feb68ced8da467c62e7f5acca
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Identificación de escenarios y planeamiento del procesamiento analítico avanzado de datos
@@ -47,7 +47,7 @@ Las cuestiones logísticas se refieren a la ubicación del **origen de datos**, 
    
    * [Carga de datos en entornos de almacenamiento para el análisis](machine-learning-data-science-ingest-data.md)
    * [Importación de datos de entrenamiento en Azure Machine Learning Studio desde varios orígenes de datos](machine-learning-data-science-import-data.md)
-4. **¿Los datos necesitan moverse siguiendo una programación regular o modificarse durante la migración?** Considere el uso de Factoría de datos de Azure (ADF) cuando los datos tengan que migrarse continuamente, especialmente en el caso de un escenario híbrido en el que se tenga acceso a recursos locales y de nube, o cuando se realice una transacción de datos o estos tengan que modificarse o tener lógica de negocios agregada mientras se migran. Para más información, consulte [Mover datos desde un servidor SQL Server local a SQL Azure con la Factoría de datos de Azure](machine-learning-data-science-move-sql-azure-adf.md)
+4. **¿Los datos necesitan moverse siguiendo una programación regular o modificarse durante la migración?** Considere el uso de Azure Data Factory (ADF) cuando los datos tengan que migrarse continuamente, especialmente en el caso de un escenario híbrido en el que se tenga acceso a recursos locales y en la nube, o cuando se realice una transacción de datos o estos tengan que modificarse o tener lógica de negocios agregada mientras se migran. Para más información, consulte [Mover datos desde un servidor SQL Server local a SQL Azure con Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
 5. **¿Qué cantidad de datos se va a mover a Azure?** Los conjuntos de datos muy grandes pueden superar la capacidad de almacenamiento de ciertos entornos. Para ver un ejemplo, consulte la explicación de los límites de tamaño para el Estudio de aprendizaje automático en la sección siguiente. En tales casos, puede usarse una muestra de los datos durante el análisis. Para obtener más información sobre cómo reducir la muestra de un conjunto de datos en diversos entornos de Azure, consulte [Muestreo de datos del proceso de ciencia de datos en equipos](machine-learning-data-science-sample-data.md).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Cuestiones sobre las características de los datos: tipo, formato y tamaño

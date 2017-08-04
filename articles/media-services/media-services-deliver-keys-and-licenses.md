@@ -12,19 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/18/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 69019f41bcc72b71bcc7d0bf8a66fe37d5243b7b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Uso de Servicios multimedia de Azure para entregar licencias de DRM a claves de AES
 Servicios de multimedia de Azure (AMS) le permite introducir, codificar, agregar protección de contenido y transmitir el contenido (consulte [este](media-services-protect-with-drm.md) artículo para ver los detalles). Sin embargo, hay clientes que solo desean usar AMS para entregar licencias y claves, y realizar la codificación, el cifrado y el streaming mediante sus servidores locales. Este artículo describe cómo puede usar AMS para entregar licencias de PlayReady y Widevine, pero realizar el resto con los servidores locales. 
 
 ## <a name="overview"></a>Información general
-Servicios multimedia proporciona un servicio para entregar licencias de PlayReady y Widevine y claves de AES-128. Servicios multimedia también proporciona API que permiten configurar los derechos y las restricciones que desee aplicar en tiempo de ejecución de DRM cuando un usuario reproduzca contenido protegido de DRM. Cuando un usuario solicita contenido protegido, la aplicación del reproductor solicitará una licencia del servicio de licencias de AMS. El servicio de licencias de AMS emitirá la licencia al reproductor, si está autorizado. Las licencias de PlayReady y Widevine contienen la clave de descifrado que puede usar el reproductor cliente para descifrar y transmitir el contenido.
+Media Services proporciona un servicio para entregar licencias DRM de PlayReady y Widevine y claves de AES-128. Servicios multimedia también proporciona API que permiten configurar los derechos y las restricciones que desee aplicar en tiempo de ejecución de DRM cuando un usuario reproduzca contenido protegido de DRM. Cuando un usuario solicita contenido protegido, la aplicación del reproductor solicitará una licencia del servicio de licencias de AMS. El servicio de licencias de AMS emitirá la licencia al reproductor, si está autorizado. Las licencias de PlayReady y Widevine contienen la clave de descifrado que puede usar el reproductor cliente para descifrar y transmitir el contenido.
 
 Servicios multimedia admite varias formas de autorizar a los usuarios que realizan solicitudes de licencias o claves. Puede configurar la directiva de autorización de claves de acceso, que podría tener una o más restricciones: abrir o restricción de token. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato Token de web simple (SWT) y en formato Token de web JSON (JWT).
 
@@ -35,31 +36,34 @@ El siguiente diagrama muestra los pasos principales que debe llevar a cabo con e
 ## <a name="download-sample"></a>Descarga de un ejemplo
 Puede descargar el ejemplo descrito en este artículo [aquí](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
+## <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
+
+1. Configure el entorno de desarrollo y rellene el archivo app.config con la información de la conexión, como se describe en [Desarrollo de Media Services con .NET](media-services-dotnet-how-to-use.md). 
+2. Agregue los siguientes elementos al elemento **appSettings** definido en el archivo app.config:
+
+    <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
+
 ## <a name="net-code-example"></a>Ejemplo de código .NET
-El ejemplo de código de este tema muestra cómo crear una clave de contenido común y obtener direcciones URL de adquisición de licencias PlayReady o Widevine. Necesitará obtener los siguientes fragmentos de información de AMS y configurar el servidor local: **clave de contenido**, **identificador de clave**, **URL de adquisición de licencias**. Una vez que configure su servidor local, podría transmitir desde su propio servidor de streaming. Puesto que la transmisión cifrada apunta al servidor de licencias de AMS, el reproductor solicitará una licencia de AMS. Si elige la autenticación de token, el servidor de licencias de AMS validará el token enviado a través de HTTPS y, si es válido, devolverá la licencia a su reproductor. (El ejemplo de código solo muestra cómo crear una clave de contenido común y obtener direcciones URL de adquisición de licencias PlayReady o Widevine. Si desea proporcionar las claves de AES-128, debe crear una clave de contenido del sobre y obtener una dirección URL de adquisición de claves; en [este](media-services-protect-with-aes128.md) artículo se muestra cómo hacerlo).
+
+El ejemplo de código siguiente muestra cómo crear una clave de contenido común y obtener direcciones URL de adquisición de licencias de PlayReady o Widevine. Necesitará obtener los siguientes fragmentos de información de AMS y configurar el servidor local: **clave de contenido**, **identificador de clave**, **URL de adquisición de licencias**. Una vez que configure su servidor local, podría transmitir desde su propio servidor de streaming. Puesto que la transmisión cifrada apunta al servidor de licencias de AMS, el reproductor solicitará una licencia de AMS. Si elige la autenticación de token, el servidor de licencias de AMS validará el token enviado a través de HTTPS y, si es válido, devolverá la licencia a su reproductor. (El ejemplo de código solo muestra cómo crear una clave de contenido común y obtener direcciones URL de adquisición de licencias PlayReady o Widevine. Si desea proporcionar las claves de AES-128, debe crear una clave de contenido del sobre y obtener una dirección URL de adquisición de claves; en [este](media-services-protect-with-aes128.md) artículo se muestra cómo hacerlo).
 
     using System;
     using System.Collections.Generic;
     using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
     using Microsoft.WindowsAzure.MediaServices.Client;
     using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
     using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
     using Newtonsoft.Json;
-
 
     namespace DeliverDRMLicenses
     {
         class Program
         {
             // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
             private static readonly Uri _sampleIssuer =
                 new Uri(ConfigurationManager.AppSettings["Issuer"]);
@@ -68,16 +72,13 @@ El ejemplo de código de este tema muestra cómo crear una clave de contenido co
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
                 bool tokenRestriction = true;
                 string tokenTemplateString = null;
@@ -86,10 +87,10 @@ El ejemplo de código de este tema muestra cómo crear una clave de contenido co
                 IContentKey key = CreateCommonTypeContentKey();
 
                 // Print out the key ID and Key in base64 string format
-                Console.WriteLine("Created key {0} with key value {1} ", 
+                Console.WriteLine("Created key {0} with key value {1} ",
                     key.Id, System.Convert.ToBase64String(key.GetClearKeyValue()));
 
-                Console.WriteLine("PlayReady License Key delivery URL: {0}", 
+                Console.WriteLine("PlayReady License Key delivery URL: {0}",
                     key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
 
                 Console.WriteLine("Widevine License Key delivery URL: {0}",
@@ -100,7 +101,7 @@ El ejemplo de código de este tema muestra cómo crear una clave de contenido co
                 else
                     AddOpenAuthorizationPolicy(key);
 
-                Console.WriteLine("Added authorization policy: {0}", 
+                Console.WriteLine("Added authorization policy: {0}",
                     key.AuthorizationPolicyId);
                 Console.WriteLine();
                 Console.ReadLine();
@@ -112,15 +113,15 @@ El ejemplo de código de este tema muestra cómo crear una clave de contenido co
                 // Create ContentKeyAuthorizationPolicy with Open restrictions 
                 // and create authorization policy          
 
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
                     new List<ContentKeyAuthorizationPolicyRestriction>
                 {
-                    new ContentKeyAuthorizationPolicyRestriction
-                    {
-                        Name = "Open",
-                        KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-                        Requirements = null
-                    }
+                        new ContentKeyAuthorizationPolicyRestriction
+                        {
+                            Name = "Open",
+                            KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+                            Requirements = null
+                        }
                 };
 
                 // Configure PlayReady and Widevine license templates.
@@ -155,15 +156,15 @@ El ejemplo de código de este tema muestra cómo crear una clave de contenido co
             {
                 string tokenTemplateString = GenerateTokenRequirements();
 
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions = 
+                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
                     new List<ContentKeyAuthorizationPolicyRestriction>
                 {
-                    new ContentKeyAuthorizationPolicyRestriction
-                    {
-                        Name = "Token Authorization Policy",
-                        KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
-                        Requirements = tokenTemplateString,
-                    }
+                        new ContentKeyAuthorizationPolicyRestriction
+                        {
+                            Name = "Token Authorization Policy",
+                            KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
+                            Requirements = tokenTemplateString,
+                        }
                 };
 
                 // Configure PlayReady and Widevine license templates.
@@ -220,7 +221,7 @@ El ejemplo de código de este tema muestra cómo crear una clave de contenido co
                 //and the application (may be useful for custom app logic) 
                 //as well as a list of one or more license templates.
 
-                PlayReadyLicenseResponseTemplate responseTemplate = 
+                PlayReadyLicenseResponseTemplate responseTemplate =
                     new PlayReadyLicenseResponseTemplate();
 
                 // The PlayReadyLicenseTemplate class represents a license template 
@@ -274,14 +275,14 @@ El ejemplo de código de este tema muestra cómo crear una clave de contenido co
                     allowed_track_types = AllowedTrackTypes.SD_HD,
                     content_key_specs = new[]
                     {
-                        new ContentKeySpecs
-                        {
-                            required_output_protection = 
-                                new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-                            security_level = 1,
-                            track_type = "SD"
-                        }
-                    },
+                            new ContentKeySpecs
+                            {
+                                required_output_protection =
+                                    new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+                                security_level = 1,
+                                track_type = "SD"
+                            }
+                        },
                     policy_overrides = new
                     {
                         can_play = true,
@@ -310,8 +311,6 @@ El ejemplo de código de este tema muestra cómo crear una clave de contenido co
                 return key;
             }
 
-
-
             static private byte[] GetRandomBuffer(int length)
             {
                 var returnValue = new byte[length];
@@ -324,11 +323,8 @@ El ejemplo de código de este tema muestra cómo crear una clave de contenido co
 
                 return returnValue;
             }
-
-
         }
     }
-
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -342,10 +338,5 @@ El ejemplo de código de este tema muestra cómo crear una clave de contenido co
 [Uso del cifrado dinámico AES-128 y del servicio de entrega de claves](media-services-protect-with-aes128.md)
 
 [Uso de partners para entregar licencias de Widevine a Servicios multimedia de Azure](media-services-licenses-partner-integration.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 07/12/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f4d2fe502e6b6a93c0e455a5369b63deb9074c82
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de Media Services Operations
@@ -27,6 +28,7 @@ La API de **REST de Media Services Operations** se usa para crear trabajos, acti
 
 Servicios multimedia de Microsoft Azure es un servicio que acepta solicitudes HTTP basadas en OData y puede responder en JSON detallado o atom+pub. Como los Servicios multimedia cumplen las directrices de diseño de Azure, hay un conjunto de encabezados HTTP obligatorios que cada cliente debe usar al conectarse a los Servicios multimedia, así como un conjunto de encabezados opcionales que se pueden usar. En las secciones siguientes se describen los encabezados y los verbos HTTP que puede usar al crear solicitudes y recibir respuestas de los Servicios multimedia.
 
+Este tema ofrece información general sobre cómo utilizar REST v2 con Media Services.
 
 ## <a name="considerations"></a>Consideraciones
 
@@ -109,15 +111,14 @@ Para que las entidades de los Servicios multimedia sean más reconocibles, se pu
 
 Anexe "?api-version=2.x" al final del URI si desea ver los metadatos en un explorador o no incluya el encabezado x-ms-version en la solicitud.
 
+## <a name="next-steps"></a>Pasos siguientes
+
+Para tener acceso a las API de AMS con REST, consulte [Uso de la autenticación de Azure AD para tener acceso a la API de Azure Media Services con REST](media-services-rest-connect-with-aad.md).
+
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

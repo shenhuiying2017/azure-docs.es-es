@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: babanisa;sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 775900fcae1b2832a5d0951e2a4053562c21455e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 72e18444c83b84c5191a0aab3dc6983517167dd1
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,11 +33,11 @@ Puede ver dos tipos de registros para Azure Service Bus:
 
 Los registros de diagnóstico están inhabilitados de forma predeterminada. Para habilitarlos, siga estos pasos:
 
-1.  En [Azure Portal](https://portal.azure.com), vaya a la hoja de trabajo de streaming.
+1.  En [Azure Portal](https://portal.azure.com), en **Supervisión y administración**, haga clic en **Registros de diagnóstico**.
 
-2.  En **Supervisión**, vaya a la hoja **Registros de diagnóstico**.
+    ![navegación por la hoja a los registros de diagnósticos](./media/service-bus-diagnostic-logs/image1.png)
 
-    ![navegación por la hoja a los registros de diagnósticos](./media/service-bus-diagnostic-logs/image1.png)  
+2. Haga clic en el recurso que quiere supervisar.  
 
 3.  Haga clic en **Activar diagnóstico**.
 
@@ -49,9 +49,7 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 
 5.  Establezca el destino de archivo que quiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o Azure Log Analytics.
 
-6.  Seleccione las categorías de registros que desee recopilar; por ejemplo, **Ejecución** o **Creación**.
-
-7.  Guarde la nueva configuración de diagnóstico.
+6.  Guarde la nueva configuración de diagnóstico.
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en la hoja **Registros de diagnóstico**.
 
@@ -61,11 +59,11 @@ Para obtener más información sobre el diagnóstico de configuraciones, consult
 
 Todos los registros se almacenan en el formato de notación de objetos JavaScript (JSON). Cada entrada tiene campos de cadena que usan el formato descrito en la siguiente sección.
 
-## <a name="operation-logs-example"></a>Ejemplo de registros de operaciones
+## <a name="operational-logs-schema"></a>Esquema de registros operativos
 
 Los registros de la categoría **OperationalLogs** capturan lo que sucede durante las operaciones de Service Bus. En concreto, estos registros capturan el tipo de operación, incluida la creación de colas, los recursos usados y el estado de la operación.
 
-Las cadenas JSON de registros de operaciones incluyen elementos enumerados en la tabla siguiente:
+Las cadenas JSON de registros operativos incluyen elementos enumerados en la tabla siguiente:
 
 Nombre | Descripción
 ------- | -------
@@ -79,7 +77,7 @@ Estado | Estado de la operación
 Autor de llamada | Autor de la llamada de la operación (Azure Portal o Management Client)
 categoría | OperationalLogs
 
-Este es un ejemplo de una cadena JSON de registro de operaciones:
+Este es un ejemplo de una cadena JSON de registro operativo:
 
 ```json
 {

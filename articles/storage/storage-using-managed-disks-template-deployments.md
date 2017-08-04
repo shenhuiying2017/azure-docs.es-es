@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: f2c0355068bc6dfd9a4e1aab52e4f4f9f23a9512
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f7ca0c1aa67b8a5f5487dd93a142ac9da094f945
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -75,7 +75,7 @@ Dentro del objeto de máquina virtual, necesitamos una dependencia de la cuenta 
             "dataDisks": [
                 {
                     "name": "datadisk1",
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "vhd": {
                         "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob, 'vhds/datadisk1.vhd')]"
@@ -96,7 +96,7 @@ Con Azure Managed Disks, el disco se convierte en un recurso de nivel superior y
 
 ### <a name="default-managed-disk-settings"></a>Configuración predeterminada de discos administrados
 
-Para crear una máquina virtual con discos administrados, ya no es necesario crear el recurso de cuenta de almacenamiento y es posible actualizar el recurso de máquina virtual como se indica a continuación. Observe específicamente que `apiVersion` refleja `2016-04-30-preview` y ni `osDisk` ni `dataDisks` hacen referencia ya a un URI específico para el VHD. Cuando se realiza la implementación sin especificar propiedades adicionales, el disco usará [almacenamiento LRS estándar]((storage-redundancy.md). Si no se especifica ningún nombre, toma el formato de `<VMName>_OsDisk_1_<randomstring>` para el disco de SO y `<VMName>_disk<#>_<randomstring>` para cada disco de datos. De manera predeterminada, Azure Disk Encryption está deshabilitado; el almacenamiento en caché es Lectura/escritura en el caso del disco de SO y Ninguno para los discos de datos. En el ejemplo siguiente, puede observar que todavía existe una dependencia de cuenta de almacenamiento, pero es solo para el almacenamiento de diagnósticos y no es necesaria para almacenamiento en disco.
+Para crear una máquina virtual con discos administrados, ya no es necesario crear el recurso de cuenta de almacenamiento y es posible actualizar el recurso de máquina virtual como se indica a continuación. Observe específicamente que `apiVersion` refleja `2016-04-30-preview` y ni `osDisk` ni `dataDisks` hacen referencia ya a un URI específico para el VHD. Cuando la implementación se realiza sin especificar propiedades adicionales, el disco usará el [almacenamiento LRS estándar](storage-redundancy.md). Si no se especifica ningún nombre, toma el formato de `<VMName>_OsDisk_1_<randomstring>` para el disco de SO y `<VMName>_disk<#>_<randomstring>` para cada disco de datos. De manera predeterminada, Azure Disk Encryption está deshabilitado; el almacenamiento en caché es Lectura/escritura en el caso del disco de SO y Ninguno para los discos de datos. En el ejemplo siguiente, puede observar que todavía existe una dependencia de cuenta de almacenamiento, pero es solo para el almacenamiento de diagnósticos y no es necesaria para almacenamiento en disco.
 
 ```
 {
@@ -123,7 +123,7 @@ Para crear una máquina virtual con discos administrados, ya no es necesario cre
             },
             "dataDisks": [
                 {
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "createOption": "Empty"
                 }
@@ -209,8 +209,8 @@ Para crear conjuntos de disponibilidad administrados con máquinas virtuales con
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",
     "properties": {
-        "PlatformUpdateDomainCount": "3",
-        "PlatformFaultDomainCount": "2"
+        "PlatformUpdateDomainCount": 3,
+        "PlatformFaultDomainCount": 2
     },
     "sku": {
         "name": "Aligned"

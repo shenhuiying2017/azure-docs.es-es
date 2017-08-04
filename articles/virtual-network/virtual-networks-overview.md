@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 22c0ee5090d67430fc63ad3f3c09076de0be067c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b820491107372551896bf37d04cf995e6a8bd0e7
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-virtual-network"></a>Red virtual
@@ -92,4 +91,5 @@ Para revisar las preguntas más frecuentes sobre la red Virtual, vea el artícul
 
 - Cree su primera red virtual y conecte algunas máquinas virtuales a ella, siguiendo los pasos descritos en el artículo [Creación de su primera red virtual](virtual-network-get-started-vnet-subnet.md).
 - Cree una conexión de punto a sitio a una red virtual siguiendo los pasos descritos en el artículo [Configuración de una conexión de punto a sitio](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Obtenga más información sobre las demás [funcionalidades de red](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) clave de Azure.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 07/06/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 79bbb4dfe03a6c1ae782abc1404e22343bde22a0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 24d970faa0b4b1a74629b55efb034e9d79eddb1d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -55,8 +55,8 @@ A continuación se muestra la información de configuración de proxy y firewall
 |------|---------|  
 |*.ods.opinsights.azure.com | Puerto 443|   
 |*.oms.opinsights.azure.com | Puerto 443|   
-|ods.systemcenteradvisor.com | Puerto 443|   
 |*.blob.core.windows.net/ | Puerto 443|   
+|*.azure-automation.net | Puerto 443|  
 
 ### <a name="package-requirements"></a>Requisitos de paquete
 
@@ -66,7 +66,7 @@ Glibc | Biblioteca GNU C   | 2.5-12
 Openssl | Bibliotecas OpenSSL | 0.9.8E o 1.0
 Curl | Cliente web de cURL | 7.15.5
 Python ctypes | | 
-PAM | Módulos de autenticación conectables   | 
+PAM | Módulos de autenticación conectables | 
 
 > [!NOTE]
 >  Rsyslog o Syslog son necesarios para recopilar mensajes de Syslog. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux, CentOS y Oracle Linux (Sysklog) no se admite para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar configurar el demonio de Rsyslog para reemplazar Sysklog. 
@@ -75,7 +75,7 @@ El agente está formado por varios paquetes. El archivo de versión contiene los
 
 **Paquete** | **Versión** | **Descripción**
 ----------- | ----------- | --------------
-omsagent | 1.3.4 | El agente de Operations Management Suite para Linux
+omsagent | 1.4.0 | El agente de Operations Management Suite para Linux
 omsconfig | 1.1.1 | Agente de configuración para el agente de OMS
 omi | 1.2.0 | Infraestructura de administración abierta (OMI), un servidor de CIM ligero
 scx | 1.6.3 | Proveedores de CIM OMI para métricas de rendimiento del sistema operativo
@@ -142,22 +142,22 @@ Options:
 
 #### <a name="to-install-and-onboard-directly"></a>Para instalarlos e incorporarlos directamente
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key>
 ```
 
 #### <a name="to-install-and-onboard-to-a-workspace-in-us-government-cloud"></a>Para instalarlos e incorporarlos a un área de trabajo en la nube de US Government
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
 #### <a name="to-install-the-agent-packages-and-onboard-at-a-later-time"></a>Para instalar los paquetes de agente e incorporarlos en un momento posterior
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 ```
 
 #### <a name="to-extract-the-agent-packages-from-the-bundle-without-installing"></a>Para extraer los paquetes de agente desde el paquete sin instalarlos
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --extract
+sudo sh ./omsagent-<version>.universal.x64.sh --extract
 ```
 
 ## <a name="configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>Configuración del agente para su uso con un servidor proxy HTTP o puerta de enlace de OMS
@@ -184,7 +184,7 @@ El servidor proxy se puede especificar durante la instalación o al modificar el
 El argumento `-p` o `--proxy` para el paquete de instalación de omsagent especifica la configuración de proxy que se va a usar. 
 
 ```
-sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### <a name="define-the-proxy-configuration-in-a-file"></a>Definición de la configuración de proxy en un archivo
@@ -217,9 +217,8 @@ Si no se proporcionaron la clave y el identificador del área de trabajo durante
 Ejecute el comando omsadmin.sh proporcionando el identificador y la clave del área de trabajo. Este comando debe ejecutarse como raíz (con elevación sudo):
 ```
 cd /opt/microsoft/omsagent/bin
-sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key> [-p <proxy>] [-v]
+sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 ```
-El modificador opcional - v habilitará el registro detallado durante el proceso de incorporación. Toda la información se muestra en la pantalla donde se ejecuta el script de shell.
 
 ### <a name="onboarding-using-a-file"></a>Incorporación mediante un archivo
 1.  Cree el archivo `/etc/omsagent-onboard.conf`. El archivo debe ser de lectura y escritura para la raíz.
@@ -328,4 +327,3 @@ Se trata de un problema conocido que se produce en primera carga de datos de Lin
 4. En algunos casos, cuando el agente OMS para Linux no puede comunicarse con el servicio OMS, los datos del agente ocupan el tamaño de búfer total de 50 MB. Se debe reiniciar el agente OMS para Linux ejecutando el siguiente comando `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
 > [!NOTE]
 > Este problema se ha corregido en la versión 1.1.0-28 y posteriores del agente.
-

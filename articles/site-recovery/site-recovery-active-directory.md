@@ -1,25 +1,7 @@
----
-title: "Protección de Active Directory y DNS con Azure Site Recovery | Microsoft Docs"
-description: "Este artículo describe cómo implementar una solución de recuperación ante desastres para Active Directory con Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
-author: prateek9us
-manager: gauravd
-editor: 
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
-ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 3/17/2017
-ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 9b2e78ff55ed23732892d605f3edef6a5afdf7ad
-ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+7--- título: Protección de Active Directory y DNS con Azure Site Recovery | Microsoft Docs. Descripción: en este artículo se describe cómo implementar una solución de recuperación ante desastres para Active Directory mediante Azure Site Recovery.
+services: site-recovery documentationcenter: '' author: prateek9us manager: gauravd editor: ''
 
+ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc ms.service: site-recovery ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: storage-backup-recovery ms.date: 7/20/2017 ms.author: pratshar
 
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Protección de Active Directory y DNS con Azure Site Recovery
@@ -83,8 +65,7 @@ La mayoría de las aplicaciones también requieren la presencia de un controlado
 1. Cree una red aislada. Cualquier red virtual que se cree en Azure de forma predeterminada está aislada de otras redes. Se recomienda que el intervalo de dirección IP para esta red sea el mismo que el de la red de producción. No habilite la conectividad de sitio a sitio en esta red.
 1. Proporcione una dirección IP de DNS en la red que se ha creado, como la dirección IP que se espera que la máquina virtual DNS obtenga. Si realiza la replicación en Azure, indique la dirección IP de la máquina virtual que se usa en la conmutación por error en la opción **IP de destino**, en **Proceso y red**. 
 
-    ![IP de destino](./media/site-recovery-active-directory/DNS-Target-IP.png)
-    **IP de destino**
+    ![IP de destino](./media/site-recovery-active-directory/DNS-Target-IP.png) **IP de destino**
 
     ![Red de prueba de Azure](./media/site-recovery-active-directory/azure-test-network.png)
 
@@ -211,5 +192,4 @@ Puede utilizar un servidor DNS nuevo y crear todas las zonas necesarias. Por eje
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [qué cargas de trabajo puede proteger](site-recovery-workload.md) para más información sobre cómo proteger las cargas de trabajo empresariales con Azure Site Recovery.
-
 

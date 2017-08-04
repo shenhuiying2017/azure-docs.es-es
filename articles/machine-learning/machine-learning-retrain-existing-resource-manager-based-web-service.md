@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: dc4716a26ba5c2ba93dda83890dbff81f22cbd2a
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: bdc994daf441d397157f8e6cbcf84d72584927f0
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reciclaje de un servicio web predictivo existente
@@ -64,7 +64,7 @@ En este ejemplo, se utiliza C# para crear la aplicación de reciclado. También 
 
 Para llamar a las API de reciclado:
 
-1. Cree una nueva aplicación de consola C# en Visual Studio (**Nuevo** > **Proyecto** > **Windows Desktop** > **Aplicación de consola**).
+1. Cree una nueva aplicación de consola de C# en Visual Studio: **Nuevo** > **Proyecto** > **Visual C#** > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)**.
 2. Inicie sesión en el portal de servicio web Machine Learning.
 3. Haga clic en el servicio web con el que está trabajando.
 4. Haga clic en **Consume**(Consumo).

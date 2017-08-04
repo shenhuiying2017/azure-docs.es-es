@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 04810ffa33d90d31003d0919c3edb2710fed453c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: PDF de la hoja de referencia de consultas SQL de la API de DocumentDB
@@ -40,7 +39,7 @@ Descargue y use la hoja de referencia de consultas SQL para escribir consultas m
 
 ## <a name="more-help-with-writing-sql-queries"></a>Más ayuda para la escritura de consultas SQL
 * Para realizar un recorrido por las opciones de consulta disponibles en Cosmos DB, consulte [Consulta de Cosmos DB](documentdb-sql-query.md).
-* Para la documentación de referencia relacionada, consulte [Lenguaje de consulta SQL de Cosmos DB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+* Para la documentación de referencia correspondiente, consulte [API de DocumentDB de Azure Cosmos DB: referencia de sintaxis SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
 ## <a name="release-notes"></a>Notas de la versión
 Actualizado el 29/7/2016 para incluir la parte superior.

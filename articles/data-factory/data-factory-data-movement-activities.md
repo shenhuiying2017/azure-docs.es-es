@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 07/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>Movimiento de datos con la actividad de copia
@@ -187,6 +186,12 @@ Puede especificar más de un conjunto de datos de entrada para la actividad de c
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Vea el artículo [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md), en el que se describen los factores claves que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory. También muestra el rendimiento observado durante las pruebas internas y trata diversas maneras de optimizar el rendimiento de la actividad de copia.
+
+## <a name="fault-tolerance"></a>Tolerancia a errores
+De forma predeterminada, la actividad de copia detendrá la copia de datos y devolverá un error cuando se encuentren datos incompatibles entre el origen y el receptor, aunque puede configurarla de forma expresa para que omita y registre las filas incompatibles y copie solamente los datos compatibles que realicen la copia de manera correcta. Consulte la [tolerancia a errores de la actividad de copia](data-factory-copy-activity-fault-tolerance.md) para obtener más información.
+
+## <a name="security-considerations"></a>Consideraciones sobre la seguridad
+Consulte las [Consideraciones sobre la seguridad](data-factory-data-movement-security-considerations.md) que describen la infraestructura de seguridad que utilizan los servicios de movimiento de datos en Azure Data Factory para proteger los datos.
 
 ## <a name="scheduling-and-sequential-copy"></a>Programación y copia secuencial
 Consulte [Programación y ejecución](data-factory-scheduling-and-execution.md) para obtener información detallada sobre cómo funciona la programación y la ejecución en Data Factory. Es posible ejecutar varias operaciones de copia sucesivas de manera secuencial y ordenada. Consulte la sección [Copia secuencial](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).

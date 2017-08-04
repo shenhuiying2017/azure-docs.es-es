@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c1614eeac922a4fc496be77b4d1d1588f28b4284
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 57ba0e46139bda2d74c9f7db0ffab2f2122b0df2
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicaciones multiempresa en Azure
@@ -41,7 +42,7 @@ Una aplicación multiempresa correctamente implementada ofrece los siguientes be
 
 En resumen, si bien hay muchas consideraciones que debe tener en cuenta para ofrecer un servicio de alta escalabilidad, también hay una serie de objetivos y requisitos comunes a muchas aplicaciones multiempresa. Algunos pueden no resultar pertinentes en escenarios específicos y la importancia de los objetivos y requisitos individuales variará en cada escenario. Como proveedor de la aplicación multiempresa, también tendrá objetivos y requisitos como satisfacer los requisitos y los objetivos de los inquilinos, rentabilidad, facturación, varios niveles de servicio, aprovisionamiento, mantenimiento, supervisión y automatización.
 
-Para más información sobre las consideraciones de diseño adicionales de una aplicación multiinquilino, consulte [Hospedaje de una aplicación multiempresa en Azure][Hospedaje de una aplicación multiempresa en Azure]. Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+Para obtener más información acerca de consideraciones de diseño adicionales de una aplicación multiinquilino, consulte [Hospedaje de una aplicación multiinquilino en Azure][Hosting a Multi-Tenant Application on Azure]. Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
 
 Azure ofrece muchas características que le permiten solucionar los principales problemas detectados al diseñar un sistema multiempresa.
 
@@ -73,7 +74,7 @@ Azure ofrece varios servicios de red que admiten la autenticación y mejoran la 
 * La Red virtual de Azure le permite aprovisionar y administrar redes privadas virtuales (VPN) en Azure, así como vincularlas de forma segura con la infraestructura de TI local.
 * El administrador de tráfico de red virtual le permite cargar tráfico entrante equilibrado entre varios servicios de Azure hospedados, independientemente de que se ejecuten en el mismo centro de datos o en diferentes centros de datos en todo el mundo.
 * Azure Active Directory (Azure AD) es un servicio moderno basado en REST que ofrece capacidades de administración de identidades y control de acceso para las aplicaciones en la nube. El uso de Azure AD para Recursos de aplicaciones ofrece una forma sencilla de autenticar y autorizar a los usuarios a la hora de tener acceso a las aplicaciones y los servicios web, a la vez que se permite que las características de autenticación y autorización queden excluidas del código.
-* El Bus de servicio de Azure ofrece una capacidad de flujo de datos y mensajería segura para aplicaciones distribuidas e híbridas, como la comunicación entre aplicaciones hospedadas de Azure y aplicaciones y servicios locales, sin requerir infraestructuras de seguridad y firewall complejas. El uso del Relé del Bus de servicio para recursos de aplicaciones para los servicios expuestos como extremos puede pertenecer al inquilino (por ejemplo, hospedados fuera del sistema, como a nivel local), o bien puede tratarse de servicios aprovisionados específicamente para el inquilino (porque los datos sensibles específicos de inquilinos se transfieren a través de ellos).
+* El Bus de servicio de Azure ofrece una capacidad de flujo de datos y mensajería segura para aplicaciones distribuidas e híbridas, como la comunicación entre aplicaciones hospedadas de Azure y aplicaciones y servicios locales, sin requerir infraestructuras de seguridad y firewall complejas. El uso de Service Bus Relay para recursos de aplicación en los servicios expuestos como puntos de conexión puede recaer en el inquilino (por ejemplo, hospedados fuera del sistema, como en local), o bien puede tratarse de servicios aprovisionados específicamente para el inquilino (porque los datos importantes específicos del inquilino se transfieren a través de ellos).
 
 **Aprovisionamiento de recursos**
 
@@ -90,11 +91,6 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
 
 <!--links-->
 
-[Hospedaje de una aplicación multiempresa en Azure]: http://msdn.microsoft.com/library/hh534480.aspx
-[Diseño de aplicaciones multiinquilino en Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 

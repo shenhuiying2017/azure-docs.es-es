@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: f5c33212da13b33be60488992d93305807c98d38
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 3c7db401442c41bbe1343b1adc48f4f1b7d88b49
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Aprovisionamiento de Linux Data Science Virtual Machine
@@ -178,7 +177,7 @@ Puede acceder al servidor de Jupyter Notebook desde cualquier host. Solo tiene q
 Hemos empaquetado algunos cuadernos de ejemplo (uno en Python y otro en R). Puede ver el vínculo a los ejemplos en la página principal del cuaderno después de que se autentique en Jupyter Notebook con el nombre de usuario y la contraseña de Linux local. Puede crear un nuevo cuaderno seleccionando **Nuevo** y, después, el kernel de lenguaje apropiado. Si no ve el botón **Nuevo**, haga clic en el icono de **Jupyter** en la parte superior izquierda para ir a la página principal del servidor de Notebook.
 
 ### <a name="apache-spark-standalone"></a>Apache Spark Standalone 
-Una instancia independiente de Apache Spark está preinstalada en la DSVM de Linux para ayudarlo a desarrollar aplicaciones de Spark localmente antes de probarlas e implementarlas en clústeres de gran tamaño. Puede ejecutar programas PySpark mediante el kernel de Jupyter. Cuando abre Jupyter y hace clic en el botón "Nuevo", puede ver una lista de los kernels disponibles. "Spark - Python" es el kernel de PySpark que le permitirá compilar aplicaciones Spark mediante el lenguaje Python. También puede usar un IDE de Python, como PyCharm o Spyder, para compilar el programa Spark. Como se trata de una instancia independiente, la pila de Spark se ejecuta dentro del programa de cliente que ejecuta la llamada. Esto permite que la solución de problemas sea más rápida y simple en comparación con el desarrollo en un clúster de Spark. 
+Una instancia independiente de Apache Spark está preinstalada en la DSVM de Linux para ayudarlo a desarrollar aplicaciones de Spark localmente antes de probarlas e implementarlas en clústeres de gran tamaño. Puede ejecutar programas PySpark mediante el kernel de Jupyter. Al abrir Jupyter y hacer clic en el botón "Nuevo", verá una lista de los kernels disponibles. "Spark - Python" es el kernel de PySpark que le permite compilar aplicaciones Spark mediante el lenguaje Python. También puede usar un IDE de Python, como PyCharm o Spyder, para compilar el programa Spark. Como se trata de una instancia independiente, la pila de Spark se ejecuta dentro del programa de cliente que ejecuta la llamada. Esto permite que la solución de problemas sea más rápida y simple en comparación con el desarrollo en un clúster de Spark. 
 
 Se proporciona un bloc de notas de PySpark de ejemplo en Jupyter que puede encontrar en el directorio "SparkML" dentro del directorio particular de Jupyter ($HOME/notebooks/SparkML/pySpark). 
 

@@ -3,7 +3,7 @@ title: Aprovisionamiento automatizado de usuarios para aplicaciones SaaS en Azur
 description: "Una introducción sobre cómo puede usar Azure AD para el aprovisionamiento, el desaprovisionamiento y la actualización continua de cuentas de usuario de manera automática en varias aplicaciones SaaS de terceros."
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2017
-ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 1d4249dcab69bb2000fa895e6a0cd8cfb9ec9437
+ms.date: 07/13/2017
+ms.author: curtand
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7cb780117d64d67449146b9757f8162e23e65d1e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory

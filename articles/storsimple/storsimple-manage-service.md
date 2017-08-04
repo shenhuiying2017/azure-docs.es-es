@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 07/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 99fab8eafe4e17f50db8e7e33637001be03abe7b
-ms.openlocfilehash: 0cb356910b858bf231dfadffa1d4561df1977af0
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ba3637a3a8b15b45c16bf5a00c1f4225bcfc5af8
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Implementación del servicio StorSimple Manager en el Portal de Azure clásico
@@ -29,7 +29,7 @@ El servicio StorSimple Manager se ejecuta en Microsoft Azure y se conecta a vari
 
 La página de aterrizaje de StorSimple Manager enumera todos los servicios de StorSimple Manager que puede usar para administrar los dispositivos de almacenamiento de StorSimple. Para cada servicio StorSimple Manager, se presenta la siguiente información en la página de StorSimple Manager:
 
-* **Nombre** : el nombre asignado al servicio StorSimple Manager cuando se creó. El nombre del servicio no se puede cambiar una vez creado el servicio.
+* **Nombre** : el nombre asignado al servicio StorSimple Manager cuando se creó. **El nombre del servicio no se puede cambiar una vez creado el servicio. Esto también se aplica en el caso de otras entidades como dispositivos, volúmenes, contenedores de volúmenes y directivas de copia de seguridad del Portal de Azure clásico.**
 * **Estado**: estado del servicio, que puede ser **Activo**, **Creando** o **En línea**.
 * **Ubicación** : ubicación geográfica en la que se implementará el dispositivo StorSimple.
 * **Suscripción** : suscripción de facturación asociada a su servicio.

@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 28712a9898bf2449de53d21fd87f1ce53da71ff8
-ms.openlocfilehash: df60c4737954e79ff860601412dffa58d4dbb471
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cf25772bd9d92b59401aa5da76e6bbd5fa5ee3e5
 ms.contentlocale: es-es
-ms.lasthandoff: 02/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory
@@ -45,7 +44,7 @@ Para integrar la aplicación con Azure AD, siga la [instrucciones para desarroll
 > 
 > Nombre de la aplicación:
 > 
-> Descripción de la aplicación (límite de 256 caracteres):
+> Descripción de la aplicación (límite de 200 caracteres):
 > 
 > Sitio web de la aplicación (informativo):
 > 
@@ -79,7 +78,7 @@ Cualquier aplicación compatible con SAML 2.0 se puede integrar directamente con
 > 
 > Nombre de la aplicación:
 > 
-> Descripción de la aplicación (límite de 256 caracteres):
+> Descripción de la aplicación (límite de 200 caracteres):
 > 
 > Sitio web de la aplicación (informativo):
 > 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: alexwun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be4275d55410a763d38dcb954df5349db287c015
-ms.openlocfilehash: 5eb8f9489dcc29122892165111f62d63be1766f2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f497006a8ba48da0032b82113702d8014952ca20
 ms.contentlocale: es-es
-ms.lasthandoff: 02/14/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Descripción del valor ImageStoreConnectionString

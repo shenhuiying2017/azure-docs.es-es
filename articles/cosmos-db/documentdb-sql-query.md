@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/08/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 1241b6d97447fe6ee2a8abfb425b8b5f7d0f8a9c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 71878a5a8807b025f418b978990cb0c502e4eca7
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Consultas SQL para la API de DocumentDB de Azure Cosmos DB
@@ -921,9 +920,7 @@ También puede realizar agregados en combinación con filtros. Por ejemplo, la c
 
 **Resultados**
 
-    [{
-        "$1": 1
-    }]
+    [ 1 ]
 
 En las tablas siguientes se muestra la lista de funciones de agregado compatibles de la API de DocumentDB. `SUM`y `AVG` se aplican a valores numéricos, mientras que `COUNT`, `MIN` y `MAX` se pueden aplicar a números, cadenas, y valores booleanos y NULL. 
 
@@ -1206,7 +1203,7 @@ Este ejemplo es una ampliación natural del anterior y realiza una combinación 
         }
     }
 
-`AndersenFamily` tiene un hijo que tiene una mascota. De esta manera, el producto cruzado produce una fila (1*1*1) a partir de esta familia. La familia Wakefield tiene, sin embargo, dos hijos, pero solo uno, "Jesse", tiene mascotas. Tiene dos mascotas, sin embargo. Así pues, el producto cruzado produce 1*1*2 = 2 filas a partir de esta familia.
+`AndersenFamily` tiene un hijo que tiene una mascota. De esta manera, el producto cruzado produce una fila (1\*1\*1) a partir de esta familia. La familia Wakefield tiene, sin embargo, dos hijos, pero solo uno, "Jesse", tiene mascotas. Tiene dos mascotas, sin embargo. Así pues, el producto cruzado produce 1\*1\*2 = 2 filas a partir de esta familia.
 
 En el ejemplo siguiente, hay un filtro adicional en `pet` Este excluye todas las tuplas donde el nombre de mascota no sea "Shadow". Tenga en cuenta que podemos crear tuplas a partir de matrices, filtrar por cualquiera de los elementos de la tupla y proyectar cualquier combinación de los elementos. 
 
@@ -1242,7 +1239,7 @@ Azure Cosmos DB proporciona un modelo de programación para ejecutar una lógica
 ### <a id="UserDefinedFunctions"></a>Funciones definidas por el usuario (UDF)
 Junto con los tipos ya definidos en este artículo, el lenguaje SQL de la API de DocumentDB ofrece compatibilidad para las funciones definidas por el usuario (UDF). En particular, se admiten las UDF escalares allí donde los desarrolladores puedan proporcionar cero o muchos argumentos y devolver un solo resultado de argumento. Cada uno de estos argumentos se comprueba para ver si se trata de valores JSON legales.  
 
-La sintaxis del lenguaje SQL de la API DocumentDB se amplía para admitir una lógica de aplicación personalizada usando estas funciones definidas por el usuario. Las funciones definidas por el usuario pueden registrarse con la API de DocumentDB y, a continuación, se puede hacer referencia a ellas como parte de una consulta de SQL. De hecho, las UDF están exquisitamente diseñadas para su invocación por parte de las consultas. Como resultado de esta opción, las UDF no tienen acceso al objeto de contexto que los otros tipos de JavaScript (procedimientos y desencadenadores almacenados) tienen. Puesto que las consultas se ejecutan como de solo lectura, pueden ejecutarse en réplicas principales o secundarias. Por consiguiente, las UDF están diseñadas para ejecutarse en réplicas secundarias, a diferencia de otros tipos de JavaScript.
+La sintaxis del lenguaje SQL de la API DocumentDB se amplía para admitir una lógica de aplicación personalizada con estas funciones definidas por el usuario. Las funciones definidas por el usuario pueden registrarse con la API de DocumentDB y, a continuación, se puede hacer referencia a ellas como parte de una consulta de SQL. De hecho, las UDF están exquisitamente diseñadas para su invocación por parte de las consultas. Como resultado de esta opción, las UDF no tienen acceso al objeto de contexto que los otros tipos de JavaScript (procedimientos y desencadenadores almacenados) tienen. Puesto que las consultas se ejecutan como de solo lectura, pueden ejecutarse en réplicas principales o secundarias. Por consiguiente, las UDF están diseñadas para ejecutarse en réplicas secundarias, a diferencia de otros tipos de JavaScript.
 
 A continuación, vemos un ejemplo de cómo puede registrarse una UDF en la base de datos de Cosmos DB, concretamente en una recopilación de documentos.
 
@@ -1515,7 +1512,7 @@ Las siguientes funciones escalares realizan una operación sobre un valor de ent
 | [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Devuelve una expresión de cadena después de convertir los datos de caracteres en mayúsculas a minúsculas. |
 | [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Devuelve una expresión de cadena después de convertir datos de caracteres en minúsculas a mayúsculas. |
 | [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Reemplaza todas las apariciones de un valor de cadena especificado por otro valor de cadena. |
-| [REPLICATE (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate) |Repite un valor de cadena un número especificado de veces. |
+| [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-reference#bk_replicate) |Repite un valor de cadena un número especificado de veces. |
 | [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Devuelve el orden inverso de un valor de cadena. |
 
 Con estas funciones, ya puede ejecutar consultas similares a las siguientes. Por ejemplo, puede devolver el nombre de familia en mayúsculas del modo siguiente:

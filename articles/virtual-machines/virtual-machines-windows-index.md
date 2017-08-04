@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 11ffd3df669c805297eee5085145f4ce27a09e15
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5c971ed2e09bd275dc34da3ea94b3ff4a6338c9a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="technical-articles-for-windows-vms-in-the-classic-deployment-model"></a>Artículos técnicos para máquinas virtuales de Windows en el modelo de implementación clásica
@@ -57,7 +56,7 @@ Encuentre toda la documentación que necesita para crear y administrar máquinas
 
 [Tamaños de máquinas virtuales](windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Tamaños de máquina virtual de informática de alto rendimiento](windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Planeación del mantenimiento de máquinas virtuales de Azure](windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 07/07/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: a9c70810c4f731b2d8b395873fa6b94db78306aa
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d79e7ec6abfc0104008139bb4f86cc7bb1a02a13
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -27,12 +29,12 @@ El origen de datos de registros personalizados en Log Analytics permite recopila
 
 Los archivos de registro que se van a recopilar deben cumplir los criterios siguientes.
 
-* El registro debe tener una sola entrada por línea o usar una marca de tiempo que coincida con uno de los formatos siguientes al principio de cada entrada.
+- El registro debe tener una sola entrada por línea o usar una marca de tiempo que coincida con uno de los formatos siguientes al principio de cada entrada.
   
-    AAAA-MM-DD HH:MM:SS  <br>
-    M/D/AAAA HH:MM:SS AM/PM <br>
-   Lun DD,AAAA HH:MM:SS
-* El archivo de registro no debe permitir actualizaciones circulares, en las que el archivo se sobrescribe con nuevas entradas. 
+    AAAA-MM-DD HH:MM:SS <br>M/D/AAAA HH:MM:SS AM/PM <br>Lun DD,AAAA HH:MM:SS
+
+- El archivo de registro no debe permitir actualizaciones circulares, en las que el archivo se sobrescribe con nuevas entradas. 
+- El archivo de registro debe utilizar la codificación ASCII o UTF-8.  No se admiten otros formatos, como UTF-16.
 
 ## <a name="defining-a-custom-log"></a>Definición de un registro personalizado
 Utilice el procedimiento siguiente para definir un archivo de registro personalizado.  Desplácese hasta el final de este artículo para ver un tutorial con un ejemplo de cómo agregar un registro personalizado.
@@ -173,10 +175,5 @@ Los campos personalizados se usan para definir los campos *EventTime* (Hora del 
 ## <a name="next-steps"></a>Pasos siguientes
 * Utilice los [campos personalizados](log-analytics-custom-fields.md) para analizar las entradas del registro personalizado en campos individuales.
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

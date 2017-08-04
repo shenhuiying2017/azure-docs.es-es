@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 07/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 88628fb2c07ad72c646f7e3ed076e7a4b1519200
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 13268f14388e511f2ad106939b0913388b89e16c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformación de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
@@ -42,13 +41,69 @@ Una canalización en una factoría de datos de Azure procesa los datos de los se
 > 
 > Revise el [tutorial sobre la compilación de la primera canalización](data-factory-build-your-first-pipeline.md) para ver los pasos detallados para crear una factoría de datos, servicios vinculados, conjuntos de datos y una canalización. Use los fragmentos de código JSON con el Editor de Data Factory, Visual Studio o Azure PowerShell para crear las entidades de Data Factory.
 
+## <a name="supported-authentication-types"></a>Tipos de autenticación que se admiten
+La actividad de U-SQL admite siguientes tipos de autenticación frente a Data Lake Analytics:
+* Autenticación de entidad de servicio
+* Autenticación de credenciales de usuario (OAuth) 
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Servicio vinculado con Análisis de Azure Data Lake
+Se recomienda usar la autenticación de la entidad de servicio, en especial para una ejecución de U-SQL. Con la autenticación se credenciales de usuario puede darse la situación de que expiren los tokens. Para información sobre los detalles de configuración, consulte la sección [Propiedades del servicio vinculado](#azure-data-lake-analytics-linked-service).
+
+## <a name="azure-data-lake-analytics-linked-service"></a>Servicio vinculado con el Análisis con Azure Data Lake
 Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un servicio de proceso de Azure Data Lake Analytics a una instancia de Azure Data Factory. La actividad de U-SQL de Data Lake Analytics de la canalización hace referencia a este servicio vinculado. 
 
-En el ejemplo siguiente se proporciona la definición de JSON para un servicio vinculado de Análisis de Azure Data Lake. 
+En la siguiente tabla se ofrecen descripciones de las propiedades genéricas que se usan en la definición de JSON. Puede elegir entre la autenticación de la entidad de servicio y la autenticación de credenciales de usuario.
 
-```JSON
+| Propiedad | Descripción | Obligatorio |
+| --- | --- | --- |
+| **type** |La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. |Sí |
+| **accountName** |Nombre de la cuenta de Análisis de Azure Data Lake |Sí |
+| **dataLakeAnalyticsUri** |Identificador URI de Análisis de Azure Data Lake. |No |
+| **subscriptionId** |Identificador de suscripción de Azure |No (si no se especifica, se usa la suscripción de Data Factory). |
+| **resourceGroupName** |Nombre del grupo de recursos de Azure. |No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
+
+### <a name="service-principal-authentication-recommended"></a>Autenticación de la entidad de servicio (recomendada)
+Para usar la autenticación de la entidad de servicio, registre una entidad de aplicación en Azure Active Directory (AAD) y concédale acceso a Data Lake Store. Consulte [Autenticación entre servicios](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) para ver los pasos detallados. Anote los siguientes valores; los usará para definir el servicio vinculado:
+* Identificador de aplicación
+* Clave de la aplicación 
+* Id. de inquilino
+
+Para usar la autenticación de la entidad de servicio, especifique las siguientes propiedades:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| **servicePrincipalId** | Especifique el id. de cliente de la aplicación. | Sí |
+| **servicePrincipalKey** | Especifique la clave de la aplicación. | Sí |
+| **tenant** | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
+
+**Ejemplo: autenticación de la entidad de servicio**
+```json
+{
+    "name": "AzureDataLakeAnalyticsLinkedService",
+    "properties": {
+        "type": "AzureDataLakeAnalytics",
+        "typeProperties": {
+            "accountName": "adftestaccount",
+            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
+        }
+    }
+}
+```
+
+### <a name="user-credential-authentication"></a>Autenticación de credenciales de usuario
+También puede utilizar la autenticación de credenciales de usuario para Data Lake Analytics mediante la especificación de las propiedades siguientes:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| **authorization** | Haga clic en el botón **Autorizar** de Data Factory Editor y escriba sus credenciales, que asignan la dirección URL de autorización generada automáticamente a esta propiedad. | Sí |
+| **sessionId** | Id. de sesión de OAuth de la sesión de autorización de OAuth. Cada id. de sesión es único y solo se puede usar una vez. Esta configuración se genera automáticamente al usar Data Factory Editor. | Sí |
+
+**Ejemplo: autenticación de credenciales de usuario**
+```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
     "properties": {
@@ -58,25 +113,14 @@ En el ejemplo siguiente se proporciona la definición de JSON para un servicio v
             "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
             "authorization": "<authcode>",
             "sessionId": "<session ID>", 
-            "subscriptionId": "<subscription id>",
-            "resourceGroupName": "<resource group name>"
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
         }
     }
 }
 ```
 
-En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en la definición de JSON. 
-
-| Propiedad | Descripción | Obligatorio |
-| --- | --- | --- |
-| Tipo |La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. |Sí |
-| accountName |Nombre de la cuenta de Análisis de Azure Data Lake |Sí |
-| dataLakeAnalyticsUri |Identificador URI de Análisis de Azure Data Lake. |No |
-| authorization |El código de autorización se recupera automáticamente después de hacer clic en el botón **Autorizar** situado en el Editor de Factoría de datos y de completar el inicio de sesión de OAuth. |Sí |
-| subscriptionId |Identificador de suscripción de Azure |No (si no se especifica, se usa la suscripción de Data Factory). |
-| resourceGroupName |Nombre del grupo de recursos de Azure. |No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
-| sessionId |Identificador de sesión de la sesión de autorización de OAuth. Cada identificador de sesión es único y solo puede usarse una vez. Este se genera automáticamente en el Editor de Data Factory. |Sí |
-
+#### <a name="token-expiration"></a>Expiración del token
 El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira**: Error de operación de credencial: invalid_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z
 
 | Tipo de usuario | Expira después de |
@@ -84,9 +128,7 @@ El código de autorización que se generó al hacer clic en el botón **Autoriza
 | Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc.) |12 horas |
 | Cuentas de usuario administradas por Azure Active Directory (AAD) |14 días después de la ejecución del último segmento. <br/><br/>Noventa días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada catorce días. |
 
-Para evitar o resolver este error, vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** e implemente de nuevo el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente:
-
-### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Para generar los valores de sessionId y authorization mediante programación
+Para evitar o resolver este error, vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** e implemente de nuevo el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código siguiente:
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -118,7 +160,7 @@ Para más información sobre las clases de Data Factory que se usan en el códig
 ## <a name="data-lake-analytics-u-sql-activity"></a>Actividad U-SQL de Análisis de Data Lake
 El siguiente fragmento JSON define una canalización con una actividad U-SQL de Análisis de Data Lake. La definición de actividad tiene una referencia al servicio vinculado de Análisis de Azure Data Lake que creó anteriormente.   
 
-```JSON
+```json
 {
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
@@ -189,7 +231,7 @@ Para ver la definición del script, vea [Definición del script SearchLogProcess
 ### <a name="input-dataset"></a>Conjunto de datos de entrada
 En este ejemplo, los datos de entrada residen en Almacén de Azure Data Lake (archivo SearchLog.tsv en la carpeta de datalake/input). 
 
-```JSON
+```json
 {
     "name": "DataLakeTable",
     "properties": {
@@ -215,7 +257,7 @@ En este ejemplo, los datos de entrada residen en Almacén de Azure Data Lake (ar
 ### <a name="output-dataset"></a>Conjunto de datos de salida
 En este ejemplo, los datos de salida generados por el script U-SQL se almacenan en Almacén de Azure Data Lake (carpeta datalake/output). 
 
-```JSON
+```json
 {
     "name": "EventsByRegionTable",
     "properties": {
@@ -235,15 +277,16 @@ En este ejemplo, los datos de salida generados por el script U-SQL se almacenan 
 ### <a name="sample-data-lake-store-linked-service"></a>Ejemplo de servicio vinculado de Data Lake Store
 Aquí está la definición del servicio vinculado de Azure Data Lake Store de ejemplo que usan los conjuntos de datos de entrada y salida. 
 
-```JSON
+```json
 {
     "name": "AzureDataLakeStoreLinkedService",
     "properties": {
         "type": "AzureDataLakeStore",
         "typeProperties": {
             "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-            "sessionId": "<session ID>",
-            "authorization": "<authorization URL>"
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
         }
     }
 }
@@ -287,7 +330,7 @@ También puede especificar otras propiedades como degreeOfParallelism y priority
 ## <a name="dynamic-parameters"></a>Parámetros dinámicos
 En la definición de canalización de ejemplo, se asignan los parámetros in y out con valores codificados de forma rígida. 
 
-```JSON
+```json
 "parameters": {
     "in": "/datalake/input/SearchLog.tsv",
     "out": "/datalake/output/Result.tsv"
@@ -296,7 +339,7 @@ En la definición de canalización de ejemplo, se asignan los parámetros in y o
 
 Es posible usar los parámetros dinámicos en su lugar. Por ejemplo: 
 
-```JSON
+```json
 "parameters": {
     "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
     "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"

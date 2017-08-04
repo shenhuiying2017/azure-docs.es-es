@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: f8917ca67aa5f15ccc11030fd0292ac803d9e994
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8c02e911770577bd51bc2bebbb3e29b66ed0235b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Procesamiento de mensajes de dispositivo a nube de IoT Hub mediante rutas (.NET)
@@ -34,8 +33,8 @@ Este tutorial se basa en el tutorial [Introducción a IoT Hub] y le muestra cóm
 Al final de este tutorial tendrá tres aplicaciones de consola de .NET:
 
 * **SimulatedDevice**, una versión modificada de la aplicación creada en el tutorial de [Introducción a IoT Hub] , que envía mensajes de dispositivo a nube de punto de datos cada segundo y mensajes de dispositivo a nube interactivos cada 10 segundos. Esta aplicación usa el protocolo AMQP para comunicarse con IoT Hub.
-* **ReadDeviceToCloudMessages**, que muestra los datos de telemetría no críticos enviados por la aplicación de dispositivo simulado.
-* **read-critical-queue** quita de la cola los mensajes críticos enviados por la aplicación de dispositivo simulado desde la cola de la instancia de Service Bus adjunta a IoT Hub.
+* **ReadDeviceToCloudMessages**, que muestra los datos de telemetría no críticos enviados por la aplicación de dispositivo.
+* **ReadCriticalQueue** quita de la cola los mensajes críticos enviados por la aplicación de dispositivo desde la cola de la cola de Service Bus adjunta a IoT Hub.
 
 > [!NOTE]
 > El Centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java y JavaScript. Para obtener instrucciones sobre cómo reemplazar el dispositivo simulado de este tutorial por un dispositivo físico y cómo conectar dispositivos a IoT Hub, consulte el [Centro para desarrolladores de Azure IoT].
@@ -49,8 +48,8 @@ Para completar este tutorial, necesitará lo siguiente:
 
 También se dan por sentados ciertos conocimientos sobre [Azure Storage] y [Azure Service Bus].
 
-## <a name="send-interactive-messages-from-a-simulated-device-app"></a>Envío de mensajes interactivos desde una aplicación de dispositivo simulado
-En esta sección, se modifica la aplicación de dispositivo simulado que creó en el tutorial [Introducción a IoT Hub] a fin de enviar ocasionalmente mensajes que requieren un procesamiento inmediato.
+## <a name="send-interactive-messages-from-a-device-app"></a>Envío de mensajes interactivos desde una aplicación de dispositivo
+En esta sección, se modifica la aplicación de dispositivo que creó en el tutorial [Introducción a IoT Hub] a fin de enviar ocasionalmente mensajes que requieren un procesamiento inmediato.
 
 En Visual Studio, en el proyecto **SimulatedDevice**, sustituya el método `SendDeviceToCloudMessagesAsync` por el código siguiente:
 

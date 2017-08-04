@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 532afb45c73d68d6dc259fa504d9520eecdb23b7
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 3ecd6ff8edf189b9389cd239b20236a2a228ed94
+ms.contentlocale: es-es
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
@@ -44,6 +44,13 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 ## <a id="rest_version_history"></a>Historial de versiones de API de REST
 Para obtener información sobre el historial de versiones de la API de REST de Servicios multimedia, consulte [Referencia de la API de REST de Servicios multimedia de Azure].
+
+## <a name="june-2017-release"></a>Versión de junio de 2017
+
+Media Services ahora admite la [autenticación basada en Azure Active Directory (Azure AD)](media-services-use-aad-auth-to-access-ams-api.md).
+
+> [!IMPORTANT]
+> Actualmente, Media Services es compatible con el modelo de autenticación de Azure Access Control Service. Sin embargo, la autorización de Access Control dejará de usarse el 1 de junio de 2018. Se recomienda migrar tan pronto como sea posible al modelo de autenticación de Azure AD.
 
 ## <a name="march-2017-release"></a>Versión de marzo de 2017
 

@@ -1,159 +1,226 @@
 ---
 title: "Tutorial: Integración de Azure Active Directory con Box | Microsoft Docs"
-description: "Aprenda a usar Box con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automático, etc."
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Box."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 5f3517f8-30f2-4be7-9e47-43d702701797
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 05/19/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
-ms.openlocfilehash: 6e6dad2dba03bd3339d841c885ab4e60b2dafbd3
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2cc2afe8ff3f0063224c94eb0b8135347051b0aa
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Tutorial: Integración de Azure Active Directory con Box
-El objetivo de este tutorial es mostrar la integración de Azure y Box.  
 
-En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+En este tutorial, aprenderá a integrar Box con Azure Active Directory (Azure AD).
 
-* Una suscripción de Azure válida
-* Un inquilino de prueba en Box
+La integración de Box con Azure AD proporciona las siguientes ventajas:
 
-Después de completar este tutorial, los usuarios de Azure AD asignados a Box podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de Box (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+- Puede controlar en Azure AD quién tiene acceso a Box
+- Puede permitir que los usuarios inicien sesión automáticamente en Box (inicio de sesión único) con sus cuentas de Azure AD
+- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-* Habilitación de la integración de aplicaciones para Box
-* Configuración del inicio de sesión único (SSO)
-* Configuración del aprovisionamiento de usuarios y grupos
-* Asignación de usuarios
+## <a name="prerequisites"></a>Requisitos previos
 
-![Escenario](./media/active-directory-saas-box-tutorial/IC769537.png "Escenario")
+Para configurar la integración de Azure AD con Box, se necesitan los siguientes elementos:
 
-## <a name="enable-the-application-integration-for-box"></a>Habilitación de la integración de aplicaciones para Box
-El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para Box.
+- Una suscripción de Azure AD
+- Una suscripción a Box habilitada para el inicio de sesión único
 
-**Siga estos pasos para habilitar la integración de aplicaciones para Box:**
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
-1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-box-tutorial/IC700993.png "Active Directory")
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
-   
-   ![Aplicaciones](./media/active-directory-saas-box-tutorial/IC700994.png "Aplicaciones")
-4. Haga clic en **Agregar** en la parte inferior de la página.
-   
-   ![Agregar aplicaciones](./media/active-directory-saas-box-tutorial/IC749321.png "Agregar aplicaciones")
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-   
-   ![Agregar una aplicación de la galería](./media/active-directory-saas-box-tutorial/IC749322.png "Agregar una aplicación de la galería")
-6. En el **cuadro de búsqueda**, escriba **Box**.
-   
-   ![Galería de aplicaciones](./media/active-directory-saas-box-tutorial/IC701023.png "Galería de aplicaciones")
-7. En el panel de resultados, seleccione **Box** y haga clic en **Completar** para agregar la aplicación.
-   
-   ![Box](./media/active-directory-saas-box-tutorial/IC701024.png "Box")
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
-El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Box con su cuenta de Azure AD mediante federación basada en el protocolo SAML. 
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
-Como parte de este procedimiento, es necesario cargar metadatos en Box.com.
+## <a name="scenario-description"></a>Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-**Siga estos pasos para configurar el inicio de sesión único:**
+1. Adición de Box desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-1. En el Portal de Azure clásico, en la página de integración de la aplicación **Box**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-box-tutorial/IC769538.png "Configurar inicio de sesión único")
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Box?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-box-tutorial/IC769539.png "Configurar inicio de sesión único")
-3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inquilino de Box**, escriba la dirección URL del inquilino de Box (por ejemplo,: https://<mydomainname>.box.com) y haga clic en **Siguiente**.
-   
-  ![Configurar dirección URL de la aplicación](./media/active-directory-saas-box-tutorial/IC669826.png "Configurar dirección URL de la aplicación")
-4. En la página **Configurar inicio de sesión único en Box**, para descargar sus metadatos, haga clic en **Descargar metadatos** y guarde el archivo de datos localmente en el equipo.
-   
-  ![Configurar inicio de sesión único](./media/active-directory-saas-box-tutorial/IC669824.png "Configurar inicio de sesión único")
-5. Reenvíe el archivo de metadatos al equipo de soporte técnico de Box. El equipo de soporte técnico necesita configurar un inicio de sesión único para usted.
-6. Seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-  ![Configurar inicio de sesión único](./media/active-directory-saas-box-tutorial/IC769540.png "Configurar inicio de sesión único")
-   
-## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
+## <a name="adding-box-from-the-gallery"></a>Adición de Box desde la galería
+Para configurar la integración de Box en Azure AD, es preciso agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
 
-El objetivo de esta sección es describir cómo habilitar el aprovisionamiento de las cuentas de usuario de Active Directory en Box.
+**Para agregar Box desde la galería, siga estos pasos:**
 
-**Siga estos pasos para configurar el inicio de sesión único:**
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Box**, haga clic en **Configurar aprovisionamiento de usuarios** para abrir el cuadro de diálogo **Configurar aprovisionamiento de usuarios**. 
-   
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/active-directory-saas-box-tutorial/IC769541.png "Habilitar aprovisionamiento automático de usuarios")
-2. En la página de diálogo **Habilitar aprovisionamiento de usuarios en Box**, haga clic en **Habilitar aprovisionamiento de usuarios**. 
-   
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/active-directory-saas-box-tutorial/IC769544.png "Habilitar aprovisionamiento automático de usuarios")
-3. En la página **Log in to grant access to Box** (Iniciar sesión para otorgar acceso a Box), proporcione las credenciales necesarias y haga clic en **Authorize** (Autorizar). 
-   
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/active-directory-saas-box-tutorial/IC769546.png "Habilitar aprovisionamiento automático de usuarios")
-4. Haga clic en **Grant access to Box** (Otorgar acceso a Box) para autorizar esta operación y volver al Portal de Azure clásico. 
-   
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/active-directory-saas-box-tutorial/IC769549.png "Habilitar aprovisionamiento automático de usuarios")
-5. En la página **Opciones de aprovisionamiento**, las casillas **Tipos de objeto para proveer** permiten seleccionar si se aprovisionan objetos de grupo en Box, además de objetos de usuario.  Para obtener más información, vea a continuación la sección "Asignación de usuarios y grupos".
-6. Para finalizar la configuración, haga clic en el botón Completar. 
-   
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/active-directory-saas-box-tutorial/IC769551.png "Habilitar aprovisionamiento automático de usuarios")
+    ![Active Directory][1]
 
-## <a name="assign-a-test-user"></a>Asignación de un usuario de prueba
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-**Siga estos pasos para asignar usuarios a Box:**
+    ![Aplicaciones][2]
+    
+3. Haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el Portal de Azure clásico, cree una cuenta de prueba.
-2. En la página de integración de aplicaciones de **Box**, haga clic en **Asignar usuarios**. 
-   
-    ![Asignar usuarios](./media/active-directory-saas-box-tutorial/IC769552.png "Asignar usuarios")
-3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación. 
-   
-   ![Sí](./media/active-directory-saas-box-tutorial/IC767830.png "Sí")
+    ![Aplicaciones][3]
 
-Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en Box.
+4. En el cuadro de búsqueda, escriba **Box**.
 
-Como primer paso de verificación, puede comprobar el estado del aprovisionamiento haciendo clic en la opción Panel de la página de integración de la aplicación DocuSign en el Portal de Azure clásico.
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-box-tutorial/tutorial_box_search.png)
 
-![Panel](./media/active-directory-saas-box-tutorial/IC769553.png "Panel")
+5. En el panel de resultados, seleccione **Box** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
-Un ciclo de aprovisionamiento de usuarios completado correctamente se indica con un estado relacionado:
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-box-tutorial/tutorial_box_addfromgallery.png)
 
-![Estado de integración](./media/active-directory-saas-box-tutorial/IC769555.png "Estado de integración")
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, se configura y prueba el inicio de sesión único de Azure AD con Box con un usuario de prueba llamado "Britta Simon".
 
-En su inquilino de Box, los usuarios sincronizados se muestran en **Usuarios administrados** en la **Consola de administración**.
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Box para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Box.
 
-![Estado de integración](./media/active-directory-saas-box-tutorial/IC769556.png "Estado de integración")
+Para establecer esta relación de vínculo, se asigna el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Box.
 
-## <a name="assign-users-and-groups"></a>Asignación de usuarios y grupos
-La pestaña **Box > Usuarios y grupos** del Portal de Azure clásico permite especificar qué usuarios y grupos deben tener acceso a Box. La asignación de un usuario o un grupo hace que ocurra lo siguiente:
+Para configurar y probar el inicio de sesión único de Azure AD con Box, es preciso completar los siguientes bloques de creación:
 
-* Azure AD permite que el usuario asignado (ya sea mediante asignación directa o pertenencia al grupo) se autentique en Box. Si no se asigna un usuario, Azure AD no permitirá que inicie sesión en Box y devolverá un error en la página de inicio de sesión de Azure AD.
-* Se agregará un icono de la aplicación de Box al [iniciador de aplicaciones](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)del usuario.
-* Si está habilitado el aprovisionamiento automático, se agregan a la cola de aprovisionamiento los usuarios o grupos asignados para aprovisionarlos automáticamente.
-  
-  * Si solo se ha configurado el aprovisionamiento de objetos de usuario, todos los usuarios asignados directamente se colocan en la cola de aprovisionamiento, y todos los usuarios que son miembros de los grupos asignados se colocarán en la cola de aprovisionamiento. 
-  * Si se ha configurado el aprovisionamiento de objetos de grupo, todos los objetos de grupo asignados se aprovisionan en Box, así como todos los usuarios que son miembros de esos grupos. Las pertenencias a grupos y usuarios se conservan una vez que se escriben en Box.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Box](#creating-a-box-test-user)**: para tener un homólogo de Britta Simon en Box vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
-Puede usar la pestaña **Atributos > Inicio de sesión único** para configurar los atributos de usuario (o notificaciones) que se presentan en Box durante la autenticación basada en SAML, y la pestaña **Atributos > Aprovisionamiento** para configurar la forma en que los atributos de usuario y grupo fluyen de Azure AD a Box durante las operaciones de aprovisionamiento. Para obtener más información, consulte los recursos que se muestran a continuación.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en su aplicación Box.
+
+**Para configurar el inicio de sesión único de Azure AD con Box, siga estos pasos:**
+
+1. En Azure Portal, en la página de integración de la aplicación **Box**, haga clic en **Inicio de sesión único**.
+
+    ![Configurar inicio de sesión único][4]
+
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-box-tutorial/tutorial_box_samlbase.png)
+
+3. En la sección **Dominio y direcciones URL de Box**, lleve a cabo los pasos siguientes:
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-box-tutorial/tutorial_box_url.png)
+
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.box.com`.
+
+    > [!NOTE] 
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) para obtener este valor. 
+ 
+4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
+
+5. Haga clic en el botón **Guardar** .
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
+
+6. Para configurar SSO para su aplicación, póngase en contacto con el [equipo de soporte técnico de Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) y proporcione el archivo XML descargado.
+
+> [!TIP]
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+
+![Creación de un usuario de Azure AD][100]
+
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-box-tutorial/create_aaduser_01.png) 
+
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-box-tutorial/create_aaduser_02.png) 
+
+3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-box-tutorial/create_aaduser_03.png) 
+
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-box-tutorial/create_aaduser_04.png) 
+
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+
+    d. Haga clic en **Crear**.
+ 
+### <a name="creating-a-box-test-user"></a>Creación de usuario de prueba de Box
+
+En esta sección, se crea un usuario llamado a Britta Simon en Box. Box admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
+No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe en Box, se crea uno nuevo cuando se intenta acceder a Box.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Box.
+
+![Asignar usuario][200] 
+
+**Para asignar el usuario Britta Simon a Box, realice los pasos siguientes:**
+
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones, seleccione **Box**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-box-tutorial/tutorial_box_app.png) 
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Asignar usuario][202] 
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Asignar usuario][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono de Box en el panel de acceso, debería obtener la página de inicio de sesión e iniciar sesión automáticamente en su aplicación Box.
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Personalización de notificaciones emitidas en el token SAML](active-directory-saml-claims-customization.md)
-* [Aprovisionamiento: personalización de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md)
+
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configurar el aprovisionamiento de usuarios](active-directory-saas-box-userprovisioning-tutorial.md)
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-box-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-box-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-box-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-box-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-box-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-box-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-box-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-box-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-box-tutorial/tutorial_general_203.png
 
 

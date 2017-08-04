@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 07/10/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 65966f3adf8abee6d1476e9241b35247599ab1af
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d2dc4ae7af95a93d3c4031c7d3e11f617a5666c8
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse
@@ -153,6 +152,17 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 ```
 
 También puede aprovisionar un administrador de Azure Active Directory mediante las API de REST. Para obtener más información, consulte [Service Management REST API Reference and Operations for Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+
+### <a name="cli"></a>CLI  
+También puede aprovisionar un administrador de Azure AD mediante una llamada a los siguientes comandos de la CLI:
+| Comando | Descripción |
+| --- | --- |
+|az sql server ad-admin create |Aprovisiona un administrador de Azure Active Directory para Azure SQL Server o para Azure SQL Data Warehouse. (Debe ser de la suscripción actual). |
+|az sql server ad-admin delete |Quita un administrador de Azure Active Directory para Azure SQL Server o para Azure SQL Data Warehouse. |
+|az sql server ad-admin list |Devuelve información sobre un administrador de Azure Active Directory configurado actualmente para el servidor de Azure SQL Server o para Azure SQL Data Warehouse. |
+
+Para más información acerca de los comandos de la CLI, consulte [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
+
 
 ## <a name="configure-your-client-computers"></a>Configurar los equipos cliente.
 En todos los equipos cliente, desde el que las aplicaciones o los usuarios se conectan a la Base de datos SQL de Azure o a Almacenamiento de datos SQL mediante identidades de Azure AD, debe instalar el software siguiente:

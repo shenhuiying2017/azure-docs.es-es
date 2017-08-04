@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 06/22/2017
 ms.author: chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 0b63228e5b09f5d22fc55818986a0a2eb1204278
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6efb5c20140d3ea76a2a9cd1eb495db69f14048d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Actualización de un clúster de Azure Service Fabric
@@ -207,7 +206,7 @@ Puede especificar las directivas de mantenimiento personalizado o revisar la con
 Consulte la [configuración de Service Fabric para el clúster](service-fabric-cluster-fabric-settings.md) para saber qué se puede personalizar y cómo hacerlo.
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>Revisiones de sistema operativo en las máquinas virtuales que componen el clúster
-Consulte la [Aplicación de orquestación de revisiones](service-fabric-patch-orchestration-application.md) que se puede implementar en el clúster para instalar revisiones de Windows Update de una manera orquestada, manteniendo los servicios disponibles todo el tiempo. 
+Consulte la [aplicación de orquestación de revisiones](service-fabric-patch-orchestration-application.md) que se puede implementar en el clúster para instalar revisiones de Windows Update de una manera orquestada, manteniendo los servicios disponibles todo el tiempo. 
 
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Actualizaciones del sistema operativo en las máquinas virtuales que componen el clúster
 Si debe actualizar la imagen de sistema operativo en las máquinas virtuales del clúster, debe hacerlo en una máquina virtual cada vez. Usted es responsable de esta actualización: todavía no se ha automatizado esta tarea.

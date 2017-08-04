@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: b89569b818b0e2c79934a842fdc428011674c000
-ms.lasthandoff: 04/17/2017
-
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 188a00db59b0aa8d26facc678fb52d96272183b6
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -65,13 +66,13 @@ El Panel de acceso requiere un explorador compatible con JavaScript y que tenga 
 
 Para el SSO basado en contraseña, los exploradores del usuario final pueden ser:
 
--   Internet Explorer 8, 9, 10, 11: en Windows 7 o versiones superiores
+-   Internet Explorer 8, 9, 10, 11 (en Windows 7 o posterior)
+
+-   Edge en Windows 10 Anniversary Edition o posterior
 
 -   Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
 
 -   Firefox 26.0 o posterior (en Windows XP SP2 o posterior y en Mac OS X 10.6 o posterior)
-
-**Nota**: La extensión de SSO basado en contraseña está disponible para Edge en Windows 10 cuando se admiten extensiones de explorador para Edge.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Cómo instalar la extensión de explorador del Panel de acceso
 
@@ -91,11 +92,11 @@ Para instalar la extensión de explorador del Panel de acceso, siga estos pasos:
 
 7.  Inicie sesión en el Panel de acceso y vea si puede **iniciar** las aplicaciones de SSO con contraseña
 
-También puede descargar la extensión para Chrome y Firefox desde los siguientes vínculos directos:
+También puede descargar la extensión para Chrome y Edge desde los siguientes vínculos directos:
 
 -   [Extensión del Panel de acceso para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extensión del Panel de acceso para Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Extensión del Panel de acceso para Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Configuración del inicio de sesión único federado para una aplicación de la galería de Azure AD
 
@@ -103,11 +104,11 @@ Todas las aplicaciones de la galería de Azure AD habilitadas con funcionalidad 
 
 Para configurar una aplicación desde la galería de Azure AD, realice los siguientes pasos:
 
--   [Incorporación de una aplicación de la galería de Azure AD](#add-an-application)
+-   [Incorporación de una aplicación desde la galería de Azure AD](#add-an-application)
 
--   [Configuración de los valores de los metadatos de la aplicación en Azure AD (URL de inicio de sesión, Identificador, URL de respuesta)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
+-   [Configuración de los valores de los metadatos de la aplicación en Azure AD (URL de inicio de sesión, identificador, URL de respuesta)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [Selección del Identificador de usuario e incorporación de los atributos de usuario para enviarlos a la aplicación](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
+-   [Selección del identificador de usuario e incorporación de los atributos de usuario para enviarlos a la aplicación](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Recuperación de los metadatos y el certificado de Azure AD](#download-the-azure-ad-metadata-or-certificate)
 
@@ -115,11 +116,11 @@ Para configurar una aplicación desde la galería de Azure AD, realice los sigui
 
 -   [Asignación de usuarios a la aplicación](#assign-users-to-the-application)
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Incorporación de una aplicación de la galería de Azure AD
+### <a name="add-an-application-from-the-azure-ad-gallery"></a>Incorporación de una aplicación desde la galería de Azure AD
 
 Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
-1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -163,9 +164,9 @@ Para configurar el inicio de sesión único para una aplicación, siga los pasos
 
 9.  Especifique los valores obligatorios en **Dominio y direcciones URL**. El proveedor de la aplicación le proporcionará estos valores.
 
-   1. Para configurar la aplicación como SSO iniciado por el SP, la dirección URL de inicio de sesión es obligatoria. En algunas aplicaciones, el Identificador también es obligatorio.
+   1. Para configurar la aplicación como SSO iniciado por el SP, la dirección URL de inicio de sesión es obligatoria. En algunas aplicaciones, el identificador también es obligatorio.
 
-   2. Para configurar la aplicación como SSO iniciado por el IdP, la dirección URL de respuesta es obligatoria. En algunas aplicaciones, el Identificador también es obligatorio.
+   2. Para configurar la aplicación como SSO iniciado por el IdP, la dirección URL de respuesta es obligatoria. En algunas aplicaciones, el identificador también es obligatorio.
 
 10. **Opcional:** haga clic en **Mostrar configuración avanzada de URL** si desea ver los valores opcionales.
 
@@ -185,11 +186,11 @@ Para configurar el inicio de sesión único para una aplicación, siga los pasos
 
 15. Asigne usuarios a la aplicación.
 
-### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selección del Identificador de usuario e incorporación de los atributos de usuario para enviarlos a la aplicación
+### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selección del identificador de usuario e incorporación de los atributos de usuario para enviarlos a la aplicación
 
-Para seleccionar el Identificador de usuario o agregar atributos de usuario, siga estos pasos:
+Para seleccionar el identificador de usuario o agregar atributos de usuario, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global** o **Coadministrador**.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -224,7 +225,7 @@ Para seleccionar el Identificador de usuario o agregar atributos de usuario, sig
 
 Para descargar el certificado o los metadatos de la aplicación de Azure AD, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global** o **Coadministrador**.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -248,19 +249,19 @@ Para descargar el certificado o los metadatos de la aplicación de Azure AD, sig
 
 Para configurar una aplicación ajena a la galería, debe tener Azure AD Premium y que la aplicación admita SAML 2.0. Para más información acerca de las versiones de Azure AD, visite [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
--   [Configuración de los valores de los metadatos de la aplicación en Azure AD (URL de inicio de sesión, Identificador, URL de respuesta)](#configuring-single-sign-on)
+-   [Configuración de los valores de los metadatos de la aplicación en Azure AD (URL de inicio de sesión, identificador, URL de respuesta)](#configuring-single-sign-on)
 
--   [Selección del Identificador de usuario e incorporación de los atributos de usuario para enviarlos a la aplicación](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
+-   [Selección del identificador de usuario e incorporación de los atributos de usuario para enviarlos a la aplicación](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Recuperación de los metadatos y el certificado de Azure AD](#download-the-azure-ad-metadata-or-certificate)
 
 -   [Configuración de los valores de los metadatos de Azure AD en la aplicación (URL de inicio de sesión, emisor, URL de cierre de sesión y certificado)](#configuring-single-sign-on)
 
-### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configuración de los valores de los metadatos de la aplicación en Azure AD (URL de inicio de sesión, Identificador, URL de respuesta)
+### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configuración de los valores de los metadatos de la aplicación en Azure AD (URL de inicio de sesión, identificador, URL de respuesta)
 
 Para configurar el inicio de sesión único para una aplicación ajena a la galería de Azure AD, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global** o **Coadministrador**.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -298,11 +299,11 @@ Para configurar el inicio de sesión único para una aplicación ajena a la gale
 
 14. Haga clic en **Configurar &lt;nombre de la aplicación&gt;** para acceder a documentación sobre cómo configurar el inicio de sesión único en la aplicación. Además, tiene las direcciones URL de Azure AD y los certificados necesarios para la aplicación.
 
-### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selección del Identificador de usuario e incorporación de los atributos de usuario para enviarlos a la aplicación
+### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selección del identificador de usuario e incorporación de los atributos de usuario para enviarlos a la aplicación
 
-Para seleccionar el Identificador de usuario o agregar atributos de usuario, siga estos pasos:
+Para seleccionar el identificador de usuario o agregar atributos de usuario, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global** o **Coadministrador**.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -337,7 +338,7 @@ Para seleccionar el Identificador de usuario o agregar atributos de usuario, sig
 
 Para descargar el certificado o los metadatos de la aplicación de Azure AD, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global** o **Coadministrador**.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -369,7 +370,7 @@ Para configurar una aplicación desde la galería de Azure AD, realice los sigui
 
 Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
-1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -405,7 +406,7 @@ Para configurar el inicio de sesión único para una aplicación, siga estos pas
 
  * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
+6.  Seleccionar la aplicación que desea configurar para el inicio de sesión único
 
 7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
@@ -413,7 +414,7 @@ Para configurar el inicio de sesión único para una aplicación, siga estos pas
 
 9.  Asigne usuarios a la aplicación.
 
-10. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios y haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
+10. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios, haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
 
 ## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
@@ -427,7 +428,7 @@ Para configurar una aplicación desde la galería de Azure AD, realice los sigui
 
 Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
-1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -477,7 +478,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 

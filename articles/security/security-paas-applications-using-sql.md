@@ -1,5 +1,5 @@
 ---
-title: "Protección de aplicaciones web y móviles PaaS con Azure SQL Database y SQL Data Warehouse | Microsoft Docs"
+title: "Protección de bases de datos de PaaS en Azure | Microsoft Docs"
 description: " Obtenga información sobre los procedimientos recomendados de seguridad de Azure SQL Database y SQL Data Warehouse para proteger las aplicaciones web y móviles PaaS. "
 services: security
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/11/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: be00c1427d57b96506ec8b0ac881b7c1bd09e4de
-ms.lasthandoff: 03/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 18509b3fc3a73118f67583a0b087c58f0e51993c
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="securing-paas-web-and-mobile-applications-using-sql-database-and-sql-data-warehouse"></a>Protección de aplicaciones web y móviles PaaS con Azure SQL Database y SQL Data Warehouse
+# <a name="securing-paas-databases-in-azure"></a>Protección de bases de datos de PaaS en Azure
 
 En este artículo se presenta una colección de procedimientos recomendados de seguridad de [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) y [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) para proteger las aplicaciones web y móviles PaaS. Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
 
@@ -77,15 +77,15 @@ Para obtener más información sobre las restricciones de IP y el firewall de Az
 - [Configuración de un firewall de nivel de servidor en Azure SQL Database mediante Azure Portal](../sql-database/sql-database-configure-firewall-settings.md)
 
 ### <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
-[Cifrado de datos transparente (TDE)](https://msdn.microsoft.com/library/azure/bb934049) cifra los archivos de datos de SQL Server, Azure SQL Database y Azure SQL Data Warehouse, lo que se conoce como cifrado de datos en reposo. Puede tomar varias precauciones para ayudar a proteger la base de datos, como diseñar un sistema seguro, cifrar los recursos confidenciales e instalar un firewall alrededor de los servidores de base de datos. Sin embargo, en un escenario en que se roban medios físicos (como unidades o cintas de copias de seguridad), un tercero malintencionado puede restaurar o asociar la base de datos y examinar los datos. Una solución consiste en cifrar los datos confidenciales en la base de datos y proteger las claves que se usan para cifrar los datos con un certificado. Impide que cualquiera que no disponga de las claves use los datos, pero este tipo de protección debe planificarse por adelantado.
+[Cifrado de datos transparente (TDE)](https://msdn.microsoft.com/library/azure/bb934049) está habilitado de forma predeterminada. TDE cifra de forma transparente los archivos de datos y de registro de SQL Server, Azure SQL Database y Azure SQL Data Warehouse. TDE protege contra un posible peligro de acceso directo a los archivos o las copias de seguridad. Esto le permite cifrar los datos en reposo sin cambiar las aplicaciones existentes. TDE siempre debería permanecer habilitado, si bien esto no impedirá que un atacante use la ruta de acceso normal. TDE ofrece la posibilidad de cumplir muchas leyes, normativas y directrices establecidas en diversos sectores.
 
-TDE protege los datos en reposo, es decir, los datos y los archivos de registro. Proporciona la capacidad de cumplir muchas leyes, normativas y directrices establecidas en diversos sectores. Esto permite a los desarrolladores de software cifrar los datos mediante el uso de algoritmos de cifrado estándar del sector sin cambiar las aplicaciones existentes.
+Azure SQL administra los problemas relacionados con las claves para TDE. Al igual que con TDE, se debe tener especial cuidado en el entorno local para garantizar la capacidad de recuperación y al mover las bases de datos. En escenarios más complejos, las claves se pueden administrar explícitamente en Azure Key Vault mediante la administración extensible de claves (consulte [Habilitar TDE en SQL Server con EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). Esto también permite la funcionalidad Bring Your Own Key (BYOK), que incorpora Azure Key Vault.
 
-TDE debe usarse si la normativa especifica explícitamente este tipo de cifrado. Tenga en cuenta, sin embargo, que esto no detendrá a un atacante que usa la ruta de acceso normal. Se usa TDE para ofrecer protección frente a un caso muy poco probable de que necesite usar cifrado adicional a nivel de aplicación, ya sea mediante Azure SQL con cifrado de filas y columnas o con el cifrado a nivel de aplicación.
+Azure SQL ofrece cifrado de columnas mediante [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Esta funcionalidad permite que solo las aplicaciones autorizadas accedan a las columnas confidenciales. Mediante este tipo de cifrado, se limitan las consultas SQL en las columnas cifradas a valores basados en la igualdad.
 
-También debe usarse el cifrado a nivel de aplicación para datos selectivos. Las cuestiones sobre la soberanía de los datos se pueden mitigar mediante el cifrado de datos con una clave que se mantiene en el país correcto. Esto impide incluso que las transferencias de datos accidentales causen algún error, ya que resultará imposible descifrar los datos sin la clave, suponiendo que se emplee un algoritmo seguro (como AES 256).
+También debe usarse el cifrado a nivel de aplicación para datos selectivos. Las cuestiones sobre la soberanía de los datos se pueden mitigar en ocasiones mediante el cifrado de datos con una clave que se mantiene en el país correcto. Esto impide incluso que las transferencias de datos accidentales causen algún error, ya que resultará imposible descifrar los datos sin la clave, suponiendo que se emplee un algoritmo seguro (como AES 256).
 
-Azure SQL permite cifrar filas y columnas para permitir solo el acceso a usuarios autorizados ([RBAC](../active-directory/role-based-access-built-in-roles.md)) e impide que los usuarios con menos privilegios vean las columnas o filas.
+Puede tomar precauciones adicionales para ayudar a proteger la base de datos, como diseñar un sistema seguro, cifrar los recursos confidenciales e instalar un firewall alrededor de los servidores de base de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se presenta una colección de procedimientos recomendados de seguridad de SQL Database y SQL Data Warehouse para proteger las aplicaciones web y móviles PaaS. Para obtener más información sobre cómo proteger las implementaciones de PaaS, vea:

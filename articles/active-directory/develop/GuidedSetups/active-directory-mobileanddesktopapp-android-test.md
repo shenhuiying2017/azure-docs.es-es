@@ -16,10 +16,10 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 8523f46d6a352c9a6625ddeacc5abe2b4bbf977e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6df64f4820f8409bd8897d5ac24f81bffeeef102
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -43,8 +43,8 @@ Debería ver los resultados de una llamada al punto de conexión "me" de la API 
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Más información sobre los ámbitos y permisos delegados
-API Graph requiere el ámbito `user.read` para leer el perfil del usuario. Este ámbito se agrega de forma predeterminada a cada aplicación que se registra a través del portal de registro. Otras API Graph, así como las API personalizadas para el servidor back-end, requieren ámbitos adicionales. Por ejemplo, para Graph, `Calendars.Read` es necesario para elaborar un listado de los calendarios del usuario. Para tener acceso al calendario del usuario en un contexto de una aplicación, debe agregar esta información de registro de la aplicación delegada y, a continuación, agregar `Calendars.Read` a la llamada `AcquireTokenAsync`. Es posible que se pida al usuario algún consentimiento adicional a medida que aumente el número de ámbitos.
 
-Si una API de back-end no requiere un ámbito (no recomendado), puede usar `ClientId` como el ámbito en la llamada de `AcquireTokenAsync`.
+La API de Microsoft Graph requiere el ámbito `user.read` para leer el perfil del usuario. Este ámbito se agrega automáticamente de forma predeterminada en todas las aplicaciones que se van a registrar en nuestro portal de registro. Otras API de Microsoft Graph, así como las API personalizadas para el servidor back-end, pueden requerir ámbitos adicionales. Por ejemplo, para Microsoft Graph, se requiere el ámbito `Calendars.Read` para enumerar los calendarios del usuario. Para tener acceso al calendario del usuario en el contexto de una aplicación, debe agregar el permiso delegado `Calendars.Read` a la información del registro de la aplicación y, a continuación, agregar el ámbito `Calendars.Read` a la llamada a `acquireTokenSilentAsync`. Es posible que se pida al usuario algún consentimiento adicional a medida que aumente el número de ámbitos.
+
 <!--end-collapse-->
 

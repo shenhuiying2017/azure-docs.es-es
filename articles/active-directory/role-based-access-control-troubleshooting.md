@@ -5,20 +5,20 @@ services: azure-portal
 documentationcenter: na
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/12/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32b335d8a1f84348ab28bcc081cc42fd79fb08fc
-ms.lasthandoff: 03/04/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9ad194308d30ca652b32ec3b76750b0e838472f4
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Solución de problemas del control de acceso basado en rol
@@ -46,14 +46,14 @@ Si concede a un usuario acceso de solo lectura a una única aplicación web, se 
 * Pruebas web
 * Red virtual (solo visible para un lector si un usuario con acceso de escritura ha configurado previamente una red virtual)
 
-Si no puede acceder a ninguno de estos iconos, deberá pedirle al administrador el acceso de colaborador a la aplicación web.
+Si no puede acceder a ninguno de estos iconos, debe pedirle al administrador el acceso de colaborador a la aplicación web.
 
 ### <a name="dealing-with-related-resources"></a>Tratar con recursos relacionados
 Las aplicaciones web pueden resultar complicadas si entran en juego distintos recursos. Este es un grupo de recursos típico con un par de sitios web:
 
 ![Grupo de recursos de aplicación web](./media/role-based-access-control-troubleshooting/website-resource-model.png)
 
-Como consecuencia, si le concede a alguien acceso solo a la aplicación web, muchas de las funcionalidades de la hoja del sitio web del Portal de Azure estarán deshabilitadas.
+Como consecuencia, si le concede a alguien acceso solo a la aplicación web, muchas de las funcionalidades de la hoja del sitio web de Azure Portal están deshabilitadas.
 
 Estos elementos requieren acceso de **escritura** al **plan de App Service** que corresponde a su sitio web:  
 
@@ -63,8 +63,8 @@ Estos elementos requieren acceso de **escritura** al **plan de App Service** que
 
 Estos elementos requieren acceso de **escritura** a todo el **grupo de recursos** que contiene su sitio web:  
 
-* Enlaces y certificados SSL (porque los certificados SSL se pueden compartir entre sitios en el mismo grupo de recursos y la misma ubicación geográfica)  
-* Reglas de alertas  
+* Enlaces y certificados SSL (los certificados SSL se pueden compartir entre sitios en el mismo grupo de recursos y la misma ubicación geográfica)  
+* Las reglas de alertas  
 * Opciones de escala automática  
 * Componentes de Application Insights  
 * Pruebas web  
@@ -87,7 +87,7 @@ Estos requieren acceso de **escritura** a la **máquina virtual** y al **grupo d
 * El conjunto de carga equilibrada  
 * Las reglas de alertas  
 
-Si no puede acceder a ninguno de estos iconos, deberá pedirle al administrador el acceso de colaborador al grupo de recursos.
+Si no puede acceder a ninguno de estos iconos, debe pedirle al administrador el acceso de colaborador al grupo de recursos.
 
 ## <a name="see-more"></a>Ver más
 * [Control de acceso basado en roles de Azure](role-based-access-control-configure.md): inicio de RBAC en el Portal de Azure.

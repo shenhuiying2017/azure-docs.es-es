@@ -1,10 +1,10 @@
 ---
 title: "ESP8266 en la nube: conexión de Feather HUZZAH ESP8266 a Azure IoT Hub | Microsoft Docs"
-description: "Se explica cómo conectar un dispositivo Arduino, denominado Adafruit Feather HUZZAH ESP8266, a Azure IoT Hub, que es un servicio en la nube de Microsoft que ayuda a administrar los recursos de IoT."
+description: "Con este tutorial aprenderá a configurar y conectar Adafruit Feather HUZZAH ESP8266 a Azure IoT Hub para que envíe datos a la plataforma en la nube de Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
@@ -15,25 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 0969e78a69c73c29ecfddcf0de0ebeeeed8acd60
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6a450579c848fe6030a328ddf410f139baae2324
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud" class="xliff"></a>
-
-# Conexión de Adafruit Feather HUZZAH ESP8266 a Azure IoT Hub en la nube
+# <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Conexión de Adafruit Feather HUZZAH ESP8266 a Azure IoT Hub en la nube
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ![Conexión entre DHT22, Feather HUZZAH ESP8266 e IoT Hub](media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
 
-<a id="what-you-do" class="xliff"></a>
-
-## Qué debe hacer
+## <a name="what-you-do"></a>Qué debe hacer
 
 
 Cree una conexión entre Adafruit Feather HUZZAH ESP8266 e IoT Hub. Luego, ejecutará una aplicación de ejemplo en ESP8266 para recopilar datos de temperatura y humedad desde un sensor DHT22. Por último, envíe los datos del sensor a IoT Hub.
@@ -44,18 +39,14 @@ Cree una conexión entre Adafruit Feather HUZZAH ESP8266 e IoT Hub. Luego, ejecu
 
 
 
-<a id="what-you-learn" class="xliff"></a>
-
-## Conocimientos que adquirirá
+## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
 * Cómo crear una instancia de IoT Hub y registrar un dispositivo para Feather HUZZAH ESP8266
 * Cómo conectar Feather HUZZAH ESP8266 con el sensor y el equipo
 * Cómo recopilar datos del sensor mediante la ejecución de una aplicación de ejemplo en Feather HUZZAH ESP8266
 * Cómo enviar los datos del sensor a IoT Hub
 
-<a id="what-you-need" class="xliff"></a>
-
-## Lo que necesita
+## <a name="what-you-need"></a>Lo que necesita
 
 ![Elementos necesarios para el tutorial](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
 
@@ -81,13 +72,9 @@ Los elementos siguientes son opcionales en caso de que no tenga un sensor. Tambi
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-<a id="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer" class="xliff"></a>
-
-## Conexión de Feather HUZZAH ESP8266 con el sensor y el equipo
+## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Conexión de Feather HUZZAH ESP8266 con el sensor y el equipo
 En esta sección se conectan los sensores a la placa. Luego se conecta el dispositivo al equipo para su uso posterior.
-<a id="connect-a-dht22-temperature-and-humidity-sensor-to-feather-huzzah-esp8266" class="xliff"></a>
-
-### Conexión de un sensor de humedad y temperatura DHT22 a Feather HUZZAH ESP8266
+### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-huzzah-esp8266"></a>Conexión de un sensor de humedad y temperatura DHT22 a Feather HUZZAH ESP8266
 
 Use la placa de pruebas y los cables de puente para realizar la conexión del modo siguiente. Si no dispone de un sensor, omita esta sección porque en su lugar puede usar una simulación de datos del sensor.
 
@@ -111,17 +98,13 @@ Ahora su Feather Huzzah ESP8266 debe estar conectado con un sensor de trabajo.
 
 ![Conectar DHT22 con Feather Huzzah](media/iot-hub-arduino-huzzah-esp8266-get-started/8_connect-dht22-feather-huzzah.png)
 
-<a id="connect-feather-huzzah-esp8266-to-your-computer" class="xliff"></a>
-
-### Conexión de Feather HUZZAH ESP8266 a su equipo
+### <a name="connect-feather-huzzah-esp8266-to-your-computer"></a>Conexión de Feather HUZZAH ESP8266 a su equipo
 
 Como se indica a continuación, use el cable micro USB a USB tipo A para conectar Feather HUZZAH ESP8266 a su equipo de la manera siguiente.
 
 ![Conectar Feather Huzzah al equipo](media/iot-hub-arduino-huzzah-esp8266-get-started/9_connect-feather-huzzah-computer.png)
 
-<a id="add-serial-port-permissions-ubuntu-only" class="xliff"></a>
-
-### Agregar permisos de puerto serie (solo Ubuntu)
+### <a name="add-serial-port-permissions-ubuntu-only"></a>Agregar permisos de puerto serie (solo Ubuntu)
 
 
 Si usa Ubuntu, asegúrese de que tiene los permisos para trabajar en el puerto USB de Feather HUZZAH ESP8266. Para agregar permisos de puerto serie, siga estos pasos:
@@ -151,15 +134,11 @@ Si usa Ubuntu, asegúrese de que tiene los permisos para trabajar en el puerto U
 
 1. Cierre la sesión de Ubuntu y luego vuelva a iniciar sesión para que aparezca el cambio.
 
-<a id="collect-sensor-data-and-send-it-to-your-iot-hub" class="xliff"></a>
-
-## Recopilación de datos del sensor y envío al centro de IoT
+## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>Recopilación de datos del sensor y envío al centro de IoT
 
 En esta sección, implementará y ejecutará una aplicación de ejemplo en Feather HUZZAH ESP8266. La aplicación de ejemplo hace parpadear el LED en Feather HUZZAH ESP8266 y envía los datos de humedad y temperatura recopilados del sensor DHT22 a la instancia de IoT Hub.
 
-<a id="get-the-sample-application-from-github" class="xliff"></a>
-
-### Obtención de la aplicación de ejemplo de Github
+### <a name="get-the-sample-application-from-github"></a>Obtención de la aplicación de ejemplo de Github
 
 La aplicación de ejemplo se hospeda en GitHub. Clone el repositorio de ejemplos que contiene la aplicación de ejemplo de GitHub. Para clonar el repositorio de ejemplos, siga estos pasos:
 
@@ -195,9 +174,7 @@ Instale el paquete de Feather HUZZAH ESP8266 en el IDE de Arduino:
 
 1. Haga clic en **Tools** >  (Herramientas) **Board** >  (Placa) **Adafruit HUZZAH ESP8266**.
 
-<a id="install-necessary-libraries" class="xliff"></a>
-
-### Instalación de las bibliotecas necesarias
+### <a name="install-necessary-libraries"></a>Instalación de las bibliotecas necesarias
 
 1. En Arduino IDE, haga clic en **Sketch** >  (Boceto) **Include Library** >  (Incluir biblioteca) **Manage Libraries** (Administrar bibliotecas).
 1. Busque los nombres de biblioteca siguientes uno a uno. Para cada biblioteca que encuentre, haga clic en **Install** (Instalar).
@@ -208,9 +185,7 @@ Instale el paquete de Feather HUZZAH ESP8266 en el IDE de Arduino:
    * `DHT sensor library`
    * `Adafruit Unified Sensor`
 
-<a id="dont-have-a-real-dht22-sensor" class="xliff"></a>
-
-### ¿No tiene un sensor DHT22 real?
+### <a name="dont-have-a-real-dht22-sensor"></a>¿No tiene un sensor DHT22 real?
 
 La aplicación de ejemplo puede simular datos de humedad y temperatura en caso de que no disponga de un sensor DHT22 real. Para configurar la aplicación de ejemplo de modo que use datos simulados, siga estos pasos:
 
@@ -223,16 +198,12 @@ La aplicación de ejemplo puede simular datos de humedad y temperatura en caso d
 
 1. Guarde el archivo como `Control-s`.
 
-<a id="deploy-the-sample-application-to-feather-huzzah-esp8266" class="xliff"></a>
-
-### Implementación de la aplicación de ejemplo en Feather HUZZAH ESP8266
+### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Implementación de la aplicación de ejemplo en Feather HUZZAH ESP8266
 
 1. En Arduino IDE, haga clic en **Tool** >  (Herramienta) **Port** (Puerto) y haga clic en el puerto serie de Feather HUZZAH ESP8266.
 1. Haga clic en **Sketch** >  (Boceto) **Upload** (Cargar) para compilar e implementar la aplicación de ejemplo en Feather HUZZAH ESP8266.
 
-<a id="enter-your-credentials" class="xliff"></a>
-
-### Escriba sus credenciales.
+### <a name="enter-your-credentials"></a>Escriba sus credenciales.
 
 Cuando la carga finalice correctamente, siga estos pasos para escribir las credenciales:
 
@@ -248,17 +219,13 @@ Cuando la carga finalice correctamente, siga estos pasos para escribir las crede
 > [!Note]
 > La información de credenciales se almacena en la EEPROM de Feather HUZZAH ESP8266. Si hace clic en el botón de restablecimiento de la placa Feather HUZZAH ESP8266, la aplicación de ejemplo le pregunta si desea borrar la información. Escriba `Y` para borrar la información. Se le pide que proporcione la información una segunda vez.
 
-<a id="verify-the-sample-application-is-running-successfully" class="xliff"></a>
-
-### Compruebe que la aplicación de ejemplo se ejecuta correctamente.
+### <a name="verify-the-sample-application-is-running-successfully"></a>Compruebe que la aplicación de ejemplo se ejecuta correctamente.
 
 Si ve la siguiente salida de la ventana del monitor serie y el LED parpadeando en Feather HUZZAH ESP8266, la aplicación de ejemplo se ejecuta correctamente.
 
 ![Salida final en el IDE de Arduino](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Ha conectado correctamente un dispositivo Feather HUZZAH ESP8266 a su instancia de IoT Hub y ha enviado los datos de sensor capturados a esa instancia. 
 

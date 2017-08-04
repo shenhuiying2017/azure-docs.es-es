@@ -1,6 +1,6 @@
 ---
 title: 'Azure IoT Hub: empezar a conectar dispositivos de IoT con la nube | Microsoft Docs'
-description: "Obtenga información sobre cómo conectar dispositivos de IoT con Azure IoT Hub. Los dispositivos pueden enviar telemetría a IoT Hub y este servicio puede supervisar y administrar los dispositivos."
+description: "Aprenda a conectar paneles y kits de inicio de IoT con Azure IoT Hub. Los dispositivos pueden enviar datos de telemetría a IoT Hub y este servicio supervisa y administra los dispositivos."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/28/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: d3d74d44bdd7ce6b49ec58b70c7ddb8081e11f96
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c02b4bb6e01bc6e6e5b7e373a8d6d2ab2d2395da
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---

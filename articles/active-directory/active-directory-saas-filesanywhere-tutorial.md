@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 40164cfba8b54634278194c599a4493a5b7910b2
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4153056bd21006061c6ad8ff9cf3c17de9248628
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Tutorial: Integración de Azure Active Directory con FilesAnywhere
@@ -117,6 +117,8 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     ![Configurar inicio de sesión único](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url.png)
     
     a. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`.
+> [!NOTE]
+> Tenga en cuenta que el valor **215** de **clientid** es simplemente un ejemplo. Es necesario reemplazarlo con el valor de clientid real.
 
 4. En la sección **Dominio y direcciones URL de FilesAnywhere**, si quiere configurar la aplicación en **modo iniciado por SP**, realice los siguientes pasos:
     
@@ -170,7 +172,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
 
-10.    Para completar la configuración de SSO para su aplicación en FilesAnywhere, póngase en contacto con el [equipo de soporte técnico de FilesAnywhere](mailto:support@FilesAnywhere.com) y proporcióneles el certificado de firma de tokens SAML descargado y la dirección URL de inicio de sesión único.
+10. Para completar la configuración de SSO para su aplicación en FilesAnywhere, póngase en contacto con el [equipo de soporte técnico de FilesAnywhere](mailto:support@FilesAnywhere.com) y proporcióneles el certificado de firma de tokens SAML descargado y la dirección URL de inicio de sesión único.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en el Portal de administración de Azure llamado Britta Simon.

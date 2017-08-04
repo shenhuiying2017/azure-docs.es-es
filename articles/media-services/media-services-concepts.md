@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2017
+ms.date: 07/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 59ccb7a043e1db750e596f173af0791099ea1827
-ms.lasthandoff: 03/14/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ed3417f69bb13043db0affc9249f3ff5e49d7c79
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services
@@ -45,7 +45,8 @@ No debe intentar cambiar el contenido de los contenedores de blobs que generó S
 ### <a name="asset-encryption-options"></a>Opciones de cifrado de recursos
 Según el tipo de contenido que desea cargar, almacenar y entregar, Servicios multimedia proporciona varias opciones de cifrado de las que puede elegir.
 
-**Ninguno** : no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al utilizar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento.
+>[!NOTE]
+>No se utiliza cifrado. Este es el valor predeterminado. Cuando se utiliza esta opción, el contenido no está protegido en tránsito o en reposo en el almacenamiento.
 
 Si planifica entregar un MP4 mediante una descarga progresiva, use esta opción para cargar el contenido.
 
@@ -55,7 +56,7 @@ Para entregar a un recurso cifrado de almacenamiento, debe configurar la directi
 
 **CommonEncryptionProtected** : utilice esta opción si desea cifrar contenido o cargar contenido ya cifrado con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
 
-**EnvelopeEncryptedProtected** : utilice esta opción si desea proteger HTTP Live Streaming (HLS) cifrado (o cargar uno ya protegido) con estándar de cifrado avanzado (AES). Tenga en cuenta que si carga HLS ya cifrado con AES, se debe haber cifrado con Transform Manager.
+**EnvelopeEncryptedProtected** : utilice esta opción si desea proteger HTTP Live Streaming (HLS) cifrado (o cargar uno ya protegido) con estándar de cifrado avanzado (AES). Si carga HLS ya cifrado con AES, se debe haber cifrado con Transform Manager.
 
 ### <a name="access-policy"></a>Directiva de acceso
 Un [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) define los permisos (como lectura, escritura y lista) y la duración de acceso a un recurso. Normalmente pasaría un objeto AccessPolicy a un localizador que luego se usaría para tener acceso a los archivos contenidos en un recurso.
@@ -66,7 +67,7 @@ Un [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspol
 ### <a name="blob-container"></a>Contenedor de blobs
 Un contenedor de blobs proporciona una agrupación de un conjunto de blobs. Los contenedores de blobs se usan en Servicios multimedia como punto limítrofe para el control de acceso y localizadores de firma de acceso compartido (SAS) en los recursos. Una cuenta de almacenamiento de Azure puede contener una cantidad ilimitada de contenedores de blobs. un contenedor puede almacenar un número ilimitado de blobs.
 
-> [!NOTE]
+>[!NOTE]
 > No debe intentar cambiar el contenido de los contenedores de blobs que generó Servicios multimedia sin usar las API de Servicios multimedia.
 > 
 > 
@@ -76,7 +77,8 @@ Los [localizador](https://docs.microsoft.com/rest/api/media/operations/locator)e
 
 Servicios multimedia admite dos tipos de localizadores: los localizadores OnDemandOrigin, que se usan para hacer streaming de elementos multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) o para descargarelementos  multimedia de manera progresiva, y los localizadores SAS URL, que se usan para cargar o descargar archivos multimedia hacia y desde el almacenamiento de Azure. 
 
-Observe que el permiso de lista (AccessPermissions.List) no se debe usar al crear un localizador OnDemandOrigin. 
+>[!NOTE]
+>El permiso de lista (AccessPermissions.List) no se debe usar al crear un localizador OnDemandOrigin. 
 
 ### <a name="storage-account"></a>Cuenta de almacenamiento
 Todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Una cuenta de Servicios multimedia se puede asociar con una o más cuentas de almacenamiento. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 500 TB por cuenta de almacenamiento.  Servicios multimedia proporciona herramientas del nivel de SDK que le permiten administrar varias cuentas de almacenamiento y equilibrar la carga de la distribución de sus recursos durante la carga a estas cuentas según métricas o una distribución aleatoria. Para obtener más información, consulte Uso de [Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
@@ -96,7 +98,7 @@ Media Services proporciona empaquetado dinámico que permite entregar contenido 
 
 Para aprovechar el [empaquetado dinámico](media-services-dynamic-packaging-overview.md), tiene que modificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable y tener al menos un punto de conexión de streaming estándar o premium en estado iniciado.
 
-Servicios multimedia admite los siguientes codificadores a petición que se describen en este artículo:
+Media Services admite los siguientes codificadores a petición que se describen en este artículo:
 
 * [Media Encoder Estándar](media-services-encode-asset.md#media-encoder-standard)
 * [Flujo de trabajo del Codificador multimedia](media-services-encode-asset.md#media-encoder-premium-workflow)
@@ -117,7 +119,7 @@ Puede obtener la dirección URL de introducción y la dirección URL de vista pr
 Cada cuenta de Servicios multimedia puede contener varios canales, varios programas y varios StreamingEndpoints. Según las necesidades de ancho de banda y seguridad, los servicios de StreamingEndpoint pueden dedicarse a uno o más canales. Puede extraer cualquier StreamingEndpoint de cualquier canal.
 
 ### <a name="program-event"></a>Programa (evento)
-Un [programa (evento)](https://docs.microsoft.com/rest/api/media/operations/program) permite controlar la publicación y el almacenamiento de segmentos en una secuencia en directo. Los canales administran los programas (eventos). La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca algún evento programado en dicho canal.
+Un [programa (evento)](https://docs.microsoft.com/rest/api/media/operations/program) permite controlar la publicación y el almacenamiento de segmentos en una secuencia en directo. Los canales administran los programas (eventos). La relación entre canales y programas es similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca en algún evento programado en dicho canal.
 Puede especificar la cantidad de horas que desea conservar el contenido grabado del programa en la configuración de la propiedad **ArchiveWindowLength** . Este valor se puede establecer desde un mínimo de cinco minutos a un máximo de 25 horas.
 
 ArchiveWindowLength también indica el tiempo máximo que los clientes pueden buscar hacia atrás a partir de la posición en vivo actual. Los programas pueden transmitirse durante la cantidad de tiempo especificada, pero el contenido que escape de esa longitud de ventana se descartará continuamente. El valor de esta propiedad también determina durante cuánto tiempo los manifiestos de cliente pueden crecer.
@@ -183,7 +185,8 @@ Si tiene un recurso cifrado de almacenamiento, antes de poder transmitir el recu
 ### <a name="progressive-download"></a>Descarga progresiva
 La descarga progresiva le permite comenzar a reproducir archivos multimedia antes de haber descargado todo el archivo. Solo puede descargar progresivamente un archivo MP4.
 
-Tenga en cuenta que debe descifrar los recursos cifrados si desea que estén disponibles para la descarga progresiva.
+>[!NOTE]
+>Debe descifrar los recursos cifrados si desea que estén disponibles para la descarga progresiva.
 
 Para proporcionar direcciones URL de descarga progresiva a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador le brinda la ruta de acceso de base al recurso. Luego debe anexar el nombre del archivo MP4. Por ejemplo:
 
@@ -192,9 +195,10 @@ http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba01
 ### <a name="streaming-urls"></a>Direcciones URL de streaming
 Transmisión del contenido a los clientes. Para proporcionar direcciones URL de streaming a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador le brinda la ruta de acceso de base al recurso que contiene el contenido que desea transmitir. Sin embargo, para poder transmitir este contenido, es necesario modificar aún más esta ruta de acceso. Para construir una dirección URL completa al archivo de manifiesto del streaming, debe concatenar el valor de la ruta de acceso del localizador y el nombre de archivo del manifiesto (filename.ism). Luego, anexe /Manifiesto y un formato adecuado (si corresponde) a la ruta de acceso del localizador.
 
-También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS. Tenga en cuenta que, actualmente, AMS no admite SSL con dominios personalizados.  
+También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS. Actualmente, AMS no admite SSL con dominios personalizados.  
 
-Tenga en cuenta que solo puede transmitir por SSL si se creó el extremo de streaming desde el que se entrega el contenido a partir del 10 de septiembre de 2014. Si las direcciones URL de streaming se basan en los puntos de conexión de streaming creados después del 10 de septiembre, la dirección URL contendrá "streaming.mediaservices.windows.net" (el formato nuevo). Las direcciones URL de streaming que contengan "origin.mediaservices.windows.net" (el formato anterior) no son compatibles con SSL. Si la dirección URL tiene un formato antiguo y desea poder transmitir a través de SSL, cree un extremo de streaming nuevo. Utilice direcciones URL creadas en función del nuevo extremo de streaming para transmitir el contenido a través de SSL.
+>[!NOTE]
+>Solo puede transmitir por SSL si se creó el punto de conexión de streaming desde el que se entrega el contenido a partir del 10 de septiembre de 2014. Si las direcciones URL de streaming se basan en los puntos de conexión de streaming creados después del 10 de septiembre, la dirección URL contendrá "streaming.mediaservices.windows.net" (el formato nuevo). Las direcciones URL de streaming que contengan "origin.mediaservices.windows.net" (el formato anterior) no son compatibles con SSL. Si la dirección URL tiene un formato antiguo y desea poder transmitir a través de SSL, cree un extremo de streaming nuevo. Utilice direcciones URL creadas en función del nuevo extremo de streaming para transmitir el contenido a través de SSL.
 
 En la siguiente lista se describen distintos formatos de streaming y aparecen ejemplos:
 

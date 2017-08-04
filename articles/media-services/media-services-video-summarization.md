@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 07/18/2017
 ms.author: milanga;juliako;
-translationtype: Human Translation
-ms.sourcegitcommit: 343658944394e7b620bc70aa0d92affada07e91d
-ms.openlocfilehash: 7510c8ab4adadbd7d738ba0b8e2bbdddba8d1048
-ms.lasthandoff: 02/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c8e760460668aca89a754e2d8536282160de0e0a
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo
@@ -73,7 +73,8 @@ El siguiente JSON establece los parámetros disponibles.
         }
     }
 
-## <a name="sample-code"></a>Código de ejemplo
+## <a name="net-sample-code"></a>Código de ejemplo de .NET
+
 El programa siguiente muestra cómo:
 
 1. Crear un recurso y cargar un archivo multimedia en él.
@@ -87,9 +88,14 @@ El programa siguiente muestra cómo:
                 "fadeInFadeOut": "false"
             }
         }
-3. Descarga los archivos de salida. 
+3. Descargar los archivos de salida 
 
-### <a name="net-code"></a>Código .NET
+#### <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
+
+Configure el entorno de desarrollo y rellene el archivo app.config con la información de la conexión, como se describe en [Desarrollo de Media Services con .NET](media-services-dotnet-how-to-use.md). 
+
+#### <a name="example"></a>Ejemplo
+
     using System;
     using System.Configuration;
     using System.IO;
@@ -103,24 +109,20 @@ El programa siguiente muestra cómo:
         class Program
         {
             // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {
+                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
-                // Used the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
 
                 // Run the thumbnail job.
@@ -264,8 +266,8 @@ El programa siguiente muestra cómo:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Vínculos relacionados
-[Azure Media Services Analytics Overview (Información general sobre análisis de Servicios multimedia de Azure)](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview (Información general sobre Azure Media Services Analytics)](media-services-analytics-overview.md)
 
-[Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demostraciones de Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 

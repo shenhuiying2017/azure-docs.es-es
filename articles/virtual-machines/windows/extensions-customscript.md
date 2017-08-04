@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 07/16/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 957fb7bf1bd646ae5e4d27350502bdf14b0f00c3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: aeddf1aba1e8df74750538ba798d34a1a957e83f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
@@ -37,7 +36,7 @@ La extensión de script personalizado para Windows se puede ejecutar en Windows 
 
 ### <a name="script-location"></a>Ubicación del script
 
-El script debe almacenarse en Azure Storage o en cualquier otra ubicación a la que se pueda tener acceso a través de una dirección URL válida.
+El script debe almacenarse en Azure Blob Storage o en cualquier otra ubicación a la que se pueda tener acceso a través de una dirección URL válida.
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 

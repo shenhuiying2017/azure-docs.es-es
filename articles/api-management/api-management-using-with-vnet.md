@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 21cdfbbc457aad1cd3b1a5b20745eee4286a78bb
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f796177baaa5e03b833e5a2b300a98176147cd29
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
@@ -94,8 +93,7 @@ A continuación se muestra una lista de problemas de errores de configuración c
 * **Configuración del servidor DNS personalizado**: el servicio de API Management depende de varios servicios de Azure. Cuando API Management está hospedado en una red virtual con un servidor DNS personalizado, necesita resolver los nombres de host de esos servicios de Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) instrucciones sobre la configuración de DNS personalizado. Vea la siguiente tabla de puertos y otros requisitos de red a efectos de referencia.
 
 > [!IMPORTANT]
-> Se recomienda que, si está utilizando un servidor de DNS personalizado para la red virtual, lo configure **antes** de la implementación de un servicio de API Management en él. En caso contrario, es necesario reiniciar la instancia de CloudService que hospeda el servicio a fin de que integre la nueva configuración de servidor DNS.
->
+> Se recomienda que, si usa un servidor de DNS personalizado para la red virtual, lo configure **antes** de implementar en él un servicio de API Management. En caso contrario, debe actualizar el servicio API Management cada vez que cambie los servidores DNS (s) mediante la ejecución de la [operación Aplicar configuración de red](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservices#ApiManagementServices_ApplyNetworkConfigurationUpdates).
 
 * **Puertos necesarios para API Management**: el tráfico entrante y saliente en la subred en la que se implementa API Management puede controlarse mediante el [grupo de seguridad de red][Network Security Group]. Si alguno de estos puertos no está disponible, es posible que API Management no funcione correctamente y sea inaccesible. Tener bloqueados uno o varios de estos puertos es otro problema común de una configuración incorrecta cuando se usa API Management con una red virtual.
 
@@ -109,13 +107,14 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 | * / 1433 |Salida |TCP |Dependencia de Azure SQL |VIRTUAL_NETWORK/INTERNET |Externa e interna |
 | * / 11000 - 11999 |Salida |TCP |Dependencia de Azure SQL V12 |VIRTUAL_NETWORK/INTERNET |Externa e interna |
 | * / 14000 - 14999 |Salida |TCP |Dependencia de Azure SQL V12 |VIRTUAL_NETWORK/INTERNET |Externa e interna |
-| * / 9350 - 9354 |Salida |TCP |Dependencia de Service Bus |VIRTUAL_NETWORK/INTERNET |Externa e interna |
-| * / 5671 |Salida |AMQP |Dependencia de directiva de registro en Event Hubs |VIRTUAL_NETWORK/INTERNET |Externa e interna |
+| * / 5671 |Salida |AMQP |Dependencia de la directiva de registro en el centro de eventos y el agente de supervisión |VIRTUAL_NETWORK/INTERNET |Externa e interna |
 | 6381 - 6383 / 6381 - 6383 |Entrada y salida |UDP |Dependencia de Redis Cache |VIRTUAL_NETWORK/VIRTUAL_NETWORK |Externa e interna |-
 | * / 445 |Salida |TCP |Dependencia del recurso compartido de archivos de Azure para Git |VIRTUAL_NETWORK/INTERNET |Externa e interna |
 | * / * | Entrada |TCP |Equilibrador de carga de la infraestructura de Azure | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |Externa e interna |
 
 * **Funcionalidad SSL**: para permitir la creación y validación de la cadena de certificados SSL, el servicio API Management necesita conectividad de red saliente a ocsp.msocsp.com, mscrl.microsoft.com y crl.microsoft.com.
+
+* **Supervisión de métricas y estado**: conexión de red saliente a puntos de conexión de supervisión de Azure, que se resuelven en los siguientes dominios: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net.
 
 * **Configuración de ExpressRoute**: una configuración de cliente común es definir su propia ruta predeterminada (0.0.0.0/0) que fuerza a que el tráfico saliente de Internet fluya a nivel local. El flujo de tráfico interrumpe invariablemente la conectividad con Azure API Management porque el tráfico saliente está bloqueado de forma local o porque se usa NAT para convertirlo en un conjunto de direcciones irreconocibles que no funcionan con varios puntos de conexión de Azure. La solución es definir una, o varias, rutas definidas por el usuario ([UDR][UDRs]) en la subred que contiene el servicio Azure API Management. Una ruta definida por el usuario define las rutas de subred específica que se respetarán en lugar de la ruta predeterminada.
   Si es posible, se recomienda usar la configuración siguiente:

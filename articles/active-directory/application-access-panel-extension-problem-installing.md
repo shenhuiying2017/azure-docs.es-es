@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 759631bca9b29134098dba55ef07513d0ee42549
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8b7327508633e33917d1fa9c1f35ed1bde5a26e1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -36,11 +36,11 @@ Para el SSO basado en contraseña, los exploradores del usuario final pueden ser
 
 -   Internet Explorer 8, 9, 10, 11 (en Windows 7 o posterior)
 
+-   Edge en Windows 10 Anniversary Edition o posterior 
+
 -   Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
 
 -   Firefox 26.0 o posterior (en Windows XP SP2 o posterior y en Mac OS X 10.6 o posterior)
-
-**Nota**: La extensión de SSO basado en contraseña está disponible para Edge en Windows 10 cuando se admiten extensiones de explorador para Edge.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Cómo instalar la extensión de explorador del Panel de acceso
 
@@ -60,11 +60,11 @@ Para instalar la extensión de explorador del Panel de acceso, siga estos pasos:
 
 7.  Inicie sesión en el Panel de acceso y vea si puede **iniciar** las aplicaciones de SSO con contraseña
 
-También puede descargar la extensión para Chrome y Firefox desde los siguientes vínculos directos:
+También puede descargar la extensión para Chrome y Edge desde los siguientes vínculos directos:
 
 -   [Extensión del Panel de acceso para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extensión del Panel de acceso para Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Extensión del Panel de acceso para Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Configuración de una directiva de grupo para Internet Explorer
 

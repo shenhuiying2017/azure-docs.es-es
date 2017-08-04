@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 8e487cd33bef73ac66e1b1b6ee614b5a1376d772
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dcc7c088d7b6db7af334977315f122dca3c17f69
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Creación de clústeres de Service Fabric en Windows Server o Linux
@@ -36,7 +36,7 @@ Puede crear clústeres en máquinas virtuales que ejecuten estos sistemas operat
 * Windows Server 2016 
 * Linux Ubuntu 16.04 (en versión preliminar pública) 
 
-## <a name="create-service-fabric-standalone-clusters-on-premise-or-with-any-cloud-provider"></a>Creación de clústeres independientes de Service Fabric de forma local o con cualquier proveedor en la nube
+## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Creación de clústeres independientes de Service Fabric de forma local o con cualquier proveedor de nube
 Service Fabric le proporciona un paquete de instalación para que cree clústeres independientes de Service Fabric de forma local o en cualquier proveedor en la nube.
 
 Para más información sobre la configuración de clústeres independientes de Service Fabric en Windows Server, lea [Creación y administración de un clúster que se ejecute en Windows Server](service-fabric-cluster-creation-for-windows-server.md)

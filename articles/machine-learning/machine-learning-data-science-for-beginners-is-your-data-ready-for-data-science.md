@@ -1,5 +1,5 @@
 ---
-title: "¿Están sus datos preparados para la ciencia de datos? Evaluación de los datos (Azure) | Microsoft Docs"
+title: "¿Están sus datos preparados para la ciencia de datos? Evaluación de datos: Azure Machine Learning | Microsoft Docs"
 description: "Aprenda los cuatro criterios para que los datos estén preparado para la ciencia de datos. El vídeo 2 de Ciencia de datos para principiantes tiene ejemplos concretos para ayudar con la evaluación de datos básicos."
 keywords: datos pertinentes, evaluar los datos, preparar datos, criterios de datos, datos preparados
 services: machine-learning
@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: 3d2b259c29a52394ac42afba0c5572364cfeea39
-ms.lasthandoff: 02/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8c27159e75482e5d3b2048298b118c55574c6b57
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="is-your-data-ready-for-data-science"></a>¿Están sus datos preparados para la ciencia de datos?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: serie Ciencia de datos para principiantes
 Aprenda cómo evaluar los datos para asegurarse de que cumplen los criterios básicos para la ciencia de datos.
 
-Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
+Para obtener el máximo partido de la serie, véalos en orden. [Vaya a la lista de vídeos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
 >
@@ -44,7 +45,7 @@ Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de
 ## <a name="transcript-is-your-data-ready-for-data-science"></a>Transcripción: ¿Están sus datos preparados para la ciencia de datos?
 ¿Están sus datos preparados para la ciencia de datos? es el segundo vídeo de la serie *Ciencia de datos para principiantes*.  
 
-Antes de que la ciencia de datos pueda proporcionar las respuestas que desea, tendrá que darle materia prima de gran calidad con la que trabajar. Al igual que al hacer una pizza, cuanto mejor sean los ingredientes con los que empiece, mejor será el producto final.
+Antes de que la ciencia de datos pueda proporcionar las respuestas que desea, tendrá que darle materia prima de gran calidad con la que trabajar. Al igual que al hacer una pizza, cuanto mejor sean los ingredientes con los que empiece, mejor será el producto final. 
 
 ## <a name="criteria-for-data"></a>Criterios para los datos
 Por tanto, en el caso de la ciencia de datos, hay algunos ingredientes que necesitamos recopilar.
@@ -59,7 +60,7 @@ Necesitamos datos que sean:
 ## <a name="is-your-data-relevant"></a>¿Son sus datos pertinentes?
 El primer ingrediente: necesitamos que los datos sean relevantes.
 
-![Datos pertinentes frente a datos no pertinentes: evaluar los datos](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-relevant-and-irrelevant-data.png)
+![Datos pertinentes frente a datos no pertinentes: evaluar los datos](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
 Fíjese en la tabla de la izquierda. Hemos encontrado a siete personas fuera de los bares de Boston, medido su nivel de alcohol de sangre, el promedio de bateo de los Red Sox en su último partido y el precio de la leche en la tienda más cercana.
 
@@ -70,7 +71,7 @@ Ahora observe la tabla de la derecha. Esta vez, medimos la masa corporal de cada
 ## <a name="do-you-have-connected-data"></a>¿Tiene datos conectados?
 El siguiente ingrediente son unos datos conectados.
 
-![Datos conectados frente a datos desconectados: criterios de datos y datos preparados](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-connected-vs-disconnected-data.png)
+![Datos conectados frente a datos desconectados: criterios de datos y datos preparados](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/connected-vs-disconnected-data.png)
 
 Estos son algunos datos que afectan a la calidad de las hamburguesas: temperatura de la parrilla, el peso de la carne y la clasificación en la revista de comida local. Pero observe los espacios vacíos en la tabla de la izquierda.
 
@@ -81,9 +82,9 @@ Si observa la tabla de la izquierda, faltan tantos datos que es difícil estable
 Sin embargo, la tabla de la derecha está llena y completa; un ejemplo de datos conectados.
 
 ## <a name="is-your-data-accurate"></a>¿Son precisos los datos?
-El siguiente ingrediente que necesitamos es la precisión. Aquí hay&4; dianas a las que nos gustaría acertar con flechas.
+El siguiente ingrediente que necesitamos es la precisión. Aquí hay 4 dianas a las que nos gustaría acertar con flechas.
 
-![Datos precisos frente a datos imprecisos: criterios de datos](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-inaccurate-vs-accurate-data.png)
+![Datos precisos frente a datos imprecisos: criterios de datos](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
 Mire la diana en la parte superior derecha. Tenemos una agrupación apretada justo en el blanco. Esto, por supuesto, es preciso. Curiosamente, en el lenguaje de la ciencia de datos, nuestro rendimiento en la diana inferior derecha también se considera preciso.
 
@@ -94,7 +95,7 @@ Ahora examinemos la diana superior izquierda. Aquí nuestras flechas dieron toda
 ## <a name="do-you-have-enough-data-to-work-with"></a>¿Tiene suficientes datos con los que trabajar?
 Por último, el cuarto ingrediente: necesitamos tener suficientes datos.
 
-![¿Tiene suficientes datos para el análisis? Evaluación de datos](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/machine-learning-data-science-barely-enough-data.png)
+![¿Tiene suficientes datos para el análisis? Evaluación de datos](./media/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
 Piense que cada punto de datos de la tabla es una pincelada en una pintura. Si solo tiene algunas, la pintura puede ser bastante difuminada; es difícil saber qué es.
 

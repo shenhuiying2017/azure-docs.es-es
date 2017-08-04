@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 485fb2e8ac96e2cdb8e4293b63971af1c1b9baf4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2eed74ae9bd173b0944ec190dfe5d9a4bdc54c37
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -108,7 +108,7 @@ En Azure Portal, vaya a la cuenta de Azure Cosmos DB, haga clic en **Claves** y,
 
 Copie el URI desde el portal y péguelo en `<your endpoint URL>` en el archivo program.cs. Después, copie la CLAVE PRINCIPAL del portal y péguelo en `<your primary key>`. Asegúrese de quitar `<` y `>` de los valores.
 
-![Captura de pantalla de Azure Portal usada por el tutorial de NoSQL para crear una aplicación de consola de C#. Muestra una cuenta de Azure Cosmos DB, con las CLAVES resaltadas en la hoja de la cuenta de Azure Cosmos DB y los valores de URI y PRIMARY KEY resaltados en la hoja Claves][claves]
+![Captura de pantalla de Azure Portal, usado por el tutorial de NoSQL para crear una aplicación de consola de C#. Muestra una cuenta de Azure Cosmos DB, con las claves resaltadas en la hoja de la cuenta de Azure Cosmos DB y los valores de URI y PRIMARY KEY resaltados en la hoja Claves.](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png)
 
 ## <a id="instantiate"></a>Creación de instancia de DocumentClient
 

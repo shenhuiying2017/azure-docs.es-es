@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 07/06/2017
 ms.author: kgremban
+ms.reviewer: harshja
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 31e8e39580ed83f13fd3ffb9981221765063a0b7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 194367028c3c2c571dd8645a794f67a0c3a21d4c
 ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -35,8 +36,6 @@ Con el módulo de Azure AD PowerShell, puede definir direcciones URL de página 
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-### <a name="determine-the-home-page-url"></a>Determinación de la dirección URL de la página principal
-
 Antes de establecer la dirección URL de la página principal tenga en cuenta lo siguiente:
 
 * Asegúrese de que la ruta de acceso especificada sea una ruta de acceso de subdominio de la dirección URL raíz del dominio.
@@ -44,6 +43,16 @@ Antes de establecer la dirección URL de la página principal tenga en cuenta lo
   Si la dirección URL raíz del dominio es, por ejemplo, https://apps.contoso.com/app1/, la dirección URL de la página principal que configure debe empezar por https://apps.contoso.com/app1/.
 
 * Si realiza un cambio en la aplicación publicada, este podría restablecer el valor de la dirección URL de la página principal. Si actualiza la aplicación en el futuro, debe volver a comprobar y, si es necesario, actualizar la dirección URL de la página principal.
+
+## <a name="change-the-home-page-in-the-azure-portal"></a>Vaya a la página principal de Azure Portal.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
+2. Vaya a **Azure Active Directory** > **Registros de aplicación** y elija la aplicación de la lista. 
+3. Seleccione **Propiedades** en las opciones.
+4. Actualice el campo **URL de página principal** con la nueva ruta de acceso. 
+5. Seleccione **Guardar**.
+
+## <a name="change-the-home-page-with-powershell"></a>Cambio de la página principal con PowerShell
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Instalación del módulo de PowerShell de Azure AD
 
@@ -59,7 +68,7 @@ Para instalar el paquete, siga estos pasos:
     Si está ejecutando el comando como no administrador, use la opción `-scope currentuser`.
 2. Durante la instalación, seleccione **Y** para instalar dos paquetes de Nuget.org. Se requieren ambos paquetes. 
 
-## <a name="step-1-find-the-objectid-of-the-app"></a>Paso 1: busque el ObjectID de la aplicación
+### <a name="find-the-objectid-of-the-app"></a>Busque el valor ObjectID de la aplicación
 
 Obtenga el ObjectID de la aplicación y, a continuación, busque la aplicación por su página principal.
 
@@ -87,7 +96,7 @@ Obtenga el ObjectID de la aplicación y, a continuación, busque la aplicación 
     ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
-## <a name="step-2-update-the-home-page-url"></a>Paso 2: actualice la dirección URL de la página principal
+### <a name="update-the-home-page-url"></a>Actualización de la dirección URL de la página principal
 
 En el mismo módulo de PowerShell que ha usado para el paso 1, haga lo siguiente:
 

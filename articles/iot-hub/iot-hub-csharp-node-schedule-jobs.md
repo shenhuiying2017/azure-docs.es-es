@@ -12,43 +12,42 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 07/10/2017
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 85f87cb0b7de40c9425d7f752f968a529ad555fa
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a8f4f34aa99c4a9966957cac213ec9170de80a46
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="schedule-and-broadcast-jobs"></a>Programación y difusión de trabajos
+# <a name="schedule-and-broadcast-jobs-netnodejs"></a>Programación y difusión de trabajos (.NET/Node.js)
+
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-## <a name="introduction"></a>Introducción
-IoT Hub de Azure es un servicio completamente administrado que permite a una aplicación back-end crear y realizar un seguimiento de los trabajos que programan y actualizan millones de dispositivos.  Los trabajos pueden utilizarse para las siguientes acciones:
+Use Azure IoT Hub para programar y realizar el seguimiento de los trabajos que actualizan millones de dispositivos. Use los trabajos para:
 
 * Actualizar las propiedades deseadas
 * Actualizar etiquetas
 * Invocar métodos directos
 
-Conceptualmente, un trabajo contiene una de estas acciones y realiza un seguimiento del progreso de ejecución en un conjunto de dispositivos, que define una consulta de dispositivo gemelo.  Por ejemplo, una aplicación back-end puede usar un trabajo para invocar un método de reinicio en 10 000 dispositivos, especificado por una consulta de dispositivos gemelos y programada en el futuro.  Esta puede después seguir el progreso cuando cada uno de estos dispositivos reciban y ejecuten el método de reinicio.
+Los trabajos contienen una de estas acciones y realizan el seguimiento de la ejecución en un conjunto de dispositivos, que define una consulta de dispositivo gemelo. Por ejemplo, una aplicación de back-end puede utilizar un trabajo para invocar un método directo en 10 000 dispositivos que reinicie los dispositivos. Especifique el conjunto de dispositivos con una consulta de dispositivo gemelo y programe el trabajo para que se ejecute en otro momento. Este trabajo realiza el seguimiento del progreso mientras los dispositivos reciben y ejecutan el método directo de reinicio.
 
-Más información sobre estas funcionalidades en estos artículos:
+Para más información sobre estas funcionalidades, consulte:
 
 * Dispositivo gemelo y propiedades: [Introducción a los dispositivos gemelos][lnk-get-started-twin] y [Tutorial: Uso de las propiedades deseadas para configurar dispositivos][lnk-twin-props]
 * Métodos directos: [Guía del desarrollador de IoT Hub: métodos directos][lnk-dev-methods] y [Tutorial: Uso de métodos directos][lnk-c2d-methods]
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
-* Crear una aplicación de dispositivo simulado con un método directo que permita **lockDoor** que se pueda llamar por la aplicación back-end.
-* Crear una aplicación de consola de .NET que llame al método directo **lockDoor** en la aplicación de dispositivo simulado mediante un trabajo y actualice las propiedades deseadas mediante un trabajo de dispositivo.
+* Creación de una aplicación de dispositivo que implemente un método directo denominado **lockDoor** que la aplicación de back-end puede llamar. La aplicación de dispositivo también recibe cambios en la propiedad deseada de la aplicación de back-end.
+* Creación de una aplicación de back-end que cree un trabajo para llamar al método directo **lockDoor** en varios dispositivos. Otro trabajo envía las actualizaciones en la propiedad deseada a varios dispositivos.
 
 Al final de este tutorial, tendrá una aplicación de dispositivo de consola de Node.js y una aplicación back-end de consola .NET (C#):
 
-**simDevice.js**, que se conecta a IoT Hub con la identidad del dispositivo y recibe un método directo **lockDoor**.
+**simDevice.js**, que se conecta a la instancia de IoT Hub, implementa el método directo **lockDoor** y controla los cambios en la propiedad deseada.
 
-**ScheduleJob**, que llama a un método directo en la aplicación de dispositivo simulado y actualiza las propiedades deseadas del dispositivo gemelo mediante un trabajo.
+**ScheduleJob**, que usa trabajos para llamar al método directo **lockDoor** y actualizar las propiedades del dispositivo gemelo deseadas en varios dispositivos.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -60,8 +59,9 @@ Para completar este tutorial, necesitará lo siguiente:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Programación de trabajos para llamar un método directo y actualización de las propiedades de un dispositivo gemelo
-En esta sección, creará una aplicación de consola de .NET (mediante C#) que inicia un método **lockDook** remoto en un dispositivo con un método directo y actualiza las propiedades del dispositivo gemelo.
+## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Programación de trabajos para llamar a un método directo y envío de actualizaciones de dispositivo gemelo
+
+En esta sección, creará una aplicación de consola de .NET (mediante C#) que usa trabajos para llamar al método directo **lockDoor** y enviar las actualizaciones en la propiedad deseada a varios dispositivos.
 
 1. En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a la solución actual mediante la plantilla de proyecto **Aplicación de consola** . Asigne al proyecto el nombre **ScheduleJob**.
 
@@ -72,118 +72,137 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
 
     ![Ventana del Administrador de paquetes NuGet][img-servicenuget]
 1. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
-   
-        using Microsoft.Azure.Devices;
-        using Microsoft.Azure.Devices.Shared;
+    
+    ```csharp
+    using Microsoft.Azure.Devices;
+    using Microsoft.Azure.Devices.Shared;
+    ```
 
 1. Agregue la siguiente instrucción `using` si no está ya presente en las instrucciones predeterminadas.
 
-        using System.Threading.Tasks;
-        
+    ```csharp
+    using System.Threading.Tasks;
+    ```
+
 1. Agregue los campos siguientes a la clase **Program** . Sustituya el marcador de posición por la cadena de conexión de IoT Hub para el centro que creó en la sección anterior.
-   
-        static string connString = "{iot hub connection string}";
-        static ServiceClient client;
-        static JobClient jobClient;
-        
-1. Agregue el método siguiente a la clase **Program** :
-   
-        public static async Task MonitorJob(string jobId)
-        {
-            JobResponse result;
-            do
-            {
-                result = await jobClient.GetJobAsync(jobId);
-                Console.WriteLine("Job Status : " + result.Status.ToString());
-                Thread.Sleep(2000);
-            } while ((result.Status != JobStatus.Completed) && (result.Status != JobStatus.Failed));
-        }
-                
-1. Agregue el método siguiente a la clase **Program** :
 
-        public static async Task StartMethodJob(string jobId)
-        {
-            CloudToDeviceMethod directMethod = new CloudToDeviceMethod("lockDoor", TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
-
-            JobResponse result = await jobClient.ScheduleDeviceMethodAsync(jobId,
-                "deviceId='myDeviceId'",
-                directMethod,
-                DateTime.Now,
-                10);
-
-            Console.WriteLine("Started Method Job");
-        }
+    ```csharp
+    static string connString = "{iot hub connection string}";
+    static ServiceClient client;
+    static JobClient jobClient;
+    ```
 
 1. Agregue el método siguiente a la clase **Program** :
 
-        public static async Task StartTwinUpdateJob(string jobId)
+    ```csharp
+    public static async Task MonitorJob(string jobId)
+    {
+        JobResponse result;
+        do
         {
-            var twin = new Twin();
-            twin.Properties.Desired["Building"] = "43";
-            twin.Properties.Desired["Floor"] = "3";
-            twin.ETag = "*";
+            result = await jobClient.GetJobAsync(jobId);
+            Console.WriteLine("Job Status : " + result.Status.ToString());
+            Thread.Sleep(2000);
+        } while ((result.Status != JobStatus.Completed) && (result.Status != JobStatus.Failed));
+    }
+    ```
 
-            JobResponse result = await jobClient.ScheduleTwinUpdateAsync(jobId,
-                "deviceId='myDeviceId'",
-                twin,
-                DateTime.Now,
-                10);
+1. Agregue el método siguiente a la clase **Program** :
 
-            Console.WriteLine("Started Twin Update Job");
-        }
- 
+    ```csharp
+    public static async Task StartMethodJob(string jobId)
+    {
+        CloudToDeviceMethod directMethod = new CloudToDeviceMethod("lockDoor", TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
+
+        JobResponse result = await jobClient.ScheduleDeviceMethodAsync(jobId,
+            "deviceId='myDeviceId'",
+            directMethod,
+            DateTime.Now,
+            10);
+
+        Console.WriteLine("Started Method Job");
+    }
+    ```
+
+1. Agregue el método siguiente a la clase **Program** :
+
+    ```csharp
+    public static async Task StartTwinUpdateJob(string jobId)
+    {
+        var twin = new Twin();
+        twin.Properties.Desired["Building"] = "43";
+        twin.Properties.Desired["Floor"] = "3";
+        twin.ETag = "*";
+
+        JobResponse result = await jobClient.ScheduleTwinUpdateAsync(jobId,
+            "deviceId='myDeviceId'",
+            twin,
+            DateTime.Now,
+            10);
+
+        Console.WriteLine("Started Twin Update Job");
+    }
+    ```
 
 1. Por último, agregue las líneas siguientes al método **Main** :
-   
-        jobClient = JobClient.CreateFromConnectionString(connString);
 
-        string methodJobId = Guid.NewGuid().ToString();
+    ```csharp
+    jobClient = JobClient.CreateFromConnectionString(connString);
 
-        StartMethodJob(methodJobId);
-        MonitorJob(methodJobId).Wait();
-        Console.WriteLine("Press ENTER to run the next job.");
-        Console.ReadLine();
+    string methodJobId = Guid.NewGuid().ToString();
 
-        string twinUpdateJobId = Guid.NewGuid().ToString();
+    StartMethodJob(methodJobId);
+    MonitorJob(methodJobId).Wait();
+    Console.WriteLine("Press ENTER to run the next job.");
+    Console.ReadLine();
 
-        StartTwinUpdateJob(twinUpdateJobId);
-        MonitorJob(twinUpdateJobId).Wait();
-        Console.WriteLine("Press ENTER to exit.");
-        Console.ReadLine();
+    string twinUpdateJobId = Guid.NewGuid().ToString();
+
+    StartTwinUpdateJob(twinUpdateJobId);
+    MonitorJob(twinUpdateJobId).Wait();
+    Console.WriteLine("Press ENTER to exit.");
+    Console.ReadLine();
+    ```
 
 1. En el Explorador de soluciones, abra **Establecer proyectos de inicio...** y asegúrese de que la **acción** de **ScheduleJob** sea **Iniciar**. Compile la solución.
 
 ## <a name="create-a-simulated-device-app"></a>Creación de una aplicación de dispositivo simulado
+
 En esta sección, creará una aplicación de consola de Node.js que responde a un método directo que se invoca desde la nube, que desencadena un reinicio del dispositivo simulado y utiliza las propiedades notificadas para habilitar consultas en el dispositivo gemelo con el fin de identificar los dispositivos y cuándo se reiniciaron por última vez.
 
 1. Cree una nueva carpeta vacía denominada **simDevice**.  En la carpeta **simDevice**, cree un archivo package.json con el siguiente comando en el símbolo del sistema.  Acepte todos los valores predeterminados:
-   
-    ```
+
+    ```cmd/sh
     npm init
     ```
+
 1. En el símbolo del sistema, en la carpeta **simDevice**, ejecute el siguiente comando para instalar los paquetes **azure-iot-device** y **azure-iot-device-mqtt**:
-   
-    ```
+
+    ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
+
 1. Con un editor de texto, cree un nuevo archivo **simDevice.js** en la carpeta **simDevice**.
+
 1. Agregue las siguientes instrucciones "require" al principio del archivo **simDevice.js**:
-   
-    ```
+
+    ```nodejs
     'use strict';
    
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
+
 1. Agregue una variable **connectionString** y utilícela para crear una instancia de **cliente**. Asegúrese de reemplazar los marcadores de posición por los valores adecuados para la configuración.
-   
-    ```
+
+    ```nodejs
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
+
 1. Agregue la siguiente función para controlar el método **lockDoor**.
-   
-    ```
+
+    ```nodejs
     var onLockDoor = function(request, response) {
    
         // Respond the cloud app for the direct method
@@ -198,9 +217,10 @@ En esta sección, creará una aplicación de consola de Node.js que responde a u
         console.log('Locking Door!');
     };
     ```
+
 1. Agregue el código siguiente para registrar el controlador del método **lockDoor**.
-   
-    ```
+
+    ```nodejs
     client.open(function(err) {
         if (err) {
             console.error('Could not connect to IotHub client.');
@@ -210,21 +230,22 @@ En esta sección, creará una aplicación de consola de Node.js que responde a u
         }
     });
     ```
+
 1. Guarde y cierre el archivo **simDevice.js**.
 
 > [!NOTE]
 > Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling][lnk-transient-faults] (Tratamiento de errores temporales).
-> 
-> 
 
 ## <a name="run-the-apps"></a>Ejecución de las aplicaciones
+
 Ya está preparado para ejecutar las aplicaciones.
 
 1. En el símbolo del sistema dentro de la carpeta **simDevice**, ejecute el siguiente comando para iniciar la escucha del método directo de reinicio.
-   
-    ```
+
+    ```cmd/sh
     node simDevice.js
     ```
+
 1. Ejecute la aplicación de consola de C# **ScheduleJob** haciendo clic con el botón derecho en el proyecto **ScheduleJob** y seleccione **Depurar** e **Iniciar nueva instancia**.
 
 1. Verá la salida de las aplicaciones back-end y de dispositivo.
@@ -232,6 +253,7 @@ Ya está preparado para ejecutar las aplicaciones.
     ![Ejecutar las aplicaciones para programar trabajos][img-schedulejobs]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este tutorial, ha utilizado un trabajo para programar un método directo para un dispositivo y la actualización de las propiedades del dispositivo gemelo.
 
 Para continuar con la introducción de IoT Hub y los patrones de administración de dispositivos como remoto a través de la actualización de firmware de aire, consulte [Tutorial: Realización de una actualización de firmware][lnk-fwupdate].

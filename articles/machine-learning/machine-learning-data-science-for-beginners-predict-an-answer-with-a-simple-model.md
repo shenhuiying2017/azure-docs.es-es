@@ -1,5 +1,5 @@
 ---
-title: "Predicción de respuestas con un modelo de regresión simple (Azure) | Microsoft Docs"
+title: "Predicción de respuestas con un modelo de regresión simple: Azure Machine Learning | Microsoft Docs"
 description: "Descubra cómo crear un modelo de regresión simple para predecir un precio en el vídeo 4 de Ciencia de datos para principiantes. Incluye una regresión lineal con los datos de destino."
 keywords: "crear un modelo, modelo simple, predicción del precio, modelo de regresión simple"
 services: machine-learning
@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ef651e3faa2abd7c1becb5dc2888d465330d4d73
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Predicción de respuestas con un modelo sencillo
 ## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: serie Ciencia de datos para principiantes
 Aprenda a crear un modelo de regresión simple para predecir el precio de un diamante en el vídeo 4 de Ciencia de datos para principiantes. Dibujaremos un modelo de regresión con los datos de destino.
 
-Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
+Para obtener el máximo partido de la serie, véalos en orden. [Vaya a la lista de vídeos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 >
@@ -75,7 +77,7 @@ A continuación, dibujaremos un eje vertical para registrar el precio y conectar
 
 Ahora vamos a tomar estos datos y los convertimos en un *gráfico de dispersión*. Esta es una excelente forma de ver conjuntos de datos numéricos.
 
-Para el primer punto de datos, dibujamos mentalmente una línea vertical en 1,01 quilates. A continuación, dibujamos mentalmente una línea horizontal en&7366; USD. Donde se encuentran, dibujamos un punto. Esto representa nuestro primer diamante.
+Para el primer punto de datos, dibujamos mentalmente una línea vertical en 1,01 quilates. A continuación, dibujamos mentalmente una línea horizontal en 7366 USD. Donde se encuentran, dibujamos un punto. Esto representa nuestro primer diamante.
 
 Ahora podemos hacer lo mismo con cada diamante de esta lista. Cuando hayamos terminado, esto es lo que obtenemos: una serie de puntos, uno para cada diamante.
 
@@ -132,9 +134,4 @@ Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiant
 ## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio](machine-learning-create-experiment.md)
 * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

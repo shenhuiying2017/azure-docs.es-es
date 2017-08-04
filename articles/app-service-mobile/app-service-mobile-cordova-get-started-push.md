@@ -3,9 +3,9 @@ title: "Adición de notificaciones push a una aplicación de Apache Cordova con 
 description: "Obtenga información acerca de cómo usar las aplicaciones móviles de Azure para enviar notificaciones push a su aplicación de Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-manager: adrianha
+manager: syntaxc4
 editor: 
-author: ysxu
+author: ggailey777
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 47063276d7bb6bb3b3aac0cca4290dfbea5488f7
-ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
-ms.lasthandoff: 12/01/2016
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Agregar notificaciones push a su aplicación de Apache Cordova
@@ -156,7 +156,7 @@ Inicialmente, se incluirá el código mínimo para Android. Más tarde, puede mo
 
         pushRegistration.on('error', handleError);
         }
-3. (Android) En el código anterior, reemplace `Your_Project_ID` por el identificador numérico del proyecto de la aplicación en la  [consola para desarrolladores de Google][18].
+3. (Android) En el código anterior, reemplace `Your_Project_ID` por el identificador numérico del proyecto de la aplicación en la [consola para desarrolladores de Google][18].
 
 ## <a name="optional-configure-and-run-the-app-on-android"></a>(Opcional) Configuración y ejecución de la aplicación en Android
 Complete esta sección para habilitar las notificaciones push en Android.
@@ -187,15 +187,15 @@ Abra index.js y actualice el código para usar el identificador numérico del pr
 #### <a name="configure-device"></a>Configuración de un dispositivo Android para la depuración USB
 Antes de implementar su aplicación en su dispositivo Android, debe habilitar la depuración USB.  Realice los pasos siguientes en su teléfono Android:
 
-1. Vaya a **Ajustes** > **Información del teléfono** y pulse **Número de compilación** hasta que se habilite el modo de desarrollador (unas 7 veces).
-2. Nuevamente en **Ajustes** > **Developer Options** (Opciones del desarrollador), habilite **USB debugging** (Depuración USB) y conecte el teléfono Android al equipo de desarrollo con un cable USB.
+1. Vaya a **Settings** (Ajustes) >**About phone** (Información del teléfono) y pulse **Build number** (Número de compilación) hasta que se habilite el modo de desarrollador (unas siete veces).
+2. Nuevamente en **Ajustes** >**Developer Options** (Opciones del desarrollador), habilite **USB debugging** (Depuración USB) y conecte el teléfono Android al equipo de desarrollo con un cable USB.
 
 Cuando lo probamos, usamos un dispositivo Google Nexus 5X con Android 6.0 (Marshmallow).  Sin embargo, las técnicas son comunes a cualquier versión moderna de Android.
 
 #### <a name="install-google-play-services"></a>Instalación de Google Play Services
 El complemento de inserción se basa en Google Play Services de Android para las notificaciones push.
 
-1. En Visual Studio, haga clic en **Herramientas** > **Android** > **Android SDK Manager**, expanda la carpeta **Extras** y active la casilla para asegurarse de que se instalan los siguientes SDK.
+1. En Visual Studio, haga clic en **Herramientas** > **Android** > **Android SDK Manager** (Administrador SDK de Android), expanda la carpeta **Extras** y active la casilla para asegurarse de que se instalan los siguientes SDK.
 
    * Android 2.3 o superior
    * Revisión de Google Repository 27 o superior
@@ -266,8 +266,7 @@ Si el id. de la aplicación que creó en la cuenta para desarrolladores de Apple
 5. Vuelva a compilar el proyecto.
 
 ##### <a name="test-push-notifications-in-your-ios-app"></a>Prueba de las notificaciones push en su aplicación de iOS
-1. En Visual Studio, asegúrese de que **iOS** está seleccionado como destino de implementación y luego elija el **dispositivo**
-    que se ejecuta en el dispositivo iOS conectado.
+1. En Visual Studio, asegúrese de que **iOS** está seleccionado como destino de implementación y luego elija el **dispositivo** que se ejecuta en el dispositivo iOS conectado.
 
     La ejecución se puede realizar en un dispositivo conectado a un PC mediante iTunes. El simulador de iOS no admite notificaciones push.
 

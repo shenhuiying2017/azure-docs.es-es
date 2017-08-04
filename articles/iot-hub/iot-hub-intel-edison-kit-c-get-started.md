@@ -1,10 +1,10 @@
 ---
 title: 'Intel Edison en la nube (C): Conectar Intel Edison a Azure IoT Hub | Microsoft Docs'
-description: "Conecte Intel Edison a Azure IoT Hub para que envíe datos a la nube de Azure."
+description: "Con este tutorial aprenderá a configurar y conectar Intel Edison a Azure IoT Hub para que envíe datos a la plataforma en la nube de Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: azure iot intel edison, intel edison iot hub, intel edison enviar datos a la nube, intel edison en la nube
 ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 4/17/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: fd6d04159c46439b5f1a91be7d2fa1b500bc92b3
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: edbdbe0230f742cd7228f04a4a83c9bd567527e8
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Conectar Intel Edison a Azure IoT Hub (C)
@@ -181,7 +181,7 @@ Obtenga la herramienta de configuración más reciente haciendo clic [aquí](htt
 
 1. Use uno de los siguientes clientes SSH del equipo host para conectar con Intel Edison. La dirección IP es la de la herramienta de configuración y la contraseña es la que ha establecido en esa herramienta.
     - [PuTTY](http://www.putty.org/) para Windows.
-    - El cliente de SSH integrado en Ubuntu o macOS.
+    - El cliente de SSH integrado en Ubuntu o macOS (ejecute `ssh root@"the IP address"`).
 
 2. Clone la aplicación cliente de ejemplo en el dispositivo. 
    
@@ -241,3 +241,4 @@ Debería ver el resultado siguiente, que muestra los datos del sensor y los mens
 Ha ejecutado una aplicación de ejemplo para recopilar datos de sensor y enviarlos a IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

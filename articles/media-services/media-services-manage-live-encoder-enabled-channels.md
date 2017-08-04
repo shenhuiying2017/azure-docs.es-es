@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 138598ce20459b7d4975c6640b28e9a999de30cd
-ms.lasthandoff: 03/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2f052ea5ff50cf584f9116f2802eca1fd077dcbb
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -36,11 +36,11 @@ En Servicios multimedia de Azure (AMS), un **canal** representa una canalizació
 
 A partir de la versión 2.10 de Servicios multimedia, al crear un canal, puede especificar la forma en que desea que este reciba el flujo de entrada y si quiere que el canal realice la codificación en directo de la secuencia. Tiene dos opciones:
 
-* **Ninguna** : especifique este valor si piensa usar un codificador en directo local que genere una secuencia de varias velocidades de bits (una transmisión de paso a través). En este caso, el flujo entrante pasa hasta la salida sin codificación alguna. Este es el comportamiento de un canal antes de la versión 2.10.  Para más información sobre cómo trabajar con los canales de este tipo, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
+* **Ninguna** : especifique este valor si piensa usar un codificador en directo local que genere una secuencia de varias velocidades de bits (una transmisión de paso a través). En este caso, el flujo entrante pasa hasta la salida sin codificación alguna. Este es el comportamiento de un canal antes de la versión 2.10.  Para más información sobre cómo trabajar con los canales de este tipo, consulte [Transmisión en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
 * **Estándar** : elija este valor si piensa usar Servicios multimedia para codificar secuencias en directo con una sola velocidad de bits como secuencias de varias velocidades de bits. Tenga en cuenta que hay un impacto en la facturación para la codificación en directo y debe recordar que salir de un canal de codificación en directo en el estado "En ejecución" supondrá un coste adicional de facturación.  Se recomienda detener inmediatamente sus canales de ejecución después que se complete su evento de transmisión en directo para evitar cargos por hora adicionales.
 
 > [!NOTE]
-> En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo (tipo de codificación**Estándar** ). Para más información sobre cómo trabajar con los canales no habilitados para realizar la codificación en directo, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-live-streaming-with-onprem-encoders.md).
+> En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo (tipo de codificación**Estándar** ). Para más información sobre cómo trabajar con canales no habilitados para realizar la codificación en directo, consulte [Transmisión en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
 > 
 > Asegúrese de revisar la sección [Consideraciones](media-services-manage-live-encoder-enabled-channels.md#Considerations) .
 > 
@@ -53,7 +53,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal a los es
 Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en Azure Portal.
 Usted es responsable de detener sus canales cuando haya terminado con el canal de codificación en directo.  Si no se detiene un canal de codificación, la facturación continuará.
 
-### <a name="a-idstatesachannel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Estados del canal y cómo se asignan al modo de facturación
+### <a id="states"></a>Estados del canal y cómo se asignan al modo de facturación
 El estado actual de un canal. Los valores posibles son:
 
 * **Detenido**. Este es el estado inicial del canal después de su creación (a menos que seleccionara el inicio automático en el portal.) No se produce ninguna facturación en este estado. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
@@ -81,7 +81,7 @@ El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde 
 
 ![Flujo de trabajo activo][live-overview]
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Escenario común de streaming en vivo
+## <a id="scenario"></a>Escenario común de streaming en vivo
 A continuación se indican los pasos generales para crear aplicaciones comunes de streaming en vivo.
 
 > [!NOTE]
@@ -119,8 +119,8 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 > 
 > 
 
-## <a name="a-idchannelachannels-input-ingest-configurations"></a><a id="channel"></a>Configuraciones de entrada de canal (ingesta)
-### <a name="a-idingestprotocolsaingest-streaming-protocol"></a><a id="Ingest_Protocols"></a>Protocolo de streaming de ingesta
+## <a id="channel"></a>Configuraciones de entrada de canal (ingesta)
+### <a id="Ingest_Protocols"></a>Protocolo de streaming de ingesta
 Si el **Tipo de codificador** está establecido en **Estándar**, las opciones válidas son:
 
 * **RTP** (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.  
@@ -166,7 +166,7 @@ Consideraciones:
   * Imagine Communications Selenio ENC 2
   * Elemental Live
 
-#### <a name="a-idsinglebitratertmpasingle-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>RTMP de una sola velocidad de bits
+#### <a id="single_bitrate_RTMP"></a>RTMP de una sola velocidad de bits
 Consideraciones:
 
 * La secuencia de entrada no puede contener vídeo de varias velocidades de bits.
@@ -179,7 +179,7 @@ Consideraciones:
 * Perfil Alta 422 (4:2:2 de 10 bits)
 * MPEG-2 AAC-LC Audio
 * Mono, estéreo, Surround (5.1, 7.1)
-* Velocidad de muestreo&44;,1 kHz
+* Velocidad de muestreo 44,1 kHz
 * Empaquetado ADTS estilo MPEG-2
 * Entre los codificadores recomendados se incluyen:
 * Telestream Wirecast
@@ -261,7 +261,7 @@ El identificador de idioma de la secuencia de audio, conforme a ISO 639-2, por e
 
 Pueden especificarse hasta 8 conjuntos de secuencias de audio si la entrada al canal es MPEG-2 TS a través de RTP. Sin embargo, no puede haber dos entradas con el mismo valor para Índice.
 
-### <a name="a-idpresetasystem-preset"></a><a id="preset"></a>Valor preestablecido del sistema
+### <a id="preset"></a>Valor preestablecido del sistema
 Especifica el valor preestablecido que usará el codificador en directo dentro de este canal. Actualmente, el único valor permitido es **Default720p** (valor predeterminado).
 
 Tenga en cuenta que, si necesita valores preestablecidos personalizados, debe ponerse en contacto con amslived en Microsoft.com.
@@ -314,7 +314,7 @@ La duración de la pizarra en segundos. Para iniciar la pizarra, este debe ser u
 ### <a name="insert-slate-on-ad-marker"></a>Insertar pizarra en marcador de anuncio
 Cuando está establecido en true, este valor configura el codificador en directo para insertar una imagen de pizarra durante una pausa de anuncio. El valor predeterminado es true. 
 
-### <a name="a-iddefaultslateadefault-slate-asset-id"></a><a id="default_slate"></a>Identificador de activo de activo de tableta táctil predeterminado
+### <a id="default_slate"></a>Identificador de activo de activo de tableta táctil predeterminado
 
 Opcional. Especifica el identificador del recurso de Servicios multimedia que contiene la imagen de pizarra. El valor predeterminado es null. 
 
@@ -352,7 +352,7 @@ Si desea conservar el contenido archivado, pero no hacerlo disponible para la tr
 ## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Obtención de una vista previa en miniatura de una fuente directa
 Si la codificación en directo está habilitada, puede obtener una vista previa de la fuente directa cuando llega al canal. Esta puede ser una herramienta muy valiosa para comprobar si la fuente directa llega realmente al canal. 
 
-## <a name="a-idstatesachannel-states-and-how-states-map-to-the-billing-mode"></a><a id="states"></a>Estados del canal y cómo se asignan los estados al modo de facturación
+## <a id="states"></a>Estados del canal y cómo se asignan los estados al modo de facturación
 El estado actual de un canal. Los valores posibles son:
 
 * **Detenido**. Este es el estado inicial del canal después de su creación. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
@@ -375,7 +375,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 > 
 > 
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="Considerations"></a>Consideraciones
+## <a id="Considerations"></a>Consideraciones
 * Cuando un canal de tipo de codificación **estándar** experimenta una pérdida de origen de entrada/fuente de contribución, la compensa reemplazando el audio y vídeo de origen por una careta de error y silencio. El canal continuará emitiendo una careta hasta que se reanude la fuente de contribución/entrada. Se recomienda no dejar un canal en directo en este estado durante más de dos horas. A partir de este momento, no se garantiza el comportamiento del canal en la reconexión de entrada, ni su comportamiento en respuesta a un comando de restablecimiento. Tendrá que detener el canal, eliminarlo y crear uno nuevo.
 * No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada.
 * Cada vez que vuelva a configurar el codificador en directo, llame al método **Restablecer** en el canal. Antes de restablecer el canal, debe detener el programa. Después de restablecer el canal, reinicie el programa.

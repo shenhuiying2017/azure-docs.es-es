@@ -4,7 +4,7 @@ description: "Describe cómo usar el complemento MMC del Administrador de instan
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
 ms.service: storsimple
@@ -12,36 +12,39 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/26/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 674030ee836f6f4179fbb4214d2bf31263b39132
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b97753e6f1b67e3c8d247281c5e5208033a56eca
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad
+
 ## <a name="overview"></a>Información general
-La función principal de StorSimple Snapshot Manager es permitirle crear copias de seguridad coherentes con las aplicaciones de los volúmenes de StorSimple en formato de instantáneas. Las instantáneas se enumeran en un archivo XML llamado *catálogo de copia de seguridad*. El catálogo de copia de seguridad organiza las instantáneas por grupo de volúmenes y, luego, por instantáneas locales o instantánea de nube. 
+La función principal de StorSimple Snapshot Manager es permitirle crear copias de seguridad coherentes con las aplicaciones de los volúmenes de StorSimple en formato de instantáneas. Las instantáneas se enumeran en un archivo XML llamado *catálogo de copia de seguridad*. El catálogo de copia de seguridad organiza las instantáneas por grupo de volúmenes y, luego, por instantáneas locales o instantánea de nube.
 
 Este tutorial describe cómo se puede usar el nodo **Catálogo de copia de seguridad** para completar las tareas siguientes:
 
-* Restauración de un volumen 
-* Clonación de un volumen o un grupo de volúmenes 
-* Eliminación de una copia de seguridad 
+* Restauración de un volumen
+* Clonación de un volumen o un grupo de volúmenes
+* Eliminación de una copia de seguridad
 * Recuperación de un archivo
 * Restauración de la base de datos de Administrador de instantáneas Storsimple
 
 Puede ver el catálogo de copias de seguridad expandiendo el nodo **Catálogo de copias de seguridad** en el panel **Ámbito** y, luego, el grupo de volúmenes.
 
 * Si hace clic en el nombre del grupo de volúmenes, el panel **Resultados** muestra el número de instantáneas locales y las instantáneas de nube disponibles para el grupo de volúmenes. 
-* Si hace clic en **Instantánea Local** o **Instantánea de nube**, el panel **Resultados** muestra la siguiente información sobre cada instantánea de copia de seguridad (dependiendo de la configuración de **Vista**): 
+* Si hace clic en **Instantánea Local** o **Instantánea de nube**, el panel **Resultados** muestra la siguiente información sobre cada instantánea de copia de seguridad (dependiendo de la configuración de **Vista**):
   
-  * **Nombre** : el momento en el que se tomó la instantánea. 
-  * **Tipo** : si se trata de una instantánea local o una instantánea de nube. 
+  * **Nombre** : el momento en el que se tomó la instantánea.
+  * **Tipo** : si se trata de una instantánea local o una instantánea de nube.
   * **Propietario** : el propietario del contenido. 
   * **Disponible** : si la instantánea está disponible actualmente. **True** indica que la instantánea está disponible y se pueden restaurar; **False** indica que la instantánea ya no está disponible. 
-  * **Importado** : si se importó la copia de seguridad. **True** indica que la copia de seguridad se importó desde el servicio StorSimple Manager en el momento en el que se configuró el dispositivo en StorSimple Snapshot Manager; **False** indica que no se importó, sino que se creó con StorSimple Snapshot Manager. (Se puede identificar fácilmente un grupo de volúmenes importado porque se agrega un sufijo que identifica el dispositivo desde el que se ha importado el grupo de volúmenes.)
+  * **Importado** : si se importó la copia de seguridad. **True** indica que la copia de seguridad se importó desde el servicio StorSimple Device Manager en el momento en el que se configuró el dispositivo en StorSimple Snapshot Manager; **False** indica que no se importó, sino que se creó con StorSimple Snapshot Manager. (Se puede identificar fácilmente un grupo de volúmenes importado porque se agrega un sufijo que identifica el dispositivo desde el que se ha importado el grupo de volúmenes.)
     
     ![Catálogo de copias de seguridad](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Backup_catalog.png)
 * Si expande **Instantánea local** o **Instantánea de nube** y, después, hace clic en un nombre de instantánea individual, el panel **Resultados** muestra la siguiente información acerca de la instantánea seleccionada:
@@ -68,11 +71,11 @@ Administrador de instantáneas StorSimple muestra el siguiente mensaje mientras 
 
 #### <a name="to-restore-a-volume"></a>Para restaurar un volumen
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple. 
-2. En el panel **Ámbito**, expanda el nodo **Catálogo de copias de seguridad**, expanda un grupo de volúmenes y, luego, haga clic en **Instantáneas locales** o **Instantáneas de nube**. Aparece una lista de las instantáneas de copia de seguridad en el panel **Resultados** . 
-3. Busque la copia de seguridad que desea restaurar, haga clic con el botón derecho y a continuación, haga clic en **Restaurar**. 
+2. En el panel **Ámbito**, expanda el nodo **Catálogo de copias de seguridad**, expanda un grupo de volúmenes y, luego, haga clic en **Instantáneas locales** o **Instantáneas de nube**. Aparece una lista de las instantáneas de copia de seguridad en el panel **Resultados** .
+3. Busque la copia de seguridad que desea restaurar, haga clic con el botón derecho y a continuación, haga clic en **Restaurar**.
    
     ![Restauración del catálogo de copia de seguridad](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_BU_catalog.png) 
-4. En la página de confirmación, revise los detalles, escriba **Confirmar** y, luego, haga clic en **Aceptar**. Administrador de instantáneas StorSimple usa la copia de seguridad para restaurar el volumen. 
+4. En la página de confirmación, revise los detalles, escriba **Confirmar** y, luego, haga clic en **Aceptar**. Administrador de instantáneas StorSimple usa la copia de seguridad para restaurar el volumen.
    
     ![Mensaje de confirmación de restauración](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Restore_volume_msg.png) 
 5. Puede supervisar la acción de restauración mientras se ejecuta. En el panel **Ámbito**, expanda el nodo **Trabajos** y, luego, haga clic en **En ejecución**. Los detalles del trabajo aparecen en el panel **Resultados** . Cuando finalice el trabajo de restauración, los detalles del mismo se transfieren a la lista **Últimas 24 horas** .
@@ -89,7 +92,7 @@ Utilice el procedimiento siguiente para crear un duplicado (clon) de un volumen 
 4. Completar el cuadro de diálogo **Clonar instantánea de nube** de la forma siguiente: 
    
    1. En el cuadro de texto **Nombre** , escriba un nombre para el volumen clonado. Este nombre aparecerá en el nodo **Volúmenes** . 
-   2. (Opcional) seleccione **Unidad**y, a continuación, seleccione una letra de unidad de la lista desplegable. 
+   2. (Opcional) seleccione **Unidad**y, a continuación, seleccione una letra de unidad de la lista desplegable.
    3. (Opcional) seleccione **Carpeta (NTFS)**y escriba una ruta de acceso a la carpeta o haga clic en Examinar y seleccione una ubicación para la carpeta. 
    4. Haga clic en **Crear**.
 5. Cuando finalice el proceso de clonación, tiene que inicializar el volumen clonado. Inicie el Administrador del servidor y, a continuación, inicie Administración de discos. Para obtener instrucciones detalladas, consulte [Montar volúmenes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Una vez inicializado, el volumen aparecerá en la lista del nodo **Volúmenes** en el panel **Ámbito**. Si el volumen no aparece, actualice la lista de volúmenes (haga clic con el botón derecho en el nodo **Volúmenes** y, luego, haga clic en **Actualizar**).
@@ -99,14 +102,13 @@ Utilice el procedimiento siguiente para eliminar una instantánea del catálogo 
 
 > [!NOTE]
 > Si se elimina una instantánea, se eliminan también los datos de copia de seguridad asociados a la instantánea. De todas formas, el proceso de limpieza de datos de la nube puede tardar algún tiempo.<br>
-> 
-> 
+
 
 #### <a name="to-delete-a-backup"></a>Para eliminar una copia de seguridad
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
-2. En el panel **Ámbito**, expanda el nodo **Catálogo de copias de seguridad**, expanda un grupo de volúmenes y, luego, haga clic en **Instantáneas locales** o **Instantáneas de nube**. Aparecerá una lista de instantáneas en el panel **Resultados** . 
+2. En el panel **Ámbito**, expanda el nodo **Catálogo de copias de seguridad**, expanda un grupo de volúmenes y, luego, haga clic en **Instantáneas locales** o **Instantáneas de nube**. Aparecerá una lista de instantáneas en el panel **Resultados** .
 3. Haga clic con el botón derecho en la instantánea que desea eliminar y, a continuación, haga clic en **Eliminar**.
-4. Cuando aparezca el mensaje de confirmación, haga clic en **Aceptar**. 
+4. Cuando aparezca el mensaje de confirmación, haga clic en **Aceptar**.
 
 ## <a name="recover-a-file"></a>Recuperación de un archivo
 Si un archivo se elimina accidentalmente de un volumen, puede recuperar el archivo a través de la recuperación de una instantánea con fecha anterior a la eliminación, usando la instantánea para crear un clon del volumen y, a continuación, copiando el archivo del volumen clonado en el volumen original.
@@ -116,7 +118,7 @@ Antes de comenzar, asegúrese de que tiene una copia de seguridad actual del gru
 
 #### <a name="to-recover-a-deleted-file"></a>Para recuperar un archivo eliminado
 1. Haga clic en el icono Administrador de instantáneas StorSimple en su escritorio. Aparece la ventana de la consola de Administrador de instantáneas StorSimple. 
-2. En el panel **Ámbito**, expanda el nodo **Catálogo de copias de seguridad** y vaya a una instantánea que contenga el archivo eliminado. Normalmente, debe seleccionar una instantánea que se haya creado antes de la eliminación. 
+2. En el panel **Ámbito**, expanda el nodo **Catálogo de copias de seguridad** y vaya a una instantánea que contenga el archivo eliminado. Normalmente, debe seleccionar una instantánea que se haya creado antes de la eliminación.
 3. Busque el volumen que desea clonar, haga clic con el botón derecho y a continuación, haga clic en **Clonar**. Aparece el cuadro de diálogo **Clonar instantánea de nube** .
    
     ![Clonación de una instantánea de nube](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Clone.png) 
@@ -163,10 +165,5 @@ Debe hacer de forma regular copias de seguridad de la base de datos de Administr
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 * Obtenga más información sobre las [tareas y flujos de trabajo de Snapshot Manager de StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
