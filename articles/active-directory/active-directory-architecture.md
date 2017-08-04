@@ -12,14 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
 ms.contentlocale: es-es
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Información sobre la arquitectura de Azure Active Directory
@@ -31,10 +30,10 @@ Con Azure AD, puede crear y administrar usuarios y grupos, y utilizar permisos p
 La arquitectura distribuida geográficamente de Azure AD combina las funcionalidades de una amplia supervisión, el reenrutamiento automatizado, la conmutación por error y la recuperación, que nos permiten ofrecer disponibilidad y rendimiento de nivel de empresa a nuestros clientes.
 
 En este artículo se tratan los siguientes elementos de la arquitectura:
- *    Diseño de la arquitectura del servicio
- *    Escalabilidad 
- *    Disponibilidad continua
- *    Centros de datos
+ *  Diseño de la arquitectura del servicio
+ *  Escalabilidad 
+ *  Disponibilidad continua
+ *  Centros de datos
 
 ### <a name="service-architecture-design"></a>Diseño de la arquitectura del servicio
 Es la manera más común de compilar un sistema escalable, de alta disponibilidad, con datos enriquecidos a través de bloques de creación independientes o unidades de escalado para la capa de datos de Azure AD. Esas unidades de escalado se denominan *particiones*. 
@@ -87,7 +86,7 @@ Azure AD funciona a través de centros de datos con las siguientes característi
 
  * Authentication, Graph y otros servicios de AD residen detrás del servicio de puerta de enlace. La puerta de enlace administra el equilibrio de carga de estos servicios. Conmutará por error automáticamente si se detecta algún servidor incorrecto mediante el sondeo de estado transaccional. En función de estos sondeos de estado, la puerta de enlace enruta dinámicamente el tráfico a centros de datos correctos.
  * Para las operaciones de *lectura*, el directorio tiene réplicas secundarias y servicios front-end correspondientes en una configuración activa-activa que funciona en varios centros de datos. En caso de error de un centro de datos completo, el tráfico se redirigirá automáticamente a otro centro de datos.
- *    Para las operaciones de *escritura*, el directorio continuará por error la réplica principal en los centros de datos a través de procedimientos de conmutación por error planeados (el nuevo elemento principal se sincroniza con el antiguo) o de emergencia. La durabilidad de los datos se logra al replicar cualquier confirmación en al menos dos centros de datos.
+ *  Para las operaciones de *escritura*, el directorio continuará por error la réplica principal en los centros de datos a través de procedimientos de conmutación por error planeados (el nuevo elemento principal se sincroniza con el antiguo) o de emergencia. La durabilidad de los datos se logra al replicar cualquier confirmación en al menos dos centros de datos.
 
 **Coherencia de datos**
 
