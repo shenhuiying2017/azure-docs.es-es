@@ -1,7 +1,24 @@
-7--- título: Protección de Active Directory y DNS con Azure Site Recovery | Microsoft Docs. Descripción: en este artículo se describe cómo implementar una solución de recuperación ante desastres para Active Directory mediante Azure Site Recovery.
-services: site-recovery documentationcenter: '' author: prateek9us manager: gauravd editor: ''
-
-ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc ms.service: site-recovery ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: storage-backup-recovery ms.date: 7/20/2017 ms.author: pratshar
+---
+title: "Protección de Active Directory y DNS con Azure Site Recovery | Microsoft Docs"
+description: "Este artículo describe cómo implementar una solución de recuperación ante desastres para Active Directory con Azure Site Recovery."
+services: site-recovery
+documentationcenter: 
+author: prateek9us
+manager: gauravd
+editor: 
+ms.assetid: af1d9b26-1956-46ef-bd05-c545980b72dc
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 7/20/2017
+ms.author: pratshar
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
+ms.contentlocale: es-es
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Protección de Active Directory y DNS con Azure Site Recovery
@@ -192,4 +209,5 @@ Puede utilizar un servidor DNS nuevo y crear todas las zonas necesarias. Por eje
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [qué cargas de trabajo puede proteger](site-recovery-workload.md) para más información sobre cómo proteger las cargas de trabajo empresariales con Azure Site Recovery.
+
 

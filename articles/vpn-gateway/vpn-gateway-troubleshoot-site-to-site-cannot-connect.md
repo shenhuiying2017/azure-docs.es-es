@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/21/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 436b8d3058a6ea32d1f0e8f996386efd01aa5c83
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: e7a3da64895f0307e5d6c3563672205a2f93a7d2
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -44,7 +44,7 @@ Comprobación del tipo de la puerta de enlace de VPN de Azure.
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Paso 1. Compruebe si el dispositivo VPN local está validado
 
-1. Compruebe si está usando una [versión del sistema operativo y dispositivo VPN validada](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). Si el dispositivo no es un dispositivo VPN validado, tendrá que ponerse en contacto con el fabricante del dispositivo para ver si hay algún problema de compatibilidad.
+1. Compruebe si está usando una [versión del sistema operativo y dispositivo VPN validada](vpn-gateway-about-vpn-devices.md#devicetable). Si el dispositivo no es un dispositivo VPN validado, tendrá que ponerse en contacto con el fabricante del dispositivo para ver si hay algún problema de compatibilidad.
 
 2. Asegúrese de que el dispositivo VPN esté configurado correctamente. Para más información, consulte [Ejemplos de edición de configuración de dispositivos](/vpn-gateway-about-vpn-devices.md#editing).
 

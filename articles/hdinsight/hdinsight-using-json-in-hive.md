@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/26/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 41ae560b6ab66860baa1a311bb8d14ed33a20b41
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bd136afebeceb0cd9c24cfc5f15601caa80a755e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="process-and-analyze-json-documents-using-hive-in-hdinsight"></a>Proceso y análisis de documentos JSON mediante Hive en HDInsight
@@ -62,7 +61,7 @@ Aprenda a procesar y a analizar archivos JSON mediante Hive en HDInsight. En el 
         ]
     }
 
-El archivo se encuentra en wasbs://processjson@hditutorialdata.blob.core.windows.net/. Para obtener más información sobre cómo usar el almacenamiento de blobs de Azure con HDInsight, consulte [Uso del almacenamiento de blobs de Azure compatibles con HDFS con Hadoop en HDInsight](hdinsight-hadoop-use-blob-storage.md). Puede copiar el archivo en el contenedor predeterminado del clúster.
+El archivo se encuentra en wasb://processjson@hditutorialdata.blob.core.windows.net/. Para obtener más información sobre cómo usar el almacenamiento de blobs de Azure con HDInsight, consulte [Uso del almacenamiento de blobs de Azure compatibles con HDFS con Hadoop en HDInsight](hdinsight-hadoop-use-blob-storage.md). Puede copiar el archivo en el contenedor predeterminado del clúster.
 
 En este tutorial, se utiliza la consola de Hive.  Para obtener instrucciones sobre cómo abrir la consola de Hive, consulte [Uso de Hive con Hadoop en HDInsight con Escritorio remoto](hdinsight-hadoop-use-hive-remote-desktop.md).
 
@@ -86,7 +85,7 @@ Los métodos enumerados en la siguiente sección requieren que el documento JSON
 
     SELECT * FROM StudentsOneLine
 
-El archivo sin formato JSON se encuentra en **wasbs://processjson@hditutorialdata.blob.core.windows.net/**. La tabla de Hive *StudentsRaw* apunta al documento JSON sin formato y no acoplado.
+El archivo sin formato JSON se encuentra en **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabla de Hive *StudentsRaw* apunta al documento JSON sin formato y no acoplado.
 
 La tabla de Hive *StudentsOneLine* almacena los datos en el sistema de archivos predeterminado de HDInsight en la ruta de acceso */json/students/*.
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: jdial;narayan;annahar
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: dada2cd0d55cffc3c550177aa3d8a8bb366db765
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: a32a6b33e04c603325ab3612f61e5852682eac7d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>Creación de un emparejamiento de redes virtuales: Resource Manager, misma suscripción
@@ -68,7 +68,7 @@ Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la
      - **Suscripción**: seleccione la suscripción
      - **Red virtual**: haga clic en **Elegir una red virtual** y, luego, en **myVnet2**.
      - **Permitir acceso a red virtual:** asegúrese de que esté seleccionada la opción **Habilitado**.
-    En este tutorial no se usa ninguna otra configuración. Para conocer todas las configuraciones de emparejamiento, lea [Manage virtual network peerings](virtual-network-manage-peering.md#create-peering) (Administración de emparejamientos de redes virtuales).
+    En este tutorial no se usa ninguna otra configuración. Para conocer todas las configuraciones de emparejamiento, lea [Manage virtual network peerings](virtual-network-manage-peering.md#create-a-peering) (Administración de emparejamientos de redes virtuales).
 10. Una vez que hace clic en **Aceptar** en el paso anterior, se cierra la hoja **Agregar emparejamiento** y se vuelve a mostrar la hoja **myVnet1 - Peerings** (myVnet1: emparejamientos). Unos segundos después, el emparejamiento que creó aparece en la hoja. El estado **Iniciado** aparece en la columna **ESTADO DE EMPAREJAMIENTO** correspondiente al emparejamiento **myVnet1ToMyVnet2** que creó. Emparejó Vnet1 con Vnet2, pero ahora debe emparejar myVnet2 con myVnet1. Debe crear el emparejamiento en ambas direcciones para permitir que los recursos de las redes virtuales se comuniquen entre sí.
 11. Complete nuevamente los pasos del 5 al 10 para myVnet2.  Asigne el nombre *myVnet2ToMyVnet1* al emparejamiento.
 12. Unos segundos después de hacer clic en **Aceptar** para crear el emparejamiento de MyVnet2, el emparejamiento **myVnet2ToMyVnet1** que acaba de crear aparece con el estado **Conectado** en la columna **ESTADO DE EMPAREJAMIENTO**.
@@ -271,7 +271,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Conozca en profundidad las [restricciones y comportamientos importantes del emparejamiento de redes virtuales](virtual-network-manage-peering.md#about-peering) antes de crear un emparejamiento de redes virtuales para su uso en el entorno de producción.
-- Conozca toda la [configuración de emparejamiento de redes virtuales](virtual-network-manage-peering.md#create-peering).
+- Conozca en profundidad las [restricciones y comportamientos importantes del emparejamiento de redes virtuales](virtual-network-manage-peering.md#requirements-and-constraints) antes de crear un emparejamiento de redes virtuales para su uso en el entorno de producción.
+- Conozca toda la [configuración de emparejamiento de redes virtuales](virtual-network-manage-peering.md#create-a-peering).
 - Obtenga información sobre cómo [crear una topología de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) con emparejamiento de redes virtuales.
 

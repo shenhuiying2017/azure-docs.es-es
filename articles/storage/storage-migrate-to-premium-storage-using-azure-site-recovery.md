@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/06/2017
 ms.author: luywang
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8cd91893003e3c24f7e3be99d457c0cb98775e89
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: e3869df76a13d5945d237987dc597fffb302a77d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="migrating-to-premium-storage-using-azure-site-recovery"></a>Migración a Premium Storage con Azure Site Recovery
@@ -151,7 +151,7 @@ Puede usar Site Recovery para migrar máquinas virtuales de IaaS de Azure entre 
 ## <a name="post-migration-steps"></a>Pasos posteriores a la migración
 
 1. **Configure máquinas virtuales replicadas en el conjunto de disponibilidad, si procede**. Site Recovery no admite la migración de máquinas virtuales junto con el conjunto de disponibilidad. Dependiendo de la implementación de la máquina virtual replicada, realice una de las siguientes acciones:
-  * Para una máquina virtual que se crea con el modelo de implementación clásica: agregue la máquina virtual al conjunto de disponibilidad en Azure Portal. Para ver los pasos detallados, consulte [Adición de una máquina virtual existente a un conjunto de disponibilidad](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+  * Para una máquina virtual que se crea con el modelo de implementación clásica: agregue la máquina virtual al conjunto de disponibilidad en Azure Portal. Para ver los pasos detallados, consulte [Adición de una máquina virtual existente a un conjunto de disponibilidad](../virtual-machines/windows/classic/configure-availability.md#addmachine).
   * Para el modelo de implementación de Resource Manager: guarde la configuración de la máquina virtual y, después, elimine y vuelva a crear las máquinas virtuales en el conjunto de disponibilidad. Para ello, use el script que encontrará en [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Establecimiento del conjunto de disponibilidad de máquinas virtuales de Azure Resource Manager). Compruebe la limitación de este script y planee el tiempo de inactividad antes de ejecutar el script.
 
 2. **Elimine las máquinas virtuales y los discos antiguos**. Antes de eliminarlos, asegúrese de que los discos Premium sean coherentes con los discos de origen y que las nuevas máquinas virtuales realizan la misma función que las máquinas virtuales de origen. En el modelo de implementación de Resource Manager (RM), elimine la máquina virtual y los discos de las cuentas de almacenamiento de origen en Azure Portal. En el modelo de implementación clásico, puede eliminar la máquina virtual y los discos en el portal clásico o en Azure Portal. Si hay un problema en el que el disco no se elimina aunque haya eliminado la máquina virtual, consulte [Solución de errores al eliminar cuentas de almacenamiento, contenedores o VHD de Azure en una implementación de Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md).

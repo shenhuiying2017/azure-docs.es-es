@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0beae16534b8efa7a23be6d2b61f1f1257317bd7
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
@@ -228,7 +228,7 @@ Puede elegir si desea que la recopilación de todos los documentos se indexe aut
 
 Cuando se desactiva la indexación automática, podrá agregar al índice de manera selectiva solo algunos documentos específicos. Por el contrario, puede dejar activada la indexación automática y excluir de forma selectiva solo algunos documentos específicos. Las configuraciones de indexación activada/desactivada son útiles cuando solo tiene un subconjunto de los documentos que necesita consultar.
 
-Por ejemplo, en el ejemplo siguiente se muestra cómo incluir un documento explícitamente mediante el [SDK de .NET para la API de DocumentDB](https://github.com/Azure/azure-documentdb-java) y la propiedad [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+Por ejemplo, en el ejemplo siguiente se muestra cómo incluir un documento explícitamente mediante el [SDK de .NET para la API de DocumentDB](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) y la propiedad [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
