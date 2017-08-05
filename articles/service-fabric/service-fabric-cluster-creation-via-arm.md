@@ -461,6 +461,7 @@ La configuración de Azure AD que creó anteriormente se puede insertar directam
 ```
 
 ### <a "configure-arm" ></a>Configuración de los parámetros de plantilla de Resource Manager
+<!--- Loc Comment: It seems that <a "configure-arm" > must be replaced with <a name="configure-arm"></a> since the link seems not to be redirecting correctly --->
 Por último, utilice los valores de salida del almacén de claves y los comandos de PowerShell de Azure AD para rellenar el archivo de parámetros:
 
 ```json
@@ -555,7 +556,8 @@ Una vez que haya creado las aplicaciones para representar el clúster, debe asig
 >
 >
 
- <a name="secure-linux-cluster"></a>
+ <a name="secure-linux-clusters"></a>
+ <!--- Loc Comment: It seems that letter S in cluster was missing, which caused the wrong redirection of the link --->
 
 ## <a name="create-secure-clusters-on-linux"></a>Creación de clústeres seguros en Linux
 Para facilitar el proceso, se ha proporcionado un [script auxiliar](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux). Antes de usar este script auxiliar, asegúrese de que ya tiene la interfaz de la línea de comandos (CLI) de Azure instalada y se encuentra en la ruta de acceso. Asegúrese de que el script tiene permisos de ejecución ejecutando `chmod +x cert_helper.py` después de descargarlo. El primer paso es iniciar sesión en su cuenta de Azure mediante la CLI con el comando `azure login`. Después de iniciar sesión en su cuenta de Azure, use el script auxiliar con su certificado firmado por la entidad de certificación, como se muestra en el siguiente comando:

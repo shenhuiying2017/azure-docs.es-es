@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2017
+ms.date: 08/04/2017
 ms.author: nepeters
 ms.translationtype: HT
 ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
@@ -32,13 +32,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure. 
 
 Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -48,7 +46,7 @@ Cree un grupo de recursos con el comando [az group create](/cli/azure/group#crea
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -58,7 +56,7 @@ Cree un clúster de DC/OS con el comando [az acs create](/cli/azure/acs#create).
 
 En el ejemplo siguiente se crea un clúster de DC/OS denominado *myDCOSCluster* y las claves SSH si aún no existen. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  
 
-```azurecli-interactive
+```azurecli
 az acs create \
   --orchestrator-type dcos \
   --resource-group myResourceGroup \
@@ -72,13 +70,13 @@ Después de varios minutos, el comando se completa y muestra la información sob
 
 Una vez creado un clúster de DC/OS, es accesible a través de un túnel SSH. Ejecute el comando siguiente para devolver la dirección IP pública del patrón de DC/OS. Esta dirección IP se almacena en una variable y se utiliza en el paso siguiente.
 
-```azurecli-interactive
+```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
 Para crear el túnel SSH, ejecute el siguiente comando y siga las instrucciones en pantalla. Si el puerto 80 ya está en uso, se produce un error en el comando. Actualice el puerto de túnel a uno que no esté en uso, como `85:localhost:80`. 
 
-```azurecli-interactive
+```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
@@ -94,13 +92,13 @@ La interfaz de la línea de comandos de DC/OS se utiliza para administrar un cl�
 
 Si está ejecutando la CLI de Azure en macOS o Linux, es posible que tenga que ejecutar el comando con sudo.
 
-```azurecli-interactive
+```azurecli
 az acs dcos install-cli
 ```
 
 Antes de usar la CLI con el clúster, debe configurarse para usar el túnel SSH. Para ello, ejecute el comando siguiente, ajustando el puerto si es necesario.
 
-```azurecli-interactive
+```azurecli
 dcos config set core.dcos_url http://localhost
 ```
 
@@ -140,26 +138,26 @@ El mecanismo de programación predeterminado para un clúster de ACS DC/OS es Ma
 
 Ejecute el comando siguiente para programar la aplicación que ejecutar en el clúster de DC/OS.
 
-```azurecli-interactive
+```azurecli
 dcos marathon app add marathon-app.json
 ```
 
 Para ver el estado de implementación de la aplicación, ejecute el siguiente comando.
 
-```azurecli-interactive
+```azurecli
 dcos marathon app list
 ```
 
 Cuando el valor de la columna **WAITING** cambie de *True* a *False*, se habrá completado la implementación de la aplicación.
 
-```azurecli-interactive
+```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
 
 Obtenga la dirección IP pública de los agentes de clúster de DC/OS.
 
-```azurecli-interactive
+```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -171,7 +169,7 @@ Esta dirección dirige al sitio de NGINX predeterminado.
 
 Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#delete) para quitar el grupo de recursos, el clúster de DC/OS y todos los recursos relacionados.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 
