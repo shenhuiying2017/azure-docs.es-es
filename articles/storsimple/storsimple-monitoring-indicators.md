@@ -35,7 +35,7 @@ Existen tres estados de LED para indicar el estado de un módulo: verde, intermi
 En lo que resta de artículo se describen los distintos indicadores LED de supervisión, sus ubicaciones en el dispositivo StorSimple, el estado del dispositivo en función de los estados de LED y las alarmas audibles asociadas.
 
 ## <a name="front-panel-indicator-leds"></a>Indicadores LED en el panel frontal
-El panel frontal, también conocido como *panel de operaciones***, muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el gabinete EBOD y el gabinete principal de StorSimple, tal como se ilustra a continuación.  
+El panel frontal, también conocido como **panel de operaciones**, muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el gabinete EBOD y el gabinete principal de StorSimple, tal como se ilustra a continuación.  
 
    ![Panel frontal del dispositivo][1]
 
