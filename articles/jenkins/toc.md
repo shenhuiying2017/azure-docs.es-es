@@ -4,8 +4,9 @@
 # Tutoriales
 ## [Integración y entrega continuas con VSTS](https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins)
 ## [Integración de Jenkins y Kubernetes](/azure/container-service/container-service-kubernetes-jenkins)
-## [Implementación en App Service](/azure/jenkins/execute-cli-jenkins-pipeline)
+## [Jenkins y CLI de Azure](/azure/jenkins/execute-cli-jenkins-pipeline)
 ## [Docker, GitHub y Jenkins](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
+## [Implementación en App Service](/azure/jenkins/deploy-Jenkins-app-service-plugin)
 # Guías de procedimientos
 ## [Protección de Jenkins en Azure](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
 # Recursos

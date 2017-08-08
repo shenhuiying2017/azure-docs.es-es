@@ -1,7 +1,7 @@
 # Información general
 ## [¿Qué es la mensajería de Service Bus?](service-bus-messaging-overview.md)
 ## [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
-## [Arquitectura del Bus de servicio](service-bus-architecture.md)
+## [Arquitectura de Service Bus](service-bus-architecture.md)
 ## [Preguntas más frecuentes](service-bus-faq.md)
 
 # Introducción
@@ -56,8 +56,8 @@
 
 # Referencia
 ## .NET
-### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
+### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
 ## [PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Excepciones](service-bus-messaging-exceptions.md)
