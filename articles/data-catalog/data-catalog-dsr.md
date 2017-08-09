@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 05/15/2017
 ms.author: maroche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 456d3e4e81b9773545d194b38a5f58ff97cc7b25
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1ef3903bc4c401988c0f8b27dc9f9f0f3ec99466
 ms.contentlocale: es-es
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -395,6 +395,54 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td>✓</td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
+    </tr>
+    <tr>
+      <td>Tabla de Cassandra</td>
+      <td>✓</td>
+      <td>✓ </td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>Publicar como un recurso ODBC genérico</font></td>
+    </tr>
+    <tr>
+      <td>Vista de Cassandra</td>
+      <td>✓</td>
+      <td>✓ </td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>Publicar como un recurso ODBC genérico</font></td>
+    </tr>
+    <tr>
+      <td>Tabla de Sybase</td>
+      <td>✓</td>
+      <td>✓ </td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+    <tr>
+      <td>Vista de Sybase</td>
+      <td>✓</td>
+      <td>✓ </td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+    <tr>
+      <td>Tabla de MongoDB</td>
+      <td>✓</td>
+      <td>✓ </td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>Publicar como un recurso ODBC genérico</font></td>
+    </tr>
+    <tr>
+      <td>Vista de MongoDB</td>
+      <td>✓</td>
+      <td>✓ </td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2>Publicar como un recurso ODBC genérico</font></td>
     </tr>
 </table>
 
@@ -906,6 +954,22 @@ Si necesita compatibilidad con más fuentes, envíe una solicitud de caracterís
       <td>Tabla, vista</td>
       <td>
         <font size=2> Protocolo: odbc <br>Autenticación: {básica, windows} <br>Dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; opciones <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Sybase</td>
+      <td>Contenedor</td>
+      <td>Base de datos</td>
+      <td>
+        <font size=2> protocolo: sybase <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Sybase</td>
+      <td>Tabla</td>
+      <td>Tabla, vista</td>
+      <td>
+        <font size=2> protocolo: sybase <br>autenticación: {básica, windows} <br>dirección: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; base de datos <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
       </td>
     </tr>
     <tr>

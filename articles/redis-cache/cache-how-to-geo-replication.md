@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: sdanie
 ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: ed05b369d882d2d9853b87a87fd91fe927ab15ba
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 71b0d4add7e642487f6d67cda692c500ee78b0e6
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -45,10 +45,11 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 - No puede iniciar una [operación de escalado](cache-how-to-scale.md) en ninguna de las caché ni [cambiar el número de particiones](cache-how-to-premium-clustering.md) si la caché tiene habilitada la agrupación en clústeres.
 - No puede habilitar la persistencia en ninguna de las cachés.
 - Puede usar la [exportación](cache-how-to-import-export-data.md#export) con cualquiera de las cachés, pero solo puede [importar](cache-how-to-import-export-data.md#import) en la caché vinculada principal.
+- No se puede eliminar la memoria caché vinculada, ni el grupo de recursos que las contiene, hasta que se quite el vínculo de replicación geográfica. Para más información, vea [¿Por qué no se pudo realizar la operación al intentar eliminar la memoria caché vinculada?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - Si ambas cachés están en regiones distintas, se aplicarán costos de salida de la red a los datos replicados entre las regiones a la caché vinculada secundaria. Para más información, consulte el artículo sobre [cuánto cuesta replicar datos entre regiones de Azure](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions).
 - No hay conmutación automática por error a la caché vinculada secundaria si la caché principal (y su réplica) deja de funcionar. Para realizar conmutación por error de aplicaciones cliente, debería quitar manualmente el vínculo de replicación geográfica y dirigir las aplicaciones cliente a la caché que anteriormente era la caché vinculada secundaria. Para más información, consulte [cómo funciona la conmutación por error a la caché vinculada secundaria](#how-does-failing-over-to-the-secondary-linked-cache-work).
 
-## <a name="to-add-a-cache-replication-link"></a>Para agregar un vínculo de replicación de caché
+## <a name="add-a-geo-replication-link"></a>Agregar un vínculo de replicación geográfica
 
 1. Para vincular dos cachés Premium para realizar la replicación geográfica, haga clic en **Replicación geográfica** en el menú Recurso de la caché pensada como la caché vinculada principal y, luego, haga clic en **Add cache replication link** (Agregar vínculo de replicación de caché) en la hoja **Replicación geográfica**.
 
@@ -80,7 +81,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
     Durante el proceso de vinculación, la caché vinculada principal sigue disponible para su uso, pero la caché vinculada secundaria no está disponible hasta que se complete el proceso de vinculación.
 
-## <a name="to-remove-a-geo-replication-link"></a>Para quitar un vínculo de replicación geográfica
+## <a name="remove-a-geo-replication-link"></a>Quitar un vínculo de replicación geográfica
 
 1. Para quitar el vínculo entre dos cachés y detener la replicación geográfica, haga clic en **Unlink caches** (Desvincular cachés) en la hoja **Replicación geográfica**.
     
@@ -104,6 +105,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 - [¿Puedo usar la replicación geográfica con cachés en una VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
 - [¿Puedo usar PowerShell o la CLI de Azure para administrar la replicación geográfica?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
 - [¿Cuánto cuesta replicar datos entre regiones de Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- [¿Por qué no se pudo realizar la operación al intentar eliminar la memoria caché vinculada?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [¿Qué región se debe usar para la caché vinculada secundaria?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [¿Cómo funciona la conmutación por error a la caché vinculada secundaria?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
@@ -146,6 +148,10 @@ En este momento, solo puede administrar la replicación geográfica mediante Azu
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>¿Cuánto cuesta replicar datos entre regiones de Azure?
 
 Cuando usa la replicación geográfica, los datos de la caché vinculada principal se replican a la caché vinculada secundaria. Si las dos cachés vinculadas están en la misma región de Azure, no hay ningún cargo por la transferencia de datos. Si las dos cachés vinculadas se encuentran en regiones de Azure distintas, el cargo por transferencia de datos de replicación geográfica es el costo de ancho de banda por replicar esos datos a la otra región de Azure. Para más información, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>¿Por qué no se pudo realizar la operación al intentar eliminar la memoria caché vinculada?
+
+Cuando hay dos cachés vinculadas entre sí, no se puede eliminar ninguna de ellas ni el grupo de recursos que las contiene hasta que se quite el vínculo de replicación geográfica. Si intenta eliminar el grupo de recursos que contiene una o las dos cachés vinculadas, se eliminan los otros recursos del grupo de recursos, pero el grupo de recursos permanece en el estado `deleting` y las cachés en el grupo de recursos permanecen en el estado `running`. Para completar la eliminación del grupo de recursos y las cachés vinculadas dentro de él, rompa el vínculo de replicación geográfica, como se describe en [Quitar un vínculo de replicación geográfica](#remove-a-geo-replication-link).
 
 ### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>¿Qué región se debe usar para la caché vinculada secundaria?
 

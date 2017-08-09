@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: e6943eb619963dd56b1c3909a57ae7d6cefd0ddc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2b92d8343918075f1469c5b8cc0b042e5f418382
 ms.contentlocale: es-es
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: directivas integradas
@@ -202,7 +201,7 @@ Esta directiva describe las experiencias que tendrán los consumidores durante e
 
 5. Seleccione **Proveedores de identidades** y **Restablecer contraseña mediante la dirección de correo electrónico**. Haga clic en **Aceptar**.
 
-6. Seleccione **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens enviados de vuelta a su aplicación después de una experiencia de restablecimiento de contraseña correcta. Por ejemplo, seleccione **Id. de objeto del usuario**.
+6. Seleccione **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens enviados de vuelta a su aplicación después de una experiencia de restablecimiento de contraseña correcta. Por ejemplo, seleccione **Nombre para mostrar** e **Id. de objeto de usuario**.
 
 7. Seleccione **Crear**. Tenga en cuenta que la directiva creada aparece como **B2C_1_SSPR** (el fragmento **B2C\_1\_** se agrega automáticamente) en la hoja **Directivas de restablecimiento de contraseña**.
 

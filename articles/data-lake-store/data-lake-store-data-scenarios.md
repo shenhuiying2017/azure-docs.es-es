@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 15e81bd1bc8a7b718313afc487dbab89b36f2760
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f173111fb827a1f25fad857596fef13447bcca38
 ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Uso del Almacén de Azure Data Lake para requisitos de macrodatos
@@ -77,7 +76,7 @@ La mayoría de los tipos de clúster de HDInsight (Hadoop, HBase, Storm) admiten
 * [Servicio de AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 * [Factoría de datos de Azure](../data-factory/data-factory-azure-datalake-connector.md)
 
-### <a name="data-stored-in-on-premise-or-iaas-hadoop-clusters"></a>Datos almacenados en clústeres locales o Hadoop IaaS
+### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Datos almacenados en clústeres locales o de IaaS de Hadoop
 Es posible que haya grandes cantidades de datos almacenados en clústeres de Hadoop existentes, de forma local en los equipos mediante HDFS. Los clústeres de Hadoop pueden encontrarse en una implementación local o dentro de un clúster de IaaS en Azure. Podrían existir requisitos para copiar estos datos en el Almacén de Azure Data Lake de forma puntual o periódica. Existen diversas opciones que puede usar para lograr esto. A continuación se muestra una lista de alternativas, además de las ventajas y desventajas asociadas.
 
 | Enfoque | Detalles | Ventajas | Consideraciones |

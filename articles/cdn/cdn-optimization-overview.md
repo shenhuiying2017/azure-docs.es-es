@@ -1,5 +1,5 @@
 ---
-title: "Optimización de la entrega del contenido para su escenario"
+title: Optimizar la entrega de contenido de Azure para su escenario
 description: "Cómo optimizar la entrega del contenido para escenarios específicos"
 services: cdn
 documentationcenter: 
@@ -14,98 +14,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7dd497109964c3993742a324aace9c98f4a4050f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="optimize-content-delivery-for-your-scenario"></a>Optimización de la entrega del contenido para su escenario
+# <a name="optimize-azure-content-delivery-for-your-scenario"></a>Optimizar la entrega de contenido de Azure para su escenario
 
-Cuando realice la entrega de contenido a una audiencia global de gran tamaño, es fundamental garantizar una entrega optimizada de su contenido. La red CDN de Azure puede optimizar la experiencia de entrega según el tipo de contenido que tenga, ya sea un sitio web, una transmisión en directo, un video o un archivo grande para su descarga, con el objetivo de proporcionar una mejora en el rendimiento perceptible. Cuando crea un punto de conexión de la red CDN, especifique un escenario en la opción del menú “optimizado para”. Su elección determina qué optimización se aplicará al contenido que se vaya a entregar desde el punto de conexión de la red CDN.
+Cuando realice la entrega de contenido a una audiencia global de gran tamaño, es fundamental garantizar la entrega optimizada del contenido. Azure Content Delivery Network puede optimizar la experiencia de entrega según el tipo de contenido que tenga. El contenido puede ser un sitio web, una transmisión en directo, un vídeo o un archivo grande para su descarga. Cuando cree un punto de conexión de la red de entrega de contenido (CDN), especifique un escenario en la opción **Optimizado para**. Su elección determina qué optimización se aplica al contenido que se va a entregar desde el punto de conexión de la red CDN.
 
-Las opciones de optimización están diseñadas para utilizar los comportamientos de procedimientos recomendados para mejorar el rendimiento de la entrega de contenido y un mejor origen de descarga. Las opciones de escenario afectarán el rendimiento mediante la modificación de las configuraciones de almacenamiento parcial en caché, la fragmentación del objeto, la directiva de reintentos de error de origen, etc. 
+Las opciones de optimización están diseñadas para usar comportamientos de procedimientos recomendados para mejorar el rendimiento de la entrega de contenido y un mejor origen de descarga. Las opciones del escenario afectan el rendimiento mediante la modificación de las configuraciones de almacenamiento parcial en caché, la fragmentación de objetos y la directiva de reintentos de error de origen. 
 
-Este documento proporciona una introducción aproximada de diversas características de optimización y cuándo se deben utilizar. Consulte los documentos respectivos en cada tipo de optimización individual para obtener más detalles sobre las características y limitaciones.
+En este artículo se proporciona una introducción a las diversas características de optimización y cuándo se deben usar. Para más información sobre las características y limitaciones, vea los artículos respectivos en cada tipo de optimización individual.
 
 > [!NOTE]
-> Las opciones del menú "optimizado para" pueden variar según el proveedor seleccionado. Los proveedores de la red CDN aplican la mejora de maneras diferentes, según el escenario. 
+> Las opciones de **Optimizado para** pueden variar según el proveedor seleccionado. Los proveedores de la red CDN aplican la mejora de maneras diferentes, según el escenario. 
 
-> * La red CDN de Azure de Akamai admite la entrega web general, el streaming multimedia general, el streaming multimedia de video bajo demanda y la descarga de archivos de gran tamaño. 
+## <a name="provider-options"></a>Opciones de proveedor
 
-> * La red CDN de Azure de Verizon admite solo la entrega web general, que se puede usar con video bajo demanda y descarga de archivos de gran tamaño sin seleccionar un tipo de optimización.
+Azure Content Delivery Network de Akamai admite:
 
-> * Se recomienda encarecidamente que pruebe las variaciones en el rendimiento entre diferentes proveedores para seleccionar el proveedor óptimo para su entrega.
+* Entrega web general 
 
-## <a name="selecting-and-configuring-optimization-types"></a>Selección y configuración de los tipos de optimización
+* Streaming multimedia general
 
-Puede empezar a crear un nuevo punto de conexión de la red CDN al seleccionarlo en el menú desplegable el que mejor coincida con el escenario y el tipo de contenido con el que usa el punto de conexión para entregar. "Entrega web general" es la selección predeterminada. Puede actualizar la opción de optimización para cualquier extremo de Akamai existente en cualquier momento. Este cambio no interrumpirá la entrega de la red CDN.  
+* Streaming multimedia de vídeo a petición
 
-1. Seleccione un extremo dentro de un perfil estándar de Akamai.
+* Descarga de archivos de gran tamaño
 
-    ![Seleccione un extremo.](./media/cdn-optimization-overview/01_Akamai.png)
+* Aceleración de sitios dinámicos 
 
-2. Seleccione Optimización en la barra lateral y, a continuación, seleccione un tipo en el menú desplegable.
+Azure Content Delivery Network de Verizon solo admite la entrega web general. Se puede usar para vídeo bajo demanda y descarga de archivos grandes. No tiene que seleccionar un tipo de optimización.
 
-    ![Seleccione Optimización y Tipo.](./media/cdn-optimization-overview/02_Select.png)
+Se recomienda encarecidamente que pruebe las variaciones en el rendimiento entre diferentes proveedores para seleccionar el proveedor óptimo para su entrega.
+
+## <a name="select-and-configure-optimization-types"></a>Seleccionar y configurar los tipos de optimización
+
+Para crear un nuevo punto de conexión, seleccione el tipo de optimización que mejor coincida con el escenario y el tipo de contenido que quiere que el punto de conexión entregue. **Entrega web general** es la selección predeterminada. Puede actualizar la opción de optimización para cualquier extremo de Akamai existente en cualquier momento. Este cambio no interrumpe la entrega desde la red CDN. 
+
+1. Seleccione un punto de conexión del perfil estándar de Akamai.
+
+    ![Selección de punto de conexión ](./media/cdn-optimization-overview/01_Akamai.png)
+
+2. En **CONFIGURACIÓN**, seleccione **Optimización**. Después, seleccione un tipo en la lista desplegable **Optimizado para**.
+
+    ![Selección de la optimización y el tipo.](./media/cdn-optimization-overview/02_Select.png)
 
 ## <a name="optimization-for-specific-scenarios"></a>Optimización de escenarios específicos
 
-Puede optimizar el punto de conexión de la red CDN para uno de los siguientes escenarios:  
+Puede optimizar el punto de conexión de la red CDN para uno de los siguientes escenarios. 
 
-1.  Entrega web general
-2.  Streaming multimedia general
-3.  Streaming multimedia de video bajo demanda
-4.  Descarga de archivos de gran tamaño
+### <a name="general-web-delivery"></a>Entrega web general
 
-Los tipos de configuraciones de la optimización para los cuatro escenarios se explican a continuación. 
+Entrega web general es la opción de optimización más común. Está diseñada para la optimización de contenido web general, como páginas web y aplicaciones web. Esta optimización puede usarse también para la descarga de archivos y vídeos.
 
-### <a name="general-web-delivery-optimization"></a>Optimización para entrega web general
-
-La entrega web general es la opción más común. Está diseñada para la optimización de contenido web general, como páginas web y aplicaciones web. Esta optimización puede usarse también para la descarga de archivos y videos.
-
-Normalmente, un sitio web típico incluye contenido estático y dinámico. El contenido estático incluye las imágenes, las bibliotecas de JavaScript y las hojas de estilos, que pueden almacenarse en la memoria caché y se entregan a distintos usuarios. El contenido dinámico es personalizado para un usuario específico, como elementos de noticias adaptados a un perfil de usuario. El contenido dinámico no necesita almacenarse en la memoria caché porque es único para cada usuario, como el contenido de los carritos de compra. La entrega web general puede optimizar todo el sitio web.  
+Un sitio web típico incluye contenido estático y dinámico. El contenido estático incluye las imágenes, las bibliotecas de JavaScript y las hojas de estilos, que pueden almacenarse en la memoria caché y se entregan a distintos usuarios. El contenido dinámico es personalizado para un usuario específico, como elementos de noticias adaptados a un perfil de usuario. El contenido dinámico no se almacena en la memoria caché porque es único para cada usuario, como el contenido de los carros de la compra. La entrega web general puede optimizar todo el sitio web. 
 
 > [!NOTE]
-> ¿Cuándo debería utilizarla?
+> Si usa Azure Content Delivery Network de Akamai, es posible que quiera usar esta optimización cuando el tamaño promedio de los archivos sea inferior a 10 MB. Si el tamaño promedio de los archivos es superior a 10 MB, seleccione **Descarga de archivos grandes** en la lista desplegable **Optimizado para**.
 
-> Si utiliza la red CDN de Azure de Akamai, le recomendamos usar esta optimización cuando el tamaño promedio de los archivos sea menor que 10 MB. Use "optimizado para: descarga de archivos de gran tamaño" cuando el tamaño promedio de los archivos sea superior a 10 MB.
+### <a name="general-media-streaming"></a>Streaming multimedia general
 
-### <a name="general-media-streaming-optimization"></a>Optimización de streaming multimedia general
+Si tiene que usar el punto de conexión para streaming en vivo y de vídeo bajo demanda, se recomienda la optimización de streaming multimedia general.
 
-El streaming multimedia general se recomienda si tiene que utilizar el punto de conexión para transmisiones en vivo y transmisiones de video bajo demanda.
+El streaming multimedia depende del tiempo, porque los paquetes que llegan tarde al cliente pueden provocar una experiencia de visualización deteriorada, como el almacenamiento en búfer frecuente del contenido de vídeo. La optimización del streaming multimedia reduce la latencia de entrega de contenido multimedia y proporciona una experiencia de streaming con velocidad de transmisión adaptable para los usuarios. 
 
-Por ejemplo, el streaming multimedia es urgente porque los paquetes que llegan tarde al cliente pueden provocar una experiencia de visualización deteriorada, como el almacenamiento en búfer frecuente del contenido de video. La optimización del streaming multimedia reduce la latencia de entrega de contenido multimedia y proporciona una experiencia de streaming con velocidad de transmisión adaptable para los usuarios finales. 
+Es un escenario común para los clientes de Azure Media Services. Cuando usa Azure Media Services, obtiene un punto de conexión de streaming que puede usarse para streaming en vivo y bajo demanda. Con este escenario, los clientes no tienen que cambiar a otro punto de conexión cuando pasan de streaming en vivo a streaming bajo demanda. La optimización de streaming multimedia general admite este tipo de escenario.
 
-Se trata de un escenario común para los clientes de Azure Media Services. Cuando use Azure Media Services, obtendrá un punto de conexión de streaming que puede usarse para streaming en vivo y bajo demanda. Con este escenario, el cliente no tiene que cambiar a otro punto de conexión cuando pasa de streaming en vivo a streaming bajo demanda. La optimización de streaming multimedia general admite este tipo de escenario.
+Azure Content Delivery Network de Verizon usa el tipo de optimización de entrega web general para ofrecer streaming multimedia.
 
-La red CDN de Azure de Verizon puede usar el tipo de optimización para entrega web general para ofrecer contenido de streaming multimedia.
+Para obtener más información sobre la optimización del streaming multimedia, vea [Optimización del streaming multimedia](cdn-media-streaming-optimization.md).
 
-Más información sobre la optimización de streaming multimedia [aquí](cdn-media-streaming-optimization.md).
+### <a name="video-on-demand-media-streaming"></a>Streaming multimedia de vídeo a petición
 
-### <a name="video-on-demand-streaming-optimization"></a>Optimización de streaming de video bajo demanda
+La optimización del streaming multimedia de vídeo a petición mejora el contenido que se transmite a petición. Se recomienda usar esta opción si usa un punto de conexión para el streaming de vídeo bajo demanda.
 
-La optimización de streaming multimedia de video bajo demanda (VOD) mejorará el contenido que se transmite bajo demanda. Se recomienda usar esta opción cuando usa un punto de conexión para el streaming de video bajo demanda.
+Azure Content Delivery Network de Verizon usa el tipo de optimización de entrega web general para ofrecer streaming multimedia.
 
-La red CDN de Azure de Verizon puede usar el tipo de optimización para entrega web general para ofrecer contenido de streaming multimedia.
-
-Más información sobre la optimización de streaming multimedia [aquí](cdn-media-streaming-optimization.md).
+Para obtener más información sobre la optimización del streaming multimedia, vea [Optimización del streaming multimedia](cdn-media-streaming-optimization.md).
 
 > [!NOTE]
-> ¿Cuándo debería utilizarla?
+> Si el punto de conexión sirve principalmente contenido de vídeo bajo demanda, use este tipo de optimización. La principal diferencia entre esta optimización y la optimización de streaming multimedia general es el tiempo de expiración del reintento de conexión. El tiempo de expiración es mucho más breve para trabajar con escenarios de streaming en vivo.
 
-> Cuando el punto de conexión se usa principalmente para contenido de video bajo demanda. La principal diferencia entre esta optimización y la optimización de streaming multimedia general es que el tiempo de expiración del reintento de conexión es mucho más breve para trabajar con escenarios de streaming en vivo.
+### <a name="large-file-download"></a>Descarga de archivos de gran tamaño
 
-### <a name="large-file-download-optimization"></a>Optimización de descarga de archivos de gran tamaño
+Si usa Azure Content Delivery Network de Akamai, debe usar la descarga de archivos grandes para entregar archivos de más de 1,8 GB. Azure Content Delivery Network de Verizon no tiene un límite para el tamaño de archivo de descarga en su optimización para entrega web general.
 
-Para la red CDN de Azure de Akamai, debe usar esta optimización para entregar archivos mayores a 1,8 GB.  La red CDN de Azure de Verizon no tiene límites para el tamaño en el archivo de descarga en la optimización para entrega web general.
+Si usa Azure Content Delivery Network de Akamai, las descargas de archivos grandes se optimizan para el contenido de más de 10 MB. Si el tamaño promedio de los archivos es menor que 10 MB, se recomienda usar la entrega web general. Si los tamaños promedios de los archivos son constantemente superiores a 10 MB, es posible que sea más eficaz crear un punto de conexión independiente para los archivos grandes. Por ejemplo, las actualizaciones de firmware o software normalmente son archivos grandes.
 
-Cuando se usa la red CDN de Azure de Akamai, se optimizan las descargas de archivos de gran tamaño para el contenido de más de 10 MB. Cuando el tamaño promedio de los archivos es menor que 10 MB, le recomendamos utilizar la entrega web general. Si los tamaños de archivo promedio son constantemente superiores a 10 MB (por ejemplo, actualizaciones de firmware o software), podría ser más eficaz crear un punto de conexión independiente para archivos de gran tamaño. 
+Azure Content Delivery Network de Verizon usa el tipo de optimización de entrega web general para ofrecer streaming multimedia.
 
-La red CDN de Azure de Verizon puede usar el tipo de optimización para entrega web general para ofrecer contenido de streaming multimedia.
+Para obtener más información sobre la optimización de archivos grandes, vea [Optimización de archivos grandes](cdn-large-file-optimization.md).
 
-Más información sobre la optimización de archivos de gran tamaño [aquí](cdn-large-file-optimization.md).
+### <a name="dynamic-site-acceleration"></a>Aceleración de sitios dinámicos
+
+ La aceleración de sitios dinámicos está disponible en los perfiles de Content Delivery Network de Akamai y Verizon. Para usar esta optimización se aplica una cuota adicional. Para más información, vea la página de precios.
+
+La aceleración de sitios dinámicos incluye diversas técnicas que se benefician de la latencia y el rendimiento del contenido dinámico. Las técnicas incluyen la optimización de rutas y redes, la optimización de TCP y mucho más. 
+
+Esta optimización se puede usar para acelerar una aplicación web que incluye muchas respuestas que no se pueden almacenar en caché. Algunos ejemplos son los resultados de búsquedas, transacciones de finalización de la compra o datos en tiempo real. Puede seguir usando las funciones de almacenamiento en caché principales de CDN para los datos estáticos. 
+
 
 
 

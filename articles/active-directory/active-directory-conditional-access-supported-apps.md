@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/06/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: ef01a2221eb1915ac155a14cda0ea56565603d03
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 38c8cb00b21416add28eeb06187b89f64518dc92
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Aplicaciones y navegadores que usan reglas de acceso condicional en Azure Active Directory
@@ -75,7 +75,6 @@ Puede deshabilitar los protocolos heredados para el acceso de SharePoint mediant
 Exchange ofrece dos categorías principales de protocolos. Revise las opciones siguientes y seleccione la directiva que sea adecuada para su organización.
 
 * **Exchange ActiveSync**. De forma predeterminada, no se aplican las directivas de acceso condicional para la autenticación multifactor y la ubicación para Exchange ActiveSync. Debe proteger el acceso a estos servicios mediante la configuración directa de la directiva de Exchange ActiveSync o mediante el bloqueo de Exchange ActiveSync con reglas de Servicios de federación de Active Directory (AD FS).
-
 * **Protocolos heredados**. Puede bloquear los protocolos heredados con AD FS. Con ello, se bloquea el acceso a clientes de Office anteriores, como Office 2013 sin la autenticación moderna habilitada, y versiones anteriores de Office.
 
 ### <a name="use-ad-fs-to-block-legacy-protocol"></a>Uso de AD FS para bloquear el protocolo heredado
@@ -123,9 +122,9 @@ Al aplicar las tres reglas siguientes a la relación de confianza para usuario a
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-## <a name="supported-browsers-for-device-based-policies"></a>Exploradores compatibles con las directivas basadas en dispositivos
+## <a name="supported-browsers-for-device-based-policies"></a>Exploradores compatibles con las directivas basadas en dispositivos 
 
-Solo se puede conceder acceso para las directivas basadas en dispositivos que comprueben el cumplimiento del dispositivo y la unión a un dominio cuando Azure AD pueda identificar y autenticar el dispositivo. Mientras la mayoría de las comprobaciones, como las comprobaciones de ubicación y de MFA, funcionan en la mayoría de los dispositivos y exploradores, las directivas de dispositivo requieren la versión de sistema operativo y los exploradores que se detallan a continuación. Un usuario que tenga un sistema operativo o un explorador no compatible tendrá bloqueado el acceso cuando esté en vigor una directiva de dispositivo.
+Solo se puede obtener acceso a las directivas basadas en dispositivos que comprueben el cumplimiento del dispositivo y la unión a un dominio cuando Azure AD pueda identificar y autenticar el dispositivo. Mientras la mayoría de las comprobaciones, como las comprobaciones de ubicación y de MFA, funcionan en la mayoría de los dispositivos y exploradores, las directivas de dispositivo requieren la versión de sistema operativo y los exploradores que se detallan a continuación. Se bloquea el acceso a los usuarios de sistemas operativos o exploradores no compatibles cuando se aplica una directiva de dispositivo. 
 
 | SO                     | Exploradores                 | Soporte técnico     |
 | :--                    | :--                      | :-:         |

@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/15/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 21fba224d4d2600e04c9aa6dcfe47e71d2248a0e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 128e70e4abc68ed8c9589dd08a9aec3a52fa49be
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal (versión preliminar)
-En este artículo se muestra cómo habilitar Azure Active Directory Domain Services (Azure AD DS) en un directorio de Azure Active Directory (Azure AD) mediante Azure Portal.
-
-> [!div class="op_single_selector"]
-> * [VERSIÓN PRELIMINAR: habilitación de Azure AD Domain Services mediante Azure Portal](active-directory-ds-getting-started.md)
-> * [Habilitación de Azure AD Domain Services mediante el Portal de Azure clásico](active-directory-ds-getting-started-create-group.md)
+En este artículo se muestra cómo habilitar Azure Active Directory Domain Services (Azure AD DS) mediante Azure Portal.
 
 
 Para iniciar el Asistente para **habilitar Azure AD Domain Services**, complete los pasos siguientes:
@@ -52,9 +47,7 @@ En la página **Conceptos básicos** del asistente, puede especificar el nombre 
 
 1. Elija el **nombre de dominio DNS** del dominio administrado.
 
-   * De forma predeterminada, se selecciona el nombre de dominio predeterminado del directorio (con el sufijo **.onmicrosoft.com**).
-
-   * La lista contiene todos los dominios que se han configurado para el directorio de Azure AD, incluidos también los dominios comprobados y sin comprobar que configura en la pestaña **Dominios**.
+   * De forma predeterminada, se especifica el nombre de dominio predeterminado del directorio (con el sufijo **.onmicrosoft.com**).
 
    * También puede escribir un nombre de dominio personalizado. En este ejemplo, el nombre de dominio personalizado es *contoso100.com*.
 

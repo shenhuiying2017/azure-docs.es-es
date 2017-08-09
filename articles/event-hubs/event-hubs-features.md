@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 45c04c395c474f1fe6ff042776ef0e89470b280f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 67cb42394a596f9e5c0a5d6a5042363e26ed0ac0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -95,7 +94,7 @@ Cualquier entidad que lea datos de eventos de un centro de eventos es un *consum
 
 El mecanismo de publicación y suscripción de Event Hubs se habilita a través de los *grupos de consumidores*. Un grupo de consumidores es una vista (estado, posición o desplazamiento) de un centro de eventos completo. Los grupos de consumidores habilitan varias aplicaciones consumidoras para que cada una tenga una vista separada del flujo de eventos y para que lean el flujo de forma independiente a su propio ritmo y con sus propios desplazamientos.
 
-En una arquitectura de procesamiento de flujos, cada aplicación de bajada se corresponde con un grupo de consumidores. Si quiere escribir datos de eventos para el almacenamiento a largo plazo, esa aplicación de escritura de almacenamiento es un grupo de consumidores. Otro grupo de consumidores independiente puede realizar el procesamiento de eventos complejos. Solo puede obtener acceso a las particiones a través de un grupo de consumidores. Cada partición puede tener solo un lector activo **de un grupo de consumidores determinado** a la vez. Siempre hay un grupo de consumidores predeterminado en un centro de eventos y puede crear hasta 20 grupos de consumidores para un centro de eventos de nivel Estándar.
+En una arquitectura de procesamiento de flujos, cada aplicación de bajada se corresponde con un grupo de consumidores. Si quiere escribir datos de eventos para el almacenamiento a largo plazo, esa aplicación de escritura de almacenamiento es un grupo de consumidores. Otro grupo de consumidores independiente puede realizar el procesamiento de eventos complejos. Solo puede obtener acceso a las particiones a través de un grupo de consumidores. Como máximo, puede haber cinco lectores simultáneos en una partición por grupo de consumidores; pero **se recomienda que solo haya un receptor activo en una partición por grupo de consumidores**. Siempre hay un grupo de consumidores predeterminado en un centro de eventos y puede crear hasta 20 grupos de consumidores para un centro de eventos de nivel Estándar.
 
 A continuación se muestran ejemplos de la convención URI del grupo de consumidores:
 
@@ -174,3 +173,4 @@ Para obtener más información acerca de Event Hubs, visite los vínculos siguie
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Aplicaciones de ejemplo que usan Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+

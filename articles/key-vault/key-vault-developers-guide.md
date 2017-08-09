@@ -9,12 +9,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 06/6/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7b8042d6a2d34858f35a2041db0116c1d6159630
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a15b403166dad17790c75f6db874e4ed2640ca78
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
@@ -32,14 +31,14 @@ Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Key Va
 
 Periódicamente se publica una versión preliminar pública de una nueva característica de Key Vault. Pruébelas y díganos su opinión a través de azurekeyvault@microsoft.com, la dirección de correo electrónico de comentarios.
 
-### <a name="soft-delete---may-10-2017"></a>Eliminación temporal: 10 de mayo de 2017
+### <a name="storage-account-keys---july-10-2017"></a>Claves de cuenta de almacenamiento: 10 de julio de 2017
 
 >[!NOTE]
->En esta actualización de Azure Key Vault, la única característica en versión preliminar es la **eliminación temporal**.
+>En esta actualización de Azure Key Vault, la única característica en versión preliminar es **Claves de cuenta de almacenamiento**.
 
-Esta versión preliminar incluye nuestra nueva característica de eliminación temporal, la eliminación recuperable de almacenes y objetos de Key Vault e interfaces actualizadas para desarrolladores: [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) y [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+Esta versión preliminar incluye nuestra nueva característica Claves de cuenta de almacenamiento, disponible a través de estas interfaces; [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) y [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
 
-Para obtener más información sobre la nueva característica de eliminación temporal, consulte [la información general sobre la eliminación temporal de Azure Key Vault](key-vault-ovw-soft-delete.md).
+Para más información sobre la nueva característica Claves de cuenta de almacenamiento, vea [Introducción a las claves de cuenta de almacenamiento de Azure Key Vault](key-vault-ovw-storage-keys.md).
 
 ## <a name="videos"></a>Vídeos
 

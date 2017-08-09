@@ -1,6 +1,6 @@
 ---
-title: "Optimización de descarga de archivos grandes mediante Azure CDN"
-description: "Optimización profunda de las descargas de archivos grandes"
+title: "Optimización de descarga de archivos grandes mediante Azure Content Delivery Network"
+description: "Optimización de descargas de archivos grandes explicada en profundidad"
 services: cdn
 documentationcenter: 
 author: smcevoy
@@ -14,67 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 27e202b05f86eeee7071f3fae145caeba3d66827
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="large-file-download-optimization-via-azure-cdn"></a>Optimización de descarga de archivos grandes mediante Azure CDN
+# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Optimización de descarga de archivos grandes mediante Azure Content Delivery Network
 
-El tamaño de los archivos del contenido enviado por Internet ha ido aumentando constantemente debido a una funcionalidad mejorada, a gráficos mejorados y a un contenido multimedia enriquecido. Esto se controla por diversos factores, incluido el acceso de banda ancha, a dispositivos de almacenamiento de bajo costo, proliferación de vídeo de alta definición, dispositivos conectados a Internet (IoT) etc.  Proporcionar un mecanismo de entrega más rápido y eficiente para esos archivos grandes es fundamental para garantizar una experiencia sin complicaciones y divertida para el consumidor. 
+El tamaño de los archivos de contenido enviado por Internet sigue creciendo debido a una funcionalidad mejorada, a gráficos mejorados y a un contenido multimedia enriquecido. Este crecimiento se debe a muchos factores: el acceso de la banda ancha, dispositivos de almacenamiento de bajo costo, aumento generalizado de vídeo de alta definición y dispositivos conectados a Internet (IoT). Un mecanismo de entrega rápido y eficiente de los archivos grandes es fundamental para garantizar una experiencia sin complicaciones y divertida para el consumidor.
 
-Existen varios desafíos inherentes al enviar archivos grandes. En primer lugar, el tiempo medio para descargar un archivo grande puede ser importante y es posible que muchas aplicaciones no descarguen todos los datos de forma secuencial. En algunos casos, las aplicaciones pueden descargar la última parte de un archivo antes de la primera. Por lo tanto, cuando se solicita solo una pequeña cantidad de un archivo o un usuario pone en pausa una descarga, el resultado puede ser un error en la descarga o que se retrase hasta después de que la red CDN haya recuperado todo el archivo desde el origen. 
+La entrega de archivos grandes tiene varios desafíos. En primer lugar, el tiempo medio para descargar un archivo grande puede ser importante porque es posible que las aplicaciones no descarguen todos los datos de forma secuencial. En algunos casos, es posible que las aplicaciones descarguen la última parte de un archivo antes de la primera. Cuando se solicita solo una pequeña cantidad de un archivo o un usuario pone en pausa una descarga, se puede producir un error en la descarga. También es posible que se retrase la descarga hasta que la red de entrega de contenido (CDN) recupere todo el archivo del servidor de origen. 
 
-En segundo lugar, con la proliferación de archivos grandes en Internet, los usuarios a menudo observan que la latencia entre el usuario y el archivo determina en última instancia el rendimiento o la velocidad a la que los usuarios pueden ver el contenido. Además, los problemas de capacidad y de congestión de red afectan aún más al rendimiento y estos problemas, junto con la mayor distancia entre el servidor y el usuario final, dan lugar a más oportunidades de pérdida de paquetes, con lo que se reduce aún más la calidad. La reducción de la calidad causada por un rendimiento limitado y una mayor pérdida de paquetes puede manifestarse en un tiempo de espera significativamente mayor para que se complete la descarga de un archivo. 
+En segundo lugar, la latencia entre el equipo del usuario y el archivo determina la velocidad a la que puede ver el contenido. Además, los problemas de capacidad y congestión de la red también afectan al rendimiento. Las mayores distancias entre servidores y usuarios generan más oportunidades de que se produzca la pérdida de paquetes, lo que reduce la calidad. La reducción de la calidad causada por un rendimiento limitado y una mayor pérdida de paquetes es posible que aumente el tiempo de espera para que finalice la descarga de un archivo. 
 
-Por último, muchos archivos grandes no se envían en su totalidad. Los usuarios pueden cancelar una descarga a la mitad o ver solo los primeros minutos de un vídeo largo MP4. Por lo tanto, resulta útil para muchas empresas de software y de elementos multimedia proporcionar solo la parte del archivo que solicita el usuario final. De este modo, solo las partes solicitadas se distribuirán de manera eficaz hasta el acceso más alejado de Internet, lo que reducirá el tráfico de salida desde el origen y, por tanto, la presión de memoria y de E/S en el servidor de origen. 
+En tercer lugar, muchos archivos grandes no se envían en su totalidad. Es posible que los usuarios cancelen una descarga a la mitad o que solo vean los primeros minutos de un vídeo MP4 largo. Por tanto, las empresas de entrega de software y de elementos multimedia solo quieren proporcionar la parte del archivo que se solicita. La distribución eficaz de las partes solicitadas reduce el tráfico de salida desde el servidor de origen. La distribución eficaz también reduce la presión de memoria y E/S en el servidor de origen. 
 
-Azure CDN de Akamai ahora ofrece una característica que se ocupa de entregar archivos grandes de manera eficiente a los usuarios finales en todo el mundo a escala y con latencias reducidas, reduciendo al mismo tiempo la carga en los servidores de origen. Esta característica está disponible a través de la característica “Optimizado para” del punto de conexión de Azure CDN creado en un perfil de Azure CDN con el plan de tarifa “Akamai Estándar”.
+Azure Content Delivery Network de Akamai ahora proporciona una característica que entrega archivos grandes de manera eficaz a usuarios en todo el mundo a escala. La característica reduce las latencias porque reduce la carga en los servidores de origen. Esta característica está disponible con el plan de tarifa Standard de Akamai.
 
-## <a name="configuring-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configuración del punto de conexión de la red CDN para optimizar la entrega de archivos grandes
+## <a name="configure-a-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configurar un punto de conexión de la red CDN para optimizar la entrega de archivos grandes
 
-Puede configurar el punto de conexión de la red CDN para optimizar la entrega de archivos grandes a través de Azure Portal simplemente seleccionando la opción “Descarga de archivos grandes” bajo la selección de la propiedad “Optimizado para” durante la creación del punto de conexión. También puede utilizar nuestras API de REST o cualquiera de los SDK de cliente para hacer esto. Las capturas de pantalla siguientes ilustran el proceso a través de Azure Portal.
+Puede configurar el punto de conexión de la red CDN para optimizar la entrega de archivos grandes a través de Azure Portal. También puede utilizar nuestras API de REST o cualquiera de los SDK de cliente para hacer esto. En los pasos siguientes se muestra el proceso a través de Azure Portal.
 
-![Nuevo punto de conexión de CDN](./media/cdn-large-file-optimization/01_Adding.png)  
+1. Para agregar un nuevo punto de conexión, en la página **Perfil de CDN**, seleccione **Punto de conexión**.
+
+    ![Nuevo punto de conexión](./media/cdn-large-file-optimization/01_Adding.png)  
  
-*Figura 1: Adición de un nuevo punto de conexión de CDN a partir de la opción Perfil de CDN*
- 
-![LFO seleccionado](./media/cdn-large-file-optimization/02_Creating.png)
+2. En la lista desplegable **Optimizado para**, seleccione **Descarga de archivos grandes**.
 
-*Figura 2: Creación de un punto de conexión de la red CDN con la opción de optimización de descarga de archivos grande seleccionada*
+    ![Optimización de archivos grandes seleccionada](./media/cdn-large-file-optimization/02_Creating.png)
 
-Una vez creado el punto de conexión de la red CDN, aplicará la optimización de archivos grandes para todos los archivos que coincidan con ciertos criterios. En la sección siguiente se describe esto en detalle.
 
-## <a name="optimizing-for-delivery-of-large-files-with-azure-cdn-from-akamai"></a>Optimización de entrega de archivos grandes con Azure CDN de Akamai
+Después de crear el punto de conexión de la red CDN, aplica la optimización de archivos grandes para todos los archivos que coincidan con ciertos criterios. En la sección siguiente se describe este proceso.
 
-Para Azure CDN de Akamai, puede utilizar la característica de tipo de optimización de archivos grandes para activar las optimizaciones y configuraciones de red que permiten una entrega de archivos grandes más rápida y eficaz. La entrega web general con Akamai solo puede almacenar en caché archivos inferiores a 1,8 GB y puede tunelizar (no almacenar en caché) archivos de hasta 150 GB, aunque la optimización de archivos grandes permite que se almacenen en caché archivos de hasta 150 GB.
+## <a name="optimize-for-delivery-of-large-files-with-the-azure-content-delivery-network-from-akamai"></a>Optimizar para la entrega de archivos grandes con Azure Content Delivery Network de Akamai
 
-La optimización de archivos grandes es efectiva cuando se cumplen determinadas condiciones con respecto a cómo funciona el servidor de origen, los tipos de archivos que se solicitan y el tamaño de los archivos solicitados. Antes de entrar en detalles sobre cada uno de ellos, es importante comprender una descripción general del funcionamiento de la optimización. 
+La característica de tipo de optimización de archivos grandes activa las optimizaciones y configuraciones de red para entregar archivos grandes de forma más rápida y correcta. La entrega web general con Akamai solo almacena en la memoria caché los archivos inferiores a 1,8 GB y puede tunelizar (no almacenar en caché) archivos de hasta 150 GB. La optimización de archivos grandes almacena en caché archivos de hasta 150 GB.
+
+La optimización de archivos grandes es efectiva cuando se cumplen determinadas condiciones. Las condiciones incluyen cómo funciona el servidor de origen y los tipos y tamaños de los archivos que se solicitan. Antes de entrar en detalles sobre estos temas, debe entender cómo funciona la optimización. 
 
 ### <a name="object-chunking"></a>Fragmentación de objetos 
 
-Azure CDN de Akamai emplea una técnica denominada fragmentación de objetos, según la cual la red CDN recupera las partes más pequeñas del archivo del origen cuando se solicita un archivo grande. Cuando el servidor perimetral/POP de CDN recibe una solicitud completa o de archivos de intervalo de bytes de un usuario final, en primer lugar comprueba si el tipo de archivo pertenece a la lista de tipos de archivo admitidos en esta optimización y si cumple los requisitos de tamaño de archivo. Si el tamaño del archivo es mayor que 10 MB, el servidor perimetral de la red CDN solicita el archivo del servidor de origen en fragmentos de 2 MB. Cuando llega el fragmento a la red perimetral CDN, se almacena en caché e inmediatamente se envía al usuario final, mientras que la red CDN "captura anticipadamente" el fragmento siguiente en paralelo. Esta "captura previa" garantiza que el contenido está disponible antes al llevar un fragmento por delante de los usuarios y al reducir la latencia para el usuario final. Este proceso continúa hasta que se descarga el archivo completo (si el usuario final ha solicitado todo el archivo), hasta que estén disponibles todos los intervalos de bytes solicitados (si el usuario final solicita intervalos de bytes), o el cliente finaliza la conexión. 
+Azure Content Delivery Network de Akamai usa una técnica denominada fragmentación de objetos. Cuando se solicita un archivo grande, la red CDN recupera partes más pequeñas del archivo del origen. Una vez que el servidor perimetral o POP de la red CDN recibe una solicitud de archivo completo o de intervalo de bytes, comprueba si el tipo de archivo es compatible con esta optimización. También comprueba si el tipo de archivo cumple los requisitos de tamaño de archivo. Si el tamaño del archivo es mayor de 10 MB, el servidor perimetral de la red CDN solicita el archivo del origen en fragmentos de 2 MB. 
 
-Los detalles de la solicitud de intervalo de bytes pueden encontrarse en [7233 RFC](https://tools.ietf.org/html/rfc7233).
+Una vez que llega el fragmento al perímetro de la red CDN, se almacena en caché y se sirve inmediatamente al usuario. Después, la red CDN realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se solicita), todos los intervalos de bytes están disponibles (si se solicitan) o el cliente finaliza la conexión. 
 
-La red CDN almacenará en caché los fragmentos cuando se reciben y no requiere que todo el archivo se almacene en caché en la red CDN. Las solicitudes posteriores para los intervalos de bytes o archivos se enviarán desde la caché de la red CDN y usará "la captura previa" para solicitar fragmentos desde el origen si no se han almacenado en caché todos los fragmentos en la red CDN. Como puede ver, esta optimización se basa en las solicitudes de intervalo de bytes que respaldan el servidor de origen. _Si el servidor de origen no admite solicitudes de intervalo de bytes, esta optimización no será efectiva._ 
+Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://tools.ietf.org/html/rfc7233).
+
+La red CDN almacena en caché los fragmentos cuando se reciben. No es necesario almacenar todo el archivo en la memoria caché de la red CDN. Las solicitudes posteriores para el archivo o los intervalos de bytes se sirven desde la caché de la red CDN. Si no se almacenan en caché todos los fragmentos en la red CDN, se usa la captura previa para solicitar fragmentos del origen. Esta optimización se basa en la capacidad del servidor de origen de admitir solicitudes de intervalo de bytes. _Si el servidor de origen no admite solicitudes de intervalo de bytes, esta optimización no es efectiva._ 
 
 ### <a name="caching"></a>Almacenamiento en caché
-Los archivos grandes utilizan diferentes tiempos de expiración del almacenamiento en caché para la entrega general. Esto marca la diferencia entre el almacenamiento en caché positivo y el negativo, en función de códigos de respuesta HTTP. Si el origen especifica un tiempo con un tiempo de expiración a través el encabezado Cache-Control o Expires en la respuesta, la red CDN respetará siempre ese valor. Si no especifica el origen y el archivo coincide con el tipo de archivo y con la lista de condiciones de tamaño de archivo para este tipo de optimización, la red CDN usará los valores predeterminados para la optimización de archivos grandes. En caso contrario, la red CDN usará los valores predeterminados para la entrega web general.
+La optimización de archivos grandes usa tiempos de expiración de almacenamiento en caché predeterminados distintos a los de la entrega web general. Esto marca la diferencia entre el almacenamiento en caché positivo y el negativo, en función de códigos de respuesta HTTP. Si el servidor de origen especifica un tiempo de expiración a través de un encabezado Cache-Control o Expires en la respuesta, la red CDN respeta ese valor. Si no se especifica el origen y el archivo coincide con las condiciones de tipo y tamaño para este tipo de optimización, la red CDN usa los valores predeterminados para la optimización de archivos grandes. En caso contrario, la red CDN usa los valores predeterminados para la entrega web general.
 
- 
+
 |    | Web general | Optimización de archivos grandes 
 --- | --- | --- 
 Almacenamiento en caché: positivo <br> HTTP 200, 203, 300, <br> 301, 302 y 410 | 7 días |1 día  
-Almacenamiento en caché: negativo <br> HTTP 204, 305, 404, <br> y 405 | Ninguna | 1 segundo 
+Almacenamiento en caché: negativo <br> HTTP 204, 305, 404, <br> y 405 | None | 1 segundo 
 
-### <a name="dealing-with-origin-failure"></a>Tratamiento del error de origen
+### <a name="deal-with-origin-failure"></a>Tratamiento del error de origen
 
-En el tipo de optimización de archivos grandes, la longitud de tiempo de espera de lectura del origen aumenta de 2 segundos en la entrega web general a 2 minutos para explicar que los tamaños de archivo más grandes no agoten prematuramente el tiempo de espera de una conexión.
+La duración del tiempo de espera de lectura de origen aumenta de dos segundos para la entrega web general a dos minutos para el tipo de optimización de archivos grandes. Este aumento contabiliza los tamaños de archivo más grandes para evitar que se agote el tiempo de espera de la conexión de forma prematura.
 
-Al igual que con la entrega de web general, cuando se agota el tiempo de espera de una conexión, volvemos a intentarlo un número determinado de veces antes de enviar un error de tiempo de espera de puerta de enlace 504 al cliente. 
+Cuando se agota el tiempo de espera de una conexión, la red CDN lo intenta un número de veces antes de enviar al cliente un error de "504 - Tiempo de espera agotado para la puerta de enlace". 
 
 ### <a name="conditions-for-large-file-optimization"></a>Condiciones para la optimización de archivos grandes
 
@@ -87,38 +90,41 @@ Tamaño de archivo mínimo | 10 MB
 Tamaño de archivo máximo | 150 GB 
 Características del servidor de origen | Debe admitir solicitudes de intervalo de bytes 
 
-## <a name="optimizing-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Optimización de entrega de archivos grandes con Azure CDN de Verizon
+## <a name="optimize-for-delivery-of-large-files-with-the-azure-content-delivery-network-from-verizon"></a>Optimizar para la entrega de archivos grandes con Azure Content Delivery Network de Verizon
 
-Azure CDN de Verizon puede enviar archivos grandes sin un límite de tamaño y tiene varias características que agilizan la entrega de archivos grandes activados de forma predeterminada.
+Azure Content Delivery Network de Verizon entrega archivos grandes sin un límite de tamaño de archivo. De forma predeterminada, se activan características adicionales para agilizar la entrega de archivos grandes.
 
 ### <a name="complete-cache-fill"></a>Relleno de la memoria caché completa
 
-Azure CDN de Verizon tiene una característica de predeterminada denominada relleno de caché completa en la cual la red CDN extrae un archivo en la memoria caché cuando se abandona o se pierde la solicitud inicial. 
+La característica de relleno de la memoria caché completa predeterminada permite que la red CDN extraiga un archivo en la memoria caché cuando se abandona o se pierde una solicitud inicial. 
 
-Esta característica resulta especialmente útil para los recursos de gran tamaño que los usuarios no suelen descargar de principio a fin (por ejemplo, vídeos de descarga progresiva). Por lo tanto, esta característica está habilitada de forma predeterminada en Azure CDN de Verizon. Este comportamiento predeterminado consiste en forzar al servidor perimetral para que inicie una captura de fondo del recurso desde el servidor de origen. Después, el recurso estará en la caché local del servidor perimetral. Cuando el objeto completo se encuentra en caché, el servidor perimetral puede aceptar las solicitudes de intervalo de bytes en la red CDN para el objeto almacenado en caché.
+El relleno de la memoria caché completa es más útil para los recursos grandes. Normalmente, los usuarios no los descargan de principio a fin. Usan la descarga progresiva. El comportamiento predeterminado fuerza al servidor perimetral para que inicie una captura de fondo del recurso desde el servidor de origen. Después, el recurso está en la caché local del servidor perimetral. Después de que el objeto completo se encuentre en caché, el servidor perimetral acepta las solicitudes de intervalo de bytes en la red CDN para el objeto almacenado en caché.
 
-El comportamiento predeterminado de relleno de caché completa puede deshabilitarse a través del motor de reglas en el nivel Verizon Premium.
+El comportamiento predeterminado se puede deshabilitar a través del motor de reglas en el nivel Premium de Verizon.
 
-### <a name="peer-cache-fill-hotfiling"></a>Creación de archivos activos de relleno de caché del mismo nivel
+### <a name="peer-cache-fill-hot-filing"></a>Creación de archivos activos de llenado de la caché del mismo nivel
 
-Se trata de una característica predeterminada de Azure CDN de Verizon, en el que un algoritmo propietario avanzado puede aprovechar los servidores de almacenamiento en caché perimetrales basados en métricas como el ancho de banda y las solicitudes de agregado para responder a solicitudes de cliente de objetos grandes y muy populares. Esto evita una situación en la cual se podría enviar un gran número de solicitudes adicionales a un servidor de origen del cliente. 
+La característica de creación de archivos activos de llenado de la caché del mismo nivel usa un sofisticado algoritmo propietario. Usa servidores perimetrales de almacenamiento en caché adicionales que se basan en métricas de solicitudes de ancho de banda y agregadas para responder a solicitudes de cliente de objetos grandes extremadamente populares. Esta característica evita una situación en la que se envía un gran número de solicitudes adicionales al servidor de origen del cliente. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Condiciones para la optimización de archivos grandes
 
-Las características de optimización de Verizon están activadas de forma predeterminada y no hay ningún límite en el tamaño máximo del archivo. 
+Las características de optimización de Verizon están activadas de forma predeterminada. No hay ningún límite en el tamaño de archivo máximo. 
 
 ## <a name="additional-considerations"></a>Consideraciones adicionales
 
-Hay algunos aspectos adicionales a tener en cuenta durante el uso de este tipo de optimización.
+Tenga en cuenta los siguientes aspectos adicionales para este tipo de optimización.
  
-### <a name="azure-cdn-from-akamai"></a>Azure CDN de Akamai
+### <a name="azure-content-delivery-network-from-akamai"></a>Azure Content Delivery Network de Akamai
 
-- El proceso de fragmentación da como resultado solicitudes adicionales en el servidor de origen, pero el volumen global de los datos enviados desde el origen será mucho menor, ya que la fragmentación resulta en mejores características de almacenamiento en caché en la red CDN.
-- También habrá una ventaja adicional en la memoria reducida y presión de E/S en el origen porque se envían piezas más pequeñas del archivo. 
-- En el caso de los fragmentos que se almacenan en caché en la red CDN, no habrá solicitudes adicionales para el origen hasta que expire el contenido de la memoria caché o se expulse de la caché por otras razones. 
-- El usuario puede realizar solicitudes de intervalo en la red CDN y solo se tratarán como cualquier archivo normal. La optimización solo se aplicará si es un tipo de archivo válido y el intervalo de bytes se encuentra entre 10 MB y 150 GB. Si el tamaño medio de los archivos solicitado es menor que 10 MB, puede utilizar la entrega web general en su lugar.
+- El proceso de fragmentación genera solicitudes adicionales al servidor de origen. Pero el volumen global de datos que se entregan desde el origen es mucho menor. La fragmentación da como resultado mejores características de almacenamiento en caché en la red CDN.
 
-### <a name="azure-cdn-from-verizon"></a>Azure CDN de Verizon
+- La presión de memoria y E/S se reduce en el origen porque se entregan fragmentos más pequeños del archivo.
 
-La optimización de entrega web general puede enviar archivos grandes.
+- Para los fragmentos almacenados en caché en la red CDN, no hay ninguna solicitud adicional al origen hasta que el contenido expire o se elimine de la caché.
+
+- El usuario puede realizar solicitudes de intervalo en la red CDN y se tratan como cualquier archivo normal. La optimización solo se aplica si es un tipo de archivo válido y el intervalo de bytes está comprendido entre 10 MB y 150 GB. Si el tamaño promedio de los archivos solicitados es menor que 10 MB, le recomendamos usar la entrega web general.
+
+### <a name="azure-content-delivery-network-from-verizon"></a>Azure Content Delivery Network de Verizon
+
+La optimización de entrega web general puede entregar archivos grandes.
 

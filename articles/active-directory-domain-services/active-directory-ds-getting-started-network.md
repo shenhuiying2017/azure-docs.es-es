@@ -12,21 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/15/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 5e08c37ea63ca45efb4098ca032e1e9e9ffd3c78
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7f420d60862adf61e4f21e5abac2932a742bd55d
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal (versión preliminar)
-
-> [!div class="op_single_selector"]
-> * [VERSIÓN PRELIMINAR: habilitación de Azure AD Domain Services mediante Azure Portal](active-directory-ds-getting-started-network.md)
-> * [Habilitación de Azure AD Domain Services mediante el Portal de Azure clásico](active-directory-ds-getting-started-create-group.md)
 
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -39,7 +34,7 @@ La siguiente tarea de configuración es crear una red virtual de Azure y una sub
 1. Haga clic en **Red virtual** para seleccionar una red virtual.
 2. En la hoja **Elegir red virtual**, se ven todas las redes virtuales existentes. Solo se ven las redes virtuales que pertenecen al grupo de recursos y la ubicación de Azure que ha seleccionado en la página **Conceptos básicos** del asistente.
 
-3. Elija la red virtual existente en la que Azure AD Domain Services debe habilitarse. Haga clic en **Crear nuevo** si prefiere crear una nueva red virtual.
+3. Elija la red virtual en la que Azure AD Domain Services debe habilitarse. Haga clic en **Crear nuevo** si prefiere crear una nueva red virtual. Se recomienda usar una subred dedicada para Azure AD Domain Services. Si elige una red virtual existente, [cree una subred dedicada con la extensión de redes virtuales](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) y después selecciónela. 
 
     ![Seleccionar una red virtual](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
@@ -49,8 +44,9 @@ La siguiente tarea de configuración es crear una red virtual de Azure y una sub
 
   > [!NOTE]
   > **Directrices para seleccionar una subred**
-  > 1. No seleccione la subred Gateway para implementar Azure AD Domain Services, porque no es una configuración admitida.
-  2. Asegúrese de que la subred que ha seleccionado tiene suficiente espacio de direcciones disponible (al menos entre 3 y 5 direcciones IP disponibles).
+  > 1. Use una subred dedicada para Azure AD Domain Services. No implemente otras máquinas virtuales en esta subred. Esta configuración permite configurar grupos de seguridad de red (NSG) para las cargas de trabajo o máquinas virtuales sin interrumpir el dominio administrado. Para obtener detalles, vea [Consideraciones de red de Azure Active Directory Domain Services](active-directory-ds-networking.md).
+  2. No seleccione la subred Gateway para implementar Azure AD Domain Services, porque no es una configuración admitida.
+  3. Asegúrese de que la subred que ha seleccionado tiene suficiente espacio de direcciones disponible (al menos entre 3 y 5 direcciones IP disponibles).
   >
 
 5. Cuando haya terminado, haga clic en **Aceptar** para ir a la página **Grupo de administradores** del asistente.

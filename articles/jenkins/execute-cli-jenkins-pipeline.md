@@ -7,7 +7,7 @@ author: mlearned
 manager: douge
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: jenkins
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 73dd4b7ecde2b334fa01d105c27eba602b887aca
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d0d20c10c7b14ff8873bb71feb9047a1c49700ef
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -143,15 +143,13 @@ Abra el repositorio de [Simple Java Web App for Azure](https://github.com/azure-
 
 ```java
 def resourceGroup = '<myResourceGroup>'
-
 def webAppName = '<app_name>'
-
 ```
+
 * Cambie la línea 23 para actualizar el identificador de la credencial en la instancia de Jenkins
 
 ```java
-withCredentials([azureServicePrincipal('<azsrvprincipal>')]) {
-
+withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ```
 
 ## <a name="create-jenkins-pipeline"></a>Creación de una canalización de Jenkins
@@ -172,14 +170,59 @@ Abra Jenkins en un explorador web, haga clic en **New Item** (Nuevo elemento).
 Para comprobar que el archivo WAR se ha implementado correctamente en la aplicación web: Abra un explorador web.
 
 * Vaya a http://&lt;app_name>.azurewebsites.net/api/calculator/ping  
-Verá “**pong!**” como respuesta.
+Se ve lo siguiente:
 
-![Ping pong](./media/execute-cli-jenkins-pipeline/pingpong.png)
+        Welcome to Java Web App!!! This is updated!
+        Sun Jun 17 16:39:10 UTC 2017
 
 * Vaya a http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (sustituya &lt;x> e &lt;y> con cualquier número) para obtener la suma de x e y
 
 ![Calculadora: suma](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
+## <a name="deploy-to-azure-web-app-on-linux"></a>Implementar en una aplicación web de Azure en Linux
+Ahora que sabe cómo se usa la CLI de Azure en la canalización de Jenkins, puede modificar el script para implementar en una aplicación web de Azure en Linux.
+
+La aplicación web en Linux es compatible con otra forma de realizar la implementación, que consiste en usar Docker. Para la implementación, debe proporcionar un archivo de Docker que empaquete la aplicación web con el tiempo de ejecución de servicio en una imagen de Docker. Después, el complemento compilará la imagen, la insertará en un registro de Docker y la implementará en la aplicación web.
+
+* Siga los pasos descritos [aquí](/azure/app-service-web/app-service-linux-how-to-create-web-app) para crear una aplicación web de Azure que se ejecute en Linux.
+* Instale Docker en la instancia de Jenkins siguiendo las instrucciones de este [artículo](https://docs.docker.com/engine/installation/linux/ubuntu/).
+* Cree un registro de contenedor mediante Azure Portal siguiendo los pasos descritos [aquí](/azure/container-registry/container-registry-get-started-azure-cli).
+* En el mismo repositorio [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) (Aplicación web de Java simple para Azure), edite el archivo **Jenkinsfile2**:
+    * En las líneas 18-21, actualice los nombres del grupo de recursos, la aplicación web y el ACR respectivamente. 
+        ```
+        def webAppResourceGroup = '<myResourceGroup>'
+        def webAppName = '<app_name>'
+        def acrName = '<myRegistry>'
+        ```
+
+    * En la línea 24, actualice \<azsrvprincipal\> al identificador de la credencial.
+        ```
+        withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
+        ```
+
+* Cree una nueva canalización Jenkins como hizo cuando implementó en la aplicación web de Azure en Windows, pero esta vez use **Jenkinsfile2** en su lugar.
+* Ejecute el nuevo trabajo.
+* Para comprobarlo, en la CLI de Azure, ejecute:
+
+    ```
+    az acr repository list -n <myRegistry> -o json
+    ```
+
+    Obtiene el siguiente resultado:
+    
+    ```
+    [
+    "calculator"
+    ]
+    ```
+    
+    Vaya a http://&lt;nombre_aplicación>.azurewebsites.net/api/calculator/ping. Verá el mensaje: 
+    
+        Welcome to Java Web App!!! This is updated!
+        Sun Jul 09 16:39:10 UTC 2017
+
+    Vaya a http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (sustituya &lt;x> e &lt;y> con cualquier número) para obtener la suma de x e y
+    
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha configurado una canalización de Jenkins que extrae del repositorio GitHub el código fuente. Se ejecuta Maven para generar un archivo war y, a continuación, se utiliza la CLI de Azure para implementarlo en Azure App Service. Ha aprendido a:
 

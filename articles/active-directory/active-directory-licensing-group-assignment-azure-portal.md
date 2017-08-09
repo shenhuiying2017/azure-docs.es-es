@@ -1,5 +1,4 @@
 ---
-
 title: "Asignación de licencias a un grupo en Azure Active Directory | Microsoft Docs"
 description: "Procedimiento de asignación de licencias a los usuarios con las licencias de grupos de Azure Active Directory"
 services: active-directory
@@ -17,12 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 2af42c34306dd6fe3174187892c109ae866a2f87
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 42b18eab9cb419e6ada72ba72dc8be8d7f7b2eed
 ms.contentlocale: es-es
-ms.lasthandoff: 06/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -85,6 +83,8 @@ Ahora, hemos especificado una plantilla de licencia en el grupo del departamento
    - Actividad: **Empezar a aplicar licencias basadas en grupo a los usuarios**. Se registra cuando el sistema recoge el cambio de asignación de licencias en el grupo y empieza a aplicarlo a todos los usuarios miembros. Contiene información sobre el cambio que se realizó.
 
    - Actividad: **Empezar a aplicar las licencias basadas en grupo a los usuarios**. Se registra cuando el sistema termina de procesar todos los usuarios del grupo. Contiene un resumen de cuántos usuarios se han procesado correctamente y el número de usuarios a los que no se pudieron asignar las licencias de grupo.
+
+   [Lea esta sección](./active-directory-licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) para obtener más información sobre cómo se pueden usar los registros de auditoría para analizar los cambios realizados por las licencias basadas en grupos.
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Paso 3: Comprobación y resolución de problemas de licencias
 

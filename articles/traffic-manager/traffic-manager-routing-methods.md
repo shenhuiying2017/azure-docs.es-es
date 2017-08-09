@@ -3,7 +3,7 @@ title: "Azure Traffic Manager: métodos de enrutamiento del tráfico | Microsoft
 description: "Este artículo le ayudará a entender los distintos métodos de enrutamiento de tráfico usados por Traffic Manager"
 services: traffic-manager
 documentationcenter: 
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 07/13/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 5a39ef3f0debb92a19015f9a2428a2c3ba95c621
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -93,7 +93,7 @@ Para explicar los cambios en la red de Internet mundial y la incorporación de n
 Puntos a tener en cuenta:
 
 * Si el perfil contiene varios puntos de conexión en la misma región de Azure, Traffic Manager distribuirá el tráfico uniformemente entre los puntos de conexión disponibles en esa región. Si prefiere una distribución de tráfico diferente dentro de una región, puede usar los [perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md).
-* Si todos los puntos de conexión habilitados en una determinada región de Azure se degradan, Traffic Manager distribuirá el tráfico entre todos los demás puntos de conexión disponibles en lugar hacerlo al punto de conexión más cercano. Esta lógica impide que se produzca un error en cascada evitando la sobrecarga del punto de conexión más cercano. Si desea definir una secuencia preferida de conmutación por error, use los [perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md).
+* Si se degradan todos los puntos de conexión habilitados en la región de Azure más cercana, Traffic Manager mueve el tráfico a los puntos de conexión en la siguiente región de Azure más cercana. Si desea definir una secuencia preferida de conmutación por error, use los [perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md).
 * Al usar el método de enrutamiento de tráfico de rendimiento con puntos de conexión externos o anidados, deberá especificar la ubicación de esos puntos de conexión. Elija la región de Azure más cercana a su implementación. Estas ubicaciones son los valores compatibles con la tabla de latencia de Internet.
 * El algoritmo que elige el punto de conexión es determinista. Las consultas de DNS repetidas del mismo cliente se dirigen al mismo punto de conexión. Normalmente, los clientes utilizan servidores DNS recursivos diferentes durante su recorrido. El cliente puede enrutarse a un punto de conexión diferente. El enrutamiento también puede verse afectado por las actualizaciones de la tabla de latencia de Internet. Por lo tanto, el método de enrutamiento de tráfico de rendimiento no garantiza que un cliente siempre se enrute al mismo punto de conexión.
 * Cuando hay cambios en la tabla de latencia de Internet, puede observar que a algunos clientes se les dirige a un punto de conexión diferente. Este cambio de enrutamiento es más adecuado en función de los datos de latencia actuales. Estas actualizaciones son esenciales para mantener la precisión del enrutamiento de tráfico de rendimiento dado que Internet evoluciona constantemente.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 84d55b7c86b6cf1964941d45748cde95c4f0f90f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c758aa5955362d04abf69c760d2aed7983cdf102
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium
@@ -106,7 +105,7 @@ Cuando Azure Redis Cache se hospeda en una red virtual, se usan los puertos de l
 
 Existen siete requisitos de puerto de salida.
 
-- Si lo desea, se pueden realizar todas las conexiones salientes a Internet a través de un dispositivo de auditoría local de un cliente.
+- Si quiere, se pueden realizar todas las conexiones de salida a Internet a través de un dispositivo de auditoría local de un cliente.
 - Tres de los puertos enrutan el tráfico a los puntos de conexión de Azure que funcionan con Azure Storage y Azure DNS.
 - Los intervalos de puertos restantes y para las comunicaciones internas de la subred de Redis. No es necesaria ninguna regla de NSG para las comunicaciones internas de la subred de Redis.
 
@@ -186,9 +185,9 @@ Cuando la memoria caché forma parte de una red virtual, solo los clientes de la
 ## <a name="use-expressroute-with-azure-redis-cache"></a>Uso de ExpressRoute con Caché en Redis de Azure
 Los clientes pueden conectar un circuito de [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) a su infraestructura de red virtual, lo que permite ampliar la red local a Azure. 
 
-De forma predeterminada, un circuito de ExpressRoute recién creado anuncia una ruta predeterminada que permite la conectividad saliente de Internet. Con esta configuración, las aplicaciones cliente pueden conectarse a otros puntos de conexión de Azure, como Azure Redis Cache.
+De forma predeterminada, un circuito ExpressRoute recién creado no realiza la tunelización forzada (anuncio de una ruta predeterminada, 0.0.0.0/0) en una red virtual. Como resultado, se permite la conectividad de salida de Internet directamente desde la red virtual y las aplicaciones cliente pueden conectarse a otros puntos de conexión de Azure, incluido Azure Redis Cache.
 
-Sin embargo, una configuración de cliente común es definir su propia ruta predeterminada (0.0.0.0/0) que fuerza a que el tráfico saliente de Internet fluya a nivel local. Este flujo de tráfico interrumpe la conectividad con Azure Redis Cache si el tráfico de salida se bloquea en el entorno local debido a que la instancia de Azure Redis Cache no se puede comunicar con sus dependencias.
+Pero una configuración de cliente común es usar la tunelización forzada (anunciar una ruta predeterminada), que fuerza a que el tráfico de salida de Internet fluya a nivel local. Este flujo de tráfico interrumpe la conectividad con Azure Redis Cache si el tráfico de salida se bloquea en el entorno local debido a que la instancia de Azure Redis Cache no se puede comunicar con sus dependencias.
 
 La solución es definir una, o varias, rutas definidas por el usuario (UDR) en la subred que contiene el servicio Azure Redis Cache. Una ruta definida por el usuario define las rutas de subred específica que se respetarán en lugar de la ruta predeterminada.
 

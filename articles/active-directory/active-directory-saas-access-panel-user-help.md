@@ -1,5 +1,5 @@
 ---
-title: "¿Necesita ayuda con el portal MyApps en Azure Active Directory | Microsoft Docs"
+title: "¿Necesita ayuda con el portal Mis aplicaciones en Azure Active Directory? | Microsoft Docs"
 description: Obtenga instrucciones para realizar tareas comunes al trabajar con el panel de acceso.
 services: active-directory
 documentationcenter: 
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 07/15/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 2f28a63b2c3310523fb85d5aba9602359c7c2d87
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="do-you-need-help-with-the-myapps-portal"></a>¿Necesita ayuda con el portal MyApps?
+# <a name="do-you-need-help-with-the-my-apps-portal"></a>¿Necesita ayuda con el portal Mis aplicaciones?
 
 Es probable que haya llegado a esta página porque lamentablemente se encontró con un problema cuando usaba el portal My Apps. Aunque hay casos que requieren ponerse en contacto con el departamento de soporte técnico o con el administrador para resolver un problema, aquí se tratan algunos temas que podrían servirle de ayuda primero.
 
-## <a name="i-cannot-sign-in-to-myappsmicrosoftcom"></a>No puedo iniciar sesión en myapps.microsoft.com
+## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Tengo problemas para iniciar sesión en el portal Mis aplicaciones
 
 Algunas cuestiones generales que se deben comprobar primero son:
 
@@ -47,7 +47,7 @@ Si se siguen produciendo problemas, póngase en contacto con el administrador pa
 
 Si ha olvidado la contraseña, nunca ha recibido ninguna de su equipo de TI, está bloqueado fuera de su cuenta o si desea cambiarla, consulte [Ayuda, he olvidado mi contraseña de Azure AD](active-directory-passwords-update-your-own-password.md) para más información.
 
-##<a name="how-do-i-register-for-password-reset"></a>¿Cómo puedo registrarme para restablecer la contraseña?
+## <a name="how-do-i-register-for-password-reset"></a>¿Cómo puedo registrarme para restablecer la contraseña?
 
 Como usuario final, puede restablecer su contraseña o desbloquear su cuenta sin necesidad de hablar con una persona que use el autoservicio de restablecimiento de contraseña (SSPR). Para poder usar esta funcionalidad, debe registrar los métodos de autenticación o confirmar los métodos de autenticación predefinidos que ha rellenado el administrador. Para más información, consulte [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md).
 
@@ -64,21 +64,19 @@ Compruebe si se cumplen los requisitos del explorador:
     - Chrome en Windows 7 o posterior, y en Mac OS X o posterior
     - Firefox 26.0 o posterior en Windows XP SP2 o posterior, y en Mac OS X 10.6 o posterior
 
-También puede descargar la extensión para Chrome, Edge y Firefox desde los siguientes vínculos directos:
+También puede descargar la extensión para Chrome y Edge desde los siguientes vínculos directos:
 
 - [Extensión para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 - [Extensión para Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-- [Extensión para Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
-
 Después de la instalación, intente los pasos siguientes, si se están produciendo problemas:
 
 - Compruebe en la configuración de la extensión del explorador que la extensión está habilitada.
 
-- Intente reiniciar el explorador e inicie sesión en el portal My Apps.
+- Reinicie el explorador e inicie sesión en el portal Mis aplicaciones.
 
-- Intente borrar las cookies del explorador y volver a iniciar sesión.
+- Borre las cookies del explorador e inicie sesión en el portal Mis aplicaciones.
 
 ## <a name="how-do-i-add-a-new-app"></a>¿Cómo puedo agregar una nueva aplicación?
 

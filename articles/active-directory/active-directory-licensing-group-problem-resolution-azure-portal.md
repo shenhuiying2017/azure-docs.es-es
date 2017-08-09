@@ -18,10 +18,10 @@ ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 21ba840f62ea50e943bf5b82f8cc0afd94bb0fef
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bfa951a897c9b383072c0d29c9a4266c163fe753
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -108,6 +108,20 @@ Puede asignar más de una licencia de producto a un grupo. Por ejemplo, puede as
 Azure AD intenta asignar todas las licencias especificadas en el grupo a cada usuario. Si Azure AD no puede asignar uno de los productos debido a problemas de lógica empresarial (por ejemplo, no hay suficientes licencias para todos o hay conflictos con otros servicios habilitados para el usuario), tampoco se asignarán las demás licencias del grupo.
 
 Podrá ver los usuarios con los que se han producido errores de asignación y a qué productos ha afectado esta situación.
+
+## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>Se produce un error en modo silencioso en la asignación de licencias para un usuario debido a direcciones proxy duplicadas en Exchange Online
+
+Si se usa Exchange Online, es posible que algunos de los usuarios del inquilino no estén configurados correctamente con el mismo valor de dirección de proxy. Cuando la concesión de licencias basadas en grupo intenta asignar una licencia a un usuario de este tipo, se producirá un error y no se registrará (a diferencia de los demás casos de error descritos anteriormente): se trata de una limitación en la versión preliminar de esta característica que vamos a solucionar antes de la *disponibilidad general*.
+
+> [!TIP]
+> Si observa que algunos usuarios no han recibido una licencia y no hay ningún error registrado en esos usuarios, compruebe primero si tienen una dirección proxy duplicada.
+> Puede hacerlo si ejecuta el siguiente cmdlet de PowerShell en Exchange Online:
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> [Este artículo](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online) contiene más detalles sobre este problema, incluida la información sobre [cómo conectarse a Exchange Online mediante PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx).
+
+Después de que se hayan resuelto los problemas de dirección proxy para los usuarios afectados, asegúrese de forzar el procesamiento de la licencia en el grupo para que ahora se puedan aplicar las licencias de nuevo.
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>¿Cómo se puede forzar el procesamiento de licencias de un grupo para resolver errores?
 

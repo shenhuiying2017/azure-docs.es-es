@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: abb09e0b95c881b9d4bcb4d04341fd3a8e4ef63f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Integración del SDK de Android para Azure Mobile Engagement
@@ -54,6 +53,10 @@ Puede agregar estas características:
 [Uso de la API de etiquetado de Mobile Engagement avanzada en su aplicación Android](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="431-07172017"></a>4.3.1 (17/07/2017)
+* Se ha corregido un bloqueo que rara vez se produce cuando se llama a `EngagementAgentUtils.isInDedicatedEngagementProcess`, que también se usa en la clase `EngagementApplication`.
+
 ### <a name="430-06272017"></a>4.3.0 (27/06/2017)
 * Compatibilidad con Android 8 (las versiones anteriores del SDK no funcionarán en Android 8).
 * Ya no hay dependencia de la biblioteca de soporte.

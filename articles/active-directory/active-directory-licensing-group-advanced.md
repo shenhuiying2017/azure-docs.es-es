@@ -1,5 +1,4 @@
 ---
-
 title: Escenarios adicionales de licencias basadas en grupos de Azure Active Directory | Microsoft Docs
 description: "Más escenarios de licencias basadas en grupos de Azure Active Directory"
 services: active-directory
@@ -17,12 +16,11 @@ ms.workload: identity
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 9b5b87574edc828a41b421a64f543fc34742c5a3
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -65,14 +63,10 @@ En este ejemplo, modifique un usuario y establezca el valor de extensionAttribut
 
 ![Captura de pantalla que muestra cómo establecer el extensionAttribute1 del usuario](media/active-directory-licensing-group-advanced/user-set-extensionAttribute1.png)
 
-### <a name="modify-a-dynamic-group-membership-rule"></a>Modificación de una regla de pertenencia a un grupo dinámico
+> [!WARNING]
+> Tenga cuidado al modificar la regla de pertenencia de un grupo existente. Cuando se cambia una regla, se vuelve a evaluar la pertenencia del grupo y los usuarios que ya no coinciden con la nueva regla serán eliminados (los usuarios que todavía coincidan con la nueva regla no se verán afectados durante este proceso). Durante el proceso se quitarán las licencias de esos usuarios, lo que puede dar lugar a la pérdida de servicio, o bien, en algunos casos, a la pérdida de datos.
 
-Tenga cuidado al modificar la regla de pertenencia de un grupo existente. Cuando se cambia una regla, se quitan todos los usuarios del grupo. La regla se evalúa y, luego, se agregan usuarios al grupo en virtud de las condiciones nuevas.
-
-Si el grupo tiene licencias asignadas, durante el proceso se quitan esas licencias a todos los usuarios. Las licencias nuevas se aplican solo después de que se evalúa la regla nueva y se agregan nuevamente los usuarios. Los usuarios pueden sufrir una pérdida del servicio o, en algunos casos, la pérdida de datos.
-
-Se recomienda que no cambie la regla de pertenencia a un grupo que se usa para la asignación de licencias. En su lugar, cree un grupo con una regla de pertenencia nueva y especifique la misma configuración de licencias que en el grupo original. Espere hasta que se agreguen todos los miembros y las licencias se apliquen a todos los usuarios. Solo entonces deberá eliminar el grupo original. Este enfoque garantiza una transición segura y gradual a una regla de pertenencia nueva, sin que los usuarios pierdan el acceso o los datos.
-
+> Si tiene un grupo dinámico grande del que depende para la asignación de licencias, considere la posibilidad de validar los cambios importantes en un grupo de prueba más pequeño antes de aplicarlos al grupo principal.
 
 ## <a name="multiple-groups-and-multiple-licenses"></a>Varios grupos y varias licencias
 
@@ -143,7 +137,7 @@ Este es un ejemplo cómo podría ser este proceso:
 6. Si es necesario, realice los mismos pasos para otros grupos con este producto asignado.
 
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Uso de PowerShell para ver quién tiene licencias directas y heredadas
-Mientras la asignación de licencias basada en grupos se encuentre en la versión preliminar pública, PowerShell no puede usarse para controlar totalmente las asignaciones de licencias a grupos. Sin embargo, se puede usar para detectar información básica sobre el estado de los usuarios y comprobar si las licencias se heredan de un grupo o se asignan directamente. El siguiente ejemplo de código muestra cómo un administrador puede generar un informe básico sobre las asignaciones de licencias.
+Puede usar un script de PowerShell para comprobar si los usuarios tienen una licencia asignada directamente o se hereda de un grupo.
 
 1. Ejecute el cmdlet `connect-msolservice` para autenticarse y conectar con el inquilino.
 
@@ -151,83 +145,60 @@ Mientras la asignación de licencias basada en grupos se encuentre en la versió
 
   ![Captura de pantalla del cmdlet Get-Msolaccountsku](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
-3. En este ejemplo, desea averiguar qué usuarios tienen la licencia de Enterprise Mobility + Security asignada directamente, mediante un grupo, o ambas. Puede usar el siguiente script:
+3. Use el valor *AccountSkuId* correspondiente a la licencia que le interesa con [este script de PowerShell](./active-directory-licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). Esto creará una lista de usuarios que tienen esta licencia con la información sobre cómo se asigna la licencia.
 
-  ```
-  #Returns TRUE if the user has the license assigned directly
-  function UserHasLicenseAssignedDirectly
-  {
-      Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
-      foreach($license in $user.Licenses)
-      {
-          #we look for the specific license SKU in all licenses assigned to the user
-          if ($license.AccountSkuId -ieq $skuId)
-          {
-              #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-              #This could be a group object or a user object (contrary to what the name suggests)
-              #If the collection is empty, this means the license is assigned directly. This is the case for users who have never been licensed via groups in the past
-              if ($license.GroupsAssigningLicense.Count -eq 0)
-              {
-                  return $true
-              }
-              \#If the collection contains the ID of the user object, this means the license is assigned directly
-              #Note: the license may also be assigned through one or more groups in addition to being assigned directly
-              foreach ($assignmentSource in $license.GroupsAssigningLicense)
-              {
-                  if ($assignmentSource -ieq $user.ObjectId)
-                  {
-                      return $true
-                  }
-              }
-              return $false
-          }
-      }
-      return $false
-  }
-  #Returns TRUE if the user is inheriting the license from a group
-  function UserHasLicenseAssignedFromGroup
-  {
-    Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
-     foreach($license in $user.Licenses)
-     {
-        #we look for the specific license SKU in all licenses assigned to the user
-        if ($license.AccountSkuId -ieq $skuId)
-        {
-          #GroupsAssigningLicense contains a collection of IDs of objects assigning the license
-          #This could be a group object or a user object (contrary to what the name suggests)
-            foreach ($assignmentSource in $license.GroupsAssigningLicense)
-          {
-                  #If the collection contains at least one ID not matching the user ID this means that the license is inherited from a group.
-                  #Note: the license may also be assigned directly in addition to being inherited
-                  if ($assignmentSource -ine $user.ObjectId)
+## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Usar registros de auditoría para supervisar la actividad de licencias basadas en grupos
 
-            {
-                      return $true
-            }
-          }
-              return $false
-        }
-      }
-      return $false
-  }
-  ```
+Puede usar los [registros de auditoría de Azure AD](./active-directory-reporting-activity-audit-logs.md#audit-logs) para ver todas las actividades relacionadas con las licencias basadas en grupos, incluido:
+- quién cambió las licencias en los grupos
+- cuándo empezó el sistema a procesar un cambio de la licencia de grupo y cuándo terminó
+- qué cambios de licencia se realizaron en un usuario como resultado de una asignación de licencia de grupo.
 
-4. El resto del script obtiene a todos los usuarios y ejecuta estas funciones en cada uno de ellos. Luego, da formato a la salida como una tabla.
+>[!NOTE]
+> Los registros de auditoría están disponibles en la mayoría de las hojas de la sección Azure Active Directory del portal. Dependiendo de dónde tenga acceso a ellas, se pueden aplicar filtros previos para mostrar solo la actividad pertinente para el contexto de la hoja. Si no ve los resultados esperados, examine [las opciones de filtrado](./active-directory-reporting-activity-audit-logs.md#filtering-audit-logs) u obtenga acceso a los registros de auditoría sin filtrar en [**Azure Active Directory > Actividad > Registros de auditoría**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
 
-  ```
-  #the license SKU we are interested in
-  $skuId = "reseller-account:EMS"
-  #find all users that have the SKU license assigned
-  Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID -eq $skuId} | select `
-      ObjectId, `
-      @{Name="SkuId";Expression={$skuId}}, `
-      @{Name="AssignedDirectly";Expression={(UserHasLicenseAssignedDirectly $_ $skuId)}}, `
-      @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
-  ```
+### <a name="find-out-who-modified-a-group-license"></a>Averiguar quién ha modificado una licencia de grupo
 
-5. La salida completa del script es similar a este ejemplo:
+1. Establezca el filtro **Actividad** en *Establecer licencia de grupo* y haga clic en **Aplicar**.
+2. Los resultados incluyen todos los casos de licencias que se establecen o modifican en grupos.
+>[!TIP]
+> También puede escribir el nombre del grupo en el filtro *Destino* para definir el ámbito de los resultados.
 
-  ![Captura de pantalla de la salida del script de PowerShell](media/active-directory-licensing-group-advanced/powershell-script-output.png)
+3. Haga clic en un elemento en la vista de lista para ver los detalles de lo que ha cambiado. En *Propiedades modificadas* se muestran los valores antiguos y nuevos para la asignación de licencias.
+
+Este es un ejemplo de cambios recientes de la licencia de grupo, con detalles:
+
+![Captura de pantalla de cambios de licencia de grupo](media/active-directory-licensing-group-advanced/audit-group-license-change.png)
+
+### <a name="find-out-when-group-changes-started-and-finished-processing"></a>Averiguar cuándo se inició y finalizó el procesamiento de los cambios de grupo
+
+Cuando cambia una licencia en un grupo, Azure AD comenzará a aplicar los cambios a todos los usuarios.
+
+1. Para ver cuándo se inició el procesamiento en los grupos, establezca el filtro **Actividad** en *Empezar a aplicar licencias basadas en grupo a los usuarios*. Tenga en cuenta que el actor para la operación es *Microsoft Azure AD Group-Based Licensing* (Licencias basadas en grupos de Microsoft Azure AD), una cuenta del sistema que se usa para ejecutar todos los cambios de licencia de grupo.
+>[!TIP]
+> Haga clic en un elemento en la lista para ver el campo *Propiedades modificadas* (muestra los cambios de licencia que se han seleccionado para el procesamiento). Esto es útil si ha realizado varios cambios en un grupo y no está seguro de cuál se ha procesado.
+
+2. De forma similar, para ver cuándo finaliza el procesamiento de los grupos, use el valor de filtro *Finalizar de aplicar licencias basadas en grupo a los usuarios*.
+>[!TIP]
+> En este caso, el campo *Propiedades modificadas* contiene un resumen de los resultados (esto es útil para comprobar rápidamente si se ha producido) algún error en el procesamiento. Salida de ejemplo:
+> ```
+Modified Properties
+...
+Name : Result
+Old Value : []
+New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
+> ```
+
+3. Para ver el registro completo de cómo se procesa un grupo, incluidos todos los cambios de usuario, establezca los siguientes filtros:
+  - **Iniciado por (actor)**: "Microsoft Azure AD Group-Based Licensing" (Licencias basadas en grupos de Microsoft Azure AD)
+  - **Intervalo de fechas** (opcional): intervalo personalizado para cuando se sabe que un grupo específico inició y finalizó el procesamiento
+
+Esta salida de ejemplo muestra el inicio del procesamiento, todos los cambios de usuario resultantes y el fin del procesamiento.
+
+![Captura de pantalla de cambios de licencia de grupo](media/active-directory-licensing-group-advanced/audit-group-processing-log.png)
+
+>[!TIP]
+> Al hacer clic en elementos relacionados con *Cambiar la licencia de usuario* se mostrarán los detalles de los cambios de licencia aplicados a cada usuario individual.
 
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 
@@ -246,6 +217,8 @@ Si usa licencias basadas en grupo, se recomienda que se familiarice con la sigui
 - La automatización de la administración de licencias no reacciona automáticamente a todos los tipos de cambios en el entorno. Por ejemplo, es posible que se quede sin licencias, lo que haría que algunos usuarios tengan un estado de error. Para liberar el número de puestos disponibles, puede quitar algunas licencias asignadas directamente a otros usuarios. Sin embargo, el sistema no reacciona automáticamente a este cambio ni corrige el estado de error de los usuarios.
 
   Como alternativa a estos tipos de limitaciones, puede ir a la hoja **Grupo** en Azure AD y hacer clic en **Reprocesar**. Este comando procesa a todos los usuarios de ese grupo y resuelve los estados de error, si es posible.
+
+- Las licencias basadas en grupos no registran errores cuando una licencia no se pudo asignar a un usuario debido a una configuración de dirección proxy duplicada en Exchange Online; estos usuarios se omiten durante la asignación de licencias. Para más información sobre cómo identificar y resolver este problema, vea [esta sección](./active-directory-licensing-group-problem-resolution-azure-portal.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e789114a9b3faee73d264eded52c35cedd9cf98f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -255,7 +255,7 @@ En esta sección, creará un clúster de Hadoop basado en Linux en HDInsight con
      
      * **Tipo de clúster**: Hadoop. HDInsight unido a un dominio actualmente solo es compatible con clústeres de Hadoop.
      * **Sistema operativo**: Linux.  HDInsight unido a un dominio solo se admite en clústeres de HDInsight basado en Linux.
-     * **Versión**: Hadoop 2.7.3 (HDI 3.5). HDInsight unido a un dominio solo se admite en clústeres de HDInsight versión 3.5.
+     * **Versión**: HDI 3.6. HDInsight unido a un dominio solo se admite en clústeres de HDInsight versión 3.6.
      * **Tipo de clúster**: PREMIUM
        
        Haga clic en **Seleccionar** para guardar los cambios.

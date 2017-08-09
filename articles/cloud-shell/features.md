@@ -7,40 +7,40 @@ author: jluk
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 07/13/2017
 ms.author: juluk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 2b434ccb9218a0a2731642da6125031592ea8ce6
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3e8eb5b2fe7d3d072132044e2445eab6fcd82ce1
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="features--tools-for-azure-cloud-shell"></a>Características y herramientas para Azure Cloud Shell
+# <a name="features-and-tools-for-azure-cloud-shell"></a>Características y herramientas para Azure Cloud Shell
 Azure Cloud Shell es una experiencia de shell basado en el explorador para administrar y desarrollar recursos de Azure.
 
 Cloud Shell ofrece una experiencia de shell preconfigurado y accesible desde el explorador para administrar recursos de Azure sin el trabajo añadido de realizar la instalación, el control de versiones y el mantenimiento de una máquina de forma manual.
 
-Cloud Shell aprovisiona máquinas a medida que se solicitan y, por tanto, el estado de la máquina no se conservará entre sesiones. Como Cloud Shell se ha creado para sesiones interactivas, los shells finalizan automáticamente si pasan 10 minutos inactivos.
+Cloud Shell aprovisiona máquinas a medida que se solicitan y, por tanto, el estado de la máquina no se conservará entre sesiones. Como Cloud Shell se ha creado para sesiones interactivas, los shells finalizan automáticamente después de 20 minutos de inactividad.
 
 ## <a name="bash-in-cloud-shell"></a>Bash en Cloud Shell
 ### <a name="tools"></a>Herramientas
 |Categoría   |Nombre   |
 |---|---|
 |Intérprete de shell de Linux|Bash<br> sh               |
-|Herramientas de Azure            |CLI de Azure 2.0 y 1.0<br> AzCopy     |
+|Herramientas de Azure            |[CLI de Azure 2.0](https://github.com/Azure/azure-cli) y [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)     |
 |Editores de texto           |vim<br> nano<br> emacs       |
 |Control de código fuente         |git                    |
 |Herramientas de compilación            |make<br> maven<br> npm<br> pip         |
-|Contenedores             |Docker CLI/Docker Machine<br> Kubectl<br> DC/OS CLI         |
-|Bases de datos              |Cliente de MySQL<br> Cliente de PostgreSql<br> Utilidad sqlcmd      |
-|Otros                  |Cliente de iPython<br> CLI de Cloud Foundry<br> |
+|Contenedores             |[CLI de Docker](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Draft](https://github.com/Azure/draft)<br> [CLI de DC/OS](https://github.com/dcos/dcos-cli)         |
+|Bases de datos              |Cliente de MySQL<br> Cliente de PostgreSql<br> [Utilidad sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)      |
+|Otros                  |Cliente de iPython<br> [CLI de Cloud Foundry](https://github.com/cloudfoundry/cli)<br> |
 
 ### <a name="language-support"></a>Compatibilidad con idiomas
 |language   |Versión   |
@@ -55,7 +55,7 @@ Cloud Shell aprovisiona máquinas a medida que se solicitan y, por tanto, el est
 Cloud Shell autentica de forma segura y automática el acceso a la cuenta para la CLI de Azure 2.0.
 
 ## <a name="azure-files-persistence"></a>Persistencia de Azure Files
-Puesto que Cloud Shell se asigna para cada solicitud mediante una máquina temporal, los archivos locales fuera de $Home y el estado de la máquina no se conservan entre sesiones.
+Dado que Cloud Shell se asigna para cada solicitud mediante una máquina temporal, los archivos fuera de $Home y el estado de la máquina no se conservan entre sesiones.
 Para conservar archivos entre sesiones, la primera vez que se inicia Cloud Shell se explica cómo conectar un recurso compartido de archivos de Azure.
 Una vez finalizado, Cloud Shell conectará automáticamente su almacenamiento para todas las sesiones futuras.
 
