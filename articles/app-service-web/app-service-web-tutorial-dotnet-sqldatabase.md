@@ -1,4 +1,4 @@
----
+﻿---
 title: "Compilación de una aplicación ASP.NET en Azure con SQL Database | Microsoft Docs"
 description: "Aprenda a comenzar a trabajar con una aplicación ASP.NET en Azure, con conexión a una instancia de SQL Database."
 services: app-service\web

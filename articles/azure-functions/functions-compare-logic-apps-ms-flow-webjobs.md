@@ -31,7 +31,7 @@ En este artículo se comparan y contrastan los siguientes servicios en la nube d
 * [Funciones de Azure](https://azure.microsoft.com/services/functions/)
 * [Azure App Service](../app-service-web/web-sites-create-web-jobs.md)
 
-Todos estos servicios son útiles cuando se agrupan juntos sistemas dispares. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Sin embargo, cada servicio aporta un conjunto único de valores, y no se comparan para saber cuál es el mejor, sino cuál es el más adecuado para su situación. Con frecuencia, la mejor manera de crear rápidamente una solución de integración completa y escalable es combinar estos servicios.
+Todos estos servicios son útiles cuando se agrupan sistemas dispares. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Sin embargo, cada servicio aporta un conjunto único de valores, y no se comparan para saber cuál es el mejor, sino cuál es el más adecuado para su situación. Con frecuencia, la mejor manera de crear rápidamente una solución de integración completa y escalable es combinar estos servicios.
 
 <a name="flow"></a>
 
