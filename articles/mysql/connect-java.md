@@ -12,10 +12,10 @@ ms.topic: hero-article
 ms.devlang: java
 ms.date: 06/20/2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0190fb5a88f766369e6462965e47686c5f289551
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6ffcf3b38a3d868dfa10ea2e2a9d097441387d4f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -29,7 +29,7 @@ En este tutorial rápido se usan como punto de partida los recursos creados en u
 
 Además, deberá:
 - Descargar el controlador de JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- Incluir el archivo jar de JDBC (por ejemplo, mysql-connector-java-5.1.42-bin.jar) en la ruta de clase de la aplicación.
+- Incluir el archivo jar de JDBC (por ejemplo, mysql-connector-java-5.1.42-bin.jar) en la ruta de clase de la aplicación. Si tiene problemas con esto, consulte la documentación del entorno para conocer los detalles de ruta de clase, como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) o [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 - Asegurarse de que se configura la seguridad de conexión de Azure Database for MySQL con el firewall abierto y la configuración de SSL correcta conectar la aplicación.
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
