@@ -4,7 +4,7 @@ description: "Use la característica Web Apps de Microsoft Azure App Service par
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "visualización de datos en tiempo real, visualización de datos en directo, visualización de datos de sensor"
 ms.assetid: e42b07a8-ddd4-476e-9bfb-903d6b033e91
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 74f95d571da2e3066958cf3c5ab1938a5c631f7d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4f30643926def3259e603a94c741b8f65427b8da
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizar datos del sensor en tiempo real desde Azure IoT Hub mediante la característica Web Apps de Azure App Service
@@ -84,7 +83,7 @@ Hemos facilitado el acceso a una aplicación web en GitHub que muestra datos del
 
    ![Configuración de la implementación de la aplicación web para usar el repositorio de Git local](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-2. Haga clic en **Credenciales de implementación**, cree un nombre de usuario y una contraseña que se usarán para conectarse al repositorio de Git de Azure y luego haga clic en **Aceptar**.
+2. Haga clic en **Credenciales de implementación**, cree un nombre de usuario y una contraseña que se usarán para conectarse al repositorio de Git de Azure y haga clic en **Guardar**.
 
 3. Haga clic en **Información general** y anote el valor de la **URL de clonación de Git**.
 

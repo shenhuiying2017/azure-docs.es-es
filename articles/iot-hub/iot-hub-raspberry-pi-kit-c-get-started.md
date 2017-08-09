@@ -1,10 +1,10 @@
 ---
 title: 'Raspberry Pi en la nube (C): Conectar Raspberry Pi a Azure IoT Hub | Microsoft Docs'
-description: "Conecte Raspberry Pi a Azure IoT Hub para que Raspberry Pi envíe datos a la nube de Azure."
+description: "Con este tutorial aprenderá a configurar y conectar Raspberry Pi a Azure IoT Hub para que envíe datos a la plataforma en la nube de Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "azure iot raspberry pi, raspberry pi iot hub, raspberry pi envía datos a la nube, raspberry pi a la nube"
 ms.assetid: 68c0e730-1dc8-4e26-ac6b-573b217b302d
@@ -13,15 +13,14 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/15/2017
+ms.date: 7/12/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b7c328ac622190d64ea1b07ee459c7f8f5d1e0f4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 244d665d4981cde838217701767be6d394fe8dc5
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -154,7 +153,10 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
    sudo apt-get update
-   sudo apt-get install -y azure-iot-sdk-c-dev cmake
+   sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
+   git clone git://git.drogon.net/wiringPi
+   cd ./wiringPi
+   ./build
    ```
 
 
@@ -168,7 +170,7 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
 1. Abra el archivo config mediante la ejecución de los comandos siguientes:
 
    ```bash
-   cd iot-hub-c-raspberry-pi-client-app
+   cd iot-hub-c-raspberrypi-client-app
    nano config.h
    ```
 

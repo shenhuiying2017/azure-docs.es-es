@@ -1,6 +1,6 @@
 ---
-title: "Incorporación de runbooks de Azure Automation a los planes de recuperación en Site Recovery | Microsoft Docs"
-description: "Este artículo describe cómo Azure Site Recovery ahora le permite ampliar los planes de recuperación mediante Automatización de Azure para completar tareas complejas durante la recuperación en Azure"
+title: "Incorporación de runbooks de Azure Automation a los planes de recuperación en Azure Site Recovery | Microsoft Docs"
+description: "Obtenga información sobre cómo Azure Site Recovery puede ayudarle a ampliar los planes de recuperación mediante Azure Automation. Aprenda a realizar tareas complejas durante la recuperación en Azure."
 services: site-recovery
 documentationcenter: 
 author: ruturaj
@@ -14,167 +14,171 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 06/23/2017
 ms.author: ruturajd@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 0482b104e18a934142f1cd18fd7265132d5b82bc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f26f4dda442320c7c224c02a38aa36dbe5d4d1a6
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Incorporación de runbooks de automatización de Azure a los planes de recuperación
-Este tutorial describe cómo se integra Azure Site Recovery con Automatización de Azure para proporcionar extensibilidad a los planes de recuperación. Los planes de recuperación pueden coordinar la recuperación de las máquinas virtuales protegidas mediante Azure Site Recovery para escenarios de replicación en la nube secundaria y replicación en Azure. También ayudan a realizar la recuperación **coherente y precisa**, **repetible** y **automatizada**. Si conmuta por error las máquinas virtuales en Azure, la integración con Automatización de Azure amplía los planes de recuperación y le ofrece la capacidad de ejecutar runbooks, lo que proporciona tareas de automatización eficaces.
+# <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Incorporación de runbooks de Azure Automation a los planes de recuperación
+En este artículo se explica cómo se integra Azure Site Recovery con Azure Automation para ayudarle a ampliar los planes de recuperación. Los planes de recuperación pueden organizar la recuperación de máquinas virtuales protegidas con Site Recovery. Los planes de recuperación funcionan para la replicación en una nube secundaria y para la replicación en Azure. Los planes de recuperación además ayudan a que la recuperación sea **coherente y precisa**, **repetible** y **automatizada**. Si conmuta por error las máquinas virtuales en Azure, la integración con Azure Automation amplía los planes de recuperación. Se puede usar para ejecutar runbooks, que ofrecen eficaces tareas de automatización.
 
-Si aún no ha oído hablar de Azure Automation, suscríbase [aquí](https://azure.microsoft.com/services/automation/) y descargue sus scripts de ejemplo [aquí](https://azure.microsoft.com/documentation/scripts/). Obtenga más información sobre [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) y cómo llevar a cabo la recuperación en Azure con los planes de recuperación [aquí](https://azure.microsoft.com/blog/?p=166264).
+Si no está familiarizado con Azure Automation, puede [registrarse](https://azure.microsoft.com/services/automation/) y [descargar scripts de muestra](https://azure.microsoft.com/documentation/scripts/). Para más información y para aprender a organizar la recuperación en Azure mediante [planes de recuperación](https://azure.microsoft.com/blog/?p=166264), vea [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
-En este tutorial, se explica cómo integrar runbooks de Azure Automation en planes de recuperación. Se automatizarán tareas sencillas que anteriormente requerían intervención manual y se enseñará a convertir una recuperación de varios pasos en una acción de recuperación con un solo clic.
+En este artículo se explica cómo integrar runbooks de Azure Automation en los planes de recuperación. Se usan ejemplos para automatizar tareas básicas que anteriormente requerían intervención manual. También se explica cómo convertir una recuperación de varios pasos en una acción de recuperación de un solo clic.
 
 ## <a name="customize-the-recovery-plan"></a>Personalización de planes de recuperación
-1. Comenzaremos abriendo la hoja de recursos del plan de recuperación. Puede ver que el plan de recuperación tiene agregadas dos máquinas virtuales para realizar el proceso de recuperación.
+1. Vaya a la hoja de recursos de planes de recuperación de **Site Recovery**. En este ejemplo, el plan de recuperación tiene agregadas dos máquinas virtuales para la recuperación. Para empezar a agregar un runbook, haga clic en la pestaña **Personalizar**.
 
-    ![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
-- - -
-1. Haga clic en el botón Personalizar para empezar a agregar runbooks.
-
-    ![](media/site-recovery-runbook-automation-new/customize-rp.PNG)
+    ![Clic en la pestaña Personalizar](media/site-recovery-runbook-automation-new/essentials-rp.png)
 
 
-1. Haga clic con el botón derecho en el grupo de inicio 1 y seleccione "Agregar acción posterior".
-2. Elija un script en la nueva hoja.
-3. Denomine al script "Hello World".
-4. Elija un nombre para la cuenta de automatización
+2. Haga clic con el botón derecho en **Grupo 1: Iniciar** y luego seleccione **Agregar acción posterior**.
+
+    ![Clic con el botón derecho en Grupo 1: Iniciar y adición de acción posterior](media/site-recovery-runbook-automation-new/customize-rp.png)
+
+3. Haga clic en **Elegir un script**.
+
+4. En la hoja **Actualizar acción**, ponga el nombre **Hello World** al script.
+
+    ![Hoja Actualizar acción](media/site-recovery-runbook-automation-new/update-rp.png)
+
+5. Escriba un nombre de cuenta de Automation.
     >[!NOTE]
-    > La cuenta de Automation puede estar en cualquier ubicación geográfica de Azure, pero tiene que residir en la misma suscripción que el almacén de Site Recovery.
+    > La cuenta de Automation puede estar en cualquier región de Azure. La cuenta de Automation debe estar en la misma suscripción que el almacén de Azure Site Recovery.
 
-5. Seleccione un runbook de la cuenta de automatización. Dicho runbook es el script que se ejecutará durante la ejecución del plan de recuperación después de la recuperación del primer grupo.
+6. En la cuenta de Automation, seleccione un runbook. Este runbook es el script que se ejecuta durante la ejecución del plan de recuperación, después de la recuperación del primer grupo.
 
-    ![](media/site-recovery-runbook-automation-new/update-rp.PNG)
-6. Haga clic en Aceptar para guardar el script. El script se agrega al grupo de acción posterior de Grupo 1: Inicio.
+7. Para guardar el script, haga clic en **Aceptar**. El script se agrega a **Grupo 1: Pasos posteriores**.
 
-    ![](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
-
-
-## <a name="salient-points-of-adding-a-script"></a>Aspectos destacados del proceso de agregar un script
-1. Puede hacer clic con el botón derecho en el script y elegir "eliminar paso " o "actualizar script ".
-2. Un script puede ejecutarse en Azure durante la conmutación por error de un entorno local a Azure. Asimismo, puede hacerlo como script del primario antes del apagado: durante la conmutación por recuperación de Azure a un entorno local.
-3. Cuando se ejecuta un script, inserta un contexto del plan de recuperación.
-
-A continuación se muestra un ejemplo de la variable de contexto.
-
-        {"RecoveryPlanName":"hrweb-recovery",
-
-        "FailoverType":"Test",
-
-        "FailoverDirection":"PrimaryToSecondary",
-
-        "GroupId":"1",
-
-        "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
-
-                { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
-
-                "ResourceGroupName":"ContosoRG",
-
-                "CloudServiceName":"pod02hrweb-Chicago-test",
-
-                "RoleName":"Fabrikam-Hrweb-frontend-test",
-
-                "RecoveryPointId":"TimeStamp"}
-
-                }
-
-        }
+    ![Acción posterior Grupo 1: Iniciar](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
 
-La tabla siguiente contiene el nombre y la descripción de cada una de las variables del contexto.
+## <a name="considerations-for-adding-a-script"></a>Consideraciones para agregar un script
 
-| **Nombre de la variable** | **Descripción** |
-| --- | --- |
-| RecoveryPlanName |Nombre del plan que se va a ejecutar. Esta variable le ayuda a realizar diferentes acciones basadas en el nombre y en si se reutiliza el script |
-| FailoverType |Especifica si la conmutación por error se probó y si se planeó o no. |
-| FailoverDirection |Especifica si la recuperación es al principal o secundario. |
-| GroupID |Identifica el número de grupo dentro del plan de recuperación cuando se ejecuta el plan. |
-| VmMap |Tabla con todas las máquinas virtuales del grupo. |
-| Clave de VMMap |Clave única (GUID) para cada máquina virtual. Es el mismo que el identificador de VMM de la máquina virtual, si procede. |
-| SubscriptionId |Identificador de la suscripción de Azure en la que se crea la máquina virtual. |
-| RoleName |Nombre de la máquina virtual de Azure que se está recuperando. |
-| CloudServiceName |Nombre del servicio en la nube de Azure con el que se crea la máquina virtual. |
-| ResourceGroupName|El nombre del grupo de recursos de Azure con el que se crea la máquina virtual. |
-| RecoveryPointId|Marca de tiempo en la que se recupera la máquina virtual. |
+* Para obtener opciones para **eliminar un paso** o **actualizar el script**, haga clic con el botón derecho en el script.
+* Un script se puede ejecutar en Azure durante la conmutación por error desde un equipo local en Azure. También puede ejecutarse en Azure como un script de sitio principal antes de apagar, durante la conmutación por recuperación desde Azure en un equipo local.
+* Cuando se ejecuta un script, inserta un contexto del plan de recuperación. El ejemplo siguiente muestra una variable de contexto:
 
-También debe asegurarse de que se han agregado los siguientes módulos a la cuenta de Automation. Todos los módulos deben ser de versiones compatibles. Una manera sencilla de que sean compatibles es asegurarse de que todos los módulos tienen la versión más reciente disponible.
-* AzureRM.profile
-* AzureRM.Resources
-* AzureRM.Automation
-* AzureRM.Network
-* AzureRM.Compute
+    ```
+            {"RecoveryPlanName":"hrweb-recovery",
 
+            "FailoverType":"Test",
 
-### <a name="accessing-all-vms-of-the-vmmap-in-a-loop"></a>Acceso a todas las máquinas virtuales de VmMap en un bucle
-Utilice el siguiente fragmento de código para crear un bucle con todas las máquinas virtuales de VmMap.
+            "FailoverDirection":"PrimaryToSecondary",
+
+            "GroupId":"1",
+
+            "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
+
+                    { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
+
+                    "ResourceGroupName":"ContosoRG",
+
+                    "CloudServiceName":"pod02hrweb-Chicago-test",
+
+                    "RoleName":"Fabrikam-Hrweb-frontend-test",
+
+                    "RecoveryPointId":"TimeStamp"}
+
+                    }
+
+            }
+    ```
+
+    La tabla siguiente indica el nombre y la descripción de cada una de las variables del contexto.
+
+    | **Nombre de la variable** | **Descripción** |
+    | --- | --- |
+    | RecoveryPlanName |Nombre del plan que se va a ejecutar. Esta variable le ayuda a realizar diferentes acciones según el nombre del plan de recuperación. También puede volver a usar el script. |
+    | FailoverType |Especifica si la conmutación por error es una prueba, planeada o no. |
+    | FailoverDirection |Especifica si la recuperación es en un sitio principal o secundario. |
+    | GroupID |Identifica el número de grupo del plan de recuperación cuando este se está ejecutando. |
+    | VmMap |Matriz de todas las máquinas virtuales del grupo. |
+    | Clave de VMMap |Clave única (GUID) para cada máquina virtual. Es igual que el identificador de Azure Virtual Machine Manager (VMM) de la máquina virtual, si procede. |
+    | SubscriptionId |Identificador de la suscripción de Azure en la que se ha creado la máquina virtual. |
+    | RoleName |Nombre de la máquina virtual de Azure que se está recuperando. |
+    | CloudServiceName |Nombre del servicio en la nube de Azure en el que se ha creado la máquina virtual. |
+    | ResourceGroupName|Nombre del grupo de recursos de Azure en el que se ha creado la máquina virtual. |
+    | RecoveryPointId|Marca de tiempo de cuando se recupera la máquina virtual. |
+
+* Asegúrese de que la cuenta de Automation tenga los siguientes módulos:
+    * AzureRM.profile
+    * AzureRM.Resources
+    * AzureRM.Automation
+    * AzureRM.Network
+    * AzureRM.Compute
+
+Todos los módulos deben ser de versiones compatibles. Una manera sencilla de garantizar que todos los módulos sean compatibles es usar las versiones más recientes de todos los módulos.
+
+### <a name="access-all-vms-of-the-vmmap-in-a-loop"></a>Acceso a todas las máquinas virtuales de VMMap en un bucle
+Use el siguiente código para crear un bucle con todas las máquinas virtuales de Microsoft VMMap:
 
 ```
-    $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
-    $vmMap = $RecoveryPlanContext.VmMap
-     foreach($VMID in $VMinfo)
-     {
-         $VM = $vmMap.$VMID                
+$VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
+$vmMap = $RecoveryPlanContext.VmMap
+ foreach($VMID in $VMinfo)
+ {
+     $VM = $vmMap.$VMID                
              if( !(($VM -eq $Null) -Or ($VM.ResourceGroupName -eq $Null) -Or ($VM.RoleName -eq $Null))) {
-             #this check is to ensure that we skip when some data is not available else it will fail
-         Write-output "Resource group name ", $VM.ResourceGroupName
-         Write-output "Rolename " = $VM.RoleName
-         }
+         #this check is to ensure that we skip when some data is not available else it will fail
+ Write-output "Resource group name ", $VM.ResourceGroupName
+ Write-output "Rolename " = $VM.RoleName
      }
+ }
 
 ```
 
 > [!NOTE]
-> Los valores Resource Group name y Rolename están vacíos cuando la secuencia de comandos es una acción anterior a un grupo de arranque. Los valores solo se llenan si la máquina virtual del grupo realiza correctamente la conmutación por error y el script es una acción posterior del grupo de arranque.
+> Los valores de nombre de grupo de recursos y nombre de rol están vacíos cuando el script es una acción anterior a un grupo de arranque. Los valores se rellenan solo si se realiza correctamente la conmutación por error de la máquina virtual de ese grupo. El script es una acción posterior del grupo de arranque.
 
-## <a name="using-the-same-automation-runbook-with-multiple-recovery-plans"></a>Uso del mismo runbook de Automation con varios planes de recuperación
+## <a name="use-the-same-automation-runbook-in-multiple-recovery-plans"></a>Uso del mismo runbook de Automation en varios planes de recuperación
 
-Un solo script se puede usar en varios planes de recuperación gracias a las variables externas. Las [variables de Azure Automation](../automation/automation-variables.md) se pueden usar para almacenar los parámetros que se pueden pasar en la ejecución de un plan de recuperación. Al usar como prefijo de la variable el nombre del plan de recuperación, se pueden crear variables individual para cada plan de recuperación y usarlas como parámetro. El parámetro se puede cambiar sin cambiar el script y hacer que el script funcione de otra manera.
+Puede usar un solo script en varios planes de recuperación gracias a las variables externas. Las [variables de Azure Automation](../automation/automation-variables.md) se pueden usar para almacenar los parámetros que se pueden pasar para la ejecución de un plan de recuperación. Al agregar el nombre del plan de recuperación como prefijo a la variable, puede crear variables individuales para cada plan de recuperación. Luego, use las variables como parámetros. Puede cambiar un parámetro sin cambiar el script y aun así cambiar la forma en que el script funciona.
 
-### <a name="using-simple-string-variables-in-runbook-script"></a>Uso de variables de cadena simples en un script de runbook
+### <a name="use-a-simple-string-variable-in-a-runbook-script"></a>Uso de una variable de cadena simple en un script de runbook
 
-Considere un script que tome la entrada de un NSG y la aplique a las máquinas virtuales de un plan de recuperación.
+En este ejemplo, un script toma la entrada de un grupo de seguridad de red (NSG) y la aplica a las máquinas virtuales de un plan de recuperación.
 
-Para que el script "sepa" qué plan de recuperación ejecuta, se puede utilizar el contexto del plan de recuperación.
-
-```
-    workflow AddPublicIPAndNSG {
-        param (
-              [parameter(Mandatory=$false)]
-              [Object]$RecoveryPlanContext
-        )
-
-        $RPName = $RecoveryPlanContext.RecoveryPlanName
-```
-
-Para aplicar un NSG existente, se necesitan el nombre y el grupo de recursos del NSG. Estas variables se proporcionan como entrada a los scripts del plan de recuperación. Para ello, cree dos variables en los recursos de las cuentas de Automation y utilice como prefijo el nombre del plan de recuperación para el que va a crear los parámetros.
-
-1. Cree una variable para almacenar el nombre del NSG. Use el nombre del plan de recuperación como prefijo.
-    ![Crear la variable del nombre de NSG](media/site-recovery-runbook-automation-new/var1.png)
-
-2. Cree una variable para almacenar el nombre del grupo de recursos de NSG. Use el nombre del plan de recuperación como prefijo.
-    ![Crear nombre del grupo de recursos de NSG](media/site-recovery-runbook-automation-new/var2.png)
-
-
-En el script, adquiera los valores de las variables mediante el siguiente código de referencia:
+Para que el script detecte qué plan de recuperación se está ejecutando, use el contexto del plan de recuperación:
 
 ```
+workflow AddPublicIPAndNSG {
+    param (
+          [parameter(Mandatory=$false)]
+          [Object]$RecoveryPlanContext
+    )
+
+    $RPName = $RecoveryPlanContext.RecoveryPlanName
+```
+
+Para aplicar un NSG existente, debe conocer el nombre del NSG y el nombre del grupo de recursos del NSG. Use estas variables como entradas para los scripts del plan de recuperación. Para ello, cree dos variables en los activos de la cuenta de Automation. Agregue el nombre del plan de recuperación para el que va a crear los parámetros como prefijo al nombre de la variable.
+
+1. Cree una variable para almacenar el nombre del NSG. Agregue un prefijo al nombre de la variable mediante el nombre del plan de recuperación.
+
+    ![Creación de una variable de nombre de NSG](media/site-recovery-runbook-automation-new/var1.png)
+
+2. Cree una variable para almacenar el nombre del grupo de recursos del NSG. Agregue un prefijo al nombre de la variable mediante el nombre del plan de recuperación.
+
+    ![Creación de un nombre de grupo de recursos de NSG](media/site-recovery-runbook-automation-new/var2.png)
+
+
+3.  En el script, use el siguiente código de referencia para obtener los valores de variable:
+
+    ```
     $NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
     $NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
 
     $NSGnameVar = Get-AutomationVariable -Name $NSGValue
     $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
-```
+    ```
 
-A continuación puede utilizar las variables en el runbook y aplicar el NSG a la interfaz de red de la máquina virtual conmutada por error.
+4.  Use las variables del runbook para aplicar el NSG a la interfaz de red de la máquina virtual conmutada por error:
 
-```
-     InlineScript {
-        if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
+    ```
+    InlineScript {
+    if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
             $NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
             Write-output $NSG.Id
             #Apply the NSG to a network interface
@@ -183,41 +187,44 @@ A continuación puede utilizar las variables en el runbook y aplicar el NSG a la
             #  -AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $NSG
         }
     }
-```
-
-Para cada plan de recuperación, cree variables independientes para poder volver a usar el script y agregue como prefijo el nombre del plan de recuperación. [Aquí se proporciona](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee) un script completo de un extremo a otro para este ejemplo.
-
-
-### <a name="using-complex-variable-to-store-more-information"></a>Uso de una variable compleja para almacenar más información
-
-Considere un escenario en el que solo desea un script que active una IP pública en determinadas máquinas virtuales. Otro ejemplo sería aplicar diferentes NSG en distintas máquinas virtuales (no todas). Este script se podría volver a usar en cualquier otro plan de recuperación. Cada plan de recuperación puede tener un número variable de máquinas virtuales (por ejemplo, una recuperación de Sharepoint tiene dos servidores front-end, mientras que una aplicación de LOB simple tiene solo un front-end). Para lograr este resultado, es imposible crear variables independientes por cada plan de recuperación. Aquí se usa una técnica nueva y se crea una [variable compleja](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) en los recursos de la cuenta de Azure Automation mediante la especificación de varios valores. Necesita Azure PowerShell para ejecutar los siguientes pasos.
-
-1. En Azure PowerShell, inicie sesión en su suscripción.
-
-    ```
-        login-azurermaccount
-        $sub = Get-AzureRmSubscription -Name <SubscriptionName>
-        $sub | Select-AzureRmSubscription
     ```
 
-2. Para almacenar los parámetros, cree la variable complejo y asígnele el nombre del plan de recuperación.
+Para cada plan de recuperación, cree variables independientes para poder volver a usar el script. Agregue un prefijo mediante el nombre del plan de recuperación. Para obtener un script completo de un extremo a otro para este escenario, vea [Add a public IP and NSG to VMs during test failover of a Site Recovery recovery plan (Agregar una dirección IP pública y un NSG a las máquinas virtuales durante la conmutación por error de prueba de un plan de recuperación de Site Recovery)](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
+
+
+### <a name="use-a-complex-variable-to-store-more-information"></a>Uso de una variable compleja para almacenar más información
+
+Considere un escenario en el que quiera que un único script active una dirección IP pública en máquinas virtuales concretas. En otro escenario, podría querer aplicar diferentes NSG en diferentes máquinas virtuales (no en todas las máquinas virtuales). Puede crear un script que se pueda volver a usar para cualquier plan de recuperación. Cada plan de recuperación puede tener un número variable de máquinas virtuales. Por ejemplo, una recuperación de SharePoint tiene dos servidores front-end. Una aplicación básica de línea de negocio (LOB) tiene solo un servidor front-end. No puede crear variables independientes para cada plan de recuperación. 
+
+En el siguiente ejemplo se usa una técnica nueva y se crea una [variable compleja](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) en los activos de la cuenta de Azure Automation. Para ello se especifican varios valores. Debe usar Azure PowerShell para realizar los siguientes pasos:
+
+1. En PowerShell, inicie sesión en la suscripción de Azure:
 
     ```
-        $VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
+    login-azurermaccount
+    $sub = Get-AzureRmSubscription -Name <SubscriptionName>
+    $sub | Select-AzureRmSubscription
+    ```
+
+2. Para almacenar los parámetros, cree la variable compleja mediante el plan de recuperación:
+
+    ```
+    $VMDetails = @{"VMGUID"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"};"VMGUID2"=@{"ResourceGroupName"="RGNameOfNSG";"NSGName"="NameOfNSG"}}
         New-AzureRmAutomationVariable -ResourceGroupName <RG of Automation Account> -AutomationAccountName <AA Name> -Name <RecoveryPlanName> -Value $VMDetails -Encrypted $false
     ```
 
-    En esta variable compleja, **VMDetails* es el identificador de la máquina virtual protegida. Esto se puede encontrar en las propiedades de la máquina virtual en el portal. Aquí hemos creado una variable que almacene los detalles de las dos máquinas virtuales.
+3. En esta variable compleja, **VMDetails** es el identificador de la máquina virtual protegida. Para obtener el identificador de la máquina virtual, en Azure Portal, vea las propiedades de la máquina virtual. En la captura de pantalla siguiente se muestra una variable que almacena los detalles de dos máquinas virtuales:
 
-    ![El identificador de la máquina virtual que se va a usar como GUID](media/site-recovery-runbook-automation-new/vmguid.png)
+    ![Empleo del identificador de la máquina virtual como GUID](media/site-recovery-runbook-automation-new/vmguid.png)
 
-3. Si se encuentra alguna instancia del VMGUID dado en el contexto del plan virtual, utilice esta variable en el runbook y aplique el NSG en la máquina virtual.
+4. Use esta variable en el runbook. Si el GUID indicado de la máquina virtual se encuentra en el contexto del plan de recuperación, aplique el NSG en la máquina virtual:
 
     ```
-        $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
+    $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
     ```
 
-4. En el runbook, recorra en bucle las máquinas virtuales del contexto del plan de recuperación para comprobar si la máquina virtual también existe en **$VMDetailsObj**. En caso afirmativo, aplique el NSG, para lo que debe acceder a las propiedades de la variable.
+4. En el runbook, cree un bucle con las máquinas virtuales del contexto del plan de recuperación. Compruebe si la máquina virtual existe en **$VMDetailsObj**. En caso afirmativo, acceda a las propiedades de la variable para aplicar el NSG:
+
     ```
         $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
         $vmMap = $RecoveryPlanContext.VmMap
@@ -236,23 +243,23 @@ Considere un escenario en el que solo desea un script que active una IP pública
         }
     ```
 
-El mismo script se puede utilizar con planes de recuperación diferentes y proporcionar parámetros diferentes mediante el almacenamiento del valor correspondiente a planes de recuperación diferentes en otra variable.
+Puede usar el mismo script para distintos planes de recuperación. Escriba distintos parámetros al almacenar el valor que corresponde a un plan de recuperación en variables diferentes.
 
 ## <a name="sample-scripts"></a>Scripts de ejemplo
-Implemente scripts de ejemplo en su cuenta de Automation mediante el siguiente botón Implementar en Azure.
 
-[![Implementación en Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+Para implementar scripts de ejemplo en la cuenta de Automation, haga clic en el botón **Implementar en Azure**.
 
-También puede ver un breve vídeo sobre la recuperación de una aplicación de WordPress de dos niveles en Azure.
+![Botón Implementación en Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)
+
+Para obtener otro ejemplo, vea el siguiente vídeo. En él se muestra cómo recuperar una aplicación de WordPress de dos niveles en Azure:
+
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
 
 ## <a name="additional-resources"></a>Recursos adicionales
-[Cuenta de ejecución del servicio Azure Automation](../automation/automation-sec-configure-azure-runas-account.md)
-
-[Información general sobre Automatización de Azure](http://msdn.microsoft.com/library/azure/dn643629.aspx "Información general sobre Automatización de Azure")
-
-[Scripts de Automatización de Azure de ejemplo](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Scripts de Automatización de Azure de ejemplo")
+* [Cuenta de ejecución del servicio Azure Automation](../automation/automation-sec-configure-azure-runas-account.md)
+* [Información general sobre Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "Información general sobre Azure Automation")
+* [Scripts de ejemplo de Azure Automation](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Scripts de ejemplo de Azure Automation")
 

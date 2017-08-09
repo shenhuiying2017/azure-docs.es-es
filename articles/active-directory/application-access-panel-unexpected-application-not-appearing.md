@@ -11,19 +11,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 605e68dd86e5188f8a872745164ac879c40a1278
-ms.lasthandoff: 04/17/2017
-
+ms.reviwer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9ea5744d77b90929598ea5feb80c7bbdff3772fc
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Una aplicación asignada no aparece en el panel de acceso
 
-El panel de acceso es un portal basado en web que permite que un usuario con una cuenta profesional o educativa de Azure Active Directory (Azure AD) vea e inicie las aplicaciones basadas en la nube a las que el administrador de Azure AD le ha concedido acceso. Estas aplicaciones se configuran en nombre del usuario en el portal de Azure AD. La aplicación debe configurarse correctamente y asignarse al usuario o al grupo del que el usuario es miembro para poder ver la aplicación en el panel de acceso.
+El panel de acceso es un portal basado en web que permite que un usuario con una cuenta profesional o educativa de Azure Active Directory (Azure AD) vea e inicie las aplicaciones basadas en la nube a las que el administrador de Azure AD le ha concedido acceso. Estas aplicaciones se configuran en nombre del usuario en el portal de Azure AD. La aplicación debe configurarse correctamente y asignarse al usuario o al grupo del que el usuario es miembro para poder ver la aplicación en el Panel de acceso.
 
 El tipo de aplicaciones que un usuario puede ver se dividen en las siguientes categorías:
 
@@ -55,7 +56,7 @@ Puede que una aplicación no aparezca en el panel de acceso de un usuario porque
 
 ### <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Configuración del inicio de sesión único federado para una aplicación de la galería de Azure AD
 
-Todas las aplicaciones de la galería de Azure AD habilitadas con funcionalidad de Enterprise Single Sign-On tienen un tutorial paso a paso disponible. Para instrucciones detalladas paso a paso, acceda a la [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).
+Todas las aplicaciones de la galería de Azure AD habilitadas con la funcionalidad de Enterprise Single Sign-On tienen un tutorial paso a paso disponible. Para instrucciones detalladas paso a paso, acceda a la [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).
 
 Para configurar una aplicación desde la galería de Azure AD, realice los siguientes pasos:
 
@@ -73,7 +74,7 @@ Para configurar una aplicación desde la galería de Azure AD, realice los sigui
 
 Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
-1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -83,7 +84,7 @@ Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
 5.  Haga clic en el botón **Agregar** situado en la esquina superior derecha de la hoja **Aplicaciones empresariales**.
 
-6.  En el cuadro de texto **Escribir un nombre** de la sección **Agregar desde la galería**, escriba el nombre de la aplicación.
+6.  En el cuadro de texto **Escriba un nombre** de la sección **Agregar desde la galería**, escriba el nombre de la aplicación.
 
 7.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
@@ -143,7 +144,7 @@ Para configurar el inicio de sesión único para una aplicación, siga estos pas
 
 Para seleccionar el identificador de usuario o agregar atributos de usuario, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global** o **Coadministrador**.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -178,7 +179,7 @@ Para seleccionar el identificador de usuario o agregar atributos de usuario, sig
 
 Para descargar el certificado o los metadatos de la aplicación de Azure AD, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global** o **Coadministrador**.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -214,7 +215,7 @@ Para configurar una aplicación ajena a la galería, debe tener Azure AD Premium
 
 Para configurar el inicio de sesión único para una aplicación ajena a la galería de Azure AD, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global** o **Coadministrador**.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -256,7 +257,7 @@ Para configurar el inicio de sesión único para una aplicación ajena a la gale
 
 Para seleccionar el identificador de usuario o agregar atributos de usuario, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global** o **Coadministrador**.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -291,7 +292,7 @@ Para seleccionar el identificador de usuario o agregar atributos de usuario, sig
 
 Para descargar el certificado o los metadatos de la aplicación de Azure AD, siga estos pasos:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **Administrador global** o **Coadministrador**.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -323,7 +324,7 @@ Para configurar una aplicación desde la galería de Azure AD, realice los sigui
 
 Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
-1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**.
+1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
 
@@ -443,7 +444,7 @@ Para comprobar si un usuario está asignado a la aplicación, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -475,7 +476,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga estos pa
 
   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione en la lista la aplicación que desea asignar a un usuario.
+6.  Seleccione la aplicación que desea asignar a un usuario de la lista.
 
 7.  Cuando se cargue la aplicación, haga clic en **Usuarios y grupos** desde el menú de navegación izquierdo de la aplicación.
 
@@ -503,7 +504,7 @@ Para comprobar las licencias asignadas de un usuario, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -523,7 +524,7 @@ Para asignar una licencia a un usuario, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -539,7 +540,7 @@ Para asignar una licencia a un usuario, siga estos pasos:
 
 9.  Seleccione **uno o más productos** en la lista de productos disponibles.
 
-10. **Opcional**: haga clic en el elemento **Opciones de asignación** para asignar productos de forma granular. Cuando haya finalizado este procedimiento, haga clic en **Aceptar**.
+10. **Opcional**: Haga clic en el elemento **Opciones de asignación** para asignar productos de forma granular. Cuando haya finalizado este procedimiento, haga clic en **Aceptar**.
 
 11. Haga clic en el botón **Asignar** para asignar estas licencias a este usuario.
 
@@ -561,7 +562,7 @@ Para comprobar la pertenencia de un grupo, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -593,7 +594,7 @@ Para asignar uno o varios grupos a una aplicación directamente, siga estos paso
 
   * Si no ve la aplicación que desea que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
 
-6.  Seleccione en la lista la aplicación que desea asignar a un usuario.
+6.  Seleccione la aplicación que desea asignar a un usuario de la lista.
 
 7.  Cuando se cargue la aplicación, haga clic en **Usuarios y grupos** desde el menú de navegación izquierdo de la aplicación.
 
@@ -619,7 +620,7 @@ Tras un breve período, los usuarios que seleccionó podrán iniciar estas aplic
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -643,7 +644,7 @@ Para asignar una licencia a un grupo, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
-2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal.
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Más servicios** en la parte inferior del menú de navegación izquierdo principal.
 
 3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
 
@@ -659,7 +660,7 @@ Para asignar una licencia a un grupo, siga estos pasos:
 
 9.  Seleccione **uno o más productos** en la lista de productos disponibles.
 
-10. **Opcional**: haga clic en el elemento **Opciones de asignación** para asignar productos de forma granular. Cuando haya finalizado este procedimiento, haga clic en **Aceptar**.
+10. **Opcional**: Haga clic en el elemento **Opciones de asignación** para asignar productos de forma granular. Cuando haya finalizado este procedimiento, haga clic en **Aceptar**.
 
 11. Haga clic en el botón **Asignar** para asignar estas licencias a este grupo. Esta operación puede tardar mucho tiempo, en función del tamaño y la complejidad del grupo.
 

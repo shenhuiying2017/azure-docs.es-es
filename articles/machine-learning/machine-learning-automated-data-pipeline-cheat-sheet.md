@@ -1,6 +1,6 @@
 ---
 title: "Hoja de referencia rápida de canalización de datos automatizada Azure Machine Learning | Microsoft Docs"
-description: "Una hoja de referencia rápida imprimible en la que se muestra cómo configurar una canalización de datos automatizada para el servicio web de aprendizaje automático de Azure, si los datos se encuentran en local, transmisión, en Azure, o en un servicio en la nube de terceros."
+description: "Una hoja de referencia rápida imprimible en la que se muestra cómo configurar una canalización de datos automatizada para el servicio web de Azure Machine Learning, si los datos son locales, se transmiten, o se encuentran en Azure o en un servicio en la nube de terceros."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 22f9369d18edae34f51f20712c3f92e0a57700f2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e212b2c935eb0ae64ed1cd2e6dc1564f8fcd503b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Hoja de referencia rápida de una canalización de datos automatizada para las predicciones de aprendizaje automático de Azure

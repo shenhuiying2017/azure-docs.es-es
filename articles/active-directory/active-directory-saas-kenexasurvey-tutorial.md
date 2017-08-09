@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 7ccabd34f07d9c26de143f3308eac70e2dbef0e3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5c276c23288292a1c54dd9d57177d5072b90c9e3
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Tutorial: Integración de Azure Active Directory con IBM Kenexa Survey Enterprise
@@ -28,191 +27,187 @@ En este tutorial, aprenderá a integrar IBM Kenexa Survey Enterprise con Azure A
 La integración de IBM Kenexa Survey Enterprise con Azure AD proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a IBM Kenexa Survey Enterprise.
-- Puede permitir que los usuarios inicien sesión automáticamente en IBM Kenexa Survey Enterprise (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
+- Puede permitir que los usuarios inicien sesión automáticamente en IBM Kenexa Survey Enterprise mediante el inicio de sesión único (SSO) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si quiere obtener más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, vea [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con IBM Kenexa Survey Enterprise, necesita los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción a IBM Kenexa Survey Enterprise con inicio de sesión único habilitado
+- Una suscripción habilitada para el inicio de sesión único en IBM Kenexa Survey Enterprise
 
 > [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+> No se recomienda usar un entorno de producción para probar los pasos de este tutorial.
 
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
+Para probar los pasos de este tutorial, siga estas recomendaciones:
 
 - No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único (SSO) de Azure AD en un entorno de prueba. El escenario descrito en el tutorial consta de dos bloques de creación principales:
 
-1. Adición de IBM Kenexa Survey Enterprise desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+* Adición de IBM Kenexa Survey Enterprise desde la galería
+* Configuración y prueba del inicio de sesión único de Azure AD
 
-## <a name="adding-ibm-kenexa-survey-enterprise-from-the-gallery"></a>Adición de IBM Kenexa Survey Enterprise desde la galería
-Para configurar la integración de IBM Kenexa Survey Enterprise en Azure AD, deberá agregar IBM Kenexa Survey Enterprise desde la galería a la lista de aplicaciones SaaS administradas.
+## <a name="add-ibm-kenexa-survey-enterprise-from-the-gallery"></a>Agregar IBM Kenexa Survey Enterprise desde la galería
+Para configurar la integración de IBM Kenexa Survey Enterprise en Azure AD, agregue IBM Kenexa Survey Enterprise desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar IBM Kenexa Survey Enterprise desde la galería, realice los pasos siguientes:**
+Para agregar IBM Kenexa Survey Enterprise desde la galería, siga estos pasos:
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel izquierdo de [Azure Portal](https://portal.azure.com), haga clic en el botón **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Botón Azure Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![Hoja Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+3. Para agregar una aplicación, haga clic en el botón **Nueva aplicación**.
 
-    ![Aplicaciones][3]
+    ![Botón Nueva aplicación][3]
 
 4. En el cuadro de búsqueda, escriba **IBM Kenexa Survey Enterprise**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_search.png)
 
-5. En el panel de resultados, seleccione **IBM Kenexa Survey Enterprise** y haga clic en **Agregar** para agregar la aplicación.
+5. En la lista de resultados, seleccione **IBM Kenexa Survey Enterprise** y haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
+    ![IBM Kenexa Survey Enterprise en la lista de resultados](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con IBM Kenexa Survey Enterprise con un usuario de prueba llamado "Britta Simon".
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con IBM Kenexa Survey Enterprise con un usuario de prueba llamado "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de IBM Kenexa Survey Enterprise para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de IBM Kenexa Survey Enterprise.
+Para que el inicio de sesión único funcione, Azure AD debe identificar el usuario homólogo de IBM Kenexa Survey Enterprise en Azure AD. Es decir, Azure AD debe establecer una relación de vínculo entre un usuario de Azure AD y un usuario relacionado de IBM Kenexa Survey Enterprise.
 
-Para establecer la relación de vínculo, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario** de IBM Kenexa Survey Enterprise.
+Para establecer la relación de vínculo, asigne el valor de **nombre de usuario** de IBM Kenexa Survey Enterprise como valor de **nombre de usuario** de Azure AD.
 
-Para configurar y probar el inicio de sesión único de Azure AD con IBM Kenexa Survey Enterprise, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con IBM Kenexa Survey Enterprise, complete los bloques de creación de las dos secciones siguientes.
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de IBM Kenexa Survey Enterprise](#creating-an-ibm-kenexa-survey-enterprise-test-user)**: para tener un homólogo de Britta Simon en IBM Kenexa Survey Enterprise que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación IBM Kenexa Survey Enterprise.
-
-**Para configurar el inicio de sesión único de Azure AD con IBM Kenexa Survey Enterprise, realice los pasos siguientes:**
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación IBM Kenexa Survey Enterprise siguiendo estos pasos:
 
 1. En Azure Portal, en la página de integración de la aplicación **IBM Kenexa Survey Enterprise**, haga clic en **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![Vínculo de inicio de sesión único de IBM Kenexa Survey Enterprise][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Inicio de sesión único**, en el cuadro **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
-    ![Configurar inicio de sesión único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
+    ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de IBM Kenexa Survey Enterprise**, lleve a cabo los pasos siguientes:
+3. En la sección **Dominio y direcciones URL de IBM Kenexa Survey Enterprise**, siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
+    ![Información de dominio y direcciones URL de IBM Kenexa Survey Enterprise](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
 
     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://surveys.kenexa.com/<companycode>`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`.
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
     > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Para obtener dichos valores, póngase en contacto con el [equipo de soporte técnico de IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw).
+    > Los valores anteriores no son reales. Actualícelos con el identificador y la URL de respuesta reales. Para obtener los valores reales, póngase en contacto con el [equipo de soporte técnico de IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw).
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+4. En **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
+    ![Vínculo de descarga del certificado (Base64)](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
 
-5. La aplicación IBM Kenexa Survey Enterprise espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. **User Identifier** (identificador de usuario) El valor de notificación en Response (respuesta) debe coincidir con el identificador de SSO configurado en el sistema Kenexa. Por tanto, trabaje con el [equipo de soporte técnico de IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw) para asignar el identificador de usuario adecuado en su organización como identificador de SSO. De forma predeterminada, Azure AD establecerá el **Identificador de usuario** como valor de UPN. Puede cambiarlo en la pestaña Atributo, como se muestra en la captura de pantalla siguiente. La integración solo funcionará después de completar la asignación correcta.
+    La aplicación IBM Kenexa Survey Enterprise espera recibir las aserciones del Lenguaje de marcado de aserción de seguridad (SAML) en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos de token de SAML. El valor de la notificación de identificador de usuario en la respuesta debe coincidir con el Id. de inicio de sesión único configurado en el sistema Kenexa. Para asignar el identificador de usuario adecuado en su organización como Protocolo de datagramas de Internet (IDP) de inicio de sesión único, trabaje con el [equipo de soporte técnico de IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw). 
+
+    De forma predeterminada, Azure AD establece el identificador de usuario como el valor de nombre principal de usuario (UPN). Puede cambiar este valor en la pestaña **Atributo**, como se muestra en la captura de pantalla siguiente. La integración solo funciona después de haber completado correctamente la asignación.
     
-    ![Configurar inicio de sesión único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_attribute.png) 
+    ![El cuadro de diálogo Atributos de usuario](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_attribute.png)   
 
-6. Haga clic en el botón **Guardar** .
+5. Haga clic en **Guardar**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_400.png)
+    ![Botón Guardar de Configurar inicio de sesión único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_400.png)
 
-7. En la sección **Configuración de IBM Kenexa Survey Enterprise**, haga clic en **Configurar IBM Kenexa Survey Enterprise** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+6. Para abrir la ventana **Configurar inicio de sesión**, en la sección **Configuración de IBM Kenexa Survey Enterprise**, haga clic en **Configurar IBM Kenexa Survey Enterprise**. 
+ 
+    ![El vínculo Configurar IBM Kenexa Survey Enterprise](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png)
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png) 
+7. Copie los valores de **Sign-Out URL** (Dirección URL de cierre de sesión), **SAML Entity ID** (Identificador de entidad de SAML) y **SAML single sign-on Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) de la sección **Referencia rápida**.
 
-8. Para configurar el inicio de sesión único en **IBM Kenexa Survey Enterprise**, es preciso enviar los valores de **Certificado (Base64) descargado, Sign-Out URL (Dirección URL de cierre de sesión), SAML Entity ID (identificador de entidad de SAML) y SAML Single Sign-On Service URL (Dirección URL del servicio de inicio de sesión único de SAML)** al [equipo de soporte técnico de IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw).
+8. En la ventana **Configurar inicio de sesión**, bajo **Referencia rápida**, copie los valores de **Sign-Out URL**, **SAML Entity ID** y **SAML single sign-on Service URL**.
+
+9. Para configurar el inicio de sesión único en **IBM Kenexa Survey Enterprise**, envíe los valores descargados de **Certificado (Base64)**, **Sign-Out URL** (Dirección URL de cierre de sesión), **SAMLSAML Entity ID** (Identificador de entidad de SAML) y **SAML single sign-on Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) al [equipo de soporte técnico de IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Puede consultar una versión resumida de estas instrucciones en [Azure Portal](https://portal.azure.com) mientras configura la aplicación. Después de agregar la aplicación desde la sección **Active Directory** > **Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y obtenga acceso a la documentación insertada a través de la sección **Configuración** de la parte final. Para obtener más información sobre la característica de documentación insertada, vea la [documentación insertada de Azure AD](https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+En esta sección, creará el usuario de prueba Britta Simon en Azure Portal siguiendo estos pasos:
 
-![Creación de un usuario de Azure AD][100]
+![Creación de un usuario de prueba de Azure AD][100]
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
 
-1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+    ![Botón Azure Active Directory](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_01.png) 
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_01.png) 
-
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
     
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_02.png) 
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
  
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_03.png) 
+    ![Botón Agregar](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
  
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_04.png) 
+    ![Cuadro de diálogo Usuario](./media/active-directory-saas-kenexasurvey-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
     d. Haga clic en **Crear**.
  
-### <a name="creating-an-ibm-kenexa-survey-enterprise-test-user"></a>Creación de un usuario de prueba de IBM Kenexa Survey Enterprise
+### <a name="create-an-ibm-kenexa-survey-enterprise-test-user"></a>Creación de un usuario de prueba de IBM Kenexa Survey Enterprise
 
 En esta sección, creará un usuario llamado Britta Simon en IBM Kenexa Survey Enterprise. 
 
-Póngase en contacto con el [equipo de soporte técnico de IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw) para crear los usuarios en el sistema y asignarles el identificador de SSO. Este valor de identificador de SSO también debe asignarse al valor User Identifier (identificador de usuario) de Azure AD. Puede cambiar esta configuración predeterminada en la pestaña Atributo.
+Para crear usuarios en el sistema IBM Kenexa Survey Enterprise y asignarles el identificador de SSO, puede trabajar con el [equipo de soporte técnico de IBM Kenexa Survey Enterprise](https://www.ibm.com/support/home/?lnk=fcw). Este valor de identificador de SSO también debe asignarse al valor user identifier (identificador de usuario) de Azure AD. Puede cambiar esta configuración predeterminada en la pestaña **Atributo**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá acceso a Britta Simon a IBM Kenexa Survey Enterprise para que use el inicio de sesión único de Azure.
+En esta sección, concederá acceso al usuario Britta Simon a IBM Kenexa Survey Enterprise para que use el inicio de sesión único de Azure.
 
-![Asignar usuario][200] 
+![Asignación del rol de usuario][200] 
 
-**Para asignar a Britta Simon a IBM Kenexa Survey Enterprise, realice los pasos siguientes:**
+Para asignar al usuario Britta Simon a IBM Kenexa Survey Enterprise, siga estos pasos:
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista **Aplicaciones**, vaya a la vista **Directorio**, seleccione **Aplicaciones empresariales** y después haga clic en **Todas las aplicaciones**.
 
-    ![Asignar usuario][201] 
+    ![Vínculos "Aplicaciones empresariales" y "Todas las aplicaciones"][201] 
 
-2. En la lista de aplicaciones, seleccione **IBM Kenexa Survey Enterprise**.
+2. En la lista **Aplicaciones**, seleccione **IBM Kenexa Survey Enterprise**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
+    ![Vínculo IBM Kenexa Survey Enterprise en la lista Aplicaciones](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+3. En el panel izquierdo, haga clic en **Usuarios y grupos**.
 
-    ![Asignar usuario][202] 
+    ![Vínculo "Usuarios y grupos"][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar** y, después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
 
-    ![Asignar usuario][203]
+    ![Panel Agregar asignación][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+5. En el cuadro de diálogo **Usuarios y grupos**, en la lista **Usuarios** seleccione **Britta Simon**.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+6. En el cuadro de diálogo **Usuarios y grupos**, haga clic en el botón **Seleccionar**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
     
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.
 
-Al hacer clic en el icono de IBM Kenexa Survey Enterprise en el panel de acceso, debería iniciar sesión automáticamente en su aplicación IBM Kenexa Survey Enterprise.
+Al hacer clic en el icono de **IBM Kenexa Survey Enterprise** en el panel de acceso, debería iniciar sesión automáticamente en su aplicación IBM Kenexa Survey Enterprise.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -233,4 +228,5 @@ Al hacer clic en el icono de IBM Kenexa Survey Enterprise en el panel de acceso,
 [202]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_203.png
 
+ 
 

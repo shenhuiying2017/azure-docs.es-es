@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/17/2017
+ms.date: 7/20/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 9b2e78ff55ed23732892d605f3edef6a5afdf7ad
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Protección de Active Directory y DNS con Azure Site Recovery
@@ -83,8 +82,7 @@ La mayoría de las aplicaciones también requieren la presencia de un controlado
 1. Cree una red aislada. Cualquier red virtual que se cree en Azure de forma predeterminada está aislada de otras redes. Se recomienda que el intervalo de dirección IP para esta red sea el mismo que el de la red de producción. No habilite la conectividad de sitio a sitio en esta red.
 1. Proporcione una dirección IP de DNS en la red que se ha creado, como la dirección IP que se espera que la máquina virtual DNS obtenga. Si realiza la replicación en Azure, indique la dirección IP de la máquina virtual que se usa en la conmutación por error en la opción **IP de destino**, en **Proceso y red**. 
 
-    ![IP de destino](./media/site-recovery-active-directory/DNS-Target-IP.png)
-    **IP de destino**
+    ![IP de destino](./media/site-recovery-active-directory/DNS-Target-IP.png) **IP de destino**
 
     ![Red de prueba de Azure](./media/site-recovery-active-directory/azure-test-network.png)
 

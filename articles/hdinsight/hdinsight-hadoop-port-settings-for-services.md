@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/02/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: ffd8c494d821d41532c9a31613b10b521ff4d86b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b1a4ca17a53a6d337d704bc4eef6d441de1f32d8
 ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Hadoop en HDInsight
@@ -75,6 +74,14 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 
 > [!NOTE]
 > Algunos servicios solo están disponibles en determinados tipos de clúster. Por ejemplo, HBase solo está disponible en los tipos de clúster de HBase.
+
+### <a name="ambari"></a>Ambari
+
+| Servicio | Nodos | Port | Ruta de acceso | Protocol | 
+| --- | --- | --- | --- | --- |
+| Interfaz de usuario web de Ambari | Nodos principales | 8080 | / | HTTP |
+| API de REST de Ambari | Nodos principales | 8080 | /api/v1 | HTTP |
+
 
 ### <a name="hdfs-ports"></a>Puertos HDFS
 

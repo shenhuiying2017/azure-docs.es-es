@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: chrande; glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: a930e02313aa0a2238ecfaa31af68d59b2c8e961
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 58b6d5c6ef40891e56ea4811f5e778286bdb8bc3
 ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Enlaces de Service Bus en Azure Functions
@@ -76,7 +75,7 @@ Tenga en cuenta lo siguiente:
 
 ## <a name="trigger-behavior"></a>Comportamiento de un desencadenador
 * **Subprocesamiento único**: De forma predeterminada, el runtime de Functions procesa simultáneamente varios mensajes en cola. Para indicar al runtime que procese los mensajes de la cola o del tema de uno en uno, establezca `serviceBus.maxConcurrentCalls` en 1 en el archivo *host.json*. 
-  Para más información acerca de *host.json*, consulte [Estructura de carpetas](functions-reference.md#folder-structure) y [host.json](https://git .com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+  Para más información acerca de *host.json*, consulte [Estructura de carpetas](functions-reference.md#folder-structure) y [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Gestión de mensajes dudosos**: Service Bus realiza su propio tratamiento de mensajes dudosos, que no se puede controlar ni configurar en el código ni en la configuración de Azure Functions. 
 * **Comportamiento de PeekLock**: El sistema en tiempo de ejecución de Funciones recibe un mensaje en el [modo `PeekLock`](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) y llama a `Complete` en el mensaje si la función finaliza correctamente, o bien llama a `Abandon` si se produce un error en la función. 
   Si la ejecución de la función dura más que el tiempo de espera de `PeekLock`, el bloqueo se renovará automáticamente.

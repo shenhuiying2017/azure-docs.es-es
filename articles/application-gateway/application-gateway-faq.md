@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 3b2ddf764f54d2e7f23b02b5b593077938ac9355
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dbf870ca6e0ab85c96290a93eafd47d4b574dbc7
 ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -57,7 +56,11 @@ Application Gateway es una implementación dedicada en su red virtual.
 
 **P. ¿Se admite la redirección HTTP->HTTPS?**
 
-Actualmente no se admite.
+Se admite el redireccionamiento. Visite [Introducción al redireccionamiento de Application Gateway](application-gateway-redirect-overview.md) para obtener más información.
+
+**P. ¿En qué orden se procesan los agentes de escucha?**
+
+Los agentes de escucha se procesan en el orden en que aparecen. Por este motivo, si un agente de escucha coincide con una solicitud entrante, se procesará primero.  Los agentes de escucha de varios sitios deben configurarse antes de un agente de escucha básico para asegurarse de que el tráfico se enrute al back-end correcto.
 
 **P. ¿Dónde se encuentra la dirección IP y el DNS de Application Gateway?**
 
@@ -131,6 +134,10 @@ Se admite la arquitectura de microservicios. Necesitaría varias opciones de con
 
 Los sondeos personalizados no admiten caracteres comodín o regex en los datos de respuesta.
 
+**P. ¿Cómo se procesan las reglas?**
+
+Las reglas se procesan en el orden en que están configuradas. Se recomienda que las reglas de varios sitios se configuren antes de las reglas básicas para reducir la posibilidad de que el tráfico se enrute al back-end inadecuado, ya que la regla básica coincidiría con el tráfico basado en el puerto antes de que se evalúe la regla de varios sitios.
+
 **P. ¿Qué significa el campo Host de los sondeos personalizados?**
 
 El campo Host especifica el nombre al que enviar el sondeo. Solo se puede aplicar cuando se ha configurado un entorno multisitio en Application Gateway; de lo contrario hay que usar '127.0.0.1'. Este valor es diferente del nombre de host de máquina virtual y está en formato \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\>.
@@ -153,7 +160,7 @@ Esto puede hacerse mediante el uso de NSG en la subred de Application Gateway. L
 
 **P. ¿Cómo admite Application Gateway la alta disponibilidad y la escalabilidad?**
 
-Application Gateway admite escenarios de alta disponibilidad si tiene más de 2 instancias implementadas. Azure distribuye estas instancias entre dominios de actualización y de errores para asegurarse de que todas las instancias no produzcan un error al mismo tiempo. Application Gateway admite la escalabilidad mediante la adición de varias instancias de la misma puerta de enlace para compartir la carga.
+Application Gateway admite escenarios de alta disponibilidad si tiene 2 o más instancias implementadas. Azure distribuye estas instancias entre dominios de actualización y de errores para asegurarse de que todas las instancias no produzcan un error al mismo tiempo. Application Gateway admite la escalabilidad mediante la adición de varias instancias de la misma puerta de enlace para compartir la carga.
 
 **P. ¿Cómo se puede lograr el escenario de recuperación ante desastres a través de centros de datos con Application Gateway?**
 

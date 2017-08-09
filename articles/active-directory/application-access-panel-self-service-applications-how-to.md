@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 9fc961ca143d4c9d0ab8bb0224fd350df890b55c
-ms.lasthandoff: 04/11/2017
-
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 08a05a70d976104d4e0a37b0a0dd15042b0212d8
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -81,7 +82,7 @@ Para habilitar el acceso de autoservicio a las aplicaciones, siga estos pasos:
 
 Cuando se haya completado la configuración de la aplicación de autoservicio, los usuarios pueden navegar a sus [paneles de acceso a las aplicaciones](https://myapps.microsoft.com/) y hacer clic en el botón **+ Agregar** para buscar las aplicaciones para las que se ha habilitado el acceso de autoservicio. Los aprobadores de la empresa pueden también ver una notificación en sus [paneles de acceso a las aplicaciones](https://myapps.microsoft.com/). Puede habilitar un correo electrónico que les informa cuando un usuario ha solicitado el acceso a una aplicación que requiere su aprobación. 
 
-Estas aprobaciones admiten flujos de trabajo de aprobación única, lo que significa que si especifica varios aprobadores, cualquier aprobador individual puede aprobar el acceso a la aplicación.
+Estas aprobaciones solo admiten flujos de trabajo de aprobación única, lo que significa que, si especifica varios aprobadores, cualquier aprobador individual puede aprobar el acceso a la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Configuración de Azure Active Directory para la administración de grupos de autoservicio](active-directory-accessmanagement-self-service-group-management.md)

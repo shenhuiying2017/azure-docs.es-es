@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 24d6a25e872eabb7d64d57d5ee66969401e4f1cd
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Ejemplo 3: Creación de una red perimetral para proteger las redes con un firewall, enrutamiento definido por el usuario y grupo de seguridad de red
@@ -84,7 +85,7 @@ Si hay dos prefijos idénticos en la tabla de enrutamiento, el orden de preferen
 3. "Default" = las rutas del sistema, la red virtual local y las entradas estáticas, tal y como se muestra en la tabla de enrutamiento anterior.
 
 > [!NOTE]
-> Ahora puede usar el enrutamiento definido por usuario (UDR) con ExpressRoute e instancias de Puerta de enlace de VPN para forzar que el tráfico entrante y saliente entre locales se enrute a un dispositivo de red virtual (NVA).
+> Ahora puede usar el enrutamiento definido por usuario (UDR) con ExpressRoute y puertas de enlace de VPN para forzar que el tráfico entrante y saliente entre locales se enrute a un dispositivo de red virtual (NVA).
 > 
 > 
 
@@ -274,11 +275,11 @@ Este proceso debe repetirse para crear servicios RDP para los demás servidores:
 ### <a name="firewall-rules-creation"></a>Creación de reglas de firewall
 En este ejemplo se usan tres tipos de reglas de firewall, todas ellas con iconos distintos:
 
-La regla Redirección de aplicación:  ![Icono de redirección de aplicación][7]
+Regla de redirección de la aplicación: ![icono Redirección de aplicación][7]
 
-La regla NAT de destino:  ![Icono de NAT de destino][8]
+Regla de NAT de destino: ![icono NAT de destino][8]
 
-La regla Paso:  ![Icono de Paso][9]
+Regla de paso: ![icono Paso][9]
 
 Encontrará más información sobre estas reglas en el sitio web de Barracuda.
 
@@ -325,7 +326,7 @@ A continuación se describen los detalles de cada regla necesarios para completa
   
     Primero se describe la regla front-end para el tráfico web:
   
-    ![Regla web de firewall][12]
+    ![Regla de Web de firewall][12]
   
     Esta regla NAT de destino permite que el tráfico de aplicación real llegue al servidor de aplicaciones. Mientras que las demás reglas permiten seguridad, administración, etc., las reglas de aplicación son las que permiten a los usuarios o servicios externos obtener acceso a las aplicaciones. En este ejemplo, hay un único servidor web en el puerto 80, por lo tanto, una única regla de aplicación de firewall redirigirá el tráfico entrante a la dirección IP externa y a la dirección IP interna de los servidores web.
   
@@ -983,9 +984,4 @@ Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red p
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

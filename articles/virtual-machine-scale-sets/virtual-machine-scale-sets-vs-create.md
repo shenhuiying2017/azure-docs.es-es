@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 5f02d36bfc5aa390bba345f084ce530c27bb6520
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Procedimiento para crear un conjunto de escalado de máquinas virtuales con Visual Studio
@@ -91,7 +91,7 @@ Una vez finalizada la implementación, puede ver el nuevo conjunto de escalado d
 
 ![Cloud Explorer][cloud_explorer]
 
- El portal es la mejor opción para administrar visualmente la infraestructura de Azure con un explorador web, mientras que el Explorador de recursos de Azure ofrece una forma sencilla de explorar y depurar los recursos de Azure al proporcionar una ventana en la "vista de instancias" y mostrar también los comandos de PowerShell para los recursos que está mirando. Aunque los conjuntos de escalado de máquinas virtuales se encuentran disponibles en la versión preliminar, en el Explorador de recursos se muestran todos los detalles de estos conjuntos.
+ El portal es la mejor opción para administrar visualmente la infraestructura de Azure con un explorador web, mientras que Azure Resource Explorer ofrece una forma sencilla de explorar y depurar los recursos de Azure al proporcionar una ventana en la "vista de instancias" y mostrar también los comandos de PowerShell para los recursos que está mirando.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de implementar satisfactoriamente los conjuntos de escalado de máquinas virtuales en Visual Studio, puede personalizar aún más el proyecto para satisfacer las necesidades de la aplicación. Por ejemplo, configurar el escalado automático agregando un recurso de **Insights**, agregar infraestructura a la plantilla (como máquinas virtuales independientes) o implementar aplicaciones con la extensión del script personalizado. Se puede encontrar una buena serie de plantillas de ejemplo en el repositorio de GitHub de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates) (busque "vmss").

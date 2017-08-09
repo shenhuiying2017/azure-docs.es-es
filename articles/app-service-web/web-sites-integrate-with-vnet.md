@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5c8268a90c5e14839ed97daa6a186d170f5a4cc3
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 31b4f69a2870e619255feac6bed3679efb03f568
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una red virtual de Azure
@@ -95,7 +95,7 @@ Si la red virtual carece de puerta de enlace o de conectividad de punto a sitio,
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Habilitación de punto a sitio en una red virtual de Resource Manager
-Para configurar una red virtual de Resource Manager con una puerta de enlace y la conexión de punto a sitio, puede usar PowerShell tal y como se describe aquí ([Configuración de una conexión punto a sitio a una red virtual mediante PowerShell][V2VNETP2S]) o utilizar Azure Portal tal como se explica aquí ([Configuración de una conexión de punto a sitio a una red virtual mediante Azure Portal][V2VNETPortal]).  La interfaz de usuario que debe realizar esta funcionalidad no está aún disponible. 
+Para configurar una red virtual de Resource Manager con una puerta de enlace y la conexión de punto a sitio, puede usar PowerShell tal y como se describe aquí ([Configuración de una conexión punto a sitio a una red virtual mediante PowerShell][V2VNETP2S]) o utilizar Azure Portal tal como se explica aquí ([Configuración de una conexión de punto a sitio a una red virtual mediante Azure Portal][V2VNETPortal]).  La interfaz de usuario que debe realizar esta funcionalidad no está aún disponible. Tenga en cuenta que no necesitará crear certificados para la configuración de punto a sitio. Esto se configurará automáticamente cuando se conecte la aplicación web a la red virtual. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Creación de una red virtual preconfigurada
 Si desea crear una nueva red virtual que esté configurada con una puerta de enlace y una conexión de punto a sitio, la interfaz de usuario de redes del Servicio de aplicaciones dispone de la funcionalidad para hacerlo, pero solo para una red virtual de Resource Manager.  Si desea crear una red virtual clásica con una puerta de enlace y conexión de punto a sitio, deberá hacerlo manualmente a través de la interfaz de usuario de redes. 
@@ -177,11 +177,11 @@ Con respecto a las acciones, existen dos principales.  La primera es la capacida
 **Certificados** El campo Estado de certificado refleja que el Servicio de aplicaciones está llevando a cabo una comprobación para confirmar que los certificados que se estén usando para la conexión VPN sigan siendo válidos.  Cuando se habilita Integración con redes virtuales, si es la primera integración con dicha red virtual desde las aplicaciones de este plan de servicio de aplicaciones, se produce un intercambio obligatorio de certificados para garantizar la seguridad de la conexión.  Junto con los certificados, se obtienen la configuración de DNS, las rutas y otros elementos similares que describen la red.
 Si cambian los certificados o la información de red, será necesario hacer clic en "Sincronizar red".  **NOTA**: al hacer clic en "Sincronizar red", se producirá una breve interrupción en la conectividad entre la aplicación y la red virtual.  Aunque no se reiniciará la aplicación, la pérdida de conectividad podría hacer que su sitio no funcione correctamente.  
 
-## <a name="accessing-on-premise-resources"></a>Obtener acceso a recursos locales
-Una de las ventajas de la característica Integración con redes virtuales es que, si la red virtual está conectada a la red local con una VPN de sitio a sitio, las aplicaciones pueden acceder a los recursos locales desde su aplicación.  Pero, para que esto funcione, puede que necesite actualizar la puerta de enlace de VPN local con las rutas de su intervalo de direcciones IP de punto a sitio.  En la configuración inicial de la VPN de sitio a sitio, los scripts que se usan para configurarla deberían también configurar las rutas, incluida la VPN de punto a sitio.  Si agrega la VPN de punto a sitio después de crear la VPN de sitio a sitio, deberá actualizar las rutas manualmente.  El procedimiento variará según la puerta de enlace y no se describe aquí.  
+## <a name="accessing-on-premises-resources"></a>Obtener acceso a recursos locales
+Una de las ventajas de la característica Integración con red virtual es que, si la red virtual está conectada a la red local con una VPN de sitio a sitio, las aplicaciones pueden acceder a los recursos locales desde su aplicación.  Para que esto funcione, puede que necesite actualizar la puerta de enlace de VPN local con las rutas de su intervalo de direcciones IP de punto a sitio.  En la configuración inicial de la VPN de sitio a sitio, los scripts que se usan para configurarla deberían también configurar las rutas, incluida la VPN de punto a sitio.  Si agrega la VPN de punto a sitio después de crear la VPN de sitio a sitio, deberá actualizar las rutas manualmente.  El procedimiento variará según la puerta de enlace y no se describe aquí.  
 
 > [!NOTE]
-> Aunque la característica Integración con redes virtuales funcionará con una VPN de sitio a sitio para acceder a los recursos locales, actualmente no funcionará con una VPN ExpressRoute para hacer lo mismo.  Es lo que ocurre cuando se integra con una red virtual clásica o de Resource Manager.  Si necesita tener acceso a recursos a través de una VPN de ExpressRoute puede utilizar un ASE que se pueda ejecutar en la red virtual. 
+> La característica Integración con red virtual no integra una aplicación con una red virtual que tiene una puerta de enlace de ExpressRoute. Incluso si la puerta de enlace de ExpressRoute está configurada en [modo de coexistencia] [ VPNERCoex] no funcionará. Si necesita tener acceso a los recursos mediante una conexión de ExpressRoute, puede utilizar una instancia de [App Service Environment][ASE] que se ejecute en la red virtual.
 > 
 > 
 
@@ -249,7 +249,7 @@ Otros pasos de depuración son:
 
 * iniciar sesión en otra máquina virtual de la red virtual e intentar acceder al host:puerto de recursos desde ella.  Hay algunas utilidades ping basadas en TCP que sirven para este propósito o incluso puede usar telnet si es necesario.  El objetivo es solamente determinar si existe conectividad desde esta otra máquina virtual; 
 * abrir una aplicación en otra máquina virtual y probar el acceso a ese host y ese puerto desde la consola de la aplicación.  
-  ####<a name="on-premise-resources"></a>Recursos locales####
+  ####<a name="on-premises-resources"></a>recursos locales####
   Si no puede acceder a los recursos locales, lo primero que debe comprobar es si puede llegar a un recurso de la red virtual.  Si eso funciona, los siguientes pasos son bastante sencillos.  Debe intentar conectarse a la aplicación local desde una máquina virtual de la red virtual.  Puede usar telnet o una utilidad ping basada en TCP.  Si la máquina virtual no puede acceder al recurso local, primero asegúrese de que funciona la conexión VPN de sitio a sitio.  Si funciona, compruebe lo mismo que se indicó antes, así como el estado y la configuración de la puerta de enlace local.  
 
 Ahora bien, si la máquina virtual hospedada en la red virtual puede acceder a su sistema local pero la aplicación no puede, es probable que el motivo sea uno de los siguientes:
@@ -276,7 +276,7 @@ Aunque algunos casos de uso se solapan, ninguna de estas características puede 
 * Si es una gran organización que desea colocar un gran número de propiedades web en la nube pública y administrarlas en su propia red, entonces le interesará Entorno del Servicio de aplicaciones.  
 * Si tiene varias aplicaciones hospedadas con el Servicio de aplicaciones y simplemente desea acceder a recursos de la red virtual, Integración con redes virtuales es la mejor opción.  
 
-Más allá de los casos de uso, hay diversos aspectos relacionados con la simplicidad.  Si la red virtual ya está conectada a la red local, usar Integración con redes virtuales o un entorno del Servicio de aplicaciones es una manera fácil de consumir recursos locales.  Por otro lado, si la red virtual no está conectada a la red local, resulta mucho más trabajoso configurar una VPN de sitio a sitio con la red virtual en comparación con instalar el HCM.  
+Más allá de los casos de uso, hay diversos aspectos relacionados con la simplicidad.  Si la red virtual ya está conectada a la red local, usar Integración con red virtual o una instancia de App Service Environment es una manera fácil de consumir recursos locales.  Por otro lado, si la red virtual no está conectada a la red local, resulta mucho más trabajoso configurar una VPN de sitio a sitio con la red virtual en comparación con instalar el HCM.  
 
 Además de las diferencias funcionales, existen también diferencias de precio.  La característica Entorno del Servicio de aplicaciones es un servicio premium, pero ofrece la mayor variedad de configuraciones de red, además de otras características interesantes.  Integración con redes virtuales se puede usar con planes de servicio de aplicaciones Estándar o Premium y es ideal para consumir de forma segura recursos de la red virtual desde el Servicio de aplicaciones con varios inquilinos.  Actualmente, Conexiones híbridas depende de un cuenta de BizTalk con niveles de precios que comienzan de forma gratuita y progresivamente van aumentando según la cantidad que necesite.  Sin embargo, cuando se necesita trabajar en muchas redes, no hay ninguna característica como Conexiones híbridas, que permite acceder a recursos de más de 100 redes distintas.    
 
@@ -301,4 +301,6 @@ Además de las diferencias funcionales, existen también diferencias de precio. 
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
 [V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
+[VPNERCoex]: http://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager
+[ASE]: http://docs.microsoft.com/azure/app-service/app-service-environment/intro
 

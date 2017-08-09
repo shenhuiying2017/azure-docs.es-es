@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5e1819a9f081284fa03e9355730689629166006f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 015096a48e5287af6b225f16a38fac328ed28630
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Administración de recursos de Batch con cmdlets de PowerShell
@@ -101,7 +100,7 @@ Utilice cmdlets, como **New-AzureBatchPool**, **New-AzureBatchJob** y **New-Azur
 Cuando se utilizan muchos de estos cmdlets, además de pasar un objeto BatchContext, es preciso crear o pasar objetos que contienen la configuración detallada de los recursos, como se muestra en el ejemplo siguiente. Para obtener ejemplos adicionales, consulte la ayuda detallada de cada cmdlet.
 
 ### <a name="create-a-batch-pool"></a>Crear un grupo de Lote
-Al crear o actualizar un grupo de Lote, seleccione una configuración de servicio en la nube o una configuración de máquina virtual para el sistema operativo en los nodos de proceso (consulte [Información general de las características de Lote para desarrolladores](batch-api-basics.md#pool)). La elección determina si se crean imágenes de los nodos de proceso con una de las [versiones de SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases) o con una de las imágenes de máquina virtual Linux o Windows compatibles de Azure Marketplace.
+Al crear o actualizar un grupo de Batch, seleccione una configuración de servicio en la nube o una configuración de máquina virtual para el sistema operativo en los nodos de proceso (consulte [Información general de las características de Batch para desarrolladores](batch-api-basics.md#pool)). Si se especifica la configuración de servicio en la nube, se crea la imagen de sus nodos de proceso con una de las [versiones del SO invitado de Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Si se especifica la configuración de máquina virtual, puede especificar alguna de las imágenes de máquina virtual de Linux o Windows que aparecen en [Azure Virtual Machines Marketplace][vm_marketplace], o proporcionar una imagen personalizada que haya preparado.
 
 Al ejecutar **New-AzureBatchPool**, pase la configuración del sistema operativo en un objeto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Por ejemplo, el siguiente cmdlet crea un nuevo grupo de Lote con nodos de proceso de tamaño pequeño en la configuración del servicio en la nube, con una imagen de la última versión de sistema operativo de familia 3 (Windows Server 2012). En este caso, el parámetro **CloudServiceConfiguration** especifica la variable *$configuration* como objeto PSCloudServiceConfiguration. El parámetro **BatchContext** especifica una variable definida anteriormente *$context* como objeto BatchAccountContext.
 
@@ -241,4 +240,4 @@ Ahora, las propiedades del grupo están actualizadas en el servicio Batch. Para 
 * Para conocer la sintaxis detallada de cmdlets y ejemplos de los mismos, consulte [Azure Batch Cmdlets](/powershell/module/azurerm.batch/#batch)(Cmdlets de Lote de Azure).
 * Para más información sobre las aplicaciones y los paquetes de aplicación de Batch, consulte [Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch](batch-application-packages.md).
 
-
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

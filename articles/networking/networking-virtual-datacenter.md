@@ -5,17 +5,17 @@ services: networking
 author: tracsman
 manager: rossort
 tags: azure-resource-manager
-ms.service: networking
+ms.service: virtual-network
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: df2e834dd06a00716aa4991af62277791b6768f5
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 487c2dc22acc5194ef103ebef01c62c887580335
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -36,7 +36,7 @@ El siguiente diagrama de implementación en la nube muestra algunos ejemplos de 
 
 El centro de datos virtual (VDC) surgió de esta necesidad de escalado para admitir las cargas de trabajo empresariales y de la necesidad de tratar los problemas surgidos al implementar aplicaciones a gran escala en la nube pública.
 
-Un centro de datos virtual no es solo las cargas de trabajo de aplicaciones en la nube, sino también la red, la seguridad, la administración y la infraestructura (por ejemplo, los servicios de directorio y DNS). Habitualmente también proporciona una conexión privada con la red o centro de datos local. Dado que cada vez se mueven más cargas de trabajo a Azure, es importante pensar en la infraestructura de soporte y los objetos en los que se colocan estas cargas de trabajo. Pensar detenidamente sobre cómo se estructuran los recursos puede evitar la proliferación de cientos de "islas de cargas de trabajo" que deben administrarse por separado con flujo de datos y modelos de seguridad independientes y desafíos de cumplimiento de normas.
+Un centro de datos virtual no es solo las cargas de trabajo de aplicaciones en la nube, sino también la red, la seguridad, la administración y la infraestructura (por ejemplo, los servicios de directorio y DNS). Habitualmente también proporciona una conexión privada con una red o centro de datos local. Dado que cada vez se mueven más cargas de trabajo a Azure, es importante pensar en la infraestructura de soporte y los objetos en los que se colocan estas cargas de trabajo. Pensar detenidamente sobre cómo se estructuran los recursos puede evitar la proliferación de cientos de "islas de cargas de trabajo" que deben administrarse por separado con flujo de datos y modelos de seguridad independientes y desafíos de cumplimiento de normas.
 
 Un centro de datos virtual es esencialmente una colección de entidades independientes, aunque relacionadas, con funciones, características e infraestructura de soporte en común. Al ver las cargas de trabajo como un centro de datos virtual integrado, puede reducir el costo por las economías de escala y la optimización de la seguridad con la centralización de los componentes y flujos de datos, junto con unas operaciones, administración y cumplimiento de auditorías más sencillo.
 

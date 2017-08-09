@@ -1,10 +1,10 @@
 ---
-title: 'Aprendizaje de Node.js: tutorial de Node.js para Azure Cosmos DB | Microsoft Docs'
-description: "Aprenda Node.js. El tutorial explora cómo usar Microsoft Azure Cosmos DB para almacenar datos de una aplicación web Node.js Express hospedada en Azure Websites y acceder a ellos."
-keywords: "Desarrollo de aplicaciones, tutorial de base de datos, información sobre node.js, tutorial de node.js, documentdb, azure, Microsoft azure"
+title: "Compilación de una aplicación web de Node.js para Azure Cosmos DB | Microsoft Docs"
+description: "Este tutorial de Node.js explora cómo usar Microsoft Azure Cosmos DB para almacenar datos de una aplicación web Node.js Express hospedada en Azure Websites y acceder a ellos."
+keywords: "Desarrollo de aplicaciones, tutorial de base de datos, información sobre node.js, tutorial de node.js"
 services: cosmos-db
 documentationcenter: nodejs
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: syamk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 511c9e4d6f68b3e063559acb5996111acd3c653f
+ms.date: 07/06/2017
+ms.author: mimig
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dd5ba797fe973dddc16231f42d5f561e1956b91c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="_Toc395783175"></a>Creación de una aplicación web de Node.js con Azure Cosmos DB
@@ -50,7 +49,7 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 
    OR
 
-   Una instalación local del [Emulador de Azure Cosmos DB](local-emulator.md).
+   Una instalación local del [Emulador de Azure Cosmos DB](local-emulator.md) (solo Windows).
 * [Node.js][Node.js] versión v0.10.29 o superior.
 * [Express Generator](http://www.expressjs.com/starter/generator.html) (puede instalarlo mediante `npm install express-generator -g`)
 * [Git][Git].
@@ -62,7 +61,7 @@ Para comenzar, creemos una cuenta de Azure Cosmos DB. Si ya tiene una cuenta o s
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>Paso 2: Creación de una nueva aplicación Node.js
+## <a name="_Toc395783178"></a>Paso 2: Creación de una aplicación Node.js
 Ahora aprendamos a crear un proyecto Node.js básico de Hello World usando el marco [Express](http://expressjs.com/) .
 
 1. Abra su terminal favorito como, por ejemplo, el símbolo del sistema de Node.js.
@@ -435,69 +434,76 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 1. El archivo **layout.jade** del directorio **views** se utiliza como plantilla global para otros archivos **.jade**. En este paso podrá modificarlo para utilizar [Twitter Bootstrap](https://github.com/twbs/bootstrap), un kit de herramientas que facilita el diseño de un sitio web atractivo. 
 2. Abra el archivo **layout.jade** que se encuentra en la carpeta **views** y reemplace el contenido con lo siguiente:
-   
-        doctype html
-        html
-           head
-             title= title
-             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-             link(rel='stylesheet', href='/stylesheets/style.css')
-           body
-             nav.navbar.navbar-inverse.navbar-fixed-top
-               div.navbar-header
-                 a.navbar-brand(href='#') My Tasks
-             block content
-             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+
+    ```
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body
+        nav.navbar.navbar-inverse.navbar-fixed-top
+          div.navbar-header
+            a.navbar-brand(href='#') My Tasks
+        block content
+        script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+    ```
 
     Esto indica al motor **Jade** que represente HTML de nuestra aplicación y que cree un **block** llamado **content** donde podemos especificar el diseño de nuestras páginas de contenido.
+
     Guarde y cierre este archivo **layout.jade** .
 
 3. Ahora abra el archivo **index.jade** , la vista que utilizará nuestra aplicación, y reemplace el contenido del archivo por lo siguiente:
-   
-        extends layout
-        block content
-           h1 #{title}
-           br
-        
-           form(action="/completetask", method="post")
-             table.table.table-striped.table-bordered
-               tr
-                 td Name
-                 td Category
-                 td Date
-                 td Complete
-               if (typeof tasks === "undefined")
-                 tr
-                   td
-               else
-                 each task in tasks
-                   tr
-                     td #{task.name}
-                     td #{task.category}
-                     - var date  = new Date(task.date);
-                     - var day   = date.getDate();
-                     - var month = date.getMonth() + 1;
-                     - var year  = date.getFullYear();
-                     td #{month + "/" + day + "/" + year}
-                     td
-                       input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-             button.btn(type="submit") Update tasks
-           hr
-           form.well(action="/addtask", method="post")
-             label Item Name:
-             input(name="name", type="textbox")
-             label Item Category:
-             input(name="category", type="textbox")
-             br
-             button.btn(type="submit") Add item
-   
+
+    ```
+    extends layout
+    block content
+      h1 #{title}
+      br
+    
+      form(action="/completetask", method="post")
+        table.table.table-striped.table-bordered
+          tr
+            td Name
+            td Category
+            td Date
+            td Complete
+          if (typeof tasks === "undefined")
+            tr
+              td
+          else
+            each task in tasks
+              tr
+                td #{task.name}
+                td #{task.category}
+                - var date  = new Date(task.date);
+                - var day   = date.getDate();
+                - var month = date.getMonth() + 1;
+                - var year  = date.getFullYear();
+                td #{month + "/" + day + "/" + year}
+                td
+                  input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+        button.btn(type="submit") Update tasks
+      hr
+      form.well(action="/addtask", method="post")
+        label Item Name:
+        input(name="name", type="textbox")
+        label Item Category:
+        input(name="category", type="textbox")
+        br
+        button.btn(type="submit") Add item
+    ```
+
     Esto amplía el diseño y proporciona contenido para el marcador de posición **content** que hemos visto anteriormente en el archivo **layout.jade**.
    
-    En este diseño hemos creado dos formularios HTML. 
+    En este diseño hemos creado dos formularios HTML.
+
     El primer formulario contiene una tabla para nuestros datos y un botón que nos permite actualizar los elementos publicando en el método **/completetask** de nuestro controlador.
+    
     El segundo formulario contiene dos campos de entrada y un botón que nos permite crear un nuevo elemento publicando en el método **/addtask** de nuestro controlador.
-   
+
     Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
 4. Abra el archivo **style.css** ubicado en el directorio **public\stylesheets** y reemplace el código por lo siguiente:
    

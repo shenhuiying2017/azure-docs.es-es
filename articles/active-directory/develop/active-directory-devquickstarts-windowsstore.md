@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3a78fe76119d1c748b5b75c00148a3e2a6f4a2b8
-ms.openlocfilehash: adfc28c7e41f49ce65309a316703fba57463040f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6b5189dc06d7f8b0ed4426944948b904feba847e
 ms.contentlocale: es-es
-ms.lasthandoff: 02/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-azure-ad-with-windows-store-apps"></a>Integración de Azure AD con aplicación de la Tienda Windows
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+> [!NOTE]
+> Los proyectos de Windows Store 8.1 y de la versión anterior no son compatibles con Visual Studio 2017.  Para más información, consulte [Compatibilidad y destinatarios de la plataforma Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 Si va a desarrollar aplicaciones para la Tienda Windows, Azure Active Directory (Azure AD) simplifica la autenticación de los usuarios con sus cuentas de Active Directory. Mediante la integración con Azure AD, una aplicación puede consumir de forma segura cualquier API web protegida por Azure AD, como las API de Office 365 o la API de Azure.
 

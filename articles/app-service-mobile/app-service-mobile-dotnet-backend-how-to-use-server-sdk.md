@@ -4,8 +4,8 @@ description: "Obtenga información sobre cómo trabajar con el SDK del servidor 
 keywords: "servicio de aplicaciones, servicio de aplicaciones de azure, aplicación móvil, servicio móvil, escala, escalable, implementación de aplicaciones, implementación de aplicaciones de azure"
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: fcbaa0df29fac22917695046ebc4015f3abf108f
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 657fea16e47c15efd262c86d6a150a721476134a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure
@@ -118,17 +117,12 @@ Los métodos de extensión utilizados son:
 Los siguientes paquetes de extensión basados en NuGet proporcionan diversas características móviles que puede usar la aplicación. Las extensiones se habilitan durante la inicialización mediante el objeto **MobileAppConfiguration** .
 
 * [Microsoft.Azure.Mobile.Server.Quickstart] admite la configuración básica de Aplicaciones móviles. Se agrega a la configuración mediante una llamada al método de extensión **UseDefaultConfiguration** durante la inicialización. Esta extensión incluye las siguientes extensiones: paquetes de notificaciones, autenticación, entidad, tablas, entre dominios y principal. Inicio rápido de Mobile Apps, disponible en Azure Portal, usa este paquete.
-* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/)
-  : implementa el elemento *this mobile app is up and running page* predeterminado para la raíz del sitio web. Se agrega a la configuración mediante una llamada al método de extensión   **AddMobileAppHomeController**.
-* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/)
-  : incluye clases para trabajar con datos y configura la canalización de datos. Se agrega a la configuración mediante una llamada al método de extensión **AddTables** .
-* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/)
-  : permite a Entity Framework acceder a los datos de la base de datos SQL. Se agrega a la configuración mediante una llamada al método de extensión **AddTablesWithEntityFramework** .
-* [Microsoft.Azure.Mobile.Server.Authentication] habilita la autenticación y configura el middleware OWIN que se usa para validar los tokens. Se agrega a la configuración mediante una llamada a los métodos de extensión **AddAppServiceAuthentication**
-   e **IAppBuilder**.**UseAppServiceAuthentication**.
+* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) Implementa el valor predeterminado de *esta página de aplicación móvil está funcionando* para la raíz del sitio web. Se agrega a la configuración mediante una llamada al método de extensión **AddMobileAppHomeController** .
+* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) incluye clases para trabajar con datos y configura la canalización de datos. Se agrega a la configuración mediante una llamada al método de extensión **AddTables** .
+* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) permite a Entity Framework obtener acceso a los datos de la base de datos SQL. Se agrega a la configuración mediante una llamada al método de extensión **AddTablesWithEntityFramework** .
+* [Microsoft.Azure.Mobile.Server.Authentication] habilita la autenticación y configura el middleware OWIN que se usa para validar los tokens. Se agrega a la configuración mediante una llamada a los métodos de extensión **AddAppServiceAuthentication** e **IAppBuilder**.**UseAppServiceAuthentication**.
 * [Microsoft.Azure.Mobile.Server.Notifications] habilita las notificaciones push y define un punto de conexión de registro de inserción. Se agrega a la configuración mediante una llamada al método de extensión **AddPushNotifications** .
-* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/)
-   crea un controlador que sirve datos de la aplicación móvil a los exploradores web heredados. Se agrega a la configuración mediante una llamada al método de extensión   **MapLegacyCrossDomainController**.
+* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) crea un controlador que sirve datos de la aplicación móvil a los exploradores web heredados. Se agrega a la configuración mediante una llamada al método de extensión **MapLegacyCrossDomainController** .
 * [Microsoft.Azure.Mobile.Server.Login] proporciona el método AppServiceLoginHandler.CreateToken(), que es un método estático usado en escenarios de autenticación personalizada.
 
 ## <a name="publish-server-project"></a>Procedimientos: Publicación del proyecto de servidor
@@ -478,5 +472,4 @@ Use la clave de firma para el parámetro *authSigningKey* en la configuración d
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
-
 

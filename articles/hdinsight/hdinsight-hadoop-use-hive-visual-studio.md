@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 07/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: d2aa7985bbaea318fa075cb128da3a58dce5ef92
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3411c59fee73aa2e26a05d70e1dae11cdfc865ff
 ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Ejecución de las consultas de Hive mediante las herramientas de Data Lake para Visual Studio
@@ -33,11 +32,11 @@ Aprenda a usar las herramientas de Data Lake para Visual Studio a fin de realiza
 * Un clúster de Azure HDInsight (Hadoop en HDInsight).
 
   > [!IMPORTANT]
-  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio (una de las siguientes versiones):
 
-    * Visual Studio 2013 Comunidad/Professional/Premium/Ultimate con [actualización 4](https://www.microsoft.com/download/details.aspx?id=44921)
+    * Visual Studio 2013 Community/Professional/Premium/Ultimate con la actualización 4
 
     * Visual Studio 2015 (cualquier edición)
 

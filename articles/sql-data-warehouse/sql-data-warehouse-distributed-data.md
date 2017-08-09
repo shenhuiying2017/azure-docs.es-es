@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 06/29/2017
+ms.date: 07/12/2017
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ec9b3cc391a75b4f3a75f95a2ff9613c0317bfa2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3c166acb17193caae32d7bad133ec510ff679353
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Datos distribuidos y tablas distribuidas para el procesamiento paralelo masivo (MPP)
@@ -68,7 +67,7 @@ Cada nodo de ejecución tiene un Id. de nodo y es visible en las vistas del sist
 ## <a name="Replicated"></a>Tablas replicadas
 Una tabla que se replica tiene una copia completa de la tabla almacenada en cada nodo de proceso. Al replicar una tabla se elimina la necesidad de transferir sus datos de un nodo de proceso a otro antes de una combinación o agregación. Las tablas replicadas solo son viables si son pequeñas, debido a que requieren más espacio para almacenarlas enteras en cada nodo de ejecución.  
 
-En el diagrama siguiente se muestra una tabla replicada que se ha almacenado en cada nodo de ejecución. En el caso de SQL Data Warehouse, la tabla replicada se mantiene en una tabla round robin y se copia completa en la primera base de datos de distribución en cada nodo de proceso. En el caso de Almacenamiento de datos paralelo, la tabla replicada se almacena en todos los discos asignados al nodo de proceso.  Esta estrategia de disco se implementa mediante el uso de grupos de archivos de SQL Server.  
+En el diagrama siguiente se muestra una tabla replicada que se ha almacenado en cada nodo de ejecución. Para SQL Data Warehouse, la tabla replicada se copia completa en una base de datos de distribución en cada nodo de ejecución. En el caso de Almacenamiento de datos paralelo, la tabla replicada se almacena en todos los discos asignados al nodo de proceso.  Esta estrategia de disco se implementa mediante el uso de grupos de archivos de SQL Server.  
 
 ![Tabla replicada](media/sql-data-warehouse-distributed-data/replicated-table.png "Tabla replicada") 
 

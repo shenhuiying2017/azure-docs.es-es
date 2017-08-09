@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/19/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 6d54203797ad970d590b853b171b383708dbcb5d
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ee4ea351866b23b10cb8b6ebd7f5a674e5aea158
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="move-data-from-db2-using-azure-data-factory"></a>Movimiento de datos de DB2 mediante Factoría de datos de Azure
@@ -48,7 +48,9 @@ Este conector de DB2 admite las siguientes plataformas y versiones de IBM DB2 ad
 * IBM DB2 para LUW 10.1
 
 > [!TIP]
-> Si aparece un error que indica: "No se encontró el paquete correspondiente a una solicitud de ejecución de la instrucción SQL. SQLSTATE = 51002 SQLCODE =-805 ", utilice una cuenta con privilegios elevados (de usuario avanzado o de administrador) para ejecutar la actividad de copia de una vez. A Después, el paquete necesario se creará automáticamente durante la copia. A continuación, puede cambiar al usuario normal para las ejecuciones de copia posteriores.
+> Si recibe un mensaje de error que indica "No se encontró el paquete correspondiente a una solicitud de ejecución de la instrucción SQL. SQLSTATE=51002 SQLCODE=-805", es porque no se creó un paquete necesario para el usuario normal en ese SO. Siga las instrucciones siguientes según el tipo de servidor de DB2:
+> - DB2 para i (AS400): permita que el usuario avanzado cree la colección del usuario de inicio de sesión antes de usar la actividad de copia. Comando: `create collection <username>`
+> - DB2 para z/OS o LUW: use una cuenta con privilegios elevados (usuario avanzado o administrador con entidades de paquete y permisos BIND, BINDADD, GRANT EXECUTE TO PUBLIC) para ejecutar una vez la actividad de copia y, luego, el paquete necesario se creará automáticamente durante la copia. A continuación, puede cambiar al usuario normal para las ejecuciones de copia posteriores.
 
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con actividad de copia que mueva los datos desde un almacén de datos DB2 local mediante el uso de diferentes herramientas o API. 

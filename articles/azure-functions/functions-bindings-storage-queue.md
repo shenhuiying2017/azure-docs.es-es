@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: donnam, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 85a3386c8159eb1abf01ccd35c6aea04f5710d5c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f39f674bf576a2661a0e03710b9005b0515b3aa5
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Enlaces de Queue Storage en Azure Functions
@@ -75,7 +74,7 @@ El desencadenador de cola proporciona varias propiedades de metadatos. Estas pro
 * **ExpirationTime**: escriba `DateTimeOffset?`. Es la hora de expiración del mensaje.
 * **Id**: escriba `string`. Es el identificador del mensaje de cola.
 * **InsertionTime**: escriba `DateTimeOffset?`. Es la hora en la que el mensaje se agregó a la cola.
-* **NextVisibleTime**: escriba DateTimeOffset?. Es la siguiente hora a la que será visible el mensaje.
+* **NextVisibleTime**: tipo `DateTimeOffset?`. Es la siguiente hora a la que será visible el mensaje.
 * **PopReceipt**: escriba `string`. Es la confirmación de extracción del mensaje.
 
 Consulte cómo usar los metadatos de la cola en la sección [Ejemplo de desencadenador](#triggersample).
@@ -294,3 +293,4 @@ Para ver un ejemplo de una función que usa desencadenadores y enlaces de Queue 
 <!-- LINKS -->
 
 [`CloudQueueMessage`]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+

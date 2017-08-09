@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db097fd947112dc4747523693f89c80d984bd26d
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d218eab7e9f124e4825a8a781b4eeb0dcca58b4a
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB) mediante el Administrador de recursos de Azure
@@ -137,10 +138,10 @@ Este paso crea una configuración de la IP de la puerta de enlace de aplicacione
 ### <a name="step-2"></a>Paso 2
 
 ```powershell
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
-Este paso configura el grupo de direcciones IP de back-end denominado "pool01" con las direcciones IP "134.170.185.46, 134.170.188.221 y 134.170.185.50". Son las direcciones IP que reciben el tráfico de red procedente del punto de conexión de la IP del front-end. Reemplaza las direcciones IP anteriores para agregar sus propios puntos de conexión de direcciones IP de la aplicación.
+Este paso configura el grupo de direcciones IP de back-end denominado "pool01" con las direcciones IP "10.1.1.8, 10.1.1.9, 10.1.1.10". Son las direcciones IP que reciben el tráfico de red procedente del punto de conexión de la IP del front-end. Reemplaza las direcciones IP anteriores para agregar sus propios puntos de conexión de direcciones IP de la aplicación.
 
 ### <a name="step-3"></a>Paso 3
 
@@ -273,11 +274,6 @@ Si desea configurar una puerta de enlace de aplicaciones para usarla con un ILB,
 Si desea obtener más información acerca de opciones de equilibrio de carga en general, vea:
 
 * [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
+* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 

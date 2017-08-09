@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 14e78eca1e03125143b8814c5652c43f3f3fd3a8
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 18b40486a66d8e092a8af299460145989a1ab99d
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinación de la estrategia de adopción de ciclo de vida de identidad híbrida
@@ -34,7 +35,7 @@ Las cuentas en empresas de TI sofisticadas incluyen cientos de parámetros que d
 
 | Fase de administración del ciclo de vida | Local | Nube | Híbrida |
 | --- | --- | --- | --- |
-| Aprovisionamiento y administración de cuentas |Mediante el rol del servidor Servicios de dominio de Active Directory® (AD DS), puede crear una infraestructura escalable, segura y administrable para la administración de recursos y usuarios, así como proporcionar compatibilidad con aplicaciones habilitadas para directorio, como Microsoft® Exchange Server. <br><br> [Puede aprovisionar grupos en AD DS a través de un administrador de identidad.](https://technet.microsoft.com/library/ff686261.aspx) <br>[Puede aprovisionar usuarios en AD DS.](https://technet.microsoft.com/library/ff686263.aspx) <br><br>  Los administradores pueden usar el control de acceso para administrar el acceso de usuarios a los recursos compartidos por seguridad. En Active Directory, el control de acceso se administra en el nivel de objeto; para ello, se establecen distintos niveles de acceso, o permisos, a los objetos, como Control total, Escritura, Lectura o Sin acceso. El control de acceso en Active Directory define cómo los distintos usuarios pueden usar objetos de Active Directory. De forma predeterminada, los permisos de los objetos de Active Directory se establecen en la configuración más segura. |Hay que crear una cuenta para cada usuario que vaya a tener acceso a un servicio de nube de Microsoft. También puede cambiar las cuentas de usuario o eliminarlas cuando ya no sean necesarias. De forma predeterminada, los usuarios no tienen permisos de administrador, pero puede asignárselos si lo desea. Para obtener más información, consulte [Creación o edición de usuarios en Azure AD](active-directory-create-users.md). <br><br>  Dentro de Azure Active Directory, una de las principales características es la capacidad para administrar el acceso a los recursos. Estos recursos pueden formar parte del directorio, como en el caso de los permisos para administrar objetos a través de roles en el directorio, o recursos externos al directorio, como las aplicaciones SaaS, servicios de Azure y sitios de SharePoint o publicados en modo local. <br><br>  En el centro de la solución de administración de acceso de Azure Active Directory se encuentra el grupo de seguridad. El propietario de los recursos (o el administrador del directorio) puede asignar un grupo para proporcionar determinados derechos de acceso a los recursos que posee. Los miembros del grupo recibirán el derecho de acceso y el propietario del recurso puede delegar el derecho de administración de la lista de miembros de un grupo en otra persona como, por ejemplo, un administrador de departamento o un administrador de soporte técnico.<br> <br>  El tema Administración de grupos en Azure AD proporciona más información sobre la administración del acceso mediante grupos. |Amplíe las identidades de Active Directory a la nube por medio de la sincronización y la federación. |
+| Aprovisionamiento y administración de cuentas |Mediante el rol del servidor Servicios de dominio de Active Directory® (AD DS), puede crear una infraestructura escalable, segura y administrable para la administración de recursos y usuarios, así como proporcionar compatibilidad con aplicaciones habilitadas para directorio, como Microsoft® Exchange Server. <br><br> [Puede aprovisionar grupos en AD DS a través de un administrador de identidad.](https://technet.microsoft.com/library/ff686261.aspx) <br>[Puede aprovisionar usuarios en AD DS.](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Los administradores pueden usar el control de acceso para administrar el acceso de usuarios a los recursos compartidos por seguridad. En Active Directory, el control de acceso se administra en el nivel de objeto; para ello, se establecen distintos niveles de acceso, o permisos, a los objetos, como Control total, Escritura, Lectura o Sin acceso. El control de acceso en Active Directory define cómo los distintos usuarios pueden usar objetos de Active Directory. De forma predeterminada, los permisos de los objetos de Active Directory se establecen en la configuración más segura. |Hay que crear una cuenta para cada usuario que vaya a tener acceso a un servicio de nube de Microsoft. También puede cambiar las cuentas de usuario o eliminarlas cuando ya no sean necesarias. De forma predeterminada, los usuarios no tienen permisos de administrador, pero puede asignárselos si lo desea. Para obtener más información, consulte [Creación o edición de usuarios en Azure AD](active-directory-create-users.md). <br><br> Dentro de Azure Active Directory, una de las principales características es la capacidad para administrar el acceso a los recursos. Estos recursos pueden formar parte del directorio, como en el caso de los permisos para administrar objetos a través de roles en el directorio o los recursos externos al directorio, como las aplicaciones SaaS, los servicios de Azure y los sitios de SharePoint o los recursos publicados en modo local. <br><br> En el centro de la solución de administración de acceso de Azure Active Directory se encuentra el grupo de seguridad. El propietario de los recursos (o el administrador del directorio) puede asignar un grupo para proporcionar determinados derechos de acceso a los recursos que posee. Los miembros del grupo recibirán el derecho de acceso y el propietario del recurso puede delegar el derecho de administración de la lista de miembros de un grupo en otra persona como, por ejemplo, un administrador de departamento o un administrador de soporte técnico.<br> <br> El tema Administración de grupos en Azure AD proporciona más información sobre la administración del acceso mediante grupos. |Amplíe las identidades de Active Directory a la nube por medio de la sincronización y la federación. |
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 El control de acceso basado en rol (RBAC) usa roles y directivas de aprovisionamiento para evaluar, probar y aplicar las reglas y los procesos de negocio para conceder acceso a los usuarios. Los administradores clave crean directivas de aprovisionamiento, asignan usuarios a roles y definen conjuntos de derechos a recursos para estos roles. RBAC amplía la solución de administración de identidades para usar los procesos basados en software y reducir la interacción manual del usuario en el proceso de aprovisionamiento.
@@ -99,10 +100,5 @@ Revise la siguiente tabla para comparar las opciones de sincronización:
 
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

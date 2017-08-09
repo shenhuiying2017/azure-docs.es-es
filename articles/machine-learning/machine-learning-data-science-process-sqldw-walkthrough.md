@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;hangzh;weig
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 55e3f99cd3202abc012d310b43358d3795c8531e
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 244684bc875e3917b8fd0d1a6bc1464a7c36a938
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Proceso de ciencia de datos en equipos en acción: uso de Almacenamiento de datos SQL
@@ -326,7 +326,7 @@ Tendrá que decidir qué hacer si tiene archivos de origen y de destino duplicad
 
 ![Diagrama 21][21]
 
-Puede usar sus propios datos. Si los datos están en la máquina local en la aplicación de la vida real, todavía puede usar AzCopy para cargar los datos locales al Almacenamiento de blobs de Azure privado. Solo tiene que cambiar la ubicación de **origen**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, en el comando de AzCopy del archivo de scripts de PowerShell por un directorio local que contiene los datos.
+Puede usar sus propios datos. Si los datos están en la máquina local en la aplicación de la vida real, todavía puede usar AzCopy para cargar los datos locales a su área privada de Azure Blob Storage. Solo tiene que cambiar la ubicación de **origen**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, en el comando de AzCopy del archivo de scripts de PowerShell por un directorio local que contiene los datos.
 
 > [!TIP]
 > Si los datos ya están en el Almacenamiento de blobs de Azure privado en la aplicación de la vida real, puede omitir el paso de AzCopy en el script de PowerShell y cargar directamente los datos en Almacenamiento de datos SQL de Azure. Esto requerirá modificaciones adicionales del script para adaptarlo al formato de los datos.

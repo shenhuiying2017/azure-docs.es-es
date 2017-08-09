@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 82485e569d91a082f72725ecfb04e75f0820cf02
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 373dde7b751156490fafd3e052b32310c497b43b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migración al almacenamiento premium de Azure (discos no gestionados)
@@ -65,7 +64,7 @@ Hay tres tipos de discos que se pueden usar con las máquinas virtuales y cada u
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
 | Tamaño del disco           | 128 GB| 512 GB| 1.024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 | IOPS por disco       | 500   | 2300  | 5000           | 7500           | 7500           | 
-| Rendimiento de disco | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
+| Rendimiento de disco | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
 Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. (Consulte qué es el seccionamiento de discos [aquí](storage-premium-storage-performance.md#disk-striping)). Si secciona discos de datos de Premium Storage mediante [Espacios de almacenamiento][4], tendrá que configurarlos con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux, esto se logra con la utilidad *mdadm* . Vea el artículo [Configuración del software RAID en Linux](../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información.
 
@@ -238,7 +237,7 @@ Si va a migrar un disco duro virtual desde un almacenamiento en la nube que no e
 ##### <a name="copy-a-vhd-from-other-non-azure-cloud"></a>Copia un VHD de una nube que no es de Azure
 Si va a migrar un disco duro virtual desde un almacenamiento en la nube que no es de Azure a Azure, exporte antes el disco duro virtual a un directorio local. Copie la ruta de acceso de origen completa del directorio local en el que se almacena el VHD.
 
-##### <a name="copy-a-vhd-from-on-premise"></a>Copia de un VHD de un entorno local
+##### <a name="copy-a-vhd-from-on-premises"></a>Copia de un VHD desde un entorno local
 Si va a migrar un VHD desde un entorno local, necesitará la ruta de acceso de origen completa en la que se almacena. Dicha ruta puede ser la ubicación de un servidor o un recurso compartido de archivos.
 
 #### <a name="step-2-create-the-destination-for-your-vhd"></a>Paso 2: Crear el destino para el disco duro virtual

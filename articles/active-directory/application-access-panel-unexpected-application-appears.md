@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 2429ebef69aaddf28d10cd77bf4ce9072ea71476
-ms.lasthandoff: 04/11/2017
-
+ms.reviewr: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f8ccf2cf66b49940bc7f2b9f4764020efc04838e
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -42,7 +43,7 @@ Un usuario puede ver una aplicación en su panel de acceso si ya se le había as
 
 ### <a name="check-if-a-user-is-assigned-to-the-application"></a>Comprobar si un usuario está asignado a la aplicación
 
-Para comprobar si un usuario está asignado a la aplicación, siga los pasos que aparecen a continuación:
+Para comprobar si un usuario está asignado a la aplicación, siga estos pasos:
 
 1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
 
@@ -74,7 +75,7 @@ Para comprobar las licencias asignadas de un usuario, siga estos pasos:
 
 4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **All users** (Todos los usuarios).
+5.  Haga clic en **Todos los usuarios**.
 
 6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
@@ -84,7 +85,7 @@ Para comprobar las licencias asignadas de un usuario, siga estos pasos:
 
 ## <a name="problems-related-to-assigning-applications-to-groups"></a>Problemas relacionados con la asignación de aplicaciones a grupos
 
-Puede que un usuario vea una aplicación en su panel de acceso porque forme parte de un grupo al que se ha asignado esa aplicación. A continuación se muestran algunas maneras de comprobarlo:
+Puede que un usuario vea una aplicación en su Panel de acceso porque forme parte de un grupo al que se ha asignado esa aplicación. A continuación se muestran algunas maneras de comprobarlo:
 
 -   [Comprobar la pertenencia a grupos de un usuario](#check-a-users-group-memberships)
 
@@ -102,7 +103,7 @@ Para comprobar la pertenencia de un grupo, siga estos pasos:
 
 4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **All users** (Todos los usuarios).
+5.  Haga clic en **Todos los usuarios**.
 
 6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 
@@ -122,7 +123,7 @@ Para comprobar la pertenencia de un grupo, siga estos pasos:
 
 4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
 
-5.  Haga clic en **All users** (Todos los usuarios).
+5.  Haga clic en **Todos los usuarios**.
 
 6.  **Busque** el usuario en el que está interesado y **haga clic en la fila** para seleccionarlo.
 

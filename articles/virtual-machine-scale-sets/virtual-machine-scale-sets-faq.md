@@ -13,15 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/03/2017
+ms.date: 7/20/2017
 ms.author: negat
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 718732df4455831454245ea1a80d49e042c20f09
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f320dd5d1f8c99317792f4ae9e09bc5adaf79e25
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -511,7 +510,7 @@ Sí. Un grupo de seguridad de red se puede aplicar directamente a un conjunto de
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>¿Cómo hago un intercambio de VIP para conjuntos de escalado de máquinas virtuales de la misma suscripción y la misma región?
 
-Si tiene dos conjuntos de escalado de máquinas virtuales con servidores front-end de Azure Load Balancer, y están en la misma suscripción y región, puede desasignar las direcciones IP públicas de cada uno de ellos y asignarlas al otro. Consulte, por ejemplo, [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Intercambio de VIP: implementación Blue-green en Azure Resource Manager). Esto implica un retraso ya que los recursos se desasignan y asignan a nivel de red. Otra opción consiste en hospedar la aplicación con [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) que proporciona compatibilidad para el cambio rápido entre las ranuras de ensayo y producción.
+Si tiene dos conjuntos de escalado de máquinas virtuales con servidores front-end de Azure Load Balancer, y están en la misma suscripción y región, puede desasignar las direcciones IP públicas de cada uno de ellos y asignarlas al otro. Consulte, por ejemplo, [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Intercambio de VIP: implementación Blue-green en Azure Resource Manager). Esto implica un retraso ya que los recursos se desasignan y asignan a nivel de red. Una opción más rápida es usar Azure Application Gateway con dos grupos de back-end y una regla de enrutamiento. También puede hospedar la aplicación con [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/), que permite realizar un cambio rápido entre las ranuras de ensayo y las de producción.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>¿Cómo especifico un intervalo de direcciones IP privadas para la asignación estática de direcciones IP privadas?
 
@@ -570,6 +569,10 @@ Para crear un conjunto de escalado de máquina virtual que asigne una dirección
         }
     }
 ```
+
+### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>¿Puedo configurar un conjunto de escalado para trabajar con varias instancias de Application Gateway?
+
+Sí. Puede agregar el identificador de recurso de varios grupos de direcciones back-end de Application Gateway a la lista _applicationGatewayBackendAddressPools_ de la sección _ipConfigurations_, en el perfil de red del conjunto de escalado.
 
 ## <a name="scale"></a>Escala
 

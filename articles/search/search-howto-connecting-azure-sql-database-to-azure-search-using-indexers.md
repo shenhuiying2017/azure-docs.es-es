@@ -12,52 +12,59 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/01/2017
+ms.date: 07/13/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 80ede2ffc7380145e3bfca48abf0d05f0a79585a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
 ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conexión de Base de datos SQL de Azure a Búsqueda de Azure con indexadores
-El servicio Búsqueda de Azure es un servicio de búsqueda hospedado en la nube que facilita ofrecer una excelente experiencia de búsqueda. Antes de buscar, deberá rellenar un índice de Búsqueda de Azure con los datos. Si los datos residen en una SQL Database de Azure, el nuevo **indexador de Azure Search para Azure SQL Database** (o **indexador Azure SQL**, para abreviar) puede automatizar el proceso de indexación. Esto significa que tendrá que escribir menos código y tendrá menos infraestructura para mantener.
 
-Este artículo abordará la forma de usar los indexadores, pero también describe las características que solo están disponibles con bases de datos SQL de Azure (por ejemplo, seguimiento de cambios integrado). Azure Search también admite otros orígenes de datos, como Azure Cosmos DB, Blob Storage y Table Storage. Si desea consultar soporte técnico para orígenes de datos adicionales, envíe sus comentarios a través del [foro de comentarios de Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
+Antes de poder consultar un [índice de Azure Search](search-what-is-an-index.md) debe rellenarlo con datos. Si los datos residen en una instancia de Azure SQL Database, el nuevo **indexador de Azure Search para Azure SQL Database** (o **indexador de Azure SQL**, para abreviar) puede automatizar el proceso de indexación, lo que significa menos código que escribir y menos infraestructura de la que preocuparse.
+
+En este artículo se aborda la forma de usar los [indexadores](search-indexer-overview.md), pero también se describen las características que solo están disponibles con instancias de Azure SQL Database (por ejemplo, el seguimiento de cambios integrado). 
+
+Además de las instancias de Azure SQL Database, Azure Search proporciona indexadores para [Azure Cosmos DB](search-howto-index-documentdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) y [Azure Table Storage](search-howto-indexing-azure-tables.md). Para solicitar soporte técnico para otros orígenes de datos, envíe sus comentarios a través del [foro de comentarios de Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexadores y orígenes de datos
-Puede instalar y configurar un indexador de SQL de Azure mediante:
 
-* El asistente para importar datos en [Azure Portal](https://portal.azure.com)
-* [SDK de .NET de Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx)
-* [API de REST](http://go.microsoft.com/fwlink/p/?LinkID=528173) de Azure Search
+Un **origen de datos** especifica los datos que se deben indexar, las credenciales para obtener acceso a estos y las directivas que identifican cambios en los datos de forma eficaz (filas nuevas, modificadas o eliminadas). Se define como un recurso independiente para que puedan usarlo múltiples indizadores.
 
-En este artículo, usaremos la API de REST para mostrar cómo crear y administrar **indexadores** y **orígenes de datos**.
-
-Un **origen de datos** especifica los datos que se deben indexar, las credenciales necesarias para obtener acceso a estos y las directivas que identifican cambios en los datos de forma eficaz (filas nuevas, modificadas o eliminadas). Se define como un recurso independiente para que puedan usarlo múltiples indizadores.
-
-Un **indizador** es un recurso que conecta los orígenes de datos con los índices de búsqueda de destino. Un indexador se usa de las maneras siguientes:
+Un **indexador**  es un recurso que conecta un origen de datos con un índice de búsqueda de destino. Un indexador se usa de las maneras siguientes:
 
 * Realizar una copia única de los datos para rellenar un índice.
 * Actualizar un índice con los cambios del origen de datos en una programación.
 * Ejecutar a petición para actualizar un índice según sea necesario.
 
-## <a name="when-to-use-azure-sql-indexer"></a>Cuándo usar un indizador de SQL Azure
-Según varios factores relacionados con los datos, el uso del indizador de SQL Azure puede ser o no ser adecuado. Si los datos cumplen los requisitos siguientes, puede usar el indizador de SQL Azure:
+Un único indexador solo puede consumir una tabla o vista, pero puede crear varios indexadores si quiere rellenar varios índices de búsqueda. Para más información sobre los conceptos, vea [Indexer Operations: Typical workflow](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow) (Operaciones de indexador: flujo de trabajo típico).
 
-* Todos los datos proceden de una sola tabla o vista.
-  * Si los datos están distribuidos en varias tablas, puede crear una vista y usarla con el indizador. Sin embargo, si usa una vista, no podrá usar la detección de cambios integrada de SQL Server. Para más información, consulte [esta sección](#CaptureChangedRows).
-* El indizador admite los tipos de datos usados en el origen de datos. Se admite la mayoría de los tipos de SQL, aunque no todos. Para obtener más información, consulte [Asignar tipos de datos en Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkID=528105).
-* No necesita actualizaciones del índice casi en tiempo real cuando una fila cambia.
-  * El indizador puede volver a indizar la tabla cada 5 minutos como máximo. Si los datos cambian con frecuencia y los cambios deben reflejarse en el índice en cuestión de segundos o minutos, se recomienda usar directamente la [API de índice de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798930.aspx) .
-* Si tiene un conjunto de datos grande y prevé ejecutar el indexador en una programación, su esquema nos permite identificar de forma eficaz las filas que se cambiaron (y eliminaron, si corresponde). Para obtener más información, vea a continuación «Capturar filas cambiadas y eliminadas».
-* El tamaño de los campos indizados en una fila no supera el tamaño máximo de una solicitud de indización de Búsqueda de Azure, que es de 16 MB.
+Puede instalar y configurar un indexador de SQL de Azure mediante:
 
-## <a name="create-and-use-an-azure-sql-indexer"></a>Crear y usar un indizador de SQL Azure
-En primer lugar, cree el origen de datos:
+* El asistente para importar datos en [Azure Portal](https://portal.azure.com)
+* [SDK de .NET de Azure Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* [API de REST](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations) de Azure Search
 
+En este artículo, usaremos la API de REST para crear **indexadores** y **orígenes de datos**.
+
+## <a name="when-to-use-azure-sql-indexer"></a>Cuándo usar un indexador de Azure SQL
+Según varios factores relacionados con los datos, el uso del indizador de SQL Azure puede ser o no ser adecuado. Si los datos cumplen los requisitos siguientes, puede usar el indexador de Azure SQL.
+
+| Criterios | Detalles |
+|----------|---------|
+| Los datos proceden de una sola tabla o vista. | Si los datos están distribuidos entre varias tablas, puede crear una única vista de los datos. Pero si usa una vista, no podrá usar la detección de cambios integrada de SQL Server para actualizar un índice con cambios incrementales. Para más información, vea [Capturar filas cambiadas y eliminadas](#CaptureChangedRows) a continuación. |
+| Los tipos de datos son compatibles | En un índice de Azure Search se admite la mayoría de los tipos de SQL, aunque no todos. Para obtener una lista, vea [Asignación de tipos de datos](#TypeMapping). |
+| No se requiere la sincronización de datos en tiempo real | Un indexador puede volver a indexar la tabla cada cinco minutos como máximo. Si los datos cambian con frecuencia y los cambios deben reflejarse en el índice en cuestión de segundos o minutos, se recomienda usar la [API de REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) o el [SDK de .NET](search-import-data-dotnet.md) para insertar directamente las filas actualizadas. |
+| Se permite la indexación incremental | Si tiene un conjunto de datos grande y prevé ejecutar el indexador en una programación, Azure Search debe ser capaz de identificar de forma eficaz las filas nuevas, cambiadas y eliminadas. Solo se permite la indexación no incremental si se indexa a petición (no en una programación), o se indexan menos de 100 000 filas. Para más información, vea [Capturar filas cambiadas y eliminadas](#CaptureChangedRows) a continuación. |
+
+## <a name="create-an-azure-sql-indexer"></a>Crear un indexador de Azure SQL
+
+1. Cree el origen de datos:
+
+   ```
     POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
     api-key: admin-key
@@ -68,14 +75,15 @@ En primer lugar, cree el origen de datos:
         "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
         "container" : { "name" : "name of the table or view that you want to index" }
     }
+   ```
 
+   Puede obtener la cadena de conexión de [Azure Portal](https://portal.azure.com): use la opción `ADO.NET connection string`.
 
-Puede obtener la cadena de conexión del [Portal de Azure clásico](https://portal.azure.com): use la opción `ADO.NET connection string`.
+2. Si aún no tiene un índice de Azure Search de destino, créelo. Puede crear un índice mediante el [portal](https://portal.azure.com) o la [API de creación de índices](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Asegúrese de que el esquema del índice de destino sea compatible con el de la tabla de origen; consulte la [asignación entre tipos de datos de SQL y tipos de datos de Azure Search](#TypeMapping) para más información.
 
-Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede crear un índice mediante la [interfaz de usuario del portal](https://portal.azure.com) o la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx). Asegúrese de que el esquema del índice de destino sea compatible con el de la tabla de origen; consulte la [asignación entre tipos de datos de SQL y tipos de datos de Azure Search](#TypeMapping) para más información.
+3. Cree el indexador asignándole un nombre y haciendo referencia al índice de origen y destino de datos:
 
-Por último, cree el indizador asignándole un nombre y haciendo referencia al índice de origen y destino de datos:
-
+    ```
     POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
     api-key: admin-key
@@ -85,15 +93,16 @@ Por último, cree el indizador asignándole un nombre y haciendo referencia al �
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
+    ```
 
 Un indizador creado de esta forma no tiene una programación. Se ejecuta automáticamente una vez en cuanto se crea. Puede volver a ejecutarlo en cualquier momento mediante una solicitud **ejecutar indizador** :
 
     POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2016-09-01
     api-key: admin-key
 
-Puede personalizar varios aspectos del comportamiento del indexador, como el tamaño de lote y el número de documentos que se puede omitir antes de que la ejecución de un indexador produzca un error. Para más información, consulte [Create Indexer API](https://msdn.microsoft.com/library/azure/dn946899.aspx)(API para crear índices).
+Puede personalizar varios aspectos del comportamiento del indexador, como el tamaño de lote y el número de documentos que se puede omitir antes de que la ejecución de un indexador produzca un error. Para más información, consulte [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)(API para crear índices).
 
-Puede que necesite permitir que los servicios de Azure se conecten a la base de datos. Consulte [Conectarse desde Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para obtener instrucciones sobre cómo hacerlo.
+Puede que necesite permitir que los servicios de Azure se conecten a la base de datos. Consulte [Conectarse desde Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para obtener instrucciones sobre cómo hacerlo.
 
 Para supervisar el estado del indizador y el historial de ejecución (número de elementos indizados, errores, etc.), use una solicitud **estado del indizador** :
 
@@ -171,21 +180,23 @@ Puede agregar, cambiar o eliminar la programación de un indizador existente med
 
 <a name="CaptureChangedRows"></a>
 
-## <a name="capturing-new-changed-and-deleted-rows"></a>Captura de filas nuevas, cambiadas y eliminadas
-Si la tabla tiene muchas filas, debe utilizar una directiva de detección de cambio de datos. La detección de cambios permite una recuperación eficaz solo de las filas nuevas o cambiadas , sin tener que volver a indexar toda la tabla.
+## <a name="capture-new-changed-and-deleted-rows"></a>Capturar filas nuevas, cambiadas y eliminadas
+
+Azure Search usa la **indexación incremental** para evitar tener que volver a indexar la tabla o vista completa cada vez que se ejecuta un indexador. Azure Search proporciona dos directivas de detección de cambios para admitir la indexación incremental. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>Directiva de seguimiento de cambios integrada de SQL
-Si la base de datos SQL admite el [seguimiento de cambios](https://msdn.microsoft.com/library/bb933875.aspx), se recomienda usar la **directiva de seguimiento de cambios integrada de SQL**. Esta es la directiva más eficiente. Además, permite que Azure Search identifique las filas eliminadas sin tener que agregar a la tabla una columna de "eliminación temporal" explícita.
+Si la base de datos SQL admite el [seguimiento de cambios](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), se recomienda usar la **directiva de seguimiento de cambios integrada de SQL**. Esta es la directiva más eficiente. Además, permite que Azure Search identifique las filas eliminadas sin tener que agregar a la tabla una columna de "eliminación temporal" explícita.
 
-El seguimiento de cambios integrado se admite a partir de las siguientes versiones de la base de datos de SQL Server:
+#### <a name="requirements"></a>Requisitos 
 
-* SQL Server 2008 R2 y versiones posteriores, si usa SQL Server en máquinas virtuales de Azure.
-* Base de datos SQL de Azure V12, si está usando la Base de datos SQL de Azure.
++ Requisitos de versión de la base de datos:
+  * SQL Server 2012 SP3 y versiones posteriores, si usa SQL Server en máquinas virtuales de Azure.
+  * Base de datos SQL de Azure V12, si está usando la Base de datos SQL de Azure.
++ Solo tablas (vistas no). 
++ En la base de datos, [habilite el seguimiento de los cambios](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) para la tabla. 
++ Ninguna clave principal compuesta (una clave principal que contiene más de una columna) en la tabla.  
 
-> [!IMPORTANT] 
-> Esta directiva solo se puede usar con tablas; no se puede usar con vistas. Deberá habilitar el seguimiento de cambios para la tabla que está usando para poder emplear esta directiva. Consulte [Habilitar y deshabilitar el seguimiento de cambios](https://msdn.microsoft.com/library/bb964713.aspx) para obtener instrucciones.
-> 
-> Además, no puede usar esta directiva si la tabla usa una clave principal compuesta (una clave principal que contiene más de una columna).  
+#### <a name="usage"></a>Uso
 
 Para usar esta directiva, cree o actualice el origen de datos de la siguiente manera:
 
@@ -204,15 +215,20 @@ Al usar la directiva de seguimiento de cambios integrada de SQL, no especifique 
 <a name="HighWaterMarkPolicy"></a>
 
 ### <a name="high-water-mark-change-detection-policy"></a>Directiva de detección de cambios de límite superior
-Aunque se recomienda la directiva de seguimiento de cambios integrado de SQL, solo puede utilizarse con tablas, no con vistas. Si usa una vista, considere el uso de la directiva de marca de límite superior. Puede usar esta directiva si la tabla o vista contiene una columna que cumple los criterios siguientes:
+
+Esta directiva de detección de cambios se basa en una columna de "marca de límite superior" que captura la versión o la hora en que se actualizó por última vez una fila. Si usa una vista, debe usar una directiva de marca de límite superior. La columna de marca de límite superior debe cumplir los siguientes requisitos.
+
+#### <a name="requirements"></a>Requisitos 
 
 * Todas las inserciones especifican un valor para la columna.
 * Todas las actualizaciones de un elemento también cambian el valor de la columna.
 * El valor de esta columna aumenta con cada inserción o actualización.
-* Consultas con las cláusulas WHERE y ORDER BY siguientes se pueden ejecutar eficientemente: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
+* Las consultas con las cláusulas WHERE y ORDER BY siguientes se pueden ejecutar de forma eficaz: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
 
 > [!IMPORTANT] 
-> Se recomienda encarecidamente usar una columna **rowversion** para el seguimiento de cambios. Si se utiliza cualquier otro tipo de datos, no se garantiza que el seguimiento de cambios capture todos los cambios en el caso de transacciones que se ejecutan simultáneamente con una consulta de indexador.
+> Se recomienda encarecidamente usar el tipo de datos [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) para la columna de marca de límite superior. Si se utiliza cualquier otro tipo de datos, no se garantiza que el seguimiento de cambios capture todos los cambios en el caso de transacciones que se ejecutan simultáneamente con una consulta de indexador. Cuando se usa **rowversion** en una configuración con réplicas de solo lectura, debe señalar el indexador a la réplica principal. Solo se puede usar una réplica principal para escenarios de sincronización de datos.
+
+#### <a name="usage"></a>Uso
 
 Para usar una directiva de marca de límite superior, cree o actualice el origen de datos de la siguiente manera:
 
@@ -268,7 +284,7 @@ Cuando use la técnica de la eliminación temporal, puede especificar la directi
 
 <a name="TypeMapping"></a>
 
-## <a name="mapping-between-sql-data-types-and-azure-search-data-types"></a>Asignación entre tipos de datos de SQL y tipos de datos de Búsqueda de Azure
+## <a name="mapping-between-sql-and-azure-search-data-types"></a>Asignación entre tipos de datos de SQL y de Azure Search
 | Tipo de datos de SQL | Tipos de campos de índice de destino permitidos | Notas |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
@@ -299,24 +315,47 @@ Esta configuración se utiliza en el objeto `parameters.configuration` en la def
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-**P:** ¿Puedo usar un indizador de SQL Azure con Bases de datos SQL que se ejecutan en máquinas virtuales de IaaS en Azure?
+## <a name="faq"></a>P+F
 
-R: Sí. Sin embargo, debe permitir que el servicio de búsqueda se conecte a su base de datos. Consulte el artículo [Configuración de una conexión desde un indexador de Azure Search a SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) para más información.
+**P: ¿Puedo usar un indexador de Azure SQL con bases de datos SQL que se ejecutan en máquinas virtuales de IaaS en Azure?**
 
-**P:** ¿Puedo usar un indizador de SQL Azure con Bases de datos SQL que se ejecutan localmente?
+Sí. Sin embargo, debe permitir que el servicio de búsqueda se conecte a su base de datos. Consulte el artículo [Configuración de una conexión desde un indexador de Azure Search a SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) para más información.
 
-R: No se recomienda ni se admite esta posibilidad, ya que requeriría abrir las bases de datos al tráfico de Internet.
+**P: ¿Puedo usar un indexador de Azure SQL con bases de datos SQL que se ejecutan localmente?**
 
-**P:** ¿Puedo usar un indizador de SQL Azure con bases de datos que no son de SQL Server que se ejecutan en IaaS en Azure?
+No directamente. No se recomienda ni se admite una conexión directa, ya que requeriría abrir las bases de datos al tráfico de Internet. Los clientes han realizado correctamente este escenario mediante tecnologías de puente como Azure Data Factory. Para más información, vea [Inserción de datos en un índice de Azure Search mediante el uso de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
-R: No admitimos esta posibilidad, ya que no hemos probado el indizador con bases de datos que no son de SQL Server.  
+**P: ¿Puedo usar un indexador de Azure SQL con bases de datos que no son de SQL Server que se ejecutan en IaaS en Azure?**
 
-**P:** ¿Puedo crear varios indizadores que se ejecuten según una programación?
+Nº No admitimos esta posibilidad, ya que no hemos probado el indexador con bases de datos que no son de SQL Server.  
 
-R: Sí. Sin embargo, solo puede ejecutarse un indizador en un nodo de cada vez. Si necesita varios indizadores que se ejecuten simultáneamente, considere la posibilidad de escalar verticalmente el servicio de búsqueda a más de una unidad de búsqueda.
+**P: ¿Puedo crear varios indexadores que se ejecuten según una programación?**
 
-**P:** ¿Afecta la ejecución de un indizador a la carga de trabajo de consulta?
+Sí. Sin embargo, solo puede ejecutarse un indizador en un nodo de cada vez. Si necesita varios indizadores que se ejecuten simultáneamente, considere la posibilidad de escalar verticalmente el servicio de búsqueda a más de una unidad de búsqueda.
 
-R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y los recursos de dicho nodo se reparten entre la indización y la prestación de servicios al tráfico de consultas y otras solicitudes de API. Si al ejecutar cargas de trabajo intensivas de indización y consulta detecta la alta tasa de 503 errores o el aumento de los tiempos de respuesta, considere la posibilidad de escalar verticalmente el servicio de búsqueda.
+**P: ¿Afecta la ejecución de un indexador a la carga de trabajo de la consulta?**
+
+Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y los recursos de dicho nodo se reparten entre la indización y la prestación de servicios al tráfico de consultas y otras solicitudes de API. Si al ejecutar cargas de trabajo intensivas de indexación y consulta detecta una frecuencia alta de errores 503 o el aumento de los tiempos de respuesta, considere la posibilidad de [escalar verticalmente el servicio de búsqueda](search-capacity-planning.md).
+
+**P: ¿Puedo usar una réplica secundaria en un [clúster de conmutación por error](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) como un origen de datos?**
+
+Depende. Para la indexación completa de una tabla o vista, puede usar una réplica secundaria. 
+
+Para la indexación incremental, Azure Search admite dos directivas de detección de cambios: seguimiento de cambios integrado de SQL y Marca de límite superior.
+
+En las réplicas de solo lectura, la base de datos SQL no admite el seguimiento de cambios integrado. Por tanto, debe usar la directiva Marca de límite superior. 
+
+La recomendación estándar es usar el tipo de datos rowversion para la columna de marca de límite superior. Pero el uso de rowversion se basa en la función `MIN_ACTIVE_ROWVERSION` de SQL Database, que no se admite en las réplicas de solo lectura. Por tanto, si usa rowversion debe apuntar el indexador a una réplica principal.
+
+Si intenta usar rowversion en una réplica de solo lectura, verá el siguiente error: 
+
+    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+
+**P: ¿Puedo usar una columna alternativa, que no sea rowversion, para el seguimiento de los cambios de marca de límite superior?**
+
+No se recomienda. Solo **rowversion** permite la sincronización de datos confiable. Pero según la lógica de aplicación, puede ser seguro si:
+
++ Se puede asegurar de que, cuando se ejecuta el indexador, no hay ninguna transacción pendiente en la tabla que se indexa (por ejemplo, todas las actualizaciones de tabla tienen lugar como un lote según una programación y la programación del indexador de Azure Search está establecida para evitar la superposición con la programación de las actualizaciones de tabla).  
+
++ Vuelve a indexar periódicamente para seleccionar las filas que faltan. 
 

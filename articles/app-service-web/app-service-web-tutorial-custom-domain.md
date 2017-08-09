@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: f98b876658c3257ad2b9162dea053f879ba1f1f0
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 57379d318ab01310388f55c8ec0b9751e909cb9e
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Asignar un nombre DNS personalizado a Azure Web Apps
@@ -39,7 +39,9 @@ En este tutorial, aprenderá a:
 Puede usar un **registro CNAME** o un **registro A** para asignar un nombre DNS personalizado a App Service. 
 
 > [!NOTE]
-> Se recomienda usar un CNAME para todos los nombres DNS personalizados, excepto un dominio raíz (por ejemplo, `contoso.com`). 
+> Se recomienda usar un CNAME para todos los nombres DNS personalizados, excepto un dominio raíz (por ejemplo, `contoso.com`).
+
+Para migrar un sitio en vivo y su nombre de dominio DNS a App Service, consulte [Migración de un nombre DNS activo a Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -69,6 +71,8 @@ En el menú izquierdo, seleccione **App Services** y, después, el nombre de la 
 
 Consulte la página de administración de la aplicación de App Service.  
 
+<a name="checkpricing"></a>
+
 ### <a name="check-the-pricing-tier"></a>Comprobar el plan de tarifa
 
 En el panel de navegación izquierdo de la página de la aplicación, desplácese hasta la sección **Configuración** y seleccione **Escalar verticalmente (plan de App Service)**.
@@ -80,6 +84,8 @@ El nivel actual de la aplicación aparece resaltado con un cuadro azul. Asegúre
 ![Comprobar plan de tarifa](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 Si el plan de App Service no es **Gratis**, cierre la página **Elija su plan de tarifa** y vaya directamente a [Asignar un registro CNAME](#cname).
+
+<a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Escalado verticalmente del plan de App Service
 
@@ -99,22 +105,7 @@ Cuando vea la siguiente notificación, significará que la operación de escalad
 
 En el ejemplo del tutorial, agregue un registro CNAME para el subdominio `www` (por ejemplo, `www.contoso.com`).
 
-### <a name="access-dns-records-with-domain-provider"></a>Acceso a los registros DNS con el proveedor de dominios
-
-Inicie sesión en el sitio web de su proveedor de dominios.
-
-Busque la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, así que consulte la documentación del proveedor. Busque los vínculos o áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración del servidor del nombres**. 
-
-A menudo, se puede encontrar la página de administración de registros DNS al ver la información de la cuenta y al buscar un vínculo como **Mis dominios**. Vaya a dicha página y, después, busque un vínculo que se llame algo así como **Zone file**, **DNS Records** o **Advanced configuration**.
-
-La captura de pantalla siguiente es un ejemplo de página de administración de registros DNS:
-
-![Página de registros DNS de ejemplo](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-En la captura de pantalla de ejemplo, seleccione **Agregar** para crear un registro. Algunos proveedores tienen diferentes vínculos para agregar diferentes tipos de registros. De nuevo, consulte la documentación del proveedor.
-
-> [!NOTE]
-> En el caso de ciertos proveedores, como GoDaddy, los cambios en los registros DNS no entran en vigor hasta que se selecciona un vínculo **Guardar cambios** independiente. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>Crear un registro CNAME
 
@@ -178,22 +169,7 @@ En la página **Dominios personalizados**, copie la dirección IP de la aplicaci
 
 ![Navegación en el portal a la aplicación de Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="access-dns-records-with-domain-provider"></a>Acceso a los registros DNS con el proveedor de dominios
-
-Inicie sesión en el sitio web de su proveedor de dominios.
-
-Busque la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, así que consulte la documentación del proveedor. Busque los vínculos o áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración del servidor del nombres**. 
-
-A menudo, se puede encontrar la página de administración de registros DNS al ver la información de la cuenta y al buscar un vínculo como **Mis dominios**. Vaya a dicha página y, después, busque un vínculo que se llame algo así como **Zone file**, **DNS Records** o **Advanced configuration**.
-
-La captura de pantalla siguiente es un ejemplo de página de administración de registros DNS:
-
-![Página de registros DNS de ejemplo](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-En la captura de pantalla de ejemplo, seleccione **Agregar** para crear un registro. Algunos proveedores tienen diferentes vínculos para agregar diferentes tipos de registros. De nuevo, consulte la documentación del proveedor.
-
-> [!NOTE]
-> En el caso de ciertos proveedores, como GoDaddy, los cambios en los registros DNS no entran en vigor hasta que se selecciona un vínculo **Guardar cambios** independiente. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-a-record"></a>Crear el registro A
 
@@ -249,22 +225,7 @@ Si se olvidó de un paso o cometió un error tipográfico en alguna parte anteri
 
 En el ejemplo del tutorial, asigne un [nombre DNS con caracteres comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (por ejemplo, `*.contoso.com`) a la aplicación de App Service mediante la adición de un registro CNAME. 
 
-### <a name="access-dns-records-with-domain-provider"></a>Acceso a los registros DNS con el proveedor de dominios
-
-Inicie sesión en el sitio web de su proveedor de dominios.
-
-Busque la página de administración de registros DNS. Cada proveedor de dominios tiene su propia interfaz de registros DNS, así que consulte la documentación del proveedor. Busque los vínculos o áreas del sitio etiquetadas como **Nombre de dominio**, **DNS** o **Administración del servidor del nombres**. 
-
-A menudo, se puede encontrar la página de administración de registros DNS al ver la información de la cuenta y al buscar un vínculo como **Mis dominios**. Vaya a dicha página y, después, busque un vínculo que se llame algo así como **Zone file**, **DNS Records** o **Advanced configuration**.
-
-La captura de pantalla siguiente es un ejemplo de página de administración de registros DNS:
-
-![Página de registros DNS de ejemplo](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-En la captura de pantalla de ejemplo, seleccione **Agregar** para crear un registro. Algunos proveedores tienen diferentes vínculos para agregar diferentes tipos de registros. De nuevo, consulte la documentación del proveedor.
-
-> [!NOTE]
-> En el caso de ciertos proveedores, como GoDaddy, los cambios en los registros DNS no entran en vigor hasta que se selecciona un vínculo **Guardar cambios** independiente. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>Crear un registro CNAME
 

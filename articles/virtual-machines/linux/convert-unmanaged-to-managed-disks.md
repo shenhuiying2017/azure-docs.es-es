@@ -1,6 +1,6 @@
 ---
-title: "Conversión de una VM con Linux en Azure de Unmanaged Disks a Managed Disks | Microsoft Docs"
-description: "Conversión de una máquina virtual de Unmanaged Disks a Managed Disks mediante la CLI de Azure 2.0 en el modelo de implementación de Resource Manager"
+title: "Conversión de una máquina virtual Linux en Azure con discos no administrados a discos administrados - Azure Managed Disks | Microsoft Docs"
+description: "Conversión de una máquina virtual Linux con discos no administrados en discos administrados mediante la CLI de Azure 2.0 en el modelo de implementación de Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 37c47061b0774d9670b9a2d304d069d5f683c2d2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 118d1efaaa0a962c7d13fae6ad5f447a60c4e85b
 ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="convert-a-linux-vm-from-unmanaged-disks-to-azure-managed-disks"></a>Conversión de una VM con Linux de Unmanaged Disks a Azure Managed Disks
+# <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de una máquina virtual Linux con discos no administrados en discos administrados
 
-Si ya dispone de máquinas virtuales (VM) con Linux que usan Unmanaged Disks, puede convertirlas para usar [Azure Managed Disks](../../storage/storage-managed-disks-overview.md). Este proceso convierte el disco del SO y los discos de datos conectados.
+Si ya dispone de máquinas virtuales Linux que usan discos no administrados, puede convertirlas para usar discos administrados mediante el servicio [Azure Managed Disks](../../storage/storage-managed-disks-overview.md). Este proceso convierte el disco del SO y los discos de datos conectados.
 
 En este artículo se muestra cómo convertir máquinas virtuales con la CLI de Azure. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli.md). 
 
@@ -35,21 +35,21 @@ En este artículo se muestra cómo convertir máquinas virtuales con la CLI de A
 
 
 ## <a name="convert-single-instance-vms"></a>Conversión de máquinas virtuales de instancia única
-En esta sección se explica cómo convertir máquinas virtuales de Azure de instancia única de Unmanaged Disks a Managed Disks. (Vea la sección siguiente si las máquinas virtuales se encuentran en un conjunto de disponibilidad). Puede usar este proceso para realizar conversiones de discos no administrados premium (SDD) a discos administrados premium, o bien de discos no administrados estándar (HDD) a discos administrados estándar.
+En esta sección se explica cómo convertir máquinas virtuales de Azure de instancia única de Unmanaged Disks a Managed Disks. (Si las máquinas virtuales se encuentran en un conjunto de disponibilidad, consulte la sección siguiente). Puede usar este proceso para convertir las máquinas virtuales de discos no administrados premium (SDD) a discos administrados premium, o bien de discos no administrados estándar (HDD) a discos administrados estándar.
 
-1. Desasigne la VM con [az vm deallocate](/cli/azure/vm#deallocate). En el ejemplo siguiente se desasigna la VM `myVM` en el grupo de recursos denominado `myResourceGroup`:
+1. Desasigne la máquina virtual mediante [az vm deallocate](/cli/azure/vm#deallocate). En el ejemplo siguiente se desasigna la VM `myVM` en el grupo de recursos denominado `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. Convierta la VM en discos administrados con [az vm convert](/cli/azure/vm#convert). El proceso siguiente convierte la VM denominada `myVM`, incluidos el disco del SO y todos los discos de datos:
+2. Convierta la máquina virtual en discos administrados con [az vm convert](/cli/azure/vm#convert). El proceso siguiente convierte la máquina virtual denominada `myVM`, incluidos el disco del SO y todos los discos de datos:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. Inicie la VM después de la conversión a discos administrados con [az vm start](/cli/azure/vm#start). En el ejemplo siguiente se inicia la VM llamada `myVM` en el grupo de recursos `myResourceGroup`.
+3. Inicie la máquina virtual después de la conversión a discos administrados con [az vm start](/cli/azure/vm#start). En el ejemplo siguiente se inicia la VM llamada `myVM` en el grupo de recursos `myResourceGroup`.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -59,9 +59,9 @@ En esta sección se explica cómo convertir máquinas virtuales de Azure de inst
 
 Si las VM que desea convertir en discos administrados se encuentran en un conjunto de disponibilidad, primero debe convertir el conjunto de disponibilidad en un conjunto de disponibilidad administrado.
 
-Todas las VM del conjunto de disponibilidad deben desasignarse antes de convertir el conjunto de disponibilidad. Planee la conversión de todas las VM a discos administrados después de haber convertido el propio conjunto de disponibilidad en un conjunto de disponibilidad administrado. Después, inicie todas las máquinas virtuales y siga trabajando con normalidad.
+Todas las VM del conjunto de disponibilidad deben desasignarse antes de convertir el conjunto de disponibilidad. Planee la conversión de todas las máquinas virtuales a discos administrados después de haber convertido el propio conjunto de disponibilidad en un conjunto de disponibilidad administrado. Después, inicie todas las máquinas virtuales y siga trabajando con normalidad.
 
-1. Enumere todas las VM de un conjunto de disponibilidad con [az vm availability-set list](/cli/azure/vm/availability-set#list). En el ejemplo siguiente se enumeran todas las VM del conjunto de disponibilidad `myAvailabilitySet` en el grupo de recursos denominado `myResourceGroup`:
+1. Enumere todas las máquinas virtuales de un conjunto de disponibilidad con [az vm availability-set list](/cli/azure/vm/availability-set#list). En el ejemplo siguiente se enumeran todas las VM del conjunto de disponibilidad `myAvailabilitySet` en el grupo de recursos denominado `myResourceGroup`:
 
     ```azurecli
     az vm availability-set show \
@@ -71,7 +71,7 @@ Todas las VM del conjunto de disponibilidad deben desasignarse antes de converti
         --output table
     ```
 
-2. Desasigne todas las VM con [az vm deallocate](/cli/azure/vm#deallocate). En el ejemplo siguiente se desasigna la VM `myVM` en el grupo de recursos denominado `myResourceGroup`:
+2. Desasigne todas las máquinas virtuales con [az vm deallocate](/cli/azure/vm#deallocate). En el ejemplo siguiente se desasigna la VM `myVM` en el grupo de recursos denominado `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -85,28 +85,28 @@ Todas las VM del conjunto de disponibilidad deben desasignarse antes de converti
         --name myAvailabilitySet
     ```
 
-4. Convierta todas las VM a discos administrados con [az vm convert](/cli/azure/vm#convert). El proceso siguiente convierte la VM denominada `myVM`, incluidos el disco del SO y todos los discos de datos:
+4. Convierta todas las máquinas virtuales a discos administrados con [az vm convert](/cli/azure/vm#convert). El proceso siguiente convierte la máquina virtual denominada `myVM`, incluidos el disco del SO y todos los discos de datos:
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. Inicie todas las VM después de la conversión a discos administrados con [az vm start](/cli/azure/vm#start). En el ejemplo siguiente se inicia la VM llamada `myVM` en el grupo de recursos `myResourceGroup`.
+5. Inicie todas las máquinas virtuales después de la conversión a discos administrados con [az vm start](/cli/azure/vm#start). En el ejemplo siguiente se inicia la máquina virtual llamada `myVM` en el grupo de recursos `myResourceGroup`:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
 ## <a name="managed-disks-and-azure-storage-service-encryption"></a>Managed Disks y Azure Storage Service Encryption
-No puede usar los pasos anteriores para convertir un disco no administrado en uno administrado si el disco no administrado se encuentra en una cuenta de Storage cifrada con [Azure Storage Service Encryption](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Los siguientes pasos explican cómo copiar y usar Unmanaged Disks que han estado en una cuenta de almacenamiento cifrada:
+No puede usar los pasos anteriores para convertir un disco no administrado en uno administrado si el disco no administrado se encuentra en una cuenta de Storage cifrada con el [cifrado del servicio Azure Storage](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Los siguientes pasos explican cómo copiar y usar Unmanaged Disks que han estado en una cuenta de almacenamiento cifrada:
 
-1. Copie el disco duro virtual (VHD) con [az storage blob copy start](/cli/azure/storage/blob/copy#start) en una cuenta de almacenamiento que nunca se ha habilitado para el Cifrado del servicio Azure Storage.
+1. Copie el VHD con [az storage blob copy start](/cli/azure/storage/blob/copy#start) en una cuenta de almacenamiento que nunca se ha habilitado para el cifrado del servicio Azure Storage.
 
 2. Use la VM copiada de alguna de las formas siguientes:
 
-* Cree una VM que use Unmanaged Disks y especifique el archivo de VHD durante la creación con [az vm create](/cli/azure/vm#create).
+   * Cree una máquina virtual que use discos administrados y especifique el archivo VHD durante la creación con [az vm create](/cli/azure/vm#create).
 
-* O conecte el VHD copiado con [az vm disk attach](/cli/azure/vm/disk#attach) a una VM en ejecución con discos administrados.
+   * Asocie el VHD copiado con [az vm disk attach](/cli/azure/vm/disk#attach) a una máquina virtual en ejecución que usa discos administrados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las opciones de almacenamiento, vea [Introducción a Azure Managed Disks](../../storage/storage-managed-disks-overview.md).

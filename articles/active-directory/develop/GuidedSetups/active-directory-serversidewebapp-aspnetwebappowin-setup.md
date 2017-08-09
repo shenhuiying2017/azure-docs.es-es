@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 0807e37632f9d817b22735103514f7bd03c05d59
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ebf54f5a203adb7f0e5b0c47dcc07595e269e218
 ms.contentlocale: es-es
 
 
@@ -27,7 +27,7 @@ ms.contentlocale: es-es
 
 En esta sección se muestran los pasos necesarios para instalar y configurar la canalización de autenticación a través del middleware OWIN en un proyecto de ASP.NET con OpenID Connect. 
 
-> ¿Prefiere descargar este proyecto de Visual Studio de ejemplo en su lugar? [Descargue un proyecto](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) y vaya al paso de [Configuración](#create-an-application-express "Paso de Configuración") para configurar el código de ejemplo antes de ejecutarlo.
+> ¿Prefiere descargar este proyecto de Visual Studio de ejemplo en su lugar? [Descargue un proyecto](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) y vaya al [paso de configuración](#create-an-application-express) para configurar el código de ejemplo antes de ejecutarlo.
 
 <!--start-collapse-->
 > ### <a name="create-your-aspnet-project"></a>Creación del proyecto de ASP.NET

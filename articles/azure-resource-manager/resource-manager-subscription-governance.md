@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: ce4e19738a66629c7dd587da50f71f6675c159e8
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Scaffolding empresarial de Azure: gobierno de suscripción preceptivo
@@ -216,7 +215,7 @@ Entre los roles integrados, solamente se conceden esas acciones al propietario y
 > Las directivas también resultan cruciales para el mantenimiento de los controles adecuados. Recomendamos aplicar un bloqueo **CanNotDelete** en las directivas que se están utilizando.
 
 ## <a name="core-networking-resources"></a>Recursos de red principales
-El acceso a los recursos puede ser interno (dentro de la red corporativa) o externo (a través de Internet). Es muy fácil que los usuarios de una organización puedan colocar accidentalmente los recursos en la zona incorrecta y, posiblemente, abrirlos para acceder con intenciones malintencionado. Al igual que con los dispositivos locales, las empresas deben agregar los controles adecuados para asegurarse de que los usuarios de Azure tomen las decisiones correctas. Para el gobierno de suscripciones, identificamos los recursos principales que proporcionan un control de acceso básico. Se trata de los siguientes:
+El acceso a los recursos puede ser interno (dentro de la red corporativa) o externo (a través de Internet). Es muy fácil que los usuarios de una organización puedan colocar accidentalmente los recursos en la zona incorrecta y, posiblemente, abrirlos para acceder con intenciones malintencionado. Al igual que con los dispositivos locales, las empresas deben agregar los controles adecuados para asegurarse de que los usuarios de Azure toman las decisiones correctas. Para el gobierno de suscripciones, identificamos los recursos principales que proporcionan un control de acceso básico. Se trata de los siguientes:
 
 * Las **redes virtuales** son objetos de contenedor de las subredes. Aunque no es estrictamente necesario, se suelen utilizar al conectar las aplicaciones a los recursos corporativos internos.
 * Los **grupos de seguridad de red** son similares a los firewalls y proporcionan reglas de cómo un recurso puede "hablar" a través de la red. Proporcionan un control granular sobre cómo o bajo qué condición una subred (o máquina virtual) puede conectarse a Internet o a otras subredes de la misma red virtual.

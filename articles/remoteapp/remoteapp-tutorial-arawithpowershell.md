@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8bea98274f94853cb52fe8b51fdaa4f224c649e4
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e6338dc283b5a26f20a467df9582181381967931
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="use-windows-powershell-cmdlets-with-azure-remoteapp"></a>Uso de cmdlets de Windows PowerShell con Azure RemoteApp
@@ -46,9 +45,20 @@ Puede usar estos pasos para una introducción rápida:
 2. Inicie Microsoft Azure PowerShell.
 3. Ejecute **Add-AzureAccount** para autenticarse en su suscripción de Azure. Cuando se le solicite, escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de Azure.  
 4. Ejecute **Get-AzureSubscription** para enumerar las suscripciones asociadas a su cuenta de usuario. 
-5. Ejecute **Select-AzureSubscription** y especifique el nombre de la suscripción o el identificador que se usa en la consola de PowerShell.
+5. Ejecute **Select-AzureSubscription -SubscriptionName &lt;nombre de la suscripción&gt;** o **Select-AzureSubscription -SubscriptionId &lt;ID de la suscripción&gt;** para especificar la suscripción que se va a usar.
 
 Enhorabuena, la consola de Azure PowerShell se ha configurado y está lista para usarse. Tenga en cuenta que necesitará repetir los pasos del 2 al 5 cada vez que inicie la consola de Azure PowerShell.  
+
+
+## <a name="list-all-collections"></a>Lista de todas las colecciones
+- - -
+     Get-AzureRemoteAppCollection
+
+## <a name="delete-a-collection"></a>Eliminación de una colección
+- - -
+    Remove-AzureRemoteAppCollection <enter collection name>
+
+Ejemplo: `Remove-AzureRemoteAppCollection ContosoProduction`.
 
 ## <a name="create-a-cloud-collection"></a>Creación de una colección en la nube
 - - -
@@ -71,7 +81,7 @@ Cuando la colección esté lista, puede agregar usuarios a la colección con el 
 ## <a name="available-cmdlets"></a>Cmdlets disponibles
 Tenemos muchos otros comandos, cuya información se pondrá pronto a disposición de los usuarios:
 
-Cmdlets básicos de la colección de RemoteApp: 
+Cmdlets básicos de la colección de RemoteApp 
 
 * New-AzureRemoteAppCollection
 * Get-AzureRemoteAppCollection

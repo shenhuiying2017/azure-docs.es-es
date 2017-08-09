@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 99c8067cf08b8ae7650c240c9d69d2fe1c18f9c8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 50c463588356cc4725b038cbf89a49b6ce2bdc3b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>Uso de Escritorio de remoto con los roles de Azure
-Mediante el SDK de Azure y los servicios de escritorio remoto, puede acceder a los roles de Azure y las máquinas virtuales que se hospedan en Azure. En Visual Studio, puede configurar el servicio de Escritorio remoto desde un proyecto de Azure. Para habilitar los servicios de Escritorio remoto, tiene que crear un proyecto que contenga uno o más roles y, a continuación, publicarlo en Azure.
+Mediante el SDK de Azure y los servicios de escritorio remoto, puede acceder a los roles de Azure y las máquinas virtuales que se hospedan en Azure. En Visual Studio, puede configurar Servicios de Escritorio remoto desde un proyecto de servicio en la nube de Azure. Para habilitar los servicios de Escritorio remoto, tiene que crear un proyecto que contenga uno o más roles y, a continuación, publicarlo en Azure.
 
 > [!IMPORTANT]
 > Debe tener acceso a un rol de Azure para solucionar problemas o desarrollo solamente. El propósito de cada máquina virtual es ejecutar una función específica en su aplicación de Azure, no es ejecutar otras aplicaciones cliente. Si desea usar Azure para hospedar una máquina virtual que se puede usar para cualquier propósito, consulte Tener acceso a Máquinas virtuales de Azure desde el Explorador de servidores.
@@ -29,7 +31,7 @@ Mediante el SDK de Azure y los servicios de escritorio remoto, puede acceder a l
 > 
 
 ## <a name="to-enable-and-use-remote-desktop-for-an-azure-role"></a>Para habilitar y usar el Escritorio remoto para un rol de Azure
-1. En el Explorador de soluciones, abra el menú contextual de su proyecto y, a continuación, elija **Publicar**.
+1. En el Explorador de soluciones, abra el menú contextual de su proyecto de servicio en la nube y, a continuación, elija **Publicar**.
    
     Aparecerá el **Asistente para publicar aplicación de Azure** .
    
@@ -76,10 +78,5 @@ Después de publicar el servicio en la nube en Azure, puede usar el Explorador d
    
     ![Conexión a través del escritorio remoto](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 3. Escriba el nombre de usuario y la contraseña que ha creado anteriormente. Ahora está registrado en la sesión remota.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

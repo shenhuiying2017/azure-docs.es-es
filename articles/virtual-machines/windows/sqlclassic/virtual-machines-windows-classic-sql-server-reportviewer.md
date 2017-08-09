@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 3d9bdd4f07d22a7bc6c80150ae27453813d39f07
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e54c3bc484b0b3b81cc495e54c17e8ef448abe91
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Usar ReportViewer en un sitio web hospedado en Azure
@@ -46,7 +46,7 @@ Revise la sección "Recomendación general y procedimientos recomendados" de [SQ
 > No se admite el ReportViewer configurado en modo de procesamiento local en Microsoft Azure.
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>Adición de ensamblados al paquete de implementación
-Cuando se hospeda la aplicación ASP.NET en local, los ensamblados de ReportViewer normalmente se instalan directamente en la memoria caché de ensamblados global (GAC) del servidor IIS durante la instalación de Visual Studio y la aplicación puede obtener acceso a ellos directamente. Sin embargo, cuando hospeda su aplicación ASP.NET en la nube, Microsoft Azure no permite que se instale nada en la GAC, por lo que debe asegurarse de que los ensamblados de ReportViewer están disponibles localmente para la aplicación. Puede ello, agregue referencias a los ensamblados en el proyecto y configúrelos para que se copien localmente.
+Cuando la aplicación ASP.NET se hospeda localmente, los ensamblados de ReportViewer normalmente se instalan directamente en la caché global de ensamblados (GAC) del servidor IIS durante la instalación de Visual Studio y la aplicación puede obtener acceso a ellos directamente. Sin embargo, cuando hospeda su aplicación ASP.NET en la nube, Microsoft Azure no permite que se instale nada en la GAC, por lo que debe asegurarse de que los ensamblados de ReportViewer están disponibles localmente para la aplicación. Puede ello, agregue referencias a los ensamblados en el proyecto y configúrelos para que se copien localmente.
 
 En el modo de procesamiento remoto, el control ReportViewer usa los siguientes ensamblados:
 

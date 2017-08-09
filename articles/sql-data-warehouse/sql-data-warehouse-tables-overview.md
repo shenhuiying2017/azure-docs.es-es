@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+ms.date: 06/29/2016
 ms.author: shigu;jrj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 914d85267e82ce6a2e60f3841889935046f17c87
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c16fef2f302dbc56f257eaf2f0d2b68b6a3c1852
 ms.contentlocale: es-es
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>Información general de tablas en SQL Data Warehouse
@@ -50,7 +49,7 @@ RENAME OBJECT Customer TO CustomerOrig;
  ```
 
 ## <a name="distributed-tables"></a>Tablas distribuidas
-Un nuevo atributo fundamental introducido por sistemas distribuidos como SQL Data Warehouse es la **columna de distribución**.  La columna de distribución es mucho lo que parece.  Es la columna que determina cómo distribuir, o dividir, los datos en segundo plano.  Si se crea una tabla sin especificar la columna de distribución, la tabla se distribuye automáticamente mediante el método **Round Robin**.  Aunque las tablas Round Robin pueden ser suficientes en algunos escenarios, la definición de columnas de distribución puede reducir considerablemente el movimiento de datos durante las consultas, lo que optimiza el rendimiento.  Para más información acerca de cómo seleccionar una columna de distribución, consulte [Distribución de tablas en SQL Data Warehouse][Distribute].
+Un nuevo atributo fundamental introducido por sistemas distribuidos como SQL Data Warehouse es la **columna de distribución**.  La columna de distribución es mucho lo que parece.  Es la columna que determina cómo distribuir, o dividir, los datos en segundo plano.  Si se crea una tabla sin especificar la columna de distribución, la tabla se distribuye automáticamente mediante el método **Round Robin**.  Aunque las tablas Round Robin pueden ser suficientes en algunos escenarios, la definición de columnas de distribución puede reducir considerablemente el movimiento de datos durante las consultas, lo que optimiza el rendimiento.  En situaciones en las que hay una pequeña cantidad de datos en una tabla, la elección de crear la tabla con el tipo de distribución **replica** copia los datos a cada nodo de ejecución y ahorra movimiento de datos en tiempo de ejecución de consulta. Para más información acerca de cómo seleccionar una columna de distribución, consulte [Distribución de tablas en SQL Data Warehouse][Distribute].
 
 ## <a name="indexing-and-partitioning-tables"></a>Indexación y creación de particiones de tablas
 A medida que el uso de SQL Data Warehouse es más avanzado y con el fin de optimizar el rendimiento, deseará más información acerca del diseño de tablas.  Para más información, consulte los artículos [Tipos de datos de las tablas en SQL Data Warehouse][Data Types], [Distribución de tablas en SQL Data Warehouse][Distribute], [Indexación de tablas en SQL Data Warehouse][Index] y [Creación de particiones de tablas en SQL Data Warehouse][Partition].
@@ -69,7 +68,6 @@ Mientras que SQL Data Warehouse contiene muchas de las características de tabla
 
 | Características no admitidas |
 | --- |
-| [Propiedad Identity][Identity Property] [consulte [Assigning Surrogate Key Workaround][Assigning Surrogate Key Workaround](Solución alternativa para la asignación de una clave suplente)] |
 | Clave principal, claves externas, única y comprobar [restricciones de tabla][Table Constraints] |
 | [Índices únicos][Unique Indexes] |
 | [Columnas calculadas][Computed Columns] |
@@ -202,7 +200,7 @@ FROM size
 ```
 
 ### <a name="table-space-summary"></a>Resumen de espacio de tabla
-Esta consulta devuelve las filas y el espacio por tabla.  Es una consulta excelente para ver qué tablas son las más grandes y si se han distribuido por hash o round robin.  Para las tablas distribuidas por hash, también se muestra la columna de distribución.  En la mayoría de los casos, las tablas más grandes deben distribuirse por hash con un índice de almacén de columnas agrupados.
+Esta consulta devuelve las filas y el espacio por tabla.  Es una consulta excelente para ver qué tablas son las más grandes y si se han distribuido por hash, round robin o réplica.  Para las tablas distribuidas por hash, también se muestra la columna de distribución.  En la mayoría de los casos, las tablas más grandes deben distribuirse por hash con un índice de almacén de columnas agrupados.
 
 ```sql
 SELECT 
@@ -295,8 +293,6 @@ Para más información, consulte los artículos sobre [Tipos de datos de las tab
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Identity Property]: https://msdn.microsoft.com/library/ms186775.aspx
-[Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
 [Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
 [Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
 [Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx

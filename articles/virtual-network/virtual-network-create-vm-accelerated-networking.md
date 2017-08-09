@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 0d74a13968338d5dc88eab3353316c77c7544615
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: c852a1297261504015a3a985fe14a38957d1a64a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual con Accelerated Networking
@@ -36,7 +35,8 @@ Con Accelerated Networking, el tráfico de red llega a la interfaz de red (NIC) 
 
 Las ventajas de Accelerated Networking solo se aplican a la máquina virtual donde esté habilitado. Para obtener resultados óptimos, lo ideal es habilitar esta característica en al menos dos máquinas virtuales conectadas a la misma instancia de Azure Virtual Network (VNet). Al comunicarse entre redes virtuales o conectarse de forma local, esta característica tiene un efecto mínimo sobre la latencia total.
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
+> [!WARNING]
+> Esta versión preliminar pública de Linux podría no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Esta característica no se admite, puede tener funcionalidades limitadas y no estar disponible en todas las ubicaciones de Azure. Para ver las notificaciones más actuales sobre la disponibilidad y el estado de esta característica, consulte la página de actualizaciones de Azure Virtual Network.
 
 ## <a name="benefits"></a>Ventajas
 * **Menor latencia/Más paquetes por segundo (pps):** al quitarse el conmutador virtual de la ruta de acceso de datos, se elimina el tiempo que los paquetes pasan en el host para el procesamiento de las directivas y se aumenta el número de paquetes que se pueden procesar dentro de la máquina virtual.
@@ -51,6 +51,7 @@ Cuando se utiliza esta funcionalidad, existen las siguientes limitaciones:
 * **Regiones:** la mayoría de las regiones de Azure ofrecen máquinas virtuales de Windows con Accelerated Networking. En numerosas regiones se ofrecen máquinas virtuales de Linux con redes aceleradas. El número de regiones en las que esta funcionalidad está disponible va en aumento. Consulte más abajo el blog de actualizaciones de redes virtuales de Azure para ver la información más reciente.   
 * **Sistemas operativos compatibles:** para Windows, Microsoft Windows Server 2012 R2 Datacenter y Windows Server 2016. Para Linux, Ubuntu Server 16.04 LTS con kernel 4.4.0-77 o superior, SLES 12 SP2, RHEL 7.3 y CentOS 7.3 (publicado por Rogue Wave Software).
 * **Tamaño de máquina virtual:** instancias de uso general y de proceso optimizado con ocho o más núcleos. Para más información, consulte los artículos sobre los tamaños de máquina virtual de [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y de [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). El conjunto de tamaños de instancia de máquina virtual compatibles se ampliará en el futuro.
+* **Implementación mediante Azure Resource Manager (ARM):** la funcionalidad de redes aceleradas no se puede implementar mediante ASM/RDFE.
 
 Los cambios en estas limitaciones se anunciarán a través de la página de [actualizaciones para Azure Virtual Networking](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 
@@ -324,11 +325,11 @@ Para crear una máquina virtual de Red Hat Enterprise Linux o CentOS 7.3, debe s
 
 1.  Aprovisione una máquina virtual que no sea SRIOV CentOS 7.3 en Azure.
 
-2.  Instale LIS 4.2.1.
+2.  Instale LIS 4.2.2:
     
     ```bash
-    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
-    tar -xvf lis-rpms-4.2.1-1.tar.gz
+    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
+    tar -xvf lis-rpms-4.2.2-2.tar.gz
     cd LISISO && sudo ./install.sh
     ```
 
@@ -402,8 +403,8 @@ Para crear una máquina virtual de Red Hat Enterprise Linux o CentOS 7.3, debe s
 
     # Specify a URI for the location from which the new image binary large object (BLOB) is copied to start the virtual machine. 
     # Must end with ".vhd" extension
-    $destOsDiskName = "MyOsDiskName.vhd" 
-    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $destOsDiskName
+    $OsDiskName = "MyOsDiskName.vhd" 
+    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $OsDiskName
     
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
@@ -417,7 +418,7 @@ Para crear una máquina virtual de Red Hat Enterprise Linux o CentOS 7.3, debe s
      -Credential $Cred | `
     Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
     Set-AzureRmVMOSDisk `
-     -Name $OSDiskName `
+     -Name $OsDiskName `
      -SourceImageUri $sourceUri `
      -VhdUri $destOsDiskUri `
      -CreateOption FromImage `

@@ -10,15 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/17/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 041254b07584a52ae92e603f60a439050b747af1
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8745db3abe6ddec6da1f92da6b7cf8bf82b96d79
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="consume-an-azure-managed-application"></a>Uso de una aplicación administrada de Azure
+# <a name="consume-a-service-catalog-managed-application"></a>Uso de una aplicación administrada del catálogo de servicios
 
 Tal y como se describe en el artículo de [introducción a las aplicaciones administradas](managed-application-overview.md), hay dos escenarios en la experiencia completa. Uno es el publicador o el ISV que desea crear una aplicación administrada para que la utilicen los usuarios. El segundo es el usuario final de la aplicación administrada. Este artículo trata el segundo escenario y explica cómo un usuario final puede utilizar una aplicación administrada proporcionada por fabricantes independientes de software.
 
@@ -69,10 +68,10 @@ Puede usar el comando `az managedapp create` para crear una aplicación administ
 ```azurecli
 az managedapp create --name ravtestappliance401 --location "westcentralus" 
     --kind "Servicecatalog" --resource-group "ravApplianceCustRG401" 
-       --managedapp-definition-id "/subscriptions/{guid}/resourceGroups/ravApplianceDefRG401/providers/Microsoft.Solutions/applianceDefinitions/ravtestAppDef401" 
-       --managed-rg-id "/subscriptions/{guid}/resourceGroups/ravApplianceCustManagedRG401" 
-       --parameters "{\"storageAccountName\": {\"value\": \"ravappliancedemostore1\"}}" 
-       --debug
+    --managedapp-definition-id "/subscriptions/{guid}/resourceGroups/ravApplianceDefRG401/providers/Microsoft.Solutions/applianceDefinitions/ravtestAppDef401" 
+    --managed-rg-id "/subscriptions/{guid}/resourceGroups/ravApplianceCustManagedRG401" 
+    --parameters "{\"storageAccountName\": {\"value\": \"ravappliancedemostore1\"}}" 
+    --debug
 ```
 
 **appliance-definition-Id**: identificador del recurso de definición de aplicación creado en el paso anterior. Para obtener este identificador, ejecute el siguiente comando:
@@ -118,4 +117,6 @@ Esta versión preliminar presenta los siguientes problemas:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](managed-application-overview.md).
-* Para comprender la experiencia del proveedor, consulte [Creación y publicación de una aplicación administrada de Azure](managed-application-publishing.md).
+* Para información sobre cómo publicar una aplicación administrada del catálogo de servicios, consulte [Creación y publicación de una aplicación administrada del catálogo de servicios](managed-application-publishing.md).
+* Para información sobre cómo publicar aplicaciones administradas en Marketplace, consulte [Aplicaciones administradas de Azure en Marketplace](managed-application-author-marketplace.md).
+* Para información sobre cómo usar una aplicación administrada de Marketplace, consulte [Uso de aplicaciones administradas de Azure en Marketplace](managed-application-consume-marketplace.md).

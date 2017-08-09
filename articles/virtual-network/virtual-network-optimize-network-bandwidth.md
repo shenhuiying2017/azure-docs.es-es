@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
+ms.date: 07/07/2017
 ms.author: steveesp
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 1340048d5d518caff3397f671d0c75caaab4b5ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a7c32f07516ca83bc2fb5ad5a9a526631932ad4a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -29,7 +29,7 @@ Las máquinas virtuales de Azure (VM) tienen una configuración de red predeterm
 
 ## <a name="windows-vm"></a>Máquina virtual de Windows
 
-Las máquinas virtuales que usan el ajuste de escala en lado de recepción (RSS) pueden logar un rendimiento máximo mayor que las que no lo hacen. En las máquinas virtuales Windows, RSS se puede deshabilitar de forma predeterminada. Complete los siguientes pasos para determinar si RSS está habilitado y, si no lo está, para habilitarlo.
+Si la máquina virtual Windows es compatible con [redes aceleradas](virtual-network-create-vm-accelerated-networking.md), habilite esta característica para conseguir un rendimiento óptimo. En el caso de otras máquinas virtuales Windows, el uso de escalado en el lado de la recepción (RSS) pueden logar un rendimiento máximo mayor que las que no lo usan. En las máquinas virtuales Windows, RSS se puede deshabilitar de forma predeterminada. Complete los siguientes pasos para determinar si RSS está habilitado y, si no lo está, para habilitarlo.
 
 1. Escriba el comando `Get-NetAdapterRss` de PowerShell para ver si RSS está habilitado para un adaptador de red. En la siguiente salida de ejemplo que devuelve `Get-NetAdapterRss`, RSS no está habilitado.
 

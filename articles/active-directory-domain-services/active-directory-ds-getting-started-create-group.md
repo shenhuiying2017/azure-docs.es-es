@@ -12,18 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/13/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: b8e5e2213f157c0332f98305266c1c6248c2ea87
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5ed0125e05928cf0f6d9941e099b433ecb46e6e2
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Habilitación de Azure Active Directory Domain Services mediante el Portal de Azure clásico
 Este artículo describe y le guía por las tareas de configuración que son necesarias para habilitar Azure Active Directory Domain Services (Azure AD DS) para su inquilino de Azure Active Directory (Azure AD).
+
+> [!NOTE]
+> [**Pruebe la nueva experiencia de Azure Portal (versión preliminar) en su lugar**](active-directory-ds-getting-started.md). 
+>
 
 ## <a name="task-1-create-the-azure-ad-dc-administrators-group"></a>Tarea 1: Creación del grupo de administradores de controlador de dominio de Azure AD
 Esta primera tarea consiste en crear un grupo administrativo en el inquilino de Azure AD. Este grupo administrativo especial se llama *Administradores de DC de AAD*. A los miembros de este grupo se les concederán permisos administrativos en los equipos unidos al domino administrado en Azure Active Directory Domain Services. En equipos unidos a un dominio, este grupo se agrega al grupo de administradores. Además, los miembros de este grupo también podrá usar Escritorio remoto para conectarse de forma remota a las máquinas unidas a un dominio.  

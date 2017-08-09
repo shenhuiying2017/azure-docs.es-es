@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/13/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 255cc9f08862ff7babf8d8847c88a72a4c88582c
-ms.lasthandoff: 01/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4bae6dabe5700c487cb3f98498729c9a27de8a44
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configuración de directivas de entrega de recursos
@@ -72,7 +72,7 @@ Para obtener instrucciones sobre cómo publicar un recurso y generar una direcci
 > 
 
 ## <a name="clear-asset-delivery-policy"></a>Directiva de entrega de recursos sin cifrar
-### <a name="a-idcreateassetdeliverypolicyacreate-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>Creación de directiva de entrega de recursos
+### <a id="create_asset_delivery_policy"></a>Creación de directiva de entrega de recursos
 La solicitud HTTP siguiente crea una directiva de entrega de recursos que especifica que no se aplique el cifrado dinámico y que se entregue la secuencia en cualquiera de los siguientes protocolos: MPEG DASH, HLS y Smooth Streaming. 
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types) .   
@@ -121,7 +121,7 @@ Respuesta:
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a name="a-idlinkassetwithassetdeliverypolicyalink-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
+### <a id="link_asset_with_asset_delivery_policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
 La siguiente solicitud HTTP vincula el recurso especificado con la directiva de entrega de recursos.
 
 Solicitud:
@@ -148,7 +148,7 @@ Respuesta:
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Crear clave de contenido del tipo EnvelopeEncryption y vincularla al recurso
 Al especificar la directiva de entrega de DynamicEnvelopeEncryption, asegúrese de vincular el recurso a una clave de contenido del tipo EnvelopeEncryption. Para obtener más información, consulte [Creación de una clave de contenido](media-services-rest-create-contentkey.md).
 
-### <a name="a-idgetdeliveryurlaget-delivery-url"></a><a id="get_delivery_url"></a>Obtención de una dirección URL de entrega
+### <a id="get_delivery_url"></a>Obtención de una dirección URL de entrega
 Obtenga la dirección URL de entrega para el método de entrega especificado de la clave de contenido que creó en el paso anterior. Un cliente usa la dirección URL devuelta para solicitar una clave AES o una licencia de PlayReady para reproducir el contenido protegido.
 
 Especifique el tipo de la dirección URL que se obtendrá en el cuerpo de la solicitud HTTP. Si protege el contenido con PlayReady, solicite una URL de adquisición de licencias PlayReady de Servicios multimedia, con 1 para keyDeliveryType: {"keyDeliveryType":1}. Si protege el contenido con el cifrado de sobre, solicite una dirección URL de adquisición de claves con 2 para keyDeliveryType: {"keyDeliveryType":2}.
@@ -273,11 +273,12 @@ Por ejemplo:
 ### <a name="link-asset-with-asset-delivery-policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
 Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#link_asset_with_asset_delivery_policy)
 
-## <a name="a-idtypesatypes-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>Tipos usados al definir AssetDeliveryPolicy
+## <a id="types"></a>Tipos usados al definir AssetDeliveryPolicy
+
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
-    /// <summary>
-    /// Delivery protocol for an asset delivery policy.
-    /// </summary>
+
+La enumeración siguiente describe los valores que puede establecer para el protocolo de entrega de recursos.
+
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -301,6 +302,8 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
         /// </summary>
         HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+ 
         /// <summary>
         /// Include all protocols.
         /// </summary>
@@ -308,9 +311,9 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
     }
 
 ### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
-    /// <summary>
-    /// Policy type for dynamic encryption of assets.
-    /// </summary>
+
+La enumeración siguiente describe los valores que puede establecer para el tipo de directiva de entrega de recursos.  
+
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -341,10 +344,9 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
         }
 
 ### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
-    /// <summary>
-    /// Delivery method of the content key to the client.
-    ///
-    </summary>
+
+La enumeración siguiente describe los valores que puede utilizar para configurar el método de entrega de la clave de contenido al cliente.
+    
     public enum ContentKeyDeliveryType
     {
         /// <summary>
@@ -375,9 +377,8 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
 
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
-    /// <summary>
-    /// Keys used to get specific configuration for an asset delivery policy.
-    /// </summary>
+
+La enumeración siguiente describe los valores que puede establecer para configurar las claves usadas para obtener la configuración específica para una directiva de entrega de recursos.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -421,7 +422,6 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
         /// </summary>
         WidevineLicenseAcquisitionUrl
     }
-
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

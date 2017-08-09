@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: da581b2e22f85152ae7bc5f0d403b2fc0aaf0e54
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a477c1eaf2388f31d4fd36b90f9a830c782873d3
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="storage-analytics"></a>Análisis de almacenamiento
@@ -38,7 +38,7 @@ El análisis de almacenamiento registra información detallada sobre las solicit
 
 Solo se crean entradas del registro si hay actividad del servicio de almacenamiento. Por ejemplo, si una cuenta del almacenamiento tiene actividad en el servicio Blob pero no en los servicios Tabla o Cola, solo se crearán los registros que pertenezcan al servicio Blob.
 
-El registro del Análisis de almacenamiento no está disponible para el servicio de archivos de Azure.
+El registro del análisis de cuentas no está disponible para Azure File Storage.
 
 ### <a name="logging-authenticated-requests"></a>Registrar solicitudes de autenticación
 Se registran los siguientes tipos de solicitudes autenticadas:

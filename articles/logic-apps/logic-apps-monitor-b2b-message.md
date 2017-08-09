@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de mensajes en transacciones B2B - Azure Logic Apps | Microsoft Docs"
-description: "Supervise y realice un seguimiento de los mensajes durante comunicaciones B2B entre procesos y aplicaciones que usan Logic Apps en su cuenta de integración."
+title: "Supervisión de transacciones B2B y configuración de los registros: Azure Logic Apps | Microsoft Docs"
+description: "Supervisión de mensajes AS2, X12 y EDIFACT, inicio del registro de diagnóstico para la cuenta de integración"
 author: padmavc
 manager: anneta
 editor: 
@@ -13,88 +13,129 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 01/27/2017
+ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: dc760b4c08d0e1afff3bc1276f6ed2367d67629e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 59aa8fc907d68485b7d78ae7466e2d2298d7d7d6
 ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="start-or-enable-logging-of-as2-x12-and-edifact-messages-to-monitor-success-errors-and-message-properties"></a>Inicio o habilitación del registro de mensajes AS2, X12 y EDIFACT para supervisar propiedades de mensaje, errores y éxitos
+# <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>Supervisión y configuración del registro de diagnóstico para la comunicación B2B en cuentas de integración
 
-La comunicación B2B implica intercambios de mensajes entre dos aplicaciones o procesos empresariales en ejecución. La relación define un contrato entre los procesos empresariales. Una vez establecida la comunicación, puede configurar la supervisión de mensajes para comprobar que la comunicación funciona según lo previsto. Puede configurar la cuenta de integración para que use diagnósticos, con el fin de aumentar el grado de detalle y realizar la depuración.
+Después de configurar la comunicación B2B entre dos procesos o aplicaciones empresariales mediante la cuenta de integración, esas entidades pueden intercambiar mensajes entre sí. Para confirmar que esta comunicación funciona según lo esperado, puede configurar la supervisión de los mensajes AS2, X12 y EDIFACT, junto con el registro de diagnóstico de la cuenta de integración mediante el servicio [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Este servicio en [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) supervisa los entornos locales y en la nube, lo que le permiten conservar la disponibilidad y el rendimiento, y también recopila detalles de entorno de tiempo de ejecución y eventos para lograr una depuración más completa. También puede [usar los datos de diagnóstico con otros servicios](#extend-diagnostic-data), como Azure Storage y Azure Event Hubs.
 
-El seguimiento de mensajes está disponible para estos protocolos B2B: AS2, X12 y EDIFACT. 
+## <a name="requirements"></a>Requisitos
 
-## <a name="prerequisites"></a>Requisitos previos
+* Una aplicación lógica configurada con registro de diagnósticos. Obtenga información sobre [cómo configurar el registro para esa aplicación lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* Una cuenta de Azure; puede crear una [gratuita](https://azure.microsoft.com/free).
-* Una cuenta de integración; puede crear una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md).
-* Una aplicación lógica; puede crear una [aplicación lógica](logic-apps-create-a-logic-app.md) y [habilitar el registro](logic-apps-monitor-your-logic-apps.md).
+  > [!NOTE]
+  > Una vez satisfecho este requisito, debería tener un área de trabajo en [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Debe usar la misma área de trabajo de OMS cuando configure el registro para la cuenta de integración. Si no tiene un área de trabajo de OMS, aprenda a [crear un área de trabajo de OMS](../log-analytics/log-analytics-get-started.md).
 
-## <a name="enable-logging-for-an-integration-account"></a>Habilitación del registro en una cuenta de integración
+* Una cuenta de integración vinculada a la aplicación lógica. Aprenda a [crear una cuenta de integración con un vínculo a la aplicación lógica](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
-El registro en una cuenta de integración se puede habilitar con **Azure Portal** o con **Monitor**.
+## <a name="turn-on-diagnostics-logging-for-your-integration-account"></a>Activación del registro de diagnóstico para la cuenta de integración
 
-### <a name="enable-logging-with-azure-portal"></a>Habilitación del registro con Azure Portal
+Puede activar el registro directamente desde la cuenta de integración o [mediante el servicio de Azure Monitor](#azure-monitor-service). Azure Monitor ofrece supervisión básica con datos de nivel de infraestructura. Más información sobre [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
 
-1. Seleccione su cuenta de integración y, a continuación, seleccione **Registros de diagnósticos**.
+### <a name="turn-on-diagnostics-logging-directly-from-your-integration-account"></a>Activación del registro de diagnóstico directamente desde la cuenta de integración
 
-    ![Selección de la cuenta de integración](media/logic-apps-monitor-b2b-message/pic5.png)
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione la cuenta de integración. En **Supervisión**, elija **Registros de diagnóstico** como se muestra a continuación:
 
-2. Seleccione su **suscripción** y **grupo de recursos**. En **Tipo de recurso**, seleccione **Cuentas de integración**. En **Recurso**, seleccione su cuenta de integración. Haga clic en **Activar diagnósticos** para habilitar los diagnósticos en la cuenta de integración seleccionada.
+   ![Buscar y seleccionar la cuenta de integración, elegir "Registros de diagnóstico"](media/logic-apps-monitor-b2b-message/integration-account-diagnostics.png)
 
-    ![Configuración de diagnósticos para la cuenta de integración](media/logic-apps-monitor-b2b-message/pic2.png)
+2. Cuando selecciona la cuenta de integración, los valores siguientes se seleccionan de forma automática. Si los valores son correctos, elija **Activar diagnóstico**. De lo contrario, seleccione los valores que desea:
 
-3. Seleccione el estado **ACTIVADO**.
+   1. En **Suscripción**, seleccione la suscripción de Azure que usa con la cuenta de integración.
+   2. En **Grupo de recursos**, seleccione el grupo de recursos que usa con la cuenta de integración.
+   3. En **Tipo de recurso**, seleccione **Cuentas de integración**. 
+   4. En **Resource**, seleccione la cuenta de integración. 
+   5. Elija **Activar diagnóstico**.
 
-    ![Activación del estado de diagnóstico](media/logic-apps-monitor-b2b-message/pic3.png)
+   ![Configuración de diagnósticos para la cuenta de integración](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-4. Seleccione **Send to Log Analytics** (Enviar a Log Analytics) y configure Log Analytics para que emita datos.
+3. En **Configuración de diagnóstico**, **Estado**, elija **Activado**.
 
-    ![Envío de datos de diagnóstico a un registro](media/logic-apps-monitor-b2b-message/pic4.png)
+   ![Activación de Diagnósticos de Azure](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-### <a name="enable-logging-with-monitor"></a>Habilitación del registro con Monitor
+4. Ahora seleccione el área de trabajo de OMS y los datos para usar en el registro de la siguiente manera:
 
-0. Seleccione **Monitor** y, a continuación, **Registros de diagnósticos**.
+   1. Seleccione **Enviar a Log Analytics**. 
+   2. En **Log Analytics**, elija **Configurar**. 
+   3. En **Áreas de trabajo de OMS**, seleccione el área de trabajo de OMS que va a usar para el registro.
+   4. En **Registro**, seleccione la categoría **IntegrationAccountTrackingEvents**.
+   5. Elija **Guardar**.
 
-    ![Selección de Monitor y Registros de diagnósticos](media/logic-apps-monitor-b2b-message/pic1.png)
+   ![Configuración de Log Analytics para que pueda enviar datos de diagnóstico a un registro](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-0. Seleccione su **suscripción** y **grupo de recursos**. En **Tipo de recurso**, seleccione **Cuentas de integración**. En **Recurso**, seleccione su cuenta de integración. Haga clic en **Activar diagnósticos** para habilitar los diagnósticos en la cuenta de integración seleccionada.
+5. Ahora [configure el seguimiento de los mensajes B2B en OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-    ![Configuración de diagnósticos para la cuenta de integración](media/logic-apps-monitor-b2b-message/pic2.png)
+<a name="azure-monitor-service"></a>
 
-0. Seleccione el estado **ACTIVADO**.
+### <a name="turn-on-diagnostics-logging-through-azure-monitor"></a>Activación del registro de diagnóstico mediante Azure Monitor
 
-    ![Activación del estado de diagnóstico](media/logic-apps-monitor-b2b-message/pic3.png) 
+1. En [Azure Portal](https://portal.azure.com), en el menú principal de Azure, elija **Supervisar**, **Registro de diagnóstico**. Luego, seleccione la cuenta de integración como se muestra aquí:
 
-0. Seleccione **Send to Log Analytics** (Enviar a Log Analytics) y configure **Log Analytics** para que emita datos.
+   ![Elija "Supervisar", "Registros de diagnóstico", seleccione la cuenta de integración.](media/logic-apps-monitor-b2b-message/monitor-service-diagnostics-logs.png)
 
-    ![Envío de datos de diagnóstico a un registro](media/logic-apps-monitor-b2b-message/pic4.png)
+2. Cuando selecciona la cuenta de integración, los valores siguientes se seleccionan de forma automática. Si los valores son correctos, elija **Activar diagnóstico**. De lo contrario, seleccione los valores que desea:
 
-## <a name="extend-your-solutions"></a>Ampliación de las soluciones
+   1. En **Suscripción**, seleccione la suscripción de Azure que usa con la cuenta de integración.
+   2. En **Grupo de recursos**, seleccione el grupo de recursos que usa con la cuenta de integración.
+   3. En **Tipo de recurso**, seleccione **Cuentas de integración**.
+   4. En **Resource**, seleccione la cuenta de integración.
+   5. Elija **Activar diagnóstico**.
 
-Además de **Log Analytics**, puede configurar su cuenta de integración y [Logic Apps](./logic-apps-monitor-your-logic-apps.md) en un centro de eventos o una cuenta de almacenamiento.
+   ![Configuración de diagnósticos para la cuenta de integración](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-![Configuración de Diagnósticos de Azure](./media/logic-apps-monitor-your-logic-apps/diagnostics.png)
+3. En **Configuración de diagnóstico**, elija **Activado**.
 
-Esta telemetría del Centro de eventos o de Storage se puede usar en otros servicios, como [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) y [Power BI](https://powerbi.com), para supervisar en tiempo real los flujos de trabajo de integración.
+   ![Activación de Diagnósticos de Azure](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-## <a name="supported-tracking-schema"></a>Esquema de seguimiento que se admite
+4. Ahora seleccione el área de trabajo de OMS y la categoría de evento para el registro como se muestra:
 
-Se admiten los siguientes tipos de esquema de seguimiento, de los que todos, salvo el tipo personalizado, tienen esquemas fijos.
+   1. Seleccione **Enviar a Log Analytics**. 
+   2. En **Log Analytics**, elija **Configurar**. 
+   3. En **Áreas de trabajo de OMS**, seleccione el área de trabajo de OMS que va a usar para el registro.
+   4. En **Registro**, seleccione la categoría **IntegrationAccountTrackingEvents**.
+   5. Cuando termine, seleccione **Guardar**.
 
-* [Esquema de seguimiento personalizado](logic-apps-track-integration-account-custom-tracking-schema.md)
-* [Esquema de seguimiento de AS2](logic-apps-track-integration-account-as2-tracking-schemas.md)
-* [Esquema de seguimiento de X12](logic-apps-track-integration-account-x12-tracking-schema.md)
+   ![Configuración de Log Analytics para que pueda enviar datos de diagnóstico a un registro](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+
+5. Ahora [configure el seguimiento de los mensajes B2B en OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+
+## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Extensión de cómo y dónde usa los datos de diagnóstico con otros servicios
+
+Además de con Azure Log Analytics, puede usar los datos de diagnóstico de la aplicación lógica con otros servicios de Azure, por ejemplo: 
+
+* [Archivar registros de Diagnósticos de Azure en Azure Storage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Transmitir registros de Diagnósticos de Azure a Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+
+Luego puede obtener supervisión en tiempo real mediante la telemetría y los análisis de otros servicios, como [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) y [Power BI](../log-analytics/log-analytics-powerbi.md). Por ejemplo:
+
+* [Transmitir datos de Event Hubs a Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
+* [Analizar datos que se están transmitiendo con Stream Analytics y crear un panel de análisis en tiempo real en Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
+
+Según las opciones que quiera configurar, primero asegúrese de [crear una cuenta de Azure Storage](../storage/storage-create-storage-account.md) o [crear un centro de eventos de Azure](../event-hubs/event-hubs-create.md). Luego seleccione las opciones para el envío de los datos de diagnóstico:
+
+![Envío de los datos a una cuenta de Azure Storage o a un centro de eventos](./media/logic-apps-monitor-b2b-message/storage-account-event-hubs.png)
+
+> [!NOTE]
+> Los períodos de retención solo se aplican cuando se usa una cuenta de almacenamiento.
+
+## <a name="supported-tracking-schemas"></a>Esquemas de seguimiento compatibles
+
+Azure admite los siguientes tipos de esquema de seguimiento, de los que todos, salvo el tipo personalizado, tienen esquemas fijos.
+
+* [Esquema de seguimiento de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
+* [Esquemas de seguimiento de X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
+* [Esquema de seguimiento personalizado](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Seguimiento de mensajes B2B en el Portal de OMS](logic-apps-track-b2b-messages-omsportal.md "Seguimiento de mensajes B2B")
-
-[Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
+* [Seguimiento de mensajes B2B en OMS](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Seguimiento de mensajes B2B en OMS")
+* [Más información sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
 
 

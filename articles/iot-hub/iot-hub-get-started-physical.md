@@ -1,6 +1,6 @@
 ---
 title: "Introducción a la conexión de dispositivos físicos a Azure IoT Hub | Microsoft Docs"
-description: "Aprenda a crear dispositivos de IoT físicos y a conectarlos a Azure IoT Hub. Los dispositivos pueden enviar telemetría a IoT Hub y este servicio puede supervisar y administrar los dispositivos."
+description: "Aprenda a conectar dispositivos físicos y paneles a Azure IoT Hub. Los dispositivos pueden enviar datos de telemetría a IoT Hub y este servicio supervisa y administra los dispositivos."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 2e00affad9302145ac0c62e5994bd636cb2b72a9
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: c42c1c115fac70920b08d65fc1a2cdc8497f5080
 ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Tutoriales de introducción a Azure IoT Hub con dispositivos físicos
@@ -28,7 +27,7 @@ Estos tutoriales le presentan Azure IoT Hub y los SDK de dispositivo. Los tutori
 
 | Dispositivo IoT                       | Lenguaje de programación |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C]           |
+| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C], [Python][Pi_Py]           |
 | Intel Edison                    | [Node.js][Ed_Nd], [C][Ed_C]           |
 | Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
@@ -45,6 +44,7 @@ Además, puede usar una puerta de enlace de IoT Edge para habilitar dispositivos
 
 [Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
 [Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
+[Pi_Py]: iot-hub-raspberry-pi-kit-python-get-started.md
 [Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
 [Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
 [Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md

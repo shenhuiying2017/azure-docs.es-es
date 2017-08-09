@@ -2,7 +2,7 @@
 title: "Transmisión de registros de diagnóstico de Azure a Event Hubs | Microsoft Docs"
 description: "Aprenda a transmitir registros de diagnóstico de Azure a Centros de eventos."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-translationtype: Human Translation
-ms.sourcegitcommit: c9063fcc59d83cb2a6a159cf3a69234417138a5c
-ms.openlocfilehash: 5cadc3ea77ba13d40876c7bc11d2aa1d6abe6b87
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d974d64dbafe15707a6ce86144b98bad334f7f00
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="stream-azure-diagnostic-logs-to-event-hubs"></a>Transmisión de registros de diagnóstico de Azure a Centros de eventos
@@ -27,25 +28,25 @@ Los **[registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-log
 Estas son solo algunas formas de usar la funcionalidad de streaming para registros de diagnóstico:
 
 * **Transmisión de registros a sistemas de registro y telemetría de terceros** : con el tiempo, el streaming de Centros de eventos se convertirá en el mecanismo para canalizar los registros de diagnóstico a sistemas de información de seguridad y administración de eventos (SIEM) y soluciones de análisis de registro de terceros.
-* **Visualización del estado del servicio mediante streaming de datos de "ruta de acceso activa" a PowerBI** : utilizando Centros de eventos, Análisis de transmisiones y Power BI, puede transformar fácilmente los datos de diagnóstico en información casi en tiempo real sobre los servicios de Azure. [En este artículo de documentación se ofrece una excelente introducción sobre cómo configurar Centros de eventos, procesar datos con Análisis de transmisiones y usar Power BI como salida](../stream-analytics/stream-analytics-power-bi-dashboard.md). A continuación presentamos algunas recomendaciones para la configuración con registros de diagnóstico:
+* **Visualización del estado del servicio mediante streaming de datos de "ruta de acceso activa" a PowerBI** : utilizando Centros de eventos, Análisis de transmisiones y Power BI, puede transformar fácilmente los datos de diagnóstico en información casi en tiempo real sobre los servicios de Azure. [En este artículo de documentación se ofrece una excelente introducción sobre cómo configurar Event Hubs, procesar datos con Stream Analytics y usar PowerBI como salida](../stream-analytics/stream-analytics-power-bi-dashboard.md). Estas son algunas recomendaciones para la configuración con los registros de diagnóstico:
   
-  * Los Centros de eventos para una categoría de registros de diagnóstico se crean automáticamente al seleccionar la opción en el portal o habilitarla mediante PowerShell, por lo que debería seleccionar los Centros de eventos en el espacio de nombres del Bus de servicio con el nombre que empieza por “insights-”
-  * Esta es una consulta de Análisis de transmisiones de ejemplo que puede utilizar para analizar simplemente todos los datos de registro en una tabla de PowerBI:
+  * Un centro de eventos para una categoría de registros de diagnóstico se crea automáticamente al seleccionar la opción en el portal o habilitarla mediante PowerShell, por lo que debería seleccionar el centro de eventos en el espacio de nombres con el nombre que empieza por **insights-**.
+  * El siguiente código SQL es una consulta de Stream Analytics de ejemplo que puede utilizar para analizar simplemente todos los datos de registro en una tabla de PowerBI:
 
-```
-SELECT
-records.ArrayValue.[Properties you want to track]
-INTO
-[OutputSourceName – the PowerBI source]
-FROM
-[InputSourceName] AS e
-CROSS APPLY GetArrayElements(e.records) AS records
-```
+    ```sql
+    SELECT
+    records.ArrayValue.[Properties you want to track]
+    INTO
+    [OutputSourceName – the PowerBI source]
+    FROM
+    [InputSourceName] AS e
+    CROSS APPLY GetArrayElements(e.records) AS records
+    ```
 
 * **Creación de una plataforma personalizada de registro y telemetría** : si ya tiene una plataforma de telemetría personalizada o está pensando en crear una, la gran escalabilidad en cuanto a la suscripción y la publicación de los Centros de eventos permite introducir registros de diagnóstico de manera flexible. [Consulte la guía de Dan Rosanova para usar Centros de eventos en una plataforma de telemetría de escala global aquí](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Habilitación de la transmisión de registros de diagnóstico
-Puede habilitar el streaming de registros de diagnóstico mediante programación, a través del portal o mediante la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx). En cualquier caso, si elige un espacio de nombres del Bus de servicio, se crea un Centro de eventos en el espacio de nombres para cada categoría de registro que habilita. Un **categoría de registro** de diagnóstico es un tipo de registro que un recurso puede recopilar. Puede seleccionar qué categorías de registro desea recopilar para un recurso determinado en la hoja Diagnósticos del Portal de Azure.
+Puede habilitar el streaming de registros de diagnóstico mediante programación, a través del portal o mediante la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx). En cualquier caso, si elige un espacio de nombres de Event Hubs, se crea un centro de eventos en el espacio de nombres para cada categoría de registro que habilita. Un **categoría de registro** de diagnóstico es un tipo de registro que un recurso puede recopilar. Puede seleccionar qué categorías de registro desea recopilar para un recurso determinado en la hoja Diagnósticos del Portal de Azure.
 
 ![Categorías de registro en el Portal](./media/monitoring-stream-diagnostic-logs-to-event-hubs/log-categories.png)
 
@@ -54,37 +55,37 @@ Puede habilitar el streaming de registros de diagnóstico mediante programación
 > 
 > 
 
-El espacio de nombres del centro de eventos o el bus de servicio no tiene que estar en la misma suscripción que la que del recurso que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
+El espacio de nombres de Event Hubs o Service Bus no tiene que estar en la misma suscripción que el recurso que emite los registros, siempre que el usuario que configura el ajuste tenga acceso RBAC adecuado a ambas suscripciones.
 
 ### <a name="via-powershell-cmdlets"></a>Mediante cmdlets de PowerShell
 Para habilitar el streaming mediante [cmdlets de Azure PowerShell](insights-powershell-samples.md), puede utilizar el cmdlet `Set-AzureRmDiagnosticSetting` con estos parámetros:
 
-```
-Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+```powershell
+Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
-El identificador de regla del Bus de servicio es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`, por ejemplo, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{service bus namespace}/authorizationrules/RootManageSharedAccessKey`.
+El identificador de regla del Bus de servicio es una cadena con este formato: `{Service Bus resource ID}/authorizationrules/{key name}`, por ejemplo, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`.
 
 ### <a name="via-azure-cli"></a>Mediante la CLI de Azure
 Para habilitar el streaming mediante la [CLI de Azure](insights-cli-samples.md), puede utilizar el comando `insights diagnostic set` del modo siguiente:
 
-```
+```azurecli
 azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 ```
 
 Utilice el mismo formato para el identificador de regla del Bus de servicio, como se explicó para el cmdlet de PowerShell.
 
 ### <a name="via-azure-portal"></a>Mediante el Portal de Azure
-Para habilitar el streaming a través del Portal de Azure, vaya a la configuración de diagnósticos de un recurso y seleccione 'Exportar a Centro de eventos'.
+Para habilitar el streaming a través de Azure Portal, vaya a la configuración de diagnósticos de un recurso y seleccione **Exportar a Centros de eventos**.
 
 ![Exportar a Centros de eventos en el Portal](./media/monitoring-stream-diagnostic-logs-to-event-hubs/portal-export.png)
 
-Para configurarlo, seleccione un espacio de nombres del Bus de servicio existente. En el espacio de nombres seleccionado será donde se creen Centros de eventos (si es la primera vez que transmite registros de diagnóstico) o a donde se transmitan (si ya hay recursos que estén transmitiendo esa categoría de registro a este espacio de nombres); la directiva define los permisos que tiene el mecanismo de streaming. En la actualidad, para transmitir a un Centro de eventos, se necesitan permisos de administración, lectura y envío. Puede crear o modificar las directivas de acceso compartido del espacio de nombres del Bus de servicio en el Portal clásico en la pestaña "Configurar" para el espacio de nombres del Bus de servicio. Para actualizar una de estas opciones de diagnóstico, el cliente debe tener el permiso ListKey en la regla de autorización del Bus de servicio.
+Para configurarlo, seleccione un espacio de nombres de Event Hubs existente. En el espacio de nombres seleccionado será donde se cree el centro de eventos (si es la primera vez que transmite registros de diagnóstico) o a donde se transmitan (si ya hay recursos que estén transmitiendo esa categoría de registro a este espacio de nombres); la directiva define los permisos que tiene el mecanismo de streaming. En la actualidad, para realizar streaming a un centro de eventos, se necesitan permisos de administración, envío y escucha. Puede crear o modificar las directivas de acceso compartido del espacio de nombres de Event Hubs en la pestaña **Configurar** del portal para su espacio de nombres. Para actualizar uno de estos ajustes de diagnóstico, el cliente tiene que tener el permiso **ListKey** en la regla de autorización de Event Hubs.
 
-## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>¿Cómo se consumen los datos de registro procedentes de Centros de eventos?
-Estos son datos de salida de ejemplo de los Centros de eventos:
+## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>¿Cómo se consumen los datos de registro procedentes de centros de eventos?
+Estos son datos de salida de ejemplo de Event Hubs:
 
-```
+```json
 {
     "records": [
         {
@@ -155,7 +156,7 @@ Estos son datos de salida de ejemplo de los Centros de eventos:
 | level |Opcional. Indica el nivel de registro de eventos. |
 | propiedades |Propiedades del evento. |
 
-Puede ver una lista de todos los proveedores de recursos que admiten el streaming al Centro de eventos [aquí](monitoring-overview-of-diagnostic-logs.md).
+Puede ver una lista de todos los proveedores de recursos que admiten el streaming a Event Hubs [aquí](monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="stream-data-from-compute-resources"></a>Transmisión de datos de Recursos de proceso
 También puede transmitir los registros de diagnóstico de Recursos de proceso mediante el agente de Windows Azure Diagnositcs. [Consulte este artículo](../event-hubs/event-hubs-streaming-azure-diags-data.md) para ver cómo configurarlo.
@@ -163,10 +164,5 @@ También puede transmitir los registros de diagnóstico de Recursos de proceso m
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre los registros de Diagnósticos de Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introducción a los Centros de eventos](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

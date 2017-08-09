@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: c66c895eb9b905ea265341783c153a9554bd1259
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5d24fb99e1095d53e5ea547e53b80178d9cb77c0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
@@ -161,43 +160,17 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 
 ## <a name="log-in-as-the-application"></a>Inicio de sesión con la aplicación
 
-La aplicación está ahora configurada en Azure Active Directory. Tiene un id. y una clave para usar en el inicio de sesión con la aplicación. A la aplicación se le asigna un rol que le proporciona determinadas acciones que puede realizar. 
+La aplicación está ahora configurada en Azure Active Directory. Tiene un id. y una clave para usar en el inicio de sesión con la aplicación. A la aplicación se le asigna un rol que le proporciona determinadas acciones que puede realizar. Para información sobre el inicio de sesión como en la aplicación a través de distintas plataformas, consulte:
 
-Para iniciar sesión a través de PowerShell, consulte [Proporcione credenciales a través de PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
+* [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
+* [CLI de Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [REST](/rest/api/#create-the-request)
+* [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+* [Java](/java/azure/java-sdk-azure-authenticate)
+* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
+* [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-Para iniciar sesión a través de la CLI de Azure, consulte [Proporcionar credenciales a través de la CLI de Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
-
-Para obtener el token de acceso para operaciones REST, consulte [Creación de la solicitud](/rest/api/#create-the-request).
-
-Examine las siguientes aplicaciones de ejemplo para aprender a iniciar sesión mediante el código de la aplicación.
-
-### <a name="sample-applications"></a>Aplicaciones de ejemplo
-Las aplicaciones de ejemplo siguientes muestran cómo iniciar con la aplicación de AD.
-
-**.NET**
-
-* [Implementación de una máquina virtual habilitada para SSH con una plantilla con .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-* [Administración de recursos y grupos de recursos de Azure con .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-
-**Java**
-
-* [Introducción a recursos - Implementación mediante la plantilla de Azure Resource Manager - en Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-* [Introducción a recursos - Administración de grupo de recursos - en Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
-
-**Python**
-
-* [Implementación de una máquina virtual habilitada para SSH con una plantilla en Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-* [Administración de recursos y grupos de recursos de Azure con Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-
-**Node.js**
-
-* [Implementación de una máquina virtual habilitada para SSH con una plantilla en Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-* [Administración de recursos y grupos de recursos de Azure con Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-
-**Ruby**
-
-* [Implementación de una máquina virtual habilitada para SSH con una plantilla en Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-* [Administración de recursos y grupos de recursos de Azure con Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para configurar una aplicación multiinquilino, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).

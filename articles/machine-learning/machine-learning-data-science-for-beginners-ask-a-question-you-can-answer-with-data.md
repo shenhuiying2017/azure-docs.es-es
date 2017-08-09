@@ -1,5 +1,5 @@
 ---
-title: "Realización de preguntas sobre datos (problemas de ciencia de datos de Azure) | Microsoft Docs"
+title: "Formulación de una pregunta que respondan los datos (problemas de la ciencia de datos) - Azure Machine Learning | Microsoft Docs"
 description: "Aprenda a formular una buena pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Incluye una comparación de preguntas de clasificación y regresión."
 keywords: "problemas de ciencia de datos,preguntas de ciencias de datos,formular pregunta,preguntas de regresión,preguntas de clasificación,pregunta directa"
 services: machine-learning
@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 403c496d4f032d1f373dacc16868abb40f968b6f
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Realización de preguntas que pueden responderse con datos
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciencia de datos para principiantes
 Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Este vídeo incluye una comparación de preguntas para algoritmos de clasificación y regresión.
 
-Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
+Para obtener el máximo partido de la serie, véalos en orden. [Vaya a la lista de vídeos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
 >
@@ -65,7 +67,7 @@ Si la pregunta es "¿A qué precio de venta estarán mis acciones la semana pró
 
 Si la pregunta es "¿Qué automóvil de mi flota va a caer primero?", tenemos que asegurarnos de que nuestros datos incluyan información de los errores anteriores.
 
-![Datos de destino: ejemplos de la respuesta. Formular una pregunta de ciencia de datos.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-target-data.png)
+![Datos de destino: ejemplos de la respuesta. Formular una pregunta de ciencia de datos.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
 
 Estos ejemplos de respuestas se denominan destino. Un destino es lo que intentamos predecir sobre los puntos de datos futuros, ya sea una categoría o un número.
 
@@ -82,7 +84,7 @@ Para ver cómo podemos transformarlas, examinemos la pregunta: "¿Qué reportaje
 
 Pero esta pregunta puede ser más fácil de responder si la formula de esta forma: "¿Cuánto interés tiene cada reportaje de la lista para este lector?" Ahora puede dar a cada artículo una puntuación numérica, de esta forma será fácil identificar el artículo con la puntuación más alta. Se trata de reformular la pregunta de clasificación como una de regresión o ¿cuánto?
 
-![Reformular la pregunta. Pregunta de clasificación frente a pregunta de regresión.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-classification-question-vs-regression-question.png)
+![Reformular la pregunta. Pregunta de clasificación frente a pregunta de regresión.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
 El modo de formular una pregunta es una pista de qué algoritmo puede darle una respuesta.
 
@@ -97,9 +99,4 @@ Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiant
 ## <a name="next-steps"></a>Pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio](machine-learning-create-experiment.md)
 * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

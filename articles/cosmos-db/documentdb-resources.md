@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 18a2f6fba707ad920df96117f1c5fb4c8cf9142a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f632d94222590f97b7a95edf9d4941a66b0710e6
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Conceptos básicos y modelo jerárquico de recursos de Azure Cosmos DB
@@ -194,7 +193,7 @@ La directiva de indexación de cada colección le permite realizar equilibrios e
 La directiva de indexación puede cambiarse ejecutando un comando PUT en la colección. Esto se puede hacer mediante el [SDK de cliente](documentdb-sdk-dotnet.md), [Azure Portal](https://portal.azure.com) o las [API de REST](/rest/api/documentdb/).
 
 ### <a name="querying-a-collection"></a>Consulta de una colección
-Los documentos de una colección pueden tener esquemas arbitrarios y puede consultar documentos de una colección sin proporcionar por adelantando ningún esquema o índice secundario. Puede consultar la colección usando la [sintaxis SQL de la API de DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), que proporciona numerosos operadores jerárquicos, relacionales y espaciales, así como una gran extensibilidad a través de las UDF basadas en JavaScript. La gramática de JSON permite el modelado de documentos JSON como árboles con etiquetas como los nodos del árbol. Esto lo aprovechan tanto las técnicas de indexación automática de la API de DocumentDB como el dialecto de SQL de la API de DocumentDB. El lenguaje de consulta de la API DocumentDB consta de tres aspectos principales:   
+Los documentos de una colección pueden tener esquemas arbitrarios y puede consultar documentos de una colección sin proporcionar por adelantando ningún esquema o índice secundario. Puede consultar la colección con la [API de DocumentDB de Azure Cosmos DB: referencia de sintaxis SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx), que proporciona numerosos operadores jerárquicos, relacionales y espaciales, así como una gran extensibilidad a través de las UDF basadas en JavaScript. La gramática de JSON permite el modelado de documentos JSON como árboles con etiquetas como los nodos del árbol. Esto lo aprovechan tanto las técnicas de indexación automática de la API de DocumentDB como el dialecto de SQL de la API de DocumentDB. El lenguaje de consulta de la API DocumentDB consta de tres aspectos principales:   
 
 1. Un pequeño conjunto de operaciones de consulta que se asignan de forma natural a la estructura de árbol, incluiidas las consultas jerárquicas y las proyecciones. 
 2. Un subconjunto de operaciones relacionales incluyendo composición, filtro, proyecciones, agregados y autocombinaciones. 

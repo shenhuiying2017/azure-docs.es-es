@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 6baf1a642778bdd281ae641611bc09ee26aaec70
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
 ms.contentlocale: es-es
-ms.lasthandoff: 06/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configuración de una red virtual (clásica) mediante un archivo de configuración de red
@@ -32,7 +31,7 @@ Puede crear y configurar una red virtual (clásica) con un archivo de configurac
 
 La creación y configuración de una red virtual (clásica) con un archivo de configuración de red requiere la exportación, cambio e importación del archivo.
 
-## <a name="export-a-network-configuration-file"></a>Exportación de un archivo de configuración de red
+## <a name="export"></a>Exportación de un archivo de configuración de red
 
 Puede usar PowerShell o la CLI de Azure para exportar un archivo de configuración de red. PowerShell exporta un archivo XML, mientras que la CLI de Azure exporta un archivo json.
 
@@ -120,7 +119,7 @@ El siguiente archivo de configuración de red de ejemplo crea una red virtual de
 
 Si el archivo de configuración de red exportado no contiene ningún contenido, puede copiar el archivo json en el ejemplo anterior y pegarlo en un archivo nuevo.
 
-## <a name="import-a-network-configuration-file"></a>Importación de un archivo de configuración de red
+## <a name="import"></a>Importación de un archivo de configuración de red
 
 Puede usar PowerShell o la CLI de Azure para importar un archivo de configuración de red. PowerShell importa un archivo XML, mientras que la CLI de Azure importa un archivo json. Si se produce un error en la importación, confirme que el archivo cumple con el [esquema de configuración de red](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
@@ -143,3 +142,4 @@ Puede usar PowerShell o la CLI de Azure para importar un archivo de configuraci�
     ```azurecli
     azure network import c:\azure\networkconfig.json
     ```
+

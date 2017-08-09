@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 3b7eca721181155cd2bcc619d517c9b5a6a89a0d
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Diseño de aplicaciones de alta disponibilidad mediante RA-GRS
@@ -37,7 +37,7 @@ Antes de hablar acerca de cómo usar el almacenamiento RA-GRS, se explicarán su
 
 * La copia de solo lectura es de [coherencia final](https://en.wikipedia.org/wiki/Eventual_consistency) con los datos en la región primaria.
 
-* Para blobs, tablas y colas, puede consultar en la región secundaria un valor *Hora de última sincronización* que indica cuándo se produjo la última replicación desde la región primaria a la secundaria. (Esto no se admite para Azure Files, que no tiene redundancia RA-GRS en este momento).
+* Para blobs, tablas y colas, puede consultar en la región secundaria un valor *Hora de última sincronización* que indica cuándo se produjo la última replicación desde la región primaria a la secundaria (esto no se admite para Azure File Storage, que no tiene redundancia RA-GRS en este momento).
 
 * Puede usar la biblioteca del cliente de almacenamiento para interactuar con los datos en la región principal o la secundaria. También puede redirigir solicitudes de lectura automáticamente a la región secundaria si se agota el tiempo de espera de una solicitud de lectura a la región principal.
 

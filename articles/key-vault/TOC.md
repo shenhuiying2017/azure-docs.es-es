@@ -15,22 +15,24 @@
 ### [Claves protegidas con HSM](key-vault-hsm-protected-keys.md)
 ### [Migración a .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### Introducciones
-#### [Introducción a los espacios de seguridad](key-vault-ovw-security-worlds.md)
-#### [Introducción a la eliminación temporal](key-vault-ovw-soft-delete.md)
-#### [Introducción a las claves de cuenta de almacenamiento](key-vault-ovw-storage-keys.md)
-#### [Introducción a la limitación](key-vault-ovw-throttling.md)
+#### [Espacios de seguridad](key-vault-ovw-security-worlds.md)
+#### [Eliminación temporal](key-vault-ovw-soft-delete.md)
+#### [Claves de cuenta de almacenamiento](key-vault-ovw-storage-keys.md)
+#### [Limitaciones](key-vault-ovw-throttling.md)
 
-## Administrar
+## Manage
 ### [Registro de Azure Key Vault](key-vault-logging.md)
 ### [Acceso detrás de firewalls](key-vault-access-behind-firewall.md)
-### [Cambio del identificador de inquilino](key-vault-subscription-move-fix.md)
-### [Uso de grupos para conceder acceso](key-vault-group-permissions-for-apps.md)
 ### [Disponibilidad y redundancia](key-vault-disaster-recovery-guidance.md)
+### [Cambio del identificador de inquilino](key-vault-subscription-move-fix.md)
+### [Creación y administración mediante CLI 2.0](key-vault-manage-with-cli2.md)
+### [Uso de la eliminación temporal de Key Vault con la CLI](key-vault-soft-delete-cli.md)
+### [Uso de la eliminación temporal de Key Vault con PowerShell](key-vault-soft-delete-powershell.md)
+### [Uso de grupos para conceder acceso](key-vault-group-permissions-for-apps.md)
 ### [Protección de Key Vault](key-vault-secure-your-key-vault.md)
 
 ## Automatizar
 ### [Azure Automation](automation-manage-key-vault.md)
-### [Creación y administración mediante CLI 2.0](key-vault-manage-with-cli2.md)
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)

@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: a17b28274988687fb1951e46c5270c62dcfe11b1
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3afc7bca878caef424d3fa3c64aa17df0fda7de5
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -35,7 +34,7 @@ Para solucionar el problema, debe comprobar la configuración de la aplicación 
 
 ## <a name="application-not-found-in-directory"></a>No se encontró la aplicación en el directorio
 
-*Error: No se encontró la aplicación con el identificador "https://contoso.com" en el directorio*.
+*Error AADSTS70001: No se encontró la aplicación con el identificador "https://contoso.com" en el directorio*.
 
 **Causa posible**
 
@@ -65,9 +64,43 @@ Asegúrese de que el atributo Issuer de la solicitud SAML coincide con el valor 
 
 Después de actualizar el valor del identificador de Azure AD y de comprobar que coincide con el valor enviado por la aplicación en la solicitud SAML, podrá iniciar sesión en la aplicación.
 
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>La dirección de respuesta no coincide con las direcciones de respuesta configuradas para la aplicación. 
+
+*Error AADSTS50011: La dirección de respuesta "https://contoso.com" no coincide con las direcciones de respuesta configuradas para la aplicación* 
+
+**Causa posible** 
+
+El valor de AssertionConsumerServiceURL en la solicitud SAML no coincide con el valor o patrón de la dirección URL de respuesta configurada en Azure AD. El valor de AssertionConsumerServiceURL en la solicitud SAML es la dirección URL que se ve en el error. 
+
+**Resolución** 
+
+Asegúrese de que el valor de AssertionConsumerServiceURL en la solicitud SAML coincide con el valor de la dirección URL de respuesta configurada en Azure AD. 
+ 
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global** o **coadministrador**. 
+
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **More services** (Más servicios) en la parte inferior del menú de navegación izquierdo principal. 
+
+3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**. 
+
+4.  Haga clic en **Aplicaciones empresariales** en el menú de navegación izquierdo de Azure Active Directory. 
+
+5.  Haga clic en **Todas las aplicaciones** para ver una lista de todas las aplicaciones. 
+
+  * Si no ve la aplicación que quiere que aparezca aquí, use el control **Filtro** de la parte superior de la lista **Todas las aplicaciones** y establezca la opción **Mostrar** en **Todas las aplicaciones.**
+  
+6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
+
+7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
+
+8.  Vaya a la sección **Dominio y direcciones URL**. Compruebe o actualice el valor en el cuadro de texto Dirección URL de respuesta para que coincida con el valor de AssertionConsumerServiceURL en la solicitud SAML.
+
+  * Si no ve el cuadro de texto Dirección URL de respuesta, active la casilla **Mostrar configuración avanzada de URL**. 
+
+Después de actualizar el valor de la dirección URL de respuesta en Azure AD y de comprobar que coincide con el valor enviado por la aplicación en la solicitud SAML, podrá iniciar sesión en la aplicación.
+
 ## <a name="user-not-assigned-a-role"></a>Usuario no asignado a un rol
 
-*Error: El usuario con sesión iniciada 'brian@contoso.com' no está asignado a un rol de la aplicación*
+*Error AADSTS50105: El usuario con sesión iniciada "brian@contoso.com" no está asignado a un rol de la aplicación*
 
 **Causa posible**
 
@@ -113,7 +146,7 @@ Tras un breve período de tiempo, los usuarios seleccionados podrán iniciar est
 
 ## <a name="not-a-valid-saml-request"></a>No es una solicitud SAML válida
 
-*Error: La solicitud no es un mensaje de protocolo Saml2 válido.*
+*Error AADSTS75005: La solicitud no es un mensaje de protocolo Saml2 válido.*
 
 **Causa posible**
 
@@ -137,7 +170,7 @@ Deben validar que admiten la implementación de SAML de Azure AD para inicio de 
 
 ## <a name="no-resource-in-requiredresourceaccess-list"></a>Ningún recurso en la lista requiredResourceAccess
 
-*Error: La aplicación cliente ha solicitado el acceso al recurso '00000002-0000-0000-c000-000000000000'. Se produjo un error en esta solicitud porque el cliente no ha especificado este recurso en su lista requiredResourceAccess*.
+*Error AADSTS65005: La aplicación cliente ha solicitado el acceso al recurso "00000002-0000-0000-c000-000000000000". Se produjo un error en esta solicitud porque el cliente no ha especificado este recurso en su lista requiredResourceAccess*.
 
 **Causa posible**
 
@@ -169,7 +202,7 @@ Tras configurar la aplicación, debe poder iniciar sesión en la aplicación.
 
 ## <a name="certificate-or-key-not-configured"></a>Certificado o clave no configurados
 
-Error: No hay configurada ninguna clave de firma.
+Error AADSTS50003: No hay configurada ninguna clave de firma.
 
 **Causa posible**
 

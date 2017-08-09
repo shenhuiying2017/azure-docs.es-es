@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0185d898f5443cc03135cb1692a54194a82b1e50
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Consultas del índice de Búsqueda de Azure con el SDK de .NET
@@ -33,7 +33,8 @@ En este artículo se muestra cómo realizar una consulta en un índice con el [S
 
 Antes de comenzar este tutorial, debe haber [creado ya un índice de Azure Search](search-what-is-an-index.md) y [haberlo rellenado con datos](search-what-is-data-import.md).
 
-Tenga en cuenta que todo el código de ejemplo de este artículo está escrito en C#. El código fuente completo se puede encontrar [en GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> Todo el código de ejemplo de este artículo está escrito en C#. El código fuente completo se puede encontrar [en GitHub](http://aka.ms/search-dotnet-howto). Consulte el [SDK de Azure Search para .NET](search-howto-dotnet-sdk.md) para ver un tutorial más detallado sobre el código de ejemplo.
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Identificación de la clave de API de consulta del servicio de Búsqueda de Azure
 Ahora que ha creado un índice de Búsqueda de Azure, está casi listo para emitir consultas mediante el SDK de .NET. En primer lugar, debe obtener una de las claves de API de consulta que se generaron para aprovisionar el servicio de búsqueda. El SDK para .NET enviará esta clave de API en cada solicitud al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.

@@ -12,13 +12,13 @@ Version
 3.5.0
 ```
 
-Para ver las etiquetas existentes de un **grupo de recursos**, use:
+Para ver las etiquetas existentes de un *grupo de recursos*, use:
 
 ```powershell
 (Get-AzureRmResourceGroup -Name examplegroup).Tags
 ```
 
-Que devuelve el siguiente formato:
+Ese script devuelve el siguiente formato:
 
 ```powershell
 Name                           Value
@@ -27,25 +27,25 @@ Dept                           IT
 Environment                    Test
 ```
 
-Para ver las etiquetas existentes de un **recurso con un identificador de recurso especificado**, use:
+Para ver las etiquetas existentes de un *recurso que tiene un identificador de recurso especificado*, use:
 
 ```powershell
 (Get-AzureRmResource -ResourceId {resource-id}).Tags
 ```
 
-O bien, para ver las etiquetas existentes para un **recurso con un nombre y un grupo de recursos especificados**, use:
+O bien, para ver las etiquetas existentes para un *recurso que tiene un nombre y un grupo de recursos especificados*, use:
 
 ```powershell
 (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
-Para obtener **grupos de recursos con una etiqueta específica**, use:
+Para obtener *grupos de recursos que tengan una etiqueta específica*, use:
 
 ```powershell
 (Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
 ```
 
-Para obtener **recursos con una etiqueta específica**, use:
+Para obtener *recursos que tengan una etiqueta específica*, use:
 
 ```powershell
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
@@ -53,13 +53,13 @@ Para obtener **recursos con una etiqueta específica**, use:
 
 Cada vez que aplique etiquetas a un recurso o grupo de recursos, sobrescribirá las etiquetas existentes en ese recurso o grupo de recursos. Por lo tanto, tiene que utilizar un enfoque diferente en función de si el recurso o grupo de recursos tienen etiquetas existentes. 
 
-Para agregar etiquetas a un **grupo de recursos sin etiquetas**, use:
+Para agregar etiquetas a un *grupo de recursos sin etiquetas*, use:
 
 ```powershell
 Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
-Para agregar etiquetas a un **grupo de recursos con etiquetas**, recupere las etiquetas existentes, agregue la nueva y vuelva a aplicar todas:
+Para agregar etiquetas a un *grupo de recursos que ya tiene etiquetas*, recupere las etiquetas existentes, agregue la nueva y vuelva a aplicar todas:
 
 ```powershell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
@@ -67,13 +67,13 @@ $tags += @{Status="Approved"}
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 ```
 
-Para agregar etiquetas a un **recurso sin etiquetas**, use:
+Para agregar etiquetas a un *recurso sin etiquetas*, use:
 
 ```powershell
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName exampleroup
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName examplegroup
 ```
 
-Para agregar etiquetas a un **recurso con etiquetas**.
+Para agregar etiquetas a un *recurso que ya tiene etiquetas*, use:
 
 ```powershell
 $tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
@@ -81,7 +81,7 @@ $tags += @{Status="Approved"}
 Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
 ```
 
-Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y **no conservar ninguna de las etiquetas existentes en los recursos**, use el siguiente script:
+Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y *no conservar ninguna de las etiquetas existentes en los recursos*, use el siguiente script:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
@@ -91,7 +91,7 @@ foreach ($g in $groups)
 }
 ```
 
-Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y **conservar las etiquetas existentes en los recursos que no son duplicados**, use el siguiente script:
+Para aplicar todas las etiquetas de un grupo de recursos a sus recursos y *conservar las etiquetas existentes en los recursos que no son duplicados*, use el siguiente script:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
@@ -113,7 +113,7 @@ foreach ($g in $groups)
 }
 ```
 
-Para quitar todas las etiquetas, pase una tabla hash vacía.
+Para quitar todas las etiquetas, pase una tabla hash vacía:
 
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup

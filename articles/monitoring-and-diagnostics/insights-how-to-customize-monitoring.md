@@ -2,7 +2,7 @@
 title: "Información general sobre las métricas en Microsoft Azure | Microsoft Docs"
 description: "Obtenga información acerca de cómo personalizar los gráficos de supervisión en Azure."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 5ccb5c0b3c2ffaf8aba855a9dbe3da9691ab149b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Información general sobre las métricas en Microsoft Azure
@@ -31,7 +30,7 @@ Para algunos servicios, puede que necesite activar diagnósticos para ver las m�
 Puede representar en gráficos cualquier métrica durante cualquier período de tiempo que elija.
 
 1. En el [Portal de Azure](https://portal.azure.com/), haga clic en **Examinar**y luego en el recurso que le interese supervisar.
-2. La sección **Supervisión** contiene las métricas más importantes para cada recurso de Azure. Por ejemplo, una aplicación web tiene **Solicitudes y errores** donde, como máquina virtual, tendría **Porcentaje de CPU** y **Lectura y escritura de disco**:  ![modo Supervisión](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
+2. La sección **Supervisión** contiene las métricas más importantes para cada recurso de Azure. Por ejemplo, una aplicación web tiene **Solicitudes y errores** donde, como máquina virtual, tendría **Porcentaje de CPU** y **Lectura y escritura de disco**: ![modo Supervisión](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 3. Al hacer clic en cualquier gráfico aparecerá la hoja **Métrica** . En el cuadro, además del gráfico, hay una tabla que muestra las agregaciones de las métricas (como promedio, mínimo y máximo, durante el intervalo de tiempo que ha elegido). A continuación se muestran las reglas de alerta para el recurso.
     ![Hoja Métrica](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 4. Para personalizar las líneas que aparecen, haga clic en el botón **Editar** del gráfico o en el comando **Editar gráfico** de la hoja Métrica.
@@ -50,7 +49,7 @@ Con las potentes opciones de personalización del portal, puede agregar tantos g
 
 1. En el menú **...** de la parte superior de la hoja, haga clic en **Agregar iconos**:  
     ![Adición de menú](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. A continuación, se puede seleccionar un gráfico desde la **Galería** en el lado derecho de la pantalla:  ![Galería](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+2. A continuación, se puede seleccionar un gráfico desde la **Galería** en el lado derecho de la pantalla: ![Galería](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. Si no ve la métrica que desea, siempre puede agregar una de las métricas presentes y **Editar** el gráfico para que aparezca la métrica que necesita.
 
 ## <a name="monitoring-usage-quotas"></a>Supervisión de las cuotas de uso

@@ -12,24 +12,48 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 07/06/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: end-user
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 10b63a859c67b965734e32ec979b26a1ea6cc516
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4af968ec596540be428898cc4928b0d4c37bf6ac
 ms.contentlocale: es-es
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/08/2017
 
 ---
-# <a name="having-trouble-with-two-step-verification"></a>¿Tiene problemas con la comprobación en dos pasos?
-En este artículo se habla de algunos problemas que puede experimentar con la comprobación en dos pasos. Si el problema que tiene no se incluye aquí, proporcione comentarios detallados en la sección de comentarios para que podamos mejorar.
+# <a name="get-help-with-two-step-verification"></a>Obtener ayuda con la verificación en dos pasos
+Este artículo responde a las preguntas más comunes que tienen las personas sobre la verificación en dos pasos. 
 
-## <a name="i-lost-my-phone-or-it-was-stolen"></a>Perdí el teléfono o me lo robaron
-Hay dos formas de volver a tener acceso a su cuenta. La primera consiste en iniciar sesión con su número de teléfono de autenticación alternativo, en caso de tener uno configurado. La segunda consiste en pedir al administrador que borre la configuración.
+## <a name="why-do-i-have-to-perform-two-step-verification-can-i-turn-it-off"></a>¿Por qué es necesario realizar la verificación en dos pasos? ¿Puedo desactivarla?
 
-Si perdió el teléfono o se lo robaron, también recomendamos que solicite al administrador que restablezca las contraseñas de la aplicación y que borre todos los dispositivos recordados. Si el administrador no está seguro de cómo llevar a cabo esta tarea, diríjale a este artículo: [Administrar usuarios y dispositivos](../multi-factor-authentication-manage-users-and-devices.md).
+La verificación en dos pasos es una característica de seguridad que la organización decidió usar para proteger las cuentas del usuario. Es más segura que solo una contraseña, porque se basa en dos formas de autenticación: algo que usted sabe y algo que usted tiene. Lo que sabe es la contraseña. Lo que tiene con usted es un teléfono o un dispositivo del que suele disponer. Cuando la cuenta está protegida con la verificación en dos pasos, significa que un hacker malintencionado no puede iniciar sesión aunque consiguiera la contraseña de algún modo porque no tiene acceso a su teléfono, que también lo necesita. 
+
+Microsoft ofrece la verificación en dos pasos, pero su organización decide usar la característica. No puede desentenderse si el departamento de TI se lo requiere, de la misma manera que no puede dejar de usar una contraseña para proteger su cuenta. 
+
+Si tiene la verificación en dos pasos activada para su cuenta de Microsoft personal y desea cambiar la configuración, lea [Acerca de la verificación en dos pasos](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). 
+
+## <a name="i-dont-have-my-phone-with-me-today"></a>No tengo mi teléfono conmigo hoy
+
+Algunos días deja el teléfono en casa, pero todavía necesita iniciar sesión en el trabajo. Lo primero que debe intentar es iniciar sesión con un método de verificación diferente. Al registrarse para la verificación en dos pasos, ¿configuró más de un número de teléfono? Para intentar iniciar sesión con un método diferente, siga estos pasos:
+
+1. Inicie sesión como lo haría normalmente.
+2. Cuando se abre la página de verificación en dos pasos, elija **Usar otra opción de comprobación**.
+
+   ![Comprobación distinta](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
+
+3. Seleccione la opción de verificación que desea utilizar.
+4. Continúe con la verificación en dos pasos.
+
+Si no ve el vínculo **Usar otra opción de comprobación**, significa que no configuró métodos alternativos la primera vez que realizó el registro para la verificación en dos pasos. Póngase en contacto con el departamento de TI para obtener ayuda para iniciar sesión en su cuenta. Una vez que ha iniciado sesión, asegúrese de [administrar la configuración](multi-factor-authentication-end-user-manage-settings.md) para agregar métodos de comprobación adicionales para la próxima vez. 
+
+Si ve el vínculo **Usar otra opción de comprobación** pero no tiene acceso a los métodos alternativos, póngase en contacto con el departamento de TI para obtener ayuda para iniciar sesión en su cuenta. 
+
+## <a name="i-lost-my-phone-or-got-a-new-number"></a>Perdí mi teléfono o cambié de número
+Hay dos formas de volver a tener acceso a su cuenta. La primera consiste en iniciar sesión con su número de teléfono de autenticación alternativo, en caso de tener uno configurado. La segunda consiste en pedir al departamento de TI que borre la configuración.
+
+Si perdió el teléfono o se lo robaron, también le recomendamos que se lo diga al departamento de TI para que restablezca las contraseñas de aplicación y borre todos los dispositivos recordados. 
 
 ### <a name="use-an-alternate-phone-number"></a>Usar un número de teléfono alternativo
 Si ha configurado varias opciones de comprobación, incluidos un número de teléfono secundario o una aplicación autenticadora de un dispositivo diferente, puede usar una de ellas para iniciar sesión.
@@ -39,20 +63,16 @@ Para iniciar sesión con el número de teléfono alternativo, siga estos pasos:
 1. Inicie sesión como lo haría normalmente.
 2. Cuando se le pida que compruebe su cuenta una vez más, elija **Usar otra opción de comprobación**.
    
-    ![Comprobación distinta](./media/multi-factor-authentication-end-user-manage/differentverification.png)
-3. Seleccione el número de teléfono al que tiene acceso.
-   
-    ![Teléfono alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
+   ![Comprobación distinta](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
+
+3. Seleccione el número de teléfono o el dispositivo al que tiene acceso.
 4. Una vez de vuelta en su cuenta, [administre su configuración](multi-factor-authentication-end-user-manage-settings.md) para cambiar el número de teléfono de autenticación.
 
-> [!IMPORTANT]
-> Es importante configurar un número de teléfono de autenticación secundario. Si su número de teléfono principal y la aplicación móvil se encuentran en el mismo teléfono, necesita una tercera opción si pierde el teléfono o se lo roban.   
-
 ### <a name="clear-your-settings"></a>Borrar su configuración
-Si no ha configurado un número de teléfono de autenticación secundario, debe ponerse en contacto con el administrador para que le ayude. Pídale que borre su configuración. De este modo, la próxima vez que inicie sesión, se le pedirá de nuevo que [configure su cuenta](multi-factor-authentication-end-user-first-time.md).
+Si no ha configurado un número de teléfono de autenticación secundario, debe ponerse en contacto con el departamento de TI para que le ayude. Pídale que borre su configuración. De este modo, la próxima vez que inicie sesión, se le pedirá de nuevo que se [registre para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 
 ## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>No recibo ningún mensaje o llamada en el teléfono
-Hay varios motivos por los que es posible que intente iniciar sesión y no reciba el mensaje o llamada de teléfono. Si ha recibido mensajes o llamadas en su teléfono anteriormente, es probable que se trate de un problema con el proveedor del teléfono y no de un problema con la cuenta. Asegúrese de que la señal es buena y, si intenta recibir un mensaje de texto, asegúrese de que el teléfono y el plan de servicio admiten mensajes de texto.
+Hay varios motivos por los que es posible que intente iniciar sesión y no reciba el mensaje o llamada de teléfono. Si ha recibido mensajes o llamadas en su teléfono anteriormente, es probable que se trate de un problema con el proveedor del teléfono y no de un problema con la cuenta. Asegúrese de que la señal es buena y, si está intentando recibir un mensaje de texto, asegúrese de que puede recibir mensajes de texto. Pida a un amigo que le llame o envíese a sí mismo un mensaje de texto como prueba. 
 
 Si ha esperado varios minutos la recepción de un mensaje o llamada, la forma más rápida de tener acceso a su cuenta es probar una opción diferente.
 
@@ -63,33 +83,15 @@ Si ha esperado varios minutos la recepción de un mensaje o llamada, la forma m�
    
     Si recibió varios códigos de comprobación, use el más reciente.
 
-Si no tiene otro método configurado, póngase en contacto con el administrador y pídale que borre su configuración. La próxima vez que inicie sesión, se le pedirá de nuevo que [configure la autenticación multifactor](multi-factor-authentication-end-user-first-time.md).
+Si no tiene otro método configurado, póngase en contacto con el departamento de TI y pídale que borre su configuración. La próxima vez que inicie sesión, se le pedirá de nuevo que [configure la autenticación multifactor](multi-factor-authentication-end-user-first-time.md).
 
 Si suele tener retrasos debido a una mala calidad de la señal, recomendamos que use la [aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md) en su smartphone. La aplicación puede generar códigos de seguridad aleatorios que usa para iniciar sesión, los cuales no requieren señal telefónica ni conexión a Internet.
 
 ## <a name="app-passwords-are-not-working"></a>Las contraseñas de la aplicación no funcionan
-En primer lugar, asegúrese de haber escrito correctamente la contraseña de la aplicación. Si sigue sin funcionar, vuelva a intentar el inicio de sesión y [cree una contraseña de aplicación](multi-factor-authentication-end-user-app-passwords.md).  Si aún no funciona, póngase en contacto con el administrador, pídale que [elimine sus contraseñas de aplicación existentes](../multi-factor-authentication-manage-users-and-devices.md) y luego puede crear otra.
+En primer lugar, asegúrese de haber escrito correctamente la contraseña de la aplicación. La contraseña de aplicación generada reemplaza a la contraseña normal, pero solo para aplicaciones de escritorio más antiguas que no admiten la verificación en dos pasos. Si sigue sin funcionar, intente iniciar sesión y [cree una nueva contraseña de aplicación](multi-factor-authentication-end-user-app-passwords.md).  Si aún no funciona, póngase en contacto con el departamento de TI, pídale que [elimine sus contraseñas de aplicación existentes](../multi-factor-authentication-manage-users-and-devices.md) y luego puede crear otra.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>No encuentro una respuesta a mi problema.
-Si ha probado estos pasos para solucionar los problemas y estos persisten, póngase en contacto con el administrador o con la persona responsable de la configuración de la autenticación multifactor. Deberían poder ayudarle.
-
-Además, puede publicar una pregunta en los [foros de Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) o [ponerse en contacto con el soporte técnico](https://support.microsoft.com/contactus) y responderemos a su problema lo antes posible.
-
-Si se comunica con el soporte técnico, incluya la información siguiente:
-
-* **Id. de usuario**: cuál es la dirección de correo electrónico con la que ha intentado iniciar sesión.
-* **Descripción general del error**: ¿qué mensaje de error ve exactamente?  Si no hay ningún mensaje de error, describe detalladamente el comportamiento inesperado observado.
-* **Página** : en qué página estaba cuando se generó el error (incluir la dirección URL).
-* **Código de error** : el código de error específico que ha recibido.
-* **Id. de sesión**: el id. de sesión específico que ha recibido.
-* **Id. de correlación**: el código de id. de correlación generado cuando el usuario vio el error.
-* **Marca de tiempo** : en qué fecha y a qué hora exactamente se ha generado el error (incluir la zona horaria).
-
-Gran parte de esta información puede encontrarse en la página de inicio de sesión. Si no comprueba su inicio de sesión a tiempo, seleccione **Ver detalles**.
-
-![Detalles del error de inicio de sesión](./media/multi-factor-authentication-end-user-troubleshoot/view_details.png)
-
-Incluir esta información nos ayudará a solucionar su problema lo antes posible.
+Si probó estos pasos para solucionar los problemas pero estos no desaparecen, póngase en contacto con el departamento de TI. Deberían poder ayudarle.
 
 ## <a name="related-topics"></a>Temas relacionados
 * [Administración de la configuración de la comprobación en dos pasos](multi-factor-authentication-end-user-manage-settings.md)  

@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 1152893c4c686fa69f7e06ffa7e2d2b2272bc772
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: bcc3a229369a065cfcfbd32eadbf3f6ae6fe0036
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -36,7 +35,7 @@ Uno de los métodos para cargar y recopilar registros es usar la extensión Linu
 
 ## <a name="log-and-event-sources"></a>Orígenes de eventos y registros
 
-### <a name="service-fabric-infrastructure-events"></a>Eventos de la infraestructura de Service Fabric
+### <a name="service-fabric-platform-events"></a>Eventos de plataforma de Service Fabric
 Service Fabric genera una serie de registros de serie a través de [LTTng](http://lttng.org), incluidos eventos de runtime o eventos operativos. Estos registros se almacenan en la ubicación que la plantilla de Resource Manager del clúster especifica. Para obtener o establecer los detalles de la cuenta de almacenamiento, busque la etiqueta **AzureTableWinFabETWQueryable** y busque **StoreConnectionString**.
 
 ### <a name="application-events"></a>Eventos de aplicación

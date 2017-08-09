@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 4c373eef77605ab45c9a08ed7f60476abafa229c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fe6a28afbee573351186e361126ddca7db764311
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -125,6 +124,7 @@ Por ahora, los servicios que permiten el traslado a un nuevo grupo de recursos y
 ## <a name="services-that-do-not-enable-move"></a>Servicios que no permiten el traslado
 Los servicios que actualmente no permiten trasladar un recurso son:
 
+* Servicios de dominio de AD
 * Servicio de mantenimiento híbrido de AD
 * Application Gateway
 * Conjuntos de disponibilidad con Virtual Machines con discos administrados

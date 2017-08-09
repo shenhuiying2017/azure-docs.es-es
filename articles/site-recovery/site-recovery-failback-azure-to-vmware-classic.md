@@ -14,12 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
-ms.openlocfilehash: a898cb9c66a22bb8d19170fdd03d0fc3b4d93000
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 82d5eb7fd13b1e9700a3e9bc2d30775e9c129749
 ms.contentlocale: es-es
-ms.lasthandoff: 01/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site-classic-portal"></a>Conmutación por recuperación de máquinas virtuales de VMware y servidores físicos en el sitio local (Portal clásico)
@@ -75,7 +74,7 @@ Si ha conmutado por error una máquina virtual de VMware, puede conmutar por rec
 ## <a name="prerequisites"></a>Requisitos previos
 * Necesitará un entorno de VMware para conmutar por recuperación máquinas virtuales de VMware y servidores físicos. No se admite la conmutación por recuperación a un servidor físico.
 * Para realizar la conmutación por recuperación , debe haber creado una red de Azure cuando configuró inicialmente la protección. La conmutación por recuperación necesita una conexión VPN o ExpressRoute desde la red de Azure, en la que se encuentran las máquinas virtuales de Azure, hasta el sitio local.
-* Si las máquinas virtuales que desea conmutar por recuperación las administra un servidor vCenter, deberá asegurarse de tener los permisos necesarios para la detección de máquinas virtuales en servidores vCenter. [Más información](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+* Si las máquinas virtuales que desea conmutar por recuperación las administra un servidor vCenter, deberá asegurarse de tener los permisos necesarios para la detección de máquinas virtuales en servidores vCenter. [Más información](site-recovery-vmware-to-azure-classic.md).
 * Si existen instantáneas en una máquina virtual, la reprotección dará error. Puede eliminar las instantáneas o los discos.
 * Antes de conmutar por recuperación, deberá crear una serie de componentes:
   * **Cree un servidor de procesos en Azure**. Es una máquina virtual de Azure que necesitará crear y mantener en ejecución durante la conmutación por recuperación. Puede eliminar la máquina una vez completada la operación.
@@ -114,7 +113,7 @@ El servidor de destino maestro recibe los datos de conmutación por recuperació
 
 1. Si va a instalar al servidor de destino maestro en Windows, abra la página de inicio rápido de la máquina virtual en la que va a instalarlo y descargue el archivo de instalación para el Asistente de configuración unificada de Azure Site Recovery.
 2. Ejecute el programa de instalación y, en **Antes de comenzar**, seleccione **Add additional process servers to scale out deployment** (Agregar servidores de procesos adicionales para el escalado horizontal de la implementación).
-3. Complete el asistente tal y como hizo cuando [instaló el servidor de administración](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). En la página **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP de este servidor de destino maestro y una frase de contraseña para acceder a la máquina virtual.
+3. Complete el asistente tal y como hizo cuando [instaló el servidor de administración](site-recovery-vmware-to-azure-classic.md). En la página **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP de este servidor de destino maestro y una frase de contraseña para acceder a la máquina virtual.
 
 ### <a name="set-up-a-linux-vm-as-the-master-target-server"></a>Configuración de una máquina virtual de Linux como servidor de destino maestro
 Para configurar el servidor de administración que ejecuta el servidor de destino maestro como una máquina virtual de Linux, será necesario que instale el sistema operativo mínimo CentOS 6.6, que recupere los id. SCSI de cada disco duro SCSI, que instale algunos paquetes adicionales y que aplique algunos cambios personalizados.
@@ -180,7 +179,7 @@ Después de completarse la conmutación por recuperación, los datos vuelven al 
 2. Después de comprobar que la replicación en Azure funciona como se esperaba, puede eliminar en Azure las máquinas virtuales de Azure (que no se ejecutan actualmente) que se conmutaron por recuperación.
 
 ### <a name="common-issues-in-failback"></a>Problemas comunes en la conmutación por recuperación
-1. Si realiza la detección de usuarios de solo lectura de vCenter y protege las máquinas virtuales, se ejecutará correctamente y la conmutación por error funcionará. En el momento de la reprotección, generará un error, ya que no se podrán detectar los almacenes de datos. Como síntoma, no verá los almacenes de datos enumerados mientras se esté volviendo a proteger. Para resolver este problema, puede actualizar las credenciales de vCenter con la cuenta adecuada que tenga permisos y tratar de realizar el trabajo de nuevo. [Más información](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)
+1. Si realiza la detección de usuarios de solo lectura de vCenter y protege las máquinas virtuales, se ejecutará correctamente y la conmutación por error funcionará. En el momento de la reprotección, generará un error, ya que no se podrán detectar los almacenes de datos. Como síntoma, no verá los almacenes de datos enumerados mientras se esté volviendo a proteger. Para resolver este problema, puede actualizar las credenciales de vCenter con la cuenta adecuada que tenga permisos y tratar de realizar el trabajo de nuevo. [Más información](site-recovery-vmware-to-azure-classic.md)
 2. Cuando conmuta por recuperación una VM de Linux y la ejecuta localmente, verá que se ha desinstalado el paquete del administrador de red de la máquina. Esto se debe a que cuando se recupera la VM en Azure, se elimina el paquete del administrador de red.
 3. Cuando una máquina virtual se configura con una dirección IP estática y se conmuta por error a Azure, se adquiere la dirección IP mediante DHCP. Al conmutar por recuperación a un entorno local, la VM seguirá utilizando DHCP para obtener la dirección IP. Tendrá que iniciar sesión manualmente en la máquina y configurar de nuevo la dirección IP como una estática, si así se requiere.
 4. Si utiliza las ediciones gratuitas de ESXi 5.5 o vSphere Hypervisor 6, la conmutación por error se llevará a cabo correctamente, pero la conmutación por recuperación, no. Tendrá que actualizar el software con una licencia de evaluación para habilitar la conmutación por recuperación.

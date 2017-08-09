@@ -5,21 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
+ms.date: 07/14/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 95c1eb534b4b51db18a2caf46f17a559243ea036
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4da95dc4bfc99be3f128dfaa53ba4dd9dc713d9d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -35,11 +35,19 @@ Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authenticat
 | **CLIENT_CERT_INSTALL_ERROR** | Puede haber un problema con la forma en que se instaló el certificado de cliente o cómo se asoció con el inquilino. Siga las instrucciones que aparecen en [Solución de problemas con la extensión de NPS de MFA](multi-factor-authentication-nps-extension.md#troubleshooting) para investigar los problemas con el certificado de cliente. |
 | **ESTS_TOKEN_ERROR** | Siga las instrucciones que aparecen en [Solución de problemas con la extensión de NPS de MFA](multi-factor-authentication-nps-extension.md#troubleshooting) para investigar los problemas con el token ADAL y el certificado de cliente. |
 | **HTTPS_COMMUNICATION_ERROR** | El servidor NPS no puede recibir respuestas de Azure MFA. Compruebe que los firewalls están abiertos en ambas direcciones para el tráfico hacia y desde https://adnotifications.windowsazure.com |
-| **HTTP_CONNECT_ERROR** | En el servidor que ejecuta la extensión de NPS, compruebe que puede acceder a https://adnotifications.windowsazure.com y https://login.windows.net/. Si esos sitios no cargan, solucione los problemas de conectividad que tenga ese servidor. |
+| **HTTP_CONNECT_ERROR** | En el servidor que ejecuta la extensión de NPS, compruebe que puede acceder a https://adnotifications.windowsazure.com y https://login.microsoftonline.com/. Si esos sitios no cargan, solucione los problemas de conectividad que tenga ese servidor. |
 | **REGISTRY_CONFIG_ERROR** | Falta una clave en el registro de la aplicación, lo que puede deberse a que el [script de PowerShell](multi-factor-authentication-nps-extension.md#install-the-nps-extension) no se ejecutó después de la instalación. El mensaje de error debe incluir la clave que falta. Asegúrese de que la clave se encuentra en HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Falta el atributo nombreUsuario\Identificador obligatorio en la solicitud de RADIUS. Compruebe que NPS recibe las solicitudes de RADIUS | Este error refleja habitualmente un problema de instalación. La extensión de NPS debe estar instalada en servidores de NPS que pueden recibir solicitudes de RADIUS. Los servidores de NPS que están instalados como dependencias para servicios como RDG y RRAS no reciben solicitudes de RADIUS. La extensión de NPS no funciona si se instala en esas instalaciones y genera errores porque no puede leer los detalles de la solicitud de autenticación. |
 | **REQUEST_MISSING_CODE** | Si se usan tokens OATH o SMS para el segundo método de autenticación, el protocolo de cifrado de contraseña entre servidores de NPS y NAS debe ser PAP. En este momento, la extensión de NPS no admite otros métodos de cifrado de contraseña.|
 | **USERNAME_CANONICALIZATION_ERROR** | Compruebe que el usuario existe en la instancia local de Active Directory y que el servicio NPS tiene permiso para acceder al directorio. Si usa confianzas entre bosques, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para más ayuda. |
+
+### <a name="alternate-login-id-errors"></a>Errores de identificador de inicio de sesión alternativo
+
+| Código de error | Mensaje de error | Pasos para solucionar problemas |
+| ---------- | ------------- | --------------------- |
+| **ALTERNATE_LOGIN_ID_ERROR** | Error: error de búsqueda de userObjectSid | Compruebe que el usuario existe en la instancia local de Active Directory. Si usa confianzas entre bosques, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para más ayuda. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Error: error en la búsqueda de LoginId alternativo | Compruebe que LDAP_ALTERNATE_LOGINID_ATTRIBUTE está establecido en un [atributo de directorio activo válido](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Si LDAP_FORCE_GLOBAL_CATALOG está establecido en True, o LDAP_LOOKUP_FORESTS se configura con un valor no vacío, compruebe que ha configurado un catálogo global y que el atributo AlternateLoginId se agrega a él. <br><br> Si LDAP_LOOKUP_FORESTS está configurado con un valor no vacío, compruebe que el valor es correcto. Si hay más de un nombre de bosque, los nombres deben estar separados con puntos y coma, no espacios. <br><br> Si estos pasos no solucionan el problema, [póngase en contacto con soporte técnico](#contact-microsoft-support) para obtener más ayuda. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Error: el valor de LoginId alternativo está vacío | Compruebe que el atributo de AlternateLoginId está configurado para el usuario. |
 
 
 ## <a name="errors-your-users-may-encounter"></a>Errores que pueden encontrar los usuarios

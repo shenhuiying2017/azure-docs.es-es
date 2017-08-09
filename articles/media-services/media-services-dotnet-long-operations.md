@@ -12,16 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/18/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 763f97855695a51d8fb6050cf1404c787b72c6f6
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de transmisión en directo con Servicios multimedia de Azure
+
 ## <a name="overview"></a>Información general
+
 Servicios multimedia de Microsoft Azure ofrece determinadas API que envían solicitudes a los Servicios multimedia para iniciar operaciones (por ejemplo, crear, iniciar, detener o eliminar un canal). Estas son operaciones de larga duración.
 
 El SDK .NET de Servicios multimedia proporciona las API que envían la solicitud y esperan a que la operación se complete (internamente, las API sondean el progreso de la operación a intervalos determinados). Por ejemplo, cuando se llama a channel.Start(), se devuelve el método después de que se inicie el canal. También puede usar la versión asincrónica: await channel.StartAsync() (para obtener información sobre el patrón asincrónico basado en tareas, consulte [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). Las API que envían una solicitud de operación y, después, sondean el estado hasta que se completa la operación se llaman “métodos de sondeo”. Estos métodos (sobre todo la versión asincrónica) se recomiendan para las aplicaciones cliente enriquecidas y para servicios con estado.
@@ -33,12 +36,24 @@ Las siguientes clases admiten métodos sin sondeo actualmente:  **Channel**, **S
 
 Para sondear el estado de la operación, use el método **GetOperation** en la clase **OperationBaseCollection**. Use los siguientes intervalos para comprobar el estado de la operación: para las operaciones **Channel** y **StreamingEndpoint**, use 30 segundos; para las operaciones **Program**, use 10 segundos.
 
+## <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
+
+Configure el entorno de desarrollo y rellene el archivo app.config con la información de la conexión, como se describe en [Desarrollo de Media Services con .NET](media-services-dotnet-how-to-use.md).
+
 ## <a name="example"></a>Ejemplo
+
 En el ejemplo siguiente se define una clase llamada **ChannelOperations**. Esta definición de clase puede constituir un punto de partida para la definición de clase del servicio web. Para simplificar, en los siguientes ejemplos se usan las versiones no asincrónicas de los métodos.
 
 También se muestra cómo el cliente puede usar esta clase.
 
 ### <a name="channeloperations-class-definition"></a>Definición de la clase ChannelOperations
+
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Net;
+
     /// <summary> 
     /// The ChannelOperations class only implements 
     /// the Channel’s creation operation. 
@@ -46,21 +61,21 @@ También se muestra cómo el cliente puede usar esta clase.
     public class ChannelOperations
     {
         // Read values from the App.config file.
-        private static readonly string _mediaServicesAccountName =
-            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-        private static readonly string _mediaServicesAccountKey =
-            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
-        private static MediaServicesCredentials _cachedCredentials = null;
 
         public ChannelOperations()
         {
-                _cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName,
-                    _mediaServicesAccountKey);
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                _context = new CloudMediaContext(_cachedCredentials);    }
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+        }
 
         /// <summary>  
         /// Initiates the creation of a new channel.  
@@ -118,7 +133,6 @@ También se muestra cómo el cliente puede usar esta clase.
             return completed;
         }
 
-
         private static ChannelInput CreateChannelInput()
         {
             return new ChannelInput
@@ -127,14 +141,14 @@ También se muestra cómo el cliente puede usar esta clase.
                 AccessControl = new ChannelAccessControl
                 {
                     IPAllowList = new List<IPRange>
-                    {
-                        new IPRange
                         {
-                            Name = "TestChannelInput001",
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
+                            new IPRange
+                            {
+                                Name = "TestChannelInput001",
+                                Address = IPAddress.Parse("0.0.0.0"),
+                                SubnetPrefixLength = 0
+                            }
                         }
-                    }
                 }
             };
         }
@@ -146,14 +160,14 @@ También se muestra cómo el cliente puede usar esta clase.
                 AccessControl = new ChannelAccessControl
                 {
                     IPAllowList = new List<IPRange>
-                    {
-                        new IPRange
                         {
-                            Name = "TestChannelPreview001",
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
+                            new IPRange
+                            {
+                                Name = "TestChannelPreview001",
+                                Address = IPAddress.Parse("0.0.0.0"),
+                                SubnetPrefixLength = 0
+                            }
                         }
-                    }
                 }
             };
         }
@@ -190,10 +204,5 @@ También se muestra cómo el cliente puede usar esta clase.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -25,10 +25,14 @@
       href: container-instances-orchestrator-relationship.md
 - name: Guías de procedimientos
   items:
-    - name: Grupos de varios contenedores
+    - name: Implementación de grupos de varios contenedores
       href: container-instances-multi-container-group.md
     - name: Administración de estados con recursos compartidos de archivos de Azure
       href: container-instances-mounting-azure-files-volume.md
+    - name: Implementación desde Azure Container Registry
+      href: container-instances-using-azure-container-registry.md
+    - name: Solución de problemas en las implementaciones en Azure Container Instances
+      href: container-instances-troubleshooting.md
 - name: Referencia
   items:
     - name: CLI de Azure 2.0

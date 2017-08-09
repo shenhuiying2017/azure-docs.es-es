@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 07/21/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: c1e28c5ad7fd3236899ac0ffe9f3d43241061897
-ms.openlocfilehash: 5f253c3a10e5bfdfa9fe36912b5ebcbc9abae3eb
-ms.lasthandoff: 02/15/2017
-
+ms.reviewer: jeedes
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: a91fab90a94b655b93c8ae9064ea4836b80d7678
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutorial: Integración de Azure Active Directory con ServiceNow
@@ -228,7 +229,7 @@ Esta relación de vínculo se establece mediante la asignación del valor del **
 
     k. Anule la selección de **Create an AuthnContextClass**(Crear AuthnContextClass).
 
-    l. En **AuthnContextClassRef Method** (Método AuthnContextClassRef), escriba `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. Esto solo es preciso para las organizaciones que solo trabajan en la nube. Si se usa ADFS o MFA local para la autenticación, este valor no se debe configurar. 
+    l. En **AuthnContextClassRef Method** (Método AuthnContextClassRef), escriba `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`. Esto solo es preciso para las organizaciones que solo trabajan en la nube. Si se usa MFA o ADFS local para la autenticación, este valor no se debe configurar. 
 
     m. En el cuadro de diálogo **Clock Skew** (Desplazamiento del reloj), escriba **60**.
 

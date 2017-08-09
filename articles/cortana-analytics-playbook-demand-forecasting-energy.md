@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 0c07495a932c8bfdabb97e8eebe8d99de19fbd15
-ms.lasthandoff: 01/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cuaderno de estrategias de la plantilla de soluciones de Cortana Intelligence para la previsión de la demanda de energía

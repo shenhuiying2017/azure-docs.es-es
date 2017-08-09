@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: banders
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f5f9aa186480926df1110928983566e05f79efb8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 165568731debf2cd81a88170833f95ca2e7080e5
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -104,19 +104,28 @@ Haga clic en el icono de **Azure SQL Analytics** para que se abra el panel de Az
 
 ### <a name="analyze-data-and-create-alerts"></a>Análisis de datos y creación de alertas
 
-La solución incluye consultas útiles para ayudarle a analizar los datos. Si se desplaza a la derecha, el panel mostrará varias consultas comunes en las que puede hacer clic para realizar una [búsqueda de registros](log-analytics-log-searches.md) para datos de Azure SQL.
+Las alertas se pueden crear fácilmente con los datos procedentes de los recursos de Azure SQL Database. Estas son un par de consultas de [búsqueda de registros](log-analytics-log-searches.md) útiles que puede usar para las alertas:
 
-![Consultas](./media/log-analytics-azure-sql/azure-sql-queries.png)
+*DTU alta en Azure SQL Database*
 
-La solución incluye algunas *consultas basadas en alertas*, tal y como se muestra más arriba, que puede usar para generar alertas sobre umbrales específicos para las bases de datos y grupos elásticos de Azure SQL.
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+```
+
+*DTU alta en el grupo elástico de Azure SQL Database*
+
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+```
+
+Puede usar estas consultas basadas en alertas para generar alertas sobre umbrales específicos para Azure SQL Database y los grupos elásticos. Configuración de una alerta para el área de trabajo de OMS:
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>Configuración de una alerta para el área de trabajo
 
 1. Abra el [portal de OMS](http://mms.microsoft.com/) e inicie sesión.
 2. Abra el área de trabajo que ha configurado para la solución.
 3. En la página Información general, haga clic en el icono de **Azure SQL Analytics (versión preliminar)**.
-4. Desplácese hacia la derecha y haga clic en una consulta para empezar a crear una alerta.  
-![consulta de alerta](./media/log-analytics-azure-sql/alert-query.png)
+4. Ejecute una de las consultas de ejemplo.
 5. En Búsqueda de registros, haga clic en **Alerta**.  
 ![crear alerta en la búsqueda](./media/log-analytics-azure-sql/create-alert01.png)
 6. En la página **Agregar regla de alerta** página, configure las propiedades adecuadas y los umbrales específicos que desee y, a continuación, haga clic en **Guardar**.  

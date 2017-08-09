@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: a99fd7931d6172046f2b2e91994381ac6ebc66c9
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 50d7f14d0d4234ee98d8a46e903b5f916cb02fab
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -115,6 +115,8 @@ Para ver las preguntas más frecuentes sobre Traffic Manager, vea [Preguntas má
 Obtenga más información sobre la [supervisión del punto de conexión y la conmutación por error automática](traffic-manager-monitoring.md) de Traffic Manager.
 
 Obtenga más información sobre los [métodos de enrutamiento del tráfico](traffic-manager-routing-methods.md) de Traffic Manager.
+
+Obtenga información sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.
 
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png

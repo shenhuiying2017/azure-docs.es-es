@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0e80e0a1c334bcca0bb15dd16c54306a60f2486e
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 7ef31d7d72844c0ed3be0701549e49e26aac9abf
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -35,9 +35,9 @@ Azure Automation es una aplicación de software como servicio (SaaS) que proporc
 
 Los runbooks que ejecuta en Azure se ejecutan en espacios aislados de Automation que se hospedan en las máquinas virtuales de la plataforma como servicio (PaaS) de Azure.  Los espacios aislados de Automation proporcionan aislamiento de inquilinos para todos los aspectos de la ejecución del runbook: módulos, almacenamiento, memoria, comunicación de red, flujos de trabajo, etc. El servicio administra este rol, al que no puede acceder desde su cuenta de Azure o Azure Automation para controlarlo.         
 
-Para automatizar la implementación y administración de los recursos en su centro de datos local o de otros servicios en la nube, después de crear una cuenta de Automation, puede designar una o varias máquinas para ejecutar el rol de [Hybrid Runbook Worker (HRW)](automation-hybrid-runbook-worker.md).  Cada HRW requiere el Agente de administración de Microsoft (MMA) con una conexión a un área de trabajo de Log Analytics y una cuenta de Automation.  Log Analytics se utiliza para arrancar la instalación, mantener el agente MMA y supervisar la funcionalidad de HRW.  Azure Automation realiza la entrega de los runbooks y la instrucción para ejecutarlos.
+Para automatizar la implementación y administración de los recursos en su centro de datos local o de otros servicios en la nube, después de crear una cuenta de Automation, puede designar una o varias máquinas para ejecutar el rol de [Hybrid Runbook Worker (HRW)](automation-hybrid-runbook-worker.md).  Cada HRW requiere el Agente de administración de Microsoft con una conexión a un área de trabajo de Log Analytics y una cuenta de Automation.  Log Analytics se utiliza para arrancar la instalación, mantener el Agente de administración de Microsoft y supervisar la funcionalidad de HRW.  Azure Automation realiza la entrega de los runbooks y la instrucción para ejecutarlos.
 
-Puede implementar varios HRW para proporcionar alta disponibilidad para sus runbooks, equilibrar la carga de los trabajos de runbook y, en algunos casos, dedicarlos a cargas de trabajo o entornos determinados.  HRW se comunica con el servicio Automation a través del puerto de salida TCP 443.  Una vez que el runbook se esté ejecutando en un HRW dentro de su centro de datos y si desea que el runbook realice tareas de administración en otros equipos o servicios del centro de datos, puede que el runbook necesite tener acceso a otros puertos.  Si las directivas de seguridad de TI no permiten que los equipos de su red se conecten a Internet, consulte el artículo [Puerta de enlace de OMS](../log-analytics/log-analytics-oms-gateway.md), que actúa como un proxy para que el HRW pueda recopilar el estado del trabajo y recibir información de configuración desde la cuenta de Automation.
+Puede implementar varios HRW para proporcionar alta disponibilidad para sus runbooks, equilibrar la carga de los trabajos de runbook y, en algunos casos, dedicarlos a cargas de trabajo o entornos determinados.  El agente Microsoft Monitoring Agent de HRW permite iniciar la comunicación con el servicio Automation a través del puerto TCP 443 y no hay ningún requisito de firewall de entrada.  Una vez que el runbook se esté ejecutando en un HRW dentro del entorno y si desea que el runbook realice tareas de administración en otros equipos o servicios de este, puede que el runbook necesite tener acceso a otros puertos.  Si las directivas de seguridad de TI no permiten que los equipos de su red se conecten a Internet, consulte el artículo [Puerta de enlace de OMS](../log-analytics/log-analytics-oms-gateway.md), que actúa como un proxy para que el HRW pueda recopilar el estado del trabajo y recibir información de configuración desde la cuenta de Automation.
 
 Los runbooks que se ejecutan en un HRW, se ejecutan en el contexto de la cuenta del sistema local del equipo, el cual es el contexto de seguridad recomendado cuando se realizan actividades administrativas en la máquina Windows local. Si desea que el runbook ejecute tareas en recursos fuera de la máquina local, puede que necesite definir recursos de credenciales seguros en la cuenta de Automation a la que puede acceder desde el runbook y los use para autenticarse con el recurso externo. Puede usar los recursos [Credencial](automation-credentials.md), [Certificado](automation-certificates.md) y [Conexión](automation-connections.md) en el runbook con cmdlets que le permitan especificar las credenciales, para que así pueda autenticarlos.
 

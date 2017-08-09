@@ -17,23 +17,22 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: Jenny Jiang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 897fedb6744d5be78aca7ea10beaadeea0dd387e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5ee6504cd4bf69c8f2c14a3623ff537e66030ce1
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="remotely-debug-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Depuración de aplicaciones de Spark de forma remota en un clúster de HDInsight con el kit de herramientas de Azure para IntelliJ mediante SSH
 
-En este artículo se ofrece una guía paso a paso sobre cómo usar las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ para depurar aplicaciones de forma remota que se ejecutan en clústeres de HDInsight.
+En este artículo se ofrece una guía paso a paso sobre cómo usar las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ para depurar aplicaciones de forma remota que se ejecutan en clústeres de HDInsight. Puede seguir un [vídeo](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) para depurar el proyecto.
 
 **Requisitos previos:**
 
 * **Herramientas de HDInsight del kit de herramientas de Azure para IntelliJ**. Es parte del kit de herramientas de Azure para IntelliJ. Para obtener más información, consulte [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-installation)(Instalación del kit de herramientas de Azure para IntelliJ).
 * **Kit de herramientas de Azure para IntelliJ**. Utilícelo para crear aplicaciones Spark para el clúster de HDInsight. Para más información, siga las instrucciones en [Uso del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark para el clúster de HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
-* **Servicio SSH de HDInsight con administración del nombre de usuario y la contraseña.** Para más información, consulte [Conexión a través de SSH con HDInsight (Hadoop)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) y [Conexión a través de SSH con HDInsight (Hadoop)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* **Servicio SSH de HDInsight con administración del nombre de usuario y la contraseña.** Para más información vea [Conexión a través de SSH con HDInsight (Hadoop)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) y [Uso de la tunelización SSH para tener acceso a la interfaz de usuario web de Ambari, JobHistory, NameNode, Oozie y otras interfaces de usuario web](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
 
 ## <a name="create-a-spark-scala-application-and-configure-it-for-remote-debugging"></a>Creación de una aplicación Scala de Spark y configuración para la depuración remota
@@ -45,12 +44,13 @@ En este artículo se ofrece una guía paso a paso sobre cómo usar las herramien
       - **Spark en HDInsight (Scala)**
       - **Spark en HDInsight (Java)**
       - **Spark en el ejemplo de ejecución de clúster de HDInsight (Scala)**
+   - Herramienta de compilación: el asistente para crear un proyecto de Scala admite Maven o SBT para administrar las dependencias y compilar el proyecto de Scala. Seleccione una según las necesidades.
 2. En la siguiente ventana, proporcione los detalles del proyecto.
 
    ![Selección del SDK de Spark](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-new-project.png)
    - Proporcione un nombre de proyecto y la ubicación del proyecto.
    - En **Project SDK** (SDK de proyecto), use **Java 1.8** para el clúster **Spark 2.x** o **Java 1.7** para el clúster **Spark 1.x**.
-   - En **Spark Version** (Versión de Spark), el Asistente para crear un proyecto Scala integra la versión correcta del SDK de Spark y el IDE de Scala. Si la versión del clúster de Spark es inferior a la 2.0, elija **Spark 1.x**. De lo contrario, seleccione **Spark 2.x**. En este artículo se usa **Spark 2.0.2 (Scala 2.11.8)** como ejemplo.
+   - En **Versión de Spark**, el asistente para crear un proyecto de Scala integra la versión correcta del SDK de Spark y el SDK de Scala. Si la versión del clúster de Spark es inferior a la 2.0, elija **Spark 1.x**. De lo contrario, seleccione **Spark 2.x**. En este artículo se usa **Spark 2.0.2 (Scala 2.11.8)** como ejemplo.
 3. Seleccione **src** > **main** > **scala** para abrir el código en el proyecto. En este artículo se utiliza el script **SparkCore_wasbloTest** como ejemplo.
 4. Para acceder al menú **Edit Configurations** (Editar configuraciones), seleccione el icono en la esquina superior derecha. Desde este menú, puede crear o modificar las configuraciones para la depuración remota.
 
@@ -139,7 +139,8 @@ En esta sección, se muestra cómo actualizar dinámicamente el valor de la vari
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
 
 ### <a name="demo"></a>Demostración
-* Depuración remota (vídeo): [Uso del kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark en clústeres de HDInsight](https://www.youtube.com/watch?v=wQtj_wjn1Ac) (en inglés)
+* Creación del proyecto Scala (vídeo): [Creación de aplicaciones Scala de Spark](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) (en inglés)
+* Depuración remota (vídeo): [Uso del kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark en clústeres de HDInsight](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) (en inglés)
 
 ### <a name="scenarios"></a>Escenarios
 * [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)
@@ -155,6 +156,7 @@ En esta sección, se muestra cómo actualizar dinámicamente el valor de la vari
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Uso de las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ con el fin de crear y enviar aplicaciones Spark en Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Uso del kit de herramientas de Azure para IntelliJ para depurar aplicaciones de forma remota en HDInsight Spark mediante VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Uso de las herramientas de HDInsight del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)

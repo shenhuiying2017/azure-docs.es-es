@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: anbacker
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2a1e44920581771af77fb46984b1cea31a957d67
-ms.lasthandoff: 03/09/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>Usar el servicio de Administrador de StorSimple para ver y administrar alertas de StorSimple
@@ -114,7 +114,6 @@ Las siguientes tablas enumeran algunas de las alertas de Microsoft Azure StorSim
 * [Alertas de rendimiento](#performance-alerts)
 * [Alertas de seguridad](#security-alerts)
 * [Alertas de paquetes de soporte](#support-package-alerts)
-* [Alertas de actualización](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alertas de conectividad de la nube
 | Texto de la alerta | Evento | Más información / acciones recomendadas |
@@ -168,7 +167,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 ### <a name="locally-pinned-volume-alerts"></a>Alertas de volumen anclado localmente
 | Texto de la alerta | Evento | Más información / acciones recomendadas |
 |:--- |:--- |:--- |
-| Error de creación de un volumen local <*nombre de volumen*>. |Error del trabajo de creación de volumen. <*Correspondiente al código de error en el mensaje de error*>. |Puede que existan problemas de conectividad que impidan que la operación de creación de espacio se complete correctamente. Los volúmenes anclados localmente están aprovisionados densamente y el proceso de creación de espacio supone escribir los volúmenes en capas en la nube. Si no hay ningún problema de conectividad, puede que haya agotado el espacio local en el dispositivo. Determine si hay espacio en el dispositivo antes de volver a intentar esta operación. |
+| Error de creación de un volumen local <*nombre de volumen*>. |Error del trabajo de creación de volumen. <*Mensaje de error correspondiente al código de error*>. |Puede que existan problemas de conectividad que impidan que la operación de creación de espacio se complete correctamente. Los volúmenes anclados localmente están aprovisionados densamente y el proceso de creación de espacio supone escribir los volúmenes en capas en la nube. Si no hay ningún problema de conectividad, puede que haya agotado el espacio local en el dispositivo. Determine si hay espacio en el dispositivo antes de volver a intentar esta operación. |
 | Error de expansión del volumen local <*nombre de volumen*>. |Error del trabajo de modificación del volumen debido a <*mensaje de error correspondiente al código de error de incorrecto*>. |Puede que existan problemas de conectividad que impidan que la operación de expansión del volumen se realice correctamente. Los volúmenes anclados localmente están aprovisionados densamente y el proceso de ampliar el espacio existente supone escribir los volúmenes en capas en la nube. Si no hay ningún problema de conectividad, puede que haya agotado el espacio local en el dispositivo. Determine si hay espacio en el dispositivo antes de volver a intentar esta operación. |
 | Error de conversión de volumen <*nombre de volumen*>. |El trabajo de conversión de volumen para convertir el tipo de volumen anclado localmente en un volumen en capas ha dado error. |La conversión del volumen anclado localmente en un volumen en capas no se ha podido realizar. Asegúrese de que no haya ningún problema de conectividad que impida que la operación se realice correctamente. Para solucionar problemas de conectividad, vaya a [Solución de problemas con el cmdlet Test-Connection](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>El volumen original anclado localmente ahora se ha marcado como un volumen en capas, dado que algunos de sus datos se han escrito en la nube durante la conversión. El volumen en capas resultante todavía ocupa espacio local en el dispositivo que no se puede reclamar para futuros volúmenes locales.<br>Solucione los problemas de conectividad, borre la alerta y vuelva a convertir este volumen en anclado localmente para garantizar que todos los datos vuelven a estar disponibles localmente. |
 | Error de conversión de volumen <*nombre de volumen*>. |El trabajo de conversión de volumen para convertir el tipo de volumen en capas en un volumen anclado localmente ha dado error. |La conversión del volumen en capas a un volumen anclado localmente no se ha podido realizar. Asegúrese de que no haya ningún problema de conectividad que impida que la operación se realice correctamente. Para solucionar problemas de conectividad, vaya a [Solución de problemas con el cmdlet Test-Connection](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>El volumen en capas original se marca ahora como volumen anclado localmente y, como parte del proceso de conversión, continúa teniendo datos que residen en la nube, mientras que el espacio con aprovisionamiento denso en el dispositivo para este volumen ya no se puede reclamar para futuros volúmenes locales.<br>Solucione los problemas de conectividad, borre la alerta y vuelva a convertir este volumen en el tipo de volumen en capas original para asegurarse de que se pueda reclamar el espacio local densamente aprovisionado en el dispositivo. |
@@ -201,17 +200,6 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 | Texto de la alerta | Evento | Más información / acciones recomendadas |
 |:--- |:--- |:--- |
 | Error de creación de paquete de soporte técnico. |StorSimple no pudo generar el paquete. |Vuelva a intentarlo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. Cuando haya solucionado el problema, borre esta alerta de la página de alertas. |
-
-### <a name="update-alerts"></a>Alertas de actualización
-| Texto de la alerta | Evento | Más información / acciones recomendadas |
-|:--- |:--- |:--- |
-| Revisión instalada. |Actualización de software o firmware completada. |La revisión se instaló correctamente en el dispositivo. |
-| Actualizaciones manuales disponibles. |Notificación de actualizaciones disponibles. |Utilice la interfaz de Windows PowerShell para StorSimple de su dispositivo para instalar estas actualizaciones. <br>Para más información, vaya a [Actualización del dispositivo de la serie StorSimple 8000](storsimple-update-device.md). |
-| Nuevas actualizaciones disponibles. |Notificación de actualizaciones disponibles. |Puede instalar estas actualizaciones desde la página **Mantenimiento** o mediante la interfaz de Windows PowerShell para StorSimple de su dispositivo. <br>Para más información, vaya a [Actualización del dispositivo de la serie StorSimple 8000](storsimple-update-device.md). |
-| Error al instalar las actualizaciones. |Las actualizaciones no se instalaron correctamente. |El sistema no pudo instalar las actualizaciones. Puede instalar estas actualizaciones desde la página **Mantenimiento** o mediante la interfaz de Windows PowerShell para StorSimple de su dispositivo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. <br>Para más información, vaya a [Actualización del dispositivo de la serie StorSimple 8000](storsimple-update-device.md). |
-| No se puede comprobar automáticamente si hay nuevas actualizaciones. |Error de comprobación automática. |Puede comprobar manualmente si hay nuevas actualizaciones desde la página **Mantenimiento** . |
-| Nuevo agente WUA disponible. |Notificación de actualización disponible. |Descargue la versión más reciente del Agente de Windows Update e instálela desde la interfaz de Windows PowerShell. |
-| La versión del componente de firmware <*id. de componente*> no coincide con el hardware. |Las actualizaciones de firmaware no se instalaron correctamente. |Póngase en contacto con el soporte técnico de Microsoft |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Aprenda más sobre [los errores de StorSimple y la solución de problemas de un dispositivo operativo](storsimple-troubleshoot-operational-device.md).

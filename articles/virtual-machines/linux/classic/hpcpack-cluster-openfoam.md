@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 2f92ebd82e5ac64f921e236a77657a1abc478a7c
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Ejecución de OpenFoam con Microsoft HPC Pack en un clúster de Linux RDMA en Azure
@@ -41,7 +41,7 @@ Microsoft HPC Pack proporciona características para ejecutar aplicaciones HPC y
   
   **Aspectos adicionales que debe conocer**
   
-  * Para los requisitos previos de las redes Linux RDMA en Azure, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Para los requisitos previos de red de Linux RDMA en Azure, consulte [Tamaños de máquina virtual de procesos de alto rendimiento](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   * Si elige la opción de implementar un script de Powershell, implemente todos los nodos de proceso de Linux en un servicio en la nube para usar la conexión de red RDMA.
   * Después de implementar los nodos de Linux, conéctese mediante SSH para realizar otras tareas administrativas. En Azure Portal encontrará los detalles de conexión mediante SSH para las máquinas virtuales Linux.  
 * **Intel MPI** : para ejecutar OpenFOAM en nodos de proceso de SLES 12 HPC en Azure, necesita instalar el entorno de tiempo de ejecución de Intel MPI Library 5 desde el [sitio web Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 ya está instalado en las imágenes de HPC basadas en CentOS).  En un paso posterior, si es necesario, instale Intel MPI en los nodos de proceso de Linux. Como preparativos para este paso, después de registrarse con Intel, siga el vínculo del mensaje de confirmación a la página web relacionada. Después, copie el vínculo de descarga para el archivo .tgz de la versión correspondiente de Intel MPI. Este artículo se basa en Intel MPI versión 5.0.3.048.

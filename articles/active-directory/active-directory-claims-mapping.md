@@ -11,48 +11,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: dc542483a8894e31bd118ac60d248dc8ee590885
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 78dbbe085fca26ad529c6262ba852f3c06ace404
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Asignación de notificaciones en Azure Active Directory (versión preliminar pública)
 
 >[!NOTE]
->Esta característica reemplaza a la personalización de notificaciones que se ofrece actualmente a través del portal (tal y como se documenta [aquí](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)). Si personaliza notificaciones mediante el portal además del método de Graph/PowerShell que se detalla en este documento en la misma aplicación, los tokens emitidos para esa aplicación ignorarán la configuración en el portal.
+>Esta característica reemplaza a la [personalización de notificaciones](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) que se ofrece actualmente a través del portal. Si personaliza las notificaciones mediante el portal además del método de Graph/PowerShell que se detalla en este documento en la misma aplicación, los tokens emitidos para esa aplicación ignorarán la configuración en el portal.
 Las configuraciones realizadas mediante los métodos que se detallan en este documento no se reflejarán en el portal.
 
-Los administradores de inquilinos usan esta característica para personalizar las notificaciones que se emiten en tokens para una aplicación específica de su inquilino. Las directivas de asignación de notificaciones se pueden usar para:
+Los administradores de inquilinos usan esta característica para personalizar las notificaciones que se emiten en tokens para una aplicación específica de su inquilino. Puede usar directivas de asignación de notificaciones para:
 
-- Seleccionar las notificaciones que se van a incluir en tokens.
+- Seleccionar las notificaciones que se incluyen en tokens.
 - Crear tipos de notificación que aún no existen.
 - Elegir o cambiar el origen de los datos emitidos en notificaciones concretas.
 
 >[!NOTE]
->Esta funcionalidad se encuentra actualmente en versión preliminar pública. Debe estar preparado para deshacer o eliminar los cambios. La característica estará disponible en cualquier suscripción de Azure Active Directory durante el período de versión preliminar pública. Pero, cuando ya esté disponible con carácter general, algunos aspectos de la característica podrían requerir una suscripción de Azure Active Directory Premium.
+>Esta funcionalidad se encuentra actualmente en versión preliminar pública. Debe estar preparado para deshacer o eliminar los cambios. La característica está disponible en cualquier suscripción de Azure Active Directory (Azure AD) durante el período de versión preliminar pública. Pero cuando ya esté disponible con carácter general, algunos aspectos de ella podrían requerir una suscripción Premium de Azure Active Directory.
 
 ## <a name="claims-mapping-policy-type"></a>Tipo de directiva de asignación de notificaciones
-En Azure AD, un objeto de directiva representa un conjunto de reglas que se exigen en algunas o todas las aplicaciones de una organización. Cada tipo de directiva tiene una estructura única con un conjunto de propiedades que luego se aplican a los objetos a los que están asignadas.
+En Azure AD, un objeto de **directiva** representa un conjunto de reglas que se exigen en algunas o todas las aplicaciones de una organización. Cada tipo de directiva tiene una estructura única con un conjunto de propiedades que luego se aplican a los objetos a los que están asignadas.
 
-Una directiva de asignación de notificaciones es un tipo de objeto de directiva que modifica las notificaciones emitidas en tokens para aplicaciones concretas.
+Una directiva de asignación de notificaciones es un tipo de objeto de **directiva** que modifica las notificaciones emitidas en tokens para aplicaciones concretas.
 
 ## <a name="claim-sets"></a>Conjuntos de notificaciones
 Hay determinados conjuntos de notificaciones que definen cómo y cuándo se usan en los tokens.
 
-## <a name="core-claim-set"></a>Conjunto de notificaciones principales
-Las notificaciones del conjunto de notificaciones principales estarán presentes en todos los tokens independientemente de la directiva. Estas notificaciones se consideran también restringidas y no se pueden modificar.
+### <a name="core-claim-set"></a>Conjunto de notificaciones principales
+Las notificaciones del conjunto de notificaciones principales están presentes en todos los tokens independientemente de la directiva. Estas notificaciones se consideran también restringidas y no se pueden modificar.
 
-## <a name="basic-claim-set"></a>Conjunto de notificaciones básicas
+### <a name="basic-claim-set"></a>Conjunto de notificaciones básicas
 El conjunto de notificaciones básicas incluye las notificaciones que se emiten de forma predeterminada para los tokens (además del conjunto de notificaciones principales). Estas notificaciones se pueden omitir o modificar mediante las directivas de asignación de notificaciones.
 
-## <a name="restricted-claim-set"></a>Conjunto de notificaciones restringidas
-Las notificaciones restringidas no se pueden modificar mediante una directiva. No se puede cambiar el origen de datos ni se aplicará ninguna transformación al generar estas notificaciones.
+### <a name="restricted-claim-set"></a>Conjunto de notificaciones restringidas
+Las notificaciones restringidas no se pueden modificar mediante una directiva. No se puede cambiar el origen de datos ni se aplica ninguna transformación al generar estas notificaciones.
 
-### <a name="table-1---jwt-restricted-claim-set"></a>Tabla 1: Conjunto de notificaciones restringidas de JWT
+#### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabla 1: Conjunto de notificaciones restringidas de JSON Web Token (JWT)
 |Tipo de notificación (nombre)|
 | ----- |
 |_claim_names|
@@ -186,7 +185,7 @@ Las notificaciones restringidas no se pueden modificar mediante una directiva. N
 |wids|
 |win_ver|
 
-### <a name="table-2---saml-restricted-claim-set"></a>Tabla 2: Conjunto de notificaciones restringidas de SAML
+#### <a name="table-2-security-assertion-markup-language-saml-restricted-claim-set"></a>Tabla 2: Conjunto de notificaciones restringidas de Lenguaje de marcado de aserción de seguridad (SAML)
 |Tipo de notificación (URI)|
 | ----- |
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
@@ -237,11 +236,9 @@ Las notificaciones restringidas no se pueden modificar mediante una directiva. N
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Propiedades de la directiva de asignación de notificaciones
-Las propiedades de una directiva de asignación de notificaciones se usan para controlar las notificaciones que se emiten y en dónde se originan los datos. Si no se establece ninguna directiva, el sistema emite tokens que contienen el conjunto de notificaciones principales, el conjunto de notificaciones básicas y las notificaciones opcionales que la aplicación ha optado por recibir.
+Use las propiedades de una directiva de asignación de notificaciones para controlar las notificaciones que se emiten y de dónde se originan los datos. Si no se establece ninguna directiva, el sistema emite los tokens que contienen el conjunto de notificaciones principales, el conjunto de notificaciones básicas y las notificaciones opcionales que la aplicación ha elegido recibir.
 
 ### <a name="include-basic-claim-set"></a>Inclusión del conjunto de notificaciones básicas
-
-Información general de la propiedad
 
 **Cadena:** IncludeBasicClaimSet
 
@@ -250,42 +247,41 @@ Información general de la propiedad
 **Resumen:** esta propiedad determina si el conjunto de notificaciones principales se incluye en los tokens afectados por esta directiva. 
 
 - Si se establece en True, todas las notificaciones del conjunto de notificaciones básicas se emiten en los tokens afectados por esta directiva. 
-- Si se establece en False, las notificaciones del conjunto de notificaciones básicas no se incluirán en los tokens a menos que se agreguen individualmente a la propiedad de esquema de notificaciones de la misma directiva.
+- Si se establece en False, las notificaciones del conjunto de notificaciones básicas no se incluyen en los tokens a menos que se agreguen individualmente a la propiedad de esquema de notificaciones de la misma directiva.
 
 >[!NOTE] 
->Las notificaciones del conjunto de notificaciones principales estarán presentes en todos los tokens independientemente de lo que se establezca en esta propiedad. 
+>Las notificaciones del conjunto de notificaciones principales están presentes en todos los tokens, independientemente del valor en que se establezca esta propiedad. 
 
 ### <a name="claims-schema"></a>Esquema de notificaciones
-Información general de la propiedad
 
 **Cadena:** ClaimsSchema
 
-**Tipo de datos:** blob JSON con una o más entradas de esquema de notificaciones (vea la sección sobre directivas de asignación de notificaciones de ejemplo para información de formato)
+**Tipo de datos:** blob de JSON con una o más entradas de esquema de notificación
 
-**Resumen:** esta propiedad se usa para definir las notificaciones que estarán presentes en los tokens afectados por la directiva además del conjunto de notificaciones básicas (si IncludeBasicClaimSet se establece en True) y el conjunto de notificaciones principales.
-Para cada esquema de notificación que se defina en esta propiedad, deben establecerse dos datos: de dónde proceden los datos (Value o par Source/ID) y en qué forma de notificación se emitirán los datos (tipo de notificación).
+**Resumen:** En esta propiedad se definen las notificaciones que están presentes en los tokens afectados por la directiva, además del conjunto de notificaciones básicas y el conjunto de notificaciones principales.
+Para cada entrada de esquema de notificación definida en esta propiedad, se requiere cierta información. Debe especificar de dónde provienen los datos (**Value** o **Par Source/ID**), y como qué notificación se emiten los datos (**Tipo de notificación**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada de esquema de notificación
 
 **Value:** este elemento define un valor estático para los datos que se emiten en la notificación.
 
-**Par Source/ID:** los elementos Source e ID definen en dónde se originarán los datos de la notificación. 
+**Par Source/ID:** los elementos Source e ID definen en dónde se originan los datos de la notificación. 
 
 El elemento Source debe establecerse en uno de los valores siguientes: 
 
 
-- "user": los datos de la notificación son una propiedad en el objeto User 
-- "application": los datos de la notificación son una propiedad en la entidad de servicio de la aplicación (cliente) 
-- "resource": los datos de la notificación son una propiedad en la entidad de servicio del recurso
-- "audience": los datos de la notificación son una propiedad en la entidad de servicio que es la audiencia del token (la entidad de servicio de recurso o cliente )
-- “company”: los datos de la notificación son una propiedad en el objeto Company del inquilino del recurso
-- "transformation": los datos de la notificación proceden de la transformación de notificaciones (vea la sección Transformación de notificaciones más adelante). 
+- "user": los datos de la notificación son una propiedad en el objeto User. 
+- "application": los datos de la notificación son una propiedad en la entidad de servicio de la aplicación (cliente). 
+- "resource": los datos de la notificación son una propiedad en la entidad de servicio del recurso.
+- "audience": los datos de la notificación son una propiedad en la entidad de servicio que es la audiencia del token (la entidad de servicio de recurso o cliente).
+- "company": los datos de la notificación son una propiedad en el objeto Company del inquilino del recurso.
+- "transformation": los datos de la notificación proceden de la transformación de notificaciones (vea la sección "Transformación de notificaciones" más adelante en este artículo). 
 
-Si el origen es una transformación, debe incluirse también el elemento TransformationID en la definición de esta notificación.
+Si el origen es una transformación, debe incluirse también el elemento **TransformationID** en la definición de esta notificación.
 
 El elemento ID identifica la propiedad en el origen que proporciona el valor de la notificación. En la tabla siguiente se muestran los valores de ID válidos para cada valor de Source.
 
-### <a name="table-3---valid-id-values-per-source"></a>Tabla 3: Valores de identificador válidos por origen
+#### <a name="table-3-valid-id-values-per-source"></a>Tabla 3: Valores de ID válidos por origen
 |Origen|ID|Descripción|
 |-----|-----|-----|
 |Usuario|surname|Nombre de familia|
@@ -334,56 +330,56 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 
 **TransformationID:** el elemento TransformationID solo debe indicarse si el elemento Source está establecido en “transformation”.
 
-- Este elemento debe coincidir con el elemento ID de la entrada de transformación en la propiedad ClaimsTransformation que define cómo se generan los datos de esta notificación.
+- Este elemento debe coincidir con el elemento ID de la entrada de transformación en la propiedad **ClaimsTransformation** que define cómo se generan los datos de esta notificación.
 
-**Tipo de notificación:** los elementos JwtClaimType y SamlClaimType definen la notificación a la que esta entrada de esquema de notificación hace referencia.
+**Tipo de notificación:** los elementos **JwtClaimType** y **SamlClaimType** definen la notificación a la que esta entrada de esquema de notificación hace referencia.
 
-- El elemento JwtClaimTypeshould debe contener el nombre de la notificación que se va a emitir en los token JWT.
+- El elemento JwtClaimType tiene que contener el nombre de la notificación que se va a emitir en los token JWT.
 - El elemento SamlClaimType debe contener el identificador URI de la notificación que se va a emitir en los token SAML.
 
 >[!NOTE]
->Los nombres e identificadores URI de las notificaciones del conjunto de notificaciones restringidas no se pueden usar en los elementos de tipo de notificación. Vea la sección Excepciones y restricciones más adelante.
+>Los nombres e identificadores URI de las notificaciones del conjunto de notificaciones restringidas no se pueden usar en los elementos de tipo de notificación. Para más información, vea la sección "Excepciones y restricciones" más adelante en este artículo.
 
 ### <a name="claims-transformation"></a>Transformación de notificaciones
-Información general de la propiedad
 
 **Cadena:** ClaimsTransformation
 
-**Tipo de datos:** blob JSON con una o más entradas de transformación (vea la sección sobre directivas de asignación de notificaciones de ejemplo para información de formato)
+**Tipo de datos:** blob de JSON, con una o más entradas de transformación 
 
-**Resumen:** esta propiedad se usa para aplicar transformaciones comunes a datos de origen para generar los datos de salida de las notificaciones especificadas en el esquema de notificaciones.
-Elementos de entrada de transformación
+**Resumen:** Use esta propiedad para aplicar transformaciones comunes a datos de origen para generar los datos de salida de las notificaciones especificadas en el esquema de notificaciones.
 
-**ID:** el elemento ID se usa para hacer referencia a esta entrada de transformación en el elemento TransformationID de un esquema de notificaciones. Este valor debe ser único para cada entrada de transformación comprendida en la directiva.
+**ID:** Use el elemento ID para hacer referencia a esta entrada de transformación en el elemento TransformationID del esquema de notificaciones. Este valor debe ser único para cada entrada de transformación comprendida en la directiva.
 
-**TransformationMethod:** el elemento TransformationMethod identifica la operación que se ejecutará para generar los datos de la notificación.
+**TransformationMethod:** El elemento TransformationMethod identifica la operación que se ejecuta para generar los datos de la notificación.
 
-En función del método elegido, se espera un conjunto de entradas y salidas. Estas se definen mediante los elementos InputClaims, InputParameters y OutputClaims.
+En función del método elegido, se espera un conjunto de entradas y salidas. Estas se definen mediante los elementos **InputClaims**, **InputParameters** y **OutputClaims**.
 
-### <a name="table-4---transformation-methods-and-expected-inputsoutputs"></a>Tabla 4: Métodos de transformación y entradas/salidas previstas
-|TransformationMethod|Entrada esperada|Salida esperada|Descripción|
+#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabla 4: Métodos de transformación y entradas y salidas previstas
+|TransformationMethod|Entrada prevista|Salida prevista|Descripción|
 |-----|-----|-----|-----|
-|Unión|string1, string2, separator|outputClaim|Se combinan cadenas de entrada con un separador entre ellas. Por ejemplo, string1:"foo@bar.com", string2:"sandbox", separator:"." dará como resultado outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" dará como resultado outputClaim:"foo". Si no hay ninguna arroba "@" presente, la cadena de entrada original se devuelve tal y como está.|
+|Unión|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
+|ExtractMailPrefix|mail|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no hay ningún signo "@" presente, la cadena de entrada original se devuelve tal y como está.|
 
-**InputClaims:** un elemento InputClaims puede usarse para pasar los datos de una entrada de esquema de notificación a una transformación. Tiene dos atributos: ClaimTypeReferenceId y TransformationClaimType.
+**InputClaims:** Use un elemento InputClaims para pasar los datos de una entrada de esquema de notificación a una transformación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType**.
 
-- ClaimTypeReferenceId se combina con el elemento ID de la entrada de esquema de notificación para buscar la notificación de entrada adecuada. 
-- TransformationClaimType se usa para asignar un nombre único a esta entrada. Este nombre debe coincidir con una de las entradas esperadas para el método de transformación.
+- **ClaimTypeReferenceId** se combina con el elemento ID de la entrada de esquema de notificación para buscar la notificación de entrada adecuada. 
+- **TransformationClaimType** se usa para asignar un nombre único a esta entrada. Este nombre debe coincidir con una de las entradas esperadas para el método de transformación.
 
-**InputParameters:** un elemento InputParameters se usa para pasar un valor constante a una transformación. Tiene dos atributos: Value e ID.
-Value es el valor constante que se pasa.
-ID se usa para asignar un nombre único a esta entrada. Este nombre debe coincidir con una de las entradas esperadas para el método de transformación.
+**InputParameters:** Use un elemento InputParameters para pasar un valor constante a una transformación. Tiene dos atributos: **Value** e **ID**.
 
-**OutputClaims:** un elemento OutputClaims se usa para contener los datos generados por una transformación y los vincula a una entrada de esquema de notificación. Tiene dos atributos: ClaimTypeReferenceId y TransformationClaimType.
+- **Value** es el valor constante real que se pasa.
+- **ID** se usa para asignar un nombre único a esta entrada. Este nombre debe coincidir con una de las entradas esperadas para el método de transformación.
 
-ClaimTypeReferenceId se combina con el elemento ID de la entrada de esquema de notificación para buscar la notificación de salida adecuada. TransformationClaimType se usa para asignar un nombre único a esta salida. Este nombre debe coincidir con una de las salidas esperadas para el método de transformación.
+**OutputClaims:** Use un elemento OutputClaims para contener los datos generados por una transformación y vincularlos a una entrada de esquema de notificación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType**.
+
+- **ClaimTypeReferenceId** se combina con el elemento ID de la entrada de esquema de notificación para buscar la notificación de salida adecuada.
+- **TransformationClaimType** se usa para asignar un nombre único a esta salida. Este nombre debe coincidir con una de las salidas esperadas para el método de transformación.
 
 ### <a name="exceptions-and-restrictions"></a>Excepciones y restricciones
 
-**NameID de SAML y UPN:** los atributos desde los que originan los valores de NameID y UPN, y las transformaciones de notificaciones que se permiten, están limitados.
+**NameID de SAML y UPN:** Los atributos desde los que se originan los valores de NameID y UPN, y las transformaciones de notificaciones que se permiten, están limitados.
 
-### <a name="table-5---attributes-allowed-as-data-source-for-saml-nameid"></a>Tabla 5: Atributos permitidos como origen de datos en NameID de SAML
+#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabla 5: Atributos permitidos como origen de datos en NameID de SAML
 |Origen|ID|Descripción|
 |-----|-----|-----|
 |Usuario|mail|Dirección de correo electrónico|
@@ -406,24 +402,24 @@ ClaimTypeReferenceId se combina con el elemento ID de la entrada de esquema de n
 |Usuario|extensionattribute14|Atributo de extensión 14|
 |Usuario|extensionattribute15|Atributo de extensión 15|
 
-### <a name="table-6---transformation-methods-allowed-for-saml-nameid"></a>Tabla 6: Métodos de transformación permitidos en NameID de SAML
+#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabla 6: Métodos de transformación permitidos en NameID de SAML
 |TransformationMethod|Restricciones|
 | ----- | ----- |
-|ExtractMailPrefix||None|
+|ExtractMailPrefix|None|
 |Unión|El sufijo que se combine debe ser un dominio comprobado del inquilino del recurso.|
 
 ### <a name="custom-signing-key"></a>Clave de firma de personalizada
-Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Con esta clave se firmarán todos los tokens emitidos que se hayan visto afectados por la directiva. Las aplicaciones se deben configurar para que acepten los tokens firmados con esta clave. Así se garantiza la confirmación de que los tokens han sido modificados por el creador de la directiva de asignación de notificaciones. Protege a las aplicaciones de directivas de asignación de notificaciones creadas por actores malintencionados.
+Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Con esta clave se firman todos los tokens emitidos que se hayan visto afectados por la directiva. Las aplicaciones se deben configurar para que acepten los tokens firmados con esta clave. Así se garantiza la confirmación de que los tokens han sido modificados por el creador de la directiva de asignación de notificaciones. Protege a las aplicaciones de directivas de asignación de notificaciones creadas por actores malintencionados.
 
 ### <a name="cross-tenant-scenarios"></a>Escenarios de varios inquilinos
-Las directivas de asignación de notificaciones no se aplican a los usuarios invitados. Si un usuario invitado intenta acceder a una aplicación que tiene una directiva de asignación de notificaciones asignada a su entidad de servicio, se emitirá el token predeterminado (la directiva no tendrá ningún efecto).
+Las directivas de asignación de notificaciones no se aplican a los usuarios invitados. Si un usuario invitado intenta obtener acceso a una aplicación que tiene una directiva de asignación de notificaciones asignada a su entidad de servicio, se emite el token predeterminado (la directiva no tiene ningún efecto).
 
 ## <a name="claims-mapping-policy-assignment"></a>Asignación de directivas de asignación de notificaciones
 Las directivas de asignación de notificaciones solo se pueden asignar a objetos de entidades de servicio.
 
 ### <a name="example-claims-mapping-policies"></a>Directivas de asignación de notificaciones de ejemplo
 
-En Azure AD hay muchos escenarios posibles cuando se pueden personalizar las notificaciones emitidas en tokens para entidades de servicio concretas. En esta sección se abordan algunos escenarios comunes que pueden ayudarle a entender cómo utilizar el tipo de directiva de asignación de notificaciones.
+En Azure AD hay muchos escenarios posibles en los que se pueden personalizar las notificaciones emitidas en tokens para entidades de servicio concretas. En esta sección se abordan algunos escenarios comunes que pueden ayudarle a entender cómo usar el tipo de directiva de asignación de notificaciones.
 
 #### <a name="prerequisites"></a>Requisitos previos
 En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de entidades de servicio. Si no está familiarizado con Azure AD, se recomienda que aprenda a obtener un inquilino de Azure AD antes de continuar con estos ejemplos. 
@@ -438,7 +434,7 @@ Para comenzar, realice uno de los pasos siguientes:
     Connect-AzureAD -Confirm
     
     ```
-3.  Ejecute el siguiente comando para ver todas las directivas que se han creado en la organización. Se recomienda ejecutar este comando después de la mayoría de las operaciones en los escenarios siguientes para comprobar que las directivas se van a crear según lo previsto.
+3.  Ejecute el siguiente comando para ver todas las directivas que se han creado en la organización. Se recomienda ejecutar este comando después de la mayoría de las operaciones en los escenarios siguientes, para comprobar que las directivas se van a crear según lo previsto.
    
     ``` powershell
         Get-AzureADPolicy
@@ -448,7 +444,7 @@ Para comenzar, realice uno de los pasos siguientes:
 En este ejemplo se crea una directiva que quita el conjunto de notificaciones básicas de los tokens emitidos para entidades de servicio vinculadas.
 
 
-1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vinculará a entidades de servicio concretas, quita el conjunto de notificaciones básicas de los tokens.
+1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, quita el conjunto de notificaciones básicas de los tokens.
     1. Ejecute este comando para crear la directiva: 
     
      ``` powershell
@@ -467,9 +463,9 @@ En este ejemplo se crea una directiva que quita el conjunto de notificaciones b�
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
 #### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Ejemplo: Creación y asignación de una directiva que incluya EmployeeID y TenantCountry como notificaciones en tokens emitidos para una entidad de servicio.
-En este ejemplo se crea una directiva que agrega EmployeeID y TenantCountry a los tokens emitidos para entidades de servicio vinculadas. EmployeeID se emitirá como tipo de notificación de nombre en los tokens SAML y JWT. TenantCountry se emitirá como tipo de notificación de país en los tokens SAML y JWT. En este ejemplo también decidirá si incluye el conjunto de notificaciones básicas en los tokens.
+En este ejemplo se crea una directiva que agrega EmployeeID y TenantCountry a los tokens emitidos para entidades de servicio vinculadas. EmployeeID se emite como tipo de notificación de nombre en los tokens SAML y JWT. TenantCountry se emite como tipo de notificación de país en los tokens SAML y JWT. En este ejemplo se sigue incluyendo el conjunto de notificaciones básicas en los tokens.
 
-1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vinculará a entidades de servicio concretas, agrega las notificaciones EmployeeID y TenantCountry a los tokens.
+1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, agrega las notificaciones EmployeeID y TenantCountry a los tokens.
     1. Ejecute este comando para crear la directiva:  
      
      ``` powershell
@@ -488,11 +484,11 @@ En este ejemplo se crea una directiva que agrega EmployeeID y TenantCountry a lo
      ``` powershell
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
-#### <a name="example-create-and-assign-a-policy-utilizing-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Ejemplo: Creación y asignación de una directiva que utilice una transformación de notificaciones en los tokens emitidos para una entidad de servicio.
-En este ejemplo se crea una directiva que emite una notificación "JoinedData" personalizada para tokens JWT emitidos para entidades de servicio vinculadas. Esta notificación contendrá un valor creado mediante combinación de los datos almacenados en el atributo extensionattribute1 en el objeto de usuario que incluye ".sandbox". En este ejemplo también decidirá si excluye el conjunto de notificaciones básicas en los tokens.
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Ejemplo: Creación y asignación de una directiva que usa una transformación de notificaciones en los tokens emitidos para una entidad de servicio.
+En este ejemplo se crea una directiva que emite una notificación "JoinedData" personalizada para los tokens JWT emitidos para entidades de servicio vinculadas. Esta notificación contiene un valor creado mediante la combinación de los datos almacenados en el atributo extensionattribute1 en el objeto de usuario que incluye ".sandbox". En este ejemplo se excluye el conjunto de notificaciones básicas en los tokens.
 
 
-1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vinculará a entidades de servicio concretas, agrega las notificaciones EmployeeID y TenantCountry a los tokens.
+1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, agrega las notificaciones EmployeeID y TenantCountry a los tokens.
     1. Ejecute este comando para crear la directiva: 
      
      ``` powershell

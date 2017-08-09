@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 87b8b91fc5970bd127dfdc47e24d99a19471aa8c
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2dcde690d138fdf524c84c38ffaf3dd8f5a38b83
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-ad-b2c-sign-up--sign-in-in-a-aspnet-web-app"></a>Azure AD B2C: suscripción e inicio de sesión en aplicaciones web ASP.NET
@@ -347,7 +347,7 @@ Puede tener acceso a cualquier notificación que recibe su aplicación de la mis
 
 ## <a name="run-the-sample-app"></a>Ejecutar la aplicación de ejemplo
 
-Por último, puede compilar y ejecutar la aplicación. Regístrese en la aplicación con una dirección de correo electrónico o un nombre de usuario. Cierre la sesión y vuelva a iniciarla como el mismo usuario. Edite el perfil o restablezca la contraseña. Cierre la sesión y regístrese como otro usuario. Observe que la información que se muestra en la pestaña **Reclamaciones** se corresponde con la información configurada en las directivas.
+Por último, compile los proyectos TaskService y TaskWebApp, establezca TaskWebApp como proyecto de inicio en Visual Studio para que se muestren correctamente los elementos de menú de la página web y ejecute la aplicación. Regístrese en la aplicación con una dirección de correo electrónico o un nombre de usuario. Cierre la sesión y vuelva a iniciarla como el mismo usuario. Edite el perfil o restablezca la contraseña. Cierre la sesión y regístrese como otro usuario. Observe que la información que se muestra en la pestaña **Reclamaciones** se corresponde con la información configurada en las directivas.
 
 ## <a name="add-social-idps"></a>Agregar IDP sociales
 

@@ -1,6 +1,6 @@
 ---
-title: "Supervisión del nivel de infraestructura de Azure Service Fabric | Microsoft Docs"
-description: "Obtenga información sobre los eventos y los registros de nivel de infraestructura usados para supervisar y diagnosticar los clústeres de Azure Service Fabric."
+title: "Supervisión del nivel de plataforma de Azure Service Fabric | Microsoft Docs"
+description: "Obtenga información sobre los eventos y los registros de nivel de plataforma que se usan para supervisar y diagnosticar los clústeres de Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,22 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: bae1917e7c0f0b247be473f78fedd7753aef6d23
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2e320339f60b593c1cff68ca047c95f9cb7b33e2
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="infrastructure-level-event-and-log-generation"></a>Generación de eventos y registros de nivel de infraestructura
+# <a name="platform-level-event-and-log-generation"></a>Generación de eventos y registros de nivel de plataforma
 
 ## <a name="monitoring-the-cluster"></a>Supervisar el clúster
 
-Es importante supervisar en el nivel de infraestructura para determinar si el hardware y el clúster se comportan según lo previsto. Aunque Service Fabric puede mantener las aplicaciones en ejecución durante un error de hardware, es necesario diagnosticar si un error se produce en una aplicación o en la infraestructura subyacente. También debe supervisar los clústeres para planear mejor la capacidad, lo que ayuda a decidir si es necesario agregar o quitar infraestructura.
+Es importante supervisar en el nivel de infraestructura para determinar si el hardware y el clúster se comportan según lo previsto. Aunque Service Fabric puede mantener las aplicaciones en ejecución durante un error de hardware, es necesario diagnosticar si un error se produce en una aplicación o en la infraestructura subyacente. También debe supervisar los clústeres para planear mejor la capacidad, lo que ayuda a decidir si es necesario agregar o quitar hardware.
 
 Service Fabric incluye de forma predeterminada cinco canales de registro que generan los eventos siguientes:
 
@@ -37,7 +36,7 @@ Service Fabric incluye de forma predeterminada cinco canales de registro que gen
 * [Eventos de Reliable Actors](service-fabric-reliable-actors-diagnostics.md): contadores de rendimiento y eventos específicos del modelo de programación
 * Registros de soporte técnico: registros del sistema que genera Service Fabric únicamente para que los usemos al proporcionar soporte técnico
 
-Estos distintos canales cubren la mayor parte de los registros de nivel de infraestructura que se recomiendan. Para mejorar el registro de nivel de infraestructura, considere la posibilidad de ofrecer más información sobre el modelo de mantenimiento y agregar informes de mantenimiento personalizados, e incluya **contadores de rendimiento** personalizados para comprender en tiempo real de qué manera afectan al clúster los servicios y las aplicaciones.
+Estos distintos canales cubren la mayor parte de los registros de nivel de plataforma que se recomiendan. Para mejorar el registro de nivel de plataforma, considere la posibilidad de dedicar tiempo a comprender mejor el modelo de mantenimiento y agregar informes de mantenimiento personalizados, e agregar **contadores de rendimiento** personalizados para comprender en tiempo real de qué manera afectan al clúster los servicios y las aplicaciones.
 
 ### <a name="azure-service-fabric-health-and-load-reporting"></a>Informes de carga y mantenimiento de Azure Service Fabric
 

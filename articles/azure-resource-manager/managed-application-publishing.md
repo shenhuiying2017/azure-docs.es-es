@@ -8,17 +8,16 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/08/2017
+ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 56dd68e328abd6c1dacdf7a8e051ca6b3cd07083
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 623d728cf70a5aa0b91b6acd9e314ca5c009c0aa
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="create-and-publish-an-azure-managed-application"></a>Creación y publicación de una aplicación administrada de Azure 
+# <a name="create-and-publish-service-catalog-managed-application"></a>Creación y publicación de una aplicación administrada del catálogo de servicios
 
 Tal y como se describe en el artículo de [introducción a las aplicaciones administradas](managed-application-overview.md), hay dos escenarios en la experiencia completa. Uno es el publicador o el ISV que desea crear una aplicación administrada para que la utilicen los usuarios. El segundo es el usuario o el consumidor de la aplicación administrada. Este artículo se centra en el primer escenario y explica cómo un ISV puede crear y publicar una aplicación administrada. 
 
@@ -32,7 +31,7 @@ Para ver ejemplos de los archivos, consulte los [ejemplos de aplicaciones admini
 
 ## <a name="create-managed-application-package"></a>Creación de un paquete de aplicación administrada
 
-El primer paso es crear el paquete de aplicación administrada que contiene los archivos de plantilla principales. El publicador o el ISV crean tres archivos. 
+El primer paso es crear el paquete de aplicación administrada que contiene los archivos de plantilla principales. El publicador o el ISV crean tres archivos. Debe empaquetar los tres archivos en un archivo .zip y cargarlo en una ubicación accesible.
 
 * El primer archivo se denomina **applianceMainTemplate.json**. Este archivo de plantilla define los recursos reales que se aprovisionan como parte de la aplicación administrada. Por ejemplo, para crear una cuenta de almacenamiento con una aplicación administrada, el archivo applianceMainTemplate.json contiene: 
 
@@ -208,6 +207,8 @@ Los parámetros que se usan en el ejemplo anterior son:
 
 * Para una introducción a las aplicaciones administradas, consulte la [introducción a las aplicaciones administradas de Azure](managed-application-overview.md).
 * Para ver ejemplos de los archivos, consulte los [ejemplos de aplicaciones administradas](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
-* Para comprender la experiencia del consumidor, consulte [Uso de una aplicación administrada de Azure](managed-application-consumption.md).
+* Para información sobre cómo usar una aplicación administrada del catálogo de servicios, consulte [Uso de una aplicación administrada del catálogo de servicios](managed-application-consumption.md).
+* Para información sobre cómo publicar aplicaciones administradas en Marketplace, consulte [Aplicaciones administradas de Azure en Marketplace](managed-application-author-marketplace.md).
+* Para información sobre cómo usar una aplicación administrada de Marketplace, consulte [Uso de aplicaciones administradas de Azure en Marketplace](managed-application-consume-marketplace.md).
 * Para aprender a crear un archivo de definición de interfaz de usuario para una aplicación administrada, consulte [Introducción a CreateUiDefinition](managed-application-createuidefinition-overview.md).
 

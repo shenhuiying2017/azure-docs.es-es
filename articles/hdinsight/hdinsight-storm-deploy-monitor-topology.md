@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 92c715015067363fa6d6b58f436891f4d38e19e5
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 34072574f83b51280e60e2f8766c6c5d5a33c307
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Implementación y administración de topologías de Apache Storm en HDInsight basado en Windows
@@ -31,7 +30,7 @@ El panel de Storm permite implementar y ejecutar fácilmente topologías de Apac
 El panel de Storm y las características de Storm de las herramientas de HDInsight dependen de la API de REST de Storm, que se puede usar para crear sus propias soluciones de supervisión y administración.
 
 > [!IMPORTANT]
-> Para los pasos de este documento se necesita un clúster de Storm en HDInsight que usa Windows como sistema operativo. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Para los pasos de este documento se necesita un clúster de Storm en HDInsight que usa Windows como sistema operativo. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Para más información sobre la implementación y la administración de topologías de Storm con un clúster de HDInsight que usa Linux, consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](hdinsight-storm-deploy-monitor-topology-linux.md).
 
@@ -45,10 +44,9 @@ El panel de Storm y las características de Storm de las herramientas de HDInsig
 
     Una de las siguientes versiones de Visual Studio:
 
-  * Visual Studio 2012 con [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 con la actualización 4
 
-  * Visual Studio 2013 con [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) o [Visual Studio Community 2013](http://go.microsoft.com/fwlink/?LinkId=517284)
-  * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
+  * Visual Studio 2013 con la actualización 4 o Visual Studio Community 2013
 
   * Visual Studio 2015 (cualquier edición)
 
@@ -144,7 +142,7 @@ Utilice los siguientes pasos para implementar una muestra en el clúster de Stor
    > [!NOTE]
    > Si se le solicita, introduzca las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
 
-5. Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Storm Cluster**  (Clúster de Storm y seleccione **Submit** (Enviar). Puede supervisar si el envío es correcto mediante la ventana **Salida** .
+5. Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Storm Cluster** (Clúster de Storm y seleccione **Submit** (Enviar). Puede supervisar si el envío es correcto mediante la ventana **Salida** .
 
 6. Cuando la topología se envíe correctamente, deben aparecer las **topologías de Storm** del clúster. Seleccione la topología de la lista para ver información acerca de la topología de ejecución.
 

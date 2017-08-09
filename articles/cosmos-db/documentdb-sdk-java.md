@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 423f841b82ced16b3bd338f1f38db9ec0250fa66
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: a1b824ce7898323c007ee24e852f9649da24e741
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="documentdb-java-sdk-release-notes-and-resources"></a>SDK de Java para DocumentDB: notas de la versión y recursos
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Fuente de cambios de .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -52,6 +52,10 @@ ms.lasthandoff: 06/20/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
+* Correcciones de errores críticos solicitará el procesamiento durante la división en particiones.
+* Se ha corregido un problema con los niveles de coherencia seguro y BoundedStaleness.
 
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
 * Se agregó compatibilidad con la característica Unidad de solicitud por minuto (RU/m).
@@ -167,6 +171,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |11 de julio de 2017 |--- |
 | [1.11.0](#1.11.0) |10 de mayo de 2017 |--- |
 | [1.10.0](#1.10.0) |11 de marzo de 2017 |--- |
 | [1.9.6](#1.9.6) |21 de febrero de 2017 |--- |

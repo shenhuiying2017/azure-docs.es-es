@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 104986e88ededf2137725fe258b6ce51f608b37d
-ms.lasthandoff: 01/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ea42b7135d0695b66d569095e70bb3d9f8b9594b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-data-warehouse-restore"></a>Restauración de SQL Data Warehouse
@@ -58,7 +58,12 @@ Yes, you can restore the last available restore point.
 Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
 
 ## <a name="geo-redundant-restore"></a>Restauración con redundancia geográfica
-Si usa el almacenamiento con redundancia geográfica, puede restaurar el almacenamiento de datos en su [centro de datos emparejado](../best-practices-availability-paired-regions.md) en otra región geográfica. El almacenamiento de datos se restaura desde la última copia de seguridad diaria. 
+Puede restaurar el almacenamiento de datos en cualquier región que admita Azure SQL Data Warehouse en el nivel de rendimiento elegido. Tenga en cuenta que 9000 y 18000 DWU no se admiten en todas las regiones durante la versión preliminar.
+
+> [!NOTE]
+> Para llevar a cabo una restauración con redundancia geográfica no puede haber anulado esta característica.
+> 
+> 
 
 ## <a name="restore-timeline"></a>Escala de tiempo de restauración
 Puede restaurar una base de datos a cualquier punto de restauración disponible de los últimos siete días. Las instantáneas comienzan cada cuatro a ocho horas y están disponibles durante siete días. Cuando una instantánea tiene una antigüedad superior a siete días, caduca y su punto de restauración ya no está disponible.

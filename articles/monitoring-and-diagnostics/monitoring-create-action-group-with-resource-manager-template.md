@@ -2,7 +2,7 @@
 title: "Creación de grupos de acciones con plantillas de Resource Manager | Microsoft Docs"
 description: "Los grupos de acciones le permiten enviar notificaciones por correo electrónico o SMS, o llamar a webhooks cuando se producen determinados eventos."
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 2dd7b14f1466fa7244a2af2c030d8b794658aaad
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 88e7b2e7781b80ea360531f4c3a45256de83b594
 ms.contentlocale: es-es
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -28,10 +27,10 @@ En este artículo se muestra cómo utilizar una [plantilla de Azure Resource Man
 
 Los pasos básicos son los siguientes:
 
-1.    Crear una plantilla en forma de archivo JSON que describa cómo crear la alerta del grupo de acciones.
-2.    [Usar cualquier método para implementar la plantilla](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+1.  Crear una plantilla en forma de archivo JSON que describa cómo crear la alerta del grupo de acciones.
+2.  [Usar cualquier método para implementar la plantilla](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
-A continuación se describe cómo crear una plantilla de Resource Manager primero para un grupo de acciones solamente y, después, para un grupo de acciones durante la creación de otro recurso.
+A continuación se describe cómo crear una plantilla de Resource Manager en primer lugar para un grupo de acciones en el que las definiciones de acción están codificadas de forma rígida en la plantilla, a continuación, para una plantilla que toma la información de configuración de webhook como parámetros de entrada al implementar la plantilla.
 
 ## <a name="resource-manager-template-for-an-action-group"></a>Plantilla de Resource Manager para un grupo de acciones
 

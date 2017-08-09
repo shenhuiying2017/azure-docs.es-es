@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/13/2017
 ms.author: juliako;mingfeiy
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 0649f36f55696d2c9a9d31a9f87bc3b34373f273
-ms.lasthandoff: 01/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 93a3bba0fbc635bd04063168796eac0d89fba87c
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Configuración de directivas de entrega de recursos con el SDK de .NET
@@ -196,11 +196,12 @@ Para obtener información sobre los valores que puede especificar al crear una e
     }
 
 
-## <a name="a-idtypesatypes-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>Tipos usados al definir AssetDeliveryPolicy
-### <a name="a-idassetdeliveryprotocolaassetdeliveryprotocol"></a><a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol
-    /// <summary>
-    /// Delivery protocol for an asset delivery policy.
-    /// </summary>
+## <a id="types"></a>Tipos usados al definir AssetDeliveryPolicy
+
+### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol
+
+La enumeración siguiente describe los valores que puede establecer para el protocolo de entrega de recursos.
+
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -224,16 +225,18 @@ Para obtener información sobre los valores que puede especificar al crear una e
         /// </summary>
         HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+ 
         /// <summary>
         /// Include all protocols.
         /// </summary>
         All = 0xFFFF
     }
 
-### <a name="a-idassetdeliverypolicytypeaassetdeliverypolicytype"></a><a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
-    /// <summary>
-    /// Policy type for dynamic encryption of assets.
-    /// </summary>
+### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+
+La enumeración siguiente describe los valores que puede establecer para el tipo de directiva de entrega de recursos.  
+
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -261,27 +264,30 @@ Para obtener información sobre los valores que puede especificar al crear una e
         /// Apply Dynamic Common encryption.
         /// </summary>
         DynamicCommonEncryption
-    }
+        }
 
-### <a name="a-idcontentkeydeliverytypeacontentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
-    /// <summary>
-    /// Delivery method of the content key to the client.
-    /// </summary>
+### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+
+La enumeración siguiente describe los valores que puede utilizar para configurar el método de entrega de la clave de contenido al cliente.
+    
     public enum ContentKeyDeliveryType
     {
         /// <summary>
         /// None.
-        /// </summary>
+        ///
+        </summary>
         None = 0,
 
         /// <summary>
         /// Use PlayReady License acquistion protocol
-        /// </summary>
+        ///
+        </summary>
         PlayReadyLicense = 1,
 
         /// <summary>
         /// Use MPEG Baseline HTTP key protocol.
-        /// </summary>
+        ///
+        </summary>
         BaselineHttp = 2,
 
         /// <summary>
@@ -292,10 +298,10 @@ Para obtener información sobre los valores que puede especificar al crear una e
 
     }
 
-### <a name="a-idassetdeliverypolicyconfigurationkeyaassetdeliverypolicyconfigurationkey"></a><a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
-    /// <summary>
-    /// Keys used to get specific configuration for an asset delivery policy.
-    /// </summary>
+### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+
+La enumeración siguiente describe los valores que puede establecer para configurar las claves usadas para obtener la configuración específica para una directiva de entrega de recursos.
+
     public enum AssetDeliveryPolicyConfigurationKey
     {
         /// <summary>

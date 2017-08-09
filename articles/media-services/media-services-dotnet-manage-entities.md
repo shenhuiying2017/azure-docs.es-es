@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 07/17/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 3a8f878502f6a7237212b467b2259fcbb48000ff
-ms.openlocfilehash: d0775971c76c5745f90cb6c5268fda5a2c905093
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e3de7c26af5cbc930defe542727a1250825fb1f8
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Administración de activos y entidades relacionadas con el SDK de Servicios multimedia para .NET
@@ -33,7 +34,8 @@ En este tema se muestra cómo administrar entidades de Azure Media Services con.
 > A partir del 1 de abril de 2017, se eliminarán automáticamente los registros de trabajo de más de 90 días de su cuenta, junto con los registros de tarea asociados, aunque el número total de registros no llegue a la cuota máxima. Por ejemplo, el 1 de abril de 2017, todos los registros de trabajo de la cuenta que sean anteriores al 31 de diciembre de 2016 se eliminarán automáticamente. Si desea archivar la información del trabajo o la tarea, puede usar el código que se describe en este tema.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Consulte [Configuración del entorno](media-services-set-up-computer.md)
+
+Configure el entorno de desarrollo y rellene el archivo app.config con la información de la conexión, como se describe en [Desarrollo de Media Services con .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Obtención de una referencia de recurso
 Una tarea frecuente es obtener una referencia a un recurso existente en Servicios multimedia. En el ejemplo de código siguiente se muestra cómo puede obtener una referencia de recurso de la colección de recursos en el objeto de contexto del servidor mediante un Id. de recurso.
@@ -403,10 +405,5 @@ En el ejemplo de código siguiente se muestra cómo obtener una referencia a una
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

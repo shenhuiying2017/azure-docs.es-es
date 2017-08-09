@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c65a932d0bf9bfb00f138997babc1bd642bcf879
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 048854b440f939077a7a95fa1db9ba42daf55ede
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure
@@ -52,7 +52,7 @@ Para más información sobre las opciones de implementación de clústeres de HP
   * **Ubuntu Server**: 14.04 LTS y 16.04 LTS
     
     > [!TIP]
-    > Para utilizar la red RDMA de Azure con tamaños de máquina virtual compatibles con RDMA, especifique una de las imágenes HPC de SUSE Linux Enterprise Server 12 o basada en CentOS desde Azure Marketplace. Para más información, consulte [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Para utilizar la red RDMA de Azure con tamaños de máquina virtual compatibles con RDMA, especifique una de las imágenes HPC de SUSE Linux Enterprise Server 12 o basada en CentOS desde Azure Marketplace. Para más información, consulte [Tamaños de máquina virtual de procesos de alto rendimiento](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
@@ -186,7 +186,7 @@ Hay varias opciones para mover datos entre los nodos de Linux y el nodo principa
 ### <a name="azure-file-storage"></a>Almacenamiento de archivos de Azure
 El servicio [Archivo de Azure](https://azure.microsoft.com/services/storage/files/) expone recursos compartidos de archivos mediante el protocolo SMB 2.1 estándar. Las VM y los servicios en la nube de Azure pueden compartir datos de archivo entre componentes de aplicaciones a través de recursos compartidos montados, y las aplicaciones locales pueden acceder a datos de archivo de un recurso compartido a través de la API de Almacenamiento de archivos. 
 
-Para obtener pasos detallados para crear un recurso compartido de archivos de Azure y montarlo en el nodo principal, vea [Introducción a Almacenamiento de archivos de Azure en Windows](../../../storage/storage-dotnet-how-to-use-files.md). Para montar el recurso compartido de archivos de Azure en los nodos de Linux, vea [Cómo utilizar el almacenamiento de archivos de Azure con Linux](../../../storage/storage-how-to-use-files-linux.md). Para establecer conexiones persistentes, consulte [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Para obtener pasos detallados para crear un recurso compartido de archivos de Azure y montarlo en el nodo principal, vea [Introducción a Almacenamiento de archivos de Azure en Windows](../../../storage/storage-file-how-to-use-files-windows.md). Para montar el recurso compartido de archivos de Azure en los nodos de Linux, vea [Uso de almacenamiento de Azure File Storage con Linux](../../../storage/storage-how-to-use-files-linux.md). Para establecer conexiones persistentes, consulte [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 En el siguiente ejemplo, cree un recurso compartido de Archivos de Azure en una cuenta de almacenamiento. Para montar el recurso compartido en el nodo principal, abra un símbolo del sistema y escriba los siguientes comandos:
 
@@ -299,7 +299,7 @@ La herramienta [clusrun](https://technet.microsoft.com/library/cc947685.aspx) de
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Pruebe a escalar verticalmente el clúster a un mayor número de nodos o ejecute una carga de trabajo de Linux en el clúster. Para ver un ejemplo, consulte [Ejecución de NAMD con Microsoft HPC Pack en nodos de proceso de Linux en Azure](hpcpack-cluster-namd.md).
-* Pruebe un clúster con [máquinas virtuales de proceso intensivo compatibles con RDMA](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ejecutar cargas de trabajo MPI. Para ver un ejemplo, consulte [Ejecución de OpenFoam con Microsoft HPC Pack en un clúster de Linux RDMA en Azure](hpcpack-cluster-openfoam.md).
+* Pruebe un clúster con [máquinas virtuales de proceso intensivo compatibles con RDMA](../../windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ejecutar cargas de trabajo MPI. Para ver un ejemplo, consulte [Ejecución de OpenFoam con Microsoft HPC Pack en un clúster de Linux RDMA en Azure](hpcpack-cluster-openfoam.md).
 * Si está interesado en trabajar con nodos de Linux en un clúster de HPC Pack local, consulte la [guía TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->

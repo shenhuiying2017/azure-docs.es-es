@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5f804920e85bf3aecee93ed486dea8f03d561f08
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a82c283df688d36cd284973312e276f30ed893c0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="explaining-compute-units-in-azure-database-for-mysql"></a>Explicación de las unidades de proceso en Azure Database for MySQL
@@ -29,7 +29,7 @@ Por ejemplo, 800 unidades de proceso de un plan Estándar proporcionan 8 veces m
 ## <a name="how-can-i-determine-the-number-of-compute-units-needed-for-my-workload"></a>¿Cómo puedo determinar el número de unidades de proceso necesarias para la carga de trabajo?
 Si lo que quiere es migrar un servidor de MySQL que se esté ejecutando en un entorno local o una máquina virtual, puede calcular de forma estimada cuántos núcleos de rendimiento de procesamiento necesita su carga de trabajo para determinar el número de unidades de proceso. 
 
-Si el servidor del entorno local o la máquina virtual está usando actualmente 4 núcleos (sin contar el hiperproceso de CPU), empiece por configurar 400 unidades de proceso para el servidor de Azure Database for MySQL. Las unidades de proceso se pueden escalar o reducir verticalmente y de forma dinámica en función de las necesidades de la carga de trabajo sin apenas tiempo de inactividad de las aplicaciones. 
+Si el servidor del entorno local o de la máquina virtual está usando actualmente 4 núcleos (sin contar el hiperproceso de CPU), empiece por configurar 400 unidades de proceso para el servidor de Azure Database for MySQL. Las unidades de proceso se pueden escalar o reducir verticalmente y de forma dinámica en función de las necesidades de la carga de trabajo sin apenas tiempo de inactividad de las aplicaciones. 
 
 Supervise el grafo de métricas de Azure Portal o escriba comandos de CLI de Azure para medir las unidades de proceso. Las métricas pertinentes que se deben supervisar son el porcentaje de unidades de proceso y el límite de unidades de proceso.
 

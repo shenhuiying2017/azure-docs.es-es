@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 05/31/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: bd832efd3902dd61be1a8b64396eaadf1cd76e24
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 05517573232f5b5234364865d92d5a2d1b7096e6
 ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Pasos detallados para solucionar problemas de conexión a Escritorio remoto a máquinas virtuales Windows en Azure
@@ -120,6 +119,8 @@ Los grupos de seguridad de red permiten un control pormenorizado del tráfico en
   * Asegúrese de que la acción se establezca en **Permitir** y haga clic en Aceptar para guardar la nueva regla de entrada.
 
 Para más información, consulte [¿Qué es un grupo de seguridad de red?](../../virtual-network/virtual-networks-nsg.md)
+
+También puede usar la comprobación de IP para validar la configuración del grupo de seguridad de red. Para más información, consulte [Información general sobre la supervisión de red de Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="source-5-windows-based-azure-vm"></a>Causa 5: máquina virtual de Azure basada en Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

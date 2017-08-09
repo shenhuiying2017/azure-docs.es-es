@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 376b61037de8b1af657095b8b32ee16568af8894
-ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 337c6142c27314150a21f1c80a17aae17cd0d67f
 ms.contentlocale: es-es
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Protección de los datos almacenados en el Almacén de Azure Data Lake
@@ -41,6 +40,18 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 ## <a name="create-security-groups-in-azure-active-directory"></a>Creación de grupos de seguridad en Azure Active Directory
 Para obtener instrucciones sobre cómo crear grupos de seguridad de AAD y cómo agregar usuarios al grupo, consulte [Administración de grupos de seguridad en Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
+> [!NOTE] 
+> Puede agregar usuarios y otros grupos a un grupo de Azure AD mediante Azure Portal. Sin embargo, para agregar una entidad de servicio a un grupo, use [módulo Azure AD’s PowerShell](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+> 
+> ```powershell
+> # Get the desired group and service principal and identify the correct object IDs
+> Get-AzureADGroup -SearchString "<group name>"
+> Get-AzureADServicePrincipal -SearchString "<SPI name>"
+> 
+> # Add the service principal to the group
+> Add-AzureADGroupMember -ObjectId <Group object ID> -RefObjectId <SPI object ID>
+> ```
+ 
 ## <a name="assign-users-or-security-groups-to-azure-data-lake-store-accounts"></a>Asignación de grupos de seguridad o usuarios a cuentas de Almacén de Azure Data Lake
 Cuando asigna usuarios o grupos de seguridad a cuentas de Almacén de Azure Data Lake, controla el acceso a las operaciones de administración en la cuenta mediante el Portal de Azure y las API del Administrador de recursos de Azure. 
 
@@ -60,7 +71,7 @@ Cuando asigna usuarios o grupos de seguridad a cuentas de Almacén de Azure Data
    
     ![Agregar un rol para el usuario](./media/data-lake-store-secure-data/adl.add.user.1.png "Agregar un rol para el usuario")
    
-    Los roles **Propietario** y **Colaborador** proporcionan acceso a diversas funciones de administración en la cuenta de Data Lake. Para aquellos usuarios que interactúan con datos en Data Lake, pueden agregarlos al rol **Lector **. El ámbito de estos roles se limita a las operaciones de administración relacionadas con la cuenta de Almacén de Azure Data Lake.
+    Los roles **Propietario** y **Colaborador** proporcionan acceso a diversas funciones de administración en la cuenta de Data Lake. Para aquellos usuarios que interactúan con datos en Data Lake, pueden agregarlos al rol **Lector**. El ámbito de estos roles se limita a las operaciones de administración relacionadas con la cuenta de Almacén de Azure Data Lake.
    
     Para las operaciones de datos, los permisos individuales del sistema de archivos definen lo que los usuarios pueden hacer. Por lo tanto, un usuario con el rol Lector solamente ve la configuración administrativa asociada a la cuenta pero potencialmente puede leer y escribir datos en función de los permisos del sistema de archivos que tengan asignados. Los permisos del sistema de archivos del Almacén de Data Lake se describen en [Asignación de usuarios o grupos de seguridad como ACL al sistema de archivos del Almacén de Azure Data Lake](#filepermissions).
 5. En la hoja **Agregar acceso**, haga clic en **Agregar usuarios** para abrir la hoja **Agregar usuarios**. En esta hoja, busque el grupo de seguridad que creó antes en Azure Active Directory. Si tiene muchos grupos en los que buscar, use el cuadro de texto en la parte superior para filtrar según el nombre del grupo. Haga clic en **Seleccionar**.

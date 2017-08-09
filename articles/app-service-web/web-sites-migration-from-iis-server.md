@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 6fdee57d33b19569ef892d0d32ea7007fd69faaf
-ms.lasthandoff: 03/23/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 18d6a8da38b42dcf5c1500f7fc26638aea26a809
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="migrate-an-enterprise-web-app-to-azure-app-service"></a>Migración de una aplicación web de empresa al Servicio de aplicaciones de Azure
@@ -107,7 +107,7 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
     ![](./media/web-sites-migration-from-iis-server/migration-settings.png)
     
     > [!NOTE]
-    > La casilla **Habilitar Azure Active Directory** en la configuración personalizada integra la aplicación web de Azure con [Azure Active Directory](../active-directory/active-directory-whatis.md) (el **directorio predeterminado**). Para obtener más información sobre la sincronización de Azure Active Directory con su Active Directory local, consulte [Integración de directorios](http://msdn.microsoft.com/library/jj573653).
+    > La casilla **Habilitar Azure Active Directory** en la configuración personalizada integra la aplicación web de Azure con [Azure Active Directory](../active-directory/active-directory-whatis.md) (el **directorio predeterminado**). Para más información sobre la sincronización de Azure Active Directory con su Active Directory local, consulte [Integración de directorios](http://msdn.microsoft.com/library/jj573653).
     > 
     > 
 11. Una vez realizados todos los cambios deseados, haga clic en **Crear** para iniciar el proceso de migración. La herramienta de migración creará la Base de datos SQL Azure y la aplicación web de Azure y, a continuación, publicará el contenido del sitio web y las bases de datos. El proceso de migración se muestra claramente en la herramienta de migración y verá una pantalla de resumen al final que detalla los sitios migrados, si se realizaron correctamente, así como los vínculos a las aplicaciones web de Azure recién creadas. 
@@ -129,6 +129,6 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 > 
 
 ## <a name="whats-changed"></a>Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio de Websites a App Service, consulte: [Azure App Service y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 

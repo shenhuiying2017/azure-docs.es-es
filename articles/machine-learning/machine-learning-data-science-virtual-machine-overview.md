@@ -1,6 +1,6 @@
 ---
 title: "¿Qué es una máquina virtual de ciencia de datos? | Microsoft Docs"
-description: "Obtenga información acerca de los escenarios clave, funciones y cómo empezar a trabajar con máquinas virtuales de ciencia de datos, un entorno y un kit de herramientas preparado para el análisis."
+description: "Introducción a la realización de escenarios de análisis fundamentales con máquinas virtuales de ciencia de datos."
 keywords: "herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux"
 services: machine-learning
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2017
-ms.author: gokuma
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 77b4f634c2a30d0cbec92d34a7f83866541d7d84
-ms.lasthandoff: 04/15/2017
-
+ms.date: 07/21/2017
+ms.author: gokuma;bradsev
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 6a1bde07ea04445849674712361892f5783c0f2d
+ms.contentlocale: es-es
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="introduction-to-the-cloud-based-data-science-virtual-machine-for-linux-and-windows"></a>Introducción a la máquina virtual de la ciencia de datos basada en la nube para Linux y Windows
@@ -119,7 +119,7 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 
 
 
-## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Cómo empezar a trabajar con la VM de ciencia de datos de Windows
+## <a name="get-started-with-the-windows-data-science-vm"></a>Introducción a la máquina virtual de ciencia de datos en Windows
 * Cree una instancia de la VM en Windows desplazándose a [esta página](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) y seleccionando el botón verde **Crear máquina virtual**.
 * Inicie sesión en la VM desde el escritorio remoto con las credenciales que especificó cuando creó la VM.
 * Para detectar e iniciar las herramientas disponibles, haga clic en el menú **Inicio**.

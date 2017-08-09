@@ -12,21 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/15/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: d10e24727024e3ab559929666777c4bb062b2075
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f87bcf33d3b1eb21c7d84814e4c4086f664e293d
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal (versión preliminar)
-
-> [!div class="op_single_selector"]
-> * [VERSIÓN PRELIMINAR: Habilitación de Azure Active Directory Domain Services mediante Azure Portal](active-directory-ds-getting-started-admingroup.md)
-> * [Habilitación de Azure AD Domain Services mediante el Portal de Azure clásico](active-directory-ds-getting-started-create-group.md)
 
 
 ## <a name="task-3-configure-administrative-group"></a>Tarea 3: Configuración de un grupo administrativo
@@ -36,7 +31,7 @@ En esta tarea de configuración, se crea un grupo administrativo en el directori
 > No tiene permisos de administrador de dominio o administrador de organización en el dominio administrado creado mediante Azure Active Directory Domain Services. En los dominios administrados, estos permisos están reservados por el servicio y no están disponibles para los usuarios del inquilino. Sin embargo, puede usar el grupo administrativo especial creado en esta tarea de configuración para realizar algunas operaciones con privilegios. Estas operaciones incluyen unir equipos al dominio, formar parte del grupo de administradores en los equipos unidos a un dominio y configurar una directiva de grupo.
 >
 
-El asistente crea automáticamente el grupo administrativo en el directorio de Azure AD. Este grupo se llama "Administradores de DC de AAD". Puede configurar la pertenencia a grupos mediante la página **Grupo de administradores** del asistente.
+El asistente crea automáticamente el grupo administrativo en el directorio de Azure AD. Este grupo se llama "Administradores de DC de AAD". Si tiene un grupo existente con este nombre en el directorio de Azure AD, el asistente lo selecciona. Puede configurar la pertenencia a grupos mediante la página **Grupo de administradores** del asistente.
 
 1. Para configurar la pertenencia a grupos, haga clic en **Administradores de DC de AAD**.
 

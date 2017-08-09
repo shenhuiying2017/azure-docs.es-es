@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 05/10/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 89ffa95a5889e4ebdf26f4b001edce3c5ce81ce2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7a97bc7043d90fb799929ae5ed696d3731bfa3eb
 ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Uso de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse
@@ -103,6 +102,7 @@ La autenticación de Azure Active Directory admite los siguientes métodos de co
 * [Microsoft JDBC Driver 6.0 para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) es compatible con la autenticación de Azure AD. Consulte también [Configurar las propiedades de conexión](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase no se puede autenticar mediante la autenticación de Azure AD.   
 * La autenticación de Azure AD se admite para SQL Database con las hojas **Importar base de datos** y **Exportar base de datos de Azure Portal**. La importación y exportación mediante la autenticación de Azure AD también se admite desde el comando de PowerShell.   
+* La autenticación de Azure AD se admite para SQL Database y SQL Data Warehouse mediante el uso de la CLI. Para más información consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](sql-database-aad-authentication-configure.md) y [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para aprender a crear y rellenar Azure AD y, posteriormente, configurarlo con Azure SQL Database, consulte [Configure Azure AD with Azure SQL Database](sql-database-aad-authentication-configure.md) (Configuración de Azure AD con Azure SQL Database).

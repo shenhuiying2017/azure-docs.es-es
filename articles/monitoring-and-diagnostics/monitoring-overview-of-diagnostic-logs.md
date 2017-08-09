@@ -2,7 +2,7 @@
 title: "Información general sobre los registros de diagnóstico de Azure | Microsoft Docs"
 description: "Aprenda qué son los registros de diagnóstico de Azure y cómo puede usarlos para entender los eventos que se producen en un recurso de Azure."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: johnkem; magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: d144dd60192a4b62db393db08b82efeaa8d45447
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2517972b63bbd1a552fe591e937c9e34db580865
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="collect-and-consume-diagnostic-data-from-your-azure-resources"></a>Recopile y use los datos de diagnóstico provenientes de los recursos de Azure
@@ -45,7 +44,7 @@ Estas son algunas de las cosas que puede hacer con los registros de diagnóstico
 * [Transmitirlos a **centros de eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
 * Analizarlos con [Log Analytics de OMS](../log-analytics/log-analytics-azure-storage.md)
 
-Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eventos que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de RBAC adecuado a ambas suscripciones.
+Puede usar una cuenta de almacenamiento o un espacio de nombres de Event Hubs que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de RBAC adecuado a ambas suscripciones.
 
 ## <a name="diagnostic-settings"></a>Configuración de diagnóstico
 Los registros de diagnóstico para recursos no de proceso se configuran mediante Configuración de diagnóstico. **Configuración de diagnóstico** para un control de recurso:
@@ -98,7 +97,7 @@ Para habilitar los registros de diagnóstico con cmdlets de Azure PowerShell, us
 Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, use este comando:
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 El identificador de la cuenta de almacenamiento es el identificador de recurso para la cuenta de almacenamiento a la que desea enviar los registros.
@@ -106,15 +105,15 @@ El identificador de la cuenta de almacenamiento es el identificador de recurso p
 Para habilitar el streaming de registros de diagnóstico a un centro de eventos, use este comando:
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
-El identificador de regla del Bus de servicio es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`.
+El identificador de regla del Bus de servicio es una cadena con este formato: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
 Para habilitar el envío de registros de diagnóstico a un área de trabajo de Log Analytics, use este comando:
 
 ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 Puede obtener el identificador de recurso de su área de trabajo de Log Analytics con el comando siguiente:
@@ -131,7 +130,7 @@ Para habilitar los registros de diagnóstico con la CLI de Azure, use los siguie
 Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, use este comando:
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
 ```
 
 El identificador de la cuenta de almacenamiento es el identificador de recurso para la cuenta de almacenamiento a la que desea enviar los registros.
@@ -139,15 +138,15 @@ El identificador de la cuenta de almacenamiento es el identificador de recurso p
 Para habilitar el streaming de registros de diagnóstico a un centro de eventos, use este comando:
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
 ```
 
-El identificador de regla del Bus de servicio es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`.
+El identificador de regla del Bus de servicio es una cadena con este formato: `{Service Bus resource ID}/authorizationrules/{key name}`.
 
 Para habilitar el envío de registros de diagnóstico a un área de trabajo de Log Analytics, use este comando:
 
 ```azurecli
-    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
 ```
 
 Puede combinar estos parámetros para habilitar varias opciones de salida.

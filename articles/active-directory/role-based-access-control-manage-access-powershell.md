@@ -5,21 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/02/2017
+ms.date: 07/12/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5de7b134d99a0b7887acb9d7f87991056e4d608a
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e7323325c303c26e2ea4d9f2a8ac5178fa33b875
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Administración del control de acceso basado en rol con Azure PowerShell
@@ -129,7 +128,7 @@ Para quitar el acceso de usuarios, grupos y aplicaciones, use:
 ## <a name="create-a-custom-role"></a>Crear un rol personalizado
 Para crear un rol personalizado, use el comando ```New-AzureRmRoleDefinition``` . Existen dos métodos para estructurar el rol: por medio de PSRoleDefinitionObject o una plantilla JSON. 
 
-## <a name="get-actions-from-particular-resource-provider"></a>Obtención de las acciones de proveedores de recursos concretos
+## <a name="get-actions-for-a-resource-provider"></a>Acciones Get para un proveedor de recursos
 A la hora de crear roles personalizados desde el principio, es importante conocer todas las operaciones posibles de los proveedores de recursos.
 Use el comando ```Get-AzureRMProviderOperation``` para obtener esta información.
 Por ejemplo, si quiere comprobar todas las operaciones disponibles para la máquina virtual, use este comando:
@@ -167,7 +166,7 @@ New-AzureRmRoleDefinition -Role $role
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de pantalla](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>Creación de rol con plantilla JSON
-Se puede usar una plantilla JSON como definición de origen para el rol personalizado. En el ejemplo siguiente se crea un rol personalizado que permite el acceso de lectura a recursos de almacenamiento y proceso y el acceso a la asistencia técnica, y además agrega ese rol a dos suscripciones. Cree un nuevo archivo `C:\CustomRoles\customrole1.json` con el siguiente contenido. El identificador se debe establecer en `null` durante la creación de rol inicial ya que se generará un nuevo identificador automáticamente. 
+Se puede usar una plantilla JSON como definición de origen para el rol personalizado. En el ejemplo siguiente se crea un rol personalizado que permite el acceso de lectura a recursos de almacenamiento y proceso y el acceso a la asistencia técnica, y además agrega ese rol a dos suscripciones. Cree un archivo `C:\CustomRoles\customrole1.json` con el siguiente ejemplo. El identificador se debe establecer en `null` durante la creación de rol inicial ya que se generará un nuevo identificador automáticamente. 
 
 ```
 {

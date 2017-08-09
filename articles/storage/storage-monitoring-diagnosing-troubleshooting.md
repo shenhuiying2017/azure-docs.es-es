@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8598e18aeb0552455a6e5344f10eb48382e8c2f4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c6bf7cd3bd16d8af30fed09f7878a0e68748a971
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure
@@ -31,7 +30,7 @@ Diagnosticar y solucionar problemas en una aplicación distribuida que está hos
 Para administrar correctamente esas aplicaciones, debe supervisarlas de forma proactiva y comprender cómo diagnosticar y solucionar problemas relacionados con todos sus aspectos y con las tecnologías de las que dependen. Como usuario de los servicios de Almacenamiento de Azure, debe supervisar continuamente los servicios de Almacenamiento que utiliza la aplicación para observar si se produce algún cambio inesperado en el comportamiento (por ejemplo, tiempos de respuesta más lentos de lo habitual), y usar el registro para recopilar datos más detallados y poder analizar los problemas en profundidad. Con la información de diagnóstico que obtenga de la supervisión y el registro, le será más fácil averiguar la causa raíz del problema que apareció en la aplicación. Entonces, podrá solucionar el problema y determinar los pasos más adecuados que puede tomar para remediarlo. Almacenamiento de Azure es uno de los servicios principales de Azure y constituye una parte importante de la mayoría de las soluciones que implementan los clientes en la infraestructura de Azure. Almacenamiento de Azure incluye funcionalidades que permiten simplificar la supervisión, el diagnóstico y la solución de problemas de almacenamiento de las aplicaciones basadas en la nube.
 
 > [!NOTE]
-> El servicio Azure Files no admite el registro en este momento.
+> El almacenamiento de archivos de Azure no admite el registro en este momento.
 > 
 
 Para obtener una guía práctica para la solución de problemas integral en aplicaciones de almacenamiento de Azure, consulte [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](storage-e2e-troubleshooting.md)(Solución de problemas integral con el analizador de mensajes, AzCopy y las métricas y el registro del almacenamiento de Azure).
@@ -72,7 +71,7 @@ Para obtener una guía práctica para la solución de problemas integral en apli
   * [El problema se presenta al usar el emulador de almacenamiento para realizar tareas de desarrollo o pruebas]
   * [Se producen problemas al instalar el SDK de Azure para .NET]
   * [Tiene otro problema distinto relacionado con un servicio de almacenamiento]
-  * [Solución de problemas de archivos de Azure con Windows y Linux](storage-troubleshoot-file-connection-problems.md)
+  * [Solución de problemas de Azure File Storage en Windows](storage-troubleshoot-file-connection-problems.md)
 * [Apéndices]
   * [Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS]
   * [Apéndice 2: Uso de Wireshark para capturar tráfico de red]
@@ -570,11 +569,11 @@ En la siguiente tabla, puede ver una muestra de un mensaje de registro del lado 
 | Hora de inicio de la solicitud | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operación     | GetBlobProperties            |
 | Estado de la solicitud     | SASAuthorizationError        |
-| Código de estado HTTP   | 404                            |
+| Código de estado HTTP   | 404                          |
 | Tipo de autenticación| Sas                          |
 | Tipo de servicio       | Blob                         |
-| URL de la solicitud         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| URL de la solicitud        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Encabezado de id. de solicitud  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | Id. de solicitud de cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 

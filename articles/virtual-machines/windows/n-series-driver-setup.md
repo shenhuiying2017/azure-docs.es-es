@@ -13,53 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 07/07/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 96921f4be8aabb6d960ee4f66acd6c07d7ba7f95
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: aa2d4f671bab46929ccc4444f8fe9de98a3e0eb2
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Instalación de controladores de GPU para máquinas virtuales de la serie N con Windows Server
-Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure que ejecutan Windows Server 2016 o Windows Server 2012 R2, debe instalar los controladores de gráficos de NVIDIA en cada máquina virtual después de la implementación. También está disponible la información de instalación del controlador para las [máquinas virtuales Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure que ejecutan Windows Server 2016 o Windows Server 2012 R2, instale los controladores de gráficos de NVIDIA compatibles. Este artículo proporciona pasos de instalación de controlador después de implementar una VM de la serie N. También está disponible la información de instalación del controlador para las [máquinas virtuales Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Para conocer las especificaciones básicas, las capacidades de almacenamiento y los detalles del disco, consulte [Tamaños de las máquinas virtuales](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Vea también [Consideraciones generales para máquinas virtuales de serie N](#general-considerations-for-n-series-vms).
+Para conocer las especificaciones básicas, las capacidades de almacenamiento y los detalles del disco, consulte [Tamaño de máquinas virtuales para GPU Windows](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 
-
-## <a name="supported-gpu-drivers"></a>Controladores de GPU admitidos
-
-Conéctese mediante Escritorio remoto a cada máquina virtual de la serie N. Descargue, extraiga e instale el controlador compatible con su sistema operativo Windows. 
-
-### <a name="nvidia-tesla-drivers-for-nc-vms-tesla-k80"></a>Controladores de NVIDIA Tesla para máquinas virtuales NC (Tesla K80)
+[!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
 
 
 
-| SO | Versión del controlador |
-| -------- |------------- |
-| Windows Server 2016 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2016-international-whql.exe) (.exe) |
-| Windows Server 2012 R2 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe) |
+## <a name="driver-installation"></a>Instalación del controlador
 
-> [!NOTE]
-> Los vínculos de descarga de controladores de Tesla que se proporcionan aquí están actualizados en el momento de la publicación. Para ver los controladores más recientes, visite el sitio web de [NVIDIA](http://www.nvidia.com/).
->
+1. Conéctese mediante Escritorio remoto a cada máquina virtual de la serie N.
 
-### <a name="nvidia-grid-drivers-for-nv-vms-tesla-m60"></a>Controladores de NVIDIA GRID para máquinas virtuales NV (Tesla M60)
-
-| SO | Versión del controlador |
-| -------- |------------- |
-| Windows Server 2016 | [369.95](https://go.microsoft.com/fwlink/?linkid=836843) (.zip) |
-| Windows Server 2012 R2 | [369.95](https://go.microsoft.com/fwlink/?linkid=836844) (.zip)  |
-
-
-
-## <a name="verify-gpu-driver-installation"></a>Comprobación de la instalación del controlador de GPU
+2. Descargue, extraiga e instale el controlador compatible con su sistema operativo Windows.
 
 En las máquinas virtuales de Azure NV, se requiere un reinicio después de la instalación del controlador. En máquinas virtuales NC, no se requiere un reinicio.
+
+## <a name="verify-driver-installation"></a>Comprobación de la instalación del controlador
 
 Puede comprobar la instalación del controlador en el Administrador de dispositivos. En el ejemplo siguiente se muestra una configuración correcta de la tarjeta Tesla K80 en una máquina virtual de Azure NC.
 
@@ -69,7 +51,7 @@ Para consultar el estado del dispositivo de GPU, ejecute la utilidad de línea d
 
 1. Abra un símbolo del sistema y cambie al directorio **C:\Program Files\NVIDIA Corporation\NVSMI**.
 
-2. Ejecute **nvidia-smi**. Si el controlador está instalado, obtendrá un resultado parecido al siguiente. Tenga en cuenta que **GPU-Util** mostrará **0 %** a no ser que esté ejecutando actualmente una carga de trabajo de la GPU en la máquina virtual.
+2. Ejecute **nvidia-smi**. Si el controlador está instalado, obtendrá un resultado parecido al siguiente. Tenga en cuenta que **GPU-Util** muestra **0 %** a no ser que esté ejecutando actualmente una carga de trabajo de la GPU en la máquina virtual.
 
 ![Estado del dispositivo de NVIDIA](./media/n-series-driver-setup/smi.png)  
 
@@ -89,7 +71,6 @@ Para instalar la versión más reciente de la extensión HpcVMDrivers 1.1 en una
 
 Ahora, la red RDMA admite el tráfico de interfaz de paso de mensajes (MPI) para aplicaciones que se ejecutan con [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) o Intel MPI 5.x. 
 
-[!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 9820cef564e291d1c8aee7c360198de1dc05379e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5b9e497078fe0b276ec8a717b43a0080e1667592
 ms.contentlocale: es-es
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
@@ -209,6 +208,10 @@ Las siguientes diferencias se aplican al almacenamiento de tablas en el emulador
 No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ## <a name="storage-emulator-release-notes"></a>Notas de la versión del emulador de almacenamiento
+### <a name="version-52"></a>Versión 5.2
+* El emulador de almacenamiento admite la versión 2017-04-17 de los servicios de almacenamiento en los puntos de conexión de los servicios de blob, cola y tabla.
+* Se ha corregido un error por el que no se codificaban correctamente los valores de propiedad de tabla.
+
 ### <a name="version-51"></a>Versión 5.1
 * Se ha corregido un error en el que el emulador de almacenamiento devolvía el encabezado `DataServiceVersion` en algunas respuestas en las que el servicio no lo hacía.
 

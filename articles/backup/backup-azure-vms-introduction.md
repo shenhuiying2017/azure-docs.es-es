@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/22/2017
+ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6d390a75df51a22aa4e60094f3e4ba945a5725ad
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d44bb8207edae22ab9d6b1c7b9a3e4da888aa06e
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure
@@ -40,6 +39,7 @@ Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea 
 > [!NOTE]
 > 1. Durante el proceso de copia de seguridad, Azure Backup no incluye el disco temporal asociado a la máquina virtual. Para obtener más información, consulte la publicación del blog sobre [almacenamiento temporal](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 > 2. Dado que Azure Backup toma una instantánea a nivel de almacenamiento y la transfiere al almacén, no cambie las claves de la cuenta de almacenamiento hasta que finalice el trabajo de copia de seguridad.
+> 3. Para las máquinas virtuales Premium, se copia la instantánea en la cuenta de almacenamiento. Esto es para asegurarse de que el servicio Azure Backup obtiene suficientes E/S por segundo para la transferencia de datos al almacén. Esta copia adicional de almacenamiento se cobra según el tamaño de la máquina virtual asignada. 
 >
 
 ### <a name="data-consistency"></a>Coherencia de datos

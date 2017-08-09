@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/05/2017
 ms.author: masnider
-translationtype: Human Translation
-ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
-ms.openlocfilehash: a595a2e24b4c2582998d88f74ca13daba5fe618d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cfc38cecfaf0a0bdaae043fc35dcfed743459823
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -90,7 +92,7 @@ El modelo más habitual (y el que se usa en Azure) es la matriz FD/UD, en la que
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Restricciones de dominio de error y de actualización y el comportamiento resultante
 Cluster Resource Manager trata el deseo de mantener un servicio en equilibrio entre los dominios de error y de actualización como una restricción. Para más información sobre las restricciones, vea [este artículo](service-fabric-cluster-resource-manager-management-integration.md). Las restricciones de dominios de error y de actualización se definen de esta forma: "para una partición de servicio específica, nunca tiene que haber una diferencia *mayor que uno* en el número de réplicas (instancias de servicios sin estado o réplicas de servicios con estado) entre dos dominios".  En la práctica, esto significa que para un servicio determinado, ciertos movimientos o determinadas disposiciones pueden no ser válidos en el clúster, porque si lo fueran podría infringir las restricciones de dominio de error o de actualización.
 
-Veamos un ejemplo. Supongamos que tenemos un clúster con&6; nodos, configurado con&5; dominios de error y&5; dominios de actualización.
+Veamos un ejemplo. Supongamos que tenemos un clúster con 6 nodos, configurado con 5 dominios de error y 5 dominios de actualización.
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 |
 | --- |:---:|:---:|:---:|:---:|:---:|
@@ -100,7 +102,7 @@ Veamos un ejemplo. Supongamos que tenemos un clúster con&6; nodos, configurado 
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-Ahora, supongamos que creamos un servicio con un valor TargetReplicaSetSize de&5;. Las réplicas se dirigen a N1-N5. De hecho, nunca se usará N6, independientemente del número de servicios que cree. Pero ¿por qué? Echemos un vistazo a la diferencia entre el diseño actual y lo que sucedería si se elige N6.
+Ahora, supongamos que creamos un servicio con un valor TargetReplicaSetSize de 5. Las réplicas se dirigen a N1-N5. De hecho, nunca se usará N6, independientemente del número de servicios que cree. Pero ¿por qué? Echemos un vistazo a la diferencia entre el diseño actual y lo que sucedería si se elige N6.
 
 Este es el diseño que obtuvimos y el número total de las réplicas por dominio de error y de actualización:
 
@@ -126,7 +128,7 @@ Ahora, echemos un vistazo a lo que sucedería si hubiéramos utilizado N6 en lug
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |2 |0 |1 |1 |1 |- |
 
-¿Se ha percatado de algo? Este diseño no cumple la definición de la restricción de dominio de error. FD0 tiene&2; réplicas, mientras que FD1 tiene&0;, por lo que la diferencia entre FD0 y FD1 es&2;. Cluster Resource Manager no permite este tipo de disposición. De forma similar, si se ha seleccionado N2 y N6 (en lugar de N1 y N2), obtendríamos lo siguiente:
+¿Se ha percatado de algo? Este diseño no cumple la definición de la restricción de dominio de error. FD0 tiene 2 réplicas, mientras que FD1 tiene 0, por lo que la diferencia entre FD0 y FD1 es 2. Cluster Resource Manager no permite este tipo de disposición. De forma similar, si se ha seleccionado N2 y N6 (en lugar de N1 y N2), obtendríamos lo siguiente:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -137,7 +139,7 @@ Ahora, echemos un vistazo a lo que sucedería si hubiéramos utilizado N6 en lug
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
-Aunque este diseño ofrece equilibrio en términos de dominios de error, infringe la restricción de dominio de actualización (ya que UD0 tiene&0; réplicas, mientras que UD1 tiene&2;) y, por tanto, tampoco es válido.
+Aunque este diseño ofrece equilibrio en términos de dominios de error, infringe la restricción de dominio de actualización (ya que UD0 tiene 0 réplicas, mientras que UD1 tiene 2) y, por tanto, tampoco es válido.
 
 ## <a name="configuring-fault-and-upgrade-domains"></a>Configuración de dominios de error y de actualización
 La definición de dominios de error y de actualización se realiza automáticamente en las implementaciones de Service Fabric hospedadas en Azure. Service Fabric se limita a recopilar la información sobre el entorno de Azure.
@@ -426,9 +428,9 @@ También es posible (y habitual, de hecho) que la carga de un servicio cambie de
 ## <a name="cluster-capacity"></a>Capacidad del clúster
 Entonces, ¿cómo se impide que el clúster en general se llene demasiado? Bueno, con la carga dinámica realmente no hay mucho que se pueda hacer, ya que los servicios pueden tener un pico de carga con independencia de las acciones que realice Resource Manager. Como resultado, un clúster con espacio de sobra hoy puede quedarse corto cuando se haga famoso mañana, pero existen algunos controles preparados para evitar errores básicos. Lo primero que se puede hacer es evitar la creación de nuevas cargas de trabajo que harían que el clúster se llenara.
 
-Supongamos que va a crear un servicio sin estado y que tiene cierta carga asociada (más adelante, se explica la notificación de cargas predeterminadas y dinámicas). Supongamos que el servicio se ocupa de la métrica "DiskSpaceInMb" y que, de forma predeterminada, va a consumir&5; unidades de "DiskSpaceInMb" para cada instancia del servicio. Quiere crear&3; instancias del servicio. Estupendo. Eso significa que necesitamos 15 unidades de "DiskSpaceInMb" en el clúster para poder crear estas instancias de servicio. Cluster Resource Manager está continuamente calculando la capacidad total y el consumo de cada métrica, por lo que puede determinar si hay suficiente espacio en el clúster. Si no lo hay espacio, Cluster Resource Manager rechaza la llamada para crear el servicio.
+Supongamos que va a crear un servicio sin estado y que tiene cierta carga asociada (más adelante, se explica la notificación de cargas predeterminadas y dinámicas). Supongamos que el servicio se ocupa de la métrica "DiskSpaceInMb" y que, de forma predeterminada, va a consumir 5 unidades de "DiskSpaceInMb" para cada instancia del servicio. Quiere crear 3 instancias del servicio. Estupendo. Eso significa que necesitamos 15 unidades de "DiskSpaceInMb" en el clúster para poder crear estas instancias de servicio. Cluster Resource Manager está continuamente calculando la capacidad total y el consumo de cada métrica, por lo que puede determinar si hay suficiente espacio en el clúster. Si no lo hay espacio, Cluster Resource Manager rechaza la llamada para crear el servicio.
 
-Dado que el requisito es solo que haya 15 unidades disponibles, este espacio se podría asignar de muchas maneras distintas; por ejemplo, podría ser una unidad de capacidad restante en 15 nodos diferentes o las tres unidades de capacidad que quedan en 5 nodos diferentes. Siempre y cuando Cluster Resource Manager pueda reorganizarlo todo para que haya&5; unidades en&3; nodos, podrá colocar el servicio. Tal reorganización es casi siempre posible, a menos que el clúster en su totalidad esté prácticamente lleno o los servicios estén muy ocupados, o ambas situaciones.
+Dado que el requisito es solo que haya 15 unidades disponibles, este espacio se podría asignar de muchas maneras distintas; por ejemplo, podría ser una unidad de capacidad restante en 15 nodos diferentes o las tres unidades de capacidad que quedan en 5 nodos diferentes. Siempre y cuando Cluster Resource Manager pueda reorganizarlo todo para que haya 5 unidades en 3 nodos, podrá colocar el servicio. Tal reorganización es casi siempre posible, a menos que el clúster en su totalidad esté prácticamente lleno o los servicios estén muy ocupados, o ambas situaciones.
 
 ## <a name="buffered-capacity"></a>Capacidad de búfer
 Otra característica de Cluster Resource Manager es ayuda a administrar la capacidad general del clúster es agregar la noción de un búfer de reserva a la capacidad especificada en cada nodo. La capacidad de búfer permite reservar una parte de la capacidad total del nodo para que solo se utilice con el objetivo de colocar los servicios durante las actualizaciones y los errores de nodo. En la actualidad, el búfer se especifica de forma global para cada métrica y todos los nodos mediante la definición de clúster. El valor que elija para la capacidad reservada es una función del número de dominios de actualización y de error que hay en el clúster, y de la cantidad de sobrecarga deseada. Más dominios de error y de actualización significa que puede elegir un número menor para la capacidad de búfer. Si tiene varios dominios, puede esperar que cantidades más reducidas de su clúster no estarán disponibles durante las actualizaciones y los errores. El porcentaje de búfer solo tiene sentido si también especifica la capacidad de nodo de una métrica.
@@ -512,9 +514,4 @@ LoadMetricInformation     :
 [Image5]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-layout-different-workloads.png
 [Image6]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

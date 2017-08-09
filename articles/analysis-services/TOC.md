@@ -1,10 +1,10 @@
 # Información general
 ## [¿Qué es Azure Analysis Services?](analysis-services-overview.md)
-## [Orígenes de datos admitidos](analysis-services-datasource.md)
 
 # Inicios rápidos
 ## [Creación de un servidor: portal](analysis-services-create-server.md)
-## [Implementación de un modelo: SSDT](analysis-services-deploy.md)
+## [Creación de un servidor: PowerShell](analysis-services-create-powershell.md)
+## [Implementación de un modelo: Visual Studio](analysis-services-deploy.md)
 
 # Tutoriales
 ## Creación e implementación de un modelo
@@ -27,6 +27,7 @@
 ### [Lección complementaria: Jerarquías desiguales](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
 # Conceptos
+## [Orígenes de datos admitidos](analysis-services-datasource.md)
 ## [Permisos de usuario y autenticación](analysis-services-manage-users.md)
 ## [Alta disponibilidad](analysis-services-bcdr.md)
 

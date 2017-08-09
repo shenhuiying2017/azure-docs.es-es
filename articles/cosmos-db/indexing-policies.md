@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 6d5a5814977d05fbe7be52dcb482a622de1c2ef6
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
@@ -161,7 +160,7 @@ Ahora que hemos echado un vistazo a cómo especificar las rutas de acceso, echem
 
 * Tipo de datos: **Cadena**, **Número** o **Punto**, **Polígono** o **LineString** (solo puede contener una entrada por tipo de datos y ruta de acceso).
 * Variante de índice: **Hash** (consultas de igualdad), **Intervalo** (consultas de igualdad, de intervalo o por Order By), o **Espacial** (consultas espaciales) 
-* Precisión: 1-8 o -1 (precisión máxima) para números, 1-100 (precisión máxima) para cadenas
+* Precisión: para el índice de hash esto varía de 1 a 8, tanto para cadenas como para números (valor predeterminado: 3). Para el índice de intervalo, este valor puede ser -1 (precisión mínima) y, para valores numéricos o de cadena, variar entre 1 y 100 (precisión máxima).
 
 #### <a name="index-kind"></a>Tipo de índice
 Azure Cosmos DB admite los tipos de índice Hash e Intervalo para cada ruta de acceso (que puede configurar para las cadenas, números o ambos).
@@ -229,7 +228,7 @@ Puede elegir si desea que la recopilación de todos los documentos se indexe aut
 
 Cuando se desactiva la indexación automática, podrá agregar al índice de manera selectiva solo algunos documentos específicos. Por el contrario, puede dejar activada la indexación automática y excluir de forma selectiva solo algunos documentos específicos. Las configuraciones de indexación activada/desactivada son útiles cuando solo tiene un subconjunto de los documentos que necesita consultar.
 
-Por ejemplo, en el ejemplo siguiente se muestra cómo incluir un documento explícitamente mediante el [SDK de .NET para la API de DocumentDB](https://github.com/Azure/azure-documentdb-java) y la propiedad [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+Por ejemplo, en el ejemplo siguiente se muestra cómo incluir un documento explícitamente mediante el [SDK de .NET para la API de DocumentDB](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) y la propiedad [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,

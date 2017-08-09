@@ -3,7 +3,7 @@ title: "Acceso a aplicaciones de autoservicio y administración delegada con Azu
 description: "En este artículo se describe cómo habilitar el acceso a aplicaciones de autoservicio y administración delegada con Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 448a7fe8-a162-475e-9ba2-2e3ab59302bc
@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 57093159c0b9c63b6e2dc0971e3aea645a33aa55
+ms.date: 07/13/2017
+ms.author: curtand
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1724376c55d196f1b2b0b82180e4f59432e506ed
 ms.contentlocale: es-es
-ms.lasthandoff: 12/08/2016
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Acceso a aplicaciones de autoservicio y administración delegada con Azure Active Directory
 Habilitar las funcionalidades de autoservicio para los usuarios finales es un escenario común para TI empresarial. Muchos usuarios, muchas aplicaciones y es posible que la persona mejor informada para tomar decisiones de concesión de acceso no sea el administrador de directorio. A menudo la persona más adecuada para decidir quién puede tener acceso a una aplicación es un responsable de equipo u otro administrador delegado. Pero al final, es el usuario el que utiliza la aplicación y sabe lo que necesitan para poder hacer su trabajo.
 
-El acceso a la aplicación de autoservicio es una característica de [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) que permite a los administradores de directorio:
+El acceso a la aplicación de autoservicio es una característica de las licencias [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) P1 y P2 que permite a los administradores de directorio:
 
-* Permitir a los usuarios solicitar acceso a aplicaciones mediante un icono "Obtener más aplicaciones" en el [Panel de acceso de Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* Posibilitar que los usuarios soliciten acceso a aplicaciones mediante un icono "Obtener más aplicaciones" en el [Panel de acceso de Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Establecer qué usuarios de las aplicaciones pueden solicitar acceso
 * Establecer si los usuarios necesitan aprobación para poder autoasignarse acceso a una aplicación
 * Establecer quién debe aprobar las solicitudes y administrar el acceso para cada aplicación

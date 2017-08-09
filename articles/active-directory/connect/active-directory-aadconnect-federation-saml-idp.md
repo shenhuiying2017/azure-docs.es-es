@@ -10,13 +10,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c0938fb27afe2aad77e66b189f46d30a8e045b55
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -59,19 +59,19 @@ Azure AD se puede configurar para funcionar con proveedores de identidades que u
 En el mensaje de respuesta de SAML, el nodo de firma contiene información sobre la firma digital del propio mensaje. El bloque de firma tiene los siguientes requisitos:
 
 1. El propio nodo de aserción debe estar firmado.
-2.    El algoritmo RSA-sha1 debe usarse como DigestMethod. No se aceptan otros algoritmos de firma digital.
+2.  El algoritmo RSA-sha1 debe usarse como DigestMethod. No se aceptan otros algoritmos de firma digital.
    `<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>`
-3.    También puede firmar el documento XML. 
-4.    El algoritmo Transform debe coincidir con los valores del ejemplo siguiente: `<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+3.  También puede firmar el documento XML. 
+4.  El algoritmo Transform debe coincidir con los valores del ejemplo siguiente:    `<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
        <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.    El algoritmo SignatureMethod debe coincidir con el ejemplo siguiente:`<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+9.  El algoritmo SignatureMethod debe coincidir con el ejemplo siguiente:    `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>Enlaces admitidos
 Los enlaces son los parámetros de comunicación relacionados con el transporte que son necesarios. Los siguientes requisitos se aplican a los enlaces:
 
 1. HTTPS es el transporte requerido.
-2.    Azure AD necesitará HTTP POST para el envío del token durante el inicio de sesión.
-3.    Azure AD usará HTTP POST en la solicitud de autenticación al proveedor de identidades y REDIRECT en el mensaje de cierre de sesión a este proveedor.
+2.  Azure AD necesitará HTTP POST para el envío del token durante el inicio de sesión.
+3.  Azure AD usará HTTP POST en la solicitud de autenticación al proveedor de identidades y REDIRECT en el mensaje de cierre de sesión a este proveedor.
 
 ## <a name="required-attributes"></a>Atributos necesarios
 En esta tabla se muestran los requisitos de atributos específicos en el mensaje de SAML 2.0.
@@ -178,7 +178,7 @@ En el procedimiento siguiente se explica cómo convertir un dominio estándar ex
 
 
 1. Conéctese a su instancia de Azure AD Directory como administrador de inquilinos: Connect-MsolService.
-2.    Configure el dominio de Office 365 deseado para usar la federación con SAML 2.0: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
+2.  Configure el dominio de Office 365 deseado para usar la federación con SAML 2.0: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  Puede obtener la cadena codificada en base64 del certificado de firma de su archivo de metadatos de IDP. Aunque se ha proporcionado un ejemplo de esta ubicación, puede ser algo diferente dependiendo de su implementación.
 
@@ -202,8 +202,8 @@ Este procedimiento muestra cómo agregar un único usuario a Azure AD.
 
 
 1. Conéctese a su instancia de Azure AD Directory como administrador de inquilinos: Connect-MsolService.
-2.    Cree una nueva entidad de seguridad de usuario: ` New-MsolUser
-      -UserPrincipalName elwoodf1@contoso.com
+2.  Cree una nueva entidad de seguridad de usuario: ` New-MsolUser
+        -UserPrincipalName elwoodf1@contoso.com
         -ImmutableId ABCDEFG1234567890
         -DisplayName "Elwood Folk"
         -FirstName Elwood 
@@ -222,11 +222,11 @@ Como administrador, antes de comprobar y administrar el inicio de sesión único
 
 
 1.  Ha revisado los requisitos del protocolo SAML 2.0 de Azure AD.
-2.    Ha configurado el proveedor de identidades de SAML 2.0.
-3.    Instale Windows PowerShell para el inicio de sesión único con el proveedor de identidades de SAML 2.0.
-4.    Configure una relación de confianza entre el proveedor de identidades de SAML 2.0 y Azure AD.
-5.    Ha aprovisionado una entidad de seguridad de usuario de prueba conocida en Azure Active Directory (Office 365) mediante Windows PowerShell o Azure AD Connect.
-6.    Configure la sincronización de directorios con [Azure AD Connect](active-directory-aadconnect.md).
+2.  Ha configurado el proveedor de identidades de SAML 2.0.
+3.  Instale Windows PowerShell para el inicio de sesión único con el proveedor de identidades de SAML 2.0.
+4.  Configure una relación de confianza entre el proveedor de identidades de SAML 2.0 y Azure AD.
+5.  Ha aprovisionado una entidad de seguridad de usuario de prueba conocida en Azure Active Directory (Office 365) mediante Windows PowerShell o Azure AD Connect.
+6.  Configure la sincronización de directorios con [Azure AD Connect](active-directory-aadconnect.md).
 
 Después de configurar el inicio de sesión único con el proveedor de identidades basado en SP-Lite de SAML 2.0, debe comprobar que funciona correctamente.
 
@@ -245,10 +245,10 @@ Microsoft ha proporcionado una herramienta que puede usar para comprobar el prov
 
 
 1. Descargue el Analizador de conectividad de [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
-2.    Haga clic en Instalar ahora para empezar a descargar e instalar la herramienta.
-3.    Seleccione “I can’t set up federation with Office 365, Azure, or other services that use Azure Active Directory” (No se puede configurar la federación con Office 365, Azure u otros servicios que usan Azure Active Directory).
-4.    Una vez que haya descargado la herramienta y esté en funcionamiento, verá la ventana de diagnóstico de conectividad. La herramienta le lleva por los pasos para probar la conexión de federación.
-5.    El Analizador de conectividad abre el IDP de SAML 2.0 para que inicie sesión; escriba las credenciales de la entidad de seguridad de usuario que va a probar: ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml1.png).
+2.  Haga clic en Instalar ahora para empezar a descargar e instalar la herramienta.
+3.  Seleccione “I can’t set up federation with Office 365, Azure, or other services that use Azure Active Directory” (No se puede configurar la federación con Office 365, Azure u otros servicios que usan Azure Active Directory).
+4.  Una vez que haya descargado la herramienta y esté en funcionamiento, verá la ventana de diagnóstico de conectividad. La herramienta le lleva por los pasos para probar la conexión de federación.
+5.  El Analizador de conectividad abre el IDP de SAML 2.0 para que inicie sesión; escriba las credenciales de la entidad de seguridad de usuario que va a probar: ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml1.png).
 6.  En la ventana de inicio de sesión de la prueba de federación, debe escribir un nombre de cuenta y una contraseña para el inquilino de Azure AD que está configurado para federarse con el proveedor de identidades de SAML 2.0. La herramienta intentará iniciar sesión con esas credenciales y se mostrará una salida con resultados detallados de las pruebas realizadas durante el intento de inicio de sesión.
 ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml2.png)
 7. En esta ventana se muestra un resultado erróneo de las pruebas. Al hacer clic en Review detailed results (Revisar resultados detallados), se muestra información sobre los resultados de cada prueba que se ha realizado. También puede guardar los resultados en el disco para compartirlos.
@@ -262,8 +262,8 @@ Para comprobar que ese inicio de sesión único se ha configurado correctamente,
 
 
 1. En un equipo unido a un dominio, inicie sesión en su servicio en la nube con el mismo nombre de inicio de sesión que usa en las credenciales corporativas.
-2.    Haga clic dentro del cuadro de contraseña. Si el inicio de sesión único está configurado, el cuadro de contraseña aparecerá sombreado y verá un mensaje que le indica que debe iniciar sesión en <your company>.
-3.    Haga clic en el vínculo para iniciar sesión en <your company>. Si puede iniciar sesión, significa que el inicio de sesión único está configurado.
+2.  Haga clic dentro del cuadro de contraseña. Si el inicio de sesión único está configurado, el cuadro de contraseña aparecerá sombreado y verá un mensaje que le indica que debe iniciar sesión en <your company>.
+3.  Haga clic en el vínculo para iniciar sesión en <your company>. Si puede iniciar sesión, significa que el inicio de sesión único está configurado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -271,3 +271,4 @@ Para comprobar que ese inicio de sesión único se ha configurado correctamente,
 - [Servicios de federación de Active Directory y personalización con Azure AD Connect](active-directory-aadconnect-federation-management.md)
 - [Lista de compatibilidad de federación de AD Azure](active-directory-aadconnect-federation-compatibility.md)
 - [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
+

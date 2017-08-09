@@ -15,19 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a12e9d342daf41ee9f83cadb9e29ee867be055de
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 65e9bba4ce9ac41ae2a9a8c3fa7f661165fc1403
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creación de un sondeo personalizado para Puerta de enlace de aplicaciones mediante el portal
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](application-gateway-create-probe-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-create-probe-ps.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 En este artículo, agregará un sondeo personalizado a una puerta de enlace de aplicaciones existente a través de Azure Portal. Los sondeos personalizados son útiles para aplicaciones que tienen una página de comprobación del estado o para aplicaciones que no proporcionan una respuesta correcta en la aplicación web predeterminada.
@@ -74,7 +73,7 @@ Una vez creado el sondeo, es el momento de agregarlo a la puerta de enlace. La c
 1. En la hoja de configuración de **appGatewayBackEndHttpSettings**, active la casilla **Usar sondeo personalizado** y elija el sondeo creado en la sección [Creación del sondeo](#createprobe) en el menú desplegable **Sondeo personalizado**.
 Cuando haya terminado, haga clic en **Guardar** y se aplicará la configuración.
 
-El sondeo predeterminado comprueba el acceso predeterminado a la aplicación web. Una vez que se ha creado el sondeo personalizado, la puerta de enlace de aplicaciones usa la ruta de acceso personalizada definida para supervisar el estado de los servidores backend. En función de los criterios definidos, la puerta de enlace de aplicaciones comprueba la ruta de acceso especificada en el sondeo. Si la llamada a host:Port/path no devuelve una respuesta de estado HTTP 200-299, el servidor se saca de la rotación cuando se alcanza el umbral de estado incorrecto. El sondeo continúa en la instancia incorrecta para determinar cuándo vuelve a ser correcta. Una vez que la instancia se vuelve a agregar al grupo de servidores correcto, el tráfico comienza a fluir hacia ella de nuevo y el sondeo de la instancia continúa en el intervalo especificado por el usuario de forma normal.
+El sondeo predeterminado comprueba el acceso predeterminado a la aplicación web. Una vez que se ha creado el sondeo personalizado, la puerta de enlace de aplicaciones usa la ruta de acceso personalizada definida para supervisar el estado de los servidores backend. En función de los criterios definidos, la puerta de enlace de aplicaciones comprueba la ruta de acceso especificada en el sondeo. Si la llamada a host:Port/path no devuelve una respuesta de estado HTTP 200-399, el servidor se saca de la rotación cuando se alcanza el umbral de estado incorrecto. El sondeo continúa en la instancia incorrecta para determinar cuándo vuelve a ser correcta. Una vez que la instancia se vuelve a agregar al grupo de servidores correcto, el tráfico comienza a fluir hacia ella de nuevo y el sondeo de la instancia continúa en el intervalo especificado por el usuario de forma normal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

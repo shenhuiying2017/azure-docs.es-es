@@ -1,6 +1,6 @@
 ---
-title: 'Las cinco preguntas de la ciencia de datos: Ciencia de datos para principiantes (Azure) | Microsoft Docs'
-description: "Obtenga una introducción rápida a la ciencia de datos en Ciencia de datos para principiantes, cinco vídeos breves que comienzan con Las cinco preguntas a las que responde la ciencia de datos."
+title: 'Las cinco preguntas de la ciencia de datos (Ciencia de datos para principiantes): Azure Machine Learning | Microsoft Docs'
+description: "Ciencia de datos para principiantes explica los conceptos básicos en 5 vídeos breves, empezando por las 5 preguntas que responde la ciencia de datos. De Azure Machine Learning."
 keywords: "realizar ciencia de datos,ciencia de datos para principiantes,aspectos básicos de ciencia de datos,preguntas de ciencia de datos,vídeo de ciencia de datos, introducción a la ciencia de datos"
 services: machine-learning
 documentationcenter: na
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 50d1f8dfc7ce2d8bf4b04cff68698eafd56ce9c2
-ms.openlocfilehash: 518a7d2b5e43d8133d54ab583e4545a3ee9b3cba
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e77e7e99747995a4a6ad800e391f0c063bded82f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciencia de datos para principiantes, vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
 Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en realizar ciencia de datos o trabajar con científicos de datos.
 
-Este primer vídeo trata de los tipos de preguntas que puede responder la ciencia de datos. Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
+Este primer vídeo trata de los tipos de preguntas que puede responder la ciencia de datos. Para obtener el máximo partido de la serie, véalos en orden. [Vaya a la lista de vídeos](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
 >
 >
 
 ## <a name="other-videos-in-this-series"></a>Otros vídeos de la serie
-*Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos de aproximadamente 25 minutos en total. Vea los cuatro vídeos:
+*Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos de aproximadamente 25 minutos en total. Consulte los cinco vídeos:
 
 * Vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
 * Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 minutos y 56 segundos)*
@@ -58,14 +58,14 @@ Puede sorprenderle, pero *solo hay cinco preguntas a las que responde la ciencia
 * ¿Cómo está organizado?
 * ¿Qué debo hacer a continuación?
 
-  Cada una de estas preguntas se responde mediante una familia de métodos de aprendizaje automático independientes, denominados algoritmos.
+Cada una de estas preguntas se responde mediante una familia de métodos de aprendizaje automático independientes, denominados algoritmos.
 
 Resulta útil pensar en un algoritmo como una receta y los datos como los ingredientes. Un algoritmo indica cómo combinar y mezclar los datos para obtener una respuesta. Los equipos son similares a una batidora. Llevan a cabo una gran parte del trabajo duro del algoritmo y lo hacen bastante rápido.
 
 ## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>Pregunta 1: ¿esto es A o B? utiliza algoritmos de clasificación
 Comenzamos con la siguiente pregunta: ¿esto es A o B?
 
-![Algoritmos de clasificación: ¿esto es A o B?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-classification-algorithms.png)
+![Algoritmos de clasificación: ¿esto es A o B?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
 
 Esta familia de algoritmos se llama clasificación de dos clases.
 
@@ -76,12 +76,12 @@ Por ejemplo:
 * Se romperá este neumático en las próximas 1000 millas ¿sí o no?
 * Qué aporta más clientes ¿un cupón de 5 USD o un descuento del 25 %?
 
-Esta pregunta también puede modificarse para que incluya más de dos opciones: ¿esto es A o B o C o D, etc.?  Esto se denomina clasificación multiclase y es útil cuando hay varias respuestas, o varios miles de respuestas, posibles. La clasificación multiclase elige la más probable.
+Esta pregunta también puede modificarse para que incluya más de dos opciones: ¿esto es A o B o C o D, etc.?  Esto se denomina clasificación multiclase y es útil cuando hay varias respuestas (o varios miles de respuestas) posibles. La clasificación multiclase elige la más probable.
 
 ## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>Pregunta 2: ¿es extraño? utiliza algoritmos de detección de anomalías
 La siguiente pregunta que la ciencia de datos puede responder es: ¿es extraño? Esta pregunta se responde mediante una familia de algoritmos denominada detección de anomalías.
 
-![Algoritmos de detección de anomalías: ¿es extraño?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-anomaly-detection-algorithms.png)
+![Algoritmos de detección de anomalías: ¿es extraño?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
 Si tiene una tarjeta de crédito, ya se habrá beneficiado de la detección de anomalías. Su compañía de tarjetas de crédito analiza sus patrones de compra para poder alertarle de un posible fraude. Cargos "extraños" podrían ser una compra en una tienda donde normalmente no compra o comprar un artículo inusualmente caro.
 
@@ -95,7 +95,7 @@ La detección de anomalías marca eventos o comportamientos inesperados o poco h
 ## <a name="question-3-how-much-or-how-many-uses-regression-algorithms"></a>Pregunta 3: ¿cuánto? o ¿cuántos? utiliza algoritmos de regresión
 Aprendizaje automático también puede predecir la respuesta a ¿cuánto? o ¿cuántos? La familia de algoritmos que responde a esta pregunta se denomina regresión.
 
-![Algoritmos de regresión: ¿Cuánto? o ¿Cuántos?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-regression-algorithms.png)
+![Algoritmos de regresión: ¿Cuánto? o ¿Cuántos?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
 
 Los algoritmos de regresión realizan predicciones numéricas, como:
 
@@ -111,7 +111,7 @@ A veces deseará comprender la estructura de un conjunto de datos: ¿cómo está
 
 Hay muchas maneras de determinar la estructura de datos. Un enfoque son los clústeres. Separa los datos en "grupos" naturales para interpretarlos más fácilmente. Con los clústeres no hay una respuesta correcta.
 
-![Algoritmos de clústeres ¿Cómo está organizado?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)
+![Algoritmos de clústeres ¿Cómo está organizado?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
 
 Algunos ejemplos comunes de preguntas con agrupación en clústeres son:
 
@@ -127,7 +127,7 @@ El aprendizaje reforzado se inspiró en cómo responde el cerebro de las ratas y
 
 Normalmente, el aprendizaje reforzado es una buena elección para los sistemas automatizados que tengan que tomar una gran cantidad de pequeñas decisiones sin ayuda humana.
 
-![Algoritmos de aprendizaje reforzado ¿Qué debo hacer a continuación?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-reinforcement-learning-algorithms.png)
+![Algoritmos de aprendizaje reforzado ¿Qué debo hacer a continuación?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
 Las preguntas a las que responde son siempre sobre la acción que debe llevar a cabo una máquina o un robot (normalmente). Algunos ejemplos son:
 

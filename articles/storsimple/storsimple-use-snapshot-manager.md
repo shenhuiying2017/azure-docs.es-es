@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 06/05/2017
 ms.author: v-sharos
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7651a2ba6c206bb39d7cf8839f6f0f828fb3bc16
-ms.openlocfilehash: 25265349cb8cb47e93b7bea7103f1d06878a6158
-ms.lasthandoff: 02/28/2017
+ms.custom: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -126,7 +127,7 @@ La tabla siguiente contiene una lista alfabética de las acciones de Administrad
 | Volver a examinar volúmenes |Haga clic con el botón derecho en el nodo **Volúmenes** . |Haga clic en **Volver a examinar volúmenes** para actualizar la lista de volúmenes que aparece en el panel **Resultados**. |
 | Restauración |Expanda el **Catálogo de copias de seguridad**, un grupo de volúmenes y luego **Instantáneas locales** o **Instantáneas de nube**; a continuación, haga clic con el botón derecho en una copia de seguridad. |Haga clic en **Restaurar** para reemplazar los datos del grupo de volúmenes actual por los datos de la copia de seguridad seleccionada. |
 | Realizar copia de seguridad |Realice una de las operaciones siguientes:<ul><li>Expanda **Grupos de volúmenes** y, a continuación, haga clic en un grupo de volúmenes.</li><li>Expanda **Catálogo de copias de seguridad** y, a continuación, haga clic en un grupo de volúmenes.</li></ul> |Haga clic en **Realizar copia de seguridad** para iniciar un trabajo de copia de seguridad inmediatamente. |
-| Alternar visualización de importaciones |Haga clic con el botón derecho en el primer nodo en el panel **Ámbito** (el nodo **Administrador de instantáneas StorSimple** en los ejemplos). |Haga clic en **Alternar visualización de importaciones** para mostrar u ocultar los grupos de volúmenes y copias de seguridad asociadas que se importaron desde el panel del servicio de StorSimple Manager. |
+| Alternar visualización de importaciones |Haga clic con el botón derecho en el primer nodo en el panel **Ámbito** (el nodo **Administrador de instantáneas StorSimple** en los ejemplos). |Haga clic en **Toggle Imports Display** (Alternar visualización de importaciones) para mostrar u ocultar los grupos de volúmenes y copias de seguridad asociadas que se importaron desde el panel del servicio StorSimple Device Manager. |
 
 ### <a name="view-menu"></a>Menú Vista
 Use el menú **Vista** para crear una vista personalizada del contenido del panel **Resultados**. El menú **Vista** contiene las opciones **Agregar o quitar columnas** y **Personalizar**.
@@ -273,8 +274,7 @@ Las directivas de copia de seguridad son las programaciones de trabajo para real
 
 > [!NOTE]
 > Puede conservar un máximo de 64 copias de seguridad.
-> 
-> 
+
 
 ### <a name="backup-catalog-node"></a>Nodo Catálogo de copias de seguridad
 El nodo **Catálogo de copia de seguridad** contiene listas de copias de seguridad locales y remotas de volúmenes de Azure StorSimple. Este nodo está organizado por grupo de volúmenes, y cada contenedor de grupo de volúmenes contiene estructuras separadas para instantáneas locales (el nodo **Instantáneas locales**) y de instantáneas de nube (el nodo **Instantáneas de nube**). Cuando se expande, cada contenedor de grupo de volúmenes enumera todas las copias de seguridad correctas que se tomaron de forma interactiva o por una directiva configurada.
@@ -429,7 +429,7 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 | V |Abre el menú **Vista** . |
 | W |Abre una nueva consola de StorSimple Snapshot Manager centrada en el nodo **Grupos de volúmenes** . |
 | F |Actualiza la consola de Administrador de instantáneas StorSimple. |
-| L |Abre la página **Exportar lista **. |
+| L |Abre la página **Exportar lista**. |
 | H |Abre la Ayuda en pantalla. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>Teclas de método abreviado del nodo Catálogo de copia de seguridad

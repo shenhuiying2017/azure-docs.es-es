@@ -3,7 +3,7 @@ title: "Referencia de la API de auditoría de Azure Active Directory | Microsoft
 description: "Introducción a la API de auditoría de Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: markusvi
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 87c7990834eaf2aa6c4aff0c341150ba9bd9eed4
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 573e940c5390e7b990d889681eb37b73c5b253d9
 ms.contentlocale: es-es
-ms.lasthandoff: 04/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Referencia de la API de auditoría de Azure Active Directory
@@ -29,10 +29,17 @@ El objetivo de este tema es ofrecer información de referencia sobre la **API de
 
 Consulte:
 
-* [Registros de auditoría](active-directory-reporting-azure-portal.md#audit-logs) para más información conceptual
+* [Registros de auditoría](active-directory-reporting-azure-portal.md#activity-reports) para más información conceptual
+
 * [Introducción a la API de generación de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md) para obtener más información sobre esta API
 
-Para ver preguntas, problemas o comentarios, póngase en contacto con el equipo de [ayuda de informes de AAD](mailto:aadreportinghelp@microsoft.com).
+
+Si desea:
+
+- Conocer las preguntas más frecuentes, lea nuestras [Preguntas más frecuentes](active-directory-reporting-faq.md) 
+
+- En caso de problemas, [abra una incidencia de soporte técnico](active-directory-troubleshooting-support-howto.md) 
+
 
 ## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 * Usuarios de los roles de administrador o lector de seguridad

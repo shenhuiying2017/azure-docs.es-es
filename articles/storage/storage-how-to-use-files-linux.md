@@ -1,6 +1,6 @@
 ---
-title: Uso de archivos de Azure con Linux | Microsoft Docs
-description: "Cree un recurso compartido de archivos de Azure en la nube con este tutorial paso a paso. Administre el contenido del recurso compartido de archivos y monte un recurso compartido de archivos desde una máquina virtual (VM) de Azure que ejecute Linux o una aplicación local que admita SMB 3.0."
+title: Uso de Azure File Storage con Linux | Microsoft Docs
+description: Aprenda a montar un recurso compartido de archivos de Azure mediante SMB en Linux.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
@@ -14,150 +14,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 201ceaec874c2367c232076faba25bdae128e7e1
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 03efe81383a6c2fdfe50551355c33dc7af3837e8
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="how-to-use-azure-file-storage-with-linux"></a>Uso de Almacenamiento de archivos de Azure con Linux
-## <a name="overview"></a>Información general
-El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos en la nube mediante el protocolo SMB estándar. Con archivos de Azure, puede migrar las aplicaciones empresariales que se basan en los servidores de archivos a Azure. Las aplicaciones que se ejecutan en Azure pueden montar fácilmente recursos compartidos de archivos de máquinas virtuales de Azure que ejecutan Linux. Y con la última versión de Almacenamiento de archivos, es posible también montar un recurso compartido de archivos desde una aplicación local que sea compatible con SMB 3.0.
+# <a name="use-azure-file-storage-with-linux"></a>Uso de Azure File Storage con Linux
+[Azure File Storage](storage-dotnet-how-to-use-files.md) es el sistema de archivos en la nube de Microsoft fácil de usar. Los recursos compartidos de Azure File se pueden montar en distribuciones de Linux mediante el [paquete cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) del [proyecto de Samba](https://www.samba.org/). En este artículo se muestran dos maneras de montar un recurso compartido de Azure File: a petición, con el comando `mount` y al inicio, mediante la creación de una entrada en `/etc/fstab`.
 
-Puede crear recursos compartidos de archivos de Azure mediante el [Portal de Azure](https://portal.azure.com), los cmdlets de PowerShell de Almacenamiento de Azure, las bibliotecas de cliente de Almacenamiento de Azure o la API de REST de Almacenamiento de Azure. Además, dado que los recursos compartidos de archivos son recursos compartidos de SMB, puede tener acceso a ellos a través de las API del sistema de archivos estándar.
+> [!NOTE]  
+> Para montar un recurso compartido de Azure File fuera de la región de Azure en la que se hospeda, bien sea en local o en una región distinta de Azure, el sistema operativo debe admitir la funcionalidad de cifrado de SMB 3.0. La característica de cifrado de SMB 3.0 para Linux se introdujo en el kernel 4.11. Esta característica permite el montaje de recursos compartidos de Azure File desde el entorno local o una región distinta de Azure. En el momento de la publicación, esta funcionalidad se ha usado en Ubuntu 17.04 y Ubuntu 16.10.
 
-El almacenamiento de archivos se basa en la misma tecnología que el almacenamiento de blobs, tablas y en cola, por lo que el almacenamiento de archivos ofrece la disponibilidad, durabilidad, escalabilidad y redundancia geográfica que están integradas en la plataforma de Almacenamiento de Azure. Para más información sobre los límites y objetivos de rendimiento de Almacenamiento de archivos, vea [Objetivos de escalabilidad y rendimiento del Almacenamiento de Azure](storage-scalability-targets.md).
 
-El almacenamiento de archivos ya está disponible y es compatible con SMB 2.1 y SMB 3.0. Para más detalles sobre el almacenamiento de archivos, vea la [API de REST del servicio de archivos](https://msdn.microsoft.com/library/azure/dn167006.aspx).
+## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Requisitos previos para el montaje de un recurso compartido de Azure File con Linux y el paquete cifs-utils
+* **Seleccionar una distribución de Linux que pueda tener instalado el paquete cifs-utils**: Microsoft recomienda las siguientes distribuciones de Linux de la galería de imágenes de Azure:
 
-> [!NOTE]
-> El cliente SMB de Linux todavía no admite el cifrado, por lo que montar un recurso compartido de archivos de Linux requiere aún que el cliente se encuentre en la misma región de Azure que el recurso compartido de archivos. Sin embargo, la compatibilidad con el cifrado para Linux está en la hoja de ruta de los desarrolladores de Linux responsables de la funcionalidad SMB. Las distribuciones de Linux que admiten el cifrado en el futuro también podrán montar un recurso compartido de archivos de Azure desde cualquier lugar.
-> 
-> 
+    * Ubuntu Server 14.04+
+    * RHEL 7+
+    * CentOS 7+
+    * Debian 8
+    * openSUSE 13.2+
+    * SUSE Linux Enterprise Server 12   
 
-## <a name="video-using-azure-file-storage-with-linux"></a>Vídeo: Uso del almacenamiento de archivos de Azure con Linux
-Este es un vídeo que muestra cómo crear y usar recursos compartidos de archivos de Azure en Linux.
+    > [!Note]  
+    > No se puede usar con Azure File Storage ninguna distribución de Linux que descargue e instale (o compile) versiones recientes del paquete cifs-utils.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Linux/player]
-> 
-> 
+* <a id="install-cifs-utils"></a>**El paquete cifs-utils está instalado**: este paquete se puede instalar con el administrador de paquetes de la distribución de Linux de su elección. 
 
-## <a name="choose-a-linux-distribution-to-use"></a>Elija una distribución de Linux para usar
-Al crear una máquina virtual de Linux en Azure, puede especificar una imagen de Linux que admita SMB 2.1 o superior de la Galería de imágenes de Azure. A continuación se muestra una lista de imágenes de Linux recomendadas:
+    En distribuciones de **Ubuntu** y **Debian**, use el administrador de paquetes `apt-get`:
 
-* Ubuntu Server 14.04+
-* RHEL 7+
-* CentOS 7+
-* Debian 8
-* openSUSE 13.2+
-* SUSE Linux Enterprise Server 12
-* SUSE Linux Enterprise Server 12 (Premium Image)
+    ```
+    sudo apt-get update
+    sudo apt-get install cifs-utils
+    ```
 
-## <a name="mount-the-file-share"></a>Montaje del recurso compartido de archivos
-Para montar el recurso compartido de archivos desde una máquina virtual con Linux, puede que necesite instalar un cliente SMB/CIFS si la distribución que está utilizando no tiene un cliente integrado. Este es el comando de Ubuntu para instalar una opción cifs-utils:
+    En **RHEL** y **CentOS**, use el administrador de paquetes `yum`:
 
-```
-sudo apt-get install cifs-utils
-```
+    ```
+    sudo yum install samba-client samba-common cifs-utils
+    ```
 
-A continuación, tiene que crear un punto de montaje (mkdir mymountpoint) y luego emitir el comando de montaje, que es similar al siguiente:
+    En **openSUSE**, use el administrador de paquetes `zypper`:
 
-```
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename ./mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-```
+    ```
+    sudo zypper install samba*
+    ```
 
-También puede agregar configuraciones en su /etc/fstab para montar el recurso compartido.
+    En otras distribuciones, use el administrador de paquetes apropiado o [compile desde el origen](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-Tenga en cuenta que aquí 0777 representa un código de permisos de directorio o archivo que concede permisos de ejecución/lectura/escritura a todos los usuarios. Puede reemplazarlo con otro código de permiso de archivos siguiendo el documento de permisos de archivos de Linux.
+* **Decidir sobre los permisos de archivo o directorio del recurso compartido montado**: en los ejemplos siguientes, usamos 0777 para proporcionar permisos de lectura, escritura y ejecución a todos los usuarios. Puede reemplazarlos por otros [permisos chmod](https://en.wikipedia.org/wiki/Chmod), según prefiera. 
 
-Asimismo, para mantener un recurso compartido de archivos montado tras reiniciar el equipo, puede agregar una configuración como la que se muestra a continuación en etc/fstab:
+* **Nombre de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará el nombre de la cuenta de almacenamiento.
 
-```
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-```
+* **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria) de la cuenta de almacenamiento. Actualmente no se admiten claves SAS para el montaje.
 
-Por ejemplo, si creó una máquina virtual de Azure con una imagen de Linux Ubuntu Server 15.04 (disponible en la galería de imágenes de Azure), puede montar el archivo de la manera siguiente:
+* **Asegurarse de que el puerto 445 está abierto**: SMB se comunica a través del puerto TCP 445, así que compruebe que el firewall no bloquea el puerto TCP 445 en la máquina cliente.
 
-```
-azureuser@azureconubuntu:~$ sudo apt-get install cifs-utils
-azureuser@azureconubuntu:~$ sudo mkdir /mnt/mountpoint
-azureuser@azureconubuntu:~$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-azureuser@azureconubuntu:~$ df -h /mnt/mountpoint
-Filesystem  Size  Used Avail Use% Mounted on
-//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
-```
+## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montaje del recurso compartido de Azure File a petición con `mount`
+1. **[Instale el paquete cifs-utils correspondiente a su distribución de Linux](#install-cifs-utils)**.
 
-Si utiliza CentOS 7.1, puede montar el archivo como sigue:
+2. **Cree una carpeta para el punto de montaje**: esta operación se puede hacer en cualquier parte del sistema de archivos.
 
-```
-[azureuser@AzureconCent ~]$ sudo yum install samba-client samba-common cifs-utils
-[azureuser@AzureconCent ~]$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-[azureuser@AzureconCent ~]$ df -h /mnt/mountpoint
-Filesystem  Size  Used Avail Use% Mounted on
-//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
-```
+    ```
+    mkdir mymountpoint
+    ```
 
-Si utiliza Open SUSE 13.2, puede montar el archivo como sigue:
+3. **Use el comando mount para montar el recurso compartido de Azure File**: no olvide reemplazar `<storage-account-name>`, `<share-name>`, `<storage-account-key>` y por la información correcta.
 
-```
-azureuser@AzureconSuse:~> sudo zypper install samba*  
-azureuser@AzureconSuse:~> sudo mkdir /mnt/mountpoint
-azureuser@AzureconSuse:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-azureuser@AzureconSuse:~> df -h /mnt/mountpoint
-Filesystem  Size  Used Avail Use% Mounted on
-//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
-```
+    ```
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    ```
 
-Si usa RHEL 7.3, puede montar el archivo como sigue:
+> [!Note]  
+> Cuando haya terminado de usar el recurso compartido de Azure File, puede usar `sudo umount ./mymountpoint` para desmontarlo.
 
-```
-azureuser@AzureconRedhat:~> sudo yum install cifs-utils
-azureuser@AzureconRedhat:~> sudo mkdir /mnt/mountpoint
-azureuser@AzureconRedhat:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777,serverino
-azureuser@AzureconRedhat:~> df -h /mnt/mountpoint
-Filesystem  Size  Used Avail Use% Mounted on
-//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
-```
+## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Creación de un punto de montaje persistente para el recurso compartido de Azure File`/etc/fstab`
+1. **[Instale el paquete cifs-utils correspondiente a su distribución de Linux](#install-cifs-utils)**.
 
-## <a name="manage-the-file-share"></a>Administre el recurso compartido de archivos
-El [Portal de Azure](https://portal.azure.com) ofrece una interfaz de usuario para administrar el almacenamiento de archivos de Azure. Puede realizar las siguientes acciones desde el explorador web:
+2. **Cree una carpeta para el punto de montaje**: esta operación se puede realizar en cualquier parte del sistema de archivos, pero debe tener en cuenta la ruta de acceso absoluta de la carpeta. En el ejemplo siguiente se crea una carpeta en la raíz.
 
-* Cargar y descargar archivos al recurso compartido de archivos y desde este.
-* Supervisar el uso real de cada recurso compartido de archivos.
-* Ajustar la cuota de tamaño del recurso compartido de archivos.
-* Copie el comando `net use` para usarlo para montar el recurso compartido de archivos desde un cliente Windows.
+    ```
+    sudo mkdir /mymountpoint
+    ```
 
-También puede usar la interfaz de la línea de comandos multiplataforma de Azure (CLI de Azure) desde Linux para administrar el recurso compartido de archivos. La CLI de Azure proporciona un conjunto de comandos de código abierto multiplataforma para trabajar con Almacenamiento de Azure, incluido el almacenamiento de archivos. Proporciona muchas de las funcionalidades que se encuentran en el Portal de Azure, así como la funcionalidad de acceso a datos enriquecidos. Para obtener ejemplos, consulte [Uso de la CLI de Azure con Almacenamiento de Azure](storage-azure-cli.md).
+3. **Use el siguiente comando para anexar la siguiente línea a `/etc/fstab`** : no olvide reemplazar `<storage-account-name>`, `<share-name>`, y `<storage-account-key>` por la información correcta.
 
-## <a name="develop-with-file-storage"></a>Desarrollo con almacenamiento de archivos
-Como desarrollador, puede compilar una aplicación con almacenamiento de archivos mediante el uso de la [Biblioteca de clientes de Almacenamiento de Azure para Java](https://github.com/azure/azure-storage-java). Para ejemplos de código, vea [Uso del almacenamiento de archivos de Java](storage-java-how-to-use-file-storage.md).
+    ```
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    ```
 
-También puede usar la [Biblioteca de clientes de Almacenamiento de Azure para Node.js](https://github.com/Azure/azure-storage-node) para desarrollar en el almacenamiento de archivos.
+> [!Note]  
+> Puede usar `sudo mount -a` para montar el recurso compartido de Azure File después de editar `/etc/fstab` en lugar de reiniciar el sistema.
 
-## <a name="feedback-and-more-information"></a>Comentarios y más información
+## <a name="feedback"></a>Comentarios
 Usuarios de Linux: nos gustaría conocer su opinión.
 
-El almacenamiento de archivos de Azure para el grupo de usuarios de Linux cuenta con un foro donde puede compartir sus comentarios a medida que evalúa y adopta el almacenamiento de archivos en Linux. Envíe un correo electrónico a [Usuarios de Linux de Almacenamiento de archivos de Azure](mailto:azurefileslinuxusers@microsoft.com) para unirse al grupo de usuarios.
+El almacenamiento de archivos de Azure para el grupo de usuarios de Linux cuenta con un foro donde puede compartir sus comentarios a medida que evalúa y adopta el almacenamiento de archivos en Linux. Envíe un correo electrónico a [Usuarios de Linux de Azure File Storage](mailto:azurefileslinuxusers@microsoft.com) para unirse al grupo de usuarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.
-
-### <a name="conceptual-articles-and-videos"></a>Artículos y vídeos conceptuales
-* [Almacenamiento de archivos de Azure: un sistema de archivos SMB en la nube sin dificultades para Windows y Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Introducción a Almacenamiento de archivos de Azure en Windows](storage-dotnet-how-to-use-files.md)
-
-### <a name="tooling-support-for-file-storage"></a>Compatibilidad de herramientas con el almacenamiento de archivos
-* [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md)
-* [Creación y administración de recursos compartidos de archivos](storage-azure-cli.md#create-and-manage-file-shares) mediante la CLI de Azure
-
-### <a name="reference"></a>Referencia
 * [Referencia de la API REST del servicio de archivos](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-* [Artículo de solución de problemas de archivos de Azure](storage-troubleshoot-file-connection-problems.md)
-
-### <a name="blog-posts"></a>Publicaciones de blog
-* [El almacenamiento de archivos de Azure ya está disponible de manera general](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Almacenamiento de archivos dentro de Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Microsoft Azure Files (Persistencia de conexiones en archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Usar Azure PowerShell con Azure Storage](storage-powershell-guide-full.md)
+* [Uso de AzCopy con Microsoft Azure Storage](storage-use-azcopy.md)
+* [Uso de la CLI de Azure con Azure Storage](storage-azure-cli.md#create-and-manage-file-shares)
+* [Preguntas más frecuentes](storage-files-faq.md)
+* [Solución de problemas](storage-troubleshoot-file-connection-problems.md)
 

@@ -5,27 +5,28 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
+ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: 433dc731c342924d962e2f08e392556558a0168d
-ms.lasthandoff: 02/28/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 43ddeebfea4c914b8377d3363ba3d0c12db0adca
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Creación de un informe de acceso para el control de acceso basado en roles
 Cada vez que alguien concede o revoca el acceso dentro de sus suscripciones, los cambios se registran en los eventos de Azure. Puede crear informes de historial de cambios de acceso para ver todos los cambios de los últimos 90 días.
 
 ## <a name="create-a-report-with-azure-powershell"></a>Creación de un informe con Azure PowerShell
-Para crear un informe de historial de cambios de acceso en PowerShell, utilice el siguiente comando `Get-AzureRMAuthorizationChangeLog` . Puede encontrar más información sobre este cmdlet en la [galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
+Para crear un informe de historial de cambios de acceso en PowerShell, utilice el comando [Get-AzureRMAuthorizationChangeLog](/powershell/module/azurerm.resources/get-azurermauthorizationchangelog).
 
 Al llamar a este comando, puede especificar qué propiedad de las asignaciones desea mostrar, incluidas las siguientes:
 
@@ -33,18 +34,17 @@ Al llamar a este comando, puede especificar qué propiedad de las asignaciones d
 | --- | --- |
 | **Acción** |Si se ha concedido o revocado el acceso. |
 | **Autor de llamada** |El propietario responsable del cambio de acceso. |
-| **Date** |La fecha y la hora en que se modificó el acceso. |
-| **DirectoryName** |El directorio de Azure Active Directory. |
+| **PrincipalId** | El identificador único del usuario, el grupo o la aplicación a los que se les asignó el rol |
 | **PrincipalName** |El nombre del usuario, el grupo o la aplicación. |
 | **PrincipalType** |Si la asignación ha sido para un usuario, un grupo o una aplicación. |
-| **RoleId** |El GUID del rol que se ha concedido o revocado. |
+| **RoleDefinitionId** |El GUID del rol que se ha concedido o revocado. |
 | **RoleName** |El rol que se ha concedido o revocado. |
+| **Ámbito** | El identificador único de la suscripción, el grupo de recursos o el recurso a los que se aplica la asignación | 
 | **ScopeName** |El nombre de la suscripción, el grupo de recursos o el recurso. |
 | **ScopeType** |Si la asignación era en el ámbito de la suscripción, el grupo de recursos o el recurso. |
-| **SubscriptionId** |El GUID de la suscripción de Azure. |
-| **SubscriptionName** |El nombre de la suscripción de Azure. |
+| **Timestamp** |La fecha y la hora en que se modificó el acceso. |
 
-En el siguiente comando de ejemplo se muestran todos los cambios de acceso de la suscripción que tuvieron lugar en los últimos&7; días:
+En el siguiente comando de ejemplo se muestran todos los cambios de acceso de la suscripción que tuvieron lugar en los últimos 7 días:
 
 ```
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName

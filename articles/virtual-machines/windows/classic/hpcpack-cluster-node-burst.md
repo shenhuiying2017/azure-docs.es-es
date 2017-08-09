@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d27376e81f5be3d4f473ef044a84a18ac451921f
-ms.lasthandoff: 03/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adición de nodos de ráfaga a petición a un clúster de HPC Pack en Azure
@@ -77,7 +77,7 @@ Después de agregar e iniciar los nodos, estarán listos para que los use para e
 Si tiene problemas al implementar nodos de Azure, consulte [Solución de problemas de implementaciones de nodos de Azure con Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para usar un tamaño de instancia de proceso intensivo para los nodos de ráfaga, consulte las consideraciones de [Acerca de las máquinas virtuales de la serie H y A de proceso intensivo](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Para usar un tamaño de instancia de proceso intensivo para los nodos de ráfaga, consulte las consideraciones de [Tamaños de máquina virtual de procesos de alto rendimiento](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Si quiere aumentar o reducir automáticamente los recursos de proceso de Azure según la carga de trabajo del clúster, consulte [Aumento y reducción automáticos de los recursos de clúster de HPC Pack en Azure según la carga de trabajo de clúster](hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->

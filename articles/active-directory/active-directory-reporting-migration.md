@@ -1,10 +1,9 @@
 ---
-
 title: "Búsqueda de informes de actividad en Azure Portal | Microsoft Docs"
 description: "Obtenga información sobre cómo buscar informes de actividad de Azure Active Directory en Azure Portal."
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/19/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7f6d82d211e9b3d25b0efe62ab8dd32f827b08ef
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f1875582476c3817b9eb0082b6548cc15043cb98
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
@@ -31,9 +30,9 @@ Si migra del Portal de Azure clásico a Azure Portal, los registros de actividad
 
 Los informes del Portal de Azure clásico están separados por categorías:
 
-1.    Informes de seguridad
-2.    Informes de actividad
-3.    Informes de aplicaciones integradas
+1.  Informes de seguridad
+2.  Informes de actividad
+3.  Informes de aplicaciones integradas
 
 ### <a name="activity-and-integrated-app-reports"></a>Informes de actividad y de aplicaciones integradas
 
@@ -45,14 +44,14 @@ Para ver esta vista, vaya a la hoja **Azure Active Directory** y, en **ACTIVIDAD
 
 Los informes siguientes están consolidados en esta vista:
 
--    Informe de auditoría
--     Actividad de restablecimiento de contraseña
--     Actividad de registro de restablecimiento de contraseñas
--     Actividad de los grupos de autoservicio
--     Cambios de nombre de grupo de Office365
--     Actividad de aprovisionamiento de cuentas
--     Estado de la sustitución de contraseña
--     Errores de aprovisionamiento de cuentas
+-   Informe de auditoría
+-   Actividad de restablecimiento de contraseña
+-   Actividad de registro de restablecimiento de contraseñas
+-   Actividad de los grupos de autoservicio
+-   Cambios de nombre de grupo de Office365
+-   Actividad de aprovisionamiento de cuentas
+-   Estado de la sustitución de contraseña
+-   Errores de aprovisionamiento de cuentas
 
 
 El informe Uso de la aplicación se mejoró y se incluyó en la vista **Inicios de sesión**. Para ver esta vista, vaya a la hoja **Azure Active Directory** y, en **ACTIVIDAD**, seleccione **Inicios de sesión**.
@@ -153,4 +152,8 @@ Para ver el informe **Uso de la aplicación**, vaya a la hoja **Azure Active Dir
 
 
 ![Informe Inicios de sesión de aplicaciones empresariales](./media/active-directory-reporting-migration/199.png "Informe Inicios de sesión de aplicaciones empresariales")
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener información general sobre los informes, consulte [Informes de Azure Active Directory](active-directory-reporting-azure-portal.md).
 

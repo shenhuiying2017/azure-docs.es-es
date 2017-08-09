@@ -1,8 +1,8 @@
 ---
-title: "Ejemplos de inicio rápido de CLI de Azure Monitor | Microsoft Docs"
-description: "Comandos de CLI de ejemplo para características de Azure Monitor. Azure Monitor es un servicio de Microsoft Azure que permite enviar notificaciones de alerta, llamar a direcciones URL web en función de los valores de datos de telemetría configurados y escalar automáticamente Cloud Services, Virtual Machines y Web Apps."
+title: "Ejemplos de inicio rápido de CLI de Azure Monitor 1.0 | Microsoft Docs"
+description: "Comandos de ejemplo de la CLI 1.0 para las características de Azure Monitor. Azure Monitor es un servicio de Microsoft Azure que permite enviar notificaciones de alerta, llamar a direcciones URL web en función de los valores de datos de telemetría configurados y escalar automáticamente Cloud Services, Virtual Machines y Web Apps."
 author: kamathashwin
-manager: carolz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 0e629dac553f576f2dd3059453b00d6b10e48fd7
-ms.lasthandoff: 03/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5a8362b52c06b1b41f8108926ba07bbe5901125a
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="azure-monitor--cross-platform-cli-quick-start-samples"></a>Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor
+# <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Ejemplos de inicio rápido de la CLI multiplataforma de Azure Monitor 1.0
 En este artículo se muestran comandos de la interfaz de la línea de comandos (CLI) de ejemplo que lo ayudarán a acceder a las características de supervisión de Azure Monitor. Azure Monitor permite escalar automáticamente Cloud Services, Virtual Machines y Web Apps para enviar notificaciones de alerta o llamar a direcciones URL web en función de los valores de datos de telemetría configurados.
 
 > [!NOTE]

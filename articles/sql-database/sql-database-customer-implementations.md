@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 24c345e173ffe3cd215552b604e8b6cc525d8aa7
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3db5be35b3087bbbe87e623a623e7a10156b932f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Estudios técnicos de implementaciones para clientes de Azure SQL Database
@@ -37,5 +36,5 @@ ms.lasthandoff: 06/21/2017
 
 - [Quest](https://customers.microsoft.com/en-US/story/quest): Quest ofrece su servicio Spotlight en SQL Server Enterprise con un objetivo en mente: proporcionar a los profesionales de bases de datos las mejores herramientas disponibles para proteger los datos, mover esos datos y supervisar las operaciones de base de datos. Con Spotlight y el uso combinado de Microsoft Azure y Azure SQL Database, los administradores de bases de datos de SQL Server pueden supervisar, detectar, diagnosticar y proporcionar una manera de resolver problemas de rendimiento en SQL Server, tanto si trabajan en una oficina o desde casa.
 
-- [Microsoft Synamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): este breve estudio de caso destaca los procedimientos recomendados y las lecciones aprendidas de la experiencia del equipo de producto de Dynamics 365 for Operations en la migración a Azure SQL Database a fin de proporcionar a los clientes una oferta de software como servicio (SaaS) completamente administrada. Con Azure SQL Database, el equipo de Dynamics 365 for Operations pudo administrar y usar el servicio con bastante menos personal y escalarlo fácilmente gracias a las características de capacidad de administración listas para usar, como copias de seguridad automáticas de bases de datos, retención de copias de seguridad de bases de datos, alta disponibilidad y recuperación ante desastres. Esto, junto con la posibilidad de aprovisionar bases de datos con apenas automatización, llevaron a que Azure SQL Database fuera una buena plataforma para poner en marcha servicios a gran escala.
+- [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): este breve caso práctico destaca los procedimientos recomendados y las lecciones aprendidas a partir de la experiencia del equipo de producto de Dynamics 365 for Operations en la migración a Azure SQL Database a fin de proporcionar a los clientes una oferta de software como servicio (SaaS) completamente administrada. Con Azure SQL Database, el equipo de Dynamics 365 for Operations pudo administrar y usar el servicio con bastante menos personal y escalarlo fácilmente gracias a las características de capacidad de administración listas para usar, como copias de seguridad automáticas de bases de datos, retención de copias de seguridad de bases de datos, alta disponibilidad y recuperación ante desastres. Esto, junto con la posibilidad de aprovisionar bases de datos con apenas automatización, llevaron a que Azure SQL Database fuera una buena plataforma para poner en marcha servicios a gran escala.
 

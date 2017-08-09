@@ -15,12 +15,11 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 4371092aa31db444c4ca0374b4b2e7d700029a8b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 024b70df99fdefa1598225ebb1fbfee85ea375d0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Uso de Apache Phoenix y SQuirreL con clústeres de HBase basados en Windows en HDinsight
@@ -31,7 +30,7 @@ Aprenda a usar [Apache Phoenix](http://phoenix.apache.org/) en HDInsight y cómo
 >
 
 > [!IMPORTANT]
-> Los pasos de este tutorial solo se aplican a clústeres de HDInsight basados en Windows. HDInsight solo está disponible en Windows en versiones inferiores a la 3.4. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). Para más información sobre el uso de Phoenix en HDInsight basado en Linux, consulte [Use Apache Phoenix with Linux-based HBase clusters in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md)(Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDinsight).
+> Los pasos de este tutorial solo se aplican a clústeres de HDInsight basados en Windows. HDInsight solo está disponible en Windows en versiones inferiores a la 3.4. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para más información sobre el uso de Phoenix en HDInsight basado en Linux, consulte [Use Apache Phoenix with Linux-based HBase clusters in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md)(Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDinsight).
 >
 
 
@@ -89,7 +88,7 @@ Antes de seguir los procedimientos, debe disponer de lo siguiente:
 * Obtenga el sufijo DNS específico de la conexión del clúster de HBase. Para obtenerlo, establezca RDP en el clúster y, a continuación, ejecute IPConfig.  El sufijo DNS es similar a:
 
         myhbase.b7.internal.cloudapp.net
-* Descargue e instale [Microsoft Visual Studio Express 2013 para escritorio de Windows](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) en su estación de trabajo. Necesitará makecert del paquete para crear un certificado.  
+* Descargue e instale [Microsoft Visual Studio Express para escritorio de Windows](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) en la estación de trabajo. Necesitará makecert del paquete para crear un certificado.  
 * Descargue e instale [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) en su estación de trabajo.  La versión de cliente SQL SQuirreL 3.0 y superiores requieren la versión 1.6 o superior de JRE.  
 
 ### <a name="configure-a-point-to-site-vpn-connection-to-the-azure-virtual-network"></a>Configuración de una conexión VPN de punto a sitio a la red virtual de Azure
@@ -128,7 +127,7 @@ Asegúrese de que ha realizado el aprovisionamiento de un clúster de HBase en u
     El diagrama muestra 0 conexiones de cliente. Después de realizar una conexión a la red virtual, se actualizará el número a uno.
 
 #### <a name="create-your-certificates"></a>Creación de certificados
-Una forma de crear un certificado X.509 es mediante la herramienta de creación de certificados (makecert.exe) que se incluye con [Microsoft Visual Studio Express 2013 para escritorio de Windows](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
+Una forma de crear un certificado X.509 es mediante la herramienta de creación de certificados (makecert.exe) que se incluye con [Microsoft Visual Studio Express para escritorio de Windows](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
 **Para crear un certificado raíz autofirmado**
 

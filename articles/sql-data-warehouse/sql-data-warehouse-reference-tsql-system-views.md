@@ -13,22 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 06/01/2017
+ms.date: 07/12/2017
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 7c38488d55719f5bc376a929a36c98c1e5900eaf
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="system-views" class="xliff"></a>
-
-# Vistas de sistema
-<a id="sql-data-warehouse-catalog-views" class="xliff"></a>
-
-## Vistas de catálogo de almacenamiento de datos SQL
+# <a name="system-views"></a>Vistas de sistema
+## <a name="sql-data-warehouse-catalog-views"></a>Vistas de catálogo de almacenamiento de datos SQL
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_database_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
@@ -43,12 +38,11 @@ ms.lasthandoff: 07/06/2017
 * [sys.pdw_nodes_partitions](http://msdn.microsoft.com/library/mt203908.aspx)
 * [sys.pdw_nodes_pdw_physical_databases](http://msdn.microsoft.com/library/mt203897.aspx)
 * [sys.pdw_nodes_tables](http://msdn.microsoft.com/library/mt203886.aspx)
+* [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql)
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-<a id="sql-data-warehouse-dynamic-management-views-dmvs" class="xliff"></a>
-
-## Vistas de administración dinámica (DMV) de almacenamiento de datos SQL
+## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>Vistas de administración dinámica (DMV) de almacenamiento de datos SQL
 * [sys.dm_pdw_dms_cores](http://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](http://msdn.microsoft.com/library/mt203878.aspx)
@@ -68,18 +62,14 @@ ms.lasthandoff: 07/06/2017
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
 * [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
 
-<a id="sql-server-dmvs-applicable-to-sql-data-warehouse" class="xliff"></a>
-
-## DMV de SQL Server aplicables a Almacenamiento de datos SQL
+## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>DMV de SQL Server aplicables a Almacenamiento de datos SQL
 Las siguientes DMV son aplicables a Almacenamiento de datos SQL, pero para ejecutarlas, es necesario conectarse a la base de datos **maestra** .
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
 * [sys.fn_helpcollations()](https://msdn.microsoft.com/library/ms187963.aspx)
 
-<a id="sql-server-catalog-views" class="xliff"></a>
-
-## Vistas de catálogo de SQL Server
+## <a name="sql-server-catalog-views"></a>Vistas de catálogo de SQL Server
 * [sys.all_columns](http://msdn.microsoft.com/library/ms177522.aspx)
 * [sys.all_objects](http://msdn.microsoft.com/library/ms178618.aspx)
 * [sys.all_parameters](http://msdn.microsoft.com/library/ms190340.aspx)
@@ -145,9 +135,7 @@ Las siguientes DMV son aplicables a Almacenamiento de datos SQL, pero para ejecu
 * [sys.types](http://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
-<a id="sql-server-dmvs-available-in-sql-data-warehouse" class="xliff"></a>
-
-## DMV del servidor SQL disponibles en Almacenamiento de datos SQL
+## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>DMV del servidor SQL disponibles en Almacenamiento de datos SQL
 El almacenamiento de datos SQL expone gran parte de las vistas de administración dinámica (DMV) de SQL Server. Estas vistas, cuando se consultan en Almacenamiento de datos SQL, están informando del estado de las bases de datos SQL que se ejecuta en las distribuciones.
 
 Puesto que el almacenamiento de datos SQL se basa en tecnología MPP de Microsoft, tanto el almacenamiento de datos SQL, como el almacenamiento de datos paralelos (PDW) del sistema de la plataforma de análisis, utilizan las mismas vistas de sistema.
@@ -223,9 +211,7 @@ Es por esto que cada una de estas DMV tiene una columna específica denominada p
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-<a id="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse" class="xliff"></a>
-
-## DMV de PolyBase de SQL Server 2016 disponibles en Almacenamiento de datos SQL
+## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>DMV de PolyBase de SQL Server 2016 disponibles en Almacenamiento de datos SQL
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
 * [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)
@@ -237,9 +223,7 @@ Es por esto que cada una de estas DMV tiene una columna específica denominada p
 * [sys.dm_exec_external_operations](https://msdn.microsoft.com/library/mt146391.aspx)
 * [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
-<a id="sql-server-informationschema-views" class="xliff"></a>
-
-## Vistas INFORMATION_SCHEMA de SQL Server
+## <a name="sql-server-informationschema-views"></a>Vistas INFORMATION_SCHEMA de SQL Server
 * [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
 * [COLUMNAS](http://msdn.microsoft.com/library/ms188348.aspx)
 * [PARÁMETROS](http://msdn.microsoft.com/library/ms173796.aspx)
@@ -250,9 +234,7 @@ Es por esto que cada una de estas DMV tiene una columna específica denominada p
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
 * [VISTAS](http://msdn.microsoft.com/library/ms181381.aspx)
 
-<a id="next-steps" class="xliff"></a>
-
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información de referencia, vea [Información general de referencia de Almacenamiento de datos SQL][SQL Data Warehouse reference overview].
 
 <!--Image references-->

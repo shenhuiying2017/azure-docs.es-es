@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: f5db73d93276f8da223f03fa672af02a3bc9b54d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a95283a5c52a2860a4c4ac9e47938fe7c6b1be84
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configuración de una conexión de red virtual a red virtual (clásico)
@@ -86,7 +85,16 @@ En la tabla siguiente se muestra un ejemplo de cómo definir las redes virtuales
 
 ## <a name="vnetvalues"></a>Paso 2: Creación de las redes virtuales
 
-Cree dos redes virtuales en [Azure Portal](https://portal.azure.com). Si desea ver los pasos para crear redes virtuales clásicas, consulte [Creación de una red virtual clásica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Si usa este artículo como ejercicio, puede usar los valores de ejemplo siguientes:
+Cree dos redes virtuales en [Azure Portal](https://portal.azure.com). Si desea ver los pasos para crear redes virtuales clásicas, consulte [Creación de una red virtual clásica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
+
+Al usar el portal para crear una red virtual clásica, debe ir a la hoja de la red virtual siguiendo los pasos siguientes; en caso contrario, no aparece la opción para crear una red virtual clásica:
+
+1. Haga clic en "+" para abrir la hoja "Nuevo".
+2. En el campo "Buscar en el Marketplace", escriba "Red virtual". Si en su lugar, selecciona Redes -> Red virtual, no obtendrá la opción para crear una red virtual clásica.
+3. En la lista de resultados, busque "Red virtual" y haga clic en él para abrir la hoja Red virtual. 
+4. En la hoja de la red virtual, seleccione "Clásica" para crear una red virtual clásica. 
+
+Si usa este artículo como ejercicio, puede usar los valores de ejemplo siguientes:
 
 **Valores para TestVNet1**
 

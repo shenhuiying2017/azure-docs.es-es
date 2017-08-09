@@ -3,8 +3,8 @@ title: "Incorporación de autenticación a una aplicación de la Plataforma univ
 description: "Obtenga información acerca de cómo usar Aplicaciones móviles del Servicio de aplicaciones de Azure para autenticar a los usuarios de la aplicación de la Plataforma universal de Windows (UWP) en una variedad de proveedores de identidades, incluidos AAD,Google, Facebook, Twitter y Microsoft."
 services: app-service\mobile
 documentationcenter: windows
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: panarasi
 editor: 
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
 ms.service: app-service-mobile
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 96b87d4d6cc1adbc9700102ffd4a989451676d81
-ms.lasthandoff: 03/09/2017
-
+ms.date: 07/05/2017
+ms.author: panarasi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 47da343d4ec956ec2e669757f56e853675f887a3
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Incorporación de la autenticación a la aplicación de Windows
@@ -31,6 +31,20 @@ Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero deb
 ## <a name="register"></a>Registro de la aplicación para la autenticación y configuración del Servicio de aplicaciones
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+## <a name="redirecturl"></a>Adición de la aplicación a las direcciones URL de redirección externa permitidas
+
+La autenticación segura requiere que se defina un nuevo esquema de dirección URL para la aplicación. Esto permite que el sistema de autenticación se redirija a la aplicación una vez completado el proceso de autenticación. En este tutorial, se usará el esquema de dirección URL _appname_. Sin embargo, puede utilizar cualquier otro esquema de dirección URL que elija. Debe ser único para la aplicación móvil. Para habilitar la redirección en el lado de servidor:
+
+1. En [Azure Portal], seleccione App Service.
+
+2. Haga clic en la opción de menú **Autenticación/autorización**.
+
+3. En **URL de redirección externas permitidas**, introduzca `url_scheme_of_your_app://easyauth.callback`.  El valor de **esquema_de_dirección_URL_de_la_aplicación** de esta cadena es el esquema de dirección URL para la aplicación móvil.  Debe seguir la especificación normal de las direcciones URL para un protocolo (usar únicamente letras y números, y comenzar por una letra).  Debe tomar nota de la cadena que elija ya que necesitará ajustar el código de la aplicación móvil con el esquema de direcciones URL en varios sitios.
+
+4. Haga clic en **Aceptar**.
+
+5. Haga clic en **Save**.
+
 ## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
@@ -39,7 +53,7 @@ Ahora, puede comprobar que se deshabilitó el acceso anónimo a su back-end. Con
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del Servicio de aplicaciones.
 
 ## <a name="add-authentication"></a>Incorporación de autenticación a la aplicación
-1. En el archivo de proyecto de aplicación para UWP MainPage.cs, agregue el siguiente fragmento de código a la clase MainPage:
+1. En el archivo de proyecto de aplicación para UWP MainPage.xaml.cs, agregue el siguiente fragmento de código:
    
         // Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -55,7 +69,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
                 // Change 'MobileService' to the name of your MobileServiceClient instance.
                 // Sign-in using Facebook authentication.
                 user = await App.MobileService
-                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                 message =
                     string.Format("You are now signed in - {0}", user.UserId);
    
@@ -73,8 +87,17 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
         }
    
     Este código autentica al usuario con un inicio de sesión de Facebook. Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de **MobileServiceAuthenticationProvider** anterior por el valor de su proveedor.
-2. Elimine o convierta en comentario la llamada al método **ButtonRefresh_Click** (o al método **InitLocalStoreAsync**) en el reemplazo del método **OnNavigatedTo** existente. Esto impide que los datos se carguen antes de que el usuario se haya autenticado. A continuación, agregará un botón **Iniciar sesión** a la aplicación que desencadena la autenticación.
-3. Agregue el siguiente fragmento de código a la clase MainPage:
+2. Reemplace el método **OnNavigatedTo()** en MainPage.xaml.cs. A continuación, agregará un botón **Iniciar sesión** a la aplicación que desencadena la autenticación.
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is Uri)
+            {
+                App.MobileService.ResumeWithURL(e.Parameter as Uri);
+            }
+        }
+
+3. Agregue el siguiente fragmento de código a MainPage.xaml.cs:
    
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -104,7 +127,24 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
                 <TextBlock Margin="5">Sign in</TextBlock> 
             </StackPanel>
         </Button>
-5. Presione la tecla F5 para ejecutar la aplicación, haga clic en el botón **Iniciar sesión** e inicie sesión en la aplicación con el proveedor de identidad que haya elegido. Una vez iniciada la sesión correctamente, la aplicación se ejecutará sin errores y podrá consultar al back-end y realizar actualizaciones de datos.
+5. Agregue el siguiente fragmento de código a App.xaml.cs:
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
+                Frame content = Window.Current.Content as Frame;
+                if (content.Content.GetType() == typeof(MainPage))
+                {
+                    content.Navigate(typeof(MainPage), protocolArgs.Uri);
+                }
+            }
+            Window.Current.Activate();
+            base.OnActivated(args);
+        }
+6. Abra el archivo Package.appxmanifest, vaya a **Declaraciones**, en la lista desplegable **Declaraciones disponibles** seleccione **Protocolo** y haga clic en el botón **Agregar**. Configure ahora las **Propiedades** de la declaración **Protocolo**. En **Nombre para mostrar**, agregue el nombre que quiere mostrar a los usuarios de la aplicación. En **Nombre**, agregue el {esquema_de_dirección_URL_de_la_aplicación}.
+7. Presione la tecla F5 para ejecutar la aplicación, haga clic en el botón **Iniciar sesión** e inicie sesión en la aplicación con el proveedor de identidad que haya elegido. Una vez iniciada la sesión correctamente, la aplicación se ejecutará sin errores y podrá consultar al back-end y realizar actualizaciones de datos.
 
 ## <a name="tokens"></a>Almacenamiento del token de autorización en el cliente
 En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere que el cliente se ponga en contacto con el proveedor de identidades y con el servicio de la aplicación cada vez que se inicia la aplicación. Este método no solo es ineficaz, sino que también puede enfrentarse a problemas relacionados con el uso si varios clientes inician la aplicación al mismo tiempo. Un método mejor es almacenar en caché el token de autorización devuelto por su servicio de aplicación e intentar usarlo primero antes de utilizar un inicio de sesión basado en proveedores.
@@ -126,5 +166,4 @@ Ahora que ha completado este tutorial de autenticación básica, considere la po
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
-
 

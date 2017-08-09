@@ -13,12 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 047d9191e2c844a591c35279ff7b143906087f56
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b7e17b83afb7306b74b8769f31188642b54566ca
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -132,15 +131,15 @@ Para comprobar el caso de uso de NFS, se montó un recurso compartido NFS desde 
 
 El recurso compartido NFS era un conjunto de fragmentación rápido, como el del servidor de SAP HANA. No obstante, se tardó 1 hora y 46 minutos en realizar la copia de seguridad directamente en el recurso compartido de NFS en lugar de 10 minutos, cuando se escribía en una fragmentación local.
 
-![La alternativa no era mucho más rápida que 1 hora y 43 minutos](media/sap-hana-backup-file-level/image037.png)
+![Alternativa no mucho más rápida que 1 hora y 43 minutos](media/sap-hana-backup-file-level/image037.png)
 
-La alternativa de realizar una copia de seguridad en un conjunto de fragmentación local y la copia del recurso compartido NFS en el nivel del SO (un comando **cp -avr** simple) no fue mucho más rápida. Se tardó 1 hora y 43 minutos.
+La alternativa de realizar una copia de seguridad en una fragmentación local y la copia del recurso compartido NFS en el nivel del SO (comando **cp -avr** simple) no fue mucho más rápida. Se tardó 1 hora y 43 minutos.
 
 Por lo tanto, funciona. Sin embargo, el rendimiento no fue bueno para la prueba de copia de seguridad de 230 GB. Podría ser incluso peor para varios terabytes.
 
 ## <a name="copy-sap-hana-backup-files-to-azure-file-service"></a>Copia de archivos de copia de seguridad de SAP HA en el servicio de archivos de Azure
 
-Es posible montar un recurso compartido de archivos de Azure dentro de una VM Linux de Azure. El artículo [Uso de Azure File Storage con Linux](../../../storage/storage-how-to-use-files-linux.md) proporciona información sobre cómo hacerlo. Tenga en cuenta que actualmente hay un límite de cuota de 5 TB de un recurso compartido de archivos de Azure y un límite de tamaño de archivo de 1 TB por cada archivo. Vea [Objetivos de escalabilidad y rendimiento de Azure Storage](../../../storage/storage-scalability-targets.md) para obtener más información sobre los límites de almacenamiento.
+Es posible montar un recurso compartido de archivos de Azure dentro de una VM Linux de Azure. En el artículo [Uso de Azure File Storage con Linux](../../../storage/storage-how-to-use-files-linux.md) encontrará información sobre cómo hacerlo. Tenga en cuenta que actualmente hay un límite de cuota de 5 TB de un recurso compartido de archivos de Azure y un límite de tamaño de archivo de 1 TB por cada archivo. Vea [Objetivos de escalabilidad y rendimiento de Azure Storage](../../../storage/storage-scalability-targets.md) para obtener más información sobre los límites de almacenamiento.
 
 Sin embargo, las pruebas demuestran que la copia de seguridad de SAP HANA no funciona hoy en día directamente con este tipo de montaje CIFS. También se estableció en la [nota 1820529 de SAP](https://launchpad.support.sap.com/#/notes/1820529) que no se recomienda CIFS.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f6bceb2fd03230e4a39c22605ad1fea8dd422be1
+ms.reviewer: asteen
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b8f0cfdb468094bc761d6b939ca318fcfbea3ea4
 ms.contentlocale: es-es
-ms.lasthandoff: 12/28/2016
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Administración de aplicaciones con Azure Active Directory
@@ -55,7 +55,7 @@ Azure Active Directory es la solución completa de identidad como servicio (IDaa
 * Proporciona administración de acceso central, inicio de sesión único (SSO) y creación de informes. 
 * Admite la administración de acceso integrado para [miles de aplicaciones](https://azure.microsoft.com/marketplace/active-directory/) de la Galería de aplicaciones, incluidas Salesforce, Google Apps, Box, Concur, etc. 
 
-Con todas las aplicaciones de Azure Active Directory que publica para sus asociados y clientes (empresa o consumidor) tendrá las mismas funcionalidades de administración de identidad y acceso.<br>  Esto permite reducir significativamente los costos operativos.
+Con todas las aplicaciones de Azure Active Directory que publica para sus asociados y clientes (empresa o consumidor) tendrá las mismas funcionalidades de administración de identidad y acceso.<br> Esto permite reducir significativamente los costos operativos.
 
 ¿Y si necesita implementar una aplicación que aún no aparece en la galería de aplicaciones? Aunque es un proceso un poco más lento que configurar el inicio de sesión único para las aplicaciones desde la galería de aplicaciones, Azure AD proporciona un asistente que le ayudará con la configuración.
 

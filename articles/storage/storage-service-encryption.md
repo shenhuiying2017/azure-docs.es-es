@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7b91be16b5820f379f7408b477311ea86b213ccd
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dcd843ae1ba768ce02256dcc91c61693730c60e4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)
@@ -40,7 +39,7 @@ SSE funciona mediante el cifrado de los datos cuando se escribe en Azure Storage
 
 Para más información, consulte la sección de preguntas más frecuentes.
 
-Para habilitar o deshabilitar el cifrado del servicio Storage para una cuenta de almacenamiento, inicie sesión en [Azure Portal](https://azure.portal.com) y seleccione una cuenta de almacenamiento. En la hoja Configuración, busque la sección Blob service como se muestra en esta captura de pantalla y haga clic en Cifrado.
+Para habilitar o deshabilitar el cifrado del servicio Storage para una cuenta de almacenamiento, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione una cuenta de almacenamiento. En la hoja Configuración, busque la sección Blob service como se muestra en esta captura de pantalla y haga clic en Cifrado.
 
 ![Captura de pantalla del portal que muestra la opción de cifrado](./media/storage-service-encryption/image1.png)
 <br/>*Ilustración 1: Habilitar SSE en Blob service (paso 1)*
@@ -85,7 +84,7 @@ AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y des
 Para más información, visite [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
 #### <a name="using-smb"></a>Uso de SMB
-El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos en la nube mediante el protocolo SMB estándar. Un recurso compartido de archivos se puede montar desde un cliente local o en Azure. Una vez montado, se pueden usar herramientas, como Robocopy, para copiar archivos en recursos compartidos de archivos de Azure. Para más información, consulte [Montaje del recurso compartido de archivos en Windows](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-files#mount-the-file-share) y [Montaje del recurso compartido de archivos en Linux](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share).
+El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos en la nube mediante el protocolo SMB estándar. Un recurso compartido de archivos se puede montar desde un cliente local o en Azure. Una vez montado, se pueden usar herramientas, como Robocopy, para copiar archivos en recursos compartidos de archivos de Azure. Para más información, consulte [Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows](storage-file-how-to-use-files-windows.md) y [Uso de Almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md).
 
 
 #### <a name="using-the-storage-client-libraries"></a>Uso de las bibliotecas de cliente de almacenamiento

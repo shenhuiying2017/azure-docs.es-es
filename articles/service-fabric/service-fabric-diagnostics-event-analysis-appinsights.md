@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c88b2b5cff70e7a4b3642c53502f348f2e789e81
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -75,7 +74,7 @@ En el archivo "WadCfg" de la plantilla de Resource Manager, agregue un "receptor
 
 En los dos fragmentos de código anteriores, el nombre "applicationInsights" se usó para describir el receptor. No se trata de un requisito y, siempre que el nombre del receptor se incluya en "sinks", puede establecer el nombre en cualquier cadena.
 
-Actualmente, los registros del clúster se mostrarán como seguimientos en el Visor de registros de AI. Como la mayoría de los seguimientos de nivel de infraestructura son de tipo "Información", también puede considerar la opción de cambiar la configuración del receptor para que solo envíe registros de tipo "Crítico" o "Error". Esto puede realizarse mediante la adición de "canales" al receptor, como se demuestra en [este artículo](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Actualmente, los registros del clúster se mostrarán como seguimientos en el Visor de registros de AI. Como la mayoría de los seguimientos de la plataforma son de tipo "Información", también puede considerar la opción de cambiar la configuración del receptor para que solo envíe registros de tipo "Crítico" o "Error". Esto puede realizarse mediante la adición de "canales" al receptor, como se demuestra en [este artículo](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 >[!NOTE]
 >Si usa una clave de instrumentación de AI incorrecta en el portal o en la plantilla de Resource Manager, deberá cambiar manualmente la clave y actualizar el clúster o volver a implementarlo. 

@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 5de3e36a97ead2f5ddfe57591e7c80a6df64c064
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ee58d0c6703d7e6688ba9959a7f75c3b52a9411c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Personalice la funcionalidad de autoservicio de restablecimiento de contraseña de Azure AD
@@ -37,6 +36,8 @@ Aunque SSPR no esté habilitado, los usuarios pueden incluir un vínculo "Pónga
 3. Si no se han asignado ninguno de los roles anteriores, se notificará a los **administradores globales**.
 
 En todos los casos, se notificará a un máximo de 100 destinatarios en total.
+
+Para obtener más información sobre los diferentes roles de administrador y cómo asignarlos, vea el documento [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles.md)
 
 ### <a name="disable-contact-your-administrator-emails"></a>Deshabilitar los correos electrónicos de contacto con los administradores
 

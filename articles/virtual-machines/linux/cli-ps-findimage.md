@@ -1,9 +1,9 @@
 ---
-title: "Selección de imágenes de máquina virtuale Linux con la CLI de Azure | Microsoft Docs"
-description: "Infórmese sobre cómo determinar el publicador, la oferta y la SKU de las imágenes al crear una máquina virtual Linux con el modelo de implementación de Resource Manager."
+title: "Selección de imágenes de máquina virtual Linux con la CLI de Azure | Microsoft Docs"
+description: "Obtenga información sobre cómo usar la CLI de Azure para determinar el publicador, la oferta, la SKU y la versión para imágenes de VM de Marketplace."
 services: virtual-machines-linux
 documentationcenter: 
-author: squillace
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,210 +13,239 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/15/2017
-ms.author: rasquill
+ms.date: 07/11/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1c4e8b5168d15c480d2aea41ddf7570d310e1252
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 72c5c2efe2c8a60f13d18b595062448e6a0d1816
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="how-to-find-linux-vm-images-with-the-azure-cli"></a>Cómo encontrar imágenes de máquina virtual Linux con la CLI de Azure
-En este tema se describe cómo buscar publicadores, ofertas, SKU y versiones de cada ubicación en la que puede implementar. 
+# <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Búsqueda de imágenes de maquina virtual Linux en Azure Marketplace con la CLI de Azure
+En este tema se describe cómo usar la CLI de Azure 2.0 para buscar imágenes de VM en Azure Marketplace. Utilice esta información para especificar una imagen de Marketplace cuando cree una máquina virtual Linux.
 
+Asegúrese de que ha instalado la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente y que ha iniciado sesión en una cuenta de Azure (`az login`).
 
-## <a name="use-azure-cli-20"></a>Uso de la CLI de Azure 2.0
+## <a name="list-popular-images"></a>Enumeración de imágenes populares
 
-Después de [instalar la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), use el comando `az vm image list` para ver una lista en caché de las imágenes de máquina virtual más populares. Por ejemplo, el siguiente ejemplo del comando `az vm image list -o table` muestra:
+Ejecute el comando [az vm image list](/cli/azure/vm/image#list) sin la opción `--all` para ver una lista de imágenes de VM populares en Azure Marketplace. Por ejemplo, ejecute el siguiente comando para mostrar una lista de almacenamiento en caché de imágenes populares en el formato de tabla:
+
+```azurecli
+az vm image list --output table
+```
+
+El resultado incluye el URN (el valor en la columna *Urn*), que tiene la forma de *Publicador*:*Oferta*:*SKU*:*Versión*. Use este valor para especificar una imagen al crear una VM con `az vm create`. Al crear una VM con una de las imágenes de VM populares, puede especificar el alias URN como *UbuntuLTS*.
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
-WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
-WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
-WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-UbuntuServer   Canonical               14.04.4-LTS         Canonical:UbuntuServer:14.04.4-LTS:latest                       UbuntuLTS            latest
-CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
-openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
-RHEL           RedHat                  7.2                 RedHat:RHEL:7.2:latest                                          RHEL                 latest
-SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
-Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
+Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
+RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
+SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
+UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
+WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
 ```
 
-### <a name="finding-all-current-images"></a>Búsqueda de todas las imágenes actuales
+## <a name="list-all-current-images"></a>Enumeración de todas las imágenes actuales
 
-Para obtener la lista actual de todas las imágenes, use el comando `az vm image list` con la opción `--all`. A diferencia de los comandos de la CLI de Azure 1.0, el comando `az vm image list --all` devuelve de forma predeterminada todas las imágenes de **westus** (a menos que especifique un determinado argumento `--location`), por lo que el comando `--all` tarda algún tiempo en completarse. Si desea investigar de forma interactiva, use `az vm image list --all > allImages.json`, que devuelve una lista de todas las imágenes disponibles actualmente en Azure y la almacena como un archivo para su uso local. 
+Para obtener la lista actual de todas las imágenes de VM en Marketplace, use el comando `az vm image list` con la opción `--all`. Esta versión del comando tarda tiempo en completarse:
 
-Puede elegir una entre varias opciones para limitar la búsqueda a una ubicación, oferta, publicador o SKU específicos si ya tiene uno o varios en mente. Si no especifica una ubicación, se devuelven los valores para **westus**.
-
-### <a name="find-specific-images"></a>Búsqueda de imágenes específicas
-
-Use `az vm image list` con un filtro para buscar información específica. Por ejemplo, a continuación se muestran las **ofertas** que están disponibles para **Debian** (recuerde que sin el modificador `--all`, solo se busca en la caché local de imágenes comunes):
 
 ```azurecli
-az vm image list --offer Debian -o table --all
+az vm image list --all
 ```
 
-El resultado es similar a este: 
-```
-Offer   Publisher   Sku   Urn                              Version
-------  ---------   ---   -------------------------------  -------------
-Debian  credativ    8     credativ:Debian:8:8.0.201701180  8.0.201701180
+Si no especifica una ubicación determinada con la opción `--location` los valores de `westus` se devuelven de forma predeterminada. (Establezca una ubicación predeterminada distinta ejecutando `az configure --defaults location=<location>`).
 
-<list shortened for the example>
-```
 
-Puede ejecutar filtros parecidos en las opciones **--publisher** y **--sku**. Incluso puede ejecutar coincidencias parciales en un filtro, como buscar **--offerDeb** para encontrar todas las imágenes de Debian o **--publisher Micr** para encontrar todas las imágenes publicadas por Microsoft.
-
-Si sabe cuál va a ser la ubicación de implementación, puede usar los resultados de búsqueda de imágenes generales junto con los comandos `az vm image list-skus`, `az vm image list-offers` y `az vm image list-publishers` para encontrar exactamente lo que quiere y dónde se puede implementar. Por ejemplo, si por el ejemplo anterior sabe que `credativ` tiene una oferta Debian, puede usar `--location` y otras opciones para buscar exactamente lo que quiere. En el ejemplo siguiente se busca una imagen de Debian 8 en **westeurope**:
-
-```azurecli 
-az vm image show -l westeurope -f debian -p credativ --skus 8 --version 8.0.201701180
-```
-
-La salida es la siguiente:
-
-```json
-{
-  "dataDiskImages": [],
-  "id": "/Subscriptions/<guid>/Providers/Microsoft.Compute/Locations/westeurope/Publishers/credativ/ArtifactTypes/VMImage/Offers/debian/Skus/8/Versions/8.0.201701180",
-  "location": "westeurope",
-  "name": "8.0.201701180",
-  "osDiskImage": {
-    "operatingSystem": "Linux"
-  },
-  "plan": null,
-  "tags": null
-}
-```
-
-## <a name="use-azure-cli-10"></a>Uso de CLI de Azure 1.0 
-
-> [!NOTE]
-> En este artículo se describe cómo navegar por las imágenes de máquina virtual y seleccionarlas mediante una instalación de la CLI de Azure 1.0 o Azure PowerShell que admite el modelo de implementación de Azure Resource Manager. Como requisito previo, cambie al modo de Resource Manager. Con la CLI de Azure, especifique el modo escribiendo `azure config mode arm`. 
-> 
-
-La forma más rápida de buscar una imagen es llamar al comando `azure vm image list` y pasar la ubicación, el nombre del publicador (no distingue mayúsculas de minúsculas) y una oferta, si la conoce. Por ejemplo, la lista siguiente es solo un ejemplo breve (muchas listas son bastante largas) si sabe que "Canonical" es un publicador de la oferta "UbuntuServer".
+Si desea investigar de forma interactiva, dirija el resultado a un archivo local. Por ejemplo:
 
 ```azurecli
-azure vm image list westus canonical ubuntuserver
-info:    Executing command vm image list
-warn:    The parameter --sku if specified will be ignored
-+ Getting virtual machine image skus (Publisher:"canonical" Offer:"ubuntuserver" Location:"westus")
-data:    Publisher  Offer         Sku                OS     Version          Location  Urn
-data:    ---------  ------------  -----------------  -----  ---------------  --------  --------------------------------------------------------
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201604203  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201604203
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201605161  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201605161
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201606100  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201606100
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201606270  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201606270
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201607210  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201607210
-data:    canonical  ubuntuserver  16.04.0-LTS        Linux  16.04.201608150  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201608150
-data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607220  westus    canonical:ubuntuserver:16.10-DAILY:16.10.201607220
-data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607230  westus    canonical:ubuntuserver:16.10-DAILY:16.10.201607230
-data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607240  westus    canonical:ubuntuserver:16.10-DAILY:16.10.201607240
+az vm image list --all > allImages.json
 ```
 
-La columna **Urn** será el formulario que se pase a `azure vm quick-create`.
 
-A menudo, sin embargo, aún no se conoce lo que está disponible. En este caso, puede navegar por las imágenes mediante el comando `azure vm image list-publishers` y especificar una ubicación de centro de datos en el símbolo del sistema. Por ejemplo, a continuación se enumeran todos los publicadores de imágenes en la ubicación Oeste de EE. UU. (pase el argumento de ubicación en minúsculas y sin espacios a partir de las ubicaciones estándar).
+
+
+## <a name="find-specific-images"></a>Búsqueda de imágenes específicas
+
+Use `az vm image list` con opciones adicionales para restringir la búsqueda a una ubicación, oferta, publicador o SKU específicos. Por ejemplo, el siguiente comando muestra todas las ofertas de Debian (recuerde que sin el conmutador `--all`, solo busca en la caché local de las imágenes comunes):
 
 ```azurecli
-azure vm image list-publishers
-info:    Executing command vm image list-publishers
-Location: westus
-+ Getting virtual machine and/or extension image publishers (Location: "westus")
-data:    Publisher                                       Location
-data:    ----------------------------------------------  --------
-data:    a10networks                                     westus  
-data:    aiscaler-cache-control-ddos-and-url-rewriting-  westus  
-data:    alertlogic                                      westus  
-data:    AlertLogic.Extension                            westus  
+az vm image list --offer Debian --all --output table 
 ```
 
-Estas listas pueden ser bastante largas, por lo que la lista del ejemplo anterior es simplemente un fragmento. Supongamos que hemos observado que Canonical es, de hecho, un publicador de imágenes en la ubicación Oeste de EE. UU. Ahora puede encontrar sus ofertas mediante una llamada a `azure vm image list-offers` y pasar la ubicación y el publicador cuando se soliciten, como en el ejemplo siguiente:
+El resultado puede ser una lista larga, por lo que se trunca a continuación: 
+```
+Offer    Publisher    Sku                Urn                                              Version
+-------  -----------  -----------------  -----------------------------------------------  --------------
+Debian   credativ     7                  credativ:Debian:7:7.0.201602010                  7.0.201602010
+Debian   credativ     7                  credativ:Debian:7:7.0.201603020                  7.0.201603020
+Debian   credativ     7                  credativ:Debian:7:7.0.201604050                  7.0.201604050
+Debian   credativ     7                  credativ:Debian:7:7.0.201604200                  7.0.201604200
+Debian   credativ     7                  credativ:Debian:7:7.0.201606280                  7.0.201606280
+Debian   credativ     7                  credativ:Debian:7:7.0.201609120                  7.0.201609120
+Debian   credativ     7                  credativ:Debian:7:7.0.201611020                  7.0.201611020
+...
+```
+
+
+Aplique filtros similares con las opciones `--location`, `--publisher` y `--sku`. Incluso puede realizar coincidencias parciales en un filtro, como la búsqueda de `--offer Deb` de todas las imágenes de Debian.
+
+Por ejemplo, el siguiente comando muestra todas las SKU de Debian 8 en `westeurope`:
 
 ```azurecli
-azure vm image list-offers
-info:    Executing command vm image list-offers
-Location: westus
-Publisher: canonical
-+ Getting virtual machine image offers (Publisher: "canonical" Location:"westus")
-data:    Publisher  Offer                      Location
-data:    ---------  -------------------------  --------
-data:    canonical  Ubuntu15.04Snappy          westus
-data:    canonical  Ubuntu15.04SnappyDocker    westus
-data:    canonical  UbunturollingSnappy        westus
-data:    canonical  UbuntuServer               westus
-data:    canonical  Ubuntu_Snappy_Core         westus
-data:    canonical  Ubuntu_Snappy_Core_Docker  westus
-info:    vm image list-offers command OK
+az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
 ```
 
-Ahora ya sabemos que, en la región oeste de EE. UU., Canonical publica la oferta **UbuntuServer** en Azure. Pero, ¿con qué SKU? Para obtener esos valores, llame a `azure vm image list-skus` y responda a la solicitud con la ubicación, el publicador y la oferta que haya encontrado.
+Salida:
+
+```
+Offer    Publisher    Sku                Urn                                              Version
+-------  -----------  -----------------  -----------------------------------------------  -------------
+Debian   credativ     8                  credativ:Debian:8:8.0.201602010                  8.0.201602010
+Debian   credativ     8                  credativ:Debian:8:8.0.201603020                  8.0.201603020
+Debian   credativ     8                  credativ:Debian:8:8.0.201604050                  8.0.201604050
+Debian   credativ     8                  credativ:Debian:8:8.0.201604200                  8.0.201604200
+Debian   credativ     8                  credativ:Debian:8:8.0.201606280                  8.0.201606280
+Debian   credativ     8                  credativ:Debian:8:8.0.201609120                  8.0.201609120
+Debian   credativ     8                  credativ:Debian:8:8.0.201611020                  8.0.201611020
+Debian   credativ     8                  credativ:Debian:8:8.0.201701180                  8.0.201701180
+Debian   credativ     8                  credativ:Debian:8:8.0.201703150                  8.0.201703150
+Debian   credativ     8                  credativ:Debian:8:8.0.201704110                  8.0.201704110
+Debian   credativ     8                  credativ:Debian:8:8.0.201704180                  8.0.201704180
+Debian   credativ     8                  credativ:Debian:8:8.0.201706190                  8.0.201706190
+Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
+...
+```
+
+
+## <a name="navigate-the-images"></a>Navegación por las imágenes 
+Otra forma de buscar una imagen en una ubicación es ejecutar los comandos [az vm image list-publishers](/cli/azure/vm/image#list-publishers), [az vm image list-offers](/cli/azure/vm/image#list-offers) y [az vm image list-skus](/cli/azure/vm/image#list-skus) en orden. Con estos comandos, determine estos valores:
+
+1. Listado de los publicadores de imágenes.
+2. Para un publicador determinado, enumeración de sus ofertas.
+3. Para una oferta determinada, enumeración de sus SKU.
+
+
+Por ejemplo, el siguiente comando muestra los publicadores de imagen en la ubicación del oeste de EE. UU.:
 
 ```azurecli
-azure vm image list-skus
-info:    Executing command vm image list-skus
-Location: westus
-Publisher: canonical
-Offer: ubuntuserver
-+ Getting virtual machine image skus (Publisher:"canonical" Offer:"ubuntuserver" Location:"westus")
-data:    Publisher  Offer         sku                Location
-data:    ---------  ------------  -----------------  --------
-data:    canonical  ubuntuserver  12.04.2-LTS        westus
-data:    canonical  ubuntuserver  12.04.3-LTS        westus
-data:    canonical  ubuntuserver  12.04.4-LTS        westus
-data:    canonical  ubuntuserver  12.04.5-DAILY-LTS  westus
-data:    canonical  ubuntuserver  12.04.5-LTS        westus
-data:    canonical  ubuntuserver  12.10              westus
-data:    canonical  ubuntuserver  14.04-beta         westus
-data:    canonical  ubuntuserver  14.04.0-LTS        westus
-data:    canonical  ubuntuserver  14.04.1-LTS        westus
-data:    canonical  ubuntuserver  14.04.2-LTS        westus
-data:    canonical  ubuntuserver  14.04.3-LTS        westus
-data:    canonical  ubuntuserver  14.04.4-DAILY-LTS  westus
-data:    canonical  ubuntuserver  14.04.4-LTS        westus
-data:    canonical  ubuntuserver  14.04.5-DAILY-LTS  westus
-data:    canonical  ubuntuserver  14.04.5-LTS        westus
-data:    canonical  ubuntuserver  14.10              westus
-data:    canonical  ubuntuserver  14.10-beta         westus
-data:    canonical  ubuntuserver  14.10-DAILY        westus
-data:    canonical  ubuntuserver  15.04              westus
-data:    canonical  ubuntuserver  15.04-beta         westus
-data:    canonical  ubuntuserver  15.04-DAILY        westus
-data:    canonical  ubuntuserver  15.10              westus
-data:    canonical  ubuntuserver  15.10-alpha        westus
-data:    canonical  ubuntuserver  15.10-beta         westus
-data:    canonical  ubuntuserver  15.10-DAILY        westus
-data:    canonical  ubuntuserver  16.04-alpha        westus
-data:    canonical  ubuntuserver  16.04-beta         westus
-data:    canonical  ubuntuserver  16.04.0-DAILY-LTS  westus
-data:    canonical  ubuntuserver  16.04.0-LTS        westus
-data:    canonical  ubuntuserver  16.10-DAILY        westus
-info:    vm image list-skus command OK
+az vm image list-publishers --location westus --output table
 ```
 
-Con esta información, ahora puede buscar con precisión la imagen que desee mediante una llamada a la llamada original en la parte superior.
+Salida:
+
+```
+Location    Name
+----------  ----------------------------------------------------
+westus      4psa
+westus      7isolutions
+westus      a10networks
+westus      abiquo
+westus      accellion
+westus      Acronis
+westus      Acronis.Backup
+westus      actian_matrix
+westus      actifio
+westus      activeeon
+westus      adatao
+...
+```
+Estas listas pueden ser largas, por lo que este resultado de ejemplo es solo un fragmento de código. Utilice esta información para buscar ofertas desde un publicador específico. Por ejemplo, si Canonical es un publicador de imágenes en la ubicación del oeste de EE. UU., busque las ofertas ejecutando `azure vm image list-offers`. Pase la ubicación y el publicador como en el ejemplo siguiente:
 
 ```azurecli
-azure vm image list westus canonical ubuntuserver 16.04.0-LTS
-info:    Executing command vm image list
-+ Getting virtual machine images (Publisher:"canonical" Offer:"ubuntuserver" Sku: "16.04.0-LTS" Location:"westus")
-data:    Publisher  Offer         Sku          OS     Version          Location  Urn
-data:    ---------  ------------  -----------  -----  ---------------  --------  --------------------------------------------------
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201604203  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201604203
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201605161  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201605161
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201606100  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201606100
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201606270  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201606270
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201607210  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201607210
-data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201608150  westus    canonical:ubuntuserver:16.04.0-LTS:16.04.201608150
-info:    vm image list command OK
+az vm image list-offers --location westus --publisher Canonical --output table
 ```
 
+Salida:
+
+```
+Location    Name
+----------  -------------------------
+westus      Ubuntu15.04Snappy
+westus      Ubuntu15.04SnappyDocker
+westus      UbunturollingSnappy
+westus      UbuntuServer
+westus      Ubuntu_Core
+westus      Ubuntu_Snappy_Core
+westus      Ubuntu_Snappy_Core_Docker
+```
+Verá que en la región del oeste de EE. UU, Canonical publica la oferta **UbuntuServer** sobre Azure. Pero, ¿con qué SKU? Para obtener esos valores, ejecute `azure vm image list-skus` y establezca la ubicación, el publicador y la oferta que haya encontrado:
+
+```azurecli
+az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
+```
+
+Salida:
+
+```
+Location    Name
+----------  -----------------
+westus      12.04.3-LTS
+westus      12.04.4-LTS
+westus      12.04.5-DAILY-LTS
+westus      12.04.5-LTS
+westus      12.10
+westus      14.04.0-LTS
+westus      14.04.1-LTS
+westus      14.04.2-LTS
+westus      14.04.3-LTS
+westus      14.04.4-LTS
+westus      14.04.5-DAILY-LTS
+westus      14.04.5-LTS
+westus      16.04-beta
+westus      16.04-DAILY-LTS
+westus      16.04-LTS
+westus      16.04.0-LTS
+westus      16.10
+westus      16.10-DAILY
+westus      17.04
+westus      17.04-DAILY
+westus      17.10-DAILY
+```
+
+Por último, use el comando `az vm image list` para buscar una versión específica de la SKU que desee, por ejemplo, **14.04-LTS**:
+
+```azurecli
+az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
+```
+
+Salida:
+
+```
+Offer         Publisher    Sku        Urn                                               Version
+------------  -----------  ---------  ------------------------------------------------  ---------------
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201611220  16.04.201611220
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201611300  16.04.201611300
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612050  16.04.201612050
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612140  16.04.201612140
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612210  16.04.201612210
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201701130  16.04.201701130
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702020  16.04.201702020
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702200  16.04.201702200
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702210  16.04.201702210
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702240  16.04.201702240
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703020  16.04.201703020
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703030  16.04.201703030
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703070  16.04.201703070
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703270  16.04.201703270
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703280  16.04.201703280
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703300  16.04.201703300
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705080  16.04.201705080
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705160  16.04.201705160
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706100  16.04.201706100
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706191  16.04.201706191
+```
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora puede elegir con precisión la imagen que desea utilizar. Para crear una máquina virtual rápidamente con la información de URN que acaba de encontrar, o para usar una plantilla con esa información de URN, consulte [Creación de una máquina virtual Linux con la CLI de Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ahora puede elegir de forma precisa la imagen que desee usar tomando nota del valor URN. Al especificar la imagen, puede reemplazar de forma opcional el número de versión en el URN con "más actualizado". Esta versión es siempre la versión más actualizada de la distribución. Para crear una máquina virtual rápidamente con la información de URN que acaba de encontrar, vea [Creación de una máquina virtual Linux con la CLI de Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

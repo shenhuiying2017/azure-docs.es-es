@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 22c0ee5090d67430fc63ad3f3c09076de0be067c
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 6d6afd2b9b956138ed400fbd6cabd3b480fde0f0
 ms.contentlocale: es-es
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-virtual-network"></a>Red virtual
@@ -66,7 +65,7 @@ Puede conectar su red local a una red virtual mediante cualquier combinación de
 - **VPN de sitio a sitio:** se establece entre el dispositivo VPN y una instancia de Azure VPN Gateway. Este tipo de conexión permite cualquier recurso local que autoriza a acceder a una red virtual. La conexión es una VPN de IPSec/IKE que proporciona comunicación cifrada por Internet entre el dispositivo local y la instancia de Azure VPN Gateway. La latencia de una conexión de sitio a sitio es imprevisible, ya que el tráfico atraviesa Internet.
 - **Azure ExpressRoute:** establecida entre la red y Azure, a través de un asociado de ExpressRoute. Esta conexión es privada. El tráfico no atraviesa Internet. La latencia de una conexión ExpressRoute es predecible, ya que el tráfico no atraviesa Internet.
 
-Para más información acerca de todas las opciones de la conexión anterior, consulte el artículo [Diagramas de topología de conexión](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#a-namediagramsaconnection-topology-diagrams).
+Para más información acerca de todas las opciones de la conexión anterior, consulte el artículo [Diagramas de topología de conexión](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
 
 ## <a name="filtering"></a>Filtrado del tráfico de red
 Puede filtrar el tráfico de red entre subredes mediante una o ambas de las siguientes opciones:
@@ -92,4 +91,5 @@ Para revisar las preguntas más frecuentes sobre la red Virtual, vea el artícul
 
 - Cree su primera red virtual y conecte algunas máquinas virtuales a ella, siguiendo los pasos descritos en el artículo [Creación de su primera red virtual](virtual-network-get-started-vnet-subnet.md).
 - Cree una conexión de punto a sitio a una red virtual siguiendo los pasos descritos en el artículo [Configuración de una conexión de punto a sitio](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Obtenga más información sobre las demás [funcionalidades de red](../networking/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) clave de Azure.
 

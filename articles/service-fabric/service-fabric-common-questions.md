@@ -3,7 +3,7 @@ title: Preguntas frecuentes sobre Microsoft Azure Service Fabric | Microsoft Doc
 description: "Preguntas más frecuentes acerca de Service Fabric y sus respuestas"
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: chackdan
 manager: timlt
 editor: 
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
-ms.author: seanmck
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 0d1d795a4d6965de6cdc2b9bd81a24a27a255566
+ms.date: 06/20/2017
+ms.author: chackdan
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ce6debc0832da565d24a3ca82e2fa5bf7b797f8a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -41,7 +41,7 @@ En la actualidad no, pero esta es también una solicitud común a la que pensamo
 
 El desafío con las actualizaciones del sistema operativo es que normalmente requieren un reinicio de la máquina, lo que supone una pérdida temporal de disponibilidad. En sí mismo, esto no es problema, puesto que Service Fabric redirigirá automáticamente el tráfico para los servicios afectados a otros nodos. Sin embargo, si las actualizaciones del sistema operativo no se coordinan en el clúster, existe la posibilidad de que muchos nodos dejen de funcionar a la vez. Estos reinicios simultáneos pueden provocar la pérdida de disponibilidad completa para un servicio, o por lo menos para una partición específica (para un servicio con estado).
 
-En el futuro, mantendremos una directiva de actualización del sistema operativo, completamente automatizada, que esté coordinada entre los dominios de actualización, asegurando con ello el mantenimiento de la disponibilidad a pesar de los reinicios y otros errores inesperados.
+En el futuro, está prevista la compatibilidad con una directiva de actualización del sistema operativo, completamente automatizada, que esté coordinada entre los dominios de actualización, asegurando con ello el mantenimiento de la disponibilidad a pesar de los reinicios y otros errores inesperados.
 
 Mientras tanto, [suministramos un script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) que el administrador de un clúster puede usar para iniciar manualmente la revisión de cada nodo de una manera segura.
 
@@ -90,7 +90,7 @@ Este problema se ha informado en los clústeres de la versión 5.6.204.9494
 
 **Mitigación**: siga [este documento](service-fabric-dnsservice.md) para habilitar el servicio Service Fabric DNS en el clúster.
 
-**Corregir**: actualizar a una versión del clúster compatible mayor que la 5.6.204.9494, cuando esté disponible. Si el clúster está establecido en actualizaciones automáticas, se actualizará automáticamente a la versión en este problema está corregido.
+**Solución**: actualice a una versión de clúster admitida superior a la 5.6.204.9494, cuando esté disponible. Si el clúster está establecido en actualizaciones automáticas, se actualizará automáticamente a la versión en este problema está corregido.
 
   
 ## <a name="application-design"></a>Diseño de aplicaciones

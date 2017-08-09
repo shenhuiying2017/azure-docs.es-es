@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 7ddce64d7ce6107f530b970235bc33a05f49480f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 90e08b9cf2feb93de4877bec9734352949896dca
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integración de Azure Active Directory con Salesforce Sandbox
@@ -144,7 +143,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 10. En el panel de navegación de la izquierda, haga clic en **Controles de seguridad** y luego haga clic en **Configuración de inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-salesforcesandbox-tutorial/IC781025.png)
-11. En la sección Single Sign-On Settings (Configuración de inicio de sesión), realice los pasos siguientes:  ![Configuración del inicio de sesión](./media/active-directory-saas-salesforcesandbox-tutorial/IC781026.png)
+11. En la sección Configuración de inicio de sesión único, siga estos pasos: ![Configurar el inicio de sesión único](./media/active-directory-saas-salesforcesandbox-tutorial/IC781026.png)
      
      a.  Seleccione **SAML habilitado**. 
 
@@ -168,7 +167,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     g. Pegue la **dirección URL de servicio de inicio de sesión único** en el cuadro de texto **Identity Provider Login URL** (URL de inicio de sesión del proveedor de identidades). 
 
-    h. SFDC no admite el cierre de sesión SAML.  Como alternativa, pegue 'https://login.windows.net/common/wsfederation?wa=wsignout1.0' en el cuadro de texto de la **dirección URL de cierre de sesión del proveedor de identidades** .
+    h. SFDC no admite el cierre de sesión SAML.  Como alternativa, pegue "https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0" en el cuadro de texto **URL de cierre de sesión del proveedor de identidades**.
 
     i. Para **Service Provider Initiated Request Binding** (Enlace de solicitud iniciada por el proveedor de servicio), seleccione **HTTP POST** (Método HTTP POST). 
 

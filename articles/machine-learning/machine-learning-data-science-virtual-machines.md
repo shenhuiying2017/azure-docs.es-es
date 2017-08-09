@@ -1,6 +1,6 @@
 ---
-title: Virtual Machines de ciencia de datos en Azure | Microsoft Docs
-description: "Configurar una máquina virtual de ciencia de datos"
+title: "Aprovisionamiento de máquinas de virtuales de ciencia de datos de Azure como IPython Notebook Servers | Microsoft Docs"
+description: "Configuración de una máquina virtual de ciencia de datos como un IPython Notebook Server con herramientas compatibles."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: xibingao;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 4de0683f2f58cc598a5c37e74a30b7e17aa7fd0d
-ms.lasthandoff: 12/20/2016
-
+ms.date: 07/21/2017
+ms.author: bradsev
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: db1ffb2a226a087ecea2ea6f560c6b803e33d8c7
+ms.contentlocale: es-es
+ms.lasthandoff: 07/22/2017
 
 ---
-# <a name="data-science-virtual-machines-in-azure"></a>Máquinas virtuales de ciencia de datos en Azure
+# <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a>Aprovisionamiento de máquinas de virtuales de ciencia de datos de Azure como IPython Notebook Servers
 Se ofrecen instrucciones que describen cómo configurar una VM de Azure y una VM de Azure con el servicio SQL como, por ejemplo, los servidores de Bloc de notas de IPython. La máquina virtual Windows se configura con herramientas de compatibilidad como IPython Notebook, el Explorador de Azure Storage y AzCopy, así como otras utilidades que son útiles para los proyectos de ciencia de datos. El Explorador de almacenamiento de Azure y AzCopy, por ejemplo, permiten cargar de manera cómoda datos en el almacenamiento de blobs de Azure desde la máquina local o descargarlos en el equipo local desde el almacenamiento. 
 
 Este menú redirige a temas en los que se describe cómo configurar los diversos entornos de ciencia de datos que usa el [proceso de ciencia de datos en equipos (TDSP)](data-science-process-overview.md).

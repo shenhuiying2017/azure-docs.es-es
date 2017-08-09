@@ -1,10 +1,10 @@
 ---
 title: Procedimiento para guardar los mensajes de IoT Hub en el almacenamiento de datos de Azure | Microsoft Docs
-description: "Use Azure Function App para guardar mensajes de IoT Hub en Azure Table Storage. Los mensajes del IoT Hub contienen información, como datos del sensor, que se envía desde el dispositivo de IoT."
+description: "Use la aplicación de función de Azure para guardar mensajes de IoT Hub en Azure Table Storage. Los mensajes del IoT Hub contienen información, como datos del sensor, que se envía desde el dispositivo de IoT."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: almacenamiento de datos de iot, almacenamiento de datos del sensor de iot
 ms.assetid: 62fd14fd-aaaa-4b3d-8367-75c1111b6269
@@ -13,56 +13,57 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 07/12/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: c1f5d737b9718ead9c59794dae23798ef26aa42a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ed867e1e7702d3f178feeab007ac94fb1d67c140
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Procedimiento para guardar mensajes de IoT Hub que contienen información, como datos del sensor, en Azure Table Storage
+# <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-table-storage"></a>Procedimiento para guardar mensajes de IoT Hub que contienen datos del sensor en Azure Table Storage
 
 ![Diagrama integral](media/iot-hub-get-started-e2e-diagram/3.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-## <a name="what-you-will-learn"></a>Lo qué aprenderá
+## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
-Aprenderá a crear una cuenta de Azure Storage y una aplicación de función de Azure para almacenar mensajes de IoT Hub en Azure Table Storage.
+Aprenderá a crear una cuenta de Azure Storage y una aplicación de función de Azure para almacenar mensajes de IoT Hub en Table Storage.
 
-## <a name="what-you-will-do"></a>Lo que hará
+## <a name="what-you-do"></a>Qué debe hacer
 
 - Cree una cuenta de Azure Storage.
 - Prepare la conexión de IoT Hub para que lea mensajes.
 - Cree e implemente una aplicación de función de Azure.
 
-## <a name="what-you-will-need"></a>Qué necesita
+## <a name="what-you-need"></a>Lo que necesita
 
-- Tutorial [Instalación de su dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) completado donde se abordan los siguientes requisitos:
+- [Instalar el dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) para que cumpla los siguientes requisitos:
   - Una suscripción de Azure activa.
-  - Un centro de Azure IoT en su suscripción.
-  - Una aplicación en ejecución que envía mensajes a su centro de Azure IoT.
+  - Una instancia de IoT Hub en su suscripción. 
+  - Una aplicación en ejecución que envíe mensajes a su instancia de IoT Hub.
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
 1. En [Azure Portal](https://portal.azure.com/), haga clic en **Nuevo** > **Storage** > **Cuenta de Storage**.
-1. Escriba la información necesaria para la cuenta de almacenamiento:
+
+2. Escriba la información necesaria para la cuenta de almacenamiento:
 
    ![Creación de una cuenta de almacenamiento en Azure Portal](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
 
-   **Nombre**: el nombre de la cuenta de almacenamiento. El nombre debe ser único globalmente.
+   * **Nombre**: el nombre de la cuenta de almacenamiento. El nombre debe ser único globalmente.
 
-   **Grupo de recursos**: use el mismo grupo de recursos que utiliza el IoT Hub.
+   * **Grupo de recursos**: use el mismo grupo de recursos que usa el IoT Hub.
 
-   **Anclar al panel**: marque esta opción para facilitar el acceso al IoT Hub desde el panel.
-1. Haga clic en **Crear**.
+   * **Anclar al panel**: seleccione esta opción para facilitar el acceso a IoT Hub desde el panel.
 
-## <a name="prepare-for-iot-hub-connection-to-read-messages"></a>Preparación de la conexión de IoT Hub para leer mensajes
+3. Haga clic en **Crear**.
 
-IoT Hub expone un punto de conexión integrado compatible con Event Hub para permitir que las aplicaciones lean mensajes de IoT Hub. Mientras tanto, las aplicaciones usan grupos de consumidores para leer datos de IoT Hub. Antes de crear una aplicación de función de Azure para leer datos del IoT Hub, necesita:
+## <a name="prepare-your-iot-hub-connection-to-read-messages"></a>Preparación de la conexión de IoT Hub para que lea mensajes
+
+IoT Hub expone un punto de conexión integrado compatible con el centro de eventos para permitir que las aplicaciones lean mensajes de IoT Hub. Mientras tanto, las aplicaciones usan grupos de consumidores para leer datos de IoT Hub. Antes de crear una aplicación de función de Azure para leer los datos del IoT Hub, necesita:
 
 - Obtener la cadena de conexión del punto de conexión del IoT Hub.
 - Crear un grupo de consumidores para el IoT Hub.
@@ -70,85 +71,113 @@ IoT Hub expone un punto de conexión integrado compatible con Event Hub para per
 ### <a name="get-the-connection-string-of-your-iot-hub-endpoint"></a>Obtener la cadena de conexión del punto de conexión del IoT Hub
 
 1. Abra el IoT Hub.
-1. En el panel **IoT Hub**, haga clic en **Puntos de conexión** en **MENSAJERÍA**.
-1. En el panel derecho, haga clic en **Eventos** en **Built-in endpoints** (Puntos de conexión integrados).
-1. En el panel **Propiedades**, tome nota de los siguientes valores:
-   - Punto de conexión compatible con Event Hub
-   - Nombre compatible con Event Hub
+
+2. En **Mensajería** del panel **IoT Hub**, haga clic en **Puntos de conexión**.
+
+3. En el panel derecho, haga clic en **Eventos** en **Puntos de conexión integrados**.
+
+4. Anote los siguientes valores del panel **Propiedades**:
+   - Extremo compatible con Centro de eventos
+   - Nombre compatible con Centro de eventos
 
    ![Obtener la cadena de conexión del punto de conexión del IoT Hub en Azure Portal](media\iot-hub-store-data-in-azure-table-storage\2_azure-portal-iot-hub-endpoint-connection-string.png)
 
-1. En el panel **IoT Hub**, haga clic en **Directivas de acceso compartido** en **CONFIGURACIÓN**.
-1. Haga clic en **iothubowner**.
-1. Anote el valor de la **clave principal**.
-1. Componga la cadena de conexión de su punto de conexión del IoT Hub de la manera siguiente:
+5. En **Configuración** del panel **IoT Hub**, haga clic en **Directivas de acceso compartido**.
+
+6. Haga clic en **iothubowner**.
+
+7. Anote el valor de **Clave principal**.
+
+8. Cree la cadena de conexión de su punto de conexión de IoT Hub de la manera siguiente:
 
    `Endpoint=<Event Hub-compatible endpoint>;SharedAccessKeyName=iothubowner;SharedAccessKey=<Primary key>`
 
-   > [!Note]
-   > Reemplace `<Event Hub-compatible endpoint>` y `<Primary key>` por los valores que anotó.
+   > [!NOTE]
+   > Reemplace `<Event Hub-compatible endpoint>` y `<Primary key>` por los valores que anotó anteriormente.
 
 ### <a name="create-a-consumer-group-for-your-iot-hub"></a>Crear un grupo de consumidores para el IoT Hub
 
 1. Abra el IoT Hub.
-1. En el panel **IoT Hub**, haga clic en **Puntos de conexión** en **MENSAJERÍA**.
-1. En el panel derecho, haga clic en **Eventos** en **Built-in endpoints** (Puntos de conexión integrados).
-1. En el panel **Propiedades**, escriba un nombre en **Grupos de consumidores** y anote el nombre.
-1. Haga clic en **Guardar**.
+
+2. En **Mensajería** del panel **IoT Hub**, haga clic en **Puntos de conexión**.
+
+3. En el panel derecho, haga clic en **Eventos** en **Puntos de conexión integrados**.
+
+4. En el panel **Propiedades**, escriba un nombre en **Grupos de consumidores** y anótelo.
+
+5. Haga clic en **Guardar**.
 
 ## <a name="create-and-deploy-an-azure-function-app"></a>Creación e implementación de una aplicación de función de Azure
 
 1. En [Azure Portal](https://portal.azure.com/), haga clic en **Nuevo** > **Compute** > **Function App**.
-1. Escriba la información necesaria para la aplicación de función.
+
+2. Escriba la información necesaria para la aplicación de función.
 
    ![Creación de una aplicación de función en Azure Portal](media\iot-hub-store-data-in-azure-table-storage\3_azure-portal-create-function-app.png)
 
-   **Nombre de la aplicación**: el nombre de la aplicación de función. El nombre debe ser único globalmente.
+   * **Nombre de la aplicación**: el nombre de la aplicación de función. El nombre debe ser único globalmente.
 
-   **Grupo de recursos**: use el mismo grupo de recursos que utiliza el IoT Hub.
+   * **Grupo de recursos**: use el mismo grupo de recursos que usa el IoT Hub.
 
-   **Cuenta de Storage**: la cuenta de almacenamiento que ha creado.
+   * **Cuenta de Storage**: la cuenta de almacenamiento que ha creado.
 
-   **Anclar al panel**: marque esta opción para facilitar el acceso a la aplicación de función desde el panel.
-1. Haga clic en **Crear**.
-1. Cuando termine de crear la aplicación de función, ábrala.
-1. Cree una nueva función en la aplicación de función.
-   1. Haga clic en **Nueva función**.
-   1. Seleccione **JavaScript** para **Lenguaje** y **Procesamiento de datos** para **Escenario**.
-   1. Haga clic en **Crear esta función**, a continuación, haga clic en **Nueva función**.
-   1. Seleccione **JavaScript** para el lenguaje y **Procesamiento de datos** para el escenario.
-   1. Haga clic en la plantilla **EventHubTrigger-JavaScript**.
-   1. Escriba la información necesaria para la plantilla.
+   * **Anclar al panel**: marque esta opción para facilitar el acceso a la aplicación de función desde el panel.
 
-      **Nombre de la función**: el nombre de la función.
+3. Haga clic en **Crear**.
 
-      **Nombre del Centro de eventos**: el nombre compatible con Event Hub que anotó.
+4. Una vez creada la aplicación de función, ábrala.
 
-      **Conexión de Centro de eventos**: haga clic en Nuevo para agregar la cadena de conexión de su punto de conexión de IoT que ha compuesto.
-   1. Haga clic en **Crear**.
-1. Configure una salida de la función.
-   1. Haga clic en **Integrar** > **Nueva salida** > **Azure Table Storage** > **Seleccionar**.
+5. En la aplicación de función, haga lo siguiente para crear una función:
 
-      ![Agregar una tabla de almacenamiento a la aplicación de función en Azure Portal](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
-   1. Escriba la información necesaria.
+   a. Haga clic en **Nueva función**.
 
-      **Nombre de parámetro de tabla**: use `outputTable` para el nombre, que se utilizará en el código de Azure Functions.
+   b. Seleccione **JavaScript** para **Lenguaje** y **Procesamiento de datos** para **Escenario**.
+
+   c. Haga clic en **Crear esta función** y en **Nueva función**.
+
+   d. Seleccione **JavaScript** para el lenguaje y **Procesamiento de datos** para el escenario.
+
+   e. Haga clic en la plantilla **EventHubTrigger-JavaScript**.
+
+   f. Escriba la información necesaria para la plantilla.
+
+      * **Nombre de la función**: el nombre de la función.
+
+      * **Nombre del Centro de eventos**: el nombre compatible con el centro de eventos que anotó.
+
+      * **Conexión de Centro de eventos**: para agregar la cadena de conexión del punto de conexión de IoT Hub creado, haga clic en **Nuevo**.
+
+   g. Haga clic en **Crear**.
+
+6. Configure una salida de la función de la siguiente manera:
+
+   a. Haga clic en **Integrar** > **Nueva salida** > **Azure Table Storage** > **Seleccionar**.
+
+      ![Incorporación de una tabla de almacenamiento a la aplicación de función en Azure Portal](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
+
+   b. Escriba la información necesaria.
+
+      * **Nombre de parámetro de tabla**: use `outputTable`, que se utilizará en el código de la función de Azure.
       
-      **Nombre de la tabla**: use `deviceData` para el nombre.
+      * **Nombre de la tabla**: use `deviceData`.
 
-      **Conexión de cuenta de Storage**: haga clic en **Nueva** y seleccione o escriba la cuenta de almacenamiento. Si no puede ver la cuenta de almacenamiento, consulte [Requisitos de la cuenta de almacenamiento](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+      * **Conexión de cuenta de Storage**: haga clic en **Nuevo** y seleccione o escriba la cuenta de Storage. Si la cuenta de almacenamiento no aparece, consulte [Requisitos de la cuenta de almacenamiento](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements).
       
-   1. Haga clic en **Guardar**.
-1. En **Desencadenadores**, haga clic en **Azure Event Hub (myEventHubTrigger)**.
-1. En **Grupo de consumidores del Centro de eventos**, escriba el nombre del grupo de consumidores que creó y haga clic en **Guardar**.
-1. Haga clic en **Desarrollar** y luego en **Ver archivos**.
-1. Reemplace el código de `index.js` por los siguientes valores y luego haga clic en **Guardar**.
+   c. Haga clic en **Guardar**.
+
+7. En **Desencadenadores**, haga clic en **Azure Event Hubs (eventHubMessages)**.
+
+8. En **Grupo de consumidores del Centro de eventos**, escriba el nombre del grupo de consumidores que creó y haga clic en **Guardar**.
+
+9. Haga clic en **Desarrollar** y luego en **Ver archivos**.
+
+10. Reemplace el código de `index.js` por lo siguiente:
 
    ```javascript
    'use strict';
 
-   // This function is triggered each time a message is revieved in the IoTHub.
-   // The message payload is persisted in an Azure Storage Table
+   // This function is triggered each time a message is received in the IoT hub.
+   // The message payload is persisted in an Azure storage table
  
    module.exports = function (context, iotHubMessage) {
     context.log('Message received: ' + JSON.stringify(iotHubMessage));
@@ -164,23 +193,28 @@ IoT Hub expone un punto de conexión integrado compatible con Event Hub para per
    };
    ```
 
-Por ahora, ha creado la aplicación de función. Dicha aplicación almacena mensajes que su IoT Hub recibe en su instancia de Azure Table Storage.
+11. Haga clic en **Guardar**.
 
-> [!Note]
-> Puede usar el botón **Ejecutar** para probar la aplicación de función. Al hacer clic en **Ejecutar**, se envía el mensaje de prueba al IoT Hub. La llegada del mensaje debe desencadenar que se inicie la aplicación de función y luego guarde el mensaje en su instancia de Azure Table Storage. El panel **Registros** registra los detalles del proceso.
+Acaba de crear la aplicación de función, que almacena mensajes que la instancia de IoT Hub recibe en Table Storage.
+
+> [!NOTE]
+> Puede usar el botón **Ejecutar** para probar la aplicación de función. Al hacer clic en **Ejecutar**, se envía el mensaje de prueba al IoT Hub. La llegada del mensaje debe desencadenar que se inicie la aplicación de función; después, guarde el mensaje en Table Storage. El panel **Registros** registra los detalles del proceso.
 
 ## <a name="verify-your-message-in-your-table-storage"></a>Comprobación del mensaje en Table Storage
 
 1. Ejecute la aplicación de ejemplo en el dispositivo para enviar mensajes a su IoT Hub.
-1. [Descargue e instale el Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
-1. Abra el Explorador de Microsoft Azure Storage, haga clic en **Agregar una cuenta de Azure** > **Iniciar sesión** y luego inicie sesión en su cuenta de Azure.
-1. Haga clic en la suscripción de Azure > **Cuentas de almacenamiento** > su cuenta de almacenamiento > **Tablas** > **deviceData**.
+
+2. [Descargue e instale el Explorador de Azure Storage](http://storageexplorer.com/).
+
+3. Abra el Explorador de Storage, haga clic en **Add an Azure Account** (Agregar una cuenta de Azure)  > **Iniciar sesión** e inicie sesión en su cuenta de Azure.
+
+4. Haga clic en la suscripción de Azure > **Cuentas de almacenamiento** > su cuenta de almacenamiento > **Tablas** > **deviceData**.
 
    Verá que los mensajes enviados desde el dispositivo a su IoT Hub se han registrado en la tabla `deviceData`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha creado correctamente la cuenta de Azure Storage y la aplicación de función de Azure para almacenar los mensajes que recibe su IoT Hub en su instancia de Azure Table Storage.
+Ha creado correctamente la cuenta de Azure Storage y la aplicación de función de Azure, donde se almacenan los mensajes que recibe la instancia de IoT Hub de Table Storage.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

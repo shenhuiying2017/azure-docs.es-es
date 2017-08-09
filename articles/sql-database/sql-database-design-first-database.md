@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/20/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8af9ea0a76b9a0606284505195ee3f52b1964604
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d5e63e7079b652e69a089aef495952d29cae67a2
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -42,9 +41,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar el tutorial, asegúrese de tener instalada la última versión de [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
+Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
+- La versión más reciente de [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
+- La versión más reciente de [BCP y SQLCMD] [https://www.microsoft.com/download/details.aspx?id=36433].
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en el portal de Azure
+## <a name="log-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
@@ -110,7 +111,7 @@ El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide
    > lo necesitará para conectarse a su servidor y a sus bases de datos en los inicios rápidos posteriores.
    > 
 
-   ![nombre del servidor](./media/sql-database-get-started-portal/server-name.png) 
+   ![nombre del servidor](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Haga clic en **Establecer el firewall del servidor** en la barra de herramientas, como se muestra en la imagen anterior. Se abrirá la página **Configuración del firewall** del servidor de SQL Database. 
 
@@ -130,7 +131,7 @@ Ahora puede conectarse al servidor de SQL Database y a sus bases de datos median
 > [!IMPORTANT]
 > De forma predeterminada, el acceso a través del firewall de SQL Database está habilitado para todos los servicios de Azure. Haga clic en **OFF** en esta página para deshabilitar todos los servicios de Azure.
 
-## <a name="get-connection-information-in-the-azure-portal"></a>Obtener información de conexión en Azure Portal
+## <a name="sql-server-connection-information-in-the-azure-portal"></a>Información de conexión de SQL Server en Azure Portal
 
 Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. Utilice el nombre completo del servidor para conectarse al servidor mediante SQL Server Management Studio.
 
@@ -138,7 +139,7 @@ Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. U
 2. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**. 
 3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**.
 
-   ![información sobre la conexión](./media/sql-database-get-started-portal/server-name.png)
+   ![información sobre la conexión](./media/sql-database-connect-query-dotnet/server-name.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Conéctese a la base de datos con SSMS
 

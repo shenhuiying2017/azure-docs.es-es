@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: sethm;babanisa
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 11f7b111df8b426c00334bebd82d5877817419d8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -27,16 +27,16 @@ ms.lasthandoff: 06/28/2017
 
 Puede ver dos tipos de registros para Event Hubs de Azure:
 * **[Registros de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre habilitados.
-* **[Registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Puede configurar registros de diagnóstico para obtener una vista más completa sobre todo lo que ocurre con un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
+* **[Registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Puede configurar registros de diagnóstico para obtener una vista más completa de todo lo que ocurre con un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
 
 ## <a name="turn-on-diagnostic-logs"></a>Activación de los registros de diagnóstico
 Los registros de diagnóstico están inhabilitados de forma predeterminada. Para habilitar registros de diagnóstico:
 
-1.  En Azure Portal, vaya a la hoja de trabajo de streaming.
+1.  En [Azure Portal](https://portal.azure.com), en **Supervisión y administración**, haga clic en **Registros de diagnóstico**.
 
-2.  En **Supervisión**, vaya a la hoja **Registros de diagnósticos**.
+    ![Navegación por la hoja de Registros de diagnósticos](./media/event-hubs-diagnostic-logs/image1.png)
 
-    ![Navegación por la hoja de Registros de diagnósticos](./media/event-hubs-diagnostic-logs/image1.png)  
+2.  Haga clic en el recurso que quiere supervisar.
 
 3.  Haga clic en **Activar diagnóstico**.
 
@@ -48,9 +48,7 @@ Los registros de diagnóstico están inhabilitados de forma predeterminada. Para
 
 5.  Establezca el destino de archivo que quiera; por ejemplo, una cuenta de almacenamiento, un centro de eventos o Azure Log Analytics.
 
-6.  Seleccione las categorías de registros que desee recopilar; por ejemplo, **Ejecución** o **Creación**.
-
-7.  Guarde la nueva configuración de diagnóstico.
+6.  Guarde la nueva configuración de diagnóstico.
 
 La nueva configuración surte efecto en unos 10 minutos. Después, los registros aparecen en el destino de archivo configurado, en la hoja **Registros de diagnóstico**.
 
@@ -59,11 +57,11 @@ Para obtener más información sobre el diagnóstico de configuraciones, consult
 ## <a name="diagnostic-logs-categories"></a>Categorías de registros de diagnósticos
 Event Hubs captura registros de diagnósticos de dos categorías:
 
-* **ArchivalLogs**: registros relacionados con archivos de Event Hubs, específicamente, registros relacionados con errores de archivo.
+* **ArchiveLogs**: registros relacionados con archivos de Event Hubs, en concreto, registros relacionados con errores de archivo.
 * **OperationalLogs**: información sobre lo que sucede durante el funcionamiento de Event Hubs, en concreto, el tipo de operación, como la creación de centros de eventos, los recursos usados y el estado de la operación.
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de registros de diagnósticos
-Todos los registros se almacenan en el formato de notación de objetos JavaScript (JSON). Cada entrada tiene campos de cadena que utilizan el formato descrito en los ejemplos siguientes.
+Todos los registros se almacenan en el formato de notación de objetos JavaScript (JSON). Cada entrada tiene campos de cadena que usan el formato descrito en las secciones siguientes.
 
 ### <a name="archive-logs-schema"></a>Esquema de registros de archivo
 
@@ -84,7 +82,7 @@ durationInSeconds | La duración del error.
 Mensaje | Mensaje de error.
 categoría | ArchiveLogs
 
-Este es un ejemplo de una cadena de JSON de registro de archivo:
+El código siguiente es un ejemplo de una cadena JSON de registro de archivo:
 
 ```json
 {
@@ -103,9 +101,9 @@ Este es un ejemplo de una cadena de JSON de registro de archivo:
 }
 ```
 
-### <a name="operation-logs-schema"></a>Esquema de registros de operaciones
+### <a name="operational-logs-schema"></a>Esquema de registros operativos
 
-Las cadenas JSON de registros de operaciones incluyen elementos enumerados en la tabla siguiente:
+Las cadenas JSON de registros operativos incluyen elementos enumerados en la tabla siguiente:
 
 Nombre | Descripción
 ------- | -------
@@ -119,7 +117,7 @@ Estado | Estado de la operación.
 Autor de llamada | Autor de la llamada de la operación (Azure Portal o Management Client).
 categoría | OperationalLogs
 
-Este es un ejemplo de una cadena de JSON de registro de operaciones:
+El código siguiente es un ejemplo de una cadena JSON de registro operativo:
 
 ```json
 Example:

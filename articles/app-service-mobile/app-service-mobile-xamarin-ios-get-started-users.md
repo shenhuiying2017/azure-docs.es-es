@@ -3,8 +3,8 @@ title: "Introducción a la autenticación de Aplicaciones móviles en Xamarin iO
 description: "Obtenga información acerca de cómo utilizar Aplicaciones móviles para autenticar usuarios de su aplicación Xamarin iOS a través de una variedad de proveedores de identidad, incluidos AAD, Google, Facebook, Twitter y Microsoft."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: cdc8d62c0adb81330353b73be8a0a9db8cef0052
-ms.lasthandoff: 03/01/2017
-
+ms.date: 07/05/2017
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 454b2df5a9bf8cfba93befea54370957ab044d95
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Adición de la autenticación a la aplicación Xamarin.iOS
@@ -30,6 +30,20 @@ Primero debe completar el tutorial [Creación de una aplicación Xamarin.iOS]. S
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Registro de la aplicación para la autenticación y configuración de Servicios de aplicaciones
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
+
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a>Adición de la aplicación a las direcciones URL de redirección externa permitidas
+
+La autenticación segura requiere que se defina un nuevo esquema de dirección URL para la aplicación. Esto permite que el sistema de autenticación se redirija a la aplicación una vez completado el proceso de autenticación. En este tutorial, se usará el esquema de dirección URL _appname_. Sin embargo, puede utilizar cualquier otro esquema de dirección URL que elija. Debe ser único para la aplicación móvil. Para habilitar la redirección en el lado de servidor:
+
+1. En [Azure Portal], seleccione App Service.
+
+2. Haga clic en la opción de menú **Autenticación/autorización**.
+
+3. En **URL de redirección externas permitidas**, introduzca `url_scheme_of_your_app://easyauth.callback`.  El valor de **url_scheme_of_your_app** de esta cadena es el esquema de dirección URL para la aplicación móvil.  Debe seguir la especificación normal de las direcciones URL para un protocolo (usar únicamente letras y números, y comenzar por una letra).  Debe tomar nota de la cadena que elija ya que necesitará ajustar el código de la aplicación móvil con el esquema de direcciones URL en varios sitios.
+
+4. Haga clic en **Aceptar**.
+
+5. Haga clic en **Guardar**.
 
 ## <a name="restrict-permissions-to-authenticated-users"></a>Restricción de los permisos para los usuarios autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -44,11 +58,9 @@ Luego, actualizará la aplicación cliente para solicitar recursos del back-end 
 En esta sección, modificará la aplicación para mostrar una pantalla de inicio de sesión antes de mostrar los datos. Cuando se inicie la aplicación, no se conectará a Servicios de aplicaciones y no mostrará datos. Después de que el usuario intente actualizar una vez, aparecerá la pantalla de inicio y, una vez que haya iniciado sesión, se mostrará la lista de tareas pendientes.
 
 1. En el proyecto de cliente, abra el archivo **QSTodoService.cs** y agregue la siguiente instrucción using y `MobileServiceUser`, con descriptor de acceso a la clase QSTodoService:
-   
-    ```
+ 
         using UIKit;
-    ```
-   
+       
         // Logged in user
         private MobileServiceUser user;
         public MobileServiceUser User { get { return user; } }
@@ -58,7 +70,8 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
         {
             try
             {
-                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook);
+                AppDelegate.ResumeWithURL = url => url.Scheme == "zumoe2etestapp" && client.ResumeWithURL(url);
+                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
             }
             catch (Exception ex)
             {
@@ -68,34 +81,43 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 
     >[AZURE.NOTE] Si usa un proveedor de identidades que no sea una cuenta de Facebook, cambie el valor que usó con **LoginAsync** por uno de los siguientes: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
-1. Abra **QSTodoListViewController.cs**. Modifique la definición del método de **ViewDidLoad**, para lo que debe quitar la llamada a **RefreshAsync()** cerca del final:
+3. Abra **QSTodoListViewController.cs**. Modifique la definición del método de **ViewDidLoad**, para lo que debe quitar la llamada a **RefreshAsync()** cerca del final:
    
         public override async void ViewDidLoad ()
         {
             base.ViewDidLoad ();
    
             todoService = QSTodoService.DefaultService;
-           await todoService.InitializeStoreAsync ();
+            await todoService.InitializeStoreAsync();
    
-           RefreshControl.ValueChanged += async (sender, e) => {
-                await RefreshAsync ();
-           }
+            RefreshControl.ValueChanged += async (sender, e) => {
+                await RefreshAsync();
+            }
    
             // Comment out the call to RefreshAsync
-            // await RefreshAsync ();
+            // await RefreshAsync();
         }
-2. Modifique el método **RefreshAsync** para autenticar si el valor de la propiedad **User** es null. Agregue el siguiente código al principio de la definición del método:
+4. Modifique el método **RefreshAsync** para autenticar si el valor de la propiedad **User** es null. Agregue el siguiente código al principio de la definición del método:
    
         // start of RefreshAsync method
         if (todoService.User == null) {
-            await QSTodoService.DefaultService.Authenticate (this);
+            await QSTodoService.DefaultService.Authenticate(this);
             if (todoService.User == null) {
-                Console.WriteLine ("couldn't login!!");
+                Console.WriteLine("couldn't login!!");
                 return;
             }
         }
         // rest of RefreshAsync method
-3. En Visual Studio o Xamarin Studio conectado a su host de compilación de Xamarin en el equipo Mac, ejecute el proyecto de cliente destinado a un dispositivo o un emulador. Compruebe que la aplicación no muestra ningún dato.
+5. Abra **AppDelegate.cs** y agregue el siguiente método:
+
+        public static Func<NSUrl, bool> ResumeWithURL;
+
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            return ResumeWithURL != null && ResumeWithURL(url);
+        }
+6. Abra el archivo **Info.plist**, vaya a **Tipos de URL** en la sección **Opciones avanzadas**. Ahora, configure el **Identificador** y los **Esquemas de URL** de su tipo de dirección URL y haga clic en **Agregar tipo de dirección URL**. El valor de **Esquemas de URL** debe ser el mismo que el de {url_scheme_of_your_app}.
+7. En Visual Studio o Xamarin Studio conectado a su host de compilación de Xamarin en el equipo Mac, ejecute el proyecto de cliente destinado a un dispositivo o un emulador. Compruebe que la aplicación no muestra ningún dato.
    
     Despliegue la lista de tareas para actualizar la pantalla, lo que dará lugar a que aparezca la pantalla de inicio de sesión. Una vez que haya proporcionado credenciales válidas, la aplicación mostrará la lista de tareas pendientes y podrá actualizar los datos.
 
@@ -103,4 +125,3 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Creación de una aplicación Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
-

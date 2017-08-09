@@ -5,20 +5,21 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: ded0d9c9-45f6-47d7-bd0f-3f7fd99ab621
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 07/05/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: aac56543b2b3b7fa8f8baf1cc719ead79b3c1b00
-ms.lasthandoff: 02/28/2017
+ms.reviewer: harshja
+ms.custom: H1Hack27Feb2017, it-pro
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8470fc79d27847fc0e12d1c40cfccc08dfc3cdf
+ms.contentlocale: es-es
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -27,14 +28,14 @@ El inicio de sesión único es un elemento clave del proxy de aplicación de Azu
 
 1. Un usuario inicia sesión en la nube.  
 2. Todas las validaciones de seguridad se realizan en la nube (autenticación previa).  
-3. Cuando se envía la solicitud a la aplicación local, el conector del proxy de aplicación suplanta al usuario. La aplicación de back-end piensa que se trata de un usuario normal procedente de un dispositivo unido a dominio.
+3. Cuando se envía la solicitud a la aplicación local, el conector del proxy de aplicación suplanta al usuario. La aplicación de back-end piensa que la solicitud proviene de un usuario normal en un dispositivo unido a dominio.
 
 ![Diagrama de acceso desde el usuario final, a través del Proxy de aplicación, a la red corporativa](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
 Proxy de la aplicación de Azure AD lo ayuda a brindar una experiencia de inicio de sesión único (SSO) a los usuarios. Use las siguientes instrucciones para publicar las aplicaciones mediante SSO:
 
 ## <a name="sso-for-on-prem-iwa-apps-using-kcd-with-application-proxy"></a>SSO para aplicaciones IWA locales mediante KCD con Proxy de aplicación
-Puede habilitar el inicio de sesión único a sus aplicaciones mediante la autenticación de Windows integrada (IWA) dando permiso a los conectores del proxy de aplicación en Active Directory para suplantar a los usuarios y enviar y recibir tokens en su nombre.
+Puede habilitar el inicio de sesión único a sus aplicaciones mediante la autenticación integrada de Windows (IWA) dando permiso a los conectores del proxy de aplicación en Active Directory para suplantar a los usuarios. Los conectores usan este permiso para enviar y recibir tokens en su nombre.
 
 ### <a name="network-diagram"></a>Diagrama de red
 En este diagrama se explica el flujo cuando un usuario intenta tener acceso a una aplicación local que usa IWA.
@@ -56,7 +57,7 @@ Antes de empezar a trabajar con SSO para Proxy de la aplicación, asegúrese de 
 * Sus aplicaciones, como las aplicaciones web de SharePoint, están establecidas para usar la autenticación de Windows integrada. Para más información, consulte [Habilitar la compatibilidad con la autenticación Kerberos](https://technet.microsoft.com/library/dd759186.aspx) o, para SharePoint, consulte [Planear la autenticación Kerberos en SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
 * Todas las aplicaciones tienen nombres de entidad de seguridad de servicio.
 * El servidor que ejecuta el conector y el que ejecuta la aplicación están unidos a dominio y forman parte del mismo dominio o dominios de confianza. Para obtener más información sobre la unión a un dominio, consulte [Unir un equipo a un dominio](https://technet.microsoft.com/library/dd807102.aspx).
-* El servidor que ejecuta el conector tiene acceso para leer el atributo TokenGroupsGlobalAndUniversal de los usuarios. Se trata de una configuración predeterminada que podría verse afectada por la seguridad del entorno. Puede obtener más ayuda sobre esta configuración en el artículo [KB2009157](https://support.microsoft.com/en-us/kb/2009157).
+* El servidor que ejecuta el conector tiene acceso para leer el atributo TokenGroupsGlobalAndUniversal de los usuarios. Esta configuración predeterminada que podría verse afectada por la seguridad del entorno. Puede obtener más ayuda sobre esta configuración en el artículo [KB2009157](https://support.microsoft.com/en-us/kb/2009157).
 
 ### <a name="active-directory-configuration"></a>Configuración de Active Directory
 La configuración de Active Directory varía, dependiendo de si su conector del proxy de aplicación y el servidor publicado están en el mismo dominio o no.
@@ -64,7 +65,7 @@ La configuración de Active Directory varía, dependiendo de si su conector del 
 #### <a name="connector-and-published-server-in-the-same-domain"></a>Conector y servidor publicado en el mismo dominio
 1. En Active Directory, vaya a **Herramientas** > **Usuarios y equipos**.
 2. Seleccione el servidor que ejecuta el conector.
-.3. Haga clic en el botón derecho y seleccione **Propiedades** > **Delegación**.
+3. Haga clic en el botón derecho y seleccione **Propiedades** > **Delegación**.
 4. Seleccione **Confiar en este equipo para la delegación solo a los servicios especificados**. En **Servicios a los que esta cuenta puede presentar credenciales delegadas**, agregue el valor de la identidad SPN del servidor de aplicaciones.
 5. Esto permite al conector del proxy de aplicación suplantar a los usuarios en AD en las aplicaciones definidas en la lista.
 
@@ -86,11 +87,12 @@ La configuración de Active Directory varía, dependiendo de si su conector del 
 >
 
 ### <a name="azure-classic-portal-configuration"></a>Configuración del Portal de Azure clásico
-1. Publique la aplicación según las instrucciones de [Publicar aplicaciones con el proxy de aplicación](active-directory-application-proxy-publish.md). Asegúrese de seleccionar **Azure Active Directory** como **Método de autenticación previa**.
-2. Cuando su aplicación aparezca en la lista de aplicaciones, selecciónela y haga clic en **Configurar**.
-3. En **Propiedades**, establezca **Método de autenticación interno** en **Autenticación integrada de Windows**.  
+1. Publique la aplicación según las instrucciones de [Publicar aplicaciones con el proxy de aplicación](application-proxy-publish-azure-portal.md). Asegúrese de seleccionar **Azure Active Directory** como **Método de autenticación previa**.
+2. Cuando la aplicación aparezca en la lista de aplicaciones empresariales, selecciónela y haga clic en **Inicio de sesión único**.
+3. Establezca el modo de inicio de sesión único en **Autenticación integrada de Windows**.  
+4. Escriba el **SPN de la aplicación interno** del servidor de aplicaciones. En este ejemplo, el SPN para nuestra aplicación publicada es http/www.contoso.com.  
+
    ![Configuración avanzada de aplicaciones](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
-4. Escriba el **SPN de la aplicación interno** del servidor de aplicaciones. En este ejemplo, el SPN para nuestra aplicación publicada es http/lob.contoso.com.  
 
 > [!IMPORTANT]
 > Si el UPN local y el UPN de Azure Active Directory no son idénticos, es preciso configurar la [identidad de inicio de sesión delegada](#delegated-login-identity) para que funcione la autenticación previa.
@@ -129,12 +131,12 @@ Esta funcionalidad permite a muchas organizaciones que tienen identidades locale
 * Tienen varios dominios internamente (joe@us.contoso.com, joe@eu.contoso.com) y un único dominio en la nube (joe@contoso.com).
 * Tienen un nombre de dominio no enrutable internamente (joe@contoso.usa) y uno legal en la nube.
 * No utilizan nombres de dominio internamente (joe)
-* Usan distintos alias locales y en la nube. Por ejemplo, joe-johns@contoso.com frente a joej@contoso.com  
+* Usan distintos alias locales y en la nube. Por ejemplo, joe-johns@contoso.com en comparación con joej@contoso.com  
 
-También le ayuda con aplicaciones que no aceptan direcciones en forma de dirección de correo electrónico, que es un escenario muy común en servidores back-end que no son Windows.
+También le ayuda con aplicaciones que no aceptan direcciones en forma de dirección de correo electrónico, que es un escenario común en servidores back-end que no son Windows.
 
 ### <a name="setting-sso-for-different-cloud-and-on-prem-identities"></a>Configuración de SSO para diferentes identidades en la nube y locales diferentes
-1. Configure Azure AD Connect para que la identidad principal sea la dirección de correo electrónico (correo). Esto se realiza como parte del proceso de personalización, al cambiar el campo **Nombre principal de usuario** en la configuración de sincronización. Esta configuración también determina la forma en que los usuarios inician sesión en dispositivos con Office&365; y Windows10, y otras aplicaciones que usan Azure AD como almacén de identidades.  
+1. Configure Azure AD Connect para que la identidad principal sea la dirección de correo electrónico (correo). Esto se realiza como parte del proceso de personalización, al cambiar el campo **Nombre principal de usuario** en la configuración de sincronización. Esta configuración también determina la forma en que los usuarios inician sesión en dispositivos con Office 365 y Windows10, y otras aplicaciones que usan Azure AD como almacén de identidades.  
    ![Captura de pantalla de la identificación de usuarios - lista desplegable de Nombre principal de usuario](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. En las opciones de Configuración de la aplicación correspondientes a la aplicación que quiere modificar, seleccione la información en **Identidad de inicio de sesión delegada** que quiere usar:
 

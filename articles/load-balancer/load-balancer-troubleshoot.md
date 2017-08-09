@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 53425eaf388e5164d2664c163f56a33d48cf8a36
-ms.lasthandoff: 04/20/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: df5c836abbf09889f4859170359c0ee6c1b03378
+ms.contentlocale: es-es
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -119,9 +120,9 @@ Que la aplicación hospedada en la máquina virtual de back-end del equilibrador
 * Configure las máquinas virtuales del grupo de back-end por separado para cada aplicación. 
 * Configure la aplicación en máquinas virtuales de NIC doble para que cada aplicación use su propia interfaz de red y dirección IP. 
 
-### <a name="cause-4-accessing-the-internet-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Motivo 4: acceso a la VIP del equilibrador de carga en Internet desde la máquina virtual del grupo de back-end del equilibrador de carga participante
+### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Motivo 4: acceso a la dirección VIP del equilibrador de carga interno desde la máquina virtual del grupo de back-end del equilibrador de carga participante
 
-Si se configura una VIP del equilibrador de carga en Internet en una red virtual y una de las máquinas virtuales de back-end participantes intenta acceder a la VIP del equilibrador de carga en Internet, se producirán errores. Se trata de un escenario no admitido.
+Si se configura una dirección VIP para el equilibrador de carga interno en una red virtual y una de las máquinas virtuales de back-end participantes intenta acceder a ella, se produce un error. Se trata de un escenario no admitido.
 **Resolución**: evalúe Application Gateway u otros servidores proxy (por ejemplo, nginx o haproxy) para que admitan esta variante de escenario. Para más información acerca de Application Gateway, consulte [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>Capturas de red adicionales

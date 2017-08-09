@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/7/2017
+ms.date: 7/10/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: c1185358cc10e450c0c67baab407c49de56ad767
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: eb6a7069da36a462f8dd27454bc1834d2e3844f0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
@@ -57,10 +56,10 @@ Si sabe que estas condiciones ya existen en su entorno, vaya al artículo [Copia
 Antes de preparar el entorno, tenga en cuenta las limitaciones.
 
 * No se admite la copia de seguridad de máquinas virtuales con más de 16 discos de datos.
-* No se admite la copia de seguridad de máquinas virtuales con discos de 4 TB. 
+* No se admite la copia de seguridad de máquinas virtuales con tamaños de disco de datos mayores que 1023 GB.
 * No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y sin puntos de conexión definidos.
 * No se admite la copia de seguridad de máquinas virtuales cifradas simplemente mediante BEK. No se admite la copia de seguridad de máquinas virtuales Linux cifradas mediante el cifrado LUKS.
-* No se admite la copia de seguridad de máquinas virtuales de Linux con la extensión de Docker.
+* No se recomienda la copia de seguridad de máquinas virtuales en la configuración Servidor de archivos de escalabilidad horizontal.
 * Los datos de copia de seguridad no incluyen unidades montadas de red conectadas a la máquina virtual.
 * No se admite el reemplazo de una máquina virtual existente durante la restauración. Si intenta restaurar la máquina virtual cuando ya existe, la operación de restauración dará error.
 * No se admiten la restauración y la copia de seguridad entre regiones.

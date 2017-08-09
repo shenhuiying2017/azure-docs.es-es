@@ -3,27 +3,27 @@ title: "¿Qué es Azure Active Directory?"
 description: Usar Azure Active Directory para ampliar sus identidades locales existentes en la nube o desarrollar aplicaciones integradas de Azure AD.
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
-editor: 
+ms.reviewer: jsnow
+ms.author: jeffgilb
 ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
-ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b40ae90ea313638cbd0b60792dc4803d3d08aa0a
-ms.openlocfilehash: 03c1442daf07f57476af64491229f1f38f6ffeff
+ms.date: 07/17/2017
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6e4c1cdac51664d83805252cf178e705042e76ca
 ms.contentlocale: es-es
-ms.lasthandoff: 02/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
-Azure Active Directory (Azure AD) es el directorio basado en la nube multiempresa y el servicio de administración de identidades de Microsoft.
+Azure Active Directory (Azure AD) es el directorio basado en la nube de varios inquilinos y el servicio de administración de identidades de Microsoft. Azure AD combina servicios de directorio fundamentales, gobierno avanzado de la identidad y administración del acceso a las aplicaciones. Azure AD ofrece también una plataforma muy completa basada en estándares que permite a los desarrolladores proporcionar control de acceso a sus aplicaciones, en función de una directiva y reglas centralizadas. 
 
 Para los administradores de TI, Azure AD proporciona una solución asequible y fácil de usar para dar a los empleados y asociados comerciales acceso de inicio de sesión único (SSO) a [miles de aplicaciones SaaS en la nube](active-directory-saas-tutorial-list.md) como Office365, Salesforce.com, DropBox y Concur.
 
@@ -33,7 +33,7 @@ Azure AD también incluye una serie completa de capacidades de administración d
 
 Además, con solo [cuatro clics](./connect/active-directory-aadconnect-get-started-express.md), Azure AD puede integrarse con un Windows Server Active Directory existente, lo que da a las organizaciones la capacidad de aprovechar sus inversiones en identidad locales existentes para administrar el acceso a aplicaciones SaaS basadas en la nube.
 
-Si es un cliente de Office365, Azure o Dynamics CRM Online, es posible que no se dé cuenta de que ya está usando Azure AD. Cada inquilino de Office365, Azure y Dynamics CRM ya es en realidad un inquilino de Azure AD. ¡Siempre que lo desee, puede empezar a usar ese inquilino para administrar el acceso a miles de otras aplicaciones en la con las que se integra Azure AD!
+Si es un cliente de Office 365, Azure o Dynamics CRM Online, es posible que no se dé cuenta de que ya está usando Azure AD. Cada inquilino de Office 365, Azure y Dynamics CRM ya es en realidad un inquilino de Azure AD. ¡Siempre que lo desee, puede empezar a usar ese inquilino para administrar el acceso a miles de otras aplicaciones en la con las que se integra Azure AD!
 
 ![Pila de Azure AD Connect](./media/active-directory-whatis/Azure_Active_Directory.png)
 
@@ -42,27 +42,25 @@ El diseño multiempresa, distribuido geográficamente y de alta disponibilidad d
 
 Para más información, consulta los [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
-## <a name="what-are-the-benefits-of-azure-ad"></a>¿Cuáles son las ventajas de Azure AD?
-Su organización puede usar Azure AD para mejorar la productividad de los empleados, optimizar los procesos de TI, mejorar la seguridad y reducir los costos de muchas formas:
+## <a name="choose-an-edition"></a>Elección de una edición
+Todos los servicios de negocios de Microsoft Online dependen de Azure Active Directory (Azure AD) para el inicio de sesión y otras necesidades de identidad. Si se suscribe a alguno de los servicios de negocios de Microsoft Online (por ejemplo, Office 365, Microsoft Azure, etc.), recibirá Azure AD con acceso a todas las características gratuitas. Con la edición gratuita de Azure Active Directory puede administrar usuarios y grupos, sincronizar directorios locales, obtener inicio de sesión único entre Azure, Office 365 y miles de aplicaciones SaaS conocidas como Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, etc. 
 
-* Adopte rápidamente servicios en la nube, proporcionando a los empleados y asociados una sencilla experiencia de inicio de sesión único gracias a las capacidades automatizadas de aprovisionamiento de servicios y administración del acceso a aplicaciones SaaS de Azure AD.
-* Proporcione a los empleados acceso a aplicaciones en la nube de clase mundial y a funcionalidades de servicio y autoservicio desde dondequiera que necesiten para trabajar en los dispositivos que les encanta usar.
-* Administre fácilmente y de forma segura el acceso de los empleados y proveedores a sus cuentas de medios sociales corporativas.
-* Mejore la seguridad de las aplicaciones con la autenticación multifactor y acceso condicional de Azure AD.
-* Implemente una administración de acceso a las aplicaciones constante y de autoservicio, proporcionando a los propietarios de empresas los medios para avanzar rápidamente, reduciendo al mismo tiempo los costos de TI y la sobrecarga.
-* Supervise el uso de las aplicaciones y proteja su empresa contra amenazas avanzadas con informes y supervisión de seguridad.
-* Acceso móvil (remoto) seguro a aplicaciones locales.
+Para mejorar su instancia de Azure Active Directory, puede agregar funcionalidades de pago con las ediciones Azure Active Directory Basic, Premium P1 y Premium P2. Las ediciones de pago de Azure Active Directory se crean encima del directorio gratuito existente, y proporcionan funcionalidades de tipo empresarial que abarcan autoservicio, supervisión mejorada, informes de seguridad, Multi-Factor Authentication (MFA) y un acceso seguro para sus trabajadores móviles.
 
-## <a name="how-does-azure-ad-compare-to-on-premises-active-directory-domain-services-ad-ds"></a>¿Cómo se comparan Azure AD con Active Directory Domain Services (AD DS) locales?
+> [!NOTE]
+> Para ver las opciones de precios de estas ediciones, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Azure Active Directory Premium P1, Premium P2 y Azure Active Directory Basic no se admiten actualmente en China. Póngase en contacto con nosotros en el Foro de Azure Active Directory para más información.
+>
 
-Azure Active Directory (Azure AD) y Active Directory local (Active Directory Domain Services o AD DS) son los sistemas que almacenan datos de directorios y administran la comunicación entre los usuarios y los recursos, incluidos los procesos de inicio de sesión de usuario, la autenticación y las búsquedas de directorios.
+* **Edición básica de Azure Active Directory** : esta edición, concebida para los trabajadores de tareas con primeras necesidades en la nube, proporciona soluciones de administración de identidades de autoservicio y de acceso a las aplicaciones basado en la nube. Con la edición básica de Azure Active Directory, obtiene características de mejora de la productividad y reducción de costos, como administración de acceso basado en grupo, autoservicio de restablecimiento de contraseña para aplicaciones en la nube y proxy de aplicaciones de Azure Active Directory (para publicar aplicaciones web locales con Azure Active Directory), y todas ellas respaldadas por un contrato de nivel de servicio empresarial con un tiempo de actividad del 99,9 por ciento.
+* **Azure Active Directory Premium P1** : esta edición, dirigida a las organizaciones con necesidades más acuciantes de administración de identidades y acceso, agrega completas funcionalidades de administración de identidades de tipo empresarial y permite a los usuarios híbridos acceder sin problemas a funcionalidades locales y en la nube. Incluye todo lo que necesitan los trabajadores de información y los administradores de identidades en los entornos híbridos para el acceso entre aplicaciones, la administración de identidades y acceso de autoservicio (IAM), la protección de identidades y la seguridad en la nube. Admite recursos avanzados de administración y delegación, como grupos dinámicos y administración de grupos de autoservicio. Incluye Microsoft Identity Manager (un conjunto de aplicaciones de administración de identidades y acceso locales) y proporciona funcionalidades de escritura diferida en la nube que permiten soluciones como el autoservicio de restablecimiento de contraseña para los usuarios locales.
+* **Azure Active Directory Premium P2** : esta nueva oferta, diseñada con protección avanzada para todos los usuarios y administradores, incluye todas las funcionalidades de Azure AD Premium P1, así como nuestras nuevas características Identity Protection y Privileged Identity Management. Azure Active Directory Identity Protection aprovecha miles de millones de señales para proporcionar acceso condicional basado en el riesgo a las aplicaciones y los datos críticos de una empresa. También le ayudamos a administrar y proteger cuentas privilegiadas con Azure Active Directory Privileged Identity Management para que pueda descubrir, restringir y supervisar a los administradores y su acceso a los recursos y proporcionar acceso a tiempo cuando sea necesario.  
 
-AD DS es un rol del servidor en Windows Server, lo que significa que se pueden implementar en máquinas físicas o virtuales. Tiene una estructura jerárquica basada en X.500. Utiliza DNS para localizar objetos, se puede interactuar usando LDAP y principalmente usa Kerberos para la autenticación. Active Directory habilita las unidades organizativas (OU) y los objetos de directiva de grupo (GPO), además de unir máquinas al dominio, y se crean confianzas entre dominios.
-
-Azure AD es un servicio de directorio público de varios clientes, lo que significa que en Azure AD puede crear un inquilino para los servidores de la nube y aplicaciones como Office 365. Los usuarios y los grupos se crean en una estructura plana sin unidades organizativas ni objetos de directiva de grupo. La autenticación se realiza mediante protocolos como SAML, WS-Federation y OAuth. Es posible consultar Azure AD, pero en lugar de usar LDAP debe usar una API de REST denominada API Graph de AD. Todos funcionan mediante HTTP y HTTPS.
-
-
-
+> [!NOTE]
+> Hay varias funcionalidades de Azure Active Directory disponibles mediante las ediciones de "pago por uso":
+>
+> * Active Directory B2C es la solución de administración de identidades y acceso para las aplicaciones orientados al consumidor. Para obtener más información, consulte [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
+> * Azure Multi-Factor Authentication se puede usar a través de proveedores por usuario o por autenticación. Para obtener más información, consulte [Qué es Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+>
 
 ## <a name="how-can-i-get-started"></a>¿Cómo puedo comenzar?
 
@@ -78,18 +76,6 @@ Azure AD es un servicio de directorio público de varios clientes, lo que signif
 
 * [Inicie una evaluación](https://azure.microsoft.com/trial/get-started-active-directory/): suscríbase hoy mismo a una prueba gratuita de 30 días y comience a integrar sus aplicaciones con Azure AD.
 
-## <a name="where-can-i-learn-more"></a>¿Dónde puedo obtener más información?
-Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a aprender todo sobre Azure AD. Aquí se proporciona una lista de artículos excelentes para comenzar:
-
-* [Habilitación del directorio para la administración híbrida con Azure AD Connect](active-directory-aadconnect.md)
-* [Seguridad adicional en un mundo conectado permanentemente](../multi-factor-authentication/multi-factor-authentication.md)
-* [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
-* [Introducción a los informes de Azure AD](active-directory-reporting-getting-started.md)
-* [Administración de contraseñas desde cualquier lugar](active-directory-passwords.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
-* [Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
-* [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
-* [¿Qué es la licencia de Microsoft Azure Active Directory?](active-directory-licensing-what-is.md)
-* [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
+## <a name="next-steps"></a>Pasos siguientes
+[Más información sobre los conceptos básicos de la administración de identidades y accesos de Azure](https://docs.microsoft.com/azure/active-directory/identity-fundamentals)
 

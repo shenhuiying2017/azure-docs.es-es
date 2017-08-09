@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/22/2017
+ms.date: 07/12/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 9cecbfd1fd5db8fffc9fbdfb2d6ca949b6ff385a
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
 ms.contentlocale: es-es
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
@@ -29,11 +29,28 @@ En este tema se proporciona información acerca de las cosas que debe saber y lo
 
 ## <a name="what-you-should-know"></a>Qué debería saber
 
-### <a name="do-i-need-to-assign-a-user-to-my-policy"></a>¿Es necesario asignar un usuario a la directiva?
+### <a name="whats-required-to-make-a-policy-work"></a>¿Cuáles son los requisitos para realizar un trabajo de directiva?
 
-Al configurar una directiva de acceso condicional, debe asignarle al menos un grupo. Una directiva de acceso condicional que no tiene usuarios ni grupos asignados nunca se desencadena.
+Cuando crea una nueva directiva, no hay usuarios, grupos, aplicaciones o controles de acceso seleccionados.
 
-Cuando pretenda asignar varios usuarios y grupos a una directiva, debe comenzar por poco y asignar un solo usuario o grupo y luego probar su configuración. Si la directiva funciona según lo previsto, puede agregarle asignaciones adicionales.  
+![Aplicaciones en la nube](./media/active-directory-conditional-access-best-practices/02.png)
+
+
+Para realizar un trabajo de directiva, debe configurar lo siguiente:
+
+
+|Qué           | Cómo                                  | Porqué|
+|:--            | :--                                  | :-- |
+|**Aplicaciones en la nube** |Tiene que seleccionar una o más aplicaciones.  | El objetivo de la directiva de acceso condicional es permitirle que realice un mejor ajuste sobre cómo los usuarios autorizados pueden acceder a sus aplicaciones.|
+| **Usuarios y grupos** | Tiene que seleccionar al menos un usuario o grupo que esté autorizado para acceder a las aplicaciones en la nube que haya seleccionado. | Una directiva de acceso condicional que no tiene usuarios ni grupos asignados nunca se desencadena. |
+| **Controles de acceso** | Tiene que seleccionar al menos un control de acceso. | El procesador de directivas tiene que saber qué hacer si se satisfacen las condiciones.|
+
+
+Además de estos requisitos básicos, en muchos casos, también debe configurar una condición. Cuando una directiva también funcione sin una condición configurada, las condiciones son el factor de conducción para el acceso de mejor ajuste a sus aplicaciones.
+
+
+![Aplicaciones en la nube](./media/active-directory-conditional-access-best-practices/04.png)
+
 
 
 ### <a name="how-are-assignments-evaluated"></a>¿Cómo se evalúan las asignaciones?

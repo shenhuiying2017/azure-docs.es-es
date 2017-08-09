@@ -3,7 +3,7 @@ title: "Descripción de la factura de Azure | Microsoft Docs"
 description: "Aprenda a leer y entender el uso y la factura de la suscripción de Azure"
 services: 
 documentationcenter: 
-author: genlin
+author: tonguyen10
 manager: tonguyen
 editor: 
 tags: billing
@@ -13,134 +13,83 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
-ms.author: erihur;genli
+ms.date: 06/29/2017
+ms.author: tonguyen
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: b5268239fb4c50e6bdea77323267a42e267268db
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 264078587b81d7840fe5976498a91ae4f535b6aa
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprender la factura de Microsoft Azure
-Para entender la factura de Azure, revise la factura con el resumen de cargos y el archivo independiente de uso diario detallado. En este artículo se describen la mayoría de los términos que se muestran en la factura y en el archivo de uso diario. Para obtener estos archivos, consulte el artículo sobre [cómo obtener los datos de uso diario y de factura de facturación de Azure](billing-download-azure-invoice-daily-usage-date.md). Si va a usar una suscripción de prueba gratuita, puede obtener la información de uso diario pero no tendrá una factura.
+Para entender la factura de Azure, compare la factura con el archivo de uso diario detallado y los informes de administración de costes en Azure Portal.
 
-Los cargos de las suscripciones de Microsoft Azure varían según el plan de tarifas. Algunos planes de tarifas, como el de los suscriptores de Visual Studio Enterprise (MPN), incluyen créditos mensuales que puede usar en cualquier servicio de Azure según sus necesidades.
+Para la factura en PDF y la descarga del archivo CSV de uso diario detallado, vea [Obtención de los datos de uso diario y la factura de Azure](billing-download-azure-invoice-daily-usage-date.md). 
 
-En la factura actual pueden aparecer hasta 24 horas de uso al final del período de facturación anterior. Además, los cargos enumerados en los extractos de facturación para clientes internacionales tienen únicamente carácter estimativo. Los bancos tienen costos diferentes para los tipos de conversión.
+Para términos y descripciones detallados de su factura y el archivo de uso diario detallado, vea [Descripción de los términos en su factura de Microsoft Azure](billing-understand-your-invoice.md) y [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md) (Descripción de los términos sobre el uso detallado de Microsoft Azure).
 
-## <a name="pdf"></a> Descripción de la factura (.pdf)
-La factura proporciona un resumen de los cargos. Puede descargarla en el formato de documento portátil (.pdf) desde [Azure Portal](https://portal.azure.com). Para obtener más información, consulte el artículo sobre [cómo obtener los datos de uso diario y de factura de facturación de Azure](billing-download-azure-invoice-daily-usage-date.md). 
+Para obtener información sobre los informes de administración de costes, vea [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started) (Administración de costes de Azure Portal).
 
-Las siguientes secciones enumeran la mayoría de los términos que ve en la factura y las descripciones de cada uno.
+## <a name="reconcile"></a>¿Cómo puedo asegurarme de que los cargos de mi factura son correctos?
+Si hay un cargo en la factura del que quiera tener más detalles, hay un par de opciones:
 
-### <a name="account-information"></a>Información de cuenta
-La sección de información de cuenta muestra información sobre el uso y el perfil.
+### <a name="review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Revisión de la factura y comparación del uso y los costes con el archivo CSV de uso detallado
 
-![encabezado](./media/billing-understand-your-bill/Header.png)
+El archivo CSV de uso detallado proporciona los cargos por período de facturación y uso diario. Para obtener el archivo CSV de uso detallado, vea [Obtención de los datos de uso diario y la factura de Azure](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
-| Término | Description |
-| --- | --- |
-| Número de factura |Identificador único de factura con fines de seguimiento |
-| Ciclo de facturación |Intervalo de fechas que cubre esta factura |
-| Fecha de la factura |Fecha en que se ha generado la factura |
-| Método de pago |Tipo de pago que se usa en la cuenta (factura o tarjeta de crédito). Si necesita actualizar su tarjeta de crédito, consulte [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md). Si representa una empresa, puede pagar su suscripción de Azure con métodos de pago de factura como cheques, cheques urgentes o transferencias electrónicas. Consulte [Facturación de Azure: cómo facturar](https://azure.microsoft.com/pricing/invoicing/). |
-| Dirección de facturación |Dirección de pagos de Microsoft Azure. Obtenga información sobre cómo actualizar la información de facturación en [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md). |
-| Oferta de suscripción |Tipo de oferta de suscripción que se adquirió (pago por uso, BizSpark Plus, Pase para Azure, etc.) Si desea cambiar el pago por uso por otra oferta de suscripción, consulte [Cambio de la suscripción de Azure a otra oferta](billing-how-to-switch-azure-offer.md). |
-| Correo electrónico del propietario de cuenta |La dirección de correo electrónico de la cuenta con que está registrada la cuenta de Microsoft Azure. Para cambiar la dirección de correo electrónico, consulte [Cómo cambiar la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto](billing-how-to-change-azure-account-profile.md). |
+Los cargos de uso se muestran en el nivel de medidor. La siguiente lista de términos significa lo mismo entre la factura y el archivo de uso detallado. Por ejemplo, el ciclo de facturación en la factura es equivalente al período de facturación que se muestra en el archivo de uso detallado.
 
-### <a name="understand-the-invoice-summary"></a>Comprender el resumen de factura
-La sección **Resumen de factura** de la factura resume las transacciones desde la última factura y los cargos de uso actuales.
+ | Factura (PDF) | Uso detallado (CSV)|
+ | --- | --- |
+ |Ciclo de facturación | Período de facturación |
+ |Nombre |Categoría de medidor |
+ |Tipo |Subcategoría de medidor |
+ |Recurso |Nombre de medidor |
+ |Region |Medidor de la región |
+ |Consumida |Cantidad consumida |
+ |Se incluye |Cantidad incluida |
+ |Facturable |Cantidad de superávit |
 
-![Resumen de factura](./media/billing-understand-your-bill/InvoiceSummary.png)
+La sección de cargos de uso de la factura tiene el valor total de cada medidor que se consumió durante el período de facturación. Por ejemplo, la captura de pantalla siguiente muestra un cargo de uso para el servicio del programador de Azure.
 
-Las secciones Saldo anterior, Pagos y Saldo pendiente de la factura resumen las transacciones desde la última factura.
+![Cargos de uso de la factura](./media/billing-understand-your-bill/1.png)
 
-| Término | Description |
-| --- | --- |
-| Saldo anterior |El importe total debido de la última factura |
-| Pagos |Los pagos totales aplicados a la última factura |
-| Saldo pendiente (desde el ciclo de facturación anterior) |Todos los ajustes de factura (créditos o saldos) aplicados a la cuenta desde la última factura |
+Se muestra la misma carga en la sección de instrucción del archivo CSV de uso detallado.
 
-### <a name="understand-the-current-charges"></a>Comprender los cargos actuales
-La sección Cargos actuales de la factura muestra detalles sobre los cargos mensuales. 
+![Cargos de uso del archivo CSV](./media/billing-understand-your-bill/2.png)
 
-| Término | Description |
-| --- | --- |
-| Cargos de uso |Los cargos de uso son los cargos mensuales totales de una suscripción. Se le facturará según el uso que haya realizado el mes anterior. |
-| Descuentos |Descuentos de servicio aplicados a la factura actual. |
-| Ajustes |Créditos diversos o cargos pendientes aplicados a la factura actual. Por ejemplo, si tiene la oferta de Visual Studio Enterprise con MSDN, verá un crédito mensual. Si cancela su suscripción, verá los cargos por uso mensual que superan el crédito mensual que obtiene con su oferta de suscripción. Los cargos son desde el principio de su período de facturación actual hasta la fecha de cancelación de suscripción. |
+Además, hay una sección de uso diario en el archivo CSV de uso detallado. La sección incluye elementos de línea para cada día que se consumió el medidor. Estos elementos de línea agregan hasta la cantidad consumida para el medidor durante el período de facturación.
 
+Para secciones, términos y descripciones detallados de la factura. Consulte [aquí](billing-understand-your-invoice.md).
 
-### <a name="sold-to-and-payment-instructions"></a>Dirección de venta e instrucciones de pago
-En la tabla siguiente se describen la dirección de venta y las instrucciones de pago que se muestran en su factura.
+Para secciones, términos y descripciones detallados del archivo de uso diario detallado, vea [aquí](billing-understand-your-usage.md).
 
-| Término | Description |
-| --- | --- |
-| Dirección de venta | Dirección de perfil que figura en la cuenta. Si tiene que modificar la dirección, consulte [Cómo cambiar la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto](billing-how-to-change-azure-account-profile.md). |
-| Instrucciones de pago | Si paga mediante factura, estas instrucciones indican dónde enviar los cheques, las transferencias bancarias o los cheques cobraderos al siguiente día. Para más información, consulte [Facturación de Azure: cómo realizar la facturación](https://azure.microsoft.com/pricing/invoicing/). |
+### <a name="review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal"></a>Revisión de la factura y comparación con el uso y los costes en Azure Portal
 
-## <a name="csv"></a> Descripción de los cargos por uso detallado (.csv)
-El archivo de uso muestra la cantidad de cada recurso que se utiliza dentro del período de facturación actual. Está disponible en un formato de archivo de valores separados por comas (.csv) que se puede abrir en una aplicación de hoja de cálculo. Si ve dos versiones disponibles, descargue la versión 2. Este es el formato de archivo más reciente. Para obtener más información, consulte el artículo sobre [cómo obtener los datos de uso diario y de factura de facturación de Azure](billing-download-azure-invoice-daily-usage-date.md).
+Azure Portal también puede ayudarle a comprobar los cargos. Azure Portal proporciona gráficos de administración de costes para información general rápida del uso y los cargos en su factura.
 
-Los cargos de uso son los cargos totales **mensuales** de una suscripción, menos cualquier crédito o descuento. Se le facturará según el uso que haya realizado el mes anterior.  
+Algunos ejemplos de herramientas de administración de costes disponibles en Azure Portal:
 
-En las secciones siguientes se describe la mayoría de los términos que se muestran en la versión 2 del archivo de uso detallado.
+![Coste por recurso en Azure Portal](./media/billing-understand-your-bill/3.png)
 
-### <a name="statement"></a>Instrucción 
-La sección superior del archivo muestra los servicios usados durante el ciclo de facturación del mes anterior. En la tabla siguiente se enumeran los términos y las descripciones que se muestran en esta sección.
+Este gráfico proporciona costes actuales por recurso.
 
-| Término | Descripción |
-| --- | --- |
-|Período de facturación |El período de facturación de cuando se usa el recurso o servicio. |
-|Categoría de medidor |Identifica el servicio de nivel superior al que pertenece este uso. |
-|Subcategoría de medidor |Define el tipo de servicio de Azure y puede afectar a la tarifa. |
-|Nombre de medidor |Identifica la unidad de medida del recurso que se está utilizando. |
-|Medidor de la región |Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos. |
-|SKU |Identifica el identificador único de sistema de cada recurso de Azure. |
-|Unidad |Identifica la unidad en que se cobra el servicio. Por ejemplo, GB, horas, 10.000 s. |
-|Cantidad consumida |La cantidad del recurso usado durante el período de facturación. |
-|Cantidad incluida |El importe del recurso incluido sin cargo en el período de facturación actual. |
-|Cantidad de superávit |Muestra la diferencia entre la cantidad consumida y la cantidad incluida. Se factura este importe. En el caso de ofertas de pago por uso que no incluyen el importe en la oferta, este total será igual a la cantidad consumida. |
-|Dentro del compromiso |Muestra los cargos por recursos que se restan del importe comprometido asociado a su oferta de 6 o 12 meses. Los cargos por los recursos se restan en orden cronológico. |
-|Moneda |Moneda usada en el período de facturación actual. |
-|Superávit |Muestra los cargos por recursos que superan el importe comprometido asociado a su oferta de 6 o 12 meses. |
-|Tarifa de compromiso |Muestra la tarifa comprometida basada en el importe comprometido total asociado a su oferta de 6 o 12 meses. |
-|Tarifa |La tarifa que se le carga por unidad facturable. |
-|Valor |Muestra el resultado de multiplicar las columnas Cantidad superior al límite y Tarifa. Si la cantidad consumida no supera la cantidad incluida, no hay ningún cargo en esta columna. |
+![Tasa de cargo y previsión en Azure Portal](./media/billing-understand-your-bill/4.png)
 
-### <a name="daily-usage"></a>Uso diario 
+Este gráfico muestra los costes actuales en esta suscripción y los costes de las previsiones para el resto del período de facturación.
 
-La sección de uso diario del archivo muestra los detalles de uso que afectan a las tarifas de facturación. En la tabla siguiente se enumeran los términos y las descripciones que se muestran en esta sección. 
+![Vista de análisis de costes en Azure Portal](./media/billing-understand-your-bill/5.png)
 
-| Término| Descripción |
-| --- | --- |
-|Fecha de uso |La fecha en que se usó el recurso. |
-|Categoría de medidor |Identifica el servicio de nivel superior al que pertenece este uso. |
-|Id. de medidor |Identificador del medidor de facturación empleado para valorar el uso de la facturación. |
-|Subcategoría de medidor |Define el tipo de servicio de Azure que puede afectar a la tarifa. |
-|Nombre de medidor |Identifica la unidad de medida del recurso que se está utilizando. |
-|Medidor de la región|Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos. |
-|Unidad |Identifica la unidad en que se cobra el servicio. Por ejemplo, GB, horas, 10.000 s. |
-|Cantidad consumida |La cantidad del recurso consumida durante ese día. |
-|Ubicación del recurso |Identifica el centro de datos donde se está ejecutando el recurso. |
-|Servicio consumido |El servicio de la plataforma Azure que ha usado. |
-|Grupo de recursos |El grupo de recursos en el que se ejecuta el recurso implementado. Para más información, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). |
-|Id. de instancia |Identificador del recurso. El identificador contiene el nombre especificado para el recurso cuando se creó Es el nombre del recurso o el id. de recurso completo. Para más información, consulte [API de Azure Resource Manager](/rest/api/resources/resources). |
-|Etiquetas |Etiqueta asignada al recurso. Use etiquetas para agrupar los registros de facturación. Por ejemplo, puede usar etiquetas para distribuir los costos por el departamento que utiliza el recurso. Los servicios que admiten la emisión de etiquetas son máquinas virtuales, almacenamiento y servicios de red aprovisionados mediante la [API de Azure Resource Manager](/rest/api/resources/resources). Para más información, consulte [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organización de los recursos de Azure con etiquetas). |
-|Información adicional |Metadatos específicos del servicio. Por ejemplo, un tipo de imagen de una máquina virtual. |
-|Información de servicio 1 |El nombre del proyecto al que pertenece el servicio en la suscripción. |
-|Información de servicio 2 |Campo heredado que captura los metadatos específicos del servicio opcional. |
+El análisis de costes proporciona un uso de nivel de medidor y recursos para distintos períodos de facturación.
 
-## <a name="tips-for-cost-management"></a>Sugerencias de administración de costes
-- Calcule los costes mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/), la [calculadora de coste total de propiedad](https://aka.ms/azure-tco-calculator) y cuando agregue un servicio
-- [Configurar alertas de facturación](billing-set-up-alerts.md)
-- [Revise el uso y los costes con regularidad en Azure Portal](billing-getting-started.md#costs)
+Para más información, vea [Prevención de costes inesperados con la administración de costes y facturación de Azure](billing-getting-started.md#costs).
 
-Para más información, consulte [Introducción a la administración de costes y facturación de Azure](billing-getting-started.md).
+## <a name="external"></a>¿Qué son los cargos de servicios externos?
+Los servicios externos (también conocidos como pedidos de Marketplace) se proporcionan mediante proveedores de servicios independientes y se facturan por separado. Los cargos no se muestran en la factura de Azure. Para aprender más, consulte [Descripción de los gastos de servicios externos de Azure](billing-understand-your-azure-marketplace-charges.md).
 
-## <a name="how-do-i-make-a-payment"></a>¿Cómo se puede realizar un pago?
+## <a name="payment"></a>¿Cómo puedo realizar un pago?
 Si ha configurado una tarjeta de crédito o de débito como forma de pago, el pago se realizará automáticamente. En el extracto de la tarjeta de crédito, el elemento de línea diría **MSFT Azure**.
 
 Si usa un [método de pago con factura](https://azure.microsoft.com/pricing/invoicing/), envíe el pago a la ubicación indicada en la parte inferior de la factura. Para obtener ayuda, [póngase en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -148,13 +97,11 @@ Si usa un [método de pago con factura](https://azure.microsoft.com/pricing/invo
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>¿Cómo puedo comprobar el estado de un pago realizado con tarjeta de crédito?
 [Cree una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar el estado de su pago. 
 
-## <a name="what-about-marketplace-orders-or-external-service-charges"></a>¿Qué hay acerca de los pedidos de Marketplace o los cargos por servicios externos?
-Los servicios externos se solían llamar pedidos de Marketplace. Los servicios externos los proporcionan proveedores de servicios independientes, pero están integrados en Azure. Para aprender más, consulte [Descripción de los gastos de servicios externos de Azure](billing-understand-your-azure-marketplace-charges.md).
+## <a name="tips-for-cost-management"></a>Sugerencias de administración de costes
+- Calcule los costes mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/), la [calculadora de coste total de propiedad](https://aka.ms/azure-tco-calculator) y cuando agregue un servicio
+- [Configurar alertas de facturación](billing-set-up-alerts.md)
+- [Revise el uso y los costes con regularidad en Azure Portal](billing-getting-started.md#costs)
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico. 
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
- 
-
-
-
 
