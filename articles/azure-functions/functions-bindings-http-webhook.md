@@ -157,7 +157,7 @@ Al usar esta configuración, ya se podrá dirigir la función con la ruta de aba
 Esto permite que el código de función admita dos parámetros en la dirección: "category" e "id". Puede usar cualquier [restricción de ruta de API web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) con sus parámetros. El siguiente código de función de C# emplea los dos parámetros.
 
 ```csharp
-    public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
+    public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
                                                     TraceWriter log)
     {
         if (id == null)
