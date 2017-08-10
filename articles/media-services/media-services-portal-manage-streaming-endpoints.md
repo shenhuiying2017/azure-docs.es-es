@@ -1,5 +1,4 @@
 ---
-
 title: "Administración de puntos de conexión de streaming con Azure Portal | Microsoft Docs"
 description: "En este tema se muestra cómo administrar los puntos de conexión de streaming mediante el Portal de Azure."
 services: media-services
@@ -14,12 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
 ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -62,7 +62,7 @@ Para agregar/quitar el punto de conexión de streaming mediante el Portal de Azu
     ![punto de conexión de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a name="a-idconfigurestreamingendpointsaconfiguring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configuración del extremo de streaming
+## <a id="configure_streaming_endpoints"></a>Configuración del extremo de streaming
 Punto de conexión de streaming le permite configurar las siguientes propiedades:
 
 * Control de acceso
@@ -88,7 +88,7 @@ Aparecerá una breve descripción de los campos.
 
 Para obtener más información, consulte [este tema](media-services-portal-scale-streaming-endpoints.md) .
 
-## <a name="a-idenablecdnaenable-azure-cdn-integration"></a><a id="enable_cdn"></a>Habilitación de la integración de CDN de Azure
+## <a id="enable_cdn"></a>Habilitación de la integración de CDN de Azure
 
 Cuando se crea una nueva cuenta, la integración de la red CDN de Azure de punto de conexión de streaming está habilitada de forma predeterminada.
 
@@ -121,10 +121,5 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

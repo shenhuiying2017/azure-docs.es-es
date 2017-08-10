@@ -27,7 +27,7 @@ ms.lasthandoff: 02/07/2017
 En esta guía se muestran algunos escenarios comunes del uso del último [complemento de Apache Cordova para Aplicaciones móviles de Azure]. Si no está familiarizado con Aplicaciones móviles de Azure, realice primero el tutorial [Creación de una aplicación de Apache Cordova] para crear un back-end, crear una tabla y descargar un proyecto de Apache Cordova previamente compilado. En esta guía nos centramos en el complemento de Apache Cordova del lado cliente.
 
 ## <a name="supported-platforms"></a>Plataformas compatibles
-Este SDK es compatible con la versión&6;.0.0 y posterior de Apache Cordova en dispositivos iOS, Android y Windows.  Las plataformas compatibles con las siguientes:
+Este SDK es compatible con la versión 6.0.0 y posterior de Apache Cordova en dispositivos iOS, Android y Windows.  Las plataformas compatibles con las siguientes:
 
 * Niveles de API de Android del 19 al 24 (de KitKat a Nougat)
 * Versiones 8.0 y posteriores de iOS.

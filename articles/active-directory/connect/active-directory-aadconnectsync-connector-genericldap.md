@@ -269,5 +269,5 @@ Para Novell eDirectory la importación diferencial no detecta las eliminaciones 
 Para directorios con un registro de cambios diferenciales que se basa en la fecha y hora, se recomienda encarecidamente ejecutar una importación completa de manera periódica. Este proceso permite que el motor de sincronización encuentre cualquier diferencia entre el servidor LDAP y lo que está en el espacio del conector.
 
 ## <a name="troubleshooting"></a>Solución de problemas
-* Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM&2010; R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+* Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
