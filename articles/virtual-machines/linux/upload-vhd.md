@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: bba753c4a4657a611503bb99aa8d714286ebcea5
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 9a91aedf452a391f23b1e5773ec12e2de5d4a288
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Creación de una máquina virtual Linux a partir de un disco personalizado mediante la CLI de Azure 2.0
@@ -165,7 +165,7 @@ La carga del VHD puede llevar un rato.
 ### <a name="create-a-managed-disk"></a>Creación de un disco administrado
 
 
-Cree un disco administrado a partir del VHD mediante [az disk create](/cli/azure/disk/create). En el ejemplo siguiente se crea un disco administrado denominado *myManagedDisk* a partir del VHD cargado en la cuenta de almacenamiento y el contenedor con nombre:
+Cree un disco administrado a partir del VHD mediante [az disk create](/cli/azure/disk#create). En el ejemplo siguiente se crea un disco administrado denominado *myManagedDisk* a partir del VHD cargado en la cuenta de almacenamiento y el contenedor con nombre:
 
 ```azurecli
 az disk create \

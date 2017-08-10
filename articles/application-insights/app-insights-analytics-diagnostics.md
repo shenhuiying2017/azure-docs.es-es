@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bb836357af6d006c18db578164f02fa7bd043b45
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 5e53bc714d89bf6204681349e7890e0b8fbc7046
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>Diagnóstico de los cambios repentinos en la telemetría de aplicación
@@ -61,7 +61,7 @@ Una vez que sabe que una determinada página de su sitio web tiene un problema e
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-Smart Diagnostics usa un algoritmo de aprendizaje automático avanzado no supervisado en la operación [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns). Lo que hace es buscar patrones candidatos que puedan explicar los cambios en los datos. Luego, analiza el impacto de cada candidato sobre la métrica y muestra el patrón que guarda una mejor correlación con el cambio.
+Smart Diagnostics usa un algoritmo de aprendizaje automático avanzado no supervisado en la operación [DiffPatterns](app-insights-analytics-reference.md). Lo que hace es buscar patrones candidatos que puedan explicar los cambios en los datos. Luego, analiza el impacto de cada candidato sobre la métrica y muestra el patrón que guarda una mejor correlación con el cambio.
 
 ## <a name="no-diagnostic-points"></a>¿No hay puntos de diagnóstico?
 

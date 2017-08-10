@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a95157f57c0cbd1f2a9ed68a0fe83140d7c9ec40
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: ddc5446fa6a43bfff05ec251b30175ddd24052c9
+ms.contentlocale: es-es
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="add-a-user-to-an-azure-vm"></a>Agregar un usuario a una máquina virtual de Azure
@@ -78,7 +78,7 @@ Una de las primeras tareas que se suelen realizar en un servidor nuevo es agrega
 Con el comando `useradd` estamos agregando las cuentas de usuario a la máquina virtual Linux.  Si se ejecuta `useradd`, se modifica `/etc/passwd`, `/etc/shadow`, `/etc/group` y `/etc/gshadow`.  Estamos agregando una marca de la línea de comandos al comando `useradd` para agregar el nuevo usuario al grupo de sudo correcto en Linux.  Aunque `useradd` crea una entrada en `/etc/passwd`, no asigna una contraseña a la nueva cuenta de usuario.  Estamos creando una contraseña inicial para el nuevo usuario mediante un sencillo comando `passwd` .  El último paso es modificar las reglas de sudo para permitir que el usuario ejecute comandos con privilegios de sudo sin tener que escribir una contraseña para cada comando.  El inicio de sesión con la clave privada, se da por supuesto que esa cuenta de usuario está protegida frente a actores perjudiciales y permitirá el acceso sudo sin contraseña.  
 
 ### <a name="adding-a-single-sudo-user-to-an-azure-vm"></a>Agregar un solo usuario de sudo a una máquina virtual de Azure
-Inicie sesión en la VM de Azure mediante claves SSH.  Si no ha configurado el acceso de clave pública SSH, lea primero el artículo [Using Public Key Authentication with Azure](http://link.to/article)(Uso de la autenticación de clave pública con Azure).  
+Inicie sesión en la VM de Azure mediante claves SSH.  Si no ha configurado el acceso de clave pública SSH, lea primero el artículo [Using Public Key Authentication with Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Uso de la autenticación de clave pública con Azure).  
 
 El comando `useradd` realiza las tareas siguientes:
 
