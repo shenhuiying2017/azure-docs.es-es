@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 07/12/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c6e2ecebf6cd1b246c155c158d12d4d83bd1feda
-ms.openlocfilehash: bda2da933accb769bae4c9b420ae330014fc2ba0
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 2114bdafb3b9fe2eb0632271840b8b70a76d10f1
 ms.contentlocale: es-es
-ms.lasthandoff: 02/27/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="iis-logs-in-log-analytics"></a>Registros de IIS en Log Analytics
@@ -78,9 +77,19 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 | Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Contador de entradas de registro de IIS por dirección URL para el host www.contoso.com. |
 | Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Total de bytes recibidos por cada equipo de IIS |
 
+>[!NOTE]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue.
+
+> | Consultar | Descripción |
+|:--- |:--- |
+| W3CIISLog |Todos los registros de IIS. |
+| W3CIISLog &#124; where scStatus==500 |Todas las entradas de registro IIS con un estado de retorno de 500. |
+| W3CIISLog &#124; summarize count() by cIP |Contador de entradas de registro de IIS por dirección IP del cliente. |
+| W3CIISLog &#124; where csHost=="www.contoso.com" &#124; summarize count() by csUriStem |Contador de entradas de registro de IIS por dirección URL para el host www.contoso.com. |
+| W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total de bytes recibidos por cada equipo de IIS |
+
 ## <a name="next-steps"></a>Pasos siguientes
 * Configure Log Analytics para recopilar otros [orígenes de datos](log-analytics-data-sources.md) para su análisis.
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos.
 * Configure alertas en Log Analytics para recibir notificaciones de manera nativa con respecto a condiciones importantes encontradas en los registros de IIS.
-
 

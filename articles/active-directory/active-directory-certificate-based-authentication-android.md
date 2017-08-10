@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2017
+ms.date: 07/28/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 58733a36e1753c219df51e1fbe845a2f2a0fdbdc
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: d37f0fcf4c91879c31b04dfd19cadee00e98ba91
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticación basada en certificados de Azure Active Directory en Android
@@ -31,7 +31,7 @@ La autenticación basada en certificados (CBA) le permite autenticarse mediante 
 
 Al configurar esta función, no tendrá que escribir una combinación de nombre de usuario y contraseña en determinadas aplicaciones de correo electrónico y Microsoft Office de su dispositivo móvil. 
 
-En este tema se proporcionan los requisitos y los escenarios admitidos para configurar CBA en un dispositivo Android para usuarios de inquilinos de planes de Office 365 Enterprise, Empresa, Educación, US Government y China.
+En este tema se proporcionan los requisitos y los escenarios admitidos para configurar CBA en un dispositivo iOS (Android) para usuarios de inquilinos de planes de Office 365 Enterprise, Empresa, Educación, US Government, China y Alemania.
 
 
 

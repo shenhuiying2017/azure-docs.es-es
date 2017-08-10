@@ -12,18 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/13/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 90706434eb78009bc56fc390cfa5a30e53827c19
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: f5da86a95623234d14b0a99ee64c7b98d7e920a1
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="log-analytics-search-reference"></a>Referencia sobre búsqueda de registros de Log Analytics
+
+>[!NOTE]
+> En este artículo se describen las búsquedas de registros de Log Analytics mediante el lenguaje de consulta actual.  Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), debe consultar [la referencia del nuevo lenguaje](https://docs.loganalytics.io/queryLanguage/query_language.html).
+
 En la siguiente sección de referencia sobre el lenguaje de búsqueda, se describen las opciones generales de sintaxis de consulta que puede usar al buscar datos y expresiones de filtro que ayuden a acotar los resultados. También se describen los comandos que puede usar para realizar acciones en los datos recuperados.
 
 Puede leer sobre los campos devueltos en las búsquedas y las facetas que lo ayudarán obtener más información sobre categorías similares de datos en la [sección Campo de búsqueda y referencia de faceta](#search-field-and-facet-reference).

@@ -1,6 +1,6 @@
 ---
-title: "Configuración de un entorno de App Service | Microsoft Docs"
-description: "Configuración, administración y supervisión de entornos del Servicio de aplicaciones"
+title: Procedimiento para configurar una instancia de App Service Environment v1
+description: "Configuración, administración y supervisión de App Service Environment v1"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -12,19 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 07/11/2017
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85a4c87447681bd21698143b4228d94c0877d1b9
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: ae99f5a412f73cddc28543ba12c66c82f1a7835a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="configuring-an-app-service-environment"></a>Configuración de un entorno del Servicio de aplicaciones
+# <a name="configuring-an-app-service-environment-v1"></a>Configuración de una instancia de App Service Environment v1
+
+> [!NOTE]
+> Este artículo trata sobre App Service Environment v1.  Hay una versión más reciente de App Service Environment que resulta más fácil de usar y se ejecuta en una infraestructura más eficaz. Para aprender más sobre la nueva versión, consulte [Introducción a App Service Environment](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Información general
-A un alto nivel, un entorno del Servicio de aplicaciones de Azure consta de varios componentes principales:
+A grandes rasgos, un entorno de Azure App Service Environment consta de varios componentes principales:
 
 * Los recursos de proceso que se ejecutan en el servicio hospedado del entorno del Servicio de aplicaciones
 * Almacenamiento
@@ -44,32 +48,32 @@ Cambiar el tamaño o la cantidad se llama operación de escalado.  Solo puede ha
 
 * Un ASE comienza con dos P2, lo cual es suficiente para cargas de trabajo de desarrollo y pruebas y cargas de trabajo de producción de bajo nivel. Es muy recomendable que utilice los P3 para cargas de trabajo de producción de moderadas a intensas.
 * Para las cargas de trabajo de moderadas a intensas, se recomienda contar con al menos cuatro P3 para garantizar que haya suficientes servidores front-end en ejecución cuando se produzca el mantenimiento programado. Las actividades de mantenimiento programado desactivan un front-end cada vez. Esto reduce la capacidad global de los servidores front-end disponibles durante las actividades de mantenimiento.
-* No puede agregar una nueva instancia de front-end de manera instantánea. Puede tardar entre 2 y 3 horas en aprovisionarse.
+* Los servidores front-end pueden tardar hasta una hora en aprovisionarse. 
 * Para afinar más en el escalado, debe supervisar el porcentaje de CPU, el porcentaje de memoria y las métricas de solicitudes activas para el grupo de servidores front-end. Si los porcentajes de CPU o memoria están por encima del 70 % cuando se ejecutan los P3, agregue más servidores front-end. Si los valores de solicitudes activas están en promedio entre 15 000 y 20 000 solicitudes por front-end, debe agregar también más servidores front-end. El objetivo general es mantener los porcentajes de CPU y memoria por debajo del 70 % y el promedio de solicitudes activas por debajo de 15 000 solicitudes por front-end al ejecutar P3.  
 
 **Trabajos**: Los trabajos se encuentran donde se ejecutan realmente sus aplicaciones. Al escalar verticalmente sus planes del Servicio de aplicaciones se utiliza el trabajo del grupo de trabajo asociado.
 
-* No es posible agregar trabajo de manera instantánea. Este proceso puede tardar de 2 a 3 horas en aprovisionarse, independientemente de la cantidad que se esté agregando.
-* Escalar el tamaño de un recurso de proceso para cualquier grupo tardará de 2 a 3 horas por dominio de actualización. Hay 20 dominios de actualización en un ASE. El escalado del tamaño de proceso de un grupo de trabajo con 10 instancias puede tardar entre 20 y 30 horas en completarse.
+* No es posible agregar trabajo de manera instantánea. Pueden tardar hasta una hora en aprovisionarse.
+* Escalar el tamaño de un recurso de proceso para cualquier grupo tardará menos de una hora por cada dominio de actualización. Hay 20 dominios de actualización en un ASE. El escalado del tamaño de proceso de un grupo de trabajo con diez instancias puede tardar hasta diez horas.
 * Si cambia el tamaño de los recursos de proceso que se usan en un grupo de trabajo, provocará arranques en frío de las aplicaciones que se ejecutan en ese grupo de trabajo.
 
 La forma más rápida de cambiar el tamaño de recursos de proceso de un grupo de trabajo que no está ejecutando aplicaciones es el siguiente:
 
-* Reduzca verticalmente el número de instancias a 0. El proceso de desasignación de instancias tardará unos 30 minutos.
-* Seleccione el nuevo tamaño de proceso y el número de instancias. Desde este punto, el proceso tardará entre 2 y 3 horas en completarse.
+* Reduzca la cantidad de trabajos a 2.  El tamaño mínimo de la reducción en el portal es 2. El proceso de cancelación de la asignación de instancias tardará algunos minutos. 
+* Seleccione el nuevo tamaño de proceso y el número de instancias. Desde este punto, el proceso tardará hasta 2 horas en completarse.
 
 Si las aplicaciones requieren un mayor tamaño de recursos de proceso, no le servirán las indicaciones anteriores. En lugar de cambiar el tamaño del grupo de trabajo que hospeda esas aplicaciones, puede rellenar otro grupo de trabajo con instancias del tamaño deseado y trasladar sus aplicaciones a ese grupo.
 
-* Cree las instancias adicionales del tamaño de proceso necesario en otro grupo de trabajo. Esto tardará de 2 a 3 horas en completarse.
+* Cree las instancias adicionales del tamaño de proceso necesario en otro grupo de trabajo. Desde este punto, el proceso tardará hasta una hora en completarse.
 * Vuelva a asignar sus planes del Servicio de aplicaciones que hospedan las aplicaciones que necesitan un tamaño mayor al grupo de trabajo recién configurado. Se trata de una operación rápida que debería tardar menos de un minuto en completarse.  
-* Reduzca verticalmente el primer grupo de trabajo si ya no necesita esas instancias no utilizadas. Esta operación tarda unos 30 minutos en completarse.
+* Reduzca verticalmente el primer grupo de trabajo si ya no necesita esas instancias no utilizadas. La operación tarda unos minutos.
 
 **Escalado automático**: Una de las herramientas que le pueden ayudar a administrar el consumo de recursos de proceso es el escalado automático. Este se puede aplicar a grupos de trabajo o servidores front-end. Puede, por ejemplo, aumentar las instancias de cualquier tipo de grupo por la mañana y reducirlo por la noche. O puede agregar instancias cuando la cantidad de trabajo disponible en un grupo de trabajo caiga por debajo de un umbral determinado.
 
 Si desea establecer reglas de escalado automático alrededor de métricas del grupo de recursos de proceso, tenga en cuenta el tiempo necesario para el aprovisionamiento. Para más detalles sobre el escalado automático de los entornos de App Service, consulte [Escalado automático y el entorno de App Service][ASEAutoscale].
 
 ### <a name="storage"></a>Almacenamiento
-Cada ASE se configura con 500 GB de almacenamiento. Este espacio se usa en todas las aplicaciones del ASE. Este espacio de almacenamiento es parte del ASE y actualmente no se puede cambiar para usar su espacio de almacenamiento. Si va a realizar ajustes en el enrutamiento o la seguridad de la red virtual, debe seguir permitiendo el acceso a Almacenamiento de Azure o, de lo contrario, ASE no funcionará.
+Cada ASE se configura con 500 GB de almacenamiento. Este espacio se usa en todas las aplicaciones del ASE. Este espacio de almacenamiento es parte del ASE y actualmente no se puede cambiar para usar su espacio de almacenamiento. Si va a realizar ajustes en el enrutamiento o la seguridad de la red virtual, debe seguir permitiendo el acceso a Azure Storage o, de lo contrario, ASE no funcionará.
 
 ### <a name="database"></a>Base de datos
 La base de datos contiene la información que define el entorno, así como los detalles acerca de las aplicaciones que se ejecutan en él. Esto también forma parte de la suscripción mantenida en Azure. No es algo que tenga una capacidad directa para manipular. Si va a realizar ajustes en el enrutamiento o la seguridad de la red virtual, debe seguir permitiendo el acceso a SQL Azure o, de lo contrario, ASE no funcionará.

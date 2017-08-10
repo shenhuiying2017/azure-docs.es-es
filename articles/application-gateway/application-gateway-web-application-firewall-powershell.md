@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: c23e7404f9eee6f1246cafc72c6733546cc82934
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 8a2281cea551092be4b5c628c1e541b04021523d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configuración del firewall de aplicaciones web en una puerta de enlace de aplicaciones nueva o existente
@@ -116,7 +115,7 @@ Cree un grupo de recursos para la puerta de enlace de aplicaciones.
 New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 ```
 
-El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta ubicación se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usan el mismo grupo de recursos.
+Azure Resource Manager requiere que todos los grupos de recursos especifiquen una ubicación. Esta ubicación se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usan el mismo grupo de recursos.
 
 En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-RG" y la ubicación "West US".
 
@@ -125,7 +124,7 @@ En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-RG" y la 
 
 ### <a name="configure-virtual-network"></a>Configuración de una red virtual
 
-La puerta de enlace de aplicaciones requiere su propia subred. En este paso creará una red virtual con un espacio de direcciones de 10.0.0.0/16 y dos subredes, una para la puerta de enlace de aplicaciones y otra para los miembros del grupo de back-end.
+La puerta de enlace de aplicaciones requiere su propia subred. En este paso, creará una red virtual con un espacio de direcciones de 10.0.0.0/16 y dos subredes, una para la puerta de enlace de aplicaciones y otra para los miembros del grupo de back-end.
 
 ```powershell
 # Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
@@ -192,7 +191,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="get-application-gateway-dns-name"></a>Obtención del nombre DNS de una puerta de enlace de aplicaciones
 
-Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la Application Gateway, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la Application Gateway. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
+Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la Application Gateway, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la Application Gateway. Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. Esta operación se puede realizar con Azure DNS u otro proveedor de DNS, mediante la creación de un registro CNAME que apunte a la [dirección IP pública](../dns/dns-custom-domain.md#public-ip-address). No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01

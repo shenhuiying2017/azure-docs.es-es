@@ -11,13 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 9b26ade6c3a90e6ebe49bfbc6f3fa801dc7f8d20
+ms.author: sewhee
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: d8b466caba7201a5bb8612e773ad61943f6d1cf2
 ms.contentlocale: es-es
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Supervisión de aplicaciones de varios componentes con Application Insights (versión preliminar)
@@ -30,7 +29,9 @@ El término "componente" se usa aquí para hacer referencia a cualquier parte fu
 
 ### <a name="sharing-a-single-application-insights-resource"></a>Uso compartido de un único recurso de Application Insights 
 
-La técnica clave aquí es enviar telemetría desde cada componente de la aplicación al mismo recurso de Application Insights, pero usar la propiedad `cloud_RoleName` para distinguir entre componentes cuando sea necesario. 
+La técnica clave aquí es enviar telemetría desde cada componente de la aplicación al mismo recurso de Application Insights, pero usar la propiedad `cloud_RoleName` para distinguir entre componentes cuando sea necesario. El SDK de Application Insights agrega la propiedad `cloud_RoleName` a los componentes de telemetría para emitir. Por ejemplo, el SDK agregará un nombre de sitio web o un nombre de rol de servicio a la propiedad `cloud_RoleName`. Puede invalidar este valor con un valor de telemetryinitializer. El mapa de la aplicación utiliza la propiedad `cloud_RoleName` para identificar los componentes en el mapa.
+
+Para más información acerca de cómo invalidar la propiedad `cloud_RoleName`, consulte [Incorporación de propiedades: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
 En algunos casos, puede que esto no sea adecuado y quizás prefiera usar recursos independientes para distintos grupos de componentes. Por ejemplo, podría tener que usar recursos diferentes para administración o facturación. El uso de recursos independientes significa que no verá todos los componentes en una sola asignación de aplicaciones y que no puede realizar consultas entre componentes de [Analytics](app-insights-analytics.md). También tendrá que configurar los recursos independientes.
 

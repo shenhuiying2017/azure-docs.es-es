@@ -1,147 +1,220 @@
 ---
 title: "Tutorial: Integración de Azure Active Directory con Onit | Microsoft Docs"
-description: "Aprenda a usar Onit con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Onit."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: bc479a28-8fcd-493f-ac53-681975a5149c
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/24/2017
+ms.date: 07/24/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 84962c04e15bd010357f96da7dbf418cc68adab1
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 47c0055b89dbcf6a30a7f9ac5a33913e7bf463fa
+ms.contentlocale: es-es
+ms.lasthandoff: 07/26/2017
 
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Tutorial: Integración de Azure Active Directory con Onit
-El objetivo de este tutorial es mostrar la integración de Azure y Onit.  
 
-En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+En este tutorial, obtendrá información sobre cómo integrar Onit con Azure Active Directory (Azure AD).
 
-* Una suscripción de Azure válida
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Onit
+La integración de Onit con Azure AD le proporciona las siguientes ventajas:
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a Onit podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía Onit (inicio de sesión iniciado por el proveedor de servicios) o con la [introducción al panel de acceso](active-directory-saas-access-panel-introduction.md).
+- Puede controlar en Azure AD quién tiene acceso a Onit.
+- Puede permitir que los usuarios inicien sesión automáticamente en Onit (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-1. Habilitación de la integración de aplicaciones para Onit
-2. Configuración del inicio de sesión único (SSO)
-3. Configuración del aprovisionamiento de usuario
-4. Asignación de usuarios
+## <a name="prerequisites"></a>Requisitos previos
 
-![Escenario](./media/active-directory-saas-onit-tutorial/IC791166.png "Escenario")
+Para configurar la integración de Azure AD con Onit se necesitan los siguientes elementos:
 
-## <a name="enable-the-application-integration-for-onit"></a>Habilitación de la integración de aplicaciones para Onit
-El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para Onit.
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en Onit
 
-**Siga estos pasos para habilitar la integración de aplicaciones para Onit:**
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
-1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-onit-tutorial/IC700993.png "Active Directory")
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
-   
-   ![Aplicaciones](./media/active-directory-saas-onit-tutorial/IC700994.png "Aplicaciones")
-4. Haga clic en **Agregar** en la parte inferior de la página.
-   
-   ![Agregar aplicaciones](./media/active-directory-saas-onit-tutorial/IC749321.png "Agregar aplicaciones")
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-   
-   ![Agregar una aplicación de la galería](./media/active-directory-saas-onit-tutorial/IC749322.png "Agregar una aplicación de la galería")
-6. En el **cuadro de búsqueda**, escriba **Onit**.
-   
-   ![Galería de aplicaciones](./media/active-directory-saas-onit-tutorial/IC791167.png "Galería de aplicaciones")
-7. En el panel de resultados, seleccione **Onit** y luego haga clic en **Completar** para agregar la aplicación.
-   
-   ![Onit](./media/active-directory-saas-onit-tutorial/IC795325.png "Onit")
-   
-## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-El objetivo de esta El objetivo de esta sección es describir cómo se habilita la autenticación de usuarios en Onit con su cuenta de Azure AD mediante la federación basada en el protocolo SAML.  
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
-La configuración del inicio de sesión único para Onit requiere la recuperación de un valor de huella digital de un certificado.
+## <a name="scenario-description"></a>Descripción del escenario
 
-Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-La aplicación Onit espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los **atributos del token de SAML** .  
+1. Agregación de Onit desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-La siguiente captura de pantalla le muestra un ejemplo de esto.
+## <a name="adding-onit-from-the-gallery"></a>Agregación de Onit desde la galería
+Para configurar la integración de Onit en Azure AD, deberá agregar Onit desde la galería a la lista de aplicaciones SaaS administradas.
 
-![Inicio de sesión único](./media/active-directory-saas-onit-tutorial/IC791168.png "Inicio de sesión único")
+**Para agregar Onit desde la galería, siga estos pasos:**
 
-**Para configurar el inicio de sesión único (SSO), realice los pasos siguientes:**
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Onit**, en el menú de la parte superior, haga clic en **Atributos** para abrir el cuadro de diálogo **Atributos de token de SAML**.
-   
-   ![Atributos](./media/active-directory-saas-onit-tutorial/IC791169.png "Atributos")
-2. Para agregar las asignaciones de los atributos necesarios, realice los pasos siguientes:
+    ![Botón Azure Active Directory][1]
 
-   |Nombre del atributo|Valor de atributo|
-   |---|---|
-   |name|User.userprincipalname|
-   |email|User.mail|
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-   1. En cada fila de datos de la tabla anterior, haga clic en **agregar atributo de usuario**.
-   2. En el cuadro de texto **Nombre de atributo** , escriba el nombre de atributo que se muestra para la fila.
-   3. En la lista **Valor de atributo** , seleccione el valor de atributo que se muestra para esa fila.
-   4. Haga clic en **Completo**.
+    ![Hoja Aplicaciones empresariales][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-3. Haga clic en **Aplicar cambios**.
-4. En el explorador, haga clic en **Atrás** para volver a abrir el cuadro de diálogo **Inicio rápido**.
-5. Para abrir el cuadro de diálogo **Configurar inicio de sesión único**, haga clic en **Configurar inicio de sesión único**.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-onit-tutorial/IC791170.png "Configurar inicio de sesión único")
-6. En la página **¿Cómo desea que los usuarios inicien sesión en Onit?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y, luego, haga clic en **Siguiente**.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-onit-tutorial/IC791171.png "Configurar inicio de sesión único")
-7. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Onit**, escriba la dirección URL que utilizan los usuarios para iniciar sesión en su aplicación Onit (por ejemplo: "*https://ms-sso-test-onit.com*") y luego haga clic en **Siguiente**.
-   
-   ![Configurar dirección URL de la aplicación](./media/active-directory-saas-onit-tutorial/IC791172.png "Configurar dirección URL de la aplicación")
-8. En la página **Configurar inicio de sesión único en Onit**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado en el equipo.
-   
-   ![Configurar inicio de sesión único](./media/active-directory-saas-onit-tutorial/IC791173.png "Configurar inicio de sesión único")
+    ![Botón Nueva aplicación][3]
+
+4. En el cuadro de búsqueda, escriba **Onit**, seleccione **Onit** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![Onit en la lista de resultados](./media/active-directory-saas-onit-tutorial/tutorial_onit_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Onit con un usuario de prueba llamado "Britta Simon."
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Onit para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Onit.
+
+Para establecer la relación de vínculo, en Onit, asigne el valor de **nombre de usuario** de Azure AD como valor de **Nombre de usuario**.
+
+Para configurar y probar el inicio de sesión único de Azure AD con Onit, es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Onit](#create-an-onit-test-user)** : para tener un homólogo de Britta Simon en Onit que esté vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)**, para comprobar si funciona la configuración.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Onit.
+
+**Para configurar el inicio de sesión único de Azure AD con Onit, realice los pasos siguientes:**
+
+1. En Azure Portal, en la página de integración de la aplicación **Onit**, haga clic en **Inicio de sesión único**.
+
+    ![Vínculo Configurar inicio de sesión único][4]
+
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-onit-tutorial/tutorial_onit_samlbase.png)
+
+3. En la sección **Dominio y direcciones URL de Onit**, lleve a cabo los pasos siguientes:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de Onit](./media/active-directory-saas-onit-tutorial/tutorial_onit_url.png)
+
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub-domain>.onit.com`.
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<sub-domain>.onit.com`
+
+    > [!NOTE] 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Onit](https://www.onit.com/support) para obtener estos valores. 
+ 
+4. En la sección **Certificado de firma de SAML**, copie el valor de **HUELLA DIGITAL** del certificado.
+
+    ![Vínculo de descarga del certificado](./media/active-directory-saas-onit-tutorial/tutorial_onit_certificate.png) 
+
+5. La aplicación Onit espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar el valor de estos atributos desde la pestaña **"Atributo"** de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto. 
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-onit-tutorial/tutorial_onit_attribute.png) 
+
+6. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo token de SAML como muestra la imagen y siga estos pasos:
+    
+    | Nombre del atributo | Valor de atributo |
+    | ------------------- | -------------------- |
+    | email | user.mail |
+    
+    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-onit-tutorial/tutorial_attribute_04.png)
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-onit-tutorial/tutorial_attribute_05.png)
+
+    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
+
+    c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
+
+    d. Deje **Espacio de nombres** en blanco.
+    
+    e. Haga clic en **Aceptar**.
+
+7. Haga clic en el botón **Guardar** .
+
+    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-onit-tutorial/tutorial_general_400.png)
+
+8. En la sección **Configuración de Onit**, haga clic en **Configurar Onit** para abrir la ventana **Configurar inicio de sesión**. Copie las **direcciones URL del servicio de inicio de sesión único de SAML y de cierre de sesión** de la sección **Referencia rápida.**
+
+    ![Configuración de Onit](./media/active-directory-saas-onit-tutorial/tutorial_onit_configure.png)
+
 9. En otra ventana del explorador web, inicie sesión en como administrador en el sitio de Onit de la compañía.
+
 10. En el menú de la parte superior, haga clic en **Administration**(Administración).
    
    ![Administración](./media/active-directory-saas-onit-tutorial/IC791174.png "Administración")
 11. Haga clic en **Edit Corporation**(Editar corporación).
    
    ![Editar corporación](./media/active-directory-saas-onit-tutorial/IC791175.png "Editar corporación")
+   
 12. Haga clic en la pestaña **Security** (Seguridad).
     
     ![Editar información de la compañía](./media/active-directory-saas-onit-tutorial/IC791176.png "Editar información de la compañía")
+
 13. En la pestaña **Seguridad** , lleve a cabo estos pasos:
+
+    ![Inicio de sesión único](./media/active-directory-saas-onit-tutorial/IC791177.png "Inicio de sesión único")
+
+    a. Como **Estrategia de autenticación**, seleccione **Inicio de sesión único y contraseña**.
     
-   ![Inicio de sesión único](./media/active-directory-saas-onit-tutorial/IC791177.png "Inicio de sesión único")
-    
-   1. Como **Estrategia de autenticación**, seleccione **Inicio de sesión único y contraseña**.
-   2. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Onit**, copie el valor de **URL de inicio de sesión remoto** y péguelo en el cuadro de texto **URL de destino de IdP**.
-   3. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Onit**, copie el valor de **URL de cierre de sesión remoto** y péguelo en el cuadro de texto **URL de cierre de sesión de IdP**.
-   4. Copie el valor de **Huella digital** del certificado exportado y luego péguelo en el cuadro de texto **Huella digital del certificado de Idp (SHA1)**.    
-      >[!TIP]
-      >Para obtener más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
-      >
-      
-   5. Como **Tipo de inicio de sesión único**, seleccione **SAML**.
-   6. En el cuadro **Texto de botón de inicio de sesión SSO** , escriba el texto que desee para el botón.
-   7. Seleccione **Inicio de sesión con SSO: necesario para los siguientes dominios o usuarios**. Escriba la dirección de correo electrónico de un usuario de prueba en el cuadro de texto relacionado y luego haga clic en **Actualizar**.
-   
-       ![Editar corporación](./media/active-directory-saas-onit-tutorial/IC791178.png "Editar corporación")  
-14. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
-    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-onit-tutorial/IC791179.png "Configurar inicio de sesión único")
-    
-## <a name="configure-user-provisioning"></a>Configurar aprovisionamiento de usuarios
+    b. En el cuadro de texto **Idp Target URL** (Dirección URL de destino del Idp), pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
+
+    c. En el cuadro de texto **IDP Logout URL** (Dirección URL de cierre de sesión del IDP), pegue el valor de la **dirección URL de cierre de sesión** que copió de Azure Portal.
+
+    d. En el cuadro de texto **Idp Cert Fingerprint (SHA1)** (Huella digital de certificado del Idp [SHA1]), pegue el valor de **Huella digital** del certificado que ha copiado de Azure Portal.
+
+> [!TIP]
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+
+   ![Creación de un usuario de prueba de Azure AD][100]
+
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+
+1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+
+    ![Botón Azure Active Directory](./media/active-directory-saas-onit-tutorial/create_aaduser_01.png)
+
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/active-directory-saas-onit-tutorial/create_aaduser_02.png)
+
+3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Usuario**.
+
+    ![Botón Agregar](./media/active-directory-saas-onit-tutorial/create_aaduser_03.png)
+
+4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+
+    ![Cuadro de diálogo Usuario](./media/active-directory-saas-onit-tutorial/create_aaduser_04.png)
+
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
+
+    c. Marque la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+
+    d. Haga clic en **Crear**.
+ 
+### <a name="create-an-onit-test-user"></a>Creación de un usuario de prueba de Onit
 
 Para permitir que los usuarios de Azure AD inicien sesión en Onit, tienen que aprovisionarse en Onit.  
 
@@ -157,38 +230,68 @@ En el caso de Onit, el aprovisionamiento es una tarea manual.
    
    ![Agregar usuario](./media/active-directory-saas-onit-tutorial/IC791181.png "Agregar usuario")
    
-  1. Escriba el **Nombre** y la **Dirección de correo electrónico** de una cuenta de AAD válida que quiera aprovisionar en los cuadros de texto relacionados.
+  1. Escriba el **Nombre** y la **Dirección de correo electrónico** de una cuenta de Azure AD válida que quiera aprovisionar en los cuadros de texto relacionados.
   2. Haga clic en **Crear**.    
    
-      >[!NOTE]
-      >El propietario de la cuenta recibirá un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
-      >
-      >
-     
+ > [!NOTE]
+ > El titular de la cuenta de Azure Active Directory recibirá un mensaje de correo y seguirá un vínculo para confirmar su cuenta antes de que se active.
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Onit que proporcione Onit para aprovisionar cuentas de usuario de AAD.
-> 
-> 
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-## <a name="assign-users"></a>Asignar usuarios
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Onit.
 
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+![Asignación del rol de usuario][200] 
 
-**Para asignar usuarios a Onit, lleve a cabo los siguientes pasos:**
+**Para asignar al usuario Britta Simon a Onit, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, cree una cuenta de prueba.
-2. En la página de integración de aplicaciones **Onit**, haga clic en **Asignar usuarios**.
-   
-   ![Asignar usuarios](./media/active-directory-saas-onit-tutorial/IC791182.png "Asignar usuarios")
-3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
-   
-   ![Sí](./media/active-directory-saas-onit-tutorial/IC767830.png "Sí")
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
 
-Si desea probar la configuración de inicio de sesión único (SSO), abra el panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones, seleccione **Onit**.
+
+    ![Vínculo a Onit en la lista de aplicaciones](./media/active-directory-saas-onit-tutorial/tutorial_onit_app.png)  
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Vínculo "Usuarios y grupos"][202]
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Panel Agregar asignación][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono de Onit en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Onit.
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-onit-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-onit-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-onit-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-onit-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-onit-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-onit-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-onit-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-onit-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-onit-tutorial/tutorial_general_203.png
+
 

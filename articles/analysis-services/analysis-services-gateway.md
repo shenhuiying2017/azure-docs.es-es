@@ -13,17 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/25/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: f8c9e9ab8b8728202ec3f049b309d96d883022f4
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: f07d72a18221e7a2838cec3982990dca21c00153
 ms.contentlocale: es-es
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="on-premises-data-gateway"></a>Puerta de enlace de datos local
+# <a name="install-on-premises-data-gateway"></a>Instalación de una puerta de enlace de datos local
 La puerta de enlace de datos local actúa como un puente, proporcionando una transferencia de datos segura entre orígenes de datos locales y el servidor de Azure Analysis Services en la nube.
 
 La versión más reciente de la puerta de enlace es compatible con los modelos tabulares 1400 conectados a orígenes de datos locales mediante las consultas M y Get Data en SSDT. 
@@ -32,7 +31,7 @@ Para obtener más información sobre los orígenes de datos compatibles, consult
 
 La puerta de enlace se instala en un equipo de la red. Debe instalarse una puerta de enlace para cada servidor de Azure Analysis Services que tenga en la suscripción de Azure. Por ejemplo, si tiene dos servidores en la suscripción de Azure que se conectan a orígenes de datos locales, deberá instalar una puerta de enlace en dos equipos independientes de la red.
 
-## <a name="requirements"></a>Requisitos
+## <a name="prerequisites"></a>Requisitos previos
 **Requisitos mínimos:**
 
 * .NET Framework 4.5
@@ -61,7 +60,7 @@ La puerta de enlace se instala en un equipo de la red. Debe instalarse una puert
 1. Ejecute la configuración.
 2. Elija una ubicación de instalación y acepte los términos de licencia.
 3. Inicie sesión en Azure.
-4. Especifique el nombre de la instancia de Azure Analysis Server. Solo puede especificar un servidor por cada puerta de enlace. Haga clic en **Configurar** y estará listo para continuar.
+4. Especifique el nombre de la instancia de Azure Analysis Server y haga clic en **Configurar**. Solo puede especificar un servidor por cada puerta de enlace.
 
     ![Inicio de sesión en Azure](./media/analysis-services-gateway/aas-gateway-configure-server.png)
 
@@ -70,7 +69,7 @@ La puerta de enlace se ejecuta como un servicio de Windows, llamado **Puerta de 
 
 ![Cómo funciona](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
-Las consultas y el flujo de datos funciona de la siguiente manera:
+Flujo de datos y consultas:
 
 1. El servicio en la nube crea una consulta con las credenciales cifradas para el origen de datos local. A continuación, se envía a una cola de la puerta de enlace para su procesamiento.
 2. El servicio en la nube de puerta de enlace analiza la consulta e inserta la solicitud en la instancia de [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
@@ -103,7 +102,7 @@ Es recomendable crear una lista de direcciones IP permitidas para la región de 
 | *. analysis.windows.net |443 |HTTPS |
 | *.login.windows.net |443 |HTTPS |
 | *.servicebus.windows.net |5671-5672 |Advanced Message Queuing Protocol (AMQP) |
-| *.servicebus.windows.net |443, 9350-9354 |Agentes de escucha de retransmisión de Bus de servicio sobre TCP (requiere 443 para la adquisición del token de Control de acceso) |
+| *.servicebus.windows.net |443, 9350-9354 |Agentes de escucha en Service Bus Relay sobre TCP (requiere 443 para la adquisición del token de Access Control) |
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
@@ -111,7 +110,7 @@ Es recomendable crear una lista de direcciones IP permitidas para la región de 
 | *.microsoftonline-p.com |443 |Se utiliza para la autenticación dependiendo de la configuración. |
 
 ### <a name="forcing-https-communication-with-azure-service-bus"></a>Cómo forzar la comunicación HTTPS con Azure Service Bus
-Puede forzar a la puerta de enlace para que se comunique con Azure Service Bus mediante HTTPS en lugar de TCP directo. Sin embargo, esto puede reducir en gran medida el rendimiento. Debe modificar el archivo *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config*. Cambie el valor de `AutoDetect` a `Https`. Este archivo se encuentra, de forma predeterminada, en *C:\Archivos de programa\Puerta de enlace de datos local*.
+Puede hacer que la puerta de enlace se comunique con Azure Service Bus mediante HTTPS en lugar de TCP directo. Sin embargo, de ese modo puede reducir en gran medida el rendimiento. Debe modificar el archivo *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* cambiando el valor de `AutoDetect` por `Https`. Este archivo se encuentra, de forma predeterminada, en *C:\Archivos de programa\Puerta de enlace de datos local*.
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
@@ -132,8 +131,8 @@ La telemetría puede usarse para tareas de supervisión y solución de problemas
 
 **Para activar la telemetría:**
 
-1.    Compruebe el directorio de cliente de puerta de enlace de datos local en el equipo. Normalmente, su %systemdrive%\Program Files\puerta de enlace de datos local. O bien, puede abrir una consola de servicios y comprobar la ruta de acceso al archivo ejecutable: una propiedad del servicio de puerta de enlace de datos local.
-2.    En el archivo Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config del directorio del cliente, cambie el valor SendTelemetry a true.
+1.  Compruebe el directorio de cliente de puerta de enlace de datos local en el equipo. Normalmente, es **%systemdrive%\Program Files\On-premises data gateway**. O bien, puede abrir una consola de servicios y comprobar la ruta de acceso al archivo ejecutable: una propiedad del servicio de puerta de enlace de datos local.
+2.  En el archivo Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config del directorio del cliente, cambie el valor SendTelemetry a true.
         
     ```
         <setting name="SendTelemetry" serializeAs="String">
@@ -141,7 +140,7 @@ La telemetría puede usarse para tareas de supervisión y solución de problemas
         </setting>
     ```
 
-3.    Guarde los cambios y reinicie el servicio de Windows: el servicio de puerta de enlace de datos local.
+3.  Guarde los cambios y reinicie el servicio de Windows: el servicio de puerta de enlace de datos local.
 
 
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 224aa0db2feb7a83bec5b4ec46140046d10f012e
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 3ee146a0be3c3338cf0037e2ec92a3b8d0c05a4e
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/04/2017
 > * [Portal de Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell de Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
 
-Aprenda a crear una puerta de enlace de aplicaciones habilitada para un firewall de aplicaciones web.
+Aprenda a crear una puerta de enlace de aplicaciones web habilitada para un firewall de aplicaciones web.
 
 El firewall de aplicaciones web (WAF) de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones. La aplicación web protege de muchas de las vulnerabilidades web de OWASP Top 10.
 
@@ -109,11 +108,11 @@ En este escenario:
 
    ![hoja que muestra configuración básica][2-2]
 
-1. En la hoja **Configuración** que aparece en **Red virtual**, haga clic en **Elegir una red virtual**. Se abrirá la hoja **Elegir una red virtual**.  Haga clic en **Crear nuevo** para abrir la hoja **Crear red virtual**.
+1. En la hoja **Configuración** que aparece en **Red virtual**, haga clic en **Elegir una red virtual**. Así se abre la hoja **Elegir una red virtual**.  Haga clic en **Crear nuevo** para abrir la hoja **Crear red virtual**.
 
    ![Elegir una red virtual][2]
 
-1. En la hoja **Crear red virtual**, escriba los valores siguientes y luego haga clic en **Aceptar**. De esta forma, se cierran las hojas **Crear red virtual** y **Elegir una red virtual**. Además, se rellenará el campo **Subred** en la hoja **Configuración** con la subred elegida.
+1. En la hoja **Crear red virtual**, escriba los valores siguientes y luego haga clic en **Aceptar**. Así se cierran las hojas **Crear red virtual** y **Elegir una red virtual**. Además, se rellenará el campo **Subred** en la hoja **Configuración** con la subred elegida.
 
    |**Configuración** | **Valor** | **Detalles** |
    |---|---|---|
@@ -128,7 +127,7 @@ En este escenario:
 
    ![Elegir una dirección IP pública][3]
 
-1. En la hoja **Crear dirección IP pública**, acepte el valor predeterminado y haga clic en **Aceptar**. De esta forma, se cerrarán las hojas **Elegir dirección IP pública** y **Crear dirección IP pública** y rellene el campo **Dirección IP pública** con la dirección IP pública elegida.
+1. En la hoja **Crear dirección IP pública**, acepte el valor predeterminado y haga clic en **Aceptar**. De esta forma, se cierran las hojas **Elegir dirección IP pública** y **Crear dirección IP pública** y se rellena el campo **Dirección IP pública** con la dirección IP pública elegida.
 
 1. En la hoja **Configuración** en **Configuración de agente de escucha**, haga clic en **HTTP** en **Protocolo**. Para usar **https**, se requiere un certificado. La clave privada del certificado es necesaria, por lo que es preciso proporcionar un .pfx exportado del certificado y la contraseña del archivo.
 
@@ -153,11 +152,13 @@ Estos pasos permiten crear una puerta de enlace de aplicaciones básica con la c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+A continuación, puede aprender a configurar un alias de dominio personalizado para la [dirección IP pública](../dns/dns-custom-domain.md#public-ip-address) con Azure DNS u otro proveedor DNS.
+
 Aprenda a configurar el registro de diagnóstico para registrar los eventos que se detectan o impiden con el firewall de aplicaciones web en [Diagnósticos de Application Gateway](application-gateway-diagnostics.md).
 
 Para aprender a crear sondeos de estado personalizado, visite [Create a custom probe for Application Gateway by using the portal](application-gateway-create-probe-portal.md)
 
-Para aprender a configurar la descarga de SSL y eliminar la cara descripción de SSL de los servidores web, visite [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el Administrador de recursos de Azure](application-gateway-ssl-portal.md)
+Para aprender a configurar la descarga de SSL y eliminar la cara descripción de SSL de los servidores web, visite [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante Azure Resource Manager](application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-web-application-firewall-portal/figure1.png

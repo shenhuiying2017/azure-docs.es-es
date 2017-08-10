@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e1d44f85b36d08944351a79d7a4b39cc8de61201
-ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ca8c94cfe6a76ba169b2ec1f7ab3f49caf562289
 ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
@@ -36,6 +36,14 @@ Debe instalar Data Management Gateway en su equipo local para habilitar el movim
 El siguiente tutorial muestra cómo crear una factoría de datos con una canalización que mueve los datos de una base de datos de **SQL Server** local a Azure Blob Storage. Como parte del tutorial, instalará y configurará la puerta de enlace de administración de datos en su máquina.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Tutorial: copiar datos locales a la nube
+
+## <a name="prerequisites-for-the-tutorial"></a>Requisitos previos para el tutorial
+Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
+
+* **Suscripción de Azure**.  Si no tiene una suscripción, puede crear una cuenta de prueba gratuita en tan solo un par de minutos. Consulte el artículo [Evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) para obtener información.
+* **Cuenta de almacenamiento de Azure**. Blob Storage se usará como un almacén de datos de **destino o receptor** en este tutorial. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
+* **SQL Server**. Use una base de datos de SQL Server local como almacén de datos de **origen** en este tutorial. 
+
 ## <a name="create-data-factory"></a>Creación de Data Factory
 En este paso, use Azure portal para crear una instancia de Azure Data Factory denominada **ADFTutorialOnPremDF**.
 
@@ -161,7 +169,7 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y 
       ![Servicio vinculado a SQL Server en la vista de árbol](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
 
 #### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Adición de un servicio vinculado para una cuenta de almacenamiento de Azure
-1. En el **Editor de Data Factory**, haga clic en **Nuevo almacén de datos** en la barra de comandos y haga clic en **Almacenamiento de Azure**.
+1. En el **Editor de Data Factory**, haga clic en **Nuevo almacén de datos** en la barra de comandos y haga clic en **Azure Storage**.
 2. Escriba el nombre de la cuenta de almacenamiento de Azure en **Nombre de cuenta**.
 3. Escriba la clave de su cuenta de almacenamiento de Azure en **Clave de cuenta**.
 4. Haga clic en **Implementar** para implementar **AzureStorageLinkedService**.
@@ -170,7 +178,7 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y 
 En este paso, creará conjuntos de datos de entrada y de salida que representan datos de entrada y de salida para la operación de copia (base de datos de SQL Server local => Azure Blob Storage). Antes de crear los conjuntos de datos, realice estos pasos (los pasos detallados se indican después de la lista):
 
 * Cree una tabla con el nombre **emp** en la base de datos de SQL Server que agregó como servicio vinculado a la factoría de datos e inserte un par de entradas de ejemplo en la tabla.
-* Cree un contenedor de blobs llamado **adftutorial** en la cuenta de almacenamiento de blobs de Azure que agregó como un servicio vinculado a la factoría de datos.
+* Cree un contenedor de blobs llamado **adftutorial** en la cuenta de Azure Blob Storage que agregó como un servicio vinculado a la factoría de datos.
 
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Preparación de la instancia local de SQL Server para el tutorial
 1. En la base de datos que especificó para el servicio vinculado de SQL Server local (**SqlServerLinkedService**), use el siguiente script de SQL para crear la tabla **emp** en la base de datos.
@@ -263,7 +271,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
    * **folderPath** está establecido en **adftutorial/outfromonpremdf**, donde outfromonpremdf es la carpeta del contenedor adftutorial. Cree el contenedor **adftutorial** si este todavía no existe.
    * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**).  El servicio Data Factory generará un segmento de datos de salida cada hora en la tabla **emp** de Azure SQL Database.
 
-   Si no especifica un valor de **fileName** para una **tabla de salida**, los archivos generados en **folderPath** se nombran con el siguiente formato: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Si no especifica un valor de **fileName** para una **tabla de salida**, los archivos generados en **folderPath** se nombran con el siguiente formato: Data<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad partitionedBy. En el ejemplo siguiente, folderPath usa Year, Month y Day de SliceStart (hora de inicio del segmento que se está procesando) y fileName usa Hour de SliceStart. Por ejemplo, si se está produciendo una división de 2014-10-20T08:00:00, el nombre de carpeta se establece en wikidatagateway/wikisampledataout/2014/10/20 y el nombre de archivo se establece en 08.csv.
 
@@ -342,7 +350,7 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 
    * En la sección de actividades, solo hay una actividad cuyo **type** está establecido en **Copy**.
    * La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
-   * En la sección **typeProperties**, **SqlSource** se especifica como el **tipo de origen** y **SqlSink** como el **tipo de receptor**.
+   * En la sección **typeProperties**, **SqlSource** se especifica como el **tipo de origen** y **BlobSink** como el **tipo de receptor**.
    * La consulta SQL `select * from emp` está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
    Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial.
@@ -392,7 +400,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 8. (Opcional) Haga clic en **Canalizaciones**, elija **ADFTutorialOnPremDF** y obtenga detalles de los conjuntos de datos de entrada (**Consumido**) o los conjuntos de datos de salida (**Producido**).
 9. Use herramientas como el [Explorador de Microsoft Storage](http://storageexplorer.com/) para comprobar que se crea un blob o archivo cada hora.
 
-   ![Explorador de almacenamiento de Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Explorador de Azure Storage](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Vea el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para obtener todos los detalles sobre Data Management Gateway.

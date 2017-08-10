@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2017
+ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 162be9faa51047f4d0be0e73e3dbe6a3dc87ba4c
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 4c2e2030d49ab09ee8c72cfd638986b075d53921
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticación basada en certificados de Azure Active Directory en iOS
@@ -30,7 +30,7 @@ La autenticación basada en certificados (CBA) le permite autenticarse mediante 
 
 Al configurar esta función, no tendrá que escribir una combinación de nombre de usuario y contraseña en determinadas aplicaciones de correo electrónico y Microsoft Office de su dispositivo móvil. 
 
-En este tema se proporcionan los requisitos y los escenarios admitidos para configurar CBA en un dispositivo iOS para usuarios de inquilinos de planes de Office 365 Enterprise, Empresa, Educación, US Government y China.
+En este tema se proporcionan los requisitos y los escenarios admitidos para configurar CBA en un dispositivo iOS (Android) para usuarios de inquilinos de planes de Office 365 Enterprise, Empresa, Educación, US Government, China y Alemania.
 
 Esta característica se encuentra disponible como versión preliminar en los planes Office 365 US Government Defense y US Government Federal.
 
@@ -47,6 +47,7 @@ Esta característica se encuentra disponible como versión preliminar en los pla
 | Outlook |![Comprobar][1] |
 | Yammer |![Comprobar][1] |
 | Skype Empresarial |![Comprobar][1] |
+| Aplicación Microsoft Information Protection |![Comprobar][1] |
 | Equipos de Microsoft |![Comprobar][1] |
 
 ## <a name="requirements"></a>Requisitos 

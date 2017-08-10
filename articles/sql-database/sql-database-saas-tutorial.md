@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 83d357bd046814c690b8b11841e5c8ebebd0df0e
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b09bfa8a5bc22a092e963f351e99c16d0e9a57ba
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa Azure SQL Database
@@ -54,7 +53,9 @@ Para completar este tutorial, asegúrese de cumplir los siguientes requisitos pr
 
 Implemente la aplicación SaaS de Wingtip:
 
-1. Al hacer clic en el botón **Implementar en Azure** se abre Azure Portal por la plantilla de implementación SaaS de Wingtip. La plantilla requiere dos valores de parámetro; un nombre para un nuevo grupo de recursos y un nombre de usuario que distingue esta implementación de otras implementaciones de la aplicación SaaS de Wingtip. El paso siguiente proporciona detalles para establecer estos valores. Asegúrese de anotar los valores exactos que use, ya que necesitará escribirlos más adelante en un archivo de configuración.
+1. Al hacer clic en el botón **Implementar en Azure** se abre Azure Portal por la plantilla de implementación SaaS de Wingtip. La plantilla requiere dos valores de parámetro; un nombre para un nuevo grupo de recursos y un nombre de usuario que distingue esta implementación de otras implementaciones de la aplicación SaaS de Wingtip. El paso siguiente proporciona detalles para establecer estos valores.
+
+   Asegúrese de anotar los valores exactos que use, ya que necesitará escribirlos más adelante en un archivo de configuración.
 
    <a href="http://aka.ms/deploywtpapp" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
@@ -63,7 +64,7 @@ Implemente la aplicación SaaS de Wingtip:
     > [!IMPORTANT]
     > Para realizar la demostración, se ha eliminado intencionadamente la protección de varios firewalls de autenticación y del servidor. **Cree un nuevo grupo de recursos** y no use grupos de recursos, servidores o grupos existentes. No use esta aplicación, ni ninguno de los recursos que se crean, para producción. Elimine este grupo de recursos cuando haya terminado con la aplicación para detener la facturación relacionada con él.
 
-    * **Grupo de recursos**: seleccione **Crear nuevo** y especifique un **nombre** y una **contraseña**.
+    * **Grupo de recursos**: seleccione **Crear nuevo** y proporcione un **nombre** para el nuevo grupo de recursos. Seleccione una **ubicación** en la lista desplegable.
     * **Usuario**: algunos recursos requieren nombres que sean globalmente únicos. Para garantizar la unicidad, cada vez que implemente la aplicación, especifique un valor para diferenciar los recursos que cree de los que han creado otras implementaciones de la aplicación Wingtip. Se recomienda usar un nombre de **usuario** corto, como sus iniciales y un número (por ejemplo, *bg1*) y, después, utilizarlo en el nombre del grupo de recursos (por ejemplo, *wingtip-bg1*). El parámetro **Usuario** solo puede contener letras, números y guiones (sin espacios). El primer y último carácter deben ser una letra o un número (se recomienda usar minúsculas).
 
 
@@ -109,7 +110,7 @@ La aplicación presenta lugares, como salas de concierto, clubs de jazz o clubes
 
 Un **centro de eventos** central proporciona una lista de las direcciones URL de los inquilinos específicas para la implementación.
 
-1. Abra el _centro de eventos_: http://events.wtp.&lt;USUARIO&gt;.trafficmanager.net (sustitúyalo por el nombre de usuario de la implementación):
+1. Abra el _centro de eventos_ en el explorador web: http://events.wtp.&lt;USUARIO&gt;.trafficmanager.net (reemplácelo por el nombre de usuario de la implementación):
 
     ![events hub](media/sql-database-saas-tutorial/events-hub.png)
 
@@ -130,7 +131,7 @@ Ahora que la aplicación se ha implementado, vamos a ponerla en marcha. El scrip
 1. Presione **F5** para ejecutar el script e iniciar el generador de carga (por ahora deje los valores predeterminados de los parámetros).
 
 > [!IMPORTANT]
-> El generador de carga se ejecuta como una serie de trabajos en la sesión local de PowerShell. El script *Demo-LoadGenerator.ps1* inicia el script real del generador de carga, que se ejecuta como una tarea en primer plano además de una serie de trabajos de generación de carga en segundo plano. Se invoca un trabajo de generador de carga para cada base de datos registrada en el catálogo. Los trabajos se ejecutan en la sesión de PowerShell local, por lo que al cerrar la sesión de PowerShell se detienen todos los trabajos. Si se suspende el equipo, se pausa la generación de carga y se reanudará cuando reactive el equipo.
+> Para ejecutar otros scripts, abra una nueva ventana de PowerShell ISE. El generador de carga se ejecuta como una serie de trabajos en la sesión local de PowerShell. El script *Demo-LoadGenerator.ps1* inicia el script real del generador de carga, que se ejecuta como una tarea en primer plano además de una serie de trabajos de generación de carga en segundo plano. Se invoca un trabajo de generador de carga para cada base de datos registrada en el catálogo. Los trabajos se ejecutan en la sesión de PowerShell local, por lo que al cerrar la sesión de PowerShell se detienen todos los trabajos. Si se suspende el equipo, se pausa la generación de carga y se reanudará cuando reactive el equipo.
 
 Una vez que el generador de carga invoca los trabajos de generación de carga para cada inquilino, la tarea en primer plano permanece en un estado de invocación de trabajo, donde inicia trabajos en segundo plano adicionales para los nuevos inquilinos que se aprovisionen posteriormente. Puede presionar *Ctrl-C* o pulsar el botón *Detener* para detener la tarea en primer plano, pero los trabajos en segundo plano existentes seguirán generando la carga en cada base de datos. Si necesita supervisar y controlar los trabajos en segundo plano, use *Get-Job*, *Receive-Job* y *Stop-Job*. Mientras se ejecuta la tarea en primer plano no se puede usar la misma sesión de PowerShell para ejecutar otros scripts. Para ejecutar otros scripts, abra una nueva ventana de PowerShell ISE.
 
@@ -160,11 +161,11 @@ Actualice el *centro de eventos* y el nuevo inquilino aparece ahora en la lista.
 
 Ahora que ha empezado a ejecutar una carga en la colección de inquilinos, veamos algunos de los recursos que se han implementado:
 
-1. En [Azure Portal](http://portal.azure.com), abra el servidor **catalog-&lt;USUARIO&gt;**. El servidor de catálogo contiene dos bases de datos: **tenantcatalog** y **basetenantdb** (una base de datos *golden* vacía o una base de datos de plantilla que se copia para crear nuevos inquilinos).
+1. En [Azure Portal](http://portal.azure.com), vaya a la lista de servidores SQL Server y abra el servidor **catalog-&lt;USUARIO&gt;**. El servidor de catálogo contiene dos bases de datos: **tenantcatalog** y **basetenantdb** (una base de datos *golden* vacía o una base de datos de plantilla que se copia para crear nuevos inquilinos).
 
    ![bases de datos](./media/sql-database-saas-tutorial/databases.png)
 
-1. Abra el servidor **tenants1 -&lt;USUARIO&gt;** que contiene las bases de datos de los inquilinos. Todas las bases de datos de inquilinos son _elásticas estándar_ en un conjunto estándar de 50 eDTU. Observe también hay una base de datos de _Red Maple Racing_, la base de datos de inquilino que aprovisionó anteriormente.
+1. Vuelva a la lista de servidores de SQL Server y abra el servidor **tenants1&lt;&gt;USUARIO** que contiene las bases de datos de los inquilinos. Todas las bases de datos de inquilinos son _elásticas estándar_ en un conjunto estándar de 50 eDTU. Observe también hay una base de datos de _Red Maple Racing_, la base de datos de inquilino que aprovisionó anteriormente.
 
    ![Servidor](./media/sql-database-saas-tutorial/server.png)
 

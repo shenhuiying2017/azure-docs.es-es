@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 05/24/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 684cb55c0bf2abfa1fc1410d7fc1224a220c2713
+ms.custom: oldportal;it-pro;H1Hack27Feb2017
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 9da5bb6987a9eb3398abe0d6066f1945620df9a4
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="what-is-microsoft-azure-active-directory-licensing-in-the-azure-classic-portal"></a>¿Qué es la licencia de Microsoft Azure Active Directory en el Portal de Azure clásico?
@@ -32,7 +31,10 @@ ms.lasthandoff: 06/30/2017
 >
 >
 
-Azure Active Directory (Azure AD) es la plataforma y la solución de  identidad como un servicio de Microsoft. Azure AD se ofrece en distintas versiones técnicas o funcionales que van desde Azure AD Free, que se encuentra disponible con cualquier servicio de Microsoft como Office 365, Dynamics, Microsoft Intune y Azure (Azure AD no genera ningún gasto de consumo en este modo), hasta las versiones de pago de Azure AD como Enterprise Mobility Suite (EMS), Azure AD Premium y Basic y Azure Multi-Factor Authentication (MFA). Al igual que muchos de los servicios en línea de Microsoft, la mayoría de las versiones de pago de Azure AD se proporcionan a través de derechos por usuario, como ocurre en Office 365, Microsoft Intune y Azure AD. En estos casos, la compra de servicio se representa con una o varias suscripciones, y cada suscripción incluye un número de preventa de licencias en el inquilino. Los derechos de usuario se logran a través de la asignación de licencias, creando un vínculo entre el usuario y el producto, habilitando los componentes del servicio para el usuario y consumiendo una de las licencias de prepagadas.
+Azure Active Directory (Azure AD) es la plataforma y la solución de identidad como un servicio de Microsoft. Azure AD se ofrece en distintas versiones técnicas o funcionales que van desde Azure AD Free, que se encuentra disponible con cualquier servicio de Microsoft como Office 365, Dynamics, Microsoft Intune y Azure (Azure AD no genera ningún gasto de consumo en este modo), hasta las versiones de pago de Azure AD como Enterprise Mobility Suite (EMS), Azure AD Premium y Basic y Azure Multi-Factor Authentication (MFA). Al igual que muchos de los servicios en línea de Microsoft, la mayoría de las versiones de pago de Azure AD se proporcionan a través de derechos por usuario, como ocurre en Office 365, Microsoft Intune y Azure AD. En estos casos, la compra de servicio se representa con una o varias suscripciones, y cada suscripción incluye un número de preventa de licencias en el inquilino. Los derechos de usuario se logran a través de la asignación de licencias, creando un vínculo entre el usuario y el producto, habilitando los componentes del servicio para el usuario y consumiendo una de las licencias de prepagadas.
+
+> [!IMPORTANT]
+> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo. Para más información sobre cómo asignar roles de administrador en el Centro de administración de Azure AD, vea [Obtención de una licencia ara usted y sus usuarios en Azure Active Directory](active-directory-licensing-get-started-azure-portal.md).
 
 [Probar Azure AD Premium ahora.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 

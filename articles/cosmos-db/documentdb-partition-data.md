@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: e62b9742875512e70e5369978c1c90bdc9c6c1cb
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 3fbb2f0629e510dfa9dac8e363eafb8e668e81d4
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Creación de particiones en Azure Cosmos DB con la API de DocumentDB
@@ -77,7 +76,7 @@ Para empezar a trabajar con código, descargue el proyecto del [ejemplo de versi
 
 Examinemos cómo afecta la elección de la clave de partición al rendimiento de una aplicación.
 
-## <a name="working-with-the-documentdb-sdks"></a>Uso de los SDK de DocumentDB
+## <a name="working-with-the-azure-cosmos-db-sdks"></a>Uso de los SDK de Azure Cosmos DB
 A partir de la [versión de la API de REST de 16-12-2015](/rest/api/documentdb/), Azure Cosmos DB admite la creación automática de particiones. Para poder crear contenedores con particiones, es necesario descargar la versión del SDK 1.6.0 (o posteriores) en una de las plataformas admitidas del SDK (.NET, Node.js, Java, Python, MongoDB). 
 
 ### <a name="creating-containers"></a>Creación de contenedores
@@ -207,7 +206,7 @@ Puede administrar la ejecución de consultas en paralelo ajustando los parámetr
 * Al establecer `MaxDegreeOfParallelism`, puede controlar el grado de paralelismo; es decir, el número máximo de conexiones de red simultáneas en las particiones del contenedor. Si lo establece en -1, el grado de paralelismo lo administra el SDK. Si el parámetro `MaxDegreeOfParallelism` no se especifica o está establecido en 0, que es el valor predeterminado, habrá una única conexión de red a las particiones del contenedor.
 * Al establecer `MaxBufferedItemCount`, puede compensar el uso de memoria por parte del cliente y la latencia en las consultas. Si se omite este parámetro o lo establece en -1, el número de elementos almacenados en búfer durante la ejecución de consultas en paralelo lo administrará el SDK.
 
-Como se trata del mismo estado de la colección, una consulta en paralelo devolverá resultados en el mismo orden que la ejecución en serie. Al realizar una consulta entre particiones que incluye la ordenación (ORDER BY o TOP), el SDK de DocumentDB emite la consulta en paralelo en las particiones y combina los resultados ordenados parcialmente en el lado del cliente para generar resultados ordenados globalmente.
+Como se trata del mismo estado de la colección, una consulta en paralelo devolverá resultados en el mismo orden que la ejecución en serie. Al realizar una consulta entre particiones que incluye la ordenación (ORDER BY o TOP), el SDK de Azure Cosmos DB emite la consulta en paralelo entre las particiones y combina los resultados ordenados parcialmente en el lado del cliente para generar resultados ordenados globalmente.
 
 ### <a name="executing-stored-procedures"></a>Ejecución de procedimientos almacenados
 También puede ejecutar transacciones atómicas en relación con documentos con el mismo identificador de dispositivo, por ejemplo, si desea mantener los agregados o el estado más reciente de un dispositivo en un único elemento. 
@@ -222,9 +221,9 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 En la siguiente sección, veremos cómo puede moverse a contenedores con particiones desde contenedores de partición única.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se proporciona información general sobre cómo trabajar con las particiones de contenedores de Cosmos DB con la API de DocumentDB. Consulte también [la creación de particiones y el escalado horizontal](../cosmos-db/partition-data.md) para obtener una información general de los conceptos y procedimientos recomendados para crear particiones con cualquier API de Azure Cosmos DB. 
+En este artículo se proporciona información general sobre cómo trabajar con las particiones de contenedores de Azure Cosmos DB con la API de DocumentDB. Consulte también [la creación de particiones y el escalado horizontal](../cosmos-db/partition-data.md) para obtener una información general de los conceptos y procedimientos recomendados para crear particiones con cualquier API de Azure Cosmos DB. 
 
-* Realice pruebas de escala y de rendimiento con Cosmos DB. Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md) para ver ejemplos.
+* Realice pruebas de escala y de rendimiento con Azure Cosmos DB. Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md) para ver ejemplos.
 * Introducción a la codificación con [SDK](documentdb-sdk-dotnet.md) o la [API de REST](/rest/api/documentdb/)
 * Información sobre el [procesamiento aprovisionado en Azure Cosmos DB](request-units.md)
 

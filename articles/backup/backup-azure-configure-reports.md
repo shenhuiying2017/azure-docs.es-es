@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/30/2017
+ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ea438530808b418e1a3b4673a72de5df0738e797
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
@@ -65,6 +64,11 @@ Use los pasos siguientes para configurar la cuenta de Storage para el almacén d
 
       ![Selección de cuenta de Storage, paso 6](./media/backup-azure-configure-reports/save-configuration.png)
 7. Revise todos los cambios y haga clic en el botón **Guardar** situado en la parte superior, como se muestra en la ilustración anterior. Esta acción garantiza que todos los cambios se guardan, y la cuenta de Storage está ahora configurada para almacenar datos de informes.
+
+> [!NOTE]
+> Cuando haya configurado los informes al guardar la cuenta de almacenamiento, debe **esperar 24 horas** para que finalice la inserción de datos iniciales. Debe importar el paquete de contenido de Azure Backup en Power BI solo después de ese tiempo. Consulte la [sección de preguntas frecuentes](#frequently-asked-questions) para obtener más detalles. 
+>
+>
 
 ## <a name="view-reports-in-power-bi"></a>Visualización de informes en Power BI 
 Después de configurar la cuenta de Storage para informes con el almacén de Recovery Services, los datos de informes tardarán unas 24 horas en empezar a fluir. Transcurridas 24 horas desde la configuración de la cuenta de Storage, use los pasos siguientes para ver informes en Power BI:

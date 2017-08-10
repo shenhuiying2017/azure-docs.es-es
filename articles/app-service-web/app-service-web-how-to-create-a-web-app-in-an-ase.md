@@ -1,6 +1,6 @@
 ---
-title: "Creación de una aplicación web en un entorno del Servicio de aplicaciones"
-description: "Obtenga información acerca de cómo crear aplicaciones web y planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones"
+title: "Creación de una aplicación web en una instancia de App Service Environment v1"
+description: Aprenda a crear aplicaciones web y planes de App Service en una instancia de App Service Environment v1
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -12,18 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 7/11/2017
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: a78d37ee59663896acc3192f8ae03575270101a8
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 0779486b040b8dc51cdd42521ba965e58388425a
+ms.contentlocale: es-es
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="create-a-web-app-in-an-app-service-environment"></a>Creación de una aplicación web en un entorno del Servicio de aplicaciones
+# <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creación de una aplicación web en una instancia de App Service Environment v1
+
+> [!NOTE]
+> Este artículo trata sobre App Service Environment v1.  Hay una versión más reciente de App Service Environment que resulta más fácil de usar y se ejecuta en una infraestructura más eficaz. Para aprender más sobre la nueva versión, consulte [Introducción a App Service Environment](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Información general
-Este tutorial muestra cómo crear aplicaciones web y planes del Servicio de aplicaciones en un [entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md) (ASE). 
+Este tutorial muestra cómo crear aplicaciones web y planes de App Service en una instancia de [App Service Environment v1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
 > Si quiere obtener información sobre cómo crear una aplicación web pero no necesita hacerlo en un entorno del Servicio de aplicaciones, consulte [Creación de una aplicación web de .NET](app-service-web-get-started-dotnet.md) o uno de los tutoriales relacionados para otros lenguajes y marcos.

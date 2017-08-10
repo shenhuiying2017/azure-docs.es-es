@@ -1,11 +1,11 @@
 ---
 title: "Uso de Log Analytics con una aplicación multiinquilino de SQL Database | Microsoft Docs"
-description: "Configuración y uso de Log Analytics (OMS) con la aplicación de ejemplo Wingtip Tickets (WTP) de Azure SQL Database"
+description: "Configuración y uso de Log Analytics (OMS) con la aplicación de ejemplo Wingtip SaaS de Azure SQL Database"
 keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,19 +14,18 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/26/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: 813a947ce4deb0755b44f4d287e00ae5218abfc4
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 26f6f519ecb3abf6343dc2776aa141dff99ced15
 ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
-# <a name="setup-and-use-log-analytics-oms-with-the-wtp-sample-saas-app"></a>Instalación y uso de Log Analytics (OMS) con la aplicación SaaS WTP de ejemplo
+# <a name="setup-and-use-log-analytics-oms-with-the-wingtip-saas-app"></a>Instalación y uso de Log Analytics (OMS) con la aplicación Wingtip SaaS
 
-En este tutorial, instalaremos y usaremos *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* con la aplicación WTP para supervisar bases de datos y grupos elásticos. Se basa en el [tutorial de administración y supervisión del rendimiento](sql-database-saas-tutorial-performance-monitoring.md) y muestra cómo utilizar *Log Analytics* para intensificar la supervisión y las alertas de Azure Portal. Log Analytics es especialmente adecuado para la supervisión y las alertas de escalado, ya que admite cientos de grupos y cientos de miles de bases de datos. También proporciona una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure en varias suscripciones de Azure.
+En este tutorial, instalaremos y usaremos *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para supervisar bases de datos y grupos elásticos. Se basa en el [tutorial de administración y supervisión del rendimiento](sql-database-saas-tutorial-performance-monitoring.md) y muestra cómo utilizar *Log Analytics* para intensificar la supervisión y las alertas de Azure Portal. Log Analytics es especialmente adecuado para la supervisión y las alertas de escalado, ya que admite cientos de grupos y cientos de miles de bases de datos. También proporciona una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure en varias suscripciones de Azure.
 
 En este tutorial, aprenderá a:
 
@@ -34,9 +33,9 @@ En este tutorial, aprenderá a:
 > * Instalar y configurar Log Analytics (OMS)
 > * Usar Log Analytics para supervisar grupos y bases de datos
 
-Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
+Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
 
-* La aplicación WTP está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [Implementación y exploración de la aplicación SaaS WTP](sql-database-saas-tutorial.md).
+* Se implementa la aplicación SaaS de Wingtip. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de Wingtip](sql-database-saas-tutorial.md).
 * Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 Consulte el [tutorial de administración y supervisión del rendimiento](sql-database-saas-tutorial-performance-monitoring.md) para una descripción de los patrones y escenarios de SaaS, y ver cómo afectan a los requisitos de una solución de supervisión.
@@ -65,7 +64,7 @@ Los scripts de Wingtip Tickets y el código fuente de la aplicación están disp
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalación y configuración de Log Analytics y la solución Azure SQL Analytics
 
-Log Analytics es un servicio independiente que debe configurarse. Log Analytics recopila datos del registro, y telemetría y métricas de un área de trabajo de análisis de registros. Un área de trabajo es un recurso y debe crearse, como otros de Azure. Mientras que el área de trabajo no tiene por qué crearse en el mismo grupo de recursos de las aplicaciones que supervisa, a menudo esto es lo más razonable. En el caso de la aplicación WTP, esto permite que el área de trabajo se pueda eliminar fácilmente con la aplicación con solo eliminar el grupo de recursos.
+Log Analytics es un servicio independiente que debe configurarse. Log Analytics recopila datos del registro, y telemetría y métricas de un área de trabajo de análisis de registros. Un área de trabajo es un recurso y debe crearse, como otros de Azure. Mientras que el área de trabajo no tiene por qué crearse en el mismo grupo de recursos de las aplicaciones que supervisa, a menudo esto es lo más razonable. En el caso de la aplicación Wingtip SaaS, esto permite que el área de trabajo se pueda eliminar fácilmente con la aplicación con solo eliminar el grupo de recursos.
 
 1. Abra ...\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\*Demo-LogAnalytics.ps1* en **PowerShell ISE**.
 1. Presione **F5** para ejecutar el script.
@@ -76,7 +75,7 @@ En este momento debería poder abrir Log Analytics en Azure Portal (o en el port
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Uso de Log Analytics y la solución SQL Analytics para supervisar grupos y bases de datos
 
 
-En este ejercicio, abra Log Analytics y el portal de OMS para observar cómo se recopila la telemetría para las bases de datos de WTP y los grupos.
+En este ejercicio, abra Log Analytics y el portal de OMS para observar cómo se recopila la telemetría para las bases de datos y los grupos.
 
 1. Vaya a [Azure Portal](https://portal.azure.com) y abra haga clic en Más servicios para abrir Log Analytics, después, busque Log Analytics:
 
@@ -134,7 +133,7 @@ En este tutorial, ha aprendido cómo:
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Otros tutoriales basados en la implementación inicial de la aplicación Wingtip Tickets Platform (WTP)](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* [Otros tutoriales basados en la implementación inicial de la aplicación SaaS de Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
 * [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)
 

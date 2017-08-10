@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 52c095c9d3c92e32961927ac34770bb34fc768d5
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: cab019480a14de1a1481abee800553c6545add70
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Sugerencias de rendimiento para Azure Cosmos DB
@@ -49,7 +48,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
      Cosmos DB ofrece un modelo de programación RESTful sencillo y abierto sobre HTTPS. Además, ofrece un protocolo TCP eficaz que también es RESTful en su modelo de comunicación y está disponible a través del SDK de cliente de .NET. Tanto HTTPS como TCP directo usan SSL para la autenticación inicial y cifrar el tráfico. Para obtener el mejor rendimiento, utilice el protocolo TCP cuando sea posible.
 
-     Al utilizar TCP en modo de puerta de enlace, el puerto TCP 443 es el de Cosmos DB y 10250 es el puerto de la API de MongoDB. Al utilizar TCP en modo directo, además de los puertos de la puerta de enlace, debe garantizar que los puertos entre el 10000 y el 20000 estén abiertos, ya que Cosmos DB utiliza puertos TCP dinámicos. Si estos puertos no están abiertos y trata de utilizar TCP, recibirá un error 503 de servicio no disponible.
+     Al utilizar TCP en modo de puerta de enlace, el puerto TCP 443 es el de Cosmos DB y el puerto 10255 es el puerto de la API de MongoDB. Al utilizar TCP en modo directo, además de los puertos de la puerta de enlace, debe garantizar que los puertos entre el 10000 y el 20000 estén abiertos, ya que Cosmos DB utiliza puertos TCP dinámicos. Si estos puertos no están abiertos y trata de utilizar TCP, recibirá un error 503 de servicio no disponible.
 
      El modo de conectividad se configura durante la construcción de la instancia de DocumentClient con el parámetro ConnectionPolicy. Si se utiliza el modo directo, el protocolo también puede establecerse en el parámetro ConnectionPolicy.
 
@@ -98,15 +97,13 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     Las solicitudes de Cosmos DB se realizan a través de HTTPS o REST cuando se usa el modo de puerta de enlace, y están condicionadas por los límites de conexión predeterminados por nombre de host o dirección IP. Puede que deba establecer MaxConnections en un valor mayor (100-1000) para que la biblioteca del cliente pueda utilizar varias conexiones simultáneas a Cosmos DB. En el SDK 1.8.0 de .NET o versiones superiores, el valor predeterminado de [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) es 50 y para cambiar el valor, debe establecer [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) en un valor más alto.   
 4. **Ajuste de consultas paralelas en colecciones particionadas**
 
-     A partir de la versión 1.9.0 del SDK de .NET para DocumentDB se admiten consultas paralelas que permiten consultar una colección con particiones en paralelo (consulte [Trabajar con los SDK](documentdb-partition-data.md#working-with-the-documentdb-sdks) y los [ejemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados para más información). Las consultas paralelas están diseñadas para mejorar la latencia y el rendimiento de la consulta en todos sus homólogos seriales. Las consultas paralelas proporcionan dos parámetros que los usuarios pueden adaptar según sus necesidades: (a) MaxDegreeOfParallelism, para controlar el número máximo de particiones que se pueden consultar en paralelo, y (b) MaxBufferedItemCount, para controlar el número de resultados recuperados previamente.
+     A partir de la versión 1.9.0 del SDK de .NET para DocumentDB se admiten consultas paralelas que permiten consultar una colección con particiones en paralelo (consulte [Trabajar con los SDK](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) y los [ejemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados para más información). Las consultas paralelas están diseñadas para mejorar la latencia y el rendimiento de la consulta en todos sus homólogos seriales. Las consultas paralelas proporcionan dos parámetros que los usuarios pueden adaptar según sus necesidades: (a) MaxDegreeOfParallelism, para controlar el número máximo de particiones que se pueden consultar en paralelo, y (b) MaxBufferedItemCount, para controlar el número de resultados recuperados previamente.
 
-    (a) La consulta paralela ***Tuning MaxDegreeOfParallelism\:***
-   : lo que hace es consultar varias particiones en paralelo. Sin embargo, los datos de una recopilación con particiones individual se capturan en serie con respecto a la consulta. Por lo tanto, establecer el parámetro MaxDegreeOfParallelism en el número de particiones tiene la máxima probabilidad de conseguir el mejor rendimiento de consulta, siempre y cuando el resto de las demás condiciones del sistema permanezcan invariables. Si no conoce el número de particiones, puede establecer MaxDegreeOfParallelism en un número alto y el sistema elegirá el mínimo (número de particiones, entrada proporcionada por el usuario) como el valor de MaxDegreeOfParallelism.
+    (a) La consulta paralela ***Tuning MaxDegreeOfParallelism\:*** realiza consultas en varias particiones en paralelo. Sin embargo, los datos de una recopilación con particiones individual se capturan en serie con respecto a la consulta. Por lo tanto, establecer el parámetro MaxDegreeOfParallelism en el número de particiones tiene la máxima probabilidad de conseguir el mejor rendimiento de consulta, siempre y cuando el resto de las demás condiciones del sistema permanezcan invariables. Si no conoce el número de particiones, puede establecer MaxDegreeOfParallelism en un número alto y el sistema elegirá el mínimo (número de particiones, entrada proporcionada por el usuario) como el valor de MaxDegreeOfParallelism.
 
     Es importante tener en cuenta que las consultas en paralelo producen los mejores beneficios si los datos se distribuyen uniformemente entre todas las particiones con respecto a la consulta. Si la colección con particiones está dividida de tal forma que todos, o la mayoría de los datos, devueltos por una consulta se concentran en algunas particiones (una partición en el peor de los casos), entonces el rendimiento de la consulta se vería afectada por cuellos de botella debido a esas particiones.
 
-    (b) La consulta paralela ***Tuning MaxBufferedItemCount\:***
-   : está diseñada para capturar previamente los resultados mientras el cliente procesa el lote actual de resultados. La captura previa ayuda a mejorar la latencia general de una consulta. MaxBufferedItemCount es el parámetro para limitar el número de resultados capturados previamente. Establecer MaxBufferedItemCount en el número esperado de resultados devueltos (o un número más alto) permite que la consulta reciba el máximo beneficio de la captura previa.
+    (b) La consulta paralela ***Tuning MaxBufferedItemCount\:*** está diseñada para capturar previamente los resultados mientras el cliente procesa el lote actual de resultados. La captura previa ayuda a mejorar la latencia general de una consulta. MaxBufferedItemCount es el parámetro para limitar el número de resultados capturados previamente. Establecer MaxBufferedItemCount en el número esperado de resultados devueltos (o un número más alto) permite que la consulta reciba el máximo beneficio de la captura previa.
 
     Tenga en cuenta que la captura previa funciona de la misma manera con independencia de MaxDegreeOfParallelism, y que hay un único búfer para los datos de todas las particiones.  
 5. **Activación de GC del lado servidor**
