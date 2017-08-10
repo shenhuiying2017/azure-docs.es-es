@@ -9,6 +9,7 @@
 ## [Obtención de un inquilino de Azure AD](active-directory-howto-tenant.md)
 ## [Suscripción a Azure AD Premium](active-directory-get-started-premium.md)
 ## [Asociación de suscripciones de Azure](active-directory-how-subscriptions-associated-directory.md)
+## [Guía de inicio rápido: Autoservicio de restablecimiento de contraseña](active-directory-passwords-getting-started.md)
 ## Administración de licencias de Azure AD
 ### [Portal de Azure](active-directory-licensing-get-started-azure-portal.md)
 ### [Portal clásico](active-directory-licensing-what-is.md)
@@ -78,6 +79,7 @@
 #### [Migración de usuarios individuales con licencia a licencias basadas en grupos](active-directory-licensing-group-migration-azure-portal.md)
 #### [Escenarios adicionales para licencias basadas en grupos](active-directory-licensing-group-advanced.md)
 #### [Ejemplos de PowerShell para licencias basadas en grupos](active-directory-licensing-ps-examples.md)
+### [Configuración de la expiración de los grupos de Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Visualización de todos los grupos](active-directory-groups-view-azure-portal.md)
 ### [Habilitación de grupos dedicados](active-directory-accessmanagement-dedicated-groups.md)
 ### [Administración del acceso de grupo a aplicaciones SaaS](active-directory-accessmanagement-group-saasapps.md)
@@ -124,7 +126,6 @@
 #### [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)
 #### [Procedimientos recomendados sobre las contraseñas](active-directory-secure-passwords.md)
 #### [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md)
-### [Inicio rápido: Autoservicio de restablecimiento de contraseña](active-directory-passwords-getting-started.md)
 ### [Licencia de SSPR](active-directory-passwords-licensing.md)
 ### [Implementación de SSPR](active-directory-passwords-best-practices.md)
 ### Administradores de TI: Restablecimiento de contraseñas
