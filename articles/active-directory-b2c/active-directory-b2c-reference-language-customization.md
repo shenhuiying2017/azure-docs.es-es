@@ -12,12 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 03c65775d7fe7eee0d14ca4551ae8a332dbc39b2
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 3c7c49ee5fbd98762da0eef6f02e7c2f036453cb
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-using-language-customization"></a>Azure Active Directory B2C: uso de la personalización de idioma
@@ -40,7 +39,7 @@ La personalización de idioma le permite seleccionar los idiomas en los que est�
 
 ## <a name="support-uilocales-requested-languages"></a>Compatibilidad con idiomas solicitados de ui_locales 
 La habilitación de la personalización de idioma en una directiva le permite controlar ahora el idioma del recorrido de usuario agregando el parámetro ui_locales.
-1. [Siga estos pasos para ir a la hoja de características de B2C del portal de Azure.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-the-b2c-features-blade)
+1. [Siga estos pasos para ir a la hoja de características de B2C del portal de Azure.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings)
 2. Navegue a la directiva que desea habilitar para las traducciones.
 3. Haga clic en **Personalización de idioma**.
 4. Lea la advertencia atentamente.  Una vez habilitada, no puede desactivar la personalización de idioma.

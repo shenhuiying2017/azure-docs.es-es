@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/08/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ad47c198b98f235b5a75fed6c403493a33594429
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 3bc1023d084205171b6b405932cf80f3da59fe8b
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administrar el acceso a máquina virtual mediante Just-In-Time
@@ -157,7 +157,7 @@ Modifique los filtros y seleccione **Aplicar** para crear una búsqueda y un reg
 ## <a name="using-just-in-time-vm-access-via-powershell"></a>Usar el acceso a máquina virtual Just-In-Time mediante PowerShell
 
 Para usar la solución Just-In-Time a través de PowerShell, asegúrese de que tiene la versión [más reciente](/powershell/azure/install-azurerm-ps) de Azure PowerShell.
-Una vez que lo haya hecho, debe instalar la versión [más reciente](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.10) de Azure Security Center desde la galería de PowerShell.
+Una vez que lo haya hecho, debe instalar la versión [más reciente](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.12) de Azure Security Center desde la galería de PowerShell.
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configurar una directiva Just-In-Time para una máquina virtual
 
