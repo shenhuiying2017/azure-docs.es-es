@@ -19,6 +19,7 @@
 ### [Máquinas virtuales de procesos intensivos](batch-pool-compute-intensive-sizes.md)
 ### [Tareas simultáneas en los nodos](batch-parallel-node-tasks.md)
 ### [Recuento de tareas por estado](batch-get-task-counts.md)
+### [Creación de un grupo con una imagen personalizada](batch-custom-images.md)
 ### [Consultas de listas eficaces](batch-efficient-list-queries.md)
 ### [Tareas de preparación y finalización de trabajos](batch-job-prep-release.md)
 ### [Nodos de proceso Linux](batch-linux-nodes.md)
