@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
-ms.openlocfilehash: 9803b4e41223bc979e4c0b0a4f22586a441c28df
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 0228bf7ce261cfccdec9431d3c9fb67f461eefbd
 ms.contentlocale: es-es
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="add-a-custom-domain-name-to-azure-active-directory"></a>Incorporación de su nombre de dominio personalizado a Azure Active Directory
@@ -34,10 +36,10 @@ Dispone de uno o varios nombres de dominio que su organización usa para su acti
 2. Incorporación de la entrada DNS para el nombre de dominio en el registrador de nombres de dominio
 3. Comprobación del nombre de dominio personalizado en Azure AD
 
-> [!NOTE]
-> Si planea configurar el nombre de dominio personalizado para su uso con Servicios de federación de Active Directory (AD FS) o un servicio de token de seguridad (STS) diferente en su red corporativa, siga las instrucciones de [Add your custom domain name to Azure Active Directory](active-directory-add-domain-federated.md)(Incorporación y configuración de un dominio para federación con Azure Active Directory). Este procedimiento es útil si piensa sincronizar usuarios desde su directorio corporativo a Azure AD y la [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) no cumple sus requisitos.
-> 
-> 
+> [!IMPORTANT]
+> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo. Para agregar el nombre de dominio de empresa en el centro de administración de Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory](active-directory-domains-add-azure-portal.md).
+
+Si planea configurar el nombre de dominio personalizado para su uso con Servicios de federación de Active Directory (AD FS) o un servicio de token de seguridad (STS) diferente en su red corporativa, siga las instrucciones de [Add your custom domain name to Azure Active Directory](active-directory-add-domain-federated.md)(Incorporación y configuración de un dominio para federación con Azure Active Directory). Este procedimiento es útil si piensa sincronizar usuarios desde su directorio corporativo a Azure AD y la [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) no cumple sus requisitos.
 
 ## <a name="add-a-custom-domain-name-to-your-directory"></a>Incorporación de nombres de dominio personalizados al directorio
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) con una cuenta de usuario que sea administrador global de su directorio de Azure AD.

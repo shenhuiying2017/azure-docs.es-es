@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: donnam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: dbcec586fe5ee06da38c37cf1ead2469386cc5c3
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 0613bb96d3afb85ff7e684246b128e4eef518d23
 ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Utilizar bibliotecas de clases de .NET con Azure Functions
@@ -173,7 +172,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 ### <a name="external-file-input-and-output"></a>Entrada y salida de archivo externo
 
-Azure Functions admite desencadenador y enlaces de entrada y salida para archivos externos, como Google Drive, Dropbox y OneDrive. Para más información, consulte [Enlaces de archivos externos de Azure Function](functions-bindings-external-file.md). Los atributos `[ExternalFileTrigger]` y `[ExternalFile]` se definen en el paquete de NuGet [Microsoft.Azure.WebJobs.Extensions.ApiHub].
+Azure Functions admite enlaces de desencadenador, entrada y salida para archivos externos, como Google Drive, Dropbox y OneDrive. Para más información, consulte [Enlaces de archivos externos de Azure Functions](functions-bindings-external-file.md). Los atributos `[ExternalFileTrigger]` y `[ExternalFile]` se definen en el paquete de NuGet [Microsoft.Azure.WebJobs.Extensions.ApiHub].
 
 En el ejemplo de C# siguiente se muestran enlaces de archivo externo de entrada y salida. El código copia el archivo de entrada en el archivo de salida.
 
@@ -266,6 +265,30 @@ public static class QueueFunctions
 Azure Functions admite un enlace de salida de SendGrid para el envío de correo electrónico mediante programación. Para más información, consulte [Enlaces de SendGrid de Azure Functions](functions-bindings-sendgrid.md).
 
 El atributo `[SendGrid]` se define en el paquete de NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid].
+
+El siguiente es un ejemplo del uso de un desencadenador de cola de Service Bus y un enlace de salida de SendGrid mediante `SendGridMessage`:
+
+```csharp
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid] out SendGridMessage message)
+{
+    message = new SendGridMessage();
+    message.AddTo(email.To);
+    message.AddContent("text/html", email.Body);
+    message.SetFrom(new EmailAddress(email.From));
+    message.SetSubject(email.Subject);
+}
+
+public class OutgoingEmail
+{
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
+}
+```
 
 <a name="service-bus"></a>
 
@@ -418,3 +441,4 @@ Para más información sobre el uso de Azure Functions en C# de scripting, consu
 [HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
 [ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
 [TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
+

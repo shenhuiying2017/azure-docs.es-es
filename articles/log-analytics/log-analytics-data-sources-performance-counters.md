@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/16/2017
+ms.date: 07/12/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 4ce302095fc36f046785ac45d1a9452de321113c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Orígenes de datos de rendimiento de Windows y Linux en Log Analytics
@@ -48,8 +47,8 @@ Siga este procedimiento para agregar un nuevo contador de rendimiento de Windows
 
 1. Escriba el nombre del contador en el cuadro de texto con el formato *objeto(instancia)\contador*.  Cuando empiece a escribir, aparece una lista de contadores comunes coincidentes.  Puede seleccionar un contador de la lista o escribir uno propio.  También puede devolver todas las instancias de un contador determinado, para lo que debe especificar *objeto\contador*.  
 
-    Cuando se recopilan contadores de rendimiento de SQL Server de instancias con nombre, todos los contadores de instancias con nombre comienzan por *MSSQL$* y van seguidos del nombre de la instancia.  Por ejemplo, para recopilar el contador Frecuencia de aciertos de caché de registro para todas las bases de datos desde el objeto de rendimiento de base de datos para la instancia de SQL con nombre INST2, especifique `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`. 
- 
+    Cuando se recopilan contadores de rendimiento de SQL Server de instancias con nombre, todos los contadores de instancias con nombre comienzan por *MSSQL$* y van seguidos del nombre de la instancia.  Por ejemplo, para recopilar el contador Frecuencia de aciertos de caché de registro para todas las bases de datos desde el objeto de rendimiento de base de datos para la instancia de SQL con nombre INST2, especifique `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
+
 2. Haga clic en **+** o presione **ENTRAR** para agregar el contador a la lista.
 3. Cuando se agrega un contador, se usa el valor predeterminado de 10 segundos en **Intervalo de ejemplo**.  Este valor se puede cambiar por otro mayor, siempre que no supere los 1800 segundos (30 minutos), en caso de que se desee reducir los requisitos de almacenamiento de los datos de rendimiento recopilados.
 4. Cuando haya terminado de agregar contadores, haga clic en el botón **Guardar** de la parte superior de la pantalla para guardar la configuración.
@@ -67,7 +66,7 @@ Siga este procedimiento para agregar un nuevo contador de rendimiento de Linux p
 5. Cuando haya terminado de agregar contadores, haga clic en el botón **Guardar** de la parte superior de la pantalla para guardar la configuración.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configuración de contadores de rendimiento de Linux en el archivo de configuración
-En lugar de configurar los contadores de rendimiento de Linux mediante el portal de OMS, tiene la opción de editar archivos de configuración en el agente de Linux.  Las métricas de rendimiento que se recopilan se controlan según la configuración que aparece en **/etc/opt/microsoft/omsagent/\<identificador de área de trabajo\>/conf/omsagent.conf**. 
+En lugar de configurar los contadores de rendimiento de Linux mediante el portal de OMS, tiene la opción de editar archivos de configuración en el agente de Linux.  Las métricas de rendimiento que se recopilan se controlan según la configuración que aparece en **/etc/opt/microsoft/omsagent/\<identificador de área de trabajo\>/conf/omsagent.conf**.
 
 Cada objeto, o categoría, de métricas de rendimiento para recopilar debe definirse en el archivo de configuración como un solo elemento `<source>` . La sintaxis sigue el modelo siguiente.
 
@@ -90,7 +89,7 @@ Los parámetros de este elemento se describen en la tabla siguiente.
 | interval | Frecuencia con la que se recopilan los contadores del objeto. |
 
 
-En la tabla siguiente se enumera los objetos y contadores que pueden especificar en el archivo de configuración.  Hay contadores adicionales disponibles para determinadas aplicaciones, como se describe en [Collect performance counters for Linux applications in Log Analytics](log-analytics-data-sources-linux-applications.md) (Recopilación de contadores de rendimiento para aplicaciones de Linux en Log Analytics). 
+En la tabla siguiente se enumera los objetos y contadores que pueden especificar en el archivo de configuración.  Hay contadores adicionales disponibles para determinadas aplicaciones, como se describe en [Collect performance counters for Linux applications in Log Analytics](log-analytics-data-sources-linux-applications.md) (Recopilación de contadores de rendimiento para aplicaciones de Linux en Log Analytics).
 
 | Nombre de objeto | Nombre del contador |
 |:--|:--|
@@ -158,7 +157,7 @@ Esta es la configuración predeterminada de las métricas de rendimiento.
       counter_name_regex ".*"
       interval 5m
     </source>
-    
+
     <source>
       type oms_omi
       object_name "Logical Disk"
@@ -166,7 +165,7 @@ Esta es la configuración predeterminada de las métricas de rendimiento.
       counter_name_regex ".*"
       interval 5m
     </source>
-    
+
     <source>
       type oms_omi
       object_name "Processor"
@@ -174,7 +173,7 @@ Esta es la configuración predeterminada de las métricas de rendimiento.
       counter_name_regex ".*"
       interval 30s
     </source>
-    
+
     <source>
       type oms_omi
       object_name "Memory"
@@ -222,6 +221,23 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 | Type=Perf CounterName="% Processor Time" InstanceName="_Total"  (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Promedio, mínimo, máximo y percentil 75 por hora de uso de CPU de un equipo específico |
 | Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | Todos los datos de rendimiento del objeto de rendimiento de la base de datos para la base de datos maestra (master) de la instancia de SQL Server con nombre INST2.  
 
+>[!NOTE]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue.
+
+> | Consultar | Descripción |
+|:--- |:--- |
+| Perf |Todos los datos de rendimiento |
+| Perf &#124; where Computer == "MyComputer" |Todos los datos de rendimiento de un equipo concreto |
+| Perf &#124; where CounterName == "Current Disk Queue Length" |Todos los datos de rendimiento de un contador concreto |
+| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(Average) by Computer |Uso medio de CPU en todos los equipos |
+| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(Max) by Computer |Uso máximo de CPU en todos los equipos |
+| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |Longitud media de cola de disco actual en todas las instancias de un equipo dado |
+| Perf &#124; where CounterName == "DiskTransfers/sec" &#124; summarize AggregatedValue = percentile(Average, 95) by Computer |Percentil 95 de transferencias de disco por segundo en todos los equipos |
+| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Promedio por hora de uso de CPU en todos los equipos |
+| Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | Percentil 70 por hora de cada contador de porcentaje % para un equipo concreto |
+| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Promedio, mínimo, máximo y percentil 75 por hora de uso de CPU de un equipo específico |
+| Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | Todos los datos de rendimiento del objeto de rendimiento de la base de datos para la base de datos maestra (master) de la instancia de SQL Server con nombre INST2.  
+
 ## <a name="viewing-performance-data"></a>Visualización de datos de rendimiento
 Cuando se ejecuta una búsqueda de registros de los datos de rendimiento, de forma predeterminada se muestra la vista **Lista**.  Para ver los datos en forma de gráfico, haga clic en **Métricas**.  Para una vista gráfica detallada, haga clic en **+** junto a un contador.  
 
@@ -234,3 +250,4 @@ Para agregar datos de rendimiento en una búsqueda de registro, consulte [On-dem
 * [Recopilación de contadores de rendimiento desde aplicaciones de Linux](log-analytics-data-sources-linux-applications.md), lo que incluye MySQL y Apache HTTP Server.
 * Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos.  
 * Exporte los datos recopilados a [Power BI](log-analytics-powerbi.md) para poder realizar más análisis y tener más formas de visualizarlos.
+

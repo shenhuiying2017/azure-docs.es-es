@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/26/2017
 ms.author: femila
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4e76a20c7c7eef9a51c6c0373785fd810c09e34a
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure
@@ -109,7 +108,7 @@ Para más información acerca de cómo afecta esto a los controladores de domini
 A partir de Windows Server 2012, [se han integrado medidas de seguridad adicionales en AD DS](https://technet.microsoft.com/library/hh831734.aspx). Estas medidas de seguridad ayudan a proteger los controladores de dominio virtualizados frente a los problemas mencionados anteriormente, siempre y cuando la plataforma de hipervisor subyacente admita VM-GenerationID. Azure admite VM-GenerationID, lo que significa que los controladores de dominio que ejecutan Windows Server 2012 o posterior en máquinas virtuales disponen de las medidas de seguridad adicionales.
 
 > [!NOTE]
-> Debe apagar y reiniciar la máquina virtual que ejecuta el rol de controlador de dominio en Azure en el sistema operativo invitado en lugar de usar la opción **Apagar** en Azure Portal o en el Portal de Azure clásico. Actualmente, el uso del portal para apagar una máquina virtual hace que la máquina virtual se desasigne. Una máquina virtual desasignada tiene la ventaja de no incurrir en gastos, pero también restablece el VM-GenerationID, lo cual es una situación no deseada para un controlador de dominio. Cuando se restablece el VM-GenerationID, también se restablece el invocationID de la base de datos de AD DS, se descarta el grupo RID y SYSVOL se marca como no autoritativo. Para más información, consulte [Introducción a la virtualización de Active Directory Domain Services (AD DS)](https://technet.microsoft.com/library/hh831734.aspx) y [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx) (Virtualización segura de DFSR).
+> Debe apagar y reiniciar la máquina virtual que ejecuta el rol de controlador de dominio en Azure dentro del sistema operativo invitado en lugar de utilizar la opción **Apagar** en Azure Portal. Actualmente, el uso del portal para apagar una máquina virtual hace que la máquina virtual se desasigne. Una máquina virtual desasignada tiene la ventaja de no incurrir en gastos, pero también restablece el VM-GenerationID, lo cual es una situación no deseada para un controlador de dominio. Cuando se restablece el VM-GenerationID, también se restablece el invocationID de la base de datos de AD DS, se descarta el grupo RID y SYSVOL se marca como no autoritativo. Para más información, consulte [Introducción a la virtualización de Active Directory Domain Services (AD DS)](https://technet.microsoft.com/library/hh831734.aspx) y [Safely Virtualizing DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx) (Virtualización segura de DFSR).
 > 
 > 
 
@@ -127,7 +126,7 @@ Por último, puede que desee implementar una aplicación de red en Azure, como S
 
 ## <a name="contrasts-between-deploying-windows-server-active-directory-domain-controllers-on-azure-virtual-machines-versus-on-premises"></a>Diferencias entre implementar controladores de dominio de Windows Server Active Directory en máquinas virtuales de Azure o hacerlo de forma local
 * En cualquier escenario de implementación de Windows Server Active Directory que incluya más de una máquina virtual, es necesario utilizar una red virtual para que las direcciones IP sean coherentes. Tenga en cuenta que en esta guía se supone que los controladores de dominio se ejecutan en una red virtual.
-* Al igual que con los controladores de dominio locales, se recomiendan direcciones IP estáticas. Una dirección IP estática solo se puede configurar mediante Azure PowerShell. Para más detalles, consulte [Static internal IP address for VMs (Dirección IP estática interna para máquinas virtuales)](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) . Si tiene sistemas de supervisión u otras soluciones que comprueban la configuración de la dirección IP estática en el sistema operativo invitado, puede asignar la misma dirección IP estática a las propiedades del adaptador de red de la máquina virtual. Pero tenga en cuenta que el adaptador de red se descartará si la máquina virtual se somete a recuperación del servicio o se cierra en el portal clásico y se desasigna su dirección. En ese caso, tendrá que restablecer la dirección IP estática del sistema operativo invitado.
+* Al igual que con los controladores de dominio locales, se recomiendan direcciones IP estáticas. Una dirección IP estática solo se puede configurar mediante Azure PowerShell. Para más detalles, consulte [Static internal IP address for VMs (Dirección IP estática interna para máquinas virtuales)](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) . Si tiene sistemas de supervisión u otras soluciones que comprueban la configuración de la dirección IP estática en el sistema operativo invitado, puede asignar la misma dirección IP estática a las propiedades del adaptador de red de la máquina virtual. Pero tenga en cuenta que el adaptador de red se descartará si la máquina virtual se somete a recuperación del servicio o se cierra en el portal y se desasigna su dirección. En ese caso, tendrá que restablecer la dirección IP estática del sistema operativo invitado.
 * La implementación de máquinas virtuales en una red virtual no implica (ni requiere) conectividad a una red local; la red virtual simplemente habilita esa posibilidad. Debe crear una red virtual para la comunicación privada entre Azure y la red local. Debe implementar un punto de conexión de VPN en la red local. La VPN está abierta desde Azure a la red local. Para más información, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md) y [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 > [!NOTE]

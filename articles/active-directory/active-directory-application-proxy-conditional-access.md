@@ -5,24 +5,28 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 2e97722b-eb4e-4078-b607-9fed210d8a0f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 07/23/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: c16e07925389cc17ff156cae767366223fefa18f
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 463946256f9e335fa6d98fc904835e5c3dc2725e
 ms.contentlocale: es-es
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Trabajo con acceso condicional en el proxy de la aplicación de Azure AD
+
+>[!NOTE]
+>Este artículo se aplica a Portal de Azure clásico, que se va a retirar. Se recomienda usar [Azure Portal](https://portal.azure.com). En Azure Portal, las aplicaciones del proxy de la aplicación tienen las mismas características de acceso condicional que otras aplicaciones SaaS. Para más información sobre el acceso condicional, consulte [Introducción al acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+
 Ahora puede configurar reglas de acceso para conceder acceso condicional a las aplicaciones publicadas con el proxy de aplicación. Esto le permite:
 
 * Exigir la autenticación multifactor por aplicación

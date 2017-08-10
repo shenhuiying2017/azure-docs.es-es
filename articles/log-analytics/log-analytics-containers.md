@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/01/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 936064959ac9dd6422619076fabbbba887d17bb6
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 524c63d358ce22c10b7a23e5bcf0b33e9f2e5f26
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="containers-preview-solution-in-log-analytics"></a>Solución Containers (versión preliminar) en Log Analytics
@@ -33,6 +32,49 @@ Con la solución, puede ver qué contenedores se ejecutan en sus hosts de conten
 El siguiente diagrama muestra las relaciones entre varios hosts de contenedores y los agentes con OMS.
 
 ![Diagrama de contenedores](./media/log-analytics-containers/containers-diagram.png)
+
+## <a name="system-requirements"></a>Requisitos del sistema
+Antes de comenzar, revise los detalles siguientes para comprobar que cumple los requisitos previos.
+
+### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Compatibilidad con solución de supervisión de contenedores para el orquestador y la plataforma de sistema operativo de Docker 
+En la tabla siguiente se hace un resumen de la compatibilidad de supervisión del sistema operativo y orquestación de Docker del inventario, rendimiento y registro de contenedores con Log Analytics.   
+
+| | ACS | Linux | Windows | Contenedor<br>Inventario | Imagen<br>Inventario | Nodo<br>Inventario | Contenedor<br>Rendimiento | Contenedor<br>Evento | Evento<br>Registro | Contenedor<br>Registro | 
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| kubernetes | Sí | Sí | | Sí | Sí | Sí | Sí | Sí | Sí | Sí | 
+| Mesosphere<br>DC/OS | Sí | Sí | | Sí | Sí | Sí | Sí| Sí | Sí | Sí | 
+| Docker<br>Swarm | Sí | Sí | Sí | Sí | Sí | Sí | Sí | Sí | | Sí |
+| Servicio<br>Fabric | | | Sí | Sí | Sí | Sí | Sí | Sí | Sí | Sí | 
+| Red Hat Open<br>Shift | | Sí | | Sí | Sí| Sí | Sí | Sí | | Sí | 
+| Windows Server<br>(independiente) | | | Sí | Sí | Sí | Sí | Sí | Sí | | Sí |
+| Linux Server<br>(independiente) | | Sí | | Sí | Sí | Sí | Sí | Sí | | Sí |
+
+
+### <a name="supported-linux-operating-system"></a>Sistemas operativos Linux compatibles
+
+- Docker de 1.11 a 1.13
+- Docker CE y EE v17.03
+
+Las siguientes distribuciones x64 de Linux se admiten como hosts de contenedor:
+
+- Ubuntu 14.04 LTS, 16.04 LTS
+- CoreOS(stable)
+- Amazon Linux 2016.09.0
+- openSUSE 13.2
+- openSUSE LEAP 42.2
+- CentOS 7.2, 7.3
+- SLES 12
+- RHEL 7.2, 7.3
+
+### <a name="supported-windows-operating-system"></a>Sistemas operativos Windows compatibles
+
+- Windows Server 2016
+- Windows 10 Anniversary Edition (Professional o Enterprise)
+
+### <a name="docker-versions-supported-on-windows"></a>Versiones de docker admitidas en Windows
+
+- Docker 1.12 - 1.13
+- Docker 17.03.0 
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución.
@@ -50,14 +92,14 @@ Puede revisar las versiones del sistema operativo Linux y de Docker compatibles 
 
 ### <a name="container-services"></a>Servicios de contenedor
 
-- Si tiene un clúster de Kubernetes con Azure Container Service, obtenga más información en [Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md) (Supervisión de un clúster de Azure Container Service con Microsoft Operations Management Suite [OMS]).
-- Si tiene un clúster DC/OS de Azure Container Service, obtenga más información en [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/container-service-monitoring-oms.md) (Uso de Operations Management Suite para supervisar un clúster DC/OS de Azure Container Service).
+- Si tiene un clúster de Kubernetes con Azure Container Service, obtenga más información en [Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)](../container-service/kubernetes/container-service-kubernetes-oms.md) (Supervisión de un clúster de Azure Container Service con Microsoft Operations Management Suite [OMS]).
+- Si tiene un clúster DC/OS de Azure Container Service, obtenga más información en [Monitor an Azure Container Service DC/OS cluster with Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md) (Uso de Operations Management Suite para supervisar un clúster DC/OS de Azure Container Service).
 - Si tiene un entorno en modo Docker Swarm, obtenga más información en [Configuración de un agente de OMS para Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
 - Si usa contenedores con Service Fabric, obtenga más información en [Información general de Azure Service Fabric ](../service-fabric/service-fabric-overview.md).
 - Revise el artículo [Docker Engine en Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) para obtener información adicional sobre cómo instalar y configurar Docker Engine en equipos con Windows.
 
 > [!IMPORTANT]
-> Docker se debe estar ejecutando **antes de** instalar el [agente de OMS para Linux](log-analytics-linux-agents.md) en los hosts de contenedores. Si ya ha instalado el agente antes de instalar Docker, debe volver a instalar el agente de OMS para Linux. Para más información acerca de Docker, consulte el [sitio web de Docker](https://www.docker.com).
+> Docker se debe estar ejecutando **antes de** instalar el [agente de OMS para Linux](log-analytics-agent-linux.md) en los hosts de contenedores. Si ya ha instalado el agente antes de instalar Docker, debe volver a instalar el agente de OMS para Linux. Para más información acerca de Docker, consulte el [sitio web de Docker](https://www.docker.com).
 >
 >
 
@@ -65,30 +107,12 @@ Necesita configurar las siguientes opciones en sus hosts de contenedores para po
 
 ## <a name="linux-container-hosts"></a>Hosts de contenedores de Linux
 
-Versiones de Linux compatibles:
-
-- Docker de 1.11 a 1.13
-- Docker CE y EE v17.03
-
-
-Las siguientes distribuciones x64 de Linux se admiten como hosts de contenedor:
-
-- Ubuntu 14.04 LTS, 16.04 LTS
-- CoreOS(stable)
-- Amazon Linux 2016.09.0
-- openSUSE 13.2
-- openSUSE LEAP 42.2
-- CentOS 7.2, 7.3
-- SLES 12
-- RHEL 7.2, 7.3
-
-
-Después de instalar Docker, use la siguientes opciones para el host de contenedores para configurar el agente que se usará con Docker. Necesitará [identificador y la clave de su área de trabajo de OMS](log-analytics-linux-agents.md).
+Después de instalar Docker, use la siguientes opciones para el host de contenedores para configurar el agente que se usará con Docker. Necesitará [identificador y la clave de su área de trabajo de OMS](log-analytics-agent-linux.md).
 
 
 ### <a name="for-all-linux-container-hosts-except-coreos"></a>Para todos los hosts de contenedores de Linux excepto CoreOS
 
-- Siga las instrucciones en [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md)(Pasos para instalar el agente de OMS para Linux).
+- Para más información sobre cómo instalar el Agente de OMS para Linux, consulte [Conexión de equipos Linux a Operations Management Suite (OMS)](log-analytics-agent-linux.md).
 
 ### <a name="for-all-linux-container-hosts-including-coreos"></a>Para todos los hosts de contenedores de Linux incluido CoreOS
 
@@ -108,7 +132,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 
 ### <a name="switching-from-using-an-installed-linux-agent-to-one-in-a-container"></a>Cambio de un agente de Linux instalado a un agente en un contenedor
-Si antes usaba el agente instalado directamente y ahora desea usar un agente que se ejecuta en un contenedor, primero debe quitar OMSAgent. Consulte los [pasos para instalar el agente de OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md).
+Si antes usaba el agente instalado directamente y ahora desea usar un agente que se ejecuta en un contenedor, primero debe quitar el Agente de OMS para Linux. Consulte [Desinstalación del agente OMS para Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux).
 
 ### <a name="configure-an-oms-agent-for-docker-swarm"></a>Configuración de un agente de OMS para Docker Swarm
 
@@ -254,16 +278,6 @@ KEY:    88 bytes
 
 
 ## <a name="windows-container-hosts"></a>Hosts de contenedores Windows
-
-Versiones compatibles de Windows:
-
-- Windows Server 2016
-- Windows 10 Anniversary Edition (Professional o Enterprise)
-
-### <a name="docker-versions-supported-on-windows"></a>Versiones de docker admitidas en Windows
-
-- Docker 1.12 - 1.13
-- Docker 17.03.0 [estable]
 
 ### <a name="preparation-before-installing-windows-agents"></a>Preparación antes de instalar agentes de Windows
 
@@ -425,7 +439,10 @@ Se muestra la lista de las métricas de rendimiento recopiladas para un contened
 ## <a name="example-log-search-queries"></a>Ejemplos de consultas de búsqueda de registros
 Suele resultar útil crear consultas a partir de un ejemplo o dos y modificarlas para adaptarlas a su entorno. Para empezar, puede experimentar con la hoja **Consultas destacadas** para ayudarle a crear consultas más avanzadas.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![Consultas de contenedores](./media/log-analytics-containers/containers-queries.png)
+
 
 ## <a name="saving-log-search-queries"></a>Guardado de consultas de búsqueda de registros
 El guardado de consultas es una característica estándar de Log Analytics. Guárdelas para volver a usar en el futuro aquellas que haya encontrado más útiles.

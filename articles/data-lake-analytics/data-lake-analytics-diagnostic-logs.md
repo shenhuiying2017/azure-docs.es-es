@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 2bfd7d8a4c06b1b40a9852d21908e7c1c785b91d
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: f5fe6db423f1f2faeaf51e25be9b8f5b551e2a16
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acceso a los registros de diagnóstico de Azure Data Lake Analytics
@@ -50,8 +49,8 @@ Los registros de diagnóstico le permiten recopilar seguimientos de auditoría d
 
      * Seleccione la opción **Transmitir a un centro de eventos** para transmitir los datos de registro a un Centro de eventos de Azure. Use esta opción si tiene una canalización de procesamiento de bajada que está analizando los registros entrantes en tiempo real. Si selecciona esta opción, debe proporcionar los detalles del Centro de eventos de Azure que quiera usar.
 
-     * Seleccione __Enviar a Log Analytics__ para enviar los datos al servicio Log Analytics. Utilice esto si desea usar Log Analytics para recopilar y analizar registros.
-   * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.  Cada solicitud de API se captura en un registro de solicitudes, y un registro de auditoría registra todas las operaciones que esa solicitud de API desencadena.
+     * Seleccione __Enviar a Log Analytics__ para enviar los datos al servicio Log Analytics. Utilice esta opción si desea usar Log Analytics para recopilar y analizar registros.
+   * Indique si quiere obtener los registros de auditoría, los registros de solicitudes o ambos.  Un registro de solicitudes captura todas las solicitudes de API. Un registro de auditoría registra todas las operaciones que esa solicitud de API desencadena.
 
    * Para __Archivar en una cuenta de almacenamiento__, especifique el número de días que se retendrán los datos.
 
@@ -75,7 +74,7 @@ Una vez habilitada la configuración de diagnóstico, puede volver a la hoja __R
     ![entradas del registro](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * Los registros de solicitudes capturan todas las solicitudes API realizadas en la cuenta de Data Lake Analytics.
-   * Los registros de auditoría son parecidos a los de solicitud, pero proporcionan un desglose mucho más detallado de las operaciones que tienen lugar en la cuenta de Data Lake Analytics. Por ejemplo, una llamada de API de carga única en un registro de solicitud podría producir varias operaciones "Append" en el registro de auditoría correspondiente.
+   * Los registros de auditoría son parecidos a los de solicitud, pero proporcionan un desglose mucho más detallado de las operaciones. Por ejemplo, una llamada de API de carga única en un registro de solicitud podría producir varias operaciones "Append" en el registro de auditoría correspondiente.
 
 3. Haga clic en el vínculo **Descargar** para que una entrada de registro descargue ese registro.
 
@@ -87,7 +86,7 @@ Una vez habilitada la configuración de diagnóstico, puede volver a la hoja __R
 
    * El contenedor **insights-logs-audit** contiene los registros de auditoría.
    * El contenedor **insights-logs-requests** contiene los registros de solicitudes.
-2. Dentro de estos contenedores, los registros se almacenan con la siguiente estructura.
+2. Dentro de estos contenedores, los registros se almacenan con la siguiente estructura:
 
         resourceId=/
           SUBSCRIPTIONS/
@@ -235,7 +234,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 | Paralelismo |String |El número de unidades de Data Lake Analytics solicitadas para este trabajo durante el envío |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **EndTime** y **Parallelism** proporcionan información sobre una operación y solo contendrán algún valor si una operación se ha iniciado o completado. Por ejemplo, **SubmitTime** contiene un valor después de que **operationName** tenga el valor **JobSubmitted**.
+> **SubmitTime**, **StartTime**, **EndTime** y **Parallelism** proporcionan información sobre una operación. Estas entradas solo contienen un valor si la operación se ha iniciado o completado. Por ejemplo, **SubmitTime** contiene un valor después de que **operationName** tenga el valor **JobSubmitted**.
 
 ## <a name="process-the-log-data"></a>Procesamiento de los datos de registro
 

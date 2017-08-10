@@ -1,6 +1,6 @@
 ---
-title: Uso de Azure Backup Server para proteger la carga de trabajo del servidor de VMware | Microsoft Docs
-description: "Realice una copia de seguridad de un servidor de VMware en Azure o en el disco, con Azure Backup Server. Use este artículo para ayudar a proteger la carga de trabajo de VMware."
+title: Copia de seguridad de servidores de VMware con Azure Backup Server | Microsoft Docs
+description: "Use Azure Backup Server para realizar una copia de seguridad de servidores VMware vCenter y ESXi en Azure o en un disco. En este artículo se proporciona instrucciones detalladas para realizar copias de seguridad (o proteger) las cargas de trabajo de VMware."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -11,21 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 04/20/2017
+ms.date: 07/24/2017
 ms.author: markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 47728711930703121626c3ed0b654a0f74603ca4
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Realización de una copia de seguridad del servidor de VMware en Azure
 
 En este artículo se explica cómo configurar una instancia de Azure Backup Server para proteger la carga de trabajo del servidor de VMware. En este artículo se da por supuesto que ya tiene instalado Azure Backup Server. Si no tiene Azure Backup Server instalado, consulte [Preparación para la copia de seguridad de cargas de trabajo con Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
-Azure Backup Server puede hacer una copia de seguridad de las versiones 6.0 y 5.5 de VMware vCenter Server, así como ayudarle a protegerlas.
+Azure Backup Server puede hacer una copia de seguridad de las versiones 6.5, 6.0 y 5.5 de VMware vCenter Server, así como ayudarle a protegerlas.
 
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Creación de una conexión segura con vCenter Server
@@ -98,7 +97,7 @@ Para corregir este problema y crear una conexión segura, descargue los certific
 
     ![Carpeta de almacén de certificados](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
-10. En la página **Finalización del Asistente para importar certificados**, compruebe que el certificado se encuentra en la carpeta deseada y, después, haga clic en **Finalizar** para completar el asistente.
+10. En la página **Finalización del Asistente para importar certificados**, compruebe que el certificado se encuentra en la carpeta deseada y, después, haga clic en **Finalizar**.
 
     ![Comprobar que el certificado se encuentra en la carpeta correcta](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
@@ -250,11 +249,12 @@ Antes de agregar el servidor de VMware a Azure Backup Server, asegúrese de habe
 
 3. En el cuadro de diálogo **Administrar credenciales**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar credenciales**.
 
-4. En el cuadro de diálogo **Agregar credenciales**, introduzca un nombre y una descripción para la nueva credencial. Después, especifique el nombre de usuario y la contraseña. El nombre de credencial *Contoso Vcenter credential* se usa para identificar la credencial en el procedimiento siguiente. Utilice el mismo nombre de usuario y contraseña que utilizó en vCenter Server. Si vCenter Server y Azure Backup Server no están en el mismo dominio, en **Nombre de usuario**, especifique el dominio.
+4. En el cuadro de diálogo **Agregar credenciales**, introduzca un nombre y una descripción para la nueva credencial. Después, especifique el nombre de usuario y la contraseña. El nombre *Contoso Vcenter credential* se usa para identificar la credencial en el procedimiento siguiente. Utilice el mismo nombre de usuario y contraseña que utilizó en vCenter Server. Si vCenter Server y Azure Backup Server no están en el mismo dominio, en **Nombre de usuario**, especifique el dominio.
 
     ![Cuadro de diálogo Agregar credenciales de Azure Backup Server](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
     Haga clic en **Agregar** para agregar la nueva credencial a Azure Backup Server. La nueva credencial aparece en la lista del cuadro de diálogo **Administración de credenciales**.
+    
     ![Cuadro de diálogo Administrar credenciales de Azure Backup Server](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 5. Para cerrar el cuadro de diálogo **Administrar credenciales**, haga clic en la **X** de la esquina superior derecha.

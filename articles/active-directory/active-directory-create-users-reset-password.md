@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3334729cbc4ab4a48e10ece0a15a31595317ca3f
-ms.openlocfilehash: 5a14124412ac8e86a4a76d18c6d93a17a4f72b1b
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: deec642a240cb6f088210748b0ef3a3636a88405
 ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="reset-a-password-for-a-user-in-the-azure-classic-portal"></a>Restablecimiento de la contraseña de un usuario en el Portal de Azure clásico
@@ -31,6 +30,9 @@ ms.lasthandoff: 03/01/2017
 >
 
 Azure Active Directory (Azure AD) simplifica el proceso de restablecimiento de contraseña de un usuario en caso de olvido, y lo bloquea, o facilita la realización de la rutina de mantenimiento de seguridad. 
+
+> [!IMPORTANT]
+> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo. Para restablecer una contraseña de usuario en el centro de administración de Azure AD, consulte [Restablecimiento de la contraseña de un usuario en Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
 
 1. Abra el directorio.
 2. Seleccione la pestaña **Usuarios** y, después, el nombre para mostrar del usuario que quiere cambiar.

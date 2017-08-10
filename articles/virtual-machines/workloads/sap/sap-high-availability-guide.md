@@ -17,16 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: be42447ac95ccc100680d1a360a706fa3b4a58aa
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 
-# <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure
+# <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -145,8 +144,11 @@ ms.lasthandoff: 05/10/2017
 [sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
 
@@ -171,7 +173,7 @@ Para simplificar la implementación y configuración, en este artículo usamos l
 ## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Requisitos previos
 Antes de comenzar, asegúrese de cumplir los requisitos previos que se describen en las secciones siguientes. Además, asegúrese de revisar todos los recursos que aparecen en la sección [Recursos][sap-ha-guide-2].
 
-En este artículo usamos las plantillas de Azure Resource Manager para [SAP NetWeaver de tres niveles](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/). Consulte [Plantillas de Azure Resource Manager para SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/) para ver información general útil sobre las plantillas.
+En este artículo usamos plantillas de Azure Resource Manager para [SAP NetWeaver de tres niveles con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). Consulte [Plantillas de Azure Resource Manager para SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/) para ver información general útil sobre las plantillas.
 
 ## <a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> Recursos
 Estos artículos también se refieren a las implementaciones de SAP en Azure:
@@ -211,9 +213,9 @@ En Azure Resource Manager, puede usar los grupos de recursos para administrar to
 
 ### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Dependencia del equilibrador de carga interno de Azure en el grupo de recursos de Azure
 
-En el modelo de implementación clásica de Azure, hay una dependencia entre el equilibrador de carga interno de Azure (servicio Azure Load Balancer) y el grupo de servicio en la nube. Cada equilibrador de carga interno necesita un grupo de servicio en la nube.
+En el modelo de implementación clásica de Azure, hay una dependencia entre el equilibrador de carga interno de Azure (servicio Azure Load Balancer) y el servicio en la nube. Cada equilibrador de carga interno precisa de un servicio en la nube.
 
-En el modelo de Azure Resource Manager, no necesita un grupo de recursos de Azure para usar Azure Load Balancer. El entorno es más sencillo y flexible.
+En Azure Resource Manager, cada recurso de Azure debe ubicarse en un grupo de recursos de Azure y esto también es válido para Azure Load Balancer. Sin embargo, no es necesario tener un grupo de recursos de Azure por cada equilibrador de carga de Azure; por ejemplo, un grupo de recursos de Azure puede contener varios equilibradores de carga de Azure. El entorno es más sencillo y flexible. 
 
 ### <a name="support-for-sap-multi-sid-scenarios"></a>Soporte técnico para el escenario de varios SID de SAP
 
@@ -278,9 +280,9 @@ _**Figura 2:** Configuración de Clústeres de conmutación por error de Windows
 ### <a name="1a464091-922b-48d7-9d08-7cecf757f341"></a> Disco compartido en Azure con SIOS DataKeeper
 Se necesita almacenamiento compartido de clúster para una instancia de ASCS/SCS de SAP de alta disponibilidad. A partir de septiembre de 2016, Azure no ofrece almacenamiento compartido que puede usar para crear un clúster de almacenamiento compartido. Puede usar el software de terceros SIOS DataKeeper Cluster Edition para crear un almacenamiento reflejado que simula el almacenamiento compartido de clúster. La solución SIOS proporciona replicación sincrónica de datos en tiempo real. Este es el procedimiento para crear un recurso de disco compartido para un clúster:
 
-1. Conecte un disco duro virtual (VHD) de Azure adicional a cada una de las máquinas virtuales de una configuración de clúster de Windows.
+1. Asocie un disco adicional a cada una de las máquinas virtuales de una configuración de clúster de Windows.
 2. Ejecute SIOS DataKeeper Cluster Edition en ambos nodos de la máquina virtual.
-3. Configure SIOS DataKeeper Cluster Edition de forma que refleje el contenido del volumen del VHD adicional conectado desde la máquina virtual de origen al volumen conectado del VHD adicional de la máquina virtual de destino. SIOS DataKeeper abstrae los volúmenes locales de origen y de destino, y los presenta a Clústeres de conmutación por error de Windows Server como un disco compartido.
+3. Configure SIOS DataKeeper Cluster Edition de forma que refleje el contenido del volumen del disco adicional asociado desde la máquina virtual de origen al volumen del disco adicional asociado de la máquina virtual de destino. SIOS DataKeeper abstrae los volúmenes locales de origen y de destino, y los presenta a Clústeres de conmutación por error de Windows Server como un disco compartido.
 
 Obtenga más información sobre [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
 
@@ -322,7 +324,7 @@ Debe colocar todas las máquinas virtuales que hospedan instancias de servidores
 
 Aprenda cómo [administrar la disponibilidad de las máquinas virtuales][virtual-machines-manage-availability].
 
-Como la cuenta de almacenamiento de Azure es un punto único de error potencial, es importante tener, como mínimo, 2 cuentas de almacenamiento de Azure, en los cuales hay distribuidas, al menos, 2 máquinas virtuales. En una configuración ideal, los discos de cada máquina virtual que ejecuta una instancia de diálogo de SAP estarían implementados en una cuenta de almacenamiento distinta.
+Únicamente en caso de discos no administrados: como la cuenta de almacenamiento de Azure es un punto único de error potencial, es importante tener, como mínimo, dos cuentas de almacenamiento de Azure, en los cuales hay distribuidas, al menos, dos máquinas virtuales. En una configuración ideal, los discos de cada máquina virtual que ejecuta una instancia de diálogo de SAP estarían implementados en una cuenta de almacenamiento distinta.
 
 ### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> Instancia de ASCS/SCS de SAP de alta disponibilidad
 La figura 5 es un ejemplo de una instancia de ASCS/SCS de SAP de alta disponibilidad.
@@ -398,7 +400,9 @@ Las plantillas de 3 niveles de Azure Resource Manager también admiten escenario
 Aquí puede obtener las plantillas de Azure Resource Manager para el escenario de ejemplo que se describe en este artículo:
 
 * [Imagen de Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
+* [Imagen de Azure Marketplace con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
 * [Imagen personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [Imagen personalizada con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
 
 Para preparar la plantilla 1 de arquitectura, siga estos pasos:
 
@@ -421,7 +425,7 @@ _**Figura 11:** Especificación de los parámetros de Azure Resource Manager par
     * <*SIDSistemaSAP*>-nic-ascs-<*Número*>
     * <*SIDSistemaSAP*>-nic-db-<*Número*>
 
-  * **Cuentas de almacenamiento de Azure**
+  * **Cuentas de Azure Storage (solo discos no administrados)**
 
   * **Grupos de disponibilidad** para:
     * Máquinas virtuales de Servidor de aplicaciones de SAP: <*SIDSistemaSAP*>-avset-di
@@ -489,7 +493,9 @@ Puede usar estas plantillas de Azure Resource Manager para simplificar la implem
 Aquí puede obtener las plantillas de Azure Resource Manager para este escenario de implementación:
 
 * [Imagen de Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Imagen de Azure Marketplace con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
 * [Imagen personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [Imagen personalizada con Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
 
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Preparación de la infraestructura de la plantilla 3 de arquitectura
@@ -509,7 +515,7 @@ Las siguientes secciones contienen más detalles sobre las plantillas y los par�
 
 La plantilla de ASCS/SCS permite implementar dos máquinas virtuales que se pueden usar para crear un clúster de conmutación por error de Windows Server que hospeda varias instancias de ASCS/SCS.
 
-Para configurar la plantilla de varios SID de ASCS/SCS, en la [plantilla de varios SID de ASCS/SCS][sap-templates-3-tier-multisid-xscs-marketplace-image], especifique valores para los parámetros siguientes:
+Para configurar la plantilla de varios SID de ASCS/SCS, en la [plantilla de varios SID de ASCS/SCS][sap-templates-3-tier-multisid-xscs-marketplace-image] o en la [plantilla de varios SID de ASCS/SCS con Managed Disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md], especifique los valores para los parámetros siguientes:
 
   - **Prefijo de recurso**.  Establezca el prefijo de recurso, que se utiliza para prefijar todos los recursos que se hayan creado durante la implementación. Dado que los recursos no pertenecen a un único sistema SAP, el prefijo del recurso no es el SID de un sistema SAP.  El prefijo debe tener entre **tres y seis caracteres**.
   - **Tipo de pila**. Seleccione el tipo de la pila del sistema SAP. Dependiendo del tipo de la pila, Azure Load Balancer tendrá una (solo ABAP o JAVA) o dos (ABAP + JAVA) direcciones IP privadas por cada sistema SAP.
@@ -546,7 +552,7 @@ El equilibrador de carga se configurará para usar los siguientes puertos de son
 
 La plantilla de la base de datos implementa uno o dos máquinas virtuales que puede usar para instalar el sistema de administración de bases de datos relacionales (RDBMS) de un sistema SAP. Por ejemplo, si ha implementado una plantilla de ASCS/SCS para 5 sistemas SAP, debe implementar esta plantilla cinco veces.
 
-Para configurar la plantilla de varios SID de las bases de datos, especifique [en ella][sap-templates-3-tier-multisid-db-marketplace-image] los valores para los parámetros siguientes:
+Para configurar la plantilla de varios SID de base de datos, en la [plantilla de varios SID de base de datos][sap-templates-3-tier-multisid-db-marketplace-image] o en la [plantilla de varios SID de base de datos con Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md], especifique los valores para los parámetros siguientes:
 
   -  **Identificador de sistema SAP**. Escriba el identificador del sistema SAP que se va a instalar. El identificador se utilizará como prefijo para los recursos que se implementen.
   -  **Tipo de sistema operativo**. Seleccione el sistema operativo de las máquinas virtuales.
@@ -563,7 +569,7 @@ Para configurar la plantilla de varios SID de las bases de datos, especifique [e
 
 La plantilla de servidores de aplicaciones permite implementar dos o más máquinas virtuales que se pueden usar como instancias de servidores de aplicaciones SAP en un sistema SAP. Por ejemplo, si ha implementado una plantilla de ASCS/SCS para 5 sistemas SAP, debe implementar esta plantilla cinco veces.
 
-Para configurar la plantilla de varios SID de servidores de aplicaciones, especifique [en ella][sap-templates-3-tier-multisid-apps-marketplace-image] valores para los parámetros siguientes:
+Para configurar la plantilla de varios SID de servidores de aplicaciones, en la [plantilla de varios SID de servidores de aplicaciones][sap-templates-3-tier-multisid-apps-marketplace-image] o en la [plantilla de varios SID de servidores de aplicaciones con Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], especifique los valores para los parámetros siguientes:
 
   -  **Identificador de sistema SAP**. Escriba el identificador del sistema SAP que se va a instalar. El identificador se utilizará como prefijo para los recursos que se implementen.
   -  **Tipo de sistema operativo**. Seleccione el sistema operativo de las máquinas virtuales.
@@ -1036,7 +1042,7 @@ Para instalar SIOS DataKeeper, siga estos pasos:
 
 #### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> Configuración de SIOS DataKeeper
 
-Después de instalar SIOS DataKeeper en ambos nodos, debe iniciar la configuración. El objetivo de la configuración es conseguir la replicación sincrónica de datos entre los VHD adicionales conectados a cada una de las máquinas virtuales.
+Después de instalar SIOS DataKeeper en ambos nodos, debe iniciar la configuración. El objetivo de la configuración es conseguir la replicación sincrónica de datos entre los discos adicionales asociados a cada una de las máquinas virtuales.
 
 1.  Inicie la herramienta de configuración y administración de DataKeeper y, luego, seleccione **Servidor de conexión**. (En la figura 46, esta opción aparece rodeada de un círculo de color rojo).
 

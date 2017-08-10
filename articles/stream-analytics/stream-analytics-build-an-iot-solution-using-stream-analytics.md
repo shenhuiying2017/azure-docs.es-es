@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 43acd0e8e6b106013fc4491e3785f6efefc51493
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1031cd63dede9ed202fdc11b153a550766d9cb19
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -131,7 +130,7 @@ Si no tiene una cuenta de Azure, puede [solicitar una versión de evaluación gr
 > 
 > 
 
-Asegúrese de seguir los pasos de la sección "Limpieza de la cuenta de Azure" al final de este ejercicio para que pueda aprovechar al máximo su crédito gratuito de 200 $ de Azure.
+Asegúrese de seguir los pasos de la sección "Limpieza de la cuenta de Azure" al final de este ejercicio para que pueda aprovechar al máximo su crédito de Azure.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Aprovisionamiento de los recursos de Azure necesarios para el tutorial
 Este tutorial requiere dos Centros de eventos para recibir los flujos de datos *entry* y *exit*. Azure SQL Database genera los resultados de los trabajos de Stream Analytics. Azure Storage almacena los datos de referencia sobre los registros de vehículos.
