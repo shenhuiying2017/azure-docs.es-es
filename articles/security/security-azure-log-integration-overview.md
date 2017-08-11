@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 08/08/2017
 ms.author: TomSh
 ms.custom: azlog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 1adabc7f249d9b01f3ad1a819f75b2ef47f72998
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 5e672bd6b9356ce16663e843e4a4e7365cb159c3
 ms.contentlocale: es-es
-ms.lasthandoff: 06/05/2017
-
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="introduction-to-microsoft-azure-log-integration"></a>Introducción a la integración de registro de Microsoft Azure
@@ -31,10 +29,10 @@ Aprenda sobre la integración de registro de Azure, sus principales funcionalida
 
 Integración de registro de Azure es una solución gratuita que permite integrar los registros sin procesar de los recursos de Azure en los sistemas locales de administración de eventos e información de seguridad (SIEM).
 
-Azure Log Integration recopila eventos de Windows de los canales del Visor de eventos de Windows, [registros de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [alertas de Azure Security Center](../security-center/security-center-intro.md) y [registros de Diagnósticos de Azure Diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de los recursos de Azure. Esta integración ayuda a la solución SIEM a proporcionar un panel unificado para todos los recursos, tanto locales como en la nube, de forma que puede agregar, correlacionar, analizar y alertar sobre los eventos de seguridad.
+Integración de registro de Azure recopila eventos de Windows de los canales del visor de eventos de Windows, los [registros de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), las [alertas de Azure Security Center](../security-center/security-center-intro.md) y los [registros de Azure Diagnostics](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de los recursos de Azure. Esta integración ayuda a la solución SIEM a proporcionar un panel unificado para todos los recursos, tanto locales como en la nube, de forma que puede agregar, correlacionar, analizar y alertar sobre los eventos de seguridad.
 
 >[!NOTE]
-En este momento, las únicas nubes compatibles con Azure comercial y Azure Government. No se admiten otras nubes en este momento.
+En este momento, las únicas nubes compatibles son Azure comercial y Azure Government. No se admiten otras nubes en este momento.
 
 ![Integración de registro de Azure][1]
 
@@ -48,7 +46,7 @@ Azure genera gran cantidad de registros para cada servicio. Estos registros repr
 Azure Log Integration admite actualmente la integración de registros de actividad de Azure, registros de eventos de Windows de las máquinas virtuales Windows en su suscripción de Azure, alertas de Azure Security Center, registros de Diagnósticos de Azure y registros de auditoría de Azure Active Directory.
 
 >[!NOTE]
-Aunque Azure Log Integration es una solución gratuita, se aplicarán costes de Azure Storage derivados del almacenamiento de la información de archivos de registro.
+Aunque Integración de registro de Azure es una solución gratuita, se aplicarán costes de Azure Storage derivados del almacenamiento de la información de los archivos de registro.
 
 En la siguiente tabla se explica en detalle la categoría Registro y la integración de SIEM.
 
@@ -63,7 +61,7 @@ En la siguiente tabla se explica en detalle la categoría Registro y la integrac
 Para obtener más información sobre los tipos de registro compatibles, visite las [preguntas más frecuentes](security-azure-log-integration-faq.md)
 
 
-Puede encontrar ayuda de la comunidad en [Foro MSDN de Azure Log Integration](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). El foro ofrece a la comunidad de AzLog la posibilidad de ayudarse en relación con preguntas, respuestas, consejos y sugerencias sobre cómo sacar el máximo partido de Azure Log Integration. Además, el equipo de Azure Log Integration supervisa este foro y le ayudará a cada vez que se pueda.
+Puede encontrar ayuda de la comunidad en [Foro MSDN de Azure Log Integration](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). El foro ofrece a la comunidad de AzLog la posibilidad de ayudarse en relación con preguntas, respuestas, consejos y sugerencias sobre cómo sacar el máximo partido de Integración de registro de Azure. Además, el equipo de Azure Log Integration supervisa este foro y le ayudará a cada vez que se pueda.
 
 También puede abrir una [solicitud de soporte técnico](../azure-supportability/how-to-create-azure-support-request.md). Para ello, seleccione **Azure Log Integration** como el servicio para el que está solicitando el soporte técnico.
 
@@ -72,7 +70,7 @@ En este documento, se ha presentado la integración de registros de Azure. Para 
 
 * [Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324): Centro de descarga para obtener información, los requisitos del sistema y las instrucciones de instalación de Azure Log Integration.
 * [Get started with Azure log integration](security-azure-log-integration-get-started.md) (Introducción a la integración de registros de Azure): este tutorial lo guía a través de la instalación de la integración de registros de Azure y de almacenamiento de Azure WAD, de registros de actividad de Azure, de alertas de Azure Security Center, y de registros de auditoría de Azure Active Directory.
-* [Pasos de configuración para soluciones de asociados](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : esta entrada de blog le muestra cómo configurar la integración de registros de Azure para que funcione con soluciones de asociados, como Splunk, HP ArcSight y IBM QRadar.
+* [Pasos de configuración para soluciones de asociados](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : esta entrada de blog le muestra cómo configurar la integración de registros de Azure para que funcione con soluciones de asociados, como Splunk, HP ArcSight y IBM QRadar. Este blog representa la posición actual sobre la configuración de las soluciones de los asociados. En todos los casos, consulte la documentación de la solución de los asociados en primer lugar.
 * [Activity and ASC alerts over syslog to QRadar](https://blogs.msdn.microsoft.com/azuresecurity/2016/09/24/integrate-azure-logs-to-qradar/) (Alertas de ASC y de actividad a través de Syslog para QRadar): en esta publicación de blog se proporcionan los pasos para enviar alertas de actividad y de Azure Security Center a través de Syslog para QRadar.
 * [Preguntas más frecuentes sobre la integración de registro de Azure (P+F)](security-azure-log-integration-faq.md). Este artículo de preguntas más frecuentes responde a preguntas sobre la integración de registro de Azure.
 * [Integración de las alertas de Azure Security Center con la integración de registro de Azure](../security-center/security-center-integrating-alerts-with-log-integration.md): en este documento se explica cómo sincronizar las alertas de Azure Security Center con Azure Log Integration.
