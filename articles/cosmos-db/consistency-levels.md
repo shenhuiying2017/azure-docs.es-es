@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: abca1eff9d0b79420e70da5a4c551eceda478491
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: a1ebec2285982c70aa9dc49950769fe18e2e2d0d
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia de datos optimizables en Azure Cosmos DB
@@ -48,7 +47,7 @@ En la tabla siguiente se muestran las garantías específicas que ofrece cada ni
 | De prefijo coherente | Las actualizaciones devueltas son prefijos de todas las actualizaciones, sin espacios |
 | Ocasional  | Lecturas sin orden |
 
-Puede establecer la coherencia predeterminada en la cuenta de Cosmos DB (y después reemplazar la para una solicitud de lectura concreta). Internamente, la coherencia predeterminada se aplica a los datos de los conjuntos de particiones que pueden ser intervalos de regiones. Aproximadamente un 73 % de nuestros inquilinos usan la coherencia de sesión y un 20 % prefiere la obsolescencia limitada. Observamos que aproximadamente el 3 % de nuestros clientes experimentan con distintos niveles de coherencia inicialmente antes de fijar una opción de coherencia específica para su aplicación. También observamos que solo un 2 % de nuestros inquilinos reemplazan los niveles de coherencia por solicitud. 
+Puede establecer la coherencia predeterminada en la cuenta de Cosmos DB (y después reemplazar la para una solicitud de lectura concreta). Internamente, la coherencia predeterminada se aplica a los datos de los conjuntos de particiones que pueden abarcar regiones. Aproximadamente un 73 % de nuestros inquilinos usan la coherencia de sesión y un 20 % prefiere la obsolescencia limitada. Observamos que aproximadamente el 3 % de nuestros clientes experimentan con distintos niveles de coherencia inicialmente antes de fijar una opción de coherencia específica para su aplicación. También observamos que solo un 2 % de nuestros inquilinos reemplazan los niveles de coherencia por solicitud. 
 
 En Cosmos DB, las lecturas de coherencia de sesión, prefijo coherente y final son el doble de económicas que las de coherencia fuerte o de obsolescencia limitada. Cosmos DB presenta acuerdos de nivel de servicio líderes del sector completos del 99,99 %, que incluyen garantías de coherencia, además de disponibilidad, rendimiento y latencia. Empleamos un [comprobador de linealidad](http://dl.acm.org/citation.cfm?id=1806634), que funciona continuamente sobre nuestra telemetría de servicio y le notifica abiertamente las infracciones de coherencia. Para la obsolescencia limitada, supervisamos y notificamos las infracciones de los límites de k y t. Para los cinco niveles de coherencia moderada, también se le notifica directamente la [métrica de obsolescencia limitada probabilística](http://dl.acm.org/citation.cfm?id=2212359).  
 

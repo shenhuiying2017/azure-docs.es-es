@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4466a5aa1d55b178a584832d03f68d307767d167
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 39dd859d60e7f1dcf697e3c59b8f084e400bbae0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -83,7 +83,7 @@ Si se habilita la auditoría de eventos correctos en el controlador de dominio, 
 
 ## <a name="manual-reset-of-azure-ad-seamless-sso"></a>Restablecimiento manual del SSO de conexión directa de Azure AD
 
-Si el procedimiento de solución de problemas no le sirve de ayuda, siga estos pasos para restablecer manualmente la característica en su inquilino:
+Si el procedimiento de solución de problemas no sirve de ayuda, restablezca manualmente la característica en su inquilino. Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Paso 1: Importación del módulo de PowerShell de SSO de conexión directa
 
@@ -94,7 +94,7 @@ Si el procedimiento de solución de problemas no le sirve de ayuda, siga estos p
 
 ### <a name="step-2-get-the-list-of-ad-forests-on-which-seamless-sso-has-been-enabled"></a>Paso 2: Obtención de la lista de bosques de AD en la que se ha habilitado el SSO de conexión directa
 
-1. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Cuando se le solicite, escriba las credenciales de su cuenta de administrador de inquilinos de Azure AD.
+1. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Cuando se le solicite, escriba las credenciales de administrador global de su inquilino.
 2. Llame a `Get-AzureADSSOStatus`. Aparecerá la lista de bosques de AD (examine la lista "Dominios") en la que se ha habilitado esta característica.
 
 ### <a name="step-3-disable-seamless-sso-for-each-ad-forest-that-it-was-set-it-up-on"></a>Paso 3: Deshabilitación del SSO de conexión directa para cada bosque de AD en el que esté configurado

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2017
+ms.date: 07/12/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 783b9b48251c5f092121288af8834e2caf31f5d7
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Orígenes de datos de Syslog en Log Analytics
@@ -27,8 +26,8 @@ Syslog es un protocolo de registro de eventos que es común a Linux.  Las aplica
 
 > [!NOTE]
 > Log Analytics admite la recopilación de mensajes enviados por rsyslog o syslog-ng, donde rsyslog es el demonio predeterminado. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux, CentOS y Oracle Linux (Sysklog) no se admite para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar el [demonio rsyslog](http://rsyslog.com) y configurarlo para reemplazar Sysklog.
-> 
-> 
+>
+>
 
 ![Recopilación de Syslog](media/log-analytics-data-sources-syslog/overview.png)
 
@@ -49,8 +48,8 @@ Cuando el [agente de OMS se instala en un cliente Linux](log-analytics-linux-age
 
 > [!NOTE]
 > Si modifica la configuración de Syslog, tiene que reiniciar el demonio Syslog para que los cambios surtan efecto.
-> 
-> 
+>
+>
 
 #### <a name="rsyslog"></a>rsyslog
 El archivo de configuración de rsyslog se encuentra en **/etc/rsyslog.d/95-omsagent.conf**.  A continuación se muestra su contenido predeterminado.  Recopila mensajes de Syslog enviados desde el agente local para todos los recursos con, al menos, un nivel de advertencia.
@@ -138,7 +137,7 @@ Para quitar un recurso, elimine su sección del archivo de configuración.  Pued
 
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Recopilación de datos de puertos de Syslog adicionales
-El agente de OMS escucha los mensajes de Syslog en el cliente local en el puerto 25224.  Cuando se instala el agente, se aplica una configuración de Syslog predeterminada, que se encuentra en la siguiente ubicación: 
+El agente de OMS escucha los mensajes de Syslog en el cliente local en el puerto 25224.  Cuando se instala el agente, se aplica una configuración de Syslog predeterminada, que se encuentra en la siguiente ubicación:
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
@@ -162,7 +161,7 @@ Puede cambiar el número de puerto si crea dos archivos de configuración: un ar
 
     > [!NOTE]
     > Si modifica este valor en el archivo de configuración `95-omsagent.conf`, se sobrescribirá cuando el agente aplique una configuración predeterminada.
-    > 
+    >
 
         # OMS Syslog collection for workspace %WORKSPACE_ID%
         kern.warning              @127.0.0.1:%SYSLOG_PORT%
@@ -174,7 +173,7 @@ Puede cambiar el número de puerto si crea dos archivos de configuración: un ar
 
     > [!NOTE]
     > Si modifica los valores predeterminados en el archivo de configuración, se sobrescribirán cuando el agente aplique una configuración predeterminada.
-    > 
+    >
 
         filter f_custom_filter { level(warning) and facility(auth; };
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
@@ -206,9 +205,18 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 | Type=Syslog &#124; measure count() by Computer |Número de registros de Syslog por equipo. |
 | Type=Syslog &#124; measure count() by Facility |Número de registros de Syslog por recurso. |
 
-## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones. 
-* Use [Campos personalizados](log-analytics-custom-fields.md) para analizar datos de registros de Syslog en campos individuales.
-* [Configure agentes de Linux](log-analytics-linux-agents.md) para recopilar otros tipos de datos. 
+>[!NOTE]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta Log Analytics](log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue.
 
+> | Consultar | Descripción |
+|:--- |:--- |
+| syslog |Todos los registros de Syslog. |
+| Syslog &#124; where SeverityLevel == "error" |Todos los registros de Syslog con gravedad de error. |
+| Syslog &#124; summarize AggregatedValue = count() by Computer |Número de registros de Syslog por equipo. |
+| Syslog &#124; summarize AggregatedValue = count() by Facility |Número de registros de Syslog por recurso. |
+
+## <a name="next-steps"></a>Pasos siguientes
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones.
+* Use [Campos personalizados](log-analytics-custom-fields.md) para analizar datos de registros de Syslog en campos individuales.
+* [Configure agentes de Linux](log-analytics-linux-agents.md) para recopilar otros tipos de datos.
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 062ab97d00622419e2bca1fcd0a17f6b6b4f6f81
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 793803bfc12059a68ec881da9de37116f7a0eb8c
 ms.contentlocale: es-es
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-metadata-service---scheduled-events-preview"></a>Azure Metadata Service: eventos programados (versión preliminar)
@@ -42,8 +41,8 @@ En muchos otros casos, la disponibilidad global de los servicios puede mejorarse
 Hay casos en los que notificar a un administrador sobre un evento próximo o registrar dicho evento puede mejorar el mantenimiento de las aplicaciones hospedadas en la nube.
 
 Azure Metadata Service muestra Eventos programados en los siguientes casos de uso:
--    Mantenimiento iniciado por la plataforma (por ejemplo, la implementación del SO del host)
--    Llamadas iniciadas por el usuario (por ejemplo, si el usuario reinicia una VM o la vuelve a implementar)
+-   Mantenimiento iniciado por la plataforma (por ejemplo, la implementación del SO del host)
+-   Llamadas iniciadas por el usuario (por ejemplo, si el usuario reinicia una VM o la vuelve a implementar)
 
 
 ## <a name="scheduled-events---the-basics"></a>Eventos programados: conceptos básicos  
@@ -69,9 +68,16 @@ Al realizar consultas a Metadata Service, debe proporcionar el encabezado `Metad
 ### <a name="enabling-scheduled-events"></a>Habilitación de eventos programados
 La primera vez que efectúe una solicitud de eventos programados, Azure habilita de manera implícita la característica en la máquina virtual. Como resultado, debe esperar una respuesta diferida de hasta dos minutos en la primera llamada.
 
-### <a name="testing-your-logic-with-user-initiated-operations"></a>Prueba de la lógica con operaciones iniciadas por el usuario
-Para probar la lógica, puede usar Azure Portal, la API, la CLI o PowerShell para iniciar operaciones que den lugar a eventos programados. Reiniciar una máquina virtual da lugar a un evento programado con un tipo de evento igual a `Reboot`. Volver a implementar una máquina virtual da lugar a un evento programado con un tipo de evento igual a `Redeploy`.
-En ambos casos, la operación iniciada por el usuario tardará más tiempo en completarse, porque los eventos programados dan más tiempo a una aplicación para que se cierre correctamente. 
+### <a name="user-initiated-maintenance"></a>Mantenimiento iniciado por el usuario
+El mantenimiento de máquina virtual iniciado por el usuario a través de Azure Portal, API, CLI o PowerShell dará lugar a eventos programados. Esto permite probar la lógica de preparación de mantenimiento en su aplicación. Asimismo, permite a su aplicación prepararse para el mantenimiento iniciado por el usuario.
+
+Si se reinicia una máquina virtual, se programará un evento con el tipo `Reboot`. Si se vuelve a implementar una máquina virtual, se programará un evento con el tipo `Redeploy`.
+
+> [!NOTE] 
+> Actualmente se puede programar sumultáneamente un máximo de 10 operaciones de mantenimiento iniciadas por el usuario. Este límite será más flexible antes de la disponibilidad general de eventos programados.
+
+> [!NOTE] 
+> Actualmente no se puede configurar ningún mantenimiento iniciado por el usuario que dé lugar a eventos programados. Está planeado que esta capacidad de configuración se lance en el futuro.
 
 ## <a name="using-the-api"></a>Uso de la API
 
@@ -373,3 +379,4 @@ if __name__ == '__main__':
 - Puede obtener más información sobre las API disponibles en [Instance Metadata Service](virtual-machines-instancemetadataservice-overview.md).
 - Obtenga información sobre cómo realizar [el mantenimiento planeado para máquinas virtuales Windows en Azure](windows/planned-maintenance.md).
 - Obtenga información sobre cómo realizar [el mantenimiento planeado para máquinas virtuales Linux en Azure](linux/planned-maintenance.md).
+

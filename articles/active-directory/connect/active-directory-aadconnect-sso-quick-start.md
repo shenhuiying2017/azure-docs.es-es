@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 451d4fd24dc506fb4a659edb710ab67a66cbbde7
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 05fb966e3e18b8d5242a2795248b9b72352d894d
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -33,6 +33,7 @@ Para implementar SSO de conexión directa, debe seguir estos pasos:
 2. *Habilitar la característica*: active SSO de conexión directa en su inquilino mediante Azure AD Connect.
 3. *Implementar la característica*: use la directiva de grupo para implementar la característica para algunos o para todos los usuarios.
 4. *Probar la característica*: pruebe el inicio de sesión de los usuarios con el SSO de conexión directa.
+5. *Sustituir las claves*: sustituya con frecuencia las claves de descifrado de Kerberos de las cuentas del equipo.
 
 ## <a name="step-1-check-prerequisites"></a>Paso 1: Comprobación de los requisitos previos
 
@@ -104,14 +105,19 @@ Mozilla Firefox no realiza automáticamente la autenticación Kerberos. Cada usu
 4. Escriba "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net" en el campo.
 5. Haga clic en "Aceptar" y vuelva a abrir el explorador.
 
->[!NOTE]
->SSO de conexión directa no funciona en modo de exploración privada en Firefox.
+#### <a name="safari-on-mac-os"></a>Safari en Mac OS
 
-#### <a name="google-chrome-on-mac"></a>Google Chrome en Mac
+Asegúrese de que la máquina que ejecuta Mac OS se ha unido a AD. Consulte instrucciones sobre cómo hacerlo [aquí](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
 
-En el caso de Google Chrome para Mac y otras plataformas distintas de Windows, consulte [este artículo](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obtener información acerca de cómo incluir en la lista blanca las direcciones URL de Azure AD para la autenticación integrada.
+#### <a name="google-chrome-on-mac-os"></a>Google Chrome en Mac OS
+
+En el caso de Google Chrome para Mac OS y otras plataformas distintas de Windows, consulte [este artículo](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obtener información sobre cómo incluir en la lista blanca las direcciones URL de Azure AD para la autenticación integrada.
 
 El uso de las extensiones de directiva de grupo de Active Directory de terceros para implementar las direcciones URL de AD Azure de Firefox y Google Chrome para los usuarios de Mac está fuera del ámbito de este artículo.
+
+#### <a name="known-limitations"></a>Limitaciones conocidas
+
+SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Edge. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada.
 
 ## <a name="step-4-test-the-feature"></a>Paso 4: Prueba de la característica
 
@@ -128,10 +134,17 @@ Para probar el escenario en el que el usuario no tiene que escribir ni su nombre
 - Inicie sesión en *https://myapps.microsoft.com/contoso.onmicrosoft.com* en una nueva sesión privada del explorador. Reemplace "*contoso*" con el nombre de su inquilino.
 - O bien, inicie sesión en *https://myapps.microsoft.com/contoso.com* en una nueva sesión privada del explorador. Reemplace "*contoso.com*" con un dominio comprobado (no un dominio federado) en el inquilino.
 
+## <a name="step-5-roll-over-keys"></a>Paso 5: Sustitución de claves
+
+En el paso 2, Azure AD Connect crea cuentas de equipo (que representan a Azure AD) en todos los bosques de AD en que se ha habilitado SSO de conexión directa. Obtenga información más detallada [aquí](active-directory-aadconnect-sso-how-it-works.md). Para mejorar la seguridad, se recomienda sustituir con frecuencia las claves de descifrado de Kerberos de estas cuentas de equipo.
+
+>[!IMPORTANT]
+>No es necesario realizar este paso _inmediatamente_ después de haber habilitado la característica. Sustituya las claves de descifrado de Kerberos al menos cada 30 días.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [**Profundización técnica** ](active-directory-aadconnect-sso-how-it-works.md): descripción del funcionamiento de esta característica.
 - [**Preguntas más frecuentes**](active-directory-aadconnect-sso-faq.md): obtenga respuestas a las preguntas más frecuentes.
-- [**Solución de problemas**](active-directory-aadconnect-troubleshoot-sso.md): información para resolver problemas habituales de esta característica.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para rellenar solicitudes de características nuevas.
+- [**Solución de problemas**](active-directory-aadconnect-troubleshoot-sso.md): aprenda a resolver problemas comunes de esta característica.
+- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.
 

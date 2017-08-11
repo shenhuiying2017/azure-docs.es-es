@@ -13,10 +13,10 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f7ca0c1aa67b8a5f5487dd93a142ac9da094f945
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 4c502784a57850d6f11200e95f7432d2206e920a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -92,15 +92,20 @@ Dentro del objeto de máquina virtual, necesitamos una dependencia de la cuenta 
 
 ## <a name="managed-disks-template-formatting"></a>Formato de plantilla de discos administrados
 
-Con Azure Managed Disks, el disco se convierte en un recurso de nivel superior y ya no es necesario que el usuario cree una cuenta de almacenamiento. Los discos administrados se exponen en la versión de API `2016-04-30-preview` y son ahora el tipo de disco predeterminado. En las secciones siguientes se describe la configuración predeterminada y se detalla cómo personalizar aún más los discos.
+Con Azure Managed Disks, el disco se convierte en un recurso de nivel superior y ya no es necesario que el usuario cree una cuenta de almacenamiento. Los discos de Managed Disks se publicaron primero en la versión de API `2016-04-30-preview`; están disponibles en todas las versiones posteriores de API y, ahora, son el tipo de disco predeterminado. En las secciones siguientes se describe la configuración predeterminada y se detalla cómo personalizar aún más los discos.
+
+> [!NOTE]
+> Se recomienda usar una versión de API posterior a `2016-04-30-preview`, ya que se produjeron cambios importantes entre `2016-04-30-preview` y `2017-03-30`.
+>
+>
 
 ### <a name="default-managed-disk-settings"></a>Configuración predeterminada de discos administrados
 
-Para crear una máquina virtual con discos administrados, ya no es necesario crear el recurso de cuenta de almacenamiento y es posible actualizar el recurso de máquina virtual como se indica a continuación. Observe específicamente que `apiVersion` refleja `2016-04-30-preview` y ni `osDisk` ni `dataDisks` hacen referencia ya a un URI específico para el VHD. Cuando la implementación se realiza sin especificar propiedades adicionales, el disco usará el [almacenamiento LRS estándar](storage-redundancy.md). Si no se especifica ningún nombre, toma el formato de `<VMName>_OsDisk_1_<randomstring>` para el disco de SO y `<VMName>_disk<#>_<randomstring>` para cada disco de datos. De manera predeterminada, Azure Disk Encryption está deshabilitado; el almacenamiento en caché es Lectura/escritura en el caso del disco de SO y Ninguno para los discos de datos. En el ejemplo siguiente, puede observar que todavía existe una dependencia de cuenta de almacenamiento, pero es solo para el almacenamiento de diagnósticos y no es necesaria para almacenamiento en disco.
+Para crear una máquina virtual con discos administrados, ya no es necesario crear el recurso de cuenta de almacenamiento y es posible actualizar el recurso de máquina virtual como se indica a continuación. Observe específicamente que `apiVersion` refleja `2017-03-30` y ni `osDisk` ni `dataDisks` hacen referencia ya a un URI específico para el VHD. Cuando la implementación se realiza sin especificar propiedades adicionales, el disco usará el [almacenamiento LRS estándar](storage-redundancy.md). Si no se especifica ningún nombre, toma el formato de `<VMName>_OsDisk_1_<randomstring>` para el disco de SO y `<VMName>_disk<#>_<randomstring>` para cada disco de datos. De manera predeterminada, Azure Disk Encryption está deshabilitado; el almacenamiento en caché es Lectura/escritura en el caso del disco de SO y Ninguno para los discos de datos. En el ejemplo siguiente, puede observar que todavía existe una dependencia de cuenta de almacenamiento, pero es solo para el almacenamiento de diagnósticos y no es necesaria para almacenamiento en disco.
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
@@ -143,23 +148,25 @@ Como alternativa para especificar la configuración de disco en el objeto de má
 {
     "type": "Microsoft.Compute/disks",
     "name": "[concat(variables('vmName'),'-datadisk1')]",
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "Standard_LRS"
+    },
     "properties": {
         "creationData": {
             "createOption": "Empty"
         },
-        "accountType": "Standard_LRS",
         "diskSizeGB": 1023
     }
 }
 ```
 
-Dentro del objeto de máquina virtual, podemos hacer referencia a este objeto de disco para adjuntarlo. Especificar el identificador de recurso del disco administrado que creamos en la propiedad `managedDisk` permite adjuntar el disco cuando se crea la máquina virtual. La `apiVersion` del recurso de máquina virtual debe ser `2016-04-30-preview` para usar esta funcionalidad. Además, tenga en cuenta que creamos una dependencia del recurso de disco para garantizar que se cree correctamente antes de la creación de la máquina virtual. 
+Dentro del objeto de máquina virtual, podemos hacer referencia a este objeto de disco para adjuntarlo. Especificar el identificador de recurso del disco administrado que creamos en la propiedad `managedDisk` permite adjuntar el disco cuando se crea la máquina virtual. Tenga en cuenta que el valor de la propiedad `apiVersion` del recurso de máquina virtual está establecido en `2017-03-30`. Además, tenga en cuenta que creamos una dependencia del recurso de disco para garantizar que se cree correctamente antes de la creación de la máquina virtual. 
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
@@ -200,11 +207,11 @@ Dentro del objeto de máquina virtual, podemos hacer referencia a este objeto de
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Creación de conjuntos de disponibilidad administrados con máquinas virtuales con discos administrados
 
-Para crear conjuntos de disponibilidad administrados con máquinas virtuales con discos administrados, agregue el objeto `sku` al recurso de conjunto de disponibilidad y establezca la propiedad `name` en `Aligned`. Esto garantiza que los discos de cada máquina virtual estén suficientemente aislados entre sí para evitar puntos únicos de error. La `apiVersion` del recurso de conjunto de disponibilidad también debe ser `2016-04-30-preview` para usar esta funcionalidad.
+Para crear conjuntos de disponibilidad administrados con máquinas virtuales con discos administrados, agregue el objeto `sku` al recurso de conjunto de disponibilidad y establezca la propiedad `name` en `Aligned`. Esto garantiza que los discos de cada máquina virtual estén suficientemente aislados entre sí para evitar puntos únicos de error. Tenga en cuenta también que el valor de la propiedad `apiVersion` del recurso del conjunto de disponibilidad está establecido en `2017-03-30`.
 
 ```
 {
-    "apiVersion": "2016-04-30-preview",
+    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/availabilitySets",
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",

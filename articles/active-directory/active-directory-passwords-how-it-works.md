@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 44426571e3fd8aed090ccccc0dcc46dca8098906
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
@@ -226,7 +226,7 @@ La herramienta Azure AD Connect envía pings o keepalives periódicos a los punt
 
 La cuenta especificada en la utilidad de Azure AD Connect debe tener derechos extendidos de restablecimiento de contraseña, cambio de contraseña, permisos de escritura en lockoutTime y permisos de escritura en pwdLastSet en el objeto raíz de **cada dominio** de ese bosque **O** en las unidades organizativas del usuario que desea que estén en el ámbito de SSPR.
 
-Si no está seguro de cuál es la cuenta a la que se hace referencia en el párrafo anterior, abra la interfaz de usuario de la configuración de Azure Active Directory Connect y haga clic en la opción Revisar su solución. La cuenta a la que necesita agregar permiso se enumera en "Directorios sincronizados"
+Si no está seguro de cuál es la cuenta a la que se hace referencia en el párrafo anterior, abra la interfaz de usuario de la configuración de Azure Active Directory Connect y haga clic en la opción Ver la configuración actual. La cuenta a la que necesita agregar permiso se enumera en "Directorios sincronizados"
 
 El establecimiento de estos permisos permite que la cuenta de servicio de agente de administración de cada bosque administre las contraseñas en nombre de las cuentas de usuario de dicho bosque. **Si no asigna estos permisos, aunque la escritura diferida parezca estar configurada correctamente, los usuarios encuentran errores al intentar administrar sus contraseñas locales desde la nube.**
 

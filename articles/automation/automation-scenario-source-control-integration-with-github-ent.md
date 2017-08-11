@@ -12,11 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 07/26/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: f8d515c6a8b1332ccb338cb5ec2c16daa5725281
-ms.openlocfilehash: 9590135c351c4d4355ed208eaae469cac17972fa
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 62793dcdbbf4c83161e95d1c165d5c231245f7c6
+ms.contentlocale: es-es
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -24,9 +26,9 @@ ms.openlocfilehash: 9590135c351c4d4355ed208eaae469cac17972fa
 
 Automation admite actualmente la integración del control del código fuente, que permite asociar Runbooks de su cuenta de Automation a un repositorio de control del código fuente de GitHub.  Sin embargo, los clientes que han implementado [GitHub Enterprise](https://enterprise.github.com/home) para permitir la compatibilidad con sus prácticas de DevOps, también lo quieren usar para administrar el ciclo de vida de los Runbooks desarrollados para automatizar los procesos de negocio y las operaciones de administración de servicios.  
 
-En este escenario, tendrá un equipo Windows en su centro de datos configurado como un Hybrid Runbook Worker que tiene instalados los módulos de Azure RM y herramientas de Git.  La máquina de Hybrid Worker tendrá un clon del repositorio de GIT local.  Cuando el Runbook se ejecuta en el Hybrid Worker, el directorio de GIT se sincroniza y el contenido de los archivos del Runbook se importa en la cuenta de Automation.
+En este escenario, tendrá un equipo Windows en su centro de datos configurado como un Hybrid Runbook Worker que tiene instalados los módulos de Azure Resource Manager y herramientas de Git.  La máquina de Hybrid Worker tendrá un clon del repositorio de GIT local.  Cuando el Runbook se ejecuta en el Hybrid Worker, el directorio de GIT se sincroniza y el contenido de los archivos del Runbook se importa en la cuenta de Automation.
 
-En este artículo se describe cómo realizar esta configuración en el entorno de Azure Automation. Para comenzar, configurará Automation con las credenciales de seguridad, los Runbooks necesarios para admitir este escenario y la implementación de un Hybrid Runbook Worker en su centro de datos para ejecutar los Runbooks y acceder al repositorio de GitHub Enterprise para sincronizarlos con la cuenta de Automation.  
+En este artículo se describe cómo realizar esta configuración en el entorno de Azure Automation. Para comenzar, se configurará Automation con las credenciales de seguridad, los Runbooks necesarios para admitir este escenario y la implementación de un Hybrid Runbook Worker en su centro de datos para ejecutar los Runbooks y acceder al repositorio de GitHub Enterprise para sincronizarlos con la cuenta de Automation.  
 
 
 ## <a name="getting-the-scenario"></a>Obtención del escenario
@@ -55,7 +57,7 @@ GitHRWCredential | El recurso de credencial que creará que contiene el nombre d
 2. También se necesita un área de trabajo de Microsoft Operations Management Suite (OMS) con la solución Azure Automation habilitada y configurada.  Si no tiene una asociada con la cuenta de Automation usada para instalar y configurar este escenario, se creará y configurará automáticamente al ejecutar el script **New-OnPremiseHybridWorker.ps1** desde Hybrid Runbook Worker.        
 
     > [!NOTE]
-    > Actualmente estas son las únicas regiones que admiten la integración de Automation con OMS: **sudeste de Australia**, **este de EE. UU. 2**, **Sudeste Asiático** y **Europa Occidental**. 
+    > Actualmente, solo las siguientes regiones admiten la integración de Automation con OMS: **sudeste de Australia**, **este de EE. UU. 2**, **Sudeste Asiático** y **Europa Occidental**. 
 
 3. Un equipo que puede funcionar como Hybrid Runbook Worker dedicado que también hospedará el software de GitHub y mantendrá los archivos de Runbook (*runbook*.ps1) en un directorio de origen en el sistema de archivos para sincronizarlos entre GitHub y la cuenta de Automation.
 
@@ -74,7 +76,7 @@ Si no tiene ya implementada una solución Hybrid Runbook Worker en su centro de 
 
     Esta acción exportará un certificado al Hybrid Worker para que los Runbooks de trabajo puedan autenticarse con Azure mediante la conexión de ejecución para administrar los recursos de Azure (para este escenario en concreto, importe los Runbooks en la cuenta de Automation).
 
-4. En su cuenta de Automation, seleccione el grupo de Hybrid Worker creado anteriormente y [especifique una cuenta de ejecución](automation-hybrid-runbook-worker.md#runas-account) para él; a continuación, elija el recurso de credencial que ya había creado o que acaba de crear.  Esto garantiza que el Runbook de sincronización puede ejecutar comandos de GIT. 
+4. En su cuenta de Automation, seleccione el grupo de Hybrid Worker creado anteriormente y [especifique una cuenta de ejecución](automation-hrw-run-runbooks.md#runas-account) para él; a continuación, elija el recurso de credencial que ya había creado o que acaba de crear.  Esto garantiza que el Runbook de sincronización puede ejecutar comandos de GIT. 
 5. Inicie el Runbook **Sync-LocalGitFolderToAutomationAccount**, proporcione los siguientes valores de parámetros de entrada necesarios y, en la hoja **Start Runbook** (Iniciar Runbook), en la opción **Parámetros de ejecución**, seleccione la opción **Hybrid Worker**. En la lista desplegable, seleccione el grupo de Hybrid Worker que creó anteriormente para este escenario:
     * *ResourceGroup*: el nombre del grupo de recursos asociado con la cuenta de Automation.
     * *AutomationAccountName* : el nombre de la cuenta de Automatización.
@@ -90,9 +92,4 @@ Si no tiene ya implementada una solución Hybrid Runbook Worker en su centro de 
 
 -  Para obtener más información sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
 -  Para obtener más información sobre la característica de compatibilidad con scripts de PowerShell, consulte [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

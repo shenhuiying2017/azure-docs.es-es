@@ -1,10 +1,10 @@
 ---
 title: 'Raspberry PI a la nube simulado (Node.js): Conectar el simulador web de Raspberry PI a Azure IoT Hub | Microsoft Docs'
-description: "Aprenda a configurar y conectar el simulador de Raspberry Pi a Azure IoT Hub para que envíe datos a la plataforma en la nube de Azure. No se necesita una placa física para este tutorial."
+description: "Conectar el simulador web de Raspberry Pi a Azure IoT Hub para que Raspberry Pi envíe datos a la nube de Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timlt
+manager: timtl
 tags: 
 keywords: "simulador de raspberry pi, azure iot raspberry pi, raspberry pi iot hub, raspberry pi envía datos a la nube, raspberry pi a la nube"
 ms.service: iot-hub
@@ -12,13 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/7/2017
+ms.date: 7/28/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b76c64b677a1a57a032cb71d2922778e7cf700c8
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 3b80bf35d6af91d5bdb196d97668dc0f837b92cc
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 
@@ -29,6 +29,17 @@ ms.lasthandoff: 07/21/2017
 En este tutorial, empezará por aprender los principios básicos del uso del simulador en línea de Raspberry Pi. A continuación, aprenderá a conectar sin problemas el simulador Pi a la nube con [Azure IoT Hub](iot-hub-what-is-iot-hub.md). 
 
 Si tiene dispositivos físicos, visite [Conectar Raspberry Pi a Azure IoT Hub](iot-hub-raspberry-pi-kit-node-get-started.md) para comenzar. 
+
+<p>
+<div id="diag" style="width:100%; text-align:center">
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
+<img src="media/iot-hub-raspberry-pi-web-simulator/3_banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
+</div>
+<p>
+<div id="button" style="width:100%; text-align:center">
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted" target="_blank">
+<img src="media/iot-hub-raspberry-pi-web-simulator/6_button_default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5_button_click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6_button_default.png';">
+</div>
 
 ## <a name="what-you-do"></a>Qué debe hacer
 
@@ -50,12 +61,12 @@ Conecte Raspberry Pi simulado al IoT Hub que ha creado. A continuación, ejecute
 Haga clic en el botón para iniciar el simulador en línea de Raspberry Pi.
 
 > [!div class="button"]
-[Iniciar simulador de Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/)
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Iniciar simulador de Raspberry Pi</a>
 
 Hay tres áreas en el simulador web.
-* Área de ensamblado: el circuito predeterminado es que Pi se conecta con un sensor BME280 y un LED. Esta área está bloqueada en la versión preliminar por lo que actualmente no puede hacer ninguna personalización.
-* Área de codificación: un editor de código en línea para codificar con Raspberry Pi. La aplicación de ejemplo predeterminada ayuda a recopilar datos de sensor desde el sensor BME280 y los envía a Azure IoT Hub. La aplicación es totalmente compatible con dispositivos Pi reales. 
-* Ventana de consola integrada: muestra la salida del código. En la parte superior de esta ventana aparecen tres botones.
+1. Área de ensamblado: el circuito predeterminado es que Pi se conecta con un sensor BME280 y un LED. Esta área está bloqueada en la versión preliminar por lo que actualmente no puede hacer ninguna personalización.
+2. Área de codificación: un editor de código en línea para codificar con Raspberry Pi. La aplicación de ejemplo predeterminada ayuda a recopilar datos de sensor desde el sensor BME280 y los envía a Azure IoT Hub. La aplicación es totalmente compatible con dispositivos Pi reales. 
+3. Ventana de consola integrada: muestra la salida del código. En la parte superior de esta ventana aparecen tres botones.
    * **Run** (Ejecutar): ejecute la aplicación en el área de codificación.
    * **Reset** (Restablecer): restablezca el área de codificación a la aplicación de ejemplo predeterminada.
    * **Fold/Expand** (Plegar/expandir): al lado derecho hay un botón para plegar o expandir la ventana de consola.

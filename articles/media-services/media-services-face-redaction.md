@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7f5d43e337b610f0bcf8273432b4dcd0a757937d
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 6095135e49a6da3ef37fb566c2fb56702cfd70c9
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Censura de rostros con Azure Media Analytics
@@ -123,7 +123,7 @@ El resultado de la fase de análisis no incluye el vídeo original. El vídeo ti
 | Configuración de entrada |Configuración predeterminada de trabajo |{'version':'1.0', 'options': {'mode':'analyze'}} |
 | Recurso de salida |foo_redacted.mp4 |Vídeo con difuminado aplicado en base a las anotaciones |
 
-#### <a name="example-output"></a>Ejemplo de salida
+#### <a name="example-output"></a>Salida de ejemplo
 Este es el resultado de una lista de identificadores con un identificador seleccionado.
 
 [Vea este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
@@ -314,8 +314,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
         }
     }
 
-## <a name="next-step"></a>Paso siguiente
-Consulte las rutas de aprendizaje de Servicios multimedia.
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

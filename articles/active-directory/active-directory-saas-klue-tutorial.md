@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/13/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0c44d5bda8eb5b2e667fa888c9afcf58aec13534
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: c64417c136340b3ffa5d67c618c6fe037d2992b5
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integración de Azure Active Directory con Klue
@@ -122,7 +122,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.klue.com/account/auth/saml/<Customer UUID>/`.
      
     > [!NOTE] 
-    > Estos valores no son reales. Actualícelos con la dirección URL de respuesta, el identificador y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de soporte técnico de Klue](mailto:gsar@klue.com) para obtener estos valores.
+    > Estos valores no son reales. Actualícelos con la dirección URL de respuesta, el identificador y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de soporte técnico de Klue](mailto:support@klue.com) para obtener estos valores.
 
 5. La aplicación Klue espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones. 
 
@@ -160,11 +160,10 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-klue-tutorial/tutorial_klue_configure.png) 
 
-10. Para configurar el inicio de sesión único en **Klue**, debe enviar el **certificado (Base64) descargado, la dirección URL del servicio de inicio de sesión único de SAML y el identificador de entidad de SAML** al [equipo de soporte técnico de Klue](mailto:gsar@klue.com).
+10. Para configurar el inicio de sesión único en **Klue**, debe enviar el **certificado (Base64) descargado, la dirección URL del servicio de inicio de sesión único de SAML y el identificador de entidad de SAML** al [equipo de soporte técnico de Klue](mailto:support@klue.com).
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -199,7 +198,10 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="creating-a-klue-test-user"></a>Creación de usuario de prueba de Klue
 
-En esta sección, creará un usuario llamado Britta Simon en Klue. Trabaje con el [equipo de soporte técnico de Klue](mailto:gsar@klue.com) para agregar los usuarios a la plataforma de Klue. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Klue. Klue admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Klue, se crea un nuevo usuario, en caso de que no exista.
+
+>[!Note]
+>Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Klue](mailto:support@klue.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

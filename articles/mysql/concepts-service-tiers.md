@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 20ca0abab5e17f82b94a31c1b2c9a0942ba9508a
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: d9ec4556d57ff1975a93d806237ad0c7416b9988
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opciones y rendimiento de Azure Database for MySQL: información sobre el contenido disponible en cada plan de tarifa
@@ -37,12 +37,12 @@ En la tabla siguiente se proporcionan ejemplos de los planes de tarifa más adec
 | Nivel de precios | Carga de trabajo objetivo |
 | :----------- | :----------------|
 | Básica | Opción más conveniente para pequeñas cargas de trabajo que requieren almacenamiento y proceso escalables sin garantía de IOPS. Algunos ejemplos son los servidores utilizados para desarrollo o prueba, o las aplicaciones a pequeña escala que se emplean con poca frecuencia. |
-| Standard | La opción ideal para aplicaciones en la nube que necesiten de un valor de E/S por segundo garantizado con un alto rendimiento. Como ejemplos destacan las aplicaciones web y analíticas. |
+| Estándar | La opción ideal para aplicaciones en la nube que necesiten de un valor de E/S por segundo garantizado con un alto rendimiento. Como ejemplos destacan las aplicaciones web y analíticas. |
 | Premium | La opción idónea para cargas de trabajo que necesiten de una baja latencia para transacciones y E/S. Proporciona la mejor compatibilidad para muchos usuarios simultáneos. Se aplica a las bases de datos que admitan aplicaciones críticas para la actividad de la empresa.<br />El plan de tarifa Premium no está disponible en la versión preliminar. |
 
 Para decidirse por un plan de tarifa, empiece por determinar si la carga de trabajo necesita un valor garantizado de E/S por segundo. Si es así, seleccione el plan de tarifa Estándar.
 
-| **Características del plan de tarifa** | **Básico** | **Estándar** |
+| **Características del plan de tarifa** | **Básico** | **Standard** |
 | :------------------------ | :-------- | :----------- |
 | Unidades de proceso máximas | 100 | 800 | 
 | Almacenamiento total máximo | 1 TB | 1 TB | 
@@ -52,10 +52,13 @@ Para decidirse por un plan de tarifa, empiece por determinar si la carga de trab
 
 Durante el período de versión preliminar, no es posible cambiar el plan de tarifa una vez que se haya creado el servidor. En el futuro, será posible actualizar el servidor de un plan de tarifa a otro o cambiarlo a un plan anterior.
 
+## <a name="understand-the-price"></a>Descripción del precio
+Cuando cree una nueva Azure Database for MySQL dentro de [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer), haga clic en la hoja **Plan de tarifa** y el costo mensual se mostrará en función de las opciones que haya seleccionado. Si no tiene una suscripción de Azure, use la calculadora de precios de Azure para obtener un precio estimado. Visite el sitio web [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/), haga clic en **Agregar elementos**, expanda la categoría **Bases de datos** y elija **Azure Database for MySQL** para personalizar las opciones.
+
 ## <a name="choose-a-performance-level-compute-units"></a>Selección de un nivel de rendimiento (unidades de proceso)
 Cuando haya determinado el plan de tarifa para su servidor de Azure Database for MySQL, ya podrá calcular el nivel de rendimiento. Para ello, seleccione el número de unidades de proceso necesarias. Un buen punto de partida son 200 o 400 unidades de proceso para aplicaciones que necesiten más simultaneidad de usuarios para cargas de trabajo web o analíticas. Esta cantidad se puede incrementar en función de las necesidades correspondientes. 
 
-Las unidades de proceso son una medida del rendimiento de procesamiento de la CPU cuya disponibilidad está garantizada para un único servidor de Azure Database for MySQL. Una unidad de proceso es una medida combinada de recursos de CPU y memoria.  Para obtener más información, consulte [Explicación de las unidades de proceso](concepts-compute-unit-and-storage.md).
+Las unidades de proceso son una medida del rendimiento de procesamiento de la CPU cuya disponibilidad está garantizada para un único servidor de Azure Database for MySQL. Una unidad de proceso es una medida combinada de recursos de CPU y memoria.  Para más información, consulte [Explicación de las unidades de proceso](concepts-compute-unit-and-storage.md).
 
 ### <a name="basic-pricing-tier-performance-levels"></a>Niveles de rendimiento del plan de tarifa Básico:
 

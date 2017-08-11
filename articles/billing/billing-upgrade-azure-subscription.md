@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 55c195754f18cd52fc098061f0e16607292a1948
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 18fd43d0b1d6276ebc41a0ad33d861a27a472551
 ms.contentlocale: es-es
-ms.lasthandoff: 03/17/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Actualización de la suscripción de Microsoft Imagine Azure o la prueba gratuita al plan de pago por uso
@@ -35,6 +35,6 @@ Actualice su [suscripción gratuita](https://azure.microsoft.com/free/) o de [Mi
    
     ![Captura de pantalla que muestra qué seleccionar para confirmar que desea actualizar la suscripción](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-Aproveche cualquier ventaja restantes de la prueba gratuita al igual que el crédito de 200 dólares o el límite de 30 días. Después de usar todas las ventajas, se actualiza la suscripción.
+Aproveche cualquier ventaja restante de la evaluación gratuita como el límite de 30 días o el crédito. Después de usar todas las ventajas, se actualiza la suscripción.
 
 

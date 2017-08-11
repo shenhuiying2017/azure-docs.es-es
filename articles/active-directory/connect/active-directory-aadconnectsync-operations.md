@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 0288d70bb5c0094b5c738b2d0c597e4c6d38a5aa
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
 ms.contentlocale: es-es
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Sincronización de Azure AD Connect: tareas y consideraciones operativas
@@ -109,7 +109,9 @@ Para obtener más información, consulte [Modo provisional](#staging-mode).
 Un método común y admitido es ejecutar el motor de sincronización en una máquina virtual. En caso de que el host tenga un problema, la imagen con el servidor del motor de sincronización se puede migrar a otro servidor.
 
 ### <a name="sql-high-availability"></a>alta disponibilidad de SQL
-Si no utiliza la versión de SQL Server Express que se incluye con Azure AD Connect, también debe tener en cuenta la alta disponibilidad para SQL Server. La única solución de alta disponibilidad admitida son clústeres de SQL. Entre las soluciones no admitidas se incluyen creación de reflejos y siempre visible.
+Si no utiliza la versión de SQL Server Express que se incluye con Azure AD Connect, también debe tener en cuenta la alta disponibilidad para SQL Server. Las soluciones de alta disponibilidad compatibles incluyen la agrupación en clústeres de SQL y AOA (Grupos de disponibilidad AlwaysOn). Entre las soluciones no admitidas se incluye la creación de reflejo.
+
+Se agregó la compatibilidad de AOA de SQL a Azure AD Connect en la versión 1.1.524.0. Debe habilitar AOA de SQL antes de instalar Azure AD Connect. Durante la instalación, Azure AD Connect detecta si la instancia de SQL proporcionada está habilitada para AOA de SQL o no. Si AOA de SQL está habilitada, Azure AD Connect averigua si AOA de SQL está configurada para usar la replicación sincrónica o asincrónica. Cuando configure la escucha de grupo de disponibilidad, se recomienda que establezca la propiedad RegisterAllProvidersIP en 0. Esto se debe a que Azure AD Connect actualmente usa SQL Native Client para conectarse a SQL y SQL Native Client no admite el uso de la propiedad MultiSubNetFailover.
 
 ## <a name="appendix-csanalyzer"></a>Apéndice: CSAnalyzer
 Vea la sección de [comprobación](#verify) sobre cómo usar este script.

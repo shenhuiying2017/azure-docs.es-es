@@ -5,7 +5,7 @@ keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: f6beb62246aaf59bfd81467f07d347913a20677b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 658c316d8d9d14ce11dbb92188afbf0e68c00493
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Aprovisionamiento y registro de nuevos inquilinos en el catálogo
@@ -70,7 +69,7 @@ Ejecute el script *Demo-ProvisionAndCatalog* para crear un inquilino rápidament
 1. Abra **Demo-ProvisionAndCatalog.ps1** en PowerShell ISE y establezca los siguientes valores:
    * **$TenantName** = el nombre de la nueva ubicación (por ejemplo, *Bushwillow Blues*).
    * **$VenueType** = uno de los tipos predefinidos de ubicación: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic o soccer.
-   * **$DemoScenario** = 1. Deje este valor establecido en _1_ para **aprovisionar un único inquilino**.
+   * **$DemoScenario** = 1. Deje este valor establecido en _1_ para *aprovisionar un único inquilino*.
 
 1. Presione **F5** y ejecute el script.
 
@@ -83,15 +82,15 @@ Una vez completado el script, se aprovisiona el nuevo inquilino y su aplicación
 
 Este ejercicio aprovisiona un lote de inquilinos adicionales. Se recomienda que aprovisione un lote de inquilinos antes de completar otros tutoriales de SaaS de Wingtip, de manera que haya un mayor número de bases de datos con el que trabajar.
 
-1. Abra ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* en *PowerShell ISE* y establezca el siguiente valor:
-   * **$DemoScenario** = **3**. Establezca este valor en **3** para **aprovisionar un lote de inquilinos**.
+1. Abra ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* en *PowerShell ISE* y cambie el parámetro *$DemoScenario* a 3:
+   * **$DemoScenario** = **3**. Cambie este valor a **3** para *aprovisionar un lote de inquilinos*.
 1. Presione **F5** y ejecute el script.
 
 El script implementa un lote de inquilinos adicionales Este script usa una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) que controla el lote y, a continuación, delega el aprovisionamiento de cada base de datos a una plantilla vinculada. Esto permite que Azure Resource Manager negocie el proceso de aprovisionamiento para su script. Las plantillas aprovisionan bases de datos en paralelo cuando sea posible y controlan los reintentos si es necesario, optimizando así el proceso general. El script es idempotente, por lo que si se produce un error o se detiene por alguna razón, vuelva a ejecutarlo.
 
 ### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>Compruebe que el lote de inquilinos se haya implementado correctamente.
 
-* Abra el servidor *tenants1* en [Azure Portal](https://portal.azure.com) y haga clic en **Bases de datos SQL**:
+* Abra el servidor *tenants1* yendo a su lista de servidores de [Azure Portal](https://portal.azure.com), haga clic en **bases de datos SQL** y compruebe que el lote de 17 bases de datos adicionales está ahora en la lista:
 
    ![lista de base de datos](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
@@ -103,13 +102,13 @@ Para entender mejor cómo la aplicación Wingtip implementa el aprovisionamiento
 1. Abra ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_ y establezca los siguientes parámetros:
    * **$TenantName** = los nombres de inquilino deben ser únicos. Por lo tanto, establezca un nombre distinto a los inquilinos existentes (por ejemplo, *Hackberry Hitters*).
    * **$VenueType** = use uno de los tipos de ubicación predefinidos (por ejemplo, *judo*).
-   * **$DemoScenario** = 1. Establezca este valor en **1** para **aprovisionar un único inquilino**.
+   * **$DemoScenario** = **1**. Establezca este valor en **1** para *aprovisionar un único inquilino*.
 
 1. Agregue un punto de interrupción colocando el cursor en cualquier lugar de la siguiente línea: *New-Tenant `* y presione **F9**.
 
    ![punto de interrupción](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. Presione **F5** para ejecutar el script. Cuando se alcance el punto de interrupción, presione **F11** para acceder. Realice un seguimiento de la ejecución del script mediante **F10** y **F11** para omitir o acceder a las funciones llamadas. [Sugerencias para trabajar con scripts de PowerShell y depurarlos](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+1. Presione **F5** para ejecutar el script. Cuando se alcance el punto de interrupción, presione **F11** para acceder. Siga paso a paso la ejecución del script mediante las opciones del menú Depurar, **F10** y **F11**, para omitir u obtener acceso a las funciones llamadas. Para obtener más información sobre cómo depurar scripts de PowerShell, consulte [Sugerencias para trabajar con scripts de PowerShell y depurarlos](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ### <a name="examine-the-provision-and-catalog-implementation-in-detail-by-stepping-through-the-script"></a>Examine la implementación de aprovisionamiento y catalogación en detalle completando los pasos del script.
 

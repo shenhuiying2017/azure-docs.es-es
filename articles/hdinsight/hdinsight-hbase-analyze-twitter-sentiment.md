@@ -13,20 +13,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
+ms.date: 07/24/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 7a16a1c2a10279b5e7fb523addfdfcd433c8937e
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 4d5bb90c0e7573afb75282810c9ba58e7163e127
 ms.contentlocale: es-es
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="analyze-real-time-twitter-sentiment-with-hbase-in-hdinsight"></a>Realizar análisis de opinión en Twitter en tiempo real con HBase en HDInsight
 Descubra cómo realizar [análisis de sentimiento](http://en.wikipedia.org/wiki/Sentiment_analysis) de macrodatos en tiempo real de Twitter usando un clúster de HBase en HDInsight.
 
-Los sitios web de las redes sociales constituyen una de las principales fuerzas motrices para la adopción de Big Data. Las API públicas proporcionadas por sitios como Twitter constituyen un origen de datos muy útil para analizar y comprender las tendencias populares. En este tutorial, aprenderá a desarrollar una aplicación de servicio de streaming de consola y una aplicación web ASP.NET para hacer lo siguiente:
+Los sitios web de las redes sociales constituyen una de las principales fuerzas motrices para la adopción de Big Data. Las API públicas proporcionadas por sitios como Twitter constituyen un origen de datos muy útil para analizar y comprender las tendencias populares. En este tutorial, aprende a desarrollar una aplicación de servicio de streaming de consola y una aplicación web ASP.NET para hacer lo siguiente:
 
 ![Análisis de las opiniones de Twitter con HBase en HDInsight.][img-app-arch]
 
@@ -37,7 +36,7 @@ Los sitios web de las redes sociales constituyen una de las principales fuerzas 
   * Almacenar la información de opinión en HBase con el SDK de HBase de Microsoft.
 * La aplicación de Sitios web de Azure
 
-  * Trazar los resultados estadísticos en tiempo real en mapas de Bing con una aplicación web ASP.NET. La visualización de estos tweets resultará similar a lo siguiente:
+  * Trazar los resultados estadísticos en tiempo real en mapas de Bing con una aplicación web ASP.NET. Una visualización de los tweets es similar a la captura de pantalla siguiente:
 
     ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
 
@@ -48,14 +47,7 @@ Encontrará una solución completa de Visual Studio de ejemplo en GitHub: [Aplic
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-* **Un clúster de HBase en HDInsight**. Para ver instrucciones sobre la creación de clústeres, consulte [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows][hbase-get-started]. Para completar el tutorial, necesitará los datos siguientes:
-
-    <table border="1">
-    <tr><th>Propiedad del clúster</th><th>Description</th></tr>
-    <tr><td>Nombre de clúster de HBase</td><td>El nombre del clúster de HBase de HDInsight. Por ejemplo: https://myhbase.azurehdinsight.net/</td></tr>
-    <tr><td>Nombre de usuario de clúster</td><td>El nombre de la cuenta de usuario de Hadoop. El nombre de usuario de Hadoop predeterminado es <strong>admin</strong>.</td></tr>
-    <tr><td>Contraseña de usuario de clúster</td><td>La contraseña de usuario del clúster de Hadoop.</td></tr>
-    </table>
+* **Un clúster de HBase en HDInsight**. Para ver instrucciones sobre la creación de clústeres, consulte [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows][hbase-get-started]. 
 
 * **Una estación de trabajo** con Visual Studio 2013/2015/2017 instalado. Para obtener instrucciones, consulte [Instalación de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -68,13 +60,12 @@ Las API de streaming de Twitter autorizan las solicitudes con [OAuth](http://oau
 2. Haga clic en **Crear nueva aplicación**.
 3. Escriba un **nombre**, una **descripción** y un **sitio web**. El nombre de la aplicación de Twitter debe ser un nombre único. El campo Sitio web no se usa en realidad. No es necesario escribir una URL válida.
 4. Active **Yes, I agree** (Acepto) y, a continuación, haga clic en **Create your Twitter application** (Crear la aplicación de Twitter).
-5. Haga clic en la pestaña **Permissions** (Permisos). El permiso predeterminado es **Read only**(Solo lectura). Esto es suficiente para este tutorial.
+5. Haga clic en la pestaña **Permisos** y, luego, en **Solo lectura**. El permiso de solo lectura basta para este tutorial.
 6. Haga clic en la pestaña **Keys and Access Tokens** (Claves y tokens de acceso).
-7. Haga clic en **Create my access token**(Crear mi token de acceso).
-8. Haga clic en **Prueba de OAuth** en la esquina superior derecha de la página.
-9. Copie los valores de **clave de consumidor**, **secreto de consumidor**, **token de acceso** y **secreto de token de acceso**. Los necesitará más adelante en el tutorial.
+7. Haga clic en **Crear mi token de acceso** en la parte inferior de la página.
+9. Copie los valores de **clave de consumidor (clave de API)**, **secreto de consumidor (secreto de API)**, **token de acceso** y **secreto de token de acceso**. Necesitará estos valores más adelante en el tutorial.
 
-    ![hdi.hbase.twitter.sentiment.twitter.app][img-twitter-app]
+    > ![NOTE] El botón Prueba de OAuth ya no funciona.
 
 ## <a name="create-twitter-streaming-service"></a>Creación de un servicio de streaming de Twitter
 Debe crear una aplicación para obtener tweets, calcular la puntuación de opinión de los tweets y enviar las palabras procesadas de estos a HBase.
@@ -386,7 +377,7 @@ Debe crear una aplicación para obtener tweets, calcular la puntuación de opini
                         {
                             HBaseWriter hbase = new HBaseWriter();
                             var stream = Stream.CreateFilteredStream();
-                            stream.AddLocation(new Coordinates(-180, -90), new Coordinates(180, 90));
+                            stream.AddLocation(new Coordinates(90, -180), new Coordinates(-90,180));
 
                             var tweetCount = 0;
                             var timer = Stopwatch.StartNew();
@@ -435,7 +426,7 @@ Para ejecutar el servicio de streaming, presione **F5**. La siguiente es una cap
 Mientras desarrolla la aplicación web, mantenga en ejecución la aplicación de consola de streaming para disponer de más datos. Para examinar los datos insertados en la tabla, puede usar HBase Shell. Consulte [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows](hdinsight-hbase-tutorial-get-started-linux.md#create-tables-and-insert-data).
 
 ## <a name="visualize-real-time-sentiment"></a>Visualización de la opinión en tiempo real
-En esta sección, creará una aplicación web ASP.NET MVC para leer los datos de opinión en tiempo real desde HBase y trazarlos en mapas de Bing.
+En esta sección, crea una aplicación web ASP.NET MVC para leer los datos de opinión en tiempo real desde HBase y trazarlos en mapas de Bing.
 
 **Para crear una aplicación web ASP.NET MVC, siga estos pasos:**
 
@@ -451,7 +442,7 @@ En esta sección, creará una aplicación web ASP.NET MVC para leer los datos de
 5. En **Seleccione una plantilla**, haga clic en **MVC**.
 6. En **Microsoft Azure**, haga clic en **Administrar suscripciones**.
 7. En **Administrar suscripciones de Microsoft Azure**, haga clic en **Iniciar sesión**.
-8. Escriba sus credenciales de Azure. En la pestaña **Cuentas** , aparece la información de suscripción de Azure.
+8. Escriba sus credenciales de Azure. En la pestaña **Cuentas**, aparece la información de suscripción de Azure.
 9. Haga clic en **Cerrar** para cerrar la ventana **Administrar suscripciones de Microsoft Azure**.
 10. En **Nuevo proyecto ASP.NET - TweetSentimentWeb**, haga clic en **Aceptar**.
 11. En **Configure Microsoft Azure Site Settings** (Configurar el sitio de Microsoft Azure), seleccione la **región** más cercana a usted. No es necesario especificar un servidor de bases de datos.

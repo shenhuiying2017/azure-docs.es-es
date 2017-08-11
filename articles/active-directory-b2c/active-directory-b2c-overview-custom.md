@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 0a0d91d622ed72ed22cfaaa0350b31ca653de483
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 33f62a33ea7a3fadb6e7b045de10df25f5edbe83
 ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: directivas personalizadas
@@ -41,7 +41,7 @@ Las directivas personalizadas son archivos de configuración que definen el comp
 | Personalización de atributos | Atributos estándar y personalizados | Iguales |
 |Administración de tokens y sesiones | Varias opciones de sesiones y tokens personalizados | Iguales |
 |Proveedores de identidades| **Actualmente**: proveedor social local predefinido<br><br>**En el futuro**: OIDC, SAML, OAuth basado en estándares | **Actualmente**: OIDC, OAUTH, SAML basado en estándares<br><br>**En el futuro**: WsFed |
-|Tareas de identidad (ejemplos) | Registro o inicio de sesión con muchas cuentas sociales y cuentas locales<br><br>Restablecimiento de contraseña<br><br>Edición de perfil<br><br>Escenarios de Multi-Factor Authentication<br><br>Sesiones y tokens personalizados<br><br>Flujos de token de acceso | Completar las mismas tareas que con las directivas integradas usando proveedores de identidades personalizados o usar ámbitos personalizados<br><br>Aprovisionar el usuario en otro sistema en el momento del registro<br><br>Enviar un mensaje de bienvenida con su propio proveedor de servicios de correo electrónico<br><br>Usar un almacén de usuario externo a B2C<br><br>Validar la información proporcionada por el usuario con un sistema de confianza a través de API |
+|Tareas de identidad (ejemplos) | Registro o inicio de sesión con muchas cuentas sociales y cuentas locales<br><br>Restablecimiento de contraseña de autoservicio<br><br>Edición de perfil<br><br>Escenarios de Multi-Factor Authentication<br><br>Sesiones y tokens personalizados<br><br>Flujos de token de acceso | Completar las mismas tareas que con las directivas integradas usando proveedores de identidades personalizados o usar ámbitos personalizados<br><br>Aprovisionar el usuario en otro sistema en el momento del registro<br><br>Enviar un mensaje de bienvenida con su propio proveedor de servicios de correo electrónico<br><br>Usar un almacén de usuario externo a B2C<br><br>Validar la información proporcionada por el usuario con un sistema de confianza a través de API |
 
 ## <a name="policy-files"></a>Archivos de directivas
 
@@ -97,7 +97,7 @@ Una directiva personalizada se representa como uno o varios archivos con formato
 |---------------------|--------------------|-----------------|---------------|
 | BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Incluye el esquema de notificaciones central, las transformaciones de notificaciones, los proveedores de notificaciones y los recorridos de usuario que Microsoft configura<br><br>Haga un mínimo de cambios en este archivo | None |
 | Extensión (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Aquí consolide los cambios en el archivo BASE<br><br>Proveedores de notificaciones modificadas<br><br>Recorridos de usuario modificados<br><br>Sus propias definiciones de esquemas personalizados | Archivo BASE |
-| Usuario de confianza | | | Archivo de extensiones |
+| Usuario de confianza | B2C_1A_sign_up_sign_in.xml| Cambiar aquí la configuración de la sesión y la forma del token| Archivo Extensions(EXT) |
 
 ### <a name="inheritance-model"></a>Modelo de herencia
 

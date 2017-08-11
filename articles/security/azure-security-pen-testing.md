@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5d58d9dd6c92c81328f89a703b3bc8529aff8dc0
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bc8ca9bb349f41a6ae7371b4fc33cc09fb179c11
+ms.contentlocale: es-es
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="pen-testing"></a>Pruebas de penetración
@@ -33,7 +34,7 @@ Al realizar pruebas de penetración de sus aplicaciones, podría parecer que nos
 
 ¿Qué debe hacer?
 
-Cuando esté listo para realizar pruebas de penetración de sus aplicaciones hospedadas en Azure, necesita hacérnoslo saber. Una vez que sepamos que va a realizar pruebas específicas, no le des conectaremos accidentalmente (por ejemplo, al bloquear la dirección IP desde la que está realizando la prueba), siempre y cuando las pruebas se ajusten a los términos y condiciones de las pruebas de penetración de Azure.
+Cuando esté listo para realizar pruebas de penetración de sus aplicaciones hospedadas en Azure, tiene la opción de [hacérnoslo saber](https://portal.msrc.microsoft.com/en-us/engage/pentest). Una vez que sepamos que va a realizar pruebas específicas, no le des conectaremos accidentalmente (por ejemplo, al bloquear la dirección IP desde la que está realizando la prueba), siempre y cuando las pruebas se ajusten a los términos y condiciones de las pruebas de penetración de Azure que se describen en [Reglas de interacción de prueba de penetración de Microsoft Cloud Unified](https://technet.microsoft.com/en-us/mt784683).
 Entre las pruebas estándar que puede realizar se incluyen:
 
 * Pruebas en los puntos de conexión para descubrir las [10 principales vulnerabilidades del Proyecto de seguridad de aplicación web abierta (OWASP)](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
@@ -43,9 +44,4 @@ Entre las pruebas estándar que puede realizar se incluyen:
 Un tipo de prueba que no puede realizar es ningún tipo de ataque [de denegación de servicio (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Esto incluye iniciar un ataque de denegación de servicio o la realización de pruebas relacionadas que puedan determinar, demostrar o simular cualquier tipo de ataque de denegación de servicio.
 
 ¿Está listo para empezar a realizar pruebas de penetración de sus aplicaciones hospedadas en Microsoft Azure? Si es así, diríjase a la página [Penetration Test Overview](https://security-forms.azure.com/penetration-testing/terms) (Información general de pruebas de penetración) y haga clic en el botón Create a Testing Request (Crear una solicitud de prueba) en la parte inferior de la página. También encontrará más información sobre los términos y condiciones de las pruebas de penetración, así como vínculos útiles sobre cómo informar de problemas de seguridad relacionados con Azure o cualquier otro servicio de Microsoft.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 27cc51d3f9220756fc1188f978dc158f17037bc3
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: fd5988b2d4170166902bb5cc39603d4a0f83be59
 ms.contentlocale: es-es
-ms.lasthandoff: 03/30/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Preguntas más frecuentes acerca de Azure Active Directory Connect
@@ -33,7 +33,7 @@ Solo se admite la instalación de Azure AD Connect mediante el Asistente para in
 Sí, con las compilaciones de febrero de 2016.
 
 **P.: ¿El agente de mantenimiento de AD DS funciona en Server Core?**  
-Sí. Después de instalar el agente, puede completar el proceso de registro mediante el siguiente comando de PowerShell: 
+Sí. Después de instalar el agente, puede completar el proceso de registro mediante el siguiente cmdlet de PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 

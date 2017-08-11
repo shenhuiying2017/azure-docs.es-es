@@ -12,25 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 6fbdebd316cd00e7dd762487848e616fdd2317e8
-ms.openlocfilehash: 358fd0888049f97e5fde6e2a6303ea6c4cf65da9
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 786121ae249d69376b4be4c74000868cbb208989
+ms.contentlocale: es-es
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Uso de Azure IoT Hub
 
-Tiene varias opciones para aprender a desarrollar para el servicio IoT Hub. Puede leer los artículos conceptuales que describen las características de IoT Hub detalladamente o seguir alguno de los tutoriales que explican las distintas características de IoT Hub.
+Tiene varias opciones para aprender a desarrollar para el servicio IoT Hub:
 
-## <a name="the-developer-guide"></a>Guía del desarrollador
+* Lea los artículos conceptuales en los que se describen los detalles de las características de IoT Hub.
+* Siga uno de los tutoriales que trata las distintas características de IoT Hub.
 
-Como desarrollador, puede leer información conceptual detallada acerca de IoT Hub en la [Guía del desarrollador][lnk-devguide]. Esta guía incluye descripciones detalladas de todas las características de IoT Hub que le ayudarán a aprender a utilizarlas y a elegir entre ellas cuando existan varias opciones
+## <a name="developer-guide"></a>Guía del desarrollador
 
+Como desarrollador, puede leer información conceptual detallada acerca de IoT Hub en la [Guía del desarrollador][lnk-devguide]. Esta guía incluye:
 
-## <a name="the-tutorials"></a>Los tutoriales
+* Descripciones detalladas de todas las características de IoT Hub que ayudan a aprender a usarlas.
+* Instrucciones sobre qué elección hacer cuando hay varias opciones disponibles.
+
+## <a name="tutorials"></a>Tutoriales
 
 Si prefiere obtener información sobre características específicas de IoT Hub trabajando con ejercicios prácticos, hay varios tutoriales entre los que puede elegir. Muchos de estos tutoriales están disponibles en varios lenguajes de programación. Entre estos tutoriales se incluyen:
 
@@ -44,11 +49,11 @@ Si prefiere obtener información sobre características específicas de IoT Hub 
 
 - [Uso de métodos directos][lnk-methods-tutorial]. En este tutorial se muestra cómo usar métodos directos. Podrá agregar un controlador para un método directo en el dispositivo simulado e invocar al método directo desde IoT Hub.
 
-- [Introducción a la administración de dispositivos][lnk-dm-tutorial]. Este tutorial le muestra cómo utilizar características clave de administración de dispositivos como, por ejemplo, los dispositivos gemelos y métodos directos para reiniciar de forma remota su dispositivo simulado.
+- [Introducción a la administración de dispositivos][lnk-dm-tutorial]. En este tutorial se explica cómo usar las características clave de administración de dispositivos, como los dispositivos gemelos y los métodos directos. Utilice estas características para reiniciar de forma remota el dispositivo simulado.
 
-- [Uso de las propiedades deseadas para configurar dispositivos][lnk-properties-tutorial]. En este tutorial se explica cómo usar las propiedades deseadas del dispositivo gemelo, junto con las propiedades notificadas, para configurar el dispositivo de forma remota.
+- [Uso de las propiedades deseadas para configurar dispositivos][lnk-properties-tutorial]. En este tutorial se explica cómo usar las propiedades deseadas y notificadas del dispositivo gemelo, para configurarlo de forma remota.
 
-- [Uso de trabajos de dispositivo para iniciar una actualización de firmware de un dispositivo][lnk-jobs-tutorial]. Este tutorial le muestra cómo utilizar características clave de administración de dispositivos como, por ejemplo, los dispositivos gemelos y métodos directos para actualizar de forma remota el firmware del dispositivo.
+- [Uso de trabajos de dispositivo para iniciar una actualización de firmware de un dispositivo][lnk-jobs-tutorial]. En este tutorial se explica cómo usar las características clave de administración de dispositivos, como los dispositivos gemelos y los métodos directos. Se ofrece información sobre cómo usar estas características para actualizar el firmware del dispositivo de forma remota.
 
 - [Programación y difusión de trabajos][lnk-schedule-tutorial]. Este tutorial le muestra cómo utilizar las propiedades deseadas y los métodos directos para interactuar con varios dispositivos a una hora programada.
 

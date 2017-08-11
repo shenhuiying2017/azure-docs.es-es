@@ -1,6 +1,6 @@
 ---
 title: Desarrollo de acciones de script con HDInsight basado en Linux (Azure) | Microsoft Docs
-description: "Obtenga información sobre cómo personalizar clústeres de HDInsight basados en Linux mediante la acción de script. Las acciones de script son una manera de personalizar los clústeres de HDInsight de Azure especificando opciones de configuración de clúster, o instalando servicios adicionales, herramientas u otro software en el clúster. "
+description: "Obtenga información sobre cómo usar scripts de Bash para personalizar clústeres de HDInsight basado en Linux. La característica de acción de script de HDInsight le permite ejecutar scripts durante o después de la creación del clúster. Los scripts se pueden usar para cambiar la configuración de clúster o instalar software adicional."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,14 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: cc4326a72e2124034606e25fe8f75b330726e68e
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desarrollo de la acción de script con HDInsight
@@ -62,7 +61,7 @@ Al desarrollar un script personalizado para un clúster de HDInsight, hay varios
 * [Utilizar la lógica de reintento para recuperarse de errores transitorios](#bps9)
 
 > [!IMPORTANT]
-> Las acciones de script deben completarse antes de que transcurran 60 minutos. De lo contrario, el script generará un error. Durante el aprovisionamiento del nodo, el script se ejecuta simultáneamente con otros procesos de instalación y configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
+> Las acciones de script se tienen que completar dentro de un período de sesenta minutos o se producirá un error en el proceso. Durante el aprovisionamiento del nodo, el script se ejecuta simultáneamente con otros procesos de instalación y configuración. La competición por los recursos, como el ancho de banda de red o el tiempo de CPU puede ocasionar que el script tarde más en terminar que en el entorno de desarrollo.
 
 ### <a name="bPS1"></a>Concentrarse en la versión de Hadoop
 
@@ -120,11 +119,11 @@ La práctica recomendada es descargar y archivar todo el contenido de una cuenta
 > [!IMPORTANT]
 > La cuenta de almacenamiento usada tiene que ser la cuenta de almacenamiento predeterminada del clúster o un contenedor público de solo lectura en cualquier otra cuenta de almacenamiento.
 
-Por ejemplo, los ejemplos proporcionados por Microsoft se almacenan en la cuenta de almacenamiento [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) , que es un contenedor público, de solo lectura mantenido por el equipo de HDInsight.
+Por ejemplo, los ejemplos proporcionados por Microsoft se almacenan en la cuenta de almacenamiento [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). Este es un contenedor público de solo lectura mantenido por el equipo de HDInsight.
 
 ### <a name="bPS4"></a>Usar recursos compilados previamente
 
-Para minimizar el tiempo necesario para ejecutar el script, evite las operaciones que compilan recursos a partir del código fuente. Precompile los recursos y almacénelos en el almacenamiento de Azure Blob Storage para que se pueden descargar rápidamente.
+Para minimizar el tiempo necesario para ejecutar el script, evite las operaciones que compilan recursos a partir del código fuente. Por ejemplo, compile previamente los recursos y almacénelos en un blob de cuenta de Azure Storage en el mismo centro de datos en que está HDInsight.
 
 ### <a name="bPS3"></a>Asegurarse de que el script de personalización del clúster es idempotente
 
@@ -134,7 +133,7 @@ Por ejemplo, un script que modifique los archivos de configuración no debería 
 
 ### <a name="bPS5"></a>Asegurar una alta disponibilidad de la arquitectura de clúster
 
-Los clústeres de HDInsight basados en Linux proporcionan dos nodos principales que están activos dentro del clúster, y las acciones de script se ejecutan para ambos nodos. Si los componentes instalados esperan únicamente un nodo principal, no instale los componentes en ambos nodos principales.
+Los clústeres de HDInsight basados en Linux proporcionan dos nodos principales que están activos dentro del clúster, y las acciones de script se ejecutan en ambos nodos. Si los componentes instalados esperan únicamente un nodo principal, no instale los componentes en ambos nodos principales.
 
 > [!IMPORTANT]
 > Los servicios proporcionados como parte de HDInsight están diseñados para conmutar por error entre los dos nodos principales según sea necesario. Esta funcionalidad no se extiende a componentes personalizados instalados mediante acciones de script. Si necesita una disponibilidad elevada en componentes personalizados, deberá implementar su propio mecanismo de conmutación por error.

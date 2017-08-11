@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/05/2017
+ms.date: 07/21/2017
 ms.author: markscu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0f839072d9603e83b0ca493c9a7bab0e71a682c5
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bf0ac322020d8a8453011c3207c1930175db6d3
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -171,6 +171,22 @@ En ocasiones las máquinas virtuales se pueden reemplazar; cuando esto sucede, B
 -   La máquina virtual se elimina en la práctica, lo que hace que se pierdan los datos almacenados localmente en ella.
 -   El grupo intenta continuamente alcanzar el número objetivo de nodos de prioridad baja disponibles. Cuando se encuentra la capacidad de reemplazo, los nodos mantienen sus identificaciones, pero se reinicializan, pasando por los estados**Creando** e **Iniciando** antes de que estén disponibles para la programación de tareas.
 -   Los recuentos de reemplazos están disponibles como una métrica en el portal de Azure.
+
+## <a name="metrics"></a>Métricas
+
+Hay nuevas métricas disponibles en [Azure Portal ](https://portal.azure.com) para los nodos de baja prioridad. Estas son las métricas:
+
+- Recuento de nodos de baja prioridad
+- Recuento de núcleos de baja prioridad 
+- Recuento de nodos con prioridad
+
+Para ver métricas en Azure Portal:
+
+1. Navegue a su cuenta de Batch en el portal y vea la configuración de dicha cuenta.
+2. Seleccione **Métricas** en la sección **Supervisión**.
+3. Seleccione las métricas que desea en la lista **Métricas disponibles**.
+
+![Métricas para nodos de baja prioridad](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

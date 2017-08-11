@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 07/13/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d79e7ec6abfc0104008139bb4f86cc7bb1a02a13
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 8105cd6ef87a592a0a84ff44a2ce94efcd874a2c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registros personalizados de Log Analytics
@@ -30,10 +29,10 @@ El origen de datos de registros personalizados en Log Analytics permite recopila
 Los archivos de registro que se van a recopilar deben cumplir los criterios siguientes.
 
 - El registro debe tener una sola entrada por línea o usar una marca de tiempo que coincida con uno de los formatos siguientes al principio de cada entrada.
-  
+
     AAAA-MM-DD HH:MM:SS <br>M/D/AAAA HH:MM:SS AM/PM <br>Lun DD,AAAA HH:MM:SS
 
-- El archivo de registro no debe permitir actualizaciones circulares, en las que el archivo se sobrescribe con nuevas entradas. 
+- El archivo de registro no debe permitir actualizaciones circulares, en las que el archivo se sobrescribe con nuevas entradas.
 - El archivo de registro debe utilizar la codificación ASCII o UTF-8.  No se admiten otros formatos, como UTF-16.
 
 ## <a name="defining-a-custom-log"></a>Definición de un registro personalizado
@@ -50,17 +49,17 @@ El Asistente para registros personalizados se ejecuta en el portal OMS y le perm
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Paso 2: Carga y análisis de un registro de ejemplo
 Para empezar, cargue una muestra del registro personalizado.  El Asistente analizará y mostrará las entradas de este archivo para que las valide.  Log Analytics utilizará el delimitador especificado para identificar cada registro.
 
-**Nueva línea** es el delimitador predeterminado y se utiliza para los archivos de registro que tienen una sola entrada por línea.  Si la línea empieza con una fecha y hora en uno de los formatos disponibles, puede especificar un delimitador de **marca de tiempo** que admita entradas que abarcan más de una línea. 
+**Nueva línea** es el delimitador predeterminado y se utiliza para los archivos de registro que tienen una sola entrada por línea.  Si la línea empieza con una fecha y hora en uno de los formatos disponibles, puede especificar un delimitador de **marca de tiempo** que admita entradas que abarcan más de una línea.
 
-Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada registro almacenada en OMS se rellenará con la fecha y la hora especificadas para esa entrada en el archivo de registro.  Si se usa un delimitador de nueva línea, TimeGenerated se rellena con la fecha y hora en que Log Analytics recopila la entrada. 
+Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada registro almacenada en OMS se rellenará con la fecha y la hora especificadas para esa entrada en el archivo de registro.  Si se usa un delimitador de nueva línea, TimeGenerated se rellena con la fecha y hora en que Log Analytics recopila la entrada.
 
 > [!NOTE]
-> Actualmente, Log Analytics trata la fecha y hora recopilada en un registro con un delimitador de marca de tiempo como una hora UTC.  Esto se cambiará pronto a utilizar la zona horaria del agente. 
-> 
-> 
+> Actualmente, Log Analytics trata la fecha y hora recopilada en un registro con un delimitador de marca de tiempo como una hora UTC.  Esto se cambiará pronto a utilizar la zona horaria del agente.
+>
+>
 
 1. Haga clic en **Browse** (Examinar) y vaya a un archivo de ejemplo.  Tenga en cuenta que este botón puede llamarse **Choose File** (Elegir archivo) en algunos exploradores.
-2. Haga clic en **Siguiente**. 
+2. Haga clic en **Siguiente**.
 3. El Asistente para registros personalizados cargará el archivo y mostrará los registros que identifique.
 4. Cambie el delimitador que se utiliza para identificar un registro nuevo y seleccione el delimitador que mejor identifica las entradas en el archivo de registro.
 5. Haga clic en **Siguiente**.
@@ -70,7 +69,7 @@ Debe definir una o más rutas de acceso en el agente para colocar el registro pe
 
 Por ejemplo, una aplicación puede crear un archivo de registro cada día con la fecha incluida en el nombre, como registro20100316.txt. Un patrón para dicho registro podría ser *registro\*.txt*, que se aplicará a cualquier archivo de registro que siga el esquema de asignación de nombres de la aplicación.
 
-La tabla siguiente proporciona ejemplos de patrones válidos para especificar diferentes archivos de registro. 
+La tabla siguiente proporciona ejemplos de patrones válidos para especificar diferentes archivos de registro.
 
 | Descripción | Ruta de acceso |
 |:--- |:--- |
@@ -97,8 +96,8 @@ Una vez que Log Analytics empieza a recopilar del registro personalizado, sus re
 
 > [!NOTE]
 > Si falta la propiedad RawData en la búsqueda, puede ser necesario cerrar y volver a abrir el explorador.
-> 
-> 
+>
+>
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Paso 6. Análisis de las entradas del registro personalizado
 La entrada de registro completa se almacenará en una sola propiedad denominada **RawData**.  Probablemente, deseará separar las diferentes partes de información de cada entrada en propiedades individuales almacenadas en el registro.  Esto se hace mediante la característica [Campos personalizados](log-analytics-custom-fields.md) de Log Analytics.
@@ -124,9 +123,9 @@ Las entradas del registro personalizado tienen un tipo con el nombre del registr
 | Propiedad | Descripción |
 |:--- |:--- |
 | TimeGenerated |Fecha y hora en las que Log Analytics recopiló el registro.  Si el registro usa un delimitador basado en el tiempo, es el tiempo recopilado en la entrada. |
-| SourceSystem |Tipo de agente del que se recopiló el registro. <br> OpsManager: agente de Windows, ya sea una conexión directa o SCOM <br> Linux: todos los agentes de Linux. |
+| SourceSystem |Tipo de agente del que se recopiló el registro. <br> OpsManager: agente de Windows, ya sea una conexión directa o System Center Operations Manager <br> Linux: todos los agentes de Linux. |
 | RawData |Texto completo de la entrada recopilada. |
-| ManagementGroupName |El nombre del grupo de administración para los agentes de SCOM.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
+| ManagementGroupName |Nombre del grupo de administración de agentes de System Center Operations Manager.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
 
 ## <a name="log-searches-with-custom-log-records"></a>Búsquedas de registros con entradas de registros personalizados
 Las entradas de los registros personalizados se almacenan en el repositorio de OMS de la misma forma que las entradas de cualquier otro origen de datos.  Tienen un tipo que coincide con el nombre proporcionado al definir el registro, por lo que puede utilizar la propiedad Type en la búsqueda para recuperar registros recopilados de un registro específico.
@@ -137,6 +136,15 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 |:--- |:--- |
 | Type=MyApp_CL |Todos los eventos de un registro personalizado llamado MyApp_CL. |
 | Type=MyApp_CL Severity_CF=error |Todos los eventos de un registro personalizado llamado MyApp_CL con el valor *error* en un campo personalizado llamado *Severity_CF*. |
+
+>[!NOTE]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta Log Analytics](log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue.
+
+> | Consultar | Descripción |
+|:--- |:--- |
+| MyApp_CL |Todos los eventos de un registro personalizado llamado MyApp_CL. |
+| MyApp_CL &#124; donde Severity_CF=="error" |Todos los eventos de un registro personalizado llamado MyApp_CL con el valor *error* en un campo personalizado llamado *Severity_CF*. |
+
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Ejemplo de tutorial de agregar un registro personalizado
 La siguiente sección le guiará por un ejemplo de creación de un registro personalizado.  El registro de ejemplo que se recopila tiene una sola entrada en cada línea que empieza con una fecha y hora, después, campos delimitados por comas para el código, el estado y el mensaje.  A continuación se muestran varias entradas de ejemplo.
@@ -174,6 +182,5 @@ Los campos personalizados se usan para definir los campos *EventTime* (Hora del 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Utilice los [campos personalizados](log-analytics-custom-fields.md) para analizar las entradas del registro personalizado en campos individuales.
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones. 
-
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones.
 
