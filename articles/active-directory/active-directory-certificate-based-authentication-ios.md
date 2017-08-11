@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/31/2017
+ms.date: 08/03/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4c2e2030d49ab09ee8c72cfd638986b075d53921
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 350576cd7290fdfbfacd526de50c14e5f20b81dc
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticación basada en certificados de Azure Active Directory en iOS
@@ -47,7 +47,7 @@ Esta característica se encuentra disponible como versión preliminar en los pla
 | Outlook |![Comprobar][1] |
 | Yammer |![Comprobar][1] |
 | Skype Empresarial |![Comprobar][1] |
-| Aplicación Microsoft Information Protection |![Comprobar][1] |
+| Aplicación Azure Information Protection |![Comprobar][1] |
 | Equipos de Microsoft |![Comprobar][1] |
 
 ## <a name="requirements"></a>Requisitos 
