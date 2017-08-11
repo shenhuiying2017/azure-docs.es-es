@@ -1,6 +1,6 @@
 ---
-title: API, SDK y recursos de Node.js para Azure DocumentDB | Microsoft Docs
-description: "Obtenga toda la información sobre el SDK y la API para Node.js como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios de una versión a otra del SDK para Node.js de DocumentDB."
+title: API, SDK y recursos de Node.js para Azure Cosmos DB | Microsoft Docs
+description: "Obtenga toda la información sobre la API y el SDK de Node.js incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Node.js para Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -16,13 +16,13 @@ ms.date: 05/24/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: bb0bdf071e6fefa62efc134ae2eb2f29cd70ae9d
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 297fe8850499212ca41b0b5ca132b7de8c761297
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="documentdb-nodejs-sdk-release-notes-and-resources"></a>SDK de Node.js para DocumentDB: notas de la versión y recursos
+# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>SDK de Node.js para Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Fuente de cambios de .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -50,7 +50,7 @@ ms.lasthandoff: 07/21/2017
 
 <tr><td>**Tutorial introductorio**</td><td>[Introducción al SDK de Node.js](documentdb-nodejs-get-started.md)</td></tr>
 
-<tr><td>**Tutorial de la aplicación web**</td><td>[Compilación de una aplicación web Node.js mediante DocumentDB](documentdb-nodejs-application.md)</td></tr>
+<tr><td>**Tutorial de la aplicación web**</td><td>[Creación de una aplicación web de Node.js con Azure Cosmos DB](documentdb-nodejs-application.md)</td></tr>
 
 <tr><td>**Plataforma admitida actualmente**</td><td> 
 [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
@@ -71,7 +71,7 @@ ms.lasthandoff: 07/21/2017
 ### <a name="1.11.0"/>1.11.0</a>
 * Se agregó compatibilidad con consultas de agregación (COUNT, MIN, MAX, SUM y AVG).
 * Se agregó la opción para controlar el grado de paralelismo de las consultas de partición cruzada.
-* Se agregó la opción para deshabilitar la comprobación de SSL cuando se ejecuta en el emulador de DocumentDB.
+* Se agregó la opción para deshabilitar la comprobación de SSL cuando se ejecuta en el emulador de Azure Cosmos DB.
 * Reducción del procesamiento mínimo en las colecciones particionadas de 10 100 RU/s a 2500 RU/s.
 * Se corrigió el error de token de continuación de la colección de una sola partición (github #107).
 * Se corrigió el error executeStoredProcedure en el control 0 como parámetro único (github #155).
@@ -89,7 +89,7 @@ ms.lasthandoff: 07/21/2017
 * Se ha agregado compatibilidad con las consultas TOP y ORDER BY en las colecciones particionadas.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Se ha agregado compatibilidad de la directiva de reintentos con las solicitudes de limitación. (Las solicitudes limitadas reciben una excepción demasiado grande de la tasa de solicitudes, código de error 429). De manera predeterminada, DocumentDB realiza nueve reintentos para cada solicitud cuando aparece el código de error 429, cumpliendo el tiempo de retryAfter en el encabezado de respuesta. Ahora puede establecerse un tiempo del intervalo de reintento fijo como parte de la propiedad RetryOptions del objeto ConnectionPolicy si quiere ignorar el tiempo de retryAfter que ha devuelto el servidor entre los reintentos. DocumentDB espera ahora un máximo de 30 segundos para cada solicitud que se está limitando (independientemente del recuento de reintentos) y devuelve la respuesta con el código de error 429. Este tiempo también puede reemplazarse en la propiedad RetryOptions del objeto ConnectionPolicy.
+* Se ha agregado compatibilidad de la directiva de reintentos con las solicitudes de limitación. (Las solicitudes limitadas reciben una excepción demasiado grande de la tasa de solicitudes, código de error 429). De manera predeterminada, Azure Cosmos DB realiza nueve reintentos para cada solicitud cuando aparece el código de error 429, respetando el tiempo de retryAfter en el encabezado de respuesta. Ahora puede establecerse un tiempo del intervalo de reintento fijo como parte de la propiedad RetryOptions del objeto ConnectionPolicy si quiere ignorar el tiempo de retryAfter que ha devuelto el servidor entre los reintentos. Azure Cosmos DB espera ahora un máximo de 30 segundos para cada solicitud que se está limitando (independientemente del recuento de reintentos) y devuelve la respuesta con el código de error 429. Este tiempo también puede reemplazarse en la propiedad RetryOptions del objeto ConnectionPolicy.
 * Cosmos DB ahora devuelve x-ms-throttle-retry-count y x-ms-throttle-retry-wait-time-ms como los encabezados de respuesta de cada solicitud para denotar el recuento de reintentos de limitación y el tiempo acumulativo que esperó la solicitud entre los reintentos.
 * Se ha agregado la clase RetryOptions que expone la propiedad RetryOptions en la clase ConnectionPolicy que puede usarse para reemplazar algunas de las opciones de reintentos predeterminadas.
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 07/21/2017
 * Valor hashParitionResolver resolveForRead() fijo: cuando ninguna clave de partición proporcionada lanzó una excepción, en lugar de devolver una lista de todos los vínculos registrados.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Corrige el problema [100](https://github.com/Azure/azure-documentdb-node/issues/100) : agente específico de HTTPS (evitar la modificación del agente global para fines de DocumentDB). Use un agente dedicado para todas las solicitudes de lib.
+* Corrige el problema [100](https://github.com/Azure/azure-documentdb-node/issues/100): agente específico de HTTPS (evitar la modificación del agente global para fines de Azure Cosmos DB). Use un agente dedicado para todas las solicitudes de lib.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Corrige el problema [81](https://github.com/Azure/azure-documentdb-node/issues/81) : controla correctamente guiones en identificadores de medios.

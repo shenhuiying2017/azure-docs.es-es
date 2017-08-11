@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/31/2017
+ms.date: 07/25/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 05517573232f5b5234364865d92d5a2d1b7096e6
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7a9d994e10ec79437d6ccf60531cb12b86f34151
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Pasos detallados para solucionar problemas de conexión a Escritorio remoto a máquinas virtuales Windows en Azure
@@ -109,18 +109,9 @@ Si puede conectarse a una máquina virtual en el mismo servicio en la nube o la 
 Para comprobar si el punto de conexión es la causa del problema, quite el punto de conexión actual y cree uno nuevo. Para ello, elija un puerto aleatorio en el intervalo que va entre 49152 y 65535 para el número de puerto externo. Para más información, consulte [Configuración de puntos de conexión en una máquina virtual](classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="source-4-network-security-groups"></a>Causa 4: grupos de seguridad de red
-Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure. Compruebe las reglas del grupo de seguridad de red para asegurarse de que se permite el tráfico de Escritorio remoto desde Internet:
+Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure.
 
-* En el Portal de Azure, seleccione la máquina virtual.
-* Haga clic en **All settings** (Toda la configuración)  | **Network interfaces** (Interfaces de red) y seleccione la interfaz de red.
-* Haga clic en **All settings** (Toda la configuración)  | **Grupo de seguridad de red** y seleccione el grupo de seguridad de red.
-* Haga clic en **All settings** (Toda la configuración)  | **Reglas de seguridad de entrada** y asegúrese de que haya una regla que permita RDP en el puerto TCP 3389.
-  * Si no la tiene, haga clic en **Agregar** para crearla. Escriba **TCP** para el protocolo y **3389** para el intervalo de puertos de destino.
-  * Asegúrese de que la acción se establezca en **Permitir** y haga clic en Aceptar para guardar la nueva regla de entrada.
-
-Para más información, consulte [¿Qué es un grupo de seguridad de red?](../../virtual-network/virtual-networks-nsg.md)
-
-También puede usar la comprobación de IP para validar la configuración del grupo de seguridad de red. Para más información, consulte [Información general sobre la supervisión de red de Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Use la [verificación del flujo IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar si una regla en un grupo de seguridad de red está bloqueando el tráfico hacia o desde una máquina virtual. También puede revisar cómo crear reglas de grupo de seguridad eficaces para garantizar que exista la regla NSG "Permitir" de entrada y tenga prioridad para el puerto RDP (valor predeterminado 3389). Para más información, vea [Uso de las reglas de seguridad vigentes para solucionar problemas de flujo de tráfico de máquinas virtuales](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Causa 5: máquina virtual de Azure basada en Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

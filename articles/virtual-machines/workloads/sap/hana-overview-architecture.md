@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7270d4a2b01d0e746a575e6ec7f0e786684c7e3d
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 073763143e1131aded74f610037cd4aa1fd92f5e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Introducción y arquitectura de SAP HANA en Azure (instancias grandes) 
@@ -111,7 +111,7 @@ Al igual que puede elegir entre diferentes tipos de máquinas virtuales con Azur
 
 A partir de julio de 2017, SAP HANA en Azure (instancias grandes) está disponible en varias configuraciones en las regiones de Azure Oeste y Este de EE. UU., Este de Australia, Sudeste de Australia, Europa Occidental y Europa del Norte:
 
-| Solución de SAP | CPU | RAM | Almacenamiento | Disponibilidad |
+| Solución de SAP | CPU | Memoria | Almacenamiento | Disponibilidad |
 | --- | --- | --- | --- | --- |
 | Optimizada para OLAP: SAP BW, BW/4HANA<br /> o SAP HANA para cargas de trabajo de OLAP genérico | SAP HANA en Azure S72<br /> – 2 procesadores Intel® Xeon® E7-8890 v3 |  768 GB |  3 TB | Disponible |
 | --- | SAP HANA en Azure S144<br /> – 4 procesadores Intel® Xeon® E7-8890 v3 |  1,5 TB |  6 TB | No disponible |
@@ -290,8 +290,8 @@ Vea la tabla siguiente en relación a la asignación de almacenamiento. En la ta
 | S192 | 4608 GB | 1.024 GB | 1536 GB | 1.024 GB |
 | S192m | 11.520 GB | 1536 GB | 1792 GB | 1536 GB |
 | S384 | 11.520 GB | 1536 GB | 1792 GB | 1536 GB |
-| S384m | 12.000 GB | 2050 GB | 2050 GB | 20450 GB |
-| S384xm | 16.000 GB | 2050 GB | 2050 GB | 2050 GB |
+| S384m | 12.000 GB | 2050 GB | 2050 GB | 2040 GB |
+| S384xm | 16.000 GB | 2050 GB | 2050 GB | 2040 GB |
 | S576 | 20.000 GB | 3100 GB | 2050 GB | 3100 GB |
 | S768 | 28.000 GB | 3100 GB | 2050 GB | 3100 GB |
 | S960 | 36.000 GB | 4100 GB | 2050 GB | 4100 GB |
