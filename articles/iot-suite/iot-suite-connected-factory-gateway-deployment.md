@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/22/2017
+ms.date: 07/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 09585a8e2ffbe0c825ee63f459218c7945cdd243
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: caa12f4ef55006cd3edbe2d9606397d34fed3a3e
 ms.contentlocale: es-es
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 06/08/2017
 
 El software necesario para implementar una puerta de enlace para la solución preconfigurada de fábrica conectada tiene dos componentes:
 
-* El componente *OPC Proxy* establece una conexión a IoT Hub y espera los mensajes de comando y control desde el explorador de OPC integrado que se ejecuta en el portal de la solución de fábrica conectada.
+* El componente *OPC Proxy* establece una conexión a IoT Hub. El componente *OPC Proxy* espera los mensajes de comando y control desde el explorador de OPC integrado que se ejecuta en el portal de la solución de fábrica conectada.
 * El componente *Publisher OPC* se conecta a los servidores de agente de usuario de OPC locales existentes y reenvía sus mensajes de telemetría a IoT Hub.
 
 Ambos componentes son de código abierto y están disponibles como código fuente en GitHub y como contenedores de Docker:
@@ -38,7 +38,7 @@ Ambos componentes son de código abierto y están disponibles como código fuent
 
 No se requiere ninguna dirección IP de acceso público ni marcadores en el firewall de la puerta de enlace para cualquiera de los componentes. Los componentes OPC Proxy y OPC Publisher utilizan solo los puertos de salida 443, 5671 y 8883.
 
-Los pasos que se indican en este artículo muestran cómo implementar una puerta de enlace con Docker en Windows o Linux. La puerta de enlace habilita la conectividad con la solución preconfigurada de fábrica conectada.
+Los pasos que se indican en este artículo muestran cómo implementar una puerta de enlace con Docker en [Windows](#windows-deployment) o [Linux](#linux-deployment). La puerta de enlace habilita la conectividad con la solución preconfigurada de fábrica conectada.
 
 > [!NOTE]
 > El software de puerta de enlace que se ejecuta en el contenedor de Docker es [Azure IoT Edge].
@@ -72,9 +72,9 @@ También puede realizar este paso después de instalar docker desde el menú **C
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;** es el nombre del publicador de agente de usuario de OPC con el formato **publisher.&lt;nombre de dominio completo&gt;**. Por ejemplo, si la red de fábrica se denomina **myfactorynetwork.com**, el valor de **ApplicationName** es **publisher.myfactorynetwork.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;** es la cadena de conexión **iothubowner** que se copió en el paso anterior. Esta cadena de conexión solo se usa en este paso y no la necesita nuevamente.
+    * **&lt;IoTHubOwnerConnectionString&gt;** es la cadena de conexión **iothubowner** que se copió en el paso anterior. Esta cadena de conexión solo se usa en este paso y no la necesita en los pasos siguientes:
 
-    La carpeta D:\\docker folder asignada (el argumento `-v`) se usa luego para conservar los dos certificados X.509 usados por los módulos de la puerta de enlace.
+    Use la ruta de acceso D:\\carpeta docker asignada (el argumento `-v`) más adelante para conservar los dos certificados X.509 que los módulos de la puerta de enlace utilizan.
 
 ### <a name="run-the-gateway"></a>Ejecución de la puerta de enlace
 
@@ -84,21 +84,21 @@ También puede realizar este paso después de instalar docker desde el menú **C
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
-1. Por motivos de seguridad, los dos certificados X.509 que se conservan en la carpeta D:\\docker contienen la clave privada. El acceso a esta carpeta se debe limitar a las credenciales (habitualmente, **Administradores**) que se usan para ejecutar el contenedor Docker. Haga clic con el botón derecho en la carpeta D:\\docker, elija **Propiedades**, **Seguridad** y, luego, **Editar**. Conceda a los **administradores** el control total y quite a todos los demás:
+1. Por motivos de seguridad, los dos certificados X.509 que se conservan en la carpeta D:\\docker contienen la clave privada. Limite el acceso a esta carpeta con las credenciales (habitualmente, **Administradores**) que se usan para ejecutar el contenedor Docker. Haga clic con el botón derecho en la carpeta D:\\docker, elija **Propiedades**, **Seguridad** y, luego, **Editar**. Conceda a los **administradores** el control total y quite a todos los demás:
 
     ![Concesión de permisos para el recurso compartido Docker][img-docker-share]
 
-1. Compruebe la conectividad de la red. Intente hacer ping a la puerta de enlace. En un símbolo del sistema, escriba el comando `ping publisher.<your fully qualified domain name>`. Si el destino es inaccesible, agregue la dirección IP y el nombre de la puerta de enlace al archivo de hosts de la puerta de enlace. El archivo de hosts está en la carpeta "Windows\\System32\\drivers\\etc".
+1. Compruebe la conectividad de la red. En un símbolo del sistema, escriba el comando `ping publisher.<your fully qualified domain name>` para hacer ping a la puerta de enlace. Si el destino es inaccesible, agregue la dirección IP y el nombre de la puerta de enlace al archivo de hosts de la puerta de enlace. El archivo de hosts está en la carpeta **Windows\\System32\\drivers\\etc**.
 
-1. A continuación, intente conectarse al publicador a través de un cliente OPC UA local que se ejecute en la puerta de enlace. La dirección URL del punto de conexión de OPC UA es `opc.tcp://publisher.<your fully qualified domain name>:62222`. Si no tiene un cliente OPC UA, puede descargar un [cliente OPC UA de código abierto].
+1. A continuación, intente conectarse al publicador a través de un cliente OPC UA local que se ejecute en la puerta de enlace. La dirección URL del punto de conexión de OPC UA es `opc.tcp://publisher.<your fully qualified domain name>:62222`. Si no tiene un cliente OPC UA, puede descargar un [cliente OPC UA de código abierto] y úselo.
 
-1. Una vez que complete correctamente estas pruebas locales, vaya a la página **Connect your own OPC UA Server** (Conexión de su propio servidor OPC UA) en el portal de solución de fábrica conectada. Escriba la dirección URL del punto de conexión de publicador (`tcp://publisher.<your fully qualified domain name>:62222`) y haga clic en **Conectar**. Recibirá una advertencia de certificado; luego, haga clic en **Proceed** (Continuar). A continuación, recibirá un error que indica que el publicador no confía en el cliente web UA. Para solucionar el error, copie el certificado de **cliente web UA** desde la carpeta "D:\\docker\\Rejected Certificates\\certs" a la carpeta "D:\\docker\\UA Applications\\certs" en la puerta de enlace. No necesita reiniciar la puerta de enlace. Repita este paso. Ahora puede conectarse a la puerta de enlace desde la nube y está preparado para agregar servidores OPC UA a la solución.
+1. Una vez que complete correctamente estas pruebas locales, vaya a la página **Connect your own OPC UA Server** (Conexión de su propio servidor OPC UA) en el portal de solución de fábrica conectada. Escriba la dirección URL del punto de conexión de publicador (`tcp://publisher.<your fully qualified domain name>:62222`) y haga clic en **Conectar**. Recibirá una advertencia de certificado; luego, haga clic en **Proceed** (Continuar). A continuación, recibirá un error que indica que el publicador no confía en el cliente web UA. Para solucionar el error, copie el certificado de **cliente web UA** desde la carpeta **D:\\docker\\Rejected Certificates\\certs** a la carpeta **D:\\docker\\UA Applications\\certs** en la puerta de enlace. No necesita reiniciar la puerta de enlace. Repita este paso. Ahora puede conectarse a la puerta de enlace desde la nube y está preparado para agregar servidores OPC UA a la solución.
 
 ### <a name="add-your-opc-ua-servers"></a>Incorporación de los servidores OPC UA
 
 1. Vaya a la página **Connect your own OPC UA Server** (Conexión con su propio servidor OPC UA) en el portal de solución de fábrica conectada. Siga los mismos pasos de la sección anterior para establecer la confianza entre el portal de fábrica conectada y el servidor OPC UA. Este paso establece una confianza mutua de los certificados desde el portal de factoría conectada al servidor OPC UA y crea una conexión.
 
-1. Examine el árbol de nodos de OPC UA del servidor OPC UA, haga clic con el botón derecho en los nodos OPC y seleccione **Publicar**. Para que la publicación funcione de esta manera, el servidor OPC UA y el publicador deben estar en la misma red. En otras palabras, si el nombre de dominio completo del publicador es **publisher.mydomain.com**, el nombre de dominio completo del servidor OPC UA debe ser, por ejemplo, **myopcuaserver.mydomain.com**. Si la configuración es distinta, puede agregar nodos manualmente al archivo publishesnodes.json que se encuentra en la carpeta D:\\docker. El archivo publishesnodes.json se genera automáticamente cuando se publica correctamente un nodo OPC por primera vez.
+1. Examine el árbol de nodos de OPC UA del servidor OPC UA, haga clic con el botón derecho en los nodos OPC y seleccione **Publicar**. Para que la publicación funcione de esta manera, el servidor OPC UA y el publicador deben estar en la misma red. En otras palabras, si el nombre de dominio completo del publicador es **publisher.mydomain.com**, el nombre de dominio completo del servidor OPC UA debe ser, por ejemplo, **myopcuaserver.mydomain.com**. Si la configuración es distinta, puede agregar nodos manualmente al archivo publishesnodes.json que se encuentra en la carpeta **D:\\docker**. El archivo publishesnodes.json se genera automáticamente cuando se publica correctamente un nodo OPC por primera vez.
 
 1. Ahora la telemetría fluye desde el dispositivo de puerta de enlace. Puede ver la telemetría en la vista **Factory Locations** (Ubicaciones de fábrica) del portal de fábrica conectada en **New Factory** (Nueva fábrica).
 
@@ -124,9 +124,9 @@ También puede realizar este paso después de instalar docker desde el menú **C
     `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;** es el nombre de la aplicación OPC UA que la puerta de enlace crea con formato **publisher.&lt;nombre de dominio completo&gt;**. Por ejemplo, **publisher.microsoft.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;** es la cadena de conexión **iothubowner** que se copió en el paso anterior. Esta cadena de conexión solo se usa en este paso y no la necesita nuevamente.
+    * **&lt;IoTHubOwnerConnectionString&gt;** es la cadena de conexión **iothubowner** que se copió en el paso anterior. Esta cadena de conexión solo se usa en este paso y no la necesita en los pasos siguientes:
 
-    La carpeta /shared asignada (el argumento `-v`) se usa luego para conservar los dos certificados X.509 usados por los módulos de la puerta de enlace.
+    Use la carpeta **/shared** (el argumento `-v`) más adelante para conservar los dos certificados X.509 que los módulos de la puerta de enlace utilizan.
 
 ### <a name="run-the-gateway"></a>Ejecución de la puerta de enlace
 
@@ -136,19 +136,19 @@ También puede realizar este paso después de instalar docker desde el menú **C
 
     `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
-1. Por motivos de seguridad, los dos certificados X.509 que se conservan en la carpeta /shared contienen la clave privada. El acceso a esta carpeta se debe limitar a las credenciales que se usan para ejecutar el contenedor Docker. Para establecer los permisos solo para **raíz**, use el comando de shell `chmod` en la carpeta.
+1. Por motivos de seguridad, los dos certificados X.509 que se conservan en la carpeta **/shared** contienen la clave privada. Limite el acceso a esta carpeta con las credenciales que se usan para ejecutar el contenedor Docker. Para establecer los permisos solo para **raíz**, use el comando de shell `chmod` en la carpeta.
 
-1. Compruebe la conectividad de la red. Intente hacer ping a la puerta de enlace. En un shell, escriba el comando `ping publisher.<your fully qualified domain name>`. Si el destino es inaccesible, agregue la dirección IP y el nombre de la puerta de enlace al archivo de hosts de la puerta de enlace. El archivo de hosts está en la carpeta /etc.
+1. Compruebe la conectividad de la red. En un shell, escriba el comando `ping publisher.<your fully qualified domain name>` para hacer ping a la puerta de enlace. Si el destino es inaccesible, agregue la dirección IP y el nombre de la puerta de enlace al archivo de hosts de la puerta de enlace. El archivo de hosts está en la carpeta **/etc**.
 
-1. A continuación, intente conectarse al publicador a través de un cliente OPC UA local que se ejecute en la puerta de enlace. La dirección URL del punto de conexión de OPC UA es `opc.tcp://publisher.<your fully qualified domain name>:62222`. Si no tiene un cliente OPC UA, puede descargar un [cliente OPC UA de código abierto].
+1. A continuación, intente conectarse al publicador a través de un cliente OPC UA local que se ejecute en la puerta de enlace. La dirección URL del punto de conexión de OPC UA es `opc.tcp://publisher.<your fully qualified domain name>:62222`. Si no tiene un cliente OPC UA, puede descargar un [cliente OPC UA de código abierto] y úselo.
 
-1. Una vez que complete correctamente estas pruebas locales, vaya a la página **Connect your own OPC UA Server** (Conexión de su propio servidor OPC UA) en el portal de solución de fábrica conectada. Escriba la dirección URL del punto de conexión de publicador (`tcp://publisher.<your fully qualified domain name>:62222`) y haga clic en **Conectar**. Recibirá una advertencia de certificado; luego, haga clic en **Proceed** (Continuar). A continuación, recibirá un error que indica que el publicador no confía en el cliente web UA. Para solucionar el error, copie el certificado de **cliente web UA** desde la carpeta "/shared/Rejected Certificates/certs" a la carpeta "/shared/UA Applications/certs" en la puerta de enlace. No necesita reiniciar la puerta de enlace. Repita este paso. Ahora puede conectarse a la puerta de enlace desde la nube y está preparado para agregar servidores OPC UA a la solución.
+1. Una vez que complete correctamente estas pruebas locales, vaya a la página **Connect your own OPC UA Server** (Conexión de su propio servidor OPC UA) en el portal de solución de fábrica conectada. Escriba la dirección URL del punto de conexión de publicador (`tcp://publisher.<your fully qualified domain name>:62222`) y haga clic en **Conectar**. Recibirá una advertencia de certificado; luego, haga clic en **Proceed** (Continuar). A continuación, recibirá un error que indica que el publicador no confía en el cliente web UA. Para solucionar el error, copie el certificado de **cliente web UA** desde la carpeta **/shared/Rejected Certificates/certs** a la carpeta **/shared/UA Applications/certs** en la puerta de enlace. No necesita reiniciar la puerta de enlace. Repita este paso. Ahora puede conectarse a la puerta de enlace desde la nube y está preparado para agregar servidores OPC UA a la solución.
 
 ### <a name="add-your-opc-ua-servers"></a>Incorporación de los servidores OPC UA
 
 1. Vaya a la página **Connect your own OPC UA Server** (Conexión con su propio servidor OPC UA) en el portal de solución de fábrica conectada. Siga los mismos pasos de la sección anterior para establecer la confianza entre el portal de fábrica conectada y el servidor OPC UA. Este paso establece una confianza mutua de los certificados desde el portal de factoría conectada al servidor OPC UA y crea una conexión.
 
-1. Examine el árbol de nodos de OPC UA del servidor OPC UA, haga clic con el botón derecho en los nodos OPC y seleccione **Publicar**. Para que la publicación funcione de esta manera, el servidor OPC UA y el publicador deben estar en la misma red. En otras palabras, si el nombre de dominio completo del publicador es **publisher.mydomain.com**, el nombre de dominio completo del servidor OPC UA debe ser, por ejemplo, **myopcuaserver.mydomain.com**. Si la configuración es distinta, puede agregar nodos manualmente al archivo publishesnodes.json que se encuentra en la carpeta /shared. El archivo publishesnodes.json se genera automáticamente cuando se publica correctamente un nodo OPC por primera vez.
+1. Examine el árbol de nodos de OPC UA del servidor OPC UA, haga clic con el botón derecho en los nodos OPC y seleccione **Publicar**. Para que la publicación funcione de esta manera, el servidor OPC UA y el publicador deben estar en la misma red. En otras palabras, si el nombre de dominio completo del publicador es **publisher.mydomain.com**, el nombre de dominio completo del servidor OPC UA debe ser, por ejemplo, **myopcuaserver.mydomain.com**. Si la configuración es distinta, puede agregar nodos manualmente al archivo publishesnodes.json que se encuentra en la carpeta **/shared**. El archivo publishesnodes.json se genera automáticamente cuando se publica correctamente un nodo OPC por primera vez.
 
 1. Ahora la telemetría fluye desde el dispositivo de puerta de enlace. Puede ver la telemetría en la vista **Factory Locations** (Ubicaciones de fábrica) del portal de fábrica conectada en **New Factory** (Nueva fábrica).
 

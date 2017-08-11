@@ -12,19 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 028c1cab4f0229a06d37d2f325b384ee78a2b8f9
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 3c591680160101a91174868714392674c9aa7178
 ms.contentlocale: es-es
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Información general conceptual de nombres de dominio personalizado en Azure Active Directory
-Un nombre de dominio es una parte importante del identificador para muchos recursos de directorio: forma parte de un nombre de usuario o una dirección de correo electrónico de un usuario, forma parte de la dirección para un grupo y puede formar parte del URI del identificador de una aplicación. Un recurso en Azure Active Directory (Azure AD) puede incluir un nombre de dominio cuya pertenencia al directorio que contiene el recurso ya se haya verificado. Solo los administradores globales pueden realizar tareas de administración de dominio de Azure AD.
+Un nombre de dominio puede ser un identificador importante para muchos recursos de directorio, como parte de:
 
-Los nombres de dominio en Azure AD son únicos globalmente. Un nombre de dominio puede usarse por una única instancia de Azure AD. Si un directorio de Azure AD ha comprobado un nombre de dominio, ningún otro directorio de Azure AD puede comprobar o usar ese mismo nombre de dominio.
+* Un nombre de usuario o una dirección de correo electrónico de un usuario
+* La dirección de un grupo
+* El identificador URI del id. de aplicación para una aplicación
+
+Un recurso en Azure Active Directory (Azure AD) puede incluir un nombre de dominio cuya pertenencia al directorio que contiene el recurso ya se haya verificado. Solo los administradores globales pueden realizar tareas de administración de Azure AD.
+
+> [!IMPORTANT]
+> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo. Para saber cómo administrar los nombres de dominio en el centro de administración de Azure AD, vea [Administración de los nombres de dominio personalizados en Azure Active Directory](active-directory-domains-manage-azure-portal.md).
+
+Los nombres de dominio en Azure AD son únicos globalmente. Un nombre de dominio personalizado puede utilizarlo un único inquilino de Azure AD a la vez. Si un directorio de Azure AD ha comprobado un nombre de dominio, ningún otro directorio de Azure AD puede comprobar o usar ese mismo nombre de dominio.
 
 ## <a name="initial-and-custom-domain-names"></a>Nombres de dominio personalizados e iniciales
 Cada nombre de dominio en Azure AD es un nombre de dominio inicial o un nombre de dominio personalizado.
@@ -48,7 +57,7 @@ Puede configurarse un nombre de dominio personalizado en Azure AD para proporcio
 Los dominios que no están federados a veces se denominan dominios administrados. El dominio inicial para un directorio de Azure AD se evalúa implícitamente como dominio administrado.
 
 ## <a name="primary-domain-names"></a>Nombres de dominio principales
-El nombre de dominio principal de un directorio es el nombre de dominio que se preselecciona como valor predeterminado para la parte "dominio" del nombre de usuario, cuando un administrador crea un nuevo usuario en el [Portal de Azure clásico](https://manage.windowsazure.com/) u otro portal como el portal de administración de Office 365. Un directorio puede tener solo un nombre de dominio principal. El administrador puede cambiar el nombre de dominio principal para que sea cualquier dominio personalizado comprobado que no esté federado o el dominio principal.
+El nombre de dominio principal de un directorio es el nombre de dominio que se preselecciona como valor predeterminado para la parte "dominio" del nombre de usuario, cuando un administrador crea un usuario en [Azure Portal](https://portal.azure.com/) o en otro portal, como el portal de administración de Office 365 o el portal de Microsoft Intune. Un directorio puede tener solo un nombre de dominio principal. El administrador puede cambiar el nombre de dominio principal para que sea cualquier dominio personalizado comprobado que no esté federado o el dominio principal.
 
 ## <a name="domain-names-in-azure-ad-and-other-microsoft-online-services"></a>Nombres de dominio en Azure AD y otros servicios Microsoft Online Services
 El nombre de dominio debe comprobarse en Azure AD antes de poder ser utilizado por otros servicios Microsoft Online Services, como Exchange Online, SharePoint Online e Intune. Estos otros servicios por lo general requieren que un administrador agregue una o más entradas de DNS que son específicas del servicio.

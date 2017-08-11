@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 07/24/2017
 ms.author: steveesp
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a7c32f07516ca83bc2fb5ad5a9a526631932ad4a
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -78,10 +77,27 @@ apt-get -y upgrade
 Comando opcional:
 
 `apt-get -y dist-upgrade`
+#### <a name="ubuntu-azure-preview-kernel"></a>Kernel de versión preliminar de Azure de Ubuntu
+> [!WARNING]
+> Esta versión preliminar pública de Linux de Azure podría no tener el mismo nivel de disponibilidad y confiabilidad que las imágenes y los kernels que se encuentran en las versiones de disponibilidad general. Esta característica no se admite. Además, puede tener funcionalidades limitadas y no ser tan confiable como el kernel predeterminado. No utilice este kernel para cargas de trabajo de producción.
+
+Se puede lograr un rendimiento significativo instalando el kernel de Linux de Azure propuesto. Para probar este kernel, agregue esta línea a /etc/apt/sources.list.
+
+```bash
+#add this to the end of /etc/apt/sources.list (requires elevation)
+deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+```
+
+Luego, ejecute estos comandos como raíz.
+```bash
+apt-get update
+apt-get install "linux-azure"
+reboot
+```
 
 ### <a name="centos"></a>CentOS
 
-Para obtener la optimización, primero realice la actualización a la última versión compatible que, desde mayo de 2017, es:
+Para obtener la optimización, primero realice la actualización a la última versión compatible que, desde julio de 2017, es la siguiente:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
@@ -89,7 +105,7 @@ Para obtener la optimización, primero realice la actualización a la última ve
 "Version": "latest"
 ```
 Una vez que la actualización se complete, instale los servicios de integración de Linux (LIS) más recientes.
-La optimización del rendimiento se realiza en LIS a partir de la versión 4.2. Escriba los siguientes comandos para instalar LIS:
+La optimización del rendimiento se realiza en LIS a partir de la versión 4.2.2-2. Escriba los siguientes comandos para instalar LIS:
 
 ```bash
 sudo yum update
@@ -99,21 +115,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Para obtener la optimización, primero realice la actualización a la última versión compatible en enero de 2017, que es:
+Para obtener la optimización, primero realice la actualización a la última versión compatible que, desde julio de 2017, es la siguiente:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7.3"
-"Version": "7.3.2017062722"
+"Version": "7.3.2017071923"
 ```
 Una vez que la actualización se complete, instale los servicios de integración de Linux (LIS) más recientes.
 La optimización del rendimiento se realiza en LIS a partir de la versión 4.2. Escriba los siguientes comandos para descargar e instalar LIS:
 
 ```bash
-mkdir lis4.2.1
-cd lis4.2.1
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
-tar xvzf lis-rpms-4.2.1-1.tar.gz
+mkdir lis4.2.2-2
+cd lis4.2.2-2
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
+tar xvzf lis-rpms-4.2.2-2.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

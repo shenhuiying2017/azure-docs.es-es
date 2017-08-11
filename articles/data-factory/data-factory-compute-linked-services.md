@@ -1,6 +1,6 @@
 ---
 title: Entornos de proceso compatibles con Azure Data Factory | Microsoft Docs
-description: "Obtenga información sobre los entornos de proceso que puede usar en las canalizaciones de Azure Data Factory para transformar y procesar datos."
+description: "Obtenga información sobre los entornos de proceso que puede usar en las canalizaciones de Azure Data Factory (como Azure HDInsight) para transformar o procesar datos."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -10,15 +10,14 @@ ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 07/25/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 97e40e0081e1dcce0ed42748a053c46cecf569ba
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 66d3b5532e602ef3ef160740c0f6752ebbdff7a2
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
@@ -84,7 +83,7 @@ Esto afecta a las instancias de Azure Data Factory que ejecutan actividades en l
 
   **Recomendaciones:** 
   * Antes del **15/07/2017** realice pruebas para garantizar la compatibilidad de las actividades a las que hacen referencia estos Servicios vinculados con [la versión más reciente de HDInsight admitida](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) con la información documentada en [Componentes de Hadoop disponibles con las distintas versiones de HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) y [Notas de la versión de Hortonworks asociadas con las versiones de HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
-  * Después del **15/07/2017**, asegúrese de que se especifiquen explícitamente los valores de una versión de osType si desea reemplazar la configuración predeterminada. 
+  * Después del **15/07/2017**, asegúrese de que se especifiquen explícitamente osType y los valores de la versión si desea reemplazar la configuración predeterminada. 
 
 >[!Note]
 >Actualmente Azure Data Factory no es compatible con clústeres de HDInsight que usan Azure Data Lake Store como almacén principal. Use Azure Storage como almacén principal para los clústeres de HDInsight. 
@@ -348,10 +347,60 @@ Un servicio vinculado de aprendizaje automático de Azure se crea para registrar
 | apiKey |La API del modelo de área de trabajo publicado. |Sí |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Servicio vinculado con el Análisis con Azure Data Lake
-Cree un servicio vinculado con **Análisis con Azure Data Lake** para vincular un servicio de proceso de Análisis con Azure Data Lake a un generador de datos de Azure antes de usar la [actividad U-SQL de Análisis con Data Lake](data-factory-usql-activity.md) en una canalización.
+Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un servicio de proceso de Azure Data Lake Analytics a una instancia de Azure Data Factory. La actividad de U-SQL de Data Lake Analytics de la canalización hace referencia a este servicio vinculado. 
 
-En el ejemplo siguiente se proporciona la definición de JSON de un servicio vinculado de Análisis con Azure Data Lake.
+En la siguiente tabla se ofrecen descripciones de las propiedades genéricas que se usan en la definición de JSON. Puede elegir entre la autenticación de la entidad de servicio y la autenticación de credenciales de usuario.
 
+| Propiedad | Descripción | Obligatorio |
+| --- | --- | --- |
+| **type** |La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. |Sí |
+| **accountName** |Nombre de la cuenta de Análisis de Azure Data Lake |Sí |
+| **dataLakeAnalyticsUri** |Identificador URI de Análisis de Azure Data Lake. |No |
+| **subscriptionId** |Identificador de suscripción de Azure |No (si no se especifica, se usa la suscripción de Data Factory). |
+| **resourceGroupName** |Nombre del grupo de recursos de Azure. |No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
+
+### <a name="service-principal-authentication-recommended"></a>Autenticación de la entidad de servicio (recomendada)
+Para usar la autenticación de la entidad de servicio, registre una entidad de aplicación en Azure Active Directory (AAD) y concédale acceso a Data Lake Store. Consulte [Autenticación entre servicios](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) para ver los pasos detallados. Anote los siguientes valores; los usará para definir el servicio vinculado:
+* Identificador de aplicación
+* Clave de la aplicación 
+* Id. de inquilino
+
+Para usar la autenticación de la entidad de servicio, especifique las siguientes propiedades:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| **servicePrincipalId** | Especifique el id. de cliente de la aplicación. | Sí |
+| **servicePrincipalKey** | Especifique la clave de la aplicación. | Sí |
+| **tenant** | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
+
+**Ejemplo: autenticación de la entidad de servicio**
+```json
+{
+    "name": "AzureDataLakeAnalyticsLinkedService",
+    "properties": {
+        "type": "AzureDataLakeAnalytics",
+        "typeProperties": {
+            "accountName": "adftestaccount",
+            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
+        }
+    }
+}
+```
+
+### <a name="user-credential-authentication"></a>Autenticación de credenciales de usuario
+También puede utilizar la autenticación de credenciales de usuario para Data Lake Analytics mediante la especificación de las propiedades siguientes:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| **authorization** | Haga clic en el botón **Autorizar** de Data Factory Editor y escriba sus credenciales, que asignan la dirección URL de autorización generada automáticamente a esta propiedad. | Sí |
+| **sessionId** | Id. de sesión de OAuth de la sesión de autorización de OAuth. Cada id. de sesión es único y solo se puede usar una vez. Esta configuración se genera automáticamente al usar Data Factory Editor. | Sí |
+
+**Ejemplo: autenticación de credenciales de usuario**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -361,40 +410,25 @@ En el ejemplo siguiente se proporciona la definición de JSON de un servicio vin
             "accountName": "adftestaccount",
             "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
             "authorization": "<authcode>",
-            "sessionId": "<session ID>",
-            "subscriptionId": "<subscription id>",
-            "resourceGroupName": "<resource group name>"
+            "sessionId": "<session ID>", 
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
         }
     }
 }
 ```
 
-En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en la definición de JSON.
-
-| Propiedad | Descripción | Obligatorio |
-| --- | --- | --- |
-| Tipo |La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. |Sí |
-| accountName |Nombre de la cuenta de Análisis de Azure Data Lake |Sí |
-| dataLakeAnalyticsUri |Identificador URI de Análisis de Azure Data Lake. |No |
-| authorization |El código de autorización se recupera automáticamente después de hacer clic en el botón **Autorizar** situado en el Editor de Factoría de datos y de completar el inicio de sesión de OAuth. |Sí |
-| subscriptionId |Identificador de suscripción de Azure |No (si no se especifica, se usa la suscripción de Data Factory). |
-| resourceGroupName |Nombre del grupo de recursos de Azure. |No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
-| sessionId |Identificador de sesión de la sesión de autorización de OAuth. Cada id. de sesión es único y solo se puede usar una vez. Este id. se genera automáticamente en Data Factory Editor. |Sí |
-
+#### <a name="token-expiration"></a>Expiración del token
 El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira**: Error de operación de credencial: invalid_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z
 
 | Tipo de usuario | Expira después de |
 |:--- |:--- |
-| Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, @outlook.com, por ejemplo.) |12 horas |
+| Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc.) |12 horas |
 | Cuentas de usuario administradas por Azure Active Directory (AAD) |14 días después de la ejecución del último segmento. <br/><br/>Noventa días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada catorce días. |
 
-Para evitar o resolver este error, vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** e implemente de nuevo el servicio vinculado. También puede generar valores para las propiedades sessionId y authorization mediante programación, para lo que usará el código de la sección siguiente: 
+Para evitar o resolver este error, vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** e implemente de nuevo el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código siguiente:
 
-### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Para generar los valores de sessionId y authorization mediante programación
-El código siguiente genera los valores de **sessionId** y **authorization**.  
-
-```CSharp
-
+```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
     linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
 {
@@ -418,9 +452,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-Agregue una referencia a Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog. 
 
-Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). 
+Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Agregue una referencia a Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog. 
 
 ## <a name="azure-sql-linked-service"></a>Servicio vinculado SQL de Azure
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Vea el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#linked-service-properties) para más información sobre este servicio vinculado.

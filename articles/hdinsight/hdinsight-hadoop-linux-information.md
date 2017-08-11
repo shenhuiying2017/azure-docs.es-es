@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1477ed13ef0434ed86938c49e6bb815837cb40fb
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8c6ff4a6b8617cda9b12be060c7c7bed62cb3f44
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Información sobre el uso de HDInsight en Linux
@@ -127,9 +127,9 @@ Cuando use __Azure Storage__, utilice uno de los siguientes esquemas de URI:
 
 * `wasb:///`: accede al almacenamiento predeterminado mediante una comunicación sin cifrar.
 
-* `wasbs:///`: accede al almacenamiento predeterminado mediante una comunicación cifrada.
+* `wasbs:///`: accede al almacenamiento predeterminado mediante una comunicación cifrada.  El esquema wasbs solo se admite en la versión 3.6 y posteriores de HDInsight.
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: se usa al comunicarse con una cuenta de almacenamiento no predeterminada. Por ejemplo, cuando tiene una cuenta de almacenamiento adicional o accede a los datos almacenados en una cuenta de almacenamiento que es accesible públicamente.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: se usa al comunicarse con una cuenta de almacenamiento no predeterminada. Por ejemplo, cuando tiene una cuenta de almacenamiento adicional o accede a los datos almacenados en una cuenta de almacenamiento que es accesible públicamente.
 
 Cuando use __Data Lake Store__, utilice uno de los siguientes esquemas de URI:
 
@@ -153,7 +153,7 @@ Puede usar Ambari para recuperar la configuración de almacenamiento predetermin
 
 Este comando devuelve un valor similar a los siguientes URI:
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net` si usa una cuenta de Azure Storage.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` si usa una cuenta de Azure Storage.
 
     El nombre de la cuenta es el nombre de la cuenta de Azure Storage, mientras que el nombre del contenedor es el contenedor de blobs que es la raíz del almacenamiento del clúster.
 

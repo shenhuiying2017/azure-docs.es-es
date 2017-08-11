@@ -3,7 +3,7 @@ title: "Diseño de la primera base de datos de Azure SQL Database | Microsoft Do
 description: "Obtenga información sobre cómo crear su primera base de datos de Azure SQL Database."
 services: sql-database
 documentationcenter: 
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/20/2017
-ms.author: janeng
+ms.date: 07/31/2017
+ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: d5e63e7079b652e69a089aef495952d29cae67a2
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: ec3b2debcd65f733041462940196a61c109bf051
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -49,7 +49,7 @@ Para completar este tutorial, asegúrese de que tiene instalados los siguientes 
 
 Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database-in-the-azure-portal"></a>Crear una base de datos SQL en blanco en Azure Portal
+## <a name="create-a-blank-sql-database"></a>Crear una base de datos SQL en blanco
 
 Se crea una base de datos SQL de Azure con un conjunto definido de [recursos de proceso y almacenamiento](sql-database-service-tiers.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](sql-database-features.md). 
 
@@ -97,7 +97,7 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
 
    ![notificación](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creación de una regla de firewall de nivel a servidor en Azure Portal
+## <a name="create-a-server-level-firewall-rule"></a>Crear una regla de firewall de nivel de servidor
 
 El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos del servidor, a menos que se cree una regla de firewall para abrir el firewall para direcciones IP concretas. Siga estos pasos para crear una [regla de firewall de nivel de servidor de SQL Database](sql-database-firewall-configure.md) para la dirección IP de su cliente y habilite la conectividad externa a través de dicho firewall solo para su dirección IP. 
 
@@ -131,7 +131,7 @@ Ahora puede conectarse al servidor de SQL Database y a sus bases de datos median
 > [!IMPORTANT]
 > De forma predeterminada, el acceso a través del firewall de SQL Database está habilitado para todos los servicios de Azure. Haga clic en **OFF** en esta página para deshabilitar todos los servicios de Azure.
 
-## <a name="sql-server-connection-information-in-the-azure-portal"></a>Información de conexión de SQL Server en Azure Portal
+## <a name="sql-server-connection-information"></a>Información de conexión de SQL server
 
 Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. Utilice el nombre completo del servidor para conectarse al servidor mediante SQL Server Management Studio.
 
@@ -169,7 +169,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
    ![Objetos de base de datos](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="create-tables-in-the-database-with-ssms"></a>Crear tablas en la base de datos con SSMS 
+## <a name="create-tables-in-the-database"></a>Creación de tablas en la base de datos 
 
 Cree un esquema de base de datos con cuatro tablas que modelan un sistema de administración de estudiantes para universidades con [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
@@ -240,7 +240,7 @@ En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. 
 
    ![crear tablas en SSMS](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="load-data-into-the-tables-with-ssms"></a>Cargar datos en las tablas con SSMS
+## <a name="load-data-into-the-tables"></a>Carga de datos en las tablas
 
 1. Cree una carpeta denominada **SampleTableData** en la carpeta Descargas para almacenar datos de ejemplo para la base de datos. 
 
@@ -264,7 +264,7 @@ En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. 
 
 De esta forma, ya ha cargado los datos de ejemplo en las tablas que ha creado anteriormente.
 
-## <a name="query-the-tables-with-ssms"></a>Consultar las tablas con SSMS
+## <a name="query-data"></a>Datos de consulta
 
 Ejecute las siguientes consultas para recuperar información de las tablas de base de datos. Vea [Writing SQL Queries](https://technet.microsoft.com/library/bb264565.aspx) (Escribir consultas SQL) para más información sobre cómo escribir consultas SQL. La primera consulta combina las cuatro tablas para buscar todos los alumnos del profesor "Dominick Pope" que tienen una calificación superior al 75% de su clase. La segunda consulta combina las cuatro tablas y busca todos los cursos en los que nunca se ha matriculado "Noe Coleman".
 
@@ -301,7 +301,7 @@ Ejecute las siguientes consultas para recuperar información de las tablas de ba
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time-using-the-azure-portal"></a>Restaurar una base de datos a un momento anterior mediante Azure Portal
+## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restauración de una base de datos a un momento anterior en el tiempo
 
 Imagine que ha eliminado accidentalmente una tabla. No se puede recuperar con facilidad. Azure SQL Database permite volver a cualquier momento dado en el período de los últimos 35 días y restaurar este punto en una nueva base de datos. Puede usar esta base de datos para recuperar los datos eliminados. Los pasos siguientes restauran la base de datos de ejemplo a un punto anterior a la eliminación de las tablas.
 
@@ -330,8 +330,10 @@ En este tutorial ha aprendido las tareas básicas de una base de datos, como cre
 > * Cree las tablas.
 > * Realizar cargas masivas de datos
 > * Consultar los datos
-> * Restaurar la base de datos a un momento anterior en el tiempo mediante las funcionalidades de [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) de SQL Database. Para aprender a migrar datos, diríjase al siguiente tutorial.
+> * Restaurar la base de datos a un momento anterior en el tiempo mediante las funcionalidades de [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) de SQL Database
+
+Avance hasta el próximo tutorial para obtener información sobre cómo diseñar una base de datos mediante Visual Studio y C#.
 
 > [!div class="nextstepaction"]
->[Migración de una base de datos SQL Server a Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+>[Diseño de una base de datos de Azure SQL Database y conexión con C# y ADO.NET](sql-database-design-first-database-csharp.md)
 

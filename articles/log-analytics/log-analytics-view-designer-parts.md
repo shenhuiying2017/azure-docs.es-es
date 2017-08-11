@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: 07edc26f62fada8b5e32693a172cb23b48d36e1f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: c1e0f89e2447189c7422368f1ccf7355aac6065b
+ms.contentlocale: es-es
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Referencia de los elementos de visualización del Diseñador de vistas de Log Analytics
@@ -26,7 +27,10 @@ El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en 
 Estos son otros de los artículos disponibles sobre el Diseñador de vistas:
 
 * [Diseñador de vistas](log-analytics-view-designer.md): información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
-* [Referencia de los iconos](log-analytics-view-designer-tiles.md): referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas. 
+* [Referencia de los iconos](log-analytics-view-designer-tiles.md): referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas.
+
+>[!NOTE]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas de todas las vistas se deben escribir en el [nuevo lenguaje de consulta](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Todas las vistas que se crearon antes de actualizar el área de trabajo se convertirán automáticamente.
 
 En la siguiente tabla se describen los distintos tipos de iconos que se encuentran disponibles en el Diseñador de vistas.  En las secciones siguientes se describen en profundidad todos los tipos de iconos y sus propiedades.
 
@@ -304,17 +308,17 @@ Muestra tres gráficos de líneas independientes con varias series de una consul
 ## <a name="common-settings"></a>Configuración común
 En las secciones siguientes se describe la configuración común a varios elementos de visualización.
 
-### <a name="a-namename-value-separatorname--value-separatora"></a><a name="name-value-separator">Name & Value Separator</a> (Separador de nombre y valor)
+### <a name="name-value-separator">Name & Value Separator</a> (Separador de nombre y valor)
 Delimitador de carácter único en caso de que quiera analizar la propiedad text de una consulta de lista en varios valores.  Si especifica un delimitador, puede proporcionar nombres para cada campo separándolos con el mismo delimitador del cuadro Nombre.
 
-Por ejemplo, una propiedad llamada "*location*" que incluya valores como *Redmond-Building41* y *Bellevue-Building12*.  Puede especificar "–" para el separador de nombre y valor, y *City-Building* para el nombre.  De este modo, se analizaría cada valor en dos propiedades denominadas "*City*" y "*Building*". 
+Por ejemplo, una propiedad llamada "*location*" que incluya valores como *Redmond-Building41* y *Bellevue-Building12*.  Puede especificar "–" para el separador de nombre y valor, y *City-Building* para el nombre.  De este modo, se analizaría cada valor en dos propiedades denominadas "*City*" y "*Building*".
 
-### <a name="a-namenavigation-querynavigation-querya"></a><a name="navigation-query">Consulta de navegación</a>
+### <a name="navigation-query">Consulta de navegación</a>
 La consulta que se ejecutará cuando el usuario seleccione un elemento de la lista.  Use *{selected item}* para incluir la sintaxis del elemento que ha seleccionado el usuario.
 
 Por ejemplo, si la consulta tiene una columna llamada "*Equipo*" y la consulta de navegación es *{selected item}*, se ejecutaría una consulta como *Equipo="miEquipo"* cuando el usuario seleccione un equipo.  Si la consulta de navegación es *Type=Event {selected item}*, se ejecutaría la consulta *Type=Event Equipo="miEquipo"*.
 
-### <a name="a-namesparklinessparklinesa"></a><a name="sparklines">Minigráficos</a>
+### <a name="sparklines">Minigráficos</a>
 Un minigráfico es un pequeño gráfico de líneas que muestra el valor de una entrada de lista en un periodo.  Para los elementos de visualización con una lista, puede elegir si quiere mostrar una barra horizontal que indique el valor relativo de una columna numérica o un minigráfico que señale su valor en un periodo.
 
 En la tabla siguiente se describe la configuración de los minigráficos.
@@ -324,7 +328,7 @@ En la tabla siguiente se describe la configuración de los minigráficos.
 | Enable sparklines (Habilitar los minigráficos) |Seleccione esta opción para mostrar los minigráficos en lugar de la barra horizontal. |
 | Operación |Si los minigráficos están habilitados, será la operación que se realizará en cada propiedad de la lista para calcular los valores del minigráfico.<br><br>- Last Sample: último valor de la serie en el intervalo de tiempo.<br>- Max: valor máximo de la serie en el intervalo de tiempo.<br>- Min: valor mínimo de la serie en el intervalo de tiempo.<br>- Sum: suma de los valores de la serie en el intervalo de tiempo.<br>- Summary: utiliza el mismo comando measure que la consulta del encabezado. |
 
-### <a name="a-namethresholdsthresholdsa"></a><a name="thresholds">Umbrales</a>
+### <a name="thresholds">Umbrales</a>
 Los umbrales permiten mostrar un icono de color junto a cada elemento de una lista, con lo que obtendrá un indicador visual rápido de elementos que superan un valor determinado o que se encuentren dentro de un intervalo concreto.  Por ejemplo, podría mostrar un icono verde para los elementos que tienen un valor aceptable; amarillo si el valor está dentro de un intervalo que indica una advertencia, y rojo si supera un valor de error.
 
 Al habilitar umbrales en un elemento, debe especificar uno o varios umbrales.  Si el valor de un elemento es mayor que un valor de umbral y menor que el valor de umbral siguiente, se utiliza ese color.  Si el elemento es mayor que el valor de umbral máximo, se establece ese color.   
@@ -342,10 +346,4 @@ En la tabla siguiente se describe la configuración de los umbrales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para poder realizar consultas en elementos de visualización.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

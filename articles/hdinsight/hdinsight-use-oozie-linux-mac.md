@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: c1d70bfcf5d1235b34f6cda3ce4e1639e99ebc7f
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 2327945b5f5fe6b6e63660fd5d607d3cc8092f8b
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight basado en Linux
@@ -66,7 +65,7 @@ El flujo de trabajo usado en este documento contiene dos acciones. Las acciones 
 
 ## <a name="create-the-working-directory"></a>Creación del directorio de trabajo
 
-Oozie espera los recursos necesarios para que un trabajo se almacene en el mismo directorio. Este ejemplo usa **wasbs: / / / tutoriales/useoozie**. Use el comando siguiente para crear este directorio y el directorio de datos que contiene la nueva tabla de Hive creada con este flujo de trabajo:
+Oozie espera los recursos necesarios para que un trabajo se almacene en el mismo directorio. Este ejemplo usa **wasb:///tutorials/useoozie**. Use el comando siguiente para crear este directorio y el directorio de datos que contiene la nueva tabla de Hive creada con este flujo de trabajo:
 
 ```
 hdfs dfs -mkdir -p /tutorials/useoozie/data
@@ -131,7 +130,7 @@ Utilice los pasos siguientes para crear un script de HiveQL que define una consu
 
 4. Para salir del editor, presione Ctrl-X. Cuando se lo pidan, seleccione **Y** para guardar el archivo y presione **Entrar** para usar el nombre de archivo **useooziewf.hql**.
 
-5. Utilice los comandos siguientes para copiar **useooziewf.hql** a **wasbs:///tutorials/useoozie/useooziewf.hql**:
+5. Use los comandos siguientes para copiar **useooziewf.hql** a **wasb:///tutorials/useoozie/useooziewf.hql**:
 
     ```
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -295,11 +294,11 @@ La definición del trabajo describe dónde encontrar workflow.xml. También se d
 
     ```xml
     <name>fs.defaultFS</name>
-    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
+    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
     > [!NOTE]
-    > Si el clúster de HDInsight usa Azure Storage como almacenamiento predeterminado, el contenido del elemento `<value>` comenzará por `wasbs://`. Si se usa Azure Data Lake Store en su lugar, comenzará por `adl://`.
+    > Si el clúster de HDInsight usa Azure Storage como almacenamiento predeterminado, el contenido del elemento `<value>` comenzará por `wasb://`. Si se usa Azure Data Lake Store en su lugar, comenzará por `adl://`.
 
     Guarde el contenido del elemento `<value>`, tal y como se utiliza en los pasos siguientes.
 
@@ -329,7 +328,7 @@ La definición del trabajo describe dónde encontrar workflow.xml. También se d
 
         <property>
         <name>nameNode</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
         </property>
 
         <property>
@@ -349,7 +348,7 @@ La definición del trabajo describe dónde encontrar workflow.xml. También se d
 
         <property>
         <name>hiveScript</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
         </property>
 
         <property>
@@ -359,7 +358,7 @@ La definición del trabajo describe dónde encontrar workflow.xml. También se d
 
         <property>
         <name>hiveDataFolder</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
         </property>
 
         <property>
@@ -379,12 +378,12 @@ La definición del trabajo describe dónde encontrar workflow.xml. También se d
 
         <property>
         <name>oozie.wf.application.path</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
     </configuration>
     ```
 
-   * Reemplace todas las instancias de **wasbs://mycontainer@mystorageaccount.blob.core.windows.net** por el valor que recibió anteriormente para el almacenamiento predeterminado.
+   * Reemplace todas las instancias de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** por el valor que recibió anteriormente para el almacenamiento predeterminado.
 
      > [!WARNING]
      > Si la ruta de acceso es una ruta `wasb`, deberá usar la ruta de acceso completa. No la acorte simplemente a `wasb:///`.
@@ -455,7 +454,7 @@ Los pasos siguientes usan el comando Oozie para enviar y administrar flujos de t
     Job ID : 0000005-150622124850154-oozie-oozi-W
     ------------------------------------------------------------------------------------------------------------------------------------
     Workflow Name : useooziewf
-    App Path      : wasbs:///tutorials/useoozie
+    App Path      : wasb:///tutorials/useoozie
     Status        : PREP
     Run           : 0
     User          : USERNAME
@@ -623,11 +622,11 @@ Para definir una programación para el flujo de trabajo, siga estos pasos:
         ```xml
         <property>
             <name>workflowPath</name>
-            <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+            <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
         ```
 
-       Reemplace el texto `wasbs://mycontainer@mystorageaccount.blob.core.windows` por el valor utilizado en las demás entradas del archivo job.xml.
+       Reemplace el texto `wasb://mycontainer@mystorageaccount.blob.core.windows` por el valor utilizado en las demás entradas del archivo job.xml.
 
    * Agregue el siguiente XML. Este define el inicio, la finalización y la frecuencia que se usará en el archivo coordinator.xml:
 
@@ -698,7 +697,7 @@ Las siguientes son errores específicos que pueden surgir y cómo resolverlos.
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Causa**: las direcciones WASB usadas en el archivo **job.xml** no incluyen el nombre del contenedor de almacenamiento ni de la cuenta de almacenamiento. El formato de dirección WASB debe ser `wasbs://containername@storageaccountname.blob.core.windows.net`.
+**Causa**: las direcciones WASB usadas en el archivo **job.xml** no incluyen el nombre del contenedor de almacenamiento ni de la cuenta de almacenamiento. El formato de dirección WASB debe ser `wasb://containername@storageaccountname.blob.core.windows.net`.
 
 **Resolución**: cambie las direcciones WASB que usa el trabajo.
 

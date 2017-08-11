@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 7af00e78536907a983285ef271e7945b83bd5619
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: eaf6278f97cd5ddd7e049ff4745181f39d7949a0
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Uso de MapReduce con Hadoop en HDInsight con SSH
@@ -46,11 +45,15 @@ Aprenda a enviar trabajos de MapReduce desde una conexión Secure Shell (SSH) a 
 
 Conéctese al clúster con SSH. Por ejemplo, el siguiente comando conecta con un clúster llamado **myhdinsight**:
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **Si usa una clave de certificado para la autenticación SSH**, puede que deba especificar la ubicación de la clave privada en su sistema cliente, por ejemplo:
 
-    ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **Si usa una contraseña para la autenticación SSH**, deberá proporcionar la contraseña cuando se le solicite.
 

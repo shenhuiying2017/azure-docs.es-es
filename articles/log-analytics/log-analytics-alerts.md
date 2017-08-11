@@ -1,5 +1,5 @@
 ---
-title: "Información sobre las alertas en Log Analytics de OMS | Microsoft Docs"
+title: "Información sobre las alertas en Azure Log Analytics | Microsoft Docs"
 description: "Las alertas de Log Analytics identifican información importante en el repositorio de OMS y pueden avisarle proactivamente de problemas o invocar acciones para intentar corregirlos.  En este artículo se describen los diferentes tipos de reglas de alerta y cómo se definen."
 services: log-analytics
 documentationcenter: 
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 07/26/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 76db33674c5a3b9e323a1890c0d48d98dc3f03cf
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 951e76d3fb18d9e433b148e82d4d6cee9417ce6d
+ms.contentlocale: es-es
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Información sobre alertas en Log Analytics
 
 Las alertas de Log Analytics identifican información importante en el repositorio de Log Analytics.  En este artículo se proporcionan detalles sobre cómo funcionan las reglas de alerta en Log Analytics y se describen las diferencias entre los distintos tipos de reglas de alerta.
 
-Para el proceso de creación de reglas de alerta, consulte los siguientes artículos.
+Para el proceso de creación de reglas de alerta, consulte los siguientes artículos:
 
 - Creación de reglas de alerta mediante [Azure Portal](log-analytics-alerts-creating.md)
 - Creación de reglas de alerta mediante una [plantilla de Resource Manager](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
@@ -38,25 +38,25 @@ Las alertas se crean mediante reglas de alerta que ejecutan automáticamente bú
 
 ![Alertas de Log Analytics](media/log-analytics-alerts/overview.png)
 
-Las reglas de alerta se definen mediante los siguientes detalles.
+Las reglas de alerta se definen mediante los siguientes detalles:
 
-- **Búsqueda de registros**.  Esta es la consulta que se ejecutará cada vez que se active la regla de alerta.  Los registros devueltos por esta consulta se utilizarán para determinar si se crea una alerta.
-- **Ventana de tiempo**.  Especifica el intervalo de tiempo para la consulta.  La consulta devuelve solo los registros que se crearon dentro de este intervalo de tiempo actual.  Puede ser cualquier valor entre 5 minutos y 24 horas. Por ejemplo, si el período de tiempo se establece en 60 minutos, y la consulta se ejecuta a las 13:15, se devolverán solo los registros que se crearon entre las 12:15 y las 13:15.
+- **Búsqueda de registros**.  La consulta que se ejecuta cada vez que se activa la regla de alertas.  Los registros devueltos por esta consulta se usan para determinar si se crea una alerta.
+- **Ventana de tiempo**.  Especifica el intervalo de tiempo para la consulta.  La consulta devuelve solo los registros que se crearon dentro de este intervalo de tiempo actual.  Puede ser cualquier valor entre 5 minutos y 24 horas. Por ejemplo, si el período de tiempo se establece en sesenta minutos, y la consulta se ejecuta a las 13:15, se devuelven solo los registros creados entre las 12:15 y las 13:15.
 - **Frecuencia**.  Especifica con qué frecuencia se debe ejecutar la consulta. Puede ser cualquier valor entre 5 minutos y 24 horas. Debe ser igual que el período de tiempo o inferior a este valor.  Si el valor es mayor que la ventana de tiempo, se arriesga a que se pierdan registros.<br>Por ejemplo, considere la posibilidad de una ventana de tiempo de 30 minutos y una frecuencia de 60 minutos.  Si la consulta se ejecuta a la 1:00, devolverá registros entre las 12:30 y la 1:00 p. m.  La próxima vez que se ejecute la consulta será a las 2:00 y devolverá los registros comprendidos entre la 1:30 y las 2:00.  Nunca se evaluarán los registros creados entre la 1:00 y la 1:30.
 - **Umbral**.  Los resultados de la búsqueda de registros se evalúan para determinar si se debe crear una alerta.  El umbral es diferente para los distintos tipos de reglas de alerta.
 
-Cada regla de alerta de Log Analytics será de uno de estos dos tipos siguientes.  Cada uno de estos tipos se describe en detalle en las secciones que aparecen a continuación.
+Cada regla de alertas de Log Analytics es de uno de los dos tipos posibles.  Cada uno de estos tipos se describe en detalle en las secciones que aparecen a continuación.
 
 - **[Número de resultados](#number-of-results-alert-rules)**. Alerta única creada cuando los registros de números devueltos por la búsqueda de registros superan un número especificado.
-- **[Unidades métricas](#metric-measurement-alert-rules)**.  Alerta creada para cada objeto de los resultados de la búsqueda de registros con valores que superan el umbral especificado. 
+- **[Unidades métricas](#metric-measurement-alert-rules)**.  Alerta creada para cada objeto de los resultados de la búsqueda de registros con valores que superan el umbral especificado.
 
 Las diferencias entre los tipos de reglas de alerta son las siguientes.
 
-- Las reglas de alerta para **número de resultados** crearán siempre una alerta única mientras que las reglas de alertas para **unidades métricas** crearán una alerta para cada objeto que supere el umbral.
-- Las reglas de alerta para **número de resultados** crearán una alerta cuando se supera el umbral una sola vez. Las reglas de alerta para **unidades métricas** pueden crear una alerta cuando se supera el umbral un número determinado de veces en un intervalo de tiempo determinado.
+- La regla de alertas para **número de resultados** creará siempre una alerta única mientras que la regla de alertas para **unidades métricas** creará una alerta para cada objeto que supere el umbral.
+- Las reglas de alerta para **número de resultados** crean una alerta cuando se supera el umbral una sola vez. Las reglas de alerta para **unidades métricas** pueden crear una alerta cuando se supera el umbral un número determinado de veces en un intervalo de tiempo determinado.
 
 ## <a name="number-of-results-alert-rules"></a>Reglas de alerta para número de resultados
-Las reglas de alerta para **número de resultados** crean una única alerta cuando el número de registros devueltos por la consulta de búsqueda supera el umbral especificado. 
+Las reglas de alerta para **número de resultados** crean una única alerta cuando el número de registros devueltos por la consulta de búsqueda supera el umbral especificado.
 
 ### <a name="threshold"></a>Umbral
 El umbral de una regla de alerta para un **número de resultados** es simplemente mayor o menor que un valor determinado.  Se crea una alerta si el número de registros devueltos por la búsqueda de registros coincide con este criterio.
@@ -64,9 +64,9 @@ El umbral de una regla de alerta para un **número de resultados** es simplement
 ### <a name="scenarios"></a>Escenarios
 
 #### <a name="events"></a>Eventos
-Este tipo de regla de alerta es perfecto para trabajar con eventos como, por ejemplo, registros de eventos de Windows, Syslog y registros personalizados.  Es posible que desee crear una alerta cuando se genere un evento de error concreto o cuando se generen varios eventos de error durante un período de tiempo establecido.
+Este tipo de regla de alertas es perfecto para trabajar con eventos como, por ejemplo, registros de eventos de Windows, Syslog y registros personalizados.  Es posible que desee crear una alerta cuando se genere un evento de error concreto o cuando se generen varios eventos de error durante un período de tiempo establecido.
 
-Para generar una alerta en un solo evento, determine que el número de resultados sea mayor que 0 y que la frecuencia y el período de tiempo sean de 5 minutos.  De ese modo, se ejecutará la consulta cada 5 minutos y se buscará la aparición de un evento único creado en el tiempo transcurrido desde la última vez ejecución de la consulta.  Una frecuencia mayor puede retrasar el tiempo entre la recopilación del evento y la creación de la alerta.
+Para generar una alerta en un solo evento, determine que el número de resultados sea mayor que 0 y que la frecuencia y el período de tiempo sean de 5 minutos.  De ese modo, se ejecuta la consulta cada cinco minutos y se busca la aparición de un evento único creado en el tiempo transcurrido desde la última vez que se ejecutó la consulta.  Una frecuencia mayor puede retrasar el tiempo entre la recopilación del evento y la creación de la alerta.
 
 Algunas aplicaciones pueden registrar un error ocasional que no tiene por qué haber generado necesariamente una alerta.  Por ejemplo, la aplicación puede volver a intentar realizar el proceso que creó el evento de error y completarlo correctamente la vez siguiente.  En este caso, es posible que no desee crear la alerta a menos que se creen varios eventos en un período de tiempo determinado.  
 
@@ -79,11 +79,16 @@ Por ejemplo, si quiere emitir una alerta cuando el rendimiento del procesador su
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-Si quiere emitir una alerta cuando el rendimiento medio del procesador supere el 90 % durante un determinado período de tiempo, puede utilizar una consulta como la siguiente con el [comando measure](log-analytics-search-reference.md#commands) y con el umbral de la regla de alerta **greater than 0** (mayor que 0). 
+Si quiere emitir una alerta cuando el rendimiento medio del procesador supere el 90 % durante un determinado período de tiempo, puede utilizar una consulta como la siguiente con el [comando measure](log-analytics-search-reference.md#commands) y con el umbral de la regla de alerta **greater than 0** (mayor que 0).
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
-## <a name="metric-measurement-alert-rules"></a>Reglas de alerta para unidades métricas
+>[!NOTE]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue: `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
+
+
+## <a name="metric-measurement-alert-rules"></a>Reglas de alertas para medición de métricas
 
 >[!NOTE]
 > Las reglas de alertas para unidades métricas están actualmente en versión preliminar pública.
@@ -93,8 +98,8 @@ Las reglas de alertas para **unidades métricas** crean una alerta para cada obj
 #### <a name="log-search"></a>Búsqueda de registros
 Aunque puede usar cualquier consulta para una regla de alerta para **número de resultados**, existen requisitos específicos de la consulta para una regla de alerta para unidades métricas.  Debe incluir un [comando Measure](log-analytics-search-reference.md#commands) para agrupar los resultados según un campo concreto. Este comando debe incluir los siguientes elementos.
 
-- **Función de agregado**.  Determina el cálculo que se llevará a cabo y potencialmente un valor numérico para agregar.  Por ejemplo, **count()** devolverá el número de registros de la consulta y **avg(CounterValue)**, el promedio del campo CounterValue durante el intervalo.
-- **Campo de grupo**.  Se creará un registro con un valor agregado para cada instancia de este campo y se puede generar una alerta para cada una.  Por ejemplo, si desea generar una alerta para cada equipo, usaría **by Computer** (por Equipo).   
+- **Función de agregado**.  Determina el cálculo que se lleva a cabo y potencialmente un campo numérico para agregar.  Por ejemplo, **count()** devolverá el número de registros de la consulta y **avg(CounterValue)**, el promedio del campo CounterValue durante el intervalo.
+- **Campo de grupo**.  Se crea un registro con un valor agregado para cada instancia de este campo y se puede generar una alerta para cada una.  Por ejemplo, si desea generar una alerta para cada equipo, usaría **by Computer** (por Equipo).   
 - **Intervalo**.  Define el intervalo de tiempo durante el cual se agregan los datos.  Por ejemplo, si especificó **5minutes** (5 minutos), se crearía un registro para cada instancia del campo de grupo que se agrega a intervalos de 5 minutos en la ventana de tiempo especificada para la alerta.
 
 #### <a name="threshold"></a>Umbral
@@ -137,9 +142,8 @@ Hay otros tipos de registros de alerta creados por la [solución de Administraci
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Instale la [solución de Administración de alertas](log-analytics-solution-alert-management.md) para analizar las alertas creadas en Log Analytics junto con las alertas recopiladas desde System Center Operations Manager (SCOM).
+* Instale la [solución Alert Management](log-analytics-solution-alert-management.md) para analizar las alertas creadas en Log Analytics junto con las alertas recopiladas desde System Center Operations Manager.
 * Obtenga más información sobre las [búsquedas de registros](log-analytics-log-searches.md) que pueden generar alertas.
 * Complete un tutorial para [configurar un webhook](log-analytics-alerts-webhooks.md) con una regla de alerta.  
 * Aprenda a escribir [runbooks en Automatización de Azure](https://azure.microsoft.com/documentation/services/automation) para solucionar los problemas identificados por las alertas.
-
 

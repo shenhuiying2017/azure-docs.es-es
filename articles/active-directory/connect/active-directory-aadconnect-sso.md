@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 72b5217bd8de29fdad753d89f34934f64c551ff2
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: c4cd80c50dca5b97c36f1c9785d8ea347b35285c
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -35,14 +35,14 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 >[!NOTE]
 >Esta característica _no_ se puede aplicar a Active Directory Federation Services (ADFS), que ya ofrece esta funcionalidad.
 
-## <a name="key-benefits-of-using-azure-ad-seamless-sso"></a>Principales ventajas del uso de SSO de conexión directa de Azure AD
+## <a name="key-benefits"></a>Ventajas principales
 
 - *Mejor experiencia del usuario*
   - Los usuarios inician sesión automáticamente tanto en las aplicaciones basadas en la nube como en las locales.
   - Los usuarios no tienen que escribir sus contraseñas varias veces.
 - *Es fácil de implementar y administrar*
   - No se necesitan componentes adicionales en local para que esto funcione.
-  - Funciona con cualquier método de autenticación administrada, ya sea [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md).
+  - Funciona con cualquier método de autenticación en la nube, ya sea [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md).
   - Puede extenderse a algunos o a todos los usuarios mediante la directiva de grupo.
   - Registre los dispositivos que no son de Windows 10 con Azure AD. Se necesita la versión 2.1 o posterior del [cliente para unirse al área de trabajo](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -57,11 +57,11 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 
 | SO\Explorador |Internet Explorer|perimetral|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sí|No compatible|Sí|Sí\*|N/D
-|Windows 8.1|Sí|No compatible|Sí|Sí\*|N/D
-|Windows 8|Sí|No compatible|Sí|Sí\*|N/D
-|Windows 7|Sí|No compatible|Sí|Sí\*|N/D
-|Mac OS X|N/D|N/D|Sí\*|Sí\*|No compatible
+|Windows 10|Sí|Sí|Sí|Sí\*|N/D
+|Windows 8.1|Sí|N/D|Sí|Sí\*|N/D
+|Windows 8|Sí|N/D|Sí|Sí\*|N/D
+|Windows 7|Sí|N/D|Sí|Sí\*|N/D
+|Mac OS X|N/D|N/D|Sí\*|Sí\*|Sí\*
 
 \*Requiere [configuración adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
@@ -73,6 +73,6 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 - [**Inicio rápido** ](active-directory-aadconnect-sso-quick-start.md): desarrollo y ejecución de SSO de conexión directa de Azure AD.
 - [**Profundización técnica** ](active-directory-aadconnect-sso-how-it-works.md): descripción del funcionamiento de esta característica.
 - [**Preguntas más frecuentes**](active-directory-aadconnect-sso-faq.md): obtenga respuestas a las preguntas más frecuentes.
-- [**Solución de problemas**](active-directory-aadconnect-troubleshoot-sso.md): información para resolver problemas habituales de esta característica.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para rellenar solicitudes de características nuevas.
+- [**Solución de problemas**](active-directory-aadconnect-troubleshoot-sso.md): aprenda a resolver problemas comunes de esta característica.
+- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.
 

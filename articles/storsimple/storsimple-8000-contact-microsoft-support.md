@@ -1,5 +1,5 @@
 ---
-title: "Registro de un vale de soporte técnico para la serie 8000 de StorSimple | Microsoft Docs"
+title: "Creación de un vale de soporte técnico para la serie 8000 de StorSimple | Microsoft Docs"
 description: "Aprenda a registrar una solicitud de soporte técnico y a iniciar una sesión de soporte técnico en su dispositivo de la serie StorSimple 8000."
 services: storsimple
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 07/25/2017
 ms.author: alkohli;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 21aeecb33707c03b5994b3e394b597797e81746f
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="contact-microsoft-support"></a>Ponerse en contacto con el soporte técnico de Microsoft
@@ -118,3 +117,4 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a [diagnosticar y solucionar problemas relacionados un dispositivo de la serie StorSimple 8000](storsimple-troubleshoot-deployment.md)
+

@@ -5,7 +5,7 @@ keywords: tutorial de base de datos sql
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: a76b1fc1e3fad5f47ffc550833bf34937e62163d
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 42f727aa40e744916b1a8adf634c10d55880bef0
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="monitor-performance-of-the-wingtip-saas-application"></a>Supervisión del rendimiento de la aplicación SaaS de Wingtip
@@ -143,7 +142,6 @@ Establezca una alerta en el grupo que se desencadene cuando el uso sea de \>75 %
    ![Establecer alerta](media/sql-database-saas-tutorial-performance-monitoring/alert-rule.png)
 
 
-
 ## <a name="scale-up-a-busy-pool"></a>Escalado vertical de un grupo ocupado
 
 Si aumenta el nivel de carga global en un grupo hasta el punto de llegar al máximo del grupo y alcanza el 100 % del uso de eDTU, el rendimiento de las bases de datos se verá afectado, lo cual podría ralentizar los tiempos de respuesta de consulta para todas las bases de datos del grupo.
@@ -157,12 +155,12 @@ Puede simular un grupo ocupado si aumenta la carga que produce el generador. Hac
 1. Establezca *$DemoScenario* = **3**, _Generación de una carga con ráfagas más prolongadas y frecuentes por base de datos_ para aumentar la intensidad de la carga global del grupo sin cambiar la carga máxima necesaria para cada base de datos.
 1. Presione **F5** para aplicar una carga de todas las bases de datos de inquilinos.
 
-1. Vaya a **Pool1** en el portal.
+1. Vaya a **Pool1** en Azure Portal.
 
 Supervise el aumento del uso de eDTU del grupo en el gráfico superior. La carga mayor tarda unos minutos en entrar en vigor, pero debería ver cómo rápidamente el grupo empieza a llegar al máximo uso y, según la carga se va estabilizando en el nuevo modelo, sobrecarga rápidamente el grupo.
 
-1. Para escalar verticalmente el grupo, haga clic en **Configurar grupo**.
-1. Ajuste el control deslizante **eDTU del grupo** a **100**. Cambiar la eDTU del grupo no cambia la configuración por base de datos (que sigue siendo 50 eDTU máx. por base de datos). Puede ver la configuración por base de datos en el lado derecho de la página **Configurar grupo**.
+1. Para escalar verticalmente el grupo, haga clic en **Configurar grupo** en la parte superior de la página **Pool1**.
+1. Ajuste el valor **eDTU del grupo** a **100**. Cambiar la eDTU del grupo no cambia la configuración por base de datos (que sigue siendo 50 eDTU máx. por base de datos). Puede ver la configuración por base de datos en el lado derecho de la página **Configurar grupo**.
 1. Haga clic en **Guardar** para enviar la solicitud de escala del grupo.
 
 Vuelva a **Pool1** > **Introducción** para ver los gráficos de supervisión. Supervise el efecto de proporcionar más recursos al grupo (aunque con pocas bases de datos y una carga aleatoria no siempre es fácil verlo bien hasta que se ejecuta durante un tiempo). Mientras observe los gráficos, tenga en cuenta que el 100 % del gráfico superior representa ahora 100 eDTU, mientras que en el gráfico inferior, el 100 % sigue siendo 50 eDTU, ya que el máximo por base de datos sigue siendo 50 eDTU.

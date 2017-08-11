@@ -1,0 +1,32 @@
+---
+title: "Solución de problemas de una máquina virtual clásica Windows de Azure mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación| Microsoft Docs"
+description: "Obtenga información sobre cómo solucionar los problemas de una máquina virtual clásica Windows de Azure mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación"
+services: virtual-machines-windows
+documentationCenter: 
+authors: genlin
+manager: timlt
+editor: 
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 07/21/2017
+ms.author: genli
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 8449a01675f9e7024fb866921258fa7bcdaf1144
+ms.contentlocale: es-es
+ms.lasthandoff: 07/25/2017
+
+---
+
+# <a name="troubleshoot-a-windows-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>Solución de problemas de una máquina virtual clásica Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación
+
+[!INCLUDE [virtual-machines-classic-recovery-disks-portal](../../../../includes/virtual-machines-classic-recovery-disks-portal.md)]
+
+## <a name="next-steps"></a>Pasos siguientes
+Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de problemas de conexiones RDP a una máquina virtual de Azure](../troubleshoot-rdp-connection.md). 
+
+Para problemas con el acceso a aplicaciones que se ejecutan en su máquina virtual, consulte [Solucionar problemas de conectividad de aplicaciones en una máquina virtual Windows](../troubleshoot-app-connection.md).
+

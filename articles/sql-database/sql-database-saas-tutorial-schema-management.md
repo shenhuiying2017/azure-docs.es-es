@@ -14,19 +14,18 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 84c27de6b5fafb3b9236fed77a9d0557d89d217c
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 78d76efb88bf11fa18a416b59e6f881539141232
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application"></a>Administración del esquema para varios inquilinos en la aplicación SaaS de Wingtip
 
-El [primer tutorial sobre SaaS de Wingtip](sql-database-saas-tutorial.md) muestra cómo la aplicación puede aprovisionar una base de datos de inquilino y registrarla en el catálogo. Como cualquier otra aplicación, la aplicación SaaS de Wingtip evolucionará con el tiempo y, en ocasiones, requerirá que se hagan cambios en la base de datos. Estos cambios pueden incluir un esquema nuevo o modificado, datos de referencia nuevos o modificados y tareas de mantenimiento de la base de datos rutinarias para garantizar un rendimiento óptimo de la aplicación. Con una aplicación SaaS, estos cambios deben implementarse de manera coordinada a lo largo de una línea potencialmente masiva de bases de datos de inquilino. Los cambios también deben incorporarse en el proceso de aprovisionamiento para futuras bases de datos de inquilino.
+El [primer tutorial sobre SaaS de Wingtip](sql-database-saas-tutorial.md) muestra cómo la aplicación puede aprovisionar una base de datos de inquilino y registrarla en el catálogo. Como cualquier otra aplicación, la aplicación SaaS de Wingtip evolucionará con el tiempo y, en ocasiones, requerirá que se hagan cambios en la base de datos. Estos cambios pueden incluir un esquema nuevo o modificado, datos de referencia nuevos o modificados y tareas de mantenimiento de la base de datos rutinarias para garantizar un rendimiento óptimo de la aplicación. Con una aplicación SaaS, estos cambios deben implementarse de manera coordinada a lo largo de una línea potencialmente masiva de bases de datos de inquilino. Para que estos cambios estén presentes en futuras bases de datos de inquilino, deben incorporarse en el proceso de aprovisionamiento.
 
 Este tutorial explora dos escenarios: la implementación de actualizaciones de datos de referencia para todos los inquilinos y el reajuste de un índice en la tabla que contiene los datos de referencia. La característica [Trabajos elásticos](sql-database-elastic-jobs-overview.md) se usa para ejecutar estas operaciones en todos los inquilinos y la base de datos de inquilino *maestra* se utiliza como plantilla para nuevas bases de datos.
 
@@ -34,7 +33,8 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 
-> * Crear una cuenta de trabajo para consultar en varios inquilinos
+> * Crear una cuenta de trabajo
+> * Consultas entre varios inquilinos
 > * Actualizar datos en todas las bases de datos de inquilino
 > * Crear un índice en una tabla en todas las bases de datos de inquilino
 
@@ -45,7 +45,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 * Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * La versión más reciente de SQL Server Management Studio (SSMS) está instalada. [Descarga e instalación de SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*En este tutorial se usan características del servicio SQL Database que se encuentran en una versión preliminar limitada (trabajos de Elastic Database). Si desea seguir este tutorial, envíe su identificador de suscripción a SaaSFeedback@microsoft.com con el asunto Elastic Jobs Preview. Después de recibir la confirmación de que se ha habilitado su suscripción, [descargue e instale los cmdlets de trabajos de versión preliminar más recientes](https://github.com/jaredmoo/azure-powershell/releases). Al tratarse de una versión preliminar limitada, debe ponerse en contacto con SaaSFeedback@microsoft.com si necesita asistencia.*
+*En este tutorial se usan características del servicio SQL Database que se encuentran en una versión preliminar limitada (trabajos de Elastic Database). Si desea seguir este tutorial, envíe su identificador de suscripción a SaaSFeedback@microsoft.com con el asunto Elastic Jobs Preview. Después de recibir la confirmación de que se ha habilitado su suscripción, [descargue e instale los cmdlets de trabajos de versión preliminar más recientes](https://github.com/jaredmoo/azure-powershell/releases). Esta versión preliminar es limitada, de modo que póngase en contacto SaaSFeedback@microsoft.com si necesita asistencia.*
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introducción a los patrones de administración de esquema de SaaS
@@ -60,7 +60,7 @@ El patrón de inquilino único por base de datos de SaaS se aprovecha de varias 
 Hay una nueva versión de Trabajos elásticos que ahora es una característica integrada de Azure SQL Database (no requiere servicios ni componentes adicionales). Esta nueva versión de Trabajos elásticos ofrece actualmente una versión preliminar limitada. Esta versión preliminar limitada admite PowerShell para crear cuentas de trabajo y T-SQL para crear y administrar trabajos.
 
 > [!NOTE]
-> *En este tutorial se usan características del servicio SQL Database que se encuentran en una versión preliminar limitada (trabajos de Elastic Database). Si desea seguir este tutorial, envíe su identificador de suscripción a SaaSFeedback@microsoft.com con el asunto Elastic Jobs Preview. Después de recibir la confirmación de que se ha habilitado su suscripción, [descargue e instale los cmdlets de trabajos de versión preliminar más recientes](https://github.com/jaredmoo/azure-powershell/releases). Al tratarse de una versión preliminar limitada, debe ponerse en contacto con SaaSFeedback@microsoft.com si necesita asistencia.*
+> *En este tutorial se usan características del servicio SQL Database que se encuentran en una versión preliminar limitada (trabajos de Elastic Database). Si desea seguir este tutorial, envíe su identificador de suscripción a SaaSFeedback@microsoft.com con el asunto Elastic Jobs Preview. Después de recibir la confirmación de que se ha habilitado su suscripción, [descargue e instale los cmdlets de trabajos de versión preliminar más recientes](https://github.com/jaredmoo/azure-powershell/releases). Esta versión preliminar es limitada, de modo que póngase en contacto SaaSFeedback@microsoft.com si necesita asistencia.*
 
 ## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
 
@@ -89,14 +89,14 @@ Para crear un nuevo trabajo, utilizamos un conjunto de procedimientos almacenado
 1. Conéctese también al servidor de inquilino: tenants1-\<usuario\>.database.windows.net.
 1. Vaya a la base de datos *contosoconcerthall* del servidor *tenants1* y consulte la tabla *VenueTypes* para confirmar que *Motorcycle Racing* y *Swimming Club* **no figuran** en la lista de resultados.
 1. Abra el archivo …\\Learning Modules\\Schema Management\\DeployReferenceData.sql.
-1. Cambie \<usuario\> por el nombre de usuario usado al implementar la aplicación de Wingtip, en las 3 ubicaciones del script.
+1. Modifique la instrucción: SET @wtpUser = &lt;usuario&gt; y sustituya el valor Usuario utilizado al implementar la aplicación Wingtip
 1. Asegúrese de que está conectado a la base de datos jobaccount y presione **F5** para ejecutar el script.
 
 * **sp\_add\_target\_group** crea el nombre del grupo de destino DemoServerGroup. Ahora hay que agregar miembros de destino.
-* **sp\_add\_target\_group\_member** agrega un tipo de miembro de destino *servidor* que considera que todas las bases de datos de ese servidor (tenga en cuenta que se trata del servidor customer1-&lt;Usuario&gt; que contiene las bases de datos de inquilino) en el momento de la ejecución del trabajo deben incluirse en el trabajo. A continuación, se agrega un tipo de miembro de destino *base de datos*, en concreto la base de datos "maestra", baseTenantDB, que reside en el servidor catalog-&lt;Usuario&gt;. Por último, se agrega otro tipo de miembro de destino *base de datos* para incluir la base de datos adhocanalytics que se utiliza en un tutorial posterior.
+* **sp\_add\_target\_group\_member** agrega un tipo de miembro de destino *servidor* que considera que todas las bases de datos de ese servidor (tenga en cuenta que se trata del servidor tenants1-&lt;Usuario&gt; que contiene las bases de datos de inquilino) en el momento de la ejecución del trabajo deben incluirse en el trabajo. A continuación, se agrega un tipo de miembro de destino *base de datos*, en concreto la base de datos "maestra" (basetenantdb) que reside en el servidor catalog-&lt;Usuario&gt;. Por último, se agrega otro tipo de miembro de destino *base de datos* para incluir la base de datos adhocanalytics que se utiliza en un tutorial posterior.
 * **sp\_add\_job** crea un trabajo llamado “Reference Data Deployment”.
 * **sp\_add\_jobstep** crea el paso de trabajo que contiene el texto del comando T-SQL para actualizar la tabla de referencia VenueTypes.
-* En las demás vistas del script se muestran los objetos existentes y se supervisa la ejecución de los trabajos. Revise el valor de estado de la columna **Ciclo de vida**. El trabajo ha finalizado correctamente en todas las bases de datos de inquilino y las dos bases de datos adicionales que contienen la tabla de referencia.
+* En las demás vistas del script se muestran los objetos existentes y se supervisa la ejecución de los trabajos. Use estas consultas para revisar el valor de estado en la columna **ciclo de vida** a fin de determinar si el trabajo ha finalizado correctamente en todas las bases de datos de inquilino y las dos bases de datos adicionales que contienen la tabla de referencia.
 
 1. En SSMS, vaya a la base de datos *contosoconcerthall* del servidor *tenants1* y consulte la tabla *VenueTypes* para confirmar que *Motorcycle Racing* y *Swimming Club* **figuran** ahora en la lista de resultados.
 

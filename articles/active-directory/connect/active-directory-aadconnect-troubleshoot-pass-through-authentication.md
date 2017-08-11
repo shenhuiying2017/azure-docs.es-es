@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/28/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 05d7c50aaa1209220b6cff3305fdb05dd2c421f8
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 4a687e1edbb2c9b3db3079a70162886092ede521
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -30,6 +30,14 @@ Este artículo sirve de ayuda para encontrar información acerca de cómo soluci
 >Si se enfrenta a problemas de inicio de sesión de los usuarios con la autenticación de paso a través, no deshabilite la característica ni desinstale los agentes de autenticación de paso a través sin tener una cuenta de administrador global solo en la nube a la que retroceder. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../active-directory-users-create-azure-portal.md). Este paso es esencial y se asegura de no quedar bloqueado fuera de su inquilino.
 
 ## <a name="general-issues"></a>Problemas generales
+
+### <a name="check-status-of-the-feature-and-authentication-agents"></a>Comprobación de estado de la característica y de los agentes de autenticación
+
+Asegúrese de que la característica de autenticación de paso a través sigue **habilitada** en su inquilino y de que el estado de los agentes de autenticación es **activo** y no **inactivo**. Para comprobar estos ajustes, vaya a la hoja **Azure AD Connect** en [Azure Portal](https://portal.azure.com/).
+
+![Azure Portal: hoja Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+
+![Azure Portal: hoja Autenticación de paso a través](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### <a name="user-facing-sign-in-error-messages"></a>Mensajes de error de inicio de sesión para el usuario
 
@@ -43,13 +51,13 @@ Si el usuario no ha podido iniciar sesión con la autenticación de paso a trav�
 |AADSTS80005|La validación encontró una excepción WebException impredecible|Se trata de un error transitorio. Vuelva a intentarlo. Si el error no desaparece, póngase en contacto con el soporte técnico de Microsoft.
 |AADSTS80007|Error al establecer comunicación con Active Directory.|Compruebe los registros del agente para más información y verifique que Active Directory está funcionando según lo previsto.
 
-### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Motivos del error de inicio de sesión en el centro de administración de Azure Active Directory
+### <a name="sign-in-failure-reasons-on-the-azure-portal"></a>Motivos de error de inicio de sesión en Azure Portal
 
-Una buena forma de comenzar a solucionar los problemas de inicio de sesión del usuario con la autenticación de paso a través es mirar el [informe de actividad de inicio de sesión](../active-directory-reporting-activity-sign-ins.md) en el [centro de administración de Azure Active Directory](https://aad.portal.azure.com/).
+Para empezar a solucionar problemas de inicio de sesión de usuarios, vaya al [informe de actividad de inicio de sesión](../active-directory-reporting-activity-sign-ins.md) en [Azure Portal](https://portal.azure.com/).
 
 ![Informe de inicios de sesión](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Vaya a **Azure Active Directory** -> **Inicios de sesión** en el [centro de administración de Azure Active Directory](https://aad.portal.azure.com/) y haga clic en la actividad de inicio de sesión de un usuario específico. Busque el campo **CÓDIGO DE ERROR DE INICIO DE SESIÓN**. Busque la correspondencia entre el valor de ese campo y un motivo de error y la resolución en la siguiente tabla:
+Vaya a **Azure Active Directory** -> **Inicios de sesión** en [Azure Portal](https://portal.azure.com/) y haga clic en la actividad de inicio de sesión de un usuario específico. Busque el campo **CÓDIGO DE ERROR DE INICIO DE SESIÓN**. Busque la correspondencia entre el valor de ese campo y un motivo de error y la resolución en la siguiente tabla:
 
 |Código de error de inicio de sesión|Motivo del error de inicio de sesión|Resolución
 | --- | --- | ---
@@ -64,10 +72,6 @@ Vaya a **Azure Active Directory** -> **Inicios de sesión** en el [centro de adm
 | 80011 | El agente de autenticación no puede recuperar la clave de descifrado. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemas de instalación del agente de autenticación
-
-### <a name="an-azure-ad-application-proxy-connector-already-exists"></a>Ya existe un conector del proxy de aplicación de Azure AD
-
-Un agente de autenticación de paso a través no se puede instalar en el mismo servidor que un conector del [proxy de aplicación de Azure AD](../../active-directory/active-directory-application-proxy-get-started.md). Instale el agente de autenticación de paso a través en un servidor independiente.
 
 ### <a name="an-unexpected-error-occurred"></a>Se ha producido un error inesperado
 
@@ -115,16 +119,16 @@ En función del tipo de problema, es posible que tenga que buscar estos registro
 
 ### <a name="authentication-agent-event-logs"></a>Registros de eventos del agente de autenticación
 
-Para ver los errores relacionados con el agente de autenticación , abra la aplicación Visor de eventos en el servidor y consulte **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**.
+Para ver los errores relacionados con el agente de autenticación , abra la aplicación Visor de eventos en el servidor y consulte **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
 Para obtener un análisis detallado, habilite el registro "Session" (sesión). No ejecute el agente de autenticación con este registro habilitado durante las operaciones normales; úselo solo para solucionar problemas. Tenga en cuenta que el contenido del registro solo se ve cuando el registro se vuelve a deshabilitar.
 
 ### <a name="detailed-trace-logs"></a>Registros de seguimiento detallados
 
-Para solucionar errores de inicio de sesión de los usuarios, busque los registros de seguimiento en **C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. Estos registros incluyen los motivos por los que un usuario concreto no pudo iniciar sesión mediante la característica Autenticación de paso a través. Estos errores también pueden hacerse corresponder con los motivos de errores de inicio de sesión mostrados en la [tabla](#sign-in-failure-reasons-on-the-Azure-portal) anterior. La siguiente es una entrada del registro de ejemplo:
+Para solucionar errores de inicio de sesión de usuarios, busque los registros de seguimiento en **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Estos registros incluyen los motivos por los que un usuario concreto no pudo iniciar sesión mediante la característica Autenticación de paso a través. Estos errores también pueden hacerse corresponder con los motivos de errores de inicio de sesión mostrados en la [tabla](#sign-in-failure-reasons-on-the-Azure-portal) anterior. La siguiente es una entrada del registro de ejemplo:
 
 ```
-    ApplicationProxyConnectorService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
+    AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
         ThreadId=5
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
@@ -142,7 +146,7 @@ Si están habilitados los registros de auditoría, se puede encontrar informaci�
 ```
     <QueryList>
     <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe')]]</Select>
+    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft Azure AD Connect Authentication Agent\AzureADConnectAuthenticationAgentService.exe')]]</Select>
     </Query>
     </QueryList>
 ```

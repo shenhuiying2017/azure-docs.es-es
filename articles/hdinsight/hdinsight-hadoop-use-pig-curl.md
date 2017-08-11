@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: b7a4772180225fc6be48ab5c75dcc334d3431e75
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: a86864a779b0de1c6d5669cfbba0f3e1a27f1ff1
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Ejecución de trabajos de Pig con Hadoop en HDInsight con REST
@@ -106,7 +105,7 @@ Aprenda a ejecutar trabajos de Pig Latin mediante la creación de solicitudes de
 
 ## <a id="results"></a>Visualización de resultados
 
-Cuando el estado del trabajo haya cambiado a **SUCCEEDED**, puede recuperar los resultados del trabajo desde el almacenamiento que usa el clúster. El parámetro `statusdir` pasado con la consulta contiene la ubicación del archivo de salida; en este caso, `/example/pigcurl`.
+Cuando el estado del trabajo haya cambiado a **SUCCEEDED**, puede recuperar los resultados del trabajo. El parámetro `statusdir` pasado con la consulta contiene la ubicación del archivo de salida; en este caso, `/example/pigcurl`.
 
 HDInsight puede usar Azure Storage o Azure Data Lake Store como almacén de datos predeterminado. Hay varias maneras de obtener los datos, en función de la que use. Para más información, consulte la sección sobre almacenamiento del documento [Información sobre el uso de HDInsight en Linux](hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store).
 

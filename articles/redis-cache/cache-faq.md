@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/27/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: eeddc0da23192a0082f2fcddbb0cc5f3e4a72074
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-redis-cache-faq"></a>P+F de Azure Redis Cache
@@ -105,7 +104,7 @@ Cada oferta de Azure Redis Cache proporciona diferentes niveles de **tamaño**, 
 
 Las siguientes son consideraciones para elegir una oferta de caché.
 
-* **Memoria**: los niveles Básico y Estándar ofrecen 250 MB – 53 GB. El nivel Premium ofrece hasta 530 GB con más disponible [tras su solicitud](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para obtener más información, consulte [Precios de Azure Redis Cache](https://azure.microsoft.com/pricing/details/cache/).
+* **Memoria**: los niveles Básico y Estándar ofrecen 250 MB – 53 GB. El nivel Premium ofrece hasta 530 GB. Para obtener más información, consulte [Precios de Azure Redis Cache](https://azure.microsoft.com/pricing/details/cache/).
 * **Rendimiento de la red**: si tiene una carga de trabajo que requiere un rendimiento alto, el nivel Premium ofrece más ancho de banda en comparación con los niveles Estándar o Básico. También dentro de cada nivel, las cachés de mayor tamaño tienen más ancho de banda debido a la máquina virtual subyacente que hospeda la memoria caché. Para más información, consulte la [tabla siguiente](#cache-performance).
 * **Rendimiento**: el nivel Premium ofrece el máximo rendimiento disponible. Si el servidor o el cliente de caché alcanzan los límites del ancho de banda, recibirá los tiempos de espera del cliente. Para más información, vea la tabla siguiente.
 * **Alta disponibilidad/SLA**: Azure Redis Cache garantiza que la caché de los niveles Estándar y Premium estará disponible como mínimo un 99,9 % del tiempo. Para más información sobre nuestro SLA, vea [Precios de Azure Redis Cache](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). El SLA solo cubre la conectividad para los extremos de la memoria caché. El SLA no cubre la protección frente a la pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos.
@@ -130,25 +129,25 @@ En la tabla siguiente se muestran los valores máximos del ancho de banda observ
 
 A partir de esta tabla, podemos extraer las conclusiones siguientes:
 
-* El rendimiento de las memorias caché que tienen el mismo tamaño es mayor en el nivel Premium que en el nivel Estándar. Por ejemplo, en el caso de una caché de 6 GB, el rendimiento de P1 es de 140 000 solicitudes por segundo frente a las 49 000 de C3.
-* Con la agrupación en clústeres de Redis, el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento disponible es de 250 000 * 10 = 2,5 millones de solicitudes por segundo.
+* El rendimiento de las memorias caché que tienen el mismo tamaño es mayor en el nivel Premium que en el nivel Estándar. Por ejemplo, en el caso de una memoria caché de 6 GB, el rendimiento de P1 es de 180 000 solicitudes por segundo frente a las 49 000 de C3.
+* Con la agrupación en clústeres de Redis, el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento disponible es de 400 000 * 10 = 4 millones de solicitudes por segundo.
 * El rendimiento para los tamaños de clave más grandes es mayor en el nivel Premium que en el nivel Estándar.
 
 | Nivel de precios | Tamaño | Núcleos de CPU | Ancho de banda disponible | Tamaño del valor de 1 kB |
 | --- | --- | --- | --- | --- |
 | **Tamaños de caché estándar** | | |**Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS)** |
 | C0 |250 MB |Compartido |5 / 0.625 |600 |
-| C1 |1 GB |1 |100 / 12.5 |12200 |
-| C2 |2,5 GB |2 |200 / 25 |24000 |
-| C3 |6 GB |4 |400 / 50 |49000 |
-| C4 |13 GB |2 |500 / 62.5 |61000 |
-| C5 |26 GB |4 |1000 / 125 |115000 |
-| C6 |53 GB |8 |2000 / 250 |150000 |
-| **Tamaños de caché Premium** | |**Núcleos de CPU por partición** | |**Solicitudes por segundo (RPS), por partición** |
-| P1 |6 GB |2 |1000 / 125 |140000 |
-| P2 |13 GB |4 |2000 / 250 |220000 |
-| P3 |26 GB |4 |2000 / 250 |220000 |
-| P4 |53 GB |8 |4000 / 500 |250000 |
+| C1 |1 GB |1 |100 / 12.5 |12,200 |
+| C2 |2,5 GB |2 |200 / 25 |24,000 |
+| C3 |6 GB |4 |400 / 50 |49,000 |
+| C4 |13 GB |2 |500 / 62.5 |61,000 |
+| C5 |26 GB |4 |1,000 / 125 |115,000 |
+| C6 |53 GB |8 |2,000 / 250 |150 000 |
+| **Tamaños de caché Premium** | |**Núcleos de CPU por partición** | **Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS), por partición** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
+| P2 |13 GB |4 |3,000 / 375 |360,000 |
+| P3 |26 GB |4 |3,000 / 375 |360,000 |
+| P4 |53 GB |8 |6,000 / 750 |400.000 |
 
 Para obtener instrucciones acerca de cómo descargar las herramientas de Redis como `redis-benchmark.exe`, consulte la sección [¿Cómo puedo ejecutar los comandos de Redis?](#cache-commands) .
 
@@ -467,10 +466,14 @@ Otro aspecto clave para el éxito de Redis es su ecosistema de código abierto v
 Para más información sobre los primeros pasos con Azure Redis Cache, consulte [Uso de Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) y [Documentación de Azure Redis Cache](index.md).
 
 ### <a name="managed-cache-service"></a>Managed Cache service
-[Se retiró Managed Cache Service el 30 de noviembre de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Managed Cache Service se retiró el 30 de noviembre de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+
+Para ver la documentación archivada, consulte la [documentación archivada de Managed Cache Service](https://msdn.microsoft.com/library/azure/dn386094.aspx).
 
 ### <a name="in-role-cache"></a>Caché en rol
-[Se retiró In-Role Cache el 30 de noviembre de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[In-Role Cache se retiró el 30 de noviembre de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+
+Para ver la documentación archivada, consulte la [documentación de archivada de In-Role Cache](https://msdn.microsoft.com/library/azure/dn386103.aspx).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 

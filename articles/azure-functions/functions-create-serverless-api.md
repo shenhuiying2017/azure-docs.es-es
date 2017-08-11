@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2b11d08b95d658ae2b0303107367549e6d0b5dff
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f5d0bb05d0e9caebfc6c13d983518d65f7409527
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -192,7 +192,7 @@ Pruebe la API simulada mediante una llamada al punto de conexión `/api/users/{u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a crear y personalizar una API en Azure Functions. También ha aprendido a reunir varias API, incluidas las simuladas, como una superficie de API unificada. Puede utilizar estas técnicas para crear API de cualquier complejidad, todo ello mientras ejecuta el modelo de proceso sin servidor proporcionado por Azure Functions.
+En este tutorial, ha aprendido a compilar y personalizar una API en Azure Functions. También ha aprendido a reunir varias API, incluidas las simuladas, como una superficie de API unificada. Puede utilizar estas técnicas para crear API de cualquier complejidad, todo ello mientras ejecuta el modelo de proceso sin servidor proporcionado por Azure Functions.
 
 Las siguientes referencias pueden serle de ayuda a medida que sigue desarrollando su API:
 
@@ -203,3 +203,4 @@ Las siguientes referencias pueden serle de ayuda a medida que sigue desarrolland
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
 [Uso de Servidores proxy de Azure Functions (versión preliminar)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+

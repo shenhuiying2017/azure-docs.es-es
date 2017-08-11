@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/26/2017
 ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 118b77064a96585b0d5b951ca56313776021624e
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: c975428550690254ba989935fe5110c5903e7102
 ms.contentlocale: es-es
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Administración de inicio de sesión único para aplicaciones empresariales
@@ -28,15 +27,14 @@ ms.lasthandoff: 05/08/2017
 > * [Portal de Azure clásico](active-directory-sso-integrate-saas-apps.md)
 > 
 
-En este artículo se describe cómo usar el [portal de Azure](https://portal.azure.com) para administrar la configuración de inicio de sesión único para aplicaciones, especialmente las que se han agregado desde la [Galería de aplicaciones de Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+En este artículo se describe cómo utilizar [Azure Portal](https://portal.azure.com) para administrar la configuración de inicio de sesión único para aplicaciones empresariales. Las aplicaciones empresariales son aplicaciones que se implementan y se usan dentro de su organización. Este artículo se aplica especialmente a las aplicaciones agregadas desde la [Galería de aplicaciones de Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
-## <a name="finding-your-apps"></a>Búsqueda de las aplicaciones
 ## <a name="finding-your-apps-in-the-portal"></a>Búsqueda de aplicaciones en el portal
-Todas las aplicaciones que se han configurado para el inicio de sesión único en un directorio, por un administrador de directorio mediante la [Galería de aplicaciones de Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), se pueden ver y administrar en el [portal de Azure](https://portal.azure.com). Las aplicaciones pueden encontrarse en la sección **Más servicios** &gt; **Aplicaciones empresariales** del portal. Las aplicaciones empresariales son aplicaciones que se implementan y se usan dentro de su organización.
+Todas las aplicaciones empresariales configuradas para el inicio de sesión único se pueden ver y administrar en Azure Portal. Las aplicaciones pueden encontrarse en la sección **Más servicios** &gt; **Aplicaciones empresariales** del portal. 
 
 ![Hoja Aplicaciones empresariales][1]
 
-Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones que se han configurado, incluidas las aplicaciones que se han añadido desde la galería. Si selecciona una aplicación, se carga la hoja de recursos para esa aplicación, donde se pueden ver los informes de dicha aplicación y se pueden administrar diversas opciones de configuración.
+Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones configuradas. Si selecciona una aplicación, se carga la hoja de recursos para esa aplicación, donde se pueden ver los informes de dicha aplicación y se pueden administrar diversas opciones de configuración.
 
 Para administrar la configuración de inicio de sesión único, seleccione **Inicio de sesión único**.
 
@@ -51,7 +49,7 @@ La hoja **Inicio de sesión único** comienza con un menú **Modo**, que permite
 
 Para más información acerca de estos modos, consulte la sección [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-## <a name="saml-based-sign-on"></a>SAML-based sign on
+## <a name="saml-based-sign-on"></a>Inicio de sesión basado en SAML
 La opción **SAML-based sign on** (Inicio de sesión basado en SAML) muestra una hoja dividida en cuatro secciones:
 
 ### <a name="domains-and-urls"></a>Dominios y direcciones URL

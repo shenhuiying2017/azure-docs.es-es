@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
-ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="intro"></a> Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure
@@ -163,11 +162,11 @@ De hecho, con la configuración anterior, es posible hospedar todo el servicio e
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
-Esto no significa, sin embargo, que sea siempre una buena idea (o en general una buena idea) suministrar un servicio en la nube entero a través de la red CDN de Azure. Estos son algunos de los puntos a tener en cuenta:
+Esto no significa, sin embargo, que sea siempre una buena idea suministrar un servicio en la nube entero a través de la red CDN de Azure. 
 
-* Este enfoque requiere que el sitio entero sea público, dado que CDN de Azure no puede servir contenido privado en este momento.
-* Si por algún motivo el punto de conexión de la red CDN se desconecta, ya sea por mantenimiento programado o debido a un error del usuario, se desconecta todo el servicio en la nube, a menos que los clientes se puedan redirigir a la dirección URL de origen **http://*&lt;serviceName>*.cloudapp.net/** .
-* Incluso con la configuración personalizada del control de la memoria caché (consulte [Configuración de las opciones de caché para los archivos estáticos del servicio en la nube](#caching)), un extremo de red CDN no mejora el rendimiento del contenido extremadamente dinámico. Si ha intentado cargar la página principal desde el extremo de red CDN como se ha mostrado anteriormente, tenga en cuenta que al menos tardará cinco segundos en cargarse la página principal predeterminada la primera vez, pese a ser una página bastante simple. Imagine entonces cómo sería la experiencia del cliente si esta página incluyera contenido dinámico que se debe actualizar cada minuto. Servir contenido dinámico desde un extremo de red CDN requiere una corta caducidad de la caché, lo que se traduce en errores frecuentes de la caché en el extremo de red CDN. Esto afecta al rendimiento del servicio en la nube, y frustra el propósito de una red CDN.
+Una red CDN con optimización de entrega estática no acelera necesariamente la entrega de recursos dinámicos que no estén diseñados para almacenarse en caché o se actualicen con mucha frecuencia, ya que la red CDN debe extraer una nueva versión del recurso desde el servidor de origen muy a menudo. En este escenario, puede habilitar la optimización [Aceleración de sitios dinámicos](cdn-dynamic-site-acceleration.md) (DSA) en el punto de conexión de la red CDN que usa varias técnicas para acelerar la entrega de recursos dinámicos que no se pueden almacenar en caché. 
+
+Si tiene un sitio con una combinación de contenido estático y dinámico, puede servir el contenido estático de la red CDN con un tipo de optimización estático (por ejemplo, entrega de web general); asimismo, puede servir el contenido dinámico directamente desde el servidor de origen, o a través de un punto de conexión de red CDN con la optimización DSA activada caso por caso. Para tal fin, ya ha visto cómo acceder a archivos de contenido individuales desde el extremo de red CDN. Le mostraremos cómo servir una acción de controlador específica a través de un punto de conexión de red CDN específico en la sección Suministro de contenido de acciones de controlador a través de la red CDN de Azure.
 
 La alternativa es determinar qué contenido servir desde CDN de Azure según el caso en el servicio en la nube. Para tal fin, ya ha visto cómo acceder a archivos de contenido individuales desde el extremo de red CDN. Le mostraremos cómo servir una acción de controlador específica a través del extremo de red CDN en [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#controller).
 

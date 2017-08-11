@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2017
+ms.date: 07/25/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 71878a5a8807b025f418b978990cb0c502e4eca7
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 1b3ce3d87e02a6ffb6fcbf4e6778017f5a129ef9
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Consultas SQL para la API de DocumentDB de Azure Cosmos DB
@@ -28,7 +28,7 @@ Microsoft Azure Cosmos DB admite la consulta de documentos con SQL (lenguaje de 
 Durante el diseño del lenguaje de consulta de Cosmos DB, teníamos dos objetivos en mente:
 
 * En lugar de inventar un nuevo lenguaje de consulta JSON, preferimos ofrecer compatibilidad con el lenguaje SQL. SQL es uno de los lenguajes de consulta más familiares y populares. SQL de Cosmos DB proporciona un modelo de programación formal para consultas enriquecidas en documentos JSON.
-* Igual que una base de datos de documentos JSON capaz de ejecutar JavaScript directamente en el motor de base de datos, queríamos usar el modelo de programación de JavaScript como base para nuestro lenguaje de consulta. SQL de la API de DocumentDB se basa en el sistema de tipos de JavaScript, la evaluación de expresiones y la invocación de funciones. A su vez, este proporciona un modelo de programación natural para proyecciones relacionales, navegación jerárquica por documentos JSON, autocombinaciones, consultas espaciales e invocación de funciones definidas por el usuario (UDF) escritas íntegramente en JavaScript, entre otras características. 
+* Igual que una base de datos de documentos JSON capaz de ejecutar JavaScript directamente en el motor de base de datos, queríamos usar el modelo de programación de JavaScript como base para nuestro lenguaje de consulta. SQL de la API de DocumentDB se basa en el sistema de tipos de JavaScript, la evaluación de expresiones y la invocación de funciones. A su vez, esto proporciona un modelo de programación natural para proyecciones relacionales, navegación jerárquica por documentos JSON, autocombinaciones, consultas espaciales e invocación de funciones definidas por el usuario (UDF) escritas íntegramente en JavaScript, entre otras características. 
 
 Creemos que estas capacidades son clave para reducir la fricción entre la aplicación y la base de datos, y que son cruciales para la productividad de los desarrolladores.
 
@@ -38,10 +38,10 @@ Se recomienda comenzar por ver el vídeo siguiente, donde Aravind Ramachandran m
 > 
 > 
 
-Luego, vuelva a este artículo, donde comenzaremos con un tutorial de consulta SQL que le guiará a través de algunos documentos sencillos de JSON y comandos SQL.
+Luego, vuelva a este artículo, donde comenzamos con un tutorial de consulta SQL que le guiará a través de algunos documentos sencillos de JSON y comandos SQL.
 
 ## <a id="GettingStarted"></a>Introducción a los comandos SQL en Cosmos DB
-Para consultar SQL de Cosmos DB trabajando, empezaremos con unos documentos JSON sencillos y realizaremos algunas consultas fáciles con él. Tenga en cuenta estos dos documentos JSON sobre dos familias. No olvide que, con Cosmos DB, no es preciso que creemos ningún esquema ni índice secundario de forma explícita. Simplemente tenemos que insertar los documentos JSON en una colección Cosmos DB y posteriormente realizar una consulta. Aquí tenemos un documento JSON sencillo para la familia Andersen, los padres, los hijos (y sus mascotas), la dirección y la información de registro. El documento tiene cadenas, números, booleanos, matrices y propiedades anidadas. 
+Para consultar SQL de Cosmos DB trabajando, empezaremos con unos documentos JSON sencillos y realizaremos algunas consultas fáciles con él. Tenga en cuenta estos dos documentos JSON sobre dos familias. Con Cosmos DB no es preciso crear ningún esquema ni índice secundario de forma explícita. Simplemente tenemos que insertar los documentos JSON en una colección Cosmos DB y posteriormente realizar una consulta. Aquí tenemos un documento JSON sencillo para la familia Andersen, los padres, los hijos (y sus mascotas), la dirección y la información de registro. El documento tiene cadenas, números, valores booleanos, matrices y propiedades anidadas. 
 
 **Documento**  
 
@@ -100,7 +100,7 @@ Aquí se muestra un segundo documento con una sutil diferencia: se usan `givenNa
 }
 ```
 
-Ahora realicemos algunas consultas con estos datos para entender algunos aspectos clave de SQL de la API de DocumentDB. Por ejemplo, la consulta siguiente devolverá los documentos en los que el campo de id. coincida con `AndersenFamily`. Puesto que es `SELECT *`, la salida de la consulta es el documento JSON completo:
+Ahora realicemos algunas consultas con estos datos para entender algunos aspectos clave de SQL de la API de DocumentDB. Por ejemplo, la consulta siguiente devuelve los documentos en los que el campo id coincide con `AndersenFamily`. Puesto que es `SELECT *`, la salida de la consulta es el documento JSON completo:
 
 **Consultar**
 
@@ -169,11 +169,11 @@ Nos gustaría llamar la atención sobre algunos aspectos destacados del lenguaje
 
 * Como SQL de la API de DocumentDB funciona con valores JSON, trata entidades en forma de árbol en lugar de filas y columnas. Por consiguiente, el lenguaje permite que se haga referencia a los nodos del árbol a cualquier profundidad arbitraria, como `Node1.Node2.Node3…..Nodem`, de forma similar al lenguaje SQL relacional que hace alusión a la referencia dos partes de `<table>.<column>`.   
 * El lenguaje de consulta estructurado trabaja con datos sin esquemas. Por lo tanto, es necesario que el sistema de tipo se enlace dinámicamente. La misma expresión podría producir diversos tipos en distintos documentos. El resultado de una consulta es un valor JSON válido, pero no se garantiza que sea de un esquema fijo.  
-* Cosmos DB solo admite documentos JSON estrictos. Esto significa que el sistema de tipo y las expresiones se restringen para tratar únicamente tipos JSON. Para obtener más información, consulte la [especificación de JSON](http://www.json.org/) .  
+* Cosmos DB solo admite documentos JSON estrictos. Esto significa que el sistema de tipo y las expresiones se restringen para tratar únicamente tipos JSON. Para obtener más detalles, consulte la [especificación de JSON](http://www.json.org/).  
 * Una recopilación de Cosmos DB es un contenedor sin esquemas de documentos JSON. Las relaciones en las entidades de datos dentro de los documentos de una colección y entre ellos se capturan de manera implícita por contención y no por relaciones entre clave principal y clave externa. Se trata de un aspecto importante que merece la pena señalar teniendo en cuenta las combinaciones internas descritas posteriormente en este artículo.
 
 ## <a id="Indexing"></a> Indexación de Cosmos DB
-Antes de entrar en la sintaxis de SQL de la API de DocumentDB, vale la pena explorar el diseño de indexación de la API Cosmos DB. 
+Antes de entrar en la sintaxis de SQL de la API de DocumentDB, vale la pena explorar el diseño de indexación en Cosmos DB. 
 
 El objetivo de los índices de base de datos es atender consultas en sus diversas formas con un consumo de los recursos mínimo (como CPU y entrada y salida) mientras se proporcionan un buen rendimiento y una latencia baja. A menudo, la elección del índice adecuado para consultar una base de datos requiere mucha planificación y experimentación. Este enfoque plantea un desafío para las bases de datos sin esquemas en las que los datos no cumplen un esquema estricto y evolucionan rápidamente. 
 
@@ -182,8 +182,8 @@ Por lo tanto, al diseñar el subsistema de indexación de Cosmos DB, establecemo
 * Indexar documentos sin necesidad de esquema: el subsistema de indexación no requiere información de esquema alguna ni la realización de ninguna suposición sobre el esquema de los documentos. 
 * Compatibilidad con consultas eficaces, enriquecidas jerárquicas y relacionales: el índice admite el lenguaje de consulta de Cosmos DB de manera eficaz, incluida la compatibilidad con proyecciones jerárquicas y relacionales.
 * Compatibilidad con consultas coherentes frente a un volumen de escrituras sostenido: en el caso de las cargas de trabajo de alto rendimiento de escritura con consultas coherentes, el índice se actualiza paulatinamente, de forma eficaz y en línea frente a un volumen de escrituras sostenido. La actualización del índice coherente es crucial para atender las consultas en el nivel de coherencia en el que el usuario configura el servicio de documentos.
-* Compatibilidad con la arquitectura multiempresa: una vez proporcionado el modelo basado en la reserva para la gobernanza de recursos de los inquilinos, se realizan actualizaciones de los índices sin sobrepasar el presupuesto de los recursos del sistema (CPU, memoria, IOPS) asignadas por réplica. 
-* Eficacia de almacenamiento: para obtener rentabilidad, se enlaza la sobrecarga de almacenamiento en el disco del índice y es predecible. Esto es fundamental porque Cosmos DB permite que el desarrollador haga concesiones basadas en el coste entre la sobrecarga de índices y el rendimiento de las consultas.  
+* Compatibilidad con servicios multiinquilino: dado el modelo basado en la reserva para la regulación de recursos entre los inquilinos, se realizan actualizaciones de los índices sin sobrepasar el presupuesto de los recursos del sistema (CPU, memoria y operaciones de entrada y salida por segundo) asignadas por réplica. 
+* Eficacia de almacenamiento: para obtener rentabilidad, se enlaza la sobrecarga de almacenamiento en el disco del índice y es predecible. Esto es fundamental porque Cosmos DB permite que el desarrollador haga concesiones basadas en el costo entre la sobrecarga de índices y el rendimiento de las consultas.  
 
 Consulte los [ejemplos de Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net) en MSDN para ver casos en los que se muestra cómo configurar la directiva de indexación para una colección. Adentrémonos ahora en los detalles de la sintaxis de SQL de Azure Cosmos DB.
 
@@ -202,11 +202,11 @@ La cláusula `FROM <from_specification>` es opcional, a menos que el origen se f
 Una consulta como `SELECT * FROM Families` indica que toda la colección Families es el origen sobre el que se va a realizar la enumeración. Se puede usar una RAÍZ de identificador especial para representar la colección en lugar de usar el nombre de la colección. La lista siguiente contiene las reglas que se aplican por consulta:
 
 * Puede establecerse para la colección un alias como `SELECT f.id FROM Families AS f`, o simplemente `SELECT f.id FROM Families f`. Aquí, `f` es el equivalente de `Families`. `AS` es una palabra clave opcional para establecer un alias para el identificador.
-* Tenga en cuenta que, una vez establecido un alias, no podrá enlazarse el origen original. Por ejemplo, `SELECT Families.id FROM Families f` no es válido sintácticamente porque el identificador "Families" no puede resolverse.
+* Una vez establecido un alias, el origen original no puede enlazarse. Por ejemplo, `SELECT Families.id FROM Families f` no es válido sintácticamente porque el identificador "Families" no puede resolverse.
 * Todas las propiedades a las que es necesario hacer referencia deben estar completas. A falta de un cumplimiento del esquema estricto, esto se impone para evitar cualquier enlace ambiguo. Por lo tanto, `SELECT id FROM Families f` no es válido sintácticamente porque la propiedad `id` no está enlazada.
 
-### <a name="sub-documents"></a>Subdocumentos
-El origen también se puede reducir a un subconjunto más pequeño. Por ejemplo, para enumerar únicamente un subárbol en cada documento, la subraíz podría convertirse en el origen, como se muestra en el ejemplo siguiente.
+### <a name="subdocuments"></a>Subdocumentos
+El origen también se puede reducir a un subconjunto más pequeño. Por ejemplo, para enumerar únicamente un subárbol en cada documento, la subraíz podría convertirse en el origen, como se muestra en el ejemplo siguiente:
 
 **Consultar**
 
@@ -244,7 +244,7 @@ El origen también se puede reducir a un subconjunto más pequeño. Por ejemplo,
       ]
     ]
 
-Aunque en el ejemplo anterior se usó una matriz como origen, también podría usarse un objeto como origen como se muestra en el ejemplo siguiente. Cualquier valor JSON válido (que no sea Undefined) que se pueda encontrar en el origen se tendrá en cuenta para su inclusión en el resultado de la consulta. Si algunas familias no tienen un valor `address.state` , se excluirán del resultado de la consulta.
+Aunque en el ejemplo anterior se usa una matriz como origen, también se podría usar un objeto como origen, que es lo que se muestra en el ejemplo siguiente: cualquier valor JSON válido (no sin definir) que se pueda encontrar en el origen se considera para su inclusión en el resultado de la consulta. Si algunas familias no tienen un valor `address.state` , se excluyen del resultado de la consulta.
 
 **Consultar**
 
@@ -583,7 +583,7 @@ También puede anidar las llamadas al operador como en la consulta siguiente.
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
-Como ocurre con otros operadores de consulta, si las propiedades a las que se hace referencia en la expresión condicional faltan en cualquier documento, o si los tipos que se comparan son diferentes, esos documentos se excluirán de los resultados de la consulta.
+Como ocurre con otros operadores de consulta, si las propiedades a las que se hace referencia en la expresión condicional faltan en cualquier documento, o si los tipos que se comparan son diferentes, esos documentos se excluyen de los resultados de la consulta.
 
 El operador de fusión (??) se puede usar para comprobar eficazmente la presencia de una propiedad (es decir, si esta se ha definido) en un documento. Esto es útil cuando se consultan datos semiestructurados o de tipos combinados. Por ejemplo, esta consulta devuelve el valor "lastName" si está presente o "surname" si no lo está.
 
@@ -599,7 +599,7 @@ También es posible obtener acceso a las propiedades mediante el operador de la 
 
 
 ## <a id="SelectClause"></a>Cláusula SELECT
-La cláusula SELECT (**`SELECT <select_list>`**) es obligatoria y especifica los valores que se recuperarán de la consulta, de la misma forma que en ANSI-SQL. El subconjunto que se ha filtrado en la parte superior de los documentos de origen pasa a la fase de proyección, en la cual se recuperan los valores JSON especificados y se construye un nuevo objeto JSON para cada una de las entradas que pasan a él. 
+La cláusula SELECT (**`SELECT <select_list>`**) es obligatoria y especifica los valores que se recuperan de la consulta, de la misma forma que en ANSI-SQL. El subconjunto que se ha filtrado en la parte superior de los documentos de origen pasa a la fase de proyección, en la cual se recuperan los valores JSON especificados y se construye un nuevo objeto JSON para cada una de las entradas que pasan a él. 
 
 En el ejemplo siguiente se muestra una consulta SELECT típica: 
 
@@ -637,7 +637,7 @@ En el ejemplo siguiente, se proyectan dos propiedades anidadas, `f.address.state
     }]
 
 
-La proyección también admite experiencias JSON, como se muestra en el siguiente ejemplo.
+La proyección también admite expresiones de JSON, como se muestra en el siguiente ejemplo:
 
 **Consultar**
 
@@ -679,7 +679,7 @@ Analicemos el rol que `$1` tiene aquí. La cláusula `SELECT` debe crear un obje
 
 
 ### <a name="aliasing"></a>Establecimiento de alias
-Ampliemos ahora el ejemplo anterior con un establecimiento de alias explícito para valores. AS es la palabra clave usada para el establecimiento de alias. Tenga en cuenta que es opcional, como se muestra al proyectarse el segundo valor como `NameInfo`. 
+Ampliemos ahora el ejemplo anterior con un establecimiento de alias explícito para valores. AS es la palabra clave usada para el establecimiento de alias. Es opcional, como se muestra al proyectarse el segundo valor como `NameInfo`. 
 
 En caso de que una consulta tenga dos propiedades con el mismo nombre, el establecimiento de alias debe usarse para cambiar el nombre de las propiedades de modo que se elimine su ambigüedad en el resultado proyectado.
 
@@ -751,7 +751,7 @@ En el ejemplo siguiente, el resultado de la expresión escalar es un valor boole
 
 
 ### <a name="object-and-array-creation"></a>Creación de objetos y matrices
-Otra característica clave del lenguaje SQL de la API de DocumentDB es la creación de matrices u objetos. En el ejemplo anterior, observe que creamos un nuevo objeto JSON. De manera similar, uno también puede construir matrices como se muestra en los siguientes ejemplos.
+Otra característica clave del lenguaje SQL de la API de DocumentDB es la creación de matrices u objetos. En el ejemplo anterior, observe que creamos un nuevo objeto JSON. De manera similar, también se pueden construir matrices como se muestra en los siguientes ejemplos:
 
 **Consultar**
 
@@ -922,7 +922,7 @@ También puede realizar agregados en combinación con filtros. Por ejemplo, la c
 
     [ 1 ]
 
-En las tablas siguientes se muestra la lista de funciones de agregado compatibles de la API de DocumentDB. `SUM`y `AVG` se aplican a valores numéricos, mientras que `COUNT`, `MIN` y `MAX` se pueden aplicar a números, cadenas, y valores booleanos y NULL. 
+En la tabla siguiente se muestra la lista de funciones de agregado compatibles de la API de DocumentDB. `SUM`y `AVG` se aplican a valores numéricos, mientras que `COUNT`, `MIN` y `MAX` se pueden aplicar a números, cadenas, y valores booleanos y NULL. 
 
 | Uso | Descripción |
 |-------|-------------|
@@ -932,10 +932,10 @@ En las tablas siguientes se muestra la lista de funciones de agregado compatible
 | MÁX   | Devuelve el valor máximo de la expresión. |
 | MEDIA   | Devuelve la media de los valores de la expresión. |
 
-Las funciones de agregado también se pueden aplicar a los resultados de una iteración de la matriz. Para más información, consulte [Iteración de matriz en consultas](#Iteration).
+Las funciones de agregado también se pueden aplicar a los resultados de una iteración de la matriz. Para más información, vea [Iteración de matriz en consultas](#Iteration).
 
 > [!NOTE]
-> Al utilizar el Explorador de consultas de Azure Portal, tenga en cuenta que las consultas de agregación pueden devolver resultados agregados parcialmente a través de una página de consulta. Los SDK generarán un único valor acumulado en todas las páginas. 
+> Al usar el Explorador de consultas de Azure Portal, tenga en cuenta que las consultas de agregación pueden devolver resultados agregados parcialmente a través de una página de consulta. Los SDK generan un único valor acumulado en todas las páginas. 
 > 
 > Para realizar consultas de agregación mediante código, necesita .NET SDK 1.12.0, .NET Core SDK 1.1.0 o Java SDK 1.9.5 o superior.    
 >
@@ -1052,7 +1052,7 @@ Analicemos ahora otra consulta que realice una iteración sobre elementos secund
       }
     ]
 
-Esto puede usarse más veces para filtrar por cada entrada individual de la matriz como se muestra en el ejemplo siguiente.
+Esto puede usarse más veces para filtrar por cada entrada individual de la matriz como se muestra en el ejemplo siguiente:
 
 **Consultar**
 
@@ -1082,7 +1082,7 @@ También puede aplicar agregaciones al resultado de la iteración de la matriz. 
     ]
 
 ### <a id="Joins"></a>Combinaciones
-En una base de datos relacional, la necesidad de combinar en tablas es muy importante. Es la consecuencia lógica de diseñar esquemas normalizados. Al contrario que esto, la API de DocumentDB aborda el modelo de datos desnormalizado de documentos sin esquemas. Este es el equivalente lógico de una "autocombinación".
+En una base de datos relacional, la necesidad de combinar en tablas es importante. Es la consecuencia lógica de diseñar esquemas normalizados. Al contrario que esto, la API de DocumentDB aborda el modelo de datos desnormalizado de documentos sin esquemas. Este es el equivalente lógico de una "autocombinación".
 
 La sintaxis que admite el lenguaje es <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. Generalmente, esto devuelve un conjunto de **N** tuplas (tupla con **N** valores). Cada tupla tiene valores generados por sus respectivos conjuntos en iteración de todos los alias de colección. En otras palabras, se trata de un producto cruzado completo de los conjuntos que participan en la combinación.
 
@@ -1100,7 +1100,7 @@ En los ejemplos siguientes se muestra cómo funciona la cláusula JOIN. En el si
     }]
 
 
-En el ejemplo siguiente, la combinación se realiza entre la raíz del documento y la subraíz de `children` . Es un producto cruzado entre dos objetos JSON. El hecho de que los elementos secundarios sean una matriz no funciona en JOIN porque abordamos una sola raíz que es la matriz secundaria. Así pues, en el resultado se incluyen únicamente dos resultados, pues el producto cruzado de cada documento con la matriz produce exactamente solo un documento.
+En el ejemplo siguiente, la combinación se realiza entre la raíz del documento y la subraíz de `children`. Es un producto cruzado entre dos objetos JSON. El hecho de que los elementos secundarios sean una matriz no funciona en JOIN porque abordamos una sola raíz que es la matriz secundaria. Así pues, en el resultado se incluyen únicamente dos resultados, pues el producto cruzado de cada documento con la matriz produce exactamente solo un documento.
 
 **Consultar**
 
@@ -1150,9 +1150,9 @@ Lo primero que hay que tener en cuenta es que `from_source` de la cláusula **JO
 * Aplique un producto cruzado con la raíz del documento **f** con cada elemento secundario **c** del que se quitó el formato en el primer paso.
 * Por último, proyecte solo la propiedad de nombre **f** del objeto raíz. 
 
-El primer documento (`AndersenFamily`) contiene únicamente un elemento secundario, por lo que el conjunto de resultados contiene solo un objeto correspondiente a este documento. El segundo documento (`WakefieldFamily`) contiene dos elementos secundarios. De este modo, el producto cruzado produce un objeto independiente para cada elemento secundario, lo que da lugar a dos objetos, uno para cada elemento secundario correspondiente a este documento. Tenga en cuenta que los campos raíces de estos dos documentos serán los mismos, justo como esperaría en un producto cruzado.
+El primer documento (`AndersenFamily`) contiene únicamente un elemento secundario, por lo que el conjunto de resultados contiene solo un objeto correspondiente a este documento. El segundo documento (`WakefieldFamily`) contiene dos elementos secundarios. De este modo, el producto cruzado produce un objeto independiente para cada elemento secundario, lo que da lugar a dos objetos, uno para cada elemento secundario correspondiente a este documento. Los campos de raíz de estos dos documentos son los mismos, justo como se esperaría en un producto cruzado.
 
-La utilidad real de JOIN es la formación de tuplas a partir del producto cruzado con una forma que de otro modo es difícil de proyectar. Además, como veremos en el siguiente ejemplo, podría filtrarse por la combinación de una tupla que permite que el usuario elija una condición satisfecha por las tuplas en general.
+La utilidad real de JOIN es la formación de tuplas a partir del producto cruzado con una forma que de otro modo es difícil de proyectar. Además, como se ve en el siguiente ejemplo, podría filtrarse por la combinación de una tupla que permite que el usuario elija una condición satisfecha por las tuplas en general.
 
 **Consultar**
 
@@ -1187,7 +1187,7 @@ La utilidad real de JOIN es la formación de tuplas a partir del producto cruzad
 
 
 
-Este ejemplo es una ampliación natural del anterior y realiza una combinación doble. De este modo, el producto cruzado se puede ver como el pseudocódigo siguiente.
+Este ejemplo es una ampliación natural del anterior y realiza una combinación doble. De este modo, el producto cruzado se puede ver como el pseudocódigo siguiente:
 
     for-each(Family f in Families)
     {    
@@ -1203,7 +1203,7 @@ Este ejemplo es una ampliación natural del anterior y realiza una combinación 
         }
     }
 
-`AndersenFamily` tiene un hijo que tiene una mascota. De esta manera, el producto cruzado produce una fila (1\*1\*1) a partir de esta familia. La familia Wakefield tiene, sin embargo, dos hijos, pero solo uno, "Jesse", tiene mascotas. Tiene dos mascotas, sin embargo. Así pues, el producto cruzado produce 1\*1\*2 = 2 filas a partir de esta familia.
+`AndersenFamily` tiene un hijo que tiene una mascota. De esta manera, el producto cruzado produce una fila (1\*1\*1) a partir de esta familia. La familia Wakefield tiene, sin embargo, dos hijos, pero solo uno, "Jesse", tiene mascotas. Pero Jesse tiene dos mascotas. Así pues, el producto cruzado produce 1\*1\*2 = 2 filas a partir de esta familia.
 
 En el ejemplo siguiente, hay un filtro adicional en `pet` Este excluye todas las tuplas donde el nombre de mascota no sea "Shadow". Tenga en cuenta que podemos crear tuplas a partir de matrices, filtrar por cualquiera de los elementos de la tupla y proyectar cualquier combinación de los elementos. 
 
@@ -1233,13 +1233,13 @@ En el ejemplo siguiente, hay un filtro adicional en `pet` Este excluye todas las
 ## <a id="JavaScriptIntegration"></a>Integración de JavaScript
 Azure Cosmos DB proporciona un modelo de programación para ejecutar una lógica de aplicación basada en JavaScript directamente en las recopilaciones en términos de procedimientos y desencadenadores almacenados. Esto les proporciona:
 
-* La posibilidad de realizar operaciones CRUD transaccionales de alto rendimiento y consultas en los documentos de una recopilación en virtud de una mayor integración del tiempo de ejecución de JavaScript directamente en el motor de base de datos. 
-* Un modelo natural de flujo de control, ámbito variable, asignación e integración de primitivas de control de excepciones con transacciones de base de datos. Para más detalles sobre la compatibilidad de Azure Cosmos DB con la integración de JavaScript, consulte la documentación de programación del servidor de JavaScript.
+* La posibilidad de realizar operaciones CRUD transaccionales de alto rendimiento y consultas en los documentos de una colección en virtud de una mayor integración del tiempo de ejecución de JavaScript directamente en el motor de base de datos. 
+* Un modelo natural de flujo de control, ámbito variable, asignación e integración de primitivas de control de excepciones con transacciones de base de datos. Para obtener más detalles sobre la compatibilidad de Azure Cosmos DB con la integración de JavaScript, consulte la documentación de programación del servidor de JavaScript.
 
 ### <a id="UserDefinedFunctions"></a>Funciones definidas por el usuario (UDF)
-Junto con los tipos ya definidos en este artículo, el lenguaje SQL de la API de DocumentDB ofrece compatibilidad para las funciones definidas por el usuario (UDF). En particular, se admiten las UDF escalares allí donde los desarrolladores puedan proporcionar cero o muchos argumentos y devolver un solo resultado de argumento. Cada uno de estos argumentos se comprueba para ver si se trata de valores JSON legales.  
+Junto con los tipos ya definidos en este artículo, el lenguaje SQL de la API de DocumentDB ofrece compatibilidad para las funciones definidas por el usuario (UDF). En particular, se admiten las UDF escalares allí donde los desarrolladores puedan proporcionar cero o muchos argumentos y devolver un solo resultado de argumento. Cada uno de estos argumentos se comprueba para ver si se trata de valores JSON válidos.  
 
-La sintaxis del lenguaje SQL de la API DocumentDB se amplía para admitir una lógica de aplicación personalizada con estas funciones definidas por el usuario. Las funciones definidas por el usuario pueden registrarse con la API de DocumentDB y, a continuación, se puede hacer referencia a ellas como parte de una consulta de SQL. De hecho, las UDF están exquisitamente diseñadas para su invocación por parte de las consultas. Como resultado de esta opción, las UDF no tienen acceso al objeto de contexto que los otros tipos de JavaScript (procedimientos y desencadenadores almacenados) tienen. Puesto que las consultas se ejecutan como de solo lectura, pueden ejecutarse en réplicas principales o secundarias. Por consiguiente, las UDF están diseñadas para ejecutarse en réplicas secundarias, a diferencia de otros tipos de JavaScript.
+La sintaxis SQL de la API de DocumentDB se amplía para admitir lógica de aplicación personalizada mediante estas funciones definidas por el usuario. Las funciones definidas por el usuario pueden registrarse con la API de DocumentDB y, a continuación, se puede hacer referencia a ellas como parte de una consulta de SQL. De hecho, las UDF están exquisitamente diseñadas para su invocación por parte de las consultas. Como resultado de esta opción, las UDF no tienen acceso al objeto de contexto que los otros tipos de JavaScript (procedimientos y desencadenadores almacenados) tienen. Puesto que las consultas se ejecutan como de solo lectura, pueden ejecutarse en réplicas principales o secundarias. Por consiguiente, las UDF están diseñadas para ejecutarse en réplicas secundarias, a diferencia de otros tipos de JavaScript.
 
 A continuación, vemos un ejemplo de cómo puede registrarse una UDF en la base de datos de Cosmos DB, concretamente en una recopilación de documentos.
 
@@ -1280,7 +1280,7 @@ Ahora podemos usar esta UDF en una consulta de una proyección. Las UDF deben es
       }
     ]
 
-La UDF también puede usarse en un filtro tal como se muestra en el ejemplo siguiente, calificado igualmente con el prefijo "udf." prefix :
+La UDF también puede usarse en un filtro tal como se muestra en el ejemplo siguiente, calificado igualmente con el prefijo "udf." prefijo:
 
 **Consultar**
 
@@ -1351,9 +1351,9 @@ En resumen, las UDF son excelentes herramientas para hacer lógica de negocios c
 ### <a name="operator-evaluation"></a>Evaluación de operadores
 Cosmos DB, en virtud de ser una base de datos JSON, establece paralelismos con los operadores de JavaScript y su semántica de evaluación. Aunque Cosmos DB intenta conservar la semántica de JavaScript en términos de soporte para JSON, la evaluación de operaciones se desvía en algunas instancias.
 
-En SQL de la API de DocumentDB, a diferencia del lenguaje SQL tradicional, los tipos de valores no suelen conocerse hasta que los valores se recuperan realmente de la base de datos. Para ejecutar consultas de forma eficaz, la mayoría de los operadores tienen requisitos de tipo estrictos. 
+En SQL de la API de DocumentDB, a diferencia del lenguaje SQL tradicional, los tipos de valores no suelen conocerse hasta que los valores se recuperan de la base de datos. Para ejecutar consultas de forma eficaz, la mayoría de los operadores tienen requisitos de tipo estrictos. 
 
-SQL de la API de DocumentDB no realiza conversiones implícitas a diferencia de JavaScript. Por ejemplo, una consulta como `SELECT * FROM Person p WHERE p.Age = 21` encuentra documentos que contienen una propiedad Age cuyo valor es 21. Cualquier otro documento cuya propiedad Age coincida con la cadena "21", u otras variaciones posiblemente infinitas, como "021", "21,0", "0021", "00021", etc. no producirán coincidencias. Esto es en contraste al JavaScript donde los valores de cadena se convierten de manera implícita en números (en función del operador, por ejemplo, ==). Esta opción es fundamental para conseguir una coincidencia de índices eficaz en SQL de la API de DocumentDB. 
+SQL de la API de DocumentDB no realiza conversiones implícitas a diferencia de JavaScript. Por ejemplo, una consulta como `SELECT * FROM Person p WHERE p.Age = 21` coincide con documentos que contienen una propiedad Age cuyo valor es 21. Cualquier otro documento cuya propiedad Age coincida con la cadena "21", u otras variaciones posiblemente infinitas, como "021", "21,0", "0021", "00021", etc. no producirán coincidencias. Esto es en contraste al JavaScript donde los valores de cadena se convierten de manera implícita en números (en función del operador, por ejemplo, ==). Esta opción es fundamental para conseguir una coincidencia de índices eficaz en SQL de la API de DocumentDB. 
 
 ## <a name="parameterized-sql-queries"></a>Consultas SQL con parámetros
 Cosmos DB admite las consultas con parámetros que se expresen con la notación @ ya conocida. El uso de SQL con parámetros permite controlar y evitar de forma sólida la entrada por parte de los usuarios, impidiendo así la exposición accidental de datos a través de la inyección de código SQL. 
@@ -1396,10 +1396,10 @@ Cosmos DB también admite un número de funciones integradas para operaciones co
 | Funciones de matriz         | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH y ARRAY_SLICE                                                                                         |
 | Funciones espaciales       | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID y ST_ISVALIDDETAILED                                                                           | 
 
-Si actualmente utiliza una función definida por el usuario (UDF) para la que ahora hay disponible una función integrada, debe usar la función integrada correspondiente ya que se va a ejecutar más rápidamente y va a ser más eficaz. 
+Si actualmente usa una función definida por el usuario (UDF) para la que ahora hay disponible una función integrada, debe usar la función integrada correspondiente ya que se va a ejecutar más rápidamente y va a ser más eficaz. 
 
 ### <a name="mathematical-functions"></a>Funciones matemáticas
-Las funciones matemáticas realizan un cálculo, basado normalmente en valores de entrada proporcionados como argumentos, y devuelven un valor numérico. Esta es una tabla de las funciones matemáticas integradas admitidas.
+Las funciones matemáticas realizan un cálculo, basado en valores de entrada proporcionados como argumentos, y devuelven un valor numérico. Esta es una tabla de las funciones matemáticas integradas admitidas.
 
 
 | Uso | Descripción |
@@ -1570,7 +1570,7 @@ Las siguientes funciones escalares realizan una operación en un valor de entrad
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Devuelve el número de elementos de la expresión de matriz especificada. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Devuelve una matriz que es el resultado de concatenar dos o más valores de la matriz. |
-| [ARRAY_CONTAINS (arr_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Devuelve un valor booleano que indica si la matriz contiene el valor especificado. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Devuelve un valor booleano que indica si la matriz contiene el valor especificado. Puede especificar si la coincidencia es completa o parcial. |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Devuelve parte de una expresión de matriz. |
 
 Las funciones de matriz pueden usarse para manipular matrices en JSON. Por ejemplo, a continuación se facilita una consulta que devuelve todos los documentos en los que uno de los elementos primarios es "Robin Wakefield". 
@@ -1586,6 +1586,21 @@ Las funciones de matriz pueden usarse para manipular matrices en JSON. Por ejemp
     [{
       "id": "WakefieldFamily"
     }]
+
+Puede especificar un fragmento parcial para los elementos que coinciden en la matriz. La siguiente consulta busca todos los elementos primarios con el `givenName` de `Robin`.
+
+**Consultar**
+
+    SELECT Families.id 
+    FROM Families 
+    WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
+
+**Resultados**
+
+    [{
+      "id": "WakefieldFamily"
+    }]
+
 
 Este es otro ejemplo que usa ARRAY_LENGTH para obtener el número de hijos por familia.
 
@@ -1652,14 +1667,14 @@ Las funciones espaciales pueden usarse para realizar consultas de proximidad con
 Para más información sobre la compatibilidad geoespacial en Cosmos DB, consulte [Uso de datos geoespaciales en Azure Cosmos DB](geospatial.md), que contiene funciones espaciales y sintaxis de SQL para Cosmos DB. Ahora veamos cómo funciona la consulta LINQ y cómo interactúa con la sintaxis que hemos visto hasta ahora.
 
 ## <a id="Linq"></a>LINQ para SQL de la API de DocumentDB
-LINQ es un modelo de programación de .NET que expresa cálculos como consultas de secuencias de objetos. Cosmos DB proporciona una biblioteca del cliente para interactuar con LINQ facilitando una conversión entre objetos JSON y .NET y una asignación a partir de un subconjunto de consultas de LINQ a consultas de Cosmos DB. 
+LINQ es un modelo de programación de .NET que expresa cálculos como consultas de secuencias de objetos. Cosmos DB proporciona una biblioteca del cliente para interactuar con LINQ facilitando una conversión entre objetos JSON y .NET, y una asignación a partir de un subconjunto de consultas de LINQ a consultas de Cosmos DB. 
 
 En la imagen que se muestra a continuación vemos la arquitectura de consultas compatibles con LINQ que usa Cosmos DB.  Con el cliente de Cosmos DB, los desarrolladores pueden crear un objeto **IQueryable** que consulta directamente al proveedor de consultas de Cosmos DB que, a continuación, convierte la consulta de LINQ en una consulta de Cosmos DB. La consulta pasa entonces al servidor de Cosmos DB para recuperar un conjunto de resultados en formato JSON. Los resultados devueltos se deserializan en una secuencia de objetos .NET en el cliente.
 
-![Arquitectura de consultas compatibles con LINQ que usa la API de DocumentDB - sintaxis SQL, lenguaje de consulta JSON, conceptos de base de datos y consultas SQL][1]
+![Arquitectura de consultas compatibles con LINQ que usa la API de DocumentDB: sintaxis SQL, lenguaje de consulta JSON, conceptos de base de datos y consultas SQL][1]
 
 ### <a name="net-and-json-mapping"></a>Asignación de .NET y JSON
-La asignación entre objetos .NET y documentos JSON es natural (cada campo del miembro de datos se asigna a un objeto JSON, donde el nombre del campo se asigna a la parte "clave" del objeto y la parte de "valor" se asigna de forma recursiva a la parte de valor del objeto. Considere el ejemplo siguiente. El objeto Familia creado se asigna al documento JSON como se muestra a continuación. Y viceversa, el documento JSON se reasigna de nuevo a un objeto .NET.
+La asignación entre objetos .NET y documentos JSON es natural (cada campo del miembro de datos se asigna a un objeto JSON, donde el nombre del campo se asigna a la parte "clave" del objeto y la parte de "valor" se asigna de forma recursiva a la parte de valor del objeto. Considere el ejemplo siguiente: el objeto Family creado se asigna al documento JSON como se muestra a continuación. Y viceversa, el documento JSON se reasigna de nuevo a un objeto .NET.
 
 **Clase de C#**
 
@@ -1745,7 +1760,7 @@ El proveedor de consulta de Cosmos DB realiza una mejor opción de asignación d
 
 En primer lugar, para el sistema de tipos, admitimos todos los tipos primitivos JSON (tipos numéricos, booleanos, de cadena y null). Solo se admiten estos tipos JSON. Se admiten las siguientes expresiones escalares.
 
-* Valores constantes: entre estos se incluyen los valores constantes de los tipos de datos primitivos durante la evaluación de la consulta.
+* Valores constantes: Entre estos se incluyen los valores constantes de los tipos de datos primitivos durante la evaluación de la consulta.
 * Expresiones de índice de propiedad o matriz: estas expresiones hacen referencia a la propiedad de un objeto o a un elemento de matriz.
   
      family.Id;    family.children[0].familyName;    family.children[0].grade;    family.children[n].grade; //n es una variable int
@@ -1757,7 +1772,7 @@ En primer lugar, para el sistema de tipos, admitimos todos los tipos primitivos 
      mother.familyName == "Smith";    child.givenName == s; //s es una variable de cadena
 * Expresión de creación de objetos o matrices: estas expresiones devuelven un objeto de tipo de valor compuesto o tipo anónimo o una matriz de estos objetos. Estos valores se pueden anidar.
   
-     new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //un tipo anónimo con 2 campos              
+     new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //un tipo anónimo con dos campos              
      new int[] { 3, child.grade, 5 };
 
 ### <a id="SupportedLinqOperators"></a>Lista de los operadores LINQ admitidos
@@ -1774,7 +1789,7 @@ La siguiente es una lista de los operadores LINQ admitidos en el proveedor LINQ 
 * **Funciones de cadena**: Admite la traducción desde Concat .NET, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper a las funciones SQL integradas equivalentes.
 * **Funciones de matriz**: Admite la traducción desde Concat .NET, Contains y Count a las funciones SQL integradas equivalentes.
 * **Funciones de extensión geoespacial**: Admite la traducción desde los métodos auxiliares Distance, Within, IsValid y IsValidDetailed a las funciones SQL integradas equivalentes.
-* **Función de extensión de función definida por el usuario**: Admite la traducción desde el método auxiliar UserDefinedFunctionProvider.Invoke a la correspondiente función definida por el usuario.
+* **Función de extensión de función definida por el usuario**: Admite la traducción desde el método de código auxiliar UserDefinedFunctionProvider.Invoke a la correspondiente función definida por el usuario.
 * **Varios**: Admite la traducción de los operadores condicionales y de fusión. Puede traducir Contains a String CONTAINS, ARRAY_CONTAINS o SQL IN, según el contexto.
 
 ### <a name="sql-query-operators"></a>Operadores de consulta SQL
@@ -1974,9 +1989,9 @@ Cosmos DB expone recursos mediante la API de REST, que puede invocar cualquier l
 En los ejemplos siguientes se muestra cómo crear una consulta y enviarla a una cuenta de la base de datos de Cosmos DB.
 
 ### <a id="RestAPI"></a>API DE REST
-Cosmos DB ofrece un modelo de programación RESTful sobre HTTP. Las cuentas de la base de datos pueden aprovisionarse usando una suscripción de Azure. El modelo de recursos de Cosmos DB consta de un conjunto de recursos en una cuenta de la base de datos, cada uno de los cuales se puede dirigir mediante un URI lógico y estable. En este documento, se hace referencia a un conjunto de recursos como fuente. Una cuenta de la base de datos consta de un conjunto de bases de datos, cada una incluyendo varias recopilaciones que, a su vez, contienen documentos, UDF y otros tipos de recursos.
+Cosmos DB ofrece un modelo de programación RESTful sobre HTTP. Las cuentas de la base de datos pueden aprovisionarse usando una suscripción de Azure. El modelo de recursos de Cosmos DB consta de un conjunto de recursos en una cuenta de base de datos, cada uno de los cuales se puede dirigir mediante un URI lógico y estable. En este documento, se hace referencia a un conjunto de recursos como fuente. Una cuenta de la base de datos consta de un conjunto de bases de datos, cada una incluyendo varias recopilaciones que, a su vez, contienen documentos, UDF y otros tipos de recursos.
 
-El modelo de interacción básico con estos recursos se lleva a cabo a través de los verbos de HTTP GET, PUT, POST y DELETE con su interpretación estándar. El verbo POST se usa para la creación de un nuevo recurso, para ejecutar un procedimiento almacenado o para emitir una consulta de Cosmos DB. Las consultas siempre son operaciones de solo lectura sin efectos secundarios.
+El modelo de interacción básico con estos recursos se lleva a cabo a través de los verbos GET, PUT, POST y DELETE de HTTP con su interpretación estándar. El verbo POST se usa para la creación de un nuevo recurso, para ejecutar un procedimiento almacenado o para emitir una consulta de Cosmos DB. Las consultas siempre son operaciones de solo lectura sin efectos secundarios.
 
 En los ejemplos siguientes se muestra una operación POST para una consulta de la API de DocumentDB realizada en una colección que incluye los dos documentos de ejemplo que hemos revisado hasta el momento. La consulta tiene un filtro sencillo por la propiedad de nombre JSON. Fíjese en el uso de los encabezados `x-ms-documentdb-isquery` y Content-Type: `application/query+json` para denotar que la operación es una consulta.
 
@@ -2100,11 +2115,13 @@ En el segundo ejemplo se muestra una consulta más compleja que devuelve varios 
     }
 
 
-Si los resultados de una consulta no caben en una sola página, la API de REST devuelve un token de continuación a través del encabezado de respuesta `x-ms-continuation-token` . Los clientes pueden paginar los resultados incluyendo el encabezado en resultados posteriores. El número de resultados por página también se puede controlar a través del encabezado numérico `x-ms-max-item-count` . Si la consulta especificada tiene una función de agregación como `COUNT`, la página de consulta puede devolver un valor parcialmente agregado sobre la página de resultados. Los clientes deben realizar una agregación de segundo nivel con estos resultados para generar los resultados finales, por ejemplo, sumar los números devueltos en las páginas individuales para devolver el número total.
+Si los resultados de una consulta no caben en una sola página, la API de REST devuelve un token de continuación a través del encabezado de respuesta `x-ms-continuation-token` . Los clientes pueden paginar los resultados incluyendo el encabezado en resultados posteriores. El número de resultados por página también se puede controlar a través del encabezado numérico `x-ms-max-item-count` . Si la consulta especificada tiene una función de agregación como `COUNT`, la página de consulta puede devolver un valor parcialmente agregado sobre la página de resultados. Los clientes deben realizar una agregación de segundo nivel con estos resultados para generar los resultados finales, por ejemplo, sumar los recuentos devueltos en las páginas individuales para devolver el recuento total.
 
-Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` en la solicitud de la consulta. Tenga en cuenta que la directiva de índices de la recopilación consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de índices predeterminada, el índice siempre es actual con el contenido del documento y los resultados de la consulta coincidirán con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados obsoletos. Para más información, consulte [Niveles de coherencia de Azure Cosmos DB][consistency-levels].
+Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` en la solicitud de la consulta. La directiva de indexación de la colección consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de indexación predeterminada, el índice siempre está actualizado con el contenido del documento y los resultados de la consulta coinciden con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados obsoletos. Para más información, vea [Niveles de coherencia en Azure Cosmos DB][consistency-levels].
 
 Si la directiva de índices configurada de la recopilación no puede admitir la consulta especificada, el servidor de Azure Cosmos DB devuelve el error 400 de "solicitud incorrecta". Esto se devuelve para las consultas por rango en rutas de acceso configuradas para búsquedas hash (igualdad) y rutas de acceso excluidas de forma explícita de los índices. Se puede especificar el encabezado `x-ms-documentdb-query-enable-scan` para permitir que la consulta realice un examen si algún índice no está disponible.
+
+Puede obtener métricas detalladas sobre la ejecución de consultas si establece el encabezado `x-ms-documentdb-populatequerymetrics` en `True`. Para más información, vea, [Métricas de consulta de SQL para la API de DocumentDB de Azure Cosmos DB](documentdb-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>SDK de C# (.NET)
 El SDK de .NET admite la realización de consultas de LINQ y SQL. En el ejemplo siguiente se muestra cómo realizar la consulta de filtro simple incluida anteriormente en este documento.
@@ -2197,10 +2214,6 @@ Puede controlar expresamente la paginación creando `IDocumentQueryable` mediant
 
 Consulte los [ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net) para obtener más casos que contengan consultas. 
 
-> [!NOTE]
-> Para realizar consultas de agregación, necesitará el SDK 1.12.0 o superior. No se admite la compatibilidad de LINQ para las funciones de agregación, pero estará disponible en .NET SDK 1.13.0.
->
-
 ### <a id="JavaScriptServerSideApi"></a>API del servidor de JavaScript
 Cosmos DB proporciona un modelo de programación para ejecutar una lógica de aplicación basada en JavaScript directamente en las recopilaciones usando procedimientos y desencadenadores almacenados. La lógica de JavaScript registrada en un nivel de recopilación puede emitir operaciones de base de datos en las operaciones de los documentos de la recopilación especificada. Estas operaciones se incluyen en transacciones ACID ambientales.
 
@@ -2254,4 +2267,3 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
-

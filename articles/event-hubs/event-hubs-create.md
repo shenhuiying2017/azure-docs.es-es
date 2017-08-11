@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 08/01/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 2ef14fccda5c38ebdbf9d64b4766b45503755af0
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -34,15 +33,25 @@ ms.lasthandoff: 05/04/2017
    
     ![](./media/event-hubs-create/create-event-hub1.png)
 1. Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el plan de tarifa (Básico o Estándar). Elija también una suscripción de Azure, un grupo de recursos y la ubicación en la que se va a crear el recurso. 
-1. Haga clic en **Crear** para crear el espacio de nombres.
-1. En la lista de espacios de nombres de los Centros de eventos, haga clic en el espacio de nombres recién creado.      
-   
-    ![](./media/event-hubs-create/create-event-hub2.png)
-1. En la hoja del espacio de nombres, haga clic en **Centros de eventos**.
-   
-    ![](./media/event-hubs-create/create-event-hub3.png)
+1. Haga clic en **Crear** para crear el espacio de nombres. Puede que tenga que esperar unos minutos hasta que el sistema aprovisione totalmente los recursos.
+2. En la lista de espacios de nombres del portal, haga clic en el espacio de nombres recién creado.
+2. Haga clic en **Directivas de acceso compartido** y después en **RootManageSharedAccessKey**.
+    
+    ![](./media/event-hubs-create/create-event-hub7.png)
+
+3. Haga clic en el botón Copiar para copiar la cadena de conexión **RootManageSharedAccessKey** al Portapapeles. Guarde esta cadena de conexión en una ubicación temporal, como el Bloc de notas, para usarla más adelante.
+    
+    ![](./media/event-hubs-create/create-event-hub8.png)
 
 ## <a name="create-an-event-hub"></a>Creación de un centro de eventos
+
+1. En la lista de espacios de nombres de Event Hubs, haga clic en el espacio de nombres recién creado.      
+   
+    ![](./media/event-hubs-create/create-event-hub2.png) 
+
+2. En la hoja del espacio de nombres, haga clic en **Centros de eventos**.
+   
+    ![](./media/event-hubs-create/create-event-hub3.png)
 
 1. En la parte superior de la hoja, haga clic en **Agregar Centro de eventos**.
    
@@ -50,15 +59,6 @@ ms.lasthandoff: 05/04/2017
 1. Escriba el nombre del centro de eventos y, luego, haga clic en **Crear**.
    
     ![](./media/event-hubs-create/create-event-hub5.png)
-1. En la lista de centros de eventos, haga clic en el nombre del centro de eventos recién creado. 
-    
-    ![](./media/event-hubs-create/create-event-hub6.png)
-1. En la hoja del espacio de nombres (no en la hoja del centro de eventos específico), haga clic en **Directivas de acceso compartido** y, luego, en **RootManageSharedAccessKey**.
-    
-    ![](./media/event-hubs-create/create-event-hub7.png)
-1. Haga clic en el botón Copiar para copiar la cadena de conexión **RootManageSharedAccessKey** al Portapapeles. Guarde esta cadena de conexión para usarla más adelante en el tutorial.
-    
-    ![](./media/event-hubs-create/create-event-hub8.png)
 
 Ya se ha creado el centro de eventos y cuenta con las cadenas de conexión que necesita para enviar y recibir eventos.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 1eef8d38e33f80880d54ce6019eb837b82aba341
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 88a356e61c32f529d511aa1c9c68bdfa47acadb5
 ms.contentlocale: es-es
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -52,7 +52,6 @@ Utilice el servicio Azure Backup con Managed Disks para crear un trabajo de copi
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
 Al usar Managed Disks, se aplican las siguientes consideraciones de facturación:
-
 * Tipo de almacenamiento
 
 * Tamaño del disco
@@ -88,7 +87,12 @@ Estos son los tamaños de disco disponibles para un disco administrado estándar
 
 **Transferencias de datos de salida**: las [transferencias de datos de salida](https://azure.microsoft.com/pricing/details/data-transfers/) (datos que salen de los centros de datos de Azure) se facturan en función del uso de ancho de banda.
 
-**Instantáneas de disco administradas (copia de disco completo)**: Una instantánea administrada es una copia completa de solo lectura de un disco administrado que se almacena como disco administrado estándar de forma predeterminada. Con las instantáneas, puede realizar una copia de seguridad de sus discos administrados en cualquier momento. Estas instantáneas existen independientemente del disco de origen y se pueden usar para una instancia de Managed Disks. Se facturan según el tamaño usado. Por ejemplo, si crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GB y el tamaño de datos usado real es de 10 GB, solo se le cobrará por el tamaño de datos usado de 10 GB.  
+Para obtener información detallada acerca de los precios de Managed Disks, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
+
+
+## <a name="managed-disk-snapshots"></a>Instantáneas de disco administradas
+
+Una instantánea administrada es una copia completa de solo lectura de un disco administrado que se almacena como disco administrado estándar de forma predeterminada. Con las instantáneas, puede realizar una copia de seguridad de sus discos administrados en cualquier momento. Estas instantáneas existen independientemente del disco de origen y se pueden usar para una instancia de Managed Disks. Se facturan según el tamaño usado. Por ejemplo, si crea una instantánea de un disco administrado con capacidad aprovisionada de 64 GB y el tamaño de datos usado real es de 10 GB, solo se le cobrará por el tamaño de datos usado de 10 GB.  
 
 Actualmente, las [instantáneas incrementales](storage-incremental-snapshots.md) no son compatibles con Managed Disks, pero lo serán en el futuro.
 
@@ -97,8 +101,6 @@ Para más información acerca de cómo crear instantáneas con Managed Disks, co
 * [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-
-Para obtener información detallada acerca de los precios de Managed Disks, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ## <a name="images"></a>Imágenes
 
