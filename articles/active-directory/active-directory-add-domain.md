@@ -3,7 +3,7 @@ title: "Incorporación de su nombre de dominio personalizado a Azure Active Dire
 description: "Cómo agregar nombres de dominio de la empresa a Azure Active Directory y comprobar el nombre de dominio."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
