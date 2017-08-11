@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6e4c1cdac51664d83805252cf178e705042e76ca
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: b6746afd508832afbd54153851b6f2ae404af147
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
@@ -68,7 +68,7 @@ Para mejorar su instancia de Azure Active Directory, puede agregar funcionalidad
 
 * [¡Pruébelo!](https://azure.microsoft.com/trial/get-started-active-directory/) Puede suscribirse a una evaluación gratuita de 30 días hoy e implementar su primera solución en la nube en menos de 5 minutos con este vínculo.
 
-* Lea nuestra Introducción a Azure AD para obtener sugerencias y trucos sobre cómo preparar un inquilino de Azure AD y tenerlo en funcionamiento rápidamente.
+* Lea [Introducción a Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-get-started-premium) para obtener sugerencias y trucos sobre cómo preparar un inquilino de Azure AD y tenerlo en funcionamiento rápidamente.
 
 **Si es desarrollador:**
  

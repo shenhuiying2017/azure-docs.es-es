@@ -1,5 +1,5 @@
 ---
-title: Seguimiento de las operaciones personalizadas con el SDK de .NET de Azure Application Insights | Microsoft Docs
+title: Seguimiento de las operaciones personalizadas con el SDK de .NET para Azure Application Insights | Microsoft Docs
 description: Seguimiento de las operaciones personalizadas con el SDK de .NET de Azure Application Insights
 services: application-insights
 documentationcenter: .net
@@ -13,42 +13,41 @@ ms.topic: article
 ms.date: 06/31/2017
 ms.author: sergkanz
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 883750c939aa3bd605189f513e5ce74642f91709
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 0c4ddfe4533dc232047f0b1a0af270e7f9372c84
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 
-# <a name="tracking-custom-operations-with-application-insights-net-sdk"></a>Seguimiento de las operaciones personalizadas con el SDK de .NET de Application Insights
+# <a name="track-custom-operations-with-application-insights-net-sdk"></a>Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights
 
-Los SDK de Application Insights realizan el seguimiento automático de las solicitudes HTTP de entrada y las llamadas a los servicios dependientes: solicitudes HTTP, consultas SQL, etc. Considere una aplicación que combina varios microservicios. El seguimiento y correlación de las solicitudes y las dependencias le ofrece visibilidad en la capacidad de respuesta de toda la aplicación y la confiabilidad en todos los microservicios. Vamos a expandir gradualmente la lista y a proporcionar a una recopilación automática de otras plataformas y marcos de trabajo conocidos. 
+Los SDK de Azure Application Insights realizan el seguimiento automático de las solicitudes HTTP de entrada y las llamadas a los servicios dependientes, como solicitudes HTTP y consultas SQL. El seguimiento y la correlación de las solicitudes y dependencias le ofrece visibilidad en la capacidad de respuesta de toda la aplicación y la confiabilidad en todos los microservicios que combinan esta aplicación. 
 
-Hay una clase de patrones de aplicación que no se admiten de forma genérica. La supervisión correcta de estos patrones requiere la instrumentación manual de código. En este artículo se tratan algunos patrones que requieren instrumentación manual. Incluir una tarea de procesamiento de cola personalizada o ejecutar una tarea de ejecución prolongada de fondo.
+Hay una clase de patrones de aplicación que no se admiten de forma genérica. La supervisión correcta de estos patrones requiere la instrumentación manual de código. En este artículo se abordan algunos patrones que pueden requerir la instrumentación manual, como el procesamiento de colas personalizadas y la ejecución de tareas de larga duración en segundo plano.
 
-En este documento se proporcionan instrucciones sobre cómo realizar el seguimiento de operaciones personalizadas con el SDK de Application Insights.
+En este documento se proporcionan instrucciones sobre cómo realizar el seguimiento de operaciones personalizadas con el SDK de Application Insights. Esta documentación es relevante para:
 
-El documento es relevante para:
-- Application Insights para .NET (también conocido como Base SDK) versión `2.4+`
-- Application Insights para aplicaciones web (con ASP.NET) versión `2.4+`
-- Application Insights para AspNetCore versión `2.1+`
+- Application Insights para .NET (también conocido como Base SDK) versión 2.4+.
+- Application Insights para aplicaciones web (con ASP.NET) versión 2.4+.
+- Application Insights para ASP.NET Core versión 2.1+.
 
 ## <a name="overview"></a>Información general
-Por operación entendemos que es una parte lógica del trabajo que se ejecuta en una aplicación. Tiene un nombre, una hora de inicio y una duración, y un contexto de ejecución como el nombre de usuario, las propiedades y el resultado. Si operación `A` fue iniciada por la operación `B`, la operación `B` se establece como elemento primario para `A`.  La operación solo puede tener un elemento primario y muchas operaciones secundarias. Encontrará más información sobre las operaciones y la correlación de telemetría [aquí](application-insights-correlation.md).
+Una operación es una parte de trabajo lógica ejecutada por una aplicación. Tiene un nombre, una hora de inicio, una duración, un resultado y un contexto de ejecución como el nombre de usuario, las propiedades y el resultado. Si la operación B inició la operación A, la operación B se establece como un elemento primario de A. Una operación solo puede tener un elemento primario, pero puede tener muchas operaciones secundarias. Para más información sobre las operaciones y la correlación de telemetría, vea [Correlación de telemetría en Azure Application Insights](application-insights-correlation.md).
 
-En el SDK de .NET de Application Insights se describe la operación mediante la clase abstracta [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) y sus descendientes [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) y [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
+En el SDK de .NET para Application Insights se describe la operación mediante la clase abstracta [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) y sus descendientes [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) y [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
 
 ## <a name="incoming-operations-tracking"></a>Seguimiento de operaciones de entrada 
-El SDK web de Application Insights recopila automáticamente las solicitudes HTTP para las aplicaciones ASP.NET que se ejecutan en la canalización IIS y todas las aplicaciones ASP.NET Core. Hay soluciones admitidas por la comunidad para otras plataformas y marcos de trabajo. Pero si la aplicación no es compatible con ninguna solución admitida por los estándares o la comunidad, puede instrumentarla de forma manual.
+El SDK web de Application Insights recopila automáticamente las solicitudes HTTP para las aplicaciones ASP.NET que se ejecutan en una canalización IIS y todas las aplicaciones ASP.NET Core. Hay soluciones admitidas por la comunidad para otras plataformas y marcos de trabajo. Pero si la aplicación no es compatible con ninguna solución admitida por los estándares o la comunidad, puede instrumentarla de forma manual.
 
 Otro ejemplo que requiere seguimiento personalizado es el proceso de trabajo que recibe los elementos de la cola. Para algunas colas, se realiza un seguimiento como dependencia de la llamada para agregar un mensaje a esta cola. Pero la operación general que describe el procesamiento de mensajes no se recopila automáticamente.
 
 Veamos cómo se puede realizar el seguimiento de estas operaciones.
 
-En el nivel superior, la tarea consiste en crear `RequestTelemetry` y establecer propiedades conocidas; una vez completada la operación, se realiza el seguimiento de la telemetría. Se muestra en el siguiente ejemplo.
+Generalmente, la tarea consiste en crear `RequestTelemetry` y establecer propiedades conocidas. Una vez finalizada la operación, se realiza el seguimiento de la telemetría. En el siguiente ejemplo se muestra esta tarea.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>Solicitud HTTP en una aplicación autohospedada de Owin
-Se sigue el [protocolo HTTP para la correlación](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) y debe esperar recibir los encabezados que describe.
+En este ejemplo, se sigue el [Protocolo HTTP para la correlación](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Debe esperar recibir los encabezados que se describen ahí.
 
 ``` C#
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -59,27 +58,27 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 
     public override async Task Invoke(IOwinContext context)
     {
-        // Let's create and start RequestTelemetry
+        // Let's create and start RequestTelemetry.
         var requestTelemetry = new RequestTelemetry
         {
             Name = $"{context.Request.Method} {context.Request.Uri.GetLeftPart(UriPartial.Path)}"
         };
 
-        // if there is Request-Id recevied from the upstream service, set telemetry context accordingly
+        // If there is a Request-Id received from the upstream service, set the telemetry context accordingly.
         if (context.Request.Headers.ContainsKey("Request-Id"))
         {
             var requestId = context.Request.Headers.Get("Request-Id");
-            // get the operation id from the Request-Id (if you follow the 'Http Protocol for Correlation')
+            // Get the operation ID from the Request-Id (if you follow the HTTP Protocol for Correlation).
             requestTelemetry.Context.Operation.Id = GetOperationId(requestId);
             requestTelemetry.Context.Operation.ParentId = requestId;
         }
 
-        // StartOperation is a helper method that allows to correlate 
+        // StartOperation is a helper method that allows correlation of 
         // current operations with nested operations/telemetry
-        // and initializes start time and duration on telemetry item
+        // and initializes start time and duration on telemetry items.
         var operation = telemetryClient.StartOperation(requestTelemetry);
 
-        // process request
+        // Process the request.
         try
         {
             await Next.Invoke(context);
@@ -92,7 +91,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
         }
         finally
         {
-            // update status code and success as appropriate
+            // Update status code and success as appropriate.
             if (context.Response != null)
             {
                 requestTelemetry.ResponseCode = context.Response.StatusCode.ToString();
@@ -103,14 +102,14 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
                 requestTelemetry.Success = false;
             }
 
-            // now it's time to stop operation (and track telemetry)
+            // Now it's time to stop the operation (and track telemetry).
             telemetryClient.StopOperation(operation);
         }
     }
     
     public static string GetOperationId(string id)
     {
-        // returns root Id from the '|' to first '.' if any
+        // Returns the root ID from the '|' to the first '.' if any.
         int rootEnd = id.IndexOf('.');
         if (rootEnd < 0)
             rootEnd = id.Length;
@@ -121,31 +120,31 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 }
 ```
 
-El protocolo de correlación de HTTP también declara el encabezado `Correlation-Context`, pero se omite para simplificar el trabajo.
+El Protocolo HTTP para la correlación también declara el encabezado `Correlation-Context`. Pero aquí se omite para simplificar.
 
 ## <a name="queue-instrumentation"></a>Instrumentación de colas
-Para la comunicación HTTP, hemos creado un protocolo para pasar los detalles de correlación. Algunos protocolos de colas permiten pasar metadatos adicionales junto con el mensaje y otros no.
+Para la comunicación HTTP, se ha creado un protocolo para pasar los detalles de correlación. Con algunos protocolos de las colas se pueden pasar metadatos adicionales junto con el mensaje y con otros no.
 
-### <a name="service-bus-queue"></a>Cola de ServiceBus
-La [cola de ServiceBus](../service-bus-messaging/index.md) permite pasar el contenedor de propiedades junto con el mensaje y se usa para pasar el Id. de correlación.
+### <a name="service-bus-queue"></a>Cola de Service Bus
+Con la [cola de Azure Service Bus](../service-bus-messaging/index.md), puede pasar un contenedor de propiedades junto con el mensaje. Se usa para pasar el identificador de correlación.
 
-La cola de ServiceBus usa protocolos basados en TCP. Application Insights no realiza un seguimiento automático de las operaciones de cola, por lo que se realiza manualmente. La operación de eliminación de cola es una API de estilo de inserción y no es posible realizar su seguimiento en absoluto.
+La cola de Service Bus usa protocolos basados en TCP. Application Insights no realiza un seguimiento automático de las operaciones de cola, por lo que se realiza manualmente. La operación de quitar de la cola es una API de estilo de inserción y no es posible realizar su seguimiento.
 
 #### <a name="enqueue"></a>Poner en cola
 
 ```C#
 public async Task Enqueue(string payload)
 {
-    // StartOperation is a helper method that initializes telemetry item
-    // and allows to correlate this operation with its parent and children
+    // StartOperation is a helper method that initializes the telemetry item
+    // and allows correlation of this operation with its parent and children.
     var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queueName);
     operation.Telemetry.Type = "Queue";
     operation.Telemetry.Data = "Enqueue " + queueName;
 
     var message = new BrokeredMessage(payload);
-    // ServiceBus Queue allows to pass property bag along with the message
-    // we will use them to pass our correlation identifiers (and other context)
-    // to the consumer
+    // Service Bus queue allows the property bag to pass along with the message.
+    // We will use them to pass our correlation identifiers (and other context)
+    // to the consumer.
     message.Properties.Add("ParentId", operation.Telemetry.Id);
     message.Properties.Add("RootId", operation.Telemetry.Context.Operation.Id);
 
@@ -153,13 +152,13 @@ public async Task Enqueue(string payload)
     {
         await queue.SendAsync(message);
         
-        // set operation.Telemetry Success and ResponseCode here
+        // Set operation.Telemetry Success and ResponseCode here.
         operation.Telemetry.Success = true;
     }
     catch (Exception e)
     {
         telemetryClient.TrackException(e);
-        // set operation.Telemetry Success and ResponseCode here
+        // Set operation.Telemetry Success and ResponseCode here.
         operation.Telemetry.Success = false;
         throw;
     }
@@ -174,13 +173,13 @@ public async Task Enqueue(string payload)
 ```C#
 public async Task Process(BrokeredMessage message)
 {
-    // once the message is taken from the queue, create ReqeustTelemetry to track its processing
-    // it may also make sense to get name from the message
+    // After the message is taken from the queue, create RequestTelemetry to track its processing.
+    // It might also make sense to get the name from the message.
     RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
 
     var rootId = message.Properties["RootId"].ToString();
     var parentId = message.Properties["ParentId"].ToString();
-    // get the operation id from the Request-Id (if you follow the 'Http Protocol for Correlation')
+    // Get the operation ID from the Request-Id (if you follow the HTTP Protocol for Correlation).
     requestTelemetry.Context.Operation.Id = rootId;
     requestTelemetry.Context.Operation.ParentId = parentId;
 
@@ -197,7 +196,7 @@ public async Task Process(BrokeredMessage message)
     }
     finally
     {
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
         telemetryClient.StopOperation(operation);
     }
 }
@@ -206,33 +205,33 @@ public async Task Process(BrokeredMessage message)
 ### <a name="azure-storage-queue"></a>Cola de Azure Storage
 En el ejemplo siguiente se muestra cómo realizar el seguimiento de operaciones de [cola de Azure Storage](../storage/storage-dotnet-how-to-use-queues.md) y poner en correlación la telemetría entre el productor, el consumidor y Azure Storage. 
 
-La cola de Azure Storage tiene API HTTP y se realiza el seguimiento de todas las llamadas a la cola por ApplicationInsights DependencyCollector para las solicitudes HTTP.
-Asegúrese de que tiene `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` en `applicationInsights.config` o agréguelo mediante programación tal como se describe [aquí](app-insights-api-filtering-sampling.md).
+La cola de Storage tiene una API HTTP. El recolector de dependencias de Application Insights realiza el seguimiento de todas las llamadas a la cola para las solicitudes HTTP.
+Asegúrese de que tiene `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` en `applicationInsights.config`. Si no lo tiene, agréguelo mediante programación como se describe en [Filtrado y preprocesamiento de la telemetría en el SDK de Application Insights](app-insights-api-filtering-sampling.md).
 
 Si configura Application Insights manualmente, asegúrese de crear e inicializar `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` de esta forma:
  
 ``` C#
 DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
 
-// you can prevent correlation header injection to some domains by adding it to the excluded list.
-// Make sure you add Azure Storage endpoint, otherwise you may experience request signature validation issues on the Storage service side
+// You can prevent correlation header injection to some domains by adding it to the excluded list.
+// Make sure you add a Storage endpoint. Otherwise, you might experience request signature validation issues on the Storage service side.
 module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
 module.Initialize(TelemetryConfiguration.Active);
 
-// do not forget to dispose module during application shutdown
+// Do not forget to dispose of the module during application shutdown.
 ```
 
-También puede poner en correlación el Id. de operación de Application Insights con el RequestID de Azure Storage. Consulte [este artículo](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing) sobre cómo establecer y obtener el cliente de solicitudes de Storage y el Id. de solicitud de servidor.
+Es posible que también quiera poner en correlación el identificador de operación de Application Insights con el identificador de solicitud de Storage. Para obtener información sobre cómo establecer y obtener un cliente de solicitud de Storage y un identificador de solicitud de servidor, vea [Supervisión, diagnóstico y solución de problemas de Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### <a name="enqueue"></a>Poner en cola
-Como las colas de Azure Storage admiten API de HTTP, Application Insights realiza el seguimiento automático de todas las operaciones en la cola. En muchos casos, esta instrumentación debería ser suficiente.
-Pero para poner en correlación seguimientos en el lado del consumidor con seguimientos del productor, debe pasar un contexto de correlación de forma similar a como se hace en "Protocolo HTTP para la correlación". 
+Como las colas de Storage admiten la API de HTTP, Application Insights realiza el seguimiento automático de todas las operaciones en la cola. En muchos casos, esta instrumentación debería ser suficiente. Pero para poner en correlación seguimientos en el lado del consumidor con seguimientos del productor, tiene que pasar un contexto de correlación de forma similar a como se hace en el Protocolo HTTP para la correlación. 
 
-En el ejemplo siguiente, se realiza el seguimiento de la operación `Enqueue` opcional. Permite
- - Poner en correlación los reintentos (si existen): Todos tienen un elemento primario común que es la operación `Enqueue`. En caso contrario, se realiza su seguimiento como elementos secundarios de la solicitud de entrada. Por tanto, si hay varias solicitudes lógicas a la cola, podría ser difícil buscar qué llamada generó los reintentos.
- - Poner en correlación los registros de Azure Storage (si es necesario y cuando sea necesario) con la telemetría de Application Insights.
+En este ejemplo, se realiza el seguimiento de la operación `Enqueue` opcional. Puede:
 
-La operación `Enqueue` es el elemento secundario de una operación "primaria" (por ejemplo, la solicitud HTTP de entrada) y la llamada de dependencia "Http" es el elemento secundario de la operación `Enqueue` y descendiente de la solicitud de entrada.
+ - **Poner en correlación los reintentos (si existen)**: Todos tienen un elemento primario común que es la operación `Enqueue`. En caso contrario, se realiza su seguimiento como elementos secundarios de la solicitud de entrada. Si hay varias solicitudes lógicas a la cola, podría ser difícil buscar qué llamada generó los reintentos.
+ - **Poner en correlación los registros de Azure Storage (si es necesario y cuando sea necesario)**: Se hace con la telemetría de Application Insights.
+
+La operación `Enqueue` es el elemento secundario de una operación principal (por ejemplo, una solicitud HTTP de entrada). La llamada de dependencia HTTP es el elemento secundario de la operación `Enqueue` y el descendiente de la solicitud de entrada:
 
 ```C#
 public async Task Enqueue(CloudQueue queue, string message)
@@ -241,8 +240,8 @@ public async Task Enqueue(CloudQueue queue, string message)
     operation.Telemetry.Type = "Queue";
     operation.Telemetry.Data = "Enqueue " + queue.Name;
 
-    // MessagePayload represents your custom message and also serializes correlation identifiers into payload
-    // e.g. if you choose to pass payload serialized to json, it may look like
+    // MessagePayload represents your custom message and also serializes correlation identifiers into payload.
+    // For example, if you choose to pass payload serialized to JSON, it might look like
     // {'RootId' : 'some-id', 'ParentId' : '|some-id.1.2.3.', 'message' : 'your message to process'}
     var jsonPayload = JsonConvert.SerializeObject(new MessagePayload
     {
@@ -253,7 +252,7 @@ public async Task Enqueue(CloudQueue queue, string message)
     
     CloudQueueMessage queueMessage = new CloudQueueMessage(jsonPayload);
 
-    // Add operation.Telemetry.Id to the OperationContext to correlate Azure Storage logs and ApplciationInsights telemetry
+    // Add operation.Telemetry.Id to the OperationContext to correlate Storage logs and Application Insights telemetry.
     OperationContext context = new OperationContext { ClientRequestID = operation.Telemetry.Id};
 
     try
@@ -269,24 +268,24 @@ public async Task Enqueue(CloudQueue queue, string message)
     }
     finally
     {
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
         telemetryClient.StopOperation(operation);
     }
 }  
 ```
 
-Si quiere reducir la cantidad de telemetría que notifica la aplicación o no quiere realizar el seguimiento de la operación `enqueue` por otras razones, puede usar directamente la API `Activity`:
+Para reducir la cantidad de telemetría que notifica la aplicación o si no quiere realizar el seguimiento de la operación `Enqueue` por otras razones, use directamente la API `Activity`:
 
-- Cree (e inicie) una nueva `Activity` en lugar de iniciar la operación de Application Insights (NO es necesario asignarle propiedades excepto el nombre de la operación).
-- Serialice `yourActivity.Id` en la carga del mensaje en lugar de `operation.Telemetry.Id`. También puede usar `Activity.Current.Id`
+- Cree (e inicie) una nueva `Activity` en lugar de iniciar la operación de Application Insights. *No* es necesario asignar ninguna propiedad en este elemento, excepto el nombre de la operación.
+- Serialice `yourActivity.Id` en la carga del mensaje en lugar de `operation.Telemetry.Id`. También puede usar `Activity.Current.Id`.
 
 
 #### <a name="dequeue"></a>Quitar de la cola
-Al igual que `Enqueue`, Application Insights realiza el seguimiento automático de la solicitud HTTP a la cola de Azure Storage. Pero supuestamente la operación `Enqueue` se produce en el contexto principal, por ejemplo un contexto de solicitud "de entrada". Los SDK de Application Insights correlacionan automáticamente esta operación (y su elemento HTTP) con la solicitud primaria y otra telemetría notificada en el mismo ámbito.
+Al igual que `Enqueue`, Application Insights realiza el seguimiento automático de la solicitud HTTP a la cola de Storage. Pero supuestamente la operación `Enqueue` se produce en el contexto principal, por ejemplo en un contexto de solicitud de entrada. Los SDK de Application Insights correlacionan automáticamente esta operación (y su elemento HTTP) con la solicitud primaria y otra telemetría notificada en el mismo ámbito.
 
-La operación `Dequeue` es complicada: el SDK de Application Insights realiza el seguimiento automático de las solicitudes HTTP, pero no conoce el contexto de correlación hasta que se analiza el mensaje. No es posible poner en correlación la solicitud HTTP para obtener el mensaje con el resto de la telemetría.
+La operación `Dequeue` es complicada. El SDK de Application Insights realiza automáticamente el seguimiento de las solicitudes HTTP. Pero desconoce el contexto de correlación hasta que se analiza el mensaje. No es posible poner en correlación la solicitud HTTP para obtener el mensaje con el resto de la telemetría.
 
-En muchos casos, puede resultar útil correlacionar la solicitud HTTP a la cola con otros seguimientos. En el ejemplo siguiente se muestra cómo lograrlo.
+En muchos casos, es posible que resulte útil correlacionar la solicitud HTTP a la cola con otros seguimientos. En el siguiente ejemplo se muestra cómo hacerlo:
 
 ``` C#
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
@@ -307,13 +306,13 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
         {
             var payload = JsonConvert.DeserializeObject<MessagePayload>(message.AsString);
 
-            // if there is a message, we want to correlate Dequeue operation with processing
-            // However we will only know what correlation Id to use AFTER we will get it from the message
-            // So we will report telemetry once we know the Ids.
+            // If there is a message, we want to correlate the Dequeue operation with processing.
+            // However, we will only know what correlation ID to use after we get it from the message,
+            // so we will report telemetry after we know the IDs.
             telemetry.Context.Operation.Id = payload.RootId;
             telemetry.Context.Operation.ParentId = payload.ParentId;
 
-            // delete message
+            // Delete the message.
             return payload;
         }
     }
@@ -326,7 +325,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     }
     finally
     {
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
         telemetry.Stop();
         telemetryClient.Track(telemetry);
     }
@@ -337,14 +336,14 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 
 #### <a name="process"></a>Proceso
 
-En el ejemplo siguiente, se realiza el seguimiento del mensaje "de entrada" de forma similar a cómo se realiza el seguimiento de la solicitud HTTP de entrada.
+En el ejemplo siguiente, se realiza el seguimiento de un mensaje de entrada de forma similar a cómo se realiza el seguimiento de una solicitud HTTP de entrada:
 
 ```C#
 public async Task Process(MessagePayload message)
 {
-    // once the message is dequeued from the queue, create ReqeustTelemetry to track it's processing
+    // After the message is dequeued from the queue, create RequestTelemetry to track its processing.
     RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "Dequeue " + queueName };
-    // it may also make sense to get name from the message
+    // It might also make sense to get the name from the message.
     requestTelemetry.Context.Operation.Id = message.RootId;
     requestTelemetry.Context.Operation.ParentId = message.ParentId;
 
@@ -361,31 +360,30 @@ public async Task Process(MessagePayload message)
     }
     finally
     {
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
         telemetryClient.StopOperation(operation);
     }
 }
 ```
 
-Del mismo modo, se pueden instrumentar otras operaciones de cola. Una operación de lectura se debe instrumentalizar de una manera similar a la de quitar de la cola. La instrumentación de las operaciones de administración de cola no es necesaria. Application Insights realiza el seguimiento de estas operaciones como HTTP y en la mayoría de los casos es suficiente.
+Del mismo modo, se pueden instrumentar otras operaciones de cola. Una operación de lectura se debe instrumentalizar de una manera similar a la de una operación de quitar de la cola. La instrumentación de las operaciones de administración de cola no es necesaria. Application Insights realiza el seguimiento de las operaciones como HTTP y en la mayoría de los casos es suficiente.
 
-Al instrumentar la eliminación de mensajes, asegúrese de establecer los identificadores de la operación (correlación). Como alternativa, puede usar la API `Activity` (no es necesario establecer identificadores de operaciones en los elementos de telemetría, Application Insights lo hace automáticamente):
+Al instrumentar la eliminación de mensajes, asegúrese de establecer los identificadores de la operación (correlación). Como alternativa, puede usar la API de `Activity`. No es necesario establecer identificadores de operaciones en los elementos de telemetría, porque Application Insights lo hace automáticamente:
 
-- Una vez que tiene un elemento de la cola, cree una nueva `Activity`.
+- Cree una nueva `Activity` después de que tenga un elemento de la cola.
 - Use `Activity.SetParentId(message.ParentId)` para poner en correlación los registros de consumidor y productor.
 - Inicie la `Activity`.
-- Realice el seguimiento de las operaciones de eliminación de la cola, proceso y eliminación mediante las aplicaciones auxiliares `Start/StopOperation`. Hágalo desde el mismo flujo de control asincrónico (contexto de ejecución). De esta forma se correlacionan correctamente.
-- Después, detenga la `Activity`.
-- Use `Start/StopOperation` o llame a la telemetría de seguimiento manualmente 
+- Realice el seguimiento de las operaciones de quitar de la cola, proceso y eliminación mediante las aplicaciones auxiliares `Start/StopOperation`. Hágalo desde el mismo flujo de control asincrónico (contexto de ejecución). De esta forma, se correlacionan correctamente.
+- Pare la `Activity`.
+- Use `Start/StopOperation` o llame a la telemetría de `Track` manualmente.
 
 ### <a name="batch-processing"></a>Procesamiento por lotes
-Algunas colas permiten que se eliminen varios mensajes de la cola con una solicitud, pero el procesamiento de esos mensajes es supuestamente independiente y pertenece a las distintas operaciones lógicas.
-En este caso, no es posible poner en correlación la operación `Dequeue` con el procesamiento de mensajes determinados.
+En algunas colas, se pueden quitar de la cola varios mensajes con una solicitud. El procesamiento de este tipo de mensajes es supuestamente independiente y pertenece a las distintas operaciones lógicas. En este caso, no es posible poner en correlación la operación `Dequeue` con el procesamiento de mensajes determinados.
 
-El procesamiento de cada mensaje debe realizarse en su propio flujo de control asincrónico. Puede encontrar más detalles sobre esto en la sección [Seguimiento de dependencias de salida](#outgoing-dependencies-tracking).
+Cada mensaje debe procesarse en su propio flujo de control asincrónico. Para más información, vea la sección [Seguimiento de dependencias de salida](#outgoing-dependencies-tracking).
 
 ## <a name="long-running-background-tasks"></a>Tareas en segundo plano de ejecución prolongada
-Algunas aplicaciones inician operaciones de ejecución prolongada que pueden deberse a solicitudes del usuario. Desde la perspectiva del seguimiento o la instrumentación, no es diferente de la instrumentación de solicitudes o dependencias. 
+Algunas aplicaciones inician operaciones de larga ejecución que es posible que se deban a solicitudes del usuario. Desde la perspectiva del seguimiento o la instrumentación, no es diferente de la instrumentación de solicitudes o dependencias: 
 
 ``` C#
 async Task BackgroundTask()
@@ -397,15 +395,15 @@ async Task BackgroundTask()
         int progress = 0;
         while (progress < 100)
         {
-            // process task
+            // Process the task.
             telemetryClient.TrackTrace($"done {progress++}%");
         }
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
     }
     catch (Exception e)
     {
         telemetryClient.TrackException(e);
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
         throw;
     }
     finally
@@ -415,23 +413,24 @@ async Task BackgroundTask()
 }
 ```
 
-En este ejemplo, se usa `telemetryClient.StartOperation` para crear `RequestTelemetry` y rellenar el contexto de correlación. Supongamos que tiene una operación primaria, por ejemplo creada por las solicitudes de entrada que programaron la operación. Siempre que `BackgroundTask` se inicie en el mismo flujo de control asincrónico que una solicitud de entrada, se correlaciona con esa operación primaria. `BackgroundTask` y todos los elementos de telemetría anidados se correlacionarán automáticamente con la solicitud que la causó incluso después de que finalice la solicitud.
+En este ejemplo, se usa `telemetryClient.StartOperation` para crear `RequestTelemetry` y rellenar el contexto de correlación. Supongamos que tiene una operación principal creada por las solicitudes de entrada que programaron la operación. Siempre que `BackgroundTask` se inicie en el mismo flujo de control asincrónico que una solicitud de entrada, se correlaciona con esa operación principal. `BackgroundTask` y todos los elementos de telemetría anidados se correlacionan automáticamente con la solicitud que la causó incluso después de que finalice la solicitud.
 
-Cuando la tarea se inicia desde el subproceso en segundo plano que no tiene ninguna operación (Actividad) asociada a él, `BackgroundTask` no tiene ningún elemento primario. Pero puede tener operaciones anidadas y todos los elementos de telemetría notificados desde la tarea se ponen en correlación con la `RequestTelemetry` creada en `BackgroundTask`.
+Cuando la tarea se inicia desde el subproceso en segundo plano que no tiene ninguna operación (`Activity`) asociada a él, `BackgroundTask` no tiene ningún elemento primario. Pero puede tener operaciones anidadas. Todos los elementos de telemetría notificados desde la tarea se ponen en correlación con la `RequestTelemetry` creada en `BackgroundTask`.
 
 ## <a name="outgoing-dependencies-tracking"></a>Seguimiento de dependencias de salida
-Es posible que quiera realizar el seguimiento de su propio tipo de "dependencia" o de una operación que no es compatible con Application Insights.
+Puede realizar el seguimiento de su propio tipo de dependencia o de una operación que no es compatible con Application Insights.
 
-El método `Enqueue` de la cola de ServiceBus o la cola de Azure Storage puede servir como ejemplo de este seguimiento personalizado.
+El método `Enqueue` de la cola de Service Bus o la cola de Storage puede servir como ejemplo de este seguimiento personalizado.
 
 El enfoque general para el seguimiento de dependencias personalizadas es este:
-- Llame al método `TelemetryClient.StartOperation` (extensión) que rellena las propiedades de `DependencyTelemetry` necesarias para la correlación y algunas otras (inicio de la marca de tiempo, duración).
-- Establezca otras propiedades personalizadas en `DependencyTelemetry`: el nombre y cualquier otro contexto que se necesite.
-- Llame a la dependencia y espere a que finalice.
-- Detenga la operación con `StopOperation` cuando haya finalizado.
+
+- Llame al método `TelemetryClient.StartOperation` (extensión) que rellena las propiedades de `DependencyTelemetry` que se necesitan para la correlación y algunas otras (inicio de la marca de tiempo, duración).
+- Establezca otras propiedades personalizadas en `DependencyTelemetry`, como el nombre y cualquier otro contexto que se necesite.
+- Realice una llamada de dependencia y espere.
+- Detenga la operación con `StopOperation` cuando finalice.
 - Controle las excepciones.
 
-`StopOperation` solo detiene la operación que se inició: si la operación en ejecución actual no coincide con la que quiere detener, StopOperation no hace nada. Esto podría suceder si se inician varias operaciones en paralelo en el mismo contexto de ejecución:
+`StopOperation` solo detiene la operación que se inició. Si la operación de ejecución actual no coincide con la que quiere detener, `StopOperation` no hace nada. Es posible que suceda esta situación si se inician varias operaciones en paralelo en el mismo contexto de ejecución:
 
 ```C#
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
@@ -443,14 +442,14 @@ var secondTask = RunMyTaskAsync();
 
 await firstTask;
 
-// this will do nothing and will not report telemetry for the first operation
-// as currently secondOperation is active
+// This will do nothing and will not report telemetry for the first operation
+// as currently secondOperation is active.
 telemetryClient.StopOperation(firstOperation); 
 
 await secondTask;
 ```
 
-Por tanto, debe asegurarse de que siempre llama a `StartOperation` y ejecuta la tarea en su propio contexto:
+Asegúrese de que siempre llama a `StartOperation` y ejecuta la tarea en su propio contexto:
 ```C#
 public async Task RunMyTaskAsync()
 {
@@ -458,11 +457,11 @@ public async Task RunMyTaskAsync()
     try 
     {
         var myTask = await StartMyTaskAsync();
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
     }
     catch(...) 
     {
-        // update status code and success as appropriate
+        // Update status code and success as appropriate.
     }
     finally 
     {
@@ -474,8 +473,8 @@ public async Task RunMyTaskAsync()
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga los conceptos básicos de la [correlación de telemetría](application-insights-correlation.md) en Application Insights.
-- Consulte [modelo de datos](application-insights-data-model.md) para los tipos y el modelo de datos de Application Insights.
+- Vea el [modelo de datos](application-insights-data-model.md) para los tipos y el modelo de datos de Application Insights.
 - Notifique [eventos y métricas](app-insights-api-custom-events-metrics.md) personalizados a Application Insights.
-- Compruebe la [configuración](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) de la recopilación de propiedades estándar de contexto.
-- Consulte el [manual del usuario de System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) para ver cómo se correlaciona la telemetría
+- Compruebe la [configuración](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) de la recopilación de propiedades de contexto.
+- Consulte el [manual del usuario de System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) para ver cómo se correlaciona la telemetría.
 

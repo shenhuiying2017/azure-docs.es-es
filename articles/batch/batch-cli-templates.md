@@ -9,19 +9,19 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 07/07/2017
+ms.date: 07/20/2017
 ms.author: markscu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9f8a1d7ab39a2d1e5a095f3b4d9bafef07d4086b
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch (versión preliminar)
 
-Se puede utilizar la CLI de Azure para ejecutar trabajos de Batch de un extremo a otro sin código.
+Se puede usar la CLI de Azure para ejecutar trabajos de Batch sin escribir código.
 
 Se pueden crear y usar los archivos de plantilla con la CLI de Azure que permiten que se creen grupos, trabajos y tareas de Batch. Los archivos de entrada de trabajo se pueden cargar fácilmente a la cuenta de almacenamiento asociada con la cuenta de Batch. También se pueden descargar los archivos de salida de trabajos.
 
@@ -33,26 +33,32 @@ Las plantillas de Batch se basan en el [soporte de Batch existente en la CLI de 
 
 -   Se pueden definir los parámetros. Cuando se usa la plantilla, solo los valores de parámetro se especifican para crear el elemento, con otros valores de propiedad del elemento especificados en el cuerpo de la plantilla. Un usuario que entiende Batch y las aplicaciones que Batch ejecuta puede crear plantillas, especificar grupos, trabajos y valores de propiedad de la tarea. Un usuario menos familiarizado con Batch y/o las aplicaciones solo tiene que especificar los valores para los parámetros definidos.
 
--   Las fábricas de tareas de trabajo permiten que se creen fácilmente varias tareas para un trabajo, gracias a lo cual no se necesita contar con muchas definiciones de tareas y se simplifica notablemente el envío de trabajos.
+-   Los generadores de tareas de trabajo crean una o varias tareas asociadas a un trabajo, evitando la necesidad de crear muchas definiciones de tareas y simplificando de manera significativa el envío de trabajos.
 
-Los archivos de datos de entrada deben proporcionarse para trabajos y a menudo se generan archivos de datos de salida. De forma predeterminada, se asocia una cuenta de almacenamiento con cada cuenta de Batch y los archivos pueden transferirse fácilmente hacia y desde esta cuenta de almacenamiento mediante la CLI, sin necesidad de programar, credenciales de almacenamiento ni ninguna dirección URL de SAS.
+
+Los archivos de datos de entrada deben proporcionarse para trabajos y a menudo se generan archivos de datos de salida. De forma predeterminada, se asocia una cuenta de almacenamiento con cada cuenta de Batch y los archivos pueden transferirse fácilmente hacia y desde esta cuenta de almacenamiento mediante la CLI, sin necesidad de programación, ni credenciales de almacenamiento.
 
 Por ejemplo, [ffmpeg](http://ffmpeg.org/) es una aplicación popular que procesa archivos de audio y video. La CLI de Azure Batch puede usarse para invocar ffmpeg para transcodificar los archivos de video de origen para diferentes resoluciones.
 
 -   Se crea una plantilla de grupo. El usuario que crea la plantilla sabe cómo llamar a la aplicación ffmpeg y sus requisitos. Especifica el sistema operativo adecuado, el tamaño de la máquina virtual, cómo está instalado ffmpeg (por ejemplo, de un paquete de aplicación o mediante un administrador de paquetes) y otros valores de propiedad del grupo. Los parámetros se crean para que cuando se use la plantilla, solo deban especificarse el ID del grupo y el número de máquinas virtuales.
 
--   Se crea una plantilla de trabajo. El usuario que crea la plantilla sabe cómo debe invocarse ffmpeg al transcodificar el video de origen a una resolución diferente y especifica la línea de comandos de la tarea. También sabe que habrá una carpeta que contiene los archivos del video de origen, con una tarea obligatoria por cada archivo de entrada.
+-   Se crea una plantilla de trabajo. El usuario que crea la plantilla sabe cómo debe invocarse ffmpeg para transcodificar el vídeo de origen a una resolución diferente y especifica la línea de comandos de la tarea. También sabe que hay una carpeta que contiene los archivos de vídeo de origen, con una tarea obligatoria por cada archivo de entrada.
 
--   Si un usuario final necesita transcodificar un conjunto de archivos de video, primero creará un grupo con la plantilla de grupo, donde solo especificará el ID del grupo y el número de máquinas virtuales necesarias. A continuación, puede cargar los archivos de origen para transcodificarlos. Luego, se puede enviar un trabajo mediante la plantilla de trabajo, especificando solo el ID del grupo y la ubicación de los archivos de origen cargados. Se creará el trabajo de Batch, con una tarea por cada archivo de entrada que se esté generando. Por último, se pueden descargar los archivos de salida transcodificados.
+-   Si un usuario final necesita transcodificar un conjunto de archivos de vídeo, primero crea un grupo con la plantilla de grupo, donde solo se especifica el identificador del grupo y el número de máquinas virtuales necesarias. A continuación, puede cargar los archivos de origen para transcodificarlos. Luego, se puede enviar un trabajo mediante la plantilla de trabajo, especificando solo el ID del grupo y la ubicación de los archivos de origen cargados. Se crea el trabajo de Batch, con una tarea por cada archivo de entrada que se esté generando. Por último, se pueden descargar los archivos de salida transcodificados.
 
 ## <a name="installation"></a>Instalación
 
 Las funcionalidades de transferencia de plantillas y archivos requieren una extensión para instalarse.
 
-Para obtener instrucciones sobre cómo instalar la CLI de Azure, consulte [esta página](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para obtener instrucciones sobre cómo instalar la CLI de Azure, vea [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Una vez que se ha instalado la CLI de Azure, se puede instalar la extensión de Batch siguiendo las [instrucciones en el repositorio de GitHub de Azure](https://github.com/Azure/azure-batch-cli-extensions).
+Una vez que se ha instalado la CLI de Azure, se puede instalar la extensión de Batch mediante el siguiente comando de la CLI:
 
+```azurecli
+az component update --add batch-extensions --allow-third-party
+```
+
+Para más información sobre la extensión de Batch, vea [Microsoft Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux) (Extensiones de la CLI de Microsoft Azure Batch para Windows, Mac y Linux).
 
 ## <a name="templates"></a>Plantillas
 
@@ -62,11 +68,12 @@ La CLI de Azure Batch permite que se creen elementos como grupos, trabajos y tar
 az batch pool create –-json-file AppPool.json
 ```
 
-Las plantillas de Azure Batch son muy similares a las plantillas de Azure Resource Manager, en la funcionalidad y la sintaxis. Son archivos JSON que contienen los nombres y valores de la propiedad del elemento, pero agregan los siguientes conceptos principales:
+Las plantillas de Azure Batch son similares a las plantillas de Azure Resource Manager, en la funcionalidad y la sintaxis. Son archivos JSON que contienen los nombres y valores de la propiedad del elemento, pero agregan los siguientes conceptos principales:
 
 -   **Parámetros**
 
     -   Permiten que se especifiquen valores de propiedad en una sección del cuerpo, donde solo es necesario proporcionar los valores de parámetro cuando se usa la plantilla. Por ejemplo, se podría colocar la definición completa de un grupo en el cuerpo y solo un parámetro definido para el ID del grupo. Por lo tanto, solo tiene que proporcionarse un string del ID del grupo para crearlo.
+        
     -   El cuerpo de la plantilla lo puede crear alguien con conocimientos de Batch y las aplicaciones que Batch ejecuta. Solo se deben proporcionar los valores para los parámetros definidos por el autor cuando se use la plantilla. Un usuario sin conocimientos detallados de las aplicaciones y/o Batch, por tanto, puede usar las plantillas.
 
 -   **Variables**
@@ -75,7 +82,8 @@ Las plantillas de Azure Batch son muy similares a las plantillas de Azure Resour
 
 -   **Construcciones de nivel superiores**
 
-    -   Algunas construcciones de niveles superiores están disponibles en la plantilla que todavía no están disponibles en las API de Batch. Por ejemplo, una fábrica de tareas puede definirse en una plantilla de trabajo que va a crear varias tareas para el trabajo con una definición de tarea común. Estas construcciones evitan la necesidad de programar para crear de forma dinámica varios archivos JSON, como un archivo por cada tarea, así como crear archivos de script para instalar aplicaciones a través de un administrador de paquetes, por ejemplo.
+    -   Algunas construcciones de niveles superiores están disponibles en la plantilla que todavía no están disponibles en las API de Batch. Por ejemplo, un generador de tareas se puede definir en una plantilla de trabajo que crea varias tareas para el trabajo mediante una definición de tarea común. Estas construcciones evitan la necesidad de programar para crear de forma dinámica varios archivos JSON, como un archivo por cada tarea, así como crear archivos de script para instalar aplicaciones a través de un administrador de paquetes, por ejemplo.
+
     -   En algún momento, si corresponde, estas construcciones pueden agregarse al servicio de Batch y estar disponibles en las API, las interfaces de usuario y otros elementos de Batch.
 
 ### <a name="pool-templates"></a>Plantillas de grupo
@@ -145,7 +153,7 @@ Además de las funcionalidades de plantillas estándares de parámetros y variab
 
 -   **Fábrica de tareas**
 
-    -   Creará varias tareas para un trabajo a partir de una definición de tarea. Se admiten tres tipos de fábricas de tareas: barrido paramétrico, tarea por archivo y colección de tareas.
+    -   Crea varias tareas para un trabajo a partir de una definición de tarea. Se admiten tres tipos de fábricas de tareas: barrido paramétrico, tarea por archivo y colección de tareas.
 
 El siguiente es un ejemplo de una plantilla que crea un trabajo que utiliza ffmpeg para transcodificar archivos de video MP4 a una de las dos resoluciones más bajas, con una tarea creada por cada archivo de video de origen:
 
@@ -231,13 +239,11 @@ az batch job create --template job-ffmpeg.json
 
 ## <a name="file-groups-and-file-transfer"></a>Grupos de archivos y transferencia de archivos
 
-Además de la creación de grupos, trabajos y tareas, la mayoría de los trabajos necesitarán archivos de entrada y generarán archivos de salida. Los archivos de entrada pueden necesitar cargarse desde un cliente y, a continuación, copiarse en un nodo o nodos de grupo. Los archivos de salida generados por las tareas en un nodo de grupo deben conservarse y, a continuación, descargarse para un cliente.
+La mayoría de los trabajos y tareas requieren archivos de entrada y generan archivos de salida. Tanto los archivos de entrada como los de salida normalmente tienen que transferirse, desde el cliente al nodo, o bien desde el nodo al cliente. La extensión de la CLI de Azure Batch abstrae la transferencia de archivos y utiliza la cuenta de almacenamiento que se crea de forma predeterminada para cada cuenta de Batch.
 
-La extensión de la CLI de Azure Batch abstrae la transferencia de archivos y utiliza la cuenta de almacenamiento que se crea de forma predeterminada para cada cuenta de Batch.
+Un grupo de archivos equivale a un contenedor que se crea en la cuenta de Azure Storage. Dicho grupo puede tener subcarpetas.
 
-Se introdujo el concepto de grupo de archivos, que equivale a un contenedor que se crea en la cuenta de Azure Storage. El grupo de archivos puede tener subcarpetas.
-
-Los comandos de la CLI se proporcionan y permiten que se carguen los archivos desde el cliente a un grupo de archivos especificado y descargarán los archivos desde el grupo de archivos especificado para un cliente.
+La extensión de la CLI de Batch proporciona comandos para la carga de archivos desde el cliente a un grupo de archivos especificado y la descarga de archivos desde el grupo de archivos especificado a un cliente.
 
 ```azurecli
 az batch file upload --local-path c:\source_videos\*.mp4 
@@ -251,15 +257,12 @@ Las plantillas de grupo y de trabajo permiten que se especifiquen los archivos a
 
 ## <a name="summary"></a>Resumen
 
-Actualmente, solo se ha agregado la compatibilidad de la transferencia de plantillas y archivos a la CLI de Azure. El objetivo es expandir la audiencia que pueda usar Batch a los usuarios que no necesitan desarrollar código usando las API de Batch, como los investigadores, los usuarios de TI y muchos más. Sin programar, los usuarios con conocimientos de Azure, Batch y las aplicaciones que ejecuta Batch, pueden crear plantillas para la creación de grupos y trabajos. Los parámetros de plantilla significan que los usuarios sin un conocimiento detallado de Batch ni de las aplicaciones pueden utilizar las plantillas.
+Actualmente, solo se ha agregado la compatibilidad de transferencia de plantillas y archivos a la CLI de Azure. El objetivo es expandir la audiencia que pueda usar Batch a los usuarios que no necesitan desarrollar código usando las API de Batch, como los investigadores, los usuarios de TI y muchos más. Sin programación, los usuarios con conocimientos de Azure, Batch y las aplicaciones que ejecuta Batch, pueden crear plantillas para la creación de grupos y trabajos. Con los parámetros de plantilla, los usuarios sin un conocimiento detallado de Batch ni de las aplicaciones pueden usar las plantillas.
 
-Se pueden agregar más funcionalidades en el futuro según los comentarios que recibamos. Por ejemplo, también se podría habilitar la compatibilidad de plantillas y la transferencia de archivos en las API de Batch, PowerShell y la interfaz de usuario del portal.
--   Se podría ofrecer una interfaz de usuario para definir las plantillas, evitando la necesidad de crear, modificar, almacenar y compartir archivos JSON.
-
--   Se les podría asignar un ID a las plantillas, almacenadas en el servicio de Batch y asociadas con la cuenta de Batch. La compatibilidad con la interfaz de usuario, la CLI y las API permitiría que se crearan, actualizaran y eliminaran plantillas. Se podrían especificar valores de plantillas y parámetros al crear grupos o trabajos, como alternativa a especificar todos los valores de propiedad necesarios para su creación. La interfaz de usuario de creación de grupos y trabajos generaría de forma dinámica la interfaz de usuario para solicitar los valores de parámetro.
-
-Pruebe la CLI de Azure y envíenos sus sugerencias de funciones y comentarios, ya sea mediante los comentarios de este artículo o en el [foro de MSDN de Azure Batch](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
+Pruebe la extensión Batch para la CLI de Azure y proporcione sus comentarios y sugerencias, ya sea en los comentarios de este artículo o a través del [foro de Azure Batch](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La documentación detallada sobre la instalación y el uso, ejemplos y el código fuente está disponible en el [repositorio de GitHub de Azure](https://github.com/Azure/azure-batch-cli-extensions).
+- Consulte el blog de plantillas de Batch: [Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/) (Ejecución de trabajos de Azure Batch mediante la CLI de Azure: sin necesidad de código).
+- La documentación detallada sobre la instalación y el uso, ejemplos y el código fuente está disponible en el [repositorio de GitHub de Azure](https://github.com/Azure/azure-batch-cli-extensions).
+

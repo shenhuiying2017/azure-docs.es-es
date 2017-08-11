@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/27/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2cbef09aa7bfcd77160b47368bf3d8747dc22de3
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 0781a06635219443e8ff794e72d77b967df52c40
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -38,7 +38,7 @@ Bloqueo inteligente también distingue entre inicios de sesión de usuarios orig
 Como la autenticación de paso a través reenvía las solicitudes de validación de contraseñas a la instancia local de Active Directory (AD), tendrá que evitar que los atacantes bloqueen las cuentas de AD de sus usuarios. Como tiene sus propias directivas de bloqueo de cuentas de AD (en concreto, [**Umbral de bloqueo de cuenta**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) y [**Restablecer contador de bloqueo de cuenta después de** ](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)), debe configurar los valores de umbral de bloqueo y duración del bloqueo de Azure AD adecuadamente para filtrar ataques en la nube antes de que lleguen a la instancia local de AD.
 
 >[!NOTE]
->Mientras que la propia característica Bloqueo inteligente es gratuita, modificar los valores de umbral de bloqueo y duración del bloqueo de Azure AD mediante la API de Graph es una característica de Azure AD Premium P2. También debe ser un administrador global en su inquilino.
+>La característica de bloqueo inteligente es gratuita y está _activada_ de forma predeterminada para todos los clientes. Sin embargo, la modificación de los valores de umbral de bloqueo y duración del bloqueo de Azure AD mediante la API Graph es una característica de Azure AD Premium P2.
 
 Para asegurarse de que las cuentas locales de AD de los usuarios están bien protegidas, debe asegurarse de que:
 
