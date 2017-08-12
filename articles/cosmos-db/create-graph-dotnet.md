@@ -13,20 +13,20 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 07/28/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1794341ed0d4519eef7f065d04ccf86a7e48a4a4
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: a973b81ea5b06c5826cc31c399aae9dec43f5b72
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB: Compilar una aplicación de .NET mediante API Graph
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos y un gráfico (contenedor) de Azure Cosmos DB mediante Azure Portal. Después, compilará y ejecutará una aplicación de consola compilada en [API Graph](graph-sdk-dotnet.md) (versión preliminar).  
+En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos y un grafo (contenedor) de Azure Cosmos DB mediante Azure Portal. Después, compilará y ejecutará una aplicación de consola compilada en [API Graph](graph-sdk-dotnet.md) (versión preliminar).  
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,7 +38,7 @@ Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la vers
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Agregar un gráfico
+## <a name="add-a-graph"></a>Agregar un grafo
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -54,13 +54,13 @@ Ahora vamos a clonar una aplicación de API Graph desde GitHub, establecer la ca
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started.git
     ```
 
-3. Después, abra el archivo de solución en Visual Studio. 
+3. A continuación, abra Visual Studio y el archivo de solución. 
 
-## <a name="review-the-code"></a>Revisión del código
+## <a name="review-the-code"></a>Revisar el código
 
 Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo Program.cs y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
 
-* Se inicializa DocumentClient. En la versión preliminar, hemos agregado una API de extensión de gráficos en el cliente de la base de datos de Azure Cosmos. Estamos trabajando en un cliente de gráficos independiente desacoplado del cliente y los recursos de la base de datos de Azure Cosmos.
+* Se inicializa DocumentClient. En la versión preliminar, hemos agregado una API de extensión de grafos en el cliente de la base de datos de Azure Cosmos. Estamos trabajando en un cliente de grafos independiente desacoplado del cliente y los recursos de la base de datos de Azure Cosmos.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
@@ -75,7 +75,7 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo Pr
     Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" });
     ```
 
-* Se crea un gráfico.
+* Se crea un grafo.
 
     ```csharp
     DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync(
@@ -103,23 +103,19 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo Pr
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
-1. En Azure Portal, en la cuenta de Azure Cosmos DB, haga clic en **Información general** en el panel de navegación izquierdo. Copie el valor de **Identificador URI de Gremlin** en el archivo App.config en el paso siguiente. 
+1. En Visual Studio 2017, abra el archivo App.config. 
 
-    ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-graph-dotnet/gremlin-uri.png)
-
-    Si el valor de **Identificador URI de Gremlin** está en blanco, puede generar el valor desde la página **Claves** en el portal; para ello, use el valor de **URI**, elimine https:// y cambie documents por graphs. 
-
-2. En Visual Studio 2017, abra el archivo App.config. 
-
-3. Copie el valor de **Identificador URI de Gremlin** en el portal y conviértalo en el valor de Endpoint key (Clave de punto de conexión) en App.config. 
-
-    `<add key="Endpoint" value="FILLME.graphs.azure.com:443" />`
-
-4. En Azure Portal, haga clic en **Claves** en el menú de navegación izquierdo, copie el valor de **PRIMARY KEY** (Clave principal) del portal, conviértalo en el valor de AuthKey key (Clave Authkey) en App.config y guarde los cambios. 
-
-    `<add key="AuthKey" value="FILLME" />`
+2. En Azure Portal, en la cuenta de Azure Cosmos DB, haga clic en **Claves** en el panel de navegación izquierdo. 
 
     ![Visualización y copia de una clave principal en Azure Portal, en la página Claves](./media/create-graph-dotnet/keys.png)
+
+3. Copie el valor de **Identificador URI** del portal y conviértalo en el valor de Endpoint key (Clave de punto de conexión) en App.config. Puede usar el botón de copia, tal y como se muestra en la captura de pantalla anterior, para copiar el valor.
+
+    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+
+4. Copie el valor de **CLAVE PRINCIPAL** del portal y conviértalo en el valor de la clave AuthKey en App.config. A continuación, guarde los cambios. 
+
+    `<add key="AuthKey" value="FILLME" />`
 
 Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
 
@@ -129,19 +125,25 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 2. En el cuadro **Examinar** de NuGet, escriba *Microsoft.Azure.Graphs* y active la casilla **Includes prerelease** (Incluye versión preliminar). 
 
-3. En los resultados, instale la biblioteca **Microsoft.Azure.Graphs**. De este modo se instala el paquete de la biblioteca de extensión de gráficos de Azure Cosmos DB y todas las dependencias.
+3. En los resultados, instale la biblioteca **Microsoft.Azure.Graphs**. De este modo se instala el paquete de la biblioteca de extensión de grafos de Azure Cosmos DB y todas las dependencias.
+
+    Si recibe un mensaje sobre cómo revisar los cambios en la solución, haga clic en **Aceptar**. Si recibe un mensaje acerca de la aceptación de licencia, haga clic en **Acepto**.
 
 4. Presione Ctrl+F5 para ejecutar la aplicación.
 
-   En la ventana de la consola se muestran los vértices y los bordes que se agregan al gráfico. Cuando se complete el script, presione ENTRAR dos veces para cerrar la ventana de la consola. 
+   En la ventana de la consola se muestran los vértices y los bordes que se agregan al grafo. Cuando se complete el script, presione ENTRAR dos veces para cerrar la ventana de la consola. 
 
 ## <a name="browse-using-the-data-explorer"></a>Examinar mediante el Explorador de datos
 
-Ahora puede volver al Explorador de datos en Azure Portal para examinar y consultar los datos del nuevo gráfico.
+Ahora puede volver al Explorador de datos en Azure Portal para examinar y consultar los datos del nuevo grafo.
 
-* En el Explorador de datos, la nueva base de datos aparece en el panel Colecciones. Expanda **graphdb**, **graphcoll** y, después, haga clic en **Gráfico**.
+1. En el Explorador de datos, la nueva base de datos aparece en el panel Grafos. Expanda **graphdb**, **graphcollz** y, después, haga clic en **Grafo**.
 
-    Los datos generados por la aplicación de ejemplo se muestran en el panel Gráficos.
+2. Haga clic en el botón **Aplicar filtro** para usar la consulta predeterminada para ver todos los vértices del grafo. Los datos generados por la aplicación de ejemplo se muestran en el panel grafos.
+
+    Puede acercar o alejar el grafo, expandir el espacio de visualización del grafo, agregar vértices adicionales y mover los vértices sobre la superficie de visualización.
+
+    ![Visualización del grafo en el Explorador de datos en Azure Portal](./media/create-graph-dotnet/graph-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
 
@@ -156,7 +158,7 @@ Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha obtenido información sobre cómo crear una cuenta de Azure Cosmos DB, crear un gráfico mediante el Explorador de datos y ejecutar una aplicación. Ahora puede crear consultas más complejas e implementar con Gremlin una lógica de recorrido del gráfico eficaz. 
+En esta guía de inicio rápido, ha obtenido información sobre cómo crear una cuenta de Azure Cosmos DB, crear un grafo mediante el Explorador de datos y ejecutar una aplicación. Ahora puede crear consultas más complejas e implementar con Gremlin una lógica de recorrido del grafo eficaz. 
 
 > [!div class="nextstepaction"]
 > [Consulta mediante Gremlin](tutorial-query-graph.md)
