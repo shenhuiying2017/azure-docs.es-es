@@ -16,17 +16,17 @@ ms.topic: hero-article
 ms.date: 07/14/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 153b4cc668fdebd28cec5f3d95093a595064202a
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: compilación de una aplicación de Node.js mediante API Graph
 
-Azure Cosmos DB es el servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es el servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-En este artículo de inicio rápido se muestra cómo crear un gráfico, una base de datos y una cuenta de Azure Cosmos DB para API Graph (versión preliminar) mediante Azure Portal. Después, compilará y ejecutará una aplicación de consola con el controlador [Node.js de Gremlin](https://www.npmjs.com/package/gremlin-secure) de código abierto.  
+En este artículo de inicio rápido se muestra cómo crear un grafo, una base de datos y una cuenta de Azure Cosmos DB para API Graph (versión preliminar) mediante Azure Portal. Después, compilará y ejecutará una aplicación de consola con el controlador [Node.js de Gremlin](https://www.npmjs.com/package/gremlin-secure) de código abierto.  
 
 > [!NOTE]
 > El módulo npm `gremlin-secure` es una versión modificada del módulo `gremlin`, compatible con los protocolos SSL y SASL que son necesarios para conectar con Azure Cosmos DB. El código fuente está disponible en [GitHub](https://github.com/CosmosDB/gremlin-javascript).
@@ -44,7 +44,7 @@ Antes de ejecutar este ejemplo, debe cumplir los siguientes requisitos previos:
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Agregar un gráfico
+## <a name="add-a-graph"></a>Agregar un grafo
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -113,7 +113,7 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `a
 
    ![Hoja de claves de Azure Portal](./media/create-graph-nodejs/keys.png)
 
-4. Escriba el nombre de la base de datos y el nombre del gráfico (contenedor) para el valor de config.database y config.collection. 
+4. Escriba el nombre de la base de datos y el nombre del grafo (contenedor) para el valor de config.database y config.collection. 
 
 Este es un ejemplo del aspecto que debería tener el archivo config.js completado:
 
@@ -139,11 +139,13 @@ module.exports = config;
 
 ## <a name="browse-with-data-explorer"></a>Examinar con el Explorador de datos
 
-Ahora puede volver al Explorador de datos en Azure Portal para examinar, consultar, modificar y trabajar con los datos del nuevo gráfico.
+Ahora puede volver al Explorador de datos en Azure Portal para examinar, consultar, modificar y trabajar con los datos del nuevo grafo.
 
-En el Explorador de datos, la nueva base de datos aparece en el panel **Colecciones**. Expanda **graphdb**, **graphcoll** y, después, haga clic en **Gráfico**.
+En el Explorador de datos, la nueva base de datos aparece en el panel **Grafos**. Expanda la base de datos, luego la colección y haga clic en **Grafo**.
 
-Los datos generados por la aplicación de ejemplo se muestran en el panel **Gráficos**.
+Los datos generados por la aplicación de ejemplo se muestran en el panel siguiente dentro de la pestaña **Grafo** al hacer clic en **Aplicar filtro**.
+
+Intente completar `g.V()` con `.has('firstName', 'Thomas')` para probar el filtro. Tenga en cuenta que el valor distingue mayúsculas de minúsculas.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
 
@@ -158,7 +160,7 @@ Si no piensa seguir usando la aplicación, haga lo siguiente para eliminar todos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha obtenido información sobre cómo crear una cuenta de Azure Cosmos DB, crear un gráfico mediante el Explorador de datos y ejecutar una aplicación. Ahora puede usar Gremlin para implementar una lógica de recorrido del gráfico eficaz y crear consultas más complejas. 
+En este artículo, ha obtenido información sobre cómo crear una cuenta de Azure Cosmos DB, crear un grafo mediante el Explorador de datos y ejecutar una aplicación. Ahora puede usar Gremlin para implementar una lógica de recorrido del grafo eficaz y crear consultas más complejas. 
 
 > [!div class="nextstepaction"]
 > [Consulta mediante Gremlin](tutorial-query-graph.md)

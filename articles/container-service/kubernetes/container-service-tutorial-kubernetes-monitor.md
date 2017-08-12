@@ -11,11 +11,12 @@ keywords: Docker, Containers, Microservicios, Kubernetes, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: aurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: danlep
+ms.custom: mvc
 ms.translationtype: HT
 ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: 1e1b93c29dc28569e897c57d9b68622c1edbd636
@@ -155,3 +156,4 @@ Siga este vínculo para ver ejemplos de scripts del servicio Container creados p
 
 > [!div class="nextstepaction"]
 > [Ejemplos de scripts de Azure Container Service](cli-samples.md)
+
