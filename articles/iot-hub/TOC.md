@@ -5,7 +5,7 @@
 
 # [Introducción](iot-hub-get-started.md)
 
-## Instalación de su dispositivo
+## Configuración del dispositivo
 ### [Simulación de un dispositivo en su PC](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)

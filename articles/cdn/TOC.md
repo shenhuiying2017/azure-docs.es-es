@@ -10,6 +10,8 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Uso compartido de recursos entre orígenes](cdn-cors.md)
+### [Asignación de un dominio personalizado a una red CDN](cdn-map-content-to-custom-domain.md)
+### [Habilitación de HTTPS en un dominio personalizado](cdn-custom-ssl.md)
 ## Optimización del contenido
 ### [Introducción a la optimización](cdn-optimization-overview.md)
 ####[Optimización de archivos grandes](cdn-large-file-optimization.md)
@@ -17,12 +19,10 @@
 ####[Aceleración de sitios dinámicos](cdn-dynamic-site-acceleration.md)
  
 ## administración
-### [Habilitación de HTTPS en un dominio personalizado](cdn-custom-ssl.md)
 ### [Administración con PowerShell](cdn-manage-powershell.md)
 ### Configuración del período de vida
 #### [Contenido de Web Apps/Cloud Services, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Contenido de Storage Blob Service](cdn-manage-expiration-of-blob-content.md)
-### [Asignación de un dominio personalizado a una red CDN](cdn-map-content-to-custom-domain.md)
 ### [Restricción del acceso por países](cdn-restrict-access-by-country.md)
 ### [Mejora del rendimiento mediante la compresión de archivos](cdn-improve-performance.md)
 ### Almacenamiento en caché de contenido mediante cadenas de consulta

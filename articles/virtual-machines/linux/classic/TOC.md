@@ -2,15 +2,15 @@
 ## [Imágenes](about-images.md)
 ## [Extensiones de máquina virtual](agents-and-extensions.md)
 ## [Disponibilidad](configure-availability.md)
-## [P+F](faq.md)
+## [Preguntas más frecuentes](faq.md)
 
-# [Primeros pasos](../opensource-links.md)
+# Introducción
 ## [Creación de una máquina virtual Linux mediante el portal](createportal.md)
 ## [Instalación de la CLI de Azure](../../../cli-install-nodejs.md)
 ## [Creación de claves SSH](../mac-create-ssh-keys.md)
 
-# Cómo
-## [Proceso](../intro-on-azure.md)
+# Procedimientos
+## Proceso
 ### [Creación de una máquina virtual personalizada](create-custom.md)
 ### [Captura de una máquina virtual](capture-image.md)
 ### [Uso de Escritorio remoto con una máquina virtual Linux](remote-desktop.md)
