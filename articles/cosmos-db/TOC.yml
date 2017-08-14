@@ -31,7 +31,7 @@
           href: create-mongodb-java.md
         - name: Golang
           href: create-mongodb-golang.md
-    - name: Gráfico
+    - name: Grafo
       items:
         - name: .NET
           href: create-graph-dotnet.md
@@ -55,7 +55,7 @@
           href: tutorial-develop-mongodb.md
         - name: Tabla
           href: tutorial-develop-table-dotnet.md
-        - name: Gráfico
+        - name: Grafo
           href: tutorial-develop-graph-dotnet.md
     - name: 2 - Importación
       items:
@@ -71,7 +71,7 @@
           href: tutorial-query-mongodb.md
         - name: Tabla
           href: tutorial-query-table.md
-        - name: Gráfico
+        - name: Grafo
           href: tutorial-query-graph.md
     - name: 4 - Distribución global
       items:
@@ -81,7 +81,7 @@
           href: tutorial-global-distribution-mongodb.md
         - name: Tabla
           href: tutorial-global-distribution-table.md
-        - name: Gráfico
+        - name: Grafo
           href: tutorial-global-distribution-graph.md
     - name: 5 - Desarrollo local
       items:
@@ -105,9 +105,6 @@
       href: consistency-levels.md
     - name: Rendimiento
       href: request-units.md
-      items:
-        - name: Unidades de solicitud por minuto
-          href: request-units-per-minute.md
     - name: API de varios modelos
       items:
         - name: DocumentDB
@@ -116,7 +113,7 @@
           href: mongodb-introduction.md
         - name: Tabla
           href: table-introduction.md
-        - name: Gráfico
+        - name: Grafo
           href: graph-introduction.md
     - name: Seguridad
       href: database-security.md
