@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>Introducción a un área de trabajo de Log Analytics
@@ -47,7 +46,7 @@ Si aún no tiene cuenta de Azure, debe crear una para usar Log Analytics. Puede 
 El siguiente paso consiste en crear un área de trabajo.
 
 1. En Azure Portal, busque *Log Analytics* en la lista de servicios en Marketplace y seleccione **Log Analytics**.  
-    ![Portal de Azure](./media/log-analytics-get-started/log-analytics-portal.png)
+    ![Azure Portal](./media/log-analytics-get-started/log-analytics-portal.png)
 2. Haga clic en **Crear** y seleccione opciones para los siguientes elementos:
    * **Área de trabajo de OMS**: escriba un nombre para el área de trabajo.
    * **Suscripción** : si tiene varias suscripciones, elija la que desea asociar con el área de trabajo nueva.
@@ -59,7 +58,12 @@ El siguiente paso consiste en crear un área de trabajo.
 4. Seleccione un área de trabajo para ver sus detalles en Azure Portal.       
     ![detalles de área de trabajo](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-add-solutions-and-solution-offerings"></a>3 Incorporación de soluciones y ofertas de soluciones
+## <a name="3-upgrade-workspace-to-new-log-search"></a>3 Actualización del área de trabajo para la nueva búsqueda de registros
+Se ha publicado un nuevo lenguaje de consulta de Log Analytics y, para sacar provecho del mismo, debe convertir el área de trabajo.  Si se ha actualizado la región en la que se hospeda el área de trabajo, verá un banner de color púrpura en la parte superior del área de trabajo que le invita a realizar la conversión. La actualización es totalmente voluntaria y no afecta a la experiencia de trabajo con Log Analytics ni con las soluciones que haya agregado.  
+
+Para ampliar información y comprender el proceso de actualización, sus ventajas y consideraciones, consulte [Actualizar Azure Log Analytics para la nueva búsqueda de registros](log-analytics-log-search-upgrade.md).  
+
+## <a name="4-add-solutions-and-solution-offerings"></a>4 Incorporación de soluciones y ofertas de soluciones
 
 A continuación, agregue soluciones de administración y ofertas de soluciones. Las soluciones de administración son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas que giran en torno a una determinada área de problemas. Una oferta de solución es un conjunto de soluciones de administración.
 
@@ -95,11 +99,11 @@ Ahora, cree una máquina virtual simple en Azure. Después de crearla, incorpore
 
 - Siga las instrucciones de [Conexión de máquinas virtuales de Azure a Log Analytics](log-analytics-azure-vm-extension.md) para conectar la máquina virtual a Log Analytics mediante Azure Portal.
 
-## <a name="5-view-and-act-on-data"></a>5 Visualización de datos y acciones con ellos
+## <a name="6-view-and-act-on-data"></a>6 Visualización de datos y acciones con ellos
 
 Antes ha habilitado la solución Análisis de registros de actividad y las ofertas de servicio Seguridad y cumplimiento, y Automation & Control. A continuación, se empiezan a examinar los datos recopilados por las soluciones y los resultados de búsquedas de registros.
 
-Para empezar, examine los datos que aparecen de dentro de las soluciones. Después, consulte algunas búsquedas de registros a las que se accede desde búsquedas de registros. Las búsquedas de registros permiten combinar y correlacionar datos de equipo procedentes de varios orígenes dentro de su entorno. Para más información, consulte [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md). Por último, lleve a cabo acciones con los datos que se encuentren mediante el portal de OMS, que está fuera de Azure Portal.
+Para empezar, examine los datos que aparecen de dentro de las soluciones. Después, consulte algunas búsquedas de registros a las que se accede desde búsquedas de registros. Las búsquedas de registros permiten combinar y correlacionar datos de equipo procedentes de varios orígenes dentro de su entorno. Para más información, consulte [Búsqueda de registros de Log Analytics](log-analytics-log-searches.md) o bien si ha convertido el área de trabajo al nuevo lenguaje de consulta, consulte [Descripción de la búsqueda de registros de Log Analytics](log-analytics-log-search-new.md). 
 
 ### <a name="to-view-antimalware-data"></a>Para ver los datos de antimalware
 

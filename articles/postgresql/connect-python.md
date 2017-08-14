@@ -1,6 +1,6 @@
 ---
 title: "Conexión a Azure Database for PostgreSQL desde Python | Microsoft Docs"
-description: "Se proporciona un ejemplo de código de Python que puede usar para a Azure Database for PostgreSQL y consultar datos en este servicio."
+description: "En este tutorial rápido se proporciona un ejemplo de código de Python que puede usar para conectarse a Azure Database for PostgreSQL y consultar datos en este servicio."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -10,12 +10,12 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/07/2017
+ms.date: 08/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso de Python para conectarse y consultar datos
@@ -41,7 +41,7 @@ Asegúrese de usar una versión actualizada de pip (se puede actualizar con algo
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 Obtenga la información de conexión necesaria para conectarse a Azure Database for PostgreSQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque el servidor **mypgserver-20170401** que acaba de crear.
 3. Haga clic en el nombre del servidor **mypgserver-20170401**.
 4. Seleccione la página **Introducción** del servidor. Tome nota del **Nombre del servidor** y del **Server admin login name** (Nombre de inicio de sesión del administrador del servidor).
@@ -49,7 +49,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el nombre de inicio de sesión del administrador del servidor y, si es necesario, restablecer la contraseña.
 
 ## <a name="how-to-run-python-code"></a>Ejecución de código Python
-- Con el editor de texto que prefiera, cree un nuevo archivo denominado postgres.py y guárdelo en una carpeta de proyecto. Copie y pegue el ejemplo de código que se muestra a continuación en el archivo de texto y guárdelo. Asegúrese de seleccionar la codificación UTF-8 al guardar el archivo en el sistema operativo Windows. 
+- Con el editor de texto que prefiera, cree un nuevo archivo denominado postgres.py y guárdelo en una carpeta de proyecto. Copie y pegue el ejemplo de código que se muestra a continuación en el archivo de texto. Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos. A continuación, guarde el archivo. Asegúrese de seleccionar la codificación UTF-8 al guardar el archivo en el sistema operativo Windows. 
 - Para ejecutar el código, inicie el símbolo del sistema o el shell de Bash. Cambie el directorio a la carpeta de proyecto, por ejemplo, `cd postgresql`. A continuación, escriba el comando python seguido del nombre de archivo, como `python postgres.py`.
 
 > [!NOTE]

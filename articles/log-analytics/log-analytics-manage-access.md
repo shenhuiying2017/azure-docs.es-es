@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/06/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4c937fe06d88c6189d39cf799a5d349d0e280a
 ms.contentlocale: es-es
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="manage-workspaces"></a>Administración de áreas de trabajo
@@ -83,7 +82,7 @@ Hay dos modelos de permisos que controlan el acceso a un área de trabajo de Log
 
 En la tabla siguiente se resume el acceso que se puede establecer con cada modelo de permisos:
 
-|                          | Portal de Log Analytics | Portal de Azure | API (incluido PowerShell) |
+|                          | Portal de Log Analytics | Azure Portal | API (incluido PowerShell) |
 |--------------------------|----------------------|--------------|----------------------------|
 | Roles de usuario de Log Analytics | Sí                  | No           | No                         |
 | Acceso basado en roles de Azure  | Sí                  | Sí          | Sí                        |
@@ -108,7 +107,60 @@ Las siguientes actividades también requieren permisos de Azure:
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Administración del acceso a Log Analytics mediante permisos de Azure
 Para conceder acceso al área de trabajo de Log Analytics mediante permisos de Azure, siga los pasos que se describen en [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
 
-Si tiene al menos permiso de lectura de Azure en el área de trabajo de Log Analytics, puede abrir el portal de OMS haciendo clic en la tarea **Portal de OMS** al visualizar el área de trabajo de Log Analytics.
+Azure tiene dos roles de usuario integrados para Log Analytics:
+- Lector de Log Analytics
+- Colaborador de Log Analytics
+
+Los miembros del rol *Lector de Log Analytics* pueden:
+- Ver y buscar todos los datos de supervisión 
+- Ver la configuración de supervisión, incluida la visualización de la configuración de Azure Diagnostics en todos los recursos de Azure.
+
+| Tipo    | Permiso | Descripción |
+| ------- | ---------- | ----------- |
+| Acción | `*/read`   | Capacidad para ver todos los recursos y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y opciones de configuración de todos los recursos |
+| Acción | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Capacidad de realizar consultas de búsqueda de registros v2 |
+| Acción | `Microsoft.OperationalInsights/workspaces/search/action` | Capacidad de realizar consultas de búsqueda de registros v1 |
+| Acción | `Microsoft.Support/*` | Capacidad de abrir casos de soporte técnico |
+|No acción | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Evita la lectura de la clave del área de trabajo necesaria para usar la API de recopilación de datos e instalar agentes |
+
+
+Los miembros del rol *Colaborador de Log Analytics* pueden:
+- Leer todos los datos de supervisión 
+- Crear y configurar cuentas de Automation
+- Agregar y quitar soluciones de administración
+- Leer las claves de las cuentas de almacenamiento 
+- Configurar la recopilación de registros de Azure Storage
+- Editar la configuración de supervisión de los recursos de Azure:
+  - Agregar la extensión de máquina virtual a las máquinas virtuales
+  - Configurar Azure Diagnostics en todos los recursos de Azure
+
+> [!NOTE] 
+> Puede usar la capacidad para agregar una extensión de máquina virtual a una máquina virtual para obtener el control total sobre una máquina virtual.
+
+| Permiso | Descripción |
+| ---------- | ----------- |
+| `*/read`     | Capacidad para ver todos los recursos y la configuración de los recursos. Incluye la visualización de: <br> Estado de la extensión de la máquina virtual <br> Configuración de Azure Diagnostics en los recursos <br> Todas las propiedades y opciones de configuración de todos los recursos |
+| `Microsoft.Automation/automationAccounts/*` | Capacidad para crear y configurar cuentas de Azure Automation, incluido agregar y editar runbooks |
+| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Agregar, actualizar y eliminar extensiones de máquina virtual, incluida la extensión de Microsoft Monitoring Agent y el agente de OMS para la extensión de Linux |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Ver la clave de la cuenta de almacenamiento. Necesaria para configurar Log Analytics para leer los registros de cuentas de Azure Storage |
+| `Microsoft.Insights/alertRules/*` | Agregar, actualizar y eliminar reglas de alertas |
+| `Microsoft.Insights/diagnosticSettings/*` | Agregar, actualizar y eliminar la configuración de diagnósticos en los recursos de Azure |
+| `Microsoft.OperationalInsights/*` | Agregar, actualizar y eliminar la configuración de áreas de trabajo de Log Analytics |
+| `Microsoft.OperationsManagement/*` | Agregar y eliminar soluciones de administración |
+| `Microsoft.Resources/deployments/*` | Crear y eliminar implementaciones. Necesario para agregar y eliminar soluciones, áreas de trabajo y cuentas de Automation |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Crear y eliminar implementaciones. Necesario para agregar y eliminar soluciones, áreas de trabajo y cuentas de Automation |
+
+Para agregar y quitar usuarios de un rol de usuario, es necesario tener permisos `Microsoft.Authorization/*/Delete` y `Microsoft.Authorization/*/Write`.
+
+Use estos roles para conceder a los usuarios acceso en distintos ámbitos:
+- Suscripción: acceso a todas las áreas de trabajo de la suscripción
+- Grupo de recursos: acceso a todas las áreas de trabajo del grupo de recursos
+- Recurso: acceso solo al área de trabajo especificada
+
+Use [roles personalizados](../active-directory/role-based-access-control-custom-roles.md) para crear roles con los permisos específicos necesarios.
+
+### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Roles de usuario de Azure y roles de usuario del portal de Log Analytics
+Si tiene al menos permiso de lectura de Azure en el área de trabajo de Log Analytics, puede abrir el portal de Log Analytics haciendo clic en la tarea **Portal de OMS** al visualizar el área de trabajo de Log Analytics.
 
 Al abrir el portal de Log Analytics, cambia al uso de los roles de usuario heredados de Log Analytics. Si no tiene una asignación de roles en el portal de Log Analytics, el servicio [comprueba los permisos de Azure que tiene en el área de trabajo](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 La asignación de roles en el portal de Log Analytics se determina de la manera siguiente:
@@ -206,7 +258,7 @@ Todas las áreas de trabajo creadas después del 26 de septiembre de 2016 deben 
     > Para vincular un área de trabajo, su cuenta de Azure debe tener acceso al área de trabajo que quiere vincular.  En otras palabras, la cuenta que use para acceder a Azure Portal deberá ser **la misma** cuenta que usa para acceder al área de trabajo. Si no lo es, consulte [Agregar un usuario a un área de trabajo existente](#add-a-user-to-an-existing-workspace).
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Para vincular un área de trabajo a una suscripción de Azure en Azure Portal
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+1. Inicie sesión en [Azure Portal](http://portal.azure.com).
 2. Busque **Log Analytics** y selecciónelo.
 3. Aparecerá una lista con las áreas de trabajo existentes. Haga clic en **Agregar**.  
    ![lista de áreas de trabajo](./media/log-analytics-manage-access/manage-access-link-azure01.png)
@@ -247,7 +299,7 @@ Para asegurarse de que el uso de un área de trabajo se realiza con arreglo a lo
 >
 >
 
-Los derechos de la suscripción de OMS no son visibles en el portal de Azure ni en el de OMS. Podrá ver estos derechos y usos en Enterprise Portal.  
+Los derechos de la suscripción de OMS no son visibles en Azure Portal ni en el portal de OMS. Podrá ver estos derechos y usos en Enterprise Portal.  
 
 Si necesita cambiar la suscripción de Azure a la que está vinculada el área de trabajo, puede usar el cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) de Azure PowerShell.
 
@@ -259,7 +311,7 @@ Si tiene un compromiso monetario de Azure sobre la inscripción Enterprise a la 
 Si necesita cambiar la suscripción de Azure a la que está vinculada el área de trabajo, puede usar el cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) de Azure PowerShell.  
 
 ### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Cambio de un área de trabajo a un plan de tarifa de pago en Azure Portal
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+1. Inicie sesión en [Azure Portal](http://portal.azure.com).
 2. Busque **Log Analytics** y selecciónelo.
 3. Aparecerá una lista con las áreas de trabajo existentes. Seleccione un área de trabajo.  
 4. En la hoja del área de trabajo, en **General**, haga clic en **Plan de tarifa**.  
@@ -299,7 +351,7 @@ Si usa los planes de tarifas Independiente y OMS, puede conservar hasta dos año
 
 Para cambiar la duración de la retención de datos:
 
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+1. Inicie sesión en [Azure Portal](http://portal.azure.com).
 2. Busque **Log Analytics** y selecciónelo.
 3. Aparecerá una lista con las áreas de trabajo existentes. Seleccione un área de trabajo.  
 4. En la hoja del área de trabajo, en **General**, haga clic en **Retención**.  
@@ -325,7 +377,7 @@ Cuando elimina un área de trabajo de Log Analytics, todos los datos relacionado
 Si es administrador y hay varios usuarios asociados al área de trabajo, se interrumpirá la asociación entre los usuarios y el área de trabajo. Si los usuarios están asociados a otras áreas de trabajo, podrán seguir utilizando OMS con esas otras áreas de trabajo. Sin embargo, si no están asociados a otras áreas de trabajo, deberán crear un área de trabajo para poder usar OMS.
 
 ### <a name="to-delete-a-workspace"></a>Para eliminar un área de trabajo
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+1. Inicie sesión en [Azure Portal](http://portal.azure.com).
 2. Busque **Log Analytics** y selecciónelo.
 3. Aparecerá una lista con las áreas de trabajo existentes. Seleccione el área de trabajo que desea eliminar.
 4. En la hoja del área de trabajo, haga clic en **Eliminar**.  

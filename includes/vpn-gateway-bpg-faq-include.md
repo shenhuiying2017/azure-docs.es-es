@@ -1,4 +1,4 @@
-### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite BGP en todas las SKU de puerta de enlace de VPN de Azure?
+### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite BGP en todas las SKU de Azure VPN Gateway?
 No, BGP se admite en las puertas de enlace de VPN de Azure **Standard** y **HighPerformance**. **Basic** NO se admite.
 
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>¿Puedo usar BGP con puertas de enlace de VPN basadas en directivas de Azure?
@@ -14,6 +14,11 @@ Sí, los siguientes ASN están reservados por Azure para emparejamientos interno
 * ASN privados: 65515, 65517, 65518, 65519, 65520
 
 Estos ASN no se pueden especificar para sus dispositivos VPN locales al conectar con puertas de enlace de VPN.
+
+### <a name="are-there-any-other-asns-that-i-cant-use"></a>¿Hay algún otro ASN que no puedo usar?
+Sí, los siguientes ASN están [reservados por IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) y no se pueden configurar en Azure VPN Gateway:
+
+23456, 64496-64511, 65535-65551 y 429496729
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>¿Puedo usar el mismo ASN para redes VPN locales y redes virtuales de Azure?
 No, debe asignar ASN diferentes entre las redes locales y sus redes virtuales de Azure si las está conectando con BGP. Las puertas de enlace de VPN de Azure tienen un ASN de 65515 predeterminado asignado, independientemente de que BGP esté habilitado, o no, para la conectividad entre locales. Para invalidar este valor predeterminado, asigne otro ASN al crear la puerta de enlace de VPN o cambie el ASN después de crearla. Debe asignar los ASN locales a las puertas de enlace de red local de Azure correspondientes.
@@ -42,7 +47,7 @@ Sí, puede utilizar BGP para conexiones entre locales y conexiones de red virtua
 ### <a name="can-i-mix-bgp-with-non-bgp-connections-for-my-azure-vpn-gateways"></a>¿Puedo combinar BGP con conexiones no de BGP para mi puertas de enlace de VPN de Azure?
 Sí, puede mezclar conexiones de BGP y no de BGP para la misma puerta de enlace de VPN de Azure.
 
-### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>¿La puerta de enlace de VPN de Azure admite el enrutamiento del tránsito de BGP?
+### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>¿Azure VPN Gateway admite el enrutamiento del tránsito de BGP?
 Sí, se admite el enrutamiento del tránsito de BGP, con la excepción de que las puertas de enlace de VPN de Azure **NO** anunciarán las rutas predeterminadas a otros pares de BGP. Para habilitar el enrutamiento del tránsito a través de varias puertas de enlace de VPN de Azure, debe habilitar BGP en todas las conexiones de red virtual a red virtual intermedias.
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>¿Puedo tener más de un túnel entre mi red local y Azure VPN Gateway?

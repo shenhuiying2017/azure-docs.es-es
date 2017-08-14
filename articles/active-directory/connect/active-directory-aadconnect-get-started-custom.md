@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
@@ -274,10 +274,13 @@ Se le solicita que escriba las credenciales, con el fin de que el Servidor de ap
 ### <a name="specify-the-service-account-for-the-ad-fs-service"></a>Especificación de la cuenta de servicio para el servicio AD FS
 El servicio de AD FS requiere una cuenta de servicio de dominio para autenticar usuarios y la información de usuario de búsqueda en Active Directory. Puede admitir dos tipos de cuentas de servicio:
 
-* **Cuenta de servicio administrada de grupo** : se introdujo en Servicios de dominio de Active Directory con Windows Server 2012. Este tipo de cuenta proporciona servicios, como AD FS, que utilizan una única cuenta sin necesidad de actualizar la contraseña de la misma de forma periódica. Utilice esta opción si tiene controladores de dominio de Windows Server 2012 en el dominio al que pertenecen los servidores de AD FS.
+* **Cuenta de servicio administrada de grupo**: se introdujo en Active Directory Domain Services con Windows Server 2012. Este tipo de cuenta proporciona servicios, como AD FS, que utilizan una única cuenta sin necesidad de actualizar la contraseña de la misma de forma periódica. Utilice esta opción si tiene controladores de dominio de Windows Server 2012 en el dominio al que pertenecen los servidores de AD FS.
 * **Cuenta de usuario de dominio** : para este tipo de cuenta debe especificar una contraseña y actualizarla de forma periódica cuando cambie o expire. Utilice esta opción solo si no tiene controladores de dominio de Windows Server 2012 en el dominio al que pertenecen los servidores de AD FS.
 
 Si ha seleccionado Cuenta de servicio administrada de grupo y esta característica no se ha usado nunca en Active Directory, se le pedirán las credenciales de administrador de organización. Estas se usarán para iniciar el almacén de claves y habilitar la característica en Active Directory.
+
+> [!NOTE]
+> Azure AD Connect realiza una comprobación para detectar si el servicio AD FS ya está registrado como nombre de entidad de seguridad de servicio en el dominio.  AD DS no permite a los nombres duplicados de entidades de seguridad de servicio registrarse a la vez.  Si se encuentra un nombre duplicado de entidad de seguridad de servicio, no podrá continuar hasta que se elimine este.
 
 ![Cuenta de servicio de AD FS](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 
@@ -317,6 +320,15 @@ Para más información, consulte [Modo provisional](active-directory-aadconnects
 
 ### <a name="verify-your-federation-configuration"></a>Comprobación de la configuración de la federación
 Azure AD Connect comprueba la configuración de DNS al hacer clic en el botón Comprobar.
+
+**Comprobaciones de conectividad a Internet**
+
+* Resolución del FQDN de federación: Azure AD Connect comprueba si se puede resolver el FQDN de federación mediante DNS para garantizar la conectividad. Si Azure AD Connect no puede resolver el FQDN, se produce un error de comprobación. Asegúrese de que exista un registro DNS para el FQDN del servicio de federación para realizar correctamente la comprobación.
+* Registro DNS D: Azure AD Connect comprueba si hay un registro D para el servicio de federación. En ausencia de un registro D, se producirá un error de comprobación. Cree un registro D en lugar de uno CNAME para el FQDN de federación con el fin de realizar correctamente la comprobación.
+
+**Comprobaciones de conectividad a la extranet**
+
+* Resolución del FQDN de federación: Azure AD Connect comprueba si se puede resolver el FQDN de federación mediante DNS para garantizar la conectividad.
 
 ![Complete](./media/active-directory-aadconnect-get-started-custom/completed.png)
 
