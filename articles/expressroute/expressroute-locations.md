@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 08/01/2017
 ms.author: kaanan
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 742621fc71cc45a30628b1a4cb01d5c644766b77
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: d254a72116bbd8b1cbe19269f7c1e0ba98a45e3c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/27/2017
 > * [Proveedores por ubicación](expressroute-locations-providers.md)
 
 
-Las tablas de este artículo proporcionan información acerca de los proveedores de conectividad de ExpressRoute, la cobertura geográfica de ExpressRoute, los Servicios en la nube de Microsoft compatibles a través de ExpressRoute y los integradores de sistemas de ExpressRoute (SI).
+Las tablas de este artículo proporcionan información acerca de los proveedores de conectividad de ExpressRoute, la cobertura geográfica de ExpressRoute, los servicios en la nube de Microsoft compatibles a través de ExpressRoute y los integradores de sistemas de ExpressRoute (SI).
 
 ## <a name="partners"></a>Proveedores de conectividad ExpressRoute
 ExpressRoute es compatible con todas las ubicaciones y regiones de Azure. El siguiente mapa proporciona una lista de regiones de Azure y ubicaciones de ExpressRoute. Las ubicaciones de ExpressRoute hacen referencia a los emparejamientos de Microsoft con varios proveedores de servicio.
@@ -95,7 +95,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **Jisc** |Compatible |Compatible |Londres |
 | **KINX** |Compatible |Compatible |Seúl |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Compatible | Compatible | Ámsterdam | 
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Las Vegas+, Londres, Sao Paulo, Seattle, Silicon Valley, Singapur, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Las Vegas, Londres, Sao Paulo, Seattle, Silicon Valley, Singapur, Washington DC |
 | **LG CNS** |Compatible |Compatible |Busán |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Hong Kong, Las Vegas, Londres, Los Ángeles, Melbourne, Miami, Nueva York, Quebec City, San Antonio, Seattle, Silicon Valley, Singapur, Sidney, Toronto, Washington DC |
 | **MTN** |Compatible |Compatible |Londres |
@@ -149,6 +149,7 @@ Para obtener más información, consulte [ExpressRoute en China](http://www.wind
 | **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |Compatible |No compatible |Berlín |
 | **Interxion** |Compatible |No compatible |Fráncfort |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Compatible  | No compatible | Berlín |
+| **T-Systems** |Compatible |No compatible |Berlín |
 
 ## <a name="connectivity-through-exchange-providers"></a>Conectividad a través de proveedores de intercambio
 

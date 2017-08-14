@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: 939d6adc548d5d6ef66909bcf52f11a4106c3be9
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
+ms.contentlocale: es-es
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Introducción a Azure Mobile Engagement para aplicaciones universales de Windows
@@ -26,6 +26,9 @@ ms.lasthandoff: 03/01/2017
 
 En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso que hace de las aplicaciones y enviar notificaciones push a los usuarios segmentados de una aplicación Windows Universal.
 En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. Creará una aplicación Windows Universal vacía que recopila datos básicos de uso de aplicaciones y recibe notificaciones push mediante el Servicio de notificaciones de Windows (WNS).
+
+> [!NOTE]
+> El servicio Azure Mobile Engagement se retirará en marzo de 2018 y actualmente solo está disponible para los clientes existentes. Para más información, consulte [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
@@ -128,7 +131,7 @@ Mobile Engagement permite interactuar y llegar a los usuarios mediante notificac
 En las secciones siguientes se instala la aplicación para recibirlos.
 
 ### <a name="enable-your-app-to-receive-wns-push-notifications"></a>Habilitar la aplicación para recibir notificaciones de inserción de WNS
-1. En el archivo `Package.appxmanifest` , en la pestaña **Aplicación** , en **Notificaciones**, seleccione: **Sí** en **Capacidad de aviso**
+1. En el archivo , en la pestaña `Package.appxmanifest`Aplicación**, en** Notificaciones**, seleccione** Sí**** en **Capacidad de aviso:**.
 
     ![][5]
 
@@ -154,7 +157,7 @@ Está listo para enviar una notificación del sistema. Ahora comprobaremos que h
 4. Una vez creada la aplicación, navegue a **Servicios -> Notificaciones push** en el menú izquierdo.
 
     ![][11]
-5. En la sección Notificaciones push, haga clic en el vínculo **sitio de Servicios Live** .
+5. En la sección Notificaciones push, haga clic en el vínculo **sitio de Live Services**.
 
     ![][12]
 6. Desplácese a la sección de credenciales de inserción. Asegúrese de que se encuentra en la sección **Configuración de aplicaciones** y, luego, copie su **SID del paquete** y **Secreto del cliente**

@@ -17,19 +17,19 @@ ms.topic: get-started-article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 6f204f2f0dca33e68b9853af3c94934af65ca1f9
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Preguntas sobre el servicio Azure Backup
-En este artículo se incluyen respuestas a preguntas habituales para ayudarle a comprender rápidamente los componentes de Azure Backup. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. Para realizar cualquier pregunta acerca de Azure Backup, haga clic en **Comentarios** (a la derecha). Los comentarios aparecen en la parte inferior de este artículo. Para poder escribir comentarios se requiere una cuenta de Livefyre. También se pueden publicar preguntas sobre el servicio Copia de seguridad de Azure en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+En este artículo se incluyen respuestas a preguntas habituales para ayudarle a comprender rápidamente los componentes de Azure Backup. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. Para realizar cualquier pregunta acerca de Azure Backup, haga clic en **Comentarios** (a la derecha). Los comentarios aparecen en la parte inferior de este artículo. Para poder escribir comentarios se requiere una cuenta de Livefyre. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Para examinar rápidamente las secciones de este artículo, use los vínculos de la derecha que aparecen debajo de **En este artículo**.
 
 
-## <a name="recovery-services-vault"></a>Almacén de Servicios de recuperación
+## <a name="recovery-services-vault"></a>Almacén de Recovery Services
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>¿Hay algún límite del número de almacenes que se pueden crear en cada suscripción de Azure? <br/>
 Sí. A partir de septiembre de 2016, puede crear 25 almacenes de Recovery Services o de copia de seguridad por suscripción. Se pueden crear hasta 25 almacenes de Recovery Services por cada región admitida de Azure Backup por suscripción. Si necesita más almacenes, cree otra suscripción.
@@ -46,15 +46,16 @@ No. El almacén se crea en un nivel de suscripción y no se puede reasignar a ot
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Los almacenes de Recovery Services se basan en Resource Manager. ¿Se admiten aún los almacenes de Backup (modo clásico)? <br/>
 Todos los almacenes de Backup existentes en el [portal clásico](https://manage.windowsazure.com) siguen siendo compatibles. Sin embargo, ya no podrá usar el portal clásico para implementar nuevos almacenes de Backup. Microsoft recomienda el uso de almacenes de Recovery Services para todas las implementaciones porque las futuras mejoras solo se aplican a almacenes de Recovery Services. Si intenta crear un almacén de Backup en el portal clásico, se le redirigirá a [Azure Portal](https://portal.azure.com).
 
-### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>¿Se puede migrar un almacén de Copia de seguridad a un almacén de Servicios de recuperación? <br/>
+### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>¿Se puede migrar un almacén de Backup a un almacén de Recovery Services? <br/>
 Por desgracia, no, no puede migrar el contenido de un almacén de Backup a un almacén de Recovery Services. Estamos trabajando para agregar esta funcionalidad, pero no está disponible actualmente.
 
 ### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>He realizado copias de seguridad de mis máquinas virtuales clásicas en un almacén de Backup. ¿Puedo migrar mis máquinas virtuales del modo clásico al modo de Resource Manager y protegerlos en un almacén de Recovery Services?
-La recuperación de máquinas virtuales clásica apunta a un almacén de copia de seguridad no migran automáticamente a un almacén de Recovery Services cuando se mueve la máquina virtual del modo clásico al de Resource Manager. Siga estos pasos para transferir las copias de seguridad de máquinas virtuales:
+Los puntos de recuperación de máquinas virtuales clásicas en un almacén de Backup no migran automáticamente a un almacén de Recovery Services cuando se mueve la máquina virtual del modo clásico al modo de Resource Manager. Siga estos pasos para transferir las copias de seguridad de máquinas virtuales:
 
 1. En el almacén de Backup, vaya a la pestaña **Elementos protegidos** y seleccione la máquina virtual. Haga clic en [Detener protección](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Deje la opción *Eliminar los datos de copia de seguridad asociados***desactivada**.
-2. Migre la máquina virtual del modo clásico al modo de Resource Manager. Asegúrese de que la información de almacenamiento y red correspondiente a la máquina virtual también se migra al modo de Resource Manager.
-3. Cree un almacén de Recovery Services y configure la copia de seguridad de la máquina virtual migrada mediante la acción **Copia de seguridad** sobre el panel del almacén. Para más información sobre la copia de seguridad de una máquina virtual en un almacén de Recovery Services, consulte el artículo [Primer análisis: protección de máquinas virtuales con un almacén de Recovery Services](backup-azure-vms-first-look-arm.md).
+2. Elimine la extensión de instantánea o copia de seguridad de la máquina virtual.
+3. Migre la máquina virtual del modo clásico al modo de Resource Manager. Asegúrese de que la información de almacenamiento y red correspondiente a la máquina virtual también se migra al modo de Resource Manager.
+4. Cree un almacén de Recovery Services y configure la copia de seguridad de la máquina virtual migrada mediante la acción **Copia de seguridad** sobre el panel del almacén. Para más información sobre la copia de seguridad de una máquina virtual en un almacén de Recovery Services, consulte el artículo [Primer análisis: protección de máquinas virtuales con un almacén de Recovery Services](backup-azure-vms-first-look-arm.md).
 
 ## <a name="azure-backup-agent"></a>Agente de copia de seguridad de Azure
 Se puede encontrar una lista detallada de preguntas en las [P+F sobre la copia de seguridad de archivos y carpetas de Azure](backup-azure-file-folder-backup-faq.md).
@@ -79,13 +80,13 @@ No. Un servidor DPM o MABS solo se puede registrar en un único almacén.
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>¿Qué versión de System Center Data Protection Manager se admite? <br/>
 Se recomienda que instale el agente de Azure Backup [más reciente](http://aka.ms/azurebackup_agent) en el último paquete acumulativo (UR) de actualizaciones para System Center Data Protection Manager (DPM). A partir de agosto de 2016, el paquete acumulativo de actualizaciones 11 es la actualización más reciente.
 
-### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-system-center-dpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>He instalado el agente de Copia de seguridad de Azure para proteger archivos y carpetas. ¿Puedo instalar ahora System Center DPM para que funcione con el agente de Azure Backup con el fin de proteger las cargas de trabajo locales de aplicaciones o de máquinas virtuales para Azure? <br/>
+### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-system-center-dpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>He instalado el agente de Azure Backup para proteger archivos y carpetas. ¿Puedo instalar ahora System Center DPM para que funcione con el agente de Azure Backup con el fin de proteger las cargas de trabajo locales de aplicaciones o de máquinas virtuales para Azure? <br/>
 Para usar Azure Backup con System Center Data Protection Manager (DPM), instale DPM en primer lugar e instale el agente de Azure Backup. Instalar los componentes de Azure Backup en este orden garantiza que el agente funcione con DPM. No se recomienda o no se admite la instalación de Azure Backup.
 
 
 ## <a name="how-azure-backup-works"></a>Cómo funciona Azure Backup
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Si se cancela un trabajo de copia de seguridad una vez que se ha iniciado, ¿se eliminan los datos de copia de seguridad transferidos? <br/>
-Nº Todos los datos transferidos al almacén, antes de que se cancelara el trabajo de copia de seguridad, permanecen en el almacén. Copia de seguridad de Azure usa un mecanismo para agregar ocasionalmente agregar puntos de control a los datos de copia de seguridad durante la copia de seguridad. Debido a que hay puntos de control en los datos de copia de seguridad, el siguiente proceso de copia de seguridad puede validar la integridad de los archivos. El siguiente trabajo de copia de seguridad será incremental a los datos que ya están en la copia de seguridad. Las copias de seguridad incrementales solo transfieren los datos nuevos o modificados, lo que equivale a una mejor utilización del ancho de banda.
+Nº Todos los datos transferidos al almacén, antes de que se cancelara el trabajo de copia de seguridad, permanecen en el almacén. Azure Backup usa un mecanismo para agregar ocasionalmente agregar puntos de control a los datos de copia de seguridad durante la copia de seguridad. Debido a que hay puntos de control en los datos de copia de seguridad, el siguiente proceso de copia de seguridad puede validar la integridad de los archivos. El siguiente trabajo de copia de seguridad será incremental a los datos que ya están en la copia de seguridad. Las copias de seguridad incrementales solo transfieren los datos nuevos o modificados, lo que equivale a una mejor utilización del ancho de banda.
 
 Si cancela un trabajo de copia de seguridad para una máquina virtual de Azure, se omiten los datos transferidos. El siguiente trabajo de copia de seguridad transfiere los datos incrementales desde el último trabajo de copia de seguridad correcto.
 
@@ -93,7 +94,7 @@ Si cancela un trabajo de copia de seguridad para una máquina virtual de Azure, 
 Sí. Sí, en estaciones de trabajo de Windows o Windows Server los trabajos de copia de seguridad se pueden ejecutar un máximo de tres veces al día. Sin embargo, en System Center DPM, los trabajos de copia de seguridad se pueden ejecutar un máximo de dos veces al día. Por último, en las máquinas virtuales de IaaS solo se puede ejecutar un trabajo de copia de seguridad al día. Puede usar la directiva de programación para estaciones de trabajo de Windows o Windows Server para especificar programaciones diarias o semanales. Mediante System Center DPM, puede especificar programaciones diarias, semanales, mensuales y anuales.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>¿Por qué el tamaño de los datos transferidos al almacén de Recovery Services es más pequeño que los datos de los que he hecho copia de seguridad?<br/>
- Todos los datos de los que se realiza una copia de seguridad desde el agente de Copia de seguridad de Azure o SCDPM o del Azure Backup Server se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, el tamaño de los datos del almacén de copia de seguridad se reduce entre un 30% y un 40%.
+ Todos los datos de los que se realiza una copia de seguridad desde el agente de Azure Backup o SCDPM o desde Azure Backup Server se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, el tamaño de los datos del almacén de copia de seguridad se reduce entre un 30% y un 40%.
 
 ## <a name="what-can-i-back-up"></a>¿De qué puedo hacer copia de seguridad?
 ### <a name="which-operating-systems-do-azure-backup-support-br"></a>¿Qué sistemas operativos admite Azure Backup? <br/>
@@ -117,7 +118,7 @@ Azure Backup admite la siguiente lista de sistemas operativos para la copia de s
 
 **Para la copia de seguridad de máquinas virtuales de Azure:**
 
-* **Linux**: Copia de seguridad de Azure admite [una lista de distribuciones aprobadas por Azure](../virtual-machines/linux/endorsed-distros.md) , con la excepción de CoreOS Linux.  Otras distribuciones con la iniciativa "traiga su propio Linux" también podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python.
+* **Linux**: Azure Backup admite [una lista de distribuciones aprobadas por Azure](../virtual-machines/linux/endorsed-distros.md) , con la excepción de CoreOS Linux.  Otras distribuciones con la iniciativa "traiga su propio Linux" también podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python.
 * **Windows Server**: no se admiten las versiones anteriores a Windows Server 2008 R2.
 
 
@@ -149,7 +150,7 @@ Para la copia de seguridad de máquinas virtuales de Azure, cada máquina virtua
 No, tanto DPM como Windows Server o el cliente Windows tienen directivas de retención diarias, semanales, mensuales y anuales.
 
 ### <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>¿Puedo configurar de forma selectiva mis directivas de retención (es decir, configurar semanal y diariamente, pero no anual y mensualmente)?<br/>
-Sí, la estructura de retención de la Copia de seguridad de Azure permite tener una flexibilidad completa en la definición de la directiva de retención según sus requisitos.
+Sí, la estructura de retención de Azure Backup permite tener una flexibilidad completa en la definición de la directiva de retención según sus requisitos.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>¿Puedo programar una copia de seguridad a las 6 p.m. y establecer las directivas de retención a una hora diferente?<br/>
 No. Las directivas de retención solo pueden aplicarse a puntos de copia de seguridad. En la siguiente ilustración, la directiva de retención se ha especificado para las copias de seguridad de las 12 a.m. y las 6 p.m. <br/>
@@ -161,13 +162,13 @@ No. Las directivas de retención solo pueden aplicarse a puntos de copia de segu
 No: el tiempo de recuperación del punto de datos más antiguo o más reciente es el mismo. Cada punto de recuperación se comporta como un punto completo.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storagebr"></a>Si cada punto de recuperación es como un punto completo, ¿afecta esto al almacenamiento de copia de seguridad facturable total?<br/>
-Los productos con un punto de retención a largo plazo típicos almacenan los datos de copia de seguridad como puntos completos. Los puntos completos *no son eficientes* para el almacenamiento, pero resultan más fáciles y rápidos de restaurar. Las copias incrementales son *eficientes* para el almacenamiento, pero requieren que se restaure una cadena de datos, lo que afecta al tiempo de recuperación. La arquitectura de almacenamiento de Copia de seguridad de Azure le ofrece lo mejor de ambos mundos ya que permite almacenar de forma óptima datos para conseguir restauraciones más rápidas e incurrir en pocos costos de almacenamiento. Este enfoque del almacenamiento de datos garantiza que el ancho de banda de entrada y salida se utiliza de manera eficiente. Tanto la cantidad de almacenamiento de datos como el tiempo necesario para recuperar los datos se reducen al mínimo. Aprenda más sobre la eficacia de las [copias de seguridad incrementales](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
+Los productos con un punto de retención a largo plazo típicos almacenan los datos de copia de seguridad como puntos completos. Los puntos completos *no son eficientes* para el almacenamiento, pero resultan más fáciles y rápidos de restaurar. Las copias incrementales son *eficientes* para el almacenamiento, pero requieren que se restaure una cadena de datos, lo que afecta al tiempo de recuperación. La arquitectura de almacenamiento de Azure Backup le ofrece lo mejor de ambos mundos ya que permite almacenar de forma óptima datos para conseguir restauraciones más rápidas e incurrir en pocos costos de almacenamiento. Este enfoque del almacenamiento de datos garantiza que el ancho de banda de entrada y salida se utiliza de manera eficiente. Tanto la cantidad de almacenamiento de datos como el tiempo necesario para recuperar los datos se reducen al mínimo. Aprenda más sobre la eficacia de las [copias de seguridad incrementales](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-createdbr"></a>¿Hay un límite en el número de puntos de recuperación que se pueden crear?<br/>
 Puede crear hasta 9999 puntos de recuperación por instancia protegida. Una instancia protegida es un equipo, un servidor (físico o virtual) o una carga de trabajo configurada para realizar copias de seguridad en Azure. Para más información, consulte las explicaciones de [Copia de seguridad y retención](./backup-introduction-to-azure-backup.md#backup-and-retention) y [Descripción de una instancia protegida](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance).
 
 ### <a name="how-many-recoveries-can-i-perform-on-the-data-that-is-backed-up-to-azurebr"></a>¿Cuántas recuperaciones puedo realizar en los datos cuya copia de seguridad se crea en Azure?<br/>
-No hay ningún límite en cuanto al número de recuperaciones de la Copia de seguridad de Azure.
+No hay ningún límite en cuanto al número de recuperaciones de Azure Backup.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>Al restaurar los datos, ¿tengo que pagar por el tráfico de salida de Azure? <br/>
 Nº Sus recuperaciones son gratuitas y no se cobra por el tráfico de salida.

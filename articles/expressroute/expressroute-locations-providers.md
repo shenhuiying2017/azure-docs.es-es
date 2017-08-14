@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
+ms.date: 08/08/2017
 ms.author: kaanan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2e35237b0ccc201cb797c4e65e963e42f7a07c4b
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: a98c216fcc4351a339554ce0adcf8fccb717d3e0
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/21/2017
 > * [Proveedores por ubicación](expressroute-locations-providers.md)
 
 
-Las tablas de este artículo proporcionan información acerca de los proveedores de conectividad de ExpressRoute, la cobertura geográfica de ExpressRoute, los Servicios en la nube de Microsoft compatibles a través de ExpressRoute y los integradores de sistemas de ExpressRoute (SI).
+Las tablas de este artículo proporcionan información acerca de los proveedores de conectividad de ExpressRoute, la cobertura geográfica de ExpressRoute, los servicios en la nube de Microsoft compatibles a través de ExpressRoute y los integradores de sistemas de ExpressRoute (SI).
 
 ## <a name="partners"></a>Proveedores de conectividad ExpressRoute
 ExpressRoute es compatible con todas las ubicaciones y regiones de Azure. El siguiente mapa proporciona una lista de regiones de Azure y ubicaciones de ExpressRoute. Las ubicaciones de ExpressRoute hacen referencia a los emparejamientos de Microsoft con varios proveedores de servicio.
@@ -83,9 +83,9 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Londres** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Los Ángeles** |CoreSite, Equinix, Megaport, NTT y Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC y Telstra Corporation |
-| **Miami** |Megaport |
+| **Miami** |C3ntro +, Megaport |
 | **Montreal** |Bell Canada y Cologix |
-| **Mumbai (Bombay)** |Airtel+ y Tata Communications |
+| **Mumbai (Bombay)** |Airtel+, Sify, Tata Communications |
 | **Nueva York** |CoreSite, Equinix, Megaport y Zayo Group |
 | **Newport (Gales)** |Datos de última generación |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
@@ -127,7 +127,7 @@ Para más información, consulte [ExpressRoute en China](http://www.windowsazure
 ### <a name="germany"></a>Alemania
 | **Ubicación** | **Proveedores de servicios** |
 | --- | --- |
-| **Berlín** |Colt+, e-shelter y Megaport+ |
+| **Berlín** |Colt+, e-shelter, Megaport+, T-Systems |
 | **Fráncfort** |Colt, Equinix e Interxion |
 
 ## <a name="c1partners"></a>Conectividad a través de proveedores de intercambio

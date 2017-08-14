@@ -32,9 +32,14 @@ No. Hace poco hemos habilitado la [transición de los circuitos ExpressRoute del
 
 Durante la migración, los recursos se transforman del modelo clásico al de Resource Manager. Por lo tanto, se recomienda que planee las actualizaciones de directiva de RBAC que deben producirse después de la migración.
 
-## <a name="what-if-im-using-azure-site-recovery-or-azure-backup-today"></a>¿Qué pasa si estoy usando Azure Site Recovery o Copia de seguridad de Azure actualmente? 
+## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>He realizado copias de seguridad de mis máquinas virtuales clásicas en un almacén de Backup. ¿Puedo migrar mis máquinas virtuales del modo clásico al modo de Resource Manager y protegerlos en un almacén de Recovery Services? 
 
-Para migrar la máquina virtual habilitada para copia de seguridad, consulte [He realizado copias de seguridad de mis máquinas virtuales clásicas en el almacén de Backup. Ahora deseo migrar mis máquinas virtuales del modo clásico al modo de Resource Manager. ¿Cómo puedo hacer copias de seguridad de ellas en el almacén de servicios de recuperación?](../articles/backup/backup-azure-backup-ibiza-faq.md)He realizado una copia de seguridad de mis VM clásicas en el almacén de copia de seguridad. Ahora deseo migrar mis máquinas virtuales del modo clásico al modo de Resource Manager.  ¿Cómo puedo realizar una copia de seguridad de ellas en el almacén de Servicios de recuperación?
+Los puntos de recuperación de máquinas virtuales clásicas en un almacén de Backup no migran automáticamente a un almacén de Recovery Services cuando se mueve la máquina virtual del modo clásico al modo de Resource Manager. Siga estos pasos para transferir las copias de seguridad de máquinas virtuales:
+
+1. En el almacén de Backup, vaya a la pestaña **Elementos protegidos** y seleccione la máquina virtual. Haga clic en [Detener protección](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Deje la opción *Eliminar los datos de copia de seguridad asociados***desactivada**.
+2. Elimine la extensión de instantánea o copia de seguridad de la máquina virtual.
+3. Migre la máquina virtual del modo clásico al modo de Resource Manager. Asegúrese de que la información de almacenamiento y red correspondiente a la máquina virtual también se migra al modo de Resource Manager.
+4. Cree un almacén de Recovery Services y configure la copia de seguridad de la máquina virtual migrada mediante la acción **Copia de seguridad** sobre el panel del almacén. Para más información sobre la copia de seguridad de una máquina virtual en un almacén de Recovery Services, consulte el artículo [Primer análisis: protección de máquinas virtuales con un almacén de Recovery Services](../articles/backup/backup-azure-vms-first-look-arm.md).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>¿Puedo validar mi suscripción o mis recursos para ver si son aptos para la migración? 
 

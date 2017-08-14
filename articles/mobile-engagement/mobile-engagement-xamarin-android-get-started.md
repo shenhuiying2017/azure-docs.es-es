@@ -14,17 +14,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3580bf0712d704e46e785aa95ef0ab6b54f0ba10
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 7b3d01b32c2d5a40448fc22861cd45f612238f2f
+ms.contentlocale: es-es
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Introducción a Azure Mobile Engagement para aplicaciones Xamarin.Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso de su aplicación y cómo enviar notificaciones push a usuarios segmentados de una aplicación Xamarin.Android.
-En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. En él, creará una aplicación vacía de Xamarin.Android que recopile datos básicos y reciba notificaciones push con el Servicio de mensajería en la nube de Google (GCM).
+En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. En él, creará una aplicación vacía de Xamarin.Android que recopile datos básicos y reciba notificaciones push con Google Cloud Messaging (GCM).
+
+> [!NOTE]
+> El servicio Azure Mobile Engagement se retirará en marzo de 2018 y actualmente solo está disponible para los clientes existentes. Para más información, consulte [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 Este tutorial requiere lo siguiente:
 
@@ -36,10 +40,10 @@ Este tutorial requiere lo siguiente:
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación Android
+## <a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
+## <a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
 En este tutorial se presenta una "integración básica", que es el conjunto mínimo necesario para recopilar los datos y enviar una notificación de inserción. 
 
 Crearemos una aplicación básica con Xamarin Studio para demostrar la integración.
@@ -115,10 +119,10 @@ Como alternativa, si no puede heredar de `EngagementActivity`, deberá agregar l
                 base.OnPause();            
             }
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
+## <a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Habilitar las notificaciones push y la mensajería en la aplicación
+## <a id="integrate-push"></a>Habilitar las notificaciones push y la mensajería en la aplicación
 Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante notificaciones de inserción y mensajería en la aplicación en el contexto de las campañas. Este módulo se denomina REACH en el portal de Mobile Engagement.
 En las secciones siguientes se instala la aplicación para recibirlos.
 
@@ -135,9 +139,4 @@ En las secciones siguientes se instala la aplicación para recibirlos.
 [4]: ./media/mobile-engagement-xamarin-android-get-started/4.png
 [5]: ./media/mobile-engagement-xamarin-android-get-started/5.png
 [6]: ./media/mobile-engagement-xamarin-android-get-started/6.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -100,13 +100,13 @@ Hay varios sistemas conocidos que pueden implementar todos los grupos de máquin
 
 Docker tiene su propio conjunto de herramientas de creación de máquinas virtuales ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) y una herramienta de administración de clústeres con contenedor de Docker de equilibrio de carga ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Además, la [extensión de máquina virtual de Azure para Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) incluye compatibilidad predeterminada con [`docker-compose`](https://docs.docker.com/compose/), que puede implementar contenedores de aplicaciones configurados en varios contenedores.
 
-Además, puede probar el [sistema operativo de centro de datos de Mesosphere (DCOS)](http://docs.mesosphere.com/install/azurecluster/). DCOS se basa en los "kernel de sistemas distribuidos" [mesos](http://mesos.apache.org/) de código abierto que le permiten tratar su centro de datos como un servicio direccionable. DCOS tiene paquetes integrados para varios sistemas importantes como [Spark](http://spark.apache.org/) y [Kafka](http://kafka.apache.org/) (y otros), así como servicios integrados como [Marathon](https://mesosphere.github.io/marathon/) (un sistema de control de contenedores) y [Chronos](https://mesos.github.io/chronos/) (un programador distribuido). Mesos se deriva de las lecciones aprendidas en Twitter, AirBnb y otras empresas de escala web. También puede usar **swarm** como motor de orquestaciones.
+Además, puede probar el [sistema operativo de centro de datos de Mesosphere (DCOS)](http://docs.mesosphere.com). DCOS se basa en los "kernel de sistemas distribuidos" [mesos](http://mesos.apache.org/) de código abierto que le permiten tratar su centro de datos como un servicio direccionable. DCOS tiene paquetes integrados para varios sistemas importantes como [Spark](http://spark.apache.org/) y [Kafka](http://kafka.apache.org/) (y otros), así como servicios integrados como [Marathon](https://mesosphere.github.io/marathon/) (un sistema de control de contenedores) y [Chronos](https://mesos.github.io/chronos/) (un programador distribuido). Mesos se deriva de las lecciones aprendidas en Twitter, AirBnb y otras empresas de escala web. También puede usar **swarm** como motor de orquestaciones.
 
 Además, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) es un sistema de código abierto para la administración de grupos de máquinas virtuales y contenedores derivado de las lecciones aprendidas en Google. Incluso puede usar [kubernetes con trama para proporcionar compatibilidad con red](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.io/overview/) es una "Plataforma como-servicio" (PaaS) de código abierto que facilita la implementación y administración de aplicaciones en sus propios servidores. Deis se basa en Docker y CoreOS para proporcionar un PaaS ligero con un flujo de trabajo inspirado en Heroku. Puede [crear un grupo de máquina virtual de Azure de tres nodos e instalar Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en Azure fácilmente y luego [instalar una aplicación Hello World Go](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
+[Deis](http://deis.com/) es una "Plataforma como-servicio" (PaaS) de código abierto que facilita la implementación y administración de aplicaciones en sus propios servidores. Deis se basa en Docker y CoreOS para proporcionar un PaaS ligero con un flujo de trabajo inspirado en Heroku. Puede [crear un grupo de máquina virtual de Azure de tres nodos e instalar Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en Azure fácilmente y luego [instalar una aplicación Hello World Go](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application).
 
-[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html) es una distribución de Linux con una superficie optimizada, compatibilidad con Docker y su propio sistema de contenedor denominado [rkt](https://github.com/coreos/rkt), también tiene una herramienta de administración de grupos de contenedores denominada [fleet](https://coreos.com/using-coreos/clustering/).
+[CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html) es una distribución de Linux con una superficie optimizada, compatibilidad con Docker y su propio sistema de contenedor denominado [rkt](https://github.com/coreos/rkt), también tiene una herramienta de administración de grupos de contenedores denominada [fleet](https://coreos.com/fleet/docs/latest/).
 
 Ubuntu, otra distribución de Linux muy popular, admite Docker muy bien, pero también admite [clústeres de Linux (estilo LXC)](https://help.ubuntu.com/lts/serverguide/lxc.html).
 
@@ -133,7 +133,7 @@ Vínculos de contenedor de Windows:
 
 Vínculos de Visual Studio Docker:
 
-* [Visual Studio 2015 RC Tools para Docker - vista previa](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0)
+* [Visual Studio Tools para Docker](https://docs.microsoft.com/en-us/dotnet/core/docker/visual-studio-tools-for-docker)
 
 Herramientas de Docker:
 
@@ -161,7 +161,7 @@ Distribuciones de Linux y ejemplos de Azure:
 
 Configuración, administración del clúster y orquestación de contenedor:
 
-* [Flota en CoreOS](https://coreos.com/using-coreos/clustering/)
+* [Flota en CoreOS](https://coreos.com/fleet/docs/latest/)
 * Deis
 
   * [Cree un grupo de máquina virtual de Azure de tres nodos, instale Deis e inicie una aplicación Hello World Go](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -171,16 +171,16 @@ Configuración, administración del clúster y orquestación de contenedor:
   * [Visualizador de Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 * [Mesos](http://mesos.apache.org/)
 
-  * [Sistema operativo de centro de datos de Mesosphere (DCOS)](http://beta-docs.mesosphere.com/install/azurecluster/)
-* [Jenkins](https://jenkins-ci.org/) y [Hudson](http://hudson-ci.org/)
+  * [Sistema operativo de centro de datos de Mesosphere (DCOS)](https://docs.mesosphere.com/1.7/overview/design/azure-container-service/)
+* [Jenkins](https://jenkins.io/) y [Hudson](http://hudson-ci.org/)
 
-  * [Blog: Complemento esclavo de Jenkins para Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
+  * [Complemento de agente de máquina virtual de Jenkins para Azure](https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin)
   * [Repositorio de GitHub: Complemento de almacenamiento de Jenkins para Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
   * [Terceros: Complemento esclavo de Hudson para Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
   * [Terceros: Complemento de almacenamiento de Hudson para Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
-* [Automatización de Azure](https://azure.microsoft.com/services/automation/)
+* [Azure Automation](https://azure.microsoft.com/services/automation/)
 
-  * [Vídeo: Cómo utilizar la automatización de Azure con máquinas virtuales Linux](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
+  * [Vídeo: Cómo utilizar Azure Automation con máquinas virtuales Linux](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
 * PowerShell DSC para Linux
 
   * [Blog: Cómo hacer DSC de Powershell para Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)

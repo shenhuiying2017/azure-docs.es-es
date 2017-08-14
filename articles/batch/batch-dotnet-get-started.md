@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Introducción a la creación de soluciones con la biblioteca de cliente de Batch para .NET
@@ -80,7 +79,7 @@ El siguiente diagrama ilustra las operaciones principales que realiza la aplicac
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarea descarga sus datos de entrada de Azure Storage y comienza la ejecución.<br/>
 [**Paso 6.**](#step-6-monitor-tasks) Supervisar las tareas.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** A medida que se completan las tareas, cargan sus datos de salida en Azure Storage.<br/>
-[**Paso 7.**](#step-7-download-task-output) Descargar el resultado de la tarea de Almacenamiento
+[**Paso 7.**](#step-7-download-task-output) Descargar el resultado de la tarea de Storage
 
 Como se ha indicado, no todas las soluciones de Batch realizan estos mismos pasos y puede haber muchos otros; sin embargo, la aplicación de ejemplo *DotNetTutorial* muestra los procesos comunes que se encuentran en una solución de Batch.
 
@@ -105,7 +104,7 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Como ya se ha mencionado, ahora debe especificar las credenciales de una cuenta de almacenamiento de **uso general** en Azure Storage. Las aplicaciones de Batch usan el almacenamiento de blobs en la cuenta de almacenamiento de **uso general**. No especifique las credenciales de una cuenta de almacenamiento que se haya creado mediante la selección del tipo de cuenta *Almacenamiento de blobs* .
+> Como ya se ha mencionado, ahora debe especificar las credenciales de una cuenta de almacenamiento de **uso general** en Azure Storage. Las aplicaciones de Batch usan almacenamiento de blobs en la cuenta de almacenamiento de **uso general**. No especifique las credenciales de una cuenta de almacenamiento que se haya creado mediante la selección del tipo de cuenta *Blob storage*.
 >
 >
 
@@ -125,7 +124,7 @@ En las secciones siguientes, se desglosarán los pasos que lleva a cabo la aplic
 
 Para comenzar con el paso 1, vaya a la parte superior del método `MainAsync` en el archivo `Program.cs` del proyecto *DotNetTutorial*. Los pasos que se describen a continuación siguen aproximadamente la progresión de las llamadas al método en `MainAsync`.
 
-## <a name="step-1-create-storage-containers"></a>Paso 1: Crear contenedores de Almacenamiento
+## <a name="step-1-create-storage-containers"></a>Paso 1: Crear contenedores de Storage
 ![Crear contenedores en Azure Storage][1]
 <br/>
 
@@ -363,7 +362,12 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-Cuando se crea un grupo con [CreatePool][net_pool_create], se especifican varios parámetros, como el número de nodos de proceso, el [tamaño de los nodos](../cloud-services/cloud-services-sizes-specs.md) y el sistema operativo de los nodos. En *DotNetTutorial*, usamos [CloudServiceConfiguration][net_cloudserviceconfiguration] para especificar Windows Server 2012 R2 en [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). Sin embargo, si en su lugar especifica [VirtualMachineConfiguration][net_virtualmachineconfiguration], puede crear grupos de nodos a partir de imágenes de Marketplace, que contiene imágenes de Windows y Linux (para más información, consulte [Aprovisionamiento de nodos de proceso de Linux en grupos del servicio Azure Batch](batch-linux-nodes.md)).
+Cuando se crea un grupo con [CreatePool][net_pool_create], se especifican varios parámetros, como el número de nodos de proceso, el [tamaño de los nodos](../cloud-services/cloud-services-sizes-specs.md) y el sistema operativo de los nodos. En *DotNetTutorial*, usamos [CloudServiceConfiguration][net_cloudserviceconfiguration] para especificar Windows Server 2012 R2 en [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md). 
+
+También puede crear grupos de nodos de proceso que son instancias de Azure Virtual Machines (VM) especificando [VirtualMachineConfiguration][net_virtualmachineconfiguration] para el grupo. Puede crear un grupo de nodos de proceso de máquinas virtuales a partir de imágenes de Windows o [Linux](batch-linux-nodes.md). El origen de las imágenes de las máquinas virtuales puede ser:
+
+- [Azure Virtual Machines Marketplace][vm_marketplace], que proporciona imágenes de Windows y Linux que están listas para su uso. 
+- Una imagen personalizada preparada y proporcionada por el usuario. Para más información acerca de las imágenes personalizadas, consulte [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
 > Se cobrará por recursos de proceso en Batch. Para minimizar los costos, puede reducir `targetDedicatedComputeNodes` a 1 antes de ejecutar el ejemplo.
@@ -601,7 +605,7 @@ private static async Task<bool> MonitorTasks(
 ```
 
 ## <a name="step-7-download-task-output"></a>Paso 7: Descargar el resultado de la tarea
-![Descargar el resultado de la tarea desde Storage][7]<br/>
+![Descargar el resultado de la tarea de Storage][7]<br/>
 
 Ahora que se ha completado el trabajo, el resultado de las tareas se puede descargar desde Azure Storage. Esto se realiza con una llamada a `DownloadBlobsFromContainerAsync` en el archivo `Program.cs` de *DotNetTutorial*:
 
@@ -741,6 +745,7 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 * Consulte el artículo [Información general de las características de Azure Batch](batch-api-basics.md) , que es especialmente recomendable si no se conoce el servicio.
 * Comience por los restantes artículos de desarrollo de Batch, en la sección **Desarrollo en profundidad** de la [ruta de aprendizaje de Batch][batch_learning_path].
 * Consulte otra implementación del procesamiento de la carga de trabajo de "las N palabras más usadas" con Batch en el ejemplo [TopNWords][github_topnwords].
+* Revise las [notas de la versión](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/Batch/DataPlane/changelog.md#azurebatch-release-notes) de la biblioteca de Batch para .NET para ver los cambios más recientes en la biblioteca.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -788,6 +793,7 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/vs/
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Crear contenedores en Azure Storage"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Cargar una aplicación de tarea y archivos de entrada (datos) en los contenedores"
@@ -795,7 +801,7 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "Crear trabajo de Batch"
 [5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "Agregar tareas al trabajo"
 [6]: ./media/batch-dotnet-get-started/batch_workflow_06_sm.png "Supervisar tareas"
-[7]: ./media/batch-dotnet-get-started/batch_workflow_07_sm.png "Descargar el resultado de la tarea desde Storage"
+[7]: ./media/batch-dotnet-get-started/batch_workflow_07_sm.png "Descargar el resultado de la tarea de Storage"
 [8]: ./media/batch-dotnet-get-started/batch_workflow_sm.png "Flujo de trabajo de soluciones de Batch (diagrama completo)"
 [9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "Credenciales de Batch en el portal"
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciales de Storage en el portal"
