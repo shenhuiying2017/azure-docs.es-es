@@ -210,7 +210,7 @@ Ahora puede probar las notificaciones push mediante la ejecución de la aplicaci
 
 * **En un dispositivo físico:** conecte el dispositivo Android al equipo de desarrollo con un cable USB.  En lugar de **Emulador de Android de Google**, seleccione **Dispositivo**. Visual Studio implementa la aplicación en el dispositivo y luego la ejecuta.  Luego podrá interactuar con la aplicación en el dispositivo.
 
-  Mejore su experiencia de desarrollo.  Las aplicaciones de pantalla compartida, como [Mobizen][ 20], pueden ayudarle a desarrollar una aplicación Android.  Mobizen proyecta la pantalla de Android en un explorador web de su equipo.
+  Mejore su experiencia de desarrollo.  Las aplicaciones de pantalla compartida, como [Mobizen][20] pueden ayudarle a desarrollar una aplicación Android.  Mobizen proyecta la pantalla de Android en un explorador web de su equipo.
 
 * **En un emulador de Android:** se requieren pasos de configuración adicionales cuando la ejecución se realiza en un emulador.
 
