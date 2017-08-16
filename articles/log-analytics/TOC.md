@@ -46,6 +46,7 @@
 ### [Portales de búsqueda de registros](log-analytics-log-search-portals.md)
 #### [Uso del portal de búsqueda de registros](log-analytics-log-search-log-search-portal.md)
 ### [Transición desde el lenguaje heredado](log-analytics-log-search-transition.md)
+### [Conector de Flow](log-analytics-flow-tutorial.md)
 
 ## Análisis de datos
 ### [Paneles](log-analytics-dashboards.md)

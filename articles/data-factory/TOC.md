@@ -8,7 +8,7 @@
 # Introducción
 ## [Tutorial: creación de una canalización para copiar datos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 ### [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
-### [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+### [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 ### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 ### [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 ### [Plantilla de Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -61,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Tabla web](data-factory-web-table-connector.md)
-### [Data Management Gateway](data-factory-data-management-gateway.md)
+### Data Management Gateway
+#### [Información general](data-factory-data-management-gateway.md)
+#### [Alta disponibilidad y escalabilidad (versión preliminar)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [Tutorial: mover datos de una instancia de SQL Server local a Azure Blob Storage](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Transformación de datos](data-factory-data-transformation-activities.md)
