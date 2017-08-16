@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/09/2017
 ms.author: delhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 470b2d87ffdc4769bb2963df7dea646901469e00
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -32,7 +32,7 @@ Esta guía resume las soluciones para problemas comunes en el Explorador de Stor
 
 ## <a name="sign-in-issues"></a>Problemas de inicio de sesión
 
-Antes de continuar, pruebe a reiniciar la aplicación para ver si se pueden corregir los problemas.
+Solo se admiten las cuentas de Azure Active Directory (AAD). Si usa una cuenta de AD FS, se espera que el inicio de sesión en el Explorador de Storage no funcione. Antes de continuar, pruebe a reiniciar la aplicación para ver si se pueden corregir los problemas.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Error: Certificado autofirmado de cadena de certificados
 
@@ -69,7 +69,7 @@ Si no se encuentra ningún certificado autofirmado siguiendo los pasos anteriore
 
 Si no puede recuperar las suscripciones después de iniciar la sesión correctamente, siga estos pasos para solucionar este problema:
 
-- Compruebe que la cuenta tiene acceso a las suscripciones al iniciar sesión en el Azure Portal.
+- Verifique que la cuenta tiene acceso a las suscripciones al iniciar sesión en Azure Portal.
 
 - Asegúrese de que ha iniciado sesión usando el entorno correcto (Azure, Azure China, Azure Alemania, Azure US Government, o entorno personalizado o Azure Stack).
 
