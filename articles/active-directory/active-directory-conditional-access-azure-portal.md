@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/21/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 5a1ce66e02943caedd52976c5dcb3cf75c23bd49
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 0f7e00d1fe6e47e4a04eb2853f09e195a03405ce
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acceso condicional en Azure Active Directory
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](active-directory-conditional-access-azure-portal.md)
+> * [Azure Portal](active-directory-conditional-access-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-conditional-access.md)
 
 En un mundo Mobile First, Cloud First, Azure Active Directory permite el inicio de sesión único en dispositivos, aplicaciones y servicios desde cualquier parte. Con la proliferación de dispositivos (como BYOD), el trabajo fuera de las redes corporativas y las aplicaciones SaaS de terceros, los profesionales de TI se enfrentan con dos objetivos opuestos:
@@ -121,26 +121,54 @@ Al seleccionar aplicaciones de nube, se define el ámbito de las aplicaciones de
 
 En la implementación actual de Azure Active Directory, puede definir condiciones para las siguientes áreas:
 
-- **Riesgo del inicio de sesión**: El nivel de riesgo del inicio de sesión es un objeto que utiliza Azure Active Directory para rastrear la probabilidad que hay de que el legítimo propietario de una cuenta de usuario no haya realizado un intento de inicio de sesión. En este objeto, la probabilidad (alta, media o baja) se almacena en un formato de atributo denominado [nivel de riesgo de inicio de sesión](active-directory-reporting-risk-events.md#risk-level). El objeto se genera durante un inicio de sesión de un usuario si Azure Active Directory ha detectado riesgos de inicio de sesión. Para más información, consulte la sección sobre los [inicios de sesión peligrosos](active-directory-identityprotection.md#risky-sign-ins).  
+- Riesgo de inicio de sesión
+- Plataformas de dispositivo
+- Ubicaciones
+- Aplicaciones cliente
+
+![Condiciones](./media/active-directory-conditional-access-azure-portal/21.png)
+
+### <a name="sign-in-risk"></a>Riesgo de inicio de sesión
+
+El riesgo del inicio de sesión es un objeto que utiliza Azure Active Directory para rastrear la probabilidad de que no sea el legítimo propietario de una cuenta de usuario quien haya realizado un intento de inicio de sesión. En este objeto, la probabilidad (alta, media o baja) se almacena en un formato de atributo denominado [nivel de riesgo de inicio de sesión](active-directory-reporting-risk-events.md#risk-level). El objeto se genera durante un inicio de sesión de un usuario si Azure Active Directory ha detectado riesgos de inicio de sesión. Para más información, consulte la sección sobre los [inicios de sesión peligrosos](active-directory-identityprotection.md#risky-sign-ins).  
 Puede utilizar el nivel calculado de riesgo de inicio de sesión como condición en una directiva de acceso condicional. 
 
-    ![Condiciones](./media/active-directory-conditional-access-azure-portal/22.png)
+![Condiciones](./media/active-directory-conditional-access-azure-portal/22.png)
 
-- **Plataformas de dispositivos**: la plataforma de dispositivos se caracteriza por el sistema operativo que se ejecuta en el dispositivo (Android, iOS, Windows Phone, Windows). Puede definir las plataformas de dispositivos que se incluyen, así como las plataformas de dispositivos que se excluyen de una directiva.  
+### <a name="device-platforms"></a>Plataformas de dispositivo
+
+La plataforma de dispositivo se caracteriza por el sistema operativo que se ejecuta en el dispositivo (Android, iOS, Windows Phone, Windows). Puede definir las plataformas de dispositivos que se incluyen, así como las plataformas de dispositivos que se excluyen de una directiva.  
 Para usar plataformas de dispositivos en la directiva, primero cambie los conmutadores de configuración a **Sí** y, luego, seleccione las plataformas de dispositivos a las que se aplica la directiva (puede ser todas o algunas de ellas). Si selecciona algunas plataformas de dispositivos, la directiva solo afecta a estas plataformas. En este caso, la directiva no afecta a los inicios de sesión en otras plataformas compatibles.
 
-    ![Condiciones](./media/active-directory-conditional-access-azure-portal/02.png)
+![Condiciones](./media/active-directory-conditional-access-azure-portal/02.png)
 
-- **Ubicaciones**: la ubicación se identifica mediante la dirección IP del cliente que ha usado para conectar con Azure Active Directory. Para esta condición es necesario estar familiarizado con IP de confianza. IP de confianza es una característica de autenticación multifactor que permite definir intervalos de direcciones IP de confianza que representan la intranet local de su organización. Cuando se configura una condición de ubicación, IP de confianza le permite distinguir entre conexiones realizadas desde la red de su organización y todas las demás ubicaciones. Para más información, consulte [IP de confianza](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+### <a name="locations"></a>Ubicaciones
+
+La ubicación se identifica mediante la dirección IP del cliente que ha usado para conectarse con Azure Active Directory. Para esta condición es necesario estar familiarizado **Ubicaciones con nombre** y **IP de confianza de MFA**.  
+
+**Ubicaciones con nombre** es una característica de Azure Active Directory que permite etiquetar intervalos de direcciones IP de confianza en las organizaciones. En su entorno, puede usar las ubicaciones con nombre en el contexto de la detección de [eventos de riesgo](active-directory-reporting-risk-events.md), así como del acceso condicional. Para más información sobre cómo configurar ubicaciones con nombre en Azure Active Directory, vea [Ubicaciones con nombre en Azure Active Directory](active-directory-named-locations.md).
+
+El número de ubicaciones que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Puede configurar:
+ 
+ - Una ubicación con nombre de hasta 500 intervalos IP
+ - Un máximo de 60 ubicaciones con nombre (versión preliminar) con un intervalo IP asignado a cada una 
+
+
+**IP de confianza de MFA** es una característica de Multi-Factor Authentication que permite definir intervalos IP de confianza que representan la intranet local de su organización. Cuando se configura una condición de ubicación, IP de confianza le permite distinguir entre conexiones realizadas desde la red de su organización y todas las demás ubicaciones. Para más información, vea [IP de confianza](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+
+
+
 Puede incluir todas las ubicaciones o todas las direcciones IP de confianza y puede excluir todas las direcciones IP de confianza.
 
-    ![Condiciones](./media/active-directory-conditional-access-azure-portal/03.png)
+![Condiciones](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
-- **Aplicación cliente**: la aplicación cliente puede estar en un nivel genérico, es decir, la aplicación (explorador web, aplicación móvil, cliente de escritorio) que ha usado para conectarse a Azure Active Directory, o puede seleccionar específicamente Exchange Active Sync.  
+### <a name="client-app"></a>Aplicación cliente
+
+La aplicación cliente puede estar en un nivel genérico, es decir, la aplicación (navegador web, aplicación móvil, cliente de escritorio) que ha usado para conectarse a Azure Active Directory, o puede seleccionar específicamente Exchange Active Sync.  
 La autenticación heredada hace referencia a clientes que usan autenticación básica, como clientes de Office antiguos que no usan autenticación moderna. El acceso condicional no se admite actualmente con la autenticación heredada.
 
-    ![Condiciones](./media/active-directory-conditional-access-azure-portal/04.png)
+![Condiciones](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
 ## <a name="common-scenarios"></a>Escenarios comunes

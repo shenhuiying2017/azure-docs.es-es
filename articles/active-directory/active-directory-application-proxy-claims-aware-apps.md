@@ -12,42 +12,49 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
-ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: cfe528021f2d069146fc7a34d9ea83b2681ffbf2
 ms.contentlocale: es-es
-ms.lasthandoff: 02/06/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
-# <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabajar con las aplicaciones para notificaciones en Proxy de aplicación
-Las aplicaciones para notificaciones realizan una redirección al servicio de token de seguridad (STS), que a su vez solicita las credenciales del usuario a cambio de un token antes de redirigir al usuario a la aplicación. Para permitir que el proxy de aplicación funcione con estas redirecciones, deben realizarse los siguientes pasos.
+# <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabajo con aplicaciones para notificaciones en Proxy de aplicación
+Las [aplicaciones para notificaciones](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) realizan un redireccionamiento al servicio de token de seguridad (STS). El STS solicita las credenciales del usuario a cambio de un token y, después, redirige al usuario a la aplicación. Hay varias maneras de habilitar el Proxy de aplicación para trabajar con estos redireccionamientos. Use este artículo para configurar la implementación en las aplicaciones para notificaciones. 
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de realizar este procedimiento, asegúrese de que el STS al que redirige la aplicación para notificaciones está disponible fuera de la red local.
+Asegúrese de que el STS al que redirige la aplicación para notificaciones está disponible fuera de la red local. Puede habilitar el STS exponiéndolo a través de un proxy o permitiendo las conexiones externas. 
 
-## <a name="azure-classic-portal-configuration"></a>Configuración del Portal de Azure clásico
-1. Publique la aplicación según las instrucciones de [Publicar aplicaciones con el proxy de aplicación](active-directory-application-proxy-publish.md).
-2. En la lista de aplicaciones, seleccione la aplicación para notificaciones y haga clic en **Configurar**.
-3. Si elige **Acceso directo** como su **Método de autenticación previa**, asegúrese de seleccionar **HTTPS** como su esquema de **Dirección URL externa**.
-4. Si elige **Azure Active Directory** como **Método de autenticación previa**, seleccione **Ninguno** como **Método de autenticación interno**.
+## <a name="publish-your-application"></a>Publicación de la aplicación
 
-## <a name="adfs-configuration"></a>Configuración de AD FS
+1. Publique la aplicación según las instrucciones de [Publicar aplicaciones con el proxy de aplicación](application-proxy-publish-azure-portal.md).
+2. Vaya a la página de la aplicación en el portal y seleccione **Inicio de sesión único**.
+3. Si elige **Azure Active Directory** como **Método de autenticación previa**, seleccione **Se desactivó el inicio de sesión único de Azure AD** como **Método de autenticación interno**. Si elige **Paso a través** como **Método de autenticación previa**, no necesita realizar ningún cambio.
+
+## <a name="configure-adfs"></a>Configuración de AD FS
+
+Puede configurar AD FS en aplicaciones para notificaciones de alguna de estas dos formas. La primera consiste en usar dominios personalizados. La segunda es con WS-Federation. 
+
+### <a name="option-1-custom-domains"></a>Opción 1: dominios personalizados
+
+Si todas las direcciones URL internas de las aplicaciones son nombres de dominio completos, entonces puede configurar los [dominios personalizados](active-directory-application-proxy-custom-domains.md) de las aplicaciones. Use los dominios personalizados para crear direcciones URL externas que sean las mismas que las direcciones URL internas. Con esta configuración, los redireccionamientos que el STS crea funcionan de la misma forma que si los usuarios estuvieran en entornos locales o remotos. 
+
+### <a name="option-2-ws-federation"></a>Opción 2: WS-Federation
+
 1. Abra Administración de AD FS.
 2. Vaya a **Relying Party Trusts** (Relaciones de confianza de usuarios de confianza), haga clic con el botón derecho en la aplicación que va a publicar con el proxy de aplicación y seleccione **Propiedades**.  
 
    ![Relaciones de confianza para usuario autenticado: haga clic con el botón derecho en el nombre de la aplicación (captura de pantalla)](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
 
 3. En la pestaña **Puntos de conexión**, en **Tipo de punto de conexión**, seleccione **WS-Federation**.
-4. En **Trusted URL** (Dirección URL de confianza), escriba la dirección URL que indicó en Proxy de aplicación en **Dirección URL externa** y haga clic en **Aceptar**.  
+4. En **URL de confianza**, escriba la dirección URL especificada en el Proxy de aplicación en **Dirección URL externa** y haga clic en **Aceptar**.  
 
    ![Agregar un extremo: establezca el valor de Dirección URL de confianza - captura de pantalla](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
-* [Solucionar los problemas que tiene con el Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
+* [Habilitar el inicio de sesión único](application-proxy-sso-overview.md) para las aplicaciones que no son compatibles con notificaciones
 * [Habilitación de las aplicaciones de cliente nativo para interactuar con el proxy de aplicación](active-directory-application-proxy-native-client.md)
 
 

@@ -16,16 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 24f903c6b8b982599904b95f86d648927a3be5ce
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
 ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure que producen error o se rechazan.
-Hay varias razones por las que podrían producirse errores de Secure Shell (SSH), errores de conexión de SSH o que se rechace SSH al intentar conectarse a una máquina virtual (VM) Linux. Este artículo le ayudará a identificar esos problemas y corregirlos. Para solucionar problemas de conexión, puede usar el portal de Azure, la CLI de Azure o la extensión de acceso de máquina virtual para Linux.
+Hay varias razones por las que podrían producirse errores de Secure Shell (SSH), errores de conexión de SSH o que se rechace SSH al intentar conectarse a una máquina virtual (VM) Linux. Este artículo le ayudará a identificar esos problemas y corregirlos. Para solucionar problemas de conexión, puede usar Azure Portal, la CLI de Azure o la extensión de acceso de máquina virtual para Linux.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -56,15 +55,15 @@ Puede restablecer las credenciales o la configuración de SSH mediante uno de lo
 
 Después de cada paso de solución de problemas, intente conectarse de nuevo a la máquina virtual. Si sigue sin poder conectarse, pruebe el paso siguiente.
 
-## <a name="use-the-azure-portal"></a>Uso del Portal de Azure
-El portal de Azure proporciona una forma rápida de restablecer la configuración o las credenciales de usuario de SSH sin necesidad de instalar ninguna herramienta en el equipo local.
+## <a name="use-the-azure-portal"></a>Uso de Azure Portal
+Azure Portal proporciona una forma rápida de restablecer la configuración o las credenciales de usuario de SSH sin necesidad de instalar ninguna herramienta en el equipo local.
 
 Seleccione la máquina virtual en Azure Portal. Desplácese hacia abajo hasta la sección **Soporte técnico y solución de problemas** y seleccione **Restablecer contraseña** como en el ejemplo siguiente:
 
-![Restablecer la configuración o las credenciales de SSH en el portal de Azure](./media/troubleshoot-ssh-connection/reset-credentials-using-portal.png)
+![Restablecer la configuración o las credenciales de SSH en Azure Portal](./media/troubleshoot-ssh-connection/reset-credentials-using-portal.png)
 
 ### <a name="reset-the-ssh-configuration"></a>Restablecer la configuración de SSH
-Como primer paso, seleccione `Reset SSH configuration only` en el menú desplegable **Modo** como en la captura de pantalla anterior y luego haga clic en el botón **Restablecer**. Una vez completada esta acción, intente acceder de nuevo a la máquina virtual.
+Como primer paso, seleccione `Reset configuration only` en el menú desplegable **Modo** como en la captura de pantalla anterior y luego haga clic en el botón **Restablecer**. Una vez completada esta acción, intente acceder de nuevo a la máquina virtual.
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Restablecimiento de las credenciales de SSH de un usuario
 Para restablecer las credenciales de un usuario existente, seleccione `Reset SSH public key` o `Reset password` en el menú desplegable **Modo** como en la captura de pantalla anterior. Especifique el nombre de usuario y una clave de SSH o una nueva contraseña y haga clic en el botón **Restablecer**.
@@ -76,18 +75,26 @@ Si todavía no la tiene, instale la [CLI de Azure 2.0](/cli/azure/install-az-cli
 
 Si ha creado y cargado una imagen de disco Linux personalizada, asegúrese de que el [agente Linux de Microsoft Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versión 2.0.5 o posterior esté instalado. Para máquinas virtuales creadas mediante imágenes de la galería, esta extensión de acceso ya está instalada y configurada automáticamente.
 
-### <a name="reset-ssh-credentials-for-a-user"></a>Restablecimiento de las credenciales de SSH de un usuario
-En el ejemplo siguiente se usa [az vm access set-linux-user](/cli/azure/vm/access#set-linux-user) para restablecer las credenciales de `myUsername` en el valor especificado en `myPassword`, en la máquina virtual llamada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
+### <a name="reset-ssh-configuration"></a>Restablecer la configuración de SSH
+Incialmente también puede tratar de restablecer la configuración de SSH a los valores predeterminados y reiniciar el servidor SSH en la máquina virtual. Tenga en cuenta que esto no cambia el nombre de la cuenta de usuario, la contraseña ni las claves SSH.
+En el ejemplo siguiente se utiliza [az vm user reset-ssh](/cli/azure/vm/user#reset-ssh) para restablecer la configuración de SSH en la máquina virtual denominada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
 
 ```azurecli
-az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+az vm user reset-ssh --resource-group myResourceGroup --name myVM
+```
+
+### <a name="reset-ssh-credentials-for-a-user"></a>Restablecimiento de las credenciales de SSH de un usuario
+En el ejemplo siguiente se usa [az vm user update](/cli/azure/vm/user#update) para restablecer las credenciales de `myUsername` al valor especificado en `myPassword`, en la máquina virtual llamada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
+
+```azurecli
+az vm user update --resource-group myResourceGroup --name myVM \
      --username myUsername --password myPassword
 ```
 
 Si usa la autenticación de claves SSH, puede restablecer la clave SSH de un usuario determinado: En el ejemplo siguiente se usa **az vm access set-linux-user** para actualizar la clave SSH almacenada en `~/.ssh/id_rsa.pub` para el usuario llamado `myUsername`, en la máquina virtual llamada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
 
 ```azurecli
-az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+az vm user update --resource-group myResourceGroup --name myVM \
     --username myUsername --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
@@ -95,7 +102,7 @@ az vm access set-linux-user --resource-group myResourceGroup --name myVM \
 La extensión de acceso de máquina virtual de Linux lee un archivo json que define las acciones que se llevarán a cabo. Estas acciones incluyen el restablecimiento de SSHD o de una clave SSH o la adición de un usuario. Seguirá usando la CLI de Azure para llamar a la extensión VMAccess, pero puede reutilizar los archivos json entre varias máquinas virtuales si así lo desea. Este enfoque permite crear un repositorio de archivos json que luego se pueden llamar en escenarios determinados.
 
 ### <a name="reset-sshd"></a>Restablecer SSHD
-Cree un archivo llamado `PrivateConf.json` con el siguiente contenido:
+Cree un archivo llamado `settings.json` con el siguiente contenido:
 
 ```json
 {  
@@ -103,16 +110,15 @@ Cree un archivo llamado `PrivateConf.json` con el siguiente contenido:
 }
 ```
 
-Con la CLI de Azure, luego puede llamar a la extensión `VMAccessForLinux` para restablecer la conexión de SSHD mediante la especificación de archivo json. En el ejemplo siguiente se restablece SSHD en la máquina virtual llamada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
+Con la CLI de Azure, luego puede llamar a la extensión `VMAccessForLinux` para restablecer la conexión de SSHD mediante la especificación de archivo json. En el ejemplo siguiente se utiliza [az vm extension set](/cli/azure/vm/extension#set) para restablecer SSHD en la máquina virtual denominada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-    VMAccessForLinux Microsoft.OSTCExtensions "1.2" \
-    --private-config-path PrivateConf.json
+az vm extension set --resource-group philmea --vm-name Ubuntu \
+    --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>Restablecimiento de las credenciales de SSH de un usuario
-Si SSHD parece funcionar correctamente, puede restablecer las credenciales de un usuario dado. Para restablecer la contraseña de un usuario, cree un archivo llamado `PrivateConf.json`. En el ejemplo siguiente se restablecen las credenciales de `myUsername` en el valor especificado en `myPassword`. Escriba las líneas siguientes en el archivo `PrivateConf.json`, usando sus propios valores:
+Si SSHD parece funcionar correctamente, puede restablecer las credenciales de un usuario dado. Para restablecer la contraseña de un usuario, cree un archivo llamado `settings.json`. En el ejemplo siguiente se restablecen las credenciales de `myUsername` en el valor especificado en `myPassword`. Escriba las líneas siguientes en el archivo `settings.json`, usando sus propios valores:
 
 ```json
 {
@@ -120,7 +126,7 @@ Si SSHD parece funcionar correctamente, puede restablecer las credenciales de un
 }
 ```
 
-O bien, para restablecer la clave SSH de un usuario, primero cree un archivo llamado `PrivateConf.json`. En el ejemplo siguiente se restablecen las credenciales para `myUsername` al valor especificado en `myPassword`, en la máquina virtual llamada `myVM` en `myResourceGroup`. Escriba las líneas siguientes en el archivo `PrivateConf.json`, usando sus propios valores:
+O bien, para restablecer la clave SSH de un usuario, primero cree un archivo llamado `settings.json`. En el ejemplo siguiente se restablecen las credenciales para `myUsername` al valor especificado en `myPassword`, en la máquina virtual llamada `myVM` en `myResourceGroup`. Escriba las líneas siguientes en el archivo `settings.json`, usando sus propios valores:
 
 ```json
 {
@@ -131,9 +137,8 @@ O bien, para restablecer la clave SSH de un usuario, primero cree un archivo lla
 Después de crear el archivo json, use la CLI de Azure para llamar a la extensión `VMAccessForLinux` y restablecer las credenciales de usuario SSH mediante la especificación del archivo json. En el ejemplo siguiente se restablecen las credenciales en la máquina virtual llamada `myVM` en `myResourceGroup`. Use sus propios valores, como se indica a continuación:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-    VMAccessForLinux Microsoft.OSTCExtensions "1.2" \
-    --private-config-path PrivateConf.json
+az vm extension set --resource-group philmea --vm-name Ubuntu \
+    --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
 ## <a name="use-the-azure-cli-10"></a>Uso de la CLI de Azure 1.0
@@ -174,10 +179,10 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 ## <a name="restart-a-vm"></a>Reinicio de una máquina virtual
 Si ha restablecido la configuración y las credenciales de usuario de SSH, o ha encontrado un error al hacerlo, puede intentar reiniciar la máquina virtual para solucionar los problemas de procesos subyacentes.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 Para reiniciar una máquina virtual mediante Azure Portal, seleccione la máquina virtual y haga clic en el botón **Reiniciar**, como en el ejemplo siguiente:
 
-![Reiniciar una máquina virtual en el portal de Azure](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
+![Reiniciar una máquina virtual en Azure Portal](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
 ### <a name="azure-cli-10"></a>CLI de Azure 1.0
 En el ejemplo siguiente se reinicia la máquina virtual llamada `myVM` en el grupo de recursos llamado `myResourceGroup`: Use sus propios valores, como se indica a continuación:
@@ -202,10 +207,10 @@ Puede volver a implementar una máquina virtual en otro nodo dentro de Azure, lo
 > 
 > 
 
-### <a name="azure-portal"></a>Portal de Azure
-Para volver a implementar una máquina virtual mediante el portal de Azure, seleccione la máquina virtual y desplácese hacia abajo hasta la sección **Soporte técnico y solución de problemas**. Haga clic en el botón **Redeploy** (Volver a implementar), como en el ejemplo siguiente:
+### <a name="azure-portal"></a>Azure Portal
+Para volver a implementar una máquina virtual mediante Azure Portal, seleccione la máquina virtual y desplácese hacia abajo hasta la sección **Soporte técnico y solución de problemas**. Haga clic en el botón **Redeploy** (Volver a implementar), como en el ejemplo siguiente:
 
-![Nueva implementación de una máquina virtual en el portal de Azure](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
+![Nueva implementación de una máquina virtual en Azure Portal](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
 ### <a name="azure-cli-10"></a>CLI de Azure 1.0
 En el ejemplo siguiente se vuelve a implementar la máquina virtual llamada `myVM` en el grupo de recursos llamado `myResourceGroup`. Use sus propios valores, como se indica a continuación:
@@ -224,8 +229,8 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>Máquinas virtuales creadas con el modelo de implementación clásica
 Siga estos pasos para intentar resolver los errores de conexión SSH más habituales en las máquinas virtuales creadas con el modelo de implementación clásica: Después de cada paso, pruebe a conectarse a la máquina virtual.
 
-* Restablezca el acceso remoto desde el [Portal de Azure](https://portal.azure.com). En el portal de Azure, seleccione su máquina virtual y haga clic en el botón **Restablecer**.
-* Reinicie la máquina virtual. En el [portal de Azure](https://portal.azure.com), seleccione la máquina virtual y haga clic en el botón **Reiniciar**.
+* Restablezca el acceso remoto desde [Azure Portal](https://portal.azure.com). En Azure Portal, seleccione su máquina virtual y haga clic en el botón **Restablecer**.
+* Reinicie la máquina virtual. En [Azure Portal](https://portal.azure.com), seleccione la máquina virtual y haga clic en el botón **Reiniciar**.
     
 * Implemente de nuevo la máquina virtual en un nuevo nodo de Azure. Para más información sobre cómo volver a implementar una máquina virtual, consulte [Nueva implementación de la máquina virtual en un nuevo nodo de Azure](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   

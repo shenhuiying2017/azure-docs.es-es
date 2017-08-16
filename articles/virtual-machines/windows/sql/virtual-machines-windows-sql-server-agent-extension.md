@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 08/07/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: e81739e74342689b29c6718592ccf49e641d2587
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 03cc1d2d47ce8194b293824b29a07cef423be34d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizar las tareas de administración en Azure Virtual Machines con la extensión del Agente SQL Server (Resource Manager)
@@ -67,16 +67,16 @@ Requisitos para usar la extensión del Agente de IaaS SQL Server en la máquina 
 * [Descargar y configurar los comandos de Azure PowerShell más recientes](/powershell/azure/overview)
 
 ## <a name="installation"></a>Instalación
-La extensión del Agente de IaaS SQL Server se instala automáticamente cuando aprovisiona una de las imágenes de la galería de máquina virtual de SQL Server.
+La extensión del Agente de IaaS SQL Server se instala automáticamente cuando aprovisiona una de las imágenes de la galería de máquina virtual de SQL Server. Si tiene que volver a instalar la extensión manualmente en una de estas máquinas virtuales con SQL Server, use el siguiente comando de PowerShell:
 
-También es posible instalar la extensión del agente de IaaS de SQL Server en una máquina virtual de solo sistema operativo de Windows Server. Esto solo se permite si además ha instalado manualmente SQL Server en ese equipo. Luego instale la extensión manualmente mediante el cmdlet de PowerShell **Set-AzureVMSqlServerExtension**. Por ejemplo, el siguiente comando instala la extensión en una máquina virtual solo para el sistema operativo Windows Server y le asigna el nombre "SQLIaaSExtension".
+```powershell
+Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
+```
 
-    Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
+También es posible instalar la extensión del agente de IaaS de SQL Server en una máquina virtual de solo sistema operativo de Windows Server. Esto solo se permite si además ha instalado manualmente SQL Server en ese equipo. Luego instale la extensión manualmente mediante el cmdlet de PowerShell **Set-AzureVMSqlServerExtension**.
 
 > [!NOTE]
-> Si instala manualmente la extensión del agente de IaaS de SQL Server, no puede administrar los valores de configuración de SQL Server mediante Azure Portal. En este escenario debe realizar todos los cambios con PowerShell.
-
-Si actualiza a la versión más reciente de la Extensión Agente de IaaS de SQL, debe reiniciar la máquina virtual después de actualizar la extensión.
+> Si instala manualmente la extensión del agente de IaaS de SQL Server en una máquina virtual solo para el sistema operativo Windows Server, no puede administrar los valores de configuración de SQL Server mediante Azure Portal. En este escenario debe realizar todos los cambios con PowerShell.
 
 ## <a name="status"></a>Estado
 Una manera de comprobar que la extensión está instalada consiste en ver el estado del agente en Azure Portal. Seleccione **Todas las configuraciones** en la hoja de la máquina virtual y haga clic en **Extensiones**. Debería aparecer la extensión **SQLIaaSExtension** .

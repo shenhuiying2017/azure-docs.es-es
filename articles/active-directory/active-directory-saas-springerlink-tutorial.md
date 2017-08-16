@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 08/03/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3c59f777b8b42d67f85fb078c883f0b36a972ddb
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: b9aec6f8f293cdd31456a7f50e3efe792804c7c8
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutorial: Integración de Azure Active Directory con Springer Link
@@ -87,9 +87,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con Springer Li
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Springer Link](#create-a-springer-link-test-user)**: para tener un homólogo de Britta Simon en Springer Link vinculado a la representación del usuario de Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+3. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,22 +104,25 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
     ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Springer Link**, lleve a cabo los pasos siguientes:
+3. Vaya a la sección **Dominio y direcciones URL de Springer Link**, si quiere configurar la aplicación en modo iniciado por **IDP**:
+
+    ![Información de inicio de sesión único de Dominio y direcciones URL de Springer Link](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url1.png)
+
+    a. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://fsso.springer.com`
+
+    b. En el cuadro de texto **URL de respuesta**, escriba la siguiente dirección URL: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+
+4. Active **Mostrar configuración avanzada de URL**. Si quiere volver a configurar la aplicación en modo iniciado por **SP**:
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de Springer Link](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.live.cf.public.springer.com/athens-shibboleth-login?previousUrl=https%3A%2F%2Fcore-qa.live.cf.public.springer.com%2F`.
+    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.springer.com`
-
-    > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Springer Link](https://www.springer.com/gp/help/contact) para obtener estos valores. 
-
-4. Haga clic en el botón **Guardar** .
+5. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/active-directory-saas-springerlink-tutorial/tutorial_general_400.png)
 
-5. Para generar la dirección URL de **Metadatos**, lleve a cabo los pasos siguientes:
+6. Para generar la dirección URL de **Metadatos**, lleve a cabo los pasos siguientes:
 
     a. Haga clic en **Registros de aplicaciones**.
     
@@ -140,11 +142,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     e. Genere la **Dirección URL de metadatos** con el patrón siguiente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-6. Para configurar el inicio de sesión único en **Springer Link**, hay que enviar la **URL de metadatos** generada al [equipo de soporte técnico de Springer Link](http://www.springer.com/gp/help/contact).
+7. Para configurar el inicio de sesión único en **Springer Link**, hay que enviar la **URL de metadatos** generada al [equipo de soporte técnico de Springer Link](mailto:identity@springernature.com).
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -158,7 +160,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/active-directory-saas-springerlink-tutorial/create_aaduser_01.png)
 
-2. Vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/active-directory-saas-springerlink-tutorial/create_aaduser_02.png)
 
@@ -174,14 +176,10 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
-    c. Marque la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
     d. Haga clic en **Crear**.
  
-### <a name="create-a-springer-link-test-user"></a>Creación de un usuario de prueba de Springer Link
-
-En esta sección, creará un usuario llamado "Britta Simon" en Springer Link. Trabaje con el [equipo de soporte técnico de Springer Link ](http://www.springer.com/gp/help/contact) para agregar los usuarios en la plataforma Springer Link. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
-
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Springer Link.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: cfreeman
+ms.author: sewhee
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8d20995ebb63e8cf1e4d15c57628b80aaf9e036b
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2b25ffd844507074a8467b1135b1331feb9d3ed7
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -45,4 +45,9 @@ En la siguiente ilustración se muestran los datos que la hoja Embudos genera. D
 ![Hoja Embudos con datos](./media/app-insights-understand-usage-patterns/funnel1.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre los [análisis de uso](app-insights-usage-overview.md).
+  * [Información general del uso](app-insights-usage-overview.md)
+  * [Usuarios, sesiones y eventos](app-insights-usage-segmentation.md)
+  * [Retención](app-insights-usage-retention.md)
+  * [Libros](app-insights-usage-workbooks.md)
+  * [Adición de contexto de usuario](app-insights-usage-send-user-context.md)
+
