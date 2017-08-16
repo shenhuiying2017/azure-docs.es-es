@@ -181,7 +181,7 @@ Si cambian los certificados o la información de red, será necesario hacer clic
 Una de las ventajas de la característica Integración con red virtual es que, si la red virtual está conectada a la red local con una VPN de sitio a sitio, las aplicaciones pueden acceder a los recursos locales desde su aplicación.  Para que esto funcione, puede que necesite actualizar la puerta de enlace de VPN local con las rutas de su intervalo de direcciones IP de punto a sitio.  En la configuración inicial de la VPN de sitio a sitio, los scripts que se usan para configurarla deberían también configurar las rutas, incluida la VPN de punto a sitio.  Si agrega la VPN de punto a sitio después de crear la VPN de sitio a sitio, deberá actualizar las rutas manualmente.  El procedimiento variará según la puerta de enlace y no se describe aquí.  
 
 > [!NOTE]
-> La característica Integración con red virtual no integra una aplicación con una red virtual que tiene una puerta de enlace de ExpressRoute. Incluso si la puerta de enlace de ExpressRoute está configurada en [modo de coexistencia] [ VPNERCoex] no funcionará. Si necesita tener acceso a los recursos mediante una conexión de ExpressRoute, puede utilizar una instancia de [App Service Environment][ASE] que se ejecute en la red virtual.
+> La característica Integración con red virtual no integra una aplicación con una red virtual que tiene una puerta de enlace de ExpressRoute. Incluso si la puerta de enlace de ExpressRoute está configurada en [modo de coexistencia][VPNERCoex] no funcionará. Si necesita tener acceso a los recursos mediante una conexión de ExpressRoute, puede utilizar una instancia de [App Service Environment][ASE] que se ejecute en la red virtual.
 > 
 > 
 

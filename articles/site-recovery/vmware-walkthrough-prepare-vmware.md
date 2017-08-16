@@ -1,6 +1,6 @@
 ---
 title: "Preparación de los recursos de VMware locales para la replicación en Azure con Azure Site Recovery | Microsoft Docs"
-description: "Resume los pasos necesarios para replicar cargas de trabajo que se ejecutan en máquinas virtuales de VMware en almacenamiento de Azure"
+description: "Resume los pasos necesarios para replicar cargas de trabajo que se ejecutan en máquinas virtuales de VMware en Azure Storage"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 88f7460c5414e7c33adbe86928fd6b56b22b3ad7
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 3e1c589030210c2eae1ad9c02811775d9d6365d4
 ms.contentlocale: es-es
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="step-6-prepare-on-premises-vmware-replication-to-azure"></a>Paso 6: Preparación de la replicación de VMware local a Azure
@@ -28,7 +27,7 @@ Siga las instrucciones de este artículo para preparar los servidores de VMware 
 
 ## <a name="prepare-for-automatic-discovery"></a>Preparación para la detección automática
 
-Site Recovery detecta automáticamente las máquinas virtuales y los hosts de vSphere ESXi o los administrados por servidores vCenter.  Para ello, Site Recovery necesita credenciales que puedan acceder a servidores vCenter y hosts de vSphere ESXi. Créelos como sigue:
+Site Recovery detecta automáticamente las máquinas virtuales en ejecución en los hosts de vSphere ESXi (con o sin un servidor vCenter). Para la detección automática, Site Recovery necesita una cuenta para acceder a los hosts y servidores:
 
 1. Para usar una cuenta especializada, cree un rol (en el nivel de vCenter, con los permisos que se indican en la siguiente tabla). Asígnele un nombre como **Azure_Site_Recovery**.
 2. Después, cree un usuario en el servidor vCenter o en el host de vSphere y asigne el rol al usuario. Especifique esta cuenta de usuario durante la implementación de Site Recovery.
@@ -57,7 +56,7 @@ El servicio Mobility debe estar instalado en todas las máquinas virtuales que q
 Si desea utilizar la instalación de inserción, debe preparar una cuenta que Site Recovery pueda utilizar para acceder a la máquina virtual.
 
 - Puede usar una cuenta local o de dominio.
-- Para Windows, si no utiliza una cuenta de dominio, debe deshabilitar el control de acceso de usuario remoto en la máquina local. Para hacerlo, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
+- Para Windows, si no utiliza una cuenta de dominio, debe deshabilitar Access Control de usuario remoto en la máquina local. Para hacerlo, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
 - Si desea agregar la entrada del Registro de Windows desde una CLI, escriba:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Para Linux, la cuenta debe ser una raíz en el servidor Linux de origen.
 

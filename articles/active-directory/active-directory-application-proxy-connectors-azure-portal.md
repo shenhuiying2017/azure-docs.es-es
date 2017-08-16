@@ -11,59 +11,60 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
+ms.reviewer: harshja
+ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8070a71d90c6d28ccd397d97dd1f2846169b41fe
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: a65216e79b7e89da1c9ccd6d002cb7ab6b18190f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores
 > [!div class="op_single_selector"]
-> * [Portal de Azure](active-directory-application-proxy-connectors-azure-portal.md)
+> * [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-application-proxy-connectors.md)
 >
 
-## <a name="azure-ad-application-proxy-and-connector-groups"></a>Grupos de conectores y proxy de aplicación de Azure AD
+Los clientes usan el proxy de aplicación de Azure AD en cada vez más escenarios y aplicaciones. Por este motivo, hemos habilitado más topologías para que sea más flexible. Puede crear grupos de conectores del proxy de aplicación a fin de asignar conectores específicos para atender a aplicaciones concretas. Esta funcionalidad proporciona un mayor control y formas de optimizar la implementación del proxy de aplicación. 
 
-Los clientes usan el proxy de aplicación de Azure AD en cada vez más escenarios y aplicaciones. Por este motivo, hemos habilitado más topologías para que sea más flexible. Puede crear grupos de conectores del proxy de aplicación: una nueva funcionalidad que tiene como fin asignar conectores específicos para atender a aplicaciones concretas. Además, gracias a ella, ahora el proxy de aplicación puede usarse para realizar tareas que antes no eran posibles. 
+Cada conector del proxy de aplicación se asigna a un grupo de conectores. Todos los conectores que pertenecen al mismo grupo funcionan como una unidad independiente de alta disponibilidad y equilibrio de carga. Todos los conectores pertenecen a un grupo de conectores. Si no crea grupos, todos sus conectores estarán en un grupo predeterminado. Su administrador puede crear nuevos grupos y asignar conectores a dichos grupos en Azure Portal. 
 
-El concepto básico es que cada conector del proxy de aplicación se asigne a un grupo de conectores. Todos los conectores que pertenecen al mismo grupo funcionan como un grupo independiente de alta disponibilidad y equilibrio de carga. De manera predeterminada, todos los conectores pertenecen a un grupo predeterminado. El administrador puede crear nuevos y cambiar estas asignaciones en Azure Portal. 
+Todas las aplicaciones se asignan a un grupo de conectores. Si no crea grupos, todas sus aplicaciones se asignarán a un grupo predeterminado. Sin embargo, si organiza los conectores en grupos, puede establecer que cada aplicación funcione con un grupo de conectores concreto. En este caso, solamente los conectores de ese grupo atienden a la aplicación previa solicitud. Esta característica es útil si las aplicaciones se hospedan en diferentes ubicaciones. Puede crear grupos de conectores en función de la ubicación para que los conectores que se encuentren próximos físicamente a las aplicaciones atiendan siempre a estas.
 
-De forma predeterminada, todas las aplicaciones se asignan a un grupo de conectores predeterminado. Si el administrador no cambia nada, el sistema se sigue comportando de la misma manera. Si es el usuario quien no cambia nada, todas las aplicaciones asignadas al grupo de conector predeterminado incluirán todos los conectores. Sin embargo, si organiza los conectores en grupos, puede establecer que cada aplicación funcione con un grupo de conectores concreto. En este caso, solamente los conectores de ese grupo atenderán a la aplicación previa solicitud.
+>[!TIP] 
+>Si cuenta con una implementación del proxy de aplicación grande, no asigne ninguna aplicación al grupo de conectores predeterminado. De ese modo, los nuevos conectores no recibirán tráfico directo hasta que los asigne a un grupo de conectores activo. Esta configuración también permite poner los conectores en modo inactivo moviéndolos de nuevo al grupo predeterminado para que se pueda realizar el mantenimiento sin que esto afecte a los usuarios.
 
-
->[!NOTE] 
->Como los nuevos conectores se asignan automáticamente a un grupo de conectores predeterminado, para implementaciones a gran escala recomendamos no tener aplicaciones asignadas al grupo predeterminado. Por lo tanto, una vez instalados, los nuevos conectores no recibirán tráfico real. Solo después de asignar el conector a uno de los grupos activos, pueden empezar a obtener tráfico real. Gracias a esto, puede poner los conectores en un modo inactivo para realizar tareas de mantenimiento.
->
-
-## <a name="prerequisite-create-your-connector-groups"></a>Requisito previo: Crear grupos de conectores
+## <a name="prerequisites"></a>Requisitos previos
 Para agrupar los conectores, debe asegurarse de [tener instalados varios conectores](active-directory-application-proxy-enable.md). Cuando se instala un nuevo conector, se une automáticamente al grupo de conectores **predeterminado** .
 
-## <a name="step-1-create-connector-groups"></a>Paso 1: Creación de grupos de conectores
-Puede crear tantos grupos de conectores como quiera. La creación de grupos de conectores se lleva a cabo en [Azure Portal](https://portal.azure.com).
+## <a name="create-connector-groups"></a>Creación de grupos de conectores
+Siga estos pasos para crear tantos grupos de conectores como desee. 
 
-1. Seleccione **Azure Active Directory** para ir al panel de administración de su directorio. Ahí, seleccione **Aplicaciones empresariales** > **Proxy de la aplicación**.
-2. Seleccione el botón **Connector Groups** (Grupos de conectores). Aparece la hoja New Connector Group (Nuevo grupo de conectores).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Proxy de aplicación**.
+2. Seleccione **Nuevo grupo de conectores**. Aparece la hoja New Connector Group (Nuevo grupo de conectores).
+
+   ![Seleccione Nuevo grupo de conectores](./media/active-directory-application-proxy-connectors-azure-portal/new-group.png)
+
 3. Asigne un nombre al nuevo grupo de conectores y use luego el menú deplegable para seleccionar qué conectores pertenecen a este grupo.
-4. Cuando el grupo de conectores esté completo, seleccione **Guardar** .
+4. Seleccione **Guardar**.
 
-## <a name="step-2-assign-applications-to-your-connector-groups"></a>Paso 2: Asignación de aplicaciones a los grupos de conectores
-El último paso es establecer cada aplicación en el grupo de conectores que la servirá.
+## <a name="assign-applications-to-your-connector-groups"></a>Asignación de aplicaciones a los grupos de conectores
+Siga estos pasos para cada una de las aplicaciones que haya publicado con el proxy de aplicación. Puede asignar una aplicación a un grupo de conectores la primera vez que la publique, o bien seguir estos pasos para cambiar la asignación siempre que lo desee.   
 
 1. En el panel de administración del directorio, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > la aplicación que desea asignar a un grupo de conectores > **Proxy de la aplicación**.
-2. En **Grupo de conectores**, use el menú desplegable para seleccionar el grupo que quiere que use la aplicación.
+2. Use el menú desplegable **Grupo de conectores** para seleccionar el grupo que quiere que use la aplicación.
 3. Seleccione **Guardar** para aplicar el cambio.
 
 ## <a name="use-cases-for-connector-groups"></a>Casos de uso de grupos de conectores 
 
 Los grupos de conectores son útiles para diversos escenarios, por ejemplo:
 
-###<a name="sites-with-multiple-interconnected-datacenters"></a>Sitios con varios centros de datos interconectados.
+### <a name="sites-with-multiple-interconnected-datacenters"></a>Sitios con varios centros de datos interconectados.
 
 Muchas organizaciones tienen muchos centros de datos interconectados. En este caso, desea mantener el mayor tráfico posible dentro del centro de datos, ya que los vínculos entre centros de datos son costosos y lentos. Puede implementar conectores en cada centro de datos para atender solamente las aplicaciones que se encuentran en él. Con este enfoque se minimizan los vínculos entre centros de datos y se proporciona una experiencia totalmente transparente a los usuarios.
 
@@ -89,14 +90,14 @@ Esto puede convertirse en un problema a medida que muchas organizaciones usen va
 
 La mayoría de los clientes que han implementado el proxy de aplicación usan sus funcionalidades de inicio de sesión único (SSO) mediante la delegación restringida de kerberos (KCD). Para tal fin, las máquinas del conector deben estar unidas a un dominio que pueda delegar los usuarios a la aplicación. KCD es compatible con las funcionalidades de varios bosques. No obstante, en el caso de las empresas que tienen distintos entornos de varios bosques sin ninguna relación de confianza entre ellos, no se puede usar un solo conector para todos los bosques. 
 
-Entonces, pueden implementarse conectores específicos por cada bosque y establecer que se atiendan a las aplicaciones que se publicaron para dar servicio solo a los usuarios de ese bosque concreto. Cada grupo de conectores representa un bosque diferente. Aunque el inquilino y la mayor parte de la experiencia quedará unificada en todos los bosques, pueden asignarse usuarios a sus aplicaciones de bosque mediante los grupos de Azure AD.
+Entonces, pueden implementarse conectores específicos por cada bosque y establecer que se atiendan a las aplicaciones que se publicaron para dar servicio solo a los usuarios de ese bosque concreto. Cada grupo de conectores representa un bosque diferente. Aunque el inquilino y la mayor parte de la experiencia queda unificada en todos los bosques, pueden asignarse usuarios a sus aplicaciones de bosque mediante los grupos de Azure AD.
  
 ### <a name="disaster-recovery-sites"></a>Sitios de recuperación ante desastres
 
 Hay dos enfoques diferentes que puede adoptar con un sitio de recuperación ante desastres, dependiendo de cómo estén implementados sus sitios:
 
 * Si el sitio de recuperación ante desastres se basa en el modo activo-activo, que es exactamente igual que el sitio principal, con la misma red y configuración de AD, puede crear los conectores del sitio de recuperación ante desastres en el mismo grupo de conectores que el sitio principal. De esta forma, Azure AD podrá detectar automáticamente las conmutaciones por error.
-* Si el sitio de recuperación ante desastres es independiente del principal, puede crear un grupo de conectores diferente en el sitio de recuperación ante desastres, y 1) tener más aplicaciones o 2) desviar manualmente la aplicación existente al grupo de conectores de recuperación ante desastres según sea necesario.
+* Si el sitio de recuperación ante desastres es independiente del principal, puede crear un grupo de conectores diferente en el sitio de recuperación ante desastres, y 1) tener aplicaciones de la copia de seguridad y 2) desviar manualmente la aplicación existente al grupo de conectores de recuperación ante desastres según sea necesario.
  
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Servicio a varias empresas desde un solo inquilino
 
@@ -104,7 +105,7 @@ Hay muchas maneras de implementar un modelo en el que un solo proveedor de servi
 
 ## <a name="sample-configurations"></a>Configuraciones de ejemplo
 
-Algunos ejemplos que puede implementar incluyen los siguientes conectores.
+Algunos ejemplos que puede implementar incluyen los siguientes grupos de conectores.
  
 ### <a name="default-configuration--no-use-for-connector-groups"></a>Configuración predeterminada: ningún uso para los grupos de conectores
 
@@ -129,9 +130,9 @@ En el ejemplo siguiente, la empresa tiene dos centros de datos, A y B, con dos c
 ![Sin grupos de conectores de Azure AD](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
 ## <a name="next-steps"></a>Pasos siguientes
-* [Habilitación del proxy de la aplicación](active-directory-application-proxy-enable.md)
-* [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
-* [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md)
-* [Solucionar los problemas que tiene con el Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
+
+* [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md)
+* [Habilitar el inicio de sesión único](application-proxy-sso-overview.md)
+
 
 

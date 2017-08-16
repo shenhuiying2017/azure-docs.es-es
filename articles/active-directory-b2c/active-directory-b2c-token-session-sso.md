@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 766ba894ba2643dec06757a133f8e716aa856161
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 4442174a857681adff33001e660809ec7d47ad7d
+ms.contentlocale: es-es
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: configuración de tokens, sesión e inicio de sesión único
@@ -30,7 +31,7 @@ Esta característica ofrece un control más preciso, [por directivas](active-dir
 
 Puede utilizar esta característica en el inquilino B2C como sigue:
 
-1. Siga estos pasos para [ir a la hoja de características de B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) del Portal de Azure.
+1. Siga estos pasos para [ir a la hoja de características de B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) de Azure Portal.
 2. Haga clic en **Directivas de inicio de sesión**. *Nota: Esta característica se puede usar en cualquier tipo de directiva, no solo en **directivas de inicio de sesión***.
 3. Abra una directiva haciendo clic en ella. Por ejemplo, haga clic en **B2C_1_SiIn**.
 4. Haga clic en **Editar** en la parte superior de la hoja.
@@ -109,10 +110,5 @@ Si tiene varias aplicaciones y directivas en el inquilino de B2C, puede administ
     > Estas opciones no están disponibles para las directivas de restablecimiento de contraseña.
     > 
     > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
