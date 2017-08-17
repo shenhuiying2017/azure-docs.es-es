@@ -11,7 +11,7 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
     Graph id (Id. de grafo)|sample-graph|Identificador del nuevo grafo. Los nombres de grafo tienen los mismos requisitos de caracteres que los identificadores de base de datos.
     Capacidad de almacenamiento| 10 GB|Deje el valor predeterminado. Se trata de la capacidad de almacenamiento de la base de datos.
     Rendimiento|400 RU|Deje el valor predeterminado. Se puede escalar el rendimiento más adelante si quiere reducir la latencia.
-    RU/m|Off|Deje el valor predeterminado. Si tiene que controlar grandes cargas de trabajo más adelante, puede activar la característica [RU/m](../articles/cosmos-db/request-units-per-minute.md) en ese momento.
+    RU/m|Off|Deje el valor predeterminado. 
     Clave de partición|/userid|Clave de partición que distribuirá los datos uniformemente a cada partición. La selección de la clave de partición correcta es importante al crear un gráfico de rendimiento. Obtenga más información al respecto en [Diseño de la creación de particiones](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
 3. Una vez que haya rellenado el formulario, haga clic en **Aceptar**.

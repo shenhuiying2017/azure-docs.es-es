@@ -28,19 +28,8 @@
 Abra puertos adicionales para otros componentes cada vez que sea necesario. Para obtener más información, consulte [Configurar Firewall de Windows para permitir el acceso a SQL Server](http://msdn.microsoft.com/library/cc646023.aspx).
 
 ### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>Configuración de SQL Server para escuchar en el protocolo TCP
-1. Mientras está conectado a la máquina virtual, en la página de inicio, escriba **Administrador de configuración de SQL Server** y presione ENTRAR.
-   
-    ![Abrir SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. En el panel de la consola del Administrador de configuración de SQL Server, expanda **Configuración de red de SQL Server**.
-3. En el panel de la consola, haga clic en **Protocolos para MSSQLSERVER** (el nombre de instancia predeterminado). En el panel de detalles, haga clic con el botón derecho en **TCP** y, después, haga clic en **Habilitar** si no está habilitado aún.
-   
-    ![Habilitar TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. En el panel de la consola, haga clic en **Servicios de SQL Server**. En el panel de detalles, haga clic con el botón derecho en **SQL Server (*nombre de la instancia*)** (la instancia predeterminada es **SQL Server (MSSQLSERVER)**) y, después, haga clic en **Reiniciar** para detener y reiniciar la instancia de SQL Server.
-   
-    ![Reiniciar el motor de base de datos](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. Cierre el Administrador de configuración de SQL Server.
 
-Para obtener más información acerca de la habilitación de protocolos para el motor de base de datos de SQL Server, consulte [Habilitar o deshabilitar un protocolo de red de servidor](http://msdn.microsoft.com/library/ms191294.aspx).
+[!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ### <a name="configure-sql-server-for-mixed-mode-authentication"></a>Configuración de SQL Server para autenticación de modo mixto
 El motor de base de datos de SQL Server no puede utilizar la autenticación de Windows sin un entorno de dominio. Para conectarse al motor de base de datos desde otro equipo, configure SQL Server para autenticación de modo mixto. La autenticación de modo mixto permite la autenticación de SQL Server y la autenticación de Windows.

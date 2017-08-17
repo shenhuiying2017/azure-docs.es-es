@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 08/07/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: afa4fe6cdef298e4504ddcf3e344ee6a5c181653
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f29e9dcc2bed968937627d48f1a98e3b084853b9
 ms.contentlocale: es-es
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: creación una base de datos de grafos mediante Java y Azure Portal
@@ -61,7 +61,7 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
     Identificador de grafo|sample-graph|Identificador del nuevo grafo. Los nombres de grafo tienen los mismos requisitos de caracteres que los identificadores de base de datos.
     Capacidad de almacenamiento| 10 GB|Deje el valor predeterminado. Se trata de la capacidad de almacenamiento de la base de datos.
     Rendimiento|400 RU|Deje el valor predeterminado. Se puede escalar el rendimiento más adelante si quiere reducir la latencia.
-    RU/m|Off|Deje el valor predeterminado. Si tiene que controlar grandes cargas de trabajo más adelante, puede activar la característica [RU/m](request-units-per-minute.md) en ese momento.
+    RU/m|Off|Deje el valor predeterminado.
     Clave de partición|Déjelo en blanco|Para este tutorial rápido, deje en blanco la clave de partición.
 
 3. Una vez que haya rellenado el formulario, haga clic en **Aceptar**.
