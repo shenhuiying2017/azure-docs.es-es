@@ -7,7 +7,7 @@ Para generar certificados de cliente se pueden emplear los métodos siguientes:
 - **Certificado de empresa:**
 
   - Si usa una solución de certificación de empresa, genere un certificado de cliente con el formato de valor de nombre común "name@yourdomain.com", en lugar del formato "nombreDeDominio\nombreDeUsuario".
-  - Asegúrese de que el certificado de cliente se base en la plantilla de certificado "Usuario" que tenga "Autenticación de cliente" como primer elemento de la lista de uso, y no Inicio de sesión de tarjeta inteligente, etc. Para comprobar el certificado, haga doble clic en el certificado de cliente y vea *Detalles > Uso mejorado de claves*.
+  - Asegúrese de que el certificado de cliente se base en la plantilla de certificado "Usuario" que tenga "Autenticación de cliente" como primer elemento de la lista de uso, y no Inicio de sesión de tarjeta inteligente, etc. Para comprobar el certificado, haga doble clic en el certificado de cliente y vea **Detalles > Uso mejorado de claves**.
 
 - **Certificado raíz autofirmado:** es importante que siga los pasos de uno de los artículos sobre certificado P2S a continuación. En caso contrario, los certificados de cliente que cree no serán compatibles con las conexiones de P2S y los clientes reciben un error al intentar conectarse. Los pasos descritos en cualquiera de los siguientes artículos generan un certificado de cliente compatible: 
 
