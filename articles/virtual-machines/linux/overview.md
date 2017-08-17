@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c82459bfddc2755a56fdad6eb8ab4c8bb41862f6
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
@@ -58,7 +58,7 @@ Estas son algunas directrices básicas para seleccionar un tamaño de máquina v
 * La serie Dv2 es la versión más reciente de la serie D y cuenta con una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haskwell) de 2,4 GHz de última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,2 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 * Las máquinas virtuales de la serie G ofrecen la mayor cantidad de memoria y se ejecutan en hosts con procesadores de la familia Intel Xeon E5 V3.
 
-Nota: Las máquinas virtuales de las series DS y GS tienen acceso a Almacenamiento premium, nuestro almacenamiento de alto rendimiento, baja latencia y respaldado por SSD para cargas de trabajo con uso intensivo de E/S. Almacenamiento premium está disponible en determinadas regiones. Para obtener información, consulte:
+Nota: Las máquinas virtuales de las series DS y GS tienen acceso a Premium Storage, nuestro almacenamiento de alto rendimiento, baja latencia y respaldado por SSD para cargas de trabajo con uso intensivo de E/S. Premium Storage está disponible en determinadas regiones. Para obtener información, consulte:
 
 * [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../storage/storage-premium-storage.md)
 
@@ -100,7 +100,7 @@ Para empezar a usar Azure, necesita una cuenta de Azure, la CLI de Azure instala
 El primer paso para usar la nube de Azure es suscribirse para obtener una cuenta de Azure.  Para empezar, vaya a la página de [registro para obtener cuentas de Azure](https://azure.microsoft.com/pricing/free-trial/) .
 
 ### <a name="install-the-cli"></a>Instalación de la CLI de Azure
-Con la nueva cuenta de Azure, puede comenzar inmediatamente a usar Azure Portal, que se trata de un panel de administración web.  Para administrar la nube de Azure a través de la línea de comandos, instale `azure-cli`.  Instale la [CLI de Azure 2.0](/cli/azure/install)en su estación de trabajo Mac o Linux.
+Con la nueva cuenta de Azure, puede comenzar inmediatamente a usar Azure Portal, que se trata de un panel de administración web.  Para administrar la nube de Azure a través de la línea de comandos, instale `azure-cli`.  Instale la [CLI de Azure 2.0](/cli/azure/install-azure-cli) en su estación de trabajo Mac o Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Creación de un par de claves SSH
 Ya dispone de una cuenta de Azure, del portal web de Azure y de la CLI de Azure.  El siguiente paso consiste en crear un par de claves SSH que se utiliza para acceder mediante SSH a Linux sin utilizar una contraseña.  [Cree claves SSH en Linux y Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para habilitar inicios de sesión sin contraseñas y disfrutar de una mayor seguridad.
@@ -118,11 +118,9 @@ Una forma sencilla de crear una máquina virtual Linux en el portal web de Azure
 ### <a name="login-using-ssh-without-a-password"></a>Inicio de sesión mediante SSH sin una contraseña
 Ahora, la máquina virtual se está ejecutando en Azure y ya puede iniciar sesión en ella.  Usar contraseñas para iniciar sesión a través de SSH no es un proceso rápido ni seguro.  La forma más segura y rápida de iniciar sesión es utilizar claves SSH.  Al crear una máquina virtual Linux mediante el portal o la CLI, tiene dos opciones de autenticación.  Si elige una contraseña para SSH, Azure configurará la máquina virtual para permitir los inicios de sesión mediante contraseñas.  Si decide utilizar una clave pública SSH, Azure configurará la máquina virtual para permitir que solo se pueda iniciar sesión a través de claves SSH y deshabilitará los inicios de sesión con contraseñas. Para proteger la máquina virtual Linux al permitir que solo se inicie sesión con claves de SSH, utilice la opción de claves públicas SSH durante la creación de las máquinas virtuales en el portal o la CLI.
 
-* [Deshabilitación de las contraseñas SSH en la máquina virtual con Linux mediante la configuración de SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## <a name="related-azure-components"></a>Componentes de Azure relacionados
 ## <a name="storage"></a>Almacenamiento
-* [Introducción a Almacenamiento de Microsoft Azure](../../storage/storage-introduction.md)
+* [Introducción a Microsoft Azure Storage](../../storage/storage-introduction.md)
 * [Incorporación de un disco a una máquina virtual con Linux mediante la CLI de Azure](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Incorporación de un disco de datos a una máquina virtual con Linux en Azure Portal](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

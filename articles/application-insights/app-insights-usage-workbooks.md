@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: ecd3d86db1d6b3b65015d1d560027cedb4f2df58
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 4e7ca1f4b3ca7734b00f4d9ce60b466ecf2aeb3f
 ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -118,9 +118,13 @@ Para anclar un vínculo a un libro en un panel de Azure:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Información general del uso](app-insights-usage-overview.md)
-* [Usuarios, sesiones y eventos](app-insights-usage-segmentation.md)
-* [Retención](app-insights-usage-retention.md)
-* [Incorporación de eventos personalizados a la aplicación](app-insights-api-custom-events-metrics.md)
-
+## <a name="next-steps"></a>Pasos siguientes
+- Para habilitar las experiencias de uso, empiece por enviar [eventos personalizados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [vistas de páginas](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Si ya ha enviado eventos personalizados o vistas de página, explore las herramientas de uso para obtener información sobre cómo los usuarios utilizan el servicio.
+    - [Usuarios, sesiones, eventos](app-insights-usage-segmentation.md)
+    - [Embudos](usage-funnels.md)
+    - [Retención](app-insights-usage-retention.md)
+    - [Flujos de usuario](app-insights-usage-flows.md)
+    - [Adición de contexto de usuario](app-insights-usage-send-user-context.md)
+    
 
