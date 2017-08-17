@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9ac6ed0d6171b572e0d5729a4fe7c8bd7869525d
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 80142d9f27abed181bca6f5f536b950198e66e20
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -26,13 +26,13 @@ ms.lasthandoff: 07/21/2017
 
 ## <a name="send-telemetry-from-your-app"></a>Envío de telemetría desde la aplicación
 
-La mejor experiencia se obtiene mediante la instalación de Application Insights en el código de servidor de aplicaciones y en las páginas web. Los componentes de cliente y servidor de la aplicación devuelven telemetría al portal de Azure para su análisis.
+La mejor experiencia se obtiene mediante la instalación de Application Insights en el código de servidor de aplicaciones y en las páginas web. Los componentes de cliente y servidor de la aplicación devuelven telemetría a Azure Portal para su análisis.
 
 1. **Código de servidor:** instale el módulo adecuado para [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-azure.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), u [otra aplicación ](app-insights-platforms.md).
 
     * *¿No desea instalar código del servidor? Simplemente [cree un recurso de Azure Application Insights](app-insights-create-new-resource.md).*
 
-2. **Código de página web:** abra el [portal de Azure](https://portal.azure.com), abra el recurso de Application Insights para su aplicación y luego abra **Introducción > Supervisar y diagnosticar la aplicación del lado cliente**. 
+2. **Código de página web:** abra el [Azure Portal](https://portal.azure.com), abra el recurso de Application Insights para su aplicación y luego abra **Introducción > Supervisar y diagnosticar la aplicación del lado cliente**. 
 
     ![Copie el script en el encabezado de la página web maestra.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
@@ -41,6 +41,10 @@ La mejor experiencia se obtiene mediante la instalación de Application Insights
 
     Publique su aplicación para supervisar el rendimiento de su aplicación y descubra lo que hacen sus usuarios con ella.
 
+## <a name="include-user-and-session-id-in-your-telemetry"></a>Inclusión del identificador de usuario y de sesión en la telemetría
+Para realizar un seguimiento de los usuarios a lo largo del tiempo, Application Insights necesita una manera de identificarlos. La herramienta de eventos es la única herramienta de uso que no requiere un identificador de usuario o de sesión.
+
+Empiece a enviar estos identificadores [aquí](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Exploración de estadísticas y datos demográficos de uso
 Descubra cuándo los usuarios utilizan la aplicación, en qué páginas que están más interesados, en qué ubicación se encuentran dichos usuarios, y los sistemas operativos y exploradores que emplean. 
@@ -166,9 +170,10 @@ En el inicializador de la aplicación web, como Global.asax.cs:
 Todos los nuevos clientes de telemetría agregan automáticamente el valor de propiedad especificado. La telemetría individual puede invalidar los valores predeterminados.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-* [Usuarios y sesiones](app-insights-usage-segmentation.md)
-* [Retención](app-insights-usage-retention.md)
-* [Eventos personalizados de codificación](app-insights-api-custom-events-metrics.md)
-
+   - [Usuarios, sesiones, eventos](app-insights-usage-segmentation.md)
+   - [Embudos](usage-funnels.md)
+   - [Retención](app-insights-usage-retention.md)
+   - [Flujos de usuario](app-insights-usage-flows.md)
+   - [Libros](app-insights-usage-workbooks.md)
+   - [Adición de contexto de usuario](app-insights-usage-send-user-context.md)
 

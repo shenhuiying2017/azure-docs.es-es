@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 912e3e25680034828aee93d23c6a725c2cec0d45
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 4c0040db9e232b2bb1506282cad57175c61a5b81
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -67,9 +67,12 @@ La barra lateral de Información detallada muestra grandes grupos los usuarios q
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-* [Información general del uso](app-insights-usage-overview.md)
-* [Retención](app-insights-usage-retention.md)
-* [Eventos personalizados de codificación](app-insights-api-custom-events-metrics.md)
+- Para habilitar las experiencias de uso, empiece por enviar [eventos personalizados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [vistas de páginas](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Si ya ha enviado eventos personalizados o vistas de página, explore las herramientas de uso para obtener información sobre cómo los usuarios utilizan el servicio.
+    - [Embudos](usage-funnels.md)
+    - [Retención](app-insights-usage-retention.md)
+    - [Flujos de usuario](app-insights-usage-flows.md)
+    - [Libros](app-insights-usage-workbooks.md)
+    - [Adición de contexto de usuario](app-insights-usage-send-user-context.md)
 
 
