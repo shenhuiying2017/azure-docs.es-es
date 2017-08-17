@@ -7,6 +7,7 @@
 ## [Enrutamiento de direcciones URL](application-gateway-url-route-overview.md)
 ## [Multisitio](application-gateway-multi-site-overview.md)
 ## [SSL de un extremo a otro](application-gateway-backend-ssl.md)
+## [Directiva SSL](application-gateway-ssl-policy-overview.md)
 ## [Redireccionamiento](application-gateway-redirect-overview.md)
 ## [Compatibilidad multiinquilino](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
@@ -31,12 +32,13 @@
 ## Personalización de reglas de firewall de aplicación web
 ### [Portal](application-gateway-customize-waf-rules-portal.md)
 ### [CLI de Azure 2.0](application-gateway-customize-waf-rules-cli.md)
-## Configuración de la descarga de SSL
+## Configuración de SSL
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (clásico)](application-gateway-ssl.md)
 ### [CLI de Azure 2.0](application-gateway-ssl.md)
-### [Directiva y extremo a extremo](application-gateway-end-to-end-ssl-powershell.md)
+### [De un extremo a otro](application-gateway-end-to-end-ssl-powershell.md)
+### [Directiva SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Configuración de enrutamiento basado en ruta de acceso de URL
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)

@@ -9,6 +9,7 @@
 # Introducción
 ## [Suscripción a Azure AD Premium](active-directory-get-started-premium.md)
 ## [Adición de un dominio personalizado](add-custom-domain.md)
+## [Configuración de la personalización de marca de la compañía](customize-branding.md)
 ## [Configuración del autoservicio de restablecimiento de contraseña](active-directory-passwords-getting-started.md)
 ## Administración de licencias de Azure AD
 ### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
@@ -142,6 +143,7 @@
 
 
 ## Administración de dispositivos
+### [Introducción](device-management-introduction.md)
 ### [Registro de dispositivos](active-directory-device-registration-overview.md)
 #### [Configuración](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Implementación local](active-directory-device-registration-on-premises-setup.md)
@@ -241,10 +243,6 @@
 #### Administración de nombres de dominio
 ##### [Azure Portal](active-directory-domains-manage-azure-portal.md)
 ##### [Portal clásico](active-directory-add-manage-domain-names.md)
-### Personalización de la página de inicio de sesión
-#### [Azure Portal](active-directory-branding-custom-signon-azure-portal.md)
-#### [Específico por idioma](active-directory-branding-localize-azure-portal.md)
-#### [Portal clásico](active-directory-add-company-branding.md)
 ### [Administración de directorios](active-directory-administer.md)
 ### [Varios directorios](active-directory-licensing-directory-independence.md)
 ### [Directorios de O365](active-directory-manage-o365-subscription.md)
