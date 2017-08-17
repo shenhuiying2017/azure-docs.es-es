@@ -133,11 +133,12 @@
 ### Compilación de un servicio de contenedor
 #### [Creación de una aplicación contenedora de Windows](service-fabric-get-started-containers.md)
 #### [Creación de una aplicación contenedora de Linux](service-fabric-get-started-containers-linux.md)
-#### [Implementación de un contenedor de Linux](service-fabric-deploy-container-linux.md)
+#### [Seguridad del contenedor](service-fabric-securing-containers.md)
 #### [Docker Compose (versión preliminar)](service-fabric-docker-compose.md)
 #### [Regulación de recursos de contenedores y servicios](service-fabric-resource-governance.md)
 #### [Volumen y controladores de registro](service-fabric-containers-volume-logging-drivers.md)
 #### [Servicios dentro de contenedores](service-fabric-services-inside-containers.md)
+#### [Modos de redes de contenedor](service-fabric-networking-modes.md)
 
 ### Compilación de un servicio de Reliable Services
 #### [Información general](service-fabric-reliable-services-introduction.md)
