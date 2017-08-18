@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 81b0f76538b74edf1ebdfb40ff9190e5072e71c8
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: c1deaa40bfda0bf3858ad56d3d6a90df34351278
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -29,13 +29,6 @@ ms.lasthandoff: 07/21/2017
 > - [API de REST de Azure](network-watcher-connectivity-rest.md)
 
 Aprenda a usar la conectividad para comprobar si se puede establecer una conexión TCP directa de una máquina virtual a un punto de conexión determinado.
-
-Este artículo le guiará por algunos escenarios de comprobación de conectividad.
-
-* [Comprobación de la conectividad a una máquina virtual](#check-connectivity-to-a-virtual-machine)
-* [Problemas de validación de enrutamiento](#validate-routing-issues)
-* [Comprobación de la latencia del sitio web](#check-website-latency)
-* [Comprobación de la conectividad a un punto de conexión de almacenamiento](#check-connectivity-to-a-storage-endpoint)
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -91,7 +84,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Response
 
-La siguiente respuesta procede del ejemplo anterior.  En esta respuesta, `ConnectionStatus` es **Unreachable** (inaccesible). Se puede ver que ninguno de los sondeos enviados se pudo realizar. Error de conectividad en la aplicación virtual debido a una `NetworkSecurityRule` configurada por el usuario denominada **UserRule_Port80**, que se configuró para bloquear el tráfico entrante en el puerto 80. Esta información puede utilizarse para investigar problemas de conexión.
+La siguiente respuesta procede del ejemplo anterior.  En esta respuesta, el `ConnectionStatus` es **Unreachable** (inaccesible). Se puede ver que ninguno de los sondeos enviados se pudo realizar. Error de conectividad en la aplicación virtual debido a una `NetworkSecurityRule` configurada por el usuario denominada **UserRule_Port80**, que se configuró para bloquear el tráfico entrante en el puerto 80. Esta información puede utilizarse para investigar problemas de conexión.
 
 ```json
 {
@@ -230,7 +223,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Response
 
-En la siguiente respuesta, puede ver `connectionStatus` se muestra como **Reachable** (accesible). Cuando una conexión se establece correctamente, se proporcionan los valores de latencia.
+En la siguiente respuesta, puede ver que `connectionStatus` se muestra como **Reachable** (accesible). Cuando una conexión se establece correctamente, se proporcionan los valores de latencia.
 
 ```json
 {
@@ -266,7 +259,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>Comprobación de la conectividad a un punto de conexión de almacenamiento
 
-En el ejemplo siguiente se comprueba la conectividad de una máquina virtual a una cuenta de almacenamiento de blog.
+En el ejemplo siguiente se comprueba la conectividad de una máquina virtual con una cuenta de almacenamiento de blog.
 
 ### <a name="example"></a>Ejemplo
 

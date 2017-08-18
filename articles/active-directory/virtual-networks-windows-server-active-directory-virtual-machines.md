@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 5748bb0d0fe1913cd24e5624cfefcafbafa2e53c
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 928de285e126a7f62ee075d1c02688bf8f388cb7
+ms.contentlocale: es-es
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="windows-server-active-directory-on-azure-vms"></a>Windows Server Active Directory en máquinas virtuales de Azure
@@ -33,7 +33,6 @@ Este tema de navegación contiene vínculos a otros temas acerca de cómo implem
 ## <a name="how-to-articles"></a>Artículos de procedimientos
 * [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md)
 * [Instalación de una réplica del Controlador de dominio de Active Directory en Redes virtuales de Azure](active-directory-install-replica-active-directory-domain-controller.md)
-* [Configuración de un entorno de nube híbrida para pruebas](../virtual-machines/windows/ps-hybrid-cloud-test-env-sim.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Registro en Azure como una organización](sign-up-organization.md)

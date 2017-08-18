@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 24c2b27948e9373bc3957f706ed802cc36c04148
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8a9d7c7f3f8aefa5312e5e3313dbd581d6df900a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Procedimientos recomendados para crear plantillas de Azure Resource Manager
@@ -32,7 +31,7 @@ Por lo general, trabaja con tres tipos de nombres de recursos en Resource Manage
 * Nombres de recursos que no deben ser únicos, pero elige proporcionar un nombre que pueda ayudarlo a identificar un recurso según el contexto.
 * Nombres de recurso que pueden ser genéricos.
 
-Para ayuda sobre cómo establecer una convención de nomenclatura, consulte las [instrucciones para la nomenclatura de las infraestructuras de Azure](../virtual-machines/windows/infrastructure-naming-guidelines.md). Para obtener información sobre las restricciones de los nombres de recurso, consulte [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md)(Convenciones de nomenclatura recomendadas para los recursos de Azure).
+ Para obtener información sobre las restricciones de los nombres de recurso, consulte [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md)(Convenciones de nomenclatura recomendadas para los recursos de Azure).
 
 ### <a name="unique-resource-names"></a>Nombres de recurso únicos
 Debe dar un nombre de recurso único para cualquier tipo de recurso que tenga un punto de conexión de acceso a datos. Entre los tipos de recursos comunes que requieren un nombre único se incluyen los siguientes:
@@ -396,7 +395,6 @@ También es conveniente dar formato al JSON para mejorar la legibilidad. Puede u
 ## <a name="next-steps"></a>Pasos siguientes
 * Para instrucciones sobre cómo diseñar la solución para las máquinas virtuales, consulte [Ejecución de una máquina virtual Windows en Azure](../guidance/guidance-compute-single-vm.md) y [Ejecución de una máquina virtual Linux en Azure](../guidance/guidance-compute-single-vm-linux.md).
 * Si desea obtener instrucciones sobre cómo configurar una cuenta de almacenamiento, consulte [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../storage/storage-performance-checklist.md).
-* Para obtener ayuda con las redes virtuales, consulte las [instrucciones para la infraestructura de redes](../virtual-machines/windows/infrastructure-networking-guidelines.md).
 * Para información sobre cómo una empresa puede usar Resource Manager para administrar suscripciones de manera eficaz, consulte [Scaffold empresarial de Azure: gobierno de suscripción prescriptivo](resource-manager-subscription-governance.md).
 
 

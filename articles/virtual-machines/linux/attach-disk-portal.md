@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 185e09366a8d68746415f4cbbac217d4ad558de7
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: fb3b4ea612777d0ba801342dacf4b2ece46afed6
+ms.contentlocale: es-es
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal"></a>Incorporación de un disco de datos a una máquina virtual Linux en el Portal de Azure
-En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Puede elegir usar Azure Managed Disks o discos no administrados. Los discos administrados se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Los discos no administrados requieren una cuenta de almacenamiento y tienen algunas [cuotas y límites que se deben aplicar](../../azure-subscription-service-limits.md#storage-limits). Para más información sobre Azure Managed Disks, consulte [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md) (Introducción a Azure Managed Disks).
+En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Puede elegir usar Azure Managed Disks o discos no administrados. Los discos administrados se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Los discos no administrados requieren una cuenta de almacenamiento y tienen algunas [cuotas y límites que se deben aplicar](../../azure-subscription-service-limits.md#storage-limits). Para más información sobre Azure Managed Disks, consulte [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md) (Introducción a Azure Managed Disks).
 
 Antes de conectar discos a la VM, revise estas sugerencias:
 

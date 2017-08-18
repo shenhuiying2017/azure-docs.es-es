@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 4315e9168a1ad724a6c28bd9bab065d6ffdabb5d
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 7c5ba9310568571991708ab54a5275df6ea84a39
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="reset-a-vpn-gateway"></a>Restablecimiento de una puerta de enlace de VPN
@@ -37,7 +36,7 @@ Si la conexión no se restaura después del primer reinicio, vuelve a ejecutar e
 
 Después de dos reinicios, si sigue teniendo problemas de conectividad entre locales, abra una incidencia de soporte técnico en Azure Portal.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="before"></a>Antes de empezar
 
 Antes de restablecer la puerta de enlace, compruebe los elementos clave que se enumeran a continuación para todos los túneles VPN de sitio a sitio (S2S) de IPsec. Cualquier incoherencia que haya en los elementos provocará la desconexión de los túneles VPN de S2S. Comprobar y corregir la configuración de la puerta de enlace local y de Azure VPN Gateway le evitará reinicios e interrupciones innecesarios para las demás conexiones en funcionamiento de las puertas de enlace.
 
@@ -47,7 +46,7 @@ Compruebe los elementos siguientes antes de restablecer la puerta de enlace:
 * La clave previamente compartida tiene que ser la misma en las Puertas de enlace VPN de Azure y en las locales.
 * Si aplica la configuración específica de IPsec/IKE, como el cifrado, los algoritmos hash y PFS (confidencialidad directa total), asegúrese de que tanto las puertas de enlace de VPN de Azure como las locales tengan la misma configuración.
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="portal"></a>Azure Portal
 
 Puede restablecer una puerta de enlace de VPN de Resource Manager mediante Azure Portal. Si desea restablecer una puerta de enlace clásica, consulte los pasos de [PowerShell](#resetclassic).
 
@@ -59,7 +58,7 @@ Puede restablecer una puerta de enlace de VPN de Resource Manager mediante Azure
   ![Hoja de restablecimiento de puerta de enlace de VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. En la hoja de restablecimiento, haga clic en el botón **Restablecer**.
 
-## <a name="powershell"></a>PowerShell
+## <a name="ps"></a>PowerShell
 
 ### <a name="resource-manager-deployment-model"></a>Modelo de implementación del Administrador de recursos
 
@@ -93,7 +92,7 @@ RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
 StatusCode     : OK
 ```
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="cli"></a>Azure CLI
 
 Para restablecer la puerta de enlace, use el comando [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset). En el ejemplo siguiente, se restablece una puerta de enlace de red virtual denominada VNet5GW en el grupo de recursos TestRG5:
 

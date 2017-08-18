@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: beb4f74012359f6a0a837f0194c7f43746977cea
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
@@ -117,7 +117,7 @@ Para ver las redes virtuales y la configuración:
 |Herramienta|Comando|
 |---|---|
 |CLI de Azure|[az network vnet show](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get-AzureRmVirtualNetwork](/powershell/resourcemanager/azurerm.network/v3.8.0/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork/?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="add-address-spaces"></a>Agregar o quitar un espacio de direcciones
@@ -146,7 +146,7 @@ Para agregar o quitar un espacio de direcciones:
 |Herramienta|Comando|
 |---|---|
 |CLI de Azure|Solo Resource Manager|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="dns-servers"></a>Agregar, cambiar o quitar un servidor DNS
 
@@ -171,7 +171,7 @@ Todas las máquinas virtuales que están conectadas a la red virtual se registra
 |Herramienta|Comando|
 |---|---|
 |CLI de Azure|[az network vnet update](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="delete-vnet"></a>Eliminación de una red virtual
 
@@ -190,7 +190,7 @@ Solo se puede eliminar una red virtual si no tiene recursos conectados. Si hay r
 |Herramienta|Comando|
 |---|---|
 |CLI de Azure|[azure network vnet delete](/cli/azure/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?view=azurermps-3.8.0?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

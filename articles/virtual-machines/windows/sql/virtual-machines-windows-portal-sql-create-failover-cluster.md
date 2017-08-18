@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 30d02322f302ca58e6c1b2b674d9f242b7c40518
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: e690e87df92bd3614e575010d90b7a40521dadc9
+ms.contentlocale: es-es
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -87,7 +87,7 @@ Una vez que cumpla los requisitos previos, puede pasar a la creación de un clú
 
 1. Inicie sesión en [Azure Portal](http://portal.azure.com) con su suscripción.
 
-1. [Cree un conjunto de disponibilidad de Azure](../create-availability-set.md).
+1. [Cree un conjunto de disponibilidad de Azure](../tutorial-availability-sets.md).
 
    El conjunto de disponibilidad agrupa las máquinas virtuales en dominios de error y dominios de actualización. Sirve para garantizar que la aplicación no resulta afectada por puntos únicos de error, como el conmutador de red o la fuente de alimentación de un conjunto de servidores.
 
@@ -223,9 +223,9 @@ Para validar el clúster con la interfaz de usuario, realice los pasos siguiente
 
 1. En **Administrador del servidor**, haga clic en **Herramientas** y, después, en **Administrador de clústeres de conmutación por error**.
 1. En **Administrador de clústeres de conmutación por error**, haga clic en **Acción** y, después, en **Validar configuración...**.
-1. Haga clic en **Next**.
+1. Haga clic en **Siguiente**.
 1. En **Seleccionar servidores o un clúster**, escriba el nombre de ambas máquinas virtuales.
-1. En **Opciones de pruebas**, elija **Ejecutar solo las pruebas que seleccione**. Haga clic en **Next**.
+1. En **Opciones de pruebas**, elija **Ejecutar solo las pruebas que seleccione**. Haga clic en **Siguiente**.
 1. En **Selección de pruebas**, incluya todas las pruebas, excepto **Almacenamiento**. Vea la siguiente imagen:
 
    ![Pruebas de validación](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)

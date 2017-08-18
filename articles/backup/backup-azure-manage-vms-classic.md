@@ -16,10 +16,10 @@ ms.date: 08/02/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: eb94f7222476af3d15089589a5e69556f7d6888b
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: d876bb1759600fa29a26730bfa8b4ec19db1e442
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Administración de trabajos comunes de copia de seguridad de Azure y desencadenado de alertas en el Portal clásico
@@ -244,7 +244,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 Las alertas basadas en eventos están sometidas a las siguientes limitaciones:
 
 1. Las alertas se activan en todas las máquinas virtuales del almacén de copia de seguridad. No es posible personalizar esto para obtener alertas para un conjunto específico de máquinas virtuales de un almacén de copia de seguridad.
-2. Esta característica se encuentra en versión preliminar. [Más información](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
+2. Esta característica se encuentra en versión preliminar. [Más información](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Recibirá las alertas de alerts-noreply@mail.windowsazure.com. Actualmente, no se puede modificar el remitente de correo electrónico.
 
 ## <a name="next-steps"></a>Pasos siguientes

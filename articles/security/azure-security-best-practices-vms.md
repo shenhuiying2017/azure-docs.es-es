@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c306000e898f5fe0260ef3347988923266ed096e
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
 ms.contentlocale: es-es
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedimientos recomendados de seguridad para las máquinas virtuales de Azure
@@ -65,7 +65,7 @@ Es posible que las organizaciones que no apliquen el control de acceso a los dat
 
 ## <a name="vm-availability-and-network-access"></a>Acceso de red y disponibilidad de máquinas virtuales
 
-Si la máquina virtual ejecuta aplicaciones esenciales que necesitan tener una alta disponibilidad, recomendamos encarecidamente usar varias máquinas virtuales. Para mejorar la disponibilidad, cree al menos dos máquinas virtuales en el [conjunto de disponibilidad](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+Si la máquina virtual ejecuta aplicaciones esenciales que necesitan tener una alta disponibilidad, recomendamos encarecidamente usar varias máquinas virtuales. Para mejorar la disponibilidad, cree al menos dos máquinas virtuales en el [conjunto de disponibilidad](../virtual-machines/windows/tutorial-availability-sets.md).
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) también requiere que las máquinas virtuales de carga equilibrada pertenezcan al mismo conjunto de disponibilidad. Si se debe acceder a estas máquinas virtuales desde Internet, debe configurar un [equilibrador de carga accesible desde Internet](../load-balancer/load-balancer-internet-overview.md).
 
