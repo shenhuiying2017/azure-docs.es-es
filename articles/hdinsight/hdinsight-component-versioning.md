@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 406a1d0af58cb7b9145a836027d470272be17004
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 26512049dba3d4dde575c5a67ba884fb56374236
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>¿Cuáles son los componentes y versiones de Hadoop disponibles con HDInsight?
@@ -38,7 +38,7 @@ En la tabla siguiente se enumeran las versiones de componente asociadas a las ve
 > [!NOTE]
 > La versión predeterminada del servicio HDInsight puede cambiar sin previo aviso. Si tiene una dependencia de la versión, especifique la versión de HDInsight al crear clústeres con el SDK de .NET con Azure PowerShell y la CLI de Azure.
 
-| Componente | HDInsight 3.6 | HDInsight 3.5 (valor predeterminado) | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
+| Componente | HDInsight 3.6 (predeterminado) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop y YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -85,7 +85,7 @@ En la tabla siguiente se enumeran las versiones de HDInsight que están actualme
 | Versión de HDInsight | Versión de HDP | SISTEMA OPERATIVO DE LA MÁQUINA VIRTUAL | Alta disponibilidad | Fecha de lanzamiento | Disponibilidad en Azure Portal | Fecha de expiración del soporte técnico | Fecha de retirada |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |Sí |4 de abril de 2017 |Sí | | |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |Sí |30 de septiembre de 2016 |Sí |5 de julio de 2017 |31 de mayo de 2018 |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |Sí |30 de septiembre de 2016 |Sí |5 de septiembre de 2017 |31 de mayo de 2018 |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Sí |29 de marzo de 2016 |Sí |29 de diciembre de 2016 |9 de enero de 2018 |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Sí |2 de diciembre de 2015 |Sí |27 de junio de 2016 |31 de julio de 2018 |
 | HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Sí |2 de diciembre de 2015 |Sí |27 de junio de 2016 |31 de julio de 2017 |
@@ -175,7 +175,7 @@ Azure HDInsight proporciona las ofertas de macrodatos en la nube en dos categor�
 
 | Característica de HDInsight Premium | Description |
 | --- | --- |
-| Usuarios de clústeres de HDInsight unidos a dominio |Una clústeres de HDInsight a dominios de Azure Active Directory (Azure AD) para obtener una seguridad de nivel empresarial. En HDInsight Premium, puede configurar una lista de empleados de su empresa que pueden autenticarse a través de Azure AD para iniciar sesión en un clúster de HDInsight. El administrador de la empresa puede configurar el control de acceso basado en roles para la seguridad de Hive con [Apache Ranger](http://hortonworks.com/apache/ranger/) y restringir el acceso a datos para usar solo los que sean necesarios. Finalmente, el administrador puede auditar el acceso a los datos por parte de los empleados, y los cambios realizados en las directivas de control de acceso, con lo que se consigue un alto grado de control de los recursos corporativos. Para obtener más información, consulte [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a dominio). |
+| Usuarios de clústeres de HDInsight unidos a dominio |Una clústeres de HDInsight a dominios de Azure Active Directory (Azure AD) para obtener una seguridad de nivel empresarial. En HDInsight Premium, puede configurar una lista de empleados de su empresa que pueden autenticarse a través de Azure AD para iniciar sesión en un clúster de HDInsight. El administrador de la empresa puede configurar el control de acceso basado en roles para la seguridad de Hive con [Apache Ranger](http://hortonworks.com/apache/ranger/) y restringir el acceso a datos para usar solo los que sean necesarios. Finalmente, el administrador puede auditar el acceso a los datos por parte de los empleados, y los cambios realizados en las directivas de Access Control, con lo que se consigue un alto grado de control de los recursos corporativos. Para obtener más información, consulte [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a dominio). |
 
 ### <a name="cluster-types-supported-in-hdinsight-premium"></a>Tipos de clúster compatibles con HDInsight Premium
 En la tabla siguiente se enumeran los tipos de clúster que se admiten en HDInsight Premium.

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/02/2017
-ms.author: markgal;arunak
+ms.date: 08/03/2017
+ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: cf5a7c1ac323a33c5f6985fb25b5b005ae06657c
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: dff0bb9b4040ea712519a94bf2bc04de634209c2
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Actualización de un almacén de Backup a un almacén de Recovery Services
@@ -108,11 +108,11 @@ El almacén de Recovery Services admite la especificación de información de zo
 
 Cuando un almacén de Backup se actualiza a un almacén de Recovery Services, la configuración de seguridad para ese almacén se activa automáticamente. Cuando la configuración de seguridad está activada, determinadas operaciones, como la eliminación de copias de seguridad o el cambio de una frase de contraseña, requieren un PIN de [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Para más información sobre la seguridad mejorada, vea el artículo [Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup](backup-azure-security-feature.md). 
 
-Cuando la seguridad mejorada está activada, los datos se conservan hasta 14 días después de eliminar datos facturables del almacén. La retención de datos se aplica a los datos de copia de seguridad para el agente de Azure Backup, Azure Backup Server y System Center Data Protection Manager.
+Cuando la seguridad mejorada está activada, los datos se conservan hasta catorce días después de eliminar la información del punto de recuperación del almacén. Se factura a los clientes por el almacenamiento de estos datos de seguridad. La retención de datos de seguridad se aplica a los puntos de recuperación obtenidos para el agente de Azure Backup, Azure Backup Server y System Center Data Protection Manager. 
 
 ## <a name="gather-data-on-your-vault"></a>Recopilación de datos en el almacén
 
-Cuando haya actualizado a un almacén de Recovery Services, configure los informes para Azure Backup (para VM de IaaS y Microsoft Azure Recovery Services (MARS)) y use Power BI para acceder a dichos informes.
+Cuando haya actualizado a un almacén de Recovery Services, configure los informes para Azure Backup (para VM de IaaS y Microsoft Azure Recovery Services (MARS)) y use Power BI para acceder a dichos informes. Para más información sobre la recopilación de datos, vea el artículo [Configuración de informes de Azure Backup](backup-azure-configure-reports.md).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

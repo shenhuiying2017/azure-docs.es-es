@@ -11,16 +11,17 @@ keywords: Docker, contenedores, microservicios, Kubernetes, DC/OS, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 13d1582112468f55f473ce1b77d5d58213f0e6af
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 16070499b7befca26d55259d845d1dbc14110f2a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -95,7 +96,7 @@ k8s-agent-98dc3136-2    Ready                      5m        v1.6.2
 k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 ```
 
-En competencia tutorial, tiene un clúster de ACS de Kubernetes preparado para cargas de trabajo. En los tutoriales posteriores, una aplicación de contenedores múltiples está implementada en este clúster, escalada horizontalmente, actualizada y supervisada.
+Al finalizar el tutorial, tendrá un clúster de ACS de Kubernetes preparado para cargas de trabajo. En los tutoriales posteriores, una aplicación de contenedores múltiples está implementada en este clúster, escalada horizontalmente, actualizada y supervisada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -110,3 +111,4 @@ Avance al siguiente tutorial para aprender a ejecutar la aplicación en el clús
 
 > [!div class="nextstepaction"]
 > [Implementación de una aplicación en Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)
+

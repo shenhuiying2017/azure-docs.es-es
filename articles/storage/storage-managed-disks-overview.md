@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 88a356e61c32f529d511aa1c9c68bdfa47acadb5
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: b9bc70ec9e271a8e0b34ed415e27cd350390b21d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -41,6 +41,10 @@ Managed Disks le permitirá crear un máximo de 10 000 **discos** de máquina vi
 ### <a name="better-reliability-for-availability-sets"></a>Mayor confiabilidad para los conjuntos de disponibilidad
 
 Managed Disks proporciona una mayor confiabilidad para los conjuntos de disponibilidad, ya que garantiza que los discos de las [máquinas virtuales de un conjunto de disponibilidad](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) están suficientemente aislados entre sí para evitar puntos únicos de error. Para hacerlo, coloca automáticamente los discos en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que, si se produce un error en una, no se detiene la ejecución de las restantes instancias de la aplicación.
+
+### <a name="highly-durable-and-available"></a>Mayor durabilidad y disponibilidad
+
+Los discos de Azure están diseñados para ofrecer una disponibilidad del 99,999 %. Descanse tranquilo sabiendo que tiene tres réplicas de sus datos que aportan alta durabilidad. Si una o incluso dos réplicas experimentan problemas, las réplicas restantes garantizan la persistencia de los datos y una gran tolerancia a errores. Esta arquitectura ha contribuido a que Azure destaque en el sector por ofrecer, de manera constante, durabilidad de nivel empresarial para discos IaaS, con una tasa de error anualizada del 0 %. 
 
 ### <a name="granular-access-control"></a>Control de acceso pormenorizado
 
@@ -129,7 +133,7 @@ Hay dos tipos de cifrado que comentar en referencia a Managed Disks. El primero 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
 
-Azure Disk Encryption le permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS. Esto incluye Managed Disks. Para Windows, las unidades se cifran mediante la tecnología de cifrado de BitLocker estándar del sector. Para Linux, los discos se cifran mediante la tecnología DM-Crypt. Se integra con el Almacén de claves de Azure para permitirle controlar y administrar las claves de cifrado del disco. Para más información, vea [Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux](../security/azure-security-disk-encryption.md).
+Azure Disk Encryption le permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS. Esto incluye Managed Disks. Para Windows, las unidades se cifran mediante la tecnología de cifrado de BitLocker estándar del sector. Para Linux, los discos se cifran mediante la tecnología DM-Crypt. Se integra con Azure Key Vault para permitirle controlar y administrar las claves de cifrado del disco. Para más información, vea [Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux](../security/azure-security-disk-encryption.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

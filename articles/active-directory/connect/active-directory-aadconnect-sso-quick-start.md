@@ -12,28 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 05fb966e3e18b8d5242a2795248b9b72352d894d
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 977108687734a5eb7f7a30419de2a6bdef184d0e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
+## <a name="how-to-deploy-seamless-sso"></a>Implementación de SSO de conexión directa
+
 El inicio de sesión único de conexión directa de Azure Active Directory (SSO de conexión directa de Azure AD) permite iniciar sesión automáticamente a los usuarios en equipos de escritorio corporativos conectados a la red de la empresa. Esta característica proporciona a los usuarios un acceso sencillo a las aplicaciones en la nube sin necesidad de otros componentes locales.
 
-## <a name="how-to-deploy-azure-ad-seamless-sso"></a>Procedimiento para habilitar SSO de conexión directa de Azure AD
+>[!IMPORTANT]
+>La característica de SSO de conexión directa está actualmente en versión preliminar.
 
 Para implementar SSO de conexión directa, debe seguir estos pasos:
-1. *Comprobar los requisitos previos*: configure el entorno local y de inquilinos correctamente antes de habilitar la característica.
-2. *Habilitar la característica*: active SSO de conexión directa en su inquilino mediante Azure AD Connect.
-3. *Implementar la característica*: use la directiva de grupo para implementar la característica para algunos o para todos los usuarios.
-4. *Probar la característica*: pruebe el inicio de sesión de los usuarios con el SSO de conexión directa.
-5. *Sustituir las claves*: sustituya con frecuencia las claves de descifrado de Kerberos de las cuentas del equipo.
 
 ## <a name="step-1-check-prerequisites"></a>Paso 1: Comprobación de los requisitos previos
 
@@ -63,6 +61,15 @@ Cuando haya finalizado con el asistente, el SSO de conexión directa estará hab
 
 >[!NOTE]
 > Las credenciales de administrador de dominio no se almacenan en Azure AD Connect ni en Azure AD, sino que solo se usan para habilitar la característica.
+
+Siga estas instrucciones para verificar que ha habilitado SSO de conexión directa correctamente:
+
+1. Inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con las credenciales de administrador global del inquilino.
+2. Seleccione **Azure Active Directory** en la barra de navegación de la izquierda.
+3. Seleccione **Azure AD Connect**.
+4. Verifique que la característica de **Inicio de sesión único de conexión directa** aparece como **Habilitado**.
+
+![Azure Portal: hoja Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="step-3-roll-out-the-feature"></a>Paso 3: Implementación de la característica
 
@@ -118,6 +125,9 @@ El uso de las extensiones de directiva de grupo de Active Directory de terceros 
 #### <a name="known-limitations"></a>Limitaciones conocidas
 
 SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Edge. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada.
+
+>[!IMPORTANT]
+>Recientemente se ha revertido la compatibilidad para Edge, a fin de investigar los problemas notificados por los clientes.
 
 ## <a name="step-4-test-the-feature"></a>Paso 4: Prueba de la característica
 

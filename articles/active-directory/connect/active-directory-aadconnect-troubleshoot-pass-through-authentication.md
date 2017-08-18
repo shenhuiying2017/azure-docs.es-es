@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4a687e1edbb2c9b3db3079a70162886092ede521
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 72bd39bcf720cf5704274fcdfa0f2b8fc44a77bc
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -33,11 +33,11 @@ Este artículo sirve de ayuda para encontrar información acerca de cómo soluci
 
 ### <a name="check-status-of-the-feature-and-authentication-agents"></a>Comprobación de estado de la característica y de los agentes de autenticación
 
-Asegúrese de que la característica de autenticación de paso a través sigue **habilitada** en su inquilino y de que el estado de los agentes de autenticación es **activo** y no **inactivo**. Para comprobar estos ajustes, vaya a la hoja **Azure AD Connect** en [Azure Portal](https://portal.azure.com/).
+Asegúrese de que la característica de autenticación de paso a través sigue **habilitada** en su inquilino y de que el estado de los agentes de autenticación es **activo** y no **inactivo**. Puede comprobar el estado; para ello, vaya a la hoja **Azure AD Connect** en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com/).
 
-![Azure Portal: hoja Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+![Centro de administración de Azure Active Directory: hoja de Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
 
-![Azure Portal: hoja Autenticación de paso a través](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
+![Centro de administración de Azure Active Directory: hoja de Autenticación de paso a través](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### <a name="user-facing-sign-in-error-messages"></a>Mensajes de error de inicio de sesión para el usuario
 
@@ -51,13 +51,13 @@ Si el usuario no ha podido iniciar sesión con la autenticación de paso a trav�
 |AADSTS80005|La validación encontró una excepción WebException impredecible|Se trata de un error transitorio. Vuelva a intentarlo. Si el error no desaparece, póngase en contacto con el soporte técnico de Microsoft.
 |AADSTS80007|Error al establecer comunicación con Active Directory.|Compruebe los registros del agente para más información y verifique que Active Directory está funcionando según lo previsto.
 
-### <a name="sign-in-failure-reasons-on-the-azure-portal"></a>Motivos de error de inicio de sesión en Azure Portal
+### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Motivos del error de inicio de sesión en el centro de administración de Azure Active Directory
 
-Para empezar a solucionar problemas de inicio de sesión de usuarios, vaya al [informe de actividad de inicio de sesión](../active-directory-reporting-activity-sign-ins.md) en [Azure Portal](https://portal.azure.com/).
+Empiece a solucionar problemas de inicio de sesión de usuarios; para ello, consulte el [informe de actividad de inicio de sesión](../active-directory-reporting-activity-sign-ins.md) en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com/).
 
-![Informe de inicios de sesión](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
+![Centro de administración de Azure Active Directory: informe de inicios de sesión](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Vaya a **Azure Active Directory** -> **Inicios de sesión** en [Azure Portal](https://portal.azure.com/) y haga clic en la actividad de inicio de sesión de un usuario específico. Busque el campo **CÓDIGO DE ERROR DE INICIO DE SESIÓN**. Busque la correspondencia entre el valor de ese campo y un motivo de error y la resolución en la siguiente tabla:
+Vaya a **Azure Active Directory** -> **Inicios de sesión** en el [centro de administración de Azure Active Directory](https://aad.portal.azure.com/) y haga clic en la actividad de inicio de sesión de un usuario específico. Busque el campo **CÓDIGO DE ERROR DE INICIO DE SESIÓN**. Busque la correspondencia entre el valor de ese campo y un motivo de error y la resolución en la siguiente tabla:
 
 |Código de error de inicio de sesión|Motivo del error de inicio de sesión|Resolución
 | --- | --- | ---
@@ -97,7 +97,7 @@ Asegúrese de que usa una cuenta de administrador global solo en la nube para to
 
 Si la característica Autenticación de paso a través está habilitada en su inquilino e intenta desinstalar Azure AD Connect, aparece el siguiente mensaje de advertencia: "Users will not be able to sign-in to Azure AD unless you have other Pass-through Authentication agents installed on other servers" (Los usuarios no podrán iniciar sesión en Azure AD, a menos que tenga otros agentes de autenticación de paso a través instalados en otros servidores).
 
-Para no interrumpir el inicio de sesión del usuario, es preciso tener una instalación de [alta disponibilidad](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) en vigor antes de desinstalar Azure AD Connect.
+Para no interrumpir el inicio de sesión del usuario, es preciso tener una instalación de [alta disponibilidad](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) en vigor antes de desinstalar Azure AD Connect.
 
 ## <a name="issues-with-enabling-the-feature"></a>Problemas con la habilitación de la característica
 
@@ -112,6 +112,18 @@ Asegúrese de que el servidor en el que se ha instalado Azure AD Connect puede c
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>No se puede realizar la habilitación de la característica debido a errores de autorización de cuenta o de token.
 
 Asegúrese de que usa una cuenta de administrador global solo en la nube cuando habilite la característica. Hay un problema conocido con las cuentas de administrador global habilitadas para Multi-Factor Authentication (MFA); desactive temporalmente MFA (solo para completar la operación) para proporcionar una solución alternativa.
+
+## <a name="exchange-activesync-configuration-issues"></a>Problemas de configuración de Exchange ActiveSync
+
+Estos son los problemas comunes que surgen al configurar la compatibilidad de Exchange ActiveSync para la Autenticación de paso a través.
+
+### <a name="exchange-powershell-issue"></a>Problema de Exchange PowerShell
+
+Si aparece el error "**No se encuentra ningún parámetro que coincida con el nombre del parámetro 'PerTenantSwitchToESTSEnabled'\.**" al ejecutar el comando `Set-OrganizationConfig` de Exchange PowerShell, póngase en contacto con el Soporte técnico de Microsoft.
+
+### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync no funciona
+
+La configuración tarda algún tiempo en aplicarse; el período de tiempo depende del entorno. Si la situación persiste durante mucho tiempo, póngase en contacto con el Soporte técnico de Microsoft.
 
 ## <a name="collecting-pass-through-authentication-agent-logs"></a>Recopilación de registros del agente de autenticación de autenticación de paso a través
 
@@ -150,4 +162,13 @@ Si están habilitados los registros de auditoría, se puede encontrar informaci�
     </Query>
     </QueryList>
 ```
+
+### <a name="performance-monitor-counters"></a>Contadores de Performance Monitor
+
+Otra forma de supervisar a los agentes de autenticación consiste en realizar un seguimiento de los contadores específicos de Performance Monitor en cada servidor en que está instalado el agente de autenticación. Use los siguientes contadores globales (**# PTA authentications**, **#PTA failed authentications** y **#PTA successful authentications**) y los contadores de errores (**# PTA authentication errors**):
+
+![Contadores de Performance Monitor de la Autenticación de paso a través](./media/active-directory-aadconnect-pass-through-authentication/pta12.png)
+
+>[!IMPORTANT]
+>La Autenticación de paso a través ofrece alta disponibilidad mediante la utilización de varios agentes de autenticación, pero _no_ usa el equilibrio de carga. Según la configuración, _no_ todos los agentes de autenticación reciben aproximadamente el _mismo_ número de solicitudes. Es posible que un agente de autenticación específico no reciba ningún tráfico.
 

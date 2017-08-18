@@ -11,16 +11,17 @@ keywords: Docker, contenedores, microservicios, Kubernetes, DC/OS, Azure
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: seanmck
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 5f3fc5f3624cf1ef881adf2af0cb69ad67d09ad3
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 7ec6c7fd2125293ba47a48feb83250eeb667d1a6
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -61,7 +62,7 @@ En el resto de este tutorial, usamos `<acrname>` como un marcador de posición p
 
 ## <a name="get-azure-container-registry-information"></a>Obtención de información sobre Azure Container Registry
 
-Una vez que se crea el registro de contenedor, puede consultar su servidor de inicio de sesión y contraseña. El código siguiente devuelve estos valores. Apunte cada valor, se hace referencia a ellos a lo largo de este tutorial.
+Una vez que se crea el registro de contenedor, puede consultar su servidor de inicio de sesión y contraseña. El código siguiente devuelve estos valores. Apunte cada valor de la contraseña y del servidor de inicio de sesión, como se mencionan en este tutorial.
 
 Servidor de inicio de sesión en el registro de contenedor (actualice con su nombre de registro):
 
@@ -74,7 +75,7 @@ En el resto de este tutorial, usamos `<acrLoginServer>` como un marcador de posi
 Contraseña del registro de contenedor:
 
 ```azurecli
-az acr credential show --name <acrName> --query passwords[0].value
+az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 En el resto de este tutorial, usamos `<acrPassword>` como un marcador de posición para el valor de la contraseña del registro de contenedor.
@@ -179,3 +180,4 @@ Vaya al tutorial siguiente para obtener información sobre cómo implementar el 
 
 > [!div class="nextstepaction"]
 > [Implementación de contenedores en Azure Container Instances](./container-instances-tutorial-deploy-app.md)
+

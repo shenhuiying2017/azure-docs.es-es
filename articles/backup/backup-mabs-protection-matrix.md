@@ -13,10 +13,10 @@ ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: ffd19e25e2931ac7af472b4c88eccbce73b10ff4
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
 ms.contentlocale: es-es
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -26,7 +26,7 @@ En este artículo se indican los diferentes servidores y cargas de trabajo que p
 
 ## <a name="protection-support-matrix"></a>Matriz de compatibilidad de protección
 
-|Carga de trabajo|Versión|Servidor de Copia de seguridad de Azure</br> installation|Copia de seguridad de Azure</br> Server v2|Copia de seguridad de Azure</br> Server v1 |Protección y recuperación|
+|Carga de trabajo|Versión|Azure Backup Server</br> installation|Azure Backup</br> Server v2|Azure Backup</br> Server v1 |Protección y recuperación|
 |------------|-----------|--------------------|--------------------------------------------|--------------------------------|---------------------------|
 |System Center VMM|VMM 2016,<br/>VMM 2012 SP1 y R2|Servidor físico<br /><br />Máquina virtual de Hyper-V|Y|Y|Todos los escenarios de implementación: base de datos|
 |Equipos cliente (64 bits y 32 bits)|Windows 10|Servidor físico<br /><br />Máquina virtual de Hyper-V<br /><br />Máquina virtual de VMware|Y|Y|Archivos<br /><br />Los volúmenes protegidos deben ser NTFS. No se admiten FAT ni FAT32.<br /><br />Los volúmenes deben ser de al menos 1 GB. DPM usa Volume Shadow Copy Service (VSS) para tomar la instantánea de datos y esta solo funciona si el volumen es de al menos 1 GB.|
@@ -92,6 +92,7 @@ En este artículo se indican los diferentes servidores y cargas de trabajo que p
 |Host de Hyper-V: agente de protección DPM en servidor host de Hyper-V, clúster o máquina virtual|Windows Server 2012: Datacenter y Standard|Servidor físico<br /><br />Máquina virtual local de Hyper-V|Y|Y|Protección: equipos Hyper-V y volúmenes compartidos de clúster (CSV)<br /><br />Recuperación: máquina virtual, recuperación a nivel de elemento de archivos y carpetas, volúmenes y discos duros virtuales|
 |Host de Hyper-V: agente de protección DPM en servidor host de Hyper-V, clúster o máquina virtual|Windows Server 2008 R2 SP1: Enterprise y Standard|Servidor físico<br /><br />Máquina virtual local de Hyper-V|Y|Y|Protección: equipos Hyper-V y volúmenes compartidos de clúster (CSV)<br /><br />Recuperación: máquina virtual, recuperación a nivel de elemento de archivos y carpetas, volúmenes y discos duros virtuales|
 |Host de Hyper-V: agente de protección DPM en servidor host de Hyper-V, clúster o máquina virtual|Windows Server 2008|Servidor físico<br /><br />Máquina virtual local de Hyper-V|N|N|Protección: equipos Hyper-V y volúmenes compartidos de clúster (CSV)<br /><br />Recuperación: máquina virtual, recuperación a nivel de elemento de archivos y carpetas, volúmenes y discos duros virtuales|
+|Máquinas virtuales de VMware|Servidor de VMware 5.5, 6.0 o 6.5 |Máquina virtual local de Hyper-V|Y|Y (con UR1)|Máquinas virtuales de VMware en volúmenes compartidos de clúster (CSV), NFS y almacenamiento de SAN<br /> Recuperación de nivel de elemento de archivos y carpetas disponibles solo para Windows<br /> VMware vApps no compatible|
 |Linux|Linux ejecutado como invitado de Hyper-V o VMware|Máquina virtual local de Hyper-V|Y|Y|Hyper-V debe ejecutarse en Windows Server 2012 R2 o Windows Server 2016. Protección: máquina virtual completa<br /><br />Recuperación: máquina virtual completa|
 
 ## <a name="cluster-support"></a>Compatibilidad con clústeres

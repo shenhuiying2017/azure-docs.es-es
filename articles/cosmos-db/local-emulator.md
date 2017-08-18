@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 08/16/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 2ea15afa857e568a10b0ef802764afd1eab0d3f3
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 8e21861de95308a99beab3ff5ed5bd95c4f04e33
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Uso del Emulador de Azure Cosmos DB para desarrollo y pruebas de forma local
@@ -154,6 +154,9 @@ Al igual que con los documentos de Azure en la nube, se deben autenticar todas l
 > [!NOTE]
 > La clave maestra admitida por el Emulador de Azure Cosmos DB está destinada a su uso exclusivo con el emulador. No puede usar su clave y cuenta de producción de Azure Cosmos DB con el Emulador de Azure Cosmos DB. 
 
+> [!NOTE] 
+> Si ha iniciado el emulador con la opción /Key, use la clave generada en lugar de "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+
 Además, lo mismo que el servicio Azure Cosmos DB, el Emulador de Azure Cosmos DB solo admite la comunicación segura a través de SSL.
 
 ## <a name="running-the-emulator-on-a-local-network"></a>Ejecución del emulador en una red local
@@ -175,6 +178,9 @@ Si va a utilizar la [compatibilidad del protocolo de Azure Cosmos DB con MongoDB
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true&3t.sslSelfSignedCerts=true
 
 También puede usar herramientas existentes como [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) para conectar con el Emulador de Azure Cosmos DB. También puede migrar datos entre el Emulador de Azure Cosmos DB y el servicio Azure Cosmos DB con la [Herramienta de migración de datos de Azure Cosmos DB](https://github.com/azure/azure-documentdb-datamigrationtool).
+
+> [!NOTE] 
+> Si ha iniciado el emulador con la opción /Key, use la clave generada en lugar de "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
 
 Con el Emulador de Azure Cosmos DB, puede crear de forma predeterminada hasta 25 colecciones de una única partición o una colección con particiones. Para más información acerca de cómo cambiar este valor, consulte la sección sobre la [configuración del valor de PartitionCount](#set-partitioncount).
 
@@ -305,7 +311,7 @@ Para ver la lista de opciones, escriba `CosmosDB.Emulator.exe /?` en el símbolo
 <tr>
   <td>GenKeyFile</td>
   <td>Genere una nueva clave de autorización y guárdela en el archivo especificado. La clave generada se puede utilizar con las opciones /Key o /KeyFile.</td>
-  <td>CosmosDB.Emulator.exe /GenKeyFile</td>
+  <td>CosmosDB.Emulator.exe /GenKeyFile=&lt;ruta de acceso al archivo de clave&gt;</td>
   <td></td>
 </tr>
 <tr>
