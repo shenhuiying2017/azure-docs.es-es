@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 06/01/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dd6b2fa2a1ca003578eaee82ef42741b9b1bf2a4
-ms.openlocfilehash: b509629ba0d6bbaea3de979a4e67f5c444e5e9e0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e859aef473b433fbf4efb639962f3a3ce0a23d7b
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -51,7 +53,7 @@ Los runbooks de PowerShell están basados en Windows PowerShell.  Puede modifica
 
 ### <a name="advantages"></a>Ventajas
 * Implemente toda la lógica compleja con código de PowerShell sin las complejidades adicionales de flujo de trabajo de PowerShell. 
-* El runbook se inicia con más rapidez que los runbooks gráficos o de flujo de trabajo de PowerShell, ya que no es necesario compilarlos antes de la ejecución.
+* El runbook se inicia con más rapidez que los runbooks de flujo de trabajo de PowerShell, ya que no es necesario compilarlos antes de la ejecución.
 
 ### <a name="limitations"></a>Limitaciones
 * Debe estar familiarizado con el scripting de PowerShell.
@@ -92,10 +94,5 @@ Se deben tener en cuenta las siguientes consideraciones adicionales al determina
 * Para más información sobre la creación de runbooks de gráficos, consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md)
 * Para comprender las diferencias entre PowerShell y los flujos de trabajo de PowerShell para runbooks, consulte [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 * Para más información sobre cómo crear o importar un Runbook, vea [Crear o importar un Runbook](automation-creating-importing-runbook.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

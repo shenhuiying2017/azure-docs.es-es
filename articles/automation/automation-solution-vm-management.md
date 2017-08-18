@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 06/01/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: db9f2174e9928083957f160be8c268fe21cd4169
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e44f04b3492ac07822b0842864f84a5f16dc3f5b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 
@@ -57,23 +57,23 @@ Variable | Description|
 Runbook **SendMailO365-MS-Mgmt** ||
 SendMailO365-IsSendEmail-MS-Mgmt | Especifica si los Runbooks StartByResourceGroup-MS-Mgmt-VM y StopByResourceGroup-MS-Mgmt-VM pueden enviar notificaciones por correo electrónico cuando finalicen.  Seleccione **True** para habilitar las alertas de correo electrónico y **False** para deshabilitarlas. El valor predeterminado es **False**.| 
 Runbook **StartByResourceGroup-MS-Mgmt-VM** ||
-StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Escriba los nombres de máquina virtual que se excluirán de la operación de administración separados por punto y coma (;). Los valores distinguen mayúsculas de minúsculas y admiten caracteres comodín (asterisco).|
+StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Escriba los nombres de máquina virtual que se excluirán de la operación de administración, separados por punto y coma (;), sin espacios. Los valores distinguen mayúsculas de minúsculas y admiten caracteres comodín (asterisco).|
 StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Texto que se puede anexar al principio del cuerpo del mensaje de correo electrónico.|
 StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Especifica el nombre de la cuenta de Automation que contiene el Runbook de correo electrónico.  **No modifique esta variable.**|
 StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | Especifica el nombre del Runbook de correo electrónico.  Lo usan los Runbooks StartByResourceGroup-MS-Mgmt-VM y StopByResourceGroup-MS-Mgmt-VM para enviar correo electrónico.  **No modifique esta variable.**|
 StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Especifica el nombre del grupo de recursos que contiene el Runbook de correo electrónico.  **No modifique esta variable.**|
 StartByResourceGroup SendMailO365 EmailSubject MS Mgmt | Especifica el texto de la línea de asunto del correo electrónico.|  
 StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Especifica los destinatarios del correo electrónico.  Separe los diversos nombres mediante punto y coma (;).|
-StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Escriba los nombres de máquina virtual que se excluirán de la operación de administración separados por punto y coma (;). Los valores distinguen mayúsculas de minúsculas y admiten caracteres comodín (asterisco).  El valor predeterminado (asterisco) incluirá todos los grupos de recursos de la suscripción.|
+StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Escriba los nombres de máquina virtual que se excluirán de la operación de administración, separados por punto y coma (;), sin espacios. Los valores distinguen mayúsculas de minúsculas y admiten caracteres comodín (asterisco).  El valor predeterminado (asterisco) incluirá todos los grupos de recursos de la suscripción.|
 StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Especifica la suscripción que contiene las máquinas virtuales que se administrarán mediante esta solución.  Debe ser la misma suscripción donde reside la cuenta de Automation de esta solución.|
 Runbook **StopByResourceGroup-MS-Mgmt-VM** ||
-StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Escriba los nombres de máquina virtual que se excluirán de la operación de administración separados por punto y coma (;). Los valores distinguen mayúsculas de minúsculas y admiten caracteres comodín (asterisco).|
+StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Escriba los nombres de máquina virtual que se excluirán de la operación de administración, separados por punto y coma (;), sin espacios. Los valores distinguen mayúsculas de minúsculas y admiten caracteres comodín (asterisco).|
 StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Texto que se puede anexar al principio del cuerpo del mensaje de correo electrónico.|
 StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Especifica el nombre de la cuenta de Automation que contiene el Runbook de correo electrónico.  **No modifique esta variable.**|
 StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Especifica el nombre del grupo de recursos que contiene el Runbook de correo electrónico.  **No modifique esta variable.**|
 StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Especifica el texto de la línea de asunto del correo electrónico.|  
 StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Especifica los destinatarios del correo electrónico.  Separe los diversos nombres mediante punto y coma (;).|
-StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Escriba los nombres de máquina virtual que se excluirán de la operación de administración separados por punto y coma (;). Los valores distinguen mayúsculas de minúsculas y admiten caracteres comodín (asterisco).  El valor predeterminado (asterisco) incluirá todos los grupos de recursos de la suscripción.|
+StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Escriba los nombres de máquina virtual que se excluirán de la operación de administración, separados por punto y coma (;), sin espacios. Los valores distinguen mayúsculas de minúsculas y admiten caracteres comodín (asterisco).  El valor predeterminado (asterisco) incluirá todos los grupos de recursos de la suscripción.|
 StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Especifica la suscripción que contiene las máquinas virtuales que se administrarán mediante esta solución.  Debe ser la misma suscripción donde reside la cuenta de Automation de esta solución.|  
 <br>
 

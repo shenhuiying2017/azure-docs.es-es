@@ -12,12 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/01/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: fb660384f2f9f569bcfbe7fa7d5c1f7ce772cacd
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: db04507d50b6dfe767ede4479fe0b02af2461576
+ms.contentlocale: es-es
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -31,7 +32,7 @@ Realizar una copia de seguridad de bases de datos de modelo tabular en Azure Ana
 > 
 > 
 
-Las copias de seguridad se guardan con una extensión abf. Para los modelos tabulares en memoria, se almacenan los datos y los metadatos del modelo. Para los modelos tabulares de consulta directa, solo se almacenan los metadatos del modelo. Las copias de seguridad se pueden comprimir y cifrar, según las opciones que elija. 
+Las copias de seguridad se guardan con extensión abf. Para los modelos tabulares en memoria, se almacenan los datos y los metadatos del modelo. Para los modelos tabulares de consulta directa, solo se almacenan los metadatos del modelo. Las copias de seguridad se pueden comprimir y cifrar, según las opciones que elija. 
 
 
 
@@ -54,7 +55,7 @@ Antes de realizar copias de seguridad, debe configurar los valores de almacenami
 
     ![Seleccionar el contenedor](./media/analysis-services-backup/aas-backup-container.png)
 
-5. Guarde la configuración de copia de seguridad. Siempre que cambie la configuración de almacenamiento o habilite o deshabilite la copia de seguridad, debe guardar los cambios.
+5. Guarde la configuración de copia de seguridad.
 
     ![Guardar la configuración de copia de seguridad](./media/analysis-services-backup/aas-backup-save.png)
 
@@ -66,7 +67,7 @@ Antes de realizar copias de seguridad, debe configurar los valores de almacenami
 
 2. En **Copia de seguridad de la base de datos** > **Archivo de copia de seguridad**, haga clic en **Examinar**.
 
-3. En el cuadro de diálogo **Guardar archivo como**, compruebe la ruta de acceso de la carpeta y luego escriba un nombre para el archivo de copia de seguridad. De forma predeterminada, el nombre de archivo recibe la extensión abf. 
+3. En el cuadro de diálogo **Guardar archivo como**, compruebe la ruta de acceso de la carpeta y luego escriba un nombre para el archivo de copia de seguridad. 
 
 4. En el cuadro de diálogo **Copia de seguridad de la base de datos**, seleccione opciones.
 
@@ -85,7 +86,12 @@ Use el cmdlet [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-servic
 ## <a name="restore"></a>Restauración
 Para la restauración, el archivo de copia de seguridad debe estar en la cuenta de almacenamiento que configurada para el servidor. Si debe mover un archivo de copia de seguridad de una ubicación local a la cuenta de almacenamiento, utilice [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o la utilidad de línea de comandos [AzCopy](../storage/storage-use-azcopy.md). 
 
-Si va a restaurar una base de datos modelo 1200 tabular de un servidor de SQL Server Analysis Services local, primero debe quitar todos los usuarios del dominio de los roles del modelo y agregarlos a los roles como usuarios de Azure Active Directory. Los roles serán los mismos.
+
+
+> [!NOTE]
+> Si va a restaurar desde un servidor local, debe quitar todos los usuarios del dominio de los roles del modelo y agregarlos de nuevo a los roles como usuarios de Azure Active Directory.
+> 
+> 
 
 ### <a name="to-restore-by-using-ssms"></a>Para realizar la restauración con SSMS:
 

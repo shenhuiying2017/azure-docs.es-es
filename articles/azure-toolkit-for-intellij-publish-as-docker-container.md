@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 37a9de5909cf4d6b4568e40de001861d083a85df
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 96680319a6c4c0f0a4673cd6303a5b172f428797
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -106,12 +106,14 @@ Los contenedores de Docker son un método muy utilizado para implementar aplicac
 
       * **New log in credentials** (Nuevas credenciales de inicio de sesión): cree un conjunto de credenciales de inicio de sesión. Si selecciona esta opción, haga lo siguiente:
 
-        a. En la pestaña **VM Credentials** (Credenciales de la máquina virtual), proporcione la siguiente información para las credenciales de inicio de sesión de máquina virtual del host de Docker:      *  **Username** (Nombre de usuario): escriba el nombre de usuario para las credenciales de inicio de sesión de máquina virtual.
+        a. En la pestaña **VM Credentials** (Credenciales de la máquina virtual), proporcione la siguiente información para las credenciales de inicio de sesión de máquina virtual del host de Docker: ***Username** (Nombre de usuario): escriba el nombre de usuario para las credenciales de inicio de sesión de máquina virtual.
              * **Password** (Contraseña) y **Confirm** (Confirmar): escriba la contraseña para las credenciales del inicio de sesión de la máquina virtual.
-             * **SSH**: especifique la configuración de Secure Shell (SSH) para el host de Docker. Puede seleccionar una de las siguientes opciones:         * **None** (Ninguna): especifica que la máquina virtual no permite conexiones SSH.
+             * **SSH**: especifique la configuración de Secure Shell (SSH) para el host de Docker. Puede seleccionar una de las siguientes opciones: ***None** (Ninguna): especifica que la máquina virtual no permite conexiones SSH.
                 * **Auto-generate** (Generar automáticamente): crea automáticamente la configuración necesaria para la conexión mediante SSH.
-                * **Import from directory** (Importar desde directorio): permite especificar un directorio que contiene un conjunto de configuraciones de SSH previamente guardadas. El directorio debe contener los dos archivos siguientes:            * *id_rsa*: contiene la identificación de RSA para un usuario.
-                   * *id_rsa.pub*: contiene la clave pública de RSA que se usa para la autenticación.
+                * **Import from directory** (Importar desde directorio): permite especificar un directorio que contiene un conjunto de configuraciones de SSH previamente guardadas. El directorio debe contener los dos archivos siguientes:
+                
+                  * *id_rsa*: Contains the RSA identification for a user.
+                  * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
             
         b. En la pestaña **Docker Daemon Access** (Acceso de demonio de Docker), proporcione la siguiente información:
 
