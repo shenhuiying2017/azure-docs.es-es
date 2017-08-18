@@ -14,25 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: a9cb2d921d1be226661311d91367b2b6f44fa0dc
-ms.lasthandoff: 03/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: f61be0cc4c9274c9914f7c468ce48a2a3d0a4f4a
+ms.contentlocale: es-es
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-portal"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-ssl-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-ssl-arm.md)
+> * [PowerShell de Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
+> * [CLI de Azure 2.0](application-gateway-ssl-cli.md)
 
-Puerta de enlace de aplicaciones de Azure puede configurarse para terminar la sesión Capa de sockets seguros (SSL) en la puerta de enlace para evitar las costosas tareas de descifrado SSL que tienen lugar en la granja de servidores web. La descarga SSL también simplifica la configuración del servidor front-end y la administración de la aplicación web.
+Azure Application Gateway puede configurarse para terminar la sesión Capa de sockets seguros (SSL) en la puerta de enlace para evitar las costosas tareas de descifrado SSL que tienen lugar en la granja de servidores web. La descarga SSL también simplifica la configuración del servidor front-end y la administración de la aplicación web.
 
 ## <a name="scenario"></a>Escenario
 
-El siguiente escenario pasa por la configuración de la descarga SSL en una puerta de enlace de aplicaciones existente. El escenario supone que ya ha seguido los pasos para [crear una Puerta de enlace de aplicaciones](application-gateway-create-gateway-portal.md).
+El siguiente escenario pasa por la configuración de la descarga SSL en una puerta de enlace de aplicaciones existente. El escenario supone que ya ha seguido los pasos para [crear una puerta de enlace de aplicaciones](application-gateway-create-gateway-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -88,7 +89,7 @@ Ahora, la configuración está guardada en la puerta de enlace de aplicaciones. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a configurar un sondeo de estado personalizado con Puerta de enlace de aplicaciones de Azure, consulte la sección sobre cómo [crear un sondeo de estado personalizado](application-gateway-create-gateway-portal.md).
+Para aprender a configurar un sondeo de estado personalizado con Azure Application Gateway, consulte la sección sobre cómo [crear un sondeo de estado personalizado](application-gateway-create-gateway-portal.md).
 
 [1]: ./media/application-gateway-ssl-portal/figure1.png
 [2]: ./media/application-gateway-ssl-portal/figure2.png

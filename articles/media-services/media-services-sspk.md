@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 08/09/2017
 ms.author: xpouyat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: bb14f94ee2b51c8b1c8eb4754ead670d7f82689f
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 12c6bdf6986d57f20df9ce84a8b12a5e4c93b6ed
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licencias de Microsoft® Smooth Streaming Client Porting Kit
@@ -37,7 +36,7 @@ La licencia de SSPK tiene unos términos que ofrecen un valor empresarial excele
   * Implementa la funcionalidad Smooth Streaming Client
   * Agrega análisis de formato, heurística, lógica de almacenamiento en búfer, etc.
 * API de aplicación del reproductor 
-  * Interfaces de programación para la interacción con una aplicación del Reproductor multimedia
+  * Interfaces de programación para la interacción con una aplicación de reproductor multimedia
 * Interfaz de capa de abstracción de plataforma (PAL) 
   * Interfaces de programación para la interacción con el sistema operativo (subprocesos, sockets)
 * Interfaz de capa de abstracción de hardware (HAL) 
@@ -106,6 +105,7 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * Sony Corporation
 * Tatung Technology Inc.
 * TCL Technoly Electronics (Huizhou) Co., Ltd.
+* Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
 * ZTE Corporation
@@ -130,6 +130,7 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
+* Hisense International Co., Ltd. 
 * Homecast Co.,Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
@@ -151,6 +152,7 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * TCL Overseas Marketing (Macao Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
+* Top Victory Investments, Ltd.
 * Toshiba Lifestyle Products & Services Corporation
 * Universal Media Corporation /Slovakia/ s.r.o.
 * VIZIO, Inc.
@@ -158,7 +160,7 @@ Los licenciatarios de productos provisionales y finales del SSPK pueden enviar p
 * ZTE Corporation
 
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

@@ -8,31 +8,35 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a648852fadfeb5c9a4ff61c85bbe0af856e445d4
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 4503234080e0bf737dad2e18907b47c3bf39d9da
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integración de registros de Azure: Procesamiento de eventos de Azure Key Vault mediante Event Hubs
 
-Puede usar la integración de registros de Azure (AzLog) para recuperar los eventos registrados y hacer que estén disponibles en su sistema de información de seguridad y administración de eventos (SIEM). Este tutorial le guiará por el proceso de registrar la actividad de Azure Key Vault en un centro de eventos y hacer que esté disponible como archivos JSON en el sistema SIEM. Después, puede configurar el sistema SIEM para que procese los archivos JSON.
+Azure Log Integration (AzLog) permite recuperar los eventos registrados y hacer que estén disponibles en su sistema de información de seguridad y administración de eventos (SIEM). El propósito de este tutorial es guiarlo a través de un ejemplo de cómo se puede usar Azure Log Integration para procesar registros adquiridos a través de Event Hubs. Use el artículo para familiarizarse con el modo en que Azure Log Integration y Event Hubs funcionan conjuntamente siguiendo los pasos del ejemplo y entendiendo el modo en que cada paso se encamina hacia la solución. A continuación, puede aprovechar lo que ha aprendido aquí para crear sus propios pasos según los requisitos únicos de su empresa.
+
+>[!WARNING]
+Los pasos y los comandos que se utilizan en este tutorial no están diseñados para copiarse y pegarse; se proporcionan únicamente como ejemplos. No use los comandos de PowerShell tal cual en su entorno activo. Deben personalizarse en función de su entorno específico.
+
+
+Este tutorial le guiará por el proceso de registrar la actividad de Azure Key Vault en un centro de eventos y hacer que esté disponible como archivos JSON en el sistema SIEM. Después, puede configurar el sistema SIEM para que procese los archivos JSON.
 
 >[!NOTE]
->La mayoría de los pasos de este tutorial conllevan la configuración de almacenes de claves, cuentas de almacenamiento y centros de eventos. Los pasos específicos de la integración de registros de Azure están al final de este tutorial.
+>La mayoría de los pasos de este tutorial conllevan la configuración de almacenes de claves, cuentas de almacenamiento y centros de eventos. Los pasos específicos de la integración de registros de Azure están al final de este tutorial. No lleve a cabo estos pasos en un entorno de producción: están diseñados solo para un entorno de laboratorio. Los pasos deben personalizarse antes de usarlos en un entorno de producción.
 
 La información proporcionada en el proceso le ayudará a comprender los motivos detrás de cada paso. Los vínculos a otros artículos proporcionan más detalles sobre determinados temas.
 
 Para más información sobre los servicios que se mencionan en este tutorial, vea: 
 
-- [Almacén de claves de Azure](../key-vault/key-vault-whatis.md)
+- [Azure Key Vault](../key-vault/key-vault-whatis.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Integración de registros de Azure](security-azure-log-integration-overview.md)
 

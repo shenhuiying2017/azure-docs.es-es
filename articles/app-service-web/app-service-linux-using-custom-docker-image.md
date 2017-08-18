@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: d55cfc354ad5a9fc0f06b671f441ba4a0616bb9a
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: f51cacb33251d479f48a39014cc2db60a23358d5
 ms.contentlocale: es-es
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -33,7 +32,7 @@ App Service proporciona pilas de aplicaciones predefinidas en Linux con compatib
 
 
 ## <a name="how-to-set-a-custom-docker-image-for-a-web-app"></a>Establecimiento de una imagen de Docker personalizada para una aplicación web
-Puede establecer la imagen de Docker personalizada para aplicaciones web nuevas y existentes. Cuando cree una nueva aplicación web en Linux en [Azure Portal](https://portal.azure.com), haga clic en **Configurar contenedor** para establecer una imagen de Docker personalizada:
+Puede establecer la imagen de Docker personalizada para aplicaciones web nuevas y existentes. Cuando cree una nueva aplicación web en Linux en [Azure Portal](https://portal.azure.com/#create/Microsoft.AppSvcLinux), haga clic en **Configurar contenedor** para establecer una imagen de Docker personalizada:
 
 ![Imagen de Docker personalizada para una nueva aplicación web en Linux][1]
 
@@ -65,18 +64,20 @@ Para usar una imagen de Docker de un registro de imágenes privado:
 
 ## <a name="how-to-set-the-port-used-by-your-docker-image"></a>Establecimiento del puerto que usa la imagen de Docker ##
 
-Cuando use una imagen personalizada de Docker para la aplicación web, puede usar la variable de entorno `PORT` en el Dockerfile, que se agrega al contenedor generado. Tenga en cuenta el siguiente ejemplo de archivo de Docker para una aplicación Ruby:
+Cuando use una imagen personalizada de Docker para la aplicación web, puede usar la variable de entorno `WEBSITES_PORT` en el Dockerfile, que se agrega al contenedor generado. Tenga en cuenta el siguiente ejemplo de archivo de Docker para una aplicación Ruby:
 
     FROM ruby:2.2.0
     RUN mkdir /app
     WORKDIR /app
     ADD . /app
     RUN bundle install
-    CMD bundle exec puma config.ru -p $PORT -e production
+    CMD bundle exec puma config.ru -p WEBSITES_PORT -e production
 
-En la última línea del comando, puede ver que la variable de entorno de PORT se pasa en tiempo de ejecución. Recuerde que en los comandos se distingue entre mayúsculas y minúsculas.
+En la última línea del comando, puede ver que la variable de entorno de WEBSITES_PORT se pasa en tiempo de ejecución. Recuerde que en los comandos se distingue entre mayúsculas y minúsculas.
 
-Al usar una imagen de Docker existente creada por otra persona, para la aplicación debe especificar un puerto distinto al 80. Para configurar el puerto, agregue una configuración de la aplicación llamada `PORT` con el valor tal y como se muestra a continuación:
+Anteriormente la plataforma utilizaba el parámetro de la aplicación `PORT`. Tenemos previsto dejar de usar este parámetro de la aplicación y usar `WEBSITES_PORT` exclusivamente.
+
+Al usar una imagen de Docker existente creada por otra persona, para la aplicación debe especificar un puerto distinto al 80. Para configurar el puerto, agregue una configuración de la aplicación llamada `WEBSITES_PORT` con el valor tal y como se muestra a continuación:
 
 ![Configuración de aplicación PORT para una imagen personalizada de Docker][6]
 
@@ -94,8 +95,8 @@ Para cambiar de una imagen personalizada a una incorporada:
 
 ## <a name="troubleshooting"></a>Solución de problemas ##
 
-Cuando la aplicación no se inicia con la imagen de Docker personalizada, compruebe que el Docker registra en el directorio LogFiles/docker. A este directorio se accede a través del sitio SCM o a través de FTP.
-Para registrar `stdout` y `stderr` del contenedor, debe habilitar **Registros de servidor web** en **Registros de diagnóstico**.
+Cuando la aplicación no se inicia con la imagen de Docker personalizada, compruebe que el Docker registra en el directorio LogFiles. A este directorio se accede a través del sitio SCM o a través de FTP.
+Para registrar `stdout` y `stderr` del contenedor, debe habilitar **Registros de contenedor de Docker** en **Registros de diagnóstico**.
 
 ![Habilitación del registro][8]
 
@@ -108,7 +109,7 @@ Puede acceder al sitio SCM desde **Advanced Tools** (Herramientas avanzadas) en 
 Siga los siguientes vínculos para empezar a trabajar con Web App on Linux.   
 
 * [Introducción a Web App on Linux de Azure](./app-service-linux-intro.md)
-* [Creación de aplicaciones web en Web App on Linux de Azure](./app-service-linux-how-to-create-web-app.md)
+* [Creación de aplicaciones web en Azure Web Apps en Linux](./app-service-linux-how-to-create-web-app.md)
 * [Uso de la configuración de PM2 para Node.js en Web App on Linux de Azure](./app-service-linux-using-nodejs-pm2.md)
 * [Preguntas más frecuentes sobre Web App on Linux de Azure App Service](app-service-linux-faq.md)
 

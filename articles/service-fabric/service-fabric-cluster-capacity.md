@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 9d5a4bef0c22f637a35390c6a8a245967fb02118
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 270d79944465176d3df467f7145ff82594302c3d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
@@ -42,7 +42,7 @@ Establezca el número de tipos de nodos con los que el clúster tiene que empeza
 * Puesto que no puede predecir el futuro, parta de hechos que conozca y decida el número de tipos de nodo que con el que deben empezar las aplicaciones. Siempre puede agregar o quitar tipos de nodos más adelante. Un clúster de Service Fabric debe tener como mínimo un tipo de nodo.
 
 ## <a name="the-properties-of-each-node-type"></a>Las propiedades de cada tipo de nodo.
-El **tipo de nodo** puede considerarse similar a los roles de Servicios en la nube. Los tipos de nodos definen los tamaños de máquina virtual, el número de máquinas virtuales y sus propiedades. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de máquinas virtuales independiente. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Al definirse como diferentes conjuntos de escalado de máquinas virtuales, cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente, tener diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad.
+El **tipo de nodo** puede considerarse similar a los roles de Cloud Services. Los tipos de nodos definen los tamaños de máquina virtual, el número de máquinas virtuales y sus propiedades. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de máquinas virtuales independiente. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Al definirse como diferentes conjuntos de escalado de máquinas virtuales, cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente, tener diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad.
 
 Lea [este documento](service-fabric-cluster-nodetypes.md) para más información sobre la relación de Nodetypes con el conjunto de escalado de máquinas virtuales, cómo usar el protocolo RDP en una de las instancias, abrir nuevos puertos, etc.
 
@@ -96,7 +96,7 @@ Utilice las durabilidades Silver o Gold para todos los tipos de nodo que hospeda
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recomendaciones operativas para el tipo de nodo en el que ha elegido los niveles de durabilidad Silver o Gold.
 
 1. Mantenga el clúster y las aplicaciones en buen estado en todo momento, y asegúrese de que las aplicaciones responden a todos los [eventos de los ciclos de vida de las réplicas del servicio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como que la réplica en compilación está bloqueada) en el momento adecuado.
-2. Adopte formas más seguras para cambiar una SKU de una máquina virtual (escalar verticalmente/reducir verticalmente): el cambio de SKU de una máquina virtual de un conjunto de escalado de máquinas virtuales es en sí una operación no segura y por lo tanto debería no evitarse si es posible. Este es el proceso que se puede seguir para evitar problemas comunes.
+2. Adopte formas más seguras para cambiar una SKU de una máquina virtual (escalar verticalmente/reducir verticalmente): el cambio de SKU de una máquina virtual de un conjunto de escalado de máquinas virtuales es en sí una operación no segura y por lo tanto debería evitarse, si es posible. Este es el proceso que se puede seguir para evitar problemas comunes.
     - **En el caso de tipo de nodo no principal:** se recomienda crear un nuevo conjunto de escalado de máquinas virtuales, modificar la restricción de la ubicación de servicio para incluir el nuevo conjunto de escalado de máquinas virtuales/tipo de servicio y, después, reducir el número de instancias del conjunto de escalado de máquinas virtuales antiguo a 0, nodo a nodo (esto es para asegurarse de que la eliminación de los nodos no afecta a la confiabilidad del clúster).
     - **En el caso de tipo de nodo principal:** nuestra recomendación es no cambiar la SKU de máquina virtual del tipo de nodo principal. Si la razón de la nueva SKU es la capacidad, se recomienda agregar más instancias o, si es posible, crear un clúster nuevo. Si no tiene ninguna opción, realice modificaciones en la definición del modelo del conjunto de escalado de máquinas virtuales para reflejar la SKU nueva. Si el clúster tiene un solo tipo de nodo, asegúrese de que las aplicaciones con estado responden a todos los [eventos de ciclo de vida de réplica de servicio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (como que la réplica en creación está bloqueada) en el momento adecuado y que la duración de la regeneración de la réplica del servicio es inferior a cinco minutos (en el nivel de durabilidad Silver). 
 3. Mantenga un número mínimo de cinco nodos en todos los conjuntos de escalado de máquinas virtuales en los que MR esté habilitado

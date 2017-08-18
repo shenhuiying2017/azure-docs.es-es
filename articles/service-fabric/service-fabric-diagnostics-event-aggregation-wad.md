@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/17/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e1eff2abf8512870661cbe539bd34aa5c33ded14
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: cea811918147a25947ec654bb06f2c994bae5ce6
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -191,6 +191,47 @@ Para recopilar los eventos, modifique la plantilla de Resource Manager para incl
     }
 ```
 
+## <a name="collect-reverse-proxy-events"></a>Recopilación de eventos de proxy inverso
+
+A partir de la versión 5.7 de Service Fabric, los eventos de [proy inverso](service-fabric-reverseproxy.md) están disponibles para la recopilación.
+El proxy inverso emite eventos en dos canales, uno que contiene los eventos de error que reflejan los errores de procesamiento de solicitudes y el otro que contiene los eventos detallados de todas las solicitudes procesadas en el proxy inverso. 
+
+1. Recopilación de eventos de error: para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000010" a la lista de proveedores de ETW.
+Para recopilar los eventos de los clústeres de Azure, modifique la plantilla de Resource Manager para incluir lo siguiente:
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387920",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+
+2. Recopilación de todos los eventos de procesamiento de solicitud: en el Visor de eventos de diagnóstico de Visual Studio, actualice la entrada Microsoft-ServiceFabric en la lista de proveedores de ETW a "Microsoft-ServiceFabric:4:0x4000000000000020".
+En los clústeres de Azure Service Fabric, modifique la plantilla de Resource Manager para incluir lo siguiente:
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387936",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+> Se recomienda habilitar con prudencia la recopilación de eventos de este canal ya que se recopila todo el tráfico a través del proxy inverso y puede consumir rápidamente la capacidad de almacenamiento.
+
+Para los clústeres de Azure Service Fabric, los eventos de todos los nodos se recopilan y se agregan en SystemEventTable.
+Para obtener información sobre solución de problemas de los eventos de proxy inverso, consulte la [Guía de diagnóstico de proxy inverso](service-fabric-reverse-proxy-diagnostics.md).
+
 ## <a name="collect-from-new-eventsource-channels"></a>Recopilar desde canales EventSource nuevos
 
 Para actualizar Diagnostics de forma que recopile registros de canales EventSource nuevos que representan una nueva aplicación que vaya a implementar, siga los mismos pasos que se han descrito anteriormente para configurar Diagnostics para un clúster existente.
@@ -217,21 +258,22 @@ Para recopilar métricas de rendimiento del clúster, agregue los contadores de 
 
 Por ejemplo, aquí hemos establecido un contador de rendimiento que se muestrea cada 15 segundos (esto se puede cambiar y sigue el formato "PT\<tiempo>\<unidad>", por ejemplo, PT3M muestrea cada tres minutos) y se transfiere a la tabla de almacenamiento adecuada cada minuto.
 
-    ```json
-    "PerformanceCounters": {
-        "scheduledTransferPeriod": "PT1M",
-        "PerformanceCounterConfiguration": [
-            {
-                "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                "sampleRate": "PT15S",
-                "unit": "Percent",
-                "annotation": [
-                ],
-                "sinks": ""
-            }
-        ]
-    }
-    ```
+  ```json
+  "PerformanceCounters": {
+      "scheduledTransferPeriod": "PT1M",
+      "PerformanceCounterConfiguration": [
+          {
+              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+              "sampleRate": "PT15S",
+              "unit": "Percent",
+              "annotation": [
+              ],
+              "sinks": ""
+          }
+      ]
+  }
+  ```
+  
 Si usa un receptor de Application Insights, como se describe en la siguiente sección, y quiere que estas métricas aparezcan en Application Insights, asegúrese de agregar el nombre del receptor en la sección "receptores", como se indicó anteriormente. Además, considere la posibilidad de crear una tabla independiente a la que enviar sus contadores de rendimiento, para que no sobrecarguen los datos procedentes de los demás canales de registro que ha habilitado.
 
 

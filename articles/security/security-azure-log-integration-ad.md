@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/09/2017
+ms.date: 08/08/2017
 ms.author: barclayn
 ms.custom: azlog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: d4cf9f394f209fe3dfd633f6ca2954e9770d5949
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 9a4fa6ea1784ab0247659d5498c6fe3ae30355c4
 ms.contentlocale: es-es
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/18/2017
 Los eventos de auditoría de Azure Active Directory le ayudan a identificar las acciones con privilegios que se produjeron en Azure Active Directory. Puede ver los tipos de eventos de los que puede realizar un seguimiento mediante la revisión de [Eventos del informe de auditoría de Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
 
 >[!NOTE]
-Debe revisar el artículo de [introducción](security-azure-log-integration-get-started.md) y completar todos los pasos hasta el paso 3 de la sección **Pasos posteriores a la instalación y validación** antes de intentar los pasos de este artículo.
+Debe revisar el artículo [Introducción](security-azure-log-integration-get-started.md) y completar los pasos allí antes de intentar seguir los pasos descritos en este artículo.
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Pasos para la integración de los registros de auditoría de Azure Active Directory
 
@@ -38,7 +37,7 @@ Debe revisar el artículo de [introducción](security-azure-log-integration-get-
 
  ``azlog createazureid``
 
- Este comando solicita el inicio de sesión de Azure. A continuación, el comando crea una Entidad de servicio de Azure Active Directory en los inquilinos de Azure AD que hospedan las suscripciones de Azure en las que el usuario inició sesión como administrador, coadministrador o propietario. El comando producirá un error si el usuario ha iniciado sesión solo como usuario invitado en el inquilino de Azure AD. La autenticación en Azure se hace con Azure Active Directory (AD). La creación de una entidad de servicio para la integración de registro de Azure creará la identidad de Azure AD a la que se otorgará acceso de lectura de las suscripciones de Azure.
+ Este comando solicita el inicio de sesión de Azure. A continuación, el comando crea una Entidad de servicio de Azure Active Directory en los inquilinos de Azure AD que hospedan las suscripciones de Azure en las que el usuario inició sesión como administrador, coadministrador o propietario. El comando producirá un error si el usuario ha iniciado sesión solo como usuario invitado en el inquilino de Azure AD. La autenticación en Azure se hace con Azure Active Directory (AD). Al crear una entidad de servicio para Azlog Integration, se crea la identidad de Azure AD a la que se otorga acceso para leer desde las suscripciones de Azure.
 
 3. Ejecute el comando proporcionando el valor de tenantID. Debe ser miembro del rol de administrador de inquilinos para ejecutar el comando.
 
@@ -58,7 +57,8 @@ Vea a continuación un vídeo sobre los pasos descritos en este artículo.
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Azure-AD-Integration/player]
 
 
-Dirija el conector del reenviador de archivos SIEM estándar a la carpeta adecuada para canalizar los datos a la instancia SIEM. Puede que necesite algunas asignaciones de campo según el producto de SIEM que utilice.
+>[!NOTE]
+Debe ponerse en contacto con su proveedor de SIEM para obtener instrucciones específicas sobre cómo llevar la información de los archivos JSON a su instancia de SIEM.
 
 Puede encontrar ayuda de la comunidad en [Foro MSDN de Azure Log Integration](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Este foro ofrece a la comunidad de AzLog la posibilidad de ayudarse en relación con preguntas, respuestas, consejos y sugerencias sobre cómo sacar el máximo partido de Azure Log Integration. Además, el equipo de Azure Log Integration supervisa este foro y le ayudará a cada vez que se pueda.
 

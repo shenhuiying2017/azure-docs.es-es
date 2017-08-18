@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: af4d41f8fa04902c766cd85d7e90f61dff8133e7
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2d0f9d7f32ad79f49d58165d734b9df4af862835
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Introducción a SQL Data Sync de Azure (vista previa)
@@ -29,8 +29,12 @@ En este tutorial se asume que tiene al menos alguna experiencia previa con SQL D
 
 Para obtener información general sobre SQL Data Sync, vea [Sincronización de datos](sql-database-sync-data.md).
 
+Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync, consulte los siguientes artículos:
+-   [Uso de PowerShell para sincronizar varias bases de datos SQL de Azure](scripts/sql-database-sync-data-between-sql-databases.md)
+-   [Uso de PowerShell para sincronizar una base de datos SQL de Azure y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
+
 > [!NOTE]
-> La documentación técnica completa para Azure SQL Data Sync, que anteriormente se encontraba en MSDN, está disponible como .pdf. Descárguela [aquí](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
+> La documentación técnica completa para Azure SQL Data Sync, que anteriormente se encontraba en MSDN, está disponible como documento .pdf. Descárguela [aquí](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
 ## <a name="step-1---create-sync-group"></a>Paso 1: Creación de un grupo de sincronización
 
@@ -97,7 +101,7 @@ En la hoja **Configurar base de datos de Azure**, haga lo siguiente:
 
 3.  En el campo **Azure SQL Server**, seleccione el servidor de SQL Database existente.
 
-4.  En el campo **Azure SQL Database**, seleccione la base de datos de SQL existente.
+4.  En el campo **Azure SQL Database**, seleccione la base de datos SQL existente.
 
 5.  En el campo **Direcciones de sincronización**, seleccione la sincronización bidireccional, a la base de datos central o desde la base de datos central.
 
@@ -193,12 +197,12 @@ Después de que los nuevos miembros del grupo de sincronización se crean e impl
 4.  Por último, seleccione **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-¡Enhorabuena! Ha creado un grupo de sincronización que incluye una instancia de Base de datos SQL y una base de datos SQL Server.
+¡Enhorabuena! Ha creado un grupo de sincronización que incluye una instancia de SQL Database y una base de datos de SQL Server.
 
 Para obtener más información sobre SQL Database y SQL Data Sync, vea:
 
 -   [Descarga de la documentación técnica completa de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 -   [Descarga de la documentación de la API de REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
--   [Información general de Base de datos SQL](sql-database-technical-overview.md)
+-   [Información general de SQL Database](sql-database-technical-overview.md)
 -   [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)
 

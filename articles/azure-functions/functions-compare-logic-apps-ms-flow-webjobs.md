@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 08/03/2017
 ms.author: chrande; glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 31661e5840a6b65f54f9df027a7e3ecab8768055
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 256bc04684ba337fe8a403d977079c96b63ca61d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Elección entre Flow, Logic Apps, Functions y WebJobs
@@ -28,10 +28,10 @@ En este artículo se comparan y contrastan los siguientes servicios en la nube d
 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
-* [Funciones de Azure](https://azure.microsoft.com/services/functions/)
+* [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service](../app-service-web/web-sites-create-web-jobs.md)
 
-Todos estos servicios son útiles cuando se agrupan juntos sistemas dispares. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Sin embargo, cada servicio aporta un conjunto único de valores, y no se comparan para saber cuál es el mejor, sino cuál es el más adecuado para su situación. Con frecuencia, la mejor manera de crear rápidamente una solución de integración completa y escalable es combinar estos servicios.
+Todos estos servicios son útiles cuando se agrupan sistemas dispares. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Sin embargo, cada servicio aporta un conjunto único de valores, y no se comparan para saber cuál es el mejor, sino cuál es el más adecuado para su situación. Con frecuencia, la mejor manera de crear rápidamente una solución de integración completa y escalable es combinar estos servicios.
 
 <a name="flow"></a>
 
@@ -58,7 +58,7 @@ La tabla siguiente le ayuda a determinar qué es lo mejor para una integración 
 <a name="function"></a>
 
 ## <a name="functions-vs-webjobs"></a>Functions frente a Trabajos web
-Analizaremos Azure Functions y Azure App Service WebJobs juntos porque ambos son servicios de integración *Code First* y están diseñados para los desarrolladores. Le permiten ejecutar un script o un fragmento de código en respuesta a distintos eventos, como [nuevos blobs de almacenamiento](functions-bindings-storage.md) o [una solicitud de WebHook](functions-bindings-http-webhook.md). Estas son sus similitudes: 
+Analizaremos Azure Functions y Azure App Service WebJobs juntos porque ambos son servicios de integración *Code First* y están diseñados para los desarrolladores. Le permiten ejecutar un script o un fragmento de código en respuesta a distintos eventos, como los [nuevos blobs de almacenamiento](functions-bindings-storage.md) o [una solicitud de WebHook](functions-bindings-http-webhook.md). Estas son sus similitudes: 
 
 * Ambos se basan en [Azure App Service](../app-service/app-service-value-prop-what-is.md) y disfrutan de características como [control del código fuente](../app-service-web/app-service-continuous-deployment.md), [autenticación](../app-service/app-service-authentication-overview.md) y [supervisión](../app-service-web/web-sites-monitor.md).
 * Ambos son servicios orientados al desarrollador.
@@ -82,15 +82,15 @@ En la tabla siguiente se resumen las diferencias entre Functions y WebJobs:
 | Precios |Pago por uso o parte del plan de App Service |parte del plan de App Service |
 | Tipo ejecución |desencadenada, programada (por desencadenador de temporizador) |desencadenada, continua, programada |
 | Desencadenar eventos |[temporizador](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage.md) |[Azure Storage](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
-| Desarrollo en el explorador |x | |
-| Scripts de ventana |experimental |x |
-| PowerShell |experimental |x |
-| C# |x |x |
-| F# |x | |
-| Bash |experimental |x |
-| PHP |experimental |x |
-| Python |experimental |x |
-| JavaScript |x |x |
+| Desarrollo en el explorador |admitido | no admitido |
+| Scripts de ventana |experimental |admitido |
+| PowerShell |experimental |admitido |
+| C# |admitido |admitido |
+| F# |admitido |no admitido |
+| Bash |experimental |admitido |
+| PHP |experimental |admitido |
+| Python |experimental |admitido |
+| JavaScript |admitido |admitido |
 
 El uso de Functions o WebJobs depende en última instancia de lo que esté haciendo con App Service. Si tiene una aplicación de App Service para la que quiere ejecutar fragmentos de código y los quiere administrar juntos en el mismo entorno de DevOps, debería usar WebJobs. Si quiere ejecutar fragmentos de código para otros servicios de Azure o incluso aplicaciones de terceros, si quiere administrar los fragmentos de código de integración por separado de las aplicaciones de App Service o si quiere llamar a los fragmentos de código desde una aplicación lógica, debe aprovechar las ventajas de todas las mejoras que incorpora Functions.  
 

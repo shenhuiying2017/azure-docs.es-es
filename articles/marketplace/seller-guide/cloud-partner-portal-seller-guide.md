@@ -12,13 +12,11 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: rupesk@microsoft.com
 ms.robots: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 59a0f0ec1b7b576339a45be26be8543ac0650a8a
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guía para vendedores de Azure Marketplace
@@ -46,7 +44,7 @@ Comencemos.
 
 ## <a name="whats-the-azure-marketplace"></a>¿Qué es Azure Marketplace?
 
-Azure Marketplace es una tienda en línea de aplicaciones y servicios donde los fabricantes de software independientes (ISV) —desde empresas emergentes hasta otras más consolidadas— pueden ofrecer sus soluciones a clientes de Azure de todo el mundo. En Marketplace, los publicadores de Azure pueden distribuir y vender sus imágenes de máquina virtual a otros profesionales que deseen desarrollar rápidamente sus aplicaciones basadas en la nube y sus soluciones móviles en Azure. Marketplace admite una amplia gama de ofertas –desde aplicaciones de análisis integral de datos con procesamiento de la información, almacenamiento de datos y capas de análisis hasta aplicaciones de comercio electrónico en capas (datos, servicio e Internet).
+Azure Marketplace es una tienda en línea de aplicaciones y servicios donde los fabricantes de software independientes (tanto emergentes como otros ya consolidados) pueden ofrecer sus soluciones a clientes de Azure de todo el mundo. En Marketplace, los publicadores de Azure pueden distribuir y vender sus imágenes de máquina virtual a otros profesionales que deseen desarrollar rápidamente sus aplicaciones basadas en la nube y sus soluciones móviles en Azure. Marketplace admite una amplia gama de ofertas –desde aplicaciones de análisis integral de datos con procesamiento de la información, almacenamiento de datos y capas de análisis hasta aplicaciones de comercio electrónico en capas (datos, servicio e Internet).
 
 Los clientes en la nube afrontan diferentes desafíos a la hora de buscar soluciones que se ajusten a sus necesidades únicas. Marketplace proporciona una forma de resolver estos desafíos y conectar a los clientes con soluciones innovadoras de ISV, tal como se describe en la tabla siguiente:
 
@@ -71,17 +69,17 @@ Es posible que en este momento simplemente se esté preguntando si Azure Marketp
 - **Vender en nuevos mercados de clientes con una amplia cartera de soluciones en Azure**. Incremente las ventas y consiga ventas cruzadas de las ofertas de Marketplace con servicios de Azure que están disponibles para los clientes del Programa de suscripción en línea de Microsoft (MOSP) y del Contrato Microsoft Enterprise. Puede incorporar fácilmente las ofertas de Marketplace a la solución de clientes y el escenario de Azure.
 - **Mejorar el valor para el negocio y aumentar las transacciones con cuentas de clientes nuevas y existentes**. Marketplace puede ayudarle a aumentar las transacciones, solucionar las inquietudes de los clientes al trasladar las cargas de trabajo a la nube e incrementar la rentabilidad de las operaciones. Puede aumentar el valor del negocio mediante la venta de soluciones completas y abordar las lagunas de la plataforma en la nube de Azure para satisfacer los requisitos del cliente.
 - **Recurrir a un abanico más amplio de clientes potenciales mediante la venta de servicios y aplicaciones de Marketplace**. Marketplace puede facilitar la búsqueda y la retención de nuevos clientes. En la actualidad, muchas empresas necesitan trasladar cargas de trabajo a la nube y adaptarse a los entornos de infraestructura cambiantes. Puede proporcionar los servicios y aplicaciones adecuados para ayudarles a salvar las distancias.
-- **Complementar y ampliar la funcionalidad de Azure mediante la agrupación de ofertas de Marketplace con servicios de Azure**. Marketplace puede ayudarle a enmarcar las conversaciones basadas en escenarios con sus clientes. También puede resolver carencias específicas de la plataforma y las necesidades del cliente tratando las soluciones integrales. Por último, mediante la venta de paquetes de soluciones, puede usar del ecosistema de la plataforma de Azure para solucionar diversos problemas del cliente y aumentar las ventas.
+- **Complementar y ampliar la funcionalidad de Azure mediante la agrupación de ofertas de Marketplace con servicios de Azure**. Marketplace puede ayudarle a enmarcar las conversaciones basadas en escenarios con sus clientes. También puede resolver carencias específicas de la plataforma y las necesidades del cliente tratando las soluciones integrales. Por último, mediante la venta de paquetes de soluciones, puede usar el ecosistema de la plataforma de Azure para solucionar diversos problemas del cliente y aumentar las ventas.
 
 ## <a name="what39s-the-customer-base-for-the-marketplace"></a>¿Cuál es la base de clientes para Marketplace?
 
-Los clientes de Marketplace son diversos. Además, Azure cuenta con una de las bases de clientes de crecimiento más rápido entre todos los proveedores de nube. Obtiene acceso a profesionales de TI y desarrolladores que trabajan para empresas desde emergentes hasta otras más consolidadas, en diversas industrias y tanto en el sector público como en el privado.
+Los clientes de Marketplace son diversos. Además, Azure cuenta con una de las bases de clientes de crecimiento más rápido entre todos los proveedores de nube. Obtiene acceso a profesionales de TI y desarrolladores que trabajan para empresas de todo tipo, tanto emergentes como consolidadas, en diversas industrias, en los sectores público y privado.
 
 ## <a name="how-does-the-marketplace-work"></a>¿Cómo funciona Marketplace?
 
-Es bastante sencillo. Una vez reciba la aprobación, cree la imagen de máquina virtual con certificación de Azure y publíquela en Marketplace. Allí, los clientes de Azure pueden encontrar su producto, comprarlo e implementarlo en cuestión de minutos. Aún mejor, los clientes implementan la solución con confianza. Saben que el entorno está adaptado a Azure y que la infraestructura esté lista en unos minutos.
+Es bastante sencillo. Una vez reciba la aprobación, cree la imagen de máquina virtual con certificación de Azure y publíquela en Marketplace. Allí, los clientes de Azure pueden encontrar su producto, comprarlo e implementarlo en cuestión de minutos. Aún mejor, los clientes implementan la solución con confianza. Saben que el entorno está adaptado a Azure y que la infraestructura está lista en unos minutos.
 
-El portal Cloud Partner Portal es el punto central donde crear su oferta en Marketplace. Las imágenes de máquina virtual están preconfiguradas con un sistema operativo completamente instalado y una o varias aplicaciones. Para certificar su imagen de forma que esté lista para publicarse, se deben cumplir ciertos requisitos previos. Se explican en la sección siguiente.
+Cloud Partner Portal es el punto central donde crear su oferta en Marketplace. Las imágenes de máquina virtual están preconfiguradas con un sistema operativo completamente instalado y una o varias aplicaciones. Para certificar su imagen de forma que esté lista para publicarse, se deben cumplir ciertos requisitos previos. Se explican en la sección siguiente.
 
 
 ## <a name="whats-next"></a>Pasos siguientes
@@ -89,11 +87,11 @@ El portal Cloud Partner Portal es el punto central donde crear su oferta en Mark
 Quizá piense que Azure Marketplace es realmente perfecto para su producto. ¿Cómo se empieza? Esta sección se centra en cómo empezar a utilizar Marketplace (Figura 1): 
 * Consiga la certificación de Azure.
 * Obtenga aprobación para vender su producto.
-* Cree su oferta en el portal Cloud Partner Portal. 
+* Cree su oferta en Cloud Partner Portal. 
 
 ![Proceso para vender en Azure Marketplace](./media/cloud-partner-portal-seller-guide/processforselling.png)
 
-Ilustración 1: proceso para vender en Azure Marketplace
+Figura 1: proceso para vender en Azure Marketplace
 
 En primer lugar, debe cumplir una serie de requisitos previos técnicos y no técnicos, y preparar la imagen de máquina virtual. A continuación, proponga el producto y regístrese como vendedor. Por último, agregue contenido de marketing y envíelo para su publicación. Puede revisar su oferta en un entorno de ensayo o de vista previa antes de publicarla definitivamente en Marketplace.
 
@@ -101,7 +99,7 @@ La primera vez que cree una oferta para Azure Marketplace, debería prever unas 
 
 ## <a name="how-do-i-become-azure-certified"></a>¿Cómo obtengo la certificación de Azure?
 
-El primer paso del proceso de creación de su oferta para Azure Marketplace es obtener la certificación de Azure. Esto implica compilar información de la empresa, aceptar las directivas de participación, descargar las herramientas necesarias y generar componentes técnicos (ilustración 2).
+El primer paso del proceso de creación de su oferta para Azure Marketplace es obtener la certificación de Azure. Esto implica compilar información de la empresa, aceptar las directivas de participación, descargar las herramientas necesarias y generar componentes técnicos (Figura 2).
 
 ![Requisitos para obtener la certificación de Azure](./media/cloud-partner-portal-seller-guide/azurecertified.png)
 
@@ -154,24 +152,24 @@ Ahora es el momento de obtener la aprobación para vender su producto en Marketp
 
 ![aprobación para vender en Azure Marketplace](./media/cloud-partner-portal-seller-guide/gettingapprovedsteps.png)
 
-Ilustración 3: pasos para obtener la aprobación para vender en Azure Marketplace
+Figura 3: pasos para obtener la aprobación para vender en Azure Marketplace
 
 El primer paso hacia la aprobación es [proponer](https://createopportunity.azurewebsites.net/) el producto antes del registro y la publicación. La aprobación puede tardar _hasta tres días hábiles_.
 
 Una vez conseguida la aprobación, recibe lo siguiente:
 
-- Correo electrónico con un código de promoción que exonera de la tasa de solicitud de 99 $ para el Centro de desarrollo y un perfil en el portal Cloud Partner Portal.
+- Correo electrónico con un código de promoción que exonera de la tasa de solicitud de 99 $ para el Centro de desarrollo y un perfil en Cloud Partner Portal.
 - Preaprobación técnica del estado de certificación de Azure, junto con la opción de crear una oferta y certificar el disco duro virtual. (la solicitud del Centro de desarrollo debe aprobarse antes de poder crear la oferta).
 - Instrucciones para acceder al portal Cloud Partner Portal y una introducción al proceso de publicación.
 - Posibilidad de optar a una llamada con el equipo de incorporación de Microsoft para guiar el proceso y formular preguntas.
-- Capacidad de publicar una segunda oferta. Las ofertas publicadas en un segundo momento no tienen que pasar por el proceso de aprobación. Pueden ir directamente al portal Cloud Partner Portal, pero aún será necesario que las máquinas virtuales se certifiquen mediante el proceso de publicación.
+- Capacidad de publicar una segunda oferta. Las ofertas publicadas en un segundo momento no tienen que pasar por el proceso de aprobación. Pueden ir directamente al Cloud Partner Portal, pero aún será necesario que las máquinas virtuales se certifiquen mediante el proceso de publicación.
 - Instrucciones sobre cómo se solicita ayuda con la publicación (las preguntas se deben dirigir al [vínculo de soporte técnico](https://support.microsoft.com/en-us/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfName=productselection&prid=16230&ccsid=636282352448485256) del publicador de Marketplace).
 
-Por último, [registre la cuenta](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration) como vendedor de Microsoft. La aprobación y la investigación pueden tardar _hasta dos semanas_, así que invierta este tiempo en crear su oferta de Azure Marketplace en el portal Cloud Partner Portal.
+Por último, [registre la cuenta](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration) como vendedor de Microsoft. La aprobación y la investigación pueden tardar _hasta dos semanas_, así que invierta este tiempo en crear su oferta de Azure Marketplace en Cloud Partner Portal.
 
 ## <a name="how-do-i-publish-my-offer-on-the-azure-marketplace"></a>¿Cómo publico mi oferta en Azure Marketplace?
 
-Ahora está listo para certificar la imagen de máquina virtual y publicar la oferta. Para ello, use el portal Cloud Partner Portal. Puede considerar el portal Cloud Partner Portal como un punto central desde el que publicar y administrar la solución. Básicamente, basta con que cargue un disco duro virtual, agregue contenido de marketing y detalles de SKU, y envíe su oferta para revisión y certificación. Puede obtener una vista previa de su oferta y ver cómo quedará antes de publicarla en Marketplace.
+Ahora está listo para certificar la imagen de máquina virtual y publicar la oferta. Para ello, use Cloud Partner Portal. Puede considerar Cloud Partner Portal como un punto central desde el que publicar y administrar la solución. Básicamente, basta con que cargue un disco duro virtual, agregue contenido de marketing y detalles de SKU, y envíe su oferta para revisión y certificación. Puede obtener una vista previa de su oferta y ver cómo quedará antes de publicarla en Marketplace.
 
 ## <a name="what-about-best-practices"></a>¿Cuáles son los procedimientos recomendados?
 
@@ -215,7 +213,7 @@ En [este vídeo](https://player.vimeo.com/video/200859918) se ofrece una vista r
   - Ofertas en tendencia
   - Tipo de licencia de Marketplace
 
-Los informes detallados muestran información del cliente, como el nombre de la empresa y la ubicación geográfica detallada hasta el código postal, así que puede tener detalles de cortesía con sus vendedores. En la lista siguiente se incluyen los atributos específicos que proporcionamos acerca de sus clientes:
+Los informes detallados muestran información del cliente, como el nombre de la empresa y la ubicación geográfica, incluso el código postal, de forma que pueda realizar comparativas de los clientes. En la lista siguiente se incluyen los atributos específicos que proporcionamos acerca de sus clientes:
 
 - Vendedor
 - Nombre
@@ -232,7 +230,7 @@ Los informes detallados muestran información del cliente, como el nombre de la 
 - Cultura de comunicación del cliente
 - Código postal del cliente
 
-También se ofrece entrenamiento mediante una demostración grabada, un glosario y documentación de ayuda. Si necesita ayuda o soporte con los informes, puede abrir un [vale de soporte](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=636233723471685249).
+También se ofrece entrenamiento mediante una demostración grabada, un glosario y documentación de ayuda. Si necesita ayuda o soporte técnico con los informes, puede abrir un [vale de soporte](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=636233723471685249).
 
 Le damos la bienvenida a nuestra comunidad de vendedores de ISV y esperamos ver su oferta.
 

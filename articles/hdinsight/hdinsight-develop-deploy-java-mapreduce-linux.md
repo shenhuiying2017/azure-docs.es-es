@@ -14,26 +14,28 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 08/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 33705cff8d65b40aeca2cdaf0b102bf7fbbfa9d6
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 11d63f22204eb2acb530378f53ac72f16a35a4f2
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Desarrollo de programas MapReduce de Java para Hadoop en HDInsight
 
 Aprenda a usar Apache Maven para crear una aplicación MapReduce basada en Java y ejecutarla en Hadoop de Azure HDInsight.
 
+> [!NOTE]
+> En este ejemplo se probó más recientemente en HDInsight 3.6.
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 o posterior (o un equivalente como OpenJDK).
     
     > [!NOTE]
-    > Las versiones de HDInsight 3.4 y anteriores usan Java 7. HDInsight 3.5 utiliza Java 8.
+    > Las versiones de HDInsight 3.4 y anteriores usan Java 7. HDInsight 3.5 y versiones posteriores usa Java 8.
 
 * [Apache Maven](http://maven.apache.org/)
 
@@ -60,6 +62,11 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
+
+    > [!NOTE]
+    > Si va a usar PowerShell, deberá poner comillas dobles alrededor de los parámetros `-D`.
+    >
+    > `mvn archetype:generate "-DgroupId=org.apache.hadoop.examples" "-DartifactId=wordcountjava" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     Esta acción creará un directorio en el directorio actual, con el nombre especificado por el parámetro `artifactID` (**hbaseapp** en este ejemplo). Este directorio raíz contiene los siguientes elementos:
 
@@ -143,7 +150,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
     El segundo complemento configura la versión de Java de destino.
 
     > [!NOTE]
-    > HDInsight 3.4 y versiones anteriores utilizan Java 7. HDInsight 3.5 utiliza Java 8.
+    > HDInsight 3.4 y versiones anteriores utilizan Java 7. HDInsight 3.5 y versiones posteriores usa Java 8.
 
 3. Guarde el archivo `pom.xml`.
 
@@ -153,76 +160,76 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
 
 2. Abra el archivo `WordCount.java` en un editor de texto y reemplace el contenido por el texto siguiente:
    
-   ```java
-   package org.apache.hadoop.examples;
+    ```java
+    package org.apache.hadoop.examples;
 
-   import java.io.IOException;
-   import java.util.StringTokenizer;
-   import org.apache.hadoop.conf.Configuration;
-   import org.apache.hadoop.fs.Path;
-   import org.apache.hadoop.io.IntWritable;
-   import org.apache.hadoop.io.Text;
-   import org.apache.hadoop.mapreduce.Job;
-   import org.apache.hadoop.mapreduce.Mapper;
-   import org.apache.hadoop.mapreduce.Reducer;
-   import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-   import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-   import org.apache.hadoop.util.GenericOptionsParser;
+    import java.io.IOException;
+    import java.util.StringTokenizer;
+    import org.apache.hadoop.conf.Configuration;
+    import org.apache.hadoop.fs.Path;
+    import org.apache.hadoop.io.IntWritable;
+    import org.apache.hadoop.io.Text;
+    import org.apache.hadoop.mapreduce.Job;
+    import org.apache.hadoop.mapreduce.Mapper;
+    import org.apache.hadoop.mapreduce.Reducer;
+    import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+    import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+    import org.apache.hadoop.util.GenericOptionsParser;
 
-   public class WordCount {
+    public class WordCount {
 
-       public static class TokenizerMapper
-           extends Mapper<Object, Text, Text, IntWritable>{
+        public static class TokenizerMapper
+            extends Mapper<Object, Text, Text, IntWritable>{
 
-       private final static IntWritable one = new IntWritable(1);
-       private Text word = new Text();
+        private final static IntWritable one = new IntWritable(1);
+        private Text word = new Text();
 
-       public void map(Object key, Text value, Context context
-                       ) throws IOException, InterruptedException {
-           StringTokenizer itr = new StringTokenizer(value.toString());
-           while (itr.hasMoreTokens()) {
-           word.set(itr.nextToken());
-           context.write(word, one);
-           }
-       }
-   }
+        public void map(Object key, Text value, Context context
+                        ) throws IOException, InterruptedException {
+            StringTokenizer itr = new StringTokenizer(value.toString());
+            while (itr.hasMoreTokens()) {
+            word.set(itr.nextToken());
+            context.write(word, one);
+            }
+        }
+    }
 
-   public static class IntSumReducer
-           extends Reducer<Text,IntWritable,Text,IntWritable> {
-       private IntWritable result = new IntWritable();
+    public static class IntSumReducer
+            extends Reducer<Text,IntWritable,Text,IntWritable> {
+        private IntWritable result = new IntWritable();
 
-       public void reduce(Text key, Iterable<IntWritable> values,
-                           Context context
-                           ) throws IOException, InterruptedException {
-           int sum = 0;
-           for (IntWritable val : values) {
-           sum += val.get();
-           }
-          result.set(sum);
-          context.write(key, result);
-       }
-   }
+        public void reduce(Text key, Iterable<IntWritable> values,
+                            Context context
+                            ) throws IOException, InterruptedException {
+            int sum = 0;
+            for (IntWritable val : values) {
+            sum += val.get();
+            }
+            result.set(sum);
+            context.write(key, result);
+        }
+    }
 
-   public static void main(String[] args) throws Exception {
-       Configuration conf = new Configuration();
-       String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
-       if (otherArgs.length != 2) {
-           System.err.println("Usage: wordcount <in> <out>");
-           System.exit(2);
-       }
-       Job job = new Job(conf, "word count");
-       job.setJarByClass(WordCount.class);
-       job.setMapperClass(TokenizerMapper.class);
-       job.setCombinerClass(IntSumReducer.class);
-       job.setReducerClass(IntSumReducer.class);
-       job.setOutputKeyClass(Text.class);
-       job.setOutputValueClass(IntWritable.class);
-       FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-       FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-       System.exit(job.waitForCompletion(true) ? 0 : 1);
-       }
-   }
-   ```
+    public static void main(String[] args) throws Exception {
+        Configuration conf = new Configuration();
+        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+        if (otherArgs.length != 2) {
+            System.err.println("Usage: wordcount <in> <out>");
+            System.exit(2);
+        }
+        Job job = new Job(conf, "word count");
+        job.setJarByClass(WordCount.class);
+        job.setMapperClass(TokenizerMapper.class);
+        job.setCombinerClass(IntSumReducer.class);
+        job.setReducerClass(IntSumReducer.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
+        }
+    }
+    ```
    
     Tenga en cuenta que el nombre del paquete es `org.apache.hadoop.examples` y el nombre de clase es `WordCount`. Estos nombres se utilizan al enviar el trabajo de MapReduce.
 
@@ -250,7 +257,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
 Use el siguiente comando para cargar el archivo .jar al nodo principal de HDInsight:
 
    ```bash
-   scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
+   scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
    ```
 
     Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
@@ -259,7 +266,7 @@ Este comando copia los archivos del sistema local al nodo principal. Para más i
 
 ## <a name="run"></a>Ejecución del trabajo de MapReduce en Hadoop
 
-1. Conéctese a HDInsight mediante SSH. Para obtener más información, consulte [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Conéctese a HDInsight mediante SSH. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. En la sesión SSH, use el siguiente comando para ejecutar la aplicación MapReduce:
    

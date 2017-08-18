@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 8280669ac74b46232de81a0bf4f8094f8d9b069e
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -34,9 +34,9 @@ Microsoft proporciona otros métodos para cifrar los datos de la empresa:
 -   Si necesita un módulo de seguridad de hardware o la administración central de la jerarquía de claves de cifrado, considere la posibilidad de usar Azure Key Vault con SQL Server en una máquina virtual de Azure.
 -   Always Encripted (actualmente en versión preliminar) hace que el cifrado sea transparente para las aplicaciones y permite que los clientes cifren información confidencial dentro de aplicaciones cliente sin compartir las claves de cifrado con SQL Database.
 
-Gracias a la auditoría de Azure SQL Database, las empresas pueden registrar eventos en un almacenamiento de Azure Storage de registros de auditoría. La auditoría de Base de datos SQL también se integra con Microsoft Power BI, con el fin de facilitar la generación de análisis e informes detallados.
+Gracias a la auditoría de Azure SQL Database, las empresas pueden registrar eventos en un almacenamiento de Azure Storage de registros de auditoría. La auditoría de SQL Database también se integra con Microsoft Power BI, con el fin de facilitar la generación de análisis e informes detallados.
 
- Las bases de datos de SQL Azure Database pueden estar firmemente protegidas para satisfacer la mayoría de los requisitos de seguridad o legales, como HIPAA, ISO 27001/27002 y PCI DSS nivel 1, entre otros. En el [sitio del Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/services/) hay disponible una lista actualizada de certificaciones de cumplimiento de seguridad.
+ Las bases de datos SQL de Azure pueden estar firmemente protegidas para satisfacer la mayoría de los requisitos de seguridad o legales, como HIPAA, ISO 27001/27002 y PCI DSS nivel 1, entre otros. En el [sitio del Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/services/) hay disponible una lista actualizada de certificaciones de cumplimiento de seguridad.
 
 En este artículo se describen los conceptos básicos de la protección de las bases de datos de Microsoft Azure SQL Database para los datos estructurados, tabulares y relacionales. En concreto, este artículo le ayudará a empezar a trabajar con los recursos necesarios para proteger los datos, controlar el acceso y realizar una supervisión proactiva.
 
@@ -61,7 +61,7 @@ En esta sección hablaremos de:
 Si desea conocer otras formas de cifrar datos, considere:
 
 -   [Cifrado de nivel de celda](https://msdn.microsoft.com/library/ms179331.aspx) para cifrar columnas concretas, o incluso celdas de datos, con distintas claves de cifrado.
--   Si necesita un módulo de seguridad de hardware o la administración central de la jerarquía de claves de cifrado, considere la posibilidad de usar el [Almacén de claves de Azure con SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
+-   Si necesita un módulo de seguridad de hardware o la administración central de la jerarquía de claves de cifrado, considere la posibilidad de usar [Azure Key Vault con SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
 
 ### <a name="encryption-in-motion"></a>Cifrado en movimiento
 
@@ -71,7 +71,7 @@ Uno de los problemas existentes a la hora de administrar una red es el de proteg
 
 En el proceso de autenticación, un cliente TLS/SSL envía un mensaje a un servidor TLS/SSL y el servidor responde con la información que necesita para autenticarse a sí mismo. El cliente y el servidor efectúan un intercambio adicional de claves de sesión y se cierra el cuadro de diálogo de autenticación. Una vez concluida la autenticación, se puede iniciar la comunicación protegida por SSL entre el servidor y el cliente mediante las claves de cifrado simétrico que se establecen durante el proceso de autenticación.
 
-Todas las conexiones a Base de datos SQL de Azure requieren cifrado (SSL/TLS) siempre que haya datos "en tránsito" hacia y desde la base de datos. SQL Azure usa TLS/SSL para autenticar servidores y clientes y después lo usa para cifrar mensajes entre las partes autenticadas. En la cadena de conexión de su aplicación, debe especificar los parámetros para cifrar la conexión y no confiar en el certificado de servidor (esto se hace automáticamente si copia la cadena de conexión en el portal de Azure clásico). De lo contrario, la conexión no comprobará la identidad del servidor y será vulnerable a los ataques de tipo "Man in the middle". Por ejemplo, en el caso del controlador de ADO.NET, los parámetros de la cadena de conexión son Encrypt=True y TrustServerCertificate=False.
+Todas las conexiones a Azure SQL database requieren cifrado (SSL/TLS) siempre que haya datos "en tránsito" hacia y desde la base de datos. SQL Azure usa TLS/SSL para autenticar servidores y clientes y después lo usa para cifrar mensajes entre las partes autenticadas. En la cadena de conexión de su aplicación, debe especificar los parámetros para cifrar la conexión y no confiar en el certificado de servidor (esto se hace automáticamente si copia la cadena de conexión en el Portal de Azure clásico). De lo contrario, la conexión no comprobará la identidad del servidor y será vulnerable a los ataques de tipo "Man in the middle". Por ejemplo, en el caso del controlador de ADO.NET, los parámetros de la cadena de conexión son Encrypt=True y TrustServerCertificate=False.
 
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 Puede tomar varias precauciones para ayudar a proteger la base de datos, como diseñar un sistema seguro, cifrar los recursos confidenciales e instalar un firewall alrededor de los servidores de base de datos. Pero en un escenario en que se roban medios físicos (como unidades o cintas de copias de seguridad), un tercero malintencionado puede restaurar o asociar la base de datos y examinar los datos.
@@ -82,7 +82,7 @@ Para solucionar este problema, SQL Server y SQL Azure admiten el [cifrado de dat
 
 El cifrado de datos transparente de Azure SQL Database facilita la protección contra la amenaza de actividades malintencionadas, ya que la base de datos se cifra y descifra en tiempo real, se realizan copias de seguridad asociadas y archivos de registro de transacciones en reposo sin necesitar cambios en la aplicación.  
 
-TDE cifra el almacenamiento de una base de datos completa mediante el uso de una clave simétrica denominada clave de cifrado de base de datos. En SQL Database, la clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor de Base de datos SQL.
+TDE cifra el almacenamiento de una base de datos completa mediante el uso de una clave simétrica denominada clave de cifrado de base de datos. En SQL Database, la clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor de SQL Database.
 
 Si una base de datos está en una relación de GeoDR, está protegida por una clave diferente en cada servidor. Si hay dos bases de datos conectadas al mismo servidor, comparten el mismo certificado integrado. Microsoft alterna automáticamente estos certificados al menos cada 90 días. Para obtener una descripción general de TDE, vea [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde).
 
@@ -113,9 +113,9 @@ En esta sección hablaremos de:
 
 #### <a name="firewall-and-firewall-rules"></a>Firewall y reglas de firewall
 
-Base de datos SQL de Microsoft Azure ofrece un servicio de base de datos relacional para Azure y otras aplicaciones basadas en Internet. Para ayudar a proteger los datos, los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud. Para más información, consulte [Introducción a las reglas de firewall de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
+Microsoft Azure SQL Database ofrece un servicio de base de datos relacional para Azure y otras aplicaciones basadas en Internet. Para ayudar a proteger los datos, los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud. Para más información, consulte [Introducción a las reglas de firewall de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 
-El servicio [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) solo está disponible a través del puerto TCP 1433. Para tener acceso a una Base de datos SQL desde el equipo, asegúrese de que el firewall de equipos cliente permite la comunicación TCP saliente en el puerto TCP 1433. Si no es necesario para otras aplicaciones, bloquee las conexiones entrantes en el puerto TCP 1433.
+El servicio [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) solo está disponible a través del puerto TCP 1433. Para tener acceso a una base de datos SQL desde el equipo, asegúrese de que el firewall de equipos cliente permite la comunicación TCP saliente en el puerto TCP 1433. Si no es necesario para otras aplicaciones, bloquee las conexiones entrantes en el puerto TCP 1433.
 
 #### <a name="authentication"></a>Autenticación
 
@@ -151,7 +151,7 @@ Se puede definir una regla de enmascaramiento que enmascare todo excepto los cua
 
 Otro ejemplo, una máscara de datos apropiada se puede definir para proteger los datos de información de identificación personal, para que un desarrollador pueda consultar los entornos de producción para solucionar problemas sin infringir las reglamentaciones de cumplimiento.
 
-El [enmascaramiento dinámico de datos de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. El enmascaramiento de datos dinámicos se admite con la versión V12 de la Base de datos SQL de Azure.
+El [enmascaramiento dinámico de datos de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. El enmascaramiento de datos dinámicos se admite con la versión V12 de Azure SQL Database.
 
 El [enmascaramiento dinámico de datos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ayuda a impedir el acceso no autorizado a datos confidenciales permitiéndole designar la cantidad de los datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación. Es una característica de seguridad basada en directivas que oculta los datos confidenciales en el conjunto de resultados de una consulta sobre los campos designados de la base de datos, aunque que los datos de la base de datos no cambian.
 
@@ -176,7 +176,7 @@ La auditoría de SQL Database aumenta la capacidad de obtener información sobre
 
 La [auditoría de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) realiza un seguimiento de eventos de bases de datos y los registra en un registro de auditoría de la cuenta de Azure Storage. La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas. La auditoría posibilita y facilita la observancia de estándares reguladores pero no garantiza el cumplimiento.
 
-La auditoría de Base de datos SQL le permite:
+La auditoría de SQL Database le permite:
 
 -   **Conservar** una traza de auditoría de eventos seleccionados. Puede definir categorías de acciones de base de datos para auditar.
 -   **Informar** sobre la actividad de la base de datos. Puede usar informes preconfigurados y un panel para empezar rápidamente con el informe de actividades y eventos.

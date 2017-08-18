@@ -16,23 +16,23 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 7776942602e21cd0efc86fd471dc072564bb64a6
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 052410db8c7619c7990dc319951a55663f2c2ba1
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure 2.0
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
+> * [Azure Portal](application-gateway-create-gateway-portal.md)
+> * [PowerShell de Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure 1.0](application-gateway-create-gateway-cli.md)
 > * [CLI de Azure 2.0](application-gateway-create-gateway-cli.md)
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7 . Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesiones basada en cookies, descarga SSL (capa de sockets seguros), sondeos personalizados sobre el estado y compatibilidad con sitios múltiples.
+Application Gateway es una aplicación virtual dedicada que ofrece un controlador de entrega de aplicaciones (ADC) que se ofrece como servicio y que proporciona numerosas funcionalidades de equilibrio de carga de nivel 7 para una aplicación.
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
 
@@ -50,7 +50,7 @@ Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la 
 
 ## <a name="scenario"></a>Escenario
 
-En este escenario, aprenderá a crear una puerta de enlace de aplicaciones mediante el Portal de Azure.
+En este escenario, aprenderá a crear una puerta de enlace de aplicaciones mediante Azure Portal.
 
 En este escenario:
 
@@ -63,13 +63,13 @@ En este escenario:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Puerta de enlace de aplicaciones de Azure requiere su propia subred. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregar a ella puertas de enlace de aplicaciones adicionales.
+Azure Application Gateway requiere su propia subred. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregar a ella puertas de enlace de aplicaciones adicionales.
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
 Abra el **símbolo del sistema de Microsoft Azure**e inicie sesión. 
 
-```azurecli
+```azurecli-interactive
 az login -u "username"
 ```
 
@@ -92,60 +92,107 @@ Una vez especificado el código, habrá iniciado sesión; cierre el explorador p
 
 Antes de crear la puerta de enlace de aplicaciones, se creará un grupo de recursos para que pueda contenerla. A continuación, se muestra el comando.
 
-```azurecli
-az resource group create --name myresourcegroup --location "West US"
-```
-
-## <a name="create-a-virtual-network-and-subnet"></a>Creación de una red virtual y una subred
-
-Una vez creado el grupo de recursos, se crea una red virtual para la puerta de enlace de aplicaciones.  En el ejemplo siguiente, el espacio de direcciones era 10.0.0.0/16 tal como se definió para la red virtual, y se usó 10.0.0.0/28 para la subred, como se ha visto en las notas del escenario anterior.
-
-```azurecli
-az network vnet create \
---name AdatumAppGatewayVNET \
---address-prefix 10.0.0.0/16 \
---subnet-name Appgatewaysubnet \
---subnet-prefix 10.0.0.0/28 \
---resource-group AdatumAppGateway \
---location eastus
+```azurecli-interactive
+az group create --name myresourcegroup --location "eastus"
 ```
 
 ## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-Una vez que se crean la red virtual y la subred, los requisitos previos de la puerta de enlace de aplicaciones están completos. Además, para el paso siguiente son necesarios un certificado .pfx exportado previamente y la contraseña para el certificado. La direcciones IP que se usan para el back-end son las direcciones IP para el servidor back-end. Estos valores pueden ser direcciones IP privadas de la red virtual, direcciones IP públicas o nombres de dominio completos de los servidores back-end.
+Las direcciones IP usadas para el back-end son las direcciones IP del servidor back-end. Estos valores pueden ser direcciones IP privadas de la red virtual, direcciones IP públicas o nombres de dominio completos de los servidores back-end. En el ejemplo siguiente se crea una puerta de enlace de aplicaciones que tiene opciones adicionales para la configuración de http, puertos y reglas.
 
-```azurecli
+```azurecli-interactive
 az network application-gateway create \
---name AdatumAppGateway \
---location eastus \
---resource-group AdatumAppGatewayRG \
---vnet-name AdatumAppGatewayVNET \
----vnet-address-prefix 10.0.0.0/16 \
---subnet Appgatewaysubnet \
----subnet-address-prefix 10.0.0.0/28 \
+--name "AdatumAppGateway" \
+--location "eastus" \
+--resource-group "myresourcegroup" \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet" \
+--subnet-address-prefix "10.0.0.0/28" \
 --servers 10.0.0.4 10.0.0.5 \
 --capacity 2 \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
---public-ip-address AdatumAppGatewayPIP \
 --frontend-port 80 \
 --routing-rule-type Basic \
---http-settings-port 80
+--http-settings-port 80 \
+--public-ip-address "pip2" \
+--public-ip-address-allocation "dynamic" \
 
 ```
 
+El ejemplo anterior muestra muchas propiedades que no son necesarias durante la creación de una puerta de enlace de aplicaciones. En el ejemplo de código siguiente se crea una puerta de enlace de aplicaciones con la información necesaria.
+
+```azurecli-interactive
+az network application-gateway create \
+--name "AdatumAppGateway" \
+--location "eastus" \
+--resource-group "myresourcegroup" \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet \
+--subnet-address-prefix "10.0.0.0/28" \
+--servers "10.0.0.5"  \
+--public-ip-address pip
+```
+ 
 > [!NOTE]
-> Para ver una lista de parámetros que se pueden usar durante la creación, ejecute el siguiente comando: **az network application-gateway create --help**.
+> Para ver una lista de parámetros que se pueden usar durante la creación, ejecute el siguiente comando: `az network application-gateway create --help`.
 
 Con este ejemplo sea crea una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto.
 Si ya definió una aplicación web con el grupo de back-end en los pasos anteriores, una vez creada, comienza el equilibrio de carga.
+
+## <a name="get-application-gateway-dns-name"></a>Obtención del nombre DNS de una puerta de enlace de aplicaciones
+
+Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la Application Gateway, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la Application Gateway. [Configuración de un nombre de dominio personalizado en Azure](../dns/dns-custom-domain.md). Para configurar un alias, recupere los detalles de la puerta de enlace de aplicaciones y su nombre de IP o DNS asociado mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
+
+
+```azurecli-interactive
+az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
+```
+
+```
+{
+  "dnsSettings": {
+    "domainNameLabel": null,
+    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
+    "reverseFqdn": null
+  },
+  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
+  "idleTimeoutInMinutes": 4,
+  "ipAddress": "40.121.167.250",
+  "ipConfiguration": {
+    "etag": null,
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
+    "name": null,
+    "privateIpAddress": null,
+    "privateIpAllocationMethod": null,
+    "provisioningState": null,
+    "publicIpAddress": null,
+    "resourceGroup": "AdatumAppGatewayRG",
+    "subnet": null
+  },
+  "location": "eastus",
+  "name": "pip2",
+  "provisioningState": "Succeeded",
+  "publicIpAddressVersion": "IPv4",
+  "publicIpAllocationMethod": "Dynamic",
+  "resourceGroup": "AdatumAppGatewayRG",
+  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
+  "tags": {
+    "cli[2] owner[administrator]": ""
+  },
+  "type": "Microsoft.Network/publicIPAddresses"
+}
+```
 
 ## <a name="delete-all-resources"></a>Eliminación de todos los recursos
 
 Para eliminar todos los recursos creados en este artículo, complete los pasos siguientes:
 
-```azurecli
+```azurecli-interactive
 az group delete --name AdatumAppGatewayRG
 ```
  

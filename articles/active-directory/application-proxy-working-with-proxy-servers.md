@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ea928ba4d13970a32123a8ada8575658cecde5d8
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bdca442755507c4ffe8d43692c5b7f2aa3a746f3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -76,7 +75,7 @@ Asegúrese de realizar copias de los archivos originales por si fuera necesario 
 
 Algunos entornos requieren que todo el tráfico saliente atraviese sin excepciones un proxy de salida. Por lo tanto, no se contempla la opción de omitir el proxy.
 
-Puede configurar el tráfico del conector de manera que vaya a través del proxy de salida, tal y como se muestra a continuación.
+Puede configurar el tráfico del conector de manera que vaya a través del proxy de salida, tal y como se muestra en el diagrama siguiente:
 
  ![Configuración del tráfico del conector para pasar a través de un proxy de salida para acceder al Proxy de aplicación de Azure AD](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
 
@@ -126,14 +125,10 @@ Para el registro inicial, permita el acceso a los siguientes puntos de conexión
 * login.windows.net
 * login.microsoftonline.com
 
-Los canales subyacentes del control de Service Bus utilizados por el servicio de conector también requieren conectividad con direcciones IP específicas. Hasta que Service Bus cambie a un nombre de dominio completo, hay dos opciones:
+Si no puede permitir la conectividad mediante el FQDN y debe especificar intervalos de direcciones IP en su lugar, use estas opciones:
 
 * Permitir el acceso de salida del conector a todos los destinos.
-* Permitir el acceso de salida del conector a los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653).
-
->[!NOTE]
->El desafío de usar la lista de intervalos IP del centro de datos de Azure es que se actualiza semanalmente. Es necesario colocar un proceso para garantizar que las reglas de acceso se actualizan en consecuencia.
->
+* Permitir el acceso de salida del conector a los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). El desafío de usar la lista de intervalos IP del centro de datos de Azure es que se actualiza semanalmente. Es necesario colocar un proceso para garantizar que las reglas de acceso se actualizan en consecuencia.
 
 #### <a name="proxy-authentication"></a>La autenticación del proxy
 
@@ -141,18 +136,15 @@ Actualmente no se admite la autenticación del proxy. Nuestra recomendación act
 
 #### <a name="proxy-ports"></a>Los puertos del proxy
 
-El conector realiza las conexiones salientes basadas en SSL con el método CONNECT. Básicamente, este método configura un túnel a través del proxy de salida. De forma predeterminada, algunos servidores proxy solo permiten la tunelización de salida a puertos SSL estándar como 443. Si este es el caso, el servidor proxy debe configurarse para permitir la tunelización a puertos adicionales.
-
-Configure el servidor proxy para permitir la tunelización a los puertos no estándar 8080, 9090, 9091 y 10100-10120.
+El conector realiza las conexiones salientes basadas en SSL con el método CONNECT. Básicamente, este método configura un túnel a través del proxy de salida. Configure el servidor proxy para permitir la tunelización a los puertos no estándar 443 y 80.
 
 >[!NOTE]
 >Service Bus, si se ejecuta a través de HTTPS, usa el puerto 443. Sin embargo, de forma predeterminada, Service Bus intenta crear conexiones TCP directas y recurrir a HTTPS solo si se produce un error en la conectividad directa.
->
 
 Para asegurarse de que el tráfico de Service Bus también se envía a través del servidor proxy de salida, debe asegurarse de que el conector no puede conectar directamente con los servicios de Azure para los puertos 9350, 9352 y 5671.
 
 #### <a name="ssl-inspection"></a>La inspección de SSL
-No utilice la inspección de SSL para el tráfico del conector, ya que le causará problemas.
+No utilice la inspección de SSL para el tráfico del conector, ya que le causa problemas.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Solución de problemas del proxy del conector y de conectividad del servicio
 Ahora debería ver todo el tráfico pasando a través del proxy. Si tiene problemas, la siguiente información debería ayudar.
@@ -193,13 +185,13 @@ Un filtro como el siguiente (donde 8080 es el puerto del servicio de proxy):
 
 **(http.Request o http.Response) y tcp.port==8080**
 
-Si escribe este filtro en la ventana **Mostrar filtro** y selecciona **Aplicar**, se filtrará el tráfico capturado en función del filtro.
+Si escribe este filtro en la ventana **Mostrar filtro** y selecciona **Aplicar**, se filtra el tráfico capturado en función del filtro.
 
-El filtro anterior solo mostrará las solicitudes y respuestas HTTP hacia o desde el puerto proxy. Para un inicio de conector en el que el conector está configurado para utilizar un servidor proxy, habría que utilizar un filtro similar a este:
+El filtro anterior solo muestra las solicitudes y respuestas HTTP hacia o desde el puerto proxy. Para un inicio de conector en el que el conector está configurado para utilizar un servidor proxy, habría que utilizar un filtro similar a este:
 
  ![Ejemplo de lista de las solicitudes y respuestas HTTP filtradas](./media/application-proxy-working-with-proxy-servers/http-requests.png)
 
-Ahora está buscando específicamente las solicitudes de CONNECT que muestren que la comunicación con el servidor proxy. Si se realiza correctamente, obtendrá una respuesta HTTP OK (200).
+Ahora está buscando específicamente las solicitudes de CONNECT que muestren que la comunicación con el servidor proxy. Si se realiza correctamente, obtiene una respuesta HTTP OK (200).
 
 Si ve otros códigos de respuesta, como 407 o 502, el proxy requiere autenticación o no permite el tráfico por algún otro motivo. En este momento, póngase en contacto con el equipo de soporte técnico del servidor proxy.
 
@@ -225,7 +217,7 @@ Si ve algo parecido a la respuesta anterior, el conector está intentando comuni
 
 El análisis de seguimiento de red no está indicado para todos los usuarios. Sin embargo, puede ser una herramienta valiosa para obtener información rápida sobre lo que ocurre con la red.
 
-Si sigue experimentando problemas de conectividad del conector, cree una incidencia con nuestro equipo de soporte técnico. El equipo puede ayudarle a solucionar otros problemas.
+Si sigue experimentando problemas de conectividad del conector, cree un vale para nuestro equipo de soporte técnico. El equipo puede ayudarle a solucionar otros problemas.
 
 Para más información sobre cómo resolver errores del conector del Proxy de aplicación, consulte [Solucionar problemas de Proxy de aplicación](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot).
 

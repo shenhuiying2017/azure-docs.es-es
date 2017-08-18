@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/15/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 67cb42394a596f9e5c0a5d6a5042363e26ed0ac0
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: cb5ec1a105c632626c5caf39e4fd356177883123
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -38,13 +38,13 @@ Puede publicar un evento a través de AMQP 1.0 o HTTPS. Event Hubs ofrece [bibli
 
 La opción de usar AMQP o HTTPS es específica para el escenario de uso. AMQP requiere el establecimiento de un socket bidireccional persistente, además de la seguridad de nivel de transporte (TLS) o SSL/TLS. AMQP tiene un mayor costo de red al inicializar la sesión, sin embargo, HTTPS requiere una sobrecarga de SSL adicional para cada solicitud. AMQP tiene un mayor rendimiento para los publicadores frecuentes.
 
-![Centros de eventos](./media/event-hubs-features/partition_keys.png)
+![Event Hubs](./media/event-hubs-features/partition_keys.png)
 
 Event Hubs garantiza que todos los eventos que comparten un valor de clave de partición se entregan por orden y en la misma partición. Si se usan claves de partición con directivas de publicador, la identidad del publicador y el valor de la clave de partición deben coincidir. De lo contrario, se produce un error.
 
 ### <a name="publisher-policy"></a>Directiva del publicador
 
-Los Centros de eventos permiten un control granular sobre los publicadores de eventos a través de las *directivas de publicador*. Las directivas de publicador son características de tiempo de ejecución diseñadas para facilitar grandes números de publicadores de eventos independientes. Con las directivas de publicador, cada publicador usa su propio identificador único al publicar los eventos en un centro de eventos mediante el mecanismo siguiente:
+Event Hubs permite un control detallado de los publicadores de eventos a través de las *directivas de publicador*. Las directivas de publicador son características de tiempo de ejecución diseñadas para facilitar grandes números de publicadores de eventos independientes. Con las directivas de publicador, cada publicador usa su propio identificador único al publicar los eventos en un centro de eventos mediante el mecanismo siguiente:
 
 ```
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
@@ -54,7 +54,7 @@ No tiene que crear nombres de publicador con antelación, pero deben coincidir c
 
 ## <a name="capture"></a>Capture
 
-[Event Hubs Capture](event-hubs-capture-overview.md) permite capturar automáticamente los datos de streaming en Event Hubs y archivarlos en la cuenta de almacenamiento de blobs que prefiera. Puede habilitar Capture desde Azure Portal y especificar una ventana de tiempo y de tamaño mínimos para realizar la captura. El uso de Event Hubs Capture le permite especificar su propia cuenta de Azure Blob Storage y el contenedor que se usa para almacenar los datos capturados. Los datos capturados se escriben en el formato de Apache Avro.
+[Event Hubs Capture](event-hubs-capture-overview.md) permite capturar automáticamente los datos de streaming en Event Hubs y archivarlos en la cuenta de Blob Storage que prefiera. Puede habilitar Capture desde Azure Portal y especificar una ventana de tiempo y de tamaño mínimos para realizar la captura. El uso de Event Hubs Capture le permite especificar su propia cuenta de Azure Blob Storage y el contenedor que se usa para almacenar los datos capturados. Los datos capturados se escriben en el formato de Apache Avro.
 
 ## <a name="partitions"></a>Particiones
 
@@ -66,7 +66,7 @@ Una partición es una secuencia ordenada de eventos que se mantiene en un centro
 
 Event Hubs retiene datos durante un tiempo de retención configurado que se aplica a todas las particiones del centro de eventos. Los eventos expiran en función del tiempo; no se pueden eliminar explícitamente. Dado que las particiones son independientes y contienen sus propias secuencias de datos, a menudo crecen a velocidades diferentes.
 
-![Centros de eventos](./media/event-hubs-features/multiple_partitions.png)
+![Event Hubs](./media/event-hubs-features/multiple_partitions.png)
 
 El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 2 y 32. El número de particiones no es modificable, por lo que debería tener en cuenta la escala a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Puede aumentar el número de particiones más allá de 32 poniéndose en contacto con el equipo de Event Hubs.
 
@@ -109,9 +109,9 @@ La siguiente ilustración muestra la arquitectura de procesamiento del flujo de 
 
 ### <a name="stream-offsets"></a>Desplazamientos de los flujos
 
-Un *desplazamiento* es la posición de un evento dentro de una partición. Puede pensar en un desplazamiento como un cursor de lado cliente. El desplazamiento es una numeración de byte del evento. Este desplazamiento permite que un consumidor de eventos (lector) especifique un punto en el flujo de eventos desde el que quiere empezar a leer los eventos. Puede especificar el desplazamiento como una marca de tiempo o como un valor de desplazamiento. Los consumidores son responsables de almacenar sus propios valores de desplazamiento fuera del servicio de los Centros de eventos. Dentro de una partición, cada evento incluye un desplazamiento.
+Un *desplazamiento* es la posición de un evento dentro de una partición. Puede pensar en un desplazamiento como un cursor de lado cliente. El desplazamiento es una numeración de byte del evento. Este desplazamiento permite que un consumidor de eventos (lector) especifique un punto en el flujo de eventos desde el que quiere empezar a leer los eventos. Puede especificar el desplazamiento como una marca de tiempo o como un valor de desplazamiento. Los consumidores son responsables de almacenar sus propios valores de desplazamiento fuera del servicio Event Hubs. Dentro de una partición, cada evento incluye un desplazamiento.
 
-![Centros de eventos](./media/event-hubs-features/partition_offset.png)
+![Event Hubs](./media/event-hubs-features/partition_offset.png)
 
 ### <a name="checkpointing"></a>Puntos de control
 
@@ -121,7 +121,7 @@ Si se desconecta un lector de una partición, cuando se vuelve a conectar comien
 
 ### <a name="common-consumer-tasks"></a>Tareas comunes del consumidor
 
-Todos los consumidores de Events Hubs se conectan a través de un canal de comunicación bidireccional con estado y sesión de AMQP 1.0. Cada partición tiene una sesión de AMQP 1.0 que facilita el transporte de eventos que deben separarse por partición.
+Todos los consumidores de Event Hubs se conectan a través de una sesión de AMQP 1.0, un canal de comunicación bidireccional con estado. Cada partición tiene una sesión de AMQP 1.0 que facilita el transporte de eventos que deben separarse por partición.
 
 #### <a name="connect-to-a-partition"></a>Conexión a una partición
 
@@ -129,7 +129,7 @@ Es una práctica habitual al conectarse a particiones usar un mecanismo de conce
 
 #### <a name="read-events"></a>Lectura de eventos
 
-Después de abrir una sesión de AMQP 1.0 y el vínculo de una partición específica, el servicio de Centros de eventos entrega los eventos al cliente de AMQP 1.0. Este mecanismo de entrega permite un mayor procesamiento y una menor latencia que los mecanismos basados en extracción como HTTP GET. Los eventos se envían al cliente, cada instancia de datos de eventos contiene metadatos importantes, como el número de secuencia y el desplazamiento que se usan para facilitar la creación de puntos de comprobación en la secuencia de eventos.
+Después de abrir una sesión de AMQP 1.0 y el vínculo de una partición específica, el servicio Event Hubs entrega los eventos al cliente de AMQP 1.0. Este mecanismo de entrega permite un mayor procesamiento y una menor latencia que los mecanismos basados en extracción como HTTP GET. Los eventos se envían al cliente, cada instancia de datos de eventos contiene metadatos importantes, como el número de secuencia y el desplazamiento que se usan para facilitar la creación de puntos de comprobación en la secuencia de eventos.
 
 Datos de evento:
 * Offset

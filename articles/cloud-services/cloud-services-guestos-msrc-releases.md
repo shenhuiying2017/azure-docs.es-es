@@ -12,17 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/7/2017
+ms.date: 8/3/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0ce145d715729d5a8761024bfa9765adcfaf846c
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c1bcfa2d93a77a655092dca250d2a3e2c86b944d
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+## <a name="july-guest-os"></a>SO invitado de julio
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| Versión 17-07 | [4025339] |Actualizaciones de Windows 10 |5.9 |11 de julio de 2017 |
+| Versión 17-07 | [4025337] |Indicador de seguridad de Windows |2.64 |11 de julio de 2017 |
+| Versión 17-07 | [4025333] |Indicador de seguridad de Windows |4.44 |11 de julio de 2017 |
+| Versión 17-07 | [4025343] |Indicador de seguridad de Windows |3.51 |11 de julio de 2017 |
+| Versión 17-07 | [4025376] |Intermitente |3.51, 4.44, 5.9 |11 de julio de 2017 |
+| Versión 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |11 de julio de 2017 |
+| N/D | [4020322] |Actualización de zona horaria |2.64, 3.51, 4.44 |11 de julio de 2017 |
+| N/D | [4022719] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, junio |2.64 |11 de julio de 2017 |
+| N/D | [4022724] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, junio |3.51 |11 de julio de 2017 |
+| N/D | [4022726] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, junio |4.44 |11 de julio de 2017 |
 
 ## <a name="june-guest-os"></a>SO invitado de junio
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
@@ -480,6 +494,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-002 |[3020393] |Una vulnerabilidad del servicio Telnet de Windows podría provocar la ejecución remota de código |4,16; 3,23; 2,35 |19 de enero de 2015 |
 | MS15-002 |[3020393] |Una vulnerabilidad del servicio Telnet de Windows podría provocar la ejecución remota de código |4,16; 3,23; 2,35 |19 de enero de 2015 |
 
+
 ## <a name="december-guest-os"></a>SO invitado de diciembre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
@@ -494,6 +509,17 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3007054] |Siempre se muestra la opción de impresión protegida con PIN al imprimir un documento en una aplicación de la Tienda Windows en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 | N/D |[2999802] |Se imprimen líneas sólidas en lugar de líneas de puntos en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 | N/D |[2896881] |Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
+
+[4025339]: http://support.microsoft.com/kb/4025337
+[4025337]: http://support.microsoft.com/kb/4025333
+[4025333]: http://support.microsoft.com/kb/4025343
+[4025343]: http://support.microsoft.com/kb/4025376
+[4025252]: http://support.microsoft.com/kb/4025252
+[4025376]: http://support.microsoft.com/kb/4025376
+[4020322]: http://support.microsoft.com/kb/4020322
+[4022719]: http://support.microsoft.com/kb/4022719
+[4022724]: http://support.microsoft.com/kb/4022724
+[4022726]: http://support.microsoft.com/kb/4022726
 
 [4022722]: http://support.microsoft.com/kb/4022722
 [4022717]: http://support.microsoft.com/kb/4022717
