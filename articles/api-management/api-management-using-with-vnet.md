@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: f9742efbdf2b74d3ace82d03af6e91122f5eb037
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 69fd656ee9ae440d5769aca82ff8d49fb59d7780
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
@@ -140,7 +140,7 @@ Al realizar cambios en la red, consulte [NetworkStatus API](https://docs.microso
 
 
 ## <a name="related-content"> </a>Contenido relacionado
-* [Conexión de una red virtual a back-end mediante VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)
+* [Conexión de una red virtual a back-end mediante VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Conexión a una red virtual a partir de diferentes modelos de implementación](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure](api-management-howto-api-inspector.md)
 

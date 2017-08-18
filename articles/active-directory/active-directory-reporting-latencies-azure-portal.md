@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: a1e385c235c3530744a83527574880c5f37caadd
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 93cb0baeab8f13f81257ed1bd32ed08561c54b72
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latencias de informes de Azure Active Directory
@@ -72,7 +72,7 @@ La tabla siguiente enumera la información de latencia para eventos de riesgo.
 | Inicios de sesión desde direcciones IP anónimas |5 minutos |15 minutos |2 horas |
 | Inicios de sesión desde ubicaciones desconocidas |5 minutos |15 minutos |2 horas |
 | Usuarios con credenciales perdidas |2 horas |4 horas |8 horas |
-| Viaje imposible a ubicaciones inusuales |2 horas |4 horas |8 horas  |
+| Viaje imposible a ubicaciones inusuales |5 minutos |1 hora |8 horas  |
 | Inicios de sesión desde dispositivos infectados |2 horas |4 horas |8 horas  |
 | Inicios de sesión desde direcciones IP con actividad sospechosa |2 horas |4 horas |8 horas  |
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3109da1dac6ebb6564c94b5c6635ded77ea9be8d
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f7ba456a0d23560ee70f14ecb61c0d016e24e7e1
 ms.contentlocale: es-es
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -96,17 +96,6 @@ Todas las VM del conjunto de disponibilidad deben desasignarse antes de converti
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
-
-## <a name="managed-disks-and-azure-storage-service-encryption"></a>Managed Disks y Azure Storage Service Encryption
-No puede usar los pasos anteriores para convertir un disco no administrado en uno administrado si el disco no administrado se encuentra en una cuenta de Storage cifrada con el [cifrado del servicio Azure Storage](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Los siguientes pasos explican cómo copiar y usar Unmanaged Disks que han estado en una cuenta de almacenamiento cifrada:
-
-1. Copie el VHD con [az storage blob copy start](/cli/azure/storage/blob/copy#start) en una cuenta de almacenamiento que nunca se ha habilitado para el cifrado del servicio Azure Storage.
-
-2. Use la VM copiada de alguna de las formas siguientes:
-
-   * Cree una máquina virtual que use discos administrados y especifique el archivo VHD durante la creación con [az vm create](/cli/azure/vm#create).
-
-   * Asocie el VHD copiado con [az vm disk attach](/cli/azure/vm/disk#attach) a una máquina virtual en ejecución que usa discos administrados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las opciones de almacenamiento, vea [Introducción a Azure Managed Disks](../../storage/storage-managed-disks-overview.md).

@@ -12,21 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 41435316adaee5c66de503571184fce8937d38ee
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
 # <a name="event-hubs-net-framework-api-overview"></a>Introducción a las API de .NET Framework de Event Hubs
 Este artículo resume algunas de las principales API de cliente de .NET Framework de Event Hubs. Existen dos categorías: API de administración y de tiempo de ejecución. Las API de tiempo de ejecución están compuestas por todas las operaciones necesarias para enviar y recibir un mensaje. Las operaciones de administración le permiten administrar un estado de entidad de centros de eventos mediante la creación, actualización y eliminación de entidades.
 
-Los escenarios de supervisión abarcan la administración y el tiempo de ejecución. Para obtener documentación de referencia detallada sobre las API de .NET, consulte las referencias [.NET de Service Bus](/dotnet/api) y [API de EventProcessorHost](/dotnet/api).
+Los escenarios de supervisión abarcan la administración y el tiempo de ejecución. Para obtener documentación de referencia detallada sobre las API de .NET, consulte las referencias [.NET de Service Bus](/dotnet/api/microsoft.servicebus.messaging) y [API de EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
 
 ## <a name="management-apis"></a>API de administración
 Para realizar las siguientes operaciones de administración debe tener permisos de **administración** en el espacio de nombres de Centros de eventos:

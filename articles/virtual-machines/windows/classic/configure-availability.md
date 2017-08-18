@@ -15,20 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 4282ee8c549061bb818038a4312411c87c1b44c7
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: a5cbbdf402ee06a34a339b193b0cdd5c952d6248
+ms.contentlocale: es-es
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-configure-an-availability-set-for-windows-virtual-machines-in-the-classic-deployment-model"></a>Configuración de un conjunto de disponibilidad para máquinas virtuales con Windows en el modelo de implementación clásica
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. También puede [configurar conjuntos de disponibilidad](../create-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en las implementaciones de Resource Manager.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. También puede [configurar conjuntos de disponibilidad](../tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en las implementaciones de Resource Manager.
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../../../includes/virtual-machines-common-classic-configure-availability.md)]
-
-## <a name="next-steps"></a>Pasos siguientes
-Para conocer otros artículos acerca de las implementaciones clásicas, consulte [Artículos técnicos para máquinas virtuales de Windows en el modelo de implementación clásica](../../virtual-machines-windows-index.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

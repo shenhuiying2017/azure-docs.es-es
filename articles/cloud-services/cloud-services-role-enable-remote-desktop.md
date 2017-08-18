@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f64c41733f8fa7e34a0b0dfbbff2b565af7cf7db
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 413e72e9a39fcde84f56bfc61a6bc72dbadf1c97
 ms.contentlocale: es-es
-ms.lasthandoff: 03/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [Portal de Azure clásico](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
@@ -136,5 +136,5 @@ El archivo [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscf
 
 ## <a name="additional-resources"></a>Recursos adicionales
 [How to Configure Cloud Services](cloud-services-how-to-configure.md) (Configuración de Cloud Services)
-[Cloud services FAQ - Remote Desktop](cloud-services-faq.md#remote-desktop) (Preguntas frecuentes sobre Cloud Services > Escritorio remoto)
+[Cloud services FAQ - Remote Desktop](cloud-services-faq.md) (Preguntas frecuentes sobre Cloud Services > Escritorio remoto)
 

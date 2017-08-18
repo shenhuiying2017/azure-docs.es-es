@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 09b4a34a45ad676a5279dad85fc84578f40a212a
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 1ce0eebd2585c9457d7f922898d7f2fa3e7ffad7
+ms.contentlocale: es-es
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
@@ -40,7 +40,6 @@ Hay muchas extensiones de máquina virtual de Azure diferentes disponibles, cada
 
 Además de las extensiones específicas de proceso, una extensión de script personalizado está disponible tanto para máquinas virtuales Windows como para máquinas virtuales Linux. La extensión de script personalizado para Windows permite que se ejecute cualquier script de PowerShell en una máquina virtual. Esto resulta útil al diseñar implementaciones de Azure que requieren una configuración más allá de lo que las herramientas de Azure nativas pueden proporcionar. Para obtener más información, consulte la sección sobre la [extensión de script personalizado de máquina virtual Windows](extensions-customscript.md).
 
-Para trabajar a través de un ejemplo en el cual se usa una extensión de máquina virtual en una implementación completa de la aplicación, consulte [Automatización de implementaciones de aplicaciones en Azure Virtual Machines](dotnet-core-1-landing.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -159,7 +158,7 @@ Para obtener más información, consulte la [plantilla completa de Resource Mana
 }
 ```
 
-Para obtener más información, consulte [Creación de plantillas de Azure Resource Manager con extensiones de máquina virtual Windows](extensions-authoring-templates.md).
+Para obtener más información, consulte [Creación de plantillas de Azure Resource Manager con extensiones de máquina virtual Windows](template-description.md#extensions).
 
 ## <a name="secure-vm-extension-data"></a>Protección de datos de extensión de máquina virtual
 
