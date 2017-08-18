@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 6095135e49a6da3ef37fb566c2fb56702cfd70c9
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 74f38ae61d4a360cabe8a9fbd33d30a6b0751654
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Censura de rostros con Azure Media Analytics
@@ -133,7 +133,37 @@ foo_IDList.txt de ejemplo
      1
      2
      3
+
+## <a name="blur-types"></a>Tipos de desenfoque
+
+En el modo **Combined** (Combinado) o **Redact** (Censurar), hay cinco modos de desenfoque diferentes entre los que puede elegir en la configuración de la entrada JSON: **Bajo**, **Medio**, **Alto**, **Depurar** y **Negro**. Se usa **Medio** de forma predeterminada.
+
+Puede encontrar ejemplos de los tipos de desenfoque a continuación.
+
+### <a name="example-json"></a>Ejemplo de JSON:
+
+    {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+
+#### <a name="low"></a>Bajo
+
+![Bajo](./media/media-services-face-redaction/blur1.png)
  
+#### <a name="med"></a>Medio
+
+![Medio](./media/media-services-face-redaction/blur2.png)
+
+#### <a name="high"></a>Alto
+
+![Alto](./media/media-services-face-redaction/blur3.png)
+
+#### <a name="debug"></a>Depurar
+
+![Depurar](./media/media-services-face-redaction/blur4.png)
+
+#### <a name="black"></a>Negro
+
+![Negro](./media/media-services-face-redaction/blur5.png)
+
 ## <a name="elements-of-the-output-json-file"></a>Elementos del archivo JSON de salida
 
 El procesador multimedia de censura proporciona detección de ubicación y seguimiento de rostros de alta precisión que puede detectar hasta 64 caras humanas en un fotograma de vídeo. Las caras de frente ofrecen los mejores resultados, mientras que las que se encuentran de lado y las caras pequeñas (inferiores o iguales a 24x24 píxeles) podrían no ser tan precisas.

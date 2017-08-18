@@ -1,6 +1,6 @@
 ---
 title: Comprar un nombre de dominio personalizado para Azure Web Apps
-description: "Obtenga información sobre cómo comprar un nombre de dominio personalizado con una aplicación web en el servicio de aplicaciones de Azure."
+description: "Obtenga información sobre cómo comprar un nombre de dominio personalizado con una aplicación web en Azure App Service."
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
@@ -12,20 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 08/03/2017
 ms.author: robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: c42e419984ee4b7f30c8423b9a0c420e2c981949
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 44d350d2d098be14ad254066a8528fe117200ec4
 ms.contentlocale: es-es
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Comprar un nombre de dominio personalizado para Azure Web Apps
 
 Los dominios de App Service (versión preliminar) son dominios de nivel superior que se administran directamente en Azure. Facilitan la administración de dominios personalizados para [Azure Web Apps](app-service-web-overview.md). En este tutorial se muestra cómo comprar un dominio de App Service y asignar nombres DNS a Azure Web Apps.
 
-Este artículo trata sobre el Servicio de aplicaciones de Azure (aplicaciones web, aplicaciones de API, aplicaciones móviles, Logic Apps); para Servicios en la nube, consulte [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
+Este artículo trata sobre Azure App Service (Web Apps, API Apps, Mobile Apps y Logic Apps). Para Azure Virtual Machines o Azure Storage, vea [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Asignación del dominio de App Service a Azure Virtual Machines o Azure Storage). Para Cloud Services, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

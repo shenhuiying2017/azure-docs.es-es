@@ -11,16 +11,17 @@ keywords:
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/04/2017
 ms.author: seanmck
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: e48477a79e28db2c40c99fd46d9c5b84506a4279
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: d8c2056734bc1fdea71543157debd089a9ca743d
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -46,41 +47,34 @@ az acr show --name <acrName> --query loginServer
 Contraseña del registro de contenedor:
 
 ```azurecli-interactive
-az acr credential show --name <acrName> --query passwords[0].value
+az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 Para implementar la imagen de contenedor desde el registro de contenedor con una solicitud de recurso de 1 núcleo de CPU y 1 GB de memoria, ejecute el comando siguiente:
 
 ```azurecli-interactive
-az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --ip-address public -g myResourceGroup
+az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
 En cuestión de segundos, recibirá una respuesta inicial de Azure Resource Manager. Para ver el estado de la implementación, use:
 
 ```azurecli-interactive
-az container show --name aci-tutorial-app --resource-group myResourceGroup
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
-La salida incluye la dirección IP pública que puede usar para acceder a la aplicación en el explorador.
-
-```json
-...
-"ipAddress": {
-      "ip": "13.88.176.27",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": "TCP"
-        }
-      ]
-    }
-...
-```
-
+La ejecución de este comando puede seguir hasta que el estado cambie de *pendiente* a *en ejecución*. Después, ya se puede continuar.
 
 ## <a name="view-the-application-and-container-logs"></a>Visualización de los registros de contenedor y aplicación
 
-Una vez que la implementación se complete correctamente, puede abrir el explorador en la dirección IP que se muestran en la salida de `az container show`.
+Una vez que la implementación se complete correctamente, puede abrir el explorador en la dirección IP que se muestran en la salida del comando siguiente:
+
+```bash
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
+```
+
+```json
+"13.88.176.27"
+```
 
 ![Aplicación Hola mundo en el explorador][aci-app-browser]
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 0781a06635219443e8ff794e72d77b967df52c40
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
 ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -38,7 +38,7 @@ Bloqueo inteligente también distingue entre inicios de sesión de usuarios orig
 Como la autenticación de paso a través reenvía las solicitudes de validación de contraseñas a la instancia local de Active Directory (AD), tendrá que evitar que los atacantes bloqueen las cuentas de AD de sus usuarios. Como tiene sus propias directivas de bloqueo de cuentas de AD (en concreto, [**Umbral de bloqueo de cuenta**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) y [**Restablecer contador de bloqueo de cuenta después de** ](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)), debe configurar los valores de umbral de bloqueo y duración del bloqueo de Azure AD adecuadamente para filtrar ataques en la nube antes de que lleguen a la instancia local de AD.
 
 >[!NOTE]
->La característica de bloqueo inteligente es gratuita y está _activada_ de forma predeterminada para todos los clientes. Sin embargo, la modificación de los valores de umbral de bloqueo y duración del bloqueo de Azure AD mediante la API Graph es una característica de Azure AD Premium P2.
+>La característica de bloqueo inteligente es gratuita y está _activada_ de forma predeterminada para todos los clientes. Sin embargo, la modificación de los valores de Umbral de bloqueo y Duración del bloqueo de Azure AD mediante la API Graph requiere que el inquilino disponga al menos de una licencia de Azure AD Premium P2. No se necesita una licencia de Azure AD Premium P2 _por usuario_ para habilitar la característica de bloqueo inteligente con la autenticación de paso a través.
 
 Para asegurarse de que las cuentas locales de AD de los usuarios están bien protegidas, debe asegurarse de que:
 

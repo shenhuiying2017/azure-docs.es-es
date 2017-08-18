@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 08/08/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 28eb505bf58943f7a687b79af3427a0ee74fe9bb
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 05538e1633d6e8353cc7980d081af3672a3f97d8
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>SDK de .NET Core para Azure Cosmos DB: notas de la versión y recursos
@@ -57,6 +57,14 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 
 > [!NOTE] 
 > El SDK de .NET Core para Azure Cosmos DB aún no es compatible con aplicaciones de la Plataforma universal de Windows (UWP). Si quiere que el SDK de .NET Core que admita aplicaciones de UWP, envíe un correo electrónico a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+
+*   Se corrigió un problema en la clase JsonSerializable que podría provocar una excepción de desbordamiento de pila.
+
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+
+*   Se agregó compatibilidad con la especificación de JsonSerializerSettings personalizado al crear una instancia de [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 
@@ -125,6 +133,8 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en los foros de [Stac
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.4.1](#1.4.1) |7 de agosto de 2017 |--- |
+| [1.4.0](#1.4.0) |2 de agosto de 2017 |--- |
 | [1.3.2](#1.3.2) |12 de junio de 2017 |--- |
 | [1.3.1](#1.3.1) |23 de mayo de 2017 |--- |
 | [1.3.0](#1.3.0) |10 de mayo de 2017 |--- |

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 07/31/2017
+ms.date: 08/03/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: ec3b2debcd65f733041462940196a61c109bf051
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 69cfffdae5ce2db53acc6d668dbe468c3ef22dc2
 ms.contentlocale: es-es
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
-# <a name="design-your-first-azure-sql-database"></a>Diseño de su primera base de datos de Azure SQL
+# <a name="design-your-first-azure-sql-database"></a>Diseño de la primera instancia de Azure SQL Database
 
 Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Microsoft Cloud ("Azure"). En este tutorial, aprenderá a usar Azure Portal y [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) para: 
 
@@ -43,15 +43,15 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
 - La versión más reciente de [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
-- La versión más reciente de [BCP y SQLCMD] [https://www.microsoft.com/download/details.aspx?id=36433].
+- La última versión de [BCP y SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433).
 
 ## <a name="log-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database"></a>Crear una base de datos SQL en blanco
+## <a name="create-a-blank-sql-database"></a>Crear una instancia en blanco en SQL Database
 
-Se crea una base de datos SQL de Azure con un conjunto definido de [recursos de proceso y almacenamiento](sql-database-service-tiers.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](sql-database-features.md). 
+Se crea una instancia de Azure SQL Database con un conjunto definido de [recursos de proceso y almacenamiento](sql-database-service-tiers.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](sql-database-features.md). 
 
 Siga estos pasos para crear una instancia en blanco de SQL Database. 
 
@@ -135,7 +135,7 @@ Ahora puede conectarse al servidor de SQL Database y a sus bases de datos median
 
 Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. Utilice el nombre completo del servidor para conectarse al servidor mediante SQL Server Management Studio.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**. 
 3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**.
 

@@ -15,28 +15,25 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ef310a094667f390addd5d0df3dc68d67100d2f4
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: fdee02fb60b633c26704fc1774dfc3a7825b5e0d
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desarrollo de operadores U-SQL definidos por el usuario (UDO)
 Aprenda a desarrollar operadores definidos por el usuario para procesar datos en un trabajo de U-SQL.
 
-Para obtener instrucciones sobre cómo desarrollar ensamblados de propósito general para U-SQL, consulte [Desarrollo de ensamblados U-SQL para trabajos de Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
+Para instrucciones sobre cómo desarrollar ensamblados de propósito general para U-SQL, consulte [Desarrollo de ensamblados U-SQL para trabajos de Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md)
 
-## <a name="define-and-use-user-defined-operator-in-u-sql"></a>Definición y uso del operador definido por el usuario en U-SQL
+## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definición y uso de un operador definido por el usuario en U-SQL
 **Para crear y enviar un trabajo de U-SQL**
 
-1. En el menú **Archivo**, haga clic en **Nuevo** y en **Proyecto**.
-2. Seleccione el tipo de **proyecto U-SQL** .
-
-    ![nuevo proyecto de Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. Haga clic en **Aceptar**. Visual Studio crea una solución con un archivo Script.usql.
-4. En el **Explorador de soluciones**, expanda Script.usql y haga doble clic en **Script.usql.cs**.
-5. Pegue el código siguiente en el archivo:
+1. En el menú de Visual Studio, seleccione **Archivo > Nuevo > Proyecto > U-SQL Project** (Proyecto de U-SQL).
+2. Haga clic en **Aceptar**. Visual Studio crea una solución con un archivo Script.usql.
+3. En el **Explorador de soluciones**, expanda Script.usql y haga doble clic en **Script.usql.cs**.
+4. Pegue el código siguiente en el archivo:
 
         using Microsoft.Analytics.Interfaces;
         using System.Collections.Generic;
@@ -51,7 +48,7 @@ Para obtener instrucciones sobre cómo desarrollar ensamblados de propósito gen
                         "Deutschland", "Germany"
                     },
                     {
-                        "Schwiiz", "Switzerland"
+                        "Suisse", "Switzerland"
                     },
                     {
                         "UK", "United Kingdom"
@@ -126,7 +123,7 @@ Para obtener instrucciones sobre cómo desarrollar ensamblados de propósito gen
 8. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Build Script** (Compilar script).
 9. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Submit Script** (Enviar script).
 10. Si no se ha conectado a su suscripción de Azure, se le pedirá que especifique sus credenciales de la cuenta de Azure.
-11. Haga clic en **Submit**(Enviar). Los resultados del envío y el vínculo del trabajo están disponibles en la ventana de resultados cuando se completa el envío.
+11. Haga clic en **Enviar**. Los resultados del envío y el vínculo del trabajo están disponibles en la ventana de resultados cuando se completa el envío.
 12. Haga clic en el botón **Actualizar** para ver el estado del trabajo más reciente y actualizar la pantalla.
 
 **Para ver la salida**:

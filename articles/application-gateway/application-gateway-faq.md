@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 3a57646922236a10cf51ae3dd86c67c87c6d7f7f
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: bb3cf81c9b179e520e58a6fe5e455a136b9bb349
 ms.contentlocale: es-es
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -136,7 +136,7 @@ Los sondeos personalizados no admiten caracteres comodín o regex en los datos d
 
 **P. ¿Cómo se procesan las reglas?**
 
-Las reglas se procesan en el orden en que están configuradas. Se recomienda configurar las reglas multisitio antes que las reglas básicas. Al configurar primero los agentes de escucha multisitio, esta configuración reduce la probabilidad de que el tráfico se enrute al servidor no apropiado. Este problema de enrutamiento puede ocurrir cuando la regla básica debería coincidir con tráfico basado en puerto antes que la regla multisitio que se va a evaluar.
+Las reglas se procesan en el orden en que se crearon. Se recomienda configurar las reglas multisitio antes que las reglas básicas. Al configurar primero los agentes de escucha multisitio, esta configuración reduce la probabilidad de que el tráfico se enrute al servidor no apropiado. Este problema de enrutamiento puede ocurrir cuando la regla básica debería coincidir con tráfico basado en puerto antes que la regla multisitio que se va a evaluar.
 
 **P. ¿Qué significa el campo Host de los sondeos personalizados?**
 
@@ -288,7 +288,7 @@ No, WAF no ofrece prevención DDoS.
 
 Hay tres registros disponibles para Application Gateway. Para más información sobre estos registros y otras funcionalidades de diagnóstico, visite [Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
 
-- **ApplicationGatewayAccessLog**: este registro de acceso contiene todas las solicitudes enviadas al front-end de Application Gateway. Los datos incluyen la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de la Puerta de enlace de aplicaciones.
+- **ApplicationGatewayAccessLog**: este registro de acceso contiene todas las solicitudes enviadas al front-end de Application Gateway. Los datos incluyen la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de Application Gateway.
 - **ApplicationGatewayPerformanceLog**: este registro de rendimiento captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y la cantidad de instancias back-end completadas correcta e incorrectamente.
 - **ApplicationGatewayFirewallLog**: este registro de firewall contiene las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web.
 

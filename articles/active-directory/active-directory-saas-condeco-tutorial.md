@@ -2,206 +2,216 @@
 title: "Tutorial: Integración de Azure Active Directory con Condeco | Microsoft Docs"
 description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Condeco."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: 4601c17d-ad93-4865-8885-b378c4bbe82b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 06/16/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 4a07f946d396a9263d5b00202cd5229ddc86d1be
-ms.openlocfilehash: 1990fa17ce06ac3581d7401249a0240cc72b1229
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: eab1d25abc2fccdeffdf2706269bfd078eb5a09f
+ms.contentlocale: es-es
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Tutorial: Integración de Azure Active Directory con Condeco
-El objetivo de este tutorial es mostrar cómo integrar Condeco con Azure Active Directory (Azure AD).
+
+En este tutorial, aprenderá a integrar Condeco con Azure Active Directory (Azure AD).
 
 Integrar Condeco con Azure AD proporciona las siguientes ventajas:
 
-* Puede controlar en Azure AD quién tiene acceso a Condeco.
-* Puede permitir que los usuarios inicien sesión automáticamente en Condeco (inicio de sesión único) con sus cuentas de Azure AD.
-* Puede administrar sus cuentas en una ubicación central, Azure Active Directory. 
-* 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
+- Puede controlar en Azure AD quién tiene acceso a Condeco.
+- Puede permitir que los usuarios inicien sesión automáticamente en Condeco (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar las cuentas en una sola ubicación central: Azure Portal.
+
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Para configurar la integración de Azure AD con Condeco, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD
-* Una suscripción habilitada para el inicio de sesión único en Condeco
+- Una suscripción de Azure AD
+- Una suscripción habilitada para inicio de sesión único en Condeco
 
->[!NOTE]
->Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción. 
-> 
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-* No debe usar el entorno de producción, a menos que sea necesario.
-* Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba.  
-
-La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Condeco desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="add-condeco-from-the-gallery"></a>Adición de Condeco desde la galería
+## <a name="adding-condeco-from-the-gallery"></a>Adición de Condeco desde la galería
 Para configurar la integración de Condeco en Azure AD, deberá agregar Condeco desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Condeco desde la galería, realice los pasos siguientes:**
 
-1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. 
-   
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+
     ![Active Directory][1]
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
-   
-    ![Applications][2]
-4. Haga clic en **Agregar** en la parte inferior de la página.
-   
+
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+
+    ![Aplicaciones][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
     ![Aplicaciones][3]
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-   
-    ![Aplicaciones][4]
-6. En el cuadro de búsqueda, escriba **Condeco**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_01.png)
-7. En el panel de resultados, seleccione **Condeco** y haga clic en **Completar** para agregar la aplicación.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_02.png)
 
-## <a name="configure-and-test-azure-ad-sso"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Condeco con un usuario de prueba llamado "Britta Simon".
+4. En el cuadro de búsqueda, escriba **Condeco**.
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Condeco para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Condeco.  
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_search.png)
 
-Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Condeco.
+5. En el panel de resultados, seleccione **Condeco** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
+En esta sección, va a configurar y probar el inicio de sesión único de Azure AD con Condeco con un usuario de prueba llamado "Britta Simon".
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Condeco para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Condeco.
+
+Para establecer la relación de vínculo, en Condeco, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario**.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Condeco, es preciso completar los siguientes bloques de creación:
- 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Crear un usuario de prueba de Condeco](#creating-a-Condeco-test-user)** : para tener un homólogo de Britta Simon en Condeco que esté vinculado a la representación de ella en Azure AD.
+3. **[Crear un usuario de prueba de Condeco](#creating-a-condeco-test-user)**: para tener un homólogo de Britta Simon en Condeco que esté vinculado a la representación del usuario en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación Condeco.
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Condeco.
 
 **Para configurar el inicio de sesión único de Azure AD con Condeco, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Condeco**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-    ![Configurar inicio de sesión único][6] 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Condeco?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_03.png) 
-3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_04.png) 
-  1. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Condeco con el siguiente patrón: **“https://companyname.condecosoftware.com”**.
-  2. Haga clic en **Siguiente**.
-4. En la página **Configurar inicio de sesión único en Condeco** , siga estos pasos:
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_05.png)   
-  1. Haga clic en **Descargar metadatos**y luego guarde el archivo en el equipo.
-  2. Haga clic en **Siguiente**.
-5. Para que se configure el SSO para la aplicación, póngase en contacto con su equipo de soporte técnico de Condesco a través de supportna@condecosoftware.com y adjunte el archivo de metadatos descargado a su correo electrónico.
-6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
-   
-    ![Inicio de sesión único de Azure AD ][10]
-7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**.  
-   
-    ![Inicio de sesión único de Azure AD ][11]
+1. En Azure Portal, en la página de integración de la aplicación **Condeco**, haga clic en **Inicio de sesión único**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.  
+    ![Configurar inicio de sesión único][4]
 
-![Creación de un usuario de Azure AD][20]
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_samlbase.png)
+
+3. En la sección **Dominio y direcciones URL de Condeco**, lleve a cabo los pasos siguientes:
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_url.png)
+
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.condecosoftware.com`.
+
+    > [!NOTE] 
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Condeco](mailTo:supportna@condecosoftware.com) para obtener este valor. 
+ 
+4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_certificate.png) 
+
+5. Haga clic en el botón **Guardar** .
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-condeco-tutorial/tutorial_general_400.png)
+
+6. Para configurar el inicio de sesión único en **Condeco**, debe enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Condeco](mailTo:supportna@condecosoftware.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+
+> [!TIP]
+> Ahora puede leer una versión concisa de estas instrucciones en [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+
+![Creación de un usuario de Azure AD][100]
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_09.png) 
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_03.png) 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_04.png) 
-5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_05.png) 
-  1. En Tipo de usuario, seleccione Nuevo usuario de la organización. 
-  2. En el cuadro de texto **Nombre de usuario**, escriba**BrittaSimon**.
-  3. Haga clic en **Siguiente**.
-6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
-   
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_06.png) 
-  1. En el cuadro de texto **Nombre**, escriba **Britta**.    
-  2. En el cuadro de texto **Apellidos**, escriba **Simon**.
-  3. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
-  4. En la lista **Rol**, seleccione **Usuario**.
-  5. Haga clic en **Siguiente**.
-7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_07.png) 
-8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
-   
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_08.png) 
-  1. Anote el valor del campo **Nueva contraseña**.
-  2. Haga clic en **Completo**.   
+1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
-### <a name="create-a-condeco-test-user"></a>Creación de un usuario de prueba de Condeco
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_01.png) 
+
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+    
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_02.png) 
+
+3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_03.png) 
+
+4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+ 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-condeco-tutorial/create_aaduser_04.png) 
+
+    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+
+    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+
+    d. Haga clic en **Crear**.
+ 
+### <a name="creating-a-condeco-test-user"></a>Crear un usuario de prueba de Condeco
+
 El objetivo de esta sección es crear un usuario llamado Britta Simon en Condeco. Condeco admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
 
-No hay ningún elemento de acción para usted en esta sección. Durante un intento de obtener acceso a Condeco se creará un nuevo usuario, en caso de que no exista. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on).
+No hay ningún elemento de acción para usted en esta sección. Durante un intento de obtener acceso a Condeco se crea un nuevo usuario, en caso de que no exista.
 
 >[!NOTE]
->Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el equipo de soporte técnico de Condeco. 
-> 
+>Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de Condeco](mailTo:supportna@condecosoftware.com).
 
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo que se le concederá acceso a Condeco.
+### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Condeco.
 
 ![Asignar usuario][200] 
 
 **Para asignar a Britta Simon a Condeco, realice los pasos siguientes:**
 
-1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
-   
-    ![Asignar usuario][201] 
-2. En la lista de aplicaciones, seleccione **Condeco**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_50.png) 
-3. En el menú de la parte superior, haga clic en **Usuarios**.
-   
-    ![Asignar usuario][203] 
-4. En la lista Usuarios, seleccione **Britta Simon**.
-5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
-   
-    ![Asignar usuario][205]
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
-El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.  
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones, seleccione **Condeco**.
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_app.png) 
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Asignar usuario][202] 
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Asignar usuario][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Condeco en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Condeco.
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
+
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
 
 <!--Image references-->
 
@@ -210,14 +220,11 @@ Al hacer clic en el icono de Condeco en el Panel de acceso, debería iniciar ses
 [3]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-condeco-tutorial/tutorial_general_205.png
+
 

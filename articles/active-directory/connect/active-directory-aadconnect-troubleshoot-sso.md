@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 39dd859d60e7f1dcf697e3c59b8f084e400bbae0
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
 ms.contentlocale: es-es
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -29,14 +29,23 @@ Este artículo sirve de ayuda para encontrar información acerca de cómo soluci
 ## <a name="known-issues"></a>Problemas conocidos
 
 - Si va a sincronizar treinta bosques de AD o más, no se puede habilitar SSO de conexión directa mediante Azure AD Connect. Como alternativa, también puede [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) la característica en su inquilino.
-- Al agregar direcciones URL de servicio de Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) a la zona "Sitios de confianza" en lugar de a la zona "Intranet local", se impide que los usuarios inicie sesión.
-- SSO de conexión directa no funciona en modo de exploración privada en Firefox.
+- Al agregar direcciones URL de servicio de Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) a la zona "Sitios de confianza" en lugar de a la zona "Intranet local", **se impide que los usuarios inicie sesión**.
+- SSO de conexión directa no funciona en modo de exploración privada en Firefox y Edge. Y también en Internet Explorer cuando se activa el modo de protección mejorada.
+
+>[!IMPORTANT]
+>Recientemente se ha revertido la compatibilidad para Edge, a fin de investigar los problemas notificados por los clientes.
+
+## <a name="check-status-of-the-feature"></a>Comprobación del estado de la característica
+
+Asegúrese de que la característica de SSO de conexión directa esté aún **habilitada** en el inquilino. Puede comprobar el estado; para ello, vaya a la hoja **Azure AD Connect** en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com/).
+
+![Centro de administración de Azure Active Directory: hoja de Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Motivos del error de inicio de sesión en el centro de administración de Azure Active Directory
 
 Una buena forma de comenzar a solucionar los problemas de inicio de sesión con SSO de conexión directa es mirar el [informe de actividad de inicio de sesión](../active-directory-reporting-activity-sign-ins.md) en el [centro de administración de Azure Active Directory](https://aad.portal.azure.com/).
 
-![Informe de inicios de sesión](./media/active-directory-aadconnect-sso/sso9.png)
+![Centro de administración de Azure Active Directory: informe de inicios de sesión](./media/active-directory-aadconnect-sso/sso9.png)
 
 Vaya a **Azure Active Directory** -> **Inicios de sesión** en el [centro de administración de Azure Active Directory](https://aad.portal.azure.com/) y haga clic en la actividad de inicio de sesión de un usuario específico. Busque el campo **CÓDIGO DE ERROR DE INICIO DE SESIÓN**. Busque la correspondencia entre el valor de ese campo y un motivo de error y la resolución en la siguiente tabla:
 
@@ -81,7 +90,7 @@ Si se habilita la auditoría de eventos correctos en el controlador de dominio, 
     </QueryList>
 ```
 
-## <a name="manual-reset-of-azure-ad-seamless-sso"></a>Restablecimiento manual del SSO de conexión directa de Azure AD
+## <a name="manual-reset-of-the-feature"></a>Restablecimiento manual de la característica
 
 Si el procedimiento de solución de problemas no sirve de ayuda, restablezca manualmente la característica en su inquilino. Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 

@@ -3,7 +3,7 @@ title: "Evitar costos inesperados y administrar la facturación: Azure | Microso
 description: "Obtenga información acerca de cómo evitar cargos inesperados en la factura de Azure. Use características de administración y seguimiento del costo de las suscripciones a Microsoft Azure."
 services: 
 documentationcenter: 
-author: jlian
+author: tonguyen10
 manager: tonguyen
 editor: 
 tags: billing
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
-ms.author: jlian
+ms.date: 08/10/2017
+ms.author: tonguyen
+experimental_id: a2b2579c-cd2e-41
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
 ms.contentlocale: es-es
 ms.lasthandoff: 04/26/2017
 
-
 ---
+
 # <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>Prevención de costes inesperados con la administración de costes y facturación de Azure
 
 Al suscribirse a Azure, hay varias cosas que puede hacer para obtener una idea más clara de los gastos. Si selecciona la suscripción en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), puede ver el análisis de los costes y la tasa de evolución actuales. También se puede [descargar facturas pasadas y archivos de uso detallados](billing-download-azure-invoice-daily-usage-date.md). Si desea agrupar los costes para los recursos usados por diferentes proyectos o equipos, consulte el [etiquetado de recursos](../azure-resource-manager/resource-group-using-tags.md). Si prefiere usar el sistema de informes del que dispone su organización, compruebe las [API de facturación](billing-usage-rate-card-overview.md). 
@@ -39,7 +40,7 @@ Si la suscripción es una evaluación gratuita, [Visual Studio](https://azure.mi
 
 Consulte la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) y la [calculadora de coste total de propiedad](https://aka.ms/azure-tco-calculator) para obtener una estimación del coste mensual del servicio que le interesa. Por ejemplo, se estima que una máquina virtual Windows A1 cuesta 66,96 dólares al mes en horas de proceso si la deja ejecutándose todo el tiempo:
 
-![Captura de pantalla de la calculadora de precios en la que se estima que una máquina virtual Windows A1 cuesta 66,96 dólares al mes](./media/billing-getting-started/pricing-calc.PNG)
+![Captura de pantalla de la calculadora de precios en la que se estima que una máquina virtual Windows A1 cuesta 66,96 dólares al mes](./media/billing-getting-started/pricing-calcVM.png)
 
 Para más información, consulte las [preguntas más frecuentes sobre precios](https://azure.microsoft.com/pricing/faq/). O bien, si desea comunicarse con una persona, llame al 1-800-867-1389.
 
@@ -136,7 +137,7 @@ Después de ejecutar los servicios, compruebe regularmente el coste de estos. Pu
 
 7. Haga clic en un recurso para consultar el historial de gastos y el importe que le cuesta cada día.
 
-    ![Captura de pantalla de la vista de historial de gastos en Azure Portal](./media/billing-getting-started/spend-history.PNG)
+    ![Captura de pantalla de la vista de historial de gastos en Azure Portal](./media/billing-getting-started/costhistory.PNG)
 
 Le recomendamos que compare los costes reales con las estimaciones que vio cuando seleccionó los servicios. Si los costes difieren mucho de las estimaciones, debe comprobar el plan de precios que ha seleccionado para los recursos (máquinas virtuales A1 en lugar de A0, por ejemplo). 
 
@@ -187,3 +188,4 @@ Si es el administrador de una infraestructura de TI para una organización grand
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 
 Si necesita ayuda, [póngase en contacto con soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
+
