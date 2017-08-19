@@ -3,8 +3,8 @@ title: "Aplicación de Node.js con Socket.io | Microsoft Docs"
 description: "Aprenda a usar socket.io en una aplicación node.js hospedada en Azure."
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
+ms.date: 08/17/2017
+ms.author: tarcher
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: efa459f6b382ff22c94802e1250836d5f622b4ed
 ms.contentlocale: es-es
 ms.lasthandoff: 06/29/2017
-
 
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure
