@@ -1,6 +1,6 @@
 ---
 title: "Supervisión del rendimiento de aplicaciones web de Azure | Microsoft Docs"
-description: "Supervisión del rendimiento de aplicaciones web de Azure Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento."
+description: "Supervisión del rendimiento de Azure Web Apps. Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento."
 services: application-insights
 documentationcenter: .net
 author: CFreemanwa
@@ -12,17 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
-# <a name="monitor-azure-web-app-performance"></a>Supervisión del rendimiento de aplicaciones web de Azure
-En [Azure Portal](https://portal.azure.com), puede configurar la supervisión de rendimiento de aplicaciones para sus [aplicaciones web de Azure](../app-service-web/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumenta la aplicación para que envíe datos de telemetría sobre sus actividades al servicio Application Insights, donde se almacenan y analizan. En esta plataforma, se pueden usar los gráficos de métricas y las herramientas de búsqueda para ayudar a diagnosticar problemas, mejorar el rendimiento y evaluar el uso.
+# <a name="monitor-azure-web-app-performance"></a>Supervisión del rendimiento de Azure Web Apps
+En [Azure Portal](https://portal.azure.com), puede configurar la supervisión de rendimiento de sus aplicaciones de [Azure Web Apps](../app-service-web/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumenta la aplicación para que envíe datos de telemetría sobre sus actividades al servicio Application Insights, donde se almacenan y analizan. En esta plataforma, se pueden usar los gráficos de métricas y las herramientas de búsqueda para ayudar a diagnosticar problemas, mejorar el rendimiento y evaluar el uso.
 
 ## <a name="run-time-or-build-time"></a>Tiempo de ejecución o de compilación
 Puede configurar la supervisión mediante la instrumentación de la aplicación de dos maneras:
@@ -31,7 +30,7 @@ Puede configurar la supervisión mediante la instrumentación de la aplicación 
 * **Tiempo de compilación** : puede instalar un paquete en la aplicación que esté en desarrollo. Esta opción es más versátil. Además de los mismos paquetes estándares, puede escribir código para personalizar los datos de telemetría o enviar los suyos propios. Puede registrar las actividades específicas o grabar eventos según la semántica del dominio de la aplicación. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Instrumentación del tiempo de ejecución con Application Insights
-Si ya está ejecutando una aplicación web en Azure, ya goza de cierta supervisión: tasas de solicitudes y errores. Agregue Application Insights para obtener una mayor supervisión, como tiempos de respuesta, supervisión de las llamadas a las dependencias, detección inteligente y el eficaz lenguaje de consulta de Analytics. 
+Si ya está ejecutando una aplicación web en Azure, ya goza de cierta supervisión: tasas de solicitudes y errores. Agregue Application Insights para obtener más características, como tiempos de respuesta, supervisión de las llamadas a las dependencias, detección inteligente y el eficaz lenguaje de consulta de Log Analytics. 
 
 1. **Seleccione Application Insights** en el panel de control de Azure para la aplicación web.
    
@@ -102,7 +101,7 @@ Application Insights puede proporcionar una telemetría más detallada instaland
    
     También puede [personalizar las búsquedas](app-insights-diagnostic-search.md).
 
-Para realizar búsquedas más eficaces sobre los datos de telemetría, use el [lenguaje de consulta Analytics](app-insights-analytics-tour.md).
+Para realizar búsquedas más eficaces sobre los datos de telemetría, use el [lenguaje de consulta de Log Analytics](app-insights-analytics-tour.md).
 
 ## <a name="more-telemetry"></a>Más telemetría
 

@@ -1,8 +1,9 @@
 > [!NOTE]
-> La dirección IP pública de VPN Gateway cambiará al migrar de una SKU antigua a una nueva.
+> * La dirección IP pública de VPN Gateway cambiará al migrar de una SKU antigua a una nueva.
+> * No se pueden migrar puertas de enlace de VPN clásicas a las nuevas SKU. Las puertas de enlace de VPN clásicas solo pueden utilizar las SKU heredadas (antiguas).
 > 
 
-No se puede cambiar el tamaño de las puertas de enlace de Azure VPN Gateway directamente entre las familias de SKU antiguas y las nuevas. Si tiene puertas de enlace VPN Gateway en el modelo de implementación de Resource Manager que utilizan la versión antigua de la SKU, puede migrar a las SKU nuevas. Para ello, elimine la puerta de enlace VPN Gateway existente en la red virtual y después cree una nueva.
+No se puede cambiar el tamaño de las puertas de enlace de Azure VPN Gateway entre las familias de SKU antiguas y las nuevas. Si tiene puertas de enlace VPN Gateway en el modelo de implementación de Resource Manager que utilizan la versión antigua de la SKU, puede migrar a las SKU nuevas. Para ello, elimine la puerta de enlace VPN Gateway existente en la red virtual y después cree una nueva.
 
 Flujo de trabajo de la migración:
 

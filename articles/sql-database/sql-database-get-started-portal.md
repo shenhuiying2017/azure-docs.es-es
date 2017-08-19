@@ -1,7 +1,7 @@
 ---
 title: "Azure Portal: Creación de una base de datos SQL | Microsoft Docs"
 description: "Aprenda a crear un servidor lógico de SQL Database, una regla de firewall de nivel de servidor y bases de datos en Azure Portal. También aprenderá a consultar de una instancia de Azure SQL Database desde Azure Portal."
-keywords: "tutorial de base de datos SQL, creación de una base de datos SQL"
+keywords: "tutorial de sql database, creación de una base de datos sql"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/30/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: ab664eb8803037b0bf09399bf9d28059fec2e204
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: a863cf3ad08040906850f64db6505f30bcfa72eb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Creación de una instancia de Azure SQL Database en Azure Portal
@@ -30,15 +29,15 @@ Este tutorial de inicio rápido le guía por el proceso de creación de una inst
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en el portal de Azure
+## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
-Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-sql-database"></a>Creación de una Base de datos SQL
+## <a name="create-a-sql-database"></a>Creación de una base de datos SQL
 
 Se crea una base de datos SQL de Azure con un conjunto definido de [recursos de proceso y almacenamiento](sql-database-service-tiers.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](sql-database-features.md). 
 
-Siga estos pasos para crear una instancia de SQL Database que contenga los datos de ejemplo de Adventure Works LT. 
+Siga estos pasos para crear una base de datos SQL que contenga los datos de ejemplo de Adventure Works LT. 
 
 1. Haga clic en el botón **Nuevo** de la esquina superior izquierda de Azure Portal.
 
@@ -59,7 +58,7 @@ Siga estos pasos para crear una instancia de SQL Database que contenga los datos
    > Debe seleccionar la base de datos de ejemplo de este formulario porque se utiliza en el resto de esta guía de inicio rápido.
    > 
 
-4. Rellene el formulario de SQL Server (servidor lógico) con la siguiente información, como se muestra en la imagen anterior:   
+4. En **Servidor**, haga clic en **Configurar los valores obligatorios** y rellene el formulario de SQL Server (servidor lógico) con la siguiente información, como se muestra en la imagen siguiente:   
 
    | Configuración       | Valor sugerido | Descripción | 
    | ------------ | ------------------ | ------------------------------------------------- | 
