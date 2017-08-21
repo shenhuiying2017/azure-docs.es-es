@@ -1,0 +1,40 @@
+- name: Event Grid
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Event Grid
+      href: overview.md
+- name: Inicios rápidos
+  items:
+    - name: Creación y distribución de eventos personalizados
+      href: custom-event-quickstart.md
+- name: Tutoriales
+  items:
+    - name: Supervisión de cambios en las máquinas virtuales con aplicaciones lógicas
+      href: monitor-virtual-machine-changes-event-grid-logic-app.md
+- name: Conceptos
+  items:
+    - name: Conceptos de Event Grid
+      href: concepts.md
+    - name: Seguridad y autenticación
+      href: security-authentication.md
+    - name: Entrega y nuevo intento
+      href: delivery-and-retry.md
+- name: Referencia
+  items:
+    - name: REST
+      href: /rest/api/eventgrid
+    - name: Esquema de suscripción
+      href: subscription-creation-schema.md
+    - name: Esquema del evento
+      href: event-schema.md
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/event-grid/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stackoverflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-event-grid'

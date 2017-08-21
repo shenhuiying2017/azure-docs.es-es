@@ -19,6 +19,8 @@
       items:
         - name: Temporizador
           href: functions-create-scheduled-function.md
+        - name: Webhook genérico
+          href: functions-create-generic-webhook-triggered-function.md
         - name: Webhook de GitHub
           href: functions-create-github-webhook-triggered-function.md
         - name: Almacenamiento de blobs
