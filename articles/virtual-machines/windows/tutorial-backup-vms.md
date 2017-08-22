@@ -1,5 +1,5 @@
 ---
-title: "Copia de seguridad de máquinas virtuales Windows de Azure | Microsoft Docs&quot;"
+title: "Copia de seguridad de máquinas virtuales Windows de Azure | Microsoft Docs'"
 description: "Para proteger las máquinas virtuales Windows, realice una copia de seguridad de ellas mediante Azure Backup."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/05/2017
+ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c97ac8f6df1e0fd669b3789d402e1e60f2154205
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Copia de seguridad de máquinas virtuales Windows en Azure
@@ -81,7 +81,7 @@ En este ejemplo, se muestra cómo recuperar el archivo de imagen que se usa en l
 5. En el equipo local, abra una nueva pestaña y vaya al [portal de Azure](https://portal.azure.com).
 6. En el menú de la izquierda, seleccione **Máquinas virtuales** y seleccione la máquina virtual de la lista.
 8. En la hoja de la máquina virtual, en la sección **Configuración**, haga clic en **Copia de seguridad**. Se abre la hoja **Copia de seguridad**. 
-9. En el menú en la parte superior de la hoja, seleccione **Recuperación de archivos (versión preliminar)**. Se abrirá la hoja **Recuperación de archivos (versión preliminar).
+9. En el menú de la parte superior de la hoja, seleccione **Recuperación de archivos**. Se abrirá la hoja **Recuperación de archivos**.
 10. En **Paso 1: Seleccionar punto de recuperación**, seleccione un punto de recuperación en la lista desplegable.
 11. En **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Download Executable** (Descargar ejecutable). Guarde el archivo en la carpeta **Descargas**.
 12. En el equipo local, abra el **Explorador de archivos**, vaya a la carpeta **Descargas** y copie el archivo .exe descargado. El nombre de archivo llevará delante el nombre de su máquina virtual. 

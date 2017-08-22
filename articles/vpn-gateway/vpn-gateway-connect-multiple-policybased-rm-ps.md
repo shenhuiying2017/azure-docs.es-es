@@ -15,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/27/2017
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 1a2e9af88c63d00cf6d08f5b1df24e2edcce9232
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 17211379ec61891982a02efca6730ca0da87c1ef
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conexión de puertas de enlace Azure VPN Gateway a varios dispositivos VPN locales basados en directivas con PowerShell
 
-Este artículo le guiará por los pasos para configurar una puerta de enlace Azure VPN Gateway basada en rutas para conectarse a varios dispositivos VPN locales basados en directivas aprovechando las directivas IPsec/IKE personalizadas en las conexiones VPN de sitio a sitio.
+Este artículo le ayuda a configurar una puerta de enlace de VPN basada en rutas de Azure para conectarse a varios dispositivos VPN locales basados en directivas al aprovechar las directivas IPsec/IKE personalizadas en las conexiones VPN de sitio a sitio.
 
 ## <a name="about-policy-based-and-route-based-vpn-gateways"></a>Acerca de las puertas de enlace de VPN basadas en directivas y en rutas
 
@@ -37,37 +36,37 @@ Los dispositivos VPN basados en directivas *frente* a los basados en rutas se di
 Los diagramas siguientes resaltan los dos modelos:
 
 ### <a name="policy-based-vpn-example"></a>Ejemplo de VPN basada en directivas
-![policybased](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedmultisite.png)
+![basada en directivas](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedmultisite.png)
 
 ### <a name="route-based-vpn-example"></a>Ejemplo de VPN basada en rutas
-![routebased](./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png)
+![basada en rutas](./media/vpn-gateway-connect-multiple-policybased-rm-ps/routebasedmultisite.png)
 
 ### <a name="azure-support-for-policy-based-vpn"></a>Compatibilidad de Azure con VPN basada en directivas
-Actualmente, Azure admite los dos modos de puertas de enlace de VPN: puertas de enlace de VPN basadas en directivas y puertas de enlace de VPN basadas en rutas. Se crean en distintas plataformas internas que generan diferentes especificaciones:
+Actualmente, Azure admite los dos modos de puertas de enlace de VPN: puertas de enlace de VPN basadas en directivas y puertas de enlace de VPN basadas en rutas. Se crean en distintas plataformas internas, lo que da lugar a diferentes especificaciones:
 
 |                          | **Puerta de enlace de VPN PolicyBased** | **Puerta de enlace de VPN RouteBased**               |
 | ---                      | ---                         | ---                                      |
 | **SKU de puerta de enlace de Azure**    | Básica                       | Básica, Estándar, HighPerformance         |
 | **Versión de IKE**          | IKEv1                       | IKEv2                                    |
-| **Máx. de conexiones de sitio a sitio** | **1**                       | Básica/Estándar: 10<br> HighPerformance:30 |
+| **Máx. de conexiones de sitio a sitio** | **1**                       | Básica o Estándar: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
 
 Con la directiva IPsec/IKE personalizada, ahora puede configurar puertas de enlace Azure VPN Gateway basadas en rutas para usar selectores de tráfico basados en prefijo con la opción "**PolicyBasedTrafficSelectors**" para conectarse a dispositivos VPN locales basados en directivas. Esta capacidad le permite conectarse desde una red virtual de Azure y una puerta de enlace Azure VPN Gateway a varios dispositivos VPN/firewall locales basados en directivas y quitar el límite de conexión único de las actuales puertas de enlace Azure VPN Gateway basadas en directivas.
 
 > [!IMPORTANT]
 > 1. Para habilitar esta conectividad, los dispositivos VPN locales basados en directivas deben admitir **IKEv2** para conectarse a las puertas de enlace Azure VPN Gateway basadas en rutas. Compruebe las especificaciones del dispositivo VPN.
-> 2. Las redes locales que se conectan a través de los dispositivos VPN basados en directivas con este mecanismo solo pueden conectarse a la red virtual de Azure; **no se permite el tránsito a otras redes locales o redes virtuales a través de la misma puerta de enlace Azure VPN Gateway**.
-> 3. La opción de configuración forma parte de la directiva de conexión IPsec/IKE personalizada. Debe especificar la directiva completa (vigencias de SA, puntos claves, algoritmos de integridad y cifrado IPsec/IKE) si habilita la opción de selector de tráfico basado en directivas.
+> 2. Las redes locales que se conectan a través de dispositivos VPN basados en directivas con este mecanismo solo pueden conectarse a la red virtual de Azure; **no se permite el tránsito a otras redes locales o redes virtuales a través de la misma puerta de enlace de VPN de Azure**.
+> 3. La opción de configuración forma parte de la directiva de conexión IPsec/IKE personalizada. Si habilita la opción de selector de tráfico basado en directivas, debe especificar la directiva completa (vigencias de SA, puntos clave, algoritmos de integridad y cifrado IPsec/IKE).
 
-El diagrama siguiente muestra por qué el enrutamiento del tránsito a través de la puerta de enlace Azure VPN Gateway no funcionará con la opción basada en directivas.
+El diagrama siguiente muestra por qué el enrutamiento del tránsito a través de la puerta de enlace de VPN de Azure no funciona con la opción basada en directivas:
 
-![policybasedtransit](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedtransit.png)
+![tránsito basado en directivas](./media/vpn-gateway-connect-multiple-policybased-rm-ps/policybasedtransit.png)
 
-Como se muestra en el diagrama, la puerta de enlace de Azure VPN Gateway tendrá selectores de tráfico de la red virtual para cada prefijo de red local, pero no prefijos de conexión cruzada. Por ejemplo, el sitio 2, 3 y 4 locales pueden comunicarse con VNet1 respectivamente, pero no se pueden conectar a través de la puerta de enlace de Azure VPN Gateway entre sí. El diagrama muestra los selectores de tráfico de conexión cruzada que no están disponibles en la puerta de enlace Azure VPN Gateway en esta configuración.
+Como se muestra en el diagrama, la puerta de enlace de VPN de Azure tiene selectores de tráfico desde la red virtual a cada prefijo de red local, pero no a los prefijos de conexión cruzada. Por ejemplo, los sitios 2, 3 y 4 locales pueden comunicarse con VNet1, pero no se pueden conectar entre sí a través de la puerta de enlace de VPN de Azure. El diagrama muestra los selectores de tráfico de conexión cruzada que no están disponibles en la puerta de enlace Azure VPN Gateway en esta configuración.
 
 ## <a name="configure-policy-based-traffic-selectors-on-a-connection"></a>Configuración de los selectores de tráfico basados en directivas en una conexión
 
-Las instrucciones que aparecen en este artículo siguen el mismo ejemplo tal y como se describe en [Configuración de una directiva IPsec/IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual](vpn-gateway-ipsecikepolicy-rm-powershell.md), para establecer una conexión VPN de sitio a sitio tal como se muestra en el diagrama siguiente:
+Las instrucciones de este artículo siguen el mismo ejemplo de [Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual](vpn-gateway-ipsecikepolicy-rm-powershell.md) para establecer una conexión VPN de sitio a sitio. Se muestra en el diagrama siguiente:
 
 ![s2s-policy](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
 
@@ -79,12 +78,12 @@ El flujo de trabajo para habilitar esta conectividad:
 
 ## <a name="enable-policy-based-traffic-selectors-on-a-connection"></a>Habilitación de los selectores de tráfico basados en directivas en una conexión
 
-Asegúrese de que ha completado la [parte 3 del artículo de configuración de la directiva IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para esta sección. El ejemplo siguiente utiliza los mismos parámetros y pasos.
+Asegúrese de haber completado la [parte 3 del artículo Configurar una directiva de IPsec o IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para esta sección. El ejemplo siguiente usa los mismos parámetros y pasos:
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Paso 1: Creación de la red virtual, la puerta de enlace de VPN y la puerta de enlace de red local
 
 #### <a name="1-declare-your-variables--connect-to-your-subscription"></a>1. Declaración de las variables y conexión a su suscripción
-Para este ejercicio, comenzaremos declarando las variables. Asegúrese de reemplazar los valores por los suyos propios cuando realice la configuración para el entorno de producción.
+Para este ejercicio, se empieza por declarar las variables. Asegúrese de reemplazar los valores por los suyos propios cuando realice la configuración para el entorno de producción.
 
 ```powershell
 $Sub1          = "<YourSubscriptionName>"
@@ -110,7 +109,7 @@ $LNGPrefix61   = "10.61.0.0/16"
 $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
-Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Administrador de recursos. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md).
+Para usar los cmdlets de Resource Manager, asegúrese de cambiar al modo de PowerShell. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md).
 
 Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para ayudarle a conectarse:
 
@@ -121,7 +120,7 @@ New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
 #### <a name="2-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>2. Creación de la red virtual, la puerta de enlace de VPN y la puerta de enlace de red local
-En el ejemplo siguiente se crea la red virtual, TestVNet1, con tres subredes y la puerta de enlace de VPN. Al reemplazar valores, es importante que siempre asigne el nombre GatewaySubnet a la subred de la puerta de enlace. Si usa otro, se producirá un error al crear la puerta de enlace.
+En el ejemplo siguiente se crea la red virtual, TestVNet1, con tres subredes y la puerta de enlace de VPN. Al reemplazar valores, es importante que siempre asigne el nombre "GatewaySubnet" a la subred de la puerta de enlace. Si usa otro, se produce un error al crear la puerta de enlace.
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -140,14 +139,14 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
 
-### <a name="step-2---creat-a-s2s-vpn-connection-with-an-ipsecike-policy"></a>Paso 2: Creación de una conexión VPN de sitio a sitio con una directiva IPsec/IKE
+### <a name="step-2---create-a-s2s-vpn-connection-with-an-ipsecike-policy"></a>Paso 2: Creación de una conexión VPN de sitio a sitio con una directiva IPsec/IKE
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Cree una directiva IPsec/IKE.
 
 > [!IMPORTANT]
 > Debe crear una directiva IPsec/IKE para habilitar la opción "UsePolicyBasedTrafficSelectors" en la conexión.
 
-El script de ejemplo siguiente crea una directiva IPsec/IKE con los algoritmos y parámetros siguientes:
+El ejemplo siguiente crea una directiva IPsec/IKE con estos algoritmos y parámetros:
 * IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS24, vigencia de SA de 3600 segundos y 2048 KB
 
@@ -156,7 +155,7 @@ $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA38
 ```
 
 #### <a name="2-create-the-s2s-vpn-connection-with-policy-based-traffic-selectors-and-ipsecike-policy"></a>2. Creación de una conexión VPN de sitio a sitio con selectores de tráfico basados en directivas y directiva IPsec/IKE
-Cree una conexión VPN de sitio a sitio y aplique la directiva IPsec/IKE creada anteriormente. Tenga en cuenta el parámetro adicional "-UsePolicyBasedTrafficSelectors $True" para habilitar los selectores de tráfico basados en directivas en la conexión.
+Cree una conexión VPN de sitio a sitio y aplique la directiva IPsec/IKE creada en el paso anterior. Tenga en cuenta el parámetro adicional "-UsePolicyBasedTrafficSelectors $True", que habilita los selectores de tráfico basados en directivas en la conexión.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
@@ -165,10 +164,10 @@ $lng6 = Get-AzureRmLocalNetworkGateway  -Name $LNGName6 -ResourceGroupName $RG1
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -UsePolicyBasedTrafficSelectors $True -IpsecPolicies $ipsecpolicy6 -SharedKey 'AzureA1b2C3'
 ```
 
-Después de completar los pasos, la conexión VPN de sitio a sitio utilizará la directiva IPsec/IKE definida anteriormente y habilitará los selectores de tráfico basados en directivas en la conexión. Puede repetir los mismos pasos para agregar más conexiones a los dispositivos VPN locales adicionales basados en directivas desde la misma puerta de enlace Azure VPN Gateway.
+Después de completar los pasos, la conexión VPN de sitio a sitio usará la directiva IPsec/IKE definida y habilitará los selectores de tráfico basados en directivas en la conexión. Puede repetir los mismos pasos para agregar más conexiones a los dispositivos VPN locales adicionales basados en directivas desde la misma puerta de enlace Azure VPN Gateway.
 
 ## <a name="update-policy-based-traffic-selectors-for-a-connection"></a>Actualización de los selectores de tráfico basados en directivas para una conexión
-La última sección le mostrará cómo actualizar la opción de selectores de tráfico basados en directivas para una conexión VPN de sitio a sitio existente.
+La última sección muestra cómo actualizar la opción de selectores de tráfico basados en directivas para una conexión VPN de sitio a sitio existente.
 
 ### <a name="1-get-the-connection"></a>1. Obtención de la conexión
 Obtenga el recurso de conexión.
@@ -180,13 +179,13 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 ```
 
 ### <a name="2-check-the-policy-based-traffic-selectors-option"></a>2. Comprobación de la opción de selectores de tráfico basados en directivas
-La siguiente línea mostrará si se usan los selectores de tráfico basados en directivas para la conexión:
+La siguiente línea muestra si se usan los selectores de tráfico basados en directivas para la conexión:
 
 ```powershell
 $connection6.UsePolicyBasedTrafficSelectors
 ```
 
-Si la línea devuelve "**True**", los selectores de tráfico basados en directivas se configuran en la conexión; en caso contrario, el resultado será "**False**".
+Si la línea devuelve "**True**", los selectores de tráfico basados en directivas están configurados en la conexión; en caso contrario, devuelve "**False**".
 
 ### <a name="3-update-the-policy-based-traffic-selectors-on-a-connection"></a>3. Actualización de los selectores de tráfico basados en directivas en una conexión
 Una vez que obtenga el recurso de conexión, puede habilitar o deshabilitar la opción.
@@ -203,7 +202,7 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 ```
 
 #### <a name="enable-usepolicybasedtrafficselectors"></a>Habilitación de UsePolicyBasedTrafficSelectors
-En el ejemplo siguiente se habilita la opción de selectores de tráfico basados en directivas, pero se deja sin modificar la directiva IPsec/IKE:
+En el ejemplo siguiente se habilita la opción de selectores de tráfico basados en directivas y se deja sin modificar la directiva IPsec/IKE:
 
 ```powershell
 $RG1          = "TestPolicyRG1"

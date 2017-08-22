@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: eae360dd3e627a82986cef32ef39860f60ffe51f
-ms.lasthandoff: 01/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 668ba10474fc1b01d5ebccbff1f50fe09ade5f30
+ms.contentlocale: es-es
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-media-services-error-codes"></a>Códigos de error de Azure Media Services
@@ -28,7 +28,7 @@ Al utilizar Microsoft Azure Media Services, puede recibir los códigos de error 
 La solicitud contiene información no válida y se rechazará debido a uno de los siguientes motivos:
 
 * Se especifica una versión de API no compatible. Para obtener la versión más actualizada, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
-* No se especifica la versión de la API de Media Services. Para obtener información sobre cómo especificar la versión de la API, consulte [Conectarse a Media Services con la API de REST de Media Services](media-services-rest-connect-programmatically.md).
+* No se especifica la versión de la API de Media Services. Para más información sobre cómo especificar la versión de la API, vea [Media Services Operations REST API Reference (Referencia de la API de REST de operaciones de Media Services)](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
   > Si usa SDK de Java o .NET para conectarse a Media Services, la versión de la API se especificará automáticamente cada vez que intente realizar alguna acción con Media Services.
@@ -48,8 +48,8 @@ La solicitud no se pudo autenticar (antes de que se pudiera autorizar) debido a 
 
 * Falta el encabezado de autenticación.
 * Valor del encabezado de autenticación incorrecto.
-  * El token ha expirado. Si usa las API de REST directamente, vea [Conectarse a Media Services con la API de REST de Media Services](media-services-rest-connect-programmatically.md) para aprender a generar un nuevo token de autenticación. Si usa los SDK de Java o. NET, cree un objeto CloudMediaContext o MediaContract para generar el token. Para obtener más información sobre cómo hacer esto, consulte [Conectar con Media Services mediante el SDK de Media Services](media-services-dotnet-connect-programmatically.md).
-  * El token contiene una firma no válida.</li></ul></li></ul>
+  * El token ha expirado. 
+  * El token contiene una firma no válida.
 
 ## <a name="403-forbidden"></a>403 Prohibido
 No se aceptó la solicitud debido a una de las siguientes razones:

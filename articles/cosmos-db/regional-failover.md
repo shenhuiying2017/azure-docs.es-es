@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ff6900cf4516a173e212728a069587d908f9fe11
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Conmutación por error regional automática para la continuidad empresarial en Azure Cosmos DB
@@ -122,7 +121,7 @@ En este artículo, hemos revisado cómo funcionan las conmutaciones por error ma
 ## <a id="NextSteps"></a>Pasos siguientes
 * Obtenga información sobre la compatibilidad de Cosmos DB con la [distribución global](distribute-data-globally.md)
 * Más información sobre la [coherencia global con Azure Cosmos DB](consistency-levels.md)
-* Desarrolle con varias regiones con el [SDK de DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md) de Azure Cosmos DB
+* Desarrollo con varias regiones con la [API de DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md) de Azure Cosmos DB
 * Obtenga información acerca de cómo crear [arquitecturas de sistema de escritura de varias regiones](multi-region-writers.md) con Azure DocumentDB.
 
 

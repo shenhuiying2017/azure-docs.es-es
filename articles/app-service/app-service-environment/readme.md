@@ -1,6 +1,6 @@
 ---
-title: "Archivo Léame de Azure App Service Environment"
-description: "Muestra la documentación que describe Azure App Service Environment"
+title: "Léame de Azure App Service Environment"
+description: "Indica la documentación en la que se habla de Azure App Service Environment"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,34 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 8b401036d4fa8e6c4e6430433b1641f5cb4ae010
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 5b1362854dbc3b0098718bd2ea3cffb06366000c
 ms.contentlocale: es-es
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 
-# <a name="app-service-environment-documentation"></a>Documentación del Entorno del Servicio de aplicaciones
-App Service Environment es una característica de Azure App Service que proporciona un entorno plenamente aislado y dedicado para ejecutar aplicaciones de Azure App Service a gran escala de forma segura. Esta funcionalidad puede hospedar sus instancias de [Web Apps][webapps], [Mobile Apps][mobileapps], [API Apps][APIApps] y [Functions][Functions].
+# <a name="app-service-environment-documentation"></a>Documentación de App Service Environment
+ Azure App Service Environment es una característica de Azure App Service que proporciona un entorno completamente aislado y dedicado para ejecutar de forma segura las aplicaciones de App Service a gran escala. Esta funcionalidad puede hospedar instancias de [Web Apps][webapps], [Mobile Apps][mobileapps], [API Apps][APIApps] y [Functions][Functions].
 
-Las instancias de App Service Environment son ideales para cargas de trabajo de aplicaciones que requieren:
+Las instancias de App Service Environment (ASE) son ideales para cargas de trabajo de aplicaciones que necesitan:
 
-* Muy grande escala
-* Aislamiento y acceso a redes seguro
+* Escala muy grande.
+* Aislamiento y acceso de red seguro.
 
-Los clientes pueden crear varios entornos del Servicio de aplicaciones en una o varias regiones de Azure. Esto hace que sean perfectos para los niveles de aplicación sin estado de escalado horizontal en el respaldo de cargas de trabajo RPS elevadas.
+Los clientes pueden crear varias instancias de ASE en una y en varias regiones de Azure. Esta versatilidad hace que las instancias de ASE sean perfectas para capas de aplicación sin estado de escalado horizontal que apoyan a cargas de trabajo RPS elevadas.
 
-Los entornos del Servicios de aplicaciones están aislados para ejecutar únicamente las aplicaciones de un solo cliente, y siempre se implementan en una red virtual. Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de la aplicación si usan [grupos de seguridad de red][NSGs]. Las aplicaciones también pueden establecer conexiones seguras a alta velocidad por redes virtuales a los recursos corporativos locales.
+Las instancias de ASE están aisladas para ejecutar únicamente las aplicaciones de un solo cliente y siempre se implementan en una red virtual de Azure. Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de la aplicación mediante [grupos de seguridad de red][NSGs]. Las aplicaciones también pueden establecer conexiones seguras a alta velocidad por redes virtuales a los recursos corporativos locales.
 
-Las aplicaciones suelen requerir acceso a recursos corporativos, como bases de datos internas y servicios web. Las aplicaciones que se ejecutan en entornos de App Service pueden tener acceso a los recursos accesibles mediante conexiones VPN [de sitio a sitio][SiteToSite] y [Azure ExpressRoute][ExpressRoute].
+Las aplicaciones suelen necesitar acceso a recursos corporativos, como bases de datos internas y servicios web. Las aplicaciones que se ejecutan en instancias de ASE pueden acceder a recursos a través de conexiones VPN de [sitio a sitio][SiteToSite] y de [Azure ExpressRoute][ExpressRoute].
 
 * [¿Qué es App Service Environment?][Intro]
 * [Creación de una instancia de App Service Environment][MakeExternalASE]
-* [Creación de un equilibrador de carga interno de App Service Environment][MakeILBASE]
-* [Uso de App Service Environment][UsingASE]
+* [Creación de una instancia de App Service Environment de equilibrador de carga interno][MakeILBASE]
+* [Uso de una instancia de App Service Environment][UsingASE]
 * [Consideraciones de red y App Service Environment][ASENetwork]
-* [Creación de una instancia de App Service Environment con una plantilla][MakeASEfromTemplate]
+* [Creación de una instancia de App Service Environment a partir de una plantilla][MakeASEfromTemplate]
 
 
 ## <a name="videos"></a>Vídeos
@@ -53,8 +53,8 @@ Deploying Highly Scalable and Secure Apps (Implementación de aplicaciones segur
 Running Enterprise Web and Mobile Apps on Azure App Service (Ejecución de aplicaciones web y móviles para empresas en Azure App Service)
 >[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
 
-## <a name="asev1"></a>ASEv1 ##
-Hay dos versiones de App Service Environment: ASEv1 y ASEv2. Para información sobre ASEv1, consulte la [documentación de App Service Environment v1][ASEv1README].
+## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
+Hay dos versiones de App Service Environment: ASEv1 y ASEv2. Para más información sobre ASEv1, vea la [documentación sobre App Service Environment v1][ASEv1README].
 
 
 <!--Links-->

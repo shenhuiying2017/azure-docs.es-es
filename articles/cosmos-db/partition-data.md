@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 5f501bdb0a3c478a436d729dfe045ad8e39bd3bb
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: e2d2847276e553d7511241ff323c3e00aad8e5c9
 ms.contentlocale: es-es
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -34,7 +33,7 @@ Las particiones y las claves de partición también se explican en este vídeo d
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
-Azure Cosmos DB permite almacenar y consultar datos sin esquemas con un tiempo de respuesta de milisegundos y a cualquier escala. Cosmos DB proporciona contenedores para el almacenamiento de datos llamados **colecciones (para el documento), gráficos o tablas**. Los contenedores son recursos lógicos y pueden abarcar uno o varios servidores o particiones físicos. Cosmos DB determina el número de particiones en función del tamaño de almacenamiento y el procesamiento aprovisionado del contenedor. Todas las particiones de Cosmos DB tienen una cantidad fija de almacenamiento con respaldo SSD asociado y se replican para ofrecer una alta disponibilidad. Azure Cosmos DB se encarga de administrar las particiones de principio a fin, por lo que no tendrá que escribir ningún código complejo ni administrar ninguna partición. Los contenedores de Cosmos DB son ilimitados en términos de almacenamiento y rendimiento. 
+Azure Cosmos DB permite almacenar y consultar datos sin esquemas con un tiempo de respuesta de milisegundos y a cualquier escala. Cosmos DB proporciona contenedores para el almacenamiento de datos llamados **colecciones (para el documento), grafos o tablas**. Los contenedores son recursos lógicos y pueden abarcar uno o varios servidores o particiones físicos. Cosmos DB determina el número de particiones en función del tamaño de almacenamiento y el procesamiento aprovisionado del contenedor. Todas las particiones de Cosmos DB tienen una cantidad fija de almacenamiento con respaldo SSD asociado y se replican para ofrecer una alta disponibilidad. Azure Cosmos DB se encarga de administrar las particiones de principio a fin, por lo que no tendrá que escribir ningún código complejo ni administrar ninguna partición. Los contenedores de Cosmos DB son ilimitados en términos de almacenamiento y rendimiento. 
 
 ![horizontal](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -54,7 +53,7 @@ La semántica para claves de partición es ligeramente diferente a fin de coinci
 | --- | --- | --- |
 | DocumentDB | ruta de acceso de clave de partición personalizada | `id` fija | 
 | MongoDB | clave de partición personalizada  | `_id` fija | 
-| Gráfico | propiedad de clave de partición personalizada | `id` fija | 
+| Grafo | propiedad de clave de partición personalizada | `id` fija | 
 | Tabla | `PartitionKey` fija | `RowKey` fija | 
 
 Cosmos DB usa la creación de particiones basada en hash. Al escribir un elemento, Cosmos DB aplica un algoritmo hash al valor de clave de partición y usa el resultado al que se ha aplicado un algoritmo hash para determinar en qué partición se va a almacenar el elemento. Cosmos DB almacena todos los elementos con la misma clave de partición en la misma partición física. La elección de la clave de partición es una decisión importante que debe realizarse en el tiempo de diseño. Debe elegir un nombre de propiedad que tenga una amplia gama de valores e incluso patrones de acceso.
@@ -157,9 +156,9 @@ Consulte [Developing with the Table API](tutorial-develop-table-dotnet.md) (Desa
 
 ### <a name="graph-api"></a>API Graph
 
-Con la API Graph, debe usar Azure Portal o la CLI de Azure para crear contenedores. De forma alternativa, como Azure Cosmos DB tiene varios modelos, puede usar uno de los otros modelos para crear y escalar el contenedor de gráficos.
+Con la API Graph, debe usar Azure Portal o la CLI de Azure para crear contenedores. De forma alternativa, como Azure Cosmos DB tiene varios modelos, puede usar uno de los otros modelos para crear y escalar el contenedor de grafos.
 
-Puede leer cualquier vértice o borde mediante el id. y la clave de partición en Gremlin. Por ejemplo, para un gráfico con la región ("EE. UU.") como clave de partición y "Seattle" como clave de fila, puede encontrar un vértice mediante la siguiente sintaxis:
+Puede leer cualquier vértice o borde mediante el id. y la clave de partición en Gremlin. Por ejemplo, para un grafo con la región ("EE. UU.") como clave de partición y "Seattle" como clave de fila, puede encontrar un vértice mediante la siguiente sintaxis:
 
 ```
 g.V(['USA', 'Seattle'])
@@ -184,7 +183,7 @@ Para escalar de forma eficaz con Azure Cosmos DB, debe elegir una buena clave de
 Echemos un vistazo a algunos escenarios en el mundo real, así como a las buenas claves de partición de cada uno de ellos:
 * Si implementa un back-end de perfil de usuario, el identificador de usuario es una buena elección para la clave de partición.
 * Si almacena datos IoT, como el estado del dispositivo, un identificador de dispositivo es una buena elección para la clave de partición.
-* Si usa DocumentDB para registrar datos de serie temporal, el nombre de host o el identificador de proceso es una buena elección para la clave de partición.
+* Si usa Azure Cosmos DB para registrar datos de serie temporal, el nombre de host o el identificador de proceso son una buena elección para la clave de partición.
 * Si tiene una arquitectura multiempresa, el identificador del inquilino es una buena elección para la clave de partición.
 
 En algunos casos de uso, como IoT y los perfiles de usuario, la clave de partición podría ser igual que su identificador (clave de documento). En otros, como en los datos de serie temporal, la clave de partición será diferente del identificador.

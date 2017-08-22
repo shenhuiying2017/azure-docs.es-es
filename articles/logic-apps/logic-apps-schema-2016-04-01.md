@@ -1,5 +1,5 @@
 ---
-title: Actualizaciones de esquema,&1; de junio de&2016; (Azure Logic Apps) | Microsoft Docs
+title: Actualizaciones de esquema, 1 de junio de 2016 (Azure Logic Apps) | Microsoft Docs
 description: "Creación de definiciones de JSON para Azure Logic Apps con la versión de esquema del 1 de junio de 2016"
 author: jeffhollan
 manager: anneta
@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab219386a32f519e50f76e18013f8f94a2266ff
-ms.openlocfilehash: 9d8f0be3d5c8e2c2e5f169dc1d0851c95a641d0c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
 ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Actualizaciones de esquema para Azure Logic Apps, 1 de junio de 2016
@@ -31,7 +30,7 @@ Esta nueva versión de esquema y API de Azure Logic Apps incluye importantes mej
 * [Condiciones y bucles](#conditions-loops): ahora son acciones de primera clase.
 * Ordenación más precisa para ejecutar acciones con la propiedad `runAfter`, sustituyendo `dependsOn`.
 
-Para actualizar las aplicaciones lógicas del esquema de versión preliminar del 1 de agosto de 2015 al esquema del 1 de junio de 2016, [consulte la sección de actualización](#upgrading-to-2016-06-01-schema).
+Para actualizar las aplicaciones lógicas del esquema de versión preliminar del 1 de agosto de 2015 al esquema del 1 de junio de 2016, [consulte la sección de actualización](##upgrade-your-schema).
 
 <a name="scopes"></a>
 ## <a name="scopes"></a>Ámbitos
@@ -115,8 +114,7 @@ La actualización al nuevo esquema se realiza en solo unos cuantos pasos. El pro
     ![Selección del esquema de actualización][1]
    
     Se devuelve la definición actualizada, que puede copiar y pegar en una definición de recurso si es necesario. 
-    Sin embargo, se **recomienda firmemente** elegir **Guardar como** 
-    para asegurarse de que todas las referencias de conexión sean válidas en la aplicación lógica actualizada.
+    Pero **se recomienda firmemente** elegir **Guardar como** para asegurarse de que todas las referencias de conexión sean válidas en la aplicación lógica actualizada.
 
 3. En la barra de herramientas de la hoja de actualización, elija **Guardar como**.
 
