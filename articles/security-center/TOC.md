@@ -6,8 +6,9 @@
 ### [Respuesta a los incidentes](security-center-incident-response.md)
 ### [Recomendaciones de uso para mejorar la seguridad](security-center-using-recommendations.md)
 ## [Migración de plataformas](security-center-platform-migration.md)
+### [Preguntas más frecuentes sobre la migración de plataformas](security-center-platform-migration-faq.md)
 
-# Introducción
+# Primeros pasos
 ## [Inicio rápido](security-center-get-started.md)
 ## [Planeamiento y operaciones](security-center-planning-and-operations-guide.md)
 ## [Permisos](security-center-permissions.md)
