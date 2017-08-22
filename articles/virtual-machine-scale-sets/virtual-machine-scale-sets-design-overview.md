@@ -1,6 +1,6 @@
 ---
-title: "Diseño de conjuntos de escalado de máquinas virtuales de Azure para escala | Microsoft Docs"
-description: "Obtenga información sobre cómo diseñar los conjuntos de escalado de máquinas virtuales de Azure para escala"
+title: "Consideraciones de diseño para Conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs"
+description: "Conozca las consideraciones de diseño de los Conjuntos de escalado de máquinas virtuales de Azure"
 keywords: "máquina virtual Linux,conjuntos de escalado de máquina virtual"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 88ab6322fed853c73af981a1de4cd2c2f480c959
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 615361975e2ee15ce80f6efb39f57cae381209e5
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="designing-scale-sets-for-scale"></a>Diseño de conjuntos de escalado para escala
+# <a name="design-considerations-for-scale-sets"></a>Consideraciones de diseño para conjuntos de escalado
 Este tema analiza consideraciones de diseño para conjuntos de escalado de máquinas virtuales. Para información sobre qué son los conjuntos de escalado de máquinas virtuales, consulte [Información general de conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>¿Cuándo se usan conjuntos de escalado en lugar de máquinas virtuales?
@@ -48,10 +48,10 @@ Por otro lado, algunas características solo están disponibles en las máquinas
 - Puede migrar una máquina virtual individual desde discos nativos a discos administrados, pero no puede hacerlo para máquinas virtuales de un conjunto de escalado.
 - Puede asignar direcciones IP públicas IPv6 a NIC de máquinas virtuales individuales, pero no puede hacerlo para máquinas virtuales de un conjunto de escalado. Tenga en cuenta que puede asignar direcciones IP públicas IPv6 a equilibradores de carga delante de máquinas virtuales individuales o de máquinas virtuales de conjunto de escalado.
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Conjuntos de escalado con Azure Managed Disks
-Los conjuntos de escalado se pueden crear con [Azure Managed Disks](../storage/storage-managed-disks-overview.md) en lugar de las cuentas de almacenamiento de Azure tradicionales. Managed Disks ofrece las siguientes ventajas:
+Los conjuntos de escalado se pueden crear con [Azure Managed Disks](../storage/storage-managed-disks-overview.md) en lugar de las cuentas de Azure Storage tradicionales. Managed Disks ofrece las siguientes ventajas:
 - No necesita crear previamente un conjunto de cuentas de Azure Storage para las VM de conjunto de escalado.
 - Puede definir [discos de datos conectados](virtual-machine-scale-sets-attached-disks.md) para las VM del conjunto de escalado.
 - Los conjuntos de escalado se pueden configurar para [que admitan hasta 1000 VM en un conjunto](virtual-machine-scale-sets-placement-groups.md). 

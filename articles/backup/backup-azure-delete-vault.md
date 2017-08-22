@@ -1,5 +1,5 @@
 ---
-title: " Eliminación de un almacén de Backup en Azure | Microsoft Docs "
+title: " Eliminación de un almacén de Recovery Services en Azure | Microsoft Docs "
 description: "Cómo eliminar un almacén de Azure Backup y Recovery Services. A un almacén de Backup también se le puede denominar almacén en la nube de Azure o almacén de recuperación de Azure. Solución de problemas cuando no puede eliminar un almacén de Backup en Azure Portal o en el Portal de Azure clásico."
 services: service-name
 documentationcenter: dev-center-name
@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/14/2017
+ms.date: 07/21/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: d8be07fe4cd3fd50827fb7021a75eb05b6f075e0
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: e72ccd2efc271956c688e70804cef915c257a2e3
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-# <a name="delete-an-azure-backup-vault"></a>Eliminación de un almacén de Azure Backup
+# <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
 El servicio Azure Backup tiene dos tipos de almacenes: el almacén de Backup y el almacén de Recovery Services. El almacén de Backup fue el primero. A continuación, surgió el almacén de Recovery Services para admitir las implementaciones expandidas de Resource Manager. Debido a las funcionalidades expandidas y las dependencias de información que deben guardarse en el almacén, eliminar un almacén de Backup o de Recovery Services puede resultar confuso. En este artículo se explica cómo eliminar los almacenes en Azure Portal o en el Portal de Azure clásico.  
 
 | **Tipo de implementación** | **Portal** | **Nombre del almacén** |

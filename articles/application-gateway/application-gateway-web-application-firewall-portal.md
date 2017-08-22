@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 224aa0db2feb7a83bec5b4ec46140046d10f012e
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 650f26d19615d27a94f3947aad7b7904b6c1fabc
 ms.contentlocale: es-es
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>Creación de una puerta de enlace de aplicaciones con el firewall de aplicaciones web mediante el portal
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
+> * [Azure Portal](application-gateway-web-application-firewall-portal.md)
+> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
+> * [CLI de Azure](application-gateway-web-application-firewall-cli.md)
 
-Aprenda a crear una puerta de enlace de aplicaciones habilitada para un firewall de aplicaciones web.
+Aprenda a crear una puerta de enlace de aplicaciones web habilitada para un firewall de aplicaciones web.
 
 El firewall de aplicaciones web (WAF) de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones. La aplicación web protege de muchas de las vulnerabilidades web de OWASP Top 10.
 
@@ -49,7 +49,7 @@ En el segundo escenario, aprenderá a [agregar el firewall de aplicaciones web a
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Puerta de enlace de aplicaciones de Azure requiere su propia subred. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregar a ella puertas de enlace de aplicaciones adicionales.
+Azure Application Gateway requiere su propia subred. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregar a ella puertas de enlace de aplicaciones adicionales.
 
 ##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> Adición del firewall de aplicaciones web a una puerta de enlace de aplicaciones existente
 
@@ -66,7 +66,7 @@ En este ejemplo se actualiza una puerta de enlace de aplicaciones existente para
    | **Configuración** | **Valor** | **Detalles**
    |---|---|---|
    |**Actualizar al nivel WAF**| Activado | Esta opción establece el nivel de la puerta de enlace de aplicaciones al nivel WAFS.|
-   |**Estado de Firewall**| habilitado | habilitado | Esta configuración habilita el firewall en el WAF.|
+   |**Estado de Firewall**| habilitado | Esta configuración habilita el firewall en el WAF.|
    |**Modo de firewall** | Prevención | Esta configuración hace referencia a cómo el firewall de aplicaciones web se ocupa del tráfico malintencionado. El modo **Detección** solo registra los eventos, mientras que el modo **Prevención** registra los eventos y detiene el tráfico malintencionado.|
    |**Conjunto de reglas**|3.0|Esta configuración determina el [conjunto de reglas básico](application-gateway-web-application-firewall-overview.md#core-rule-sets) que se usa para proteger a los miembros del grupo de back-end.|
    |**Configurar reglas deshabilitadas**|Varía|Para evitar posibles falsos positivos, esta configuración le permite deshabilitar ciertas [reglas y grupos de reglas](application-gateway-crs-rulegroups-rules.md).|
@@ -88,7 +88,7 @@ En este escenario:
 * Creará una subred denominada Appgatewaysubnet que usa 10.0.0.0/28 como bloque CIDR.
 * Configurará un certificado para la descarga SSL.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free).
 1. En el panel Favoritos del portal, haga clic en **Nuevo**.
 1. En la hoja **Nuevo**, haga clic en **Redes**. En la hoja **Redes**, haga clic en **Application Gateway**, como se muestra en la siguiente imagen:
 1. Navegue a Azure Portal, haga clic en **Nuevo** > **Redes** > **Application Gateway**
@@ -109,18 +109,18 @@ En este escenario:
 
    ![hoja que muestra configuración básica][2-2]
 
-1. En la hoja **Configuración** que aparece en **Red virtual**, haga clic en **Elegir una red virtual**. Se abrirá la hoja **Elegir una red virtual**.  Haga clic en **Crear nuevo** para abrir la hoja **Crear red virtual**.
+1. En la hoja **Configuración** que aparece en **Red virtual**, haga clic en **Elegir una red virtual**. Este paso abre la hoja **Elegir una red virtual**.  Haga clic en **Crear nuevo** para abrir la hoja **Crear red virtual**.
 
    ![Elegir una red virtual][2]
 
-1. En la hoja **Crear red virtual**, escriba los valores siguientes y luego haga clic en **Aceptar**. De esta forma, se cierran las hojas **Crear red virtual** y **Elegir una red virtual**. Además, se rellenará el campo **Subred** en la hoja **Configuración** con la subred elegida.
+1. En la hoja **Crear red virtual**, escriba los valores siguientes y luego haga clic en **Aceptar**. Este paso cierra las hojas **Crear red virtual** y **Elegir una red virtual**. Además, en este paso se rellena el campo **Subred** en la hoja **Configuración** con la subred elegida.
 
    |**Configuración** | **Valor** | **Detalles** |
    |---|---|---|
    |**Name**|AdatumAppGatewayVNET|Nombre de la puerta de enlace de aplicaciones.|
-   |**Espacio de direcciones**|10.0.0.0/16| Se trata del espacio de direcciones de la red virtual.|
+   |**Espacio de direcciones**|10.0.0.0/16| Este valor es el espacio de direcciones de la red virtual.|
    |**Nombre de subred**|AppGatewaySubnet|Nombre de la subred de la puerta de enlace de aplicaciones.|
-   |**Intervalo de direcciones de subred**|10.0.0.0/28| Esta subred permite más subredes en la red virtual para miembros del grupo de back-end.|
+   |**Intervalo de direcciones de subred**|10.0.0.0/28 | Esta subred permite más subredes en la red virtual para miembros del grupo de back-end.|
 
 1. En la hoja **Configuración** de **Configuración de IP de front-end**, seleccione **Pública** como el **Tipo de dirección IP**.
 
@@ -128,7 +128,7 @@ En este escenario:
 
    ![Elegir una dirección IP pública][3]
 
-1. En la hoja **Crear dirección IP pública**, acepte el valor predeterminado y haga clic en **Aceptar**. De esta forma, se cerrarán las hojas **Elegir dirección IP pública** y **Crear dirección IP pública** y rellene el campo **Dirección IP pública** con la dirección IP pública elegida.
+1. En la hoja **Crear dirección IP pública**, acepte el valor predeterminado y haga clic en **Aceptar**. De esta forma, se cierran las hojas **Elegir dirección IP pública** y **Crear dirección IP pública** y se rellena el campo **Dirección IP pública** con la dirección IP pública elegida.
 
 1. En la hoja **Configuración** en **Configuración de agente de escucha**, haga clic en **HTTP** en **Protocolo**. Para usar **https**, se requiere un certificado. La clave privada del certificado es necesaria, por lo que es preciso proporcionar un .pfx exportado del certificado y la contraseña del archivo.
 
@@ -144,7 +144,7 @@ En este escenario:
 
 1. Una vez creada la puerta de enlace de aplicaciones, navegue hasta ella en el portal para continuar con su configuración.
 
-    ![Vista de recursos de Puerta de enlace de aplicaciones][10]
+    ![Vista de recursos de Application Gateway][10]
 
 Estos pasos permiten crear una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto
 
@@ -153,11 +153,13 @@ Estos pasos permiten crear una puerta de enlace de aplicaciones básica con la c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+A continuación, puede aprender a configurar un alias de dominio personalizado para la [dirección IP pública](../dns/dns-custom-domain.md#public-ip-address) con Azure DNS u otro proveedor DNS.
+
 Aprenda a configurar el registro de diagnóstico para registrar los eventos que se detectan o impiden con el firewall de aplicaciones web en [Diagnósticos de Application Gateway](application-gateway-diagnostics.md).
 
 Para aprender a crear sondeos de estado personalizado, visite [Create a custom probe for Application Gateway by using the portal](application-gateway-create-probe-portal.md)
 
-Para aprender a configurar la descarga de SSL y eliminar la cara descripción de SSL de los servidores web, visite [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el Administrador de recursos de Azure](application-gateway-ssl-portal.md)
+Para aprender a configurar la descarga de SSL y eliminar la cara descripción de SSL de los servidores web, visite [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante Azure Resource Manager](application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-web-application-firewall-portal/figure1.png

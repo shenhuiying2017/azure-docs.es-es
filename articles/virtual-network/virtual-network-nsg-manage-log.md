@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: f907f388ecb897c05e822f2abd5431b3976b7987
-ms.openlocfilehash: 10581234a4475d0d3b32c7891fcf97eed55f7a1d
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
+ms.contentlocale: es-es
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Análisis del registro para grupos de seguridad de red (NSG)
@@ -47,18 +47,18 @@ Debe habilitar el registro de diagnóstico para *cada* NSG para el que desee rec
 
 ### <a name="azure-portal"></a>Portal de Azure
 
-Si quiere usar el portal para habilitar el registro, inicie sesión en el [portal](https://portal.azure.com). Haga clic en **Más servicios** y, a continuación, escriba *grupos de seguridad de red*. Seleccione el NSG para el que desea habilitar el registro. Siga las instrucciones para los recursos que no son de proceso del artículo [Habilitación de los registros de diagnóstico en el portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-in-the-portal). Seleccione **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, o las dos categorías de registros.
+Si quiere usar el portal para habilitar el registro, inicie sesión en el [portal](https://portal.azure.com). Haga clic en **Más servicios** y, a continuación, escriba *grupos de seguridad de red*. Seleccione el NSG para el que desea habilitar el registro. Siga las instrucciones para los recursos que no son de proceso del artículo [Habilitación de los registros de diagnóstico en el portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Seleccione **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, o las dos categorías de registros.
 
 ### <a name="powershell"></a>PowerShell
 
-Para usar PowerShell a fin de habilitar el registro, siga las instrucciones del artículo [Habilitación de los registros de diagnóstico en PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-powershell). Evalúe la siguiente información antes de especificar un comando del artículo:
+Para usar PowerShell a fin de habilitar el registro, siga las instrucciones del artículo [Habilitación de los registros de diagnóstico en PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Evalúe la siguiente información antes de especificar un comando del artículo:
 
 - Puede determinar el valor que se usará para el parámetro `-ResourceId`; para ello, reemplace el siguiente [texto], según corresponda, y luego escriba el comando `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. La salida del identificador del comando es similar a */subscriptions/[Id. de suscripción]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[Nombre de NSG]*.
 - Si solo desea recopilar datos de categoría de registro, agregue `-Categories [category]` al final del comando en el artículo, donde la categoría es *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Si no utiliza el `-Categories` parámetro, la recopilación de datos estará habilitada para ambas categorías de registros.
 
 ### <a name="azure-command-line-interface-cli"></a>Interfaz de la línea de comandos (CLI) de Azure
 
-Para usar la CLI a fin de habilitar el registro, siga las instrucciones del artículo [Habilitación de los registros de diagnóstico en CLI](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-cli). Evalúe la siguiente información antes de especificar un comando del artículo:
+Para usar la CLI a fin de habilitar el registro, siga las instrucciones del artículo [Habilitación de los registros de diagnóstico en CLI](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Evalúe la siguiente información antes de especificar un comando del artículo:
 
 - Puede determinar el valor que se usará para el parámetro `-ResourceId`; para ello, reemplace el siguiente [texto], según corresponda, y luego escriba el comando `azure network nsg show [resource-group-name] [nsg-name]`. La salida del identificador del comando es similar a */subscriptions/[Id. de suscripción]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[Nombre de NSG]*.
 - Si solo desea recopilar datos de categoría de registro, agregue `-Categories [category]` al final del comando en el artículo, donde la categoría es *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Si no utiliza el `-Categories` parámetro, la recopilación de datos estará habilitada para ambas categorías de registros.

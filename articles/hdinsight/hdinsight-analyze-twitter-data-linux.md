@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: f1bdfb133b55f5cf18b85fa40908b8df534a15bd
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Análisis de datos de Twitter con Hive y Hadoop en HDInsight
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/08/2017
 Obtenga información sobre cómo utilizar Apache Hive para procesar los datos de Twitter. El resultado es una lista de usuarios de Twitter que enviaron la mayoría de los tweets que contienen una palabra determinada.
 
 > [!IMPORTANT]
-> Los pasos de este documento se probaron en HDInsight 3.5.
+> Los pasos de este documento se probaron en HDInsight 3.6.
 >
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
@@ -96,7 +96,7 @@ El siguiente código Python descarga 10 000 tweets de Twitter y los guarda en un
    nano gettweets.py
    ```
 
-5. Use el texto siguiente como contenido del archivo **gettweets.py**. Reemplace la información de marcador de posición para **consumer\_secret**, **consumer\_key**, **access/\_token** y **access\_token\_secret** por la información de la aplicación de Twitter.
+5. Use el texto siguiente como contenido del archivo **gettweets.py**:
 
    ```python
    #!/usr/bin/python
@@ -152,6 +152,14 @@ El siguiente código Python descarga 10 000 tweets de Twitter y los guarda en un
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
+    > [!IMPORTANT]
+    > Con la información de la aplicación de twitter, reemplace el texto del marcador de posición para los elementos siguientes:
+    >
+    > * `consumer_secret`
+    > * `consumer_key`
+    > * `access_token`
+    > * `access_token_secret`
+
 6. Use **Ctrl+X** y luego **Y** para guardar el archivo.
 
 7. Use el siguiente comando para ejecutar el archivo y descargar tweets:
@@ -160,7 +168,7 @@ El siguiente código Python descarga 10 000 tweets de Twitter y los guarda en un
     python gettweets.py
     ```
 
-    Debe aparecer un indicador de progreso y aumentar hasta 100% mientras los tweets se descargan y se guardan en el archivo.
+    Aparece un indicador de progreso. Cuenta hasta el 100% a medida que se descargan los tweets.
 
    > [!NOTE]
    > Si la barra de progreso tarda mucho en avanzar, debería cambiar el filtro de seguimiento de las tendencias. Cuando hay muchos tweets sobre un tema en el filtro, puede obtener rápidamente los 10 000 tweets necesarios.
@@ -296,7 +304,7 @@ Estos comandos almacenan los datos en una ubicación a la que pueden tener acces
 3. Use el siguiente comando para ejecutar el HiveQL incluido en el archivo:
 
    ```bash
-   beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin -i twitter.hql
+   beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
     Este comando ejecuta el archivo **twitter.hql**. Una vez que se completa la consulta, verá el aviso `jdbc:hive2//localhost:10001/>`.

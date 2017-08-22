@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 7453a6525b053e73fd8c935d578ffa9604d6e021
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 86795ba6eab3505a3d539e4fc4e032bdeecc2e78
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solución de problemas de implementación al crear una nueva máquina virtual Windows en Azure
@@ -65,7 +64,7 @@ Para resolver estos errores, use [Add-AzureRmVhd para cargar el disco duro virtu
 
 **Resolución**
 
-Para resolver estos errores, elimine la imagen actual del portal y [vuelva a capturarla desde los discos duros virtuales actuales](vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) con la misma configuración que para el sistema operativo (generalizada o especializada).
+Para resolver estos errores, elimine la imagen actual del portal y [vuelva a capturarla desde los discos duros virtuales actuales](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) con la misma configuración que para el sistema operativo (generalizada o especializada).
 
 ## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: Imagen de galería/marketplace/personalizada; error de asignación
 Este error se produce en situaciones en las que la nueva solicitud de máquina virtual está anclada en un clúster que no admite el tamaño de la máquina virtual que se solicita o no tiene espacio libre disponible para alojar la solicitud.

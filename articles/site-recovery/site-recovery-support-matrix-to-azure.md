@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajanaki
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: d42527fc661d320c6279fe3b74791983edc5cd33
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: a2ccc3d43a56a569897e1efe24f576eb92610ec3
 ms.contentlocale: es-es
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación desde local a Azure
@@ -165,7 +165,7 @@ NFS | No | N/D
 SMB 3.0 | No | No
 RDM | Sí<br/><br/> N/D para servidores físicos | N/D
 Disco > 1 TB | Sí<br/><br/>Hasta 4095 GB | Sí<br/><br/>Hasta 4095 GB
-Disco con tamaño de sector de 4K | No | No
+Disco con tamaño de sector de 4K | Sí | Sí, compatible con máquinas virtuales de Generación 1<br/><br/>No compatible con máquinas virtuales de Generación 2
 Volumen con disco en bandas > 1 TB<br/><br/> Administración de volúmenes lógicos (LVM) | Sí | Sí
 Espacios de almacenamiento | No | Sí
 Agregar/quitar disco en caliente | No | No

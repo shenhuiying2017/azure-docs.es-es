@@ -1,37 +1,37 @@
 ---
 title: Consulta de datos desde el entorno de Azure Time Series Insights mediante C# | Microsoft Docs
-description: "En este tutorial se describe cómo consultar datos desde el entorno de Time Series Insights mediante C#"
+description: "En este tutorial se describe cómo consultar datos desde el entorno de Time Series Insights mediante C#, con código de ejemplo."
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: ankryach
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 07/20/2017
 ms.author: ankryach
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 81d16b4093a4eef77e5a9c88cb39f2dd36bcba4e
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 1444b517664355e8e240ea181d707c464d7ec5bb
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="query-data-from-the-azure-time-series-insights-environment-by-using-c"></a>Consulta de datos desde el entorno de Azure Time Series Insights mediante C#
+# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Consulta de datos desde el entorno de Azure Time Series Insights mediante C#
 
 En este ejemplo de C# se muestra cómo consultar datos desde el entorno de Azure Time Series Insights.
 El ejemplo muestra varios ejemplos básicos del uso de la API de consulta:
-1. Como paso de preparación, el token de acceso se adquiere mediante la API de Azure Active Directory. Este token se debe pasar en el encabezado `Authorization` de todas las solicitudes de la API Query. Para configurar las aplicaciones no interactivas, vea el artículo [Autenticación y autorización](time-series-insights-authentication-and-authorization.md).
+1. Como paso de preparación, se adquiere el token de acceso mediante la API de Azure Active Directory. Pase este token en el encabezado `Authorization` de todas las solicitudes de Query API. Para configurar las aplicaciones no interactivas, consulte [Autenticación y autorización](time-series-insights-authentication-and-authorization.md). Asegúrese también de que todas las constantes definidas al principio del ejemplo se han definido correctamente.
 2. Se obtiene la lista de entornos a los que el usuario tiene acceso. Uno de los entornos se elige como entorno de interés y se consultan datos adicionales para este entorno.
 3. Como ejemplo de solicitud de HTTPS, se solicitan datos de disponibilidad del entorno de interés.
 4. Como ejemplo de solicitud de web socket, se solicitan datos de agregación de eventos del entorno de interés. Se solicitan datos de todo el intervalo de tiempo de disponibilidad.
 
-## <a name="c-sample"></a>Ejemplo de C#
+## <a name="c-example"></a>Ejemplo de C#
 
 ```csharp
 using System;
@@ -60,6 +60,9 @@ namespace TimeSeriesInsightsQuerySample
 
         // SET the application key of the application registered in your Azure Active Directory
         private static string ApplicationClientSecret = "#DUMMY#";
+
+        // SET the Azure Active Directory tenant.
+        private static string Tenant = "#DUMMY#.onmicrosoft.com";
 
         public static async Task SampleAsync()
         {
@@ -261,14 +264,14 @@ namespace TimeSeriesInsightsQuerySample
 
         private static async Task<string> AcquireAccessTokenAsync()
         {
-            if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#")
+            if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#" || Tenant.StartsWith("#DUMMY#"))
             {
                 throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId' and 'ApplicationClientSecret'.");
+                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
             }
 
             var authenticationContext = new AuthenticationContext(
-                "https://login.microsoftonline.com/common",
+                $"https://login.windows.net/{Tenant}",
                 TokenCache.DefaultShared);
 
             AuthenticationResult token = await authenticationContext.AcquireTokenAsync(

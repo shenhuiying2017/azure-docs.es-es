@@ -12,20 +12,20 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/15/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 74809ce12a2a273a18ff3e0559aefd79fb4d2da7
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 0853e8605e07c28867676e9c13b89263ade67c88
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
-Aprenda a usar acciones de script para agregar cuentas de almacenamiento de Azure adicionales a un clúster de HDInsight existente que usa Linux como sistema operativo.
+Aprenda a usar acciones de script para agregar cuentas de almacenamiento de Azure adicionales a HDInsight. Los pasos descritos en este documento agregan una cuenta de almacenamiento a un clúster de HDInsight existente basado en Linux.
 
 > [!IMPORTANT]
 > La información de este documento trata sobre cómo agregar almacenamiento adicional a un clúster después de que se ha creado. Para más información sobre cómo agregar cuentas de almacenamiento durante la creación del clúster, consulte [Configuración de clústeres de HDInsight con Hadoop, Spark, Kafka y mucho más](hdinsight-hadoop-provision-linux-clusters.md).
@@ -50,7 +50,7 @@ Durante el procesamiento, el script realiza las siguientes acciones:
 
 * Agrega la cuenta de almacenamiento al archivo core-site.xml.
 
-* Detiene y reinicia los servicios Oozie, YARN, MapReduce2 y HDFS para que recopilen la información de la nueva cuenta de almacenamiento.
+* Detiene y reinicia los servicios de Oozie, YARN, MapReduce2 y HDFS. Detener e iniciar estos servicios permite que usen la nueva cuenta de almacenamiento.
 
 > [!WARNING]
 > No se admite el uso de una cuenta de almacenamiento en una ubicación diferente a la del clúster de HDInsight.
@@ -65,12 +65,14 @@ __Requisitos__:
 
 ## <a name="to-use-the-script"></a>Para usar el script
 
-Consulte la sección Aplicación de una acción de script a un clúster en ejecución del documento [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) para más información sobre el uso de acciones de script mediante Azure Portal, Azure PowerShell y la CLI de Azure.
+Este script se puede utilizar a través de Azure Portal, Azure PowerShell o la CLI de Azure 1.0. Para más información, consulte el documento [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
-Cuando se use la información proporcionada en el documento de personalización, sustituya el identificador URI de la acción de script necesaria por el identificador URI de este script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh). Reemplace los parámetros de ejemplo por el nombre de la cuenta de almacenamiento de Azure y la clave de la cuenta de almacenamiento que va a agregar al clúster.
-
-> [!NOTE]
-> No es necesario marcar este script como __Guardado__, porque actualiza directamente la configuración de Ambari para el clúster.
+> [!IMPORTANT]
+> Al utilizar los pasos indicados en el documento de personalización, utilice la siguiente información para aplicar este script:
+>
+> * Sustituya el identificador URI de la acción de script necesaria por el identificador URI de este script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
+> * Reemplace los parámetros de ejemplo por el nombre de la cuenta de almacenamiento de Azure y la clave de la cuenta de almacenamiento que va a agregar al clúster. Si usa Azure Portal, estos parámetros deben estar separados por un espacio.
+> * No es necesario marcar este script como __Guardado__, porque actualiza directamente la configuración de Ambari para el clúster.
 
 ## <a name="known-issues"></a>Problemas conocidos
 
@@ -142,7 +144,7 @@ Si la cuenta de almacenamiento está en una región distinta a la del clúster d
 
 ### <a name="additional-charges"></a>Cargos adicionales
 
-Si la cuenta de almacenamiento se encuentra en una región distinta a la del clúster de HDInsight, puede que observe cargos de salida adicionales en su facturación de Azure. Se aplica un cargo de salida cuando los datos salen de un centro de datos regional, incluso si el tráfico va destinado a otro centro de datos de Azure en una región distinta.
+Si la cuenta de almacenamiento se encuentra en una región distinta a la del clúster de HDInsight, puede que observe cargos de salida adicionales en su facturación de Azure. Se aplica un cargo de salida cuando los datos salen de un centro de datos regional. Este cargo se aplica incluso si el tráfico va destinado a otro centro de datos de Azure en una región distinta.
 
 > [!WARNING]
 > No se admite el uso de una cuenta de almacenamiento en una región diferente a la del clúster de HDInsight.

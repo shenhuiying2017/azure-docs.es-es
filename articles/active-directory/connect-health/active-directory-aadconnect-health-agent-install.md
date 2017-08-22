@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 7aa1363c3d4164edb5199a21e75b2b08a3218bf5
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 8ef8a1cc2393f0befbf83c3124b67b405ae06898
 ms.contentlocale: es-es
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalación del agente de Azure AD Connect Health
@@ -37,6 +37,7 @@ En la tabla siguiente hay una lista de requisitos para utilizar Azure AD Connect
 | La inspección de SSL para el tráfico saliente se filtra o se deshabilita. | Las operaciones de carga de datos o de paso de registro de agente pueden producir un error si se produce la inspección de SSL o la finalización del tráfico saliente en el nivel de red. |
 | Puertos de Firewall en el servidor que ejecuta al agente. |El agente requiere que los siguientes puertos de firewall estén abiertos para poder comunicarse con los puntos de conexión de Azure AD Health.</br></br><li>Puerto TCP 443</li><li>Puerto TCP 5671</li> |
 | Permitir los siguientes sitios web si la seguridad mejorada de IE está habilitada |Si está habilitada la seguridad mejorada de Internet Explorer, los siguientes sitios web se deben permitir en el servidor en el que estará instalado el agente.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>El servidor de federación de su organización en el que confía Azure Active Directory. Por ejemplo: https://sts.contoso.com</li> |
+|Deshabilitar FIPS|FIPS no es compatible con los agentes de Azure AD Connect Health.|
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Instalación del agente de Azure AD Connect Health para AD FS
 Para iniciar la instalación del agente, haga doble clic en el archivo .exe que descargó. En la primera pantalla, haga clic en Instalar.
@@ -90,7 +91,7 @@ Para que la característica Análisis de uso pueda recopilar y analizar datos, e
 1. Haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en **Directiva de seguridad local**.
 2. Navegue hasta la carpeta **Configuración de seguridad\Directivas locales\Administración de derechos de usuario** y haga doble clic en Generar auditorías de seguridad.
 3. En la pestaña **Configuración de seguridad local** , compruebe que aparezca la cuenta de servicio de AD FS 2.0. Si no aparece, haga clic en **Agregar usuario o grupo**, agréguela a la lista y luego haga clic en **Aceptar**.
-4. Para habilitar la auditoría, abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+4. Para habilitar la auditoría, abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
 5. Cierre Directiva de seguridad local y luego abra el complemento de administración. Para abrir el complemento de administración, haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en Administración de AD FS 2.0.
 6. En el panel Acciones, haga clic en Editar propiedades del servicio de federación.
 7. En el cuadro de diálogo **Propiedades del servicio de federación**, haga clic en la pestaña **Eventos**.
@@ -111,7 +112,7 @@ Para que la característica Análisis de uso pueda recopilar y analizar datos, e
 1. Abra **Directiva de seguridad local**; para ello, abra **Administrador del servidor** en la pantalla Inicio o Administrador del servidor en la barra de tareas del escritorio y luego haga clic en **Herramientas/Directiva de seguridad local**.
 2. Navegue hasta la carpeta **Configuración de seguridad\Directivas locales\Asignación de derechos de usuario** y haga doble clic en **Generar auditorías de seguridad**.
 3. En la pestaña **Configuración de seguridad local** , compruebe que aparezca la cuenta de servicio de AD FS. Si no aparece, haga clic en **Agregar usuario o grupo**, agregue la cuenta de servicio de AD FS a la lista y después haga clic en **Aceptar**.
-4. Para habilitar la auditoría, abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+4. Para habilitar la auditoría, abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
 5. Cierre **Directiva de seguridad local** y luego abra el complemento **Administración de AD FS** (en Administrador del servidor, haga clic en Herramientas y luego seleccione Administración de AD FS).
 6. En el panel Acciones, haga clic en **Editar propiedades del servicio de federación**.
 7. En el cuadro de diálogo Propiedades del servicio de federación, haga clic en la pestaña **Eventos** .

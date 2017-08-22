@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 03efe81383a6c2fdfe50551355c33dc7af3837e8
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 27b393a899c60a3a0393619f338a396dff659498
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="use-azure-file-storage-with-linux"></a>Uso de Azure File Storage con Linux
 [Azure File Storage](storage-dotnet-how-to-use-files.md) es el sistema de archivos en la nube de Microsoft fácil de usar. Los recursos compartidos de Azure File se pueden montar en distribuciones de Linux mediante el [paquete cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) del [proyecto de Samba](https://www.samba.org/). En este artículo se muestran dos maneras de montar un recurso compartido de Azure File: a petición, con el comando `mount` y al inicio, mediante la creación de una entrada en `/etc/fstab`.
 
 > [!NOTE]  
-> Para montar un recurso compartido de Azure File fuera de la región de Azure en la que se hospeda, bien sea en local o en una región distinta de Azure, el sistema operativo debe admitir la funcionalidad de cifrado de SMB 3.0. La característica de cifrado de SMB 3.0 para Linux se introdujo en el kernel 4.11. Esta característica permite el montaje de recursos compartidos de Azure File desde el entorno local o una región distinta de Azure. En el momento de la publicación, esta funcionalidad se ha usado en Ubuntu 17.04 y Ubuntu 16.10.
+> Para montar un recurso compartido de Azure File fuera de la región de Azure en la que se hospeda, bien sea en local o en una región distinta de Azure, el sistema operativo debe admitir la funcionalidad de cifrado de SMB 3.0. La característica de cifrado de SMB 3.0 para Linux se introdujo en el kernel 4.11. Esta característica permite el montaje de recursos compartidos de Azure File desde el entorno local o una región distinta de Azure. En el momento de la publicación, esta funcionalidad se ha usado en Ubuntu 16.04 y en versiones anteriores.
 
 
 ## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Requisitos previos para el montaje de un recurso compartido de Azure File con Linux y el paquete cifs-utils
@@ -36,10 +36,7 @@ ms.lasthandoff: 07/21/2017
     * CentOS 7+
     * Debian 8
     * openSUSE 13.2+
-    * SUSE Linux Enterprise Server 12   
-
-    > [!Note]  
-    > No se puede usar con Azure File Storage ninguna distribución de Linux que descargue e instale (o compile) versiones recientes del paquete cifs-utils.
+    * SUSE Linux Enterprise Server 12
 
 * <a id="install-cifs-utils"></a>**El paquete cifs-utils está instalado**: este paquete se puede instalar con el administrador de paquetes de la distribución de Linux de su elección. 
 
@@ -111,10 +108,10 @@ ms.lasthandoff: 07/21/2017
 ## <a name="feedback"></a>Comentarios
 Usuarios de Linux: nos gustaría conocer su opinión.
 
-El almacenamiento de archivos de Azure para el grupo de usuarios de Linux cuenta con un foro donde puede compartir sus comentarios a medida que evalúa y adopta el almacenamiento de archivos en Linux. Envíe un correo electrónico a [Usuarios de Linux de Azure File Storage](mailto:azurefileslinuxusers@microsoft.com) para unirse al grupo de usuarios.
+Azure File Storage para el grupo de usuarios de Linux cuenta con un foro donde puede compartir sus comentarios a medida que evalúa y adopta File Storage en Linux. Envíe un correo electrónico a [Usuarios de Linux de Azure File Storage](mailto:azurefileslinuxusers@microsoft.com) para unirse al grupo de usuarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los vínculos siguientes para obtener más información acerca de Almacenamiento de archivos de Azure.
+Consulte los vínculos siguientes para obtener más información acerca Azure File Storage.
 * [Referencia de la API REST del servicio de archivos](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [Usar Azure PowerShell con Azure Storage](storage-powershell-guide-full.md)
 * [Uso de AzCopy con Microsoft Azure Storage](storage-use-azcopy.md)

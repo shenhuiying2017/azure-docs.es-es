@@ -12,15 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 08/02/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4abc72962f5a67851aee9d64d7c8125e72d0ec09
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: d876bb1759600fa29a26730bfa8b4ec19db1e442
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Administración de trabajos comunes de copia de seguridad de Azure y desencadenado de alertas en el Portal clásico
@@ -38,8 +37,8 @@ Este artículo proporciona información acerca de las tareas de administración 
 > [!IMPORTANT]
 >A partir de marzo de 2017, ya no podrá usar el portal clásico para crear almacenes de Backup.
 >
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **A partir del 1 de noviembre de 2017**:
->- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del 15 de octubre de 2017, no podrá usar PowerShell para crear almacenes de Backup. **El 1 de noviembre de 2017**:
+>- Todos los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
 >- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 
 ## <a name="manage-protected-virtual-machines"></a>Administrar máquinas virtuales protegidas
@@ -245,7 +244,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 Las alertas basadas en eventos están sometidas a las siguientes limitaciones:
 
 1. Las alertas se activan en todas las máquinas virtuales del almacén de copia de seguridad. No es posible personalizar esto para obtener alertas para un conjunto específico de máquinas virtuales de un almacén de copia de seguridad.
-2. Esta característica se encuentra en versión preliminar. [Más información](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
+2. Esta característica se encuentra en versión preliminar. [Más información](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Recibirá las alertas de alerts-noreply@mail.windowsazure.com. Actualmente, no se puede modificar el remitente de correo electrónico.
 
 ## <a name="next-steps"></a>Pasos siguientes

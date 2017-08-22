@@ -1,5 +1,4 @@
 ---
-
 title: "Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS | Microsoft Docs"
 description: "Habilite la autenticación de inicio de sesión único y la administración del acceso centralizado para el aprovisionamiento de usuarios de las aplicaciones SaaS en Azure Active Directory. Información general sobre cómo integrar Azure Active Directory en las aplicaciones SaaS."
 services: active-directory
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
+ms.reviewer: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
 ms.contentlocale: es-es
 ms.lasthandoff: 05/08/2017
-
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS

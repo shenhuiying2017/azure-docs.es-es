@@ -57,9 +57,10 @@
 ## Detección y respuesta
 ### [Funcionalidades de detección](security-center-detection-capabilities.md)
 ### [Administración de alertas de seguridad](security-center-managing-and-responding-alerts.md)
+### [Tipos de alertas de seguridad](security-center-alerts-type.md)
+### [Validación de alertas](security-center-alert-validation.md)
 ### [Administración de incidentes de seguridad](security-center-incident.md)
 ### [Integración de registro de Azure](security-center-integrating-alerts-with-log-integration.md)
-### [Tipos de alertas de seguridad](security-center-alerts-type.md)
 ### [Informe de inteligencia de amenazas](security-center-threat-report.md)
 
 ## Solución de problemas

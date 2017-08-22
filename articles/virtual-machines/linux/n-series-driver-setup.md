@@ -17,10 +17,10 @@ ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9cb7aa1e0b4e96a6f40620685b5505587b94ec66
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bdeb4d5ca1d9ff4d7dfd0961690412dd7530572a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -81,12 +81,18 @@ Para instalar los controladores de NVIDIA GRID en máquinas virtuales NV, realic
 
 6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí**.
 
-7. Una vez finalizada la instalación, agregue lo siguiente a `/etc/nvidia/gridd.conf.template`:
+7. Una vez completada la instalación, copie /etc/nvidia/gridd.conf.template en un nuevo archivo gridd.conf en la ubicación /etc/nvidia/
+
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+
+8. Agregue lo siguiente a `/etc/nvidia/gridd.conf`:
  
   ```
   IgnoreSP=TRUE
   ```
-8. Reinicie la máquina virtual y continúe para comprobar la instalación.
+9. Reinicie la máquina virtual y continúe para comprobar la instalación.
 
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Con base en CentOS 7.3 o Red Hat Enterprise Linux 7.3
@@ -139,12 +145,18 @@ Para instalar los controladores de NVIDIA GRID en máquinas virtuales NV, realic
   ``` 
 6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí**.
 
-7. Una vez finalizada la instalación, agregue lo siguiente a `/etc/nvidia/gridd.conf.template`:
+7. Una vez completada la instalación, copie /etc/nvidia/gridd.conf.template en un nuevo archivo gridd.conf en la ubicación /etc/nvidia/
+  
+  ```bash
+  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+  ```
+  
+8. Agregue lo siguiente a `/etc/nvidia/gridd.conf`:
  
   ```
   IgnoreSP=TRUE
   ```
-8. Reinicie la máquina virtual y continúe para comprobar la instalación.
+9. Reinicie la máquina virtual y continúe para comprobar la instalación.
 
 ### <a name="verify-driver-installation"></a>Comprobación de la instalación del controlador
 
@@ -349,3 +361,4 @@ sudo reboot
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (para máquinas virtuales de Azure NV)
 
 * Para capturar una imagen de una VM Linux con los controladores de NVIDIA instalados, vea [Procedimiento para generalizar y capturar una máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+

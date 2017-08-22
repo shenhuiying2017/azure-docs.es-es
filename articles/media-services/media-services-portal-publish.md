@@ -1,5 +1,5 @@
 ---
-title: "  Publicación de contenido con Azure Portal | Microsoft Docscs"
+title: "  Publicación de contenido con Azure Portal | Microsoft Docs"
 description: "Este tutorial lo guiará a través de los pasos de publicación de contenidos con el Portal de Azure."
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 72b0b7feef583799613b1cb2c18b2020c1401b36
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 403f15db2979a6626d5896ccc950f355f0a06a4e
+ms.contentlocale: es-es
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="publish-content-with-the-azure-portal"></a>Publicación de contenido con el Portal de Azure
@@ -98,10 +99,5 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

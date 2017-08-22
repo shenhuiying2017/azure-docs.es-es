@@ -13,17 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 23715879b46dd6d56a91fac2908964ea87fe569a
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="quick-start-azure-ad-self-service-password-reset"></a>Inicio rápido: Autoservicio de restablecimiento de contraseña de Azure AD
+# <a name="quickstart-azure-ad-self-service-password-reset"></a>Inicio rápido: Autoservicio de restablecimiento de contraseña de Azure AD
+
+> [!IMPORTANT]
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="rapidly-deploy-self-service-password-reset"></a>Implementación rápida del autoservicio de restablecimiento de contraseña
 
@@ -76,7 +79,7 @@ Para habilitar la sincronización de identidades local con Azure AD, debe instal
 
 Para deshabilitar el autoservicio de restablecimiento de contraseña, tan solo tiene que abrir el inquilino de Azure AD, ir a **Restablecimiento de contraseña, Propiedades** y seleccionar **Nadie** en **Se habilitó el restablecimiento de contraseña del autoservicio**.
 
-## <a name="next-steps"></a>Pasos siguientes
+### <a name="learn-more"></a>Más información
 Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
 
 * [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
@@ -88,4 +91,12 @@ Los vínculos siguientes proporcionan información adicional sobre el restableci
 * [**Profundización técnica**](active-directory-passwords-how-it-works.md): conozca lo que hay detrás para comprender cómo funciona.
 * [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? : respuestas a las preguntas que siempre se ha hecho.
 * [**Solución de problemas**](active-directory-passwords-troubleshoot.md): información para resolver problemas habituales de SSPR
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este inicio rápido, ha aprendido a configurar el autoservicio de restablecimiento de contraseña para los usuarios. Para continuar en Azure Portal para completar estos pasos siga el vínculo siguiente al portal.
+
+> [!div class="nextstepaction"]
+> [Habilitar el autoservicio de restablecimiento de contraseña](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 

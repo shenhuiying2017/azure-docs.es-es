@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: edb7e6153060bf4b5471bf6c360b16672d5f759d
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b56674857b013f9bb3d4dd4b6e97b34e0a97b1b2
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Uso de MapReduce de Hadoop en HDInsight con Escritorio remoto
@@ -54,7 +53,7 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
    >
 2. Para usar el comando de **Hadoop** para ejecutar un trabajo de MapReduce de ejemplo, utilice el siguiente comando:
 
-        hadoop jar hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
+        hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
     Se inicia la clase **wordcount**, incluida en el archivo **hadoop-mapreduce-examples.jar** del directorio actual. Como entrada, usa el documento **wasb://example/data/gutenberg/davinci.txt** y la salida se almacena en **wasb:///ejemplo/data/WordCountOutput**.
 
@@ -68,9 +67,9 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
         Bytes Read=1395666
         File Output Format Counters
         Bytes Written=337623
-4. Una vez completado, utilice el siguiente comando para enumerar los archivos de salida almacenados en **wasb://example/data/WordCountOutput**:
+4. Una vez completado, use el comando siguiente para enumerar los archivos de salida almacenados en **wasb://example/data/WordCountOutput**:
 
-        hadoop fs -ls wasbs:///example/data/WordCountOutput
+        hadoop fs -ls wasb:///example/data/WordCountOutput
 
     Se deberían mostrar dos archivos, **_SUCCESS** y **part-r-00000**. El archivo **part-r-00000** contiene la salida de este trabajo.
 
@@ -80,7 +79,7 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
    >
 5. Para ver la salida, use el comando siguiente:
 
-        hadoop fs -cat wasbs:///example/data/WordCountOutput/part-r-00000
+        hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
     Se mostrará una lista de las palabras contenidas en el archivo **wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que aparecía cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
 

@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/09/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ef5db062ac320995ff8bfa64f38c89d860957868
 ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/28/2017
 
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
@@ -36,7 +37,7 @@ Este documento contiene una lista de los formatos de archivo de entrada y salida
 
 **Flujo de trabajo del Codificador multimedia premium** admite los subtítulos que se describen en [esta](#closed_captioning) sección. 
 
-## <a name="a-idinputformatsamedia-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Códecs y formatos de entrada de flujo de trabajo del Codificador multimedia Premium
+## <a id="input_formats"></a>Códecs y formatos de entrada de flujo de trabajo del Codificador multimedia Premium
 En la sección siguiente se enumeran los códecs y formatos de archivo que admite este procesador multimedia como entrada.
 
 ### <a name="input-containerfile-formats"></a>Formatos de archivo/contenedor de entrada
@@ -68,7 +69,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que admit
 * Windows Media Audio
 * WAV/PCM
 
-## <a name="a-idoutputformatamedia-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Códecs y formatos de salida de flujo de trabajo del Codificador multimedia Premium
+## <a id="output_format"></a>Códecs y formatos de salida de flujo de trabajo del Codificador multimedia Premium
 En la sección siguiente se enumeran los códecs y formatos de archivo que se admiten como salida de este procesador multimedia.
 
 ### <a name="output-containerfile-formats"></a>Formatos de archivo/contenedor de salida
@@ -103,7 +104,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que se ad
 >[!NOTE]
 >Si utiliza la codificación en Dolby® Digital (AC3), la salida solo puede escribirse en un archivo ISO MP4.
 
-## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>Compatibilidad con subtítulos
+## <a id="closed_captioning"></a>Compatibilidad con subtítulos
 En la entrada, el **flujo de trabajo del Codificador multimedia Premium** admite:
 
 1. Archivos SCC
@@ -130,10 +131,5 @@ Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá c
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

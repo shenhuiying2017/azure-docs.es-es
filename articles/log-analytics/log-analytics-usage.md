@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Análisis del uso de datos en Log Analytics
@@ -141,6 +141,8 @@ Si es necesario, realice análisis adicionales para identificar grandes volúmen
 + Tipo de datos **Syslog**
   - `Type=Syslog | measure count() by Facility, SeverityLevel`
   - `Type=Syslog | measure count() by ProcessName`
++ Tipo de datos de **AzureDiagnostics**
+  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
 
 Use los pasos siguientes para reducir el volumen de registros recopilados:
 
@@ -150,6 +152,7 @@ Use los pasos siguientes para reducir el volumen de registros recopilados:
 | contadores de rendimiento       | Cambie la [configuración de los contadores de rendimiento](log-analytics-data-sources-performance-counters.md) para: <br> - Reducir la frecuencia de la colección <br> - Reducir el número de contadores de rendimiento |
 | Registros de eventos                 | Cambie la [configuración del registro de eventos](log-analytics-data-sources-windows-events.md) para: <br> - Reducir el número de registros de eventos recopilados <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información*. |
 | syslog                     | Cambie la [configuración de syslog](log-analytics-data-sources-syslog.md) para: <br> - Reducir el número de instalaciones recopiladas <br> - Recopilar solo los niveles de eventos necesarios Por ejemplo, no recopile eventos de nivel de *información* y *depuración*. |
+| AzureDiagnostics           | Cambie la colección de registros de recursos para: <br> - Reducir el número de registros de recursos enviados a Log Analytics <br> - Recopilar solo los registros necesarios |
 | Datos de la solución procedentes de equipos que no necesitan la solución | Use la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) para recopilar datos solo de los grupos de equipos necesarios. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Comprobar si hay más nodos de lo esperado

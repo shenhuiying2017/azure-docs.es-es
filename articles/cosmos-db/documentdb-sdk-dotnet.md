@@ -1,6 +1,6 @@
 ---
-title: SDK y recursos de .NET para Azure DocumentDB | Microsoft Docs
-description: "Obtenga toda la información sobre el SDK y la API para .NET como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios de una versión a otra del SDK para .NET de DocumentDB."
+title: SDK y recursos de .NET para Azure Cosmos DB | Microsoft Docs
+description: "Obtenga toda la información sobre la API y el SDK de .NET incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK para .NET de Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 08/08/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a41df84034dbc2f1ec6c61d027ced77694354d51
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2c796156df6ed2a891d423030bdd07b5c19f3235
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="documentdb-net-sdk-download-and-release-notes"></a>SDK de .NET para DocumentDB: descarga y notas de la versión
+# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>SDK de .NET para Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Fuente de cambios de .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -44,7 +44,7 @@ ms.lasthandoff: 07/21/2017
 
 <tr><td>**Ejemplos**</td><td>[Ejemplos de código de .NET](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**Primeros pasos**</td><td>[Introducción al SDK de .NET de DocumentDB](documentdb-get-started.md)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK para .NET de Azure Cosmos DB](documentdb-get-started.md)</td></tr>
 
 <tr><td>**Tutorial de la aplicación web**</td><td>[Desarrollo de aplicaciones web con Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
@@ -53,11 +53,18 @@ ms.lasthandoff: 07/21/2017
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* Se corrigió un problema en la clase JsonSerializable que podría provocar una excepción de desbordamiento de pila.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+*   Se corrigió un problema que requiere volver a compilar la aplicación debido a la incorporación de JsonSerializerSettings como un parámetro opcional en el constructor DocumentClient.
+* Se marcó el constructor DocumentClient como obsoleto, porque se requería JsonSerializerSettings como el último parámetro para permitir los valores predeterminados de los parámetros ConnectionPolicy y ConsistencyLevel cuando se especifica el parámetro JsonSerializerSettings.
+
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 *   Se agregó compatibilidad con la especificación de JsonSerializerSettings personalizado al crear instancias de [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   Se corrigió un problema que afectaba a las máquinas x64 que no admiten instrucciones SSE4 y que producía una excepción SEHException al ejecutar consultas de API de DocumentDB.
+*   Se ha corregido un problema que afectaba a los equipos x64 que no admiten instrucciones SSE4 y que producía una excepción SEHException al ejecutar consultas de la API de DocumentDB de Azure Cosmos DB.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 *   Se agregó compatibilidad con la característica Unidad de solicitud por minuto (RU/m).
@@ -143,7 +150,7 @@ ms.lasthandoff: 07/21/2017
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
 * Se ha agregado compatibilidad con las consultas paralelas en las colecciones particionadas.
 * Se ha agregado compatibilidad con las consultas ORDER BY y TOP entre particiones en las colecciones particionadas.
-* Se han corregido las referencias que faltaban en DocumentDB.Spatial.Sql.dll y Microsoft.Azure.Documents.ServiceInterop.dll, que se necesitan para hacer referencia a un proyecto de DocumentDB con una referencia al paquete NuGet de DocumentDB.
+* Se han corregido las referencias que faltaban en DocumentDB.Spatial.Sql.dll y Microsoft.Azure.Documents.ServiceInterop.dll, que se necesitan para hacer referencia a un proyecto de Azure Cosmos DB con una referencia al paquete NuGet de Azure Cosmos DB.
 * Se ha corregido la funcionalidad relacionada con el uso de parámetros de diferentes tipos al utilizar las funciones definidas por el usuario de LINQ. 
 * Se ha corregido un error en las cuentas replicadas globalmente que provocaba que las llamadas de Upsert se dirigieran a ubicaciones de lectura y no de escritura.
 * Se han agregado a la interfaz IDocumentClient los métodos que faltaban: 
@@ -156,7 +163,7 @@ ms.lasthandoff: 07/21/2017
 * Se ha agregado compatibilidad con cuentas de base de datos de varias regiones.
 * Se ha agregado compatibilidad con el reintento en solicitudes limitadas.  El usuario puede personalizar el número de reintentos y el tiempo de espera máximo mediante la configuración de la propiedad ConnectionPolicy.RetryOptions.
 * Se ha agregado una nueva interfaz IDocumentClient que define las firmas de todas las propiedades y métodos de DocumenClient.  Como parte de este cambio, también se han cambiado los métodos de extensión que crean IQueryable y IOrderedQueryable por los métodos de la propia clase DocumentClient.
-* Se ha agregado la opción de configuración para definir el valor de ServicePoint.ConnectionLimit para un identificador URI de punto de conexión dado de DocumentDB.  Use ConnectionPolicy.MaxConnectionLimit para cambiar el valor predeterminado, que está establecido en 50.
+* Se ha agregado la opción de configuración para definir el valor de ServicePoint.ConnectionLimit para un identificador URI de punto de conexión dado de Azure Cosmos DB.  Use ConnectionPolicy.MaxConnectionLimit para cambiar el valor predeterminado, que está establecido en 50.
 * Se ha dejado de utilizar IPartitionResolver y su implementación.  La compatibilidad con IPartitionResolver está ahora obsoleta. Se recomienda usar colecciones con particiones para conseguir un almacenamiento y un rendimiento más elevados.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
@@ -172,7 +179,7 @@ ms.lasthandoff: 07/21/2017
 * Se han implementado [colecciones particionadas](partition-data.md) y [niveles de rendimiento definidos por el usuario](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Corregido]** La consulta del punto de conexión de DocumentDB genera: "System.Net.Http.HttpRequestException: Error al copiar contenido a una secuencia".
+* **[Corregido]** La consulta del punto de conexión de Azure Cosmos DB genera: "System.Net.Http.HttpRequestException: Error al copiar contenido a una secuencia".
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Compatibilidad de LINQ ampliada, incluidos nuevos operadores de paginación, expresiones condicionales y comparación de intervalos.
@@ -247,6 +254,8 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |7 de agosto de 2017 |--- |
+| [1.16.0](#1.16.0) |2 de agosto de 2017 |--- |
 | [1.15.0](#1.15.0) |30 de junio de 2017 |--- |
 | [1.14.1](#1.14.1) |23 de mayo de 2017 |--- |
 | [1.14.0](#1.14.0) |10 de mayo de 2017 |--- |

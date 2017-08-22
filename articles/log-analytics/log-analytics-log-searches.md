@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 07/26/2017
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6dbe7713c48a60974f1026dddc8ee9d2aeb01708
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="find-data-using-log-searches"></a>Búsqueda de datos mediante búsquedas de registros
+# <a name="find-data-using-log-searches-in-log-analytics"></a>Descripción de las búsquedas de registros en Log Analytics
+
+>[!NOTE]
+> En este artículo se describen las búsquedas de registros de Log Analytics mediante el lenguaje de consulta actual.  Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), debe consultar [Understanding log searches in Log Analytics (new)](log-analytics-log-search-new.md) (Descripción de las búsquedas de registros en Log Analytics [nuevo]).
+
 
 La base de Log Analytics es la característica de búsqueda de registros que permite combinar y correlacionar datos de equipo procedentes de varios orígenes en el entorno. Las soluciones también se basan en la búsqueda de registros con el objeto de proporcionarle métricas dinamizadas en torno a una área de problema determinada.
 

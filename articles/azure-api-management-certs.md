@@ -12,51 +12,47 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2016
+ms.date: 08/01/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 783390791f27a9bf8ea400403a8b0f866f8c5cee
-ms.openlocfilehash: 0f1ae486340270cac5cfdb5d44485d05cb996388
-
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 9dc438e927acd9aef38f06807fabf3dda9b021c9
+ms.contentlocale: es-es
+ms.lasthandoff: 08/05/2017
 
 ---
-# <a name="upload-an-azure-management-api-management-certificate"></a>Carga de un certificado de administración de API de Administración de Azure
-Los certificados de administración le permiten autenticar con la API de administración de servicio proporcionada por Azure. Muchos programas y herramientas (como Visual Studio o el SDK de Azure) utilizarán estos certificados para automatizar la configuración y la implementación de varios servicios de Azure. **Solo se aplica al Portal de Azure clásico**.
+# <a name="upload-an-azure-management-api-management-certificate"></a>Carga de un certificado de administración de Azure Management API
+Los certificados de administración le permiten autenticar con el modelo de implementación clásica que proporciona Azure. Muchos programas y herramientas (como Visual Studio o Azure SDK) utilizan estos certificados para automatizar la configuración y la implementación de diferentes servicios de Azure. 
 
 > [!WARNING]
 > Por lo tanto, tenga cuidado. Estos tipos de certificados permiten a quien se autentica con ellos administrar la suscripción a la que están asociados.
 >
 >
 
-Para obtener [más](cloud-services/cloud-services-certs-create.md#what-are-management-certificates) información acerca de los certificados de Azure (incluida la creación de un certificado autofirmado) si lo necesita.
+Si deseara más información acerca de los certificados de Azure (incluido cómo crear un certificado autofirmado), consulte [Introducción a los certificados para Azure Cloud Services](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 También puede usar [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) para autenticar el código de cliente para fines de automatización.
 
 ## <a name="upload-a-management-certificate"></a>Carga de un certificado de administración
-Una vez que tenga un certificado de administración creado, (archivo .cer con solo la clave pública) puede cargarlo en el portal. Cuando el certificado esté disponible en el portal, cualquiera que tenga un certificado que coincida (clave privada) puede conectarse a través de la API de administración y obtener acceso a los recursos de la suscripción asociada.
+Una vez que tenga creado un certificado de administración, (archivo .cer con solo la clave pública) puede cargarlo en el portal. Cuando el certificado esté disponible en el portal, cualquiera que tenga un certificado que coincida (clave privada) puede conectarse a través de Management API y obtener acceso a los recursos de la suscripción asociada.
 
-1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com).
-2. Asegúrese de seleccionar la suscripción correcta a la que desee asociar un certificado. Presione el texto **Suscripciones** texto en la parte superior derecha del portal.
+1. Inicie sesión en [Azure Portal](http://portal.azure.com).
+2. Haga clic en **Más servicios** en la lista de servicios de Azure en la parte inferior y, a continuación, seleccione **Suscripciones** en el grupo de servicios _General_.
 
-    ![Configuración](./media/azure-api-management-certs/subscription.png)
-3. Una vez que tenga la suscripción correcta seleccionada, presione **Configuración** en el lado izquierdo del portal (es posible que necesite desplazarse hacia abajo).
+    ![Menú Suscripción](./media/azure-api-management-certs/subscriptions_menu.png)
 
-    ![Configuración](./media/azure-api-management-certs/settings.png)
-4. Presione la pestaña **Certificados de administración** .
+3. Asegúrese de seleccionar la suscripción correcta a la que desee asociar el certificado.     
+4. Después de haber seleccionado la suscripción correcta, presione **Certificados de administración** en el grupo _Configuración_.
 
-    ![Configuración](./media/azure-api-management-certs/certificates-tab.png)
+    ![Settings](./media/azure-api-management-certs/mgmtcerts_menu.png)
+
 5. Presione el botón **Cargar** .
 
-    ![Configuración](./media/azure-api-management-certs/upload.png)
-6. Complete la información del cuadro de diálogo y presione la **marca de verificación**de completado.
+    ![Cargar la página Certificados](./media/azure-api-management-certs/certificates_page.png)
+6. Rellene la información del cuadro de diálogo y haga clic en **Cargar**.
 
-    ![Configuración](./media/azure-api-management-certs/upload-dialog.png)
+    ![Settings](./media/azure-api-management-certs/certificate_details.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que tiene un certificado de administración asociado a una suscripción, puede conectarse mediante programación (después de haber instalado localmente el certificado correspondiente) a la [API de REST de administración de servicios](https://msdn.microsoft.com/library/azure/mt420159.aspx) y automatizar los distintos recursos de Azure que también están asociados a esa suscripción.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+Ahora que tiene un certificado de administración asociado a una suscripción, puede conectarse mediante programación (después de haber instalado localmente el certificado correspondiente) a la [API de REST del modelo de implementación clásica](https://msdn.microsoft.com/library/azure/mt420159.aspx) y automatizar los distintos recursos de Azure que también están asociados a esa suscripción.
 

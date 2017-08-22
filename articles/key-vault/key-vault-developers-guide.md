@@ -1,5 +1,5 @@
 ---
-title: "Guía del desarrollador de Azure Key Vault | Microsoft Docs"
+title: "Guía del desarrollador de Azure Key Vault"
 description: "Los desarrolladores pueden usar Azure Key Vault\npara administrar las claves criptográficas en el entorno de Microsoft Azure."
 services: key-vault
 author: BrucePerlerMS
@@ -7,13 +7,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 06/6/2017
+ms.date: 08/04/2017
 ms.author: bruceper
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a15b403166dad17790c75f6db874e4ed2640ca78
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 115862aca98926e354e4703f86cb4a7e1d1f72a2
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
@@ -49,7 +49,7 @@ Este vídeo muestra cómo crear su propio almacén de claves y cómo usarlo desd
 Recursos mencionados en el vídeo anterior:
 
 - [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Código de ejemplo de Almacén de claves de Azure](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+- [Código de ejemplo de Azure Key Vault](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>Creación y administración de almacenes de claves
 
@@ -111,8 +111,9 @@ Los artículos y escenarios siguientes proporcionan instrucciones específicas d
 - [Configuración de Azure Key Vault con la auditoría y la rotación de claves de un extremo a otro](key-vault-key-rotation-log-monitoring.md): este es un tutorial sobre la rotación y auditoría de claves con Azure Key Vault.
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) (Implementación de certificado Azure Web App a través de Key Vault) proporciona instrucciones paso a paso para implementar certificados almacenados en Key Vault como parte de la oferta de [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/).
 - [Concesión de permisos para que muchas aplicaciones tengan acceso a almacén de claves](key-vault-group-permissions-for-apps.md) La directiva de control de acceso de Key Vault solo admite 16 entradas. Sin embargo, puede crear un grupo de seguridad de Azure Active Directory. Agregue todas las entidades de servicio asociadas a este grupo de seguridad y, luego, conceda acceso a este grupo de seguridad a Key Vault.
-
-Para obtener más instrucciones específicas sobre las tareas de integración y el uso de los almacenes de claves con Azure, consulte los [ejemplos de plantillas de Azure Resource Manager de Ryan Jones para Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- Para obtener más instrucciones específicas sobre las tareas de integración y el uso de los almacenes de claves con Azure, consulte los [ejemplos de plantillas de Azure Resource Manager de Ryan Jones para Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- [Uso de la eliminación temporal de Key Vault con la CLI](key-vault-soft-delete-cli.md) le guiará por el uso y ciclo de vida de un almacén de claves y de varios objetos de almacén de claves con la eliminación temporal habilitada.
+- [Uso de la eliminación temporal de Key Vault con PowerShell](key-vault-soft-delete-powershell.md) le guiará por el uso y ciclo de vida de un almacén de claves y de varios objetos de almacén de claves con la eliminación temporal habilitada.
 
 ## <a name="integrated-with-key-vault"></a>Integración con Key Vault
 

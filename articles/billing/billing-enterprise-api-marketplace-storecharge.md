@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 9f084dce3f01466aaa0e4c32d339c925d9faccd3
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 5539623f7ae35e14b6dafe6fdf9efe4bcaba4fd3
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-# <a name="reporting-apis-for-enterprise-customers---marketplace-charges-preview"></a>API de informes para clientes de Enterprise - Gastos en Marketplace (versión preliminar)
+# <a name="reporting-apis-for-enterprise-customers---marketplace-store-charge"></a>API de informes para clientes de Enterprise: gastos de la tienda Marketplace
 
 La API de gastos de la tienda Marketplace devuelve el desglose de los gastos de Marketplace basado en el uso por día para el período de facturación o las fechas de inicio y finalización especificadas (no se incluyen las cuotas de una vez).
 
@@ -32,9 +31,13 @@ Las propiedades de encabezado comunes que tienen que agregarse se especifican [a
 
 |Método | URI de solicitud|
 |-|-|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+
+> [!Note]
+> Para usar la versión preliminar de la API, reemplace v2 por v1 en la dirección URL anterior.
+>
 
 ## <a name="response"></a>Respuesta
  
@@ -100,6 +103,7 @@ Las propiedades de encabezado comunes que tienen que agregarse se especifican [a
 |extendedCost|Decimal|Gasto estimado según la cantidad consumida y el costo total|
 <br/>
 ## <a name="see-also"></a>Otras referencias
+
 * [API de períodos de facturación](billing-enterprise-api-billing-periods.md)
 
 * [API de detalles de uso](billing-enterprise-api-usage-detail.md) 

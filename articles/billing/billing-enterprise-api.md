@@ -15,19 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 343b71e28adfd32295b837a40ecf64083341b972
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: e3a5f9bcd6b54a51c29df649f1ae8ac185b153a1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="overview-of-reporting-apis-for-enterprise-customers-preview"></a>Información general de API de informes para clientes de Enterprise (versión preliminar)
+# <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Información general de API de informes para clientes de Enterprise
 Las API de informes permiten a los clientes de Azure Enterprise extraer datos de facturación y consumo mediante programación en las herramientas de análisis de datos preferidas. 
 
 ## <a name="enabling-data-access-to-the-api"></a>Habilitación del acceso de datos a la API
-* **Generar/recuperar clave de API**: inicie sesión en el portal de Enterprise y siga el tutorial en Ayuda - API de informes. La primera sección de este artículo de ayuda explica cómo generar/recuperar la clave de API para la inscripción especificada.
+* **Generar o recuperar la clave de API**: inicie sesión en el portal de Enterprise y siga el tutorial en la sección de API de informes de la ayuda. La primera sección de este artículo de ayuda explica cómo generar o recuperar la clave de API para la inscripción especificada.
 * **Pasar claves en la API**: la clave de API tiene que pasarse para cada llamada para la autenticación y autorización. La siguiente propiedad tiene que ser los encabezados HTTP.
 
 |Clave de encabezado de solicitud | Valor|
@@ -35,7 +34,7 @@ Las API de informes permiten a los clientes de Azure Enterprise extraer datos de
 |Autorización| Especifique el valor con este formato: **bearer {API_KEY}** <br/> Ejemplo: bearer eyr....09|
 
 ## <a name="consumption-apis"></a>API de consumo
-Hay disponible un punto de conexión de Swagger [aquí](https://consumption.azure.com/v1/swagger) para la API descrita a continuación que debe habilitar una introspección sencilla de la API y la capacidad de generar SDK de cliente con [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](http://swagger.io/swagger-codegen/). Los datos a partir del 1 de mayo de 2014 están disponibles a través de esta API. 
+Hay disponible un punto de conexión de Swagger [aquí](https://consumption.azure.com/swagger/ui/index) para la API descrita a continuación que debe habilitar una introspección sencilla de la API y la capacidad de generar SDK de cliente con [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](http://swagger.io/swagger-codegen/). Los datos a partir del 1 de mayo de 2014 están disponibles a través de esta API. 
 
 * **Saldos y resumen**: la [API de saldos y resumen](billing-enterprise-api-balance-summary.md) ofrece un resumen mensual de información sobre saldos, nuevas compras, gastos de servicios en Azure Marketplace, ajustes y gastos de uso por encima del límite.
 
@@ -46,7 +45,7 @@ Hay disponible un punto de conexión de Swagger [aquí](https://consumption.azur
 * **Hoja de precios**: la [API de hoja de precios](billing-enterprise-api-pricesheet.md) proporciona el tipo aplicable de cada medidor para la inscripción y el período de facturación determinados. 
 
 ## <a name="helper-apis"></a>API de ayuda
- **Enumerar períodos de facturación**: la [API de períodos de facturación](billing-enterprise-api-billing-periods.md) devuelve una lista de períodos de facturación que tienen datos de consumo para la inscripción especificada en orden cronológico inverso. Cada período contiene una propiedad que señala a la ruta de la API para los cuatro conjuntos de datos: BalanceSummary, UsageDetails, Marketplace Charges y PriceSheet.
+ **Enumerar períodos de facturación**: la [API de períodos de facturación](billing-enterprise-api-billing-periods.md) devuelve una lista de períodos de facturación que tienen datos de consumo para la inscripción especificada en orden cronológico inverso. Cada período contiene una propiedad que señala a la ruta de la API para los cuatro conjuntos de datos: BalanceSummary, UsageDetails, Marketplace Charges y Price Sheet.
 
 
 ## <a name="api-response-codes"></a>Códigos de respuesta de la API  

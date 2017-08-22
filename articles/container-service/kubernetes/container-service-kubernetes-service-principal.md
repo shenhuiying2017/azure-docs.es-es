@@ -3,19 +3,19 @@ title: "Entidad de servicio de clúster de Azure Kubernetes | Microsoft Docs"
 description: "Cree y administre una entidad de servicio de Azure Active Directory para un clúster de Kubernetes en Azure Container Service"
 services: container-service
 documentationcenter: 
-author: dlepow
+author: neilpeterson
 manager: timlt
 editor: 
 tags: acs, azure-container-service, kubernetes
 keywords: 
-ms.assetid: 
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2017
-ms.author: danlep
+ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: HT
 ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: a9df4ee4f1fb33f7c99be44b8337a18929175c0e

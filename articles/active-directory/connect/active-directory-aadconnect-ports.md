@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: adf358a130fd20674cbf2585de93005a9e1cb3ec
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: da79c2451463794f7a205182830b6be53134507f
 ms.contentlocale: es-es
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>La identidad híbrida requería puertos y protocolos
@@ -35,6 +35,7 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 | Kerberos |88 (TCP/UDP) |Autenticación Kerberos para el bosque de AD. |
 | MS-RPC |135 (TCP/UDP) |Se usa durante la configuración inicial del Asistente para Azure AD Connect, cuando se enlaza con el bosque de AD, además de durante la sincronización de contraseñas. |
 | LDAP |389 (TCP/UDP) |Se usa para la importación de datos de AD. Los datos se cifran con Kerberos Sign & Seal. |
+| RPC | 445 (TCP/UDP) |Lo usa el SSO de conexión directa para crear una cuenta de equipo en el bosque de AD. |
 | LDAP/SSL |636 (TCP/UDP) |Se usa para la importación de datos de AD. La transferencia de datos se firma y se cifra. Solo se utiliza si está usando SSL. |
 | RPC |49152- 65535 (Puerto RCP alto aleatorio)(TCP/UDP) |Se usa durante la configuración inicial de Azure AD Connect, cuando se enlaza con los bosques de AD, además de durante la sincronización de contraseñas. Consulte [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) y [KB224196](https://support.microsoft.com/kb/224196) para más información. |
 
@@ -100,7 +101,7 @@ En esta tabla se describen los siguientes puertos y protocolos de salida que son
 | Protocol | Puertos | Description |
 | --- | --- | --- |
 | HTTPS |443 (TCP/UDP) |Salida |
-| Bus de servicio |5671 (TCP/UDP) |Salida |
+| Azure Service Bus |5671 (TCP/UDP) |Salida |
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b: Puntos de conexión para el agente de Azure AD Connect Health para (AD FS/sincronización) y Azure AD
 Para ver una lista de puntos de conexión, consulte [la sección de requisitos para el agente de Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements).

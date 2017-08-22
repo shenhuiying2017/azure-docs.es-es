@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: deac38afc200a0c68751a061d3fb284f8244225b
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 66bb54927f3137aa7bfeb467962655a51bf71b4b
 ms.contentlocale: es-es
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configuración de cargas de archivos de IoT Hub mediante PowerShell
@@ -32,7 +31,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 * [Cmdlets de Azure PowerShell][lnk-powershell-install].
-* Un centro de Azure IoT. Si no dispone de un centro de IoT, puede usar el [cmdlet New-AzureRmIoTHub][lnk-powershell-iothub] para crear uno o usar el portal para [crear un centro de IoT][lnk-portal-hub].
+* Un centro de Azure IoT Hub. Si no dispone de un centro de IoT, puede usar el [cmdlet New-AzureRmIoTHub][lnk-powershell-iothub] para crear uno o usar el portal para [crear un centro de IoT][lnk-portal-hub].
 * Una cuenta de almacenamiento de Azure. Si no tiene una cuenta de almacenamiento de Azure, puede usar los [cmdlets de PowerShell de Azure Storage] [lnk-powershell-storage] para crear una o usar el portal para [crear una cuenta de almacenamiento][lnk-portal-storage].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Inicio de sesión y configuración de la cuenta de Azure
@@ -62,7 +61,7 @@ Inicie sesión en su cuenta de Azure y seleccione la suscripción.
 
 En los siguientes pasos se supone que ha creado la cuenta de almacenamiento mediante el modelo de implementación de **Resource Manager**, y no el modelo **clásico**.
 
-Necesitará la cadena de conexión de una cuenta de almacenamiento de Azure de la misma suscripción que su centro de IoT para configurar cargas de archivos desde sus dispositivos. También necesitará el nombre de un contenedor de blobs de la cuenta de almacenamiento. Use el siguiente comando para recuperar las claves de la cuenta de almacenamiento:
+Para configurar cargas de archivos desde sus dispositivos, necesitará la cadena de conexión de una cuenta de almacenamiento de Azure. Esta cuenta debe encontrarse en la misma suscripción que IoT Hub. También necesitará el nombre de un contenedor de blobs de la cuenta de almacenamiento. Use el siguiente comando para recuperar las claves de la cuenta de almacenamiento:
 
 ```powershell
 Get-AzureRmStorageAccountKey `
@@ -101,15 +100,15 @@ Ahora puede configurar el centro de IoT para habilitar la [funcionalidad de carg
 
 La configuración requiere los siguientes valores:
 
-**Contenedor de almacenamiento:**: un contenedor de blobs en una cuenta de almacenamiento de Azure en la suscripción actual para asociar con su centro de IoT. En la sección anterior, recuperó la información necesaria de la cuenta de almacenamiento. El Centro de IoT genera automáticamente identificadores URI de SAS con permisos de escritura en este contenedor de blobs para los dispositivos que se utilizarán cuando se carguen archivos.
+**Contenedor de almacenamiento:**: un contenedor de blobs en una cuenta de almacenamiento de Azure en la suscripción actual para asociar con su centro de IoT. En la sección anterior, recuperó la información necesaria de la cuenta de almacenamiento. IoT Hub genera automáticamente identificadores URI de SAS con permisos de escritura en este contenedor de blobs para los dispositivos que se utilizarán cuando se carguen archivos.
 
 **Receive notifications for uploaded files** (Recibir notificaciones para archivos cargados): habilite o deshabilite las notificaciones de carga de archivos.
 
-**SAS TTL**(TTL SAS): este valor es el periodo de vida de los URI de SAS que el Centro de IoT devuelve al dispositivo. De forma predeterminada, está establecido en una hora.
+**SAS TTL**(TTL SAS): este valor es el periodo de vida de los URI de SAS que IoT Hub devuelve al dispositivo. De forma predeterminada, está establecido en una hora.
 
 **File notification settings default TTL**(TTL predeterminado de configuración de notificación de archivos): el periodo de vida de una notificación de carga de archivos antes de que caduque. De forma predeterminada, está establecido en un día.
 
-**File notification maximum delivery count**(Número máximo de entregas de notificaciones de archivo): el número de veces que el Centro de IoT tratará de entregar una notificación de carga de archivos. De forma predeterminada, está establecido en 10.
+**File notification maximum delivery count**(Número máximo de entregas de notificaciones de archivo): el número de veces que IoT Hub tratará de entregar una notificación de carga de archivos. De forma predeterminada, está establecido en 10.
 
 Use el siguiente cmdlet de PowerShell para configurar la carga de archivos en su centro de IoT:
 
@@ -126,15 +125,16 @@ Set-AzureRmIotHub `
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información sobre las funcionalidades de carga archivos de IoT Hub, consulte [Upload files from a device][lnk-upload] (Carga de archivos desde un dispositivo) en la guía para desarrolladores.
 
-Siga estos vínculos para más información sobre la administración del Centro de IoT de Azure:
+Para más información sobre las funcionalidades de carga de archivos de IoT Hub, consulte [Carga de archivos desde un dispositivo][lnk-upload].
+
+Siga estos vínculos para más información sobre la administración de Azure IoT Hub:
 
 * [Administración masiva de dispositivos de IoT][lnk-bulk]
 * [Métricas de IoT Hub][lnk-metrics]
 * [Supervisión de operaciones][lnk-monitor]
 
-Para explorar aún más las funcionalidades de Centro de IoT, consulte:
+Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
 * [Simular un dispositivo con IoT Edge][lnk-iotedge]

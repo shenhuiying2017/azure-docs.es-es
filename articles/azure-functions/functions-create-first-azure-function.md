@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ed096cf202a85f44755c9eee110b1b7c5c4074ad
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: d7d3aef1e713cf080b23575f56321e00a0b4af1f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creación de su primera función en Azure Portal
@@ -51,7 +51,7 @@ Después, cree una función en la nueva Function App.
 
 1. Expanda la nueva Function App y haga clic en el botón **+** situado junto a **Funciones**.
 
-2.  En la página **Get started quickly** (Empiece a trabajar rápidamente), haga clic en **Webhook y API**, elija un lenguaje para la función y haga clic en **Crear esta función**. 
+2.  En la página **Get started quickly** (Empiece a trabajar rápidamente), seleccione **Webhook y API**, **Elija un lenguaje** para la función y haga clic en **Crear esta función**. 
    
     ![Inicio rápido de funciones en Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 

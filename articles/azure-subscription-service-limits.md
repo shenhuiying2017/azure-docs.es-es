@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 07/26/2017
 ms.author: byvinyal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 13f968b5eeaeb74c6364b9b7c29651657f73e052
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: a54d38948ee5a752297167c7f4435e52b5dbb27f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
@@ -60,6 +59,7 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [BizTalk Services](#biztalk-services-limits)
 * [SERVICIO CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
+* [Azure Container Instances](#container-instances-limits)
 * [Factoría de datos](#data-factory-limits)
 * [Análisis de Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -116,6 +116,9 @@ Los límites siguientes se aplican al usar Azure Resource Manager y los grupos d
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Límites de los conjuntos de escalas de máquinas virtuales
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
+
+### <a name="container-instances-limits"></a>Límites de Container Instances
+[!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
 ### <a name="networking-limits"></a>Límites de red
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]

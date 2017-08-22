@@ -19,6 +19,8 @@
       items:
         - name: Temporizador
           href: functions-create-scheduled-function.md
+        - name: Webhook genérico
+          href: functions-create-generic-webhook-triggered-function.md
         - name: Webhook de GitHub
           href: functions-create-github-webhook-triggered-function.md
         - name: Almacenamiento de blobs
@@ -109,6 +111,8 @@
           href: functions-bindings-event-hubs.md
         - name: Archivo externo
           href: functions-bindings-external-file.md
+        - name: Tabla externa
+          href: functions-bindings-external-table.md
         - name: HTTP y webhooks
           href: functions-bindings-http-webhook.md
         - name: Mobile Apps

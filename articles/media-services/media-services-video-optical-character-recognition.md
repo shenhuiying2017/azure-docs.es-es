@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 960ff46ba287fb404239ca8e9d283f86f6b92c20
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: feb4d85270d3c2bee90280459ca2b8383aeca107
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Uso de Análisis multimedia de Azure para convertir el contenido de texto de archivos de vídeo en texto digital
@@ -178,7 +178,7 @@ En el siguiente ejemplo de salida contiene la información general de vídeo y v
 El programa siguiente muestra cómo:
 
 1. Crear un recurso y cargar un archivo multimedia en dicho recurso.
-2. Crea un trabajo con un archivo de configuración o valores preestablecidos de OCR.
+2. Cree un trabajo con un archivo de configuración o valores preestablecidos de OCR.
 3. Descargar los archivos JSON de salida. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
@@ -207,7 +207,6 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 
             // Field for service context.
             private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
 
             static void Main(string[] args)
             {

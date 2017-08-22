@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: ad18896548449d85e2af8a91ddd90c8192db1ab2
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
 ms.contentlocale: es-es
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 
@@ -106,7 +106,7 @@ Para volver al JSON de todos los recursos, haga clic con el botón derecho en el
 
 ### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Incorporación de referencias a los recursos dependientes a las plantillas de implementación de Visual Studio
 
-Si desea que la aplicación lógica para haga referencia a los recursos dependientes, puede usar las [funciones de plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions), como los parámetros, de la plantilla de implementación de aplicación lógica. Por ejemplo, si quiere que la aplicación lógica haga referencia a una función de Azure o cuenta de integración que desee implementar junto con la aplicación lógica. Siga estas instrucciones sobre cómo usar parámetros en la plantilla de implementación para que el Diseñador de aplicaciones lógicas represente correctamente. 
+Si desea que la aplicación lógica haga referencia a los recursos dependientes, puede usar las [funciones de plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions), como los parámetros, de la plantilla de implementación de aplicación lógica. Por ejemplo, si quiere que la aplicación lógica haga referencia a una función de Azure o cuenta de integración que desee implementar junto con la aplicación lógica. Siga estas instrucciones sobre cómo usar parámetros en la plantilla de implementación para que el Diseñador de aplicaciones lógicas represente correctamente. 
 
 Puede usar parámetros de aplicación lógica en estos tipos de desencadenadores y acciones:
 
@@ -114,15 +114,16 @@ Puede usar parámetros de aplicación lógica en estos tipos de desencadenadores
 *   Aplicación de función
 *   Llamada APIM
 *   Dirección URL en tiempo de ejecución de conexión de API
+*   Ruta de conexión de API
 
-Y puede utilizar estas funciones de plantilla: list below, includes parameters, variables, resourceId, concat, etc. Por ejemplo, aquí verá cómo se puede reemplazar el identificador de recurso de función de Azure:
+Y puede utilizar funciones de plantilla como, por ejemplo, parámetros, variables, resourceId, concat, etc. Por ejemplo, aquí verá cómo se puede reemplazar el identificador de recurso de función de Azure:
 
 ```
 "parameters":{
     "functionName": {
-    "type":"string",
-    "minLength":1,
-    "defaultValue":"<FunctionName>"
+        "type":"string",
+        "minLength":1,
+        "defaultValue":"<FunctionName>"
     }
 },
 ```
@@ -131,16 +132,43 @@ Y dónde usaría parámetros:
 
 ```
 "MyFunction": {
-        "type": "Function",
-        "inputs": {
+    "type": "Function",
+    "inputs": {
         "body":{},
         "function":{
-        "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
         }
     },
     "runAfter":{}
 }
 ```
+En otro ejemplo puede parametrizar la operación send message de Service Bus:
+
+```
+"Send_message": {
+    "type": "ApiConnection",
+        "inputs": {
+            "host": {
+                "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                }
+            },
+            "method": "post",
+            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+            "body": {
+                "ContentData": "@{base64(triggerBody())}"
+            },
+            "queries": {
+                "systemProperties": "None"
+            }
+        },
+        "runAfter": {}
+    }
+```
+> [!NOTE] 
+> host.runtimeUrl es opcional y se puede quitar de la plantilla si está presente.
+> 
+
 
 > [!NOTE] 
 > Para que el Diseñador de aplicaciones lógicas funcione con parámetros, debe proporcionar valores predeterminados, por ejemplo:

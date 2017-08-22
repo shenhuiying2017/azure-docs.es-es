@@ -16,10 +16,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 239b4a141c0e7a1ac5bbb23030fede45ed749138
-ms.lasthandoff: 03/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 5b95d5455c08d09a088c740e9df9605d3d7f719b
+ms.contentlocale: es-es
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Funcionamiento de Azure DNS con otros servicios de Azure
@@ -33,11 +34,11 @@ En la tabla siguiente se describen los tipos de registro compatibles que se pued
 
 | Servicio de Azure | Interfaz de red | Description |
 | --- | --- | --- |
-| Puerta de enlace de aplicaciones |Dirección IP pública de front-end |Puede crear un registro D o CNAME de DNS. |
-| Equilibrador de carga |Dirección IP pública de front-end |Puede crear un registro D o CNAME de DNS. Load Balancer puede tener una dirección IP pública IPv6 que se asigna dinámicamente. Por lo tanto, debe crear un registro CNAME para una dirección IPv6. |
+| Application Gateway |[Dirección IP pública front-end](dns-custom-domain.md#public-ip-address) |Puede crear un registro D o CNAME de DNS. |
+| Load Balancer |[Dirección IP pública front-end](dns-custom-domain.md#public-ip-address)  |Puede crear un registro D o CNAME de DNS. Load Balancer puede tener una dirección IP pública IPv6 que se asigna dinámicamente. Por lo tanto, debe crear un registro CNAME para una dirección IPv6. |
 | Administrador de tráfico |Nombre público |Solo puede crear un registro CNAME que se asigne al nombre de trafficmanager.net que está asignado a su perfil de Traffic Manager. Para más información, consulte [Cómo funciona Traffic Manager](../traffic-manager/traffic-manager-overview.md#traffic-manager-example). |
-| Servicio en la nube |Dirección IP pública |Para las direcciones IP asignadas de forma estática, puede crear un registro D de DNS. Para las direcciones IP asignadas dinámicamente, debe crear un registro CNAME que se asigne al nombre de *cloudapp.net* . Esta regla se aplica a las máquinas virtuales creadas en el portal clásico, porque están implementadas como servicio en la nube. Para más información, consulte [Configurar un nombre de dominio personalizado en Cloud Services](../cloud-services/cloud-services-custom-domain-name-portal.md). |
-| Servicio de aplicaciones |Dirección IP externa |Para las direcciones IP externas, puede crear un registro D de DNS. De lo contrario, deberá crear un registro CNAME que se asigne al nombre de azurewebsites.net. Para más información, consulte [Asignación de un nombre de dominio personalizado a una aplicación de Azure](../app-service-web/web-sites-custom-domain-name.md) |
-| Máquinas virtuales de Resource Manager |Dirección IP pública |Las máquinas virtuales de Resource Manager pueden tener direcciones IP públicas. Una máquina virtual con una dirección IP pública también puede encontrarse detrás de un equilibrador de carga. Puede crear un registro CNAME o D de DNS para la dirección pública. Este nombre personalizado se puede usar para omitir el VIP en el equilibrador de carga. |
-| Máquinas virtuales clásicas |Dirección IP pública |Las máquinas virtuales clásicas creadas con PowerShell o la CLI se pueden configurar con una dirección virtual dinámica o estática (reservada). Puede crear un registro CNAME o D de DNS, respectivamente. |
+| Servicio en la nube |[Dirección IP pública](dns-custom-domain.md#public-ip-address) |Para las direcciones IP asignadas de forma estática, puede crear un registro D de DNS. Para las direcciones IP asignadas dinámicamente, debe crear un registro CNAME que se asigne al nombre de *cloudapp.net* . Esta regla se aplica a las máquinas virtuales creadas en el portal clásico, porque están implementadas como servicio en la nube. Para más información, consulte [Configurar un nombre de dominio personalizado en Cloud Services](../cloud-services/cloud-services-custom-domain-name-portal.md). |
+| App Service | [Dirección IP externa](dns-custom-domain.md#app-service-web-apps) |Para las direcciones IP externas, puede crear un registro D de DNS. De lo contrario, deberá crear un registro CNAME que se asigne al nombre de azurewebsites.net. Para más información, consulte [Asignación de un nombre de dominio personalizado a una aplicación de Azure](../app-service-web/web-sites-custom-domain-name.md) |
+| Máquinas virtuales de Resource Manager |[Dirección IP pública](dns-custom-domain.md#public-ip-address) |Las máquinas virtuales de Resource Manager pueden tener direcciones IP públicas. Una máquina virtual con una dirección IP pública también puede encontrarse detrás de un equilibrador de carga. Puede crear un registro CNAME o D de DNS para la dirección pública. Este nombre personalizado se puede usar para omitir el VIP en el equilibrador de carga. |
+| Máquinas virtuales clásicas |[Dirección IP pública](dns-custom-domain.md#public-ip-address) |Las máquinas virtuales clásicas creadas con PowerShell o la CLI se pueden configurar con una dirección virtual dinámica o estática (reservada). Puede crear un registro CNAME o D de DNS, respectivamente. |
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/14/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: c5a41a3c18fe2dc0acd28df3459a5ac541455bf5
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 596e8e6d872ab7d3de3f2147931a4f249bfd65b9
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Install and configure CLI for use with Azure Stack
@@ -80,7 +80,11 @@ Use the following steps to connect to Azure Stack:
     Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate" 
    ```
 
-2. Register your Azure Stack environment by running the following command:
+2. Register your Azure Stack environment by running the az cloud register command. 
+   
+   In order to create virtual machines by using CLI, the cloud administrator should set up a publicly accessible endpoint that contains virtual machine image aliases and register this endpoint with the cloud. The `endpoint-vm-image-alias-doc` parameter in the `az cloud register` command is used for this purpose. Cloud administrators must download the image to the Azure Stack marketplace before they add it to image aliases endpoint.
+   
+   For example, Azure contains uses following URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The cloud administrator should set up a similar endpoint for Azure Stack with the images that are available in the Azure Stack marketplace.
 
    a. To register the **cloud administrative** environment, use:
 
@@ -89,7 +93,9 @@ Use the following steps to connect to Azure Stack:
      -n AzureStackAdmin \ 
      --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
      --suffix-storage-endpoint "local.azurestack.external" \ 
-     --suffix-keyvault-dns ".adminvault.local.azurestack.external"
+     --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
+     --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
+     --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
    b. To register the **user** environment, use:
@@ -99,7 +105,9 @@ Use the following steps to connect to Azure Stack:
      -n AzureStackUser \ 
      --endpoint-resource-manager "https://management.local.azurestack.external" \ 
      --suffix-storage-endpoint "local.azurestack.external" \ 
-     --suffix-keyvault-dns ".vault.local.azurestack.external"
+     --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+     --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
+     --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
    ```
 
 3. Set the active environment by using the following commands:
@@ -118,7 +126,6 @@ Use the following steps to connect to Azure Stack:
      -n AzureStackUser
    ```
 
-
 4. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
 
    ```azurecli
@@ -126,20 +133,26 @@ Use the following steps to connect to Azure Stack:
      --profile 2017-03-09-profile
    ```
 
-5. Sign in to your Azure Stack environment by using the following commands:
+5. Sign in to your Azure Stack environment by using the **az login** command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
 
-   a. For the **cloud administrative** environment, use:
+   * Log in as a **user**: You can either specify the username and password directly within the az login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
 
    ```azurecli
    az login \
-     -u <Active directory global administrator account. For example: username@<aadtenant>.onmicrosoft.com>
+     -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
+     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
    ```
 
-   b. For the **user** environment, use:
+   **Note** If your user account has Multi factor authentication enabled, you can use the az login command without providing the -u parameter. Running the command gives you a URL and a code that you must use to authenticate.
+   
+   * Log in as a **service principal**: [Create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it to a role for the scope you would like for it to have access to. Af log in using the service principal using the following command:
 
    ```azurecli
    az login \
-     -u < Active directory user account. Example: username@<aadtenant>.onmicrosoft.com>
+     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
+     --service-principal \
+     -u <Application Id of the Service Principal> \
+     -p <Key generated for the Service Principal>
    ```
 
 ## <a name="test-the-connectivity"></a>Test the connectivity

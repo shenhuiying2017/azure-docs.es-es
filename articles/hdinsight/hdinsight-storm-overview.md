@@ -1,5 +1,5 @@
 ---
-title: "¿Qué es Apache Storm? - Azure HDInsight | Microsoft Docs"
+title: "Qué es Apache Storm en Azure HDInsight | Microsoft Docs"
 description: "Apache Storm permite procesar los flujos de datos en tiempo real. Azure HDInsight le permite crear fácilmente clústeres de Storm en la nube de Azure. Con Visual Studio, puede crear soluciones de Storm con C# y, después, implementar en los clústeres de Storm de HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 0d565c29767e778873dad2421c93b62455706f27
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 073672f1223313938baedee027072cb96062294b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>¿Qué es Apache Storm en Azure HDInsight?
 
-[Apache Storm](http://storm.apache.org/) es un sistema de cálculo de código abierto distribuido, con tolerancia a errores. Puede usar un clúster de Storm para procesar flujos de datos en tiempo real con Hadoop. Las soluciones de Storm pueden proporcionar también procesamiento de datos garantizado, con la posibilidad de reproducir los datos que no se han procesado correctamente la primera vez.
+[Apache Storm](http://storm.apache.org/) es un sistema de cálculo de código abierto distribuido, con tolerancia a errores. Puede usar Storm para procesar transmisiones de datos en tiempo real con Hadoop. Las soluciones de Storm pueden proporcionar también procesamiento de datos garantizado, con la posibilidad de reproducir los datos que no se han procesado correctamente la primera vez.
 
 Storm en HDInsight proporciona las siguientes ventajas principales:
 
@@ -45,13 +44,13 @@ Storm en HDInsight proporciona las siguientes ventajas principales:
 
 * Se integra con los siguientes servicios de Azure:
 
-    * Centros de eventos de Azure
+    * Azure Event Hubs
 
     * Red virtual
 
-    * Base de datos SQL de Azure
+    * Azure SQL Database
 
-    * Almacenamiento de Azure
+    * Azure Storage
 
     * Azure Cosmos DB
 

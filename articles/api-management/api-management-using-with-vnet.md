@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f796177baaa5e03b833e5a2b300a98176147cd29
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 69fd656ee9ae440d5769aca82ff8d49fb59d7780
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
@@ -93,7 +93,7 @@ A continuación se muestra una lista de problemas de errores de configuración c
 * **Configuración del servidor DNS personalizado**: el servicio de API Management depende de varios servicios de Azure. Cuando API Management está hospedado en una red virtual con un servidor DNS personalizado, necesita resolver los nombres de host de esos servicios de Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) instrucciones sobre la configuración de DNS personalizado. Vea la siguiente tabla de puertos y otros requisitos de red a efectos de referencia.
 
 > [!IMPORTANT]
-> Se recomienda que, si usa un servidor de DNS personalizado para la red virtual, lo configure **antes** de implementar en él un servicio de API Management. En caso contrario, debe actualizar el servicio API Management cada vez que cambie los servidores DNS (s) mediante la ejecución de la [operación Aplicar configuración de red](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservices#ApiManagementServices_ApplyNetworkConfigurationUpdates).
+> Se recomienda que, si usa un servidor de DNS personalizado para la red virtual, lo configure **antes** de implementar en él un servicio de API Management. En caso contrario, debe actualizar el servicio API Management cada vez que cambie los servidores DNS (s) mediante la ejecución de la [operación Aplicar configuración de red](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservice#ApiManagementService_ApplyNetworkConfigurationUpdates).
 
 * **Puertos necesarios para API Management**: el tráfico entrante y saliente en la subred en la que se implementa API Management puede controlarse mediante el [grupo de seguridad de red][Network Security Group]. Si alguno de estos puertos no está disponible, es posible que API Management no funcione correctamente y sea inaccesible. Tener bloqueados uno o varios de estos puertos es otro problema común de una configuración incorrecta cuando se usa API Management con una red virtual.
 
@@ -112,7 +112,9 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 | * / 445 |Salida |TCP |Dependencia del recurso compartido de archivos de Azure para Git |VIRTUAL_NETWORK/INTERNET |Externa e interna |
 | * / * | Entrada |TCP |Equilibrador de carga de la infraestructura de Azure | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |Externa e interna |
 
-* **Funcionalidad SSL**: para permitir la creación y validación de la cadena de certificados SSL, el servicio API Management necesita conectividad de red saliente a ocsp.msocsp.com, mscrl.microsoft.com y crl.microsoft.com.
+* **Funcionalidad SSL**: para permitir la creación y validación de la cadena de certificados SSL, el servicio API Management necesita conectividad de red saliente a ocsp.msocsp.com, mscrl.microsoft.com y crl.microsoft.com. Esta dependencia no es obligatoria, si los certificados que cargue en API Management contienen la cadena completa de la raíz de la entidad de certificación.
+
+* **Acceso de DNS**: se requiere acceso saliente en el puerto 53 para establecer la comunicación con los servidores DNS. Si existe un servidor DNS personalizado en el otro punto de conexión de una puerta de enlace de VPN, el servidor DNS debe estar accesible desde la subred que alberga la API Management.
 
 * **Supervisión de métricas y estado**: conexión de red saliente a puntos de conexión de supervisión de Azure, que se resuelven en los siguientes dominios: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net.
 
@@ -125,6 +127,10 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 >[!WARNING]  
 >Azure API Management no es compatible con las configuraciones de ExpressRoute que **anuncian incorrectamente rutas entre la ruta de acceso entre pares públicos y la ruta de acceso entre pares privados**. Las configuraciones de ExpressRoute con el emparejamiento público configurado recibirán anuncios de ruta de Microsoft para un amplio conjunto de intervalos de direcciones IP de Microsoft Azure. Si estos intervalos de direcciones se anuncian incorrectamente en la ruta de acceso entre pares privados, el resultado final es que se forzará incorrectamente la tunelización de todos los paquetes de red salientes desde la subred de la instancia de Azure API Management a la infraestructura de red local del cliente. Este flujo de red interrumpe Azure API Management. La solución a este problema consiste en detener rutas anunciadas entre la ruta de acceso de interconexión pública y la ruta de acceso de interconexión privada.
 
+
+## <a name="troubleshooting"> </a>Solución de problemas
+Al realizar cambios en la red, consulte [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus), para validar si el servicio API Management no ha perdido el acceso a cualquiera de los recursos críticos de los que depende. El estado de conectividad debe actualizarse cada 15 minutos.
+
 ## <a name="limitations"> </a>Limitaciones
 * Una subred que contenga instancias de API Management no puede contener otros tipos de recursos de Azure.
 * La subred y el servicio API Management tienen que estar en la misma suscripción.
@@ -134,7 +140,7 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 
 
 ## <a name="related-content"> </a>Contenido relacionado
-* [Conexión de una red virtual a back-end mediante VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)
+* [Conexión de una red virtual a back-end mediante VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Conexión a una red virtual a partir de diferentes modelos de implementación](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure](api-management-howto-api-inspector.md)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 06/07/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 9b117ed5187beeb1207a7ffd484129e5ee830160
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 709d2ccce0f4b9827a8076f683c7e0f74cbdd4ea
 ms.contentlocale: es-es
-ms.lasthandoff: 06/24/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -30,7 +30,7 @@ En la tabla siguiente se incluyen vínculos a scripts de ejemplo de la CLI de Az
 | |  |
 |---|---|
 |**Creación de cuentas, bases de datos y contenedores de Azure Cosmos DB**||
-|[Creación de una cuenta de API de DocumentDB, Graph o Table](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Cree una cuenta, base de datos y contenedor de API de Azure Cosmos DB para usar con las API de DocumentDB, Graph o Table. |
+|[Creación de una cuenta de API de DocumentDB, API Graph o Table API](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Cree una cuenta, base de datos y contenedor de API de Azure Cosmos DB para usar con las API de DocumentDB, Graph o Table. |
 | [Creación de una cuenta de API de MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creación de una única cuenta, base de datos y colección de API de MongoDB para Azure Cosmos DB. |
 |**Escalado de Azure Cosmos DB**||
 | [Escalado del rendimiento del contenedor](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cambio de la capacidad de proceso aprovisionada en un contenedor.|

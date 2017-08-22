@@ -1,6 +1,6 @@
 ---
 title: "Configuración de la descarga de SSL para Azure Application Gateway mediante PowerShell | Microsoft Docs"
-description: "En esta página se ofrecen instrucciones para crear una puerta de enlace de aplicaciones con descarga SSL mediante el Administrador de recursos de Azure"
+description: "En esta página se ofrecen instrucciones para crear una puerta de enlace de aplicaciones con descarga SSL mediante Azure Resource Manager"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 2982cf9154780166f1363ae6380702299c717236
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 21a45f8ac5b4cb5fd0f5513fb43f7ca263977393
+ms.contentlocale: es-es
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-resource-manager"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el Administrador de recursos de Azure
+# <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-resource-manager"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante Azure Resource Manager
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](application-gateway-ssl-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-ssl-arm.md)
+> * [PowerShell de Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
+> * [CLI de Azure 2.0](application-gateway-ssl-cli.md)
 
 Puerta de enlace de aplicaciones de Azure puede configurarse para terminar la sesión Capa de sockets seguros (SSL) en la puerta de enlace para evitar las costosas tareas de descifrado SSL que tienen lugar en la granja de servidores web. La descarga SSL también simplifica la configuración del servidor front-end y la administración de la aplicación web.
 
@@ -57,14 +59,14 @@ Con Resource Manager, todos los componentes de una puerta de enlace de aplicacio
 
 Estos son los pasos necesarios para crear una puerta de enlace de aplicaciones:
 
-1. Creación de un grupo de recursos para el Administrador de recursos
+1. Creación de un grupo de recursos para Resource Manager
 2. Creación de una red virtual, una subred y una IP pública para la puerta de enlace de aplicaciones
 3. Creación de un objeto de configuración de la Puerta de enlace de aplicaciones
 4. Crear un recurso de la puerta de enlace de aplicaciones
 
-## <a name="create-a-resource-group-for-resource-manager"></a>Creación de un grupo de recursos para el Administrador de recursos
+## <a name="create-a-resource-group-for-resource-manager"></a>Creación de un grupo de recursos para Resource Manager
 
-Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Administrador de recursos de Azure. Hay más información disponible en [Uso de Windows PowerShell con Resource Manager](../powershell-azure-resource-manager.md).
+Asegúrese de cambiar el modo de PowerShell para que use los cmdlets de Azure Resource Manager. Hay más información disponible en [Uso de Windows PowerShell con Resource Manager](../powershell-azure-resource-manager.md).
 
 ### <a name="step-1"></a>Paso 1
 
@@ -98,13 +100,13 @@ Cree un grupo de recursos (omita este paso si usa uno existente).
 New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 ```
 
-El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta configuración se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usan el mismo grupo de recursos.
+Azure Resource Manager requiere que todos los grupos de recursos especifiquen una ubicación. Esta configuración se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usan el mismo grupo de recursos.
 
 En el ejemplo anterior, creamos un grupo de recursos denominado **appgw-RG** y la ubicación **Oeste de EE. UU.**
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Creación de una red virtual y una subred para la puerta de enlace de aplicaciones
 
-En el ejemplo siguiente se muestra cómo crear una red virtual con el Administrador de recursos:
+En el ejemplo siguiente se muestra cómo crear una red virtual con Resource Manager:
 
 ### <a name="step-1"></a>Paso 1
 
@@ -225,7 +227,7 @@ En este ejemplo se crea una puerta de enlace de aplicaciones con todos los eleme
 
 ## <a name="get-application-gateway-dns-name"></a>Obtención del nombre DNS de una puerta de enlace de aplicaciones
 
-Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la puerta de enlace de aplicaciones, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la puerta de enlace de aplicaciones. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
+Una vez creada la puerta de enlace, el siguiente paso es configurar el front-end para la comunicación. Cuando se utiliza una dirección IP pública, la puerta de enlace de aplicaciones requiere un nombre DNS asignado dinámicamente, que no es descriptivo. Para asegurarse de que los usuarios finales puedan llegar a la Application Gateway, se puede utilizar un registro CNAME para que apunte al punto de conexión público de la Application Gateway. [Configuración de un nombre de dominio personalizado en Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para ello, recupere los detalles de la puerta de enlace de aplicaciones y su nombre DNS o IP asociados mediante el elemento PublicIPAddress asociado a la puerta de enlace de aplicaciones. El nombre DNS de la puerta de enlace de aplicaciones se debe utilizar para crear un registro CNAME, que apunta las dos aplicaciones web a este nombre DNS. No se recomienda el uso de registros A, ya que la VIP puede cambiar al reiniciarse la puerta de enlace de aplicaciones.
 
 
 ```powershell
@@ -261,11 +263,6 @@ Si desea configurar una puerta de enlace de aplicaciones para usarla con el equi
 Si desea obtener más información acerca de opciones de equilibrio de carga en general, vea:
 
 * [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
+* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 

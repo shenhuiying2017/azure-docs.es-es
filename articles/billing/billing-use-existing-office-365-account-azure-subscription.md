@@ -13,45 +13,42 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 08/03/2017
 ms.author: cjiang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: d62ec023605573e4b0804da00c75f65c8dea5173
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 923b3ca8a2e2b1d7f44cd77946a02e1d30839f14
 ms.contentlocale: es-es
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Registrarse para obtener una suscripción de Azure con su cuenta de Office 365
-Si tiene una suscripción de Office 365, use su cuenta de Office 365 para crear una suscripción de Azure. Puede iniciar sesión en [Azure Portal](https://portal.azure.com/) sin una suscripción de Azure usando su nombre de usuario de Office 365 y la contraseña. Pero si desea configurar máquinas virtuales o usar otros servicios de Azure, debe crear una suscripción de Azure para su cuenta. Si es parte de una organización que desea usar los servicios de Azure, puede agregar a otras personas de su organización a la suscripción después de crearla.  
+Si tiene una suscripción de Office 365, puede usar su cuenta de Office 365 para crear una suscripción de Azure. Inicie sesión en [Azure Portal](https://portal.azure.com/) con su nombre de usuario y contraseña de Office 365. Si desea configurar máquinas virtuales o usar otros servicios de Azure, debe suscribirse a una suscripción de Azure. Puede compartir su suscripción de Azure con otras personas y [usar el control de acceso basado en roles para administrar el acceso a su suscripción de Azure y a sus recursos](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)
 
 Si ya tiene una cuenta de Office 365 y una suscripción de Azure, consulte [Asociación de un inquilino de Office 365 a una suscripción de Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
-## <a name="get-an-azure-subscription-by-using-your-office-365-account"></a>Obtener una suscripción de Azure con su cuenta de Office 365
+## <a name="get-an-azure-subscription-using-your-office-365-account"></a>Obtención de una suscripción de Azure con su cuenta de Office 365
 
-Para suscribirse a Azure, use el vínculo gratuito de Azure y suscríbase a Azure usando su nombre de usuario y contraseña de Office 365. 
+Ahorre tiempo y evite la proliferación de cuentas al suscribirse a Azure con el nombre de usuario y la contraseña de Office 365. 
 
-1. Vaya a [Azure.com](https://azure.microsoft.com/). 
-2. Haga clic en **Empiece gratis**.
-3. Inicie sesión con su nombre de usuario y contraseña de Office 365. La cuenta que use no necesita tener permisos de administrador. Si tiene más de una cuenta de Office 365, asegúrese de utilizar las credenciales de la cuenta de Office 365 que desea asociar a su suscripción de Azure. 
+1. Suscríbase en [Azure.com](https://account.azure.com/signup?offer=MS-AZR-0044p&appId=docs). 
+2. Inicie sesión con su nombre de usuario y contraseña de Office 365. La cuenta que use no necesita tener permisos de administrador. Si tiene más de una cuenta de Office 365, asegúrese de utilizar las credenciales de la cuenta de Office 365 que desea asociar a su suscripción de Azure. 
 
    ![Captura de pantalla que muestra la página de registro.](./media/billing-use-existing-office-365-account-azure-subscription/billing-sign-in-with-office-365-account.png)
 
-4. Escriba la información necesaria para completar el proceso de suscripción.
+3. Escriba la información necesaria para completar el proceso de suscripción. Puede que alguna información no sea necesaria si ya tiene una cuenta de Office 365.
 
     ![Captura de pantalla que muestra el formulario de registro.](./media/billing-use-existing-office-365-account-azure-subscription/billing-azure-sign-up-fill-information.png)
 
-- Si necesita agregar otras personas de su organización a la suscripción de Azure, vea [Introducción a la administración de acceso en Azure Portal](../active-directory/role-based-access-control-what-is.md). 
-- Si desea agregar un administrador para ayudar a administrar la suscripción, consulte [Adición o cambio de roles de administrador de Azure que administran la suscripción o servicios](billing-add-change-azure-subscription-administrator.md).
+- Si necesita agregar otras personas de su organización a la suscripción de Azure, consulte [Introducción a la administración de acceso en Azure Portal](../active-directory/role-based-access-control-what-is.md). 
 
 ## <a id="more-about-subs">Más información acerca de las suscripciones de Azure y Office 365</a>
-Office 365 y Azure usan el servicio Azure Active Directory para administrar usuarios y suscripciones. El directorio de Azure es como un contenedor en el que puede agrupar usuarios y suscripciones. Para poder usar las mismas cuentas de usuario con sus suscripciones de Azure y Office 365, asegúrese de que las suscripciones se hayan creado en el mismo directorio. Tenga en cuenta los siguientes puntos:
+Office 365 y Azure usan el servicio Azure Active Directory para administrar usuarios y suscripciones. El directorio de Azure es como un contenedor en el que puede agrupar usuarios y suscripciones. Para poder usar las mismas cuentas de usuario con sus suscripciones de Azure y Office 365, asegúrese de que las suscripciones de Azure se hayan creado en el mismo directorio que las de Office 365. Tenga en cuenta los siguientes puntos:
 
-* Una suscripción se crea en un directorio.
-* Los usuarios pertenecen a directorios.
+* Una suscripción se crea en un directorio
+* Los usuarios pertenecen a directorios
 * Una suscripción se incluye en el directorio del usuario que la crea. Por lo que la suscripción a Office 365 está asociada a la misma cuenta que la suscripción de Azure.
-* Las suscripciones de Azure son propiedad de usuarios individuales del directorio.
+* Las suscripciones de Azure son propiedad de usuarios individuales del directorio
 * Las suscripciones de Office 365 pertenecen al propio directorio. Los usuarios con los permisos adecuados en el directorio pueden administrar estas suscripciones.
 
 ![Captura de pantalla que muestra la relación entre el directorio, los usuarios y las suscripciones.](./media/billing-use-existing-office-365-account-azure-subscription/19-background-information.png)
@@ -60,3 +57,4 @@ Para más información, consulte [Asociación de las suscripciones de Azure con 
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente. 
+

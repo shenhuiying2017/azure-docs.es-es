@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/17/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
-ms.openlocfilehash: 19e934895279adb3a32096fffafd567b294c3009
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 6ca2fdc9c68ea0030d938eeaebd57aafa0e2790f
 ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -29,34 +29,27 @@ Microsoft Azure AD proporciona soporte para el aprovisionamiento de usuarios par
 Hay un conjunto preconfigurado de asignaciones de atributos entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Algunas aplicaciones administran otros tipos de objetos, como grupos o contactos. <br> 
  Puede personalizar las asignaciones de atributos predeterminadas según sus necesidades empresariales. Esto significa que puede cambiar o eliminar asignaciones de atributos existentes o crear nuevas asignaciones de atributos.
 
-En el portal de Azure AD, puede tener acceso a esta característica; para ello, haga clic en Atributos en la barra de herramientas de una aplicación SaaS.
+En el portal de Azure AD, se puede acceder a esta característica haciendo clic en una configuración de **Asignaciones** en **Aprovisionamiento** en la sección **Administrar** de una **aplicación empresarial**.
 
-> [!NOTE]
-> El vínculo **Atributos** sólo está disponible si tiene habilitado el aprovisionamiento de usuarios para una aplicación SaaS. 
-> 
-> 
 
-![Salesforce][1] 
+![Salesforce][5] 
 
-Al hacer clic en Atributos en la barra de herramientas, aparece la lista de las asignaciones actuales configuradas para una aplicación SaaS.
+Al hacer clic en una configuración de **Asignaciones**, se abre la hoja **Asignación de atributos**.  
+Hay asignaciones de atributos que una aplicación SaaS necesita para funcionar correctamente. Para los atributos necesarios, la característica **Eliminar** no está disponible.
 
-La siguiente captura de pantalla le muestra un ejemplo:
 
-![Salesforce][2]  
+![Salesforce][6]  
 
-En el ejemplo anterior, puede ver que el atributo **firstName** de un objeto administrado en Salesforce se rellena con el valor **givenName** del objeto vinculado de Azure AD.
+En el ejemplo anterior, puede ver que el atributo **Username** de un objeto administrado en Salesforce se rellena con el valor de **userPrincipalName** del objeto vinculado de Azure Active Directory.
 
-Si desea personalizar las asignaciones de atributos o si desea revertir la configuración personalizada a la predeterminada, haga clic en el botón correspondiente en la barra de herramientas en la parte inferior de una aplicación.
+Puede personalizar las **asignaciones de atributos** existentes haciendo clic en una asignación. Se abre la hoja **Editar atributo**.
 
-![Salesforce][3]  
+![Salesforce][7]  
 
-Hay asignaciones de atributos que una aplicación SaaS necesita para funcionar correctamente. En la tabla de atributos, las asignaciones de atributos relacionadas tienen **Sí** como valor del atributo **Obligatorio**. Si se requiere una asignación de atributos, no puede eliminarla. En este caso, la característica **Eliminar** no está disponible.
 
-Para modificar una asignación de atributos existente, seleccione la asignación y después haga clic en **Editar**. Se abrirá una página de diálogo que le permite modificar la asignación de atributos seleccionada.
+  
 
-![Edición de asignaciones de atributos][4]  
-
-## <a name="understanding-attribute-mapping-types"></a>Información sobre los tipos de asignaciones de atributos
+## <a name="understanding-attribute-mapping-types"></a>Información sobre los tipos de asignación de atributos
 Con asignaciones de atributos, puede controlar cómo se rellenan los atributos en una aplicación SaaS de terceros. Se admiten cuatro tipos de asignaciones diferentes:
 
 * **Directa** : el atributo de destino se rellena con el valor de un atributo del objeto vinculado en Azure AD.
@@ -65,11 +58,29 @@ Con asignaciones de atributos, puede controlar cómo se rellenan los atributos e
   Para más información, consulte [Escritura de expresiones para la asignación de atributos en Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 * **Ninguno** : el atributo de destino se deja sin modificar. Sin embargo, si el atributo de destino está vacío, se rellena con el valor predeterminado que especifique.
 
-Además de estos cuatro tipos básicos de asignaciones de atributos, las asignaciones de atributos personalizadas admiten el concepto de una asignación de valor **predeterminada** . La asignación de valor predeterminada garantiza que un atributo de destino se rellene con un valor si no hay ningún valor en Azure AD ni en el objeto de destino.
+Además de estos cuatro tipos básicos de asignaciones de atributos, las asignaciones de atributos personalizadas admiten el concepto de una asignación de valor **predeterminada** opcional. La asignación de valor predeterminada garantiza que un atributo de destino se rellene con un valor si no hay ningún valor en Azure AD ni en el objeto de destino. La configuración más habitual consiste en dejarlo en blanco.
+
+
+## <a name="understanding-attribute-mapping-properties"></a>Información sobre las propiedades de asignación de atributos
+
+En la sección anterior, ya ha introducido la propiedad de tipo de asignación de atributos.
+Además de esta propiedad, las asignaciones de atributos también admiten los siguientes atributos:
+
+- **Atributo de origen**: especifica el atributo de usuario del sistema de origen (p. ej.: Azure Active Directory).
+- **Atributo de destino**: especifica el atributo de usuario en el sistema de destino (p. ej.: ServiceNow).
+- **Hacer coincidir objetos con este atributo**: especifica si se debe usar o no esta asignación para identificar de forma unívoca a los usuarios entre los sistemas de origen y de destino. Normalmente esto se establece en el atributo userPrincipalName o mail en Azure AD, que se suele asignar a un campo de nombre de usuario en una aplicación de destino.
+- **Precedencia de coincidencia**: se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes.
+- **Aplicar esta asignación**
+    - **Siempre**: esta asignación se aplica a las acciones de creación y actualización de usuarios
+    - **Solo durante la creación**: esta asignación se aplica solo a las acciones de creación de usuarios
+
+
+## <a name="what-you-should-know"></a>Qué debería saber
 
 Microsoft Azure AD proporciona una implementación eficaz de un proceso de sincronización. En un entorno inicializado, sólo los objetos que requieren actualizaciones se procesan durante un ciclo de sincronización. Actualizar las asignaciones de atributos repercute en el rendimiento de un ciclo de sincronización. Una actualización de la configuración de la asignación de atributos requiere que se vuelvan a evaluar todos los objetos administrados. Es un procedimiento recomendado mantener el número mínimo de cambios consecutivos de las asignaciones de atributos.
 
-## <a name="related-articles"></a>Artículos relacionados
+## <a name="next-steps"></a>Pasos siguientes
+
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 * [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Escritura de expresiones para asignaciones de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
@@ -83,4 +94,8 @@ Microsoft Azure AD proporciona una implementación eficaz de un proceso de sincr
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
+[5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
+[6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
+[7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
+
 

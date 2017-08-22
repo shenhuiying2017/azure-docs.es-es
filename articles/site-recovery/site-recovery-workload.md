@@ -14,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
-Este artículo describe las aplicaciones y cargas de trabajo que se pueden replicar con el servicio de Azure Site Recovery.
+Este artículo describe las aplicaciones y cargas de trabajo que se pueden replicar con el servicio Azure Site Recovery.
 
-Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="overview"></a>Información general
 Las organizaciones necesitan una estrategia de recuperación ante desastres y continuidad empresarial (BCDR) para mantener las cargas de trabajo y los datos seguros y disponibles durante los tiempos de inactividad planeados y no planeados, y recuperar las condiciones de funcionamiento normales lo antes posible.
@@ -127,11 +126,12 @@ Site Recovery ayuda a proteger Exchange como se indica a continuación:
 ## <a name="protect-sap"></a>Protección de SAP
 Use Site Recovery para proteger una implementación de SAP como se indica a continuación:
 
-* Habilite la protección de toda la implementación de SAP mediante la replicación de diferentes niveles de implementación en Azure o en un sitio secundario.
+* Habilite la protección de aplicaciones de producción de SAP NetWeaver y no NetWeaver en ejecución de forma local, mediante la replicación de componentes en Azure.
+* Habilite la protección de aplicaciones de producción de SAP NetWeaver y no NetWeaver en ejecución en Azure, mediante la replicación de componentes en otro centro de datos de Azure.
 * Simplifique la migración a la nube con Site Recovery para migrar la implementación de SAP en Azure.
-* Simplifique el desarrollo y las pruebas de SAP mediante la creación de una copia de producción a petición para probar y depurar aplicaciones.
+* Simplifique las actualizaciones del proyecto SAP, las pruebas y la creación de prototipos, mediante la creación de una clon en producción a petición para probar aplicaciones de SAP.
 
-[Más información](http://aka.ms/asr-sap) sobre cómo proteger SAP.
+[Más información](site-recovery-sap.md) sobre cómo proteger SAP.
 
 ## <a name="protect-iis"></a>Protección de IIS
 Use Site Recovery para proteger una implementación de IIS como se indica a continuación:
@@ -152,11 +152,11 @@ Use Site Recovery para proteger las implementaciones de Citrix XenApp y XenDeskt
 * Habilite la protección de la implementación de Citrix XenApp y XenDesktop, para lo que debe replicar diferentes capas de implementación diferentes niveles [entre los que se incluyen servidor DNS de AD, servidor de SQL Database, Citrix Delivery Controller, servidor de StoreFront, XenApp Master (VDA) y Citrix XenApp License Server] en Azure.
 * Simplifique la migración a nube mediante el uso de Site Recovery para migrar la implementación de Citrix XenApp y XenDesktop a Azure.
 * Simplifique las pruebas de Citrix XenApp o XenDesktop mediante la creación de una copia de producción a petición para la realización de pruebas y depuraciones.
-* Esta solución solo se puede aplicar a escritorios virtuales del sistema operativo de Windows Server, no a escritorios virtuales cliente, ya que estos aún no se admiten para la concesión de licencias en Azure. 
+* Esta solución solo se puede aplicar a escritorios virtuales del sistema operativo de Windows Server, no a escritorios virtuales cliente, ya que estos aún no se admiten para la concesión de licencias en Azure.
 Aquí encontrará [más información](https://azure.microsoft.com/pricing/licensing-faq/) acerca de la concesión de licencias a escritorios de cliente/servidor de Azure.
 
-[Más información](site-recovery-citrix-xenapp-and-xendesktop.md) acerca de la protección de las implementaciones de Citrix XenApp y XenDesktop. También puede consultar las [notas del producto de Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr), donde se detallan. 
+[Más información](site-recovery-citrix-xenapp-and-xendesktop.md) acerca de la protección de las implementaciones de Citrix XenApp y XenDesktop. También puede consultar las [notas del producto de Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr), donde se detallan.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Comprobación de los requisitos previos](site-recovery-prereq.md) 
+[Comprobación de los requisitos previos](site-recovery-prereq.md)
 

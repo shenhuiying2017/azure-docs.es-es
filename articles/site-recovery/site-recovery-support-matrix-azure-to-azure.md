@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 89b12ce7af1e810f72e14f67ec5b11390ac3e72f
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: e8ff96587a840236adfb277b3a33b11db71f7d8e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación de Azure a Azure
@@ -106,7 +106,7 @@ Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera d
 -- | --
 América | Centro de Canadá y este de Canadá, centro-sur de EE. UU., centro-oeste de EE. UU., este de EE. UU., este de EE. UU. 2, oeste de EE. UU., oeste de EE. UU. 2 centro de EE. UU., centro-norte de EE. UU.
 Europa | Oeste de Reino Unido, Sur de Reino Unido, Europa del Norte, Europa Occidental
-Asia | India del Sur, India Central, Sudeste Asiático, Asia Oriental, Japón Oriental, Japón Occidental
+Asia | India del Sur, centro de la India, Sudeste Asiático, Asia Oriental, Japón Oriental, Japón Occidental, Corea Central, Corea del Sur
 Australia   | Este de Australia, Sudeste de Australia
 
 >[!NOTE]
@@ -148,7 +148,7 @@ Excluir el disco | No compatible|   El disco temporal se excluye de forma predet
 LRS | Compatible |
 GRS | Compatible |
 RA-GRS | Compatible |
-ZRS | Compatible |  
+ZRS | No compatible |  
 Almacenamiento en frío y en caliente | No compatible | Los discos de máquina virtual no admiten el almacenamiento temporal y permanente.
 
 >[!IMPORTANT]

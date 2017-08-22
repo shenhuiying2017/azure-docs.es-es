@@ -5,7 +5,7 @@
 
 # [Introducción](iot-hub-get-started.md)
 
-## Instalación de su dispositivo
+## Configuración del dispositivo
 ### [Simulación de un dispositivo en su PC](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
@@ -18,6 +18,8 @@
 #### [Raspberry Pi con Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi con C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### [Raspberry Pi con Python](iot-hub-raspberry-pi-kit-python-get-started.md)
+
+#### [Kit de desarrollo de IoT con Visual Studio Code](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 
 #### [Intel Edison con Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison con C](iot-hub-intel-edison-kit-c-get-started.md)

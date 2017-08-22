@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 08/02/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 2e5dbaf595e3d3cd7dee09431fbb1cb6f2403ef4
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Usar el explorador de trabajos y la vista de trabajo para trabajos de Azure Data Lake Analytics
@@ -31,7 +30,7 @@ De forma predeterminada, el servicio Data Lake Analytics archiva los trabajos du
 Vea [Data Lake Tools for Visual Studio prerequisites](data-lake-analytics-data-lake-tools-get-started.md#prerequisites) (Requisitos previos de Data Lake Tools para Visual Studio).
 
 ## <a name="open-the-job-browser"></a>Abra el explorador de trabajos
-Al explorador de trabajos se puede acceder a través de **Explorador de servidores>Azure>Data Lake Analytics>Trabajos** en Visual Studio.  Con el explorador puede acceder al almacén de consultas de una cuenta de Data Lake Analytics. El explorador de trabajos muestra el almacén de consultas a la izquierda, con información básica sobre trabajos, y la vista de trabajo a la derecha, con la información detallada sobre un trabajo.
+Puede acceder al Explorador de trabajos a través de **Explorador de servidores>Azure>Data Lake Analytics>Trabajos** en Visual Studio.  Con el Explorador de trabajos puede acceder al almacén de consultas de una cuenta de Data Lake Analytics. El Explorador de trabajos muestra el Almacén de consultas a la izquierda, que muestra información básica sobre los trabajos y a la derecha la Vista de trabajos que muestra información detallada de los trabajos.
 
 ## <a name="job-view"></a>Vista de trabajo
 La vista de trabajo muestra la información detallada de un trabajo. Para abrir un trabajo, puede hacer doble clic en un trabajo en el explorador de trabajos o abrirlo en el menú Data Lake haciendo clic en la vista de trabajo. Debe ver un cuadro de diálogo que se rellena con la dirección URL del trabajo.

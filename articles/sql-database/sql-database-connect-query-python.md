@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/11/2017
+ms.date: 08/08/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b7c217be41b979f8a7246109cc95a01341dadf3d
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: afffcb9a4938bf97626f182bb4f4d099d807d411
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Uso de Python para consultar una base de datos SQL de Azure
@@ -40,15 +40,15 @@ Para completar este tutorial, asegúrese de que dispone de lo siguiente:
 
 - Ha instalado Python y el software relacionado para el sistema operativo.
 
-    - **MacOS**: instalación de Homebrew y Python, instalación del controlador ODBC y SQLCMD y, a continuación, instalación del controlador Python para SQL Server. Consulte [pasos 1.2, 1.3 y 2.1](https://www.microsoft.com/sql-server/developer-get-started/Python/mac/).
-    - **Ubuntu**: instalación de Python y otros paquetes necesarios y, a continuación, instalación del controlador Python para SQL Server. Consulte [pasos 1.2 y 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
-    - **Windows**: instalación de la versión más reciente de Python (la variable de entorno ya viene configurada), instalación del controlador ODBC y SQLCMD y, a continuación, instalación del controlador Python para SQL Server. Consulte [pasos 1.2, 1.3 y 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/windows/). 
+    - **MacOS**: instalación de Homebrew y Python, instalación del controlador ODBC y SQLCMD y, a continuación, instalación del controlador Python para SQL Server. Consulte los [pasos 1.2, 1.3 y 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
+    - **Ubuntu**: instalación de Python y otros paquetes necesarios y, a continuación, instalación del controlador Python para SQL Server. Consulte los [pasos 1.2, 1.3 y 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
+    - **Windows**: instalación de la versión más reciente de Python (la variable de entorno ya viene configurada), instalación del controlador ODBC y SQLCMD y, a continuación, instalación del controlador Python para SQL Server. Consulte [pasos 1.2, 1.3 y 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/windows/). 
 
 ## <a name="sql-server-connection-information"></a>Información de conexión de SQL server
 
 Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor, el nombre de la base de datos y la información de inicio de sesión.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**. 
 3. En la página **Introducción** de la base de datos, revise el nombre completo del servidor tal como se muestra en la siguiente imagen. Mantenga el puntero sobre el nombre del servidor hasta que aparezca la opción **Haga clic para copiar**.  
 

@@ -1,6 +1,6 @@
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| Máquinas virtuales por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región |10 000 por región |
+| Máquinas virtuales por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |10 000 <sup>1</sup> por región |10 000 por región |
 | Total de núcleos de máquina virtual por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región | Ponerse en contacto con soporte técnico |
 | Máquina virtual por núcleos de serie (Dv2, F, etc.) por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región | Ponerse en contacto con soporte técnico |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por suscripción |Sin límite |Sin límite |

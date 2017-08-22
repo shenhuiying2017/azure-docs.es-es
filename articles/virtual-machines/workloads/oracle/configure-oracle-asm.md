@@ -3,7 +3,7 @@ title: "Configuración de ASM de Oracle en una máquina virtual Linux en Azure |
 description: "Ponga en funcionamiento rápidamente ASM de Oracle en el entorno de Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
+author: RicksterCDN
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,61 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/2/2017
-ms.author: v-shiuma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 8290885cd4f3d2faede2900971cd7a5b5a59f5bc
+ms.date: 07/19/2017
+ms.author: rclaus
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configuración de ASM de Oracle en una máquina virtual Linux en Azure  
 
-En este artículo, aprenda a instalar y configurar Automatic Storage Management de Oracle (ASM de Oracle) en una máquina virtual Linux de Oracle en Azure.
+Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se aborda la implementación de máquinas virtuales de Azure básicas combinada con la instalación y configuración de Automated Storage Management (ASM) de Oracle.  Aprenderá a:
 
-Antes de comenzar, asegúrese de que esté instalada la CLI de Azure. Para obtener más información, vea la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Crear y conectarse a una máquina virtual de base de datos de Oracle
+> * Instalar y configurar Automated Storage Management de Oracle
+> * Instalar y configurar la infraestructura Grid de Oracle
+> * Inicializar una instalación de ASM de Oracle
+> * Crear una base de datos de Oracle administrada por ASM
+
+
+[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+
+Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-the-environment"></a>Preparación del entorno
 
-### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
-
-En la CLI de Azure, para iniciar sesión en su suscripción de Azure, use el comando [az login](/cli/azure/#login). Después, siga las instrucciones que aparecen en pantalla.
-
-```azurecli
-az login
-```
-
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En este ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*.
 
-En el ejemplo siguiente, se crea un grupo de recursos denominado myResourceGroup en la ubicación westus.
-
-```azurecli
-az group create --name myResourceGroup --location westus
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
 ```
 
 ### <a name="create-a-vm"></a>Creación de una VM
 
-Para crear una máquina virtual para usarla con ASM de Oracle, complete los pasos siguientes:
+Para crear una máquina virtual basada en la imagen de base de datos de Oracle y configurarla para usar ASM de Oracle, use el comando [az vm create](/cli/azure/vm#create). 
 
-1. Para crear una máquina virtual, use el comando [az vm create](/cli/azure/vm#create). 
+En el ejemplo siguiente se crea una máquina virtual denominada myVM que tiene un tamaño de Standard_DS2_v2 con cuatro discos de datos adjuntos de 50 GB cada uno. También se crean claves SSH si aún no existen en la ubicación de claves predeterminada.  Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  
 
-   En el ejemplo siguiente se crea una máquina virtual denominada myVM. También se crean claves SSH si aún no existen en una ubicación de claves predeterminada. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.  
-
-   ```azurecli
-   az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --size Standard_DS2_v2 --generate-ssh-keys
+   ```azurecli-interactive
+   az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image Oracle:Oracle-Database-Ee:12.1.0.2:latest \
+    --size Standard_DS2_v2 \
+    --generate-ssh-keys \
+    --data-disk-sizes-gb 50 50 50 50
    ```
 
-   Después de crear la máquina virtual, la CLI de Azure muestra información similar al ejemplo siguiente. Tome nota del valor de `publicIpAddress`, Use esta dirección para acceder a la máquina virtual.
+Después de crear la máquina virtual, la CLI de Azure muestra información similar al ejemplo siguiente. Tome nota del valor de `publicIpAddress`, ya que usará esta dirección para tener acceso a la máquina virtual.
 
    ```azurecli
    {
      "fqdns": "",
      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-     "location": "westus",
+     "location": "eastus",
      "macAddress": "00-0D-3A-36-2F-56",
      "powerState": "VM running",
      "privateIpAddress": "10.0.0.4",
@@ -76,18 +79,9 @@ Para crear una máquina virtual para usarla con ASM de Oracle, complete los paso
    }
    ```
 
-2. Agregue discos para usarlos para la configuración de ASM de Oracle:
-
-   ```azurecli
-   az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk --new --size-gb 50
-   az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk2 --new --size-gb 50
-   az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk3 --new --size-gb 50
-   az vm disk attach -g myResourceGroup --vm-name myVM  --disk myDataDisk4 --new --size-gb 50
-   ```
-
 ### <a name="connect-to-the-vm"></a>Conexión a la máquina virtual
 
-Para crear una sesión de SSH con la máquina virtual, use el siguiente comando. Reemplace la dirección IP por el valor `publicIpAddress` para la máquina virtual.
+Para crear una sesión de SSH con la máquina virtual y configurar opciones adicionales, use el siguiente comando. Reemplace la dirección IP por el valor `publicIpAddress` para la máquina virtual.
 
 ```bash 
 ssh <publicIpAddress>
@@ -99,67 +93,79 @@ Para instalar ASM de Oracle, complete los pasos siguientes.
 
 Para más información sobre cómo instalar ASM de Oracle, consulte [Oracle ASMLib Downloads for Oracle Linux 6](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html) (Descargas de Oracle ASMLib para Oracle Linux 6).  
 
-1. Ejecute `yum list`:
+1. Debe iniciar sesión como raíz para poder continuar con la instalación de ASM:
 
    ```bash
-   $ sudo su -
-   # yum list
+   sudo su -
    ```
-   `yum list` puede tardar varios minutos en cargarse la primera vez que lo ejecute.
-
-2. Ejecute estos comandos adicionales:
+   
+2. Ejecute estos comandos adicionales para instalar los componentes de ASM de Oracle:
 
    ```bash
-   # yum list | grep oracleasm
-   # yum -y install kmod-oracleasm.x86_64
-   # yum -y install oracleasm-support.x86_64
-   # wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm
-   # yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm
-   # rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
+    yum list | grep oracleasm 
+    yum -y install kmod-oracleasm.x86_64 
+    yum -y install oracleasm-support.x86_64 
+    wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
    ```
 
 3. Compruebe que ASM de Oracle esté instalado:
 
    ```bash
-   # rpm -qa |grep oracleasm
+   rpm -qa |grep oracleasm
+   ```
+
+    La salida de este comando debe enumerar los componentes siguientes:
+
+    ```bash
    oracleasm-support-2.1.10-4.el6.x86_64
    kmod-oracleasm-2.0.8-15.el6_9.x86_64
    oracleasmlib-2.0.12-1.el6.x86_64
-   ```
+    ```
 
-4. Agregue usuarios y grupos:
-
-   ```bash
-   # groupadd -g 54345 asmadmin
-   # groupadd -g 54346 asmdba
-   # groupadd -g 54347 asmoper
-   # useradd -u 3000 -g oinstall -G dba,asmadmin,asmdba,asmoper grid
-   # usermod -g oinstall -G dba,asmdba,asmadmin oracle
-   ```
-
-5. Compruebe usuarios y grupos:
+4. ASM requiere roles y usuarios específicos para poder funcionar correctamente. Los siguientes comandos crean las cuentas de usuario y los grupos que son requisitos previos: 
 
    ```bash
-   # id grid
-   uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
+    groupadd -g 54345 asmadmin 
+    groupadd -g 54346 asmdba 
+    groupadd -g 54347 asmoper 
+    useradd -u 3000 -g oinstall -G dba,asmadmin,asmdba,asmoper grid 
+    usermod -g oinstall -G dba,asmdba,asmadmin oracle
    ```
 
-6. Cree una carpeta y cambie el propietario:
+5. Compruebe que los usuarios y grupos se han creado correctamente:
 
    ```bash
-   # mkdir /u01/app/grid
-   # chown grid:oinstall /u01/app/grid
+   id grid
+   ```
+
+    La salida de este comando debe enumerar los usuarios y grupos siguientes:
+
+    ```bash
+    uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
+    ```
+ 
+6. Cree una carpeta para el usuario *grid* y cambie el propietario:
+
+   ```bash
+   mkdir /u01/app/grid 
+   chown grid:oinstall /u01/app/grid
    ```
 
 ## <a name="set-up-oracle-asm"></a>Configuración de ASM de Oracle
 
 Para este tutorial, el usuario predeterminado es *grid* y el grupo predeterminado, *asmadmin*. Asegúrese de que el usuario *oracle* forme parte del grupo asmadmin. Para configurar la instalación de ASM de Oracle, complete los pasos siguientes:
 
-1. Establezca el controlador de la biblioteca de ASM de Oracle:
+1. Configurar el controlador de la biblioteca ASM de Oracle implica definir el usuario predeterminado (grid) y el grupo predeterminado (asmadmin), además de configurar la unidad que se va a iniciar en el arranque (seleccione y) y para examinar los discos en el arranque (seleccione y). Tiene que responder a los mensajes del comando siguiente:
 
    ```bash
-   # /usr/sbin/oracleasm configure -i
+   /usr/sbin/oracleasm configure -i
+   ```
 
+   La salida de este comando debe ser similar a la siguiente, deteniéndose con mensajes que se deben responder.
+
+    ```bash
    Configuring the Oracle ASM library driver.
 
    This will configure the on-boot properties of the Oracle ASM library
@@ -177,13 +183,39 @@ Para este tutorial, el usuario predeterminado es *grid* y el grupo predeterminad
 
 2. Vea la configuración del disco:
    ```bash
-   # cat /proc/partitions
+   cat /proc/partitions
    ```
 
-3. Formatee el disco:
+   La salida de este comando debe ser similar a la lista siguiente de discos disponibles
 
    ```bash
-   # fdisk /dev/sdc
+   8       16   14680064 sdb
+   8       17   14678976 sdb1
+   8        0   52428800 sda
+   8        1     512000 sda1
+   8        2   51915776 sda2
+   8       48   52428800 sdd
+   8       64   52428800 sde
+   8       80   52428800 sdf
+   8       32   52428800 sdc
+   11       0       1152 sr0
+   ```
+
+3. Para dar formato al disco */dev/sdc*, ejecute el siguiente comando y responda a los mensajes con:
+   - *n* para la nueva partición
+   - *p* para la partición principal
+   - *1* para seleccionar la primera partición
+   - Presione `enter` para el primer cilindro predeterminado
+   - Presione `enter` para el último cilindro predeterminado
+   - Presione *w* para escribir los cambios en la tabla de particiones  
+
+   ```bash
+   fdisk /dev/sdc
+   ```
+   
+   Con las respuestas proporcionadas anteriormente, la salida del comando fdisk debe ser similar a la siguiente:
+
+   ```bash
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
    Building a new DOS disklabel with disk identifier 0xf865c6ca.
    Changes will remain in memory only, until you decide to write them.
@@ -217,12 +249,17 @@ Para este tutorial, el usuario predeterminado es *grid* y el grupo predeterminad
    Syncing disks.
    ```
 
-4. Repita el paso anterior para /dev/sdd, /dev/sde y /dev/sdf.
+4. Repita el comando fdisk anterior para `/dev/sdd`, `/dev/sde` y `/dev/sdf`.
 
 5. Compruebe la configuración del disco:
 
    ```bash
-   # cat /proc/partitions
+   cat /proc/partitions
+   ```
+
+   La salida del comando debe tener el siguiente aspecto:
+
+   ```bash
    major minor  #blocks  name
 
      8       16   14680064 sdb
@@ -238,73 +275,80 @@ Para este tutorial, el usuario predeterminado es *grid* y el grupo predeterminad
      8        0   52428800 sda
      8        1     512000 sda1
      8        2   51915776 sda2
-     11        0    1048575 sr0
+     11       0    1048575 sr0
    ```
 
-6. Compruebe el estado de servicio de ASM de Oracle:
+6. Compruebe el estado del servicio ASM de Oracle e inícielo:
 
    ```bash
-   # service oracleasm status
+   service oracleasm status 
+   service oracleasm start
+   ```
+
+   La salida del comando debe tener el siguiente aspecto:
+   
+   ```bash
    Checking if ASM is loaded: no
    Checking if /dev/oracleasm is mounted: no
-   ```
-
-7. Inicie el servicio de ASM de Oracle:
-
-   ```bash
-   # service oracleasm start
    Initializing the Oracle ASMLib driver:                     [  OK  ]
    Scanning the system for Oracle ASMLib disks:               [  OK  ]
    ```
 
-8. Cree discos de ASM de Oracle:
+7. Cree discos de ASM de Oracle:
 
    ```bash
-   # service oracleasm createdisk ASMSP /dev/sdc1
+   service oracleasm createdisk ASMSP /dev/sdc1 
+   service oracleasm createdisk DATA /dev/sdd1 
+   service oracleasm createdisk DATA1 /dev/sde1 
+   service oracleasm createdisk FRA /dev/sdf1
+   ```    
+
+   La salida del comando debe tener el siguiente aspecto:
+
+   ```bash
    Marking disk "ASMSP" as an ASM disk:                       [  OK  ]
-
-   # service oracleasm createdisk DATA /dev/sdd1
    Marking disk "DATA" as an ASM disk:                        [  OK  ]
-
-   # service oracleasm createdisk DATA1 /dev/sde1
    Marking disk "DATA1" as an ASM disk:                       [  OK  ]
-
-   # service oracleasm createdisk FRA /dev/sdf1
    Marking disk "FRA" as an ASM disk:                         [  OK  ]
    ```
 
-9. Enumere discos de ASM de Oracle:
+8. Enumere discos de ASM de Oracle:
 
    ```bash
-   # service oracleasm listdisks
-   ASMSP
-   DATA
-   DATA1
-   FRA
+   service oracleasm listdisks
+   ```   
+
+   La salida del comando debe enumerar los siguientes discos de ASM de Oracle:
+
+   ```bash
+    ASMSP
+    DATA
+    DATA1
+    FRA
    ```
 
-10. Cambie las contraseñas de los usuarios root, oracle y grid. (Usará las contraseñas más adelante, durante la instalación).
+9. Cambie las contraseñas de los usuarios root, oracle y grid. **Tome nota de estas contraseñas nuevas** ya que se van a usar posteriormente durante la instalación.
 
-    ```bash
-    # passwd oracle
-    # passwd grid
-    # passwd root
-    ```
+   ```bash
+   passwd oracle 
+   passwd grid 
+   passwd root
+   ```
 
-11. Cambie los permisos de carpeta:
+10. Cambie los permisos de carpeta:
 
-    ```bash
-    # chmod -R 775 /opt
-    # chown grid:oinstall /opt
-    # chown oracle:oinstall /dev/sdc1
-    # chown oracle:oinstall /dev/sdd1
-    # chown oracle:oinstall /dev/sde1
-    # chown oracle:oinstall /dev/sdf1
-    # chmod 600 /dev/sdc1
-    # chmod 600 /dev/sdd1
-    # chmod 600 /dev/sde1
-    # chmod 600 /dev/sdf1
-    ```
+   ```bash
+   chmod -R 775 /opt 
+   chown grid:oinstall /opt 
+   chown oracle:oinstall /dev/sdc1 
+   chown oracle:oinstall /dev/sdd1 
+   chown oracle:oinstall /dev/sde1 
+   chown oracle:oinstall /dev/sdf1 
+   chmod 600 /dev/sdc1 
+   chmod 600 /dev/sdd1 
+   chmod 600 /dev/sde1 
+   chmod 600 /dev/sdf1
+   ```
 
 ## <a name="download-and-prepare-oracle-grid-infrastructure"></a>Descarga y preparación de Oracle Grid Infrastructure
 
@@ -317,74 +361,76 @@ Para descargar y preparar el software Oracle Grid Infrastructure, complete los p
 2. Después de descargar los archivos .zip en el equipo cliente, puede usar el protocolo de copia segura (SCP) para copiar los archivos a la máquina virtual:
 
    ```bash
-   scp *.zip <publicIpAddress>:<folder>
+   scp *.zip <publicIpAddress>:.
    ```
 
-3. Mueva los archivos .zip a la carpeta /opt. A continuación, cambie el propietario de los archivos:
+3. Use SSH para volver a la máquina virtual de Oracle en Azure y mover los archivos .zip a la carpeta /opt. A continuación, cambie el propietario de los archivos:
 
    ```bash
-   # mv <folder>/*.zip /opt
-   # cd /opt
-   # chown grid:oinstall linuxamd64_12102_grid_1of2.zip
-   # chown grid:oinstall linuxamd64_12102_grid_2of2.zip
+   ssh <publicIPAddress>
+   sudo mv ./*.zip /opt
+   cd /opt
+   sudo chown grid:oinstall linuxamd64_12102_grid_1of2.zip
+   sudo chown grid:oinstall linuxamd64_12102_grid_2of2.zip
    ```
 
 4. Descomprima los archivos. (Instale la herramienta de descompresión de Linux si aún no está instalada).
    
    ```bash
-   # yum install unzip
-   # unzip linuxamd64_12102_grid_1of2.zip
-   # unzip linuxamd64_12102_grid_2of2.zip
+   sudo yum install unzip
+   sudo unzip linuxamd64_12102_grid_1of2.zip
+   sudo unzip linuxamd64_12102_grid_2of2.zip
    ```
 
 5. Cambie el permiso:
    
    ```bash
-   # chown -R grid:oinstall /opt/grid
+   sudo chown -R grid:oinstall /opt/grid
    ```
 
-6. Desactive el firewall:
-   
+6. Actualice el espacio de intercambio configurado. Los componentes de Oracle Grid necesitan al menos 6,8 GB de espacio de intercambio para instalar Grid. El tamaño de archivo de intercambio predeterminado para las imágenes de Oracle Linux en Azure es solo de 2048 MB. Tendrá que aumentar `ResourceDisk.SwapSizeMB` en el archivo `/etc/waagent.conf` y reiniciar el servicio WALinuxAgent para que la configuración actualizada surta efecto. Dado que es un archivo de solo lectura, debe cambiar los permisos de archivo para habilitar el acceso de escritura.
+
    ```bash
-   # service iptables status
-   # service iptables stop
+   sudo chmod 777 /etc/waagent.conf  
+   vi /etc/waagent.conf
    ```
+   
+   Busque `ResourceDisk.SwapSizeMB` y cambie el valor a **8192**. Tendrá que presionar `insert` para entrar en modo de inserción, escribir el valor de **8192** y, después, presionar `esc` para volver al modo de comando. Para escribir los cambios y cerrar el archivo, escriba `:wq` y presione `enter`.
+   
+   > [!NOTE]
+   > Se recomienda encarecidamente usar siempre `WALinuxAgent` para configurar el espacio de intercambio de modo que siempre se cree en el disco efímero (disco temporal) para tener el mejor rendimiento. Para más información, vea [Cómo agregar un archivo de intercambio en máquinas virtuales de Azure para Linux](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
 
-7. Compruebe el espacio de intercambio disponible. Necesita al menos 6,8 GB de espacio de intercambio para instalar Grid. Las máquinas virtuales de Azure no tienen el intercambio habilitado y configurado de forma predeterminada.
+## <a name="prepare-your-local-client-and-vm-to-run-x11"></a>Preparar el cliente local y la máquina virtual para ejecutar x11
+La configuración de ASM de Oracle requiere una interfaz gráfica para completar la instalación y configuración. Para facilitar esta instalación se usa el protocolo x11. Si usa un sistema de cliente (Mac o Linux) que ya tiene funcionalidades de X11 habilitadas y configuradas, puede omitir esta instalación y configuración exclusiva para equipos Windows. 
 
-Es muy recomendable que use waagent para configurar el espacio de intercambio para que siempre esté creado en el disco efímero (disco temporal). Para más información, consulte [Incorporación de un archivo de intercambio en máquinas virtuales Linux de Azure](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
+1. [Descargue PuTTY](http://www.putty.org/) y [Xming](https://xming.en.softonic.com/) en el equipo Windows. Debe completar la instalación de estas dos aplicaciones con los valores predeterminados antes de continuar.
 
-## <a name="prepare-the-client-and-vm-to-run-x11-for-windows-clients-only"></a>Preparación del cliente y la máquina virtual para ejecutar x11 (solo para clientes Windows)
-Se trata de un paso opcional. Puede omitir este paso si está utilizando un cliente Linux o ya ha configurado x11.
-
-1. [Descargue PuTTY](http://www.putty.org/) y [Xming](https://xming.en.softonic.com/) en el equipo Windows.
-
-2. Después de instalar PuTTY, en la carpeta PuTTY (por ejemplo, C:\Archivos de programa\PuTTY), ejecute puttygen.exe (PuTTY Key Generator).
+2. Después de instalar PuTTY, abra un símbolo del sistema, cambie a la carpeta de PuTTY (por ejemplo, C:\Archivos de programa\PuTTY) y ejecute `puttygen.exe` para generar una clave.
 
 3. En PuTTY Key Generator:
    
-   1. Para generar una clave, seleccione el botón **Generate** (Generar).
+   1. Haga clic en el botón `Generate` para generar una clave.
    2. Copie el contenido de la clave (Ctrl+C).
-   3. Seleccione el botón **Save private key** (Guardar clave privada).
-   4. Pase por alto la advertencia que aparece y seleccione **OK** (Aceptar).
+   3. Haga clic en el botón `Save private key`.
+   4. Ignore la advertencia sobre la protección de la clave con una frase de contraseña y, después, haga clic en `OK`.
 
    ![Captura de pantalla de PuTTY Key Generator](./media/oracle-asm/puttykeygen.png)
 
 4. En la máquina virtual, ejecute estos comandos:
 
    ```bash
-   # sudo su - grid
-   $ mkdir .ssh (if not already created)
-   $ cd .ssh
+   sudo su - grid
+   mkdir .ssh 
+   cd .ssh
    ```
 
-5. Cree un archivo denominado authorized_keys. Pegue el contenido de la clave en este archivo y guárdelo.
+5. Cree un archivo llamado `authorized_keys`. Pegue el contenido de la clave en este archivo y guárdelo.
 
    > [!NOTE]
    > La clave debe contener la cadena `ssh-rsa`. Además, el contenido de la clave debe ser una sola línea de texto.
    >  
 
-6. Inicie PuTTY. En el panel **Category** (Categoría), vaya a **Connection** > **SSH** > **Auth** (Conexión > SSH > Autenticación). En el cuadro **Private key file for authentication** (Archivo de clave privada para autenticación), vaya a la clave que generó antes.
+6. En el sistema cliente, inicie PuTTY. En el panel **Category** (Categoría), vaya a **Connection** > **SSH** > **Auth** (Conexión > SSH > Autenticación). En el cuadro **Private key file for authentication** (Archivo de clave privada para autenticación), vaya a la clave que generó antes.
 
    ![Captura de pantalla de las opciones de autenticación de SSH](./media/oracle-asm/setprivatekey.png)
 
@@ -392,7 +438,7 @@ Se trata de un paso opcional. Puede omitir este paso si está utilizando un clie
 
    ![Captura de pantalla de las opciones de reenvío a SSH X11](./media/oracle-asm/enablex11.png)
 
-8. En el panel **Category** (Categoría), vaya a **Session** (Sesión). Escriba la información del host y seleccione **Open** (Abrir).
+8. En el panel **Category** (Categoría), vaya a **Session** (Sesión). Escriba la `<publicIPaddress>` de la máquina virtual de ASM de Oracle en el cuadro de diálogo de nombre de host, rellene un nuevo nombre de `Saved Session` y, después, haga clic en `Save`.  Una vez guardado, haga clic en `open` para conectarse a la máquina virtual de ASM de Oracle.  La primera vez que se conecte se le advertirá que el sistema remoto no se almacena en caché en el registro. Haga clic en `yes` para agregarlo y continuar.
 
    ![Captura de pantalla de las opciones de sesión de PuTTY](./media/oracle-asm/puttysession.png)
 
@@ -400,14 +446,14 @@ Se trata de un paso opcional. Puede omitir este paso si está utilizando un clie
 
 Para instalar Oracle Grid Infrastructure, complete los pasos siguientes:
 
-1. Inicie sesión como grid. (Debe poder iniciar sesión sin que se le solicite una contraseña). 
+1. Inicie sesión como **grid**. (Debe poder iniciar sesión sin que se le solicite una contraseña). 
 
    > [!NOTE]
-   > Asegúrese de que se esté ejecutando Xming antes de comenzar la instalación.
+   > Si está ejecutando Windows, asegúrese de que ha iniciado Xming antes de comenzar la instalación.
 
    ```bash
-   $ cd /opt/grid
-   $ ./runInstaller
+   cd /opt/grid
+   ./runInstaller
    ```
 
    Se abre el instalador de Oracle Grid Infrastructure 12c versión 1. (Se puede tardar unos minutos en iniciar el instalador).
@@ -416,35 +462,26 @@ Para instalar Oracle Grid Infrastructure, complete los pasos siguientes:
 
    ![Captura de pantalla de la página Select Installation Option (Seleccionar opción de instalación) en el instalador](./media/oracle-asm/install01.png)
 
-3. En la página **Select Product Languages** (Seleccionar idiomas de producto), seleccione **English** (Inglés) o el idioma que desee.
-
-   ![Captura de pantalla de la página Select Product Languages (Seleccionar idiomas de producto) en el instalador](./media/oracle-asm/install02.png)
+3. En la página **Select Product Languages** (Seleccionar idiomas de producto), seleccione **English** (Inglés) o el idioma que quiera.  Haga clic en `next`.
 
 4. En la página **Create ASM Disk Group** (Crear grupo de discos de ASM):
    - Escriba un nombre para el grupo de discos.
    - En **Redundancy** (Redundancia), seleccione **External** (Externa).
    - En **Allocation Unit Size** (Tamaño de la unidad de asignación), seleccione **4**.
    - En **Add Disks** (Agregar discos), seleccione **ORCLASMSP**.
-
-   ![Captura de pantalla de la página Create ASM Disk Group (Crear grupo de discos de ASM) en el instalador](./media/oracle-asm/install03.png)
+   - Haga clic en `next`.
 
 5. En la página **Specify ASM Password** (Especificar contraseña de ASM), seleccione la opción **Use same passwords for these accounts** (Usar las mismas contraseñas para estas cuentas) y escriba una contraseña.
 
    ![Captura de pantalla de la página Specify ASM Password (Especificar contraseña de ASM) en el instalador](./media/oracle-asm/install04.png)
 
-6. (Opcional) En la página **Specify Management Options** (Especificar opciones de administración), active la casilla **Register with Enterprise Manager (EM) Cloud Control** (Registro con Enterprise Manager (EM) Cloud Control).
+6. En la página **Specify Management Options** (Especificar opciones de administración), tiene la opción de configurar el Control de EM en la nube. Se va a omitir esta opción, haga clic en `next` para continuar. 
 
-   ![Captura de pantalla de la página Specify Management Options (Especificar opciones de administración) en el instalador](./media/oracle-asm/install05.png)
+7. En la página **Privileged Operating System Groups** (Grupos de sistemas operativos con privilegios), use la configuración predeterminada. Haga clic en `next` para continuar.
 
-7. En la página **Privileged Operating System Groups** (Grupos de sistemas operativos con privilegios), use la configuración predeterminada.
+8. En la página **Specify Installation Location** (Especificar ubicación de instalación), use la configuración predeterminada. Haga clic en `next` para continuar.
 
-   ![Captura de pantalla de la página Privileged Operating System Groups (Grupos de sistemas operativos con privilegios) en el instalador](./media/oracle-asm/install06.png)
-
-8. En la página **Specify Installation Location** (Especificar ubicación de instalación), use la configuración predeterminada.
-
-   ![Captura de pantalla de la página Specify Installation Location (Especificar ubicación de instalación) en el instalador](./media/oracle-asm/install07.png)
-
-9. En la página **Create Inventory** (Crear inventario), escriba o busque la ubicación de carpeta.
+9. En la página **Create Inventory** (Crear inventario), cambie el directorio de inventario a `/u01/app/grid/oraInventory`. Haga clic en `next` para continuar.
 
    ![Captura de pantalla de la página Create Inventory (Crear inventario) en el instalador](./media/oracle-asm/install08.png)
 
@@ -452,61 +489,53 @@ Para instalar Oracle Grid Infrastructure, complete los pasos siguientes:
 
     ![Captura de pantalla de la página Root script execution configuration (Configuración de ejecución de script de root) en el instalador](./media/oracle-asm/install09.png)
 
-11. En la página **Perform Prerequisite Checks** (Realizar comprobaciones de requisitos previos), seleccione **Fix & Check Again** (Corregir y volver a comprobar).
+11. En la página **Perform Prerequisite Checks** (Realizar comprobaciones de requisitos previos), el programa de instalación actual producirá errores. Este es un comportamiento esperado. Seleccione `Fix & Check Again`.
 
-    ![Captura de pantalla de la página Perform Prerequisite Checks (Realizar comprobaciones de requisitos previos) en el instalador](./media/oracle-asm/install10.png)
+12. En el cuadro de diálogo **Fixup Script** (Script de corrección), haga clic en `OK`.
 
-12. En el cuadro de diálogo **Fixup Script** (Script de corrección), seleccione **Aceptar**.
-
-    ![Captura de pantalla del cuadro de diálogo Fixup Script (Script de corrección)](./media/oracle-asm/install11.png)
-
-13. En la página **Summary** (Resumen), revise las opciones de configuración y seleccione **Install** (Instalar).
+13. En la página **Summary** (Resumen), revise las opciones de configuración seleccionadas y después haga clic en `Install`.
 
     ![Captura de pantalla de la página Summary (Resumen) en el instalador](./media/oracle-asm/install12.png)
 
-14. Aparece un cuadro de diálogo de advertencia. Seleccione **Yes** (Sí) para continuar.
+14. Aparece un cuadro de diálogo de advertencia para informar que los scripts de configuración se deben ejecutar como un usuario con privilegios. Haga clic en `Yes` para continuar.
 
-    ![Captura de pantalla del cuadro de diálogo de advertencia](./media/oracle-asm/install14.png)
-
-15. En la página **Finish** (Finalizar), seleccione **Close** (Cerrar) para finalizar la instalación.
-
-    ![Captura de pantalla de la página Finish (Finalizar) en el instalador](./media/oracle-asm/install16.png)
+15. En la página **Finish** (Finalizar), haga clic en `Close` para finalizar la instalación.
 
 ## <a name="set-up-your-oracle-asm-installation"></a>Configuración de la instalación de ASM de Oracle
 
 Para configurar la instalación de ASM de Oracle, complete los pasos siguientes:
 
-1. Inicie sesión como grid desde su sesión de X11:
+1. Asegúrese de que sigue conectado como **grid** desde su sesión de X11. Es posible que tenga que presionar `enter` para actualizar el terminal. Después, inicie el asistente de configuración de Automated Storage Management de Oracle:
 
    ```bash
-   $ cd /u01/app/grid/product/12.1.0/grid/bin
-   $ ./asmca
+   cd /u01/app/grid/product/12.1.0/grid/bin
+   ./asmca
    ```
 
    Se abre el asistente para la configuración de ASM de Oracle.
 
-2. En el cuadro de diálogo **Configure ASM: Disk Groups** (Configurar ASM: grupos de discos), seleccione el botón **Create** (Crear) y **Show Advanced Options** (Mostrar opciones avanzadas).
-
-   ![Captura de pantalla del cuadro de diálogo Configure ASM: Disk Groups (Configurar ASM: grupos de discos)](./media/oracle-asm/asm01.png)
+2. En el cuadro de diálogo **Configure ASM: Disk Groups** (Configurar ASM: grupos de discos), haga clic en el botón `Create` y, después, haga clic en `Show Advanced Options`.
 
 3. En el cuadro de diálogo **Create Disk Group** (Crear grupo de discos):
 
-   - Escriba el nombre del grupo de discos.
+   - Escriba el nombre del grupo de discos **DATA**.
    - En **Select Member Disks** (Seleccionar discos miembro), seleccione **ORCL_DATA** y **ORCL_DATA1**.
    - En **Allocation Unit Size** (Tamaño de la unidad de asignación), seleccione **4**.
+   - Haga clic en `ok` para crear el grupo de discos.
+   - Haga clic en `ok` para cerrar la ventana de confirmación.
 
    ![Captura de pantalla del cuadro de diálogo Create Disk Group (Crear grupo de discos)](./media/oracle-asm/asm02.png)
 
-4. En el cuadro de diálogo **Configure ASM: Disk Groups** (Configurar ASM: grupos de discos), seleccione el botón **Create** (Crear) y **Show Advanced Options** (Mostrar opciones avanzadas).
-
-   ![Captura de pantalla del cuadro de diálogo Configure ASM: Disk Groups (Configurar ASM: grupos de discos)](./media/oracle-asm/asm03.png)
+4. En el cuadro de diálogo **Configure ASM: Disk Groups** (Configurar ASM: grupos de discos), haga clic en el botón `Create` y, después, haga clic en `Show Advanced Options`.
 
 5. En el cuadro de diálogo **Create Disk Group** (Crear grupo de discos):
 
-   - Escriba el nombre del grupo de discos.
-   - En **Redundancy** (Redundancia), seleccione **External** (Externa).
+   - Escriba el nombre del grupo de discos **FRA**.
+   - En **Redundancy** (Redundancia), seleccione **External (none)** (Externa [ninguna]).
    - En **Select Member Disks** (Seleccionar discos miembro), seleccione **ORCL_FRA**.
    - En **Allocation Unit Size** (Tamaño de la unidad de asignación), seleccione **4**.
+   - Haga clic en `ok` para crear el grupo de discos.
+   - Haga clic en `ok` para cerrar la ventana de confirmación.
 
    ![Captura de pantalla del cuadro de diálogo Create Disk Group (Crear grupo de discos)](./media/oracle-asm/asm04.png)
 
@@ -516,43 +545,38 @@ Para configurar la instalación de ASM de Oracle, complete los pasos siguientes:
 
 ## <a name="create-the-database"></a>Creación de la base de datos
 
-El software de Oracle ya está instalado en la imagen de Azure Marketplace. Para instalar la base de datos, complete los pasos siguientes:
+El software de base de datos de Oracle ya está instalado en la imagen de Azure Marketplace. Para crear una base de datos, complete los siguientes pasos:
 
 1. Cambie de usuario al superusuario Oracle e inicialice el agente de escucha para el registro:
 
    ```bash
-   $ su - oracle
-   Password:
-   $ cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
-   $ ./dbca
-    ```
+   su - oracle
+   cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
+   ./dbca
+   ```
    Se abre el asistente para la configuración de la base de datos.
 
-2. En la página **Database Operation** (Operación de base de datos), seleccione **Create Database** (Crear base de datos).
+2. En la página **Database Operation** (Operación de base de datos), haga clic en `Create Database`.
 
-   ![Captura de pantalla de la página Database Operation (Operación de base de datos)](./media/oracle-asm/createdb01.png)
-  
 3. En la página **Creation Mode** (Modo de creación):
 
    - Escriba un nombre para la base de datos.
-   - Para **Storage Type** (Tipo de almacenamiento), seleccione **Automatic Storage Management (ASM)**.
-   - Para **Database Files Location** (Ubicación de archivos de base de datos), vaya a la carpeta que desea usar.
-   - Para **Fast Recovery Area** (Área de recuperación rápida), vaya a la carpeta que desea usar.
+   - Para **Storage Type** (Tipo de almacenamiento), asegúrese de que **Automatic Storage Management (ASM)** está seleccionado.
+   - Para **Database Files Location** (Ubicación de archivos de base de datos), use la ubicación sugerida de ASM predeterminada.
+   - Para **Fast Recovery Area** (Área de recuperación rápida), use la ubicación sugerida de ASM predeterminada.
+   - Escriba una **contraseña administrativa** y **confirme la contraseña**.
+   - Asegúrese de que `create as container database` está seleccionado.
+   - Escriba un valor de `pluggable database name`.
 
-   ![Captura de pantalla de la página Creation Mode (Modo de creación)](./media/oracle-asm/createdb02.png)
-
-4. En la página **Summary** (Resumen), revise las opciones de configuración elegidas y seleccione **Finish** (Finalizar) para crear la base de datos.
+4. En la página **Summary** (Resumen), revise la configuración seleccionada y haga clic en `Finish` para crear la base de datos.
 
    ![Captura de pantalla de la página Summary (Resumen)](./media/oracle-asm/createdb03.png)
 
-5. (Opcional) En la página **Finish** (Finalizar), para cambiar las contraseñas, seleccione **Password Management** (Administración de contraseñas).
+5. Se ha creado la base de datos. En la página **Finish** (Finalizar), tiene la opción de desbloquear cuentas adicionales para usar esta base de datos y cambiar las contraseñas. Si quiere hacerlo, seleccione **Password Management** (Administración de contraseñas); de lo contrario, haga clic en `close`.
 
-   ![Captura de pantalla de la página Finish (Finalizar)](./media/oracle-asm/createdb04.png)
+## <a name="delete-the-vm"></a>Eliminar la máquina virtual
 
-
-## <a name="delete-the-vm"></a>Eliminación de la máquina virtual
-
-Cuando ya no necesite la máquina virtual, puede usar el comando siguiente para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados:
+Automated Storage Management de Oracle se ha configurado correctamente en la imagen de base de datos de Oracle desde Azure Marketplace.  Cuando ya no necesite esta máquina virtual, puede usar el comando siguiente para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados:
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -560,7 +584,9 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Tutorial de creación de máquinas virtuales de alta disponibilidad](../../linux/create-cli-complete.md)
+[Tutorial: Configuración de Oracle DataGuard](configure-oracle-dataguard.md)
 
-[Ejemplos de la CLI de Azure para implementación de máquinas virtuales](../../linux/cli-samples.md)
+[Tutorial: Configuración de Oracle GoldenGate](Configure-oracle-golden-gate.md)
+
+Revise [Diseño de una base de datos de Oracle](oracle-design.md)
 

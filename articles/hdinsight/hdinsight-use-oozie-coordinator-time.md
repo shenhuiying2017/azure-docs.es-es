@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: b43ea48b9b34f3ab6980f7bdc5c21a19d20fd5b6
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: ce145585b31585fdc6a60eb8a8dd933a81a46bd1
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Uso del coordinador de Oozie basado en tiempo con Hadoop en HDInsight para definir flujos de trabajo y coordinar trabajos
@@ -199,7 +198,7 @@ La acción de Hive en el flujo de trabajo llama a un archivo de script de HiveQL
     <table border = "1">
     <tr><th>Variables de flujo de trabajo</th><th>Description</th></tr>
     <tr><td>${jobTracker}</td><td>Especifique la dirección URL del seguimiento de trabajo de Hadoop. Use <strong>jobtrackerhost:9010</strong> en la versión del clúster de HDInsight 3.0 y 2.0.</td></tr>
-    <tr><td>${nameNode}</td><td>Especifique la dirección URL del nombre de nodo de Hadoop. Use el sistema de archivos predeterminado wasbs:// address, por ejemplo, <i>wasbs://&lt;nombreDelContenedor&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
+    <tr><td>${nameNode}</td><td>Especifique la dirección URL del nombre de nodo de Hadoop. Use el sistema de archivos predeterminado wasb:// dirección, por ejemplo, <i>wasb://&lt;nombreDelContenedor&gt;@&lt;nombreDeLaCuentaDeAlmacenamiento&gt;.blob.core.windows.net</i>.</td></tr>
     <tr><td>${queueName}</td><td>Especifica el nombre de cola al que se enviará el trabajo. Use el <strong>valor predeterminado</strong>.</td></tr>
     </table>
 
@@ -253,15 +252,15 @@ La acción de Hive en el flujo de trabajo llama a un archivo de script de HiveQL
 ## <a name="deploy-the-oozie-project-and-prepare-the-tutorial"></a>Implementación del proyecto de Oozie y preparación del tutorial
 Ejecutará el script de Azure PowerShell para realizar las siguientes acciones:
 
-* Copiar el script de HiveQL (useoozie.hql) en Azure Blob Storage, wasb:///tutorials/useoozie/useoozie.hql.
-* Copiar workflow.xml en wasb:///tutorials/useoozie/workflow.xml.
-* Copiar coordinator.xml en wasb:///tutorials/useoozie/coordinator.xml.
-* Copiar el archivo de datos (/example/data/sample.log) en wasb:///tutorials/useoozie/data/sample.log.
+* Copie el script de HiveQL (useoozie.hql) en Azure Blob Storage, wasb:///tutorials/useoozie/useoozie.hql.
+* Copie workflow.xml en wasb:///tutorials/useoozie/workflow.xml.
+* Copie coordinator.xml en wasb:///tutorials/useoozie/coordinator.xml.
+* Copie el archivo de datos (/example/data/sample.log) en wasb:///tutorials/useoozie/data/sample.log.
 * Cree una tabla de base de datos SQL de Azure para el almacenamiento de datos de exportación de Sqoop. El nombre de la tabla es *log4jLogCount*.
 
 **Descripción del almacenamiento de HDInsight**
 
-HDInsight usa el almacenamiento de blobs de Azure para almacenar datos. wasb:// es la implementación de Microsoft del sistema de archivos distribuido de Hadoop (HDFS) en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso de Azure Blob Storage con HDInsight][hdinsight-storage].
+HDInsight usa el almacenamiento de blobs de Azure para almacenar datos. wasb:// es la implementación de Microsoft del sistema de archivos distribuido de Hadoop (HDFS) en Azure Blob Storage. Para obtener más información, consulte [Uso de Azure Blob Storage con HDInsight][hdinsight-storage].
 
 Cuando se aprovisiona un clúster de HDInsight, se designan una cuenta de almacenamiento de blobs de Azure y un contenedor específico de dicha cuenta como el sistema de archivos predeterminado, de la misma forma que en HDFS. Además de esta cuenta de almacenamiento, puede agregar más cuentas de almacenamiento desde la misma suscripción de Azure o desde otras diferentes durante el proceso de aprovisionamiento. Para obtener instrucciones sobre cómo agregar más cuentas de almacenamiento, consulte [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. Para simplificar el script de Azure PowerShell que se usa en este tutorial, todos los archivos se almacenan en el contenedor del sistema de archivos predeterminado, que se encuentra en */tutorials/useoozie*. De forma predeterminada, este contenedor tiene el mismo nombre que el del clúster de HDInsight.
 La sintaxis es:
@@ -275,8 +274,8 @@ La sintaxis es:
 
 Para acceder a un archivo almacenado en el contenedor del sistema de archivos predeterminado desde HDInsight se puede usar cualquiera de los URI siguientes (uso workflow.xml como ejemplo):
 
-    wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/workflow.xml
-    wasbs:///tutorials/useoozie/workflow.xml
+    wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/workflow.xml
+    wasb:///tutorials/useoozie/workflow.xml
     /tutorials/useoozie/workflow.xml
 
 Si desea obtener acceso al archivo directamente desde la cuenta de almacenamiento, el nombre de blob del archivo es:
@@ -411,7 +410,7 @@ Azure PowerShell no proporciona actualmente cmdlets para la definición de traba
     #Azure Blob storage (WASB) variables
     $storageAccountName = "<StorageAccountName>"
     $storageContainerName = "<BlobContainerName>"
-    $storageUri="wasbs://$storageContainerName@$storageAccountName.blob.core.windows.net"
+    $storageUri="wasb://$storageContainerName@$storageAccountName.blob.core.windows.net"
 
     #Azure SQL database variables
     $sqlDatabaseServer = "<SQLDatabaseServerName>"

@@ -13,14 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: ec4b2808e6984821200be182183e53b69887b912
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 86a4d6d3ab4d29fba8f554265958ffa079b69ec2
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalización de cómo muestra la solución de factoría conectada los datos de los servidores de OPC UA
@@ -69,7 +68,7 @@ Puede examinar los elementos de datos que un servidor de OPC UA conectado puede 
 
 ## <a name="map-the-data"></a>Asignación de datos
 
-La solución de factoría conectada asigna y agrega los elementos de datos publicados desde el servidor de OPC UA a las distintas vistas de la solución. La solución de factoría conectada se implementa en su cuenta de Azure al aprovisionar la solución. Un archivo JSON de la solución de factoría conectada de Visual Studio almacena esta información de asignación. Puede ver y modificar este archivo de configuración de JSON en la solución de Visual Studio de factoría conectada y volver a implementarlo.
+La solución de factoría conectada asigna y agrega los elementos de datos publicados desde el servidor de OPC UA a las distintas vistas de la solución. La solución de factoría conectada se implementa en su cuenta de Azure al aprovisionar la solución. Un archivo JSON de la solución de factoría conectada de Visual Studio almacena esta información de asignación. Puede ver y modificar este archivo de configuración de JSON en la solución de Visual Studio de factoría conectada. Puede volver a implementar la solución después de realizar un cambio.
 
 Puede usar el archivo de configuración para:
 
@@ -107,7 +106,7 @@ Cada estación incluye varias propiedades detalladas que definen la asignación 
 
 ### <a name="opcuri"></a>OpcUri
 
-El valor de **OpcUri** es el URI de la aplicación de OPC UA que identifica de forma única el servidor de OPC UA. Por ejemplo, el valor **OpcUri** de la estación de montaje de la línea de producción 1 de Munich tiene el siguiente aspecto: **urn:scada2194:ua:munich:productionline0:assemblystation**.
+El valor de **OpcUri** es el URI de la aplicación de OPC UA que identifica de forma única el servidor de OPC UA. Por ejemplo, el valor **OpcUri** de la estación de ensamblado de la línea de producción 1 de Múnich tiene el siguiente aspecto: **urn:scada2194:ua:munich:productionline0:assemblystation**.
 
 Puede ver los URI de los servidores de OPC UA conectados en el panel de la solución:
 

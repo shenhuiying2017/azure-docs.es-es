@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/24/2017
+ms.date: 8/10/2017
 ms.author: chackdan;maburlik;dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 7543d98030ea143d537e0028801fd3efe3e4ff32
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creación de un clúster independiente con Windows Server
@@ -113,9 +113,9 @@ El paquete en tiempo de ejecución de Service Fabric se descarga automáticament
 El paquete en tiempo de ejecución se puede descargar por separado desde otra máquina conectada a internet, desde el [vínculo de descarga: Service Fabric en tiempo de ejecución para Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copie el paquete en tiempo de ejecución donde vaya a implementar el clúster desconectado y cree el clúster mediante la ejecución de `CreateServiceFabricCluster.ps1` con el parámetro `-FabricRuntimePackagePath` incluido, tal y como se muestra a continuación: 
 
 ```powershell
-CreateServiceFabricCluster.ps1 -ClusterConfigurationFilePath <path to ClusterConfig.json> -FabricRuntimePackagePath <path to MicrosoftAzureServiceFabric.cab>
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
 ```
-donde `<path to ClusterConfig.json>` y `<path to MicrosoftAzureServiceFabric.cab>` son las rutas de acceso a la configuración del clúster y el archivo .cab en tiempo de ejecución, respectivamente.
+donde `.\ClusterConfig.json` y `.\MicrosoftAzureServiceFabric.cab` son las rutas de acceso a la configuración del clúster y el archivo .cab en tiempo de ejecución, respectivamente.
 
 
 ### <a name="step-2-connect-to-the-cluster"></a>Paso 2: Conexión al clúster
@@ -125,7 +125,9 @@ Para conectarse a un clúster no seguro, ejecute el siguiente comando de PowerSh
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
-
+```
+Ejemplo:
+```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
 ### <a name="step-3-bring-up-service-fabric-explorer"></a>Paso 3: Incorporación de Service Fabric Explorer

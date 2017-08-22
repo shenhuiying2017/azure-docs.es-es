@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c528974951d3b4a83111cb92b931810a91f660f4
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: dda5ea77b35fa8491128135ea7709016781f2aea
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Implementar una aplicación con CI/CD en un clúster de Service Fabric
-En este tutorial se describe cómo configurar la integración continua y la implementación de una aplicación de Azure Service Fabric mediante Visual Studio Team Services.  Se necesita una aplicación existente de Service Fabric; se usa como ejemplo la aplicación creada en [Compilación de una aplicación .NET](service-fabric-tutorial-create-dotnet-app.md).
+Este tutorial es la tercera parte de una serie y describe cómo configurar la integración continua y la implementación de una aplicación de Azure Service Fabric mediante Visual Studio Team Services.  Se necesita una aplicación existente de Service Fabric; se usa como ejemplo la aplicación creada en [Compilación de una aplicación .NET](service-fabric-tutorial-create-dotnet-app.md).
 
-En este tutorial, aprenderá a:
+En la tercera parte de la serie, se aprende a:
 
 > [!div class="checklist"]
 > * Agregar un control de código fuente al proyecto
@@ -33,7 +33,11 @@ En este tutorial, aprenderá a:
 > * Crear una definición de versión en Team Services
 > * Implementar y actualizar una aplicación automáticamente
 
-El tutorial se divide en tres artículos; este artículo es el tercero de la serie.
+En esta serie de tutoriales, se aprende a:
+> [!div class="checklist"]
+> * [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
+> * [Implementar la aplicación en un clúster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * Configurar CI/CD con Visual Studio Team Services
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial:

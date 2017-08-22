@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/04/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 72b5217bd8de29fdad753d89f34934f64c551ff2
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 5a390208f4b7c22e96d7888bcbbd14d8b27667eb
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -32,38 +32,41 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 
 ![Inicio de sesión único de conexión directa](./media/active-directory-aadconnect-sso/sso1.png)
 
->[!NOTE]
->Esta característica _no_ se puede aplicar a Active Directory Federation Services (ADFS), que ya ofrece esta funcionalidad.
+>[!IMPORTANT]
+>SSO de conexión directa está actualmente en versión preliminar. Esta característica _no_ se puede aplicar a Servicios de federación de Active Directory (AD FS).
 
-## <a name="key-benefits-of-using-azure-ad-seamless-sso"></a>Principales ventajas del uso de SSO de conexión directa de Azure AD
+## <a name="key-benefits"></a>Ventajas principales
 
 - *Mejor experiencia del usuario*
   - Los usuarios inician sesión automáticamente tanto en las aplicaciones basadas en la nube como en las locales.
   - Los usuarios no tienen que escribir sus contraseñas varias veces.
 - *Es fácil de implementar y administrar*
   - No se necesitan componentes adicionales en local para que esto funcione.
-  - Funciona con cualquier método de autenticación administrada, ya sea [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md).
+  - Funciona con cualquier método de autenticación en la nube, ya sea [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md).
   - Puede extenderse a algunos o a todos los usuarios mediante la directiva de grupo.
-  - Registre los dispositivos que no son de Windows 10 con Azure AD. Se necesita la versión 2.1 o posterior del [cliente para unirse al área de trabajo](https://www.microsoft.com/download/details.aspx?id=53554).
+  - Se pueden registrar dispositivos que no tengan Windows 10 en Azure AD sin necesidad de contar con ninguna infraestructura de AD FS. Esta funcionalidad necesita la versión 2.1 o posterior del [cliente para unirse al área de trabajo](https://www.microsoft.com/download/details.aspx?id=53554).
 
 ## <a name="feature-highlights"></a>Características destacadas
 
-- El nombre de usuario de inicio de sesión puede ser el predeterminado local (`userPrincipalName`) u otro atributo `Alternate ID`) configurado en Azure AD Connect.
+- El nombre de usuario de inicio de sesión puede ser el predeterminado local (`userPrincipalName`) u otro atributo `Alternate ID`) configurado en Azure AD Connect. Ambos casos de uso funcionan porque SSO de conexión directa usa la notificación `securityIdentifier` en el vale Kerberos para buscar el objeto de usuario correspondiente en Azure AD.
 - SSO de conexión directa es una característica oportunista. Si, por algún motivo, genera un error, la experiencia de inicio de sesión del usuario se revierte a su comportamiento habitual; es decir, el usuario deberá escribir su contraseña en la página de inicio de sesión.
-- Si una aplicación envía un parámetro `domain_hint` (que identifica el inquilino) o `login_hint` (que identifica el usuario) en su solicitud de inicio de sesión de Azure AD, los usuarios inician sesión automáticamente sin que tengan que escribir nombres de usuario ni contraseñas.
+- Si una aplicación envía un parámetro `domain_hint` (OpenID Connect) o `whr` (SAML) que identifica el inquilino, o bien el parámetro `login_hint` que identifica el usuario, en la solicitud de inicio de sesión de Azure AD, los usuarios inician sesión automáticamente sin que tengan que escribir nombres de usuario ni contraseñas.
 - Puede habilitarse a través de Azure AD Connect.
 - Es una característica gratuita y no es necesario usar ninguna versión de pago de Azure AD para usarla.
 - Se admite en clientes basados en el explorador web y en clientes de Office que admiten la [autenticación moderna](https://aka.ms/modernauthga) en plataformas con la funcionalidad de autenticación de Kerberos:
 
 | SO\Explorador |Internet Explorer|perimetral|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sí|No compatible|Sí|Sí\*|N/D
-|Windows 8.1|Sí|No compatible|Sí|Sí\*|N/D
-|Windows 8|Sí|No compatible|Sí|Sí\*|N/D
-|Windows 7|Sí|No compatible|Sí|Sí\*|N/D
-|Mac OS X|N/D|N/D|Sí\*|Sí\*|No compatible
+|Windows 10|Sí|No|Sí|Sí\*|N/D
+|Windows 8.1|Sí|N/D|Sí|Sí\*|N/D
+|Windows 8|Sí|N/D|Sí|Sí\*|N/D
+|Windows 7|Sí|N/D|Sí|Sí\*|N/D
+|Mac OS X|N/D|N/D|Sí\*|Sí\*|Sí\*
 
 \*Requiere [configuración adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
+
+>[!IMPORTANT]
+>Recientemente se ha revertido la compatibilidad para Edge, a fin de investigar los problemas notificados por los clientes.
 
 >[!NOTE]
 >En el caso de Windows 10, la recomendación es usar [Azure AD Join](../active-directory-azureadjoin-overview.md) para que la experiencia de inicio de sesión único con Azure AD sea óptima.
@@ -73,6 +76,6 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 - [**Inicio rápido** ](active-directory-aadconnect-sso-quick-start.md): desarrollo y ejecución de SSO de conexión directa de Azure AD.
 - [**Profundización técnica** ](active-directory-aadconnect-sso-how-it-works.md): descripción del funcionamiento de esta característica.
 - [**Preguntas más frecuentes**](active-directory-aadconnect-sso-faq.md): obtenga respuestas a las preguntas más frecuentes.
-- [**Solución de problemas**](active-directory-aadconnect-troubleshoot-sso.md): información para resolver problemas habituales de esta característica.
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para rellenar solicitudes de características nuevas.
+- [**Solución de problemas**](active-directory-aadconnect-troubleshoot-sso.md): aprenda a resolver problemas comunes de esta característica.
+- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.
 

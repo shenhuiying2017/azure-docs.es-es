@@ -12,7 +12,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/01/2017
 ms.author: krnese
 ms.translationtype: HT
 ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
@@ -60,8 +60,7 @@ En este artículo se proporciona un ejemplo de cómo puede usar Configuración d
 
   > [!NOTE]
   > Si quiere usar DSC para máquinas Windows que tengan instalado WMF 4.0, consulte la sección [Uso de DSC en entornos desconectados](## Use DSC in disconnected environments).
-  >
-  >
+  
 
 Mobility Service se puede instalar mediante la línea de comandos y acepta varios argumentos. Por ese motivo debe tener los archivos binarios (después de extraerlos de la configuración) y almacenarlos en un lugar donde puede recuperarlos mediante una configuración de DSC.
 

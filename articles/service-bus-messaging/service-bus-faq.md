@@ -1,6 +1,6 @@
 ---
 title: "Preguntas más frecuentes (FAQ) sobre Azure Service Bus | Microsoft Docs"
-description: Respuestas a algunas preguntas frecuentes acerca del Bus de servicio de Azure.
+description: Respuestas a algunas preguntas frecuentes acerca de Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,27 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 612fb681ab0c8fe77652041f8a1fc23ad0d3428a
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 1403184d96388cb03b2c767c4da342ec1c6fe236
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="service-bus-faq"></a>Preguntas más frecuentes sobre el Bus de servicio
-En este artículo se responden algunas preguntas frecuentes sobre Microsoft Azure Service Bus. También puede visitar [Preguntas más frecuentes de soporte técnico de Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para información general sobre los precios y el soporte técnico de Azure.
+# <a name="service-bus-faq"></a>Preguntas más frecuentes sobre Service Bus
+En este artículo se responden algunas preguntas frecuentes sobre Microsoft Azure Service Bus. También puede consultar las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obtener información general sobre los precios y el soporte técnico de Azure.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Preguntas generales sobre Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
 [Azure Service Bus](service-bus-messaging-overview.md) es una plataforma en la nube de mensajería asincrónica que le permite enviar datos entre sistemas desacoplados. Microsoft ofrece esta función como un servicio, lo que significa que el usuario no tendrá que hospedar su propio hardware para poder utilizarlo.
 
-### <a name="what-is-a-service-bus-namespace"></a>¿Qué es un espacio de nombres del Bus de servicio?
-Un [espacio de nombres](service-bus-create-namespace-portal.md) proporciona un contenedor con un ámbito para el desvío de recursos de Service Bus en la aplicación. Es necesario crear uno para usar el Bus de servicio y es uno de los primeros pasos a realizar para empezar.
+### <a name="what-is-a-service-bus-namespace"></a>¿Qué es un espacio de nombres de Service Bus?
+Un [espacio de nombres](service-bus-create-namespace-portal.md) proporciona un contenedor con un ámbito para el desvío de recursos de Service Bus en la aplicación. Es necesario crear uno para usar Service Bus y es uno de los primeros pasos a realizar para empezar.
 
-### <a name="what-is-an-azure-service-bus-queue"></a>¿Qué es una cola del Bus de servicio de Azure?
+### <a name="what-is-an-azure-service-bus-queue"></a>¿Qué es una cola de Azure Service Bus?
 Una [cola de Service Bus](service-bus-queues-topics-subscriptions.md) es una entidad en la que se almacenan los mensajes. Las colas son especialmente útiles cuando tiene varias aplicaciones o varias partes de una aplicación distribuida que necesitan comunicarse entre sí. La cola es similar a un centro de distribución en el sentido de que se recibe múltiples productos (mensajes) que luego se envían desde esa ubicación.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>¿Qué son los temas y las suscripciones de Azure Service Bus?
@@ -44,7 +43,7 @@ Un único agente de mensajes controla una cola o tema convencional, que se almac
 Tenga en cuenta que la ordenación no está garantizada al utilizar particiones de entidades. En caso de que una partición no esté disponible, puede enviar y recibir mensajes de las otras particiones.
 
 ## <a name="best-practices"></a>Prácticas recomendadas
-### <a name="what-are-some-azure-service-bus-best-practices"></a>¿Cuáles son algunos de los procedimientos recomendados del Bus de servicio de Azure?
+### <a name="what-are-some-azure-service-bus-best-practices"></a>¿Cuáles son algunos de los procedimientos recomendados para Azure Service Bus?
 * [Procedimientos recomendados para mejorar el rendimiento mediante Service Bus][Best practices for performance improvements using Service Bus]: en este artículo se describe cómo optimizar el rendimiento al intercambiar mensajes asincrónicos.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>¿Qué debo saber antes de crear entidades?
@@ -57,31 +56,31 @@ Las siguientes propiedades de una cola y un tema son inmutables. Tenga esto en c
 * Entidad exprés
 
 ## <a name="pricing"></a>Precios
-En esta sección responde a algunas preguntas frecuentes acerca de la estructura de precios del Bus de servicio.
+En esta sección responde a algunas preguntas frecuentes acerca de la estructura de precios de Service Bus.
 
 El artículo [Precios y facturación de Service Bus](service-bus-pricing-billing.md) explica los medidores de facturación en Service Bus y para obtener información sobre opciones de precios de Service Bus, vea [Detalles de precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
-También puede visitar [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obtener información general sobre los precios de Azure. 
+También puede consultar las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para obtener información general sobre los precios de Azure. 
 
-### <a name="how-do-you-charge-for-service-bus"></a>¿Cómo se cobra el Bus de servicio?
-Para más información sobre los precios del Bus de servicio, consulte los [detalles de precios de Service Bus][Pricing overview]. Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
+### <a name="how-do-you-charge-for-service-bus"></a>¿Cómo se cobra Service Bus?
+Para más información sobre los precios de Service Bus, consulte los [detalles de precios de Service Bus][Pricing overview]. Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
 
-### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>¿Qué uso del Bus de servicio está sujeto a la transferencia de datos? ¿Cuál no lo está?
+### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>¿Qué uso de Service Bus está sujeto a la transferencia de datos? ¿Cuál no lo está?
 Cualquier transferencia de datos dentro de una determinada región de Azure se proporciona sin cargo alguno, así como las transferencias de datos entrantes. La transferencia de datos fuera de una región está sujeta a cargos por concepto de salida; consulte [esta página](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-### <a name="does-service-bus-charge-for-storage"></a>¿El Bus de servicio cobra por almacenamiento?
-No, el Bus de servicio no cobra por almacenamiento. Sin embargo, hay una cuota que limita la cantidad máxima de datos que pueden persistir por cola/tema. Consulte la siguiente pregunta.
+### <a name="does-service-bus-charge-for-storage"></a>¿Service Bus cobra por almacenamiento?
+No, Service Bus no cobra por almacenamiento. Sin embargo, hay una cuota que limita la cantidad máxima de datos que pueden persistir por cola/tema. Consulte la siguiente pregunta.
 
 ## <a name="quotas"></a>Cuotas
 
 Para obtener una lista de las cuotas y los límites de Service Bus, consulte [Información general sobre cuotas de Service Bus][Quotas overview].
 
-### <a name="does-service-bus-have-any-usage-quotas"></a>¿El Bus de servicio tiene alguna cuota de uso?
+### <a name="does-service-bus-have-any-usage-quotas"></a>¿Service Bus tiene alguna cuota de uso?
 De forma predeterminada, para cualquier servicio en la nube, Microsoft establece una cuota de uso mensual agregada que se calcula en todas las suscripciones del cliente. Dado que entendemos que puede necesitar más de estos límites, póngase en contacto con el servicio de atención al cliente en cualquier momento para que podamos conocer sus necesidades y ajustar estos límites adecuadamente. En lo que respecta a Service Bus, las cuotas de uso agregado ascienden a 5000 millones de mensajes al mes.
 
 Aunque nos reservamos el derecho de deshabilitar una cuenta de cliente que supere sus cuotas de uso en un mes determinado, se proporcionará una notificación por correo electrónico y se realizarán varios intentos para ponerse en contacto con un cliente antes de llevar a cabo cualquier acción. Los clientes que superen estas cuotas todavía será responsables de los cargos que superen las cuotas.
 
-Al igual que con otros servicios de Azure, el Bus de servicio aplica un conjunto de cuotas específicas para garantizar que hay un uso justo de los recursos. Puede encontrar más detalles acerca de estas cuotas en [Información general sobre cuotas de Service Bus][Quotas overview].
+Al igual que con otros servicios de Azure, Service Bus aplica un conjunto de cuotas específicas para garantizar que hay un uso justo de los recursos. Puede encontrar más detalles acerca de estas cuotas en [Información general sobre cuotas de Service Bus][Quotas overview].
 
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>¿Cuáles son algunas de las excepciones generadas por las API de Azure Service Bus y sus acciones sugeridas?
@@ -120,7 +119,7 @@ Para más información sobre Service Bus, consulte los temas siguientes.
 * [Introducción a Azure Service Bus Premium (entrada de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducción a Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Información general de Service Bus](service-bus-messaging-overview.md)
-* [Información general sobre la arquitectura de Bus de servicio de Azure](service-bus-fundamentals-hybrid-solutions.md)
+* [Información general sobre la arquitectura de Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: f7b21cc941f17d0815316dfe7013e9f97a95c223
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 356aaeff3a78fc7b682d621e8e0de9312582b2fe
 ms.contentlocale: es-es
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: uso de atributos personalizados para recopilar información sobre los consumidores
@@ -31,7 +30,7 @@ El directorio de Azure Active Directory (Azure AD) B2C incluye un conjunto integ
 > 
 
 ## <a name="create-a-custom-attribute"></a>Creación de un atributo personalizado
-1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Haga clic en **Atributos de usuario**.
 3. Haga clic en **+Agregar** en la parte superior de la hoja.
 4. Proporcione un **Nombre** para el atributo personalizado (por ejemplo, "ShoeSize") y, opcionalmente, una **Descripción**. Haga clic en **Crear**.
@@ -44,7 +43,7 @@ El directorio de Azure Active Directory (Azure AD) B2C incluye un conjunto integ
 El atributo personalizado ahora está disponible en la lista de **Atributos de usuario**, y puede usarlo en las directivas de registro.
 
 ## <a name="use-a-custom-attribute-in-your-sign-up-policy"></a>Uso de un atributo personalizado en la directiva de registro
-1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Haga clic en **Directivas de registro**.
 3. Haga clic en la directiva de registro (por ejemplo, "B2C_1_SiUp") para abrirla. Haga clic en **Editar** en la parte superior de la hoja.
 4. Haga clic en **Atributos de registro** y seleccione el atributo personalizado (por ejemplo, "ShoeSize"). Haga clic en **OK**.

@@ -12,52 +12,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 08/03/2017
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 709e20bc6f0d32509f2cdd4c5a9e69021238dba0
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c44ecc0ee61c58ab7590e9a21a5fe002068c6b83
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-activity-log-alerts"></a>Creación de alertas de registro de actividad
 
 ## <a name="overview"></a>Información general
-Las alertas de registro de actividad son alertas que se activan cuando un nuevo evento de registro de actividad cumple las condiciones especificadas en la alerta. Son recursos de Azure por lo que se pueden administrar mediante Azure Portal o Azure Resource Manager (ARM). En este artículo se explica cómo usar Azure Portal para configurar alertas en eventos de registro de actividad.
+Las alertas de registro de actividad son alertas que se activan cuando un nuevo evento de registro de actividad cumple las condiciones especificadas en la alerta. Como son recursos de Azure, se pueden crear mediante una plantilla de Resource Manager y se pueden crear, actualizar o eliminar en Azure Portal. En este artículo se presentan los conceptos que subyacen a las alertas de registro de actividad, y luego se muestra cómo se usa Azure Portal para configurar una alerta para eventos de registro de actividad.
 
-Puede recibir alertas sobre operaciones que se realizaron en los recursos de la suscripción o acerca de eventos de estado del servicio que pueden afectar al estado de los recursos. Una alerta de registro de actividad permite supervisar los eventos del registro de actividad de la suscripción específica en la que está implementada la alerta.
+Las alertas de registro de actividad se crean normalmente con dos fines:
+1. Para recibir una notificación cuando se produzcan cambios específicos en los recursos de la suscripción de Azure, que abarcan normalmente grupos de recursos o recursos en particular. Por ejemplo, si quiere que le notifiquen cuando se elimine alguna máquina virtual de myProductionResourceGroup. O, si se asigna algún rol nuevo a un usuario de la suscripción.
+2. Para recibir una notificación cuando tenga lugar un evento de estado del servicio. Los eventos de estado del servicio incluyen la notificación de incidentes y eventos de mantenimiento que se aplican a recursos de la suscripción.
 
-Puede configurar la alerta en función de:
-* Categoría de eventos (para [eventos de estado de servicio haga clic aquí](monitoring-activity-log-alerts-on-service-notifications.md))
-- Grupo de recursos
-- Recurso
-- Tipo de recurso
-- Nombre de la operación
-- El nivel de las notificaciones (detallado, informativo, advertencia, error, crítico)
-- Status
-- Evento iniciado por
+En cualquier caso, la alerta de registro de actividad solo se supervisará en el caso de eventos de la suscripción en los que se creó la alerta.
+
+Puede configurar una alerta de registro de actividad según las propiedades de nivel superior del objeto JSON de un evento de registro de actividad, pero el portal muestra las opciones más comunes:
+- **Categoría**: Administración, Estado del servicio, Escalado automático, Recomendación. [Consulte este artículo para más información sobre las categorías de registro de actividad](./monitoring-overview-activity-logs.md#categories-in-the-activity-log) y [aprenda más sobre los eventos de estado del servicio aquí](./monitoring-activity-log-alerts-on-service-notifications.md).
+- **Grupo de recursos**
+- **Recurso**
+- **Tipo de recurso**
+- **Nombre de la operación**: el nombre de la operación de RBAC de Resource Manager.
+- **Nivel**: el nivel de gravedad del evento (detallado, informativo, advertencia, error, crítico).
+- **Estado**: el estado del evento, normalmente "Iniciado," "Error" o "Correcto".
+- **Evento iniciado por**: también se conoce como el "llamador". La dirección de correo electrónico o el identificador de Active Directory del usuario que realizó la operación.
 
 >[!NOTE]
->Debe especificar al menos uno de los criterios anteriores en la alerta. No puede crear una alerta que se activa cada vez que se crea un evento en los registros de actividad.
+>Debe especificar al menos dos de los criterios anteriores en la alerta, siendo uno de ellos la categoría. No puede crear una alerta que se activa cada vez que se crea un evento en los registros de actividad.
 >
 >
 
-También puede configurar las acciones que se ejecutarán cuando se activa se active:
-* Seleccione un grupo de acciones existente
-- Cree un nuevo grupo de acciones (que puede usarse posteriormente para futuras alertas)
+Cuando se activa una alerta de registro de actividad, se usa un grupo de acciones para generar acciones o notificaciones. Un grupo de acciones es un conjunto reutilizable de receptores de notificación (direcciones de correo electrónico, direcciones URL de webhook o números de teléfono de SMS) a los que se puede hacer referencia desde varias alertas con el fin de centralizar y agrupar los canales de notificaciones. Puede usar un grupo de acciones existente en la alerta de registro de actividad, o crear uno nuevo al definir la alerta de registro de actividad. Puede aprender más sobre los grupos de acciones [aquí](monitoring-action-groups.md)
 
-Puede aprender más sobre los grupos de acciones [aquí](monitoring-action-groups.md)
-
-[Aquí](monitoring-activity-log-alerts-on-service-notifications.md) puede obtener información acerca de las alertas de registro de actividad para la notificación de estado de servicio.
+[Aquí](monitoring-activity-log-alerts-on-service-notifications.md) puede aprender más sobre las alertas de registro de actividad para las notificaciones de estado del servicio.
 
 ## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-with-the-azure-portal"></a>Creación de una alerta para un evento de registro de actividad con un nuevo grupo de acciones con Azure Portal
-1.  En el [portal](https://portal.azure.com), navegue hasta el servicio **Monitor**.
+1.  En el [portal](https://portal.azure.com), vaya al servicio **Monitor**.
 
     ![Supervisión](./media/monitoring-activity-log-alerts/home-monitor.png)
-2.  Haga clic en la opción **Monitor** para abrir la hoja del mismo nombre. Primero se abre la sección **Registro de actividades** .
+2.  Haga clic en la opción **Monitor** para abrir la hoja del mismo nombre. Primero se abre la hoja **Registro de actividad**.
 
-3.  Ahora haga clic en la sección **Alertas**.
+3.  Ahora haga clic en la hoja **Alertas**.
 
     ![Alertas](./media/monitoring-activity-log-alerts/alerts-blades.png)
 4.  Seleccione el comando **Agregar alerta de registro de actividad** y rellene los campos
@@ -66,20 +66,20 @@ Puede aprender más sobre los grupos de acciones [aquí](monitoring-action-group
 
     ![Add-Alert](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-6.  La **suscripción** es aquella en la que se guardará la alerta del registro de actividad. Se rellena automáticamente con la suscripción que usa actualmente. Se trata de la suscripción en la que se implementará y supervisará el recurso de alerta.
+6.  La **suscripción** seleccionada es aquella en la que se guarda la alerta del registro de actividad. Se rellena automáticamente con la suscripción en la que trabaja actualmente. Esta es la suscripción en la que se implementa el recurso de alerta y desde la que se supervisan los eventos del registro de actividad.
 
     ![Add-Alert-New-Action-Group](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-7.  Elija el **grupo de recursos** al que se asociará esta alerta en la **suscripción**.
+7.  Elija el **grupo de recursos** en el que se creará esta alerta. Observe que este no es el grupo de recursos que supervisará *la* alerta, sino el grupo de recursos donde se *implementará el propio recurso de alerta.*
 
-8.  Proporcione los valores para **Categoría de eventos**, **Grupo de recursos**, **Recursos**, **Tipo de recursos**, **Nombre de la operación**, **Nivel**, **Estado** y **Evento iniciado por** para identificar los eventos que debe supervisar esta alerta.
+8.  Opcionalmente, seleccione una **categoría de evento**, que modifica el conjunto de filtros adicionales que se muestran. Para eventos de administración, se incluyen opciones para filtrar por valores de **Grupo de recursos**, **Recurso**, **Tipo de recurso**, **Nombre de operación**, **Nivel**, **Estado** y **Evento iniciado por** para identificar los eventos que debe supervisar esta alerta.
 
 >[!NOTE]
 >Debe especificar al menos uno de los criterios anteriores en la alerta. No puede crear una alerta que se activa cada vez que se crea un evento en los registros de actividad.
 >
 >
 
-9.  Cree un **nuevo** grupo de acciones asignándole un **nombre** y un **nombre corto**. Se hará referencia a este nombre corto en las notificaciones que se envían cuando se activa esta alerta.
+9.  Cree un **nuevo** grupo de acciones y asígnele un **nombre** y un **nombre corto**. Se hará referencia al nombre corto en las notificaciones que se envían cuando se activa esta alerta.
 
 10. A continuación, defina una lista de acciones proporcionando la siguiente información de la acción:
 
@@ -91,17 +91,17 @@ Puede aprender más sobre los grupos de acciones [aquí](monitoring-action-group
 
 11. Seleccione **Aceptar** cuando termine para crear la alerta.
 
-En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
+La alerta tarda unos minutos en propagarse totalmente y, a continuación, se activa y se desencadena cuando nuevos eventos coinciden con los criterios de la alerta.
 
-Para más información sobre el esquema de webhook para las alertas de registro de actividad [haga clic aquí](monitoring-activity-log-alerts-webhook.md)
+[Consulte este documento para más información sobre el esquema de webhook de las alertas del registro de actividad](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
->El grupo de acciones definido en estos pasos será reutilizable, como grupo de acciones existente, para todas las futuras definiciones de alertas.
+>El grupo de acciones definido en estos pasos es reutilizable, como grupo de acciones existente, en todas las futuras definiciones de alertas.
 >
 >
 
 ## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-with-the-azure-portal"></a>Creación de una alerta para un evento de registro de actividad de un grupo de acciones ya existente con Azure Portal
-1.  En el [portal](https://portal.azure.com), navegue hasta el servicio **Monitor**.
+1.  En el [portal](https://portal.azure.com), vaya al servicio **Monitor**.
 
     ![Supervisión](./media/monitoring-activity-log-alerts/home-monitor.png)
 2.  Haga clic en la opción **Monitor** para abrir la hoja del mismo nombre. Primero se abre la sección **Registro de actividades** .
@@ -111,25 +111,25 @@ Para más información sobre el esquema de webhook para las alertas de registro 
     ![Alertas](./media/monitoring-activity-log-alerts/alerts-blades.png)
 4.  Seleccione el comando **Agregar alerta de registro de actividad** y rellene los campos
 
-5.  Asigne un **nombre** a la alerta del registro de actividad y elija una **descripción**. Esta información aparecerá en las notificaciones enviadas cuando se desencadene esta alerta.
+5.  Asigne un **nombre** a la alerta del registro de actividad y elija una **descripción**. Esta información aparece en las notificaciones enviadas cuando se desencadena esta alerta.
 
     ![Add-Alert](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
-6.  La **suscripción** es aquella en la que se guardará la alerta del registro de actividad. Se rellena automáticamente con la suscripción que usa actualmente. Se trata de la suscripción en la que se implementará y supervisará el recurso de alerta.
+6.  La **suscripción** seleccionada es aquella en la que se guarda la alerta del registro de actividad. Se rellena automáticamente con la suscripción en la que trabaja actualmente. Esta es la suscripción en la que se implementa el recurso de alerta y desde la que se supervisan los eventos del registro de actividad.
 
     ![Add-Alert-Existing-Action-Group](./media/monitoring-activity-log-alerts/activity-log-alert-existing-action-group.png)
-7.  Elija el **grupo de recursos** al que se asociará esta alerta en la **suscripción**.
+7.  Elija el **grupo de recursos** en el que se creará esta alerta. Observe que este no es el grupo de recursos que supervisará *la* alerta, sino el grupo de recursos donde se *implementará el propio recurso de alerta.*
 
-8.  Proporcione los valores para **Categoría de eventos**, **Grupo de recursos**, **Recursos**, **Tipo de recursos**, **Nombre de la operación**, **Nivel**, **Estado** y **Evento iniciado por** para identificar los eventos a los que se debe aplicar esta alerta.
+8.  Opcionalmente, seleccione una **categoría de evento**, que modifica el conjunto de filtros adicionales que se muestran. Para eventos de administración, se incluyen opciones para filtrar por valores de **Grupo de recursos**, **Recurso**, **Tipo de recurso**, **Nombre de operación**, **Nivel**, **Estado** y **Evento iniciado por** para identificar los eventos que debe supervisar esta alerta.
 
-9.  Elija **Notificar mediante** un **Grupo de acciones existente**. Seleccione el grupo de acciones correspondiente.
+9.  Elija **Notificar mediante** un **Grupo de acciones existente**. Seleccione un grupo de acciones existente de la lista.
 
 10. Seleccione **Aceptar** cuando termine para crear la alerta.
 
-En cuestión de minutos, se activa la alerta y se desencadena tal como se describió anteriormente.
+La alerta tarda unos minutos en propagarse totalmente y, a continuación, se activa y se desencadena cuando nuevos eventos coinciden con los criterios de la alerta.
 
 ## <a name="managing-your-alerts"></a>Administración de las alertas
 
-Una vez que haya creado una alerta, esta estará visible en la sección de alertas del servicio Monitor. Seleccione la alerta que desea administrar y podrá:
+Cuando haya creado una alerta, será visible en la sección de alertas del servicio Monitor. Seleccione la alerta que desea administrar. Puede:
 * **Editarla**.
 * **Eliminarla**.
 * **Deshabilitar** la alerta, si desea dejar de recibir notificaciones de esa alerta de manera temporal, o **habilitarla** si desea reanudar sus notificaciones.
@@ -141,5 +141,5 @@ Una vez que haya creado una alerta, esta estará visible en la sección de alert
 - Más información sobre los [grupos de acciones](monitoring-action-groups.md)  
 - Más información acerca de [notificaciones de estado del servicio](monitoring-service-notifications.md)
 - [Cree una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Cree una alerta de registro de actividades para supervisar todas las operaciones con errores de reducción y escalado horizontales automáticos en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Cree una alerta de registro de actividades para supervisar todas las operaciones con errores de escalado automático y reducción horizontal en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

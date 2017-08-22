@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: a28f971ae898ffdd1168550a909f2a48e1b3b652
 ms.contentlocale: es-es
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
@@ -33,8 +33,8 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 * Ver paneles de supervisión en el portal y crear sus propios paneles de supervisión privados.
 * Consultar métricas con la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), los [cmdlets de PowerShell](insights-powershell-samples.md) o la [CLI multiplataforma](insights-cli-samples.md).
 * Consultar el registro de actividades a través del portal, la API de REST de Azure Monitor, los cmdlets de PowerShell o la CLI multiplataforma.
-* Ver la [configuración de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) de un recurso.
-* Ver el [perfil de registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) de una suscripción.
+* Ver la [configuración de diagnóstico](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) de un recurso.
+* Ver el [perfil de registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) de una suscripción.
 * Consultar la configuración de escalado automático.
 * Consultar la configuración y actividad de alertas.
 * Acceder a datos de Application Insights y ver los datos en AI Analytics.
@@ -54,8 +54,8 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 Las personas asignadas al rol Colaborador de supervisión pueden ver todos los datos de supervisión en una suscripción y crear o modificar la configuración de supervisión, pero no pueden modificar los demás recursos. Este rol es un superconjunto del rol Lector de supervisión y es adecuado para los miembros del equipo de supervisión de una administración o los proveedores de servicios administrados que, además de los permisos anteriores, también necesitan tener la capacidad de:
 
 * Publicar paneles de supervisión como un panel compartido.
-* Determinar la [configuración de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) de un recurso.*
-* Establecer el [perfil de registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) de una suscripción.*
+* Determinar la [configuración de diagnóstico](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) de un recurso.*
+* Establecer el [perfil de registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) de una suscripción.*
 * Definir la configuración y actividad de alertas.
 * Crear componentes y pruebas web de Application Insights.
 * Mostrar las claves compartidas del área de trabajo de Log Analytics (OMS).

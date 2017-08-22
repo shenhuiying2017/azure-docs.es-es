@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: f66c4c0b7c391b3fc5ee042cc7a6643e46566d3f
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Informe de inicios de sesión poco seguros del portal de Azure Active Directory
@@ -35,6 +35,19 @@ Los eventos de riesgo detectados se utilizan para calcular:
 En [Azure Portal](https://portal.azure.com), puede encontrar los informes de seguridad en la hoja **Azure Active Directory** de la sección **Seguridad**. 
 
 ![Inicios de sesión no seguros](./media/active-directory-reporting-security-risky-sign-ins/10.png)
+
+
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>¿Qué licencia de Azure AD se necesita para acceder a un informe de seguridad?  
+
+Todas las ediciones de Azure Active Directory le proporcionan informes sobre inicios de sesión de riesgo.  
+Sin embargo, el nivel de granularidad del informe varía según la edición: 
+
+- En las **ediciones Azure Active Directory Free y Basic** ya puede obtener una lista de inicios de sesión de riesgo. 
+
+- En la edición **Azure Active Directory Premium 1** se extiende este modelo, con lo que también puede examinar algunos de los eventos de riesgo subyacentes que se han detectado para cada informe. 
+
+- La edición **Azure Active Directory Premium 2** le proporciona la información más detallada acerca de los eventos de riesgo subyacentes y también le permite configurar directivas de seguridad que responden automáticamente a los niveles de riesgo configurados.
+
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Edición gratuita y básica de Azure Active Directory

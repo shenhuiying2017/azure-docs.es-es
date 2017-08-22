@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 44ea03d30c1f2eabc92af63b549823c03a6901e2
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 4e7ca1f4b3ca7734b00f4d9ce60b466ecf2aeb3f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -88,9 +88,9 @@ Las secciones de consulta de análisis le permiten agregar consultas arbitrarias
 
 * ¿Cuántas excepciones produjo el sitio durante un período de tiempo equivalente al de un declive del uso?
 * ¿Cuál fue la distribución de los tiempos de carga de página de los usuarios que vieron alguna página?
-* ¿Cuántos usuarios vieron un conjunto de páginas determinado de su sitio, pero no otro? Esto puede ser útil para comprender si tiene clústeres de usuarios que utilizan distintos subconjuntos de funcionalidad del sitio (use el operador `join` con el modificador `kind=leftanti` en el lenguaje de consulta de análisis).
+* ¿Cuántos usuarios vieron un conjunto de páginas determinado de su sitio, pero no otro? Esto puede ser útil para comprender si tiene clústeres de usuarios que utilizan distintos subconjuntos de funcionalidad del sitio (use el operador `join` con el modificador `kind=leftanti` en el lenguaje de consulta de Log Analytics).
 
-Use la [referencia de lenguaje de consulta de Analytics](app-insights-analytics-reference.md) para más información sobre la escritura de consultas.
+Use la [referencia de lenguaje de consulta de Log Analytics](https://docs.loganalytics.io/) para más información sobre la escritura de consultas.
 
 ## <a name="adding-text-and-markdown-sections"></a>Adición de texto y secciones de Markdown
 
@@ -118,9 +118,13 @@ Para anclar un vínculo a un libro en un panel de Azure:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Información general del uso](app-insights-usage-overview.md)
-* [Usuarios, sesiones y eventos](app-insights-usage-segmentation.md)
-* [Retención](app-insights-usage-retention.md)
-* [Incorporación de eventos personalizados a la aplicación](app-insights-api-custom-events-metrics.md)
-
+## <a name="next-steps"></a>Pasos siguientes
+- Para habilitar las experiencias de uso, empiece por enviar [eventos personalizados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [vistas de páginas](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Si ya ha enviado eventos personalizados o vistas de página, explore las herramientas de uso para obtener información sobre cómo los usuarios utilizan el servicio.
+    - [Usuarios, sesiones, eventos](app-insights-usage-segmentation.md)
+    - [Embudos](usage-funnels.md)
+    - [Retención](app-insights-usage-retention.md)
+    - [Flujos de usuario](app-insights-usage-flows.md)
+    - [Adición de contexto de usuario](app-insights-usage-send-user-context.md)
+    
 

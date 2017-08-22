@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 07/13/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 165568731debf2cd81a88170833f95ca2e7080e5
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: cab45cc6dd621eb4a95ef5f1842ec38c25e980b6
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -106,6 +105,9 @@ Haga clic en el icono de **Azure SQL Analytics** para que se abra el panel de Az
 
 Las alertas se pueden crear fácilmente con los datos procedentes de los recursos de Azure SQL Database. Estas son un par de consultas de [búsqueda de registros](log-analytics-log-searches.md) útiles que puede usar para las alertas:
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
+
 *DTU alta en Azure SQL Database*
 
 ```
@@ -140,6 +142,11 @@ Si ejecuta la siguiente consulta de búsqueda de registros, podrá saber fácilm
 ```
 Type=AzureMetrics ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource | display LineChart
 ```
+
+>[!NOTE]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la consulta anterior cambiaría como sigue.
+>
+>`search in (AzureMetrics) isnotempty(ResourceId) and "/ELASTICPOOLS/" and MetricName == "dtu_consumption_percent" | summarize AggregatedValue = avg(Average) by bin(TimeGenerated, 1h), Resource | render timechart`
 
 En el ejemplo siguiente, puede ver que un grupo elástico tiene un uso elevado de casi el 100% de DTU, mientras que otros tienen muy poco uso. Puede investigar más en profundidad para solucionar los posibles cambios recientes de su entorno mediante los registros de actividad de Azure.
 

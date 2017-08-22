@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: e2bfbdd5ca8ec178c2c32c7b52637a8ec7e88a4c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
 ms.contentlocale: es-es
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Diseño de patrones para plantillas de Azure Resource Manager cuando implementa soluciones complejas
@@ -34,7 +33,7 @@ Las plantillas combinan las ventajas del Administrador de recursos de Azure suby
 * Aplicar control de acceso basado en rol (RBAC) para conceder el acceso adecuado a usuarios, grupos y servicios.
 * Usar asociaciones de etiquetas para simplificar tareas como resúmenes de facturación.
 
-Este artículo proporciona información detallada sobre escenarios de consumo, arquitectura y patrones de implementación identificados durante nuestras sesiones de diseño e implementaciones de plantillas reales con los clientes del equipo de asesoría de clientes de Azure (AzureCAT). Lejos de ser académicos, estos enfoques son prácticas probadas obtenidas mediante el desarrollo de plantillas para 12 de las principales tecnologías de software de código abierto basadas en Linux, como por ejemplo: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis y Nagios. 
+Este artículo proporciona información detallada sobre escenarios de consumo, arquitectura y patrones de implementación identificados durante nuestras sesiones de diseño e implementaciones de plantillas reales con los clientes del equipo de asesoría de clientes de Azure (AzureCAT). Lejos de ser académicos, estos enfoques son prácticas probadas obtenidas mediante el desarrollo de plantillas para 12 de las principales tecnologías de software de código abierto basadas en Linux, como por ejemplo: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, PostgreSQL, Redis y Nagios. 
 
 Este artículo comparte estas prácticas de demostrada eficacia con el fin de ayudarle a diseñar plantillas del Administrador de recursos de Azure de talla mundial.  
 

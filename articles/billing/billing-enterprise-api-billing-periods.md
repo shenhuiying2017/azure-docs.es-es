@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: ab8d7fefb64b1358bb1b9667d280cb53fc2f636c
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: c6880b79189e0683387a7aafbd6fa4805b3b42ef
 ms.contentlocale: es-es
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-# <a name="reporting-apis-for-enterprise-customers---billing-periods-preview"></a>API de informes para clientes de Enterprise - Períodos de facturación (versión preliminar)
+# <a name="reporting-apis-for-enterprise-customers---billing-periods"></a>API de informes para clientes de Enterprise: períodos de facturación
 
 La API de períodos de facturación devuelve una lista de períodos de facturación que tienen datos de consumo para la inscripción especificada en orden cronológico inverso. Cada período contiene una propiedad que señala a la ruta de la API para los cuatro conjuntos de datos: BalanceSummary, UsageDetails, Marketplace Charges y PriceSheet. Si el período no tiene datos, la propiedad correspondiente es null. 
 
@@ -33,25 +32,28 @@ Las propiedades de encabezado comunes que tienen que agregarse se especifican [a
 
 |Método | URI de solicitud|
 |-|-|
-|GET| https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingperiods|
+|GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingperiods|
 
+> [!Note]
+> Para usar la versión preliminar de la API, reemplace v2 por v1 en la dirección URL anterior.
+>
 
 ## <a name="response"></a>Response
  
     
     
-        [
+      [
             {
-                  "billingPeriodId": "201704",
-                  "billingStart": "2017-04-01T00:00:00Z",
-                  "billingEnd": "2017-04-30T11:59:59Z",
+                "billingPeriodId": "201704",
+                "billingStart": "2017-04-01T00:00:00Z",
+                "billingEnd": "2017-04-30T11:59:59Z",
                 "balanceSummary": "/v1/enrollments/100/billingperiods/201704/balancesummary",
-                  "usageDetails": "/v1/enrollments/100/billingperiods/201704/usagedetails",
-                  "marketplaceCharges": "/v1/enrollments/100/billingperiods/201704/marketplacecharges",
-                  "priceSheet": "/v1/enrollments/100/billingperiods/201704/pricesheet"
-            },            
+                "usageDetails": "/v1/enrollments/100/billingperiods/201704/usagedetails",
+                "marketplaceCharges": "/v1/enrollments/100/billingperiods/201704/marketplacecharges",
+                "priceSheet": "/v1/enrollments/100/billingperiods/201704/pricesheet"
+            },          
             ....
-        ]
+      ]
     
 
 **Definiciones de propiedad de respuesta**
@@ -68,6 +70,7 @@ Las propiedades de encabezado comunes que tienen que agregarse se especifican [a
 
 <br/>
 ## <a name="see-also"></a>Otras referencias
+
 * [API de saldo y resumen](billing-enterprise-api-balance-summary.md)
 
 * [API de detalles de uso](billing-enterprise-api-usage-detail.md) 

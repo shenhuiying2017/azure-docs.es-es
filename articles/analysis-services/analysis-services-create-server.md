@@ -13,24 +13,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/14/2017
+ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 458459e9bed5ebee6188b5f282e66df1e2a988a8
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 8ff39e31d790b9d7040ec0398a42fb104890915f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Creación de un servidor de Azure Analysis Services en Azure Portal
 Este artículo lo guiará por la creación de un recurso de servidor de Analysis Services en la suscripción de Azure.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Para empezar, necesitará lo siguiente:
+Para completar este inicio rápido necesita instalar:
 
 * **Suscripción de Azure**: visite [Evaluación gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para crear una cuenta.
-* **Azure Active Directory**: la suscripción debe estar asociada a un inquilino de Azure Active Directory. Además, debe estar conectado en Azure con una cuenta en ese Azure Active Directory. No se admiten cuentas de Microsoft. Para obtener más información, consulte [autenticación de usuario](analysis-services-overview.md#secure).
+* **Azure Active Directory**: la suscripción debe estar asociada a un inquilino de Azure Active Directory. Además, debe estar conectado en Azure con una cuenta en ese Azure Active Directory. No se admiten cuentas de Microsoft. Para más información, consulte [Permisos de usuario y autenticación](analysis-services-manage-users.md).
 * **Grupo de recursos**: use un grupo de recursos que ya tenga o [cree uno nuevo](../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
@@ -39,7 +38,7 @@ Para empezar, necesitará lo siguiente:
 > 
 
 ## <a name="to-create-a-server-in-azure-portal"></a>Creación de un servidor de Azure Portal
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).  
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).  
 2. Haga clic en **+ Nuevo** > **Datos y análisis** > **Analysis Services**.
 3. En la hoja de **Analysis Services**, rellene los campos obligatorios y, a continuación, presione **Crear**.
    

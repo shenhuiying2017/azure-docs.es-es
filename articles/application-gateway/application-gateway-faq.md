@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: dbf870ca6e0ab85c96290a93eafd47d4b574dbc7
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: bb3cf81c9b179e520e58a6fe5e455a136b9bb349
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -32,11 +32,11 @@ Azure Application Gateway es un controlador de entrega de aplicaciones (ADC) com
 
 **P. ¿Qué características admite Application Gateway?**
 
-Application Gateway admite la descarga de SSL y SSL de un extremo a otro, Firewall de aplicaciones web, afinidad de sesión basada en cookies, enrutamiento basado en ruta de dirección URL, alojamiento de varios sitios y muchas otras más. Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
+Application Gateway admite la descarga de SSL y SSL de un extremo a otro, Firewall de aplicaciones web, afinidad de sesión basada en cookies, enrutamiento basado en ruta de dirección URL, alojamiento de varios sitios y muchas otras más. Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md).
 
 **P. ¿Cuál es la diferencia entre Application Gateway y Azure Load Balancer?**
 
-Application Gateway es un equilibrador de carga de nivel 7. Esto significa que Application Gateway trata únicamente con tráfico web (HTTP/HTTPS/WebSocket). Admite funcionalidades de equilibrio de carga de aplicaciones, como la terminación SSL, la afinidad de sesión basada en cookies y la distribución round robin para el tráfico de equilibrio de carga. Load Balancer equilibra la carga de tráfico en el nivel 4 (TCP/UDP).
+Application Gateway es un equilibrador de carga de nivel 7, lo que significa que funciona solo tráfico web (HTTP/HTTPS/WebSocket). Admite funcionalidades como la terminación SSL, la afinidad de sesión basada en cookies y la distribución round robin para el tráfico de equilibrio de carga. Load Balancer equilibra la carga de tráfico en el nivel 4 (TCP/UDP).
 
 **P. ¿Qué protocolos admite Application Gateway?**
 
@@ -44,11 +44,11 @@ Application Gateway admite HTTP, HTTPS y WebSocket.
 
 **P. ¿Qué recursos son compatibles actualmente como parte del grupo de back-end?**
 
-Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, así como de nombres de dominio completos (FQDN). La compatibilidad con Azure Web Apps no está disponible actualmente. Los miembros del grupo de back-end de Application Gateway no están asociados a un conjunto de disponibilidad. Los miembros de grupos de back-end pueden estar repartidos entre clústeres, centros de datos o fuera de Azure siempre y cuando dispongan de conectividad IP.
+Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino como Azure Web Apps. Los miembros del grupo de back-end de Application Gateway no están asociados a un conjunto de disponibilidad. Los miembros de grupos de back-end pueden estar repartidos entre clústeres, centros de datos o fuera de Azure siempre y cuando dispongan de conectividad IP.
 
 **P. ¿En qué regiones está disponible el servicio?**
 
-Application Gateway está disponible en todas las regiones de Azure público. También está disponible en [Azure China](https://www.azure.cn/) y [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)
+Application Gateway está disponible en todas las regiones de Azure global. También está disponible en [Azure China](https://www.azure.cn/) y [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)
 
 **P. ¿Se trata de una implementación dedicada para mi suscripción o compartida entre los clientes?**
 
@@ -60,7 +60,7 @@ Se admite el redireccionamiento. Visite [Introducción al redireccionamiento de 
 
 **P. ¿En qué orden se procesan los agentes de escucha?**
 
-Los agentes de escucha se procesan en el orden en que aparecen. Por este motivo, si un agente de escucha coincide con una solicitud entrante, se procesará primero.  Los agentes de escucha de varios sitios deben configurarse antes de un agente de escucha básico para asegurarse de que el tráfico se enrute al back-end correcto.
+Los agentes de escucha se procesan en el orden en que aparecen. Por este motivo, si un agente de escucha coincide con una solicitud entrante, se procesa primero.  Los agentes de escucha de varios sitios deben configurarse antes de un agente de escucha básico para asegurarse de que el tráfico se enrute al back-end correcto.
 
 **P. ¿Dónde se encuentra la dirección IP y el DNS de Application Gateway?**
 
@@ -106,7 +106,7 @@ Se admiten grupos de seguridad de red en la subred de Application Gateway con la
 
 * Se deben colocar excepciones para el tráfico entrante en los puertos 65503-65534 para que el estado del back-end funcione correctamente.
 
-* No se debe bloquear la conectividad saliente de Internet.
+* No puede bloquearse la conectividad saliente de Internet.
 
 * Se debe permitir el tráfico de la etiqueta AzureLoadBalancer.
 
@@ -122,7 +122,7 @@ Sí, Application Gateway admite una dirección IP interna y una dirección IP ex
 
 Sí, se admite el emparejamiento de VNet y, además, es beneficioso para el tráfico de equilibrio de carga en otras redes virtuales.
 
-**P. ¿Se puede comunicar con servidores locales si están conectados mediante ExpressRoute o túneles VPN?**
+**P. ¿Se puede comunicar con servidores locales cuando están conectados mediante ExpressRoute o túneles VPN?**
 
 Sí, siempre que se permita el tráfico.
 
@@ -136,7 +136,7 @@ Los sondeos personalizados no admiten caracteres comodín o regex en los datos d
 
 **P. ¿Cómo se procesan las reglas?**
 
-Las reglas se procesan en el orden en que están configuradas. Se recomienda que las reglas de varios sitios se configuren antes de las reglas básicas para reducir la posibilidad de que el tráfico se enrute al back-end inadecuado, ya que la regla básica coincidiría con el tráfico basado en el puerto antes de que se evalúe la regla de varios sitios.
+Las reglas se procesan en el orden en que se crearon. Se recomienda configurar las reglas multisitio antes que las reglas básicas. Al configurar primero los agentes de escucha multisitio, esta configuración reduce la probabilidad de que el tráfico se enrute al servidor no apropiado. Este problema de enrutamiento puede ocurrir cuando la regla básica debería coincidir con tráfico basado en puerto antes que la regla multisitio que se va a evaluar.
 
 **P. ¿Qué significa el campo Host de los sondeos personalizados?**
 
@@ -144,7 +144,7 @@ El campo Host especifica el nombre al que enviar el sondeo. Solo se puede aplica
 
 **P. ¿Puedo permitir a Application Gateway el acceso a algunas direcciones IP de origen?**
 
-Esto puede hacerse mediante el uso de NSG en la subred de Application Gateway. Las siguientes restricciones se deben colocar en la subred en el orden de prioridad indicado:
+Este escenario puede hacerse mediante el uso de grupos de seguridad de red en la subred de Application Gateway. Las siguientes restricciones se deben colocar en la subred en el orden de prioridad indicado:
 
 * Permitir el tráfico entrante de la IP o intervalo IP de origen.
 
@@ -160,7 +160,7 @@ Esto puede hacerse mediante el uso de NSG en la subred de Application Gateway. L
 
 **P. ¿Cómo admite Application Gateway la alta disponibilidad y la escalabilidad?**
 
-Application Gateway admite escenarios de alta disponibilidad si tiene 2 o más instancias implementadas. Azure distribuye estas instancias entre dominios de actualización y de errores para asegurarse de que todas las instancias no produzcan un error al mismo tiempo. Application Gateway admite la escalabilidad mediante la adición de varias instancias de la misma puerta de enlace para compartir la carga.
+Application Gateway admite escenarios de alta disponibilidad cuando tiene dos o más instancias implementadas. Azure distribuye estas instancias entre dominios de actualización y de errores para asegurarse de que todas las instancias no produzcan un error al mismo tiempo. Application Gateway admite la escalabilidad mediante la adición de varias instancias de la misma puerta de enlace para compartir la carga.
 
 **P. ¿Cómo se puede lograr el escenario de recuperación ante desastres a través de centros de datos con Application Gateway?**
 
@@ -168,7 +168,7 @@ Los clientes pueden usar Traffic Manager para distribuir el tráfico a través d
 
 **P. ¿Se admite el escalado automático?**
 
-No, pero Application Gateway tiene una métrica de rendimiento que se puede utilizar para mostrar una alerta si se alcanza un determinado umbral. Agregar instancias manualmente o cambiar el tamaño no reinicia la puerta de enlace y no afecta al tráfico existente.
+No, pero Application Gateway tiene una métrica de rendimiento que se puede utilizar para mostrar una alerta cuando se alcanza un determinado umbral. Agregar instancias manualmente o cambiar el tamaño no reinicia la puerta de enlace y no afecta al tráfico existente.
 
 **P. ¿Provoca el escalado o reducción vertical algún tiempo de inactividad?**
 
@@ -176,7 +176,7 @@ No hay ningún tiempo de inactividad, las instancias se distribuyen entre varios
 
 **P. ¿Puedo cambiar el tamaño de la instancia de mediano a grande sin que haya una interrupción?**
 
-Sí, Azure distribuye las instancias entre los dominios de actualización y de errores para asegurarse de que todas las instancias no produzcan un error al mismo tiempo. Application Gateway admite la escalabilidad mediante la adición de varias instancias de la misma puerta de enlace para compartir la carga.
+Sí, Azure distribuye las instancias entre los dominios de actualización y de errores para asegurarse de que todas las instancias no produzcan un error al mismo tiempo. Application Gateway admite el escalado mediante la adición de varias instancias de la misma puerta de enlace para compartir la carga.
 
 ## <a name="ssl-configuration"></a>Configuración de SSL
 
@@ -276,7 +276,7 @@ WAF actualmente admite CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 * Prevención contra bots, rastreadores y escáneres
 
-* Detección de errores de configuración comunes (es decir, Apache, IIS, etc.)
+* Detección de errores de configuración comunes en aplicaciones (es decir, Apache, IIS, etc.)
 
 **P. ¿Admite también WAF la prevención DDoS?**
 
@@ -286,11 +286,11 @@ No, WAF no ofrece prevención DDoS.
 
 **P. ¿Qué tipos de registros están disponibles con Application Gateway?**
 
-Hay tres registros disponibles para Application Gateway. Para más información sobre estos registros y otras funcionalidades de diagnóstico, visite [Estado de back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
+Hay tres registros disponibles para Application Gateway. Para más información sobre estos registros y otras funcionalidades de diagnóstico, visite [Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway](application-gateway-diagnostics.md).
 
-- **ApplicationGatewayAccessLog**: este registro contiene todas las solicitudes enviadas al front-end de Application Gateway. Los datos incluyen la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de la Puerta de enlace de aplicaciones.
-- **ApplicationGatewayPerformanceLog**: este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y la cantidad de instancias back-end completadas correcta e incorrectamente.
-- **ApplicationGatewayFirewallLog**: este registro contiene las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web.
+- **ApplicationGatewayAccessLog**: este registro de acceso contiene todas las solicitudes enviadas al front-end de Application Gateway. Los datos incluyen la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de Application Gateway.
+- **ApplicationGatewayPerformanceLog**: este registro de rendimiento captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y la cantidad de instancias back-end completadas correcta e incorrectamente.
+- **ApplicationGatewayFirewallLog**: este registro de firewall contiene las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web.
 
 **P. ¿Cómo se puede saber si mis miembros del grupo de back-end están en buenas condiciones?**
 

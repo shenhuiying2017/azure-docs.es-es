@@ -33,6 +33,7 @@
 # Guías
 ## [Registro de la aplicación](active-directory-integrating-applications.md)
 ## [Aplicaciones multiinquilino](active-directory-devhowto-multi-tenant-overview.md)
+## [Acceso condicional](active-directory-conditional-access-developer.md)
 ## OAuth y OpenID Connect
 ### [Protocolo OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Concesión de código de autenticación de OAuth 2.0](active-directory-protocols-oauth-code.md)
@@ -69,7 +70,7 @@
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [Llamadas de servicio a servicio](active-directory-protocols-oauth-service-to-service.md)
-### [Flujos en nombre de](active-directory-protocols-oauth-on-behalf-of.md)
+### [Flujo en nombre de](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Tipos de notificaciones y tokens admitidos](active-directory-token-and-claims.md)
 ### [Sustitución de claves de firmas](active-directory-signing-key-rollover.md)
 ### [Metadatos de federación](active-directory-federation-metadata.md)

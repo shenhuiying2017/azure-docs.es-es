@@ -1,6 +1,6 @@
 ---
 title: "Configuración de grupos mediante cmdlets de Azure Active Directory | Microsoft Docs"
-description: "Administración de la configuración de grupos mediante cmdlets de Azure Active Directory."
+description: "Administración de la configuración de grupos mediante cmdlets de Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/26/2017
 ms.author: rodejo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 81fdae033afd90b77d3725f8c39b8a6c6bbc3812
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7dd4833000e8550b172e0451c48788b1e627a1fb
 ms.contentlocale: es-es
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 
 > [!IMPORTANT]
-> Este contenido se aplica únicamente a grupos unificados, también conocidos como grupos de Office 365. 
+> Este contenido se aplica únicamente a grupos de Office 365. 
 
 Los grupos de Office 365 se configuran mediante un objeto Settings y un objeto SettingsTemplate. Inicialmente, no verá ningún objeto Settings en el directorio. Esto significa que el directorio está configurado con los valores predeterminados. Para cambiar la configuración predeterminada, debe crear un nuevo objeto Settings utilizando una plantilla SettingsTemplate. Las plantillas de configuración las define Microsoft. Hay varias plantillas de configuración diferentes. Para configurar los valores del grupo para su directorio, utilizará la plantilla denominada "Group.Unified". Para configurar los valores de un único grupo, utilice la plantilla "Group.Unified.Guest". Esta plantilla se usa para administrar el acceso de invitado a un grupo. 
 

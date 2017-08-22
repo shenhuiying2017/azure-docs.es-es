@@ -1,5 +1,4 @@
 ---
-
 title: Uso de PowerShell para administrar las copias de seguridad de Windows Server en Azure | Microsoft Docs
 description: Implemente y administre las copias de seguridad de Windows Server mediante PowerShell.
 services: backup
@@ -13,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 08/02/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 0871f061da668360ff5749f5097353645ee26c82
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: a8e20356ae383ee4fa2158ea544d5d0905028124
 ms.contentlocale: es-es
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
@@ -33,8 +31,8 @@ ms.lasthandoff: 06/16/2017
 En este artículo se explica cómo usar PowerShell para realizar una copia de seguridad de Windows Server o de datos de la estación de trabajo de Windows en un almacén de Backup. Microsoft recomienda el uso de almacenes de Recovery Services para todas las implementaciones nuevas. Si es un nuevo usuario de Azure Backup y todavía no ha creado un almacén de Backup en su suscripción, use artículo [Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell](backup-client-automation.md) para almacenar los datos en un almacén de Recovery Services. 
 
 > [!IMPORTANT]
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **A partir del 1 de noviembre de 2017**:
->- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del 15 de octubre de 2017, no podrá usar PowerShell para crear almacenes de Backup. **El 1 de noviembre de 2017**:
+>- Todos los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
 >- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 >
 

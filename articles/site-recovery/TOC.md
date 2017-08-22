@@ -13,13 +13,7 @@
 ## [Vídeo introductorio](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Introducción
-## [Replicación de máquinas virtuales de Azure (vista previa)](azure-to-azure-walkthrough-overview.md)
-### [Paso 1: Revisión de la arquitectura](azure-to-azure-walkthrough-architecture.md)
-### [Paso 2: antes de comenzar](azure-to-azure-walkthrough-prerequisites.md)
-### [Paso 3: planeamiento de las redes](azure-to-azure-walkthrough-network.md)
-### [Paso 4: creación de un almacén](azure-to-azure-walkthrough-vault.md)
-### [Paso 5: habilitamiento de la replicación](azure-to-azure-walkthrough-enable-replication.md)
-### [Paso 6: ejecución de una conmutación por error de prueba](azure-to-azure-walkthrough-test-failover.md)
+## [Replicación de máquinas virtuales de Azure (vista previa)](site-recovery-azure-to-azure.md)
 ## [Replicación de máquinas virtuales VMware en Azure](vmware-walkthrough-overview.md)
 ### [Paso 1: Revisión de la arquitectura](vmware-walkthrough-architecture.md)
 ### [Paso 2: Revisión de los requisitos previos y las limitaciones](vmware-walkthrough-prerequisites.md)
@@ -70,17 +64,7 @@
 ### [Paso 9: Instalación de Mobility Service](physical-walkthrough-install-mobility.md)
 ### [Paso 10: Habilitamiento de la replicación](physical-walkthrough-enable-replication.md)
 ### [Paso 11: Ejecución de una conmutación por error de prueba](physical-walkthrough-test-failover.md)
-## [Replicación de máquinas virtuales de Hyper-V en un sitio secundario (con VMM)](vmm-to-vmm-walkthrough-overview.md)
-### [Paso 1: Revisión de la arquitectura](vmm-to-vmm-walkthrough-architecture.md)
-### [Paso 2: Revisión de los requisitos previos y las limitaciones](vmm-to-vmm-walkthrough-prerequisites.md)
-### [Paso 3: planeamiento de las redes](vmm-to-vmm-walkthrough-network.md)
-### [Paso 4: preparación de VMM y Hyper-V](vmm-to-vmm-walkthrough-vmm-hyper-v.md)
-### [Paso 5: creación de un almacén](vmm-to-vmm-walkthrough-create-vault.md)
-### [Paso 6: configuración del origen y el destino](vmm-to-vmm-walkthrough-source-target.md)
-### [Paso 7: configuración de la asignación de red](vmm-to-vmm-walkthrough-network-mapping.md)
-### [Paso 8: Creación de una directiva de replicación](vmm-to-vmm-walkthrough-replication.md)
-### [Paso 9: habilitamiento de la replicación](vmm-to-vmm-walkthrough-enable-replication.md)
-### [Paso 10: ejecución de una conmutación por error de prueba](vmm-to-vmm-walkthrough-test-failover.md)
+## [Replicación de máquinas virtuales de Hyper-V en un sitio secundario (con VMM)](site-recovery-vmm-to-vmm.md)
 ## [Replicación de máquinas virtuales de VMware y servidores físicos en un sitio secundario](site-recovery-vmware-to-vmware.md)
 ## [Replicación de máquinas virtuales de VMware en Azure en un entorno multiinquilino (CSP)](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
@@ -144,7 +128,8 @@
 ### [Automatización de la replicación de Hyper-V en Azure (sin VMM)](site-recovery-deploy-with-powershell-resource-manager.md)
 ### [Automatización de la replicación de Hyper-V en Azure (con VMM)](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [Automatización de la replicación de Hyper-V en un sitio secundario (con VMM)](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
-## Administrar
+## administración
+### [Actualización del almacén de Site Recovery al almacén de Recovery Services](upgrade-site-recovery-vaults.md)
 ### [Administración de servidores de proceso de Azure](site-recovery-vmware-setup-azure-ps-resource-manager.md)
 ### [Administración del servidor de configuración](site-recovery-vmware-to-azure-manage-configuration-server.md)
 ### [Administración de servidores de procesos de escalado horizontal](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)

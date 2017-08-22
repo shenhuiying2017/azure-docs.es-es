@@ -11,20 +11,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/26/2017
-ms.author: curtand;jeffsta
-ms.reviewer: asteen
-ms.custom: oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
+ms.author: curtand
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ff4b742e772a6062885313e9bb49e55907fe125a
 ms.contentlocale: es-es
-ms.lasthandoff: 02/11/2017
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>Incorporación de nuevos usuarios o de usuarios con cuentas Microsoft en Azure Active Directory
+# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Incorporación de nuevos usuarios o de usuarios con cuentas de Microsoft en Azure Active Directory
 Agregue usuarios para rellenar su directorio. Este artículo explica cómo agregar nuevos usuarios a su organización y cómo agregar a aquellos usuarios que tienen cuentas de Microsoft. Para más información sobre cómo agregar usuarios de otros directorios en Azure Active Directory o cómo agregar usuarios de empresas asociadas, consulte [Incorporación de usuarios de otros directorios o compañías asociadas en Azure Active Directory](active-directory-create-users-external.md). De forma predeterminada, los usuarios agregados no tienen permisos de administrador, pero puede asignárselos en cualquier momento.
+
+> [!IMPORTANT]
+> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo. Para agregar un usuario en el centro de administración de Azure AD, consulte [Adición de nuevos usuarios a Azure Active Directory](active-directory-users-create-azure-portal.md).
 
 ## <a name="add-a-user"></a>Adición de un usuario
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com) con una cuenta que sea administrador global para el directorio.

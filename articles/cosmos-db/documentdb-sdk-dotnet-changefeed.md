@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 07/28/2017
 ms.author: maquaran
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c05faeca0ef831dd85fea85793c919d1e34e4f15
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: b2987800aa0d8aaf237f46a9435d53fec7372a92
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios .NET de DocumentDB: descarga y notas de la versión
@@ -39,6 +39,8 @@ ms.lasthandoff: 07/21/2017
 
 <tr><td>**Descarga del SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)</td></tr>
 
+<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API de biblioteca de procesadores de fuente de cambios](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)</td></tr>
+
 <tr><td>**Introducción**</td><td>[Primeros pasos con el SDL para los procesadores de fuente de cambios .NET de DocumentDB](change-feed.md)</td></tr>
 
 <tr><td>**Plataforma admitida actualmente**</td><td>[Microsoft .NET 4.5 Framework](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
@@ -48,6 +50,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * SDK de GA
+* Compatible con el [SDK para .NET de DocumentDB](documentdb-sdk-dotnet.md), versiones 1.14.1 e inferiores.
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
 Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.

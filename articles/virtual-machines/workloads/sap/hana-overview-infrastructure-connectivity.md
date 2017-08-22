@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: abc3f5ee70130b6be093e63afb495c86b921ba26
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 07/21/2017
 
 Algunas definiciones iniciales antes de leer esta guía. En [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) se presentan dos clases distintas de unidades de HANA (Instancias grandes) con:
 
-- S72, S72m, S144, S144m, S192 y S192m, a los que se hace referencia como "clase de tipo I" de SKU.
+- S72, S72m, S144, S144m, S192 y S192m, a las que se hace referencia como "clase de tipo I" de SKU.
 - S384, S384m, S384xm, S576, S768 y S960, a los que se hace referencia como "clase de tipo II" de SKU.
 
 Los especificadores de clase se van a usar en toda la documentación sobre HANA (Instancias grandes) para hacer referencia a diferentes capacidades y requisitos en función de las SKU de HANA (Instancias grandes).
@@ -171,7 +171,7 @@ Al final del proceso de implementación, Microsoft le proporciona los siguientes
      - PeerID de ExpressRoute
 - Datos de acceso a HANA Instancias grandes después de establecer el circuito de ExpressRoute y la red virtual de Azure.
 
-También puede buscar la secuencia de conexión de HANA (Instancias grandes) en el documento [End to End Setup for SAP HANA Large Instances (Configuración de extremo a extremo para SAP HANA (Instancias grandes))](https://msdnshared.blob.core.windows.net/media/2017/06/End-to-End-Setup-of-SAP-HANA-Large-Instances.pdf). Muchos de los pasos siguientes se muestran en una implementación de ejemplo en ese documento. 
+También puede buscar la secuencia de conexión de HANA (Instancias grandes) en el documento [End to End Setup for SAP HANA Large Instances (Configuración de extremo a extremo para SAP HANA (Instancias grandes))](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Muchos de los pasos siguientes se muestran en una implementación de ejemplo en ese documento. 
 
 
 ## <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>Conexión de una red virtual a ExpressRoute de HANA Instancias grandes

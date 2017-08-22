@@ -37,8 +37,8 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 6. Pegue la **URL** de App Service que copió anteriormente en **Authorized JavaScript Origins** (Orígenes de JavaScript autorizados) y luego pegue el identificador URI de redirección en **Authorized Redirect URI** (URI de redirección autorizado). El URI de redirección es la dirección URL de la aplicación anexada a la ruta de acceso, */.auth/login/google/callback*. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Asegúrese de que está utilizando el esquema HTTPS. A continuación, haga clic en **Crear**.
 7. En la siguiente pantalla, tome nota de los valores de id. de cliente y el secreto del cliente.
 
-    > [AZURE.IMPORTANT]
-    El secreto de cliente es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
+    > [!IMPORTANT]
+    > El secreto de cliente es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
 
 
 ## <a name="secrets"> </a>Adición de información de Google a la aplicación

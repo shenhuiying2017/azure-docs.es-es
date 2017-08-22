@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 2a64405c0862d09dd487d260a651123eafbcaf99
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 14f03542a6553c5bb697192828368ffe6b96441c
 ms.contentlocale: es-es
-ms.lasthandoff: 04/10/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Administre y personalice Servicios de federación de Active Directory con Azure AD Connect
@@ -176,6 +176,9 @@ Es fácil agregar un dominio para la federación con Azure AD mediante Azure AD 
 5. Haga clic en **Siguiente**. En la página **Listo para configurar** se muestra la lista de acciones que realizará Azure AD Connect. Haga clic en **Instalar** para finalizar la configuración.
 
    ![Listo para configurar](media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
+
+> [!NOTE]
+> Los usuarios del dominio federado agregado deben sincronizarse para poder iniciar sesión en Azure AD.
 
 ## <a name="ad-fs-customization"></a>Personalización de AD FS
 En las secciones siguientes, se proporcionan detalles sobre algunas de las tareas comunes que probablemente deba realizar cuando personalice la página de inicio de sesión de AD FS.

@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 1ae47899443d5552178078a417b7d1ebe91966d2
 ms.contentlocale: es-es
-ms.lasthandoff: 04/13/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
@@ -36,7 +35,7 @@ Agregue el fragmento de código del cargador a las páginas web, como se indica 
 ### <a name="open-or-create-application-insights-resource"></a>Apertura o creación de recurso en Application Insights
 El recurso de Application Insights es donde se muestran los datos sobre el rendimiento y el uso de la página. 
 
-Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 Si ya ha configurado la supervisión del lado del servidor de su aplicación, ya tiene un recurso:
 
@@ -197,7 +196,7 @@ Seleccione el evento que desea ver con mayor detalle. En la página de detalles,
 > 
 > 
 
-También puede usar el potente [lenguaje de consulta de Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) para buscar vistas de página.
+También puede usar el potente [lenguaje de consulta de Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) para buscar vistas de página.
 
 ### <a name="page-view-properties"></a>Propiedades de la vista de página
 * **Duración de vista de página** 

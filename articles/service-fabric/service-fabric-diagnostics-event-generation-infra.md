@@ -70,7 +70,7 @@ Para notificar el estado, use código similar al siguiente:
 Para notificar una métrica, use código similar al siguiente:
 
   ```csharp
-    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+    this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
   ```
 
 ### <a name="service-fabric-support-logs"></a>Registros de soporte técnico de Service Fabric

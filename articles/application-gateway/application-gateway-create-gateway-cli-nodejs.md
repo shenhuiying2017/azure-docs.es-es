@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 07/31/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: f550ec9a8d254378d165f0c842459fd50ade7945
-ms.openlocfilehash: 9ea999ea483543beda8d258f58dc8fba479aa603
-ms.lasthandoff: 03/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: e7b16e789e0f241aa8ca2292aacb2bccde8777ee
+ms.contentlocale: es-es
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/30/2017
 > 
 > 
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel&7;. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesiones basada en cookies, descarga SSL (capa de sockets seguros), sondeos personalizados sobre el estado y compatibilidad con sitios múltiples.
+Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7 . Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesiones basada en cookies, descarga SSL (capa de sockets seguros), sondeos personalizados sobre el estado y compatibilidad con sitios múltiples.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Requisito previo: instalar la CLI de Azure
 
@@ -50,11 +50,8 @@ En este escenario, aprenderá a crear una puerta de enlace de aplicaciones media
 En este escenario:
 
 * Creará una puerta de enlace de aplicaciones media con dos instancias.
-* Creará una red virtual denominada AdatumAppGatewayVNET con un bloque CIDR reservado de 10.0.0.0/16.
-* Creará una subred denominada Appgatewaysubnet que usa 10.0.0.0/28 como bloque CIDR.
-* Configurará un certificado para la descarga SSL.
-
-![Escenario de ejemplo][scenario]
+* Creará una red virtual denominada ContosoVNET con un bloque CIDR reservado de 10.0.0.0/16.
+* Creará una subred denominada subnet01 que usa 10.0.0.0/28 como bloque CIDR.
 
 > [!NOTE]
 > La configuración adicional de la puerta de enlace de aplicaciones, incluidos los sondeos personalizados sobre el estado, las direcciones del grupo de back-end y las reglas se realiza después de que se configura la puerta de enlace de aplicaciones, no durante la implementación inicial.
@@ -67,7 +64,7 @@ Puerta de enlace de aplicaciones de Azure requiere su propia subred. Al crear un
 
 Abra el **símbolo del sistema de Microsoft Azure**e inicie sesión. 
 
-```azurecli
+```azurecli-interactive
 azure login
 ```
 
@@ -85,7 +82,7 @@ Una vez especificado el código, habrá iniciado sesión; cierre el explorador p
 
 ## <a name="switch-to-resource-manager-mode"></a>Cambie al modo Resource Manager.
 
-```azurecli
+```azurecli-interactive
 azure config mode arm
 ```
 
@@ -93,38 +90,63 @@ azure config mode arm
 
 Antes de crear la puerta de enlace de aplicaciones, se creará un grupo de recursos para que pueda contenerla. A continuación, se muestra el comando.
 
-```azurecli
-azure group create -n AdatumAppGatewayRG -l eastus
+```azurecli-interactive
+azure group create \
+--name ContosoRG \
+--location eastus
 ```
 
 ## <a name="create-a-virtual-network"></a>Crear una red virtual
 
 Una vez creado el grupo de recursos, se crea una red virtual para la puerta de enlace de aplicaciones.  En el ejemplo siguiente, el espacio de direcciones era 10.0.0.0/16 tal como se definió en las notas del escenario anterior.
 
-```azurecli
-azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
+```azurecli-interactive
+azure network vnet create \
+--name ContosoVNET \
+--address-prefixes 10.0.0.0/16 \
+--resource-group ContosoRG \
+--location eastus
 ```
 
 ## <a name="create-a-subnet"></a>Creación de una subred
 
 Después de crear la red virtual, se agrega una subred para la puerta de enlace de aplicaciones.  Si piensa utilizar la puerta de enlace de aplicaciones con una aplicación web hospedada en la misma red virtual que la puerta de enlace de aplicaciones asegúrese de dejar suficiente espacio para otra subred.
 
-```azurecli
-azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
+```azurecli-interactive
+azure network vnet subnet create \
+--resource-group ContosoRG \
+--name subnet01 \
+--vnet-name ContosoVNET \
+--address-prefix 10.0.0.0/28 
 ```
 
 ## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
 Una vez que se crean la red virtual y la subred, los requisitos previos de la puerta de enlace de aplicaciones están completos. Además, para el paso siguiente son necesarios un certificado .pfx exportado previamente y la contraseña para el certificado. La direcciones IP que se usan para el back-end son las direcciones IP para el servidor back-end. Estos valores pueden ser direcciones IP privadas de la red virtual, direcciones IP públicas o nombres de dominio completos de los servidores back-end.
 
-```azurecli
-azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
+```azurecli-interactive
+azure network application-gateway create \
+--name AdatumAppGateway \
+--location eastus \
+--resource-group ContosoRG \
+--vnet-name ContosoVNET \
+--subnet-name subnet01 \
+--servers 134.170.185.46,134.170.188.221,134.170.185.50 \
+--capacity 2 \
+--sku-tier Standard \
+--routing-rule-type Basic \
+--frontend-port 80 \
+--http-settings-cookie-based-affinity Enabled \
+--http-settings-port 80 \
+--http-settings-protocol http \
+--frontend-port http \
+--sku-name Standard_Medium
 ```
 
 > [!NOTE]
 > Para ver una lista de parámetros que se pueden usar durante la creación, ejecute el siguiente comando: **azure network application-gateway create --help**.
 
-Con este ejemplo sea crea una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. También configura la descarga SSL. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto.
+Con este ejemplo sea crea una puerta de enlace de aplicaciones básica con la configuración predeterminada para el agente de escucha, el grupo de back-end, la configuración de http de back-end y las reglas. Esta configuración se puede modificar para adaptarse a la implementación una vez que el aprovisionamiento sea correcto.
 Si ya definió una aplicación web con el grupo de back-end en los pasos anteriores, una vez creada, comienza el equilibrio de carga.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -135,8 +157,8 @@ Para aprender a configurar la descarga de SSL y eliminar la cara descripción de
 
 <!--Image references-->
 
-[scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
-[1]: ./media/application-gateway-create-gateway-cli/figure1.png
-[2]: ./media/application-gateway-create-gateway-cli/figure2.png
-[3]: ./media/application-gateway-create-gateway-cli/figure3.png
+[scenario]: ./media/application-gateway-create-gateway-cli-nodejs/scenario.png
+[1]: ./media/application-gateway-create-gateway-cli-nodejs/figure1.png
+[2]: ./media/application-gateway-create-gateway-cli-nodejs/figure2.png
+[3]: ./media/application-gateway-create-gateway-cli-nodejs/figure3.png
 

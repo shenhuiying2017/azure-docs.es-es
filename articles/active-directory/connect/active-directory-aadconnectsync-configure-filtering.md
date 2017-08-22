@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 635affebf9130c2bfb38e84cc144ee4838504777
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 064642ebb9cafb0c6e1b3ff306241182a95215cc
 ms.contentlocale: es-es
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -297,6 +297,8 @@ Ahora es el momento de volver a habilitar el programador.
 
 ## <a name="group-based-filtering"></a>Filtrado basado en grupo
 Puede configurar el filtrado por grupo la primera vez que instale Azure AD Connect con la [instalación personalizada](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Se ha diseñado para una implementación piloto donde se vaya a sincronizar solo un pequeño conjunto de objetos. Cuando deshabilite el filtrado por grupo, no lo podrá volver a habilitar. El filtrado por grupo *no es compatible* con la configuración personalizada. Solo se admite para configurar esta característica con el Asistente para instalación. Cuando haya completado la prueba piloto, utilice una de las opciones de filtrado de este tema. Si se usa el filtrado por UO junto con el filtrado basado en grupo, se deben incluir las unidades organizativas donde se encuentran el grupo y sus miembros.
+
+Al sincronizar varios bosques de AD, puede configurar el filtrado basado en grupos mediante la especificación de un grupo diferente para cada conector de AD. Si desea sincronizar un usuario en un bosque de AD y el mismo usuario tiene uno o varios objetos de FSP (entidad de seguridad externa) en otros bosques de AD, debe asegurarse de que el objeto de usuario y todos sus objetos de FSP correspondientes se encuentran en el ámbito de filtrado basado en grupos. Si uno o varios objetos de FSP se excluyen mediante el filtrado basado en grupos, el objeto de usuario no se sincronizará con Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).

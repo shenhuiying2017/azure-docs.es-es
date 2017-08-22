@@ -12,19 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 08/03/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: ae45179d51fd093f1a3704690dd1b795533d9700
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: ded80330ad323a0019ad59ac54d076a78b70f521
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
 En este artículo se ofrece respuesta a las preguntas más frecuentes acerca de la autenticación de paso a través de Azure Active Directory (Azure AD). Siga comprobando si hay contenido nuevo.
+
+>[!IMPORTANT]
+>La característica de autenticación de paso a través se encuentra actualmente en versión preliminar.
 
 ## <a name="which-of-the-azure-ad-sign-in-methods---pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs---should-i-choose"></a>¿Cuál de los métodos de inicio de sesión, autenticación de paso a través, sincronización de hash de contraseña y Servicios de federación de Active Directory (AD FS) de Azure AD debo elegir?
 
@@ -48,11 +51,11 @@ Sí. La autenticación de paso a través admite `Alternate ID` como nombre de us
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>¿Actúa la sincronización de hash de contraseña como una reserva de la autenticación de paso a través?
 
-No, la sincronización de hash de contraseña no es una reserva genérica de la autenticación de paso a través. Solo actúa como reserva para [escenarios en los que la autenticación de paso a través no se admite en la actualidad](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar errores de inicio de sesión de usuario, debe configurar la autenticación de paso a través para una [alta disponibilidad](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+No, la sincronización de hash de contraseña no es una reserva genérica de la autenticación de paso a través. Solo actúa como reserva para [escenarios en los que la autenticación de paso a través no se admite en la actualidad](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar errores de inicio de sesión de usuario, debe configurar la autenticación de paso a través para una [alta disponibilidad](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>¿Puedo instalar un conector del [proxy de aplicación de Azure AD](../active-directory-application-proxy-get-started.md) en el mismo servidor que un agente de autenticación de paso a través?
 
-No, esta configuración _no_ es compatible.
+Sí, esta configuración es compatible con las nuevas versiones del agente de autenticación de paso a través (versiones 1.5.193.0 o posteriores).
 
 ## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>¿Qué versiones de Azure AD Connect y del agente de autenticación de paso a través necesita?
 
@@ -62,15 +65,19 @@ Necesita la versión 1.1.486.0 o posterior para Azure AD Connect y 1.5.58.0 o po
 
 Si ha configurado la [escritura diferida de contraseñas](../active-directory-passwords-update-your-own-password.md) para un usuario concreto y, si el usuario inicia sesión mediante la autenticación de paso a través, puede cambiar o restablecer su contraseña. La contraseña se volverá a escribir en la instancia local de Active Directory, tal como cabría esperar.
 
-Sin embargo, si no está configurada la escritura diferida de contraseñas o el usuario no tiene una licencia válida de Azure AD asignada, el usuario no podrá actualizar la contraseña en la nube. El usuario no puede actualizar la contraseña incluso aunque haya expirado. En su lugar, verá el siguiente mensaje: "La organización no le permite actualizar la contraseña en este sitio. Actualícela de acuerdo con el método que recomienda la organización o, si necesita ayuda, póngase en contacto con el administrador". El usuario o el administrador tendrá que restablecer su contraseña en la instancia de Active Directory local.
+Sin embargo, si no está configurada la escritura diferida de contraseñas para un usuario determinado o si este no tiene una licencia válida de Azure AD asignada, el usuario no podrá actualizar la contraseña en la nube. El usuario no puede actualizar la contraseña incluso aunque haya expirado. En su lugar, verá el siguiente mensaje: "La organización no le permite actualizar la contraseña en este sitio. Actualícela de acuerdo con el método que recomienda la organización o, si necesita ayuda, póngase en contacto con el administrador". El usuario o el administrador tendrá que restablecer su contraseña en la instancia de Active Directory local.
+
+## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>¿Cómo protege la autenticación de paso a través frente a ataques de contraseña por fuerza bruta?
+
+Lea [este artículo](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) para más información.
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>¿Qué comunican los agentes de autenticación de paso a través mediante los puertos 80 y 443?
 
-- Los agentes de autenticación realizan solicitudes HTTPS en el puerto 443 para todas las operaciones relacionadas con características como la habilitación de la misma o el procesamiento de todas las solicitudes de inicio de sesión de usuario, etc.
+- Los agentes de autenticación realizan las solicitudes HTTPS a través del puerto 443 en todas las operaciones de esta característica.
 - Los agentes de autenticación realizan solicitudes HTTP a través del puerto 80 para la descarga de listas de revocación de certificados SSL.
 
      >[!NOTE]
-     >En las últimas actualizaciones se ha reducido el número de puertos requeridos por los agentes de autenticación para comunicarse con Azure AD. Si se ejecutan versiones anteriores de Azure AD Connect o de los agentes de autenticación independientes, los puertos adicionales (5671, 8080, 9090, 9091, 9350, 9352, 10100-10120) deben mantenerse abiertos.
+     >En las actualizaciones recientes se ha reducido el número de puertos que necesita la característica. Si tiene versiones anteriores de Azure AD Connect o del agente de autenticación, mantenga también estos puertos abiertos: 5671, 8080, 9090, 9091, 9350, 9352 y 10100-10120.
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>¿Se pueden comunicar los agentes de autenticación de paso a través mediante un servidor de proxy web de salida?
 
@@ -78,7 +85,7 @@ Sí. Si WPAD (detección automática de proxy web) está habilitada en el entorn
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>¿Puedo instalar dos o más agentes de autenticación de paso a través en el mismo servidor?
 
-No, solo se puede instalar un agente de autenticación de paso a través en un único servidor. Si desea configurar la autenticación de paso a través para alta disponibilidad, siga las instrucciones de este [artículo](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) en su lugar.
+No, solo se puede instalar un agente de autenticación de paso a través en un único servidor. Si desea configurar la autenticación de paso a través para alta disponibilidad, siga las instrucciones de este [artículo](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) en su lugar.
 
 ## <a name="i-already-use-active-directory-federation-services-ad-fs-for-azure-ad-sign-in-how-do-i-switch-it-to-pass-through-authentication"></a>Ya utilizo los servicios de federación de Active Directory (AD FS) para el inicio de sesión de Azure AD. ¿Cómo se puede cambiar a la autenticación de paso a través?
 
@@ -95,7 +102,7 @@ Sí. Se admiten entornos de varios bosques si hay relaciones de confianza de bos
 
 ## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>¿Ofrecen los agentes de autenticación de paso a través la funcionalidad de equilibrio de carga?
 
-No, la instalación de varios agentes de autenticación de paso a través solo garantiza una [alta disponibilidad](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability), pero no el equilibrio de carga. Uno o dos agentes de autenticación pueden manejar la mayor parte de las solicitudes de inicio de sesión.
+No, la instalación de varios agentes de autenticación de paso a través solo garantiza una [alta disponibilidad](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), pero no el equilibrio de carga. Uno o dos agentes de autenticación pueden manejar la mayor parte de las solicitudes de inicio de sesión.
 
 Las solicitudes de validación de contraseñas que los agentes de autenticación deben controlar son tareas ligeras. Por lo tanto, con un total de dos o tres agentes de autenticación se pueden manejar fácilmente las cargas máximas y las cargas medias de trabajo de la mayoría de los clientes.
 
@@ -109,11 +116,12 @@ No, este escenario _no_ se admite.
 
 Es recomendable que:
 
-- Instale dos o tres agentes de autenticación en total. Eso es suficiente para la mayoría de los clientes.
+- Instale dos o tres agentes de autenticación en total. Esta configuración es suficiente para la mayoría de los clientes.
 - Instale agentes de autenticación en los controladores de dominio (o lo más cerca posible de ellos) para mejorar la latencia de inicio de sesión.
 - Se asegure de que los servidores (aquellos en los que se han instalado los agentes de autenticación) se han agregado al mismo bosque de AD que los usuarios cuyas contraseñas se deben validar.
 
-Tenga en cuenta que hay un límite de sistema de 12 agentes de autenticación por inquilino.
+>[!NOTE]
+>Hay un límite de sistema de 12 agentes de autenticación por inquilino.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>¿Se puede deshabilitar la autenticación de paso a través?
 

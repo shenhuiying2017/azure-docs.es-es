@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: c2d1eed17415c85b03326c9f0077d9fc5fd0104d
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: ada1c3d1482c68834dbbf5eabbd045a7e0c01f9f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Ejecución de consultas interactivas en un clúster Spark de HDInsight
@@ -80,20 +80,21 @@ Para ejecutar consultas, utilizamos los datos de ejemplo que están disponibles 
 
 6. Ejecute el código siguiente para crear una trama de datos y una tabla temporal (**hvac**). En este tutorial, no creamos todas las columnas en la tabla temporal en comparación con las columnas de los datos CSV sin procesar. 
 
-        # Load the data
+        # Create an RDD from sample data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-        # Create the schema
-        hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+        # Create a schema for our data
+        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
 
-        # Parse the data in hvacText
-        hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
-
-        # Create a data frame
-        hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
-
-        # Register the data frame as a table to run queries against
-        hvacdf.registerTempTable("hvac")
+        # Parse the data and create a schema
+        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
+        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
+        
+        # Infer the schema and create a table       
+        hvacTable = sqlContext.createDataFrame(hvac)
+        hvacTable.registerTempTable('hvactemptable')
+        dfw = DataFrameWriter(hvacTable)
+        dfw.saveAsTable('hvac')
 
 7. Una vez creada la tabla, ejecute la consulta interactiva en los datos con el código siguiente.
 
@@ -114,7 +115,10 @@ Para ejecutar consultas, utilizamos los datos de ejemplo que están disponibles 
 
 ## <a name="next-step"></a>Paso siguiente
 
-En este artículo aprendió a ejecutar consultas interactivas en Spark con un notebook de Jupyter. Ahora se pueden extraer los datos registrados en Spark en una herramienta de análisis de BI como Power BI y Tableau. Consulte [Spark BI mediante herramientas de visualización de datos con Azure HDInsight](hdinsight-apache-spark-use-bi-tools.md).
+En este artículo aprendió a ejecutar consultas interactivas en Spark con un notebook de Jupyter. Continúe con el siguiente artículo para ver cómo se pueden extraer los datos registrados en Spark en una herramienta de análisis de BI, como Power BI y Tableau. 
+
+> [!div class="nextstepaction"]
+>[Spark BI mediante herramientas de visualización de datos con Azure HDInsight](hdinsight-apache-spark-use-bi-tools.md)
 
 
 

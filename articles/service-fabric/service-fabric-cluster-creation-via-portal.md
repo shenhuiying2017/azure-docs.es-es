@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 37e8d04f1786187a947a435b3cfd299546617c8b
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 7dda9520ce3d93bf0e86bd2481ad06c268d087c7
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
@@ -42,7 +42,7 @@ Esta guía paso a paso le lleva por la configuración de un clúster de Service 
 
 Un clúster seguro es un clúster que impide el acceso no autorizado a operaciones de administración, lo que incluye la implementación, actualización y eliminación de aplicaciones y servicios y los datos que contienen. Un clúster no seguro es un clúster al que cualquiera puede conectarse en cualquier momento y realizar operaciones de administración. Aunque se puede crear un clúster no seguro, se **recomienda firmemente crear uno seguro**. Un clúster no seguro **no se puede proteger en un momento posterior** -se debe crear uno nuevo.
 
-Los conceptos son los mismos para crear clústeres seguros, tanto si se trata de clústeres de Linux como de Windows. Para más información y scripts de aplicaciones auxiliares para crear clústeres seguros de Linux, consulte [Creación de clústeres seguros en Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-cluster). Los parámetros obtenidos por el script de la aplicación auxiliar pueden especificarse en el portal como se describe en la sección [Creación de un clúster en Azure Portal](#create-cluster-portal).
+Los conceptos son los mismos para crear clústeres seguros, tanto si se trata de clústeres de Linux como de Windows. Para más información y scripts de aplicaciones auxiliares para crear clústeres seguros de Linux, consulte [Creación de clústeres seguros en Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Los parámetros obtenidos por el script de la aplicación auxiliar pueden especificarse en el portal como se describe en la sección [Creación de un clúster en Azure Portal](#create-cluster-portal).
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 En esta guía se usa [Azure PowerShell][azure-powershell]. Al iniciar una nueva sesión de PowerShell, inicie sesión en su cuenta de Azure y seleccione su suscripción antes de ejecutar comandos de Azure.

@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d66b9e4c237ca195e2e0094aead7ce029f4fdf36
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 0bf2e57fb0f51f22ccd99b5b27775d007b8a7ccc
+ms.contentlocale: es-es
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Análisis del contenido multimedia mediante Azure Portal
@@ -27,7 +28,7 @@ ms.openlocfilehash: d66b9e4c237ca195e2e0094aead7ce029f4fdf36
 > 
 
 ## <a name="overview"></a>Información general
-Análisis de Azure Media Services es una colección de componentes de voz y visión (a escala empresarial, cumplimiento, seguridad y alcance global) que facilita a las organizaciones y empresas la derivación de conocimientos prácticos partir de sus archivos de vídeo. Para obtener información más detallada de Análisis de Azure Media Services, consulte [este](media-services-analytics-overview.md) tema. 
+Análisis de Azure Media Services es una colección de componentes de voz y visión (a escala empresarial, conforme, segura y de alcance global) que facilita a las organizaciones y empresas la derivación de conocimientos prácticos a partir de sus archivos de vídeo. Para obtener información más detallada de Análisis de Azure Media Services, consulte [este](media-services-analytics-overview.md) tema. 
 
 En este tema se describe cómo procesar los medios con procesadores de multimedia (MP) de Análisis multimedia mediante Azure Portal. Los procesadores de multimedia de Análisis multimedia generan archivos MP4 o JSON. Si un procesador multimedia genera un archivo MP4, puede descargar progresivamente el archivo. Si un procesador multimedia genera un archivo JSON, puede descargar el archivo desde Almacenamiento de blobs de Azure. 
 
@@ -71,7 +72,7 @@ Seleccione esta opción si desea generar un archivo XML de palabras clave. Este 
 Un nombre descriptivo que permite identificar el trabajo. [Este](media-services-portal-check-job-progress.md) artículo describe cómo puede supervisar el progreso de un trabajo. 
 
 ### <a name="output-file"></a>Archivo de salida
-Un nombre descriptivo permite identificar el contenido de salida. 
+Nombre descriptivo que permite identificar el contenido de salida. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
 Azure Media Hyperlapse es un MP que crea vídeos fluidos con la técnica time-lapse a partir de contenido generado en primera persona o con una cámara de acción.  Para obtener más información, consulte [este tema](media-services-hyperlapse-content.md) . En esta sección se proporcionan algunos detalles sobre las opciones que puede especificar para este MP.
@@ -85,7 +86,7 @@ Especifique la velocidad con la que se acelerará el vídeo de entrada. El resul
 Un nombre descriptivo que permite identificar el trabajo. [Este](media-services-portal-check-job-progress.md) artículo describe cómo puede supervisar el progreso de un trabajo. 
 
 ### <a name="output-file"></a>Archivo de salida
-Un nombre descriptivo permite identificar el contenido de salida. 
+Nombre descriptivo que permite identificar el contenido de salida. 
 
 ## <a name="azure-media-face-detector"></a>Azure Media Face Detector
 El procesador de multimedia (MP) **Azure Media Face Detector** (Detector de caras multimedia de Azure) le permite contar y seguir los movimientos, e incluso evaluar la participación y reacción de la audiencia a través de expresiones faciales. Este servicio contiene dos características: 
@@ -115,7 +116,7 @@ El procesador puede utilizar uno de los siguientes modos:
 Un nombre descriptivo que permite identificar el trabajo. [Este](media-services-portal-check-job-progress.md) artículo describe cómo puede supervisar el progreso de un trabajo. 
 
 ### <a name="output-file"></a>Archivo de salida
-Un nombre descriptivo permite identificar el contenido de salida. 
+Nombre descriptivo que permite identificar el contenido de salida. 
 
 ## <a name="azure-media-motion-detector"></a>Azure Media Motion Detector
 El procesador de multimedia (MP) **Detector de movimiento multimedia de Azure** permite identificar de manera eficaz las secciones de interés dentro de un vídeo que, de lo contrario, sería extenso y monótono. La detección de movimiento se puede usar en grabaciones con cámara estática para identificar las secciones del vídeo donde se produjo el movimiento. Genera un archivo JSON que contiene metadatos con marcas de tiempo y la región delimitadora donde se produjo el evento.
@@ -133,7 +134,7 @@ Este procesador puede ayudarlo a crear resúmenes de vídeos largos al seleccion
 Un nombre descriptivo que permite identificar el trabajo. [Este](media-services-portal-check-job-progress.md) artículo describe cómo puede supervisar el progreso de un trabajo. 
 
 ### <a name="output-file"></a>Archivo de salida
-Un nombre descriptivo permite identificar el contenido de salida. 
+Nombre descriptivo que permite identificar el contenido de salida. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ver las rutas de aprendizaje de Media Services
@@ -142,10 +143,5 @@ Ver las rutas de aprendizaje de Media Services
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

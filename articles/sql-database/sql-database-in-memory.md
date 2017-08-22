@@ -13,24 +13,25 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/24/2017
 ms.author: jodebrui
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: a7273c50f2619c776268406aa14f6c00dcfbfbbe
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 4cb45551c486263f26947e5684d54b4f2ecc7410
 ms.contentlocale: es-es
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/25/2017
 
 ---
-
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimización del rendimiento mediante las tecnologías en memoria de SQL Database
 
 Mediante el uso de tecnologías en memoria en Azure SQL Database, puede lograr mejoras de rendimiento con diversas cargas de trabajo: transaccionales (procesamiento de transacciones en línea [OLTP]), analíticas (procesamiento analítico en línea [OLAP]) y mixtas (procesamiento analítico y transaccional híbrido [HTAP]). Gracias al procesamiento más eficiente de las consultas y las transacciones, las tecnologías en memoria también lo ayudan a reducir costos. Normalmente no necesita actualizar el plan de tarifa de la base de datos para lograr mejoras de rendimiento. En algunos casos, tal vez pueda reducir incluso el plan de tarifa sin dejar de observar mejoras de rendimiento con las tecnologías en memoria.
 
 A continuación se muestran dos ejemplos de cómo OLTP en memoria ayudó significativamente a mejorar el rendimiento:
 
-- Gracias al uso de OLTP en memoria, [Quorum Business Solutions pudo duplicar la carga de trabajo al mismo tiempo que mejoró las DTU (es decir, el consumo de recursos) en un 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-- El vídeo siguiente muestra la mejora significativa del consumo de recursos con una carga de trabajo de ejemplo: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Vídeo sobre OLTP en memoria en Azure SQL Database). Para más información, consulte la entrada de blog: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (OLTP en memoria en la entrada de Blog de base de datos de SQL de Azure).
+- Gracias al uso de OLTP en memoria, [Quorum Business Solutions pudo duplicar la carga de trabajo al mismo tiempo que mejoró las DTU en un 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+    - DTU significa *Unidad de transmisión de datos*, e incluye una medida del consumo de recursos.
+- El vídeo siguiente muestra la mejora significativa del consumo de recursos con una carga de trabajo de ejemplo: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Vídeo sobre OLTP en memoria en Azure SQL Database).
+    - Para más información, consulte la entrada de blog: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (OLTP en memoria en la entrada de Blog de base de datos de SQL de Azure).
 
 Las tecnologías en memoria están disponibles en todas las bases de datos del plan Premium, incluidas las de grupos elásticos Premium.
 
@@ -45,11 +46,14 @@ Azure SQL Database cuenta con las siguientes tecnologías en memoria:
 - *OLTP en memoria* aumenta el rendimiento y reduce la latencia del procesamiento de transacciones. Estas son las situaciones en las que se obtienen ventajas con OLTP en memoria: procesamiento de transacciones de alto rendimiento, como operaciones comerciales y juegos, ingesta de datos de eventos o dispositivos de IoT, almacenamiento en caché, carga de datos y escenarios de tablas temporales y variables de tablas.
 - Los *índices de almacén de columnas en clúster* reducen el espacio de almacenamiento necesario (hasta 10 veces) y mejoran el rendimiento de las consultas de análisis e informes. Puede usarlos con las tablas de hechos de sus data marts para incluir más datos en la base de datos y mejorar el rendimiento. También puede usarlos con los datos históricos de la base de datos operativa para archivar hasta 10 veces más datos, así como para disfrutar de un incremento equivalente en el número de consultas realizadas sobre ellos.
 - Con los *índices de almacén de columnas no clúster* para HTAP, podrá obtener información en tiempo real sobre su negocio realizando consultas directamente a la base de datos operativa, sin necesidad de ejecutar un caro proceso de extracción, transformación y carga (ETL) ni esperar a que se rellene el almacén de datos. Los índices de almacén de columnas no clúster permiten una ejecución muy rápida de las consultas de análisis en la base de datos OLTP y, a la vez, reducen el impacto en la carga de trabajo operativa.
-- También puede combinar índices de almacén de columnas y OLTP en memoria. Puede tener una tabla con optimización para memoria con un índice de almacén de columnas. Esto permite realizar el procesamiento de transacciones de manera muy rápida y ejecutar consultas de análisis a gran velocidad en los mismos datos.
+- También puede tener la combinación de una tabla optimizada para memoria con un índice de almacén de columnas. Esta combinación le permite realizar el procesamiento de transacciones de manera muy rápida y ejecutar consultas de análisis *simultáneamente* de manera muy rápida en los mismos datos.
 
 Las opciones de índices de almacén de columnas y OLTP en memoria forman parte de SQL Server desde 2012 y 2014, respectivamente. Azure SQL Database y SQL Server comparten la misma implementación de tecnologías en memoria. A partir de ahora, las nuevas funciones para estas tecnologías se publican primero en Azure SQL Database y después, en SQL Server.
 
-En este tema se describen aspectos de OLTP en memoria y los índices de almacén de columnas específicos de Azure SQL Database; además, se incluyen ejemplos. En primer lugar, veremos la repercusión de estas tecnologías en el almacenamiento, así como en los límites de tamaño de los datos. Después trataremos cómo administrar el movimiento de bases de datos que usan estas tecnologías entre los distintos planes de tarifa. Por último, veremos dos ejemplos que ilustran el uso de OLTP en memoria y de los índices del almacén de columnas en Azure SQL Database.
+En este tema se describen aspectos de OLTP en memoria y los índices de almacén de columnas específicos de Azure SQL Database; además, se incluyen ejemplos:
+- Veremos la repercusión de estas tecnologías en el almacenamiento, así como en los límites de tamaño de los datos.
+- Después trataremos cómo administrar el movimiento de bases de datos que usan estas tecnologías entre los distintos planes de tarifa.
+- Y también eremos dos ejemplos que ilustran el uso de OLTP en memoria y de los índices del almacén de columnas en Azure SQL Database.
 
 Para obtener más información, consulte los siguientes recursos.
 
@@ -66,7 +70,7 @@ Vídeos detallados sobre las tecnologías:
 
 - [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (OLTP en memoria en Azure SQL Database), que contiene una demostración de las ventajas de rendimiento y los pasos para reproducir estos resultados
 - [In-Memory OLTP Videos: What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/) (Vídeos de OLTP en memoria: qué es y cuándo/cómo usarlo)
-- [Columnstore Index: In-Memory Analytics (i.e. columnstore index) Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/) (Índice de almacén de columnas: vídeos sobre análisis en memoria [es decir, índice de almacén de columnas] de Ignite 2016)
+- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/) (Índice de almacén de columnas: vídeos sobre análisis en memoria de Ignite 2016)
 
 ## <a name="storage-and-data-size"></a>Almacenamiento y tamaño de datos
 
@@ -78,13 +82,13 @@ Cada plan de tarifa de grupo elástico y de base de datos independiente admitido
 
 En el artículo sobre los [niveles de servicio de SQL Database](sql-database-service-tiers.md), podrá encontrar la lista oficial de almacenamiento de OLTP en memoria disponible para cada plan de tarifa de grupo elástico y de base de datos independiente admitido.
 
-Los siguientes aspectos cuentan para su límite de almacenamiento de OLTP en memoria:
+Los siguientes elementos cuentan para su límite de almacenamiento de OLTP en memoria:
 
 - Las filas de datos de usuarios activos en tablas con optimización de memoria y variables de tabla. Tenga en cuenta que las versiones antiguas de las filas no cuentan para el límite.
 - Los índices de tablas con optimización de memoria.
 - La sobrecarga operacional de operaciones ALTER TABLE.
 
-Si alcanza el límite, recibirá un error que le notificará que se ha quedado sin cuota y no podrá volver a insertar o actualizar datos. Puede mitigar estos problemas eliminando datos o aumentando el plan de tarifa de la base de datos o del grupo.
+Si alcanza el límite, recibirá un error que le notificará que se ha quedado sin cuota y no podrá volver a insertar o actualizar datos. Para mitigar este error, elimine datos o aumente el plan de tarifa de la base de datos o del grupo.
 
 Para obtener más información sobre cómo supervisar la utilización del almacenamiento de OLTP en memoria y configurar alertas que se activen cuando casi haya alcanzado el límite, consulte [Supervisión del almacenamiento en memoria](sql-database-in-memory-oltp-monitoring.md).
 
@@ -93,13 +97,13 @@ Para obtener más información sobre cómo supervisar la utilización del almace
 Con grupos elásticos, el almacenamiento de OLTP en memoria se comparte entre todas las bases de datos del grupo. Por lo tanto, el uso de una base de datos puede afectar a otras bases de datos. Existen dos formas de mitigar este problema:
 
 - Establecer un valor de eDTU máx. para las bases de datos que sea inferior al número de eDTU del grupo en su conjunto. De este modo, se limita la utilización del almacenamiento de OLTP en memoria en cualquier base de datos del grupo al tamaño correspondiente al número de eDTU.
-- Configurar un valor de eDTU mín. que sea mayor que 0. Así, se garantiza que cada base de datos del grupo tenga la cantidad de almacenamiento de OLTP en memoria disponible que corresponde al valor configurado para eDTU mín.
+- Configurar un valor de eDTU mín. que sea mayor que 0. Este mínimo garantiza que cada base de datos del grupo tenga la cantidad de almacenamiento de OLTP en memoria disponible que corresponde al valor configurado para eDTU mín.
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Almacenamiento y tamaño de datos para los índices de almacén de columnas
 
 No se requiere que los índices de almacén de columnas quepan en la memoria. Por lo tanto, el único límite del tamaño de los índices es el tamaño máximo global de la base de datos, que está documentado en el artículo sobre los [niveles de servicio de SQL Database](sql-database-service-tiers.md).
 
-Al utilizar los índices de almacén de columnas en clúster, se emplea una compresión de columnas para el almacenamiento de la tabla base. Esto puede reducir considerablemente el consumo de almacenamiento de sus datos de usuario, lo que significa que la base de datos podrá albergar más información. Y es posible aumentar este aprovechamiento aún más con la [compresión de archivo de columnas](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). La cantidad de compresión que puede lograr depende de la naturaleza de los datos, pero no es raro obtener una compresión que reduzca el tamaño en 10 veces.
+Al utilizar los índices de almacén de columnas en clúster, se emplea una compresión de columnas para el almacenamiento de la tabla base. Esta compresión puede reducir considerablemente el consumo de almacenamiento de sus datos de usuario, lo que significa que la base de datos podrá albergar más información. Y es posible aumentar este compresión aún más con la [compresión de archivo de columnas](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). La cantidad de compresión que puede lograr depende de la naturaleza de los datos, pero no es raro obtener una compresión que reduzca el tamaño en 10 veces.
 
 Por ejemplo, si tiene una base de datos con el tamaño máximo de 1 terabyte (TB) y logra una compresión de 10 veces con índices de almacén de columnas, puede incluir un total de 10 TB de datos de usuario en la base de datos.
 
@@ -107,7 +111,9 @@ Al utilizar índices de almacén de columnas no agrupados, la tabla base sigue a
 
 ## <a name="moving-databases-that-use-in-memory-technologies-between-pricing-tiers"></a>Movimiento de bases de datos que usan tecnologías en memoria entre planes de tarifa
 
-No hay ninguna consideración especial que se deba tener en cuenta a la hora de aumentar el plan de tarifa de una base de datos que utilice tecnologías en memoria, ya que los planes de tarifa más elevados siempre cuentan con más funciones y recursos. La disminución del plan de tarifa puede tener implicaciones para la base de datos. Esto sucede especialmente al pasar de Premium a Estándar o Básico y al mover una base de datos que utiliza OLTP en memoria a un plan Premium inferior. Se aplican las mismas consideraciones al reducir el plan de tarifa de un grupo elástico o mover bases de datos con tecnologías en memoria a un grupo elástico Estándar o Básico.
+Nunca hay incompatibilidades u otros problemas al actualizar a un plan de tarifas superior, como de Estándar a Premium. Solo aumenta la funcionalidad y los recursos disponibles.
+
+Pero cambiar a un plan de tarifas inferior puede repercutir negativamente en la base de datos. El impacto es especialmente evidente al cambiar de Premium a Estándar o Básico cuando la base de datos contiene objetos de OLTP en memoria. Las tablas optimizadas para memoria y los índices de almacén de columnas no están disponibles después del cambio a una versión anterior (aunque sigan estando visibles). Lo mismo se aplica al reducir el plan de tarifa de un grupo elástico o mover bases de datos con tecnologías en memoria a un grupo elástico Estándar o Básico.
 
 ### <a name="in-memory-oltp"></a>In-Memory OLTP
 
@@ -124,15 +130,15 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 Si la consulta devuelve **1**, OLTP en memoria se admite en esta base de datos.
 
 
-*Reducción a un plan Premium inferior*: los datos de las tablas con optimización de memoria deben caber en el almacenamiento de OLTP en memoria asociado al plan de tarifa de la base de datos o disponible en el grupo elástico. Si trata de reducir el plan de tarifa o mover la base de datos a un grupo que no disponga de almacenamiento de OLTP en memoria suficiente, la operación no se desarrollará correctamente.
+*Reducción a un plan Premium inferior*: los datos de las tablas con optimización de memoria deben caber en el almacenamiento de OLTP en memoria asociado al plan de tarifa de la base de datos o disponible en el grupo elástico. Si trata de reducir el plan de tarifa o mover la base de datos a un grupo que no disponga de almacenamiento de OLTP en memoria suficiente, la operación no se desarrolla correctamente.
 
 ### <a name="columnstore-indexes"></a>Índices de almacén de columnas
 
-*Reducción a Básico o Estándar*: los índices de almacén de columnas no se admiten en bases de datos que se encuentren en los planes Estándar o Básico. Al cambiar una base de datos a un plan inferior, Básico o Estándar, los índices de almacén de columnas dejarán de estar disponibles. Si emplea un índice de almacén de columnas en clúster, la tabla completa dejará de estar disponible.
+*Cambiar a Básico o Estándar*: los índices de almacén de columnas solo se admiten en el plan de tarifa Premium y no en los planes Estándar o Básico. Cuando se cambie la base de datos a Estándar o Básico, el índice de almacén de columnas no estará disponible. El sistema mantiene el índice de almacén de columnas, pero no aprovecha el índice. Si después actualiza a Premium, el índice de almacén de columnas está listo para volver a sacar el máximo partido.
 
-Antes de cambiar la base de datos a un plan inferior, Básico o Estándar, quite todos los índices de almacén de columnas en clúster.
+Si tiene un índice de almacén de columnas **en clúster**, toda la tabla deja de estar disponible después del cambio a un nivel inferior. Por lo tanto, se recomienda quitar todos los índices de almacén de columnas *en clúster* antes de cambiar la base de datos por debajo del nivel Premium.
 
-*Reducción a un plan Premium inferior*: esta operación se realizará sin problemas siempre que la base de datos en su conjunto quepa en el tamaño máximo de la base de datos del plan de tarifa objetivo o del almacenamiento disponible en el grupo elástico. Los índices de almacén de columnas no tienen ningún impacto concreto en este caso.
+*Cambio a un plan Premium inferior*: este cambio se realiza correctamente si toda la base de datos se adapta al tamaño máximo de la base de datos del plan de tarifa objetivo o al almacenamiento disponible en el grupo elástico. Los índices de almacén de columnas no tienen ningún impacto concreto en este caso.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
@@ -273,7 +279,7 @@ end
 ```
 
 
-Para hacer que la versión *_ondisk* del script T-SQL anterior sirva para ostress.exe, solo hay que reemplazar ambas repeticiones de la subcadena *_inmem* por *_ondisk*. Estos reemplazos afectan a los nombres de tablas y procedimientos almacenados.
+Para hacer que la versión *_ondisk* del script T-SQL anterior sirva para ostress.exe, hay que reemplazar ambas repeticiones de la subcadena *_inmem* por *_ondisk*. Estos reemplazos afectan a los nombres de tablas y procedimientos almacenados.
 
 
 ### <a name="install-rml-utilities-and-ostress"></a>Instalación de ostress y utilidades de RML
@@ -321,9 +327,10 @@ Para ejecutar la línea de comandos ostress.exe anterior:
 
 
 1. Restablezca el contenido de los datos de la base de datos mediante la ejecución del siguiente comando en SSMS para eliminar todos los datos que se insertaron en las ejecuciones anteriores:
-```
-EXECUTE Demo.usp_DemoReset;
-```
+
+    ``` tsql
+    EXECUTE Demo.usp_DemoReset;
+    ```
 
 2. Copie el texto de la línea de comandos ostress.exe anterior en el Portapapeles.
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
 ms.contentlocale: es-es
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrado del tráfico de red con grupos de seguridad de red
@@ -50,7 +49,7 @@ Las reglas de grupo de seguridad de red contienen las siguientes propiedades:
 | --- | --- | --- | --- |
 | **Name** |Nombre de la regla. |Debe ser único dentro de la región.<br/>Puede incluir letras, números, caracteres de subrayado, puntos y guiones.<br/>Debe empezar por una letra o un número.<br/>Debe finalizar en una letra, un número o un carácter de subrayado.<br/>No puede superar los 80 caracteres. |Puede tener varias reglas dentro de un grupo de seguridad de red, de modo que asegúrese de seguir una convención de nomenclatura que le permita identificar su función. |
 | **Protocolo** |Protocolo que debe coincidir con la regla. |TCP, UDP o *. |El uso de * como protocolo incluye ICMP (solo tráfico este-oeste), así como UDP y TCP, y puede reducir el número de reglas necesarias.<br/>Al mismo tiempo, usar * podría ser un enfoque demasiado amplio, por lo que se recomienda que solo lo use cuando sea necesario. |
-| **Intervalo de puertos de origen** |Intervalo de puertos de origen que debe coincidir con la regla. |Número de puerto único entre 1 y 65535, intervalo de puertos (ejemplo: 1-65635) o * (para todos los puertos). |Los puertos de origen podrían ser transitorios. A menos que el programa cliente use un puerto concreto, utilice * en la mayoría de los casos.<br/>Pruebe a usar intervalos de puertos tanto como sea posible para evitar tener que utilizar varias reglas.<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar mediante una coma. |
+| **Intervalo de puertos de origen** |Intervalo de puertos de origen que debe coincidir con la regla. |Número de puerto único entre 1 y 65535, intervalo de puertos (ejemplo: 1-65535) o * (para todos los puertos). |Los puertos de origen podrían ser transitorios. A menos que el programa cliente use un puerto concreto, utilice * en la mayoría de los casos.<br/>Pruebe a usar intervalos de puertos tanto como sea posible para evitar tener que utilizar varias reglas.<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar mediante una coma. |
 | **Intervalo de puertos de destino** |Intervalo de puertos de destino que debe coincidir con la regla. |Número de puerto único entre 1 y 65535, intervalo de puertos (ejemplo: 1-65535) o \* (para todos los puertos). |Pruebe a usar intervalos de puertos tanto como sea posible para evitar tener que utilizar varias reglas.<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar mediante una coma. |
 | **Prefijo de dirección de origen** |Prefijo o etiqueta de la dirección de origen que debe coincidir con la regla. |Dirección IP única (ejemplo: 10.10.10.10), subred IP (ejemplo: 192.168.1.0/24), [etiqueta predeterminada](#default-tags) o * (para todas las direcciones). |Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas. |
 | **Prefijo de dirección de destino** |Prefijo o etiqueta de la dirección de destino que debe coincidir con la regla. | Dirección IP única (ejemplo: 10.10.10.10), subred IP (ejemplo: 192.168.1.0/24), [etiqueta predeterminada](#default-tags) o * (para todas las direcciones). |Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas. |
@@ -125,7 +124,7 @@ Puede implementar los grupos de seguridad de red en el modelo de implementación
 
 | Herramienta de implementación | Clásico | Resource Manager |
 | --- | --- | --- |
-| Portal de Azure   | Sí | [Sí](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure Portal   | Sí | [Sí](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Sí](virtual-networks-create-nsg-classic-ps.md) | [Sí](virtual-networks-create-nsg-arm-ps.md) |
 | CLI de Azure **V1**   | [Sí](virtual-networks-create-nsg-classic-cli.md) | [Sí](virtual-networks-create-nsg-cli-nodejs.md) |
 | CLI de Azure **V2**   | No | [Sí](virtual-networks-create-nsg-arm-cli.md) |

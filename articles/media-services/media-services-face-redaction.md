@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 07/31/2017
 ms.author: juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7f5d43e337b610f0bcf8273432b4dcd0a757937d
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 74f38ae61d4a360cabe8a9fbd33d30a6b0751654
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Censura de rostros con Azure Media Analytics
@@ -123,7 +123,7 @@ El resultado de la fase de análisis no incluye el vídeo original. El vídeo ti
 | Configuración de entrada |Configuración predeterminada de trabajo |{'version':'1.0', 'options': {'mode':'analyze'}} |
 | Recurso de salida |foo_redacted.mp4 |Vídeo con difuminado aplicado en base a las anotaciones |
 
-#### <a name="example-output"></a>Ejemplo de salida
+#### <a name="example-output"></a>Salida de ejemplo
 Este es el resultado de una lista de identificadores con un identificador seleccionado.
 
 [Vea este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
@@ -133,7 +133,37 @@ foo_IDList.txt de ejemplo
      1
      2
      3
+
+## <a name="blur-types"></a>Tipos de desenfoque
+
+En el modo **Combined** (Combinado) o **Redact** (Censurar), hay cinco modos de desenfoque diferentes entre los que puede elegir en la configuración de la entrada JSON: **Bajo**, **Medio**, **Alto**, **Depurar** y **Negro**. Se usa **Medio** de forma predeterminada.
+
+Puede encontrar ejemplos de los tipos de desenfoque a continuación.
+
+### <a name="example-json"></a>Ejemplo de JSON:
+
+    {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+
+#### <a name="low"></a>Bajo
+
+![Bajo](./media/media-services-face-redaction/blur1.png)
  
+#### <a name="med"></a>Medio
+
+![Medio](./media/media-services-face-redaction/blur2.png)
+
+#### <a name="high"></a>Alto
+
+![Alto](./media/media-services-face-redaction/blur3.png)
+
+#### <a name="debug"></a>Depurar
+
+![Depurar](./media/media-services-face-redaction/blur4.png)
+
+#### <a name="black"></a>Negro
+
+![Negro](./media/media-services-face-redaction/blur5.png)
+
 ## <a name="elements-of-the-output-json-file"></a>Elementos del archivo JSON de salida
 
 El procesador multimedia de censura proporciona detección de ubicación y seguimiento de rostros de alta precisión que puede detectar hasta 64 caras humanas en un fotograma de vídeo. Las caras de frente ofrecen los mejores resultados, mientras que las que se encuentran de lado y las caras pequeñas (inferiores o iguales a 24x24 píxeles) podrían no ser tan precisas.
@@ -314,8 +344,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
         }
     }
 
-## <a name="next-step"></a>Paso siguiente
-Consulte las rutas de aprendizaje de Servicios multimedia.
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

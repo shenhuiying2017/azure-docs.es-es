@@ -5,21 +5,21 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 07/02/2017
 ms.author: kgremban
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: dc49397f76f982cc7d35bbe3e073cb828a4965c6
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: ea97fdc8d146ed524a932018b572ceda0982738b
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -76,13 +76,13 @@ Para preparar su entorno para el proxy de aplicación de Azure AD, primero debe 
 
    * Proporcione sus credenciales de administrador global de Azure AD. Su inquilino de administrador global puede ser diferente de sus credenciales de Microsoft Azure.
    * Asegúrese de que el administrador que registra el conector está en el mismo directorio donde habilitó el servicio Proxy de aplicación. Por ejemplo, si el dominio del inquilino es contoso.com, el administrador debe ser admin@contoso.com o cualquier otro alias de ese dominio.
-   * Si **Configuración de seguridad mejorada de IE** está establecido en **Activado** en el servidor donde va a instalar el conector, la pantalla de registro podría bloquearse. Siga las instrucciones del mensaje de error para permitir el acceso. Asegúrese de que Internet Explorer Enhanced Security está desactivado.
+   * Si **Configuración de seguridad mejorada de IE** está establecido en **Activado** en el servidor, la pantalla de registro podría bloquearse. Siga las instrucciones del mensaje de error para permitir el acceso. Asegúrese de que Internet Explorer Enhanced Security está desactivado.
    * Si el registro del conector no funciona, consulte [Solucionar problemas de Proxy de aplicación](active-directory-application-proxy-troubleshoot.md).  
 4. Cuando finalice la instalación, se agregan dos nuevos servicios a su servidor:
 
    * **Conector de Proxy de aplicación de Microsoft AAD** habilita la conectividad
 
-     * **Actualizador del Conector de Proxy de aplicación de Microsoft AAD** es un servicio de actualización automatizada que comprueba periódicamente las nuevas versiones del conector y lo actualiza según sea necesario.
+     * **Actualizador del conector del proxy de aplicación de Microsoft AAD** es un servicio de actualización automática. Busca periódicamente nuevas versiones del conector y lo actualiza según sea necesario.
 
      ![Servicios de conector del proxy de la aplicación (captura de pantalla)](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 5. Haga clic en **Finalizar** en la ventana de instalación.

@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 8504be28baf202c0b04ee89b18122b29a93588ab
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="import-data-into-analytics"></a>Importación de datos a Analytics
@@ -56,15 +55,9 @@ Necesita:
  * Si va a combinar o comparar los datos con la telemetría de una aplicación que ya está configurada con Application Insights, puede usar el recurso para esa aplicación.
  * Propietario o colaborador de acceso a ese recurso.
  
-2. almacenamiento de Azure. Cargue datos en Azure Storage, y Analytics obtiene los datos de ahí. 
+2. Azure Storage. Cargue datos en Azure Storage, y Analytics obtiene los datos de ahí. 
 
  * Se recomienda crear una cuenta de almacenamiento dedicado para los blobs. Si los blobs se comparten con otros procesos, los procesos tardan más tiempo en leer los blobs.
-
-2. Aunque esta característica está en versión preliminar, debe solicitar acceso.
-
- * Abra Analytics desde el recurso de Application Insights en [Azure Portal](https://portal.azure.com). 
- * En la parte inferior del panel de esquema, haga clic en el vínculo "Póngase en contacto con nosotros" en **Otros orígenes de datos**. 
- * Si ve "Agregar origen de datos", entonces ya puede acceder.
 
 
 ## <a name="define-your-schema"></a>Definición del esquema
@@ -72,7 +65,7 @@ Necesita:
 Para poder importar datos, debe definir un *origen de datos,* que especifica el esquema de los datos.
 Puede tener hasta 50 orígenes de datos en un único recurso de Application Insights.
 
-1. Inicie el Asistente para orígenes de datos.
+1. Inicie el Asistente para orígenes de datos. Use el botón "Agregar nuevo origen de datos". También puede hacer clic en el botón de configuración en la esquina superior derecha y elegir "Orígenes de datos" en el menú desplegable.
 
     ![Agregar nuevo origen de datos](./media/app-insights-analytics-import/add-new-data-source.png)
 
@@ -373,6 +366,6 @@ Use este código para cada blob.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Paseo por el lenguaje de consulta de Analytics](app-insights-analytics-tour.md)
+* [Paseo por el lenguaje de consulta de Log Analytics](app-insights-analytics-tour.md)
 * [Use *Logstash* para enviar datos a Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
 

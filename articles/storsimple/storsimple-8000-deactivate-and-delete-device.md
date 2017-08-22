@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5128f90ac477b67317bb30e0bc614ce35e9b3d46
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 3c00867a29cf8343a57e74e2aabe3971ae6837af
 ms.contentlocale: es-es
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Desactivación y eliminación de un dispositivo de StorSimple
@@ -53,6 +52,10 @@ Si está interesado en eliminar completamente el dispositivo y no desea conserva
 #### <a name="to-deactivate-the-device-and-delete-the-data"></a>Para desactivar un dispositivo y eliminar los datos
 
 1. Antes de desactivar un dispositivo, debe eliminar todos los contenedores de volúmenes (y los volúmenes) asociados con el dispositivo. Puede eliminar los contenedores de volúmenes solo después de eliminar las copias de seguridad asociadas.
+
+    > [!NOTE]
+    > Antes de desactivar un dispositivo físico StorSimple o StorSimple Cloud Appliance, asegúrese de que se eliminan realmente del dispositivo los datos del contenedor de volúmenes. Puede supervisar los gráficos de consumo en la nube y, cuando vea que el uso en la nube disminuye debido a las copias de seguridad eliminadas, podrá continuar para desactivar el dispositivo. Si desactiva el dispositivo antes de que esto ocurra, los datos se deshabilitarán en la cuenta de almacenamiento y se acumularán cargos.
+
 2. Desactive el dispositivo como sigue:
    
    1. Vaya al servicio Administrador de dispositivos de StorSimple y haga clic en **Dispositivos**. En la hoja **Dispositivos**, seleccione el dispositivo que desea desactivar, haga clic con el botón derecho y, después, haga clic en **Desactivar**.

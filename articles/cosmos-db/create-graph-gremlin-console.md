@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 07/27/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 82ddc351359318dab82c95d3e3b9b97ba3e3b4a8
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 1749c4233e2b90f0a207033276b31093f7bf667f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/27/2017
 
 ---
-# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: crear, consultar y recorrer un gráfico en la consola de Gremlin
+# <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: crear, consultar y recorrer un grafo en la consola de Gremlin
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y gráficos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funciones de distribución global y escala horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funciones de distribución global y escala horizontal en Azure Cosmos DB. 
 
-En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos y un gráfico (contenedor) de Azure Cosmos DB mediante Azure Portal y, después, cómo usar la [consola de Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) de [Apache TinkerPop](http://tinkerpop.apache.org) para trabajar con los datos de la API Graph (versión preliminar). En este tutorial, creará y consultará vértices y bordes, actualizará una propiedad de vértice, consultará vértices, recorrerá el gráfico y quitará un vértice.
+En esta guía de inicio rápido se muestra cómo crear una cuenta, una base de datos y un grafo (contenedor) de Azure Cosmos DB mediante Azure Portal y, después, cómo usar la [consola de Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) de [Apache TinkerPop](http://tinkerpop.apache.org) para trabajar con los datos de la API Graph (versión preliminar). En este tutorial, creará y consultará vértices y bordes, actualizará una propiedad de vértice, consultará vértices, recorrerá el grafo y quitará un vértice.
 
 ![Azure Cosmos DB desde la consola de Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
@@ -42,7 +42,7 @@ También necesita instalar la [consola de Gremlin](http://tinkerpop.apache.org/)
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Agregar un gráfico
+## <a name="add-a-graph"></a>Agregar un grafo
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -65,7 +65,10 @@ También necesita instalar la [consola de Gremlin](http://tinkerpop.apache.org/)
 
 
 3. En el terminal, ejecute `bin/gremlin.bat` o `bin/gremlin.sh` para iniciar la [Consola de Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
-4. En el terminal, ejecute `:remote connect tinkerpop.server conf/remote-secure.yaml` para conectarse al servicio de aplicaciones.
+4. En el terminal, ejecute `:remote connect tinkerpop.server conf/remote-secure.yaml` para conectarse a App Service.
+
+    > [!TIP]
+    > Si recibe el error `No appenders could be found for logger` asegúrese de que ha actualizado el valor de serializador en el archivo remote-secure.yaml tal como se describe en el paso 2. 
 
 Estupendo. Ahora que hemos terminado la configuración, comencemos a ejecutar algunos comandos de la consola.
 
@@ -202,9 +205,9 @@ Salida:
 ==>[id:ae36f938-210e-445a-92df-519f2b64c8ec,label:person,type:vertex,properties:[firstName:[[id:872090b6-6a77-456a-9a55-a59141d4ebc2,value:Thomas]],lastName:[[id:7ee7a39a-a414-4127-89b4-870bc4ef99f3,value:Andersen]],age:[[id:a2a75d5a-ae70-4095-806d-a35abcbfe71d,value:45]]]]
 ```
 
-## <a name="query-your-graph"></a>Consultar el gráfico
+## <a name="query-your-graph"></a>Consultar el grafo
 
-Ahora, vamos a ejecutar una variedad de consultas en su gráfico.
+Ahora, vamos a ejecutar una variedad de consultas en su grafo.
 
 Primero, vamos a probar una consulta con un filtro para devolver solo las personas mayores de 40 años.
 
@@ -234,9 +237,9 @@ Salida:
 ==>Thomas
 ```
 
-## <a name="traverse-your-graph"></a>Recorrer el gráfico
+## <a name="traverse-your-graph"></a>Recorrer el grafo
 
-Vamos a recorrer el gráfico para devolver todos los amigos de Thomas.
+Vamos a recorrer el grafo para devolver todos los amigos de Thomas.
 
 Entrada (amigos de Thomas):
 
@@ -251,7 +254,7 @@ Salida:
 ==>[id:91605c63-4988-4b60-9a30-5144719ae326,label:person,type:vertex,properties:[firstName:[[id:f760e0e6-652a-481a-92b0-1767d9bf372e,value:Robin]],lastName:[[id:352a4caa-bad6-47e3-a7dc-90ff342cf870,value:Wakefield]]]]
 ```
 
-Ahora, vamos a obtener la siguiente capa de vértices. Recorra el gráfico para devolver todos los amigos de los amigos de Thomas.
+Ahora, vamos a obtener la siguiente capa de vértices. Recorra el grafo para devolver todos los amigos de los amigos de Thomas.
 
 Entrada (amigos de los amigos de Thomas):
 
@@ -266,7 +269,7 @@ Salida:
 
 ## <a name="drop-a-vertex"></a>Quitar un vértice
 
-Vamos a eliminar un vértice de la base de datos del gráfico.
+Vamos a eliminar un vértice de la base de datos del grafo.
 
 Entrada (quitar vértice de Jack):
 
@@ -274,7 +277,7 @@ Entrada (quitar vértice de Jack):
 :> g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
-## <a name="clear-your-graph"></a>Borrar el gráfico
+## <a name="clear-your-graph"></a>Borrar el grafo
 
 Por último, vamos a borrar todos los vértices y bordes de la base de datos.
 
@@ -300,7 +303,7 @@ Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha obtenido información sobre cómo crear una cuenta de Azure Cosmos DB, crear un gráfico con el Explorador de datos, crear vértices y bordes, y recorrer el gráfico con la consola de Gremlin. Ahora puede crear consultas más complejas e implementar con Gremlin una lógica de recorrido del gráfico eficaz. 
+En este inicio rápido, ha obtenido información sobre cómo crear una cuenta de Azure Cosmos DB, crear un grafo con el Explorador de datos, crear vértices y bordes, y recorrer el grafo con la consola de Gremlin. Ahora puede crear consultas más complejas e implementar con Gremlin una lógica de recorrido del grafo eficaz. 
 
 > [!div class="nextstepaction"]
 > [Consulta mediante Gremlin](tutorial-query-graph.md)

@@ -1,6 +1,6 @@
 ---
-title: "Introducción al entorno del Servicio de aplicaciones"
-description: "Obtenga información sobre la característica de entorno del Servicio de aplicaciones que proporciona unidades de escalado dedicadas y seguras unidas en redes virtuales para ejecutar todas sus aplicaciones."
+title: "Introducción a App Service Environment v1"
+description: "Aprenda sobre la característica App Service Environment v1 que proporciona unidades de escala dedicadas, seguras y en redes virtuales para ejecutar todas las aplicaciones."
 services: app-service
 documentationcenter: 
 author: stefsch
@@ -12,17 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
-ms.author: stefsch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 91b1d6315a9414789b28442f3f19d14c2aed8f00
+ms.date: 07/11/2017
+ms.author: ccompy
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 38cb79eb32bd61cdbfb6da91d50e6713d71a2b0d
 ms.contentlocale: es-es
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="introduction-to-app-service-environment"></a>Introducción al entorno del Servicio de aplicaciones
+# <a name="introduction-to-app-service-environment-v1"></a>Introducción a App Service Environment v1
+
+> [!NOTE]
+> Este artículo trata sobre App Service Environment v1.  Hay una versión más reciente de App Service Environment que resulta más fácil de usar y se ejecuta en una infraestructura más eficaz. Para aprender más sobre la nueva versión, consulte [Introducción a App Service Environment](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Información general
 Un entorno de App Service es una opción de plan de servicio [Premium][PremiumTier] de Azure App Serviceque proporciona un entorno plenamente aislado y dedicado para ejecutar de forma segura las aplicaciones de Azure App Service a gran escala, lo que incluye [Web Apps][WebApps], [Mobile Apps][MobileApps] y [API Apps][APIApps].  
 

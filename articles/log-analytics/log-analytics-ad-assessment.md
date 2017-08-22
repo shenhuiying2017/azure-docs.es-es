@@ -12,22 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/03/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: fa214f1c8d7cfb4b3b1d475183a63a3028f2306f
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
 ms.contentlocale: es-es
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimización del entorno de Active Directory con la solución de evaluación de Active Directory en Log Analytics
 
 ![Símbolo de AD Assessment](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
 
-Puede usar periódicamente la solución de evaluación de Active Directory para evaluar el riesgo y el estado de los entornos de servidor. Este artículo le ayudará a instalar y usar la solución para que pueda tomar acciones correctivas en caso de posibles problemas.
+Puede usar periódicamente la solución de evaluación de Active Directory para evaluar el riesgo y el estado de los entornos de servidor. Este artículo facilita la instalación y el uso de la solución para que pueda tomar acciones correctivas en caso de posibles problemas.
 
 Esta solución proporciona una lista priorizada de recomendaciones específicas para su infraestructura de servidor implementada. Las recomendaciones se clasifican en cuatro áreas de enfoque que ayudan a comprender rápidamente el riesgo y a tomar una acción correctiva.
 
@@ -54,7 +53,21 @@ Use la siguiente información para instalar y configurar las soluciones.
   >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Detalles de la recopilación de datos para la evaluación de Active Directory
-La evaluación de Active Directory recopila datos WMI, datos del registro y datos de rendimiento con los agentes habilitados.
+
+Active Directory Assessment recopila datos de los siguientes orígenes mediante los agentes habilitados:
+
+- Recopiladores de registros
+- Recopiladores de LDAP
+- .NET Framework
+- Recopiladores de registros de eventos
+- Interfaces ADSI
+- Windows PowerShell
+- Recopiladores de datos de archivo
+- Instrumental de administración de Windows (WMI)
+- API de la herramienta DCDIAG
+- API del servicio de replicación de archivos (NTFRS)
+- Código personalizado C#
+
 
 En la siguiente tabla se muestran los métodos de recopilación de datos para agentes, si se necesita Operations Manager (SCOM) y la frecuencia con la que un agente recopila datos.
 
@@ -68,11 +81,11 @@ A cada recomendación efectuada se le asigna un valor de ponderación que identi
 ### <a name="how-weights-are-calculated"></a>Cálculo de las ponderaciones
 Las ponderaciones son valores agregados en función de tres factores principales:
 
-* La *probabilidad* de que un asunto identificado pueda causar problemas. Una probabilidad más alta equivale a una puntuación total mayor para la recomendación.
+* La *probabilidad* de que un asunto identificado cause problemas. Una probabilidad más alta equivale a una puntuación total mayor para la recomendación.
 * El *impacto* del asunto en su organización en caso de que se produzca un problema. Un mayor impacto equivale a una puntuación total mayor para la recomendación.
 * El *esfuerzo* necesario para implementar la recomendación. Un mayor esfuerzo equivale a una puntuación total menor para la recomendación.
 
-La ponderación de cada recomendación se expresa como un porcentaje de la puntuación total disponible para cada área de enfoque. Por ejemplo, si una recomendación en el área de enfoque de seguridad y cumplimiento tiene una puntuación del 5 %, la implementación de esa recomendación aumentará la puntuación total de seguridad y cumplimiento en un 5 %.
+La ponderación de cada recomendación se expresa como un porcentaje de la puntuación total disponible para cada área de enfoque. Por ejemplo, si una recomendación en el área de enfoque de seguridad y cumplimiento tiene una puntuación del 5 %, la implementación de esa recomendación aumenta la puntuación total de seguridad y cumplimiento en un 5 %.
 
 ### <a name="focus-areas"></a>Áreas de enfoque
 **Seguridad y cumplimiento** : este apartado muestra recomendaciones en caso de posibles amenazas e infracciones de seguridad, directivas corporativas y requisitos de cumplimiento técnico, legal y reglamentario.
@@ -98,7 +111,7 @@ Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura 
 2. En la página **Evaluación** , revise la información de resumen de una de las hojas de las áreas de enfoque y, a continuación, haga clic en una de ellas para ver las recomendaciones para dicha área de enfoque.
 3. En cualquiera de las páginas de área de enfoque, puede ver las recomendaciones priorizadas que se han efectuado para su entorno. Haga clic en una recomendación en **Objetos afectados** para ver los detalles sobre por qué se realiza la recomendación.  
     ![imagen de las recomendaciones de evaluación](./media/log-analytics-ad-assessment/ad-focus.png)
-4. Puede tomar las medidas correctivas que se sugieren en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registrarán las acciones recomendadas que se han realizado y aumentará su calificación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
+4. Puede tomar las medidas correctivas que se sugieren en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registran las acciones recomendadas que se han realizado y aumenta su puntuación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
 
 ## <a name="ignore-recommendations"></a>Omisión de las recomendaciones
 Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS usará para evitar que aparezcan recomendaciones en los resultados de la evaluación.
@@ -109,6 +122,10 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
+>[!NOTE]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la consulta anterior cambiaría como sigue.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
    Captura de pantalla que muestra la consulta de Búsqueda de registros: ![recomendaciones fallidas](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
@@ -128,6 +145,11 @@ Después de que se ejecute la siguiente evaluación programada, de forma predete
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
+>[!NOTE]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la consulta anterior cambiaría como sigue.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 2. Si posteriormente decide que desea ver las recomendaciones omitidas, quite todos los archivos IgnoreRecommendations.txt. También puede quitar RecommendationID de ellos.
 
 ## <a name="ad-assessment-solutions-faq"></a>Preguntas más frecuentes sobre las soluciones de evaluación de AD

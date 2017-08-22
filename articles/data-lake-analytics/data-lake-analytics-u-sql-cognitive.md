@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-translationtype: Human Translation
-ms.sourcegitcommit: 21b4d574705d589406f50cac106a47ada71d24cd
-ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
+ms.contentlocale: es-es
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -26,13 +28,13 @@ ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
 Las funcionalidades de Cognitive para U-SQL permiten a los desarrolladores usar inteligencia en sus programas de macrodatos. El proceso general es sencillo:
 
 * Utilice la instrucción de REFERENCE ASSEMBLY para habilitar las características de Cognitive para el script de U-SQL.
-* Emplee la operación PROCESS para utilizar las funciones de Cognitive. 
+* Llame a la operación PROCESS para utilizar las funcionalidades de Cognitive 
 
 ## <a name="imaging-scenarios"></a>Escenarios de imágenes
 
-### <a name="a-simple-example-image-tagging"></a>Un ejemplo sencillo: etiquetado de imágenes
+### <a name="example-image-tagging"></a>Ejemplo: etiquetado de imágenes
 
-En el ejemplo siguiente se muestra un uso integral de las funcionalidades relacionadas con imágenes para detectar objetos dentro de estas.
+En el ejemplo siguiente se muestra un uso integral de las funcionalidades relacionadas con las imágenes para detectar objetos dentro de estas.
 
     REFERENCE ASSEMBLY ImageCommon;
     REFERENCE ASSEMBLY FaceSdk;
@@ -150,10 +152,5 @@ Suponga que tenemos una entrada que consta de "Guerra y Paz" por León Tolstói.
                 Chapter,
                 Text
         USING new Cognition.Text.SentimentAnalyzer(true);
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

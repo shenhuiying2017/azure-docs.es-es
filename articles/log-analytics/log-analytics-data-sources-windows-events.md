@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 07/12/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: b6627ed7e3b08e0a94dec229d735114b3ed1b9df
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 1cdaa8c4bf511a07383023f1baf79449ef7fdd35
 ms.contentlocale: es-es
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Orígenes de datos de registros de eventos de Windows en Log Analytics
@@ -71,10 +70,21 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 | Type=Event &#124; Measure count() by Source |Contador de eventos de Windows por origen. |
 | Type=Event EventLevelName=error &#124; Measure count() by Source |Contador de eventos de error de Windows por origen. |
 
+
+>[!NOTE]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue.
+>
+>| Consultar | Descripción |
+|:---|:---|
+| Evento |Todos los eventos de Windows. |
+| Event &#124; where EventLevelName == "error" |Todos los eventos de Windows con gravedad de error. |
+| Event &#124; summarize count() by Source |Contador de eventos de Windows por origen. |
+| Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Contador de eventos de error de Windows por origen. |
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 * Configure Log Analytics para recopilar otros [orígenes de datos](log-analytics-data-sources.md) para su análisis.
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados desde soluciones y orígenes de datos.  
 * Use [Campos personalizados](log-analytics-custom-fields.md) para redistribuir los registros de eventos en campos individuales.
 * Configure la [recopilación de contadores de rendimiento](log-analytics-data-sources-performance-counters.md) desde los agentes de Windows.
-
 

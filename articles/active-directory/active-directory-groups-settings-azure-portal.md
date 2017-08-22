@@ -1,5 +1,4 @@
 ---
-
 title: "Administración de propiedades de grupos en Azure Active Directory | Microsoft Docs"
 description: "Cómo editar las propiedades y otras opciones de configuración de un grupo en Azure Active Directory"
 services: active-directory
@@ -13,29 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/01/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ad714d4543f2c1990a2262de456f607c876f738d
+ms.reviewer: kairaz.contractor
+ms.custom: H1Hack27Feb2017;it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: b4baccafc0a9178223dbf64c664fc34ab9f7f916
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Administración de la configuración de un grupo en Azure Active Directory
 En este artículo se explica cómo administrar la configuración de un grupo en Azure Active Directory (Azure AD).
 
 ## <a name="how-do-i-find-and-change-the-settings"></a>¿Cómo puedo buscar y cambiar la configuración?
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2. Seleccione **Más servicios**, escriba **Usuarios y grupos** en el cuadro de texto y presione **Entrar**.
 
-   ![Apertura de Administración de usuarios](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
+   ![Apertura de la hoja de usuarios y grupos](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. En la hoja **Usuarios y grupos**, seleccione **Todos los grupos**.
 
-   ![Apertura de la hoja Grupos](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
-4. En la hoja **Usuarios y grupos - Todos los grupos** , seleccione un grupo.
+   ![Apertura de la hoja de todos los grupos](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
+4. En la hoja **Usuarios y grupos - Todos los grupos** seleccione un grupo.
 5. En la hoja **Grupo - *nombre del grupo*** seleccione **Propiedades**.
 
    ![Apertura de la hoja Propiedades](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)

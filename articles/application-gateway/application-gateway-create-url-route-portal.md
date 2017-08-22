@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: df167435757b2d9d2d25b58b1b548a811b490eb5
-ms.lasthandoff: 04/04/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c184e94a04cfbdedcae70ed154aeb7dd134d1baf
+ms.contentlocale: es-es
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-portal"></a>Creación de una regla basada en ruta de acceso para una puerta de enlace de aplicaciones mediante el portal
@@ -27,6 +27,7 @@ ms.lasthandoff: 04/04/2017
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-url-route-portal.md)
 > * [PowerShell de Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
+> * [CLI de Azure 2.0](application-gateway-create-url-route-cli.md)
 
 El enrutamiento basado en URL permite asociar rutas en función de la dirección URL de la solicitud HTTP. Comprueba si hay una ruta a un grupo de back-end configurada para la dirección URL indicada en Application Gateway y envía el tráfico de red al grupo de back-end definido. Un uso común del enrutamiento basado en URL es el equilibrio de carga de las solicitudes de diferentes tipos de contenido entre diferentes grupos de servidores de back-end.
 
@@ -59,15 +60,15 @@ La hoja **Add path-based rule** (Agregar regla basada en ruta de acceso) tiene d
 
 **Configuración básica**
 
-* **Nombre** : nombre descriptivo para la regla a la que se puede acceder en el portal.
-* **Agente de escucha** : agente de escucha que se utiliza para la regla.
+* **Nombre**: este valor es un nombre descriptivo para la regla a la que se puede acceder en el portal.
+* **Agente de escucha**: este valor es el agente de escucha que se utiliza para la regla.
 * **Grupo de back-end predeterminado** : opción de configuración que define el back-end que se usará para la regla predeterminada.
 * **Configuración HTTP predeterminada** : opción de configuración que define los ajustes de HTTP que se usarán para la regla predeterminada.
 
 **Reglas basadas en ruta de acceso**
 
-* **Nombre** : nombre descriptivo para la regla basada en ruta de acceso.
-* **Rutas** : opción de configuración que define la ruta de acceso que buscará la regla al reenviar el tráfico.
+* **Nombre**: este valor es un nombre descriptivo para la regla basada en ruta de acceso.
+* **Rutas**: esta opción de configuración define la ruta de acceso que buscará la regla al reenviar el tráfico.
 * **Grupo de back-end** : opción de configuración que define el back-end que se usará para la regla.
 * **Configuración HTTP** : opción de configuración que define los ajustes de HTTP que se usarán para la regla.
 
@@ -76,15 +77,15 @@ La hoja **Add path-based rule** (Agregar regla basada en ruta de acceso) tiene d
 
 ![Agregar hoja de regla basada en ruta de acceso con información completada][2]
 
-La incorporación de una regla basada en ruta de acceso a una puerta de enlace de aplicaciones existente es un proceso que se realiza fácilmente a través del portal. Una vez creada una regla de ruta de acceso, es posible modificarla para agregar reglas adicionales con facilidad. 
+La incorporación de una regla basada en ruta de acceso a una puerta de enlace de aplicaciones existente es un proceso que se realiza fácilmente a través del portal. Una vez creada una regla de ruta de acceso, es posible modificarla para agregar reglas adicionales. 
 
 ![agregar reglas basadas en ruta de acceso adicionales][3]
 
-Esto configura una regla basada en la ruta de acceso. Es importante comprender que las solicitudes no se vuelven a escribir según van llegando; Application Gateway las inspecciona y, según el modelo de dirección URL, las envía al back-end adecuado.
+Este paso configura una regla basada en la ruta de acceso. Es importante comprender que las solicitudes no se vuelven a escribir según van llegando; Application Gateway las inspecciona y, según el modelo de dirección URL, las envía al back-end adecuado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a configurar la descarga de SSL con Puerta de enlace de aplicaciones de Azure, consulte [Configure an application gateway for SSL offload by using the portal](application-gateway-ssl-portal.md)
+Para aprender a configurar la descarga de SSL con Azure Application Gateway, consulte [Configuración de la descarga SSL](application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-url-route-portal/figure1.png
 [2]: ./media/application-gateway-create-url-route-portal/figure2.png

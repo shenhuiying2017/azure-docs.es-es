@@ -1,5 +1,4 @@
 ---
-
 title: "Administración de puntos de conexión de streaming con Azure Portal | Microsoft Docs"
 description: "En este tema se muestra cómo administrar los puntos de conexión de streaming mediante el Portal de Azure."
 services: media-services
@@ -14,12 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
 ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
-
+ms.contentlocale: es-es
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -62,7 +62,7 @@ Para agregar/quitar el punto de conexión de streaming mediante el Portal de Azu
     ![punto de conexión de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a name="a-idconfigurestreamingendpointsaconfiguring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configuración del extremo de streaming
+## <a id="configure_streaming_endpoints"></a>Configuración del extremo de streaming
 Punto de conexión de streaming le permite configurar las siguientes propiedades:
 
 * Control de acceso
@@ -81,14 +81,14 @@ Aparecerá una breve descripción de los campos.
 ![extremo de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
 1. Directiva de caché máximo: se usa para configurar la duración de la caché de los recursos entregados a través de este punto de conexión de streaming. Si no se establece ningún valor, se utiliza el valor predeterminado. Los valores predeterminados también pueden definirse directamente en el almacenamiento de Azure. Si la red CDN de Azure está habilitada para el punto de conexión de streaming, no debe establecer el valor de la directiva de caché en menos de 600 segundos.  
-2. Direcciones IP permitidas: especifique las direcciones IP que podrán conectarse al punto de conexión de streaming publicado. Si no se especificaron direcciones IP, cualquier dirección IP se podrá conectar. Las direcciones IP se pueden especificar como una dirección IP única (por ejemplo,&10;.0.0.1), un intervalo de IP que usa una dirección IP y una máscara de subred CIDR (por ejemplo,&10;.0.0.1/22) o un intervalo de IP que usa una máscara de subred decimal con puntos; por ejemplo,&10;.0.0.1(255.255.255.0).
+2. Direcciones IP permitidas: especifique las direcciones IP que podrán conectarse al punto de conexión de streaming publicado. Si no se especificaron direcciones IP, cualquier dirección IP se podrá conectar. Las direcciones IP se pueden especificar como una dirección IP única (por ejemplo, 10.0.0.1), un intervalo de IP que usa una dirección IP y una máscara de subred CIDR (por ejemplo, 10.0.0.1/22) o un intervalo de IP que usa una máscara de subred decimal con puntos; por ejemplo, 10.0.0.1(255.255.255.0).
 3. Configuración de autenticación del encabezado de firma de Akamai: se utiliza para especificar cómo se configura la solicitud de autenticación de encabezado de firma desde servidores Akamai. La expiración está en formato UTC.
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>Escalado del punto de conexión de streaming premium
 
 Para obtener más información, consulte [este tema](media-services-portal-scale-streaming-endpoints.md) .
 
-## <a name="a-idenablecdnaenable-azure-cdn-integration"></a><a id="enable_cdn"></a>Habilitación de la integración de CDN de Azure
+## <a id="enable_cdn"></a>Habilitación de la integración de CDN de Azure
 
 Cuando se crea una nueva cuenta, la integración de la red CDN de Azure de punto de conexión de streaming está habilitada de forma predeterminada.
 
@@ -121,10 +121,5 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

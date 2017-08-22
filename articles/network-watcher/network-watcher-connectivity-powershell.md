@@ -14,28 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 036902801189c71eb336900107f07319dfe817f2
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: a8f936cd23838759dc30b04688d3c6544e4895cc
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Comprobación de la conectividad con Azure Network Watcher mediante PowerShell
 
 > [!div class="op_single_selector"]
+> - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [API de REST de Azure](network-watcher-connectivity-rest.md)
 
-Aprenda a usar la conectividad para comprobar si se puede establecer una conexión TCP directa de una máquina virtual con un punto de conexión determinado.
-
-Este artículo le guía por algunos escenarios de comprobación de conectividad.
-
-* [Comprobación de la conectividad con una máquina virtual](#check-connectivity-to-a-virtual-machine)
-* [Problemas de validación de enrutamiento](#validate-routing-issues)
-* [Comprobación de la latencia del sitio web](#check-website-latency)
-* [Comprobación de la conectividad con un punto de conexión de almacenamiento](#check-connectivity-to-a-storage-endpoint)
+Aprenda a usar la conectividad para comprobar si se puede establecer una conexión TCP directa de una máquina virtual a un punto de conexión determinado.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -73,9 +67,9 @@ FeatureName         ProviderName      RegistrationState
 AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
 ```
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Comprobación de la conectividad con una máquina virtual
+## <a name="check-connectivity-to-a-virtual-machine"></a>Comprobación de la conectividad a una máquina virtual
 
-En este ejemplo se comprueba la conectividad con una máquina virtual de destino a través del puerto 80.
+En este ejemplo se comprueba la conectividad a una máquina virtual de destino a través del puerto 80.
 
 ### <a name="example"></a>Ejemplo
 
@@ -97,7 +91,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 ### <a name="response"></a>Response
 
-La siguiente respuesta procede del ejemplo anterior.  En esta respuesta, el `ConnectionStatus` es **Unreachable** (inaccesible). Se puede ver que ninguno de los sondeos enviados se pudo realizar. Error de conectividad en la aplicación virtual debido a una `NetworkSecurityRule` configurada por el usuario denominada **UserRule_Port80**, configurada para bloquear el tráfico entrante en el puerto 80. Esta información puede utilizarse para investigar problemas de conexión.
+La siguiente respuesta procede del ejemplo anterior.  En esta respuesta, el `ConnectionStatus` es **Unreachable** (inaccesible). Se puede ver que ninguno de los sondeos enviados se pudo realizar. Error de conectividad en la aplicación virtual debido a una `NetworkSecurityRule` configurada por el usuario denominada **UserRule_Port80**, que se configuró para bloquear el tráfico entrante en el puerto 80. Esta información puede utilizarse para investigar problemas de conexión.
 
 ```
 ConnectionStatus : Unreachable

@@ -12,20 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 0e9c10b77110efe90239863ee603acbd54b17ead
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: dab2e54dedf55f0d9a0b0b4e66d101ed7df94bfa
 ms.contentlocale: es-es
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
 [Application Insights](app-insights-overview.md) analiza automáticamente el rendimiento de su aplicación web y puede advertirle de los posibles problemas. Podría estar leyendo este artículo porque ha recibido una de nuestras notificaciones de detección inteligente.
 
-Esta característica no requiere ninguna configuración especial, tan solo ajustar los parámetros de la aplicación para Application Insights (en [ASP.NET](app-insights-asp-net.md), Java (app-insights-java-get-started.md) o [Node.js](app-insights-nodejs.md), así como en el [código de la página web](app-insights-javascript.md)). Se activará cuando la aplicación genera suficientes datos de telemetría.
+Esta característica no requiere ninguna configuración especial, tan solo ajustar los parámetros de la aplicación para Application Insights (en [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md) o [Node.js](app-insights-nodejs.md), así como en el [código de la página web](app-insights-javascript.md)). Se activará cuando la aplicación genera suficientes datos de telemetría.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>¿Cuándo recibiría una notificación de detección inteligente?
 
@@ -192,3 +191,4 @@ Las detecciones inteligentes son completamente automáticas. Pero ¿quizás le g
 
 * [Alertas de métricas configuradas manualmente](app-insights-alerts.md)
 * [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
+

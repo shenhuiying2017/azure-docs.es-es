@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/26/2017
+ms.date: 08/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: b9421e4d899982af5e4caf9d23eebb73188a8db1
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 45fe7584c8b769113da9d287fea56d68d3d6c55a
 ms.contentlocale: es-es
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
@@ -28,7 +27,7 @@ En este artículo se analizan las diferencias y similitudes entre los dos tipos 
 ## <a name="introduction"></a>Introducción
 Azure admite dos tipos de mecanismos de cola: **colas de Storage** y **colas de Service Bus**.
 
-Las **colas de Storage**, que forman parte de la infraestructura de [Azure Storage](https://azure.microsoft.com/services/storage/), ofrecen una interfaz de Get/Put/Peek sencilla basada en REST, que ofrece una mensajería confiable y persistente dentro de los servicios y entre ellos.
+Las **colas de Storage**, que forman parte de la infraestructura de [Azure Storage](https://azure.microsoft.com/services/storage/), ofrecen una interfaz de GET/PUT/PEEK sencilla basada en REST, que ofrece una mensajería confiable y persistente dentro de los servicios y entre ellos.
 
 Las **colas de Service Bus** forman parte de una infraestructura de [mensajería de Azure](https://azure.microsoft.com/services/service-bus/) más amplia que admite la puesta en cola, así como la publicación/suscripción, y patrones de integración más avanzados. Para más información sobre las colas de Service Bus, los temas y las suscripciones, consulte la [introducción a Service Bus](service-bus-messaging-overview.md).
 
@@ -68,7 +67,7 @@ En las tablas de las secciones siguientes se ofrece una agrupación lógica de l
 ## <a name="foundational-capabilities"></a>Capacidades fundamentales
 En esta sección se comparan algunas de las funcionalidades de puesta en cola fundamentales ofrecidas por las colas de Storage y las colas de Service Bus.
 
-| Criterios de comparación | Colas de Storage | Colas del Bus de servicio |
+| Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
 | Garantía de ordenación |**No** <br/><br>Para obtener más información, vea la primera nota de la sección "Información adicional".</br> |**Sí- Primero en caducar primero en salir (FIFO)**<br/><br>(mediante el uso de sesiones de mensajería) |
 | Garantía de entrega |**Al menos una vez** |**Al menos una vez**<br/><br/>**Como máximo una vez** |
@@ -100,7 +99,7 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 ## <a name="advanced-capabilities"></a>Capacidades avanzadas
 En esta sección se comparan algunas de las funcionalidades avanzadas ofrecidas por las colas de Storage y las colas de Service Bus.
 
-| Criterios de comparación | Colas de Storage | Colas del Bus de servicio |
+| Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
 | Entrega programada |**Sí** |**Sí** |
 | Mensajes fallidos automáticos |**No** |**Sí** |
@@ -125,13 +124,13 @@ En esta sección se comparan algunas de las funcionalidades avanzadas ofrecidas 
 * El [proceso como correo devuelto](service-bus-dead-letter-queues.md), solo admitido por las colas de Service Bus, puede ser útiles para aislar los mensajes que la aplicación receptora no puede procesar correctamente o cuando los mensajes no pueden llegar a su destino debido a una propiedad de período de vida (TTL) expirada. El valor de TTL especifica cuánto tiempo permanece un mensaje en la cola. Con Service Bus, el mensaje se moverá a una cola especial denominada $DeadLetterQueue cuando expira el período de vida.
 * Para encontrar mensajes "dudosos" en las colas de Storage, al quitar de la cola un mensaje de la aplicación se examina la propiedad **[DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx)** del mensaje. Si **DequeueCount** se encuentra por encima de un umbral determinado, la aplicación mueve el mensaje a una cola de proceso como correo devuelto definida por la aplicación.
 * Las colas de Storage le permiten obtener un registro detallado de todas las transacciones ejecutadas con la cola, así como las métricas agregadas. Ambas opciones son útiles para depurar y entender cómo usa su aplicación las colas de Storage. También son útiles para optimizar el rendimiento de la aplicación y reducir los costos de usar colas.
-* El concepto de "sesiones de mensajes" admitido por Bus de servicio permite que los mensajes que pertenecen a un determinado grupo lógico se asocien a un receptor específico, que a su vez crea una afinidad de sesiones entre los mensajes y sus receptores respectivos. Puede habilitar esta funcionalidad avanzada en el Service Bus estableciendo la propiedad [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) en un mensaje. Los receptores pueden escuchar entonces en un id. de sesión específico y recibir mensajes que comparten el identificador de sesión especificado.
+* El concepto de "sesiones de mensajes" admitido por Service Bus permite que los mensajes que pertenecen a un determinado grupo lógico se asocien a un receptor específico, que a su vez crea una afinidad de sesiones entre los mensajes y sus receptores respectivos. Puede habilitar esta funcionalidad avanzada en el Service Bus estableciendo la propiedad [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) en un mensaje. Los receptores pueden escuchar entonces en un id. de sesión específico y recibir mensajes que comparten el identificador de sesión especificado.
 * La funcionalidad de detección de duplicación admitida por las colas de Service Bus elimina automáticamente los mensajes duplicados enviados a una cola o tema, según el valor de la propiedad [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId).
 
 ## <a name="capacity-and-quotas"></a>Capacidad y cuotas
 En esta sección se comparan las colas de Storage y las colas de Service Bus desde la perspectiva de la [capacidad y las cuotas](service-bus-quotas.md) que se pueden aplicar.
 
-| Criterios de comparación | Colas de Storage | Colas del Bus de servicio |
+| Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
 | Tamaño de cola máximo |**500 TB**<br/><br/>(limitado a una [capacidad de cuenta de almacenamiento única](../storage/storage-introduction.md#queue-storage)) |**De 1 GB a 80 GB**<br/><br/>(definido al crear una cola y [habilitar particiones](service-bus-partitioning.md): vea la sección "Información adicional") |
 | Tamaño de mensaje máximo |**64 KB**<br/><br/>(48 K cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento. |**256 KB** o **1 MB**<br/><br/>(incluidos tanto el encabezado como el cuerpo, tamaño de encabezado máximo: 64 KB).<br/><br/>Depende del [nivel de servicio](service-bus-premium-messaging.md). |
@@ -169,12 +168,12 @@ En esta sección se comparan algunas de las características de administración 
 * Ambas tecnologías de cola ofrecen la capacidad de ojear un mensaje sin tener que bloquearlo, lo que puede resultar útil al implementar una herramienta de explorador de colas.
 * Las API de mensajería asíncrona de .NET de Service Bus aprovechan las conexiones TCP de dúplex completo para mejorar el rendimiento en comparación con REST sobre HTTP, y admiten el protocolo estándar AMQP 1.0.
 * Los nombres de colas de Storage pueden tener de 3 a 63 caracteres de longitud que pueden incluir letras minúsculas, números y guiones. Para obtener más información, vea [Nomenclatura de colas y metadatos](/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata).
-* Los nombres de cola de Service Bus pueden tener hasta 260 caracteres y reglas de nomenclatura menos restrictivas. Los nombres de cola de Bus de servicio pueden contener letras, números, puntos, guiones y caracteres de subrayado.
+* Los nombres de cola de Service Bus pueden tener hasta 260 caracteres y reglas de nomenclatura menos restrictivas. Los nombres de cola de Service Bus pueden contener letras, números, puntos, guiones y caracteres de subrayado.
 
 ## <a name="authentication-and-authorization"></a>Autenticación y autorización
 En esta sección se describen las características de autenticación y autorización compatibles con las colas de Storage y las colas de Service Bus.
 
-| Criterios de comparación | Colas de Storage | Colas del Bus de servicio |
+| Criterios de comparación | Colas de Storage | Colas de Service Bus |
 | --- | --- | --- |
 | Autenticación |**Clave simétrica** |**Clave simétrica** |
 | Modelo de seguridad |Acceso delegado a través de tokens SAS. |SAS |
@@ -192,13 +191,12 @@ Dado que las colas de Service Bus ofrecen varias características avanzadas, com
 ## <a name="next-steps"></a>Pasos siguientes
 En los artículos siguientes se ofrece más orientación e información sobre el uso de las colas de Storage o las colas de Service Bus.
 
-* [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
-* [Uso del servicio de almacenamiento en cola](../storage/storage-dotnet-how-to-use-queues.md)
+* [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Uso del servicio Queue Storage](../storage/storage-dotnet-how-to-use-queues.md)
 * [Procedimientos recomendados para mejorar el rendimiento mediante la mensajería asincrónica de Service Bus](service-bus-performance-improvements.md)
-* [Introducción a las colas y los temas de Azure Service Bus](http://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Introducción a las colas y los temas de Azure Service Bus (publicación en un blog)](http://www.code-magazine.com/article.aspx?quickid=1112041)
 * [Guía para desarrolladores sobre el Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 * [Uso del servicio de cola en Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
-* [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Azure portal]: https://portal.azure.com
 

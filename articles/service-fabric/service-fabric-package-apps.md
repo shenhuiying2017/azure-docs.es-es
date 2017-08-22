@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/27/2017
+ms.date: 8/9/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
@@ -56,7 +56,8 @@ Los escenarios de uso de **SetupEntryPoint** habituales corresponden a cuando se
 
 Para obtener más información sobre cómo configurar **SetupEntryPoint**, vea [Configuración de la directiva para un punto de entrada del programa de instalación del servicio](service-fabric-application-runas-security.md).
 
-## <a name="configure"></a>Configuración 
+<a id="Package-App"></a>
+## <a name="configure"></a>Configuración
 ### <a name="build-a-package-by-using-visual-studio"></a>Crear un paquete mediante Visual Studio
 Si usa Visual Studio 2015 para crear su aplicación, puede utilizar el comando Package para crear automáticamente un paquete que coincida con el diseño descrito anteriormente.
 
@@ -115,18 +116,19 @@ Si la aplicación tiene [parámetros de aplicación](service-fabric-manage-multi
 
 Si conoce el clúster donde se implementará la aplicación, se recomienda pasar el parámetro `ImageStoreConnectionString`. En este caso, el paquete también se valida con las versiones anteriores de la aplicación que ya se está ejecutando en el clúster. Por ejemplo, la validación puede detectar si ya se implementó un paquete con la misma versión pero distinto contenido.  
 
-Una vez que la aplicación se empaqueta correctamente y supera la validación, haga una evaluación según el tamaño y el número de archivos si es necesario comprimir. 
+Una vez que la aplicación se empaqueta correctamente y supera la validación, haga una evaluación según el tamaño y el número de archivos si es necesario comprimir.
 
 ## <a name="compress-a-package"></a>Compresión de un paquete
 Cuando un paquete es grande o tiene muchos archivos, puede comprimirlo para acelerar la implementación. La compresión reduce el número de archivos y el tamaño del paquete.
 Si se trata de un paquete de aplicación comprimido, la [carga del paquete de aplicación](service-fabric-deploy-remove-applications.md#upload-the-application-package) puede tardar más en comparación con un paquete sin comprimir, sobre todo, si se tiene en cuenta el tiempo de compresión; sin embargo, el [registro](service-fabric-deploy-remove-applications.md#register-the-application-package) y la [anulación del registro del tipo de aplicación](service-fabric-deploy-remove-applications.md#unregister-an-application-type) se realizan más rápido si el paquete está comprimido.
 
 El mecanismo de implementación es el mismo para los paquetes comprimidos y sin comprimir. Si el paquete se comprime, se almacena como tal en el almacén de imágenes de clúster y se descomprime en el nodo antes de ejecutar la aplicación.
-La compresión reemplaza el paquete de Service Fabric válido por la versión comprimida. La carpeta debe permitir permisos de escritura. La ejecución de la compresión en un paquete ya comprimido no produce ningún cambio. 
+La compresión reemplaza el paquete de Service Fabric válido por la versión comprimida. La carpeta debe permitir permisos de escritura. La ejecución de la compresión en un paquete ya comprimido no produce ningún cambio.
 
 Puede comprimir un paquete ejecutando el comando de Powershell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) con el modificador `CompressPackage`. Puede descomprimir el paquete con el mismo comando, mediante el modificador `UncompressPackage`.
 
-El siguiente comando comprime el paquete sin copiarlo en el almacén de imágenes. Puede copiar un paquete comprimido en uno o varios clústeres de Service Fabric, según sea necesario, con [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sin la marca `SkipCopy`. El paquete ahora incluye los archivos comprimidos para los paquetes `code`, `config` y `data`. Los manifiestos de aplicación y de servicio no se comprimen porque son necesarios para muchas operaciones internas (por ejemplo, uso compartido de paquetes, nombre de tipo de aplicación y extracción de versiones para ciertas validaciones).
+El siguiente comando comprime el paquete sin copiarlo en el almacén de imágenes. Puede copiar un paquete comprimido en uno o varios clústeres de Service Fabric, según sea necesario, con [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sin la marca `SkipCopy`.
+El paquete ahora incluye los archivos comprimidos para los paquetes `code`, `config` y `data`. Los manifiestos de aplicación y de servicio no se comprimen porque son necesarios para muchas operaciones internas (por ejemplo, uso compartido de paquetes, nombre de tipo de aplicación y extracción de versiones para ciertas validaciones).
 La compresión de los manifiestos haría que estas operaciones resultaran ineficaces.
 
 ```

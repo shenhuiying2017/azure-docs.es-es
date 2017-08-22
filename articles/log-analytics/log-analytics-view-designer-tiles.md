@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 806aba12d07c10816a106b9b2af0e824ceb25ade
+ms.contentlocale: es-es
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Referencia de los iconos del Diseñador de vistas de Log Analytics
@@ -26,7 +27,10 @@ El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en 
 Estos son otros de los artículos disponibles sobre el Diseñador de vistas:
 
 * [Diseñador de vistas](log-analytics-view-designer.md): información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
-* [Referencia de los elementos de visualización](log-analytics-view-designer-parts.md): referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas. 
+* [Referencia de los elementos de visualización](log-analytics-view-designer-parts.md): referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas.
+
+>[!NOTE]
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), las consultas de todas las vistas se deben escribir en el [nuevo lenguaje de consulta](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Todas las vistas que se crearon antes de actualizar el área de trabajo se convertirán automáticamente.
 
 En la siguiente tabla se muestran los distintos tipos de iconos que se encuentran disponibles en el Diseñador de vistas.  En las secciones siguientes se describen en profundidad todos los tipos de iconos y sus propiedades.
 
@@ -176,10 +180,4 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para poder realizar consultas en iconos.
 * Agregue [elementos de visualización](log-analytics-view-designer-parts.md) a la vista personalizada.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

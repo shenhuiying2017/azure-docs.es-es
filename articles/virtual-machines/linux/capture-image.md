@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f6fbefc212197ca8802e7857c67a5b9c297770a8
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 19b573f77f2ee84600955d00d30bdb16c84e3623
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen de una máquina virtual o un disco duro virtual
@@ -36,7 +36,7 @@ También puede usar **Packer** para crear la configuración personalizada. Para 
 ## <a name="before-you-begin"></a>Antes de empezar
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
-* Necesita crear una máquina virtual de Azure en el modelo de implementación de Resource Manager mediante discos administrados. Si no ha creado una máquina virtual Linux, puede usar el [portal](quick-create-portal.md), la [CLI de Azure](quick-create-cli.md) o [plantillas de Resource Manager](cli-deploy-templates.md). Configure la máquina virtual como considere necesario. Por ejemplo, [agregue discos de datos](add-disk.md), aplique actualizaciones e instale aplicaciones. 
+* Necesita crear una máquina virtual de Azure en el modelo de implementación de Resource Manager mediante discos administrados. Si no ha creado una máquina virtual Linux, puede usar el [portal](quick-create-portal.md), la [CLI de Azure](quick-create-cli.md) o [plantillas de Resource Manager](create-ssh-secured-vm-from-template.md). Configure la máquina virtual como considere necesario. Por ejemplo, [agregue discos de datos](add-disk.md), aplique actualizaciones e instale aplicaciones. 
 
 * También necesita tener instalada la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/#login).
 

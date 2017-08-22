@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/11/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7244103d952e32c330743ddc3dd68e417cb7fb9b
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 19095d65188ff935b99d1b89cefbc92ef06ebc6f
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
@@ -53,7 +53,10 @@ Debe responder a las preguntas siguientes cuando planee instalar HDInsight en un
 
 ## <a id="existingvnet"></a>Agregar HDInsight una red virtual existente
 
-Use los pasos de esta sección para saber cómo agregar HDInsight a una instancia de Azure Virtual Network existente.
+Use los pasos de esta sección para saber cómo agregar un nuevo HDInsight a una instancia de Azure Virtual Network existente.
+
+> [!NOTE]
+> No se puede agregar un clúster de HDInsight existente a una red virtual.
 
 1. ¿Está usando un modelo de implementación clásico o de Resource Manager para la red virtual?
 
@@ -103,6 +106,16 @@ Use los pasos de esta sección para saber cómo agregar HDInsight a una instanci
         ```
 
         Para más información, vea el documento sobre [Solución de problemas de rutas](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+
+4. Cree un clúster de HDInsight y seleccione la instancia de Azure Virtual Network durante la configuración. Para entender el proceso de creación de clúster, use los pasos descritos en los siguientes documentos:
+
+    * [Creación de HDInsight con Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md)
+    * [Creación de HDInsight con Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+    * [Creación de HDInsight con la CLI de Azure 1.0](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Creación de una instancia de HDInsight mediante el uso de una plantilla de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+
+  > [!IMPORTANT]
+  > Agregar HDInsight a una red virtual es un paso de configuración opcional. Asegúrese de seleccionar la red virtual al configurar el clúster.
 
 ## <a id="multinet"></a>Conectar varias redes
 
@@ -438,7 +451,7 @@ Use los pasos siguientes para crear una red virtual que restringe el tráfico de
 
 En este ejemplo se da por supuesto lo siguiente:
 
-* Dispone de una instancia de Azure Virtual Network que está conectada a una red local mediante una puerta de enlace VPN.
+* Dispone de una instancia de Azure Virtual Network que está conectada a una red local mediante una puerta de enlace de VPN.
 
 * El servidor DNS personalizado en la red virtual ejecuta Linux o Unix como sistema operativo.
 
@@ -522,7 +535,7 @@ Después de completar estos pasos, puede conectarse a los recursos de cualquiera
 
 En este ejemplo se da por supuesto lo siguiente:
 
-* Tiene dos instancias de Azure Virtual Network que se conectan mediante una puerta de enlace VPN o emparejamiento.
+* Tiene dos instancias de Azure Virtual Network que se conectan mediante una puerta de enlace de VPN o un emparejamiento.
 
 * El servidor DNS personalizado en ambas redes ejecuta Linux o Unix como sistema operativo.
 

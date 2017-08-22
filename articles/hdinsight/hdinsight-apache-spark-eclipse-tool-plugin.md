@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/21/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 013a3175d5e19689629d1d0ea3b413184e71c485
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: a921eeabe0df6dbc32ab62f74fe585ac2eaf9d42
 ms.contentlocale: es-es
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Uso del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark para un clúster de HDInsight
@@ -83,7 +82,7 @@ Las herramientas de HDInsight para Eclipse están disponibles como parte del kit
     ![Selección del proyecto Spark on HDInsight (Scala)](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 3. En el cuadro de diálogo **New HDInsight Scala Project** (Nuevo proyecto de Scala para HDInsight), proporcione los valores siguientes y luego haga clic en **Next** (Siguiente):
    * Escriba un nombre para el proyecto.
-   * En el área **JRE**, asegúrese de que el valor de **Use an execution environment JRE** (Utilizar un entorno de ejecución JRE) esté establecido en **JavaSE-1.7**.
+   * En el área **JRE**, asegúrese de que el valor de **Use an execution environment JRE** (Uso de un entorno de ejecución JRE) esté establecido en **JavaSE-1.7** o posterior.
    * Asegúrese de que el SDK de Spark esté establecido en la ubicación donde descargó el SDK. El vínculo a la ubicación de descarga figura en la sección [Requisitos previos](#prerequisites) al principio de este artículo. También puede descargar el SDK desde el vínculo del cuadro de diálogo.
 
     ![Cuadro de diálogo nuevo proyecto de Scala para HDInsight](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
@@ -116,12 +115,12 @@ Si desea enviar una aplicación a Azure Data Lake Store, tiene que elegir el mod
             val conf = new SparkConf().setAppName("MyClusterApp")
             val sc = new SparkContext(conf)
    
-            val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+            val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
    
             //find the rows that have only one digit in the seventh column in the CSV
             val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
    
-            rdd1.saveAsTextFile("wasbs:///HVACOut")
+            rdd1.saveAsTextFile("wasb:///HVACOut")
           }        
         }
 5. Ejecute la aplicación en un clúster de HDInsight Spark:
@@ -130,8 +129,8 @@ Si desea enviar una aplicación a Azure Data Lake Store, tiene que elegir el mod
    2. En el cuadro de diálogo **Spark Submission** (Envío de Spark), proporcione los siguientes valores y luego haga clic en **Submit** (Enviar):
       
       * Para **Cluster Name**(Nombre del clúster), seleccione el clúster Spark en HDInsight en el que quiere ejecutar la aplicación.
-      * Seleccione un artefacto del proyecto Eclipse o uno de un disco duro.
-      * En el cuadro de texto **Main class name** (Nombre de la clase principal), escriba el nombre del objeto que especificó en el código.
+      * Seleccione un artefacto del proyecto Eclipse o uno de un disco duro. El valor predeterminado depende del elemento en el que hace clic con el botón derecho desde el explorador de paquetes.
+      * En la lista desplegable **Nombre de la clase principal**, el asistente para envío muestra todos los nombres de objeto del proyecto seleccionado. Seleccione o escriba uno que desee ejecutar. Si selecciona un artefacto del disco duro, debe escribir el nombre de la clase principal. 
       * Dado que el código de aplicación de este ejemplo no requiere ningún argumento de línea de comandos ni archivos o JAR de referencia, puede dejar vacíos los demás cuadros de texto.
         
        ![Cuadro de diálogo de envío de Spark](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
@@ -141,6 +140,18 @@ Si desea enviar una aplicación a Azure Data Lake Store, tiene que elegir el mod
       
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-hdinsight-tools-in-azure-toolkit-for-eclipse"></a>Acceso y administración de clústeres HDInsight Spark mediante las herramientas de HDInsight del kit de herramientas de Azure para Eclipse
 Puede realizar varias operaciones mediante herramientas de HDInsight, incluido el acceso a la salida del trabajo.
+
+### <a name="access-the-job-view"></a>Acceso a la vista de trabajo
+1. En Azure Explorer, expanda **HDInsight** y el nombre del clúster de Spark. Después, haga clic en **Trabajos**.  
+       ![Nodo Vista de trabajos](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
+2. En el panel derecho, la pestaña **Spark Job View** (Vista de trabajos de Spark) muestra todas las aplicaciones que se ejecutaron en el clúster. Haga clic en el nombre de la aplicación para la que desea ver más detalles.
+       ![Detalles de la aplicación](./media/hdinsight-apache-spark-intellij-tool-plugin/view-job-logs.png)
+3. Mantenga el puntero sobre el gráfico del trabajo, que muestra información básica del trabajo en ejecución. Haga clic en el gráfico del trabajo para ver el gráfico de fases y la información que genera cada trabajo.
+       ![Detalles de fase de trabajo](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
+
+4. En la pestaña **Registro** hay un registro de uso frecuente que incluye Stderr del controlador, Stdout del controlador e Información del directorio.
+       ![Detalles del registro](./media/hdinsight-apache-spark-intellij-tool-plugin/Job-log-info.png)
+5. También puede abrir Spark History UI (IU de historial de Spark) y YARN UI (IU de YARN), en el nivel de aplicación, al hacer clic en los hipervínculos correspondientes de la parte superior de la ventana.
 
 ### <a name="access-the-storage-container-for-the-cluster"></a>Acceso al contenedor de almacenamiento para el clúster
 1. En Azure Explorer, expanda el nodo raíz **HDInsight** para ver una lista de los clústeres HDInsight Spark disponibles.
@@ -207,7 +218,9 @@ Si tiene sugerencias o comentarios, o si se le presenta algún problema al usar 
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Uso del kit de herramientas de Azure para IntelliJ con el fin de crear y enviar aplicaciones Spark en Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Uso del kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Uso del kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark mediante VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Uso del kit de herramientas de Azure para IntelliJ para depurar de forma remota aplicaciones Spark mediante SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Uso de cuadernos de Zeppelin con un clúster Spark en HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels disponibles para el cuaderno de Jupyter en el clúster Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)

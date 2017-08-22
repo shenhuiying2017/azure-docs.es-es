@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: a7370598dd6570d2e124ed2a10d92cfcd1d5087a
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 0f2c6ce3e5df6c513d8077b3dfcca0beb4a247bf
 ms.contentlocale: es-es
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -48,9 +48,9 @@ Para usar el VHD como disco para una nueva instancia de una máquina virtual o u
 2.  Seleccione la máquina virtual en la lista.
 3.  En la hoja de la máquina virtual, haga clic en **Detener**.
 
-    ![Detener la máquina virtual](./media/download-vhd/export-stop.png)
+    ![Detención de la máquina virtual](./media/download-vhd/export-stop.png)
 
-## <a name="generate-sas-url"></a>Generar URL de SAS
+## <a name="generate-sas-url"></a>Generación de dirección URL de SAS
 
 Para descargar el archivo de VHD, debe generar una dirección URL de [firma de acceso compartido (SAS)](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Una vez generada la dirección URL, se asigna un tiempo de expiración a la dirección URL.
 
@@ -70,7 +70,7 @@ Para descargar el archivo de VHD, debe generar una dirección URL de [firma de a
 
 1.  En la dirección URL generada, haga clic en Descargar el archivo VHD.
 
-    ![Descargar VHD](./media/download-vhd/export-download.png)
+    ![Descarga de VHD](./media/download-vhd/export-download.png)
 
 2.  Es posible que tenga que hacer clic en **Guardar** en el explorador para iniciar la descarga. El nombre predeterminado del archivo de VHD es *abcd*.
 
@@ -79,7 +79,7 @@ Para descargar el archivo de VHD, debe generar una dirección URL de [firma de a
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre cómo [cargar un archivo de VHD en Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-- [Create managed disks from unmanaged disks in a storage account](create-managed-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creación de discos administrados a partir de discos no administrados en una cuenta de almacenamiento).
+- [Create managed disks from unmanaged disks in a storage account](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creación de discos administrados a partir de discos no administrados en una cuenta de almacenamiento).
 - [Manage Azure disks with PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Administrar discos de Azure con PowerShell).
 
 

@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 16a13909079306256ded06f2100815c46ff562a3
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
 ms.contentlocale: es-es
-ms.lasthandoff: 02/28/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Eventos de registro para la evaluación de diagnósticos y la supervisión de soluciones de Batch
@@ -46,7 +45,7 @@ Como ocurre con muchos de los servicios de Azure, el servicio Batch emite evento
 ## <a name="enable-diagnostic-logging"></a>Activación del registro de diagnóstico
 El registro de diagnóstico no está habilitado de manera predeterminada en la cuenta de Batch. Por consiguiente, es preciso habilitarlo explícitamente en cada cuenta de Batch que se desea supervisar:
 
-[Cómo habilitar la recopilación de registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+[Cómo habilitar la recopilación de registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
 
 Se recomienda leer toda el artículo [Información general sobre los registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para conocer no solo cómo habilitar el registro, sino también las categorías de registro que admiten los diversos servicios de Azure. Por ejemplo, actualmente Azure Batch admite una categoría de registro: **registros de servicio**.
 

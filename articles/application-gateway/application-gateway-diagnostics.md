@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 122a08fbe95e4e3c2eaba8a8d8558f2d638120d0
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2a2d731a8c904f290fcd4bbbd18872d8319b2ff5
 ms.contentlocale: es-es
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
@@ -97,12 +96,12 @@ El siguiente fragmento de código muestra un ejemplo de la respuesta:
 }
 ```
 
-## <a name="diagnostic-logs"></a>Registros de diagnóstico
+## <a name="diagnostic-logging"></a>Registros de diagnóstico
 
 Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Application Gateway. Se puede acceder a algunos de estos registros mediante el portal. Se pueden extraer todos los registros de Azure Blob Storage y visualizarse en distintas herramientas, como [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel y PowerBI. Puede obtener más información sobre los diferentes tipos de registros en la lista siguiente:
 
 * **Registro de actividades:** puede usar el [registro de actividades de Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a sus suscripciones de Azure, así como su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
-* **Registro de acceso** : este registro se puede utilizar para ver los patrones de acceso de Application Gateway y analizar información importante, como la dirección IP del autor de llamada, la dirección URL solicitada, la latencia de la respuesta, el código de retorno y los bytes de entrada y de salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de la Puerta de enlace de aplicaciones. La instancia de Application Gateway puede identificarse por la propiedad instanceId.
+* **Registro de acceso** : este registro se puede utilizar para ver los patrones de acceso de Application Gateway y analizar información importante, como la dirección IP del autor de llamada, la dirección URL solicitada, la latencia de la respuesta, el código de retorno y los bytes de entrada y de salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway puede identificarse por la propiedad instanceId.
 * **Registro de rendimiento**: este registro se puede utilizar para ver el rendimiento de las instancias de Application Gateway. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y el número de instancias de back-end con un mantenimiento correcto o incorrecto. El registro de rendimiento se recopila cada 60 segundos.
 * **Registro de firewall**: puede utilizar este registro para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web.
 
@@ -112,7 +111,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 Tiene tres opciones para almacenar los archivos de registro:
 
 * **Cuenta de almacenamiento**: cuentas que resultan especialmente útiles para registros cuando estos se almacenan durante mucho tiempo y se revisan cuando es necesario.
-* **Centros de eventos**: son una buena opción para la integración con otras herramientas de información de seguridad y administración de eventos (SEIM) para obtener alertas acerca de los recursos.
+* **Event Hubs**: es una buena opción para la integración con otras herramientas de información de seguridad y administración de eventos (SEIM) para obtener alertas acerca de los recursos.
 * **Log Analytics**: se usa para la supervisión general en tiempo real de la aplicación o para examinar las tendencias.
 
 ### <a name="enable-logging-through-powershell"></a>Habilitación del registro con PowerShell

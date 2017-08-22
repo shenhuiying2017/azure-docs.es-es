@@ -5,10 +5,11 @@
 ## [Seguridad de Compute](security-virtual-machines-overview.md)
 ## [Seguridad operativa](azure-operational-security-overview.md)
 ## [Administración y supervisión de seguridad](security-management-and-monitoring-overview.md)
+## [Seguridad de Service Fabric](azure-service-fabric-security-overview.md)
 ## [Administración de identidades](security-identity-management-overview.md)
 ## [Seguridad de IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Arquitectura de seguridad](azure-security-architecture-overview.md)
-### [Seguridad operativa](azure-operational-security.md)
+### [Habilitación de la seguridad operativa](azure-operational-security.md)
 ### [Detección de amenazas avanzada](azure-threat-detection.md)
 ### [Registro y auditoría](azure-log-audit.md)
 ### [Aislamiento en la nube pública](azure-isolation.md)
@@ -40,6 +41,9 @@
 #### [Solución de problemas de cifrado de discos](azure-security-disk-encryption-tsg.md)
 ### [Cifrado de una máquina virtual de Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
+## Seguridad operativa
+### [Procedimientos recomendados de seguridad operativa](azure-operational-security-best-practices.md)
+
 ## Administración y supervisión de seguridad
 ### [Administración de la seguridad](azure-security-management.md)
 ### [Azure Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -49,6 +53,10 @@
 #### [Integración de alertas de Security Center](security-azure-log-integration-security-center.md)
 #### [Integración de registros en Key Vault mediante Event Hubs](security-azure-log-integration-keyvault-eventhub.md)
 #### [Preguntas más frecuentes](security-azure-log-integration-faq.md)
+
+## Service Fabric
+### [Procedimientos recomendados de Service Fabric](azure-service-fabric-security-best-practices.md)
+### [Lista de comprobación de Service Fabric](azure-service-fabric-security-checklist.md)
 
 ## Administración de identidades
 ### [Identificación de procedimientos recomendados de seguridad para administración de identidades](azure-security-identity-management-best-practices.md)

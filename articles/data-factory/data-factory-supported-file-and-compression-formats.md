@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 15dc58a1a607ef40c52dcd62ee9ed0df273fc011
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: f4746e0dd249e417b8077a9bc733d2886daafdf2
 ms.contentlocale: es-es
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 
@@ -227,7 +226,7 @@ y quiere copiarlo en una tabla de SQL de Azure con el formato siguiente extrayen
 
 El conjunto de datos de entrada con el tipo **JsonFormat** se define de la siguiente manera: (definición parcial en la que solo se ilustran las secciones relevantes). Más concretamente:
 
-- La sección `structure` permite definir los nombres personalizados de columna y el tipo de datos correspondiente mientras los convierte a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte [Especificación de la definición de la estructura de los conjuntos de datos rectangulares](#specifying-structure-definition-for-rectangular-datasets) para más información.
+- La sección `structure` permite definir los nombres personalizados de columna y el tipo de datos correspondiente mientras los convierte a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte la sección [Asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos de destino](data-factory-map-columns.md) para más información.
 - `jsonPathDefinition` especifica la ruta de acceso JSON para cada columna que indica de dónde se deben extraer los datos. Para copiar datos de matriz, puede usar **array[x].property** para extraer el valor de la propiedad especificada desde el objeto xº, o puede usar **array[*] .property** para encontrar el valor de cualquier objeto que contenga dicha propiedad.
 
 ```json
@@ -300,7 +299,7 @@ y desea copiarlo en una tabla de Azure SQL del formato siguiente, puede hacerlo 
 
 El conjunto de datos de entrada con el tipo **JsonFormat** se define de la siguiente manera: (definición parcial en la que solo se ilustran las secciones relevantes). Más concretamente:
 
-- La sección `structure` permite definir los nombres personalizados de columna y el tipo de datos correspondiente mientras los convierte a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte [Especificación de la definición de la estructura de los conjuntos de datos rectangulares](#specifying-structure-definition-for-rectangular-datasets) para más información.
+- La sección `structure` permite definir los nombres personalizados de columna y el tipo de datos correspondiente mientras los convierte a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte la sección [Asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos de destino](data-factory-map-columns.md) para más información.
 - `jsonNodeReference` indica la iteración y extracción de datos de los objetos con el mismo patrón de las líneas de pedido de **matriz**.
 - `jsonPathDefinition` especifica la ruta de acceso JSON para cada columna que indica de dónde se deben extraer los datos. En este ejemplo, "ordernumber", "orderdate" y "city" están bajo el objeto raíz con la ruta de acceso JSON que empieza por "$.", mientras que "order_pd" y "order_price" se definen con la ruta de acceso que se deriva del elemento de matriz sin "$.".
 

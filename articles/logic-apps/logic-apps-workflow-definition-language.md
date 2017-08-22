@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b9cd83e6891c723f843825b99dce0e0158fc6ef6
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -49,7 +49,7 @@ Esta es la estructura básica de una definición de flujo de trabajo:
 |$schema|No|Especifica la ubicación del archivo de esquema JSON que describe la versión del idioma de definición. Esta ubicación es necesaria cuando se hace referencia a una definición externamente. En este documento, la ubicación es: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
 |contentVersion|No|Especifica la versión de definición. Cuando se implementa un flujo de trabajo mediante la definición, puede usar este valor para asegurarse de que se utiliza la definición correcta.|  
 |parameters|No|Especifica los parámetros que se utilizan para introducir datos en la definición. Se puede definir un máximo de 50 parámetros.|  
-|Desencadenadores|No|Especifica información de los desencadenadores que inician el flujo de trabajo. Se puede definir un máximo de 250 desencadenadores.|  
+|Desencadenadores|No|Especifica información de los desencadenadores que inician el flujo de trabajo. Se pueden definir 10 desencadenadores como máximo.|  
 |actions|No|Especifica las acciones que se realizan mientras se ejecuta el flujo. Se puede definir un máximo de 250 acciones.|  
 |outputs|No|Especifica la información sobre el recurso implementado. Se puede definir un máximo de 10 salidas.|  
   

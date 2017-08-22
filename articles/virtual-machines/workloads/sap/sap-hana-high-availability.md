@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 7fa853983119ef4e570b768ca177d169c6e17153
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
 ms.contentlocale: es-es
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Alta disponibilidad de SAP HANA en las máquinas virtuales (VM) de Azure
@@ -27,10 +26,19 @@ ms.lasthandoff: 05/31/2017
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
-[hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+
+[hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
+[hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
+
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
@@ -44,10 +52,25 @@ En las configuraciones de ejemplo, los comandos de instalación, etc., se usa el
 
 Lea primero las notas y los documentos de SAP siguientes:
 
-* Nota de SAP [2205917] Configuraciones recomendadas del sistema operativo para SUSE Linux Enterprise Server para SAP Applications
-* Nota de SAP [1944799] Guías de SAP HANA para SUSE Linux Enterprise Server para SAP Applications
+* Nota de SAP [1928533], que incluye:
+  * La lista de tamaños de máquina virtual de Azure que se admiten para la implementación del software de SAP
+  * Información importante sobre la capacidad para los tamaños de máquina virtual de Azure
+  * Software de SAP admitido y combinaciones de sistema operativo y base de datos
+  * Versión del kernel de SAP requerida para Windows y Linux en Microsoft Azure
+* La nota de SAP [2015553] enumera los requisitos previos para las implementaciones de software de SAP admitidas por SAP en Azure.
+* La nota de SAP [2205917] contiene configuraciones recomendadas del sistema operativo para SUSE Linux Enterprise Server para SAP Applications
+* La nota de SAP [1944799] contiene guías de SAP HANA para SUSE Linux Enterprise Server para SAP Applications
+* La nota de SAP [2178632] contiene información detallada sobre todas las métricas de supervisión notificadas para SAP en Azure.
+* La nota de SAP [2191498] incluye la versión de SAP Host Agent necesaria para Linux en Azure.
+* La nota de SAP [2243692] incluye información acerca de las licencias de SAP en Linux en Azure.
+* La nota de SAP [1984787] incluye información general sobre SUSE Linux Enterprise Server 12.
+* La nota de SAP [1999351] contiene más soluciones de problemas de la extensión de supervisión mejorada de Azure para SAP.
+* La [WIKI de la comunidad SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene todas las notas de SAP que se necesitan para Linux.
+* [Planeación e implementación de Azure Virtual Machines para SAP en Linux][planning-guide]
+* [Implementación de Azure Virtual Machines para SAP en Linux (este artículo)][deployment-guide]
+* [Implementación de DBMS de Azure Virtual Machines para SAP en Linux][dbms-guide]
 * [Escenario de rendimiento optimizado para la replicación del sistema de SAP HANA][suse-hana-ha-guide] La guía contiene toda la información necesaria para configurar la replicación local del sistema de SAP HANA. Esta guía sirve como orientación.
-  
+
 ## <a name="deploying-linux"></a>Implementación de Linux
 
 El agente de recursos para SAP HANA se incluye en SUSE Linux Enterprise Server para SAP Applications.
@@ -179,7 +202,7 @@ Los elementos siguientes tienen el prefijo [A]: aplicable a todos los nodos, [1]
 
 1. [A] Configure el diseño del disco
     1. LVM  
-    Por lo general, se recomienda utilizar LVM para volúmenes de almacén de datos y archivos de registro. En el ejemplo siguiente se supone que las máquinas virtuales tienen cuatro discos de datos conectados que se deben usar para crear dos volúmenes.
+    Por lo general, se recomienda utilizar LVM para volúmenes de almacén de datos y archivos de registro. En el ejemplo siguiente se supone que las máquinas virtuales tienen cuatro discos de datos asociados que se deben usar para crear dos volúmenes.
         * Cree volúmenes físicos de todos los discos que desee usar.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -305,10 +328,10 @@ Los elementos siguientes tienen el prefijo [A]: aplicable a todos los nodos, [1]
     } 
     <b>nodelist {
       node {
-        ring0_addr:     < ip address of note 1 >
+        ring0_addr:     < ip address of node 1 >
       }
       node {
-        ring0_addr:     < ip address of note 2 > 
+        ring0_addr:     < ip address of node 2 > 
       } 
     }</b>
     logging {
@@ -404,7 +427,7 @@ Cambie la configuración predeterminada
 
 <pre>
 sudo vi crm-defaults.txt
-# enter the following to crm-saphana.txt
+# enter the following to crm-defaults.txt
 <code>
 property $id="cib-bootstrap-options" \
   no-quorum-policy="ignore" \

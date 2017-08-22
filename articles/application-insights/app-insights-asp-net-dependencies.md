@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c31abf49a05f7911d4ec82db59efa2724ab7b49b
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 43733e452126c85ab9e19b6036aea96f56fc4d12
 ms.contentlocale: es-es
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar Application Insights: seguimiento de dependencias
@@ -32,7 +31,7 @@ El monitor de dependencia listo para su uso sin configuraciones adicionales actu
   * Bases de datos SQL
   * Servicios WFC y web de ASP.NET que usan enlaces basados en HTTP
   * Llamadas HTTP locales o remotas
-  * Cosmos DB, tabla, almacenamiento de blobs y colas de Azure
+  * Azure Cosmos DB, Table Storage, Blob Storage y Queue Storage
 * Páginas web
   * Llamadas AJAX
 
@@ -134,7 +133,7 @@ Desplazarse hasta una repetición de una solicitud con error y examine los event
 ![Haga clic en un tipo de solicitud, haga clic en la instancia para obtener acceso a una vista diferente de la misma instancia, haga clic en ella para obtener detalles de la excepción.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Análisis
-Puede realizar un seguimiento de las dependencias en el [lenguaje de consulta de Análisis](app-insights-analytics.md). Estos son algunos ejemplos.
+Puede realizar un seguimiento de las dependencias en el [lenguaje de consulta de Log Analytics](https://docs.loganalytics.io/). Estos son algunos ejemplos.
 
 * Búsqueda de llamadas de dependencia con errores:
 

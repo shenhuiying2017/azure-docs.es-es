@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: e5f3fc57292102afb8f0ffb1f851953e97d7478a
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 2180a11c53a3b283fed35844c5821aef744fb95e
 ms.contentlocale: es-es
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Solución de problemas de implementación de máquinas virtuales Windows en Azure
@@ -110,7 +110,7 @@ Puede comprobar la disponibilidad en la [tabla de productos disponibles por regi
 Puede usar Windows 7, Windows 8 o Windows 10 en Azure para escenarios de desarrollo y pruebas siempre que tenga una suscripción adecuada a Visual Studio (anteriormente MSDN). 
 
 - Ciertas imágenes de Windows 10 están disponibles en la galería de Azure dentro de las [ofertas de desarrollo y pruebas a las que puede tener acceso](client-images.md#eligible-offers). 
-- Los suscriptores de Visual Studio dentro de cualquier tipo de oferta también pueden [preparar y crear apropiadamente](prepare-for-upload-vhd-image.md) una imagen de Windows 7, Windows 8 o Windows 10 de 64 bits y, luego, [cargarla en Azure](upload-image.md). El uso sigue limitado a desarrollo y pruebas por parte de los suscriptores activos de Visual Studio.
+- Los suscriptores de Visual Studio dentro de cualquier tipo de oferta también pueden [preparar y crear apropiadamente](prepare-for-upload-vhd-image.md) una imagen de Windows 7, Windows 8 o Windows 10 de 64 bits y, luego, [cargarla en Azure](upload-generalized-managed.md). El uso sigue limitado a desarrollo y pruebas por parte de los suscriptores activos de Visual Studio.
 
 En este [artículo](client-images.md) se describen los requisitos de idoneidad para ejecutar el cliente Windows en Azure y usar las imágenes de la galería de Azure.
 

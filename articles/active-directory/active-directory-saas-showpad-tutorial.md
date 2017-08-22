@@ -150,7 +150,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     c. Copie el contenido del archivo XML de metadatos que ha descargado de Azure Portal y, a continuación, péguelo en el cuadro de texto **XML de metadatos**.
    
-    d. Seleccione **Auto-provision accounts for new users when they log in**(Aprovisionar cuentas automáticamente para nuevos usuarios cuando inicien sesión).
+    d. Seleccione **Aprovisionar cuentas automáticamente para nuevos usuarios cuando inicien sesión**.
    
     e. Haga clic en **Enviar**.
 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 07/20/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 286ba47b801d4f21add1a8429035729be6ff7e00
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: e4bc03c624c9930d7a9b0bef22d3179633de3365
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Uso de Azure Media Encoder Standard para generar automáticamente una escalera de velocidad de bits
@@ -27,10 +27,13 @@ ms.lasthandoff: 07/21/2017
 
 En este tema se muestra cómo usar Media Encoder Standard (MES) para generar automáticamente una escalera de velocidad de bits (pares de velocidad de bits-resolución) en función de la velocidad de bits y la resolución de entrada. El valor preestablecido generado automáticamente nunca superará la velocidad de bits y la resolución de entrada. Por ejemplo, si la entrada es 720p a 3 Mbps, la salida permanecerá en 720p en el mejor de los casos y se iniciará a velocidades inferiores a 3 Mbps.
 
-Para usar esta característica, debe especificar el valor preestablecido **Adaptive Streaming** al crear una tarea de codificación. Cuando se usa el valor preestablecido **Adaptive Streaming**, el codificador MES limitará inteligentemente una escalera de velocidad de bits. Sin embargo, no será capaz de controlar los costos de codificación, ya que el servicio determina cuántos niveles usar y con qué resolución. Puede ver ejemplos de los niveles de salida generados por MES como resultado de la codificación con el valor preestablecido **Adaptive Streaming** al [final](#output) de este tema.
+### <a name="encoding-for-streaming-only"></a>Codificación solo para streaming
 
->[!NOTE]
-> Este valor predeterminado debe usarse solo cuando el propósito sea producir un recurso de salida transmisible por streaming. En concreto, el recurso de salida contendrá archivos MP4 en los que el audio y el vídeo no están intercalados. Si necesita que la salida contenga archivos MP4 con el vídeo y el audio intercalados (por ejemplo, para usarlos como archivo de descarga progresiva), use uno de los valores predeterminados que aparecen [en esta sección](media-services-mes-presets-overview.md).
+Si su intención es codificar el vídeo de origen solo para streaming, deberá usar el valor preestablecido "Adaptive Streaming" al crear una tarea de codificación. Cuando se usa el valor preestablecido **Adaptive Streaming**, el codificador MES limitará inteligentemente una escalera de velocidad de bits. Sin embargo, no será capaz de controlar los costos de codificación, ya que el servicio determina cuántos niveles usar y con qué resolución. Puede ver ejemplos de los niveles de salida generados por MES como resultado de la codificación con el valor preestablecido **Adaptive Streaming** al final de este tema. El recurso de salida contendrá archivos MP4 en los que el audio y el vídeo no están intercalados.
+
+### <a name="encoding-for-streaming-and-progressive-download"></a>Codificación para streaming y descarga progresiva
+
+Si su intención es codificar el vídeo de origen para streaming, así como generar archivos MP4 para la descarga progresiva, deberá usar el valor preestablecido "Content Adaptive Multiple Bitrate MP4" al crear una tarea de codificación. Cuando se usa el valor preestablecido **Content Adaptive Multiple Bitrate MP4**, el codificador MES aplicará la misma lógica de codificación que la mostrada anteriormente, pero el recurso de salida contendrá los archivos MP4 en los que el audio y el vídeo están intercalados. Puede usar uno de estos archivos MP4 (por ejemplo, la versión de velocidad de bits más alta) como un archivo de descarga progresiva.
 
 ## <a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Servicios multimedia
 

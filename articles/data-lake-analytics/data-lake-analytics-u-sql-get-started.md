@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a193590504fc3706a7c1f1562e94a8a80da03e75
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="get-started-with-u-sql"></a>Introducción a U-SQL
@@ -26,7 +26,7 @@ U-SQL es un lenguaje que combina SQL declarativo con C# imperativo para permitir
 
 ## <a name="learning-resources"></a>Recursos de aprendizaje
 
-* En el [Tutorial de U-SQL] se proporciona un tutorial guiado de la mayor parte del lenguaje U-SQL. Se recomienda leer este documento a todos los desarrolladores que quieran aprender U-SQL.
+* En el [Tutorial de U-SQL](http://aka.ms/usqltutorial) se proporciona un tutorial guiado de la mayor parte del lenguaje U-SQL. Se recomienda leer este documento a todos los desarrolladores que quieran aprender U-SQL.
 * Para más información sobre la **sintaxis del lenguaje U-SQL**, consulte la [referencia del lenguaje U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 * Para comprender la **filosofía del diseño de U-SQL**, consulte la entrada del blog de Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Introducción s U-SQL: un lenguaje que facilita el procesamiento de marcrodatos).
 

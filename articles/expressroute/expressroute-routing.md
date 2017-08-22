@@ -12,23 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/31/2017
 ms.author: osamam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 0bb4999aa511e002d6088d69400ba4eececd8cf1
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: e6e2009717430a692528cd3ec3a2c6e46a12fe03
 ms.contentlocale: es-es
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
-Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos. 
+Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
 
 Para ver una descripción de las sesiones de enrutamiento que es preciso configurar para facilitar la conectividad, consulte el artículo [Circuitos ExpressRoute y dominios de enrutamiento](expressroute-circuit-peerings.md).
 
 > [!NOTE]
-> Microsoft no admite protocolos de redundancia de enrutador (HSRP o VRRP, por nombrar algunos) en configuraciones de alta disponibilidad. Confiamos en un par redundante de sesiones BGP por configuración entre pares para la alta disponibilidad.
+> Microsoft no admite protocolos de redundancia de enrutador (por ejemplo, HSRP o VRRP) en configuraciones de alta disponibilidad. Confiamos en un par redundante de sesiones BGP por configuración entre pares para la alta disponibilidad.
 > 
 > 
 
@@ -42,8 +41,8 @@ Para establecer la configuración entre pares se pueden usar direcciones IP priv
 * Las subredes usadas para el enrutamiento pueden ser direcciones IP privadas o direcciones IP públicas.
 * Las subredes no deben entrar en conflicto con el intervalo reservado por el cliente para su uso en la nube de Microsoft.
 * Si se usa una subred /29, se dividirá en dos /30 subredes. 
-  * La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
-  * Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
+  * La primera subred /30 se usa para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
+  * Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usa la segunda dirección IP de la subred /30.
   * Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.  
 
 #### <a name="example-for-private-peering"></a>Ejemplo de configuración entre pares privados
@@ -61,19 +60,21 @@ Para configurar las sesiones BGP, debe usar las direcciones IP públicas que pos
 
 * Debe usar una única subred /29 o dos subredes /30 para configurar el emparejamiento BGP para cada emparejamiento por circuito ExpressRoute (si tiene más de uno). 
 * Si se usa una subred /29, se dividirá en dos /30 subredes. 
-  * La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
-  * Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
+  * La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usa para el vínculo secundario.
+  * Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usa la segunda dirección IP de la subred /30.
   * Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.
 
 ## <a name="public-ip-address-requirement"></a>Requisitos de las direcciones IP públicas
+
 ### <a name="private-peering"></a>Emparejamiento privado
 Puede usar direcciones IPv4 públicas o privadas para el emparejamiento privado. Proporcionamos un aislamiento completo del tráfico para que no sea posible que se solapen las direcciones con otros clientes en caso de un emparejamiento privado. Estas direcciones no se anuncian en Internet. 
+
 
 ### <a name="public-peering"></a>Emparejamiento público
 La ruta de acceso de emparejamiento público de Azure le permite conectarse a todos los servicios hospedados en Azure a través de sus direcciones IP públicas. Puede tratarse tanto de los servicios que se enumeran en [P+F de ExpressRoute](expressroute-faqs.md) como de los que hospedan los ISV en Microsoft Azure. La conectividad con servicios de Microsoft Azure en el emparejamiento público siempre se inicia desde la red a la red de Microsoft. Debe usar direcciones IP públicas para el tráfico destinado a la red de Microsoft.
 
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
-El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y Dynamics 365. Microsoft admite la conectividad bidireccional en el emparejamiento de Microsoft. El tráfico destinado a los servicios en la nube de Microsoft debe usar direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft.
+El emparejamiento de Microsoft le permite conectarse a los servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y Dynamics 365. Microsoft admite la conectividad bidireccional en el emparejamiento de Microsoft. El tráfico destinado a los servicios en la nube de Microsoft debe usar direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft.
 
 Asegúrese de que la dirección IP y el número AS se registran en uno de los registros que se muestran a continuación.
 
@@ -119,7 +120,7 @@ Las rutas predeterminadas solo se permiten en sesiones de configuración de pare
 > 
 > 
 
-## <a name="support-for-bgp-communities"></a>Soporte técnico para las comunidades de BGP
+## <a name="bgp"></a>Soporte técnico para las comunidades de BGP
 Esta sección proporciona información general de cómo se usarán las comunidades de BGP con ExpressRoute. Microsoft anunciará rutas en las rutas de acceso de configuración de pares privados y de Microsoft con rutas etiquetadas con valores de la comunidad adecuada. La razón para hacerlo y los detalles de los valores de la comunidad se describen a continuación. Sin embargo, Microsoft no acepta los valores de comunidad etiquetados en las rutas anunciadas a Microsoft.
 
 Si se conecta a Microsoft a través de ExpressRoute en cualquier ubicación de configuración de pares dentro de una región geopolítica, tendrá acceso a todos los servicios en la nube de Microsoft en todas las regiones que se encuentren dentro de los límites geopolíticos. 

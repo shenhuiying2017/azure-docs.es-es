@@ -46,6 +46,7 @@
 ### [Portales de búsqueda de registros](log-analytics-log-search-portals.md)
 #### [Uso del portal de búsqueda de registros](log-analytics-log-search-log-search-portal.md)
 ### [Transición desde el lenguaje heredado](log-analytics-log-search-transition.md)
+### [Conector de Flow](log-analytics-flow-tutorial.md)
 
 ## Análisis de datos
 ### [Paneles](log-analytics-dashboards.md)
@@ -87,7 +88,8 @@
 ### [Office 365](../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Evaluación de SCOM](log-analytics-scom-assessment.md)
 ### [Auditoría de seguridad](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
-### [Service Fabric](log-analytics-service-fabric.md)
+### [Service Fabric con PowerShell](log-analytics-service-fabric.md)
+#### [Service Fabric con Azure Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 ### [Mapa de servicio](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Evaluación de SQL](log-analytics-sql-assessment.md)
 ### [Surface Hub](log-analytics-surface-hubs.md)

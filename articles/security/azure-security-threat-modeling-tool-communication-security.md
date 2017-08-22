@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 125a9cd2ac9892a090b729a0a5a5a2f7d4580507
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 955d67795caff67c1ffff55f74f04622c952ed05
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -27,15 +27,15 @@ ms.lasthandoff: 07/21/2017
 | --------------- | ------- |
 | Centro de eventos de Azure | <ul><li>[Protección de las comunicaciones con el centro de eventos mediante SSL/TLS](#comm-ssltls)</li></ul> |
 | Dynamics CRM | <ul><li>[Comprobación de los privilegios de cuenta de servicio y de que las páginas de ASP.NET o los servicios personalizados respetan la seguridad de CRM](#priv-aspnet)</li></ul> |
-| Factoría de datos de Azure | <ul><li>[Uso de Data Management Gateway durante la conexión del servidor SQL Server local a Azure Data Factory](#sqlserver-factory)</li></ul> |
+| Azure Data Factory | <ul><li>[Uso de Data Management Gateway durante la conexión del servidor SQL Server local a Azure Data Factory](#sqlserver-factory)</li></ul> |
 | Identity Server | <ul><li>[Comprobación de que todo el tráfico a Identity Server se transmite a través de una conexión HTTPS](#identity-https)</li></ul> |
 | Aplicación web | <ul><li>[Comprobación de certificados X.509 utilizados para autenticar las conexiones SSL, TLS y DTLS](#x509-ssltls)</li><li>[Configuración de un certificado SSL para un dominio personalizado en Azure App Service](#ssl-appservice)</li><li>[Direccionamiento forzoso de todo el tráfico a Azure App Service a través de una conexión HTTPS](#appservice-https)</li><li>[Habilitación de seguridad de transporte estricto HTTP (HSTS)](#http-hsts)</li></ul> |
 | Base de datos | <ul><li>[Comprobación de cifrado de la conexión de SQL Server y validación de certificados](#sqlserver-validation)</li><li>[Aplicación forzosa de comunicación cifrada a SQL Server](#encrypted-sqlserver)</li></ul> |
-| Almacenamiento de Azure | <ul><li>[Comprobación de que la comunicación a Azure Storage se realiza a través de HTTPS](#comm-storage)</li><li>[Validación de hash MD5 después de descargar blob si no se puede habilitar HTTPS](#md5-https)</li><li>[Uso de un cliente compatible con SMB 3.0 para garantizar el cifrado de datos en tránsito en recursos compartidos de Azure File](#smb-shares)</li></ul> |
+| Azure Storage | <ul><li>[Comprobación de que la comunicación a Azure Storage se realiza a través de HTTPS](#comm-storage)</li><li>[Validación de hash MD5 después de descargar blob si no se puede habilitar HTTPS](#md5-https)</li><li>[Uso de un cliente compatible con SMB 3.0 para garantizar el cifrado de datos en tránsito en recursos compartidos de Azure File](#smb-shares)</li></ul> |
 | Cliente móvil | <ul><li>[Implementación de asignación de certificados](#cert-pinning)</li></ul> |
 | WCF | <ul><li>[Habilitación de HTTPS: canal de transporte seguro](#https-transport)</li><li>[WCF: establecimiento del nivel de protección de seguridad de mensajes en EncryptAndSign](#message-protection)</li><li>[WCF: uso de una cuenta con privilegios mínimos para ejecutar el servicio WCF](#least-account-wcf)</li></ul> |
 | API Web | <ul><li>[Direccionamiento forzoso de todo el tráfico a API web a través de una conexión HTTPS](#webapi-https)</li></ul> |
-| Caché en Redis de Azure | <ul><li>[Comprobación de que la comunicación a Azure Redis Cache se realiza a través de SSL](#redis-ssl)</li></ul> |
+| Azure Redis Cache | <ul><li>[Comprobación de que la comunicación a Azure Redis Cache se realiza a través de SSL](#redis-ssl)</li></ul> |
 | Puerta de enlace de campo de IoT | <ul><li>[Protección de la comunicación entre el dispositivo y la puerta de enlace de campo](#device-field)</li></ul> |
 | Puerta de enlace de la nube de IoT | <ul><li>[Protección de la comunicación entre el dispositivo y la puerta de enlace de nube mediante SSL/TLS](#device-cloud)</li></ul> |
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 07/21/2017
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| Componente               | Factoría de datos de Azure | 
+| Componente               | Azure Data Factory | 
 | Fase de SDL               | Implementación |  
 | Tecnologías aplicables | Genérico |
 | Attributes              | Tipos de servicios vinculados: Azure y local |
@@ -102,7 +102,7 @@ ms.lasthandoff: 07/21/2017
 | Fase de SDL               | Compilación |  
 | Tecnologías aplicables | Genérico |
 | Attributes              | EnvironmentType: Azure |
-| Referencias              | [Habilitación de HTTPS para una aplicación en el servicio de aplicaciones de Azure](https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/) |
+| Referencias              | [Habilitación de HTTPS para una aplicación en Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/) |
 | Pasos | De forma predeterminada, Azure ya habilita HTTPS para cada aplicación con un certificado comodín para el dominio *.azurewebsites.net. Sin embargo, al igual que todos los dominios comodín, no es tan seguro como usar un dominio personalizado con su propio certificado. [Más información](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). Se recomienda habilitar SSL para el dominio personalizado a través del que se accederá a la aplicación implementada.|
 
 ## <a id="appservice-https"></a>Direccionamiento forzoso de todo el tráfico a Azure App Service a través de una conexión HTTPS
@@ -114,7 +114,7 @@ ms.lasthandoff: 07/21/2017
 | Tecnologías aplicables | Genérico |
 | Attributes              | EnvironmentType: Azure |
 | Referencias              | [Exigencia de HTTPS en Azure App Service]https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/#4-enforce-https-on-your-app) |
-| Pasos | <p>Aunque Azure ya habilita HTTPS para los servicios de aplicaciones de Azure con un certificado comodín para el dominio *.azurewebsites.net, no lo exige. Los visitantes pueden seguir accediendo a la aplicación mediante HTTP, lo que puede comprometer la seguridad de la aplicación, por lo que debe exigirse el uso de HTTPS explícitamente. Las aplicaciones de ASP.NET MVC deben utilizar el [filtro RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) que obliga a que una solicitud HTTP no segura se vuelva a enviar a través de HTTPS.</p><p>También es posible utilizar el módulo URL Rewrite, incluido con Azure App Service, para exigir el uso de HTTPS. El módulo URL Rewrite permite a los desarrolladores definir reglas que se aplican a las solicitudes entrantes antes de que las solicitudes lleguen a su aplicación. Las reglas de URL Rewrite se definen en el archivo web.config, que se almacena en la raíz de la aplicación.</p>|
+| Pasos | <p>Aunque Azure ya habilita HTTPS para Azure App Services con un certificado comodín para el dominio *.azurewebsites.net, no lo exige. Los visitantes pueden seguir accediendo a la aplicación mediante HTTP, lo que puede comprometer la seguridad de la aplicación, por lo que debe exigirse el uso de HTTPS explícitamente. Las aplicaciones de ASP.NET MVC deben utilizar el [filtro RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) que obliga a que una solicitud HTTP no segura se vuelva a enviar a través de HTTPS.</p><p>También es posible utilizar el módulo URL Rewrite, incluido con Azure App Service, para exigir el uso de HTTPS. El módulo URL Rewrite permite a los desarrolladores definir reglas que se aplican a las solicitudes entrantes antes de que las solicitudes lleguen a su aplicación. Las reglas de URL Rewrite se definen en el archivo web.config, que se almacena en la raíz de la aplicación.</p>|
 
 ### <a name="example"></a>Ejemplo
 El ejemplo siguiente contiene una regla básica de URL Rewrite que impone el uso de HTTPS a todo el tráfico entrante.
@@ -175,7 +175,7 @@ Esta regla funciona devolviendo un código de estado HTTP de 301 (redirección p
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| Componente               | Almacenamiento de Azure | 
+| Componente               | Azure Storage | 
 | Fase de SDL               | Implementación |  
 | Tecnologías aplicables | Genérico |
 | Attributes              | N/D  |
@@ -186,12 +186,12 @@ Esta regla funciona devolviendo un código de estado HTTP de 301 (redirección p
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| Componente               | Almacenamiento de Azure | 
+| Componente               | Azure Storage | 
 | Fase de SDL               | Compilación |  
 | Tecnologías aplicables | Genérico |
 | Attributes              | StorageType: blob |
 | Referencias              | [Información general de MD5 de Windows Azure Blob](https://blogs.msdn.microsoft.com/windowsazurestorage/2011/02/17/windows-azure-blob-md5-overview/) |
-| Pasos | <p>El servicio Windows Azure Blob proporciona mecanismos para garantizar la integridad de datos tanto en el nivel de la aplicación como en el de transporte. Si por algún motivo debe utilizar HTTP en lugar de HTTPS y está trabajando con blobs en bloques, puede usar la comprobación de MD5 para ayudar a comprobar la integridad de los blobs que se transfieren.</p><p>Esto le ayudará con la protección frente a errores de red o de la capa de transporte, pero no necesariamente con ataques de intermediarios. Si puede usar HTTPS, que proporciona seguridad de nivel de transporte, el uso de la comprobación de MD5 es redundante e innecesario.</p>|
+| Pasos | <p>Azure Blob service proporciona mecanismos para garantizar la integridad de datos tanto en el nivel de la aplicación como en el de transporte. Si por algún motivo debe utilizar HTTP en lugar de HTTPS y está trabajando con blobs en bloques, puede usar la comprobación de MD5 para ayudar a comprobar la integridad de los blobs que se transfieren.</p><p>Esto le ayudará con la protección frente a errores de red o de la capa de transporte, pero no necesariamente con ataques de intermediarios. Si puede usar HTTPS, que proporciona seguridad de nivel de transporte, el uso de la comprobación de MD5 es redundante e innecesario.</p>|
 
 ## <a id="smb-shares"></a>Uso de un cliente compatible con SMB 3.0 para garantizar el cifrado de datos en tránsito en recursos compartidos de Azure File
 
@@ -208,40 +208,76 @@ Esta regla funciona devolviendo un código de estado HTTP de 301 (redirección p
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| Componente               | Almacenamiento de Azure | 
+| Componente               | Azure Storage | 
 | Fase de SDL               | Compilación |  
-| Tecnologías aplicables | Genérico, Windows Phone |
-| Attributes              | N/D  |
+| Tecnologías aplicables | Genérico, Windows Mobile |
+| Atributos              | N/D  |
 | Referencias              | [Asignación de certificados y claves públicas](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
-| Pasos | <p>La asignación de certificados protege frente a ataques de tipo "man in the middle". La asignación es el proceso de asociar un host a su certificado X509 o clave pública esperados. Tras determinar el certificado o clave pública de un host, dicho certificado o clave pública se asocia o asigna al host. </p><p>De este modo, cuando un atacante intenta realizar un ataque de tipo "man in the middle" SSL, durante el protocolo de enlace SSL la clave del servidor del atacante será distinta a la clave del certificado asignado, por lo que la solicitud se descartará, lo que evita que pueda realizarse una asociación de certificados mediante ataque de tipo "man in the middle" al implementar el delegado `ServerCertificateValidationCallback` de ServicePointManager.</p>|
+| Pasos | <p>La asignación de certificados protege frente a ataques de tipo "man in the middle" (MITM) basados en TLS. La asignación es el proceso de asociar una conexión TLS a un certificado X509 o clave pública esperados. Esta asociación puede tener lugar después de la primera conexión correcta ("confianza en el primer uso") o antes (lo que requeriría una carga previa).</p><p>Cuando un adversario intenta realizar un ataque MITM TLS, el cliente se asegurará de que la clave o el certificado recibidos coincida con el valor esperado. Por lo tanto, incluso si el adversario tuviera un certificado de confianza o válido de algún otro modo, la conexión seguiría sin establecerse.</p><p>La asignación del certificado se puede implementar en .NET implementando el delegado [HttpWebRequest.ServerCertificateValidationCallback](https://docs.microsoft.com/dotnet/api/system.net.httpwebrequest.servercertificatevalidationcallback) (opción preferida) o [ServicePointManager.ServerCertificateValidationCallback](https://docs.microsoft.com/dotnet/api/system.net.servicepointmanager.servercertificatevalidationcallback). En el ejemplo siguiente, se validará con una clave pública codificada y un algoritmo, pero en una aplicación real, esos valores se deben almacenar en un área de configuración segura y se actualizan según sea necesario.</p>|
 
 ### <a name="example"></a>Ejemplo
 ```C#
-private static String PUB_KEY = "30818902818100C4A06B7B52F8D17DC1CCB47362" +
-    "C64AB799AAE19E245A7559E9CEEC7D8AA4DF07CB0B21FDFD763C63A313A668FE9D764E" +
-    "D913C51A676788DB62AF624F422C2F112C1316922AA5D37823CD9F43D1FC54513D14B2" +
-    "9E36991F08A042C42EAAEEE5FE8E2CB10167174A359CEBF6FACC2C9CA933AD403137EE" +
-    "2C3F4CBED9460129C72B0203010001";
+using System;
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography;
 
-public static void Main(string[] args)
+namespace CertificatePinningExample
 {
-  ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-  WebRequest wr = WebRequest.Create("https://encrypted.google.com/");
-  wr.GetResponse();
-}
+    class CertificatePinningExample
+    {
+        /* Note: In this example, we're hardcoding a the certificate's public key and algorithm for 
+           demonstration purposes. In a real-world application, this should be stored in a secure
+           configuration area that can be updated as needed. */
 
-public static bool PinPublicKey(object sender, X509Certificate certificate, X509Chain chain,
-                                SslPolicyErrors sslPolicyErrors)
-{
-  if (null == certificate)
-    return false;
+        private static readonly string PINNED_ALGORITHM = "RSA";
 
-  String pk = certificate.GetPublicKeyString();
-  if (pk.Equals(PUB_KEY))
-    return true;
+        private static readonly string PINNED_PUBLIC_KEY = "3082010A0282010100B0E75B7CBE56D31658EF79B3A1" +
+            "294D506A88DFCDD603F6EF15E7F5BCBDF32291EC50B2B82BA158E905FE6A83EE044A48258B07FAC3D6356AF09B2" +
+            "3EDAB15D00507B70DB08DB9A20C7D1201417B3071A346D663A241061C151B6EC5B5B4ECCCDCDBEA24F051962809" +
+            "FEC499BF2D093C06E3BDA7D0BB83CDC1C2C6660B8ECB2EA30A685ADE2DC83C88314010FFC7F4F0F895EDDBE5C02" +
+            "ABF78E50B708E0A0EB984A9AA536BCE61A0C31DB95425C6FEE5A564B158EE7C4F0693C439AE010EF83CA8155750" +
+            "09B17537C29F86071E5DD8CA50EBD8A409494F479B07574D83EDCE6F68A8F7D40447471D05BC3F5EAD7862FA748" +
+            "EA3C92A60A128344B1CEF7A0B0D94E50203010001";
 
-  // Bad dog
-  return false;
+
+        public static void Main(string[] args)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://azure.microsoft.com");
+            request.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) =>
+            {
+                if (certificate == null || sslPolicyErrors != SslPolicyErrors.None)
+                {
+                    // Error getting certificate or the certificate failed basic validation
+                    return false;
+                }
+
+                var targetKeyAlgorithm = new Oid(certificate.GetKeyAlgorithm()).FriendlyName;
+                var targetPublicKey = certificate.GetPublicKeyString();
+                
+                if (targetKeyAlgorithm == PINNED_ALGORITHM &&
+                    targetPublicKey == PINNED_PUBLIC_KEY)
+                {
+                    // Success, the certificate matches the pinned value.
+                    return true;
+                }
+                // Reject, either the key or the algorithm does not match the expected value.
+                return false;
+            };
+
+            try
+            {
+                var response = (HttpWebResponse)request.GetResponse();
+                Console.WriteLine($"Success, HTTP status code: {response.StatusCode}");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Failure, {ex.Message}");
+            }
+            Console.WriteLine("Press any key to end.");
+            Console.ReadKey();
+        }
+    }
 }
 ```
 
@@ -341,12 +377,12 @@ public class ValuesController : ApiController
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| Componente               | Caché en Redis de Azure | 
+| Componente               | Azure Redis Cache | 
 | Fase de SDL               | Compilación |  
 | Tecnologías aplicables | Genérico |
 | Attributes              | N/D  |
 | Referencias              | [Soporte técnico de Azure Redis SSL](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| Pasos | El servidor de Redis no admite SSL desde el principio, pero hace Caché en Redis de Azure. Si se conecta a Caché en Redis de Azure y el cliente admite SSL, como StackExchange.Redis, deberá utilizar SSL. De forma predeterminada, el puerto no SSL está deshabilitado para las instancias nuevas de Azure Redis Cache. Asegúrese de que no se modifiquen los valores predeterminados seguros a menos que exista una dependencia de compatibilidad con SSL para los clientes de Redis. |
+| Pasos | El servidor de Redis no admite SSL desde el principio, pero Azure Redis Cache sí. Si se conecta a Azure Redis Cache y el cliente admite SSL, como StackExchange.Redis, deberá utilizar SSL. De forma predeterminada, el puerto no SSL está deshabilitado para las instancias nuevas de Azure Redis Cache. Asegúrese de que no se modifiquen los valores predeterminados seguros a menos que exista una dependencia de compatibilidad con SSL para los clientes de Redis. |
 
 Tenga en cuenta que Redis está diseñado para que puedan acceder clientes de confianza dentro de entornos de confianza. Por ello, normalmente no es recomendable exponer la instancia de Redis directamente a Internet o, en general, a un entorno desde el que clientes que no sean de confianza puedan acceder directamente el puerto TCP de Redis o a un socket de UNIX. 
 

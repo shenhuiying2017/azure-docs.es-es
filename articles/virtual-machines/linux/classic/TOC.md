@@ -2,15 +2,15 @@
 ## [Imágenes](about-images.md)
 ## [Extensiones de máquina virtual](agents-and-extensions.md)
 ## [Disponibilidad](configure-availability.md)
-## [P+F](faq.md)
+## [Preguntas más frecuentes](faq.md)
 
-# [Primeros pasos](../opensource-links.md)
+# Introducción
 ## [Creación de una máquina virtual Linux mediante el portal](createportal.md)
 ## [Instalación de la CLI de Azure](../../../cli-install-nodejs.md)
 ## [Creación de claves SSH](../mac-create-ssh-keys.md)
 
-# Cómo
-## [Proceso](../intro-on-azure.md)
+# Procedimientos
+## Proceso
 ### [Creación de una máquina virtual personalizada](create-custom.md)
 ### [Captura de una máquina virtual](capture-image.md)
 ### [Uso de Escritorio remoto con una máquina virtual Linux](remote-desktop.md)
@@ -54,14 +54,12 @@
 ### [Aplicación web con Visual Studio](web-app-visual-studio.md)
 ### [Clústeres de RDMA para ejecutar aplicaciones MPI](rdma-cluster.md)
 ### [Uso del complemento esclavo de Azure con Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC Pack
-### [Clúster de RDMA de Windows para ejecutar aplicaciones MPI](hpcpack-cluster.md)
-### [Clúster de Windows HPC con el script de implementación de HPC Pack IaaS](hpcpack-cluster-starccm.md)
-### [Administración del número y la disponibilidad de los nodos de proceso](hpcpack-cluster-powershell-script.md)
-### [Incorporación de nodos a petición](hpcpack-cluster-openfoam.md)
-### [Escalado automático de recursos](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [Creación de un clúster para cargas de trabajo de Linux](hpcpack-cluster-powershell-script.md)
+#### [Administración de un clúster con nodos de Linux](hpcpack-cluster.md)
+#### [Ejecutar STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [Ejecutar OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [Ejecutar NAMD](hpcpack-cluster-namd.md)
 
 ## Solución de problemas
 ### [Implementaciones de máquina virtual](troubleshoot-deployment-new-vm.md)

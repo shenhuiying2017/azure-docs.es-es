@@ -10,87 +10,74 @@ tags:
 keywords: "azure functions, functions, procesamiento de eventos, Cosmos DB, proceso dinámico, arquitectura sin servidor"
 ms.assetid: 
 ms.service: functions
-ms.devlang: multiple
+ms.devlang: csharp
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/08/2017
-ms.author: rachelap
+ms.date: 08/03/2017
+ms.author: rachelap, glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 492c916a493bb8d5c5415fc517506e5c1ccffc56
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 00e9a76fed5743d7d74bafd333b87edf59a4f8bb
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Almacenamiento de datos no estructurados mediante Azure Functions y Cosmos DB
 
-Azure Cosmos DB es una excelente manera de almacenar datos no estructurados y JSON. En combinación con Azure Functions, Cosmos DB facilita y agiliza el almacenamiento de datos con mucho menos código que el necesario para almacenar datos en una base de datos relacional.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es una excelente manera de almacenar datos no estructurados y JSON. En combinación con Azure Functions, Cosmos DB facilita y agiliza el almacenamiento de datos con mucho menos código que el necesario para almacenar datos en una base de datos relacional.
 
-En este tutorial se describe cómo usar Azure Portal para crear una función de Azure Function que almacena datos no estructurados en un documento de Cosmos DB. 
+En Azure Functions, los enlaces de entrada y salida proporcionan una manera declarativa de conectarse a los datos de servicio externos desde su función. En este tema, aprenda a actualizar una función de C# existente para agregar un enlace de salida que almacene los datos no estructurados en un documento de Cosmos DB. 
+
+![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
+Para completar este tutorial:
+
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
-
-## <a name="create-a-function"></a>Creación de una función
-
-Cree un nuevo webhook genérico de C# denominado `MyTaskList`.
-
-1. Expanda la lista de funciones existente y haga clic en el signo + para crear una nueva función.
-1. Seleccione GenericWebHook CSharp y asígnele el nombre `MyTaskList`.
-
-![Adición de una nueva instancia de Function App de webhook genérica de C#](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-new-functionapp.png)
 
 ## <a name="add-an-output-binding"></a>Adición de un enlace de salida
 
-Una función de Azure puede tener un desencadenador y cualquier número de enlaces de entrada o salida. En este ejemplo, vamos a usar un desencadenador de solicitud HTTP y el documento de Cosmos DB como enlace de salida.
+1. Expanda su Function App y su función.
 
-1. Haga clic en la pestaña *Integrar* de la función para ver o modificar el desencadenador y los enlaces de la función.
-1. Elija el vínculo *Nueva salida* situado en la parte superior derecha de la página.
+1. Seleccione **Integrar** y **+ Nueva salida**, que se encuentra en la parte superior derecha de la página. Elija **Azure Cosmos DB** y haga clic en **Seleccionar**.
 
-Nota: El desencadenador de la solicitud HTTP ya está configurado, sin embargo, debe agregar el enlace de documento de Cosmos DB.
+    ![Adición de un nuevo enlace de salida de Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
 
-![Adición del nuevo enlace de salida de Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
+3. Use la configuración de **salida de Azure Cosmos DB**, tal y como se especifica en la tabla: 
 
-1. Escriba la información necesaria para crear el enlace. Use la tabla siguiente para determinar los valores.
+    ![Configuración del enlace de salida de Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
-![Configuración del enlace de salida de Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
+    | Configuración      | Valor sugerido  | Descripción                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **Nombre del parámetro de documento** | taskDocument | Nombre que hace referencia al objeto de Cosmos DB en el código. |
+    | **Nombre de la base de datos** | taskDatabase | Nombre de la base de datos para guardar documentos. |
+    | **Nombre de colección** | TaskCollection | Nombre de colección de bases de datos de Cosmos DB. |
+    | **Si es true, crea la base de datos y la colección de Cosmos DB** | Activado | La colección no existe, por lo que se crea. |
 
-|  Campo | Valor  |
-|---|---|
-| Nombre del parámetro de documento | Nombre que hace referencia al objeto de Cosmos DB en el código |
-| Nombre de la base de datos | Nombre de la base de datos para guardar documentos |
-| Nombre de colección | Nombre de la agrupación de bases de datos de Cosmos DB |
-| ¿Le gusta Cosmos DB y la colección que se ha creado? | Sí o no |
-| Conexión de la cuenta de Cosmos DB | Cadena de conexión que apunta a la base de datos de Cosmos DB |
+4. Seleccione **Nuevo** junto a la etiqueta **Conexión al documento de Cosmos DB** y elija **+ Crear nuevo**. 
 
-También debe configurar la conexión a la base de datos de Cosmos DB.
+5. Use la configuración de **Nueva cuenta** tal y como se especifica en la tabla: 
 
-1. Haga clic en el vínculo "Nuevo" junto a la etiqueta *Conexión al documento de Cosmos DB".
-1. Rellene los campos y seleccione las opciones apropiadas necesarias para crear el documento de Cosmos DB.
+    ![Configuración de la conexión de Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
 
-![Configuración de la conexión de Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
+    | Configuración      | Valor sugerido  | Descripción                                |
+    | ------------ | ---------------- | ------------------------------------------ |
+    | **Id** | Nombre de base de datos | Identificador único para la base de datos de Cosmos DB  |
+    | **API** | SQL (DocumentDB) | Seleccione la API de base de datos de documentos.  |
+    | **Suscripción** | Suscripción de Azure | Suscripción de Azure  |
+    | **Grupo de recursos** | myResourceGroup |  Use el grupo de recursos existente que contiene la aplicación de función. |
+    | **Ubicación**  | WestEurope | Seleccione una ubicación cerca de la aplicación de función o de otras aplicaciones que usen los documentos almacenados.  |
 
-|  Campo | Valor  |
-|---|---|
-| Id | Identificador único para la base de datos de Cosmos DB  |
-| NoSQL API | Cosmos DB o MongoDB  |
-| La suscripción | Suscripción a MSDN  |
-| Grupo de recursos  | Cree un nuevo grupo o seleccione uno existente.  |
-| Ubicación  | WestEurope  |
-
-1. Haga clic en el botón *Ok* (Aceptar). Debe esperar unos minutos mientras Azure crea los recursos.
-1. Haga clic en el botón *Save* (Guardar).
+6. Haga clic en **Aceptar** para crear la base de datos. La operación de creación de la base de datos puede tardar unos minutos. Después de crear la base de datos, la cadena de conexión de base de datos se almacena como una configuración de aplicación de función. El nombre de esta configuración de aplicación se inserta en la **conexión de la cuenta de Cosmos DB**. 
+ 
+8. Después de establece la cadena de conexión, seleccione **Guardar** para crear el enlace.
 
 ## <a name="update-the-function-code"></a>Actualización del código de la función
 
-Reemplace el código de plantilla de la función por lo siguiente:
-
-Tenga en cuenta que el código de este ejemplo solo está disponible en C#.
+Reemplace el código existente de la función de C# por el código siguiente:
 
 ```csharp
 using System.Net;
@@ -124,38 +111,31 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
 }
 
 ```
-
-Este ejemplo de código lee las cadenas de consulta de la solicitud HTTP y las asigna como miembros de un objeto `taskDocument`. El objeto `taskDocument` guarda automáticamente los datos en la base de datos de Cosmos DB e incluso crea la base de datos en el primer uso.
+Este ejemplo de código lee las cadenas de consulta de la solicitud HTTP y las asigna a los campos del objeto `taskDocument`. El enlace `taskDocument` envía los datos del objeto desde este parámetro de enlace para almacenarlos en la base de datos de documentos enlazada. La base de datos se crea la primera vez que se ejecuta la función.
 
 ## <a name="test-the-function-and-database"></a>Prueba de la función y la base de datos
 
-1. En la pestaña de función, haga clic en el vínculo *Prueba* a la derecha del portal y especifique las siguientes cadenas de consulta HTTP:
+1. Expanda la ventana derecha y seleccione **Probar**. En **Consulta**, haga clic en **+ Agregar parámetro** y agregue los siguientes parámetros a la cadena de consulta:
 
-| Cadena de consulta | Valor |
-|---|---|
-| name | Chris P. Bacon |
-| task | Realización de un sándwich BLT |
-| duedate | 05/12/2017 |
+    + `name`
+    + `task`
+    + `duedate`
 
-1. Haga clic en el vínculo *Ejecutar*.
-1. Compruebe que la función devuelve un código de respuesta *HTTP 200 OK*.
+2. Haga clic en **Ejecutar** y compruebe que se devuelve un estado 200.
 
-![Configuración del enlace de salida de Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
+    ![Configuración del enlace de salida de Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
 
-Confirme que se realizó una entrada en la base de datos de Cosmos DB.
+1. En el lado izquierdo de Azure Portal, expanda la barra de iconos, escriba `cosmos` en el campo de búsqueda y seleccione **Azure Cosmos DB**.
 
-1. Busque la base de datos en Azure Portal y selecciónela.
-1. Seleccione la opción *Explorador de datos*.
-1. Expanda los nodos hasta que llegue a las entradas del documento.
-1. Confirme que la entrada de la base de datos. Habrá metadatos adicionales en la base de datos junto con los datos.
+    ![Búsqueda del servicio Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-![Comprobación de la entrada de Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
+2. Seleccione la base de datos que creó y luego seleccione **Explorador de datos**. Expanda los nodos de **Colecciones**, seleccione el nuevo documento y confirme que el documento contiene los valores de la cadena de consulta, junto con algunos metadatos adicionales. 
 
-Si los datos están en el documento, significa que ha creado correctamente una función de Azure que almacena datos no estructurados en una base de datos de Cosmos DB.
+    ![Comprobación de la entrada de Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
+Ha agregado correctamente un enlace al desencadenador HTTP que almacena datos no estructurados en una base de datos de Cosmos DB.
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

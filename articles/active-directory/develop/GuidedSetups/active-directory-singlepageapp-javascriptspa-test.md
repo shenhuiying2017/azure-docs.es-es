@@ -3,7 +3,7 @@
 
 Si se usa Visual Studio, presione `F5` para ejecutar el proyecto. El explorador se abrirá y le dirigirá a *http://localhost:{port}* donde verá el botón *Call Microsoft Graph API* (Llamar a API de Microsoft Graph).
 
-Si no se utiliza Visual Studio, asegúrese de que se inicia el servidor web y de que la carpeta que contiene la aplicación web de JavaScript está configurada en el servidor web. Abra el explorador y escriba *http://localhost: {puerto}/rutaDeAcceso*: donde el *puerto* corresponde al puerto que está escuchando el servidor web y la *rutaDeAcceso* es la ruta de acceso del archivo index.html.
+Si no se utiliza Visual Studio, asegúrese de que se inicia el servidor web y de que la carpeta que contiene la aplicación web de JavaScript está configurada en el servidor web. Abra el explorador y escriba *http://localhost:{puerto}/rutaDeAcceso*: donde el *puerto* corresponde al puerto que está escuchando el servidor web y la *rutaDeAcceso* es la ruta de acceso del archivo index.html.
 
 Haga clic en el botón *Llamar a API de Microsoft Graph*. Si es la primera vez, se mostrará una ventana emergente en la que se pedirá al usuario que inicie sesión.
  

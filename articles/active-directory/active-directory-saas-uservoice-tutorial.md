@@ -1,152 +1,217 @@
 ---
 title: "Tutorial: Integración de Azure Active Directory con UserVoice | Microsoft Docs"
-description: "Aprenda cómo usar UserVoice con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y UserVoice."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 684a405b-8932-46f6-b43a-4d97a42b6b87
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 07/21/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
-ms.openlocfilehash: 592fc838645dbc05b710b1bd83fd7c0135688844
-ms.lasthandoff: 02/23/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: fcfda1c2ecb162fb93b70574a18bd745b72ee4db
+ms.contentlocale: es-es
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: integración de Azure Active Directory con UserVoice
-El objetivo de este tutorial es mostrar la integración de Azure y UserVoice.  
-En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+# <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: Integración de Azure Active Directory con UserVoice
 
-* Una suscripción de Azure válida
-* Un inquilino de UserVoice
+En este tutorial, obtendrá información sobre cómo integrar UserVoice con Azure Active Directory (Azure AD).
 
-Después de completar este tutorial, los usuarios de Azure AD que ha asignado a UserVoice podrán realizar un inicio de sesión único en la aplicación en el sitio de la compañía de UserVoice (inicio de sesión iniciado por el proveedor de servicios) o con la [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md)
+La integración de UserVoice con Azure AD proporciona las siguientes ventajas:
 
-La situación descrita en este tutorial consta de los siguientes bloques de creación:
+- Puede controlar en Azure AD quién tiene acceso a UserVoice.
+- Puede permitir que los usuarios inicien sesión automáticamente en UserVoice (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-1. Habilitación de la integración de aplicaciones en UserVoice
-2. Configuración del inicio de sesión único
-3. Configuración del aprovisionamiento de usuario
-4. Asignación de usuarios
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-![Escenario](./media/active-directory-saas-uservoice-tutorial/IC777514.png "Escenario")
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="enabling-the-application-integration-for-uservoice"></a>Habilitación de la integración de aplicaciones en UserVoice
-El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para UserVoice.
+Para configurar la integración de Azure AD con UserVoice, necesita los siguientes elementos:
 
-### <a name="to-enable-the-application-integration-for-uservoice-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para UserVoice:
-1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
+- Una suscripción de Azure AD
+- Una suscripción habilitada para el inicio de sesión único en UserVoice
+
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
+
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Descripción del escenario
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+
+1. Agregar UserVoice desde la galería
+2. Configuración y comprobación del inicio de sesión único de Azure AD
+
+## <a name="adding-uservoice-from-the-gallery"></a>Agregar UserVoice desde la galería
+Para configurar la integración de UserVoice en Azure AD, deberá agregar UserVoice desde la galería a la lista de aplicaciones SaaS administradas.
+
+**Para agregar UserVoice desde la galería, realice los pasos siguientes:**
+
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+
+    ![Botón Azure Active Directory][1]
+
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+
+    ![Hoja Aplicaciones empresariales][2]
+    
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
+    ![Botón Nueva aplicación][3]
+
+4. En el cuadro de búsqueda, escriba **UserVoice**, seleccione **UserVoice** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![UserVoice en la lista de resultados](./media/active-directory-saas-uservoice-tutorial/tutorial_uservoice_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con UserVoice con un usuario de prueba llamado "Britta Simon".
+
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de UserVoice para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de UserVoice.
+
+Para establecer la relación de vínculo, en UserVoice, asigne el valor de **nombre de usuario** de Azure AD como valor de **Nombre de usuario**.
+
+Para configurar y probar el inicio de sesión único de Azure AD con UserVoice, es preciso completar los siguientes bloques de creación:
+
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de UserVoice](#create-a-uservoice-test-user)**: para tener un homólogo de Britta Simon en UserVoice que esté vinculado a su representación en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación UserVoice.
+
+**Para configurar el inicio de sesión único de Azure AD con UserVoice, realice los pasos siguientes:**
+
+1. En Azure Portal, en la página de integración de la aplicación **UserVoice**, haga clic en **Inicio de sesión único**.
+
+    ![Vínculo Configurar inicio de sesión único][4]
+
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+ 
+    ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/tutorial_uservoice_samlbase.png)
+
+3. En la sección **Dominio y direcciones URL de UserVoice**, lleve a cabo los pasos siguientes:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de UserVoice](./media/active-directory-saas-uservoice-tutorial/tutorial_uservoice_url.png)
+
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.UserVoice.com`.
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.UserVoice.com`
+
+    > [!NOTE] 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de UserVoice](https://www.uservoice.com/) para obtener estos valores.
+
+4. En la sección **Certificado de firma de SAML**, copie el valor de **HUELLA DIGITAL** del certificado.
+
+    ![Vínculo de descarga del certificado](./media/active-directory-saas-uservoice-tutorial/tutorial_uservoice_certificate.png) 
+
+5. Haga clic en el botón **Guardar** .
+
+    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/tutorial_general_400.png)
+
+6. En la sección **Configuración de UserVoice**, haga clic en **Configurar UserVoice** para abrir la ventana **Configurar inicio de sesión**. Copie los valores **Sign-Out URL y SAML Single Sign-On Service URL** (Dirección URL de cierre de sesión y Dirección URL del servicio de inicio de sesión único de SAML) de la **sección de referencia rápida**.
+
+    ![Configuración de UserVoice](./media/active-directory-saas-uservoice-tutorial/tutorial_uservoice_configure.png) 
+
+7. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de UserVoice como administrador.
+
+8. En la barra de herramientas de la parte superior, haga clic en **Configuración** y luego seleccione **Portal web** en el menú.
    
-    ![Active Directory](./media/active-directory-saas-uservoice-tutorial/IC700993.png "Active Directory")
+    ![Sección Configuración en la aplicación](./media/active-directory-saas-uservoice-tutorial/ic777519.png "Settings")
 
-2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
-
-3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
+9. En la pestaña **Portal web** de la sección **Autenticación del usuario**, haga clic en **Editar** para abrir la página de diálogo **Editar autenticación de usuario**.
    
-    ![Aplicaciones](./media/active-directory-saas-uservoice-tutorial/IC700994.png "Aplicaciones")
+    ![Pestaña Portal web](./media/active-directory-saas-uservoice-tutorial/ic777520.png "Web portal")
 
-4. Haga clic en **Agregar** en la parte inferior de la página.
+10. En la página de diálogo **Editar autenticación del usuario** , realice los pasos siguientes:
    
-    ![Agregar aplicaciones](./media/active-directory-saas-uservoice-tutorial/IC749321.png "Agregar aplicaciones")
-
-5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
-   
-    ![Agregar una aplicación de la galería](./media/active-directory-saas-uservoice-tutorial/IC749322.png "Agregar una aplicación de la galería")
-
-6. En el **cuadro de búsqueda**, escriba **UserVoice**.
-   
-    ![Galería de aplicaciones](./media/active-directory-saas-uservoice-tutorial/IC777513.png "Galería de aplicaciones")
-
-7. En el panel de resultados, seleccione **UserVoice** y luego haga clic en **Completar** para agregar la aplicación.
-   
-    ![UserVoice](./media/active-directory-saas-uservoice-tutorial/IC777810.png "UserVoice")
-
-## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en UserVoice con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
-La configuración de un inicio de sesión único para UserVoice requiere la recuperación de un valor de huella digital de un certificado.  
-Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
-
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
-1. En el Portal de Azure clásico, en la página de integración de la aplicación **UserVoice**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Configurar inicio de sesión único")
-
-2. En la página **How would you like users to sign on to UserVoice** (¿Cómo desea que los usuarios inicien sesión en UserVoice), seleccione **Inicio de sesión único de Microsoft Azure AD** y, a continuación, haga clic en **Siguiente**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configurar inicio de sesión único")
-
-3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **Dirección URL de inicio de sesión de UserVoice**, escriba la URL con el siguiente patrón: *https://\<nombre de inquilino\>UserVoice.com*" y, a continuación, haga clic en **Siguiente**.
-   
-    ![Configurar dirección URL de la aplicación](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Configurar dirección URL de la aplicación")
-
-4. En la página **Configurar inicio de sesión único en UserVoice**, para descargar su certificado, haga clic en**Descargar certificado** y guarde el archivo de certificado localmente como **c:\\UserVoice.cer**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Configurar inicio de sesión único")
-
-5. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de UserVoice como administrador.
-
-6. En la barra de herramientas de la parte superior, haga clic en Configuración y luego el portal web en el menú.
-   
-    ![Configuración](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Configuración")
-
-7. En la pestaña **Portal web**, en la sección **Autenticación del usuario**, haga clic en **Editar** para abrir la página del cuadro de diálogo **Editar autenticación de usuario**
-   
-    ![Portal web](./media/active-directory-saas-uservoice-tutorial/IC777520.png "Portal web")
-
-8. En la página de diálogo **Editar autenticación del usuario** , realice los pasos siguientes:
-   
-    ![Editar autenticación de usuario](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Editar autenticación de usuario")
+    ![Editar autenticación de usuario](./media/active-directory-saas-uservoice-tutorial/ic777521.png "Editar autenticación de usuario")
    
     a. Haga clic en **Inicio de sesión único (SSO)**.
  
-    b. En el Portal de Azure clásico, en la página del cuadro de diálogo **Configurar inicio de sesión único en UserVoice**, copie el valor de **Dirección URL de inicio de sesión remoto** y, a continuación, péguelo en el cuadro de texto **SSO Remote Sign-In** (Inicio de sesión remoto de SSO).
+    b. Pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que copió de Azure Portal en el cuadro de texto **SSO Remote Sign-In** (Inicio de sesión remoto de SSO).
 
-    c. En el Portal de Azure clásico, en la página de cuadro de diálogo **Configurar inicio de sesión único en UserVoice**, copie el valor de **Dirección URL de cierre de sesión remoto** y, a continuación, péguelo en el cuadro de texto **SSO Remote Sign-In ** (Cierre de sesión remoto de SSO).
+    c. Pegue el valor de **Sign-Out URL** (Dirección URL de cierre de sesión) que copió de Azure Portal en el cuadro de texto **SSO Remote Sign-Out** (Cierre de sesión remoto de SSO).
  
-    d. Copie el valor de **Huella digital** del certificado exportado y, a continuación, péguelo en el cuadro de texto **Current certificate SHA1 fingerprint ** (Huella digital de SHA1 del certificado actual).  
-      
-    > [!TIP]
-    > Para más información, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI)
-    > 
-    > 
-  
+    d. En el cuadro de texto **Current certificate SHA1 fingerprint** (Huella digital de SHA1 del certificado actual), pegue el valor de **Huella digital** que ha copiado de Azure Portal.
+    
     e. Haga clic en **Guardar configuración de autenticación**.
 
-9. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
-   
-    ![Configurar inicio de sesión único](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Configurar inicio de sesión único")
+> [!TIP]
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
-Para permitir que los usuarios de Azure AD inicien sesión en UserVoice, deben aprovisionarse en UserVoice.  
-En el caso de UserVoice, el aprovisionamiento es una tarea manual.
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para aprovisionar cuentas de usuario, realice estos pasos:
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+
+   ![Creación de un usuario de prueba de Azure AD][100]
+
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+
+1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+
+    ![Botón Azure Active Directory](./media/active-directory-saas-uservoice-tutorial/create_aaduser_01.png)
+
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/active-directory-saas-uservoice-tutorial/create_aaduser_02.png)
+
+3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+
+    ![Botón Agregar](./media/active-directory-saas-uservoice-tutorial/create_aaduser_03.png)
+
+4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+
+    ![Cuadro de diálogo Usuario](./media/active-directory-saas-uservoice-tutorial/create_aaduser_04.png)
+
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
+
+    c. Marque la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+
+    d. Haga clic en **Crear**.
+ 
+### <a name="create-a-uservoice-test-user"></a>Creación de un usuario de prueba de UserVoice
+
+Para permitir que los usuarios de Azure AD inicien sesión en UserVoice, deben aprovisionarse en UserVoice. En el caso de UserVoice, el aprovisionamiento es una tarea manual.
+
+### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para aprovisionar una cuenta de usuario, realice estos pasos:
 1. Inicie sesión en su inquilino de **UserVoice** .
 
 2. Vaya a **Configuración**.
    
-    ![Configuración](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Configuración")
+    ![Configuración](./media/active-directory-saas-uservoice-tutorial/ic777811.png "Configuración")
 
 3. Haga clic en **General**.
 
 4. Haga clic en **Agentes y permisos**.
    
-    ![Agentes y permisos](./media/active-directory-saas-uservoice-tutorial/IC777812.png "Agentes y permisos")
+    ![Agentes y permisos](./media/active-directory-saas-uservoice-tutorial/ic777812.png "Agentes y permisos")
 
 5. Haga clic en **Agregar administradores**.
    
-    ![Agregar administradores](./media/active-directory-saas-uservoice-tutorial/IC777813.png "Agregar administradores")
+    ![Agregar administradores](./media/active-directory-saas-uservoice-tutorial/ic777813.png "Agregar administradores")
 
 6. En el cuadro de diálogo **Invitar a administradores** , realice los pasos siguientes:
    
-    ![Invitar a administradores](./media/active-directory-saas-uservoice-tutorial/IC777814.png "Invitar a administradores")
+    ![Invitar a administradores](./media/active-directory-saas-uservoice-tutorial/ic777814.png "Invitar a administradores")
    
     a. En el cuadro de texto de correos electrónicos, escriba la dirección de correo electrónico de la cuenta que quiere aprovisionar y luego haga clic en **Agregar**.
    
@@ -154,22 +219,63 @@ En el caso de UserVoice, el aprovisionamiento es una tarea manual.
 
 > [!NOTE]
 > Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de UserVoice ofrecida por UserVoice para aprovisionar cuentas de usuario de AAD.
-> 
-> 
 
-## <a name="assigning-users"></a>Asignación de usuarios
-Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-### <a name="to-assign-users-to-uservoice-perform-the-following-steps"></a>Para asignar usuarios a UserVoice, lleve a cabo los siguientes pasos:
-1. En el Portal de Azure clásico, cree una cuenta de prueba.
-2. En la página de integración de la aplicación **UserVoice**, haga clic en **Asignar usuarios**.
-   
-    ![Asignar usuarios](./media/active-directory-saas-uservoice-tutorial/IC777523.png "Asignar usuarios")
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a UserVoice.
 
-3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
-   
-    ![Sí](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Sí")
+![Asignación del rol de usuario][200] 
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+**Para asignar a Britta Simon a UserVoice, siga estos pasos:**
+
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+
+    ![Asignar usuario][201] 
+
+2. En la lista de aplicaciones, seleccione **UserVoice**.
+
+    ![Vínculo a UserVoice en la lista de aplicaciones](./media/active-directory-saas-uservoice-tutorial/tutorial_uservoice_app.png)  
+
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+
+    ![Vínculo "Usuarios y grupos"][202]
+
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Panel Agregar asignación][203]
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+
+Al hacer clic en el icono de UserVoice en el panel de acceso, debería iniciar sesión automáticamente en su aplicación UserVoice.
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-uservoice-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-uservoice-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-uservoice-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-uservoice-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-uservoice-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-uservoice-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-uservoice-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-uservoice-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-uservoice-tutorial/tutorial_general_203.png
 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 1c37802e2b908747773afa093a28ea218dd60509
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: f8f31f3a2ee02c964737dd32145499f3dcfd0624
 ms.contentlocale: es-es
-ms.lasthandoff: 04/18/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
@@ -190,7 +189,7 @@ En este ejemplo, {Slice} se reemplaza por el valor de la variable del sistema Sl
 En este ejemplo, year, month, day y time de SliceStart se extraen en variables independientes que se usan en las propiedades **folderPath** y **fileName**.
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
-Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, vea [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
+Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
 Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad. Para la actividad de copia, las propiedades de tipo varían en función de los tipos de orígenes y receptores.
 
@@ -200,7 +199,7 @@ En la actividad de copia, si el origen es del tipo **FileSystemSource**, estará
 | --- | --- | --- | --- |
 | recursive |Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. |True, False (predeterminada) |No |
 
-## <a name="json-example-copy-data-from-ftp-server-to-azure-blob-storage"></a>Ejemplo de JSON: Copia de datos de un servidor FTP a o Azure Blob Storage
+## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Ejemplo de JSON: Copia de datos de un servidor FTP a un blob de Azure
 En este ejemplo se muestra cómo copiar datos un servidor FTP a Azure Blob Storage. Sin embargo, los datos se pueden copiar directamente en cualquiera de los receptores indicados en [Formatos y almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory.  
 
 En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
@@ -237,7 +236,7 @@ Para los diferentes tipos de autenticación que se pueden usar, consulte la secc
   }
 }
 ```
-### <a name="azure-storage-linked-service"></a>Servicio vinculado de Almacenamiento de Azure
+### <a name="azure-storage-linked-service"></a>Servicio vinculado de Azure Storage
 
 ```JSON
 {
@@ -384,7 +383,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes:
 
-* Vea [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory y las diversas formas de optimizarlo.
+* Para aprender sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory y las diversas formas de optimizarlo, consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md).
 
-* Vea el [Tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia.
+* Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para instrucciones paso a paso para crear una canalización con una actividad de copia.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 95adddc01ee2814515c20f36e8503de30454a8f4
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 88edb489d967a5bc5cc1c4aa1aeb5abcd6539d12
 ms.contentlocale: es-es
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
@@ -191,7 +191,7 @@ El uso de la herramienta es simple:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Uso del encabezado de respuesta de cargo de solicitud de Azure Cosmos DB
-Cada respuesta del servicio de Azure Cosmos DB incluye un encabezado personalizado (`x-ms-request-charge`) que contiene las unidades de solicitud consumidas por la solicitud. Este encabezado también es accesible a través de los SDK de DocumentDB. En el SDK de .NET, RequestCharge es una propiedad del objeto ResourceResponse.  Para las consultas, el Explorador de consultas de Azure Cosmos DB en Azure Portal proporciona la información de carga de solicitud para las consultas ejecutadas.
+Cada respuesta del servicio de Azure Cosmos DB incluye un encabezado personalizado (`x-ms-request-charge`) que contiene las unidades de solicitud consumidas por la solicitud. Este encabezado también es accesible a través de los SDK de Azure Cosmos DB. En el SDK de .NET, RequestCharge es una propiedad del objeto ResourceResponse.  Para las consultas, el Explorador de consultas de Azure Cosmos DB en Azure Portal proporciona la información de carga de solicitud para las consultas ejecutadas.
 
 ![Comprobación de los cargos de RU en el Explorador de consultas][1]
 
