@@ -12,7 +12,7 @@ Sí. Para obtener instrucciones sobre cómo realizar la migración, consulte:
 ## <a name="what-can-i-run-on-an-azure-vm"></a>¿Qué puedo ejecutar en una máquina virtual de Azure?
 Todos los suscriptores pueden ejecutar software de servidor en una máquina virtual de Azure. Puede ejecutar versiones recientes de Windows Server, así como varias distribuciones de Linux. Para obtener más información de soporte técnico, consulte:
 
-• Para máquinas virtuales de Windows: [soporte de software del servidor de Microsoft para Máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Para máquinas virtuales de Windows: [soporte de software del servidor de Microsoft para Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
 • Para máquinas virtuales de Linux: [Linux en distribuciones aprobadas por Azure](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
@@ -23,7 +23,7 @@ Los grupos de afinidad son un concepto heredado que hace referencia a la agrupac
 
 La red de Azure actual dentro de una región está diseñada de tal modo que hace innecesarios los grupos de afinidad. Las redes virtuales también se encuentran en el ámbito regional y, por tanto, ya no es necesario usar un grupo de afinidad. Debido a estas mejoras, ya no recomendamos el uso de grupos de afinidad, dado que pueden implicar ciertas limitaciones en algunos escenarios. El uso de grupos de afinidad asociará innecesariamente las máquinas virtuales a un hardware específico, lo cual limitará la elección de los tamaños de máquinas virtuales disponibles. También puede provocar errores relacionados con la capacidad al intentar agregar nuevas máquinas virtuales cuando el hardware específico asociado al grupo de afinidad está al límite de su capacidad.
 
-Las características de los grupos de afinidad ya están en desuso en el modelo de implementación de Azure Resource Manager y en el portal de Azure. Próximamente, el Portal de Azure clásico dejará de ser compatible con la creación de grupos de afinidad y la creación de recursos de almacenamiento que están anclados a un grupo de afinidad. Aunque no es necesario modificar los servicios en la nube existentes que usan un grupo de afinidad, los grupos de afinidad no deben usarse en los nuevos servicios en la nube, a menos que lo recomiende uno de los profesionales de soporte técnico de Azure.
+Las características de los grupos de afinidad ya están en desuso en el modelo de implementación de Azure Resource Manager y en Azure Portal. Próximamente, el Portal de Azure clásico dejará de ser compatible con la creación de grupos de afinidad y la creación de recursos de almacenamiento que están anclados a un grupo de afinidad. Aunque no es necesario modificar los servicios en la nube existentes que usan un grupo de afinidad, los grupos de afinidad no deben usarse en los nuevos servicios en la nube, a menos que lo recomiende uno de los profesionales de soporte técnico de Azure.
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>¿Cuánto almacenamiento puedo usar con una máquina virtual?
 Cada disco de datos puede ser de hasta 1 TB. El número de discos de datos que puede usar depende del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -93,10 +93,10 @@ Azure ofrece varias opciones para soluciones antivirus, pero la administración 
 
 * [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](http://go.microsoft.com/fwlink/p/?LinkId=404207)
 * [Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-* [Implementación de soluciones antimalware en máquinas virtuales de Azure](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+* [Implementación de soluciones antimalware en Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>¿Qué opciones tengo para la copia de seguridad y la recuperación?
-Copia de seguridad de Azure está disponible como una vista previa en determinadas regiones. Para obtener más información, consulte [Copia de seguridad de máquinas virtuales de Azure](../articles/backup/backup-azure-vms.md). Hay otras soluciones disponibles de socios certificados. Para averiguar lo que está actualmente disponible, busque Azure Marketplace.
+Azure Backup está disponible como una vista previa en determinadas regiones. Para obtener más información, consulte [Copia de seguridad de máquinas virtuales de Azure](../articles/backup/backup-azure-vms.md). Hay otras soluciones disponibles de socios certificados. Para averiguar lo que está actualmente disponible, busque Azure Marketplace.
 
 Otra opción es usar las capacidades de instantánea del almacenamiento de blobs. Para ello, deberá apagar la máquina virtual antes de cualquier operación que se base en una instantánea de blob. Esto guarda las escrituras de datos pendientes y coloca el sistema de archivos en un estado coherente.
 
@@ -125,7 +125,7 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 ## <a name="additional-resources"></a>Recursos adicionales
 [Acerca de Azure Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[Diferentes formas de crear una máquina virtual Linux](../articles/virtual-machines/linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Creación y administración de máquinas virtuales Linux con la CLI de Azure](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Diferentes formas de crear una máquina virtual de Windows](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

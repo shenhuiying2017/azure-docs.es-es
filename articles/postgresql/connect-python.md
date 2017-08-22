@@ -10,16 +10,17 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/10/2017
+ms.date: 08/15/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 481e2552e2a2cd91d026774438788143109b28df
 ms.contentlocale: es-es
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/16/2017
 
 ---
+
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso de Python para conectarse y consultar datos
-En esta guía de inicio rápido se muestra cómo usar [Python](https://python.org) para conectarse a una instancia de Azure Database for PostgreSQL; a continuación, se usarán instrucciones SQL para consultar, insertar, actualizar y eliminar datos de la base de datos desde las plataformas Mac OS, Ubuntu Linux y Windows. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante Python, pero que nunca ha trabajado con Azure Database for PostgreSQL.
+En este tutorial de inicio rápido se muestra cómo usar [Python](https://python.org) para conectarse a una instancia de Azure Database for PostgreSQL. También se muestra cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos en plataformas macOS, Ubuntu Linux y Windows. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante Python, pero que nunca ha trabajado con Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
@@ -28,32 +29,46 @@ En este tutorial rápido se usan como punto de partida los recursos creados en u
 
 También necesita lo siguiente:
 - Tener instalado [Python](https://www.python.org/downloads/)
-- Tener instalado el paquete [pip](https://pip.pypa.io/en/stable/installing/) (si usa los binarios de Python 2 >=2.7.9 o Python 3 >=3.4 descargados de [python.org](https://python.org) ya tiene instalado pip, aunque deberá actualizarlo)
+- Tener instalado el paquete [pip](https://pip.pypa.io/en/stable/installing/) (pip ya está instalado si trabaja con binarios de Python 2 >=2.7.9 o Python 3 >=3.4 descargados de [python.org](https://python.org).
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>Instalación de las bibliotecas de conexiones de Python para PostgreSQL
-Instale el paquete [psycopg2](http://initd.org/psycopg/docs/install.html), que le permitía conectarse y consultar la base de datos. psycopg2 está [disponible en PyPI](https://pypi.python.org/pypi/psycopg2/) en forma de paquetes [wheel](http://pythonwheels.com/) para la mayoría de las plataformas (Linux, OSX, Windows), así que puede usar la instalación de pip para obtener la versión binaria del módulo, incluidas todas las dependencias:
+Instale el paquete [psycopg2](http://initd.org/psycopg/docs/install.html), que le permite conectarse y consultar la base de datos. psycopg2 está [disponible en PyPI](https://pypi.python.org/pypi/psycopg2/) en forma de paquetes [wheel](http://pythonwheels.com/) para la mayoría de las plataformas (Linux, OSX, Windows). Use pip install para obtener la versión binaria del módulo, incluidas todas las dependencias.
 
-```cmd
-pip install psycopg2
-```
-Asegúrese de usar una versión actualizada de pip (se puede actualizar con algo parecido a `pip install -U pip`).
+1. En su propio equipo, inicie una interfaz de la línea de comandos:
+    - En Linux, inicie el shell de Bash.
+    - En macOS, inicie Terminal.
+    - En Windows, inicie el símbolo del sistema desde el menú Inicio.
+2. Asegúrese de que está usando la versión más reciente de pip; para ello, ejecute el comando siguiente:
+    ```cmd
+    pip install -U pip
+    ```
+
+3. Ejecute el comando siguiente para instalar el paquete de psycopg2:
+    ```cmd
+    pip install psycopg2
+    ```
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 Obtenga la información de conexión necesaria para conectarse a Azure Database for PostgreSQL. Necesitará el nombre completo del servidor y las credenciales de inicio de sesión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque el servidor **mypgserver-20170401** que acaba de crear.
+2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque **mypgserver-20170401** (el servidor que acaba de crear).
 3. Haga clic en el nombre del servidor **mypgserver-20170401**.
-4. Seleccione la página **Introducción** del servidor. Tome nota del **Nombre del servidor** y del **Server admin login name** (Nombre de inicio de sesión del administrador del servidor).
+4. Seleccione la página **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**.
  ![Azure Database for PostgreSQL: inicio de sesión del Administrador del servidor](./media/connect-python/1-connection-string.png)
 5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el nombre de inicio de sesión del administrador del servidor y, si es necesario, restablecer la contraseña.
 
 ## <a name="how-to-run-python-code"></a>Ejecución de código Python
-- Con el editor de texto que prefiera, cree un nuevo archivo denominado postgres.py y guárdelo en una carpeta de proyecto. Copie y pegue el ejemplo de código que se muestra a continuación en el archivo de texto. Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos. A continuación, guarde el archivo. Asegúrese de seleccionar la codificación UTF-8 al guardar el archivo en el sistema operativo Windows. 
-- Para ejecutar el código, inicie el símbolo del sistema o el shell de Bash. Cambie el directorio a la carpeta de proyecto, por ejemplo, `cd postgresql`. A continuación, escriba el comando python seguido del nombre de archivo, como `python postgres.py`.
+Este tema contiene cuatro ejemplos de código en total, cada uno de los cuales realiza una función específica. Las siguientes instrucciones indican cómo crear un archivo de texto, insertar un bloque de código y luego guardar el archivo para que se pueda ejecutar más adelante. No olvide crear cuatro archivos diferentes, uno para cada bloque de código.
+
+- Con su editor de texto favorito, cree un nuevo archivo.
+- Copie y pegue uno de los ejemplos de código en las secciones siguientes del archivo de texto. Reemplace los parámetros **host**, **dbname**, **user** y **password** por los valores especificados al crear el servidor y la base de datos.
+- Guarde el archivo con la extensión .py (por ejemplo, postgres.py) en la carpeta del proyecto. Si va a ejecutar el sistema operativo Windows, asegúrese de seleccionar la codificación UTF-8 cuando guarde el archivo. 
+- Inicie el símbolo del sistema o el shell de Bash y luego cambie el directorio a la carpeta del proyecto, por ejemplo `cd postgres`.
+-  Para ejecutar el código, escriba el comando de Python seguido del nombre de archivo, por ejemplo `Python postgres.py`.
 
 > [!NOTE]
-> A partir de la versión 3 de Python, es posible que al ejecutar los bloques de código siguientes, vea el error `SyntaxError: Missing parentheses in call to 'print'`. Si esto sucede, reemplace cada llamada al comando `print "string"` por una llamada de función con paréntesis, como `print("string")`.
+> A partir de la versión 3 de Python, es posible que al ejecutar los bloques de código siguientes vea el error `SyntaxError: Missing parentheses in call to 'print'`. Si esto sucede, reemplace cada llamada al comando `print "string"` por una llamada de función con paréntesis, como `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Conexión, creación de una tabla e inserción de datos
 Use el código siguiente para conectarse y cargar los datos mediante la función [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) con la instrucción SQL **INSERT**. La función [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) se usa para ejecutar la consulta SQL en la base de datos PostgreSQL. Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos.
@@ -94,6 +109,10 @@ conn.commit()
 cursor.close()
 conn.close()
 ```
+
+Después de que el código se ejecuta correctamente, la salida aparece de la manera siguiente:
+
+![Salida de línea de comandos](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Lectura de datos
 Use el código siguiente para leer los datos insertados mediante la función [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) con la instrucción SQL **SELECT**. Esta función acepta una consulta y devuelve un conjunto de resultados que se puede iterar mediante el uso de [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). Reemplace los parámetros host, dbname, user y password por los valores especificados al crear el servidor y la base de datos.

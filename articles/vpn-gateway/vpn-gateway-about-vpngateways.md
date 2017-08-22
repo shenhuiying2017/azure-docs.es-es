@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6ab2b4c905d2095e8eec09ccebcb8ebdfa91bb3a
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: db280ff801c6e501e7ab7890f67d22ae16444491
 ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="about-vpn-gateway"></a>Acerca de VPN Gateway
@@ -28,7 +28,7 @@ Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que en
 
 Cada red virtual solo puede tener una puerta de enlace de VPN; sin embargo, puede crear varias conexiones a la misma puerta de enlace de VPN. Un ejemplo de esto es una configuración de conexión multisitio. Al crear varias conexiones a la misma puerta de enlace de VPN, todos los túneles VPN, incluidos las VPN de punto a sitio, comparten el ancho de banda que está disponible para la puerta de enlace.
 
-### <a name="what-is-a-virtual-network-gateway"></a>¿Qué es una puerta de enlace de red virtual?
+### <a name="whatis"></a>¿Qué es una puerta de enlace de red virtual?
 
 Una puerta de enlace de red virtual se compone de dos o más máquinas virtuales que se implementan en una subred específica llamada GatewaySubnet. Las máquinas virtuales que se encuentran en GatewaySubnet se crean al crear la puerta de enlace de red virtual. Las máquinas virtuales de puerta de enlace de red virtual están configuradas para contener tablas de enrutamiento y servicios de puerta de enlace específicos de la puerta de enlace. No puede configurar directamente máquinas virtuales que formen parte de la puerta de enlace de red virtual y nunca debería implementar recursos adicionales en GatewaySubnet.
 
@@ -38,19 +38,19 @@ Cuando se crea una puerta de enlace de red virtual con el tipo de puerta de enla
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## <a name="configuring-a-vpn-gateway"></a>Configuración de una puerta de enlace de VPN
+## <a name="configuring"></a>Configuración de una instancia de VPN Gateway
 
 Una conexión de puerta de enlace de VPN se basa en varios recursos con una configuración específica. La mayoría de los recursos puede configurarse por separado, aunque en algunos casos es necesario seguir un orden determinado.
 
 ### <a name="settings"></a>Configuración
 
-La configuración que ha elegido para cada recurso es fundamental para crear una conexión correcta. Para más información sobre los recursos individuales y la configuración de VPN Gateway, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md). Puede encontrar información que le ayudará a entender los tipos de puerta de enlace, los tipos de VPN, los tipos de conexión, las subredes de puerta de enlace, las puertas de enlace de red local y otras configuraciones de recursos que puede tener en cuenta.
+La configuración que ha elegido para cada recurso es fundamental para crear una conexión correcta. Para más información sobre los recursos individuales y la configuración de VPN Gateway, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md). El artículo contiene información que le ayudará a entender los tipos de puerta de enlace, de VPN y de conexión, así como las subredes de puerta de enlace, las puertas de enlace de red local y otras configuraciones de recursos que pueden interesarle.
 
-### <a name="deployment-tools"></a>Herramientas de implementación
+### <a name="tools"></a>Herramientas de implementación
 
-Puede empezar a crear y configurar recursos mediante una herramienta de configuración, como Azure Portal. Después, puede decidir cambiar a otra herramienta, como PowerShell, para configurar recursos adicionales o para modificar los existentes cuando sea aplicable. Actualmente, no se pueden configurar todos los recursos ni establecer todas las configuraciones de recurso en Azure Portal. Las instrucciones de los artículos para cada topología de configuración indican cuándo se necesita una herramienta de configuración específica. 
+Puede empezar a crear y configurar recursos mediante una herramienta de configuración, como Azure Portal. Más adelante puede decidir cambiar a otra herramienta, como PowerShell, para configurar recursos adicionales o para modificar los existentes cuando sea aplicable. Actualmente, no se pueden configurar todos los recursos ni establecer todas las configuraciones de recurso en Azure Portal. Las instrucciones de los artículos para cada topología de configuración indican cuándo se necesita una herramienta de configuración específica. 
 
-### <a name="deployment-model"></a>Modelo de implementación
+### <a name="models"></a>Modelo de implementación
 
 Cuando configure una instancia de VPN Gateway, los pasos que realice dependen del modelo de implementación que ha utilizado para crear la red virtual. Por ejemplo, si creó la red virtual con el modelo de implementación clásica, use las instrucciones y directrices del modelo de implementación clásica para crear y configurar la puerta de enlace de VPN. Para más información sobre los modelos de implementación, consulte [Descripción de los modelos de implementación clásica y de Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -64,11 +64,11 @@ Es importante saber que hay distintas configuraciones disponibles para las conex
 
 Use los gráficos y las descripciones como ayuda para seleccionar la topología de conexión que mejor se ajuste a sus requisitos. Los diagramas muestran las principales topologías de referencia, pero también se pueden crear configuraciones más complejas con los diagramas como guía.
 
-## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Sitio a sitio y multisitio (túnel VPN de IPsec/IKE)
+## <a name="s2smulti"></a>Sitio a sitio y multisitio (túnel VPN de IPsec/IKE)
 
 ### <a name="S2S"></a>De sitio a sitio
 
-Una conexión de puerta de enlace de VPN de sitio a sitio (S2S) es una conexión a través de un túnel VPN IPsec/IKE (IKEv1 o IKEv2). Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada y que no se encuentre detrás de NAT. Se pueden utilizar conexiones S2S para las configuraciones híbridas y entre locales.   
+Una conexión de puerta de enlace de VPN de sitio a sitio (S2S) es una conexión a través de un túnel VPN IPsec/IKE (IKEv1 o IKEv2). Una conexión S2S requiere un dispositivo VPN local que tenga una dirección IP pública asignada y que no se encuentre detrás de una NAT. Se pueden utilizar conexiones S2S para las configuraciones híbridas y entre locales.   
 
 ![Ejemplo de conexión de sitio a sitio de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -118,7 +118,7 @@ Es posible que pueda usar el emparejamiento de VNET para crear la conexión, sie
 
 ## <a name="ExpressRoute"></a>ExpressRoute (conexión privada dedicada)
 
-Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y CRM Online. La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida.
+Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, tales como Microsoft Azure, Office 365 y CRM Online. La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida.
 
 Las conexiones ExpressRoute no pasan por la red pública de Internet. Esto permite a las conexiones de ExpressRoute ofrecer más confiabilidad, más velocidad, menor latencia y mayor seguridad que las conexiones normales a través de Internet.
 

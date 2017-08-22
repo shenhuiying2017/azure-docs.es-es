@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2016
-ms.author: cephalin;riande
+ms.author: cephalin
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
 ms.openlocfilehash: b23dfdcf99cab46bb4cedc690e00d29d37b3a044
 ms.contentlocale: es-es
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service"></a>Implementar una aplicación web móvil de ASP.NET MVC 5 en el servicio de aplicaciones de Azure
